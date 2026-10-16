@@ -20,7 +20,7 @@ from ..artifacts import _atomic_json, _utc
 from ..config import canonical_hash, canonical_json
 from ..data.types import SplitManifest
 from ..protocol import (FrozenProtocol, validate_frozen, _read, _reference, _keys,
-                        _hash, _manifest, fit_variance)
+                        _hash, _manifest, fit_variance, confirmation_policy)
 
 _KEY=object()
 
@@ -197,8 +197,8 @@ class ProtectedEvaluation:
             X=_rotate_inputs(X,teacher.rotation,teacher.d-teacher.nuisance_dimensions)
             X=np.frombuffer(X.tobytes(),dtype=X.dtype).reshape(X.shape)
             predictions={}
-            for name,predict in predictors.items():
-                result=np.asarray(predict(X),dtype=np.float64)
+            for name in payload['sources']['scientific']['evaluation_methods']:
+                result=np.asarray(predictors[name](X),dtype=np.float64)
                 if result.shape!=(count,) or not np.isfinite(result).all(): raise ValueError('Invalid test predictions')
                 predictions[name]=result.copy()
             # Revalidate after callbacks before granting any label access.
@@ -208,12 +208,18 @@ class ProtectedEvaluation:
             try:
                 config=_read(_reference(root,payload['sources']['raw']))['config']
                 y,target=_test_labels(teacher,X,namespace,seed,config['data']['noise_sigma'])
+                from ..data.synthetic import evaluate_teacher
+                _,gates=evaluate_teacher(teacher,X,return_gates=True)
+                threshold=confirmation_policy(payload['sources']['scientific'])['gate_threshold']
+                masks={f'gate_{i}_{label}':mask.tolist() for i in range(gates.shape[1])
+                    for label,mask in (('below_half',gates[:,i]<threshold),
+                                       ('at_or_above_half',gates[:,i]>=threshold))}
                 metrics={name:dict(mse=float(np.mean((values-y)**2)),
                     normalized_risk=float(np.mean((values-y)**2)/link['f_target_variance']))
                     for name,values in predictions.items()}
                 result=dict(protocol_hash=protocol.protocol_hash,run_id=run_id,row_id=rows,metrics=metrics,
                     predictions={name:values.tolist() for name,values in predictions.items()},
-                    observations=dict(y=y.tolist(),noise_free_target=target.tolist(),group_id=rows))
+                    observations=dict(y=y.tolist(),noise_free_target=target.tolist(),group_id=rows,regime_masks=masks))
                 result=json.loads(canonical_json(result)); _atomic_json(output,result)
                 _event(directory,'evaluation_completed',run_id=run_id,predictions_sha256=_hash(output))
                 return {k:v for k,v in result.items() if k!='observations'}

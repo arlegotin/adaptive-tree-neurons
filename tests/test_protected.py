@@ -137,3 +137,28 @@ def test_registration_accepts_all_frozen_controls_but_rejects_unobserved_F_scale
     with pytest.raises(ValueError,match='F'):
         register_run(frozen,manifests[0],run_id='unit-0-rep-1',
             models={name:ref(root,model) for name in roles},f_target_variance=999.)
+
+
+def test_frozen_regime_masks_are_saved_only_after_label_free_prediction(grant):
+    from treeneuron.evaluation import protected
+    root,frozen,manifest=grant
+    protected.open_test(frozen,manifest,run_id='unit-0-rep-0').evaluate(predictors())
+    rows=protected.load_evaluation(frozen,run_id='unit-0-rep-0')
+    masks=rows['observations']['regime_masks']
+    assert len(masks)==8
+    for i in range(4):
+        assert np.array_equal(np.asarray(masks[f'gate_{i}_below_half']) ^ np.asarray(masks[f'gate_{i}_at_or_above_half']),np.ones(len(rows['row_id']),dtype=bool))
+
+
+def test_prediction_order_follows_frozen_inventory_even_with_reordered_callbacks(grant):
+    from treeneuron.evaluation import protected
+    root,frozen,manifest=grant
+    observed=[]
+    def callback(name):
+        def predict(X):
+            observed.append(name)
+            return np.zeros(len(X))
+        return predict
+    callbacks={name:callback(name) for name in reversed(ROLES)}
+    protected.open_test(frozen,manifest,run_id='unit-0-rep-0').evaluate(callbacks)
+    assert observed==list(ROLES)

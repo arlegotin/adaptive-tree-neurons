@@ -560,6 +560,45 @@ def _manifest(value):
     return manifest
 
 
+def confirmation_policy(scientific):
+    """Versioned descriptive gate diagnostics; explicit optional Holm families.
+
+    Legacy freezes resolve the same v1 policy through their bound source code.
+    Newly prepared cohorts publish this object explicitly before the freeze.
+    """
+    default=dict(schema_version=1,gate_threshold=.5,
+        regime_slices='each_teacher_gate_below_half_and_at_or_above_half',
+        regime_claim='descriptive_only',holm_families=[])
+    value=scientific.get('confirmation_policy',default)
+    _keys(value,default,'confirmation policy')
+    if any(value[k]!=default[k] for k in default if k!='holm_families'):
+        raise ValueError('Unsupported confirmation diagnostic policy')
+    families=value['holm_families']; used=set()
+    if not isinstance(families,list): raise ValueError('Explicit Holm families required')
+    for family in families:
+        if not isinstance(family,list) or not family: raise ValueError('Empty Holm family')
+        for contrast in family:
+            if not isinstance(contrast,str) or contrast.count(':')!=1: raise ValueError('Invalid contrast')
+            left,right=contrast.split(':')
+            if left not in EVALUATION_METHODS or right not in EVALUATION_METHODS or left==right or contrast in used:
+                raise ValueError('Unsupported or overlapping Holm contrast')
+            used.add(contrast)
+    return value
+
+
+def preparation_receipt(root,cohort):
+    """Optional bound measured preparation work; absence means unmeasured."""
+    import math
+    if 'preparation' not in cohort: return None
+    value=_read(_reference(root,cohort['preparation']))
+    _keys(value,('schema_version','units_sha256','raw_sha256','seconds','retained_bytes','boundary'),'preparation receipt')
+    if (value['schema_version']!=1 or value['units_sha256']!=canonical_hash({'units':cohort['units']})
+            or type(value['seconds']) not in (int,float) or not math.isfinite(value['seconds']) or value['seconds']<0
+            or type(value['retained_bytes']) is not int or value['retained_bytes']<0 or not value['boundary']):
+        raise ValueError('Preparation receipt differs from cohort or measured work')
+    return value
+
+
 def _scientific_sources(sources, design):
     from .data.synthetic import TeacherSpec
     root=Path(sources['root']).resolve()
@@ -567,12 +606,16 @@ def _scientific_sources(sources, design):
     expected=dict(hypothesis='H1-A',contrast=['B4','B5'],population='primary',coordinate='selective',
         independent_unit='teacher',exclusions=[],metric='squared_error_over_F_variance',
         grouping='row',preprocessing='F_only',refit=False,evaluation_methods=list(EVALUATION_METHODS))
-    _keys(scientific, (*expected,'analysis'), 'synthetic scientific specification')
+    _keys(scientific, (*expected,'analysis',*(('confirmation_policy',) if 'confirmation_policy' in scientific else ())), 'synthetic scientific specification')
+    confirmation_policy(scientific)
     if any(scientific[k]!=v for k,v in expected.items()):
         raise ValueError('Unsupported scientific study; transfer requires a separate freeze')
     _reference(root,scientific['analysis'])
     cohort=sources['cohort']
-    _keys(cohort,('study_id','cohort_id','root_seed','units'),'confirmation cohort')
+    _keys(cohort,('study_id','cohort_id','root_seed','units',*(('preparation',) if 'preparation' in cohort else ())), 'confirmation cohort')
+    preparation=preparation_receipt(root,cohort)
+    if preparation is not None and preparation['raw_sha256']!=sources['raw']['sha256']:
+        raise ValueError('Preparation receipt differs from source design')
     raw=_read(_reference(root,sources['raw']))
     data_config=raw['config']['data']
     if data_config['regime']=='rare' and tuple(data_config['gate_prevalences']) not in ((.1,.5),(.01,)):
@@ -584,7 +627,10 @@ def _scientific_sources(sources, design):
     pilot_teachers={r['teacher_id'] for r in raw['accepted_records']}
     teachers=set(); run_ids=set(); unit_ids=set(); seed_values=set()
     for i,unit in enumerate(cohort['units']):
-        _keys(unit,('unit_id','seeds','teacher','fit_targets','manifest','run_ids'),'confirmation unit')
+        _keys(unit,('unit_id','seeds','teacher','fit_targets','manifest','run_ids',*(('development',) if 'development' in unit else ())), 'confirmation unit')
+        if 'development' in unit:
+            from .evaluation.confirm import load_development
+            load_development(root,unit)
         expected_seeds=confirmation_seeds(cohort['study_id'],cohort['cohort_id'],cohort['root_seed'],i,design.repetitions)
         if unit['seeds']!=expected_seeds: raise ValueError('Confirmation seed commitment differs')
         values=[expected_seeds[k] for k in ('teacher','reference','data','test')]+expected_seeds['optimizers']

@@ -82,18 +82,17 @@ def _runtime_preflight(config):
         receipt_path=str(receipt.resolve()),receipt_sha256=file_hash(receipt))
 
 
-def run_repetition(config, data, evaluation, root: Path, recipe_hash: str) -> dict:
+def fit_repetition(config, data, root: Path, recipe_hash: str) -> dict:
     """Fresh complete parent, paired forks, B2/B3 attribution, B6 G ranking.
 
-    E is consumed only after all fitting/selection. All child runs are registered
+    No evaluation observations are accepted. All child runs are registered
     before training and failures retain terminal records and the enclosing cost.
     No cross-source or cross-attempt checkpoint reuse is supported.
     """
     started=time.perf_counter_ns()
     root=Path(root); root.mkdir(parents=True,exist_ok=False)
     report=dict(status='running',teacher_id=data.teacher_id,optimizer_seed=config.seeds.optimizer,
-        data_hash=data.manifest.assignment_hash,evaluation_hash=canonical_hash({
-            'X':array_hash(evaluation.X),'y':array_hash(evaluation.y),'rows':array_hash(evaluation.row_id)}),
+        data_hash=data.manifest.assignment_hash,
         recipe_hash=recipe_hash,controls=[],methods={},costs={},V_accessed=False,T_accessed=False,
         source_sha256=train.source_hash(),failures=[])
     open_child=None
@@ -189,16 +188,14 @@ def run_repetition(config, data, evaluation, root: Path, recipe_hash: str) -> di
         report['pairing_audit']=audit_pairing(report)
         report['greedy_keep_decision']=('greedy' if report['methods']['greedy']['selected_g_mse']<
             report['methods']['keep']['selected_g_mse'] else 'keep')
-        predictions={name:adapter.predict(evaluation.X) for name,adapter in fitted.items()}
-        np.savez_compressed(root/'E-predictions.npz',**predictions,y=evaluation.y,row_id=evaluation.row_id)
-        scale=float(np.var(data.F.y))
-        if scale<=0: raise ValueError('Undefined F target variance for paired normalized loss')
-        losses={name:(prediction-evaluation.y)**2/scale for name,prediction in predictions.items()}
-        report.update(h1_rows=(losses['random']-losses['top']).tolist(),
-            static_rows=(losses['ordinary_upper']-losses['static_partial']).tolist(),
-            metric='paired squared error / F target variance (ddof=0); positive favors top/static',
-            E_predictions_sha256=file_hash(root/'E-predictions.npz'),
-            controls=['B1','B2','B3','B4','B5','B6'],status='completed')
+        report['models']={}
+        for name,adapter in fitted.items():
+            path=root/'models'/f'{name}.json'
+            path.parent.mkdir(exist_ok=True)
+            adapter.save(path)
+            # Caller remaps these locators to its repository-relative references.
+            report['models'][name]=dict(path=str(path.resolve()),sha256=file_hash(path))
+        report.update(controls=['B1','B2','B3','B4','B5','B6'],status='completed')
         return report
     except BaseException as error:
         report['status']='interrupted' if isinstance(error,KeyboardInterrupt) else 'failed'
@@ -211,13 +208,44 @@ def run_repetition(config, data, evaluation, root: Path, recipe_hash: str) -> di
     finally:
         report['enclosing_ns']=time.perf_counter_ns()-started
         report['costs']['aggregation']='enclosing only; all component clocks are nested'
-        report['costs']['boundary']='fresh parent, shared scoring, B6 keep/loser probes, all controls, predictions and IO; excludes final pair ledger write'
+        report['costs']['boundary']='fresh parent, shared scoring, B6 keep/loser probes, all controls, selected model saves and IO; excludes final pair ledger write'
         report['peak_rss_bytes']=int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)*(1 if sys.platform=='darwin' else 1024)
         report['retained_bytes']=sum(p.stat().st_size for p in root.rglob('*') if p.is_file())
         try:
             _atomic_json(root/'pair.json',report,replace=True)
         finally:
             train.BACKEND_REPORT_PATH=original_backend
+
+
+def run_repetition(config, data, evaluation, root: Path, recipe_hash: str) -> dict:
+    """Exploratory E wrapper around the common label-free fitting graph."""
+    started=time.perf_counter_ns()
+    report=fit_repetition(config,data,root,recipe_hash)
+    root=Path(root)
+    from treeneuron.evaluation.confirm import load_predictors
+    try:
+        predictors=load_predictors(root,report['models'])
+        predictions={name:predict(evaluation.X) for name,predict in predictors.items()}
+        np.savez_compressed(root/'E-predictions.npz',**predictions,y=evaluation.y,row_id=evaluation.row_id)
+        scale=float(np.var(data.F.y))
+        if scale<=0: raise ValueError('Undefined F target variance for paired normalized loss')
+        losses={name:(prediction-evaluation.y)**2/scale for name,prediction in predictions.items()}
+        report.update(evaluation_hash=canonical_hash({'X':array_hash(evaluation.X),
+            'y':array_hash(evaluation.y),'rows':array_hash(evaluation.row_id)}),
+            h1_rows=(losses['random']-losses['top']).tolist(),
+            static_rows=(losses['ordinary_upper']-losses['static_partial']).tolist(),
+            metric='paired squared error / F target variance (ddof=0); positive favors top/static',
+            E_predictions_sha256=file_hash(root/'E-predictions.npz'))
+        return report
+    except BaseException as error:
+        report['status']='interrupted' if isinstance(error,KeyboardInterrupt) else 'failed'
+        report['failures'].append(f'{type(error).__name__}: {error}')
+        raise
+    finally:
+        report['enclosing_ns']=time.perf_counter_ns()-started
+        report['costs']['boundary']='fresh parent, shared scoring, B6 keep/loser probes, all controls, predictions and IO; excludes final pair ledger write'
+        report['retained_bytes']=sum(p.stat().st_size for p in root.rglob('*') if p.is_file())
+        _atomic_json(root/'pair.json',report,replace=True)
 
 
 def regenerate_design(directory: Path):

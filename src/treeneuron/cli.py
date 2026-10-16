@@ -34,11 +34,42 @@ def main(argv: list[str] | None = None) -> int:
     freeze_parser = commands.add_parser('freeze', help='Freeze a verified canonical scientific design')
     freeze_parser.add_argument('--design', type=Path, required=True)
     freeze_parser.add_argument('--output', type=Path, default=Path('protocol/frozen.yaml'))
+    preparation = commands.add_parser('prepare-cohort', help='Prepare new F/G/V and T row commitments before freeze')
+    preparation.add_argument('--design', type=Path, required=True)
+    preparation.add_argument('--output', type=Path, required=True)
+    preparation.add_argument('--cohort-id', required=True)
+    preparation.add_argument('--root-seed', type=int, required=True)
+    preparation.add_argument('--publish', type=Path, required=True)
+    confirmation = commands.add_parser('confirm', help='Execute the complete validated frozen synthetic cohort')
+    confirmation.add_argument('--protocol', type=Path, required=True)
+    confirmation.add_argument('--study', choices=['synthetic'], required=True)
+    primary = commands.add_parser('analyze-primary', help='Rebuild teacher-level analysis from sealed rows')
+    primary.add_argument('--protocol', type=Path, required=True)
+    primary.add_argument('--study-dir', type=Path, required=True)
     amendment = commands.add_parser('amend', help='Preserve old identity and require fresh confirmation')
     amendment.add_argument('--protocol', type=Path, required=True)
     amendment.add_argument('--reason', required=True)
     amendment.add_argument('--replacement-study-id', required=True)
     args = parser.parse_args(argv)
+    if args.command == 'prepare-cohort':
+        from treeneuron.protocol import load_design, publish_design
+        from treeneuron.evaluation.confirm import prepare_cohort
+        design, sources = load_design(args.design)
+        sources = prepare_cohort(design, sources, args.output, cohort_id=args.cohort_id, root_seed=args.root_seed)
+        publish_design(design, sources, args.publish)
+        print(args.publish)
+        return 0
+    if args.command in ('confirm', 'analyze-primary'):
+        from treeneuron.protocol import _read, validate_frozen
+        payload = _read(args.protocol)['payload']
+        protocol = validate_frozen(args.protocol, {'root': payload['sources']['root']})
+        if args.command == 'confirm':
+            from treeneuron.evaluation.confirm import run_confirmation
+            print(run_confirmation(protocol, args.study))
+        else:
+            from treeneuron.analysis.primary import analyze_primary
+            print(json.dumps(analyze_primary(args.study_dir, protocol), indent=2, sort_keys=True, allow_nan=False))
+        return 0
     if args.command == 'freeze':
         from treeneuron.protocol import load_design, freeze
         design, sources = load_design(args.design)
