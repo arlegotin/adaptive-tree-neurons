@@ -76,9 +76,10 @@ class TrainingPolicy:
     patience: int
     checkpoint_selection: str = 'strict_improvement_earliest'
     evaluate_at_update_zero: bool = True
+    checkpoint_interval: int = 1
 
     def __post_init__(self):
-        for name in ('logical_batch_size', 'physical_batch_size', 'max_updates', 'validation_interval', 'patience'):
+        for name in ('logical_batch_size', 'physical_batch_size', 'max_updates', 'validation_interval', 'patience', 'checkpoint_interval'):
             if type(getattr(self, name)) is not int or getattr(self, name) <= 0:
                 raise ValueError(f'{name} must be a positive integer')
         if self.physical_batch_size != self.logical_batch_size:
@@ -95,7 +96,8 @@ class TrainingPolicy:
             if getattr(t, name) is None:
                 raise ValueError(f'training.{name} must be supplied before training')
         return cls(t.batch_size, t.batch_size, t.continuation_updates if continuation else t.base_updates,
-                   t.validation_interval, t.patience, t.checkpoint_selection, t.evaluate_at_update_zero)
+                   t.validation_interval, t.patience, t.checkpoint_selection, t.evaluate_at_update_zero,
+                   t.checkpoint_interval)
 
 
 class UpdateSchedule:
@@ -491,6 +493,8 @@ def validate_metadata(meta, expected_hashes, device):
             or stage['kind'] not in ('base', 'continuation') or type(stage['complete']) is not bool):
         raise ValueError('Invalid stage metadata')
     policy = TrainingPolicy(**stage['policy'])
+    if policy.checkpoint_interval != config.training.checkpoint_interval:
+        raise ValueError('Checkpoint cadence differs from resolved config')
     for key in ('start_update', 'updates_completed', 'bad_evaluations'):
         if type(stage[key]) is not int or stage[key] < 0: raise ValueError('Invalid stage counters')
     if stage['updates_completed'] > policy.max_updates or (not stage['complete'] and meta['update'] != stage['start_update'] + stage['updates_completed']):
@@ -702,7 +706,8 @@ def continue_fit(state: TrainingState, data: DevelopmentData, policy: TrainingPo
             raise ValueError('Continuation data/code/config identity mismatch')
         if (policy.logical_batch_size != state.config.training.batch_size
                 or policy.validation_interval != state.config.training.validation_interval
-                or policy.patience != state.config.training.patience):
+                or policy.patience != state.config.training.patience
+                or policy.checkpoint_interval != state.config.training.checkpoint_interval):
             raise ValueError('Continuation must preserve paired batch/evaluation/patience policy')
         _validate_live_adam_history(state)
         if state.best_snapshot is not None:
@@ -748,6 +753,7 @@ def _run(state, data, policy, paths):
     previous_threads = torch.get_num_threads()
     started = time.perf_counter_ns()
     validation_ns = 0
+    checkpoint_safe = False
     try:
         checkpoint_dir.mkdir(exist_ok=True)
         torch.set_num_threads(state.backend['cpu_threads'])
@@ -793,8 +799,12 @@ def _run(state, data, policy, paths):
 
         if state.best_snapshot is None:
             evaluate()
+            checkpoint_safe = True
             publish()
         while state.stage['updates_completed'] < policy.max_updates and state.stage['bad_evaluations'] < policy.patience:
+            # An asynchronous interruption during an update or G selection must
+            # retain the previous durable state, never a partially applied Adam step.
+            checkpoint_safe = False
             if state.cursor == len(state.order):
                 state.epoch += 1
                 state.order = torch.randperm(len(state.order), generator=state.sampler_generator)
@@ -825,12 +835,17 @@ def _run(state, data, policy, paths):
             state.cursor = end
             state.update += 1
             state.stage['updates_completed'] += 1
+            evaluation_due = (state.stage['updates_completed'] % policy.validation_interval == 0
+                              or state.stage['updates_completed'] == policy.max_updates)
+            checkpoint_safe = not evaluation_due
             record({'type': 'update', 'update': state.update, 'stage_update': state.stage['updates_completed'],
                     'loss_standardized_mse': float(loss.detach().cpu()), 'learning_rate': lr,
                     'rows': len(ids), 'row_ids': data.F.row_id[ids.cpu().numpy()].tolist()})
-            if state.stage['updates_completed'] % policy.validation_interval == 0 or state.stage['updates_completed'] == policy.max_updates:
+            if evaluation_due:
                 evaluate()
-            publish()
+                checkpoint_safe = True
+            if evaluation_due or state.stage['updates_completed'] % policy.checkpoint_interval == 0:
+                publish()
         state.stage['complete'] = True
         executed_updates = state.stage['updates_completed']
         record({'type': 'selection', 'selected_update': state.best_snapshot['metadata']['update'],
@@ -855,6 +870,13 @@ def _run(state, data, policy, paths):
             'resources': resources})
         return selected
     except BaseException as error:
+        if isinstance(error, KeyboardInterrupt) and checkpoint_safe:
+            try:
+                publish()
+            except BaseException as publication_error:
+                # The original interruption remains primary; the preceding
+                # atomic pointer remains valid if emergency publication fails.
+                error.add_note(f'Interruption checkpoint publication failed: {publication_error}')
         try:
             update_run_observations(paths, {'costs': _attempt_costs(state, time.perf_counter_ns()-started, validation_ns)})
         except (OSError, ValueError) as logging_error:

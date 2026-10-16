@@ -43,7 +43,10 @@ That local receipt is an ignored runtime artifact. On a fresh checkout, generate
 The first paired study is explicitly exploratory. Its builder-chosen starting
 allowances are 2,000 parent and 2,000 continuation updates, evaluated on G every
 25 updates with patience 20. Fresh static/wider controls receive both stages.
-All methods use the same logical batch 128; V metrics are descriptive. There is
+All methods use the same logical batch 128 and durable snapshot interval 25;
+every G evaluation, stage boundary and safe complete-update interruption is also
+snapshotted. Every update event is retained. Legacy callers default to interval 1.
+V metrics are descriptive. There is
 no protected T access or confirmatory claim.
 
 Run the CPU-only study with the explicitly selected, source-validated receipt.

@@ -49,6 +49,7 @@ class TrainingConfig:
     min_learning_rate: float = 0.0
     checkpoint_selection: Literal["strict_improvement_earliest"] = "strict_improvement_earliest"
     evaluate_at_update_zero: Literal[True] = True
+    checkpoint_interval: int = 1
 
 
 @dataclass(frozen=True)
@@ -245,6 +246,7 @@ def resolve_experiment(value: Mapping[str, Any]) -> ExperimentConfig:
         "training.learning_rate": config.training.learning_rate,
         "training.adam_epsilon": config.training.adam_epsilon,
         "training.batch_size": config.training.batch_size,
+        "training.checkpoint_interval": config.training.checkpoint_interval,
         "growth.epsilon": config.growth.epsilon, "growth.block_units": config.growth.block_units,
         "growth.projection_rms_floor": config.growth.projection_rms_floor,
         "data.components": config.data.components, "data.reference_rows": config.data.reference_rows,

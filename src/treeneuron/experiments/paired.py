@@ -68,7 +68,8 @@ def pairing_snapshot(state) -> dict:
         rng=canonical_hash(_json_tree(state.rng_states)), schedule=schedule,
         logical_batch=state.config.training.batch_size,
         allowance=state.config.training.continuation_updates,
-        validation_interval=state.config.training.validation_interval, patience=state.config.training.patience)
+        validation_interval=state.config.training.validation_interval, patience=state.config.training.patience,
+        checkpoint_interval=state.config.training.checkpoint_interval)
 
 
 def audit_pairing(study: dict) -> dict:
@@ -180,6 +181,7 @@ def _stage_record(state, paths, root):
     policy = state.stage['policy']
     return dict(run_id=paths.run_id, path=str(paths.directory.relative_to(root)),
         selected_update=state.update, executed_updates=executed, max_updates=policy['max_updates'],
+        checkpoint_interval=policy['checkpoint_interval'],
         hit_ceiling=executed==policy['max_updates'],
         improving_at_ceiling=executed==policy['max_updates'] and bool(evaluations[-1]['improved']),
         evaluations=evaluations,
