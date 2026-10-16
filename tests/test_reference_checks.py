@@ -94,9 +94,15 @@ def test_verification_preserves_caller_dtype_rng_and_threads():
     assert torch.get_default_dtype() == dtype
     assert torch.get_num_threads() == threads
     assert torch.equal(torch.random.get_rng_state(), rng)
-    assert report["scope"] == "reference_cpu_only"
+    assert report["scope"] == "reference_and_package_layer_cpu_only"
+    layer = report["gates"]["package_layer_math"]
+    assert layer["status"] == "passed"
+    assert layer["report"]["check"] == "package_layer_math"
+    assert layer["report"]["results"]["forward_max_abs"] < 1e-10
+    assert layer["report"]["results"]["growth_preservation_max_abs"] == 0
+    assert report["implemented_checks_passed"] is True
     assert report["complete"] is False
-    for gate in ("package_layer_math", "package_score_math", "cpu_backend", "mps_backend"):
+    for gate in ("package_score_math", "cpu_backend", "mps_backend"):
         assert report["gates"][gate]["status"] == "not_implemented"
     for check in report["reference_checks"].values():
         assert check["status"] == "passed"
@@ -139,3 +145,54 @@ def test_aggregate_failure_reaches_cli(tmp_path, monkeypatch, capsys, body, reas
     assert report["reference_checks_passed"] is False
     assert report["reference_checks"]["broken"]["status"] == "failed"
     assert reason in report["reference_checks"]["broken"]["reason"]
+
+
+@pytest.mark.parametrize('partial', [
+    {'status': 'passed'},
+    {'schema_version': 1, 'check': 'appendix_a', 'status': 'passed',
+     'seed': 1602026, 'shapes': {'n': 37, 'd': 7, 'h': 5}, 'results': {}},
+])
+def test_partial_success_report_is_rejected(tmp_path, partial):
+    from treeneuron.verification import _run_reference_check
+
+    script = tmp_path / 'partial.py'
+    script.write_text(f'print({json.dumps(partial)!r})\n')
+    result = _run_reference_check(script)
+    assert result['status'] == 'failed'
+    assert 'schema' in result['reason'].lower()
+
+
+@pytest.mark.parametrize('mutation', ['identity', 'environment', 'missing_result', 'wrong_result_shape'])
+def test_reference_schema_rejects_corrupted_real_report(tmp_path, reference_json, mutation):
+    from treeneuron.verification import _run_reference_check
+
+    name, _, _, original = reference_json
+    report = json.loads(json.dumps(original))
+    if mutation == 'identity':
+        report['check'] = 'some_other_check'
+    elif mutation == 'environment':
+        report['environment']['dtype'] = 'torch.float32'
+    elif mutation == 'missing_result':
+        del report['results']['loss_after']
+    elif name == 'score':
+        report['results']['contrasts'][0].pop()
+    else:
+        report['results']['forward_max_abs'] = [0.0]
+    script = tmp_path / 'corrupt.py'
+    script.write_text(f'print({json.dumps(report)!r})\n')
+    result = _run_reference_check(script, 'appendix_a' if name == 'math' else 'appendix_b')
+    assert result['status'] == 'failed'
+    assert 'schema' in result['reason'].lower()
+
+
+def test_package_layer_failure_reaches_cli(tmp_path, monkeypatch, capsys):
+    from treeneuron import cli, verification
+
+    script = tmp_path / 'broken_layer.py'
+    script.write_text("raise AssertionError('package mismatch')\n")
+    monkeypatch.setattr(verification, 'PACKAGE_LAYER_CHECK', script)
+    assert cli.main(['verify-math']) == 1
+    report = json.loads(capsys.readouterr().out)
+    assert report['reference_checks_passed'] is True
+    assert report['implemented_checks_passed'] is False
+    assert report['gates']['package_layer_math']['status'] == 'failed'
