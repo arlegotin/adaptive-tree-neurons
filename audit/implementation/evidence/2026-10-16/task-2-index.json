@@ -1,0 +1,12 @@
+{
+  "base": "b29d360",
+  "files": {
+    "audit/implementation/evidence/2026-10-16/task-2-report.md": "19588d5e74ba9fc202ca1548a138c59c4e2fd788e82c6e03c7b4da550441a20e",
+    "audit/implementation/evidence/2026-10-16/task-2-review.md": "29927411e1b998146159e6151875a19ca9c78bc922aeeaf48feedac35b75ee50"
+  },
+  "head": "28bcb5c",
+  "open_minor": "Dedicated causal verifier must finish its own B6 probe coordinator; carry to Task3 integration/final triage",
+  "schema_version": 1,
+  "scope": "EvidenceTask2 B0\u2013B6 implementation review; B7 full readiness pending",
+  "source_sha256": "e0a45e52199338996ac9573233adb2ca9b7d342d930c683e379d7bb0b90e1e35"
+}

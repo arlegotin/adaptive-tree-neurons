@@ -93,7 +93,7 @@ def test_parkinson_subjects_are_disjoint(parkinson_partition_groups):
 
 **Interfaces:** Produce `AdapterCapability` (method/version/status, preprocessing/categories/context/internal selection/transduction/cache/backend/fallback, unavailable reason), `capabilities() -> list[AdapterCapability]`, `run_greedy_probes(parent: TrainingState, table: ScoreTable, data: DevelopmentData, *, probe_updates: int, seed: int, paths: RunPaths) -> Allocation`. `verify-baselines --track causal|practical` returns a per-adapter matrix and nonzero status on an invalid required adapter; explicitly unavailable optional assets remain reasoned exclusions.
 
-- [ ] **Step 1:** Write a tiny two-unit fixture: each probe starts from identical weights/moments/row cursor, runs exactly the same F allowance, ranks using G, then joint insertion reloads the original parent. Assert every probe, including losers and keep, appears in cost/events; G-tied ranking uses unit ID; no V/T labels are accepted. Run `.venv/bin/python -m pytest tests/test_greedy.py tests/test_adapters.py -q`; expect missing implementations.
+- [x] **Step 1:** Write a tiny two-unit fixture: each probe starts from identical weights/moments/row cursor, runs exactly the same F allowance, ranks using G, then joint insertion reloads the original parent. Assert every probe, including losers and keep, appears in cost/events; G-tied ranking uses unit ID; no V/T labels are accepted. Run `.venv/bin/python -m pytest tests/test_greedy.py tests/test_adapters.py -q`; expect missing implementations.
 
 ```python
 def test_greedy_charges_losing_probes(probe_costs):
@@ -101,10 +101,12 @@ def test_greedy_charges_losing_probes(probe_costs):
     assert all(cost > 0 for cost in probe_costs.values())
 ```
 
-- [ ] **Step 2:** Implement the restricted B6 algorithm from spec §8. Select the fixed effective m by ranked G improvement among the same eligible units, even if improvements are negative; keep is a separate candidate/practical G decision. Do not sequentially train accepted probes into one accumulated parent. Label the method ANT-inspired restricted allocation, never full ANT reproduction.
-- [ ] **Step 3:** Add `SplineRidgePredictor` in the simple baseline module: per-feature knots fit F only, V chooses regularization through the search runner, no multivariable gates. Extend the common contract tests for `[N]` finite original-unit predictions, state save/reload and truthful null counters.
+- [x] **Step 2:** Implement the restricted B6 algorithm from spec §8. Select the fixed effective m by ranked G improvement among the same eligible units, even if improvements are negative; keep is a separate candidate/practical G decision. Do not sequentially train accepted probes into one accumulated parent. Label the method ANT-inspired restricted allocation, never full ANT reproduction.
+- [x] **Step 3:** Add `SplineRidgePredictor` in the simple baseline module: per-feature knots fit F only, V chooses regularization through the search runner, no multivariable gates. Extend the common contract tests for `[N]` finite original-unit predictions, state save/reload and truthful null counters.
 - [ ] **Step 4:** Run adapter/greedy tests and `verify-baselines --track causal`. Expect B0–B6 verified, all probe costs counted and no oracle/target access. B7 closes in Task 3; do not mark complete until it is checked.
-- [ ] **Step 5:** Commit `feat: add costed validation-probed allocation and adapter capabilities`.
+- [x] **Step 5:** Commit `feat: add costed validation-probed allocation and adapter capabilities`.
+
+**Implementation review accepted:** B0–B6 tests and causal verification pass; Step 4 remains open only for the explicitly deferred B7/full-readiness gate in Task 3. Do not repeat the accepted Task 2 implementation. The review's minor caller-owned coordinator lifecycle item is carried into Task 3 verification integration.
 
 ## Task 3: Pin and verify the actual NODE regression recipe
 
