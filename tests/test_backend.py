@@ -14,7 +14,7 @@ def backend_report(request):
 
     rng, threads, dtype = torch.random.get_rng_state(), torch.get_num_threads(), torch.get_default_dtype()
     environment = dict(os.environ)
-    report = probe_backend(request.param, seed=1602030, batch_sizes=(32, 64, 128))
+    report = probe_backend(request.param, seed=1602030, batch_sizes=(16, 32, 64, 128))
     assert torch.equal(rng, torch.random.get_rng_state())
     assert torch.get_num_threads() == threads and torch.get_default_dtype() == dtype
     assert all(os.environ.get(key) == value for key, value in environment.items())
@@ -52,7 +52,7 @@ def test_doubled_physical_batches_keep_logical_updates_and_score_cpu64(backend_r
     assert calibration['score_boundary']['dtype'] == 'torch.float64'
     for phase in ('base_epoch', 'grown_epoch', 'score'):
         measurements = calibration[phase]
-        assert [m['batch_size'] for m in measurements] == [32, 64, 128]
+        assert [m['batch_size'] for m in measurements] == [16, 32, 64, 128]
         assert all(len(m['samples_ns']) >= 5 for m in measurements)
         best = max(m['rows_per_second'] for m in measurements)
         expected = min(m['batch_size'] for m in measurements if m['rows_per_second'] >= .95 * best)
@@ -248,3 +248,88 @@ def test_guard_reserves_measured_first_use_runtime_overhead():
         _guard(resources)
     resources['pressure_headroom_bytes']['value'] = 9 * 1024**3 + 512 * 1024**2
     _guard(resources)
+
+
+@pytest.mark.parametrize('labels', [
+    [1000, 2000, 4000, 8000], [False, True, True, True],
+    [16., 32., 64., 128.], [16, 16, 32, 64], [3, 6, 12, 24],
+    [32, 64, 128, 256], [0, 0, 0, 0], [-16, -32, -64, -128],
+])
+def test_consistent_out_of_contract_batch_labels_cannot_open_gate(backend_report, labels):
+    from treeneuron.backend import select_backend, validate_backend_report
+
+    report = copy.deepcopy(backend_report)
+    original = report['batch_sizes']
+    mapping = dict(zip(original, labels))
+    report['batch_sizes'] = labels
+    calibration = report['calibration']
+    for phase in ('base_epoch', 'grown_epoch', 'score'):
+        for row in calibration[phase]:
+            row['batch_size'] = mapping[row['batch_size']]
+        calibration['selected_batches'][phase] = mapping[calibration['selected_batches'][phase]]
+    if 'physical_batches' in calibration['whole_method']:
+        calibration['whole_method']['physical_batches'] = dict(calibration['selected_batches'])
+    # A batch regression must fail without relying on unrelated source drift.
+    assert report['implementation_sha256'] == backend_report['implementation_sha256']
+    with pytest.raises(ValueError):
+        validate_backend_report(report)
+    with pytest.raises(ValueError, match='CPU'):
+        select_backend({'cpu': dict(report, device='cpu')})
+
+
+@pytest.mark.parametrize('location,value', [
+    ('batch_list', None), ('batch_list', []), ('batch_list', '16,32,64,128'),
+    ('stage_row', 128.), ('stage_row', True), ('stage_row', 8000),
+    ('selected', 128.), ('selected', True), ('selected', 8000),
+    ('logical', 128.), ('logical', True),
+    ('complete_physical', 128.), ('complete_physical', True), ('complete_physical', 8000),
+    ('complete_logical', 128.), ('complete_logical', True), ('complete_logical', 256),
+    ('complete_sentinel', 8000),
+])
+def test_batch_contract_applies_at_each_artifact_boundary(backend_report, location, value):
+    from treeneuron.backend import validate_backend_report
+
+    report = copy.deepcopy(backend_report)
+    calibration = report['calibration']
+    if location == 'batch_list':
+        report['batch_sizes'] = value
+    elif location == 'stage_row':
+        calibration['base_epoch'][-1]['batch_size'] = value
+    elif location == 'selected':
+        calibration['selected_batches']['base_epoch'] = value
+    elif location == 'logical':
+        calibration['logical_batch_size'] = value
+    elif location == 'complete_physical':
+        calibration['whole_method']['physical_batches'] = dict(calibration['selected_batches'], base_epoch=value)
+    elif location == 'complete_logical':
+        calibration['whole_method']['logical_batch_size'] = value
+    else:
+        calibration['whole_method']['batch_size'] = value
+    with pytest.raises(ValueError):
+        validate_backend_report(report)
+
+
+@pytest.mark.parametrize('labels', [None, [], '16,32,64,128', {'batch': 16},
+    [1000, 2000, 4000, 8000], [False, True], [64., 128.], [64, 64], [3, 6], [128, 256]])
+def test_live_probe_rejects_malformed_physical_batches(labels):
+    from treeneuron.backend import probe_backend
+
+    report = probe_backend('cpu', seed=1602030, batch_sizes=labels)
+    assert report['status'] == 'failed'
+    assert 'batch' in report['reason'].lower()
+
+
+@pytest.mark.parametrize('location,recipe', [
+    ('selected_batches', None), ('selected_batches', {}),
+    ('selected_batches', {'base_epoch': 128, 'grown_epoch': 128, 'score': 128, 'extra': 128}),
+    ('physical_batches', None), ('physical_batches', {}),
+    ('physical_batches', {'base_epoch': 128, 'grown_epoch': 128, 'score': 128, 'extra': 128}),
+])
+def test_selected_and_complete_recipes_require_exact_phase_keys(backend_report, location, recipe):
+    from treeneuron.backend import validate_backend_report
+
+    report = copy.deepcopy(backend_report)
+    target = report['calibration'] if location == 'selected_batches' else report['calibration']['whole_method']
+    target[location] = recipe
+    with pytest.raises(ValueError):
+        validate_backend_report(report)

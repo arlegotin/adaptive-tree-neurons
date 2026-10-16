@@ -56,6 +56,32 @@ def runtime_hash() -> str:
     return hashlib.sha256(json.dumps(runtime_identity(), sort_keys=True).encode()).hexdigest()
 
 
+def _validate_physical_batches(batch_sizes: Sequence[int], *,
+                               logical_batch_size: int = 128) -> list[int]:
+    """One physical-batch contract for live inputs and imported timing evidence."""
+    if (type(logical_batch_size) is not int or logical_batch_size != 128
+            or not isinstance(batch_sizes, Sequence)
+            or isinstance(batch_sizes, (str, bytes, bytearray))):
+        raise ValueError('Require physical batches and Python-int logical batch128')
+    batches = list(batch_sizes)
+    if (not batches or any(type(b) is not int or b <= 0 or b > logical_batch_size
+                          or logical_batch_size % b for b in batches)
+            or any(b != 2*a for a,b in zip(batches,batches[1:]))):
+        raise ValueError('Require doubled positive Python-int physical batch divisors of logical128')
+    return batches
+
+
+def _validate_batch_recipe(recipe: dict[str, int], *, batch_sizes: Sequence[int],
+                           logical_batch_size: int) -> None:
+    phases = {'base_epoch', 'grown_epoch', 'score'}
+    if not isinstance(recipe, dict) or set(recipe) != phases:
+        raise ValueError('Require exactly the measured batch recipe phases')
+    for batch in recipe.values():
+        _validate_physical_batches([batch], logical_batch_size=logical_batch_size)
+        if batch not in batch_sizes:
+            raise ValueError('Selected physical batch was not measured')
+
+
 def probe_backend(device: str, *, seed: int, batch_sizes: Sequence[int]) -> dict[str, Any]:
     """Run measured kernels/calibration in isolation; unavailable MPS is no pass.
 
@@ -63,13 +89,14 @@ def probe_backend(device: str, *, seed: int, batch_sizes: Sequence[int]) -> dict
     This bounded probe is not a training recipe or a memory-limit search.
     """
     failed = dict(schema_version=1, device=device, status='failed', reason=None)
-    batches = list(batch_sizes)
     if device not in ('cpu', 'mps'):
         return dict(failed, reason=f'Unsupported device: {device}')
-    if (type(seed) is not int or not 0 <= seed < 2**63 - 2
-            or not batches or any(type(b) is not int or b <= 0 or 128 % b for b in batches)
-            or any(b != 2*a for a, b in zip(batches, batches[1:]))):
-        return dict(failed, reason='Require an integer seed and doubled physical divisors of logical128')
+    if type(seed) is not int or not 0 <= seed < 2**63 - 2:
+        return dict(failed, reason='Require an integer seed in range')
+    try:
+        batches = _validate_physical_batches(batch_sizes)
+    except ValueError as error:
+        return dict(failed, reason=str(error))
     env = dict(os.environ, PYTORCH_ENABLE_MPS_FALLBACK='0')
     try:
         child = subprocess.run([sys.executable, '-m', 'treeneuron.backend', '--device', device,
@@ -129,14 +156,20 @@ def validate_backend_report(report: dict[str, Any]) -> None:
             if name in ('serialization', 'resumed_update'):
                 _require(op['max_abs'] == 0)
         calibration = report['calibration']
-        _require(calibration['logical_batch_size'] == 128 and calibration['n_rows'] == 2306)
+        batches = _validate_physical_batches(report['batch_sizes'],
+                                             logical_batch_size=calibration['logical_batch_size'])
+        _require(calibration['n_rows'] == 2306)
+        _validate_batch_recipe(calibration['selected_batches'], batch_sizes=batches,
+                               logical_batch_size=calibration['logical_batch_size'])
         _require(calibration['score_boundary']['device'] == 'cpu')
         _require(calibration['score_boundary']['dtype'] == 'torch.float64')
         _require(finite(calibration['accumulation_max_abs']) and calibration['accumulation_max_abs'] < 1e-05)
         _require(calibration['updates_per_epoch'] == 19 and calibration['rows_per_epoch'] == 2306)
         for phase in ('base_epoch', 'grown_epoch', 'score'):
             rows = calibration[phase]
-            _require(rows and [m['batch_size'] for m in rows] == report['batch_sizes'])
+            row_batches = _validate_physical_batches([m['batch_size'] for m in rows],
+                logical_batch_size=calibration['logical_batch_size'])
+            _require(row_batches == batches)
             for row in rows:
                 _require(len(row['samples_ns']) >= 5 and all((finite(t) and t > 0 for t in row['samples_ns'])))
                 _require(row['median_ns'] == statistics.median(row['samples_ns']))
@@ -145,6 +178,10 @@ def validate_backend_report(report: dict[str, Any]) -> None:
             _require(calibration['selected_batches'][phase] == min((m['batch_size'] for m in rows if m['rows_per_second'] >= 0.95 * maximum)))
         _require(finite(calibration['whole_method_ns']) and calibration['whole_method_ns'] > 0)
         whole = calibration['whole_method']
+        _require(whole['batch_size'] is None)
+        _validate_batch_recipe(whole['physical_batches'], batch_sizes=batches,
+                               logical_batch_size=whole['logical_batch_size'])
+        _require(whole['physical_batches'] == calibration['selected_batches'])
         _require(len(whole['samples_ns']) >= 5 and all((finite(t) and t > 0 for t in whole['samples_ns'])))
         _require(calibration['whole_method_ns'] == statistics.median(whole['samples_ns']))
         _require(report['resources_before']['initial_reservation_bytes'] == RESERVE)
@@ -262,6 +299,7 @@ def _guard(resources):
 
 def _run(device, seed, batches, *, evidence):
     # Called only by the fresh child after checking the import-time environment.
+    batches = _validate_physical_batches(batches)
     import copy
     import torch
     from treeneuron.models.units import SelectiveAffineLayer
@@ -487,14 +525,17 @@ def _run(device, seed, batches, *, evidence):
                                                    if row['rows_per_second']>=.95*maximum)
     calibration['stage_medians_sum_ns']=sum(next(row['median_ns'] for row in calibration[phase]
         if row['batch_size']==calibration['selected_batches'][phase]) for phase in ('base_epoch','grown_epoch','score'))
+    whole_recipe = dict(calibration['selected_batches'])
+    _validate_batch_recipe(whole_recipe, batch_sizes=batches, logical_batch_size=128)
     def whole_method():
         from treeneuron.growth.allocate import allocate
-        trained = epoch(base, calibration['selected_batches']['base_epoch'])
-        table = scoring(calibration['selected_batches']['score'], trained.eval())
+        trained = epoch(base, whole_recipe['base_epoch'])
+        table = scoring(whole_recipe['score'], trained.eval())
         allocation = allocate(table, 16, policy='adam', seed=seed)
         trained[0].grow(allocation.ids, allocation.contrasts.to(device=device,dtype=torch.float32))
-        epoch(trained.train(), calibration['selected_batches']['grown_epoch'])
+        epoch(trained.train(), whole_recipe['grown_epoch'])
     calibration['whole_method'] = benchmark(whole_method, None)
+    calibration['whole_method'].update(physical_batches=whole_recipe, logical_batch_size=128)
     calibration['whole_method_ns'] = calibration['whole_method']['median_ns']
     calibration['whole_method_boundary'] = 'base epoch -> CPU64 copy/score -> matched growth -> grown epoch; fresh optimizer per phase'
     report['calibration']=calibration
