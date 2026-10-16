@@ -1,0 +1,73 @@
+FF.F.                                                                    [100%]
+=================================== FAILURES ===================================
+___________ test_pairing_rejects_duplicate_stream_corruption[empty] ____________
+
+study = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3674/paired0/35b84b14c3e044e8bba98a49adb8186c')
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3674/test_pairing_rejects_duplicate0')
+mutation = 'empty'
+
+    @pytest.mark.parametrize('mutation',['empty','truncated','changed','count'])
+    def test_pairing_rejects_duplicate_stream_corruption(study,tmp_path,mutation):
+        import shutil
+        from treeneuron.experiments.paired import audit_pairing
+        from treeneuron.analysis.exploratory import summarize_exploratory
+        report=json.loads((study/'study.json').read_text())
+        method=report['methods']['random']
+        if mutation=='empty': method['executed_row_ids']=[]
+        elif mutation=='truncated': method['executed_row_ids']=method['executed_row_ids'][:-1]
+        elif mutation=='changed': method['executed_row_ids'][0]='0'*64
+        else: method['stages'][-1]['executed_updates']+=1
+>       with pytest.raises(ValueError,match='pairing'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_paired.py:332: Failed
+_________ test_pairing_rejects_duplicate_stream_corruption[truncated] __________
+
+study = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3674/paired0/35b84b14c3e044e8bba98a49adb8186c')
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3674/test_pairing_rejects_duplicate1')
+mutation = 'truncated'
+
+    @pytest.mark.parametrize('mutation',['empty','truncated','changed','count'])
+    def test_pairing_rejects_duplicate_stream_corruption(study,tmp_path,mutation):
+        import shutil
+        from treeneuron.experiments.paired import audit_pairing
+        from treeneuron.analysis.exploratory import summarize_exploratory
+        report=json.loads((study/'study.json').read_text())
+        method=report['methods']['random']
+        if mutation=='empty': method['executed_row_ids']=[]
+        elif mutation=='truncated': method['executed_row_ids']=method['executed_row_ids'][:-1]
+        elif mutation=='changed': method['executed_row_ids'][0]='0'*64
+        else: method['stages'][-1]['executed_updates']+=1
+>       with pytest.raises(ValueError,match='pairing'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_paired.py:332: Failed
+___________ test_pairing_rejects_duplicate_stream_corruption[count] ____________
+
+study = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3674/paired0/35b84b14c3e044e8bba98a49adb8186c')
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3674/test_pairing_rejects_duplicate3')
+mutation = 'count'
+
+    @pytest.mark.parametrize('mutation',['empty','truncated','changed','count'])
+    def test_pairing_rejects_duplicate_stream_corruption(study,tmp_path,mutation):
+        import shutil
+        from treeneuron.experiments.paired import audit_pairing
+        from treeneuron.analysis.exploratory import summarize_exploratory
+        report=json.loads((study/'study.json').read_text())
+        method=report['methods']['random']
+        if mutation=='empty': method['executed_row_ids']=[]
+        elif mutation=='truncated': method['executed_row_ids']=method['executed_row_ids'][:-1]
+        elif mutation=='changed': method['executed_row_ids'][0]='0'*64
+        else: method['stages'][-1]['executed_updates']+=1
+>       with pytest.raises(ValueError,match='pairing'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_paired.py:332: Failed
+=========================== short test summary info ============================
+FAILED tests/test_paired.py::test_pairing_rejects_duplicate_stream_corruption[empty]
+FAILED tests/test_paired.py::test_pairing_rejects_duplicate_stream_corruption[truncated]
+FAILED tests/test_paired.py::test_pairing_rejects_duplicate_stream_corruption[count]
+3 failed, 2 passed, 22 deselected in 7.67s

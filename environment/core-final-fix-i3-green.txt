@@ -1,0 +1,102 @@
+...FF                                                                    [100%]
+=================================== FAILURES ===================================
+_ test_training_failure_retains_registered_child_context[top-FloatingPointError] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3672/test_training_failure_retains_1')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3672/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x11990da90>
+target = 'top', failure = <class 'FloatingPointError'>
+
+    @pytest.mark.parametrize('target,failure', [('parent',KeyboardInterrupt), ('top',FloatingPointError),
+        ('ordinary_lower',RuntimeError)])
+    def test_training_failure_retains_registered_child_context(tmp_path,cpu_training_evidence,monkeypatch,target,failure):
+        from treeneuron import train
+        from treeneuron.experiments import paired
+        from treeneuron.config import canonical_hash
+        observe=train._observe_initial
+        step=torch.optim.AdamW.step
+        active=False
+        def mark_stage(state,data,paths,*args):
+            nonlocal active
+            observe(state,data,paths,*args)
+            if target=='parent': active=True
+            elif target=='top': active=len(state.optimizer.param_groups)>1
+            else: active=state.config.model.h>4
+        def fail_step(optimizer,*args,**kwargs):
+            if active: raise failure('injected actual training failure')
+            return step(optimizer,*args,**kwargs)
+        monkeypatch.setattr(train,'_observe_initial',mark_stage)
+        monkeypatch.setattr(torch.optim.AdamW,'step',fail_step)
+        with pytest.raises(failure,match='actual training failure'):
+            paired.run_paired(small_config(tmp_path,cpu_training_evidence))
+        root=next(tmp_path.glob('*/study.json')).parent
+        study=json.loads((root/'study.json').read_text())
+        expected_status='interrupted' if target=='parent' else 'failed'
+        assert study['status']==expected_status
+        method=study['methods'][target]
+        assert method['status']==expected_status
+        assert len(method['stages'])==1
+        stage=method['stages'][0]
+        child=json.loads((root/stage['path']/'manifest.json').read_text())
+        assert child['identity']['status']==expected_status
+        assert child['identity']['coordinator_run_id']==root.name
+        assert child['data']['boundaries']['V']=='descriptive_only'
+        assert child['data']['counts']['V']=={'rows':8,'groups':8}
+        assert child['data']['teacher_normalization']['reference_rows']>0
+        assert child['data']['teacher_normalization']['target_normalization']=='none'
+        assert child['data']['test_labels_accessed'] is False
+        events=[json.loads(line) for line in (root/'events.jsonl').read_text().splitlines()]
+        assert any(e['type']=='child_registered' and e['method']==target and e['run_id']==stage['run_id'] for e in events)
+        if target=='top':
+            assert child['identity']['parent_run_id']==study['methods']['parent']['stages'][0]['run_id']
+            assert child['identity']['score_hash']==method['allocation']['table_hash']
+            assert child['identity']['growth_hash']==canonical_hash(method['growth_metadata'])
+            pointer=json.loads((root/stage['path']/'checkpoints'/'last.json').read_text())
+            metadata=json.loads((root/stage['path']/'checkpoints'/pointer['metadata']).read_text())
+>           assert metadata['growth_metadata']==method['growth_metadata']
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           KeyError: 'growth_metadata'
+
+tests/test_paired.py:318: KeyError
+_ test_training_failure_retains_registered_child_context[ordinary_lower-RuntimeError] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3672/test_training_failure_retains_2')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3672/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x119b13e90>
+target = 'ordinary_lower', failure = <class 'RuntimeError'>
+
+    @pytest.mark.parametrize('target,failure', [('parent',KeyboardInterrupt), ('top',FloatingPointError),
+        ('ordinary_lower',RuntimeError)])
+    def test_training_failure_retains_registered_child_context(tmp_path,cpu_training_evidence,monkeypatch,target,failure):
+        from treeneuron import train
+        from treeneuron.experiments import paired
+        from treeneuron.config import canonical_hash
+        observe=train._observe_initial
+        step=torch.optim.AdamW.step
+        active=False
+        def mark_stage(state,data,paths,*args):
+            nonlocal active
+            observe(state,data,paths,*args)
+            if target=='parent': active=True
+            elif target=='top': active=len(state.optimizer.param_groups)>1
+            else: active=state.config.model.h>4
+        def fail_step(optimizer,*args,**kwargs):
+            if active: raise failure('injected actual training failure')
+            return step(optimizer,*args,**kwargs)
+        monkeypatch.setattr(train,'_observe_initial',mark_stage)
+        monkeypatch.setattr(torch.optim.AdamW,'step',fail_step)
+        with pytest.raises(failure,match='actual training failure'):
+            paired.run_paired(small_config(tmp_path,cpu_training_evidence))
+        root=next(tmp_path.glob('*/study.json')).parent
+        study=json.loads((root/'study.json').read_text())
+        expected_status='interrupted' if target=='parent' else 'failed'
+        assert study['status']==expected_status
+>       method=study['methods'][target]
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'ordinary_lower'
+
+tests/test_paired.py:298: KeyError
+=========================== short test summary info ============================
+FAILED tests/test_paired.py::test_training_failure_retains_registered_child_context[top-FloatingPointError]
+FAILED tests/test_paired.py::test_training_failure_retains_registered_child_context[ordinary_lower-RuntimeError]
+2 failed, 3 passed, 17 deselected in 10.65s

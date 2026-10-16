@@ -1,0 +1,194 @@
+{
+  "backend_producer_sha256": "237035c85e84b706facd7a7054a159f62dcff50e00f3ca3a5fdae0a11ca4fd7e",
+  "base_commit": "f0eeca8938ae89279bd8eee44b236d575cc1a822",
+  "causal": {
+    "implemented_checks_passed": true,
+    "path": "environment/core-final-fix-causal.json",
+    "recipes": 13,
+    "sha256": "58ced7d5fe9e89eb9f81b5940741b4ded3954200fde030fed1d9915e0030b3dc"
+  },
+  "historical_preservation": {
+    "indices": [
+      {
+        "path": "environment/task12-artifact-hashes.json",
+        "revision": "d852661",
+        "sha256": "fab7d7e0c0c73b9394eefc0e9cc8ed2eeff7fe42a84b87d0c7dd5c96fe3a9437",
+        "source_files_verified_at_original_revision": 9,
+        "unchanged_live_files": 1017
+      },
+      {
+        "path": "environment/task12-fix1-artifact-hashes.json",
+        "revision": "97e3414",
+        "sha256": "6fa3e000e65d7c0b571f36d1477050518bb61d57d17c22481053eae4257711a9",
+        "source_files_verified_at_original_revision": 7,
+        "unchanged_live_files": 479
+      }
+    ],
+    "large_inventories_rerun": false,
+    "old_checkpoints_loaded": false,
+    "original_public_evidence_sha256": "ad07a1d24a9c19b184ce996c518374ee15428fc137dc9763dcaf69e1d3d1d854"
+  },
+  "implementation_commit": "a3561c55aed4f561a27e2a588a22b4faedb66cec",
+  "index": {
+    "files": 494,
+    "path": "environment/core-final-fix-artifact-hashes.json",
+    "sha256": "83108325ce6bb4dfd199bfacea8d8452e8b5a3d2fd0a7a9d1ff957488a9eddbd"
+  },
+  "lock_sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+  "math_backend_scope": "Mathematical/kernel/scoring/allocation producer files unchanged. Relevant suite tests and causal CLI passed; no repeated math CLI or backend calibration. Existing CPU receipt guards remained active.",
+  "schema_version": 1,
+  "scope": "Whole-core final review I1/I2/I3/M1/M2/M3 engineering corrections only; no new predictive inventory or efficacy claim",
+  "small_config": {
+    "path": "configs/explore-core-final-fix-check.yaml",
+    "resolved_sha256": "5b6f119b44ac4caae4f599164e6744dd9ebccb9c4a5406bd93238d0d8902f34d",
+    "sha256": "060ba94a83e6ef3f61e76ba9972c9a45c0da7fdc4cefdacb3dd1b9eb109d1a59"
+  },
+  "small_study": {
+    "config_hash": "5b6f119b44ac4caae4f599164e6744dd9ebccb9c4a5406bd93238d0d8902f34d",
+    "diagnostic_methods_verified": 17,
+    "manifest_count": 22,
+    "manifests_verified": {
+      "manifest.json": "65dcda12427b0bd347f856fac8409598a5578bcc1fb775b4c0d9a606a86326e5",
+      "runs/0db6675a516d4bf4a295bb8de1c378e0/manifest.json": "4e0361699fc89fa50735a3103b3159dbe8f462b3bf98f300a0da00d639054a04",
+      "runs/13bbb24c7a4349b5b2bd4346cb5e27c4/manifest.json": "b230cd15512a8996f85452fd54bbc6f058a79c0ba14cee700e4d7190966cfb42",
+      "runs/2ea273713eaf4aa3ac2fef011286c48d/manifest.json": "ee5443ff02f7dc0a443924b86074355979fe5493b521fb42e4d76e15040d8557",
+      "runs/300fdb3d10544bcb9a3203486686d13a/manifest.json": "65096ed86fd14f19e103773375f4390ef2fbc3e57e171f23183ea00b55e94fc8",
+      "runs/488f4b338ca440898952770622738eba/manifest.json": "031d25fc5262d3e24ecc4af926a4b9937f4647913e423774a65d3f3d152e4ac4",
+      "runs/50647d9f2b704b1cbbb513e2239867c0/manifest.json": "975dded40b5639ce6206a9d2c9cfa7c64ef20509e13afb038a6bae7509295142",
+      "runs/55f713d4836c463baffb99a8d2c2a6f0/manifest.json": "7a2f987cf938220dcee38712c13d4fba8def89999efceb95318c6c7ff6c2b680",
+      "runs/5ca17560f9114c03bccd334d38c6b55d/manifest.json": "f7243c1b8c7bd94a5f24de6d718ca14f30f766c50fc7f205e46b33b25d5f9c7a",
+      "runs/60c69505511f47cfaa50bd557b9df501/manifest.json": "e99c1a430e25299dd90452fa3e8711a4679cea9d7f4b2cdec3641207a759f665",
+      "runs/675bedf742cd4ee08094882f954c86aa/manifest.json": "2d437d6d254d85dc6ef2cc85fd9afe2bf8638c4f13ca7a55826bfe9f1bd9382e",
+      "runs/717087e8232745489018deb219364412/manifest.json": "16ed01f088043976a982c0c2af593779a39dd359e13575a2718c0331ed553e17",
+      "runs/824dce28c70948629fdc0a2710072001/manifest.json": "662200574a0c161548784e3677c7881998caf1d7a88c79160bf1bc167952198f",
+      "runs/92483059088a49bea1c4a3f2057b5961/manifest.json": "3088d689c6460568fea3bf6bfabc9dac6ca146f7bf84d316216e70370646a69a",
+      "runs/9b0ab89e69564a4482e509e131e0c77a/manifest.json": "7bb22162599acbf826f0d05765905343a76359259da16233c5db86e09ae9587d",
+      "runs/a4a3c6e925484526a52d90c0b4de5b18/manifest.json": "45130a0619b2f62e56d2ae0bdb0e2322ae6e62f5c2a299cf502eb847058af18c",
+      "runs/a695a6cd12bc4fdc9898413348a1b03e/manifest.json": "3903beeeabdb6d07e1d92136db6dab8d59d6e1311073adcabfbd740525765118",
+      "runs/a79daa74bea644d5a6bb5be42c70acd8/manifest.json": "dc922f43799d3b96031bd2c80af3758b4136f940b1931a55135c8e5516d13ae2",
+      "runs/a803ee02b04448a998e8076bcaf8bd97/manifest.json": "ba93558987136741b5a9c3f8ca4c17b448ef4b9892a3d61446ceac5d69ec8957",
+      "runs/acd04ef0ef4f4dbaa95f9c5ae56b8132/manifest.json": "22ea6d7d1d911d54234adac2bebcfd288e8234afb826df7c696ecaac6b9f30ff",
+      "runs/c3a2b712ef5d44478d6ce4774704fe87/manifest.json": "f5e1cbc65cb2a60e32bd1d0de8968622e1effb26bfaf48df7372c454c501d195",
+      "runs/fa1c5fe644a640dda6a22dfeae118969/manifest.json": "55a45b443332f1f3b0513e154e19af5da27558f7c878ecd1a466d6871116fe8c"
+    },
+    "method_count": 17,
+    "pairing_audit": {
+      "common_prefix_updates": 6,
+      "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+      "passed": true,
+      "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+      "warm_forks": 8
+    },
+    "path": "artifacts/exploratory/61569459dc6e44de93356080dc1f5b86",
+    "provenance": {
+      "backend_report_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/task11-parent-backend.json",
+      "backend_report_sha256": "44899df8ec13349ee74b37511b25bfcda3aeace9a0640449e05e51669ce60197",
+      "checkout": "a3561c55aed4f561a27e2a588a22b4faedb66cec",
+      "checkout_status": [],
+      "hardware_report_sha256": "2f0a0d83dd9073a5500e8f37a28c5a2c3ff74165aa3125c56fdbc2bb31bbee61",
+      "lock_sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+      "runtime_sha256": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+      "source_sha256": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032"
+    },
+    "purpose": "Small engineering integration; not an added predictive comparison",
+    "registered_children": 21,
+    "schema_version": 1,
+    "score_export_schema": 1,
+    "source_unchanged_during_audit": true,
+    "status": "completed",
+    "study_sha256": "2dbd5ec2e6dd49cd87bbd33c8ea14c71d9453f61603426d49242b49e00fac1d5",
+    "total_study_ns": 5779797208
+  },
+  "small_study_summary": {
+    "path": "environment/core-final-fix-small-summary.json",
+    "sha256": "19d4a3f9d652b2304c77c042b7250ec91478d830c064053fcb25de8bccd8f95a"
+  },
+  "source_sha256": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+  "verification": {
+    "core-final-fix-focused.txt": {
+      "path": "environment/core-final-fix-focused.txt",
+      "sha256": "7fd58ff5c43df5da7b06d31b525211c6fe9d245290c6fc346b0550446e67a15e",
+      "summary": "224 passed in 82.52s (0:01:22)"
+    },
+    "core-final-fix-i1-green.txt": {
+      "path": "environment/core-final-fix-i1-green.txt",
+      "sha256": "ab32b4e8a78e8ed7724c0de52e6e7ec12677be894deb4e842612e1826aa2a005",
+      "summary": "7 passed, 9 deselected in 7.29s"
+    },
+    "core-final-fix-i1-red.txt": {
+      "path": "environment/core-final-fix-i1-red.txt",
+      "sha256": "33ce51023adcabe4f1d3b786cbdb184c06503be56c07dfdffb497ffadce4895e",
+      "summary": "7 failed, 9 deselected in 32.20s"
+    },
+    "core-final-fix-i2-green.txt": {
+      "path": "environment/core-final-fix-i2-green.txt",
+      "sha256": "8380daa7dee725c0c9b5e7f8ec9e42ac1a091bc01cfb55ddc8b5ac4e8988318f",
+      "summary": "1 failed, 2 passed, 16 deselected in 10.76s"
+    },
+    "core-final-fix-i2-green2.txt": {
+      "path": "environment/core-final-fix-i2-green2.txt",
+      "sha256": "769212ea2faf30e21cc268b77bb3faca209c6cee284764eb71383d41adbd1f85",
+      "summary": "3 passed, 16 deselected in 11.33s"
+    },
+    "core-final-fix-i2-red.txt": {
+      "path": "environment/core-final-fix-i2-red.txt",
+      "sha256": "08db7ca56cccc98900f3e771ff4ca946cce935ec897470f14d9e32a7036ed416",
+      "summary": "3 failed, 16 deselected in 4.69s"
+    },
+    "core-final-fix-i3-green.txt": {
+      "path": "environment/core-final-fix-i3-green.txt",
+      "sha256": "20f387d52fbaff57a546518626fb20451e76168b714fddde869ded868e1c9d64",
+      "summary": "2 failed, 3 passed, 17 deselected in 10.65s"
+    },
+    "core-final-fix-i3-green2.txt": {
+      "path": "environment/core-final-fix-i3-green2.txt",
+      "sha256": "35a311df4b12ea184332d613eebc66ef6c6d937f360583d8c2ac7f2f9b28af01",
+      "summary": "5 passed, 17 deselected in 10.68s"
+    },
+    "core-final-fix-i3-red.txt": {
+      "path": "environment/core-final-fix-i3-red.txt",
+      "sha256": "5d82d52429eb7515fd709f1bbe056d4e8f0ef499cdfa57640d69b0602b3eb52e",
+      "summary": "3 failed, 19 deselected in 6.83s"
+    },
+    "core-final-fix-m1-green.txt": {
+      "path": "environment/core-final-fix-m1-green.txt",
+      "sha256": "a5e580c65ea1921803da5888880831a8000d171c61a7720c952cb161a90125b7",
+      "summary": "5 passed, 22 deselected in 8.82s"
+    },
+    "core-final-fix-m1-red.txt": {
+      "path": "environment/core-final-fix-m1-red.txt",
+      "sha256": "8ffefa1cda9d5e55c163b7eaa723838c22d5c0acb78e70d6aa3a03a1d20dcab4",
+      "summary": "3 failed, 2 passed, 22 deselected in 7.67s"
+    },
+    "core-final-fix-m2-green.txt": {
+      "path": "environment/core-final-fix-m2-green.txt",
+      "sha256": "45811d31a112e97e4b49bf89bac674d0ed6cf0e4776968ed74d988d594271453",
+      "summary": "8 passed, 27 deselected in 21.30s"
+    },
+    "core-final-fix-m2-red.txt": {
+      "path": "environment/core-final-fix-m2-red.txt",
+      "sha256": "4e07e4042fe5ea90656a8ee4707ff8c9891f99a738b9b25e4451a39ce637ac01",
+      "summary": "8 failed, 27 deselected in 20.76s"
+    },
+    "core-final-fix-m3-green.txt": {
+      "path": "environment/core-final-fix-m3-green.txt",
+      "sha256": "0ffb40a7e62bd6693371ecb7ae3f0f55144cadcc2b7f232fab52e0168e397b14",
+      "summary": "7 passed in 0.80s"
+    },
+    "core-final-fix-m3-red.txt": {
+      "path": "environment/core-final-fix-m3-red.txt",
+      "sha256": "2d54b94521eedcb1ccd138cddc301e093eccb40aabbc35c0cfcdb822bbccd588",
+      "summary": "7 failed in 0.85s"
+    },
+    "core-final-fix-m3-red2.txt": {
+      "path": "environment/core-final-fix-m3-red2.txt",
+      "sha256": "336dc581294d6467c80852802ade766e29f4d8a4177fd44d6c5fb5dfbee9cb3d",
+      "summary": "7 failed in 0.81s"
+    },
+    "core-final-fix-pytest.txt": {
+      "path": "environment/core-final-fix-pytest.txt",
+      "sha256": "eecbe986d956e3a0e37426be8e88d98b195a293edd0ca5666bbeb4dd08f63f62",
+      "summary": "629 passed, 48 skipped in 197.10s (0:03:17)"
+    }
+  }
+}

@@ -1,0 +1,97 @@
+FFFFFFF                                                                  [100%]
+=================================== FAILURES ===================================
+_ test_gate_moments_quantiles_and_coordinate_equivalent_leaf_disagreement[centered] _
+
+coordinates = 'centered'
+
+    @pytest.mark.parametrize('coordinates',['centered','direct_leaf'])
+    def test_gate_moments_quantiles_and_coordinate_equivalent_leaf_disagreement(coordinates):
+        state,data=diagnostic_fixture(coordinates)
+        record=_diagnostics(state,data)
+        gate=record['gate']
+>       assert gate['status']=='observed'
+               ^^^^^^^^^^^^^^
+E       KeyError: 'status'
+
+tests/test_paired_diagnostics.py:35: KeyError
+_ test_gate_moments_quantiles_and_coordinate_equivalent_leaf_disagreement[direct_leaf] _
+
+coordinates = 'direct_leaf'
+
+    @pytest.mark.parametrize('coordinates',['centered','direct_leaf'])
+    def test_gate_moments_quantiles_and_coordinate_equivalent_leaf_disagreement(coordinates):
+        state,data=diagnostic_fixture(coordinates)
+        record=_diagnostics(state,data)
+        gate=record['gate']
+>       assert gate['status']=='observed'
+               ^^^^^^^^^^^^^^
+E       KeyError: 'status'
+
+tests/test_paired_diagnostics.py:35: KeyError
+______________ test_varying_gate_variance_and_declared_quantiles _______________
+
+    def test_varying_gate_variance_and_declared_quantiles():
+        state,data=diagnostic_fixture()
+        with torch.no_grad(): state.model.layer.gate.weight[:,0]=1.
+        record=_diagnostics(state,data)
+        values=1/(1+np.exp(-np.array([3.,0.,-3.])))
+>       assert record['gate']['variance']==pytest.approx(float(np.var(values)),abs=1e-7)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'variance'
+
+tests/test_paired_diagnostics.py:54: KeyError
+_______ test_absent_gates_and_regimes_are_explicitly_inapplicable[False] _______
+
+model_present = False
+
+    @pytest.mark.parametrize('model_present',[False,True])
+    def test_absent_gates_and_regimes_are_explicitly_inapplicable(model_present):
+        state,data=diagnostic_fixture(count=0)
+        teacher=make_control('globally_affine',3,d=2,reference_seed=7)
+>       record=_diagnostics(state if model_present else None,data,teacher)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: _diagnostics() takes 2 positional arguments but 3 were given
+
+tests/test_paired_diagnostics.py:64: TypeError
+_______ test_absent_gates_and_regimes_are_explicitly_inapplicable[True] ________
+
+model_present = True
+
+    @pytest.mark.parametrize('model_present',[False,True])
+    def test_absent_gates_and_regimes_are_explicitly_inapplicable(model_present):
+        state,data=diagnostic_fixture(count=0)
+        teacher=make_control('globally_affine',3,d=2,reference_seed=7)
+>       record=_diagnostics(state if model_present else None,data,teacher)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: _diagnostics() takes 2 positional arguments but 3 were given
+
+tests/test_paired_diagnostics.py:64: TypeError
+___________ test_synthetic_conditional_regime_counts_use_raw_F_only ____________
+
+    def test_synthetic_conditional_regime_counts_use_raw_F_only():
+        state,data=diagnostic_fixture()
+        teacher=make_control('conditional_slope_2d',3,d=2,reference_seed=7)
+>       record=_diagnostics(state,data,teacher)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: _diagnostics() takes 2 positional arguments but 3 were given
+
+tests/test_paired_diagnostics.py:75: TypeError
+___ test_synthetic_teacher_component_occupancy_is_finite_and_diagnostic_only ___
+
+    def test_synthetic_teacher_component_occupancy_is_finite_and_diagnostic_only():
+        state,data=diagnostic_fixture()
+        teacher=make_teacher(3,d=2,reference_seed=7)
+>       record=_diagnostics(state,data,teacher)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: _diagnostics() takes 2 positional arguments but 3 were given
+
+tests/test_paired_diagnostics.py:87: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_paired_diagnostics.py::test_gate_moments_quantiles_and_coordinate_equivalent_leaf_disagreement[centered]
+FAILED tests/test_paired_diagnostics.py::test_gate_moments_quantiles_and_coordinate_equivalent_leaf_disagreement[direct_leaf]
+FAILED tests/test_paired_diagnostics.py::test_varying_gate_variance_and_declared_quantiles
+FAILED tests/test_paired_diagnostics.py::test_absent_gates_and_regimes_are_explicitly_inapplicable[False]
+FAILED tests/test_paired_diagnostics.py::test_absent_gates_and_regimes_are_explicitly_inapplicable[True]
+FAILED tests/test_paired_diagnostics.py::test_synthetic_conditional_regime_counts_use_raw_F_only
+FAILED tests/test_paired_diagnostics.py::test_synthetic_teacher_component_occupancy_is_finite_and_diagnostic_only
+7 failed in 0.81s

@@ -1,0 +1,271 @@
+FFFFFFF                                                                  [100%]
+=================================== FAILURES ===================================
+_ test_gate_moments_quantiles_and_coordinate_equivalent_leaf_disagreement[centered] _
+
+coordinates = 'centered'
+
+    @pytest.mark.parametrize('coordinates',['centered','direct_leaf'])
+    def test_gate_moments_quantiles_and_coordinate_equivalent_leaf_disagreement(coordinates):
+        state,data=diagnostic_fixture(coordinates)
+        record=_diagnostics(state,data)
+        gate=record['gate']
+>       assert gate['status']=='observed'
+               ^^^^^^^^^^^^^^
+E       KeyError: 'status'
+
+tests/test_paired_diagnostics.py:35: KeyError
+_ test_gate_moments_quantiles_and_coordinate_equivalent_leaf_disagreement[direct_leaf] _
+
+coordinates = 'direct_leaf'
+
+    @pytest.mark.parametrize('coordinates',['centered','direct_leaf'])
+    def test_gate_moments_quantiles_and_coordinate_equivalent_leaf_disagreement(coordinates):
+        state,data=diagnostic_fixture(coordinates)
+        record=_diagnostics(state,data)
+        gate=record['gate']
+>       assert gate['status']=='observed'
+               ^^^^^^^^^^^^^^
+E       KeyError: 'status'
+
+tests/test_paired_diagnostics.py:35: KeyError
+______________ test_varying_gate_variance_and_declared_quantiles _______________
+
+    def test_varying_gate_variance_and_declared_quantiles():
+        state,data=diagnostic_fixture()
+        with torch.no_grad(): state.model.layer.gate.weight[:,0]=1.
+        record=_diagnostics(state,data)
+        values=1/(1+np.exp(-np.array([3.,0.,-3.])))
+>       assert record['gate']['variance']==pytest.approx(float(np.var(values)),abs=1e-7)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'variance'
+
+tests/test_paired_diagnostics.py:54: KeyError
+_______ test_absent_gates_and_regimes_are_explicitly_inapplicable[False] _______
+
+model_present = False
+
+    @pytest.mark.parametrize('model_present',[False,True])
+    def test_absent_gates_and_regimes_are_explicitly_inapplicable(model_present):
+        state,data=diagnostic_fixture(count=0)
+>       teacher=make_control('globally_affine',3,d=2,reference_seed=7,reference_rows=128)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_paired_diagnostics.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+kind = 'globally_affine', seed = 3, d = 2, reference_seed = 7
+reference_rows = 128, regime = 'isotropic', nuisance_dimensions = 0
+gate_prevalences = (0.1, 0.5), gate_types = ('hard', 'smooth_0.2', 'smooth_1.0')
+
+    def make_control(kind: str, seed: int, d: int = 16, *, reference_seed: int | None = None,
+                     reference_rows: int = REFERENCE_ROWS, regime: str = 'isotropic',
+                     nuisance_dimensions: int = 0, gate_prevalences: tuple[float, ...] = (.1, .5),
+                     gate_types: tuple[str, ...] = GATE_TYPES) -> TeacherSpec | ControlSpec:
+        """Build a named control or explicit primary sensitivity.
+    
+        rare/axis_aligned/rotated/nuisance are convenience names for primary teacher
+        sensitivities. nuisance uses four final irrelevant coordinates by default;
+        all details, including thresholds and the rotation, are stored in TeacherSpec.
+        """
+        _integer(seed, 'seed'); _integer(d, 'd', 1)
+        kwargs = dict(reference_seed=reference_seed, reference_rows=reference_rows,
+                      regime=regime, nuisance_dimensions=nuisance_dimensions,
+                      gate_prevalences=gate_prevalences, gate_types=gate_types)
+        if kind in ('primary', 'rare', 'axis_aligned', 'rotated', 'nuisance'):
+            if kind in ('rare', 'axis_aligned', 'rotated'):
+                if regime != 'isotropic' and regime != kind:
+                    raise ValueError('Conflicting control kind and regime')
+                kwargs['regime'] = kind
+            if kind == 'nuisance' and nuisance_dimensions == 0:
+                kwargs['nuisance_dimensions'] = 4
+            return make_teacher(seed, d, **kwargs)
+        if kind not in CONTROL_KINDS:
+            raise ValueError(f'Unsupported control kind: {kind}')
+        if kind == 'conditional_slope_2d' and d != 2:
+            raise ValueError('conditional_slope_2d requires d=2')
+        if kind == 'additive_sine_quadratic' and regime == 'rotated':
+            raise ValueError('Observed-coordinate additive control does not support rotated functions')
+        if kind == 'random_label_permutation':
+            base = make_teacher(seed, d, **kwargs)
+        else:
+            base = None
+            if tuple(gate_prevalences) != (.1, .5) or tuple(gate_types) != GATE_TYPES:
+                raise ValueError('This control has no gates; custom gate configuration is unsupported')
+            if regime not in ('isotropic', 'axis_aligned', 'rotated'):
+                raise ValueError('This control has no rare gates; requested regime is unsupported')
+        _integer(nuisance_dimensions, 'nuisance_dimensions')
+        if nuisance_dimensions >= d:
+            raise ValueError('At least one signal dimension is required')
+        if kind == 'conditional_slope_2d' and (regime != 'isotropic' or nuisance_dimensions):
+            raise ValueError('Original 2D control requires its unchanged input coordinates')
+        if reference_rows != REFERENCE_ROWS or type(reference_rows) is not int:
+>           raise ValueError('Version 1 requires exactly 65536 reference observations')
+E           ValueError: Version 1 requires exactly 65536 reference observations
+
+src/treeneuron/data/controls.py:254: ValueError
+_______ test_absent_gates_and_regimes_are_explicitly_inapplicable[True] ________
+
+model_present = True
+
+    @pytest.mark.parametrize('model_present',[False,True])
+    def test_absent_gates_and_regimes_are_explicitly_inapplicable(model_present):
+        state,data=diagnostic_fixture(count=0)
+>       teacher=make_control('globally_affine',3,d=2,reference_seed=7,reference_rows=128)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_paired_diagnostics.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+kind = 'globally_affine', seed = 3, d = 2, reference_seed = 7
+reference_rows = 128, regime = 'isotropic', nuisance_dimensions = 0
+gate_prevalences = (0.1, 0.5), gate_types = ('hard', 'smooth_0.2', 'smooth_1.0')
+
+    def make_control(kind: str, seed: int, d: int = 16, *, reference_seed: int | None = None,
+                     reference_rows: int = REFERENCE_ROWS, regime: str = 'isotropic',
+                     nuisance_dimensions: int = 0, gate_prevalences: tuple[float, ...] = (.1, .5),
+                     gate_types: tuple[str, ...] = GATE_TYPES) -> TeacherSpec | ControlSpec:
+        """Build a named control or explicit primary sensitivity.
+    
+        rare/axis_aligned/rotated/nuisance are convenience names for primary teacher
+        sensitivities. nuisance uses four final irrelevant coordinates by default;
+        all details, including thresholds and the rotation, are stored in TeacherSpec.
+        """
+        _integer(seed, 'seed'); _integer(d, 'd', 1)
+        kwargs = dict(reference_seed=reference_seed, reference_rows=reference_rows,
+                      regime=regime, nuisance_dimensions=nuisance_dimensions,
+                      gate_prevalences=gate_prevalences, gate_types=gate_types)
+        if kind in ('primary', 'rare', 'axis_aligned', 'rotated', 'nuisance'):
+            if kind in ('rare', 'axis_aligned', 'rotated'):
+                if regime != 'isotropic' and regime != kind:
+                    raise ValueError('Conflicting control kind and regime')
+                kwargs['regime'] = kind
+            if kind == 'nuisance' and nuisance_dimensions == 0:
+                kwargs['nuisance_dimensions'] = 4
+            return make_teacher(seed, d, **kwargs)
+        if kind not in CONTROL_KINDS:
+            raise ValueError(f'Unsupported control kind: {kind}')
+        if kind == 'conditional_slope_2d' and d != 2:
+            raise ValueError('conditional_slope_2d requires d=2')
+        if kind == 'additive_sine_quadratic' and regime == 'rotated':
+            raise ValueError('Observed-coordinate additive control does not support rotated functions')
+        if kind == 'random_label_permutation':
+            base = make_teacher(seed, d, **kwargs)
+        else:
+            base = None
+            if tuple(gate_prevalences) != (.1, .5) or tuple(gate_types) != GATE_TYPES:
+                raise ValueError('This control has no gates; custom gate configuration is unsupported')
+            if regime not in ('isotropic', 'axis_aligned', 'rotated'):
+                raise ValueError('This control has no rare gates; requested regime is unsupported')
+        _integer(nuisance_dimensions, 'nuisance_dimensions')
+        if nuisance_dimensions >= d:
+            raise ValueError('At least one signal dimension is required')
+        if kind == 'conditional_slope_2d' and (regime != 'isotropic' or nuisance_dimensions):
+            raise ValueError('Original 2D control requires its unchanged input coordinates')
+        if reference_rows != REFERENCE_ROWS or type(reference_rows) is not int:
+>           raise ValueError('Version 1 requires exactly 65536 reference observations')
+E           ValueError: Version 1 requires exactly 65536 reference observations
+
+src/treeneuron/data/controls.py:254: ValueError
+___________ test_synthetic_conditional_regime_counts_use_raw_F_only ____________
+
+    def test_synthetic_conditional_regime_counts_use_raw_F_only():
+        state,data=diagnostic_fixture()
+>       teacher=make_control('conditional_slope_2d',3,d=2,reference_seed=7,reference_rows=128)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_paired_diagnostics.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+kind = 'conditional_slope_2d', seed = 3, d = 2, reference_seed = 7
+reference_rows = 128, regime = 'isotropic', nuisance_dimensions = 0
+gate_prevalences = (0.1, 0.5), gate_types = ('hard', 'smooth_0.2', 'smooth_1.0')
+
+    def make_control(kind: str, seed: int, d: int = 16, *, reference_seed: int | None = None,
+                     reference_rows: int = REFERENCE_ROWS, regime: str = 'isotropic',
+                     nuisance_dimensions: int = 0, gate_prevalences: tuple[float, ...] = (.1, .5),
+                     gate_types: tuple[str, ...] = GATE_TYPES) -> TeacherSpec | ControlSpec:
+        """Build a named control or explicit primary sensitivity.
+    
+        rare/axis_aligned/rotated/nuisance are convenience names for primary teacher
+        sensitivities. nuisance uses four final irrelevant coordinates by default;
+        all details, including thresholds and the rotation, are stored in TeacherSpec.
+        """
+        _integer(seed, 'seed'); _integer(d, 'd', 1)
+        kwargs = dict(reference_seed=reference_seed, reference_rows=reference_rows,
+                      regime=regime, nuisance_dimensions=nuisance_dimensions,
+                      gate_prevalences=gate_prevalences, gate_types=gate_types)
+        if kind in ('primary', 'rare', 'axis_aligned', 'rotated', 'nuisance'):
+            if kind in ('rare', 'axis_aligned', 'rotated'):
+                if regime != 'isotropic' and regime != kind:
+                    raise ValueError('Conflicting control kind and regime')
+                kwargs['regime'] = kind
+            if kind == 'nuisance' and nuisance_dimensions == 0:
+                kwargs['nuisance_dimensions'] = 4
+            return make_teacher(seed, d, **kwargs)
+        if kind not in CONTROL_KINDS:
+            raise ValueError(f'Unsupported control kind: {kind}')
+        if kind == 'conditional_slope_2d' and d != 2:
+            raise ValueError('conditional_slope_2d requires d=2')
+        if kind == 'additive_sine_quadratic' and regime == 'rotated':
+            raise ValueError('Observed-coordinate additive control does not support rotated functions')
+        if kind == 'random_label_permutation':
+            base = make_teacher(seed, d, **kwargs)
+        else:
+            base = None
+            if tuple(gate_prevalences) != (.1, .5) or tuple(gate_types) != GATE_TYPES:
+                raise ValueError('This control has no gates; custom gate configuration is unsupported')
+            if regime not in ('isotropic', 'axis_aligned', 'rotated'):
+                raise ValueError('This control has no rare gates; requested regime is unsupported')
+        _integer(nuisance_dimensions, 'nuisance_dimensions')
+        if nuisance_dimensions >= d:
+            raise ValueError('At least one signal dimension is required')
+        if kind == 'conditional_slope_2d' and (regime != 'isotropic' or nuisance_dimensions):
+            raise ValueError('Original 2D control requires its unchanged input coordinates')
+        if reference_rows != REFERENCE_ROWS or type(reference_rows) is not int:
+>           raise ValueError('Version 1 requires exactly 65536 reference observations')
+E           ValueError: Version 1 requires exactly 65536 reference observations
+
+src/treeneuron/data/controls.py:254: ValueError
+___ test_synthetic_teacher_component_occupancy_is_finite_and_diagnostic_only ___
+
+    def test_synthetic_teacher_component_occupancy_is_finite_and_diagnostic_only():
+        state,data=diagnostic_fixture()
+>       teacher=make_teacher(3,d=2,reference_seed=7,reference_rows=128)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_paired_diagnostics.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+seed = 3, d = 2, reference_seed = 7, reference_rows = 128, regime = 'isotropic'
+nuisance_dimensions = 0, gate_prevalences = (0.1, 0.5)
+gate_types = ('hard', 'smooth_0.2', 'smooth_1.0')
+
+    def make_teacher(seed: int, d: int = 16, *, reference_seed: int | None = None,
+                     reference_rows: int = REFERENCE_ROWS, regime: str = 'isotropic',
+                     nuisance_dimensions: int = 0, gate_prevalences: tuple[float, ...] = (.1, .5),
+                     gate_types: tuple[str, ...] = GATE_TYPES) -> TeacherSpec:
+        """Create four independent components. Sensitivities are explicit v1 choices.
+    
+        rare: all p=.01; axis_aligned: independent signed coordinate axes;
+        rotated v2: the same signed-axis teacher/gates as axis_aligned, with one
+        stored orthogonal map applied to coefficients and sampled/reference inputs.
+        Last nuisance_dimensions coordinates are unused. Isotropic v1 is unchanged.
+        """
+        _integer(seed, 'seed'); _integer(d, 'd', 1)
+        _integer(nuisance_dimensions, 'nuisance_dimensions')
+        if nuisance_dimensions >= d:
+            raise ValueError('At least one signal dimension is required')
+        if reference_rows != REFERENCE_ROWS or type(reference_rows) is not int:
+>           raise ValueError('Version 1 requires exactly 65536 reference observations')
+E           ValueError: Version 1 requires exactly 65536 reference observations
+
+src/treeneuron/data/synthetic.py:222: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_paired_diagnostics.py::test_gate_moments_quantiles_and_coordinate_equivalent_leaf_disagreement[centered]
+FAILED tests/test_paired_diagnostics.py::test_gate_moments_quantiles_and_coordinate_equivalent_leaf_disagreement[direct_leaf]
+FAILED tests/test_paired_diagnostics.py::test_varying_gate_variance_and_declared_quantiles
+FAILED tests/test_paired_diagnostics.py::test_absent_gates_and_regimes_are_explicitly_inapplicable[False]
+FAILED tests/test_paired_diagnostics.py::test_absent_gates_and_regimes_are_explicitly_inapplicable[True]
+FAILED tests/test_paired_diagnostics.py::test_synthetic_conditional_regime_counts_use_raw_F_only
+FAILED tests/test_paired_diagnostics.py::test_synthetic_teacher_component_occupancy_is_finite_and_diagnostic_only
+7 failed in 0.85s

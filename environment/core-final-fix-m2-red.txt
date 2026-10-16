@@ -1,0 +1,555 @@
+FFFFFFFF                                                                 [100%]
+=================================== FAILURES ===================================
+_ test_final_publication_failure_restores_process_and_primary_error[False-observation] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/test_final_publication_failure0')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10c34d880>
+phase = 'observation', body_failure = False
+
+    @pytest.mark.parametrize('phase',['observation','index','study','terminal'])
+    @pytest.mark.parametrize('body_failure',[False,True])
+    def test_final_publication_failure_restores_process_and_primary_error(tmp_path,cpu_training_evidence,monkeypatch,phase,body_failure):
+        from treeneuron import train
+        from treeneuron.experiments import paired
+        from treeneuron.config import canonical_hash
+        receipt=train.BACKEND_REPORT_PATH
+        rng=train.capture_rng()
+        threads=torch.get_num_threads()
+        expected_rng=canonical_hash(paired._json_tree(rng))
+        build=paired.build_causal
+        observe=paired.update_run_observations
+        hash_file=paired.file_hash
+        write=paired.write_json
+        finish=paired.finish_run
+        finalizing=False
+        def fail_factory(method,recipe,**kwargs):
+            if method=='B5' and recipe.get('variant')=='adam': raise RuntimeError('primary experiment failure')
+            return build(method,recipe,**kwargs)
+        def observe_final(paths,values):
+            nonlocal finalizing
+            if 'enclosing' in values.get('costs',{}):
+                finalizing=True
+                if phase=='observation': raise OSError('secondary observation publication failure')
+            return observe(paths,values)
+        def hash_final(path):
+            if finalizing and phase=='index': raise OSError('secondary index publication failure')
+            return hash_file(path)
+        def write_final(path,value):
+            if path.name=='study.json' and phase=='study': raise OSError('secondary study publication failure')
+            return write(path,value)
+        def finish_final(paths,*args):
+            if paths.directory.parent==tmp_path and phase=='terminal': raise OSError('secondary terminal publication failure')
+            return finish(paths,*args)
+        if body_failure: monkeypatch.setattr(paired,'build_causal',fail_factory)
+        monkeypatch.setattr(paired,'update_run_observations',observe_final)
+        monkeypatch.setattr(paired,'file_hash',hash_final)
+        monkeypatch.setattr(paired,'write_json',write_final)
+        monkeypatch.setattr(paired,'finish_run',finish_final)
+        try:
+            with pytest.raises(RuntimeError if body_failure else OSError,
+                    match='primary experiment failure' if body_failure else 'secondary') as caught:
+                paired.run_paired(small_config(tmp_path,cpu_training_evidence))
+>           assert train.BACKEND_REPORT_PATH==receipt
+E           AssertionError: assert PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/training-evidence0/report.json') == PosixPath('/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/report.json')
+E            +  where PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/training-evidence0/report.json') = <module 'treeneuron.train' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/train.py'>.BACKEND_REPORT_PATH
+
+tests/test_paired.py:394: AssertionError
+_ test_final_publication_failure_restores_process_and_primary_error[False-index] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/test_final_publication_failure1')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10c34e390>
+phase = 'index', body_failure = False
+
+    @pytest.mark.parametrize('phase',['observation','index','study','terminal'])
+    @pytest.mark.parametrize('body_failure',[False,True])
+    def test_final_publication_failure_restores_process_and_primary_error(tmp_path,cpu_training_evidence,monkeypatch,phase,body_failure):
+        from treeneuron import train
+        from treeneuron.experiments import paired
+        from treeneuron.config import canonical_hash
+        receipt=train.BACKEND_REPORT_PATH
+        rng=train.capture_rng()
+        threads=torch.get_num_threads()
+        expected_rng=canonical_hash(paired._json_tree(rng))
+        build=paired.build_causal
+        observe=paired.update_run_observations
+        hash_file=paired.file_hash
+        write=paired.write_json
+        finish=paired.finish_run
+        finalizing=False
+        def fail_factory(method,recipe,**kwargs):
+            if method=='B5' and recipe.get('variant')=='adam': raise RuntimeError('primary experiment failure')
+            return build(method,recipe,**kwargs)
+        def observe_final(paths,values):
+            nonlocal finalizing
+            if 'enclosing' in values.get('costs',{}):
+                finalizing=True
+                if phase=='observation': raise OSError('secondary observation publication failure')
+            return observe(paths,values)
+        def hash_final(path):
+            if finalizing and phase=='index': raise OSError('secondary index publication failure')
+            return hash_file(path)
+        def write_final(path,value):
+            if path.name=='study.json' and phase=='study': raise OSError('secondary study publication failure')
+            return write(path,value)
+        def finish_final(paths,*args):
+            if paths.directory.parent==tmp_path and phase=='terminal': raise OSError('secondary terminal publication failure')
+            return finish(paths,*args)
+        if body_failure: monkeypatch.setattr(paired,'build_causal',fail_factory)
+        monkeypatch.setattr(paired,'update_run_observations',observe_final)
+        monkeypatch.setattr(paired,'file_hash',hash_final)
+        monkeypatch.setattr(paired,'write_json',write_final)
+        monkeypatch.setattr(paired,'finish_run',finish_final)
+        try:
+            with pytest.raises(RuntimeError if body_failure else OSError,
+                    match='primary experiment failure' if body_failure else 'secondary') as caught:
+                paired.run_paired(small_config(tmp_path,cpu_training_evidence))
+>           assert train.BACKEND_REPORT_PATH==receipt
+E           AssertionError: assert PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/training-evidence0/report.json') == PosixPath('/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/report.json')
+E            +  where PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/training-evidence0/report.json') = <module 'treeneuron.train' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/train.py'>.BACKEND_REPORT_PATH
+
+tests/test_paired.py:394: AssertionError
+_ test_final_publication_failure_restores_process_and_primary_error[False-study] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/test_final_publication_failure2')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1158156d0>
+phase = 'study', body_failure = False
+
+    @pytest.mark.parametrize('phase',['observation','index','study','terminal'])
+    @pytest.mark.parametrize('body_failure',[False,True])
+    def test_final_publication_failure_restores_process_and_primary_error(tmp_path,cpu_training_evidence,monkeypatch,phase,body_failure):
+        from treeneuron import train
+        from treeneuron.experiments import paired
+        from treeneuron.config import canonical_hash
+        receipt=train.BACKEND_REPORT_PATH
+        rng=train.capture_rng()
+        threads=torch.get_num_threads()
+        expected_rng=canonical_hash(paired._json_tree(rng))
+        build=paired.build_causal
+        observe=paired.update_run_observations
+        hash_file=paired.file_hash
+        write=paired.write_json
+        finish=paired.finish_run
+        finalizing=False
+        def fail_factory(method,recipe,**kwargs):
+            if method=='B5' and recipe.get('variant')=='adam': raise RuntimeError('primary experiment failure')
+            return build(method,recipe,**kwargs)
+        def observe_final(paths,values):
+            nonlocal finalizing
+            if 'enclosing' in values.get('costs',{}):
+                finalizing=True
+                if phase=='observation': raise OSError('secondary observation publication failure')
+            return observe(paths,values)
+        def hash_final(path):
+            if finalizing and phase=='index': raise OSError('secondary index publication failure')
+            return hash_file(path)
+        def write_final(path,value):
+            if path.name=='study.json' and phase=='study': raise OSError('secondary study publication failure')
+            return write(path,value)
+        def finish_final(paths,*args):
+            if paths.directory.parent==tmp_path and phase=='terminal': raise OSError('secondary terminal publication failure')
+            return finish(paths,*args)
+        if body_failure: monkeypatch.setattr(paired,'build_causal',fail_factory)
+        monkeypatch.setattr(paired,'update_run_observations',observe_final)
+        monkeypatch.setattr(paired,'file_hash',hash_final)
+        monkeypatch.setattr(paired,'write_json',write_final)
+        monkeypatch.setattr(paired,'finish_run',finish_final)
+        try:
+            with pytest.raises(RuntimeError if body_failure else OSError,
+                    match='primary experiment failure' if body_failure else 'secondary') as caught:
+                paired.run_paired(small_config(tmp_path,cpu_training_evidence))
+>           assert train.BACKEND_REPORT_PATH==receipt
+E           AssertionError: assert PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/training-evidence0/report.json') == PosixPath('/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/report.json')
+E            +  where PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/training-evidence0/report.json') = <module 'treeneuron.train' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/train.py'>.BACKEND_REPORT_PATH
+
+tests/test_paired.py:394: AssertionError
+_ test_final_publication_failure_restores_process_and_primary_error[False-terminal] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/test_final_publication_failure3')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x115935c40>
+phase = 'terminal', body_failure = False
+
+    @pytest.mark.parametrize('phase',['observation','index','study','terminal'])
+    @pytest.mark.parametrize('body_failure',[False,True])
+    def test_final_publication_failure_restores_process_and_primary_error(tmp_path,cpu_training_evidence,monkeypatch,phase,body_failure):
+        from treeneuron import train
+        from treeneuron.experiments import paired
+        from treeneuron.config import canonical_hash
+        receipt=train.BACKEND_REPORT_PATH
+        rng=train.capture_rng()
+        threads=torch.get_num_threads()
+        expected_rng=canonical_hash(paired._json_tree(rng))
+        build=paired.build_causal
+        observe=paired.update_run_observations
+        hash_file=paired.file_hash
+        write=paired.write_json
+        finish=paired.finish_run
+        finalizing=False
+        def fail_factory(method,recipe,**kwargs):
+            if method=='B5' and recipe.get('variant')=='adam': raise RuntimeError('primary experiment failure')
+            return build(method,recipe,**kwargs)
+        def observe_final(paths,values):
+            nonlocal finalizing
+            if 'enclosing' in values.get('costs',{}):
+                finalizing=True
+                if phase=='observation': raise OSError('secondary observation publication failure')
+            return observe(paths,values)
+        def hash_final(path):
+            if finalizing and phase=='index': raise OSError('secondary index publication failure')
+            return hash_file(path)
+        def write_final(path,value):
+            if path.name=='study.json' and phase=='study': raise OSError('secondary study publication failure')
+            return write(path,value)
+        def finish_final(paths,*args):
+            if paths.directory.parent==tmp_path and phase=='terminal': raise OSError('secondary terminal publication failure')
+            return finish(paths,*args)
+        if body_failure: monkeypatch.setattr(paired,'build_causal',fail_factory)
+        monkeypatch.setattr(paired,'update_run_observations',observe_final)
+        monkeypatch.setattr(paired,'file_hash',hash_final)
+        monkeypatch.setattr(paired,'write_json',write_final)
+        monkeypatch.setattr(paired,'finish_run',finish_final)
+        try:
+            with pytest.raises(RuntimeError if body_failure else OSError,
+                    match='primary experiment failure' if body_failure else 'secondary') as caught:
+                paired.run_paired(small_config(tmp_path,cpu_training_evidence))
+>           assert train.BACKEND_REPORT_PATH==receipt
+E           AssertionError: assert PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/training-evidence0/report.json') == PosixPath('/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/report.json')
+E            +  where PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/training-evidence0/report.json') = <module 'treeneuron.train' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/train.py'>.BACKEND_REPORT_PATH
+
+tests/test_paired.py:394: AssertionError
+_ test_final_publication_failure_restores_process_and_primary_error[True-observation] _
+
+method = 'B5', recipe = {'variant': 'adam'}
+kwargs = {'parent': TrainingState(model=SelectiveRegressor(
+  (layer): SelectiveAffineLayer(
+    (base): Linear(in_features=2, ...3e56', direction_attempts=tensor([0, 0, 0]), cost={'shared_scored_units': 4, 'standalone_contrast_units_required': 0})}
+
+    def fail_factory(method,recipe,**kwargs):
+>       if method=='B5' and recipe.get('variant')=='adam': raise RuntimeError('primary experiment failure')
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: primary experiment failure
+
+tests/test_paired.py:368: RuntimeError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/test_final_publication_failure4')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1159359d0>
+phase = 'observation', body_failure = True
+
+    @pytest.mark.parametrize('phase',['observation','index','study','terminal'])
+    @pytest.mark.parametrize('body_failure',[False,True])
+    def test_final_publication_failure_restores_process_and_primary_error(tmp_path,cpu_training_evidence,monkeypatch,phase,body_failure):
+        from treeneuron import train
+        from treeneuron.experiments import paired
+        from treeneuron.config import canonical_hash
+        receipt=train.BACKEND_REPORT_PATH
+        rng=train.capture_rng()
+        threads=torch.get_num_threads()
+        expected_rng=canonical_hash(paired._json_tree(rng))
+        build=paired.build_causal
+        observe=paired.update_run_observations
+        hash_file=paired.file_hash
+        write=paired.write_json
+        finish=paired.finish_run
+        finalizing=False
+        def fail_factory(method,recipe,**kwargs):
+            if method=='B5' and recipe.get('variant')=='adam': raise RuntimeError('primary experiment failure')
+            return build(method,recipe,**kwargs)
+        def observe_final(paths,values):
+            nonlocal finalizing
+            if 'enclosing' in values.get('costs',{}):
+                finalizing=True
+                if phase=='observation': raise OSError('secondary observation publication failure')
+            return observe(paths,values)
+        def hash_final(path):
+            if finalizing and phase=='index': raise OSError('secondary index publication failure')
+            return hash_file(path)
+        def write_final(path,value):
+            if path.name=='study.json' and phase=='study': raise OSError('secondary study publication failure')
+            return write(path,value)
+        def finish_final(paths,*args):
+            if paths.directory.parent==tmp_path and phase=='terminal': raise OSError('secondary terminal publication failure')
+            return finish(paths,*args)
+        if body_failure: monkeypatch.setattr(paired,'build_causal',fail_factory)
+        monkeypatch.setattr(paired,'update_run_observations',observe_final)
+        monkeypatch.setattr(paired,'file_hash',hash_final)
+        monkeypatch.setattr(paired,'write_json',write_final)
+        monkeypatch.setattr(paired,'finish_run',finish_final)
+        try:
+            with pytest.raises(RuntimeError if body_failure else OSError,
+                    match='primary experiment failure' if body_failure else 'secondary') as caught:
+>               paired.run_paired(small_config(tmp_path,cpu_training_evidence))
+
+tests/test_paired.py:393: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/experiments/paired.py:478: in run_paired
+    update_run_observations(paths, {'costs': costs, 'resources': {
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+paths = RunPaths(run_id='76e4996975b34eaebcfe7a67137b8103', directory=PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/test_final_publication_failure4/76e4996975b34eaebcfe7a67137b8103'))
+values = {'costs': {'enclosing': {'nanoseconds': 673079125, 'status': 'measured', 'reason': None, 'boundary': 'Enclosing genera...ot incremental or summed', 'timing_exclusions': ['imports', 'final artifact-index and terminal manifest publication']}}
+
+    def observe_final(paths,values):
+        nonlocal finalizing
+        if 'enclosing' in values.get('costs',{}):
+            finalizing=True
+>           if phase=='observation': raise OSError('secondary observation publication failure')
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           OSError: secondary observation publication failure
+
+tests/test_paired.py:374: OSError
+_ test_final_publication_failure_restores_process_and_primary_error[True-index] _
+
+method = 'B5', recipe = {'variant': 'adam'}
+kwargs = {'parent': TrainingState(model=SelectiveRegressor(
+  (layer): SelectiveAffineLayer(
+    (base): Linear(in_features=2, ...3e56', direction_attempts=tensor([0, 0, 0]), cost={'shared_scored_units': 4, 'standalone_contrast_units_required': 0})}
+
+    def fail_factory(method,recipe,**kwargs):
+>       if method=='B5' and recipe.get('variant')=='adam': raise RuntimeError('primary experiment failure')
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: primary experiment failure
+
+tests/test_paired.py:368: RuntimeError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/test_final_publication_failure5')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x115c78770>
+phase = 'index', body_failure = True
+
+    @pytest.mark.parametrize('phase',['observation','index','study','terminal'])
+    @pytest.mark.parametrize('body_failure',[False,True])
+    def test_final_publication_failure_restores_process_and_primary_error(tmp_path,cpu_training_evidence,monkeypatch,phase,body_failure):
+        from treeneuron import train
+        from treeneuron.experiments import paired
+        from treeneuron.config import canonical_hash
+        receipt=train.BACKEND_REPORT_PATH
+        rng=train.capture_rng()
+        threads=torch.get_num_threads()
+        expected_rng=canonical_hash(paired._json_tree(rng))
+        build=paired.build_causal
+        observe=paired.update_run_observations
+        hash_file=paired.file_hash
+        write=paired.write_json
+        finish=paired.finish_run
+        finalizing=False
+        def fail_factory(method,recipe,**kwargs):
+            if method=='B5' and recipe.get('variant')=='adam': raise RuntimeError('primary experiment failure')
+            return build(method,recipe,**kwargs)
+        def observe_final(paths,values):
+            nonlocal finalizing
+            if 'enclosing' in values.get('costs',{}):
+                finalizing=True
+                if phase=='observation': raise OSError('secondary observation publication failure')
+            return observe(paths,values)
+        def hash_final(path):
+            if finalizing and phase=='index': raise OSError('secondary index publication failure')
+            return hash_file(path)
+        def write_final(path,value):
+            if path.name=='study.json' and phase=='study': raise OSError('secondary study publication failure')
+            return write(path,value)
+        def finish_final(paths,*args):
+            if paths.directory.parent==tmp_path and phase=='terminal': raise OSError('secondary terminal publication failure')
+            return finish(paths,*args)
+        if body_failure: monkeypatch.setattr(paired,'build_causal',fail_factory)
+        monkeypatch.setattr(paired,'update_run_observations',observe_final)
+        monkeypatch.setattr(paired,'file_hash',hash_final)
+        monkeypatch.setattr(paired,'write_json',write_final)
+        monkeypatch.setattr(paired,'finish_run',finish_final)
+        try:
+            with pytest.raises(RuntimeError if body_failure else OSError,
+                    match='primary experiment failure' if body_failure else 'secondary') as caught:
+>               paired.run_paired(small_config(tmp_path,cpu_training_evidence))
+
+tests/test_paired.py:393: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/experiments/paired.py:483: in run_paired
+    study['artifacts']={str(p.relative_to(root)):file_hash(p) for p in sorted(root.rglob('*')) if p.is_file()
+                                                 ^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/test_final_publication_failure5/741fcbd8800247fa81aecc8749f8e9ac/backend-receipt.json')
+
+    def hash_final(path):
+>       if finalizing and phase=='index': raise OSError('secondary index publication failure')
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: secondary index publication failure
+
+tests/test_paired.py:377: OSError
+_ test_final_publication_failure_restores_process_and_primary_error[True-study] _
+
+method = 'B5', recipe = {'variant': 'adam'}
+kwargs = {'parent': TrainingState(model=SelectiveRegressor(
+  (layer): SelectiveAffineLayer(
+    (base): Linear(in_features=2, ...3e56', direction_attempts=tensor([0, 0, 0]), cost={'shared_scored_units': 4, 'standalone_contrast_units_required': 0})}
+
+    def fail_factory(method,recipe,**kwargs):
+>       if method=='B5' and recipe.get('variant')=='adam': raise RuntimeError('primary experiment failure')
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: primary experiment failure
+
+tests/test_paired.py:368: RuntimeError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/test_final_publication_failure6')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x115c583b0>
+phase = 'study', body_failure = True
+
+    @pytest.mark.parametrize('phase',['observation','index','study','terminal'])
+    @pytest.mark.parametrize('body_failure',[False,True])
+    def test_final_publication_failure_restores_process_and_primary_error(tmp_path,cpu_training_evidence,monkeypatch,phase,body_failure):
+        from treeneuron import train
+        from treeneuron.experiments import paired
+        from treeneuron.config import canonical_hash
+        receipt=train.BACKEND_REPORT_PATH
+        rng=train.capture_rng()
+        threads=torch.get_num_threads()
+        expected_rng=canonical_hash(paired._json_tree(rng))
+        build=paired.build_causal
+        observe=paired.update_run_observations
+        hash_file=paired.file_hash
+        write=paired.write_json
+        finish=paired.finish_run
+        finalizing=False
+        def fail_factory(method,recipe,**kwargs):
+            if method=='B5' and recipe.get('variant')=='adam': raise RuntimeError('primary experiment failure')
+            return build(method,recipe,**kwargs)
+        def observe_final(paths,values):
+            nonlocal finalizing
+            if 'enclosing' in values.get('costs',{}):
+                finalizing=True
+                if phase=='observation': raise OSError('secondary observation publication failure')
+            return observe(paths,values)
+        def hash_final(path):
+            if finalizing and phase=='index': raise OSError('secondary index publication failure')
+            return hash_file(path)
+        def write_final(path,value):
+            if path.name=='study.json' and phase=='study': raise OSError('secondary study publication failure')
+            return write(path,value)
+        def finish_final(paths,*args):
+            if paths.directory.parent==tmp_path and phase=='terminal': raise OSError('secondary terminal publication failure')
+            return finish(paths,*args)
+        if body_failure: monkeypatch.setattr(paired,'build_causal',fail_factory)
+        monkeypatch.setattr(paired,'update_run_observations',observe_final)
+        monkeypatch.setattr(paired,'file_hash',hash_final)
+        monkeypatch.setattr(paired,'write_json',write_final)
+        monkeypatch.setattr(paired,'finish_run',finish_final)
+        try:
+            with pytest.raises(RuntimeError if body_failure else OSError,
+                    match='primary experiment failure' if body_failure else 'secondary') as caught:
+>               paired.run_paired(small_config(tmp_path,cpu_training_evidence))
+
+tests/test_paired.py:393: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/experiments/paired.py:489: in run_paired
+    write_json(root/'study.json',study)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/test_final_publication_failure6/cd9126d8bb5d4715869f32fc9b634f9a/study.json')
+value = {'schema_version': 1, 'study_id': 'paired-contract', 'phase': 'exploratory', 'status': 'failed', ...}
+
+    def write_final(path,value):
+>       if path.name=='study.json' and phase=='study': raise OSError('secondary study publication failure')
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: secondary study publication failure
+
+tests/test_paired.py:380: OSError
+_ test_final_publication_failure_restores_process_and_primary_error[True-terminal] _
+
+method = 'B5', recipe = {'variant': 'adam'}
+kwargs = {'parent': TrainingState(model=SelectiveRegressor(
+  (layer): SelectiveAffineLayer(
+    (base): Linear(in_features=2, ...3e56', direction_attempts=tensor([0, 0, 0]), cost={'shared_scored_units': 4, 'standalone_contrast_units_required': 0})}
+
+    def fail_factory(method,recipe,**kwargs):
+>       if method=='B5' and recipe.get('variant')=='adam': raise RuntimeError('primary experiment failure')
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: primary experiment failure
+
+tests/test_paired.py:368: RuntimeError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/test_final_publication_failure7')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x115c7adb0>
+phase = 'terminal', body_failure = True
+
+    @pytest.mark.parametrize('phase',['observation','index','study','terminal'])
+    @pytest.mark.parametrize('body_failure',[False,True])
+    def test_final_publication_failure_restores_process_and_primary_error(tmp_path,cpu_training_evidence,monkeypatch,phase,body_failure):
+        from treeneuron import train
+        from treeneuron.experiments import paired
+        from treeneuron.config import canonical_hash
+        receipt=train.BACKEND_REPORT_PATH
+        rng=train.capture_rng()
+        threads=torch.get_num_threads()
+        expected_rng=canonical_hash(paired._json_tree(rng))
+        build=paired.build_causal
+        observe=paired.update_run_observations
+        hash_file=paired.file_hash
+        write=paired.write_json
+        finish=paired.finish_run
+        finalizing=False
+        def fail_factory(method,recipe,**kwargs):
+            if method=='B5' and recipe.get('variant')=='adam': raise RuntimeError('primary experiment failure')
+            return build(method,recipe,**kwargs)
+        def observe_final(paths,values):
+            nonlocal finalizing
+            if 'enclosing' in values.get('costs',{}):
+                finalizing=True
+                if phase=='observation': raise OSError('secondary observation publication failure')
+            return observe(paths,values)
+        def hash_final(path):
+            if finalizing and phase=='index': raise OSError('secondary index publication failure')
+            return hash_file(path)
+        def write_final(path,value):
+            if path.name=='study.json' and phase=='study': raise OSError('secondary study publication failure')
+            return write(path,value)
+        def finish_final(paths,*args):
+            if paths.directory.parent==tmp_path and phase=='terminal': raise OSError('secondary terminal publication failure')
+            return finish(paths,*args)
+        if body_failure: monkeypatch.setattr(paired,'build_causal',fail_factory)
+        monkeypatch.setattr(paired,'update_run_observations',observe_final)
+        monkeypatch.setattr(paired,'file_hash',hash_final)
+        monkeypatch.setattr(paired,'write_json',write_final)
+        monkeypatch.setattr(paired,'finish_run',finish_final)
+        try:
+            with pytest.raises(RuntimeError if body_failure else OSError,
+                    match='primary experiment failure' if body_failure else 'secondary') as caught:
+>               paired.run_paired(small_config(tmp_path,cpu_training_evidence))
+
+tests/test_paired.py:393: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/experiments/paired.py:490: in run_paired
+    finish_run(paths,{'study':'study.json','study_sha256':file_hash(root/'study.json'),
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+paths = RunPaths(run_id='7e02c3ea0e164eb9b8340a94ba238ff7', directory=PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3676/test_final_publication_failure7/7e02c3ea0e164eb9b8340a94ba238ff7'))
+args = ({'study': 'study.json', 'study_sha256': '04ab4ca2304a306b10b6db07585e436e65fe66bcbc2e4a735decc42966161ead', 'failures': [{'type': 'RuntimeError', 'message': 'primary experiment failure'}]}, 'failed')
+
+    def finish_final(paths,*args):
+>       if paths.directory.parent==tmp_path and phase=='terminal': raise OSError('secondary terminal publication failure')
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       OSError: secondary terminal publication failure
+
+tests/test_paired.py:383: OSError
+=========================== short test summary info ============================
+FAILED tests/test_paired.py::test_final_publication_failure_restores_process_and_primary_error[False-observation]
+FAILED tests/test_paired.py::test_final_publication_failure_restores_process_and_primary_error[False-index]
+FAILED tests/test_paired.py::test_final_publication_failure_restores_process_and_primary_error[False-study]
+FAILED tests/test_paired.py::test_final_publication_failure_restores_process_and_primary_error[False-terminal]
+FAILED tests/test_paired.py::test_final_publication_failure_restores_process_and_primary_error[True-observation]
+FAILED tests/test_paired.py::test_final_publication_failure_restores_process_and_primary_error[True-index]
+FAILED tests/test_paired.py::test_final_publication_failure_restores_process_and_primary_error[True-study]
+FAILED tests/test_paired.py::test_final_publication_failure_restores_process_and_primary_error[True-terminal]
+8 failed, 27 deselected in 20.76s

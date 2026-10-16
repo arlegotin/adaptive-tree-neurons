@@ -1,0 +1,124 @@
+FFFFFFF                                                                  [100%]
+=================================== FAILURES ===================================
+____ test_unsupported_growth_request_rejected_before_artifacts[policy-keep] ____
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3665/test_unsupported_growth_reques0')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3665/training-evidence0/report.json')
+field = 'policy', value = 'keep'
+
+    @pytest.mark.parametrize('field,value', [('policy','keep'), ('policy','sgd'), ('policy','random'),
+        ('direction','gaussian'), ('projection_rms_floor',1.0), ('projection_rms_floor',1e-13)])
+    def test_unsupported_growth_request_rejected_before_artifacts(tmp_path, cpu_training_evidence, field, value):
+        from treeneuron.experiments.paired import run_paired
+        config = small_config(tmp_path, cpu_training_evidence)
+        config = replace(config, growth=replace(config.growth, **{field:value}))
+>       with pytest.raises(ValueError, match='fixed.*growth'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_paired.py:215: Failed
+____ test_unsupported_growth_request_rejected_before_artifacts[policy-sgd] _____
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3665/test_unsupported_growth_reques1')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3665/training-evidence0/report.json')
+field = 'policy', value = 'sgd'
+
+    @pytest.mark.parametrize('field,value', [('policy','keep'), ('policy','sgd'), ('policy','random'),
+        ('direction','gaussian'), ('projection_rms_floor',1.0), ('projection_rms_floor',1e-13)])
+    def test_unsupported_growth_request_rejected_before_artifacts(tmp_path, cpu_training_evidence, field, value):
+        from treeneuron.experiments.paired import run_paired
+        config = small_config(tmp_path, cpu_training_evidence)
+        config = replace(config, growth=replace(config.growth, **{field:value}))
+>       with pytest.raises(ValueError, match='fixed.*growth'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_paired.py:215: Failed
+___ test_unsupported_growth_request_rejected_before_artifacts[policy-random] ___
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3665/test_unsupported_growth_reques2')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3665/training-evidence0/report.json')
+field = 'policy', value = 'random'
+
+    @pytest.mark.parametrize('field,value', [('policy','keep'), ('policy','sgd'), ('policy','random'),
+        ('direction','gaussian'), ('projection_rms_floor',1.0), ('projection_rms_floor',1e-13)])
+    def test_unsupported_growth_request_rejected_before_artifacts(tmp_path, cpu_training_evidence, field, value):
+        from treeneuron.experiments.paired import run_paired
+        config = small_config(tmp_path, cpu_training_evidence)
+        config = replace(config, growth=replace(config.growth, **{field:value}))
+>       with pytest.raises(ValueError, match='fixed.*growth'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_paired.py:215: Failed
+_ test_unsupported_growth_request_rejected_before_artifacts[direction-gaussian] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3665/test_unsupported_growth_reques3')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3665/training-evidence0/report.json')
+field = 'direction', value = 'gaussian'
+
+    @pytest.mark.parametrize('field,value', [('policy','keep'), ('policy','sgd'), ('policy','random'),
+        ('direction','gaussian'), ('projection_rms_floor',1.0), ('projection_rms_floor',1e-13)])
+    def test_unsupported_growth_request_rejected_before_artifacts(tmp_path, cpu_training_evidence, field, value):
+        from treeneuron.experiments.paired import run_paired
+        config = small_config(tmp_path, cpu_training_evidence)
+        config = replace(config, growth=replace(config.growth, **{field:value}))
+>       with pytest.raises(ValueError, match='fixed.*growth'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_paired.py:215: Failed
+_ test_unsupported_growth_request_rejected_before_artifacts[projection_rms_floor-1.0] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3665/test_unsupported_growth_reques4')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3665/training-evidence0/report.json')
+field = 'projection_rms_floor', value = 1.0
+
+    @pytest.mark.parametrize('field,value', [('policy','keep'), ('policy','sgd'), ('policy','random'),
+        ('direction','gaussian'), ('projection_rms_floor',1.0), ('projection_rms_floor',1e-13)])
+    def test_unsupported_growth_request_rejected_before_artifacts(tmp_path, cpu_training_evidence, field, value):
+        from treeneuron.experiments.paired import run_paired
+        config = small_config(tmp_path, cpu_training_evidence)
+        config = replace(config, growth=replace(config.growth, **{field:value}))
+>       with pytest.raises(ValueError, match='fixed.*growth'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_paired.py:215: Failed
+_ test_unsupported_growth_request_rejected_before_artifacts[projection_rms_floor-1e-13] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3665/test_unsupported_growth_reques5')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3665/training-evidence0/report.json')
+field = 'projection_rms_floor', value = 1e-13
+
+    @pytest.mark.parametrize('field,value', [('policy','keep'), ('policy','sgd'), ('policy','random'),
+        ('direction','gaussian'), ('projection_rms_floor',1.0), ('projection_rms_floor',1e-13)])
+    def test_unsupported_growth_request_rejected_before_artifacts(tmp_path, cpu_training_evidence, field, value):
+        from treeneuron.experiments.paired import run_paired
+        config = small_config(tmp_path, cpu_training_evidence)
+        config = replace(config, growth=replace(config.growth, **{field:value}))
+>       with pytest.raises(ValueError, match='fixed.*growth'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_paired.py:215: Failed
+_________________ test_fixed_inventory_semantics_are_explicit __________________
+
+study = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3665/paired0/85fb2e1dedaf419e9322e7039234b275')
+
+    def test_fixed_inventory_semantics_are_explicit(study):
+        report=json.loads((study/'study.json').read_text())
+>       semantics=report['execution_semantics']
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'execution_semantics'
+
+tests/test_paired.py:222: KeyError
+=========================== short test summary info ============================
+FAILED tests/test_paired.py::test_unsupported_growth_request_rejected_before_artifacts[policy-keep]
+FAILED tests/test_paired.py::test_unsupported_growth_request_rejected_before_artifacts[policy-sgd]
+FAILED tests/test_paired.py::test_unsupported_growth_request_rejected_before_artifacts[policy-random]
+FAILED tests/test_paired.py::test_unsupported_growth_request_rejected_before_artifacts[direction-gaussian]
+FAILED tests/test_paired.py::test_unsupported_growth_request_rejected_before_artifacts[projection_rms_floor-1.0]
+FAILED tests/test_paired.py::test_unsupported_growth_request_rejected_before_artifacts[projection_rms_floor-1e-13]
+FAILED tests/test_paired.py::test_fixed_inventory_semantics_are_explicit - Ke...
+7 failed, 9 deselected in 32.20s

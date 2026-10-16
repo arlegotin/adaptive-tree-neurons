@@ -1,0 +1,1424 @@
+{
+  "artifacts_root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/core-final-fix-causal-runs",
+  "capabilities": {
+    "B0": {
+      "recipes": [
+        "mean",
+        "ridge"
+      ],
+      "spline": "pending EvidenceTask2",
+      "status": "verified"
+    },
+    "B1": {
+      "status": "verified"
+    },
+    "B2": {
+      "status": "verified"
+    },
+    "B2_duplication": {
+      "reason": "No duplication/state/symmetry recipe executed",
+      "status": "deferred"
+    },
+    "B3": {
+      "status": "verified"
+    },
+    "B4": {
+      "status": "verified"
+    },
+    "B5": {
+      "status": "verified"
+    },
+    "B6": {
+      "reason": "Evidence-plan validation-probed recipe",
+      "status": "pending"
+    },
+    "B7": {
+      "reason": "Evidence-plan pinned official NODE recipe",
+      "status": "pending"
+    }
+  },
+  "implemented_checks_passed": true,
+  "recipes": [
+    {
+      "actual_growth_count": 0,
+      "checkpoint": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/core-final-fix-causal-runs/control-0.json",
+      "checkpoint_sha256": "8244494b38e1641b37f4a7237bdc236c83058641ffc2f3fd50c9951932a31adb",
+      "cpu_evidence": null,
+      "executed_updates": 2,
+      "fit_cost": {
+        "adapter_fit_nanoseconds": 123743167,
+        "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+        "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+      },
+      "identities": {
+        "code": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "config": "7c9dc3bd65a65dc128c711e798b1b1cf113e6be01d879ea36ad9d3742d571131",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+        "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+      },
+      "logical_batch_size": 128,
+      "method_id": "B1",
+      "n_fit": 128,
+      "n_select": 32,
+      "physical_batch_size": 128,
+      "recipe": {},
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "selected_update": 4,
+      "topology": {
+        "kind": "selective_relu_scalar",
+        "layer": {
+          "d": 16,
+          "grown_ids": [],
+          "growth_applied": false,
+          "h": 64,
+          "schema_version": 1,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "total_parameters": 1153
+    },
+    {
+      "actual_growth_count": 0,
+      "checkpoint": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/core-final-fix-causal-runs/control-1.json",
+      "checkpoint_sha256": "78290bf3ffa799f8a7adc8deb9d6252dc934ebf8e370c59b27166d7a49c16676",
+      "cpu_evidence": {
+        "batch_size": 128,
+        "device": "cpu",
+        "dtype": "float32",
+        "execution": "eager",
+        "forward_max_abs": 1.7881393432617188e-07,
+        "gradient_max_abs": 8.940696716308594e-08,
+        "optimizer_max_abs": 1.4901161193847656e-08,
+        "parameter_shapes": {
+          "head.bias": [
+            1
+          ],
+          "head.weight": [
+            1,
+            94
+          ],
+          "layer.base.bias": [
+            94
+          ],
+          "layer.base.weight": [
+            94,
+            16
+          ]
+        },
+        "reload_next_update_max_abs": 0.0,
+        "schema_version": 1,
+        "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+        "seed": 1602041,
+        "source_hash": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "status": "passed",
+        "topology": {
+          "kind": "selective_relu_scalar",
+          "layer": {
+            "d": 16,
+            "grown_ids": [],
+            "growth_applied": false,
+            "h": 94,
+            "schema_version": 1,
+            "tau": 1.0
+          },
+          "schema_version": 1
+        },
+        "total_parameters": 1693
+      },
+      "executed_updates": 2,
+      "fit_cost": {
+        "adapter_fit_nanoseconds": 170862500,
+        "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+        "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+      },
+      "identities": {
+        "code": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "config": "92795c4017cee5624a874cbae7ac7f8af0a9acb233c331dd386e7e215f70346a",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+        "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+      },
+      "logical_batch_size": 128,
+      "method_id": "B2",
+      "n_fit": 128,
+      "n_select": 32,
+      "physical_batch_size": 128,
+      "recipe": {
+        "target_parameters": 1697,
+        "variant": "lower"
+      },
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "selected_update": 2,
+      "topology": {
+        "kind": "selective_relu_scalar",
+        "layer": {
+          "d": 16,
+          "grown_ids": [],
+          "growth_applied": false,
+          "h": 94,
+          "schema_version": 1,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "total_parameters": 1693
+    },
+    {
+      "actual_growth_count": 0,
+      "checkpoint": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/core-final-fix-causal-runs/control-2.json",
+      "checkpoint_sha256": "3f4eb58af460b7e9065e7537681b789472ed7c0c3d4d2bb3836454cda52a7334",
+      "cpu_evidence": {
+        "batch_size": 128,
+        "device": "cpu",
+        "dtype": "float32",
+        "execution": "eager",
+        "forward_max_abs": 1.1920928955078125e-07,
+        "gradient_max_abs": 1.1920928955078125e-07,
+        "optimizer_max_abs": 7.450580596923828e-09,
+        "parameter_shapes": {
+          "head.bias": [
+            1
+          ],
+          "head.weight": [
+            1,
+            95
+          ],
+          "layer.base.bias": [
+            95
+          ],
+          "layer.base.weight": [
+            95,
+            16
+          ]
+        },
+        "reload_next_update_max_abs": 0.0,
+        "schema_version": 1,
+        "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+        "seed": 1602041,
+        "source_hash": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "status": "passed",
+        "topology": {
+          "kind": "selective_relu_scalar",
+          "layer": {
+            "d": 16,
+            "grown_ids": [],
+            "growth_applied": false,
+            "h": 95,
+            "schema_version": 1,
+            "tau": 1.0
+          },
+          "schema_version": 1
+        },
+        "total_parameters": 1711
+      },
+      "executed_updates": 2,
+      "fit_cost": {
+        "adapter_fit_nanoseconds": 169030542,
+        "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+        "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+      },
+      "identities": {
+        "code": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "config": "76fa66543d02dc4c5f248a163986c498e73361e21e821f3f77549a71823845aa",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+        "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+      },
+      "logical_batch_size": 128,
+      "method_id": "B2",
+      "n_fit": 128,
+      "n_select": 32,
+      "physical_batch_size": 128,
+      "recipe": {
+        "target_parameters": 1697,
+        "variant": "upper"
+      },
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "selected_update": 2,
+      "topology": {
+        "kind": "selective_relu_scalar",
+        "layer": {
+          "d": 16,
+          "grown_ids": [],
+          "growth_applied": false,
+          "h": 95,
+          "schema_version": 1,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "total_parameters": 1711
+    },
+    {
+      "actual_growth_count": 30,
+      "checkpoint": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/core-final-fix-causal-runs/control-3.json",
+      "checkpoint_sha256": "be2085894ecdcd3b5f109dffa71d92cf7fc2c33766275cd75c6f22a0d27ba823",
+      "cpu_evidence": {
+        "batch_size": 128,
+        "device": "cpu",
+        "dtype": "float32",
+        "execution": "eager",
+        "forward_max_abs": 8.940696716308594e-08,
+        "gradient_max_abs": 3.725290298461914e-08,
+        "optimizer_max_abs": 7.450580596923828e-09,
+        "parameter_shapes": {
+          "head.added.weight": [
+            1,
+            30
+          ],
+          "head.base.bias": [
+            1
+          ],
+          "head.base.weight": [
+            1,
+            64
+          ],
+          "layer.added.bias": [
+            30
+          ],
+          "layer.added.weight": [
+            30,
+            16
+          ],
+          "layer.base.bias": [
+            64
+          ],
+          "layer.base.weight": [
+            64,
+            16
+          ]
+        },
+        "reload_next_update_max_abs": 0.0,
+        "schema_version": 1,
+        "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+        "seed": 1602041,
+        "source_hash": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "status": "passed",
+        "topology": {
+          "kind": "widened_relu_scalar",
+          "layer": {
+            "d": 16,
+            "h": 94,
+            "parent_width": 64,
+            "tau": 1.0
+          },
+          "schema_version": 1
+        },
+        "total_parameters": 1693
+      },
+      "executed_updates": 2,
+      "fit_cost": {
+        "adapter_fit_nanoseconds": 195260250,
+        "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+        "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+      },
+      "identities": {
+        "code": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "config": "310239a8ee11044be688c34bac6b78ccc121e6eb5d0f86394f21b181607b09fc",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+        "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+      },
+      "logical_batch_size": 128,
+      "method_id": "B2",
+      "n_fit": 128,
+      "n_select": 32,
+      "physical_batch_size": 128,
+      "recipe": {
+        "added_units": 30,
+        "seed": 4,
+        "variant": "widen"
+      },
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "selected_update": 4,
+      "topology": {
+        "kind": "widened_relu_scalar",
+        "layer": {
+          "d": 16,
+          "h": 94,
+          "parent_width": 64,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "total_parameters": 1693
+    },
+    {
+      "actual_growth_count": 31,
+      "checkpoint": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/core-final-fix-causal-runs/control-4.json",
+      "checkpoint_sha256": "437fcc18fffa8d4d988cb3fae0085926354c802c7a07230d6c2a94ffd97e9158",
+      "cpu_evidence": {
+        "batch_size": 128,
+        "device": "cpu",
+        "dtype": "float32",
+        "execution": "eager",
+        "forward_max_abs": 8.940696716308594e-08,
+        "gradient_max_abs": 3.725290298461914e-08,
+        "optimizer_max_abs": 7.450580596923828e-09,
+        "parameter_shapes": {
+          "head.added.weight": [
+            1,
+            31
+          ],
+          "head.base.bias": [
+            1
+          ],
+          "head.base.weight": [
+            1,
+            64
+          ],
+          "layer.added.bias": [
+            31
+          ],
+          "layer.added.weight": [
+            31,
+            16
+          ],
+          "layer.base.bias": [
+            64
+          ],
+          "layer.base.weight": [
+            64,
+            16
+          ]
+        },
+        "reload_next_update_max_abs": 0.0,
+        "schema_version": 1,
+        "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+        "seed": 1602041,
+        "source_hash": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "status": "passed",
+        "topology": {
+          "kind": "widened_relu_scalar",
+          "layer": {
+            "d": 16,
+            "h": 95,
+            "parent_width": 64,
+            "tau": 1.0
+          },
+          "schema_version": 1
+        },
+        "total_parameters": 1711
+      },
+      "executed_updates": 2,
+      "fit_cost": {
+        "adapter_fit_nanoseconds": 193997125,
+        "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+        "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+      },
+      "identities": {
+        "code": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "config": "8e11ea88196b0a09697da8a427c9d14d6410de79599699745b290ca1d3ff6a7b",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+        "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+      },
+      "logical_batch_size": 128,
+      "method_id": "B2",
+      "n_fit": 128,
+      "n_select": 32,
+      "physical_batch_size": 128,
+      "recipe": {
+        "added_units": 31,
+        "seed": 4,
+        "variant": "widen"
+      },
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "selected_update": 4,
+      "topology": {
+        "kind": "widened_relu_scalar",
+        "layer": {
+          "d": 16,
+          "h": 95,
+          "parent_width": 64,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "total_parameters": 1711
+    },
+    {
+      "actual_growth_count": 16,
+      "checkpoint": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/core-final-fix-causal-runs/control-5.json",
+      "checkpoint_sha256": "fac17fae251b20c31edf3d92fe9170c30160b662298c0c525b45448f56fcd40c",
+      "cpu_evidence": {
+        "batch_size": 128,
+        "device": "cpu",
+        "dtype": "float32",
+        "execution": "eager",
+        "forward_max_abs": 8.940696716308594e-08,
+        "gradient_max_abs": 4.470348358154297e-08,
+        "optimizer_max_abs": 1.4901161193847656e-08,
+        "parameter_shapes": {
+          "head.bias": [
+            1
+          ],
+          "head.weight": [
+            1,
+            64
+          ],
+          "layer.center.bias": [
+            16
+          ],
+          "layer.center.weight": [
+            16,
+            16
+          ],
+          "layer.contrast.bias": [
+            16
+          ],
+          "layer.contrast.weight": [
+            16,
+            16
+          ],
+          "layer.gate.bias": [
+            16
+          ],
+          "layer.gate.weight": [
+            16,
+            16
+          ],
+          "layer.ordinary.bias": [
+            48
+          ],
+          "layer.ordinary.weight": [
+            48,
+            16
+          ]
+        },
+        "reload_next_update_max_abs": 0.0,
+        "schema_version": 1,
+        "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+        "seed": 1602041,
+        "source_hash": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "status": "passed",
+        "topology": {
+          "kind": "static_gated_relu_scalar",
+          "layer": {
+            "coordinates": "centered",
+            "count": 16,
+            "d": 16,
+            "h": 64,
+            "tau": 1.0
+          },
+          "schema_version": 1
+        },
+        "total_parameters": 1697
+      },
+      "executed_updates": 2,
+      "fit_cost": {
+        "adapter_fit_nanoseconds": 195663583,
+        "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+        "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+      },
+      "identities": {
+        "code": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "config": "1cdddcfc7392fd0c59ed385b1e195d1e855cfb667491e44bf7d9f548b27219b1",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+        "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+      },
+      "logical_batch_size": 128,
+      "method_id": "B3",
+      "n_fit": 128,
+      "n_select": 32,
+      "physical_batch_size": 128,
+      "recipe": {
+        "coordinates": "centered",
+        "count": 16,
+        "variant": "partial"
+      },
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "selected_update": 2,
+      "topology": {
+        "kind": "static_gated_relu_scalar",
+        "layer": {
+          "coordinates": "centered",
+          "count": 16,
+          "d": 16,
+          "h": 64,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "total_parameters": 1697
+    },
+    {
+      "actual_growth_count": 64,
+      "checkpoint": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/core-final-fix-causal-runs/control-6.json",
+      "checkpoint_sha256": "7c1895cb300d3a3a0e55f1772086a7569d8d4bfcdd65e5a554856b5f6f45ca4f",
+      "cpu_evidence": {
+        "batch_size": 128,
+        "device": "cpu",
+        "dtype": "float32",
+        "execution": "eager",
+        "forward_max_abs": 1.1920928955078125e-07,
+        "gradient_max_abs": 7.450580596923828e-08,
+        "optimizer_max_abs": 1.4901161193847656e-08,
+        "parameter_shapes": {
+          "head.bias": [
+            1
+          ],
+          "head.weight": [
+            1,
+            64
+          ],
+          "layer.center.bias": [
+            64
+          ],
+          "layer.center.weight": [
+            64,
+            16
+          ],
+          "layer.contrast.bias": [
+            64
+          ],
+          "layer.contrast.weight": [
+            64,
+            16
+          ],
+          "layer.gate.bias": [
+            64
+          ],
+          "layer.gate.weight": [
+            64,
+            16
+          ]
+        },
+        "reload_next_update_max_abs": 0.0,
+        "schema_version": 1,
+        "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+        "seed": 1602041,
+        "source_hash": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "status": "passed",
+        "topology": {
+          "kind": "static_gated_relu_scalar",
+          "layer": {
+            "coordinates": "centered",
+            "count": 64,
+            "d": 16,
+            "h": 64,
+            "tau": 1.0
+          },
+          "schema_version": 1
+        },
+        "total_parameters": 3329
+      },
+      "executed_updates": 2,
+      "fit_cost": {
+        "adapter_fit_nanoseconds": 190212750,
+        "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+        "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+      },
+      "identities": {
+        "code": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "config": "30290935ed41f65093412820e86e63e84a357c7a8dd674faaaf65cb74eee601e",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+        "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+      },
+      "logical_batch_size": 128,
+      "method_id": "B3",
+      "n_fit": 128,
+      "n_select": 32,
+      "physical_batch_size": 128,
+      "recipe": {
+        "coordinates": "centered",
+        "variant": "full"
+      },
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "selected_update": 2,
+      "topology": {
+        "kind": "static_gated_relu_scalar",
+        "layer": {
+          "coordinates": "centered",
+          "count": 64,
+          "d": 16,
+          "h": 64,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "total_parameters": 3329
+    },
+    {
+      "actual_growth_count": 16,
+      "checkpoint": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/core-final-fix-causal-runs/control-7.json",
+      "checkpoint_sha256": "f049476b5600540460039cf82ea6919591b0399db487d56e4bd8be7372b02ce2",
+      "cpu_evidence": {
+        "batch_size": 128,
+        "device": "cpu",
+        "dtype": "float32",
+        "execution": "eager",
+        "forward_max_abs": 1.1920928955078125e-07,
+        "gradient_max_abs": 5.21540641784668e-08,
+        "optimizer_max_abs": 1.4901161193847656e-08,
+        "parameter_shapes": {
+          "head.bias": [
+            1
+          ],
+          "head.weight": [
+            1,
+            64
+          ],
+          "layer.gate.bias": [
+            16
+          ],
+          "layer.gate.weight": [
+            16,
+            16
+          ],
+          "layer.left.bias": [
+            16
+          ],
+          "layer.left.weight": [
+            16,
+            16
+          ],
+          "layer.ordinary.bias": [
+            48
+          ],
+          "layer.ordinary.weight": [
+            48,
+            16
+          ],
+          "layer.right.bias": [
+            16
+          ],
+          "layer.right.weight": [
+            16,
+            16
+          ]
+        },
+        "reload_next_update_max_abs": 0.0,
+        "schema_version": 1,
+        "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+        "seed": 1602041,
+        "source_hash": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "status": "passed",
+        "topology": {
+          "kind": "static_gated_relu_scalar",
+          "layer": {
+            "coordinates": "direct_leaf",
+            "count": 16,
+            "d": 16,
+            "h": 64,
+            "tau": 1.0
+          },
+          "schema_version": 1
+        },
+        "total_parameters": 1697
+      },
+      "executed_updates": 2,
+      "fit_cost": {
+        "adapter_fit_nanoseconds": 194332375,
+        "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+        "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+      },
+      "identities": {
+        "code": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "config": "d49cc2282b989ca3fc0ebbf93aa8fe21974fe936a032f2a3ab18c62d5d28d414",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+        "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+      },
+      "logical_batch_size": 128,
+      "method_id": "B3",
+      "n_fit": 128,
+      "n_select": 32,
+      "physical_batch_size": 128,
+      "recipe": {
+        "coordinates": "direct_leaf",
+        "count": 16,
+        "variant": "partial"
+      },
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "selected_update": 2,
+      "topology": {
+        "kind": "static_gated_relu_scalar",
+        "layer": {
+          "coordinates": "direct_leaf",
+          "count": 16,
+          "d": 16,
+          "h": 64,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "total_parameters": 1697
+    },
+    {
+      "actual_growth_count": 64,
+      "checkpoint": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/core-final-fix-causal-runs/control-8.json",
+      "checkpoint_sha256": "edaa027f07535ab7ec382e0e1cde597402a66f4297b6218fa5f13e3bcaff7511",
+      "cpu_evidence": {
+        "batch_size": 128,
+        "device": "cpu",
+        "dtype": "float32",
+        "execution": "eager",
+        "forward_max_abs": 8.940696716308594e-08,
+        "gradient_max_abs": 4.470348358154297e-08,
+        "optimizer_max_abs": 1.4901161193847656e-08,
+        "parameter_shapes": {
+          "head.bias": [
+            1
+          ],
+          "head.weight": [
+            1,
+            64
+          ],
+          "layer.gate.bias": [
+            64
+          ],
+          "layer.gate.weight": [
+            64,
+            16
+          ],
+          "layer.left.bias": [
+            64
+          ],
+          "layer.left.weight": [
+            64,
+            16
+          ],
+          "layer.right.bias": [
+            64
+          ],
+          "layer.right.weight": [
+            64,
+            16
+          ]
+        },
+        "reload_next_update_max_abs": 0.0,
+        "schema_version": 1,
+        "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+        "seed": 1602041,
+        "source_hash": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "status": "passed",
+        "topology": {
+          "kind": "static_gated_relu_scalar",
+          "layer": {
+            "coordinates": "direct_leaf",
+            "count": 64,
+            "d": 16,
+            "h": 64,
+            "tau": 1.0
+          },
+          "schema_version": 1
+        },
+        "total_parameters": 3329
+      },
+      "executed_updates": 2,
+      "fit_cost": {
+        "adapter_fit_nanoseconds": 190350459,
+        "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+        "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+      },
+      "identities": {
+        "code": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "config": "1be7cce35da69b2296c4f173e30677d5a4774159db3a870b553939f5afbc0ef2",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+        "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+      },
+      "logical_batch_size": 128,
+      "method_id": "B3",
+      "n_fit": 128,
+      "n_select": 32,
+      "physical_batch_size": 128,
+      "recipe": {
+        "coordinates": "direct_leaf",
+        "variant": "full"
+      },
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "selected_update": 2,
+      "topology": {
+        "kind": "static_gated_relu_scalar",
+        "layer": {
+          "coordinates": "direct_leaf",
+          "count": 64,
+          "d": 16,
+          "h": 64,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "total_parameters": 3329
+    },
+    {
+      "actual_growth_count": 16,
+      "checkpoint": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/core-final-fix-causal-runs/control-9.json",
+      "checkpoint_sha256": "3730f6d2fd1b9f251db01e170bf6ceab33979b51f041f9e89b237befb4473efe",
+      "cpu_evidence": {
+        "batch_size": 128,
+        "device": "cpu",
+        "dtype": "float32",
+        "execution": "eager",
+        "forward_max_abs": 8.940696716308594e-08,
+        "gradient_max_abs": 3.725290298461914e-08,
+        "optimizer_max_abs": 7.450580596923828e-09,
+        "parameter_shapes": {
+          "head.bias": [
+            1
+          ],
+          "head.weight": [
+            1,
+            64
+          ],
+          "layer.base.bias": [
+            64
+          ],
+          "layer.base.weight": [
+            64,
+            16
+          ],
+          "layer.contrast.bias": [
+            16
+          ],
+          "layer.contrast.weight": [
+            16,
+            16
+          ],
+          "layer.gate.bias": [
+            16
+          ],
+          "layer.gate.weight": [
+            16,
+            16
+          ]
+        },
+        "reload_next_update_max_abs": 0.0,
+        "schema_version": 1,
+        "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+        "seed": 1602041,
+        "source_hash": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "status": "passed",
+        "topology": {
+          "kind": "selective_relu_scalar",
+          "layer": {
+            "d": 16,
+            "grown_ids": [
+              6,
+              7,
+              11,
+              12,
+              13,
+              15,
+              17,
+              28,
+              33,
+              38,
+              42,
+              44,
+              49,
+              50,
+              60,
+              62
+            ],
+            "growth_applied": true,
+            "h": 64,
+            "schema_version": 1,
+            "tau": 1.0
+          },
+          "schema_version": 1
+        },
+        "total_parameters": 1697
+      },
+      "executed_updates": 2,
+      "fit_cost": {
+        "adapter_fit_nanoseconds": 172406750,
+        "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+        "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+      },
+      "identities": {
+        "code": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "config": "7c9dc3bd65a65dc128c711e798b1b1cf113e6be01d879ea36ad9d3742d571131",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+        "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+      },
+      "logical_batch_size": 128,
+      "method_id": "B4",
+      "n_fit": 128,
+      "n_select": 32,
+      "physical_batch_size": 128,
+      "recipe": {},
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "selected_update": 4,
+      "topology": {
+        "kind": "selective_relu_scalar",
+        "layer": {
+          "d": 16,
+          "grown_ids": [
+            6,
+            7,
+            11,
+            12,
+            13,
+            15,
+            17,
+            28,
+            33,
+            38,
+            42,
+            44,
+            49,
+            50,
+            60,
+            62
+          ],
+          "growth_applied": true,
+          "h": 64,
+          "schema_version": 1,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "total_parameters": 1697
+    },
+    {
+      "actual_growth_count": 16,
+      "checkpoint": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/core-final-fix-causal-runs/control-10.json",
+      "checkpoint_sha256": "783e5b3ea83383d03cd71e91d83e1048500f5af14bbae86a06aad6d6adce95ef",
+      "cpu_evidence": {
+        "batch_size": 128,
+        "device": "cpu",
+        "dtype": "float32",
+        "execution": "eager",
+        "forward_max_abs": 8.940696716308594e-08,
+        "gradient_max_abs": 3.725290298461914e-08,
+        "optimizer_max_abs": 7.450580596923828e-09,
+        "parameter_shapes": {
+          "head.bias": [
+            1
+          ],
+          "head.weight": [
+            1,
+            64
+          ],
+          "layer.base.bias": [
+            64
+          ],
+          "layer.base.weight": [
+            64,
+            16
+          ],
+          "layer.contrast.bias": [
+            16
+          ],
+          "layer.contrast.weight": [
+            16,
+            16
+          ],
+          "layer.gate.bias": [
+            16
+          ],
+          "layer.gate.weight": [
+            16,
+            16
+          ]
+        },
+        "reload_next_update_max_abs": 0.0,
+        "schema_version": 1,
+        "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+        "seed": 1602041,
+        "source_hash": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "status": "passed",
+        "topology": {
+          "kind": "selective_relu_scalar",
+          "layer": {
+            "d": 16,
+            "grown_ids": [
+              1,
+              3,
+              7,
+              12,
+              16,
+              24,
+              25,
+              26,
+              33,
+              34,
+              35,
+              37,
+              38,
+              50,
+              53,
+              62
+            ],
+            "growth_applied": true,
+            "h": 64,
+            "schema_version": 1,
+            "tau": 1.0
+          },
+          "schema_version": 1
+        },
+        "total_parameters": 1697
+      },
+      "executed_updates": 2,
+      "fit_cost": {
+        "adapter_fit_nanoseconds": 173845875,
+        "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+        "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+      },
+      "identities": {
+        "code": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "config": "7c9dc3bd65a65dc128c711e798b1b1cf113e6be01d879ea36ad9d3742d571131",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+        "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+      },
+      "logical_batch_size": 128,
+      "method_id": "B5",
+      "n_fit": 128,
+      "n_select": 32,
+      "physical_batch_size": 128,
+      "recipe": {
+        "variant": "gaussian"
+      },
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "selected_update": 4,
+      "topology": {
+        "kind": "selective_relu_scalar",
+        "layer": {
+          "d": 16,
+          "grown_ids": [
+            1,
+            3,
+            7,
+            12,
+            16,
+            24,
+            25,
+            26,
+            33,
+            34,
+            35,
+            37,
+            38,
+            50,
+            53,
+            62
+          ],
+          "growth_applied": true,
+          "h": 64,
+          "schema_version": 1,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "total_parameters": 1697
+    },
+    {
+      "actual_growth_count": 16,
+      "checkpoint": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/core-final-fix-causal-runs/control-11.json",
+      "checkpoint_sha256": "69bc840bc9dfcc7d6fa2133181ccc982c7f54ec34814e00ff5acbe715878a518",
+      "cpu_evidence": {
+        "batch_size": 128,
+        "device": "cpu",
+        "dtype": "float32",
+        "execution": "eager",
+        "forward_max_abs": 8.940696716308594e-08,
+        "gradient_max_abs": 3.725290298461914e-08,
+        "optimizer_max_abs": 7.450580596923828e-09,
+        "parameter_shapes": {
+          "head.bias": [
+            1
+          ],
+          "head.weight": [
+            1,
+            64
+          ],
+          "layer.base.bias": [
+            64
+          ],
+          "layer.base.weight": [
+            64,
+            16
+          ],
+          "layer.contrast.bias": [
+            16
+          ],
+          "layer.contrast.weight": [
+            16,
+            16
+          ],
+          "layer.gate.bias": [
+            16
+          ],
+          "layer.gate.weight": [
+            16,
+            16
+          ]
+        },
+        "reload_next_update_max_abs": 0.0,
+        "schema_version": 1,
+        "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+        "seed": 1602041,
+        "source_hash": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "status": "passed",
+        "topology": {
+          "kind": "selective_relu_scalar",
+          "layer": {
+            "d": 16,
+            "grown_ids": [
+              1,
+              3,
+              7,
+              12,
+              16,
+              24,
+              25,
+              26,
+              33,
+              34,
+              35,
+              37,
+              38,
+              50,
+              53,
+              62
+            ],
+            "growth_applied": true,
+            "h": 64,
+            "schema_version": 1,
+            "tau": 1.0
+          },
+          "schema_version": 1
+        },
+        "total_parameters": 1697
+      },
+      "executed_updates": 2,
+      "fit_cost": {
+        "adapter_fit_nanoseconds": 174431958,
+        "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+        "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+      },
+      "identities": {
+        "code": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "config": "7c9dc3bd65a65dc128c711e798b1b1cf113e6be01d879ea36ad9d3742d571131",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+        "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+      },
+      "logical_batch_size": 128,
+      "method_id": "B5",
+      "n_fit": 128,
+      "n_select": 32,
+      "physical_batch_size": 128,
+      "recipe": {
+        "variant": "adam"
+      },
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "selected_update": 4,
+      "topology": {
+        "kind": "selective_relu_scalar",
+        "layer": {
+          "d": 16,
+          "grown_ids": [
+            1,
+            3,
+            7,
+            12,
+            16,
+            24,
+            25,
+            26,
+            33,
+            34,
+            35,
+            37,
+            38,
+            50,
+            53,
+            62
+          ],
+          "growth_applied": true,
+          "h": 64,
+          "schema_version": 1,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "total_parameters": 1697
+    },
+    {
+      "actual_growth_count": 16,
+      "checkpoint": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/core-final-fix-causal-runs/control-12.json",
+      "checkpoint_sha256": "f8d7e63f53c364cd6f987978358e3157a1dd0371b081add7588beefaeaeb1e9a",
+      "cpu_evidence": {
+        "batch_size": 128,
+        "device": "cpu",
+        "dtype": "float32",
+        "execution": "eager",
+        "forward_max_abs": 8.940696716308594e-08,
+        "gradient_max_abs": 3.725290298461914e-08,
+        "optimizer_max_abs": 5.861511453986168e-08,
+        "parameter_shapes": {
+          "head.bias": [
+            1
+          ],
+          "head.weight": [
+            1,
+            64
+          ],
+          "layer.base.bias": [
+            64
+          ],
+          "layer.base.weight": [
+            64,
+            16
+          ],
+          "layer.contrast.bias": [
+            16
+          ],
+          "layer.contrast.weight": [
+            16,
+            16
+          ],
+          "layer.gate.bias": [
+            16
+          ],
+          "layer.gate.weight": [
+            16,
+            16
+          ]
+        },
+        "reload_next_update_max_abs": 0.0,
+        "schema_version": 1,
+        "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+        "seed": 1602041,
+        "source_hash": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "status": "passed",
+        "topology": {
+          "kind": "selective_relu_scalar",
+          "layer": {
+            "d": 16,
+            "grown_ids": [
+              1,
+              3,
+              7,
+              12,
+              16,
+              23,
+              24,
+              25,
+              26,
+              33,
+              34,
+              37,
+              38,
+              50,
+              52,
+              62
+            ],
+            "growth_applied": true,
+            "h": 64,
+            "schema_version": 1,
+            "tau": 1.0
+          },
+          "schema_version": 1
+        },
+        "total_parameters": 1697
+      },
+      "executed_updates": 2,
+      "fit_cost": {
+        "adapter_fit_nanoseconds": 172437292,
+        "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+        "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+      },
+      "identities": {
+        "code": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+        "config": "7c9dc3bd65a65dc128c711e798b1b1cf113e6be01d879ea36ad9d3742d571131",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+        "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+      },
+      "logical_batch_size": 128,
+      "method_id": "B5",
+      "n_fit": 128,
+      "n_select": 32,
+      "physical_batch_size": 128,
+      "recipe": {
+        "variant": "sgd"
+      },
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "selected_update": 4,
+      "topology": {
+        "kind": "selective_relu_scalar",
+        "layer": {
+          "d": 16,
+          "grown_ids": [
+            1,
+            3,
+            7,
+            12,
+            16,
+            23,
+            24,
+            25,
+            26,
+            33,
+            34,
+            37,
+            38,
+            50,
+            52,
+            62
+          ],
+          "growth_applied": true,
+          "h": 64,
+          "schema_version": 1,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "total_parameters": 1697
+    }
+  ],
+  "schema_version": 1,
+  "scope": "CPU correctness diagnostics, not predictive or throughput evidence",
+  "source_hash": "39f697d80eba928e5bbcce019beed912c358a20e3b62995d71c9577517e6a032",
+  "track": "causal"
+}

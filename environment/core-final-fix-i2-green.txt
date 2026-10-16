@@ -1,0 +1,48 @@
+F..                                                                      [100%]
+=================================== FAILURES ===================================
+____________ test_ineligible_diagnostic_score_export_and_summary[1] ____________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3668/test_ineligible_diagnostic_sco0')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3668/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10be272c0>
+fail_count = 1
+
+    @pytest.mark.parametrize('fail_count', [1,4])
+    def test_ineligible_diagnostic_score_export_and_summary(tmp_path, cpu_training_evidence, monkeypatch, fail_count):
+        from treeneuron.experiments import paired
+        from treeneuron.analysis.exploratory import summarize_exploratory
+        score=paired.score_units
+        original_eigh=torch.linalg.eigh
+        identities=[]
+        def score_with_eigen_failure(*args, **kwargs):
+            calls=0
+            def eigh(moment):
+                nonlocal calls
+                calls+=1
+                if calls<=fail_count: raise torch.linalg.LinAlgError('injected unavailable eigenvalues')
+                return original_eigh(moment)
+            with monkeypatch.context() as patch:
+                patch.setattr(torch.linalg, 'eigh', eigh)
+                table=score(*args, **kwargs)
+            identities.append(table.table_hash)
+            return table
+        monkeypatch.setattr(paired,'score_units',score_with_eigen_failure)
+        directory=paired.run_paired(small_config(tmp_path,cpu_training_evidence))
+        raw=(directory/'score-table.json').read_text()
+        assert 'NaN' not in raw and 'Infinity' not in raw
+        table=json.loads(raw)
+        assert table['table_hash']==identities[0]
+        assert table['status'][:fail_count]==['eigendecomposition_failed']*fail_count
+        assert table['eigenvalues'][:fail_count]==[[None]*3]*fail_count
+        assert all(item['reason']=='eigendecomposition_failed' for item in table['unavailable_diagnostics'])
+        report=summarize_exploratory(directory)
+        assert report['status']=='completed'
+        for method in ('top','random','gaussian','sgd'):
+            allocation=report['methods'][method]['allocation']
+>           assert allocation['effective_count']==4-fail_count
+E           assert 2 == (4 - 1)
+
+tests/test_paired.py:260: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_paired.py::test_ineligible_diagnostic_score_export_and_summary[1]
+1 failed, 2 passed, 16 deselected in 10.76s
