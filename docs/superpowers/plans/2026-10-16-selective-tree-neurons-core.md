@@ -64,8 +64,8 @@ Assertion snippets use test-owned fixtures whose setup is described in the task;
 
 **Interfaces:** Produce `collect_system_report() -> dict[str, Any]`, `write_report(report: dict[str, Any], output: Path) -> None`, and CLI `doctor --output PATH`. Report schema version, UTC, architecture/OS/memory/CPU/disk/power/tool/package observations, command errors, Torch/MPS build/availability, fallback environment, lock hash and source status. Missing counters are null with reasons.
 
-- [ ] **Step 1:** Re-run the spec §2/§10 discovery commands; check stable primary package docs and R12’s official/author routes. Record source URLs/retrieval/scope, code/asset terms, access failures, and an install/disk forecast before acquisition. Do not download weights or accept an agreement. Select native Python/PyTorch compatibility, first trying Python 3.12.
-- [ ] **Step 2:** Bootstrap only the chosen local venv and pytest so a failing test can run. Write `test_doctor_preserves_unavailable_fields` with an injected failed probe: assert the counter is `None`, reason/return code retained, report JSON finite/parseable, no serial/UUID output, and an arm64 observation is not replaced by an assumption. Run `.venv/bin/python -m pytest tests/test_doctor.py -q`; expect a missing doctor API failure.
+- [x] **Step 1:** Re-run the spec §2/§10 discovery commands; check stable primary package docs and R12’s official/author routes. Record source URLs/retrieval/scope, code/asset terms, access failures, and an install/disk forecast before acquisition. Do not download weights or accept an agreement. Select native Python/PyTorch compatibility, first trying Python 3.12.
+- [x] **Step 2:** Bootstrap only the chosen local venv and pytest so a failing test can run. Write `test_doctor_preserves_unavailable_fields` with an injected failed probe: assert the counter is `None`, reason/return code retained, report JSON finite/parseable, no serial/UUID output, and an arm64 observation is not replaced by an assumption. Run `.venv/bin/python -m pytest tests/test_doctor.py -q`; expect a missing doctor API failure.
 
 ```python
 def test_doctor_preserves_unavailable_fields(tmp_path, unavailable_report):
@@ -74,9 +74,9 @@ def test_doctor_preserves_unavailable_fields(tmp_path, unavailable_report):
     assert json.loads(output.read_text()) == unavailable_report
 ```
 
-- [ ] **Step 3:** Implement packaging, doctor and CLI; declare only the spec’s core packages, resolve `uv.lock`, then `uv sync --frozen`. Do not force a guessed version. Pin source/license metadata and write provisional novelty status in `protocol/prior_art_delta.md`. Probe failures remain data; indispensable CPU import failures return a nonzero command status.
-- [ ] **Step 4:** Run `.venv/bin/python -m pytest tests/test_doctor.py -q` and `.venv/bin/python -m treeneuron.cli doctor --output environment/report.json`; expect passing tests and a report with actual native process/package values. MPS availability alone does not complete WP00; Task 8 closes the kernel gate. Keep runtime reports outside Git unless explicitly curated/redacted as evidence.
-- [ ] **Step 5:** Append the prerequisite decision and commit the packaging/doctor/provenance files: `chore: establish native core environment and prerequisite record`. Include exact selected dependencies and reasons, remaining R12 access hold, and any disk/backend limitation.
+- [x] **Step 3:** Implement packaging, doctor and CLI; declare only the spec’s core packages, resolve `uv.lock`, then `uv sync --frozen`. Do not force a guessed version. Pin source/license metadata and write provisional novelty status in `protocol/prior_art_delta.md`. Probe failures remain data; indispensable CPU import failures return a nonzero command status.
+- [x] **Step 4:** Run `.venv/bin/python -m pytest tests/test_doctor.py -q` and `.venv/bin/python -m treeneuron.cli doctor --output environment/report.json`; expect passing tests and a report with actual native process/package values. MPS availability alone does not complete WP00; Task 8 closes the kernel gate. Keep runtime reports outside Git unless explicitly curated/redacted as evidence.
+- [x] **Step 5:** Append the prerequisite decision and commit the packaging/doctor/provenance files: `chore: establish native core environment and prerequisite record`. Include exact selected dependencies and reasons, remaining R12 access hold, and any disk/backend limitation.
 
 ## Task 2: Define strict configuration, hashes and append-only run records
 
@@ -84,7 +84,7 @@ def test_doctor_preserves_unavailable_fields(tmp_path, unavailable_report):
 
 **Interfaces:** Produce `load_experiment(path: Path) -> ExperimentConfig`, `canonical_hash(value: Mapping[str, Any]) -> str`, `create_run(root: Path, resolved: Mapping[str, Any]) -> RunPaths`, `append_event(paths: RunPaths, event: Mapping[str, Any]) -> None`, `finish_run(paths: RunPaths, metrics: Mapping[str, Any], status: str) -> None`. `RunPaths` contains `run_id: str` and `directory: Path`. `ExperimentConfig` exposes `phase`, `study_id`, `model`, `training`, `growth`, `data`, `seeds`, `backend`; nested fields implement spec §4–§7 values and explicit resolved defaults.
 
-- [ ] **Step 1:** Write tests asserting unknown YAML keys/nonfinite floats/invalid τ reject; canonical hashes ignore mapping order but change on seed or training value; duplicate run ID cannot overwrite; unavailable counters serialize as null with reason; interrupted runs keep existing events. `test_protected_phase_rejected_by_core_runner` requires a protocol capability for confirmatory phase. Run the two test files; expect missing APIs.
+- [x] **Step 1:** Write tests asserting unknown YAML keys/nonfinite floats/invalid τ reject; canonical hashes ignore mapping order but change on seed or training value; duplicate run ID cannot overwrite; unavailable counters serialize as null with reason; interrupted runs keep existing events. `test_protected_phase_rejected_by_core_runner` requires a protocol capability for confirmatory phase. Run the two test files; expect missing APIs.
 
 ```python
 def test_hash_is_order_independent_and_seed_sensitive():
@@ -92,10 +92,10 @@ def test_hash_is_order_independent_and_seed_sensitive():
     assert canonical_hash({"seed": 1}) != canonical_hash({"seed": 2})
 ```
 
-- [ ] **Step 2:** Implement strict nested validation, canonical sorted finite JSON and SHA-256, unique run paths, atomic manifest/metrics writes and append-only events. Do not implement fake freeze authority: the core supports exploratory phase only until Evidence Task 9. Define run statuses `created/running/interrupted/failed/completed` separately from scientific failure classes. Reject reused paths.
-- [ ] **Step 3:** Implement schema-versioned manifests with all spec §11 field groups; unmeasured fields use null/reason, never made-up zero. Draft protocol states `status: draft`, has no usable freeze hash, and cannot unlock T. Save resolved config before training begins.
-- [ ] **Step 4:** Run `.venv/bin/python -m pytest tests/test_config.py tests/test_artifacts.py -q`; expect all pass, including the no-overwrite/access assertions. Inspect one generated manifest in a temporary directory for exact boundaries and seed fields.
-- [ ] **Step 5:** Commit `feat: add strict experiment configuration and run ledger`.
+- [x] **Step 2:** Implement strict nested validation, canonical sorted finite JSON and SHA-256, unique run paths, atomic manifest/metrics writes and append-only events. Do not implement fake freeze authority: the core supports exploratory phase only until Evidence Task 9. Define run statuses `created/running/interrupted/failed/completed` separately from scientific failure classes. Reject reused paths.
+- [x] **Step 3:** Implement schema-versioned manifests with all spec §11 field groups; unmeasured fields use null/reason, never made-up zero. Draft protocol states `status: draft`, has no usable freeze hash, and cannot unlock T. Save resolved config before training begins.
+- [x] **Step 4:** Run `.venv/bin/python -m pytest tests/test_config.py tests/test_artifacts.py -q`; expect all pass, including the no-overwrite/access assertions. Inspect one generated manifest in a temporary directory for exact boundaries and seed fields.
+- [x] **Step 5:** Commit `feat: add strict experiment configuration and run ledger`.
 
 ## Task 3: Reproduce the historical reference algebra on this CPU
 
@@ -103,7 +103,7 @@ def test_hash_is_order_independent_and_seed_sensitive():
 
 **Interfaces:** Standalone processes print JSON; CLI `verify-math --output PATH` will aggregate these checks and, once Tasks 4/7/8 exist, package/backend checks. Use [the preserved recipes](../../research/2026-10-16-evidence-and-machine-record.md#reproduction-recipes-for-the-two-reference-checks) for random draw order and constants.
 
-- [ ] **Step 1:** Write subprocess tests checking required error/norm/loss/environment fields, float64 CPU, one thread, seeds 1602026/1602027, and assertion failures propagating nonzero exit. Run `.venv/bin/python -m pytest tests/test_reference_checks.py -q`; expect missing scripts.
+- [x] **Step 1:** Write subprocess tests checking required error/norm/loss/environment fields, float64 CPU, one thread, seeds 1602026/1602027, and assertion failures propagating nonzero exit. Run `.venv/bin/python -m pytest tests/test_reference_checks.py -q`; expect missing scripts.
 
 ```python
 def test_reference_centered_insertion(reference_a_json):
@@ -111,10 +111,10 @@ def test_reference_centered_insertion(reference_a_json):
     assert reference_a_json["results"]["gate_gradient_formula_max_abs"] < 1e-12
 ```
 
-- [ ] **Step 2:** Implement A/B exactly from the recipes: A identity/gradient/gap thresholds `<1e-12`, exact centered preservation/zero initial contrast gradient, descending tiny step; B invariance/gradient thresholds `<1e-12`, positive observed first Adam decrease and relative approximation error `<1e-4`. Use fresh processes so dtype/RNG state cannot leak into training.
-- [ ] **Step 3:** Run both scripts independently and the subprocess tests. Expect assertions pass and local JSON; compare to historical numbers by tolerance, not exact eigensolver-dependent values. If they fail, diagnose algebra/dependency/numerical causes before any prediction experiment.
-- [ ] **Step 4:** Save local report hashes/environment in the decision record, explicitly distinguished from historical Linux evidence.
-- [ ] **Step 5:** Commit `test: reproduce reference algebra and normalized score checks`.
+- [x] **Step 2:** Implement A/B exactly from the recipes: A identity/gradient/gap thresholds `<1e-12`, exact centered preservation/zero initial contrast gradient, descending tiny step; B invariance/gradient thresholds `<1e-12`, positive observed first Adam decrease and relative approximation error `<1e-4`. Use fresh processes so dtype/RNG state cannot leak into training.
+- [x] **Step 3:** Run both scripts independently and the subprocess tests. Expect assertions pass and local JSON; compare to historical numbers by tolerance, not exact eigensolver-dependent values. If they fail, diagnose algebra/dependency/numerical causes before any prediction experiment.
+- [x] **Step 4:** Save local report hashes/environment in the decision record, explicitly distinguished from historical Linux evidence.
+- [x] **Step 5:** Commit `test: reproduce reference algebra and normalized score checks`.
 
 ## Task 4: Implement compact one-event selective affine preactivations
 
@@ -122,7 +122,7 @@ def test_reference_centered_insertion(reference_a_json):
 
 **Interfaces:** Produce the spec’s `SelectiveAffineLayer`, `grow(ids: Tensor, contrasts: Tensor) -> GrowthManifest`, `export_config() -> dict[str, Any]`, and `from_config(config: Mapping[str, Any]) -> SelectiveAffineLayer`. `GrowthManifest` stores version, IDs/counts, event state, `old_parameter_names`, `new_parameter_names`, and explicit old→new named identity/slice mappings. Layer forward returns preactivations, never ReLU.
 
-- [ ] **Step 1:** Write tests with shared tensors for stump/gated forward and gradient mapping, scalar-head collapse, hardening identity/ReLU bound, and leaf-wise versus post-mixture ReLU inequality. `test_parameter_count` asserts 1,153 base and 1,697 after 16 growths for `d=16,h=64` including head. `test_grow_sorts_ids_with_contrasts` checks unsorted IDs retain the intended row mapping. Run the two files; expect import/API failure.
+- [x] **Step 1:** Write tests with shared tensors for stump/gated forward and gradient mapping, scalar-head collapse, hardening identity/ReLU bound, and leaf-wise versus post-mixture ReLU inequality. `test_parameter_count` asserts 1,153 base and 1,697 after 16 growths for `d=16,h=64` including head. `test_grow_sorts_ids_with_contrasts` checks unsorted IDs retain the intended row mapping. Run the two files; expect import/API failure.
 
 ```python
 def test_parameter_count():
@@ -133,10 +133,10 @@ def test_parameter_count():
     assert count() == 1697
 ```
 
-- [ ] **Step 2:** Add parametrized rejection tests for duplicate/out-of-range IDs, non-int64/shape/device contrasts, nonfinite values, invalid τ and second growth. Empty growth must record the event with no dormant parameters; serialization reconstructs topology before load. Test zero–zero dead gradients and nonzero-contrast/zero-gate prediction preservation with nonzero constructed gate gradient.
-- [ ] **Step 3:** Implement compact base/gate/contrast modules and `index_select/index_copy` logic from spec §4. Keep stable base parameter objects. Export topology fully, preserving `growth_applied` even for empty events. Use float64 reference tests away from ReLU kinks for gradient/finite-difference checks.
-- [ ] **Step 4:** Run `.venv/bin/python -m pytest tests/test_algebra.py tests/test_growth.py -q`; expect all float64 identity/gradient discrepancies `<1e-10`, exact CPU centered preservation, and correct parameter counts. Backend-specific float32 tolerances are added in Task 8.
-- [ ] **Step 5:** Commit `feat: add compact function-preserving selective affine layer`.
+- [x] **Step 2:** Add parametrized rejection tests for duplicate/out-of-range IDs, non-int64/shape/device contrasts, nonfinite values, invalid τ and second growth. Empty growth must record the event with no dormant parameters; serialization reconstructs topology before load. Test zero–zero dead gradients and nonzero-contrast/zero-gate prediction preservation with nonzero constructed gate gradient.
+- [x] **Step 3:** Implement compact base/gate/contrast modules and `index_select/index_copy` logic from spec §4. Keep stable base parameter objects. Export topology fully, preserving `growth_applied` even for empty events. Use float64 reference tests away from ReLU kinks for gradient/finite-difference checks.
+- [x] **Step 4:** Run `.venv/bin/python -m pytest tests/test_algebra.py tests/test_growth.py -q`; expect all float64 identity/gradient discrepancies `<1e-10`, exact CPU centered preservation, and correct parameter counts. Backend-specific float32 tolerances are added in Task 8.
+- [x] **Step 5:** Commit `feat: add compact function-preserving selective affine layer`.
 
 ## Task 5: Generate independent teachers and named control problems
 
@@ -144,7 +144,7 @@ def test_parameter_count():
 
 **Interfaces:** Produce `TeacherSpec` (version, dimension, vectors, prevalences/types/scales/thresholds, reference seed/mean/std), `ObservationSet` (`X`, `y`, `row_id`, `group_id`, optional `dates` and noise-free target), `DevelopmentData` (`F`, `G`, `V`, `teacher_id`), and shared `SplitManifest` (immutable row/group assignments, dataset/teacher ID, fold/phase, optional date boundaries, hashes, descriptive-only reason). Produce `make_teacher(seed: int, d: int = 16) -> TeacherSpec`, `sample_teacher(teacher: TeacherSpec, n: int, seed: int, sigma: float) -> ObservationSet`, `make_development(teacher: TeacherSpec, counts: Mapping[str, int], seeds: Mapping[str, int], sigma: float) -> DevelopmentData`. `generate_protected_test` is reserved for the protected evaluation module; normal loaders do not accept a T path. Control factory: `make_control(kind: str, seed: int, d: int) -> TeacherSpec | ControlSpec`, with `ControlSpec` serialized/versioned by the same module.
 
-- [ ] **Step 1:** Write tests asserting deterministic independent seed streams, distinct row IDs, 65,536 reference samples disjoint from observation streams, stored normalization, exactly four independent regime components, and the explicit gate probabilities/threshold orientation in spec §7. `test_features_exclude_oracle_information` asserts X contains only sampled inputs; teacher state/noise-free targets are metadata, never extra predictors. Run the tests; expect missing APIs.
+- [x] **Step 1:** Write tests asserting deterministic independent seed streams, distinct row IDs, 65,536 reference samples disjoint from observation streams, stored normalization, exactly four independent regime components, and the explicit gate probabilities/threshold orientation in spec §7. `test_features_exclude_oracle_information` asserts X contains only sampled inputs; teacher state/noise-free targets are metadata, never extra predictors. Run the tests; expect missing APIs.
 
 ```python
 def test_features_exclude_oracle_information():
@@ -153,10 +153,10 @@ def test_features_exclude_oracle_information():
     assert rows.y.shape == (5,)
 ```
 
-- [ ] **Step 2:** Implement the primary teacher and counts (`F=2306,G=577,V=577`); keep reference/teacher/data namespaces separate. Generate only F/G/V in the exploratory runner. Store enough teacher state to reproduce f and gates for diagnostic analysis without exposing them through `ObservationSet.X`.
-- [ ] **Step 3:** Implement/version globally affine, additive sine/quadratic, pure noise, row-label permutation, homogeneous smooth, rare/rotation/nuisance controls and the original 2-D target. The 2-D sampler uses independent `Uniform(-1,1)` and `Uniform(0,1)`, no noise; test `(-0.5,0.2)→0.2`, `(0.5,0.2)→0.8`. Configs declare exact coefficients/distributions for the other controls; builder choices stay exploratory until frozen. Oracle gates are available only to an explicitly labeled diagnostic factory.
-- [ ] **Step 4:** Run `.venv/bin/python -m pytest tests/test_synthetic.py tests/test_access.py -q`; expect repeatable generation, no protected T access and no oracle columns. Include a malformed/overlapping phase-seed namespace rejection.
-- [ ] **Step 5:** Commit `feat: add independent synthetic teachers and control populations`.
+- [x] **Step 2:** Implement the primary teacher and counts (`F=2306,G=577,V=577`); keep reference/teacher/data namespaces separate. Generate only F/G/V in the exploratory runner. Store enough teacher state to reproduce f and gates for diagnostic analysis without exposing them through `ObservationSet.X`.
+- [x] **Step 3:** Implement/version globally affine, additive sine/quadratic, pure noise, row-label permutation, homogeneous smooth, rare/rotation/nuisance controls and the original 2-D target. The 2-D sampler uses independent `Uniform(-1,1)` and `Uniform(0,1)`, no noise; test `(-0.5,0.2)→0.2`, `(0.5,0.2)→0.8`. Configs declare exact coefficients/distributions for the other controls; builder choices stay exploratory until frozen. Oracle gates are available only to an explicitly labeled diagnostic factory.
+- [x] **Step 4:** Run `.venv/bin/python -m pytest tests/test_synthetic.py tests/test_access.py -q`; expect repeatable generation, no protected T access and no oracle columns. Include a malformed/overlapping phase-seed namespace rejection.
+- [x] **Step 5:** Commit `feat: add independent synthetic teachers and control populations`.
 
 ## Task 6: Fit preprocessing on F and establish metric/B0 sanity
 
@@ -164,8 +164,8 @@ def test_features_exclude_oracle_information():
 
 **Interfaces:** Produce `FittedTransform.fit(X_fit: Any, y_fit: np.ndarray) -> FittedTransform`, `.transform_X(X: Any) -> np.ndarray`, `.transform_y(y: np.ndarray) -> np.ndarray`, `.inverse_y(prediction: np.ndarray) -> np.ndarray`, `.to_state() -> dict[str, Any]`, `.from_state(state: Mapping[str, Any]) -> FittedTransform`; `regression_metrics(y: np.ndarray, prediction: np.ndarray, *, fit_target_variance: float, groups: np.ndarray | None = None, noisefree: np.ndarray | None = None) -> dict[str, Any]`. Define exact `FitRequest` and `Predictor` from spec §11. Implement `MeanPredictor` and `RidgePredictor(alpha: float)` against that contract; HPO, not adapter fit, later chooses alpha on V.
 
-- [ ] **Step 1:** Write tests for population scale, constant columns→scale 1, all-missing F columns→fill 0 plus indicator/manifest, unseen categories→reserved code, nonfinite labels→error, output shape `[N]` in original units. Changing G/V/T labels must not alter F transform state; test a copy with mutated protected labels without reading them in fitting. Run these three files; expect missing APIs.
-- [ ] **Step 2:** Write metric assertions: `y=[1,3],pred=[2,2],var_F=4` gives MSE 1, normalized MSE 0.25, RMSE/MAE 1; identical predictions give paired effect zero; zero target variance gives null normalized risk with a reason and raw MSE retained. Unequal group sizes expose a row/macro difference; reject nonfinite/incorrect-shape predictions rather than broadcast.
+- [x] **Step 1:** Write tests for population scale, constant columns→scale 1, all-missing F columns→fill 0 plus indicator/manifest, unseen categories→reserved code, nonfinite labels→error, output shape `[N]` in original units. Changing G/V/T labels must not alter F transform state; test a copy with mutated protected labels without reading them in fitting. Run these three files; expect missing APIs.
+- [x] **Step 2:** Write metric assertions: `y=[1,3],pred=[2,2],var_F=4` gives MSE 1, normalized MSE 0.25, RMSE/MAE 1; identical predictions give paired effect zero; zero target variance gives null normalized risk with a reason and raw MSE retained. Unequal group sizes expose a row/macro difference; reject nonfinite/incorrect-shape predictions rather than broadcast.
 
 ```python
 def test_normalized_risk_uses_fitting_population_variance():
@@ -174,9 +174,9 @@ def test_normalized_risk_uses_fitting_population_variance():
     assert result["normalized_mse"] == 0.25
 ```
 
-- [ ] **Step 3:** Implement F-only transforms, original-unit metrics, mean, and ridge; persist transformations. Test ridge on an augmented small numerical design against an independent closed-form solution with unpenalized intercept. Spline-feature ridge can follow in the evidence plan; it is not required for WP04.
-- [ ] **Step 4:** Run `.venv/bin/python -m pytest tests/test_transforms.py tests/test_metrics.py tests/test_simple_baselines.py -q`; expect all pass including zero variance, label access and closed-form parity.
-- [ ] **Step 5:** Append WP02 synthetic/harness decision and commit `feat: add fitting-only preprocessing and regression sanity controls`. Raw transfer-data acceptance remains explicitly open for the evidence plan.
+- [x] **Step 3:** Implement F-only transforms, original-unit metrics, mean, and ridge; persist transformations. Test ridge on an augmented small numerical design against an independent closed-form solution with unpenalized intercept. Spline-feature ridge can follow in the evidence plan; it is not required for WP04.
+- [x] **Step 4:** Run `.venv/bin/python -m pytest tests/test_transforms.py tests/test_metrics.py tests/test_simple_baselines.py -q`; expect all pass including zero variance, label access and closed-form parity.
+- [x] **Step 5:** Append WP02 synthetic/harness decision and commit `feat: add fitting-only preprocessing and regression sanity controls`. Raw transfer-data acceptance remains explicitly open for the evidence plan.
 
 ## Task 7: Compute the moment score and allocate a fixed count
 
