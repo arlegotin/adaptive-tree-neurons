@@ -105,3 +105,10 @@ symmetric 4,000 + 4,000 next-run allowance. They are **unexecuted and calibratio
 pending**. They change no batch, scoring, checkpoint-selection or patience rule.
 Definitive ceiling calibration follows the required baseline/data and pre-freeze
 implementation gates; no repeated inventory run or variance pilot is claimed here.
+
+The [Task 12 review fixes](docs/research/2026-10-16-exploratory-fix1-evidence.json)
+close an interruption-bookkeeping gap and populate coordinator/child manifests
+before terminal publication. A small complete CPU study checks that behavior.
+The original predictive studies remain pinned to their original source; the
+[historical manifest correction sidecar](docs/research/2026-10-16-exploratory-manifest-corrections-fix1.json)
+supplies hash-linked metadata overlays without changing their results or files.

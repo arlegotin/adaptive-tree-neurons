@@ -1,0 +1,181 @@
+{
+  "backend_producer_sha256": "237035c85e84b706facd7a7054a159f62dcff50e00f3ca3a5fdae0a11ca4fd7e",
+  "base_commit": "d852661fbc7981992aaba01998ca45eb48fc411b",
+  "historical_correction": {
+    "audit": {
+      "checked_manifest_bindings_and_observation_API": [
+        "artifacts/exploratory/475e0835ed6c4e3090a7650fb51c6dab/manifest.json",
+        "artifacts/exploratory/475e0835ed6c4e3090a7650fb51c6dab/runs/9e4a617e519e44f0ac3f75c58dbc51c9/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/runs/01f5a92f46d2480a9e8b952a12751bd6/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/runs/0d275825f6d5493d902ae00d00e2189c/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/runs/15e1e2bfbadb455dbe876edecea57706/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/runs/21657ac11b3c46938ddd16b38436ecbf/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/runs/26f6ce12106547a98aa13b20954fbdd8/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/runs/4a320218739e46d9a80cb9a13ee9c115/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/runs/553996da97824e2ebe94dc03a0facf91/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/runs/5f6c35bb154440f59d8e60932b2ac47e/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/runs/80db50a35e3b43d9b8576ee449190657/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/runs/a47b4734b8c54b32972b4e15ca752c79/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/runs/a81debc2ffd34154b87acf8c9e725821/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/runs/ae9364b7c57b4866be83348a0b51ca20/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/runs/afdee878b21d4f8e9f9ba971bfe0926c/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/runs/b28a655ae4d74cc296410ef7f9d0c698/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/runs/b290ce37b43647e7811937c060f5d99c/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/runs/c08efb794fd340b29b78e6f9730ccee1/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/runs/cca13a82808a4d92bf02143f20c11ffc/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/runs/e74e1881005a4769bea1c6a3938a3548/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/runs/e765a42161174702924c1c32357d6ffb/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/runs/f4d0f978cacf404db8c58973748b1a19/manifest.json",
+        "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876/runs/fa2ee7a92d5641178f9a9d55c585d59f/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/runs/1657402b3103479195fe7b60cce0d132/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/runs/1bd3e92f3f8648d9a3aa5fb0d3995d84/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/runs/3365a23f41fb47edab94a0b8b7b87dd9/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/runs/43afb2d8a1e14f63a011b7da7e260763/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/runs/4b613ecd8fc54ec8bf9d33cdbef1f683/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/runs/5a3942dfee9a416b9ea4768233fdebbb/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/runs/65054c5597254107bd7c998c02297abb/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/runs/6c7ba47926584dd09e3b991cbf20005b/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/runs/73aa82d0920845e6bb8462ae303819e6/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/runs/7b1a5c7753334533b5a961e73d2e9f00/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/runs/819ede88ab64476db4fa464f918104a8/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/runs/851f62ec80f1429c975d85f1c9df831d/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/runs/8c5f682ec526410d86d74ade2ee0f72e/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/runs/8cae093424f548309815c4adf856a7b3/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/runs/96dfcbb06d8045a2b737f5c126ee6beb/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/runs/970bf51362344470b2b26975d42c81db/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/runs/cc38bf5602f34cacbe78f8c3fa676e84/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/runs/d4efffd160dc48a7ade7c7a761e3eb0e/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/runs/deb0f2503c2849728ab52d2878d34424/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/runs/eb0d55ef93b34a44ae0244592c9eaef4/manifest.json",
+        "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa/runs/ecdaec684cd94eca9e56e452b3cc4f17/manifest.json"
+      ],
+      "count": 46,
+      "schema_version": 1,
+      "scope": "Hash binding plus strict observation API validation on disposable fresh manifests; original terminal manifests never opened for writing.",
+      "sidecar_sha256": "0bc44a83506ab530400b1fc243b87b0e84a6dc3107ed3cb45fdacb43c2b922bd"
+    },
+    "path": "docs/research/2026-10-16-exploratory-manifest-corrections-fix1.json",
+    "sha256": "0bc44a83506ab530400b1fc243b87b0e84a6dc3107ed3cb45fdacb43c2b922bd"
+  },
+  "historical_preservation": {
+    "large_inventories_rerun": false,
+    "numerical_study_checkout": "46d537cb201ec6376d9e5541ab907a72034fd50b",
+    "numerical_study_source": "ec52c04a8d3e65e90be17b64d93f4ab794479b46f932f24598dc0af79c634e17",
+    "original_evidence_sha256": "ad07a1d24a9c19b184ce996c518374ee15428fc137dc9763dcaf69e1d3d1d854",
+    "original_index_sha256": "fab7d7e0c0c73b9394eefc0e9cc8ed2eeff7fe42a84b87d0c7dd5c96fe3a9437",
+    "original_runtime_files_reverified": 1017,
+    "reason": "Changes affect incomplete-interruption recovery and metadata/terminal publication. Uninterrupted update, score, allocation, G selection and allowance semantics unchanged.",
+    "scientific_semantic_change": false
+  },
+  "implementation_commit": "61cf0f68194489c55c4ca5e59b0784dd0b549fa4",
+  "local_index": {
+    "files": 486,
+    "path": "environment/task12-fix1-artifact-hashes.json",
+    "sha256": "6fa3e000e65d7c0b571f36d1477050518bb61d57d17c22481053eae4257711a9"
+  },
+  "schema_version": 1,
+  "scope": "Task12 review fix1: I1 interruption safety and I2 manifest observations only. Small study is engineering verification, not new efficacy evidence. M1/M2 deferred to whole-core triage.",
+  "small_config": {
+    "file_sha256": "d9e8f1897aff02e67354e70e809e02381ed029232ffb29807066ebaaf495abb4",
+    "path": "configs/explore-manifest-fix1-check.yaml",
+    "resolved_sha256": "d4afaf1d2e048b67112dfbf74154bb42f2094ad2ac82e3fcd9e89706fa0d4474"
+  },
+  "small_study": {
+    "config_hash": "d4afaf1d2e048b67112dfbf74154bb42f2094ad2ac82e3fcd9e89706fa0d4474",
+    "manifest_count": 22,
+    "manifests_verified": {
+      "manifest.json": "c659fe438623a936b5c1c2c260f9d47610c0f62ebaddf16ca34ccb3cd775e691",
+      "runs/06b776fe4fea44238c7632eee6cde9be/manifest.json": "ed00b17c829b0ff346baa2b6b22688e1bf0a83db93097d901f1ce8b29c39300d",
+      "runs/165a41f808ca4eaf99e214b115f7d278/manifest.json": "a390ce3dd8146c9b065fa605835df09dd3d42b71811d33d58785ab681c8aef7a",
+      "runs/2ce72e7c04bc4e1480ac2565e1ef57fe/manifest.json": "6f3703c172bda7fea0068fec3a09db5cfb4f99c44209c528a417d6eb1f795d2e",
+      "runs/331ffd09dbf54af9a68872c334a26c36/manifest.json": "53289433d160f0b178639c96ed79b72a3f07f8eae10ab0dd99f20b0793213a24",
+      "runs/33c83d26dc4b457694e167c4d7b87275/manifest.json": "0233ddd0f7728b3a37f8888724078376b70d376f93d27c504bd49aaf70ec6bdd",
+      "runs/38ccb58745ba48fbb654b3cdce6a544e/manifest.json": "46281ed2836eb5d81ab619fa9c473d958396a2ea8db5c96a1b605e9f0249d547",
+      "runs/480e88cf21ff46dc902fe7b181de905a/manifest.json": "7cf855a1695955fe35da6b61f74646ee49ff4569b13b543e1fb69eeaf5616c5b",
+      "runs/517fa8a686e74122a7008bfa5ecc101e/manifest.json": "ebc37636fc05cf1c93050c3522ccdf8a138edceea22ecbbc158254f289921e62",
+      "runs/59ded6c7a21a49a697660d84ac62b211/manifest.json": "f8c6bf3c89f034f6dc52b87b9c105c11144a24848fe753a1dbaec341a49e5a90",
+      "runs/64e51d4f991a4a87b8d982bffa69220b/manifest.json": "9ce2792097fd69fad70187db3664491db81997ca3fc5fc56963a24c39b4238bd",
+      "runs/67d57a4a624742468b70ee0ba47d65f6/manifest.json": "95d8d6466c0db84f78feb7b72719f4645e92df08dbb6951cd30c6de004298593",
+      "runs/7a6635a45c4a4bb684cd0b499ac433ae/manifest.json": "baf1adb1b4f560e659ffde2915bc37cb5d3b637cf0ec3b620d2ece4b9157efb0",
+      "runs/92a4d550a69349a2b1aa51d660daa92a/manifest.json": "a834fc241bf1d11e70a019f0a00511dfa01fc07febc56c595df2864f285a1159",
+      "runs/99df70d34c7a4516b39c7371ee0addd3/manifest.json": "ce2c2f106a56288450e7aa531fe69552de4f28d17a5058e6aaf41225abe054db",
+      "runs/b60e3d253b7c45dca068ebd794a5680a/manifest.json": "e27831aac48c0b67b4d18bb14b3ecb2d4c2796e39b364f0af80532f5a251c13c",
+      "runs/c71e986e53c2476aa399c502e5f33624/manifest.json": "e8ab1ee72e944f0bfcdf39ab7b655b9b13ef0652c524ba77c3b48e64bdc50213",
+      "runs/c7ed2587b16c4335bd795f2af528a497/manifest.json": "34ada63d52cfe6522e4af5dcae1cb70943f6f1cf2da2e362e0b3abd948e971c5",
+      "runs/d7361e4e3e55464c90581d335a66b330/manifest.json": "3cf95821b4a4b6f32b5c78b342dfacc37842b4576f2f3b1d8e6569c3832aa3ac",
+      "runs/d93bed7295ca4e68a50d50f7c81cbe26/manifest.json": "b204fbbc886891231122966eda751a10f5409d894359ca36d87410bb3e542bda",
+      "runs/dc4c9e7096614d4fa33d397cefe43295/manifest.json": "103d487014cce2766de5354d5ccb1bb336465796866a3fbf82e98e5b12cec4d5",
+      "runs/e84944c4f5d94786895dc3f46dd5f5cf/manifest.json": "fd7a62f24d06407c945963e956c5d392c28bc9386371d38ee3e401d408ea4b20"
+    },
+    "method_count": 17,
+    "pairing_audit": {
+      "common_prefix_updates": 6,
+      "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+      "passed": true,
+      "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+      "warm_forks": 8
+    },
+    "path": "artifacts/exploratory/2d912324d76f44059beedb9839016623",
+    "provenance": {
+      "backend_report_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/task11-parent-backend.json",
+      "backend_report_sha256": "44899df8ec13349ee74b37511b25bfcda3aeace9a0640449e05e51669ce60197",
+      "checkout": "61cf0f68194489c55c4ca5e59b0784dd0b549fa4",
+      "checkout_status": [],
+      "hardware_report_sha256": "ed4add4c617dea70a1457b0689c8a542cd00312432eb5f35880948a5701e34be",
+      "lock_sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+      "runtime_sha256": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+      "source_sha256": "6223991050f82a7e40c35e20112c893ea852988a3abcebc1e4c8ce60077d1d5d"
+    },
+    "purpose": "Small engineering integration; not an added predictive comparison",
+    "schema_version": 1,
+    "source_unchanged_during_audit": true,
+    "status": "completed",
+    "study_sha256": "236b799fd2119640aeaf620849e70d52fde2e2e33ed02f422774e5ac0187c96b",
+    "total_study_ns": 5335455291
+  },
+  "small_study_summary_sha256": "e4a1a4859e45752277a5fe5f03321237acbd35cc524935a66694e72ed4e6ed82",
+  "source_sha256": "6223991050f82a7e40c35e20112c893ea852988a3abcebc1e4c8ce60077d1d5d",
+  "verification": {
+    "causal": {
+      "checks_passed": true,
+      "path": "environment/task12-fix1-causal.json"
+    },
+    "focused": {
+      "log": "environment/task12-fix1-focused.txt",
+      "passed": 115,
+      "seconds": 38.93
+    },
+    "full": {
+      "log": "environment/task12-fix1-pytest.txt",
+      "passed": 596,
+      "seconds": 167.62,
+      "skipped": 48
+    },
+    "i1_green": {
+      "log": "environment/task12-fix1-i1-green.txt",
+      "passed": 17,
+      "seconds": 7.1
+    },
+    "i1_red": {
+      "deselected": 8,
+      "failed": 3,
+      "log": "environment/task12-fix1-i1-red.txt",
+      "passed": 6,
+      "seconds": 6.35
+    },
+    "i2_green": {
+      "log": "environment/task12-fix1-i2-green1.txt",
+      "passed": 34,
+      "seconds": 16.06
+    },
+    "i2_red": {
+      "deselected": 31,
+      "failed": 3,
+      "log": "environment/task12-fix1-i2-red.txt",
+      "seconds": 8.69
+    },
+    "math": "Not repeated: kernel/layer/score mathematical producers unchanged; prior mathematical evidence retained. Shared artifact API affected causal CLI, which was rerun."
+  }
+}
