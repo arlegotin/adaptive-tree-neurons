@@ -1,0 +1,290 @@
+{
+  "schema_version": 1,
+  "status": "implementation_ready_for_review; evidence_pending_WP05",
+  "scope": "bounded synthetic engineering search/timing; not H1 pilot, quality plateau or final WP05 policy",
+  "implementation_commits": [
+    "d6248aa",
+    "ca7af11f97a86f43311f0ea9cbd63b3f1c97e935"
+  ],
+  "source_sha256": "e2d8a6efe205468a2c77c17baeaa4b197b86c01d3e328649e50c13b6296eb214",
+  "core_lock_sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+  "backend_producer_sha256": "237035c85e84b706facd7a7054a159f62dcff50e00f3ca3a5fdae0a11ca4fd7e",
+  "search_lock_sha256": "3f393e8a17d390eedc9d9f07d6f8fc044953a542fb71aeb19fc326e594dc0092",
+  "search_environment_sha256": "d1d3bfc697c5393ec7f4e4a6a2c33a4cd1310d3a3d69540464fe97b89af48b59",
+  "node_environment_sha256": "89ce6a4b559114eb759d31092d88287ff5e0cd04672bdcabd9143c3a4e56b561",
+  "runtime": {
+    "python": "3.12.13",
+    "torch": "2.14.1",
+    "platform": "macOS-26.7.1-arm64-arm-64bit",
+    "architecture": "arm64"
+  },
+  "runtime_hash": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+  "fresh_cpu_receipt": {
+    "path": "environment/evidence7-calibration-fix1/search-backend.json",
+    "sha256": "e403a1fb2216b58557dfb414254facda09acfaa5dfbabf05a9f61ce8bca7095d",
+    "threads": {
+      "cpu": 1,
+      "interop": 1
+    }
+  },
+  "historical_cpu_receipt_sha256": "44899df8ec13349ee74b37511b25bfcda3aeace9a0640449e05e51669ce60197",
+  "test_results": {
+    "focused": "30 passed in31.65s",
+    "full": "708 passed,48 existing skipped,28 existing warnings in270.79s",
+    "log": "artifacts/evidence7-search-timing/final-full-suite-after-warmup-fix.txt"
+  },
+  "calibration": {
+    "path": "environment/evidence7-calibration-fix1/calibration.json",
+    "sha256": "b835f054a92ce1fc2f580cfebf8961430fd8b4a90d69e7a52a0dc8a504db25b0",
+    "bootstrap_ns": 867764917,
+    "doubled_exploratory_seconds": [
+      1.735529834,
+      3.471059668
+    ],
+    "fixture": "synthetic d16/h64 F128/G32/V64; two base and continuation updates, engineering only",
+    "searches": [
+      {
+        "method": "Ridge",
+        "run_id": "2ec19c3500854438954014a0301b89dc",
+        "charged_ns": 867764917,
+        "winner": 0,
+        "trial_statuses": [
+          "completed"
+        ]
+      },
+      {
+        "method": "Ridge",
+        "run_id": "8d76c593b3c44a108af4475f53f8d1da",
+        "charged_ns": 1750367834,
+        "winner": 0,
+        "trial_statuses": [
+          "completed",
+          "unavailable_at_budget"
+        ]
+      },
+      {
+        "method": "Ridge",
+        "run_id": "bd39b1ddf21b4daeae98d7e5be88e360",
+        "charged_ns": 3480437625,
+        "winner": 0,
+        "trial_statuses": [
+          "completed",
+          "completed",
+          "completed",
+          "unavailable_at_budget"
+        ]
+      },
+      {
+        "method": "B1",
+        "run_id": "b296e55b393347e2bf701d746829c861",
+        "charged_ns": 3490323500,
+        "winner": 0,
+        "trial_statuses": [
+          "completed",
+          "unavailable_at_budget"
+        ]
+      },
+      {
+        "method": "B3",
+        "run_id": "8a277366d8c94d599dae2f68466aff76",
+        "charged_ns": 3361585916,
+        "winner": 1,
+        "trial_statuses": [
+          "completed",
+          "completed"
+        ]
+      },
+      {
+        "method": "B5",
+        "run_id": "15de53e1c78047519eaf2ceaa904b4d4",
+        "charged_ns": 3486309125,
+        "winner": 0,
+        "trial_statuses": [
+          "completed",
+          "unavailable_at_budget"
+        ]
+      },
+      {
+        "method": "B7",
+        "run_id": "a8bc6952841c4b989ac4f91be9f4c7aa",
+        "charged_ns": 11777875,
+        "winner": null,
+        "trial_statuses": []
+      }
+    ],
+    "B7_scope": "10ms budget exhausted before worker launch; no trial, endpoint or quality/default evidence",
+    "expansion_diagnostics": {
+      "boundary_winners": [],
+      "freeze_ready": false,
+      "improving_ceiling": false,
+      "reason": "Expand winning boundaries/improving ceilings, retain official anchors; final quality/default plateaus and cross-teacher frozen design still required",
+      "status": "evidence_pending_WP05"
+    }
+  },
+  "timings": {
+    "ridge-timing": {
+      "path": "environment/evidence7-calibration-fix1/ridge-timing.json",
+      "sha256": "9b3bcc261e3dcd2a9dc21dfc4a530d66543aba40bb5eeb3d6a60c4064af51564",
+      "raw_blocks": 131,
+      "selected_batch": 128,
+      "selected_batch_statistics": {
+        "median_ns": 611021.0,
+        "median_precision": {
+          "estimate_ns": 611021.0,
+          "interval_ns": [
+            603125.0,
+            621437.5
+          ],
+          "method": "1000 deterministic iid bootstrap replicates; diagnostic, correlation not corrected",
+          "relative_half_width": 0.014985164176026683
+        },
+        "precision_reached": true,
+        "repetitions": 20,
+        "tail_ns": 657358.0,
+        "tail_precision": {
+          "estimate_ns": 657358.0,
+          "interval_ns": [
+            623672.9,
+            664958.0
+          ],
+          "method": "1000 deterministic iid bootstrap replicates; diagnostic, correlation not corrected",
+          "relative_half_width": 0.03140229524855556
+        },
+        "throughput_rows_per_second": 420607.4750294998
+      },
+      "precision_status": "reached",
+      "warmup_stable": {
+        "1": true,
+        "128": true,
+        "16": true,
+        "32": true,
+        "64": true
+      },
+      "memory_guard_observed": true,
+      "peak_rss_bytes": 249511936
+    },
+    "causal-host_to_host": {
+      "path": "environment/evidence7-calibration-fix1/causal-host_to_host.json",
+      "sha256": "eea498bc3bf7c139604e9c1527de83c7ca03db656859aabbff9db3d26b5623ae",
+      "raw_blocks": 369,
+      "selected_batch": 128,
+      "selected_batch_statistics": {
+        "median_ns": 817729.5,
+        "median_precision": {
+          "estimate_ns": 817729.5,
+          "interval_ns": [
+            811933.8125,
+            829125.0
+          ],
+          "method": "1000 deterministic iid bootstrap replicates; diagnostic, correlation not corrected",
+          "relative_half_width": 0.01051153682238442
+        },
+        "precision_reached": true,
+        "repetitions": 66,
+        "tail_ns": 947042.25,
+        "tail_precision": {
+          "estimate_ns": 947042.25,
+          "interval_ns": [
+            868656.25,
+            1047542.0
+          ],
+          "method": "1000 deterministic iid bootstrap replicates; diagnostic, correlation not corrected",
+          "relative_half_width": 0.09444444004478153
+        },
+        "throughput_rows_per_second": 314284.8582569175
+      },
+      "precision_status": "reached",
+      "warmup_stable": {
+        "1": true,
+        "128": true,
+        "16": true,
+        "32": true,
+        "64": true
+      },
+      "memory_guard_observed": true,
+      "peak_rss_bytes": 331055104
+    },
+    "causal-resident_kernel": {
+      "path": "environment/evidence7-calibration-fix1/causal-resident_kernel.json",
+      "sha256": "31f4cefff5f21412d7c13c408232be2f2b1320140288a296893c218575bd1632",
+      "raw_blocks": 446,
+      "selected_batch": 128,
+      "selected_batch_statistics": {
+        "median_ns": 107666.5,
+        "median_precision": {
+          "estimate_ns": 107666.5,
+          "interval_ns": [
+            106603.4875,
+            109666.0
+          ],
+          "method": "1000 deterministic iid bootstrap replicates; diagnostic, correlation not corrected",
+          "relative_half_width": 0.014222216288260495
+        },
+        "precision_reached": false,
+        "repetitions": 80,
+        "tail_ns": 158352.39999999997,
+        "tail_precision": {
+          "estimate_ns": 158352.39999999997,
+          "interval_ns": [
+            132000.0,
+            180333.0
+          ],
+          "method": "1000 deterministic iid bootstrap replicates; diagnostic, correlation not corrected",
+          "relative_half_width": 0.1526121486002107
+        },
+        "throughput_rows_per_second": 2387000.5990721346
+      },
+      "precision_status": "unresolved_at_repetition_or_warmup_cap",
+      "warmup_stable": {
+        "1": true,
+        "128": true,
+        "16": true,
+        "32": true,
+        "64": true
+      },
+      "memory_guard_observed": true,
+      "peak_rss_bytes": 331841536
+    }
+  },
+  "cold": {
+    "cold_scope": "fresh interpreter/modules/model/first prediction; OS page cache not evicted",
+    "excluded_serialization_ns": 1052750,
+    "prediction_sha256": "d74a82ad22db4ed48bdc68b18f967856c4c5e5570a721cbcb339cce62cf07208",
+    "process_id": 97679,
+    "process_wall_ns": 1436193833,
+    "stages_ns": {
+      "first_prediction": 51584959,
+      "imports": 1176916167,
+      "load": 258708
+    },
+    "threads": {
+      "cpu": 1,
+      "interop": 1
+    }
+  },
+  "interrupted_prior_attempt": {
+    "status_record": "artifacts/evidence7-search-timing/interrupted-calibration.json",
+    "source_sha256": "a64b5f98ac9d533fe35df1c5b81f4582aeb11336eda5d0290fb9cad69756dd6e",
+    "reason": "warmup loop nontermination; seven search records retained, no published timing result, fixed and regression tested"
+  },
+  "verification": {
+    "path": "artifacts/evidence7-search-timing/final-verification.json",
+    "sha256": "13d5edbd26e294ed6e57485b2bc1378f50bbf29fe6fa09d96c65d6e38a545618",
+    "historical_task3_files_verified": 521,
+    "terminal_manifests": 17,
+    "all_three_timing_summaries_rebuilt": true
+  },
+  "artifact_index": {
+    "path": "audit/implementation/evidence/2026-10-16/task-7-artifact-index.json",
+    "sha256": "84773888615d4a57f5a742aab5cdcc4111dcb8e140cf7d3913876430adf9ed17",
+    "files": 705
+  },
+  "final_policy": null,
+  "remaining_gates": [
+    "full-quality/default plateaus",
+    "variance pilot after Tasks8/9/10/13 implementation",
+    "final numeric WP05 design",
+    "source freeze",
+    "protected independent cohort"
+  ]
+}
