@@ -263,17 +263,17 @@ def test_growth_keeps_old_moments_and_predictions(growth_case):
 
 **Interfaces:** Produce `build_causal(method_id: str, config: Mapping[str, Any], *, parent: TrainingState | None = None, allocation: Allocation | None = None) -> Predictor`, using B1–B5 IDs from the spec; `ordinary_width_brackets(d: int, target_parameters: int) -> tuple[int, int]`; `widen_parent(state: TrainingState, added_units: int, seed: int) -> GrowthManifest`. Factory returns fresh static models or independent loaded parent forks according to the method’s declared role.
 
-- [ ] **Step 1:** Write tests for widths 94/95 and totals 1693/1711 around target 1697, counted head parameters, zero-outgoing widening prediction preservation/nonzero outgoing gradient, old moment slice mapping and static partial/full counts. Direct-leaf versus centered coordinates must be labeled separately; shared-coordinate formulas agree but independent Adam training is not asserted equal. Run the causal test file; expect missing factory/controls.
+- [x] **Step 1:** Write tests for widths 94/95 and totals 1693/1711 around target 1697, counted head parameters, zero-outgoing widening prediction preservation/nonzero outgoing gradient, old moment slice mapping and static partial/full counts. Direct-leaf versus centered coordinates must be labeled separately; shared-coordinate formulas agree but independent Adam training is not asserted equal. Run the causal test file; expect missing factory/controls.
 
 ```python
 def test_nearest_ordinary_parameter_brackets():
     assert ordinary_width_brackets(16, 1697) == (94, 95)
 ```
 
-- [ ] **Step 2:** Implement continued parent, lower/upper fresh ordinary MLPs, ordinary warm-start widening, static partial/full gated models and B4/B5 adapters. Static partial takes counts, no learned-ID-search overhead. Ensure widening gets the same update/restart policy as selective growth and that its new incoming weights need not receive gradients on the first zero-outgoing step.
-- [ ] **Step 3:** Add adapter tests rejecting ensemble-axis/standardized output leakage. If implementing the secondary duplication control now, define halved head/state mapping and explicit symmetry treatment with preservation tests; otherwise mark it deferred in the capability matrix rather than imply it ran.
-- [ ] **Step 4:** Run `.venv/bin/python -m pytest tests/test_causal_baselines.py tests/test_simple_baselines.py -q` and add CLI `verify-baselines --track causal`; expect B0–B5 verified and B6/B7 explicitly pending for the evidence plan. No package name substitutes for a tested recipe.
-- [ ] **Step 5:** Commit `feat: add matched ordinary and static gated causal controls`.
+- [x] **Step 2:** Implement continued parent, lower/upper fresh ordinary MLPs, ordinary warm-start widening, static partial/full gated models and B4/B5 adapters. Static partial takes counts, no learned-ID-search overhead. Ensure widening gets the same update/restart policy as selective growth and that its new incoming weights need not receive gradients on the first zero-outgoing step.
+- [x] **Step 3:** Add adapter tests rejecting ensemble-axis/standardized output leakage. If implementing the secondary duplication control now, define halved head/state mapping and explicit symmetry treatment with preservation tests; otherwise mark it deferred in the capability matrix rather than imply it ran.
+- [x] **Step 4:** Run `.venv/bin/python -m pytest tests/test_causal_baselines.py tests/test_simple_baselines.py -q` and add CLI `verify-baselines --track causal`; expect B0–B5 verified and B6/B7 explicitly pending for the evidence plan. No package name substitutes for a tested recipe.
+- [x] **Step 5:** Commit `feat: add matched ordinary and static gated causal controls`.
 
 ## Task 12: Execute and report the minimum complete exploratory experiment
 

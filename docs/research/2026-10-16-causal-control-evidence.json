@@ -1,0 +1,529 @@
+{
+  "schema_version": 1,
+  "scope": "CPU causal-control correctness and recovery diagnostics; no predictive allocation experiment",
+  "source_commit": "75e774221e643ccdf60fabf5976912207bc6dc25",
+  "execution_source_sha256": "d4e6102013d8e3eb5d2618590d9479bae3783e11d89629ea27cfe62b17066601",
+  "review_status": "Task11 spec/quality approved after scoped fix review; missing trained Adam history addressed",
+  "artifacts": {
+    "environment/task11-parent-backend.json": "44899df8ec13349ee74b37511b25bfcda3aeace9a0640449e05e51669ce60197",
+    "environment/task11-fix1-red.txt": "6ef3d589f0b517b3f4a9d68d8321ad0b7be9858602b9f656aaa4c871a9e92edb",
+    "environment/task11-fix1-focused.txt": "b0447313b1130f3376d24f6a79c333b475004ec097ee9d49ac793c239ddc57fc",
+    "environment/task11-fix1-pytest.txt": "1423bc19a9fa35b4178eca5ba074a3aa5839dbdc02481f6031f4c0b13ce45b4b",
+    "environment/task11-fix1-causal-capabilities.json": "cb44cde6c2b294d15822798b93e05d38a31b9f705829b683408cc0a1947a5a88",
+    "environment/task11-fix1-artifact-hashes.json": "685c57969966273e42d20a01aa37dc82ffe80fd74e3e5f0af6099c1621ec279c"
+  },
+  "verification": {
+    "focused_passed": 175,
+    "full_passed": 569,
+    "full_skipped": 48,
+    "full_seconds": 150.55,
+    "recipe_count": 13,
+    "new_history_cases": 49,
+    "old_environment_artifacts_preserved": 219,
+    "skip_reason": "existing sandbox MPS availability cases; no new native control recovery claim"
+  },
+  "capabilities": {
+    "B0": {
+      "recipes": [
+        "mean",
+        "ridge"
+      ],
+      "spline": "pending EvidenceTask2",
+      "status": "verified"
+    },
+    "B1": {
+      "status": "verified"
+    },
+    "B2": {
+      "status": "verified"
+    },
+    "B2_duplication": {
+      "reason": "No duplication/state/symmetry recipe executed",
+      "status": "deferred"
+    },
+    "B3": {
+      "status": "verified"
+    },
+    "B4": {
+      "status": "verified"
+    },
+    "B5": {
+      "status": "verified"
+    },
+    "B6": {
+      "reason": "Evidence-plan validation-probed recipe",
+      "status": "pending"
+    },
+    "B7": {
+      "reason": "Evidence-plan pinned official NODE recipe",
+      "status": "pending"
+    }
+  },
+  "recipes": [
+    {
+      "method_id": "B1",
+      "recipe": {},
+      "total_parameters": 1153,
+      "actual_growth_count": 0,
+      "topology": {
+        "kind": "selective_relu_scalar",
+        "layer": {
+          "d": 16,
+          "grown_ids": [],
+          "growth_applied": false,
+          "h": 64,
+          "schema_version": 1,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "n_fit": 128,
+      "n_select": 32,
+      "logical_batch_size": 128,
+      "physical_batch_size": 128,
+      "executed_updates": 2,
+      "selected_update": 4,
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "checkpoint": "environment/task11-fix1-causal-runs/control-0.json",
+      "checkpoint_sha256": "08823f251c4d5d921b2d58f4adf71a27924dc749665cb8b8896fda34bd4de060"
+    },
+    {
+      "method_id": "B2",
+      "recipe": {
+        "target_parameters": 1697,
+        "variant": "lower"
+      },
+      "total_parameters": 1693,
+      "actual_growth_count": 0,
+      "topology": {
+        "kind": "selective_relu_scalar",
+        "layer": {
+          "d": 16,
+          "grown_ids": [],
+          "growth_applied": false,
+          "h": 94,
+          "schema_version": 1,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "n_fit": 128,
+      "n_select": 32,
+      "logical_batch_size": 128,
+      "physical_batch_size": 128,
+      "executed_updates": 2,
+      "selected_update": 2,
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "checkpoint": "environment/task11-fix1-causal-runs/control-1.json",
+      "checkpoint_sha256": "89e764211ea7bbb57a789ad38cd85495279df84cc44adfac2c8aefa11d187d84"
+    },
+    {
+      "method_id": "B2",
+      "recipe": {
+        "target_parameters": 1697,
+        "variant": "upper"
+      },
+      "total_parameters": 1711,
+      "actual_growth_count": 0,
+      "topology": {
+        "kind": "selective_relu_scalar",
+        "layer": {
+          "d": 16,
+          "grown_ids": [],
+          "growth_applied": false,
+          "h": 95,
+          "schema_version": 1,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "n_fit": 128,
+      "n_select": 32,
+      "logical_batch_size": 128,
+      "physical_batch_size": 128,
+      "executed_updates": 2,
+      "selected_update": 2,
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "checkpoint": "environment/task11-fix1-causal-runs/control-2.json",
+      "checkpoint_sha256": "c06c05794f210b652ddd7efbf4ec3b4d96b97c97f8334e89048b7e17f5a3b1c5"
+    },
+    {
+      "method_id": "B2",
+      "recipe": {
+        "added_units": 30,
+        "seed": 4,
+        "variant": "widen"
+      },
+      "total_parameters": 1693,
+      "actual_growth_count": 30,
+      "topology": {
+        "kind": "widened_relu_scalar",
+        "layer": {
+          "d": 16,
+          "h": 94,
+          "parent_width": 64,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "n_fit": 128,
+      "n_select": 32,
+      "logical_batch_size": 128,
+      "physical_batch_size": 128,
+      "executed_updates": 2,
+      "selected_update": 4,
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "checkpoint": "environment/task11-fix1-causal-runs/control-3.json",
+      "checkpoint_sha256": "1adf7e70bbd900c24d01c45aaad07f660d58bfe507c3b553cf1e7d4703ac52a8"
+    },
+    {
+      "method_id": "B2",
+      "recipe": {
+        "added_units": 31,
+        "seed": 4,
+        "variant": "widen"
+      },
+      "total_parameters": 1711,
+      "actual_growth_count": 31,
+      "topology": {
+        "kind": "widened_relu_scalar",
+        "layer": {
+          "d": 16,
+          "h": 95,
+          "parent_width": 64,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "n_fit": 128,
+      "n_select": 32,
+      "logical_batch_size": 128,
+      "physical_batch_size": 128,
+      "executed_updates": 2,
+      "selected_update": 4,
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "checkpoint": "environment/task11-fix1-causal-runs/control-4.json",
+      "checkpoint_sha256": "2aec2f5bc810b03da0676cd8b673341cc8c3c6ca5f0be617da184e304e7ad77a"
+    },
+    {
+      "method_id": "B3",
+      "recipe": {
+        "coordinates": "centered",
+        "count": 16,
+        "variant": "partial"
+      },
+      "total_parameters": 1697,
+      "actual_growth_count": 16,
+      "topology": {
+        "kind": "static_gated_relu_scalar",
+        "layer": {
+          "coordinates": "centered",
+          "count": 16,
+          "d": 16,
+          "h": 64,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "n_fit": 128,
+      "n_select": 32,
+      "logical_batch_size": 128,
+      "physical_batch_size": 128,
+      "executed_updates": 2,
+      "selected_update": 2,
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "checkpoint": "environment/task11-fix1-causal-runs/control-5.json",
+      "checkpoint_sha256": "923d73f4f1ff898f6c038942d6f51e9cb9c0ceb9a52019978edd0e7ddffd0601"
+    },
+    {
+      "method_id": "B3",
+      "recipe": {
+        "coordinates": "centered",
+        "variant": "full"
+      },
+      "total_parameters": 3329,
+      "actual_growth_count": 64,
+      "topology": {
+        "kind": "static_gated_relu_scalar",
+        "layer": {
+          "coordinates": "centered",
+          "count": 64,
+          "d": 16,
+          "h": 64,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "n_fit": 128,
+      "n_select": 32,
+      "logical_batch_size": 128,
+      "physical_batch_size": 128,
+      "executed_updates": 2,
+      "selected_update": 2,
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "checkpoint": "environment/task11-fix1-causal-runs/control-6.json",
+      "checkpoint_sha256": "05123972ade91d4239d432d9448091fb398373951e1b90f39d6cd175ded915a3"
+    },
+    {
+      "method_id": "B3",
+      "recipe": {
+        "coordinates": "direct_leaf",
+        "count": 16,
+        "variant": "partial"
+      },
+      "total_parameters": 1697,
+      "actual_growth_count": 16,
+      "topology": {
+        "kind": "static_gated_relu_scalar",
+        "layer": {
+          "coordinates": "direct_leaf",
+          "count": 16,
+          "d": 16,
+          "h": 64,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "n_fit": 128,
+      "n_select": 32,
+      "logical_batch_size": 128,
+      "physical_batch_size": 128,
+      "executed_updates": 2,
+      "selected_update": 2,
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "checkpoint": "environment/task11-fix1-causal-runs/control-7.json",
+      "checkpoint_sha256": "86d5909c99336938aa39e253384bbd2df5d02b5d9f554dcf58911b312df4dfca"
+    },
+    {
+      "method_id": "B3",
+      "recipe": {
+        "coordinates": "direct_leaf",
+        "variant": "full"
+      },
+      "total_parameters": 3329,
+      "actual_growth_count": 64,
+      "topology": {
+        "kind": "static_gated_relu_scalar",
+        "layer": {
+          "coordinates": "direct_leaf",
+          "count": 64,
+          "d": 16,
+          "h": 64,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "n_fit": 128,
+      "n_select": 32,
+      "logical_batch_size": 128,
+      "physical_batch_size": 128,
+      "executed_updates": 2,
+      "selected_update": 2,
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "checkpoint": "environment/task11-fix1-causal-runs/control-8.json",
+      "checkpoint_sha256": "e3ba5ecf2d624f778caf1f1c413396b8790c0908852bb16a1e927a48ccad8b6c"
+    },
+    {
+      "method_id": "B4",
+      "recipe": {},
+      "total_parameters": 1697,
+      "actual_growth_count": 16,
+      "topology": {
+        "kind": "selective_relu_scalar",
+        "layer": {
+          "d": 16,
+          "grown_ids": [
+            6,
+            7,
+            11,
+            12,
+            13,
+            15,
+            17,
+            28,
+            33,
+            38,
+            42,
+            44,
+            49,
+            50,
+            60,
+            62
+          ],
+          "growth_applied": true,
+          "h": 64,
+          "schema_version": 1,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "n_fit": 128,
+      "n_select": 32,
+      "logical_batch_size": 128,
+      "physical_batch_size": 128,
+      "executed_updates": 2,
+      "selected_update": 4,
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "checkpoint": "environment/task11-fix1-causal-runs/control-9.json",
+      "checkpoint_sha256": "1c02e97afc9e6bc722c09c69b7bd48d3dc694ff6304dc9d37ba75d5304e593d1"
+    },
+    {
+      "method_id": "B5",
+      "recipe": {
+        "variant": "gaussian"
+      },
+      "total_parameters": 1697,
+      "actual_growth_count": 16,
+      "topology": {
+        "kind": "selective_relu_scalar",
+        "layer": {
+          "d": 16,
+          "grown_ids": [
+            1,
+            3,
+            7,
+            12,
+            16,
+            24,
+            25,
+            26,
+            33,
+            34,
+            35,
+            37,
+            38,
+            50,
+            53,
+            62
+          ],
+          "growth_applied": true,
+          "h": 64,
+          "schema_version": 1,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "n_fit": 128,
+      "n_select": 32,
+      "logical_batch_size": 128,
+      "physical_batch_size": 128,
+      "executed_updates": 2,
+      "selected_update": 4,
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "checkpoint": "environment/task11-fix1-causal-runs/control-10.json",
+      "checkpoint_sha256": "eb40995a33c6be79af0934483805e93ce0555878a59b2e31b872c870396632de"
+    },
+    {
+      "method_id": "B5",
+      "recipe": {
+        "variant": "adam"
+      },
+      "total_parameters": 1697,
+      "actual_growth_count": 16,
+      "topology": {
+        "kind": "selective_relu_scalar",
+        "layer": {
+          "d": 16,
+          "grown_ids": [
+            1,
+            3,
+            7,
+            12,
+            16,
+            24,
+            25,
+            26,
+            33,
+            34,
+            35,
+            37,
+            38,
+            50,
+            53,
+            62
+          ],
+          "growth_applied": true,
+          "h": 64,
+          "schema_version": 1,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "n_fit": 128,
+      "n_select": 32,
+      "logical_batch_size": 128,
+      "physical_batch_size": 128,
+      "executed_updates": 2,
+      "selected_update": 4,
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "checkpoint": "environment/task11-fix1-causal-runs/control-11.json",
+      "checkpoint_sha256": "f4a68f013a88fb8c8cd3a39dd6eacdb046bd99c6ded5adb2200d757f4ac405f0"
+    },
+    {
+      "method_id": "B5",
+      "recipe": {
+        "variant": "sgd"
+      },
+      "total_parameters": 1697,
+      "actual_growth_count": 16,
+      "topology": {
+        "kind": "selective_relu_scalar",
+        "layer": {
+          "d": 16,
+          "grown_ids": [
+            1,
+            3,
+            7,
+            12,
+            16,
+            23,
+            24,
+            25,
+            26,
+            33,
+            34,
+            37,
+            38,
+            50,
+            52,
+            62
+          ],
+          "growth_applied": true,
+          "h": 64,
+          "schema_version": 1,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "n_fit": 128,
+      "n_select": 32,
+      "logical_batch_size": 128,
+      "physical_batch_size": 128,
+      "executed_updates": 2,
+      "selected_update": 4,
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "checkpoint": "environment/task11-fix1-causal-runs/control-12.json",
+      "checkpoint_sha256": "85d79233c665a5e883d02a1a05289184d18c6e2c932981e6471d94aa4624184d"
+    }
+  ],
+  "limits": [
+    "Diagnostic recipes use F128/G32 and two-update stages; these are not predictive study budgets.",
+    "CPU-only parent receipt is explicit; historical native environment/report.json is preserved but stale under the changed producer digest.",
+    "New wider/static receipts establish numerical correctness, not calibrated throughput.",
+    "Causal FitRequest requires original DevelopmentData as explicit in-process context with checked F/G/manifest hashes.",
+    "No protected T, frozen protocol, predictive advantage, generalization or practical competitiveness claim."
+  ]
+}
