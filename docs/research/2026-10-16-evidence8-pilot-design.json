@@ -1,0 +1,64 @@
+{
+  "BASE": "93bddf9",
+  "actual_attempt_ns": 4764845708,
+  "artifact_index": "audit/implementation/evidence/2026-10-16/task-8-artifact-index.json",
+  "command": "env PYTORCH_ENABLE_MPS_FALLBACK=0 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 .venv/bin/python -m treeneuron.cli calibrate --config configs/pilot.yaml",
+  "controls": [
+    "greedy",
+    "keep",
+    "ordinary_lower",
+    "ordinary_upper",
+    "random",
+    "static_partial",
+    "top",
+    "widen_upper"
+  ],
+  "covering_tests": {
+    "passed": 152,
+    "seconds": 86.1
+  },
+  "decision_limitations": [
+    "Missing measured inputs: available_memory_bytes, bootstrap_seed, bytes_per_evaluation_row, endpoint_tolerance, estimation_rows, evidence_hashes, inference_supported, max_seconds, max_storage_bytes, peak_memory_bytes, power_iterations, power_mc_tolerance, required_controls, retries, seconds_per_evaluation_row, seconds_per_repetition, setup_seconds_per_teacher, storage_bytes_per_repetition, storage_bytes_per_teacher, policies.parent_updates, policies.continuation_updates, policies.patience, policies.validation_interval, policies.logical_batch, policies.physical_batch, policies.bootstrap_iterations, policies.probe_updates, policies.hpo_seconds, policies.hpo_trials, policies.timing_blocks, policies.timing_relative_precision",
+    "Required baseline/control coverage missing",
+    "Engineering fixtures are not genuine pilot/design evidence",
+    "Fresh independent confirmation teachers and observations required",
+    "Pilot-based count floor does not guarantee 95% coverage"
+  ],
+  "design_branch": "blocked",
+  "freeze_eligible": false,
+  "full_tests": {
+    "log": "audit/implementation/evidence/2026-10-16/task-8-full-tests.txt",
+    "passed": 763,
+    "seconds": 294.35,
+    "skipped": 48,
+    "warnings": 28
+  },
+  "implementation_commit": "3819660f3165231641a0e75328e335e461cb5ce2",
+  "independent_teachers": 1,
+  "indexed_bytes": 4111412,
+  "indexed_files": 400,
+  "next_gate": "Review implementation; implement/review/commit Tasks9/10/13 before genuine pilot/design/freeze",
+  "provenance": {
+    "checkout": "3819660f3165231641a0e75328e335e461cb5ce2",
+    "checkout_status": [
+      "?? audit/implementation/evidence/2026-10-16/task-8-full-tests.txt"
+    ],
+    "lock_sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+    "runtime_sha256": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+    "source_sha256": "72d46eacdabac2e1350c574fa0ff3f4321ae3e02cd5c622f09a5f2781b717bfb"
+  },
+  "raw_directory": "artifacts/evidence8-engineering/pilot-75ecc7fbcde04b8587222be962a7371a",
+  "raw_sha256": "ef6805e9c079d3a54cf44f267a1890160b848653659fdd3bcb38528dd03a3a5a",
+  "raw_summary_and_decision_rebuilt_exactly": true,
+  "repetitions": 2,
+  "runtime": {
+    "cpu_threads": 1,
+    "interop_threads": 1,
+    "receipt_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/evidence7-calibration-fix1/search-backend.json",
+    "receipt_sha256": "e403a1fb2216b58557dfb414254facda09acfaa5dfbabf05a9f61ce8bca7095d"
+  },
+  "schema_version": 1,
+  "source_sha256": "72d46eacdabac2e1350c574fa0ff3f4321ae3e02cd5c622f09a5f2781b717bfb",
+  "status": "implementation_ready_for_review; scientific_WP05_pending",
+  "terminal_manifests": 32
+}
