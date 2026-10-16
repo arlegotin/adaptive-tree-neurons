@@ -61,3 +61,19 @@ def test_development_rejects_mismatched_feature_schemas():
     wrong = replace(data.G, feature_names=tuple(f'other{i}' for i in range(16)))
     with pytest.raises(ValueError):
         replace(data, G=wrong, manifest=None)
+
+
+def test_ordered_feature_schema_changes_dataset_and_assignment_identity():
+    data = make_development(make_teacher(1), {'F': 2, 'G': 2, 'V': 2}, {'F': 1, 'G': 2, 'V': 3})
+    names = tuple(f'new{i}' for i in range(16))
+    changed = {p: replace(getattr(data, p), feature_names=names) for p in 'FGV'}
+    renamed = replace(data, **changed, manifest=None)
+    assert renamed.manifest.dataset_id != data.manifest.dataset_id
+    assert renamed.manifest.assignment_hash != data.manifest.assignment_hash
+    assert renamed.manifest.feature_names == names
+    assert renamed.manifest.feature_schema_hash != data.manifest.feature_schema_hash
+    with pytest.raises(ValueError, match='Manifest'):
+        replace(data, **changed)
+    reordered = replace(data, **{p: replace(getattr(data, p), feature_names=tuple(reversed(data.F.feature_names)))
+                                for p in 'FGV'}, manifest=None)
+    assert reordered.manifest.feature_schema_hash != data.manifest.feature_schema_hash

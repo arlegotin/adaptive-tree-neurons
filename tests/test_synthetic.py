@@ -30,6 +30,7 @@ def test_primary_vectors_components_and_threshold_orientation():
     fixture = replace(teacher, u0=e0, u=(e0,) * 4, v=(e0,) * 4, w=(e0,) * 4,
                       gate_types=('hard', 'smooth_0.2', 'smooth_1.0', 'hard'),
                       scales=(0.0, 0.2, 1.0, 0.0), thresholds=(0.0,) * 4,
+                      prevalences=(.5,) * 4,
                       reference_mean=0.0, reference_std=1.0)
     X = np.zeros((3, 16)); X[:, 0] = [-1, 0, 1]
     f, gates = evaluate_teacher(fixture, X, return_gates=True)
@@ -286,3 +287,128 @@ def test_control_config_bridge_is_repeatable_and_uses_requested_reference(popula
     np.testing.assert_array_equal(data1.F.y, data2.F.y)
     if population == 'conditional_slope_2d':
         np.testing.assert_array_equal(data1.F.y, data1.F.noise_free_target)
+
+
+def test_additive_control_has_zero_observed_coordinate_mixed_differences():
+    # Dense coefficients expose the interactions hidden by axis-only fixtures.
+    a = (2**-.5, 2**-.5) + (0.,) * 14
+    b = (2**-.5, -2**-.5) + (0.,) * 14
+    control = replace(make_control('additive_sine_quadratic', 41, 16), vectors=(a, b))
+    X = np.zeros((4, 16))
+    X[:, :2] = [[.1, -.4], [.7, -.4], [.1, .9], [.7, .9]]
+    values = control_target(control, X)
+    assert values[3] - values[2] - values[1] + values[0] == pytest.approx(0., abs=1e-14)
+    expected = .3 * (np.sin(X) @ np.array(a) + (X**2-1) @ np.array(b))
+    np.testing.assert_allclose(values, expected, atol=1e-14)
+    assert 'sin(x)' in control.equation and 'x**2-1' in control.equation
+    assert control.version != 'exploratory-controls-v1'
+
+
+@pytest.mark.parametrize('change', [dict(coefficients=()),
+    dict(coefficients=(('intercept', .3), ('linear', 1.), ('extra', .2))),
+    dict(coefficients=(('intercept', .3), ('linear', 2.))),
+    dict(equation=''), dict(input_distribution='Uniform(0,1)'),
+    dict(target_normalization='reference_standardized')])
+def test_control_load_rejects_inconsistent_equation_metadata(change):
+    from treeneuron.data.controls import ControlSpec
+    metadata = make_control('globally_affine', 1, 16).to_dict()
+    metadata.update(change)
+    with pytest.raises(ValueError):
+        ControlSpec.from_dict(metadata)
+
+
+def test_teacher_load_rejects_threshold_prevalence_disagreement():
+    from treeneuron.data.synthetic import TeacherSpec
+    metadata = make_teacher(1).to_dict()
+    metadata['thresholds'] = tuple(t+.2 for t in metadata['thresholds'])
+    with pytest.raises(ValueError, match='threshold'):
+        TeacherSpec.from_dict(metadata)
+
+
+@pytest.mark.parametrize('nuisance', [0, 3])
+def test_rotated_teacher_is_the_same_axis_teacher_in_transformed_coordinates(nuisance):
+    axis = make_teacher(51, reference_seed=52, regime='axis_aligned', nuisance_dimensions=nuisance)
+    rotated = make_teacher(51, reference_seed=52, regime='rotated', nuisance_dimensions=nuisance)
+    assert rotated.version != axis.version
+    assert rotated.prevalences == axis.prevalences
+    assert rotated.gate_types == axis.gate_types
+    assert rotated.scales == axis.scales and rotated.thresholds == axis.thresholds
+    active = axis.d - nuisance
+    rotation = np.asarray(rotated.rotation)
+    axis_vectors = np.array([axis.u0, *axis.u, *axis.v, *axis.w])
+    rotated_vectors = np.array([rotated.u0, *rotated.u, *rotated.v, *rotated.w])
+    np.testing.assert_allclose(rotated_vectors[:, :active], axis_vectors[:, :active] @ rotation,
+                               atol=1e-14)
+    a = sample_teacher(axis, 200, 53, .1)
+    r = sample_teacher(rotated, 200, 53, .1)
+    np.testing.assert_allclose(r.X[:, :active], a.X[:, :active] @ rotation, atol=1e-14)
+    np.testing.assert_array_equal(r.X[:, active:], a.X[:, active:])
+    np.testing.assert_allclose(a.noise_free_target, r.noise_free_target, atol=1e-13, rtol=0)
+    np.testing.assert_allclose(a.y, r.y, atol=1e-13, rtol=0)
+    unrotated = r.X.copy(); unrotated[:, :active] = r.X[:, :active] @ rotation.T
+    np.testing.assert_allclose(evaluate_teacher(axis, unrotated), evaluate_teacher(rotated, r.X),
+                               atol=1e-13, rtol=0)
+    axis_reference = reference_inputs(axis)
+    rotated_reference = reference_inputs(rotated)
+    np.testing.assert_allclose(rotated_reference[:, :active], axis_reference[:, :active] @ rotation,
+                               atol=1e-14)
+    assert rotated.reference_mean == pytest.approx(axis.reference_mean, abs=1e-14)
+    assert rotated.reference_std == pytest.approx(axis.reference_std, abs=1e-14)
+
+
+@pytest.mark.parametrize('kind', ['globally_affine', 'homogeneous_smooth', 'random_label_permutation'])
+def test_projection_control_rotation_preserves_paired_labels(kind):
+    axis = make_control(kind, 51, 16, reference_seed=52, regime='axis_aligned')
+    rotated = make_control(kind, 51, 16, reference_seed=52, regime='rotated')
+    a = sample_control(axis, 50, 53, .1)
+    r = sample_control(rotated, 50, 53, .1)
+    matrix = np.asarray(rotated.rotation)
+    np.testing.assert_allclose(r.X, a.X @ matrix, atol=1e-14)
+    np.testing.assert_allclose(r.y, a.y, atol=1e-13, rtol=0)
+
+
+def test_additive_control_rejects_rotation_that_would_break_observed_additivity():
+    with pytest.raises(ValueError, match='additive'):
+        make_control('additive_sine_quadratic', 51, 16, regime='rotated')
+
+
+def test_isotropic_primary_identity_and_arrays_are_unchanged_after_review_fixes():
+    # Baseline b877fc7 evidence; fixes to named controls cannot alter primary draws.
+    from treeneuron.data.types import array_hash
+    teacher, data = make_from_config(resolve_experiment({'study_id': 'task5-evidence'}))
+    assert teacher.teacher_id == '6491eae8fe7cdb07709300641a79337d4a25202725ebfff08d388816186149c4'
+    assert array_hash(data.F.X) == 'c0ffc20ec4cf3183c1021b86c433bfdac9e21cec2987e5569fa3f4b2af5888ad'
+    assert array_hash(data.F.y) == '9af60cd4621cf29f33ec1bda07fafe4a2ce975ab6ae93667cb28568a7dfd2369'
+
+
+def test_control_serialization_preserves_capabilities_and_rotation():
+    import json
+    from treeneuron.data.controls import ControlSpec
+    additive = make_control('additive_sine_quadratic', 1, 16)
+    assert additive.supported_regimes == ('isotropic', 'axis_aligned')
+    original = make_control('conditional_slope_2d', 1, 2)
+    assert original.supported_regimes == ('isotropic',)
+    for kind in ['globally_affine', 'homogeneous_smooth', 'random_label_permutation']:
+        control = make_control(kind, 1, 16, regime='rotated', nuisance_dimensions=3)
+        loaded = ControlSpec.from_dict(json.loads(json.dumps(control.to_dict())))
+        assert loaded.teacher_id == control.teacher_id
+        assert loaded.coordinate_semantics == 'axis_paired_orthogonal_v2'
+        np.testing.assert_array_equal(sample_control(control, 5, 2).y, sample_control(loaded, 5, 2).y)
+
+
+def test_random_permutation_keeps_the_existing_rare_base_coordinate():
+    control = make_control('random_label_permutation', 1, 16, regime='rare')
+    assert control.base_teacher.prevalences == (.01,) * 4
+    assert sample_control(control, 5, 2).X.shape == (5, 16)
+
+
+def test_control_load_rejects_false_nuisance_metadata():
+    from treeneuron.data.controls import ControlSpec
+    original = make_control('conditional_slope_2d', 1, 2).to_dict()
+    original['nuisance_dimensions'] = 1
+    with pytest.raises(ValueError, match='nuisance'):
+        ControlSpec.from_dict(original)
+    affine = make_control('globally_affine', 1, 16).to_dict()
+    affine['nuisance_dimensions'] = 3
+    with pytest.raises(ValueError, match='nuisance'):
+        ControlSpec.from_dict(affine)

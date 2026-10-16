@@ -1,8 +1,8 @@
 """Explicit exploratory control equations, distributions and diagnostic access.
 
-Version 1 choices beyond the primary/original-2D specification are exploratory:
+Version 2 choices beyond the primary/original-2D specification are exploratory:
   globally_affine: .3 + u'x
-  additive_sine_quadratic: .3 sin(u'x) + .3 ((v'x)^2 - 1)
+  additive_sine_quadratic: .3 [sum_j u_j sin(x_j) + sum_j v_j (x_j^2-1)]
   pure_noise: f=0, y=sigma*xi
   homogeneous_smooth: (1/sqrt(4)) sum_r sin(u_r'x)
   random_label_permutation: independent within-draw permutation of primary y
@@ -10,6 +10,9 @@ All except original 2D draw independent standard Gaussian inputs. Control target
 units are their explicit equations (no target normalization); the fixed separate
 reference records diagnostic mean/std only. The permutation's primary base uses
 primary normalization. F-fitted preprocessing remains a later operation.
+Rotated projection controls pair one signed-axis base with consistently rotated
+coefficients, reference inputs and observation inputs. Observed-additive and
+original-2D controls declare rotation unsupported in their capability metadata.
 """
 from __future__ import annotations
 
@@ -21,22 +24,41 @@ import numpy as np
 from treeneuron.config import canonical_hash
 from .synthetic import (
     REFERENCE_ROWS, GATE_TYPES, TeacherSpec, _integer, _rng, _unit_vectors,
-    _tuples, _validate_X, _sample_parameters, _observations, make_teacher,
+    _tuples, _validate_X, _sample_parameters, _observations, _rotate_inputs, make_teacher,
     sample_teacher, evaluate_teacher, derive_seed,
 )
 from .types import _readonly
 
-CONTROL_VERSION = 'exploratory-controls-v1'
+CONTROL_VERSION = 'exploratory-controls-v2'
 CONTROL_KINDS = ('globally_affine', 'additive_sine_quadratic', 'pure_noise',
                  'random_label_permutation', 'conditional_slope_2d', 'homogeneous_smooth')
 EQUATIONS = {
     'globally_affine': '.3 + dot(u,x)',
-    'additive_sine_quadratic': '.3*sin(dot(u,x)) + .3*(dot(v,x)**2-1)',
+    'additive_sine_quadratic': '.3*(dot(u,sin(x)) + dot(v,x**2-1))',
     'pure_noise': '0; y=sigma*independent_standard_normal',
     'random_label_permutation': 'independent_permutation(primary_normalized_f(x)+sigma*xi)',
     'conditional_slope_2d': 'x[1] if x[0]<0 else 1-x[1]',
     'homogeneous_smooth': '.5*sum(sin(dot(u[r],x)),r=0..3)',
 }
+COEFFICIENTS = {
+    'globally_affine': (('intercept', .3), ('linear', 1.)),
+    'additive_sine_quadratic': (('sine', .3), ('quadratic', .3)),
+    'homogeneous_smooth': (('component_scale', .5),),
+}
+
+
+def _supported_regimes(kind: str) -> tuple[str, ...]:
+    if kind == 'conditional_slope_2d':
+        return ('isotropic',)
+    if kind == 'additive_sine_quadratic':
+        return ('isotropic', 'axis_aligned')
+    if kind == 'random_label_permutation':
+        return ('isotropic', 'axis_aligned', 'rotated', 'rare')
+    return ('isotropic', 'axis_aligned', 'rotated')
+
+
+def _coordinate_semantics(regime: str) -> str:
+    return 'axis_paired_orthogonal_v2' if regime == 'rotated' else 'direct_observed_coordinates_v1'
 
 
 @dataclass(frozen=True)
@@ -59,6 +81,8 @@ class ControlSpec:
     rotation: tuple[tuple[float, ...], ...] = ()
     base_teacher: TeacherSpec | None = None
     phase: str = 'exploratory'
+    supported_regimes: tuple[str, ...] = ('isotropic', 'axis_aligned', 'rotated')
+    coordinate_semantics: str = 'direct_observed_coordinates_v1'
 
     def __post_init__(self) -> None:
         _integer(self.d, 'd', 1); _integer(self.seed, 'seed')
@@ -68,12 +92,29 @@ class ControlSpec:
             raise ValueError('Unsupported control version or generation phase')
         if self.kind not in CONTROL_KINDS:
             raise ValueError('Unsupported control kind')
+        object.__setattr__(self, 'supported_regimes', tuple(self.supported_regimes))
+        if self.supported_regimes != _supported_regimes(self.kind) or self.regime not in self.supported_regimes:
+            raise ValueError('Control regime contradicts its supported capabilities')
+        if self.coordinate_semantics != _coordinate_semantics(self.regime):
+            raise ValueError('Control coordinate semantics contradict its regime')
         if self.reference_rows != REFERENCE_ROWS or self.nuisance_dimensions >= self.d:
             raise ValueError('Invalid control reference count or signal dimension')
         if self.kind == 'conditional_slope_2d' and self.d != 2:
             raise ValueError('Original conditional-slope control requires d=2')
+        if self.kind == 'conditional_slope_2d' and self.nuisance_dimensions:
+            raise ValueError('Original conditional-slope control has no nuisance coordinates')
         for name in ('vectors', 'coefficients', 'rotation'):
             object.__setattr__(self, name, tuple(tuple(row) for row in getattr(self, name)))
+        expected_coefficients = COEFFICIENTS.get(self.kind, ())
+        if (len(self.coefficients) != len(expected_coefficients)
+                or dict(self.coefficients) != dict(expected_coefficients)):
+            raise ValueError('Control coefficient names/values contradict its versioned equation')
+        expected_distribution = ('independent_Uniform(-1,1)_x_Uniform(0,1)'
+                                 if self.kind == 'conditional_slope_2d' else 'independent_N(0,1)')
+        expected_normalization = 'primary_base_only' if self.kind == 'random_label_permutation' else 'none'
+        if (self.equation != EQUATIONS[self.kind] or self.input_distribution != expected_distribution
+                or self.target_normalization != expected_normalization):
+            raise ValueError('Control equation/distribution/normalization metadata is inconsistent')
         count = {'globally_affine': 1, 'additive_sine_quadratic': 2,
                  'homogeneous_smooth': 4}.get(self.kind, 0)
         if len(self.vectors) != count:
@@ -83,12 +124,32 @@ class ControlSpec:
             if (vectors.shape != (count, self.d) or not np.isfinite(vectors).all()
                     or not np.allclose(np.linalg.norm(vectors, axis=1), 1, atol=1e-12, rtol=0)):
                 raise ValueError('Control vectors must be finite unit vectors')
+            if self.nuisance_dimensions and np.any(vectors[:, -self.nuisance_dimensions:] != 0):
+                raise ValueError('Control vectors must exclude nuisance coordinates')
         if (not math.isfinite(self.reference_mean) or not math.isfinite(self.reference_std)
                 or self.reference_std < 0 or any(not math.isfinite(v) for _, v in self.coefficients)):
             raise ValueError('Control reference statistics and coefficients must be finite')
         if self.kind == 'random_label_permutation' and (
                 not isinstance(self.base_teacher, TeacherSpec) or self.base_teacher.d != self.d):
             raise ValueError('Permutation control requires a matching primary base teacher')
+        if self.base_teacher is not None and self.kind != 'random_label_permutation':
+            raise ValueError('Only a permutation control can contain a primary base teacher')
+        if self.kind == 'random_label_permutation' and (
+                self.base_teacher.regime != self.regime
+                or self.base_teacher.rotation != self.rotation
+                or self.base_teacher.seed != self.seed
+                or self.base_teacher.reference_seed != self.reference_seed
+                or self.base_teacher.nuisance_dimensions != self.nuisance_dimensions
+                or self.base_teacher.reference_mean != self.reference_mean
+                or self.base_teacher.reference_std != self.reference_std):
+            raise ValueError('Permutation metadata must match its primary base teacher')
+        if bool(self.rotation) != (self.regime == 'rotated'):
+            raise ValueError('A rotation is required exactly for the rotated regime')
+        if self.rotation:
+            active = self.d-self.nuisance_dimensions
+            matrix = np.asarray(self.rotation)
+            if matrix.shape != (active, active) or not np.allclose(matrix.T @ matrix, np.eye(active)):
+                raise ValueError('Control rotation must be orthogonal on the signal subspace')
 
     @property
     def teacher_id(self) -> str:
@@ -97,7 +158,10 @@ class ControlSpec:
     @property
     def reference_stream_id(self) -> str:
         distribution = 'uniform-2d-v1' if self.kind == 'conditional_slope_2d' else 'gaussian-v1'
-        return f'exploratory/reference/{distribution}/{self.reference_seed}/d{self.d}'
+        stream = f'exploratory/reference/{distribution}/{self.reference_seed}/d{self.d}'
+        if self.rotation:
+            stream += f'/axis-paired-rotated-v2/{canonical_hash({"rotation": self.rotation})}'
+        return stream
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -128,7 +192,8 @@ def control_target(control: ControlSpec, X: np.ndarray) -> np.ndarray:
     if control.kind == 'globally_affine':
         return c['intercept'] + c['linear'] * projections[:, 0]
     if control.kind == 'additive_sine_quadratic':
-        return c['sine'] * np.sin(projections[:, 0]) + c['quadratic'] * (projections[:, 1]**2 - 1)
+        return (c['sine'] * np.einsum('nd,d->n', np.sin(values), np.asarray(control.vectors[0]))
+                + c['quadratic'] * np.einsum('nd,d->n', values**2-1, np.asarray(control.vectors[1])))
     if control.kind == 'homogeneous_smooth':
         return c['component_scale'] * np.sin(projections).sum(axis=1)
     raise ValueError('Unsupported control kind')
@@ -140,7 +205,8 @@ def _inputs(control: ControlSpec, n: int, seed: int, *, reference: bool = False)
         rng = _rng(seed, f'{root}/uniform-2d-v1')
         return rng.uniform(size=(n, 2)) * np.array([2., 1.]) - np.array([1., 0.])
     namespace = f'{root}/gaussian-v1' if reference else f'{root}/inputs-v1'
-    return _rng(seed, namespace).standard_normal((n, control.d))
+    X = _rng(seed, namespace).standard_normal((n, control.d))
+    return _rotate_inputs(X, control.rotation, control.d-control.nuisance_dimensions)
 
 
 def make_control(kind: str, seed: int, d: int = 16, *, reference_seed: int | None = None,
@@ -169,6 +235,8 @@ def make_control(kind: str, seed: int, d: int = 16, *, reference_seed: int | Non
         raise ValueError(f'Unsupported control kind: {kind}')
     if kind == 'conditional_slope_2d' and d != 2:
         raise ValueError('conditional_slope_2d requires d=2')
+    if kind == 'additive_sine_quadratic' and regime == 'rotated':
+        raise ValueError('Observed-coordinate additive control does not support rotated functions')
     if kind == 'random_label_permutation':
         base = make_teacher(seed, d, **kwargs)
     else:
@@ -190,27 +258,26 @@ def make_control(kind: str, seed: int, d: int = 16, *, reference_seed: int | Non
     count = {'globally_affine': 1, 'additive_sine_quadratic': 2,
              'homogeneous_smooth': 4}.get(kind, 0)
     active = d - nuisance_dimensions
-    vectors = _unit_vectors(_rng(seed, f'exploratory/control/{kind}-v1'), count, d, active, regime)
+    vectors = _unit_vectors(_rng(seed, f'exploratory/control/{kind}-v1'), count, d, active,
+                            'axis_aligned' if regime == 'rotated' else regime)
     rotation = ()
-    if regime == 'rotated' and count:
+    if regime == 'rotated':
         q, r = np.linalg.qr(_rng(seed, 'exploratory/rotation/v1').standard_normal((active, active)))
         q *= np.where(np.diag(r) >= 0, 1., -1.)
         vectors[:, :active] = vectors[:, :active] @ q
         rotation = _tuples(q)
-    coefficients = {
-        'globally_affine': (('intercept', .3), ('linear', 1.)),
-        'additive_sine_quadratic': (('sine', .3), ('quadratic', .3)),
-        'homogeneous_smooth': (('component_scale', .5),),
-    }.get(kind, ())
+    coefficients = COEFFICIENTS.get(kind, ())
     control = ControlSpec(version=CONTROL_VERSION, kind=kind, d=d, seed=seed,
                           vectors=_tuples(vectors), equation=EQUATIONS[kind],
                           coefficients=coefficients, reference_seed=reference_seed,
-                          reference_mean=0., reference_std=0., regime=regime,
+                          reference_mean=base.reference_mean if base else 0.,
+                          reference_std=base.reference_std if base else 0., regime=regime,
                           nuisance_dimensions=nuisance_dimensions, rotation=rotation,
                           input_distribution=('independent_Uniform(-1,1)_x_Uniform(0,1)'
                                               if kind == 'conditional_slope_2d' else 'independent_N(0,1)'),
                           target_normalization=('primary_base_only' if base else 'none'),
-                          base_teacher=base)
+                          base_teacher=base, supported_regimes=_supported_regimes(kind),
+                          coordinate_semantics=_coordinate_semantics(regime))
     if base is not None:
         return replace(control, reference_mean=base.reference_mean, reference_std=base.reference_std)
     target = control_target(control, _inputs(control, REFERENCE_ROWS, reference_seed, reference=True))

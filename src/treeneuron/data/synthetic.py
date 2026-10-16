@@ -17,6 +17,7 @@ from treeneuron.config import ExperimentConfig, canonical_hash, resolve_experime
 from .types import DevelopmentData, ObservationSet
 
 VERSION = 'independent-regime-teacher-v1'
+ROTATED_VERSION = 'axis-paired-rotated-teacher-v2'
 REFERENCE_ROWS = 65536
 DEFAULT_COUNTS = {'F': 2306, 'G': 577, 'V': 577}
 GATE_TYPES = ('hard', 'smooth_0.2', 'smooth_1.0')
@@ -58,6 +59,13 @@ def _tuples(array: np.ndarray) -> tuple:
     return tuple(tuple(float(v) for v in row) for row in array)
 
 
+def _rotate_inputs(X: np.ndarray, rotation: tuple, active: int) -> np.ndarray:
+    """Pair row coordinates with the coefficient convention a_rot=a_axis @ Q."""
+    if rotation:
+        X[:, :active] = X[:, :active] @ np.asarray(rotation)
+    return X
+
+
 @dataclass(frozen=True)
 class TeacherSpec:
     version: str
@@ -87,7 +95,8 @@ class TeacherSpec:
         _integer(self.d, 'd', 1); _integer(self.seed, 'seed')
         _integer(self.reference_seed, 'reference_seed')
         _integer(self.nuisance_dimensions, 'nuisance_dimensions')
-        if self.version != VERSION or self.phase != 'exploratory':
+        expected_version = ROTATED_VERSION if self.regime == 'rotated' else VERSION
+        if self.version != expected_version or self.phase != 'exploratory':
             raise ValueError('Unsupported teacher version or generation phase')
         if self.reference_rows != REFERENCE_ROWS or self.nuisance_dimensions >= self.d:
             raise ValueError('Invalid reference count or signal dimension')
@@ -115,6 +124,9 @@ class TeacherSpec:
         if (not np.isfinite(self.thresholds).all() or not math.isfinite(self.reference_mean)
                 or not math.isfinite(self.reference_std) or self.reference_std <= 0):
             raise ValueError('Thresholds and normalization must be finite with positive scale')
+        expected_thresholds = ndtri(1-np.asarray(self.prevalences))
+        if not np.allclose(self.thresholds, expected_thresholds, atol=1e-12, rtol=0):
+            raise ValueError('Gate thresholds must equal Phi^-1(1-prevalence)')
         if (not self.gate_type_options or not self.prevalence_options
                 or len(self.gate_type_probabilities) != len(self.gate_type_options)
                 or any(p <= 0 or not math.isfinite(p) for p in self.gate_type_probabilities)
@@ -122,6 +134,8 @@ class TeacherSpec:
             raise ValueError('Invalid component sampling probabilities')
         if self.nuisance_dimensions and np.any(vectors[:, -self.nuisance_dimensions:] != 0):
             raise ValueError('Teacher vectors must exclude nuisance coordinates')
+        if bool(self.rotation) != (self.regime == 'rotated'):
+            raise ValueError('Rotation matrix is required exactly for the rotated regime')
         if self.rotation:
             active = self.d - self.nuisance_dimensions
             matrix = np.asarray(self.rotation)
@@ -134,7 +148,10 @@ class TeacherSpec:
 
     @property
     def reference_stream_id(self) -> str:
-        return f'exploratory/reference/gaussian-v1/{self.reference_seed}/d{self.d}'
+        stream = f'exploratory/reference/gaussian-v1/{self.reference_seed}/d{self.d}'
+        if self.rotation:
+            stream += f'/{ROTATED_VERSION}/{canonical_hash({"rotation": self.rotation})}'
+        return stream
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -147,8 +164,6 @@ class TeacherSpec:
             data[name] = tuple(data[name])
         for name in ('u', 'v', 'w', 'rotation'):
             data[name] = tuple(tuple(row) for row in data[name])
-        if data.get('version') != VERSION:
-            raise ValueError('Unsupported teacher version')
         return cls(**data)
 
 
@@ -156,8 +171,9 @@ def reference_inputs(teacher: TeacherSpec) -> np.ndarray:
     """Reproduce the separate fixed reference, for normalization diagnostics only."""
     if teacher.reference_rows != REFERENCE_ROWS:
         raise ValueError('Version 1 requires exactly 65536 reference observations')
-    return _rng(teacher.reference_seed, 'exploratory/reference/gaussian-v1').standard_normal(
+    X = _rng(teacher.reference_seed, 'exploratory/reference/gaussian-v1').standard_normal(
         (REFERENCE_ROWS, teacher.d))
+    return _rotate_inputs(X, teacher.rotation, teacher.d-teacher.nuisance_dimensions)
 
 
 def _validate_X(X: np.ndarray, d: int) -> np.ndarray:
@@ -194,8 +210,9 @@ def make_teacher(seed: int, d: int = 16, *, reference_seed: int | None = None,
     """Create four independent components. Sensitivities are explicit v1 choices.
 
     rare: all p=.01; axis_aligned: independent signed coordinate axes;
-    rotated: independent Gaussian vectors followed by one seeded orthogonal map
-    inside the signal subspace. Last nuisance_dimensions coordinates are unused.
+    rotated v2: the same signed-axis teacher/gates as axis_aligned, with one
+    stored orthogonal map applied to coefficients and sampled/reference inputs.
+    Last nuisance_dimensions coordinates are unused. Isotropic v1 is unchanged.
     """
     _integer(seed, 'seed'); _integer(d, 'd', 1)
     _integer(nuisance_dimensions, 'nuisance_dimensions')
@@ -216,7 +233,7 @@ def make_teacher(seed: int, d: int = 16, *, reference_seed: int | None = None,
     _integer(reference_seed, 'reference_seed')
     rng = _rng(seed, 'exploratory/teacher/v1')
     active = d - nuisance_dimensions
-    vectors = _unit_vectors(rng, 13, d, active, regime)
+    vectors = _unit_vectors(rng, 13, d, active, 'axis_aligned' if regime == 'rotated' else regime)
     rotation = ()
     if regime == 'rotated':
         q, r = np.linalg.qr(_rng(seed, 'exploratory/rotation/v1').standard_normal((active, active)))
@@ -227,7 +244,8 @@ def make_teacher(seed: int, d: int = 16, *, reference_seed: int | None = None,
     prevalences = tuple(float(p) for p in rng.choice(options, size=4))
     types = tuple(str(g) for g in rng.choice(gate_types, size=4))
     teacher = TeacherSpec(
-        version=VERSION, d=d, seed=seed, u0=tuple(float(x) for x in vectors[0]),
+        version=ROTATED_VERSION if regime == 'rotated' else VERSION,
+        d=d, seed=seed, u0=tuple(float(x) for x in vectors[0]),
         u=_tuples(vectors[1:5]), v=_tuples(vectors[5:9]), w=_tuples(vectors[9:13]),
         prevalences=prevalences, gate_types=types,
         scales=tuple(GATE_SCALES[g] for g in types),
@@ -265,6 +283,7 @@ def sample_teacher(teacher: TeacherSpec, n: int, seed: int, sigma: float = .1) -
         return sample_control(teacher, n, seed, sigma)
     _sample_parameters(n, seed, sigma)
     X = _rng(seed, 'exploratory/observation/inputs-v1').standard_normal((n, teacher.d))
+    X = _rotate_inputs(X, teacher.rotation, teacher.d-teacher.nuisance_dimensions)
     target = evaluate_teacher(teacher, X)
     noise = _rng(seed, 'exploratory/observation/noise-v1').standard_normal(n)
     return _observations(teacher.teacher_id, X, target, target + sigma * noise, seed)

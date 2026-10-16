@@ -91,12 +91,14 @@ class SplitManifest:
     phase: str = 'exploratory'
     date_boundaries: tuple[tuple[str, str, str], ...] = ()
     hashes: tuple[tuple[str, str], ...] = ()
+    feature_names: tuple[str, ...] = ()
     descriptive_only_reason: str | None = None
     assignment_hash: str = field(init=False)
+    feature_schema_hash: str = field(init=False)
 
     def __post_init__(self) -> None:
         # Accept lists at the boundary, but never retain mutable assignments.
-        for name in ('row_id', 'group_id', 'assignments'):
+        for name in ('row_id', 'group_id', 'assignments', 'feature_names'):
             object.__setattr__(self, name, tuple(getattr(self, name)))
         for name in ('date_boundaries', 'hashes'):
             object.__setattr__(self, name, tuple(tuple(item) for item in getattr(self, name)))
@@ -108,6 +110,11 @@ class SplitManifest:
             raise ValueError('Manifest row IDs overlap')
         if self.phase not in ('exploratory', 'confirmatory'):
             raise ValueError('Manifest phase must be declared')
+        if (any(type(name) is not str or not name for name in self.feature_names)
+                or len(set(self.feature_names)) != len(self.feature_names)):
+            raise ValueError('Manifest feature schema must contain unique nonempty names')
+        object.__setattr__(self, 'feature_schema_hash',
+                           canonical_hash({'feature_names': self.feature_names}))
         group_parts: dict[int, str] = {}
         for group, partition in zip(self.group_id, self.assignments):
             if partition not in ('F', 'G', 'V', 'T'):
@@ -120,6 +127,7 @@ class SplitManifest:
             'fold': self.fold, 'phase': self.phase,
             'row_id': self.row_id, 'group_id': self.group_id, 'assignments': self.assignments,
             'date_boundaries': self.date_boundaries,
+            'feature_names': self.feature_names, 'feature_schema_hash': self.feature_schema_hash,
         }))
 
     def to_dict(self) -> dict:
@@ -144,11 +152,14 @@ class DevelopmentData:
         assignments = tuple(p for p, rows in zip('FGV', observations) for _ in rows.y)
         hashes = tuple((f'{p}.{name}', array_hash(getattr(rows, name)))
                        for p, rows in zip('FGV', observations) for name in ('X', 'y'))
+        schema_hash = canonical_hash({'feature_names': self.F.feature_names})
         dataset_id = canonical_hash({'teacher_id': self.teacher_id, 'hashes': hashes,
-                                     'row_id': row_ids})
+                                     'row_id': row_ids, 'feature_names': self.F.feature_names,
+                                     'feature_schema_hash': schema_hash})
         expected = SplitManifest(dataset_id=dataset_id, teacher_id=self.teacher_id,
                                  row_id=row_ids, group_id=group_ids,
-                                 assignments=assignments, hashes=hashes)
+                                 assignments=assignments, hashes=hashes,
+                                 feature_names=self.F.feature_names)
         if self.manifest is not None and self.manifest != expected:
             raise ValueError('Manifest does not match development observations')
         object.__setattr__(self, 'manifest', expected)
