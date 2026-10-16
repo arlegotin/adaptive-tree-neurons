@@ -1,0 +1,22 @@
+# Task 8 fix round 1 scoped review
+
+## Finding verdicts
+
+- **I1 — finite-E sampling noise treated as between-teacher variance: ADDRESSED.** `src/treeneuron/pilot/design.py:188` includes both repetition-mean variance/R and shared-E row-mean variance/N in each teacher's nuisance allowance. Under the declared conditional crossed-effects assumptions, this estimates `A/R + B/N + 2*C/(R*N)`, conservatively retaining the interaction twice rather than omitting the shared-E term. The intrinsic lower bound now subtracts the upper nuisance endpoint from the lower observed-variance endpoint and clips unresolved results at zero (`:190`, `:192`). Both component endpoints enter the Monte Carlo diagnostic (`:199`). The zero-intrinsic fixture with differing finite-E teacher means now reaches the finite-row estimation branch with no K_calc; interaction, positive intrinsic variance, increased E size and insufficient repetition cases are covered (`tests/test_design.py:197`, `:209`, `:221`, `:229`).
+- **I1 assumptions and limits: appropriately retained.** `src/treeneuron/pilot/design.py:163` records independent teachers, conditional iid optimizer/E draws, their independence, finite second moments, the decomposition and conditional bootstrap limitations. The two one-sided 2.5% tails support the stated union-bound reasoning only to the extent that the component bounds are valid; the code/report do not present empirical bootstrap approximation as a finite-sample coverage theorem. Validation of these sampling and inference assumptions remains an explicit Task9/10 eligibility obligation, before any genuine pilot/freeze (`audit/implementation/evidence/2026-10-16/task-8-report.md:106`).
+- **I2 — declared required controls not enforced: ADDRESSED.** The strict shared identifier validator rejects malformed containers, identifiers and duplicates (`src/treeneuron/pilot/design.py:89`). Aggregation preserves the full intersection over all completed teacher/repetition records instead of starting with only B1–B6 (`:154`). The design gate retains that minimum and also rejects every declared control absent from observed coverage, naming missing IDs (`:338`, `:340`). Tests cover missing versus present additional anchors, incomplete-pair coverage, invalid declarations/observations and absent/empty declarations (`tests/test_design.py:235`, `:244`, `:258`, `:264`, `:272`). No external-evidence bypass or new B7/H3 execution requirement was introduced.
+
+## New breakage in the fix diff
+
+- **None found.** The public summary contract and driver are unchanged; the amendments are confined to the two findings, their diagnostics/tests and the appended evidence report. The numerical decomposition is substantive, not a permanently unresolved placeholder: the positive-intrinsic fixture resolves while the finite-E-only fixture does not (`tests/test_design.py:197`, `:221`).
+
+## Out-of-scope observations
+
+- **Previously recorded M1 remains deferred:** the repetition recommendation omits evaluation cost. That logic is untouched by this fix and does not reopen this scoped round. The original Task3 warning/row-trace final-triage items also retain their previous status.
+- **Scientific evidence remains pending:** the original engineering artifacts retain their original source identity; neither their regeneration under changed source nor a new retained calibration was required. Final measured feasibility, numeric design and the staged readiness integration remain outside this fix review (`audit/implementation/evidence/2026-10-16/task-8-report.md:104`, `:106`).
+
+## Checks and verdict
+
+- Reviewed the supplied `9a018e5..a84ec74` fix package in consecutive passes, with line anchors derived from that same diff. No changed-file rereads, outside-code checks, Git mutations, helpers, suite/CLI/training/protected execution or repeated artifact verification were performed.
+- The appended report identifies the covering command `pytest tests/test_design.py tests/test_pilot_calibrate.py -q`; its exact retained output is **70 passed in 10.14s**, with no warnings in that output (`audit/implementation/evidence/2026-10-16/task-8-fix1-covering-tests.txt:2`). The added tests exercise the original defects and the intended conditional limitations rather than merely asserting new field presence.
+- **Fix round: All findings addressed, no new Critical/Important breakage.** I1 and I2 are closed for the authorized pre-freeze implementation phase. New findings: **0 critical, 0 important, 0 minor**; M1 remains the existing deferred minor.

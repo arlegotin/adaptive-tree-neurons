@@ -1,0 +1,67 @@
+{
+  "base_commit": "93bddf9",
+  "current_package_sha256": "872c50091b1fba3c46a553efa1f665657e5a13b060d5b580a403afe15ab30caf",
+  "files": {
+    "audit/implementation/evidence/2026-10-16/task-8-artifact-index.json": {
+      "bytes": 120874,
+      "sha256": "1a57ea0522504a6594c38492322b89dc8185637c33cd1c02ab47b55d6d019cab"
+    },
+    "audit/implementation/evidence/2026-10-16/task-8-fix1-covering-tests.txt": {
+      "bytes": 100,
+      "sha256": "72017ad17e3b4acb2ec00cc648c53190976e575124297ac7663fe5ee8d71f027"
+    },
+    "audit/implementation/evidence/2026-10-16/task-8-fix1-review.md": {
+      "bytes": 4539,
+      "sha256": "1de6f4e0b48980da78a2fa68ffb1e13a2c6f8066c9fac6b497ab9b0b526f0a70"
+    },
+    "audit/implementation/evidence/2026-10-16/task-8-full-tests.txt": {
+      "bytes": 3552,
+      "sha256": "f2054ed1db878eb89a5fcecf9a5f63c4bc90b5ab17ca663d0bc05fdf6d0c8482"
+    },
+    "audit/implementation/evidence/2026-10-16/task-8-report.md": {
+      "bytes": 25453,
+      "sha256": "57646e691846a490ea735fa7ed3bdc6e01365e7d2684a24b439e3bb53948bc63"
+    },
+    "audit/implementation/evidence/2026-10-16/task-8-review.md": {
+      "bytes": 8234,
+      "sha256": "334be6cfaffcfb5cd7f439a02454ac2fafda40c6c2e535196bb8821357fcd1cc"
+    }
+  },
+  "fix_commit": "a84ec74",
+  "implementation_commits": [
+    "3819660",
+    "9a018e5"
+  ],
+  "limits": [
+    "The one-teacher engineering run is not a variance pilot or numeric confirmation design",
+    "No protected T, real freeze or independent scientific cohort",
+    "Original runtime artifacts retain their original source hash",
+    "Tasks9/10/13 implementation and review precede genuine pilot/freeze"
+  ],
+  "phase": "implementation_accepted_scientific_evidence_pending",
+  "review": {
+    "deferred": [
+      "M1: repetition recommendation omits evaluation cost; selected repetitions unchanged"
+    ],
+    "fix1": {
+      "addressed": [
+        "I1",
+        "I2"
+      ],
+      "new_breakage": 0,
+      "open_important": 0
+    },
+    "initial": {
+      "critical": 0,
+      "important": 2,
+      "minor": 1
+    }
+  },
+  "task": 8,
+  "verification": {
+    "fix_covering": "70 passed in10.14s; design+pilot",
+    "new_retained_runtime_runs": 0,
+    "original400_artifacts": "root verified before review; worker rechecked unchanged after fix",
+    "original_full_suite": "763 passed,48 skipped,28 known warnings in294.35s"
+  }
+}
