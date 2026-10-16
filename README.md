@@ -22,8 +22,8 @@ export UV_CACHE_DIR="$PWD/.uv-cache"
 export UV_PYTHON_INSTALL_DIR="$PWD/.uv-python"
 uv sync --frozen --python 3.12
 .venv/bin/python -m pytest -q
-env PYTORCH_ENABLE_MPS_FALLBACK=0 .venv/bin/python -m treeneuron.cli doctor --output environment/report.json
-.venv/bin/python -m treeneuron.cli verify-math --backend-report environment/report.json --output environment/reference-math.json
+env PYTORCH_ENABLE_MPS_FALLBACK=0 .venv/bin/python -m treeneuron.cli doctor --output environment/current-report.json
+.venv/bin/python -m treeneuron.cli verify-math --backend-report environment/current-report.json --output environment/reference-math.json
 ```
 
 The core lock resolves Torch 2.14.1, NumPy 2.5.4, SciPy 1.18.1, pandas 3.0.6, scikit-learn 1.9.1, PyYAML 6.0.3 and development pytest 9.1.1. It is scoped to Python 3.12. Runtime reports and acquired source artifacts stay outside Git. Doctor records denied probes as null with reasons, strips serial/UUID fields and returns nonzero for indispensable package import failures. Sandboxed observations can differ from native process observations; Doctor runs actual isolated kernel probes; a saved report is revalidated against execution source, lock and runtime. Sandboxed MPS unavailability remains separate from the executed native MPS evidence.
@@ -103,8 +103,12 @@ curves reached those limits, `configs/explore-next-allowance.yaml` and
 `configs/explore-positive-control-next-allowance.yaml` separately declare a
 symmetric 4,000 + 4,000 next-run allowance. They are **unexecuted and calibration
 pending**. They change no batch, scoring, checkpoint-selection or patience rule.
-Definitive ceiling calibration follows the required baseline/data and pre-freeze
-implementation gates; no repeated inventory run or variance pilot is claimed here.
+Definitive H1 calibration follows the required spline/B6/B7 and search/timing
+gates, plus all pre-freeze H1 implementation. Grouped/temporal raw data and
+practical adapters gate the separate transfer study. No repeated inventory run
+or variance pilot is claimed here. The [confirmation-cohort amendment](protocol/amendments/2026-10-16-minimum-confirmation-cohort.md)
+prevents a one-teacher design from producing a falsely precise population claim;
+its study-specific floor still requires finite-sample uncertainty checks.
 
 The [Task 12 review fixes](docs/research/2026-10-16-exploratory-fix1-evidence.json)
 close an interruption-bookkeeping gap and populate coordinator/child manifests
