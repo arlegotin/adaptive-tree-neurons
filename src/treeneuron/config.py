@@ -28,7 +28,8 @@ class ModelConfig:
 
 @dataclass(frozen=True)
 class TrainingConfig:
-    optimizer: Literal["adam", "sgd"] = "adam"
+    # AdamW uses decoupled weight decay; SGD is the diagnostic alternate.
+    optimizer: Literal["adamw", "sgd"] = "adamw"
     learning_rate: float = 1e-3
     weight_decay: float = 0.0
     adam_epsilon: float = 1e-8
@@ -206,10 +207,21 @@ def resolve_experiment(value: Mapping[str, Any]) -> ExperimentConfig:
         raise ValueError("study_id must be nonempty")
     # Recompute row defaults from the requested width/dimension and density.
     data = dict(value.get("data", {}))
-    p0 = (config.model.d + 2) * config.model.h + 1
-    data.setdefault("n_fit", math.ceil(config.data.sample_density * p0))
-    data.setdefault("n_growth", math.ceil(data["n_fit"] / 4))
-    data.setdefault("n_validation", math.ceil(data["n_fit"] / 4))
+    if config.data.population == "conditional_slope_2d":
+        data.setdefault("noise_sigma", 0.0)
+        if data["noise_sigma"] != 0:
+            raise ValueError("conditional_slope_2d is the noise-free control; noise_sigma must be zero")
+    if "n_fit" not in data:
+        p0 = (config.model.d + 2) * config.model.h + 1
+        try:
+            fit_rows = config.data.sample_density * p0
+        except OverflowError as error:
+            raise ValueError("derived n_fit is outside float64 range") from error
+        if not math.isfinite(fit_rows):
+            raise ValueError("derived n_fit must be finite")
+        data["n_fit"] = math.ceil(fit_rows)
+    data.setdefault("n_growth", (data["n_fit"] + 3) // 4)
+    data.setdefault("n_validation", (data["n_fit"] + 3) // 4)
     config = ExperimentConfig(**{**{f.name: getattr(config, f.name) for f in fields(config)},
                                  "data": _section(DataConfig, data, "experiment.data")})
     positive = {

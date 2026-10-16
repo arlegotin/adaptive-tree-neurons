@@ -108,3 +108,43 @@ def test_hash_rejects_non_json_or_nonfinite_values(value):
 def test_out_of_range_numeric_input_is_a_validation_error(tmp_path):
     with pytest.raises(ValueError):
         load(tmp_path, {"study_id": "pilot", "model": {"tau": 10**400}})
+
+
+def test_primary_training_resolves_explicit_adamw(tmp_path):
+    config = load(tmp_path, {"study_id": "pilot"})
+    assert config.training.optimizer == "adamw"
+
+
+def test_adamw_weight_decay_recipe_is_accepted(tmp_path):
+    config = load(tmp_path, {"study_id": "pilot", "training": {
+        "optimizer": "adamw", "weight_decay": 0.01}})
+    assert config.training.optimizer == "adamw"
+    assert config.training.weight_decay == 0.01
+
+
+def test_ambiguous_adam_recipe_is_rejected(tmp_path):
+    with pytest.raises(ValueError):
+        load(tmp_path, {"study_id": "pilot", "training": {"optimizer": "adam"}})
+
+
+def test_conditional_slope_control_defaults_to_noise_free(tmp_path):
+    config = load(tmp_path, {"study_id": "control", "model": {"d": 2},
+                             "data": {"population": "conditional_slope_2d"}})
+    assert config.data.noise_sigma == 0.0
+
+
+def test_conditional_slope_control_rejects_nonzero_noise(tmp_path):
+    with pytest.raises(ValueError):
+        load(tmp_path, {"study_id": "control", "model": {"d": 2},
+                        "data": {"population": "conditional_slope_2d", "noise_sigma": 0.1}})
+
+
+def test_density_product_overflow_is_a_validation_error(tmp_path):
+    with pytest.raises(ValueError):
+        load(tmp_path, {"study_id": "pilot", "data": {"sample_density": 1e308}})
+
+
+def test_split_row_defaults_use_exact_integer_ceiling(tmp_path):
+    config = load(tmp_path, {"study_id": "pilot", "data": {"n_fit": 10**400 + 1}})
+    assert config.data.n_growth == 25 * 10**398 + 1
+    assert config.data.n_validation == 25 * 10**398 + 1
