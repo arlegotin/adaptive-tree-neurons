@@ -1,0 +1,1 @@
+Verified all 329 indexed files against size and SHA256; no discrepancies.

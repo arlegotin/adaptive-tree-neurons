@@ -1,0 +1,1751 @@
+............................................F.............               [100%]
+=================================== FAILURES ===================================
+_______________________ test_causal_cli_executes_recipes _______________________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3705/test_causal_cli_executes_recip0')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3705/training-evidence1/report.json')
+
+    def test_causal_cli_executes_recipes(tmp_path, cpu_training_evidence):
+        import subprocess,sys
+        path=tmp_path/'capabilities.json'
+        run=subprocess.run([sys.executable,'-m','treeneuron.cli','verify-baselines','--track','causal',
+            '--backend-report',str(cpu_training_evidence),'--artifacts-dir',str(tmp_path/'recipes'),'--output',str(path)],capture_output=True,text=True)
+>       assert run.returncode==0,run.stdout+run.stderr
+E       AssertionError: {
+E           "adapter_matrix": [
+E             {
+E               "backend": "numpy CPU float64",
+E               "cache": false,
+E               "categories": "F-only ordinal codes and missing indicators",
+E               "context": false,
+E               "fallback": false,
+E               "internal_selection": false,
+E               "method": "Mean",
+E               "preprocessing": "F-only transform",
+E               "recipe": "F target mean",
+E               "required": true,
+E               "source": "local treeneuron package; exact source hash in verification receipt",
+E               "status": "invalid",
+E               "track": "causal",
+E               "transduction": false,
+E               "unavailable_reason": "Verification did not complete: AssertionError: \nArrays are not equal\n\nMismatched elements: 32 / 32 (100%)\nFirst 5 mismatches are at indices:\n [0]: 10.965038774735719 (ACTUAL), 9.587656717921506 (DESIRED)\n [1]: 10.969994562109864 (ACTUAL), 9.574640798067868 (DESIRED)\n [2]: 10.853124003490272 (ACTUAL), 10.264974831790314 (DESIRED)\n [3]: 10.958998316813048 (ACTUAL), 9.915065739588625 (DESIRED)\n [4]: 10.944478571388192 (ACTUAL), 10.251617037631224 (DESIRED)\nMax absolute difference among violations: 1.70607595\nMax relative difference among violations: 0.1849398\n ACTUAL: array([10.965039, 10.969995, 10.853124, 10.958998, 10.944479, 10.978039,\n       10.970959, 10.472918, 10.943621, 10.960981, 10.93111 , 10.93198 ,\n       10.749637, 10.938974, 10.928073, 10.928073, 10.989921, 10.490158,...\n DESIRED: array([ 9.587657,  9.574641, 10.264975,  9.915066, 10.251617,  9.826233,\n       10.222355, 10.586398,  9.912799,  9.908069,  9.225034,  9.612289,\n        9.803959, 10.358821, 10.044714,  9.935479, 10.945005,  9.687817,...",
+E               "unknown_counts_reason": "parameter/serialized counts require a fitted instance; process memory not measured by registry",
+E               "version": "0.1.0"
+E             },
+E             {
+E               "backend": "numpy CPU float64",
+E               "cache": false,
+E               "categories": "F-only ordinal codes and missing indicators",
+E               "context": false,
+E               "fallback": false,
+E               "internal_selection": false,
+E               "method": "Ridge",
+E               "preprocessing": "F-only transform",
+E               "recipe": "linear ridge; caller selects alpha with V",
+E               "required": true,
+E               "source": "local treeneuron package; exact source hash in verification receipt",
+E               "status": "invalid",
+E               "track": "causal",
+E               "transduction": false,
+E               "unavailable_reason": "Verification did not complete: AssertionError: \nArrays are not equal\n\nMismatched elements: 32 / 32 (100%)\nFirst 5 mismatches are at indices:\n [0]: 10.965038774735719 (ACTUAL), 9.587656717921506 (DESIRED)\n [1]: 10.969994562109864 (ACTUAL), 9.574640798067868 (DESIRED)\n [2]: 10.853124003490272 (ACTUAL), 10.264974831790314 (DESIRED)\n [3]: 10.958998316813048 (ACTUAL), 9.915065739588625 (DESIRED)\n [4]: 10.944478571388192 (ACTUAL), 10.251617037631224 (DESIRED)\nMax absolute difference among violations: 1.70607595\nMax relative difference among violations: 0.1849398\n ACTUAL: array([10.965039, 10.969995, 10.853124, 10.958998, 10.944479, 10.978039,\n       10.970959, 10.472918, 10.943621, 10.960981, 10.93111 , 10.93198 ,\n       10.749637, 10.938974, 10.928073, 10.928073, 10.989921, 10.490158,...\n DESIRED: array([ 9.587657,  9.574641, 10.264975,  9.915066, 10.251617,  9.826233,\n       10.222355, 10.586398,  9.912799,  9.908069,  9.225034,  9.612289,\n        9.803959, 10.358821, 10.044714,  9.935479, 10.945005,  9.687817,...",
+E               "unknown_counts_reason": "parameter/serialized counts require a fitted instance; process memory not measured by registry",
+E               "version": "0.1.0"
+E             },
+E             {
+E               "backend": "numpy CPU float64",
+E               "cache": false,
+E               "categories": "unsupported; explicit error",
+E               "context": false,
+E               "fallback": false,
+E               "internal_selection": false,
+E               "method": "SplineRidge",
+E               "preprocessing": "F-only numeric imputation/scaling and per-feature quantile knots",
+E               "recipe": "additive cubic regression spline ridge; caller selects alpha with V",
+E               "required": true,
+E               "source": "local treeneuron package; exact source hash in verification receipt",
+E               "status": "invalid",
+E               "track": "causal",
+E               "transduction": false,
+E               "unavailable_reason": "Verification did not complete: AssertionError: \nArrays are not equal\n\nMismatched elements: 32 / 32 (100%)\nFirst 5 mismatches are at indices:\n [0]: 10.965038774735719 (ACTUAL), 9.587656717921506 (DESIRED)\n [1]: 10.969994562109864 (ACTUAL), 9.574640798067868 (DESIRED)\n [2]: 10.853124003490272 (ACTUAL), 10.264974831790314 (DESIRED)\n [3]: 10.958998316813048 (ACTUAL), 9.915065739588625 (DESIRED)\n [4]: 10.944478571388192 (ACTUAL), 10.251617037631224 (DESIRED)\nMax absolute difference among violations: 1.70607595\nMax relative difference among violations: 0.1849398\n ACTUAL: array([10.965039, 10.969995, 10.853124, 10.958998, 10.944479, 10.978039,\n       10.970959, 10.472918, 10.943621, 10.960981, 10.93111 , 10.93198 ,\n       10.749637, 10.938974, 10.928073, 10.928073, 10.989921, 10.490158,...\n DESIRED: array([ 9.587657,  9.574641, 10.264975,  9.915066, 10.251617,  9.826233,\n       10.222355, 10.586398,  9.912799,  9.908069,  9.225034,  9.612289,\n        9.803959, 10.358821, 10.044714,  9.935479, 10.945005,  9.687817,...",
+E               "unknown_counts_reason": "parameter/serialized counts require a fitted instance; process memory not measured by registry",
+E               "version": "0.1.0"
+E             },
+E             {
+E               "backend": "PyTorch CPU eager float32; CPU64 scoring",
+E               "cache": false,
+E               "categories": "numerical causal fixtures only; transformed width must equal declared model width",
+E               "context": "original DevelopmentData F/G provenance; no V/T access",
+E               "fallback": false,
+E               "internal_selection": "G checkpoint selection; G allocation for B6",
+E               "method": "B1",
+E               "preprocessing": "F-only transform",
+E               "recipe": "continued ordinary keep",
+E               "required": true,
+E               "source": "local treeneuron package; exact source hash in verification receipt",
+E               "status": "invalid",
+E               "track": "causal",
+E               "transduction": false,
+E               "unavailable_reason": "Verification did not complete: AssertionError: \nArrays are not equal\n\nMismatched elements: 32 / 32 (100%)\nFirst 5 mismatches are at indices:\n [0]: 10.965038774735719 (ACTUAL), 9.587656717921506 (DESIRED)\n [1]: 10.969994562109864 (ACTUAL), 9.574640798067868 (DESIRED)\n [2]: 10.853124003490272 (ACTUAL), 10.264974831790314 (DESIRED)\n [3]: 10.958998316813048 (ACTUAL), 9.915065739588625 (DESIRED)\n [4]: 10.944478571388192 (ACTUAL), 10.251617037631224 (DESIRED)\nMax absolute difference among violations: 1.70607595\nMax relative difference among violations: 0.1849398\n ACTUAL: array([10.965039, 10.969995, 10.853124, 10.958998, 10.944479, 10.978039,\n       10.970959, 10.472918, 10.943621, 10.960981, 10.93111 , 10.93198 ,\n       10.749637, 10.938974, 10.928073, 10.928073, 10.989921, 10.490158,...\n DESIRED: array([ 9.587657,  9.574641, 10.264975,  9.915066, 10.251617,  9.826233,\n       10.222355, 10.586398,  9.912799,  9.908069,  9.225034,  9.612289,\n        9.803959, 10.358821, 10.044714,  9.935479, 10.945005,  9.687817,...",
+E               "unknown_counts_reason": "parameter/serialized counts require a fitted instance; process memory not measured by registry",
+E               "version": "0.1.0"
+E             },
+E             {
+E               "backend": "PyTorch CPU eager float32; CPU64 scoring",
+E               "cache": false,
+E               "categories": "numerical causal fixtures only; transformed width must equal declared model width",
+E               "context": "original DevelopmentData F/G provenance; no V/T access",
+E               "fallback": false,
+E               "internal_selection": "G checkpoint selection; G allocation for B6",
+E               "method": "B2",
+E               "preprocessing": "F-only transform",
+E               "recipe": "ordinary width brackets and zero-head widening; duplication deferred",
+E               "required": true,
+E               "source": "local treeneuron package; exact source hash in verification receipt",
+E               "status": "invalid",
+E               "track": "causal",
+E               "transduction": false,
+E               "unavailable_reason": "Verification did not complete: AssertionError: \nArrays are not equal\n\nMismatched elements: 32 / 32 (100%)\nFirst 5 mismatches are at indices:\n [0]: 10.965038774735719 (ACTUAL), 9.587656717921506 (DESIRED)\n [1]: 10.969994562109864 (ACTUAL), 9.574640798067868 (DESIRED)\n [2]: 10.853124003490272 (ACTUAL), 10.264974831790314 (DESIRED)\n [3]: 10.958998316813048 (ACTUAL), 9.915065739588625 (DESIRED)\n [4]: 10.944478571388192 (ACTUAL), 10.251617037631224 (DESIRED)\nMax absolute difference among violations: 1.70607595\nMax relative difference among violations: 0.1849398\n ACTUAL: array([10.965039, 10.969995, 10.853124, 10.958998, 10.944479, 10.978039,\n       10.970959, 10.472918, 10.943621, 10.960981, 10.93111 , 10.93198 ,\n       10.749637, 10.938974, 10.928073, 10.928073, 10.989921, 10.490158,...\n DESIRED: array([ 9.587657,  9.574641, 10.264975,  9.915066, 10.251617,  9.826233,\n       10.222355, 10.586398,  9.912799,  9.908069,  9.225034,  9.612289,\n        9.803959, 10.358821, 10.044714,  9.935479, 10.945005,  9.687817,...",
+E               "unknown_counts_reason": "parameter/serialized counts require a fitted instance; process memory not measured by registry",
+E               "version": "0.1.0"
+E             },
+E             {
+E               "backend": "PyTorch CPU eager float32; CPU64 scoring",
+E               "cache": false,
+E               "categories": "numerical causal fixtures only; transformed width must equal declared model width",
+E               "context": "original DevelopmentData F/G provenance; no V/T access",
+E               "fallback": false,
+E               "internal_selection": "G checkpoint selection; G allocation for B6",
+E               "method": "B3",
+E               "preprocessing": "F-only transform",
+E               "recipe": "static partial/full centered/direct-leaf coordinates",
+E               "required": true,
+E               "source": "local treeneuron package; exact source hash in verification receipt",
+E               "status": "invalid",
+E               "track": "causal",
+E               "transduction": false,
+E               "unavailable_reason": "Verification did not complete: AssertionError: \nArrays are not equal\n\nMismatched elements: 32 / 32 (100%)\nFirst 5 mismatches are at indices:\n [0]: 10.965038774735719 (ACTUAL), 9.587656717921506 (DESIRED)\n [1]: 10.969994562109864 (ACTUAL), 9.574640798067868 (DESIRED)\n [2]: 10.853124003490272 (ACTUAL), 10.264974831790314 (DESIRED)\n [3]: 10.958998316813048 (ACTUAL), 9.915065739588625 (DESIRED)\n [4]: 10.944478571388192 (ACTUAL), 10.251617037631224 (DESIRED)\nMax absolute difference among violations: 1.70607595\nMax relative difference among violations: 0.1849398\n ACTUAL: array([10.965039, 10.969995, 10.853124, 10.958998, 10.944479, 10.978039,\n       10.970959, 10.472918, 10.943621, 10.960981, 10.93111 , 10.93198 ,\n       10.749637, 10.938974, 10.928073, 10.928073, 10.989921, 10.490158,...\n DESIRED: array([ 9.587657,  9.574641, 10.264975,  9.915066, 10.251617,  9.826233,\n       10.222355, 10.586398,  9.912799,  9.908069,  9.225034,  9.612289,\n        9.803959, 10.358821, 10.044714,  9.935479, 10.945005,  9.687817,...",
+E               "unknown_counts_reason": "parameter/serialized counts require a fitted instance; process memory not measured by registry",
+E               "version": "0.1.0"
+E             },
+E             {
+E               "backend": "PyTorch CPU eager float32; CPU64 scoring",
+E               "cache": false,
+E               "categories": "numerical causal fixtures only; transformed width must equal declared model width",
+E               "context": "original DevelopmentData F/G provenance; no V/T access",
+E               "fallback": false,
+E               "internal_selection": "G checkpoint selection; G allocation for B6",
+E               "method": "B4",
+E               "preprocessing": "F-only transform",
+E               "recipe": "matched random allocation",
+E               "required": true,
+E               "source": "local treeneuron package; exact source hash in verification receipt",
+E               "status": "invalid",
+E               "track": "causal",
+E               "transduction": false,
+E               "unavailable_reason": "Verification did not complete: AssertionError: \nArrays are not equal\n\nMismatched elements: 32 / 32 (100%)\nFirst 5 mismatches are at indices:\n [0]: 10.965038774735719 (ACTUAL), 9.587656717921506 (DESIRED)\n [1]: 10.969994562109864 (ACTUAL), 9.574640798067868 (DESIRED)\n [2]: 10.853124003490272 (ACTUAL), 10.264974831790314 (DESIRED)\n [3]: 10.958998316813048 (ACTUAL), 9.915065739588625 (DESIRED)\n [4]: 10.944478571388192 (ACTUAL), 10.251617037631224 (DESIRED)\nMax absolute difference among violations: 1.70607595\nMax relative difference among violations: 0.1849398\n ACTUAL: array([10.965039, 10.969995, 10.853124, 10.958998, 10.944479, 10.978039,\n       10.970959, 10.472918, 10.943621, 10.960981, 10.93111 , 10.93198 ,\n       10.749637, 10.938974, 10.928073, 10.928073, 10.989921, 10.490158,...\n DESIRED: array([ 9.587657,  9.574641, 10.264975,  9.915066, 10.251617,  9.826233,\n       10.222355, 10.586398,  9.912799,  9.908069,  9.225034,  9.612289,\n        9.803959, 10.358821, 10.044714,  9.935479, 10.945005,  9.687817,...",
+E               "unknown_counts_reason": "parameter/serialized counts require a fitted instance; process memory not measured by registry",
+E               "version": "0.1.0"
+E             },
+E             {
+E               "backend": "PyTorch CPU eager float32; CPU64 scoring",
+E               "cache": false,
+E               "categories": "numerical causal fixtures only; transformed width must equal declared model width",
+E               "context": "original DevelopmentData F/G provenance; no V/T access",
+E               "fallback": false,
+E               "internal_selection": "G checkpoint selection; G allocation for B6",
+E               "method": "B5",
+E               "preprocessing": "F-only transform",
+E               "recipe": "Adam/SGD eigenvector allocation and top-ID Gaussian directions",
+E               "required": true,
+E               "source": "local treeneuron package; exact source hash in verification receipt",
+E               "status": "invalid",
+E               "track": "causal",
+E               "transduction": false,
+E               "unavailable_reason": "Verification did not complete: AssertionError: \nArrays are not equal\n\nMismatched elements: 32 / 32 (100%)\nFirst 5 mismatches are at indices:\n [0]: 10.965038774735719 (ACTUAL), 9.587656717921506 (DESIRED)\n [1]: 10.969994562109864 (ACTUAL), 9.574640798067868 (DESIRED)\n [2]: 10.853124003490272 (ACTUAL), 10.264974831790314 (DESIRED)\n [3]: 10.958998316813048 (ACTUAL), 9.915065739588625 (DESIRED)\n [4]: 10.944478571388192 (ACTUAL), 10.251617037631224 (DESIRED)\nMax absolute difference among violations: 1.70607595\nMax relative difference among violations: 0.1849398\n ACTUAL: array([10.965039, 10.969995, 10.853124, 10.958998, 10.944479, 10.978039,\n       10.970959, 10.472918, 10.943621, 10.960981, 10.93111 , 10.93198 ,\n       10.749637, 10.938974, 10.928073, 10.928073, 10.989921, 10.490158,...\n DESIRED: array([ 9.587657,  9.574641, 10.264975,  9.915066, 10.251617,  9.826233,\n       10.222355, 10.586398,  9.912799,  9.908069,  9.225034,  9.612289,\n        9.803959, 10.358821, 10.044714,  9.935479, 10.945005,  9.687817,...",
+E               "unknown_counts_reason": "parameter/serialized counts require a fitted instance; process memory not measured by registry",
+E               "version": "0.1.0"
+E             },
+E             {
+E               "backend": "PyTorch CPU eager float32; CPU64 scoring",
+E               "cache": false,
+E               "categories": "numerical causal fixtures only; transformed width must equal declared model width",
+E               "context": "original DevelopmentData F/G provenance; no V/T access",
+E               "fallback": false,
+E               "internal_selection": "G checkpoint selection; G allocation for B6",
+E               "method": "B6",
+E               "preprocessing": "F-only transform",
+E               "recipe": "ANT-inspired restricted independent single-unit G probes; fixed count; fresh joint continuation",
+E               "required": true,
+E               "source": "local treeneuron package; exact source hash in verification receipt",
+E               "status": "invalid",
+E               "track": "causal",
+E               "transduction": false,
+E               "unavailable_reason": "Verification did not complete: AssertionError: \nArrays are not equal\n\nMismatched elements: 32 / 32 (100%)\nFirst 5 mismatches are at indices:\n [0]: 10.965038774735719 (ACTUAL), 9.587656717921506 (DESIRED)\n [1]: 10.969994562109864 (ACTUAL), 9.574640798067868 (DESIRED)\n [2]: 10.853124003490272 (ACTUAL), 10.264974831790314 (DESIRED)\n [3]: 10.958998316813048 (ACTUAL), 9.915065739588625 (DESIRED)\n [4]: 10.944478571388192 (ACTUAL), 10.251617037631224 (DESIRED)\nMax absolute difference among violations: 1.70607595\nMax relative difference among violations: 0.1849398\n ACTUAL: array([10.965039, 10.969995, 10.853124, 10.958998, 10.944479, 10.978039,\n       10.970959, 10.472918, 10.943621, 10.960981, 10.93111 , 10.93198 ,\n       10.749637, 10.938974, 10.928073, 10.928073, 10.989921, 10.490158,...\n DESIRED: array([ 9.587657,  9.574641, 10.264975,  9.915066, 10.251617,  9.826233,\n       10.222355, 10.586398,  9.912799,  9.908069,  9.225034,  9.612289,\n        9.803959, 10.358821, 10.044714,  9.935479, 10.945005,  9.687817,...",
+E               "unknown_counts_reason": "parameter/serialized counts require a fitted instance; process memory not measured by registry",
+E               "version": "0.1.0"
+E             },
+E             {
+E               "backend": "unverified",
+E               "cache": null,
+E               "categories": "unverified",
+E               "context": "unverified",
+E               "fallback": null,
+E               "internal_selection": "unverified",
+E               "method": "B7",
+E               "preprocessing": "unverified",
+E               "recipe": "pending verification",
+E               "required": true,
+E               "source": "not implemented",
+E               "status": "pending",
+E               "track": "causal",
+E               "transduction": null,
+E               "unavailable_reason": "Evidence Task3: pinned official NODE recipe not implemented or verified",
+E               "unknown_counts_reason": "parameter/serialized counts require a fitted instance; process memory not measured by registry",
+E               "version": "unverified; no pinned adapter"
+E             }
+E           ],
+E           "artifacts_root": "/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3705/test_causal_cli_executes_recip0/recipes",
+E           "capabilities": {
+E             "B0": {
+E               "recipes": [
+E                 "mean",
+E                 "ridge"
+E               ],
+E               "spline": "implemented",
+E               "status": "implemented"
+E             },
+E             "B1": {
+E               "status": "implemented"
+E             },
+E             "B2": {
+E               "status": "implemented"
+E             },
+E             "B2_duplication": {
+E               "reason": "No duplication/state/symmetry recipe executed",
+E               "status": "deferred"
+E             },
+E             "B3": {
+E               "status": "implemented"
+E             },
+E             "B4": {
+E               "status": "implemented"
+E             },
+E             "B5": {
+E               "status": "implemented"
+E             },
+E             "B6": {
+E               "recipe": "ANT-inspired restricted allocation",
+E               "status": "implemented"
+E             },
+E             "B7": {
+E               "reason": "Evidence-plan pinned official NODE recipe",
+E               "status": "pending"
+E             }
+E           },
+E           "failure": "AssertionError: \nArrays are not equal\n\nMismatched elements: 32 / 32 (100%)\nFirst 5 mismatches are at indices:\n [0]: 10.965038774735719 (ACTUAL), 9.587656717921506 (DESIRED)\n [1]: 10.969994562109864 (ACTUAL), 9.574640798067868 (DESIRED)\n [2]: 10.853124003490272 (ACTUAL), 10.264974831790314 (DESIRED)\n [3]: 10.958998316813048 (ACTUAL), 9.915065739588625 (DESIRED)\n [4]: 10.944478571388192 (ACTUAL), 10.251617037631224 (DESIRED)\nMax absolute difference among violations: 1.70607595\nMax relative difference among violations: 0.1849398\n ACTUAL: array([10.965039, 10.969995, 10.853124, 10.958998, 10.944479, 10.978039,\n       10.970959, 10.472918, 10.943621, 10.960981, 10.93111 , 10.93198 ,\n       10.749637, 10.938974, 10.928073, 10.928073, 10.989921, 10.490158,...\n DESIRED: array([ 9.587657,  9.574641, 10.264975,  9.915066, 10.251617,  9.826233,\n       10.222355, 10.586398,  9.912799,  9.908069,  9.225034,  9.612289,\n        9.803959, 10.358821, 10.044714,  9.935479, 10.945005,  9.687817,...",
+E           "greedy_probes": {
+E             "T_accessed": false,
+E             "V_accessed": false,
+E             "allocation": {
+E               "contrasts": [
+E                 [
+E                   0.016235594283370115,
+E                   -0.00545349844393866,
+E                   -0.006532337190831552,
+E                   -0.00014590582260797384,
+E                   -0.00518794453889389,
+E                   -0.002295069851137873,
+E                   0.005895713053458273,
+E                   -0.0019060537520103691,
+E                   -0.004660226750965148,
+E                   0.0010448003186138213,
+E                   -0.0010643342064867143,
+E                   0.0014980784171691485,
+E                   0.0028534406956046998,
+E                   0.0015590697048075315,
+E                   -0.0035359117932354965,
+E                   -0.005762915599880343,
+E                   0.014512500220965051
+E                 ]
+E               ],
+E               "effective_count": 1,
+E               "ids": [
+E                 1
+E               ],
+E               "policy": "greedy",
+E               "requested_count": 1,
+E               "seed": 3,
+E               "table_hash": "f541b4a59231410bd341f1e166948f1659cd27357ad8488705fcd350c32d953e"
+E             },
+E             "artifact_directory": "/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3705/test_causal_cli_executes_recip0/recipes/fa7d8fa3200f441e94773b009b36a2c8",
+E             "complete": true,
+E             "cost_boundary": "whole call including validation, cloning, keep, losers, failed attempts, checkpoint IO and ranking; excludes prior parent fit/shared scoring; nested durations are not additive",
+E             "improvements": {
+E               "0": 1.931557595913347e-05,
+E               "1": 4.464472837284461e-05
+E             },
+E             "keep_decision": "separate candidate; compare with fresh joint continuation on G",
+E             "keep_g_mse": 6.48751655354331,
+E             "method": "B6",
+E             "nanoseconds": 413678750,
+E             "not_attempted": [],
+E             "parent_checkpoint_sha256": "169edf4d6b711509afe6c14e8c08f60b7cb73deb04ae619dd12fcfb5e62ef996",
+E             "parent_identity_hashes": {
+E               "code": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E               "config": "58bce594c34967441e81824c0f94f869f4659cc89916ca50b260e5b796768755",
+E               "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+E               "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+E               "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+E               "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+E               "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+E             },
+E             "policy": {
+E               "checkpoint_interval": 1,
+E               "checkpoint_selection": "strict_improvement_earliest",
+E               "evaluate_at_update_zero": true,
+E               "logical_batch_size": 128,
+E               "max_updates": 2,
+E               "patience": 10,
+E               "physical_batch_size": 128,
+E               "validation_interval": 1
+E             },
+E             "probe_updates": 2,
+E             "recipe": "ANT-inspired restricted allocation",
+E             "requested_count": 1,
+E             "schema_version": 1,
+E             "score_hash": "f541b4a59231410bd341f1e166948f1659cd27357ad8488705fcd350c32d953e",
+E             "selection_split": "G",
+E             "trials": [
+E               {
+E                 "candidate": "keep",
+E                 "executed_updates": 2,
+E                 "g_mse": 6.48751655354331,
+E                 "nanoseconds": 121697083,
+E                 "outcome": "completed",
+E                 "path": "probes/2ed334c2450948bf9ee2d701d28e2750",
+E                 "run_id": "2ed334c2450948bf9ee2d701d28e2750",
+E                 "selected_update": 4,
+E                 "unavailable_reason": null,
+E                 "unit_id": null
+E               },
+E               {
+E                 "candidate": "unit_0",
+E                 "executed_updates": 2,
+E                 "g_mse": 6.487497237967351,
+E                 "nanoseconds": 134643166,
+E                 "outcome": "completed",
+E                 "path": "probes/86e583add941487bb50325ede663ef82",
+E                 "run_id": "86e583add941487bb50325ede663ef82",
+E                 "selected_update": 4,
+E                 "unavailable_reason": null,
+E                 "unit_id": 0
+E               },
+E               {
+E                 "candidate": "unit_1",
+E                 "executed_updates": 2,
+E                 "g_mse": 6.487471908814937,
+E                 "nanoseconds": 136961083,
+E                 "outcome": "completed",
+E                 "path": "probes/213c4d45b64d48a3b2e4a2141a3123cf",
+E                 "run_id": "213c4d45b64d48a3b2e4a2141a3123cf",
+E                 "selected_update": 4,
+E                 "unavailable_reason": null,
+E                 "unit_id": 1
+E               }
+E             ]
+E           },
+E           "implementation_scope": "B0\u2013B6; B7 gate explicitly pending Evidence Task3",
+E           "implemented_checks_passed": false,
+E           "recipes": [
+E             {
+E               "actual_growth_count": 0,
+E               "checkpoint": "/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3705/test_causal_cli_executes_recip0/recipes/control-0.json",
+E               "checkpoint_sha256": "a960e05fe37f79fbe964a765db8b13212b0d28e1cb75b26198b90f40f7483522",
+E               "cpu_evidence": null,
+E               "executed_updates": 2,
+E               "fit_cost": {
+E                 "adapter_fit_nanoseconds": 116160833,
+E                 "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+E                 "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+E               },
+E               "identities": {
+E                 "code": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "config": "7c9dc3bd65a65dc128c711e798b1b1cf113e6be01d879ea36ad9d3742d571131",
+E                 "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+E                 "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+E                 "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+E                 "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+E                 "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+E               },
+E               "logical_batch_size": 128,
+E               "method_id": "B1",
+E               "n_fit": 128,
+E               "n_select": 32,
+E               "physical_batch_size": 128,
+E               "recipe": {},
+E               "reload_max_abs": 0.0,
+E               "reload_next_optimizer_update_max_abs": 0.0,
+E               "selected_update": 4,
+E               "topology": {
+E                 "kind": "selective_relu_scalar",
+E                 "layer": {
+E                   "d": 16,
+E                   "grown_ids": [],
+E                   "growth_applied": false,
+E                   "h": 64,
+E                   "schema_version": 1,
+E                   "tau": 1.0
+E                 },
+E                 "schema_version": 1
+E               },
+E               "total_parameters": 1153
+E             },
+E             {
+E               "actual_growth_count": 0,
+E               "checkpoint": "/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3705/test_causal_cli_executes_recip0/recipes/control-1.json",
+E               "checkpoint_sha256": "ad793fb556aa064a6d9f0c1d1723277cc17333a5fb6c58f96203be81b71ecc30",
+E               "cpu_evidence": {
+E                 "batch_size": 128,
+E                 "device": "cpu",
+E                 "dtype": "float32",
+E                 "execution": "eager",
+E                 "forward_max_abs": 1.7881393432617188e-07,
+E                 "gradient_max_abs": 8.940696716308594e-08,
+E                 "optimizer_max_abs": 1.4901161193847656e-08,
+E                 "parameter_shapes": {
+E                   "head.bias": [
+E                     1
+E                   ],
+E                   "head.weight": [
+E                     1,
+E                     94
+E                   ],
+E                   "layer.base.bias": [
+E                     94
+E                   ],
+E                   "layer.base.weight": [
+E                     94,
+E                     16
+E                   ]
+E                 },
+E                 "reload_next_update_max_abs": 0.0,
+E                 "schema_version": 1,
+E                 "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+E                 "seed": 1602041,
+E                 "source_hash": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "status": "passed",
+E                 "topology": {
+E                   "kind": "selective_relu_scalar",
+E                   "layer": {
+E                     "d": 16,
+E                     "grown_ids": [],
+E                     "growth_applied": false,
+E                     "h": 94,
+E                     "schema_version": 1,
+E                     "tau": 1.0
+E                   },
+E                   "schema_version": 1
+E                 },
+E                 "total_parameters": 1693
+E               },
+E               "executed_updates": 2,
+E               "fit_cost": {
+E                 "adapter_fit_nanoseconds": 161171250,
+E                 "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+E                 "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+E               },
+E               "identities": {
+E                 "code": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "config": "92795c4017cee5624a874cbae7ac7f8af0a9acb233c331dd386e7e215f70346a",
+E                 "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+E                 "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+E                 "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+E                 "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+E                 "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+E               },
+E               "logical_batch_size": 128,
+E               "method_id": "B2",
+E               "n_fit": 128,
+E               "n_select": 32,
+E               "physical_batch_size": 128,
+E               "recipe": {
+E                 "target_parameters": 1697,
+E                 "variant": "lower"
+E               },
+E               "reload_max_abs": 0.0,
+E               "reload_next_optimizer_update_max_abs": 0.0,
+E               "selected_update": 2,
+E               "topology": {
+E                 "kind": "selective_relu_scalar",
+E                 "layer": {
+E                   "d": 16,
+E                   "grown_ids": [],
+E                   "growth_applied": false,
+E                   "h": 94,
+E                   "schema_version": 1,
+E                   "tau": 1.0
+E                 },
+E                 "schema_version": 1
+E               },
+E               "total_parameters": 1693
+E             },
+E             {
+E               "actual_growth_count": 0,
+E               "checkpoint": "/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3705/test_causal_cli_executes_recip0/recipes/control-2.json",
+E               "checkpoint_sha256": "fab8c01b4f3ba4eab0614ea771bc8eb20ebee31494b5b2274a482f4ed6959420",
+E               "cpu_evidence": {
+E                 "batch_size": 128,
+E                 "device": "cpu",
+E                 "dtype": "float32",
+E                 "execution": "eager",
+E                 "forward_max_abs": 1.1920928955078125e-07,
+E                 "gradient_max_abs": 1.1920928955078125e-07,
+E                 "optimizer_max_abs": 7.450580596923828e-09,
+E                 "parameter_shapes": {
+E                   "head.bias": [
+E                     1
+E                   ],
+E                   "head.weight": [
+E                     1,
+E                     95
+E                   ],
+E                   "layer.base.bias": [
+E                     95
+E                   ],
+E                   "layer.base.weight": [
+E                     95,
+E                     16
+E                   ]
+E                 },
+E                 "reload_next_update_max_abs": 0.0,
+E                 "schema_version": 1,
+E                 "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+E                 "seed": 1602041,
+E                 "source_hash": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "status": "passed",
+E                 "topology": {
+E                   "kind": "selective_relu_scalar",
+E                   "layer": {
+E                     "d": 16,
+E                     "grown_ids": [],
+E                     "growth_applied": false,
+E                     "h": 95,
+E                     "schema_version": 1,
+E                     "tau": 1.0
+E                   },
+E                   "schema_version": 1
+E                 },
+E                 "total_parameters": 1711
+E               },
+E               "executed_updates": 2,
+E               "fit_cost": {
+E                 "adapter_fit_nanoseconds": 154857875,
+E                 "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+E                 "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+E               },
+E               "identities": {
+E                 "code": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "config": "76fa66543d02dc4c5f248a163986c498e73361e21e821f3f77549a71823845aa",
+E                 "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+E                 "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+E                 "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+E                 "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+E                 "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+E               },
+E               "logical_batch_size": 128,
+E               "method_id": "B2",
+E               "n_fit": 128,
+E               "n_select": 32,
+E               "physical_batch_size": 128,
+E               "recipe": {
+E                 "target_parameters": 1697,
+E                 "variant": "upper"
+E               },
+E               "reload_max_abs": 0.0,
+E               "reload_next_optimizer_update_max_abs": 0.0,
+E               "selected_update": 2,
+E               "topology": {
+E                 "kind": "selective_relu_scalar",
+E                 "layer": {
+E                   "d": 16,
+E                   "grown_ids": [],
+E                   "growth_applied": false,
+E                   "h": 95,
+E                   "schema_version": 1,
+E                   "tau": 1.0
+E                 },
+E                 "schema_version": 1
+E               },
+E               "total_parameters": 1711
+E             },
+E             {
+E               "actual_growth_count": 30,
+E               "checkpoint": "/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3705/test_causal_cli_executes_recip0/recipes/control-3.json",
+E               "checkpoint_sha256": "df7dbe07851e0d55e702d204fae65e520147d35b53aecc895ef8a3c7b6f1084b",
+E               "cpu_evidence": {
+E                 "batch_size": 128,
+E                 "device": "cpu",
+E                 "dtype": "float32",
+E                 "execution": "eager",
+E                 "forward_max_abs": 8.940696716308594e-08,
+E                 "gradient_max_abs": 3.725290298461914e-08,
+E                 "optimizer_max_abs": 7.450580596923828e-09,
+E                 "parameter_shapes": {
+E                   "head.added.weight": [
+E                     1,
+E                     30
+E                   ],
+E                   "head.base.bias": [
+E                     1
+E                   ],
+E                   "head.base.weight": [
+E                     1,
+E                     64
+E                   ],
+E                   "layer.added.bias": [
+E                     30
+E                   ],
+E                   "layer.added.weight": [
+E                     30,
+E                     16
+E                   ],
+E                   "layer.base.bias": [
+E                     64
+E                   ],
+E                   "layer.base.weight": [
+E                     64,
+E                     16
+E                   ]
+E                 },
+E                 "reload_next_update_max_abs": 0.0,
+E                 "schema_version": 1,
+E                 "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+E                 "seed": 1602041,
+E                 "source_hash": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "status": "passed",
+E                 "topology": {
+E                   "kind": "widened_relu_scalar",
+E                   "layer": {
+E                     "d": 16,
+E                     "h": 94,
+E                     "parent_width": 64,
+E                     "tau": 1.0
+E                   },
+E                   "schema_version": 1
+E                 },
+E                 "total_parameters": 1693
+E               },
+E               "executed_updates": 2,
+E               "fit_cost": {
+E                 "adapter_fit_nanoseconds": 191393708,
+E                 "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+E                 "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+E               },
+E               "identities": {
+E                 "code": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "config": "310239a8ee11044be688c34bac6b78ccc121e6eb5d0f86394f21b181607b09fc",
+E                 "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+E                 "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+E                 "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+E                 "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+E                 "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+E               },
+E               "logical_batch_size": 128,
+E               "method_id": "B2",
+E               "n_fit": 128,
+E               "n_select": 32,
+E               "physical_batch_size": 128,
+E               "recipe": {
+E                 "added_units": 30,
+E                 "seed": 4,
+E                 "variant": "widen"
+E               },
+E               "reload_max_abs": 0.0,
+E               "reload_next_optimizer_update_max_abs": 0.0,
+E               "selected_update": 4,
+E               "topology": {
+E                 "kind": "widened_relu_scalar",
+E                 "layer": {
+E                   "d": 16,
+E                   "h": 94,
+E                   "parent_width": 64,
+E                   "tau": 1.0
+E                 },
+E                 "schema_version": 1
+E               },
+E               "total_parameters": 1693
+E             },
+E             {
+E               "actual_growth_count": 31,
+E               "checkpoint": "/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3705/test_causal_cli_executes_recip0/recipes/control-4.json",
+E               "checkpoint_sha256": "b64e0008b40f5ef62d5883293451837a2d903cbebdc88c277991bc67300af500",
+E               "cpu_evidence": {
+E                 "batch_size": 128,
+E                 "device": "cpu",
+E                 "dtype": "float32",
+E                 "execution": "eager",
+E                 "forward_max_abs": 8.940696716308594e-08,
+E                 "gradient_max_abs": 3.725290298461914e-08,
+E                 "optimizer_max_abs": 7.450580596923828e-09,
+E                 "parameter_shapes": {
+E                   "head.added.weight": [
+E                     1,
+E                     31
+E                   ],
+E                   "head.base.bias": [
+E                     1
+E                   ],
+E                   "head.base.weight": [
+E                     1,
+E                     64
+E                   ],
+E                   "layer.added.bias": [
+E                     31
+E                   ],
+E                   "layer.added.weight": [
+E                     31,
+E                     16
+E                   ],
+E                   "layer.base.bias": [
+E                     64
+E                   ],
+E                   "layer.base.weight": [
+E                     64,
+E                     16
+E                   ]
+E                 },
+E                 "reload_next_update_max_abs": 0.0,
+E                 "schema_version": 1,
+E                 "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+E                 "seed": 1602041,
+E                 "source_hash": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "status": "passed",
+E                 "topology": {
+E                   "kind": "widened_relu_scalar",
+E                   "layer": {
+E                     "d": 16,
+E                     "h": 95,
+E                     "parent_width": 64,
+E                     "tau": 1.0
+E                   },
+E                   "schema_version": 1
+E                 },
+E                 "total_parameters": 1711
+E               },
+E               "executed_updates": 2,
+E               "fit_cost": {
+E                 "adapter_fit_nanoseconds": 192210083,
+E                 "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+E                 "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+E               },
+E               "identities": {
+E                 "code": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "config": "8e11ea88196b0a09697da8a427c9d14d6410de79599699745b290ca1d3ff6a7b",
+E                 "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+E                 "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+E                 "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+E                 "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+E                 "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+E               },
+E               "logical_batch_size": 128,
+E               "method_id": "B2",
+E               "n_fit": 128,
+E               "n_select": 32,
+E               "physical_batch_size": 128,
+E               "recipe": {
+E                 "added_units": 31,
+E                 "seed": 4,
+E                 "variant": "widen"
+E               },
+E               "reload_max_abs": 0.0,
+E               "reload_next_optimizer_update_max_abs": 0.0,
+E               "selected_update": 4,
+E               "topology": {
+E                 "kind": "widened_relu_scalar",
+E                 "layer": {
+E                   "d": 16,
+E                   "h": 95,
+E                   "parent_width": 64,
+E                   "tau": 1.0
+E                 },
+E                 "schema_version": 1
+E               },
+E               "total_parameters": 1711
+E             },
+E             {
+E               "actual_growth_count": 16,
+E               "checkpoint": "/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3705/test_causal_cli_executes_recip0/recipes/control-5.json",
+E               "checkpoint_sha256": "1fcf9545444320609e0ab36cbabc4e9a730f9beccc11e88a480302a6709fa33a",
+E               "cpu_evidence": {
+E                 "batch_size": 128,
+E                 "device": "cpu",
+E                 "dtype": "float32",
+E                 "execution": "eager",
+E                 "forward_max_abs": 8.940696716308594e-08,
+E                 "gradient_max_abs": 4.470348358154297e-08,
+E                 "optimizer_max_abs": 1.4901161193847656e-08,
+E                 "parameter_shapes": {
+E                   "head.bias": [
+E                     1
+E                   ],
+E                   "head.weight": [
+E                     1,
+E                     64
+E                   ],
+E                   "layer.center.bias": [
+E                     16
+E                   ],
+E                   "layer.center.weight": [
+E                     16,
+E                     16
+E                   ],
+E                   "layer.contrast.bias": [
+E                     16
+E                   ],
+E                   "layer.contrast.weight": [
+E                     16,
+E                     16
+E                   ],
+E                   "layer.gate.bias": [
+E                     16
+E                   ],
+E                   "layer.gate.weight": [
+E                     16,
+E                     16
+E                   ],
+E                   "layer.ordinary.bias": [
+E                     48
+E                   ],
+E                   "layer.ordinary.weight": [
+E                     48,
+E                     16
+E                   ]
+E                 },
+E                 "reload_next_update_max_abs": 0.0,
+E                 "schema_version": 1,
+E                 "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+E                 "seed": 1602041,
+E                 "source_hash": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "status": "passed",
+E                 "topology": {
+E                   "kind": "static_gated_relu_scalar",
+E                   "layer": {
+E                     "coordinates": "centered",
+E                     "count": 16,
+E                     "d": 16,
+E                     "h": 64,
+E                     "tau": 1.0
+E                   },
+E                   "schema_version": 1
+E                 },
+E                 "total_parameters": 1697
+E               },
+E               "executed_updates": 2,
+E               "fit_cost": {
+E                 "adapter_fit_nanoseconds": 205020125,
+E                 "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+E                 "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+E               },
+E               "identities": {
+E                 "code": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "config": "1cdddcfc7392fd0c59ed385b1e195d1e855cfb667491e44bf7d9f548b27219b1",
+E                 "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+E                 "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+E                 "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+E                 "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+E                 "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+E               },
+E               "logical_batch_size": 128,
+E               "method_id": "B3",
+E               "n_fit": 128,
+E               "n_select": 32,
+E               "physical_batch_size": 128,
+E               "recipe": {
+E                 "coordinates": "centered",
+E                 "count": 16,
+E                 "variant": "partial"
+E               },
+E               "reload_max_abs": 0.0,
+E               "reload_next_optimizer_update_max_abs": 0.0,
+E               "selected_update": 2,
+E               "topology": {
+E                 "kind": "static_gated_relu_scalar",
+E                 "layer": {
+E                   "coordinates": "centered",
+E                   "count": 16,
+E                   "d": 16,
+E                   "h": 64,
+E                   "tau": 1.0
+E                 },
+E                 "schema_version": 1
+E               },
+E               "total_parameters": 1697
+E             },
+E             {
+E               "actual_growth_count": 64,
+E               "checkpoint": "/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3705/test_causal_cli_executes_recip0/recipes/control-6.json",
+E               "checkpoint_sha256": "30632ae6afb846d1123c084e7882f0f8442f727a83888137a1a87f38946c6767",
+E               "cpu_evidence": {
+E                 "batch_size": 128,
+E                 "device": "cpu",
+E                 "dtype": "float32",
+E                 "execution": "eager",
+E                 "forward_max_abs": 1.1920928955078125e-07,
+E                 "gradient_max_abs": 7.450580596923828e-08,
+E                 "optimizer_max_abs": 1.4901161193847656e-08,
+E                 "parameter_shapes": {
+E                   "head.bias": [
+E                     1
+E                   ],
+E                   "head.weight": [
+E                     1,
+E                     64
+E                   ],
+E                   "layer.center.bias": [
+E                     64
+E                   ],
+E                   "layer.center.weight": [
+E                     64,
+E                     16
+E                   ],
+E                   "layer.contrast.bias": [
+E                     64
+E                   ],
+E                   "layer.contrast.weight": [
+E                     64,
+E                     16
+E                   ],
+E                   "layer.gate.bias": [
+E                     64
+E                   ],
+E                   "layer.gate.weight": [
+E                     64,
+E                     16
+E                   ]
+E                 },
+E                 "reload_next_update_max_abs": 0.0,
+E                 "schema_version": 1,
+E                 "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+E                 "seed": 1602041,
+E                 "source_hash": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "status": "passed",
+E                 "topology": {
+E                   "kind": "static_gated_relu_scalar",
+E                   "layer": {
+E                     "coordinates": "centered",
+E                     "count": 64,
+E                     "d": 16,
+E                     "h": 64,
+E                     "tau": 1.0
+E                   },
+E                   "schema_version": 1
+E                 },
+E                 "total_parameters": 3329
+E               },
+E               "executed_updates": 2,
+E               "fit_cost": {
+E                 "adapter_fit_nanoseconds": 202584125,
+E                 "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+E                 "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+E               },
+E               "identities": {
+E                 "code": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "config": "30290935ed41f65093412820e86e63e84a357c7a8dd674faaaf65cb74eee601e",
+E                 "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+E                 "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+E                 "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+E                 "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+E                 "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+E               },
+E               "logical_batch_size": 128,
+E               "method_id": "B3",
+E               "n_fit": 128,
+E               "n_select": 32,
+E               "physical_batch_size": 128,
+E               "recipe": {
+E                 "coordinates": "centered",
+E                 "variant": "full"
+E               },
+E               "reload_max_abs": 0.0,
+E               "reload_next_optimizer_update_max_abs": 0.0,
+E               "selected_update": 2,
+E               "topology": {
+E                 "kind": "static_gated_relu_scalar",
+E                 "layer": {
+E                   "coordinates": "centered",
+E                   "count": 64,
+E                   "d": 16,
+E                   "h": 64,
+E                   "tau": 1.0
+E                 },
+E                 "schema_version": 1
+E               },
+E               "total_parameters": 3329
+E             },
+E             {
+E               "actual_growth_count": 16,
+E               "checkpoint": "/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3705/test_causal_cli_executes_recip0/recipes/control-7.json",
+E               "checkpoint_sha256": "f2ed75a47aa1559413fa54d326ced0bcb7e8a66cecb8c09b6475f9f5b098b0c9",
+E               "cpu_evidence": {
+E                 "batch_size": 128,
+E                 "device": "cpu",
+E                 "dtype": "float32",
+E                 "execution": "eager",
+E                 "forward_max_abs": 1.1920928955078125e-07,
+E                 "gradient_max_abs": 5.21540641784668e-08,
+E                 "optimizer_max_abs": 1.4901161193847656e-08,
+E                 "parameter_shapes": {
+E                   "head.bias": [
+E                     1
+E                   ],
+E                   "head.weight": [
+E                     1,
+E                     64
+E                   ],
+E                   "layer.gate.bias": [
+E                     16
+E                   ],
+E                   "layer.gate.weight": [
+E                     16,
+E                     16
+E                   ],
+E                   "layer.left.bias": [
+E                     16
+E                   ],
+E                   "layer.left.weight": [
+E                     16,
+E                     16
+E                   ],
+E                   "layer.ordinary.bias": [
+E                     48
+E                   ],
+E                   "layer.ordinary.weight": [
+E                     48,
+E                     16
+E                   ],
+E                   "layer.right.bias": [
+E                     16
+E                   ],
+E                   "layer.right.weight": [
+E                     16,
+E                     16
+E                   ]
+E                 },
+E                 "reload_next_update_max_abs": 0.0,
+E                 "schema_version": 1,
+E                 "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+E                 "seed": 1602041,
+E                 "source_hash": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "status": "passed",
+E                 "topology": {
+E                   "kind": "static_gated_relu_scalar",
+E                   "layer": {
+E                     "coordinates": "direct_leaf",
+E                     "count": 16,
+E                     "d": 16,
+E                     "h": 64,
+E                     "tau": 1.0
+E                   },
+E                   "schema_version": 1
+E                 },
+E                 "total_parameters": 1697
+E               },
+E               "executed_updates": 2,
+E               "fit_cost": {
+E                 "adapter_fit_nanoseconds": 199988709,
+E                 "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+E                 "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+E               },
+E               "identities": {
+E                 "code": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "config": "d49cc2282b989ca3fc0ebbf93aa8fe21974fe936a032f2a3ab18c62d5d28d414",
+E                 "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+E                 "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+E                 "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+E                 "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+E                 "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+E               },
+E               "logical_batch_size": 128,
+E               "method_id": "B3",
+E               "n_fit": 128,
+E               "n_select": 32,
+E               "physical_batch_size": 128,
+E               "recipe": {
+E                 "coordinates": "direct_leaf",
+E                 "count": 16,
+E                 "variant": "partial"
+E               },
+E               "reload_max_abs": 0.0,
+E               "reload_next_optimizer_update_max_abs": 0.0,
+E               "selected_update": 2,
+E               "topology": {
+E                 "kind": "static_gated_relu_scalar",
+E                 "layer": {
+E                   "coordinates": "direct_leaf",
+E                   "count": 16,
+E                   "d": 16,
+E                   "h": 64,
+E                   "tau": 1.0
+E                 },
+E                 "schema_version": 1
+E               },
+E               "total_parameters": 1697
+E             },
+E             {
+E               "actual_growth_count": 64,
+E               "checkpoint": "/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3705/test_causal_cli_executes_recip0/recipes/control-8.json",
+E               "checkpoint_sha256": "5c05237dea008f5da321082f83b5a9e4f3dcebc4d150c77fb58f1d89840dbbf0",
+E               "cpu_evidence": {
+E                 "batch_size": 128,
+E                 "device": "cpu",
+E                 "dtype": "float32",
+E                 "execution": "eager",
+E                 "forward_max_abs": 8.940696716308594e-08,
+E                 "gradient_max_abs": 4.470348358154297e-08,
+E                 "optimizer_max_abs": 1.4901161193847656e-08,
+E                 "parameter_shapes": {
+E                   "head.bias": [
+E                     1
+E                   ],
+E                   "head.weight": [
+E                     1,
+E                     64
+E                   ],
+E                   "layer.gate.bias": [
+E                     64
+E                   ],
+E                   "layer.gate.weight": [
+E                     64,
+E                     16
+E                   ],
+E                   "layer.left.bias": [
+E                     64
+E                   ],
+E                   "layer.left.weight": [
+E                     64,
+E                     16
+E                   ],
+E                   "layer.right.bias": [
+E                     64
+E                   ],
+E                   "layer.right.weight": [
+E                     64,
+E                     16
+E                   ]
+E                 },
+E                 "reload_next_update_max_abs": 0.0,
+E                 "schema_version": 1,
+E                 "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+E                 "seed": 1602041,
+E                 "source_hash": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "status": "passed",
+E                 "topology": {
+E                   "kind": "static_gated_relu_scalar",
+E                   "layer": {
+E                     "coordinates": "direct_leaf",
+E                     "count": 64,
+E                     "d": 16,
+E                     "h": 64,
+E                     "tau": 1.0
+E                   },
+E                   "schema_version": 1
+E                 },
+E                 "total_parameters": 3329
+E               },
+E               "executed_updates": 2,
+E               "fit_cost": {
+E                 "adapter_fit_nanoseconds": 194362792,
+E                 "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+E                 "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+E               },
+E               "identities": {
+E                 "code": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "config": "1be7cce35da69b2296c4f173e30677d5a4774159db3a870b553939f5afbc0ef2",
+E                 "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+E                 "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+E                 "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+E                 "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+E                 "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+E               },
+E               "logical_batch_size": 128,
+E               "method_id": "B3",
+E               "n_fit": 128,
+E               "n_select": 32,
+E               "physical_batch_size": 128,
+E               "recipe": {
+E                 "coordinates": "direct_leaf",
+E                 "variant": "full"
+E               },
+E               "reload_max_abs": 0.0,
+E               "reload_next_optimizer_update_max_abs": 0.0,
+E               "selected_update": 2,
+E               "topology": {
+E                 "kind": "static_gated_relu_scalar",
+E                 "layer": {
+E                   "coordinates": "direct_leaf",
+E                   "count": 64,
+E                   "d": 16,
+E                   "h": 64,
+E                   "tau": 1.0
+E                 },
+E                 "schema_version": 1
+E               },
+E               "total_parameters": 3329
+E             },
+E             {
+E               "actual_growth_count": 16,
+E               "checkpoint": "/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3705/test_causal_cli_executes_recip0/recipes/control-9.json",
+E               "checkpoint_sha256": "91872222e72f2aea9f72d156321a822c5baf628f4a26fd27e93f3593fc7c97f7",
+E               "cpu_evidence": {
+E                 "batch_size": 128,
+E                 "device": "cpu",
+E                 "dtype": "float32",
+E                 "execution": "eager",
+E                 "forward_max_abs": 8.940696716308594e-08,
+E                 "gradient_max_abs": 3.725290298461914e-08,
+E                 "optimizer_max_abs": 7.450580596923828e-09,
+E                 "parameter_shapes": {
+E                   "head.bias": [
+E                     1
+E                   ],
+E                   "head.weight": [
+E                     1,
+E                     64
+E                   ],
+E                   "layer.base.bias": [
+E                     64
+E                   ],
+E                   "layer.base.weight": [
+E                     64,
+E                     16
+E                   ],
+E                   "layer.contrast.bias": [
+E                     16
+E                   ],
+E                   "layer.contrast.weight": [
+E                     16,
+E                     16
+E                   ],
+E                   "layer.gate.bias": [
+E                     16
+E                   ],
+E                   "layer.gate.weight": [
+E                     16,
+E                     16
+E                   ]
+E                 },
+E                 "reload_next_update_max_abs": 0.0,
+E                 "schema_version": 1,
+E                 "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+E                 "seed": 1602041,
+E                 "source_hash": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "status": "passed",
+E                 "topology": {
+E                   "kind": "selective_relu_scalar",
+E                   "layer": {
+E                     "d": 16,
+E                     "grown_ids": [
+E                       6,
+E                       7,
+E                       11,
+E                       12,
+E                       13,
+E                       15,
+E                       17,
+E                       28,
+E                       33,
+E                       38,
+E                       42,
+E                       44,
+E                       49,
+E                       50,
+E                       60,
+E                       62
+E                     ],
+E                     "growth_applied": true,
+E                     "h": 64,
+E                     "schema_version": 1,
+E                     "tau": 1.0
+E                   },
+E                   "schema_version": 1
+E                 },
+E                 "total_parameters": 1697
+E               },
+E               "executed_updates": 2,
+E               "fit_cost": {
+E                 "adapter_fit_nanoseconds": 181031292,
+E                 "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+E                 "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+E               },
+E               "identities": {
+E                 "code": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "config": "7c9dc3bd65a65dc128c711e798b1b1cf113e6be01d879ea36ad9d3742d571131",
+E                 "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+E                 "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+E                 "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+E                 "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+E                 "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+E               },
+E               "logical_batch_size": 128,
+E               "method_id": "B4",
+E               "n_fit": 128,
+E               "n_select": 32,
+E               "physical_batch_size": 128,
+E               "recipe": {},
+E               "reload_max_abs": 0.0,
+E               "reload_next_optimizer_update_max_abs": 0.0,
+E               "selected_update": 4,
+E               "topology": {
+E                 "kind": "selective_relu_scalar",
+E                 "layer": {
+E                   "d": 16,
+E                   "grown_ids": [
+E                     6,
+E                     7,
+E                     11,
+E                     12,
+E                     13,
+E                     15,
+E                     17,
+E                     28,
+E                     33,
+E                     38,
+E                     42,
+E                     44,
+E                     49,
+E                     50,
+E                     60,
+E                     62
+E                   ],
+E                   "growth_applied": true,
+E                   "h": 64,
+E                   "schema_version": 1,
+E                   "tau": 1.0
+E                 },
+E                 "schema_version": 1
+E               },
+E               "total_parameters": 1697
+E             },
+E             {
+E               "actual_growth_count": 16,
+E               "checkpoint": "/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3705/test_causal_cli_executes_recip0/recipes/control-10.json",
+E               "checkpoint_sha256": "e3c24e8d6187de2e7e15043071fcee3aa12e253c5eed41a6be9c0222a2313931",
+E               "cpu_evidence": {
+E                 "batch_size": 128,
+E                 "device": "cpu",
+E                 "dtype": "float32",
+E                 "execution": "eager",
+E                 "forward_max_abs": 8.940696716308594e-08,
+E                 "gradient_max_abs": 3.725290298461914e-08,
+E                 "optimizer_max_abs": 7.450580596923828e-09,
+E                 "parameter_shapes": {
+E                   "head.bias": [
+E                     1
+E                   ],
+E                   "head.weight": [
+E                     1,
+E                     64
+E                   ],
+E                   "layer.base.bias": [
+E                     64
+E                   ],
+E                   "layer.base.weight": [
+E                     64,
+E                     16
+E                   ],
+E                   "layer.contrast.bias": [
+E                     16
+E                   ],
+E                   "layer.contrast.weight": [
+E                     16,
+E                     16
+E                   ],
+E                   "layer.gate.bias": [
+E                     16
+E                   ],
+E                   "layer.gate.weight": [
+E                     16,
+E                     16
+E                   ]
+E                 },
+E                 "reload_next_update_max_abs": 0.0,
+E                 "schema_version": 1,
+E                 "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+E                 "seed": 1602041,
+E                 "source_hash": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "status": "passed",
+E                 "topology": {
+E                   "kind": "selective_relu_scalar",
+E                   "layer": {
+E                     "d": 16,
+E                     "grown_ids": [
+E                       1,
+E                       3,
+E                       7,
+E                       12,
+E                       16,
+E                       24,
+E                       25,
+E                       26,
+E                       33,
+E                       34,
+E                       35,
+E                       37,
+E                       38,
+E                       50,
+E                       53,
+E                       62
+E                     ],
+E                     "growth_applied": true,
+E                     "h": 64,
+E                     "schema_version": 1,
+E                     "tau": 1.0
+E                   },
+E                   "schema_version": 1
+E                 },
+E                 "total_parameters": 1697
+E               },
+E               "executed_updates": 2,
+E               "fit_cost": {
+E                 "adapter_fit_nanoseconds": 176461209,
+E                 "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+E                 "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+E               },
+E               "identities": {
+E                 "code": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "config": "7c9dc3bd65a65dc128c711e798b1b1cf113e6be01d879ea36ad9d3742d571131",
+E                 "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+E                 "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+E                 "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+E                 "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+E                 "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+E               },
+E               "logical_batch_size": 128,
+E               "method_id": "B5",
+E               "n_fit": 128,
+E               "n_select": 32,
+E               "physical_batch_size": 128,
+E               "recipe": {
+E                 "variant": "gaussian"
+E               },
+E               "reload_max_abs": 0.0,
+E               "reload_next_optimizer_update_max_abs": 0.0,
+E               "selected_update": 4,
+E               "topology": {
+E                 "kind": "selective_relu_scalar",
+E                 "layer": {
+E                   "d": 16,
+E                   "grown_ids": [
+E                     1,
+E                     3,
+E                     7,
+E                     12,
+E                     16,
+E                     24,
+E                     25,
+E                     26,
+E                     33,
+E                     34,
+E                     35,
+E                     37,
+E                     38,
+E                     50,
+E                     53,
+E                     62
+E                   ],
+E                   "growth_applied": true,
+E                   "h": 64,
+E                   "schema_version": 1,
+E                   "tau": 1.0
+E                 },
+E                 "schema_version": 1
+E               },
+E               "total_parameters": 1697
+E             },
+E             {
+E               "actual_growth_count": 16,
+E               "checkpoint": "/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3705/test_causal_cli_executes_recip0/recipes/control-11.json",
+E               "checkpoint_sha256": "9c5444212db99279f49e69bde944e4e34afe82cebda60d3a3eedce610b81118f",
+E               "cpu_evidence": {
+E                 "batch_size": 128,
+E                 "device": "cpu",
+E                 "dtype": "float32",
+E                 "execution": "eager",
+E                 "forward_max_abs": 8.940696716308594e-08,
+E                 "gradient_max_abs": 3.725290298461914e-08,
+E                 "optimizer_max_abs": 7.450580596923828e-09,
+E                 "parameter_shapes": {
+E                   "head.bias": [
+E                     1
+E                   ],
+E                   "head.weight": [
+E                     1,
+E                     64
+E                   ],
+E                   "layer.base.bias": [
+E                     64
+E                   ],
+E                   "layer.base.weight": [
+E                     64,
+E                     16
+E                   ],
+E                   "layer.contrast.bias": [
+E                     16
+E                   ],
+E                   "layer.contrast.weight": [
+E                     16,
+E                     16
+E                   ],
+E                   "layer.gate.bias": [
+E                     16
+E                   ],
+E                   "layer.gate.weight": [
+E                     16,
+E                     16
+E                   ]
+E                 },
+E                 "reload_next_update_max_abs": 0.0,
+E                 "schema_version": 1,
+E                 "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+E                 "seed": 1602041,
+E                 "source_hash": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "status": "passed",
+E                 "topology": {
+E                   "kind": "selective_relu_scalar",
+E                   "layer": {
+E                     "d": 16,
+E                     "grown_ids": [
+E                       1,
+E                       3,
+E                       7,
+E                       12,
+E                       16,
+E                       24,
+E                       25,
+E                       26,
+E                       33,
+E                       34,
+E                       35,
+E                       37,
+E                       38,
+E                       50,
+E                       53,
+E                       62
+E                     ],
+E                     "growth_applied": true,
+E                     "h": 64,
+E                     "schema_version": 1,
+E                     "tau": 1.0
+E                   },
+E                   "schema_version": 1
+E                 },
+E                 "total_parameters": 1697
+E               },
+E               "executed_updates": 2,
+E               "fit_cost": {
+E                 "adapter_fit_nanoseconds": 173852500,
+E                 "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+E                 "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+E               },
+E               "identities": {
+E                 "code": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "config": "7c9dc3bd65a65dc128c711e798b1b1cf113e6be01d879ea36ad9d3742d571131",
+E                 "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+E                 "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+E                 "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+E                 "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+E                 "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+E               },
+E               "logical_batch_size": 128,
+E               "method_id": "B5",
+E               "n_fit": 128,
+E               "n_select": 32,
+E               "physical_batch_size": 128,
+E               "recipe": {
+E                 "variant": "adam"
+E               },
+E               "reload_max_abs": 0.0,
+E               "reload_next_optimizer_update_max_abs": 0.0,
+E               "selected_update": 4,
+E               "topology": {
+E                 "kind": "selective_relu_scalar",
+E                 "layer": {
+E                   "d": 16,
+E                   "grown_ids": [
+E                     1,
+E                     3,
+E                     7,
+E                     12,
+E                     16,
+E                     24,
+E                     25,
+E                     26,
+E                     33,
+E                     34,
+E                     35,
+E                     37,
+E                     38,
+E                     50,
+E                     53,
+E                     62
+E                   ],
+E                   "growth_applied": true,
+E                   "h": 64,
+E                   "schema_version": 1,
+E                   "tau": 1.0
+E                 },
+E                 "schema_version": 1
+E               },
+E               "total_parameters": 1697
+E             },
+E             {
+E               "actual_growth_count": 16,
+E               "checkpoint": "/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3705/test_causal_cli_executes_recip0/recipes/control-12.json",
+E               "checkpoint_sha256": "223accbaaeb49c3f0c46c50b27a6c833c456a786db7962f061b3b53d85be2d00",
+E               "cpu_evidence": {
+E                 "batch_size": 128,
+E                 "device": "cpu",
+E                 "dtype": "float32",
+E                 "execution": "eager",
+E                 "forward_max_abs": 8.940696716308594e-08,
+E                 "gradient_max_abs": 3.725290298461914e-08,
+E                 "optimizer_max_abs": 5.861511453986168e-08,
+E                 "parameter_shapes": {
+E                   "head.bias": [
+E                     1
+E                   ],
+E                   "head.weight": [
+E                     1,
+E                     64
+E                   ],
+E                   "layer.base.bias": [
+E                     64
+E                   ],
+E                   "layer.base.weight": [
+E                     64,
+E                     16
+E                   ],
+E                   "layer.contrast.bias": [
+E                     16
+E                   ],
+E                   "layer.contrast.weight": [
+E                     16,
+E                     16
+E                   ],
+E                   "layer.gate.bias": [
+E                     16
+E                   ],
+E                   "layer.gate.weight": [
+E                     16,
+E                     16
+E                   ]
+E                 },
+E                 "reload_next_update_max_abs": 0.0,
+E                 "schema_version": 1,
+E                 "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+E                 "seed": 1602041,
+E                 "source_hash": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "status": "passed",
+E                 "topology": {
+E                   "kind": "selective_relu_scalar",
+E                   "layer": {
+E                     "d": 16,
+E                     "grown_ids": [
+E                       1,
+E                       3,
+E                       7,
+E                       12,
+E                       16,
+E                       23,
+E                       24,
+E                       25,
+E                       26,
+E                       33,
+E                       34,
+E                       37,
+E                       38,
+E                       50,
+E                       52,
+E                       62
+E                     ],
+E                     "growth_applied": true,
+E                     "h": 64,
+E                     "schema_version": 1,
+E                     "tau": 1.0
+E                   },
+E                   "schema_version": 1
+E                 },
+E                 "total_parameters": 1697
+E               },
+E               "executed_updates": 2,
+E               "fit_cost": {
+E                 "adapter_fit_nanoseconds": 174319500,
+E                 "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+E                 "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+E               },
+E               "identities": {
+E                 "code": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E                 "config": "7c9dc3bd65a65dc128c711e798b1b1cf113e6be01d879ea36ad9d3742d571131",
+E                 "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+E                 "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+E                 "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+E                 "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+E                 "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+E               },
+E               "logical_batch_size": 128,
+E               "method_id": "B5",
+E               "n_fit": 128,
+E               "n_select": 32,
+E               "physical_batch_size": 128,
+E               "recipe": {
+E                 "variant": "sgd"
+E               },
+E               "reload_max_abs": 0.0,
+E               "reload_next_optimizer_update_max_abs": 0.0,
+E               "selected_update": 4,
+E               "topology": {
+E                 "kind": "selective_relu_scalar",
+E                 "layer": {
+E                   "d": 16,
+E                   "grown_ids": [
+E                     1,
+E                     3,
+E                     7,
+E                     12,
+E                     16,
+E                     23,
+E                     24,
+E                     25,
+E                     26,
+E                     33,
+E                     34,
+E                     37,
+E                     38,
+E                     50,
+E                     52,
+E                     62
+E                   ],
+E                   "growth_applied": true,
+E                   "h": 64,
+E                   "schema_version": 1,
+E                   "tau": 1.0
+E                 },
+E                 "schema_version": 1
+E               },
+E               "total_parameters": 1697
+E             }
+E           ],
+E           "schema_version": 1,
+E           "scope": "CPU correctness diagnostics, not predictive or throughput evidence",
+E           "source_hash": "7c67b53b667b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",
+E           "track": "causal",
+E           "track_ready": false
+E         }
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python', '-m', 'treene...b3bea6a39e231e57f66f3344ac787fc773eab596434fe50ee3583",\n  "track": "causal",\n  "track_ready": false\n}\n', stderr='').returncode
+
+tests/test_causal_baselines.py:220: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_causal_baselines.py::test_causal_cli_executes_recipes - Ass...
+1 failed, 57 passed in 24.47s

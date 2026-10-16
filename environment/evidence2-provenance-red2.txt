@@ -1,0 +1,24 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________ test_rng_and_table_evidence_survive_probes __________________
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-3710/test_rng_and_table_evidence_su0/9bd09013f6c847849fe16f401ea88235/f2eaac97633545fa8871b0fc9ea665a2')))
+
+    def test_rng_and_table_evidence_survive_probes(probe_case):
+        from treeneuron.baselines.greedy import run_greedy_probes
+        import hashlib
+        data,parent,table,paths=probe_case
+        before=capture_rng()
+        run_greedy_probes(parent,table,data,probe_updates=2,seed=7,paths=paths)
+        after=capture_rng()
+>       torch.testing.assert_close(before,after,rtol=0,atol=0)
+E       TypeError: No comparison pair was able to handle inputs of type <class 'str'> and <class 'str'>.
+E       
+E       The failure occurred for item ['numpy']['name']
+
+tests/test_greedy.py:173: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_greedy.py::test_rng_and_table_evidence_survive_probes - Typ...
+1 failed, 11 deselected in 3.96s

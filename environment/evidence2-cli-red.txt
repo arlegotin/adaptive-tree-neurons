@@ -1,0 +1,23 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________________ test_causal_cli_executes_recipes _______________________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3703/test_causal_cli_executes_recip0')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3703/training-evidence0/report.json')
+
+    def test_causal_cli_executes_recipes(tmp_path, cpu_training_evidence):
+        import subprocess,sys
+        path=tmp_path/'capabilities.json'
+        run=subprocess.run([sys.executable,'-m','treeneuron.cli','verify-baselines','--track','causal',
+            '--backend-report',str(cpu_training_evidence),'--artifacts-dir',str(tmp_path/'recipes'),'--output',str(path)],capture_output=True,text=True)
+        assert run.returncode==0,run.stdout+run.stderr
+        report=json.loads(path.read_text())
+        assert report['implemented_checks_passed']
+>       assert report['track_ready'] is False
+               ^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'track_ready'
+
+tests/test_causal_baselines.py:223: KeyError
+=========================== short test summary info ============================
+FAILED tests/test_causal_baselines.py::test_causal_cli_executes_recipes - Key...
+1 failed, 40 deselected in 7.72s

@@ -1,0 +1,27 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________________ test_rng_and_table_evidence_survive_probes __________________
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-3711/test_rng_and_table_evidence_su0/0aa80bb2d42944be8f947d8ad3e928be/fac136d72a3f45d5b6108839ea37ef88')))
+
+    def test_rng_and_table_evidence_survive_probes(probe_case):
+        from treeneuron.baselines.greedy import run_greedy_probes
+        import hashlib
+        data,parent,table,paths=probe_case
+        before=capture_rng()
+        run_greedy_probes(parent,table,data,probe_updates=2,seed=7,paths=paths)
+        after=capture_rng()
+        state_before,state_after=copy.copy(parent),copy.copy(parent)
+        state_before.rng_states,state_after.rng_states=before,after
+        assert_state_equal(state_before,state_after)
+        report=json.loads((paths.directory/'greedy.json').read_text())
+>       record=report['score_artifact']
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'score_artifact'
+
+tests/test_greedy.py:177: KeyError
+=========================== short test summary info ============================
+FAILED tests/test_greedy.py::test_rng_and_table_evidence_survive_probes - Key...
+1 failed, 11 deselected in 3.94s

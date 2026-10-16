@@ -1,0 +1,328 @@
+FFFFFFFFFFFFFFFFF                                                        [100%]
+=================================== FAILURES ===================================
+_______ test_probes_restart_whole_parent_charge_losers_and_joint_restart _______
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-3699/test_probes_restart_whole_pare0/6e41ed6b352d495793b2eac4eee0b640/dfa56f2e29184ee08998841ee73d88f6')))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10faaa930>
+
+    def test_probes_restart_whole_parent_charge_losers_and_joint_restart(probe_case, monkeypatch):
+>       from treeneuron.baselines import greedy
+E       ImportError: cannot import name 'greedy' from 'treeneuron.baselines' (/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/baselines/__init__.py)
+
+tests/test_greedy.py:36: ImportError
+________ test_negative_and_tied_improvements_still_allocate_fixed_count ________
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-3699/test_negative_and_tied_improve0/67a4e10ee4254c17b5b8c353896fc512/7eb67a9ba5204647a1611582f373a2f9')))
+
+    def test_negative_and_tied_improvements_still_allocate_fixed_count(probe_case):
+>       from treeneuron.baselines.greedy import _rank_allocation
+E       ModuleNotFoundError: No module named 'treeneuron.baselines.greedy'
+
+tests/test_greedy.py:86: ModuleNotFoundError
+_______________ test_zero_eligible_retains_keep_and_zero_growth ________________
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-3699/test_zero_eligible_retains_kee0/b569a40191cd4497921e0c8b8b1cafa0/f688485eb5284b178ba154f8d079ba20')))
+
+    def test_zero_eligible_retains_keep_and_zero_growth(probe_case):
+>       from treeneuron.baselines.greedy import run_greedy_probes
+E       ModuleNotFoundError: No module named 'treeneuron.baselines.greedy'
+
+tests/test_greedy.py:96: ModuleNotFoundError
+___ test_probe_failure_retains_registration_and_cost_without_partial_ranking ___
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-3699/test_probe_failure_retains_reg0/142d6ba8f32849349bec2112b9e55417/52dc91031a0140268780439ba270563c')))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1132dc980>
+
+    def test_probe_failure_retains_registration_and_cost_without_partial_ranking(probe_case,monkeypatch):
+>       from treeneuron.baselines.greedy import run_greedy_probes
+E       ModuleNotFoundError: No module named 'treeneuron.baselines.greedy'
+
+tests/test_greedy.py:107: ModuleNotFoundError
+___ test_rejects_noncanonical_parent_and_invalid_probe_contract[unfinished] ____
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-3699/test_rejects_noncanonical_pare0/9536c64921db4060b7f6e4de131887ab/1be5e9a30bba4426a46fa06a1eec7849')))
+mutation = 'unfinished'
+
+    @pytest.mark.parametrize('mutation',['unfinished','selected_snapshot','allowance','data'])
+    def test_rejects_noncanonical_parent_and_invalid_probe_contract(probe_case,mutation):
+>       from treeneuron.baselines.greedy import run_greedy_probes
+E       ModuleNotFoundError: No module named 'treeneuron.baselines.greedy'
+
+tests/test_greedy.py:133: ModuleNotFoundError
+_ test_rejects_noncanonical_parent_and_invalid_probe_contract[selected_snapshot] _
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-3699/test_rejects_noncanonical_pare1/f5c058aff9394c0fb5eaf4e7da1acb19/6c2a2407d55a433284256121c0747765')))
+mutation = 'selected_snapshot'
+
+    @pytest.mark.parametrize('mutation',['unfinished','selected_snapshot','allowance','data'])
+    def test_rejects_noncanonical_parent_and_invalid_probe_contract(probe_case,mutation):
+>       from treeneuron.baselines.greedy import run_greedy_probes
+E       ModuleNotFoundError: No module named 'treeneuron.baselines.greedy'
+
+tests/test_greedy.py:133: ModuleNotFoundError
+____ test_rejects_noncanonical_parent_and_invalid_probe_contract[allowance] ____
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-3699/test_rejects_noncanonical_pare2/669fb63c847e43799c6aa0ed240cc794/9620a874fab342f39c348d5aaf0bda22')))
+mutation = 'allowance'
+
+    @pytest.mark.parametrize('mutation',['unfinished','selected_snapshot','allowance','data'])
+    def test_rejects_noncanonical_parent_and_invalid_probe_contract(probe_case,mutation):
+>       from treeneuron.baselines.greedy import run_greedy_probes
+E       ModuleNotFoundError: No module named 'treeneuron.baselines.greedy'
+
+tests/test_greedy.py:133: ModuleNotFoundError
+______ test_rejects_noncanonical_parent_and_invalid_probe_contract[data] _______
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-3699/test_rejects_noncanonical_pare3/6cd407412449444f955557e58cfb3973/bd684b34b0ac49ecb155c1107622df8c')))
+mutation = 'data'
+
+    @pytest.mark.parametrize('mutation',['unfinished','selected_snapshot','allowance','data'])
+    def test_rejects_noncanonical_parent_and_invalid_probe_contract(probe_case,mutation):
+>       from treeneuron.baselines.greedy import run_greedy_probes
+E       ModuleNotFoundError: No module named 'treeneuron.baselines.greedy'
+
+tests/test_greedy.py:133: ModuleNotFoundError
+________ test_spline_f_only_knots_additivity_original_units_and_reload _________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3699/test_spline_f_only_knots_addit0')
+
+    def test_spline_f_only_knots_additivity_original_units_and_reload(tmp_path):
+>       from treeneuron.baselines.simple import SplineRidgePredictor
+E       ImportError: cannot import name 'SplineRidgePredictor' from 'treeneuron.baselines.simple' (/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/baselines/simple.py)
+
+tests/test_adapters.py:10: ImportError
+_________________ test_spline_snapshot_strict_validation[nan] __________________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3699/test_spline_snapshot_strict_va0')
+mutation = 'nan'
+
+    @pytest.mark.parametrize('mutation',['nan','knots','width','basis','category'])
+    def test_spline_snapshot_strict_validation(tmp_path,mutation):
+>       from treeneuron.baselines.simple import SplineRidgePredictor
+E       ImportError: cannot import name 'SplineRidgePredictor' from 'treeneuron.baselines.simple' (/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/baselines/simple.py)
+
+tests/test_adapters.py:34: ImportError
+________________ test_spline_snapshot_strict_validation[knots] _________________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3699/test_spline_snapshot_strict_va1')
+mutation = 'knots'
+
+    @pytest.mark.parametrize('mutation',['nan','knots','width','basis','category'])
+    def test_spline_snapshot_strict_validation(tmp_path,mutation):
+>       from treeneuron.baselines.simple import SplineRidgePredictor
+E       ImportError: cannot import name 'SplineRidgePredictor' from 'treeneuron.baselines.simple' (/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/baselines/simple.py)
+
+tests/test_adapters.py:34: ImportError
+________________ test_spline_snapshot_strict_validation[width] _________________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3699/test_spline_snapshot_strict_va2')
+mutation = 'width'
+
+    @pytest.mark.parametrize('mutation',['nan','knots','width','basis','category'])
+    def test_spline_snapshot_strict_validation(tmp_path,mutation):
+>       from treeneuron.baselines.simple import SplineRidgePredictor
+E       ImportError: cannot import name 'SplineRidgePredictor' from 'treeneuron.baselines.simple' (/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/baselines/simple.py)
+
+tests/test_adapters.py:34: ImportError
+________________ test_spline_snapshot_strict_validation[basis] _________________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3699/test_spline_snapshot_strict_va3')
+mutation = 'basis'
+
+    @pytest.mark.parametrize('mutation',['nan','knots','width','basis','category'])
+    def test_spline_snapshot_strict_validation(tmp_path,mutation):
+>       from treeneuron.baselines.simple import SplineRidgePredictor
+E       ImportError: cannot import name 'SplineRidgePredictor' from 'treeneuron.baselines.simple' (/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/baselines/simple.py)
+
+tests/test_adapters.py:34: ImportError
+_______________ test_spline_snapshot_strict_validation[category] _______________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3699/test_spline_snapshot_strict_va4')
+mutation = 'category'
+
+    @pytest.mark.parametrize('mutation',['nan','knots','width','basis','category'])
+    def test_spline_snapshot_strict_validation(tmp_path,mutation):
+>       from treeneuron.baselines.simple import SplineRidgePredictor
+E       ImportError: cannot import name 'SplineRidgePredictor' from 'treeneuron.baselines.simple' (/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/baselines/simple.py)
+
+tests/test_adapters.py:34: ImportError
+_________ test_spline_missingness_constant_and_unsupported_categories __________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3699/test_spline_missingness_consta0')
+
+    def test_spline_missingness_constant_and_unsupported_categories(tmp_path):
+>       from treeneuron.baselines.simple import SplineRidgePredictor
+E       ImportError: cannot import name 'SplineRidgePredictor' from 'treeneuron.baselines.simple' (/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/baselines/simple.py)
+
+tests/test_adapters.py:48: ImportError
+___________ test_capabilities_do_not_claim_pending_adapters_verified ___________
+
+    def test_capabilities_do_not_claim_pending_adapters_verified():
+>       from treeneuron.baselines.registry import capabilities, AdapterCapability
+E       ModuleNotFoundError: No module named 'treeneuron.baselines.registry'
+
+tests/test_adapters.py:62: ModuleNotFoundError
+_________ test_practical_cli_reports_pending_required_adapters_nonzero _________
+
+self = ArgumentParser(prog='treeneuron verify-baselines', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+args = ['--track', 'practical', '--output', '/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3699/test_practical_cli_reports_pen0/matrix.json']
+namespace = Namespace(track=None, output=None, backend_report=None, artifacts_dir=None)
+intermixed = False
+
+    def _parse_known_args2(self, args, namespace, intermixed):
+        if args is None:
+            # args default to the system args
+            args = _sys.argv[1:]
+        else:
+            # make sure that args are mutable
+            args = list(args)
+    
+        # default Namespace built from parser defaults
+        if namespace is None:
+            namespace = Namespace()
+    
+        # add any action defaults that aren't present
+        for action in self._actions:
+            if action.dest is not SUPPRESS:
+                if not hasattr(namespace, action.dest):
+                    if action.default is not SUPPRESS:
+                        setattr(namespace, action.dest, action.default)
+    
+        # add any parser defaults that aren't present
+        for dest in self._defaults:
+            if not hasattr(namespace, dest):
+                setattr(namespace, dest, self._defaults[dest])
+    
+        # parse the arguments and exit if there are any errors
+        if self.exit_on_error:
+            try:
+>               namespace, args = self._parse_known_args(args, namespace, intermixed)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:1943: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:2184: in _parse_known_args
+    start_index = consume_optional(start_index)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:2113: in consume_optional
+    take_action(action, args, option_string)
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:2003: in take_action
+    argument_values = self._get_values(action, argument_strings)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:2514: in _get_values
+    self._check_value(action, value)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ArgumentParser(prog='treeneuron verify-baselines', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+action = _StoreAction(option_strings=['--track'], dest='track', nargs=None, const=None, default=None, type=None, choices=['causal'], required=True, help=None, metavar=None)
+value = 'practical'
+
+    def _check_value(self, action, value):
+        # converted value must be one of the choices (if specified)
+        choices = action.choices
+        if choices is not None:
+            if isinstance(choices, str):
+                choices = iter(choices)
+            if value not in choices:
+                args = {'value': str(value),
+                        'choices': ', '.join(map(str, action.choices))}
+                msg = _('invalid choice: %(value)r (choose from %(choices)s)')
+>               raise ArgumentError(action, msg % args)
+E               argparse.ArgumentError: argument --track: invalid choice: 'practical' (choose from causal)
+
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:2573: ArgumentError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3699/test_practical_cli_reports_pen0')
+
+    def test_practical_cli_reports_pending_required_adapters_nonzero(tmp_path):
+        from treeneuron.cli import main
+        path=tmp_path/'matrix.json'
+>       assert main(['verify-baselines','--track','practical','--output',str(path)])==1
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_adapters.py:79: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/cli.py:32: in main
+    args = parser.parse_args(argv)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:1904: in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:1914: in parse_known_args
+    return self._parse_known_args2(args, namespace, intermixed=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:1943: in _parse_known_args2
+    namespace, args = self._parse_known_args(args, namespace, intermixed)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:2165: in _parse_known_args
+    positionals_end_index = consume_positionals(start_index)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:2141: in consume_positionals
+    take_action(action, args)
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:2018: in take_action
+    action(self, namespace, argument_values, option_string)
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:1272: in __call__
+    subnamespace, arg_strings = parser.parse_known_args(arg_strings, None)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:1914: in parse_known_args
+    return self._parse_known_args2(args, namespace, intermixed=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:1945: in _parse_known_args2
+    self.error(str(err))
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:2650: in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ArgumentParser(prog='treeneuron verify-baselines', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+status = 2
+message = "treeneuron verify-baselines: error: argument --track: invalid choice: 'practical' (choose from causal)\n"
+
+    def exit(self, status=0, message=None):
+        if message:
+            self._print_message(message, _sys.stderr)
+>       _sys.exit(status)
+E       SystemExit: 2
+
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:2637: SystemExit
+----------------------------- Captured stderr call -----------------------------
+usage: treeneuron verify-baselines [-h] --track {causal} [--output OUTPUT]
+                                   [--backend-report BACKEND_REPORT]
+                                   [--artifacts-dir ARTIFACTS_DIR]
+treeneuron verify-baselines: error: argument --track: invalid choice: 'practical' (choose from causal)
+=========================== short test summary info ============================
+FAILED tests/test_greedy.py::test_probes_restart_whole_parent_charge_losers_and_joint_restart
+FAILED tests/test_greedy.py::test_negative_and_tied_improvements_still_allocate_fixed_count
+FAILED tests/test_greedy.py::test_zero_eligible_retains_keep_and_zero_growth
+FAILED tests/test_greedy.py::test_probe_failure_retains_registration_and_cost_without_partial_ranking
+FAILED tests/test_greedy.py::test_rejects_noncanonical_parent_and_invalid_probe_contract[unfinished]
+FAILED tests/test_greedy.py::test_rejects_noncanonical_parent_and_invalid_probe_contract[selected_snapshot]
+FAILED tests/test_greedy.py::test_rejects_noncanonical_parent_and_invalid_probe_contract[allowance]
+FAILED tests/test_greedy.py::test_rejects_noncanonical_parent_and_invalid_probe_contract[data]
+FAILED tests/test_adapters.py::test_spline_f_only_knots_additivity_original_units_and_reload
+FAILED tests/test_adapters.py::test_spline_snapshot_strict_validation[nan] - ...
+FAILED tests/test_adapters.py::test_spline_snapshot_strict_validation[knots]
+FAILED tests/test_adapters.py::test_spline_snapshot_strict_validation[width]
+FAILED tests/test_adapters.py::test_spline_snapshot_strict_validation[basis]
+FAILED tests/test_adapters.py::test_spline_snapshot_strict_validation[category]
+FAILED tests/test_adapters.py::test_spline_missingness_constant_and_unsupported_categories
+FAILED tests/test_adapters.py::test_capabilities_do_not_claim_pending_adapters_verified
+FAILED tests/test_adapters.py::test_practical_cli_reports_pending_required_adapters_nonzero
+17 failed in 5.50s

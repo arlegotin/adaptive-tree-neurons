@@ -1,0 +1,115 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+___ test_publication_failure_preserves_primary_failure_and_rng[probe_result] ___
+
+args = (TrainingState(model=SelectiveRegressor(
+  (layer): SelectiveAffineLayer(
+    (base): Linear(in_features=2, out_featur...188a9991f0', direction_attempts=tensor([0]), cost={'shared_scored_units': 2, 'standalone_contrast_units_required': 0}))
+
+>   def fail_insertion(*args): raise RuntimeError('primary insertion failure')
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   RuntimeError: primary insertion failure
+
+tests/test_greedy.py:214: RuntimeError
+
+During handling of the above exception, another exception occurred:
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-3714/test_publication_failure_prese0/f598344f511444e59efe6cafcade5543/fd46a23be237443daa79a4c0c04b4fa9')))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x111d93e30>
+publication = 'probe_result'
+
+    @pytest.mark.parametrize('publication',['probe_result','greedy_report'])
+    def test_publication_failure_preserves_primary_failure_and_rng(probe_case,monkeypatch,publication):
+        from treeneuron.baselines import greedy
+        data,parent,table,paths=probe_case
+        before=copy.copy(parent); before.rng_states=capture_rng()
+        def fail_insertion(*args): raise RuntimeError('primary insertion failure')
+        monkeypatch.setattr(greedy,'insert_growth',fail_insertion)
+        if publication=='probe_result':
+            original=greedy.append_event
+            def fail_result(run,event):
+                if event['type']=='probe_result' and event['candidate']=='unit_0':
+                    raise OSError('secondary publication failure')
+                return original(run,event)
+            monkeypatch.setattr(greedy,'append_event',fail_result)
+        else:
+            def fail_report(*args,**kwargs): raise OSError('secondary publication failure')
+            monkeypatch.setattr(greedy,'_atomic_json',fail_report)
+        with pytest.raises(RuntimeError,match='primary insertion failure') as caught:
+>           greedy.run_greedy_probes(parent,table,data,probe_updates=2,seed=7,paths=paths)
+
+tests/test_greedy.py:227: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/baselines/greedy.py:160: in run_greedy_probes
+    append_event(paths, {'type':'probe_result',**trial})
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+run = RunPaths(run_id='fd46a23be237443daa79a4c0c04b4fa9', directory=PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8...egotin/pytest-3714/test_publication_failure_prese0/f598344f511444e59efe6cafcade5543/fd46a23be237443daa79a4c0c04b4fa9'))
+event = {'type': 'probe_result', 'candidate': 'unit_0', 'unit_id': 0, 'run_id': '430cd4ce972b4a01bc8b0cf1368f2dee', ...}
+
+    def fail_result(run,event):
+        if event['type']=='probe_result' and event['candidate']=='unit_0':
+>           raise OSError('secondary publication failure')
+E           OSError: secondary publication failure
+
+tests/test_greedy.py:220: OSError
+__ test_publication_failure_preserves_primary_failure_and_rng[greedy_report] ___
+
+args = (TrainingState(model=SelectiveRegressor(
+  (layer): SelectiveAffineLayer(
+    (base): Linear(in_features=2, out_featur...188a9991f0', direction_attempts=tensor([0]), cost={'shared_scored_units': 2, 'standalone_contrast_units_required': 0}))
+
+>   def fail_insertion(*args): raise RuntimeError('primary insertion failure')
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   RuntimeError: primary insertion failure
+
+tests/test_greedy.py:214: RuntimeError
+
+During handling of the above exception, another exception occurred:
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-3714/test_publication_failure_prese1/5c7ce37dd3fe4d998effc189c929f70e/383e4f4e46044438a181ee34c94e5a3d')))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x11564f7d0>
+publication = 'greedy_report'
+
+    @pytest.mark.parametrize('publication',['probe_result','greedy_report'])
+    def test_publication_failure_preserves_primary_failure_and_rng(probe_case,monkeypatch,publication):
+        from treeneuron.baselines import greedy
+        data,parent,table,paths=probe_case
+        before=copy.copy(parent); before.rng_states=capture_rng()
+        def fail_insertion(*args): raise RuntimeError('primary insertion failure')
+        monkeypatch.setattr(greedy,'insert_growth',fail_insertion)
+        if publication=='probe_result':
+            original=greedy.append_event
+            def fail_result(run,event):
+                if event['type']=='probe_result' and event['candidate']=='unit_0':
+                    raise OSError('secondary publication failure')
+                return original(run,event)
+            monkeypatch.setattr(greedy,'append_event',fail_result)
+        else:
+            def fail_report(*args,**kwargs): raise OSError('secondary publication failure')
+            monkeypatch.setattr(greedy,'_atomic_json',fail_report)
+        with pytest.raises(RuntimeError,match='primary insertion failure') as caught:
+>           greedy.run_greedy_probes(parent,table,data,probe_updates=2,seed=7,paths=paths)
+
+tests/test_greedy.py:227: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/baselines/greedy.py:183: in run_greedy_probes
+    _atomic_json(paths.directory/'greedy.json',report)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3714/test_publicati....json'), {'schema_version': 1, 'method': 'B6', 'recipe': 'ANT-inspired restricted allocation', 'complete': False, ...})
+kwargs = {}
+
+>   def fail_report(*args,**kwargs): raise OSError('secondary publication failure')
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   OSError: secondary publication failure
+
+tests/test_greedy.py:224: OSError
+=========================== short test summary info ============================
+FAILED tests/test_greedy.py::test_publication_failure_preserves_primary_failure_and_rng[probe_result]
+FAILED tests/test_greedy.py::test_publication_failure_preserves_primary_failure_and_rng[greedy_report]
+2 failed, 13 deselected in 3.86s

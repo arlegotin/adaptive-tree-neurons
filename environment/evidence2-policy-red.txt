@@ -1,0 +1,21 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________ test_b5_cannot_mislabel_greedy_as_its_score_variant ______________
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-3716/test_b5_cannot_mislabel_greedy0/d98961c78ee241f5988d6cfe2962fb0c/87bad2c374c046dd91b0cc568efc14ae')))
+
+    def test_b5_cannot_mislabel_greedy_as_its_score_variant(probe_case):
+        from treeneuron.baselines.causal import build_causal
+        from treeneuron.baselines.greedy import _rank_allocation
+        _,parent,table,_=probe_case
+        allocation=_rank_allocation(table,1,7,keep_mse=1.,unit_mse={0:2.,1:3.})
+>       with pytest.raises(ValueError,match='policy'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_greedy.py:248: Failed
+=========================== short test summary info ============================
+FAILED tests/test_greedy.py::test_b5_cannot_mislabel_greedy_as_its_score_variant
+1 failed, 15 deselected in 3.49s

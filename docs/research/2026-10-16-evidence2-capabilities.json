@@ -1,0 +1,239 @@
+{
+  "artifact_index": {
+    "files": 329,
+    "path": "environment/evidence2-artifact-hashes.json",
+    "sha256": "2a2bad4c27198444f4d1738d60fa1757676c111e623491d9a0644c06dd577b02"
+  },
+  "backend_producer_sha256": "237035c85e84b706facd7a7054a159f62dcff50e00f3ca3a5fdae0a11ca4fd7e",
+  "backend_receipt": {
+    "path": "environment/task11-parent-backend.json",
+    "sha256": "44899df8ec13349ee74b37511b25bfcda3aeace9a0640449e05e51669ce60197"
+  },
+  "checkout_commit": "dca45c0770d2737d0d800a420ff996459a9f70d2",
+  "date": "2026-10-16",
+  "fixture": {
+    "backend": "CPU eager float32; CPU64 scores",
+    "base_updates": 2,
+    "cpu_threads": 1,
+    "effective_count": 1,
+    "greedy_d": 16,
+    "greedy_h": 2,
+    "joint_continuation_updates": 2,
+    "knots": "F-only per-feature quantiles; additive cubic truncated-power basis; externally selected alpha",
+    "logical_batch_size": 128,
+    "n_fit": 128,
+    "n_growth": 32,
+    "physical_batch_size": 128,
+    "probe_updates": 2,
+    "requested_count": 1
+  },
+  "greedy": {
+    "allocation": {
+      "contrasts": [
+        [
+          0.016235594283370115,
+          -0.00545349844393866,
+          -0.006532337190831552,
+          -0.00014590582260797384,
+          -0.00518794453889389,
+          -0.002295069851137873,
+          0.005895713053458273,
+          -0.0019060537520103691,
+          -0.004660226750965148,
+          0.0010448003186138213,
+          -0.0010643342064867143,
+          0.0014980784171691485,
+          0.0028534406956046998,
+          0.0015590697048075315,
+          -0.0035359117932354965,
+          -0.005762915599880343,
+          0.014512500220965051
+        ]
+      ],
+      "effective_count": 1,
+      "ids": [
+        1
+      ],
+      "policy": "greedy",
+      "requested_count": 1,
+      "seed": 3,
+      "table_hash": "f541b4a59231410bd341f1e166948f1659cd27357ad8488705fcd350c32d953e"
+    },
+    "complete": true,
+    "cost_boundary": "whole call including validation, cloning, keep, losers, failed attempts, checkpoint IO and ranking until final report publication; excludes prior parent fit/shared scoring and final report publication; nested durations are not additive",
+    "eligible_ids": [
+      0,
+      1
+    ],
+    "joint_recipe": {
+      "actual_growth_count": 1,
+      "checkpoint": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/evidence2-causal-runs/control-13.json",
+      "checkpoint_sha256": "2de5fcc3374299d4de748461950d01695d55a7bd728316aa4343f82925995acc",
+      "cpu_evidence": {
+        "batch_size": 128,
+        "device": "cpu",
+        "dtype": "float32",
+        "execution": "eager",
+        "forward_max_abs": 5.960464477539063e-08,
+        "gradient_max_abs": 2.9802322387695312e-08,
+        "optimizer_max_abs": 1.1641532182693481e-10,
+        "parameter_shapes": {
+          "head.bias": [
+            1
+          ],
+          "head.weight": [
+            1,
+            2
+          ],
+          "layer.base.bias": [
+            2
+          ],
+          "layer.base.weight": [
+            2,
+            16
+          ],
+          "layer.contrast.bias": [
+            1
+          ],
+          "layer.contrast.weight": [
+            1,
+            16
+          ],
+          "layer.gate.bias": [
+            1
+          ],
+          "layer.gate.weight": [
+            1,
+            16
+          ]
+        },
+        "reload_next_update_max_abs": 0.0,
+        "schema_version": 1,
+        "scope": "forward/backward/AdamW/serialization correctness only; no throughput measurement",
+        "seed": 1602041,
+        "source_hash": "e0a45e52199338996ac9573233adb2ca9b7d342d930c683e379d7bb0b90e1e35",
+        "status": "passed",
+        "topology": {
+          "kind": "selective_relu_scalar",
+          "layer": {
+            "d": 16,
+            "grown_ids": [
+              1
+            ],
+            "growth_applied": true,
+            "h": 2,
+            "schema_version": 1,
+            "tau": 1.0
+          },
+          "schema_version": 1
+        },
+        "total_parameters": 71
+      },
+      "executed_updates": 2,
+      "fit_cost": {
+        "adapter_fit_nanoseconds": 148949958,
+        "boundary": "create_run plus fit/continuation; nested training costs included; factory/scoring excluded",
+        "enclosing_study_cost": "Task12 owns end-to-end timer; do not sum nested costs"
+      },
+      "identities": {
+        "code": "e0a45e52199338996ac9573233adb2ca9b7d342d930c683e379d7bb0b90e1e35",
+        "config": "58bce594c34967441e81824c0f94f869f4659cc89916ca50b260e5b796768755",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "4c1d66112196a8feac62bf5392af6ba936a75b758bc612228c8d7e1999741bc4",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "aaffc59945e643180beaaf406bc0e71dc74e1643fbe0522946852d6d6f904785",
+        "transform": "3dd084ac575a2c37087159d1ecff0be6f3941be42ee39f704652f68851948f56"
+      },
+      "logical_batch_size": 128,
+      "method_id": "B6",
+      "n_fit": 128,
+      "n_select": 32,
+      "physical_batch_size": 128,
+      "recipe": {},
+      "reload_max_abs": 0.0,
+      "reload_next_optimizer_update_max_abs": 0.0,
+      "selected_update": 4,
+      "topology": {
+        "kind": "selective_relu_scalar",
+        "layer": {
+          "d": 16,
+          "grown_ids": [
+            1
+          ],
+          "growth_applied": true,
+          "h": 2,
+          "schema_version": 1,
+          "tau": 1.0
+        },
+        "schema_version": 1
+      },
+      "total_parameters": 71
+    },
+    "nanoseconds": 422686709,
+    "no_V_or_T_access": true,
+    "report_path": "environment/evidence2-causal-runs/eb76c6b1a2e9460fb44df25eda7612e0/greedy.json",
+    "trials": [
+      {
+        "candidate": "keep",
+        "executed_updates": 2,
+        "g_mse": 6.48751655354331,
+        "nanoseconds": 122833208,
+        "outcome": "completed",
+        "run_id": "4f73f596a5964935849478eefd478fb1",
+        "selected_update": 4
+      },
+      {
+        "candidate": "unit_0",
+        "executed_updates": 2,
+        "g_mse": 6.487497237967351,
+        "nanoseconds": 140334250,
+        "outcome": "completed",
+        "run_id": "726a269bdd36406296683c647f996a57",
+        "selected_update": 4
+      },
+      {
+        "candidate": "unit_1",
+        "executed_updates": 2,
+        "g_mse": 6.487471908814937,
+        "nanoseconds": 138399208,
+        "outcome": "completed",
+        "run_id": "293243a33a8144ca8851302086835edb",
+        "selected_update": 4
+      }
+    ]
+  },
+  "limits": [
+    "Engineering fixture is not a scientific pilot, independent cohort, resource calibration or throughput benchmark.",
+    "Probe cost nests child setup/training/checkpoint costs; do not sum nested durations. Prior parent fitting/shared scoring and final report publication are excluded explicitly.",
+    "Joint continuation retains the separate adapter-fit timing boundary; future search runner must own complete enclosing execution cost.",
+    "Failures abort exhaustive selection and retain not-attempted candidates. Patience-shortened probes reject instead of changing the shared policy.",
+    "Spline supports numerical columns and F-fitted missing indicators; categorical inputs reject. V-search orchestration is future Task7.",
+    "No backend-producer files or locks changed; historical receipts/checkpoints/evidence were neither rewritten nor loaded across source identities."
+  ],
+  "lock_sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+  "next_gate": "Independent Task2 spec/quality review, then faithful pinned NODE Task3; B7 remains required before full WP03/causal gate closure",
+  "package_source_sha256": "e0a45e52199338996ac9573233adb2ca9b7d342d930c683e379d7bb0b90e1e35",
+  "schema_version": 1,
+  "scope": "CPU engineering correctness only; no predictive efficacy, throughput, full ANT reproduction or full causal readiness claim",
+  "status": "B0\u2013B6 implementation verified; independent review pending; B7 gate pending Task3",
+  "task": "Evidence Task2",
+  "verification": {
+    "causal": {
+      "B7": "pending Task3",
+      "baseline_families": "B0\u2013B6",
+      "exit_status": 0,
+      "neural_recipes": 14,
+      "path": "environment/evidence2-causal.json",
+      "sha256": "6b2ea241b67bc9b9ba2f3b137558a3bfa7c877d07ccd2b4cae863ac1890428a2",
+      "track_ready": false
+    },
+    "focused": "189 passed, 1 skipped in 35.01s",
+    "full_suite": "657 passed, 48 skipped in 202.92s (0:03:22)",
+    "practical": {
+      "exit_status": 1,
+      "path": "environment/evidence2-practical.json",
+      "reason": "Required B8/B9/B10/B11/B14 pending; B12/B13 optional unavailable",
+      "sha256": "fb31766409c0f4e8eee0e883f04b7741ca34354fccfe24d7ca818f6fff04f549"
+    }
+  }
+}

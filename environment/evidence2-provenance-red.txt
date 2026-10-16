@@ -1,0 +1,73 @@
+........FF...........F.                                                  [100%]
+=================================== FAILURES ===================================
+_________ test_setup_failure_is_registered_and_costed_before_training __________
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-3708/test_setup_failure_is_register0/40491656eac44f93888d0c45bf31b85c/c14ee839585948ba99062b628817ea5f')))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x11181f6e0>
+
+    def test_setup_failure_is_registered_and_costed_before_training(probe_case,monkeypatch):
+        from treeneuron.baselines import greedy
+        data,parent,table,paths=probe_case
+        def fail_insertion(*args):
+            raise RuntimeError('injected insertion setup failure')
+        monkeypatch.setattr(greedy,'insert_growth',fail_insertion)
+        with pytest.raises(RuntimeError,match='setup failure'):
+            greedy.run_greedy_probes(parent,table,data,probe_updates=2,seed=7,paths=paths)
+        report=json.loads((paths.directory/'greedy.json').read_text())
+        trial=report['trials'][-1]
+        manifest=json.loads((paths.directory/trial['path']/'manifest.json').read_text())
+        assert manifest['identity']['status']=='failed'
+        assert manifest['identity']['coordinator_run_id']==paths.run_id
+        assert manifest['costs']['probe']['nanoseconds']>0
+        registration=[e for e in events(paths) if e['type']=='probe_registered'][-1]
+>       assert registration['method_id']=='B6'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'method_id'
+
+tests/test_greedy.py:159: KeyError
+__________________ test_rng_and_table_evidence_survive_probes __________________
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-3708/test_rng_and_table_evidence_su0/6d1aea9677bd4526943d53cbbd044329/1aedbea10c3f4f22a12d618eec8759a6')))
+
+    def test_rng_and_table_evidence_survive_probes(probe_case):
+        from treeneuron.baselines.greedy import run_greedy_probes
+        import hashlib
+        data,parent,table,paths=probe_case
+        before=capture_rng()
+        run_greedy_probes(parent,table,data,probe_updates=2,seed=7,paths=paths)
+        after=capture_rng()
+        for name in before:
+            if isinstance(before[name],torch.Tensor):
+                torch.testing.assert_close(before[name],after[name],rtol=0,atol=0)
+>           else: assert before[name]==after[name]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E           RuntimeError: Boolean value of Tensor with more than one value is ambiguous
+
+tests/test_greedy.py:176: RuntimeError
+_____________ test_practical_matrix_retains_every_required_family ______________
+
+    def test_practical_matrix_retains_every_required_family():
+        from treeneuron.baselines.registry import capabilities
+        rows={r.method:r for r in capabilities()}
+>       assert {name for name,row in rows.items() if row.track=='practical' and row.required}=={'B8','B9','B10','B11','B14'}
+E       AssertionError: assert {'CatBoost', ...M', 'XGBoost'} == {'B10', 'B11'...', 'B8', 'B9'}
+E         
+E         Extra items in the left set:
+E         'XGBoost'
+E         'CatBoost'
+E         'LightGBM'
+E         Extra items in the right set:
+E         'B11'...
+E         
+E         ...Full output truncated (5 lines hidden), use '-vv' to show
+
+tests/test_adapters.py:88: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_greedy.py::test_setup_failure_is_registered_and_costed_before_training
+FAILED tests/test_greedy.py::test_rng_and_table_evidence_survive_probes - Run...
+FAILED tests/test_adapters.py::test_practical_matrix_retains_every_required_family
+3 failed, 20 passed in 7.03s
