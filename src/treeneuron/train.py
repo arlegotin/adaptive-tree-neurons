@@ -433,9 +433,35 @@ def validate_metadata(meta, expected_hashes, device):
     return config, transform
 
 
+def validate_tensor_state(tensors):
+    """Reject nonfinite saved tensors/scalars without allocating a model or RNG.
+
+    This is shared by publication, deserialization and in-memory reconstruction.
+    Walk the whole collection so model values, Adam moments/steps and any stored
+    RNG scalar state obey the same finite-state boundary, including embedded best.
+    """
+    if not isinstance(tensors, Mapping) or set(tensors) != {
+            'model', 'optimizer', 'order', 'sampler_generator', 'rng_states'}:
+        raise ValueError('Invalid checkpoint tensor state schema')
+
+    def finite(value, path):
+        if isinstance(value, torch.Tensor):
+            if not bool(torch.isfinite(value).all()):
+                raise ValueError(f'Nonfinite checkpoint tensor: {path}')
+        elif isinstance(value, Mapping):
+            for key, item in value.items(): finite(item, f'{path}.{key}')
+        elif isinstance(value, (tuple, list)):
+            for index, item in enumerate(value): finite(item, f'{path}[{index}]')
+        elif isinstance(value, float) and not math.isfinite(value):
+            raise ValueError(f'Nonfinite checkpoint scalar: {path}')
+
+    finite(tensors, 'state')
+
+
 def unpack_state(snapshot, *, expected_hashes, device):
     meta, tensors = snapshot['metadata'], snapshot['tensors']
     config, preprocessing = validate_metadata(meta, expected_hashes, device)
+    validate_tensor_state(tensors)
     # Rebuilding Linear modules consumes RNG; never let it alter paired streams.
     before = capture_rng()
     try:
@@ -456,7 +482,10 @@ def unpack_state(snapshot, *, expected_hashes, device):
             actual = {k: v for k, v in source.items() if k not in ('params', 'param_names')}
             if canonical_json(actual) != canonical_json(expected['options']):
                 raise ValueError('Saved optimizer options mismatch')
-        optimizer.load_state_dict(saved)
+        # CPU optimizer loading can retain tensor storage from its input. Keep
+        # the live moments/step independent of the durable embedded best, even
+        # when serialization deduplicated a best checkpoint's two snapshots.
+        optimizer.load_state_dict(_tensor_copy(saved))
         scheduler = UpdateSchedule(optimizer, **meta['scheduler'])
         order = tensors['order']
         if (order.dtype != torch.int64 or order.shape != (meta['n_fit'],)

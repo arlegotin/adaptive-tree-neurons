@@ -96,17 +96,22 @@ def save_best_checkpoint(state, path: Path) -> str:
     """Publish the embedded best snapshot without reconstruction or RNG use."""
     if state.best_snapshot is None:
         raise ValueError('No active-stage best snapshot to publish')
-    return _publish_snapshot(state.best_snapshot, None, state.history, Path(path))
+    # The active selection point is its own complete best state. Keeping that
+    # snapshot makes best.json a resumable stage checkpoint, without reevaluating
+    # a tied G risk or resetting the original allowance/patience counters.
+    return _publish_snapshot(state.best_snapshot, state.best_snapshot, state.history, Path(path))
 
 
 def _publish_snapshot(snapshot, best, history, path):
-    from .train import validate_metadata
+    from .train import validate_metadata, validate_tensor_state
     if path.suffix != '.json' or _VERSION.fullmatch(path.name):
         raise ValueError('Checkpoint path must name a JSON pointer, not a version')
     meta = snapshot['metadata']
     validate_metadata(meta, meta['identity_hashes'], meta['device'])
+    validate_tensor_state(snapshot['tensors'])
     if best is not None:
         validate_metadata(best['metadata'], meta['identity_hashes'], meta['device'])
+        validate_tensor_state(best['tensors'])
     payload = io.BytesIO()
     torch.save({'state': snapshot['tensors'], 'best_state': None if best is None else best['tensors']}, payload)
     raw = payload.getvalue()
@@ -138,7 +143,7 @@ def _publish_snapshot(snapshot, best, history, path):
 
 def load_checkpoint(path: Path, *, expected_hashes: Mapping[str, str], device: str):
     """Validate safe metadata and identity before deserializing local tensors."""
-    from .train import unpack_state, validate_metadata
+    from .train import unpack_state, validate_metadata, validate_tensor_state
     path = Path(path)
     _, descriptor, payload = _descriptor(path)
     validate_metadata(descriptor['state'], expected_hashes, device)
@@ -151,6 +156,12 @@ def load_checkpoint(path: Path, *, expected_hashes: Mapping[str, str], device: s
         raise ValueError('Invalid checkpoint tensor schema')
     if (descriptor['best_state'] is None) != (tensors['best_state'] is None):
         raise ValueError('Incomplete best state')
+    # Validate both snapshots before any reconstruction can restore/consume RNG
+    # or apply tensors to the optimizer. A valid checksum is not a finite-state
+    # guarantee, and an invalid embedded best must reject the whole checkpoint.
+    validate_tensor_state(tensors['state'])
+    if tensors['best_state'] is not None:
+        validate_tensor_state(tensors['best_state'])
     state = unpack_state({'metadata': descriptor['state'], 'tensors': tensors['state']},
                          expected_hashes=expected_hashes, device=device)
     state.best_snapshot = None if descriptor['best_state'] is None else {

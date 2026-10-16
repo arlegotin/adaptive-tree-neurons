@@ -320,3 +320,54 @@ def test_completed_last_recovery_selects_best_before_new_continuation(training_c
     assert continued.update == 0
     assert continued.optimizer.state_dict()['state'] == {}
     assert [e['update'] for e in events(child) if e['type'] == 'evaluation'][0] == 0
+
+
+@pytest.mark.parametrize('selected_update', [0, 2])
+def test_active_best_resume_keeps_selection_point_and_remaining_allowance(training_case, monkeypatch, selected_update):
+    from treeneuron import train
+    from treeneuron.checkpoint import load_checkpoint
+    from test_checkpoint import assert_nested_equal
+    data, config, paths = training_case
+    append = train.append_event
+
+    def stop_at(update):
+        def interrupt(paths, event):
+            append(paths, event)
+            if event['type'] == 'checkpoint' and event['update'] == update:
+                raise KeyboardInterrupt('active-best recovery fixture')
+        return interrupt
+
+    def load_local(pointer):
+        metadata = json.loads((pointer.parent / json.loads(pointer.read_text())['metadata']).read_text())
+        return load_checkpoint(pointer, expected_hashes=metadata['state']['identity_hashes'], device='cpu')
+
+    # Construct G to select an exact, known point on the F training trajectory.
+    monkeypatch.setattr(train, 'append_event', stop_at(selected_update))
+    with pytest.raises(KeyboardInterrupt): train.fit_parent(data, config, paths)
+    reference = load_local(paths.directory / 'checkpoints/last.json')
+    g = ObservationSet(data.G.X, reference.predict(data.G.X), data.G.row_id, data.G.group_id)
+    selected_data = DevelopmentData(data.F, g, data.V, data.teacher_id)
+    attempt = create_run(paths.directory.parent, config.to_dict())
+    monkeypatch.setattr(train, 'append_event', stop_at(4))
+    with pytest.raises(KeyboardInterrupt): train.fit_parent(selected_data, config, attempt)
+    monkeypatch.setattr(train, 'append_event', append)
+    best = load_local(attempt.directory / 'checkpoints/best.json')
+    assert best.update == selected_update and best.stage['complete'] is False
+    assert best.stage['start_update'] == 0 and best.stage['updates_completed'] == selected_update
+    assert best.stage['bad_evaluations'] == 0 and best.stage['best_mse'] == 0
+    assert_state_equal(best, reference)
+    assert_nested_equal(train.capture_rng(), best.rng_states)
+    original_stage = copy.deepcopy(best.stage)
+    child = create_run(paths.directory.parent, config.to_dict())
+    selected = train.continue_fit(best, selected_data, train.TrainingPolicy.from_config(config), child)
+    assert_state_equal(selected, reference)
+    updates = [e for e in events(child) if e['type'] == 'update']
+    assert [e['stage_update'] for e in updates] == list(range(selected_update + 1, 7))
+    evaluations = [e for e in events(child) if e['type'] == 'evaluation']
+    assert [e['stage_update'] for e in evaluations] == list(range(selected_update + 2, 7, 2))
+    assert all(e['improved'] is False for e in evaluations)
+    assert selected.stage['start_update'] == original_stage['start_update']
+    assert selected.stage['policy'] == original_stage['policy']
+    assert selected.stage['bad_evaluations'] == (6-selected_update)//2
+    assert selected.stage['updates_completed'] == 6
+    assert_nested_equal(train.capture_rng(), selected.rng_states)

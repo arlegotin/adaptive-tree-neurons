@@ -187,3 +187,90 @@ def test_failed_version_write_keeps_prior_pointer_and_failed_evidence(training_c
     before_cleanup = len(list(pointer.parent.glob('*.pt')))
     checkpoint.prune_checkpoints(pointer.parent)
     assert len(list(pointer.parent.glob('*.pt'))) == before_cleanup
+
+
+def assert_nested_equal(actual, expected):
+    """Compare saved and live RNG collections without consuming any stream."""
+    if isinstance(expected, torch.Tensor):
+        torch.testing.assert_close(actual, expected, rtol=0, atol=0)
+    elif isinstance(expected, dict):
+        assert actual.keys() == expected.keys()
+        for key in expected: assert_nested_equal(actual[key], expected[key])
+    elif isinstance(expected, (list, tuple)):
+        assert type(actual) is type(expected) and len(actual) == len(expected)
+        for a, e in zip(actual, expected): assert_nested_equal(a, e)
+    else:
+        assert actual == expected
+
+
+def corrupt_checkpoint_tensor(tensors, target, value):
+    if target == 'model':
+        tensors['model']['head.weight'].fill_(value)
+    else:
+        next(iter(tensors['optimizer']['state'].values()))[target].fill_(value)
+
+
+@pytest.mark.parametrize('scope', ['current', 'embedded_best'])
+@pytest.mark.parametrize('target', ['model', 'exp_avg', 'exp_avg_sq', 'step'])
+@pytest.mark.parametrize('value', [float('nan'), float('inf')], ids=['nan', 'inf'])
+def test_invalid_tensor_save_preserves_last_valid_and_rng(training_case, scope, target, value):
+    from treeneuron.train import fit_parent, pack_state, capture_rng
+    from treeneuron.checkpoint import save_checkpoint, load_checkpoint
+    data, config, paths = training_case
+    state = fit_parent(data, config, paths)
+    state.best_snapshot = pack_state(state)
+    pointer = paths.directory / 'checked.json'
+    save_checkpoint(state, pointer)
+    valid = load_checkpoint(pointer, expected_hashes=state.identity_hashes, device='cpu')
+    before_pointer = pointer.read_bytes()
+    before_files = set(paths.directory.iterdir())
+    if scope == 'embedded_best':
+        corrupt_checkpoint_tensor(state.best_snapshot['tensors'], target, value)
+    elif target == 'model':
+        with torch.no_grad(): state.model.head.weight.fill_(value)
+    else:
+        next(iter(state.optimizer.state.values()))[target].fill_(value)
+    before_rng = capture_rng()
+    with pytest.raises(ValueError, match='Nonfinite'):
+        save_checkpoint(state, pointer)
+    assert pointer.read_bytes() == before_pointer
+    assert set(paths.directory.iterdir()) == before_files
+    assert_nested_equal(capture_rng(), before_rng)
+    restored = load_checkpoint(pointer, expected_hashes=state.identity_hashes, device='cpu')
+    assert_state_equal(restored, valid)
+
+
+@pytest.mark.parametrize('scope', ['state', 'best_state'])
+@pytest.mark.parametrize('target', ['model', 'exp_avg', 'exp_avg_sq', 'step'])
+@pytest.mark.parametrize('value', [float('nan'), float('inf')], ids=['nan', 'inf'])
+def test_valid_checksum_nonfinite_load_rejected_before_optimizer_or_rng(training_case, monkeypatch, scope, target, value):
+    from treeneuron.train import fit_parent, pack_state, capture_rng
+    from treeneuron.checkpoint import save_checkpoint, load_checkpoint
+    import hashlib
+    data, config, paths = training_case
+    state = fit_parent(data, config, paths)
+    state.best_snapshot = pack_state(state)
+    pointer = paths.directory / 'malformed-fixture.json'
+    save_checkpoint(state, pointer)
+    # This intentionally malformed fixture exists only in pytest's temporary
+    # run directory. No actual backend evidence/artifact digest is modified.
+    p = json.loads(pointer.read_text())
+    metadata_path = pointer.parent / p['metadata']
+    descriptor = json.loads(metadata_path.read_text())
+    payload_path = pointer.parent / descriptor['payload']
+    tensors = torch.load(payload_path, map_location='cpu', weights_only=True)
+    corrupt_checkpoint_tensor(tensors[scope], target, value)
+    torch.save(tensors, payload_path)
+    descriptor['sha256'] = hashlib.sha256(payload_path.read_bytes()).hexdigest()
+    metadata_path.write_text(json.dumps(descriptor))
+    p['sha256'] = hashlib.sha256(metadata_path.read_bytes()).hexdigest()
+    pointer.write_text(json.dumps(p))
+    before_pointer = pointer.read_bytes()
+    before_rng = capture_rng()
+    def forbidden(*args, **kwargs):
+        raise AssertionError('Nonfinite tensor state reached optimizer application')
+    monkeypatch.setattr(torch.optim.AdamW, 'load_state_dict', forbidden)
+    with pytest.raises(ValueError, match='Nonfinite'):
+        load_checkpoint(pointer, expected_hashes=state.identity_hashes, device='cpu')
+    assert pointer.read_bytes() == before_pointer
+    assert_nested_equal(capture_rng(), before_rng)
