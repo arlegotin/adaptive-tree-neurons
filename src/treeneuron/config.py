@@ -122,8 +122,9 @@ class ExecutionConfig:
 
 @dataclass(frozen=True)
 class PilotConfig:
-    # Genuine execution is deliberately unavailable before Tasks 9/10/13.
-    purpose: Literal["engineering"] = "engineering"
+    # Scientific execution additionally requires verified pre-pilot readiness.
+    purpose: Literal["engineering", "scientific"] = "engineering"
+    readiness_path: str | None = None
     initial_teachers: int = 8
     max_teachers: int = 8
     repetitions: int = 2
@@ -152,6 +153,8 @@ class ExperimentConfig:
     def to_dict(self) -> dict[str, Any]:
         """Return a fresh JSON-compatible resolved configuration."""
         value = asdict(self)
+        if self.pilot is not None and self.pilot.readiness_path is None:
+            value['pilot'].pop('readiness_path')
         if self.pilot is None:
             value.pop('pilot')  # preserve legacy resolved config identities
         return json.loads(canonical_json(value))
@@ -312,6 +315,10 @@ def resolve_experiment(value: Mapping[str, Any]) -> ExperimentConfig:
         raise ValueError("conditional_slope_2d requires model.d=2")
     if config.pilot is not None:
         p = config.pilot
+        if p.purpose == 'scientific' and not p.readiness_path:
+            raise ValueError('Scientific pilot requires readiness_path')
+        if p.purpose == 'engineering' and p.readiness_path is not None:
+            raise ValueError('Engineering pilot cannot claim scientific readiness')
         for name in ('initial_teachers', 'max_teachers', 'repetitions', 'evaluation_rows',
                      'bootstrap_iterations', 'probe_updates', 'max_seconds', 'endpoint_tolerance'):
             if getattr(p, name) <= 0: raise ValueError(f'pilot.{name} must be positive')

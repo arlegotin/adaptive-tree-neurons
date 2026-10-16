@@ -1,6 +1,6 @@
 """Minimal paired exploratory pilot driver and retained engineering attempts.
 
-This pre-freeze implementation deliberately permits engineering execution only.
+Scientific execution requires the separately verified pre-pilot readiness gate.
 Tasks 9/10/13 implementation/review must precede any genuine numeric WP05 pilot.
 No V labels are read and no protected observation namespace is generated.
 """
@@ -273,6 +273,14 @@ def calibrate(config: ExperimentConfig) -> PilotSummary:
     if config.model.coordinates != 'selective' or config.model.depth != 1:
         raise ValueError('Pilot requires the ordinary depth-one parent')
     pilot=config.pilot
+    readiness=None
+    if pilot.purpose=='scientific':
+        from treeneuron.protocol import validate_pilot_readiness, _ref
+        repository=Path(subprocess.check_output(['git','rev-parse','--show-toplevel'],text=True).strip())
+        ready_path=Path(pilot.readiness_path)
+        if not ready_path.is_absolute(): ready_path=repository/ready_path
+        validate_pilot_readiness(config,ready_path,root=repository)
+        readiness=_ref(repository,ready_path)
     root=Path(config.execution.artifacts_root)/('pilot-'+uuid.uuid4().hex)
     root.mkdir(parents=True,exist_ok=False)
     started=time.perf_counter_ns()
@@ -284,6 +292,9 @@ def calibrate(config: ExperimentConfig) -> PilotSummary:
             checkout_status=subprocess.check_output(['git','status','--porcelain'],text=True).splitlines()),
         axes_changed=[],boundary_expansions=[],
         claim_scope='engineering only; common fixed H1 recipe, no V HPO, no protected T; B7/H3 readiness separate')
+    if readiness is not None:
+        raw['readiness']=readiness
+        raw['claim_scope']='scientific exploratory variance calibration; T remains protected'
     _atomic_json(root/'raw.json',raw,replace=True)
     try:
         raw['runtime']=_runtime_preflight(config)
@@ -345,6 +356,10 @@ def calibrate(config: ExperimentConfig) -> PilotSummary:
         raw['retained_bytes']=sum(p.stat().st_size for p in root.rglob('*') if p.is_file())
         raw['cost_boundary']='whole attempt including failed/incomplete batches; child/probe clocks nested, never additive; excludes final publication'
         _atomic_json(root/'raw.json',raw,replace=True)
-        write_json(root/'raw-seal.json',dict(raw_sha256=file_hash(root/'raw.json'),
-            source_sha256=raw['provenance']['source_sha256']))
+        if pilot.purpose=='scientific':
+            from treeneuron.protocol import pilot_seal
+            seal=pilot_seal(root)
+        else:
+            seal=dict(raw_sha256=file_hash(root/'raw.json'),source_sha256=raw['provenance']['source_sha256'])
+        write_json(root/'raw-seal.json',seal)
     return regenerate_design(root)

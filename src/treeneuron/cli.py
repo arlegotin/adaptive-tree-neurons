@@ -29,9 +29,28 @@ def main(argv: list[str] | None = None) -> int:
     report_parser.add_argument('--mode', choices=['exploratory'], required=True)
     report_parser.add_argument('--study-dir', type=Path, required=True)
     report_parser.add_argument('--output', type=Path)
-    calibration = commands.add_parser('calibrate', help='Run explicitly bounded exploratory engineering pilot machinery')
+    calibration = commands.add_parser('calibrate', help='Run bounded exploratory pilots; scientific purpose requires verified readiness')
     calibration.add_argument('--config', type=Path, required=True)
+    freeze_parser = commands.add_parser('freeze', help='Freeze a verified canonical scientific design')
+    freeze_parser.add_argument('--design', type=Path, required=True)
+    freeze_parser.add_argument('--output', type=Path, default=Path('protocol/frozen.yaml'))
+    amendment = commands.add_parser('amend', help='Preserve old identity and require fresh confirmation')
+    amendment.add_argument('--protocol', type=Path, required=True)
+    amendment.add_argument('--reason', required=True)
+    amendment.add_argument('--replacement-study-id', required=True)
     args = parser.parse_args(argv)
+    if args.command == 'freeze':
+        from treeneuron.protocol import load_design, freeze
+        design, sources = load_design(args.design)
+        print(freeze(design, sources, args.output).protocol_hash)
+        return 0
+    if args.command == 'amend':
+        from treeneuron.protocol import FrozenProtocol, _read, amend
+        value = _read(args.protocol)
+        snapshot = value['payload']['snapshot']
+        protocol = FrozenProtocol(args.protocol, value['protocol_hash'], snapshot['pinned_commit'], snapshot['checkout_commit'])
+        print(amend(protocol, reason=args.reason, replacement_study_id=args.replacement_study_id))
+        return 0
     if args.command == 'calibrate':
         from dataclasses import asdict
         from treeneuron.config import load_experiment
