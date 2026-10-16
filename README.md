@@ -26,7 +26,7 @@ env PYTORCH_ENABLE_MPS_FALLBACK=0 .venv/bin/python -m treeneuron.cli doctor --ou
 .venv/bin/python -m treeneuron.cli verify-math --backend-report environment/current-report.json --output environment/reference-math.json
 ```
 
-The core lock resolves Torch 2.14.1, NumPy 2.5.4, SciPy 1.18.1, pandas 3.0.6, scikit-learn 1.9.1, PyYAML 6.0.3 and development pytest 9.1.1. It is scoped to Python 3.12. Runtime reports and acquired source artifacts stay outside Git. Doctor records denied probes as null with reasons, strips serial/UUID fields and returns nonzero for indispensable package import failures. Sandboxed observations can differ from native process observations; Doctor runs actual isolated kernel probes; a saved report is revalidated against execution source, lock and runtime. Sandboxed MPS unavailability remains separate from the executed native MPS evidence.
+The core lock resolves Torch 2.14.1, NumPy 2.5.4, SciPy 1.18.1, pandas 3.0.6, scikit-learn 1.9.1, PyYAML 6.0.3 and development pytest 9.1.1. It is scoped to Python 3.12. Bulk runs and acquired data/model assets stay outside Git; selected verification logs, provenance and hash manifests are versioned. Doctor records denied probes as null with reasons, strips serial/UUID fields and returns nonzero for indispensable package import failures. Sandboxed observations can differ from native process observations; Doctor runs actual isolated kernel probes; a saved report is revalidated against execution source, lock and runtime. Sandboxed MPS unavailability remains separate from the executed native MPS evidence.
 
 For the measured resident-data d16/h64/F2306 calibration, CPU was faster: about 36.1 ms versus 66.9 ms for MPS across base epoch, CPU64 scoring and grown epoch. The initial recipe uses one CPU thread and physical/logical batch 128. This is a bounded kernel calibration. The complete primary exploratory study subsequently took 611.7 seconds on CPU, including data generation, setup, training, shared scoring and artifact work; calibrated search and practical comparisons remain pending. Two isolated stage timing caps are retained in the [gate evidence](docs/research/2026-10-16-core-gate-evidence.json); all four complete-path blocks met their stability rule.
 
@@ -116,3 +116,11 @@ before terminal publication. A small complete CPU study checks that behavior.
 The original predictive studies remain pinned to their original source; the
 [historical manifest correction sidecar](docs/research/2026-10-16-exploratory-manifest-corrections-fix1.json)
 supplies hash-linked metadata overlays without changing their results or files.
+
+The core has now passed its whole-implementation review and scoped fix review.
+The [reviewed handoff](docs/research/2026-10-16-reviewed-core-handoff.md) records
+629 passing tests, 48 sandbox MPS skips, the final engineering checks and all
+review decisions. The next control probes every eligible neuron briefly and
+charges every attempt, allowing comparison with the cheap score. Independent
+pilot, freeze, confirmation and scientific audit remain pending; the early
+prediction results above are unchanged.

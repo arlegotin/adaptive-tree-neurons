@@ -1,0 +1,80 @@
+# Core Task 2 report
+
+Status: implementation complete; parent review pending. Base commit: c00a7d0d11dec78d4f8fb6c2e44a22b35e831e60. Worked on current main; no worktree, subagents, predictive run, dataset, frozen protocol or protected access. Read the task brief/global constraints, design §5–§7/§11, TDD skill and writing-good-tests reference; also completion verification, review and systematic debugging skills. Parent's explicit no-subagents instruction takes precedence over the review skill's reviewer dispatch; parent owns independent review.
+
+## Delivered public API
+
+- `load_experiment(path: Path) -> ExperimentConfig` reads duplicate-key-rejecting safe YAML, resolves defaults and validates all nested types, unknown keys, numerical bounds and immutable core constraints. `resolve_experiment(mapping)` is the shared mapping validator used by the ledger; `ExperimentConfig.to_dict()` returns a fresh JSON-compatible resolved mapping. `dataclasses.asdict(config)` also works as ledger input.
+- `canonical_hash(value: Mapping[str, Any]) -> str` is SHA-256 of sorted compact finite JSON in UTF-8 (`ensure_ascii=False`, separators comma/colon). Nested mappings order does not matter, sequence order does; integer and floating JSON number spellings remain distinct. Reject unsupported objects, non-string keys and nonfinite floats; no string/boolean-to-number coercion. `canonical_json` exposes the same serialization boundary.
+- `create_run(root: Path, resolved: Mapping[str, Any]) -> RunPaths` validates/resolves before touching disk, generates UUID4 hex identity, exclusively claims `root/run_id`, and persists resolved configuration before ledger creation. `RunPaths` is frozen with `run_id: str`, `directory: Path`. Same config can have distinct attempt IDs; a generated ID collision fails without retries or overwriting evidence.
+- `append_event(paths, event)` appends exactly one finite compact JSON line and fsyncs it under an advisory file lock; optional `status: running` updates manifest atomically. Other event status values reject before appending. No terminal run may accept new events.
+- `finish_run(paths, metrics, status)` accepts only `interrupted`, `failed`, `completed`, validates JSON first, publishes metrics exclusively/atomically, then updates manifest atomically. `created`/`running` are nonterminal operational statuses; scientific failure class remains a separate unknown observation until a later assessor records it. Repeated terminal finish refuses and preserves metrics/events.
+
+## Schema decisions for later consumers
+
+All dataclasses are frozen. Top-level fields: required nonempty `study_id`; default `phase=exploratory`; nested `model`, `training`, `growth`, `data`, `seeds`, `backend`. Unknown keys reject in every section. Floats accept finite YAML integers as numerical values; integer/bool/string fields do not coerce. Literal booleans compare both type and value. Missing sections resolve explicitly, and mappings must have string keys.
+
+- Model: `d=16`, `h=64`, `depth=1`, `tau=1.0`, `activation=relu`. d/h/depth/tau positive; h/depth/d are exploratory coordinates. No dropout/BatchNorm/normalization/embedding/ensemble options.
+- Training: `optimizer=adam` (adam/sgd), `learning_rate=0.001`, `weight_decay=0`, `adam_epsilon=1e-8`, `adam_beta1=.9`, `adam_beta2=.999`, `sgd_momentum=0`, `batch_size=128`, `scheduler=constant` (constant/cosine), `min_learning_rate=0`, `checkpoint_selection=strict_improvement_earliest`, `evaluate_at_update_zero=true`. Adam betas/momentum in [0,1), positive LR/epsilon/batch size, nonnegative decay/min LR and min LR <= LR. LR/batch size/betas/scheduler are transparent exploratory starting defaults, not frozen scientific choices. `base_updates`, `continuation_updates`, `validation_interval`, `patience` default **null**; explicit values must be positive integers. They remain pilot outputs, never invented confirmation allowances.
+- Growth: `m_requested=16` (nonnegative, including zero), `epsilon=.05`, `policy=adam` (adam/sgd/random/keep), `direction=eigenvector` (eigenvector/gaussian), `block_units=8`, `projection_rms_floor=1e-12`, `retain_zero_growth=true`. Positive contrast scale, block count, floor. No fake zero-growth exclusion.
+- Data: `dataset=synthetic`, `population=primary`; named alternatives globally_affine, additive_sine_quadratic, pure_noise, random_label_permutation, conditional_slope_2d, homogeneous_smooth. `noise_sigma=.1`, `components=4`, `reference_rows=65536`; gate_prevalences=(.1,.5), gate_types=(hard,smooth_0.2,smooth_1.0), uniform selection implied by these choice lists; prevalence members in (0,1). `regime=isotropic` (isotropic/axis_aligned/rotated/rare), `nuisance_dimensions=0` (nonnegative and < d), `sample_density=2`, `row_rounding=ceiling`; n_fit/n_growth/n_validation defaults derived from P0=(d+2)h+1 and density, yielding 2306/577/577 for starter model. Explicit positive row overrides allowed. G/V default to ceil(n_fit/4), including when F is overridden. `n_test=null`, optionally a positive exploratory count. `standardize_inputs=true`, `standardize_targets=true`, `fit_transforms_on=F`, `refit_full_development=false` are fixed. conditional_slope_2d requires d=2; callers explicitly supply its no-noise coordinate, as the test does. Acquisition/transfer schemas are deferred to their tasks.
+- Seeds: `namespace=exploratory`, separate `teacher=0`, `data=1`, `optimizer=2`, `allocation=3`, `contrast=4`, `reference=5`; nonnegative integers. Names identify independent streams; equal integers are not forbidden because namespaces, not an enforced global inequality, define streams.
+- Backend: `device=cpu` (cpu/mps), `training_dtype=float32`, `execution=eager`, `score_device=cpu`, `score_dtype=float64`, `allow_fallback=false`, `cpu_threads=null`, `interop_threads=null` (explicit positive integers allowed). This describes requested execution; no actual backend gate or performance claim is made. CPU default is a safe explicit request, not evidence that the Task8 primary-backend gate has closed.
+
+Both load and create reject any non-exploratory phase with a protocol-capability explanation. Unknown protocol keys reject; no boolean/hash in draft can act as authority. No frozen.yaml created. `protocol/draft.yaml` has status draft, freeze_hash null, test_access_authorized false, an exploratory starter scaffold and explicit unresolved pilot/protection requirements. It is a protocol document; `draft['experiment']` plus top-level study/phase can be passed to config loading, rather than loading the entire protocol as an experiment config.
+
+## Artifacts and exact semantics
+
+`config.resolved.json`, `manifest.json`, empty `events.jsonl` and `.ledger.lock` exist on return from create. Metrics exist only on terminal publication. JSON snapshot publication uses a sibling temporary file, flush/fsync, exclusive hard-link for initial targets and metrics, atomic replace for mutable manifest, directory fsync and temporary cleanup. File locks serialize ledger mutations. Config identity/hash and exploratory phase are rechecked before mutation; forged RunPaths reject.
+
+Schema1 manifest groups:
+
+- Identity: run/parent/study/phase/status/scientific failure, config hash, code/adapter revisions and protocol/lock/hardware/growth hashes.
+- Data: dataset/population, raw/split/transform hashes, all independent namespaced seeds, teacher normalization, configured F/G/V/T row counts and unknown group counts, exact role boundaries, false test_labels_accessed/full_development_refit. Row fields are configured counts, not claims that generation occurred; unresolved T count is null/reason.
+- Method: complete resolved config, total/trainable counts, serialized bytes, checkpoint/hash/terms, context/cache bytes, requested and not-yet-observed actual backend, dtype/thread settings/fallback.
+- Costs: search, preprocess, base, score, probe, continuation, validation, first/warm prediction nanoseconds and separate acquisition. Each has an explicit timing boundary, null duration with reason and unmeasured status.
+- Resources: separate null/reason RSS, MPS allocated/driver, pressure, swap delta, creation/finish UTC, interruption/retry links, timing exclusions; overlap statement forbids summing unified-memory counters.
+
+Null observations are represented as `{'value': null, 'reason': '...'}`; costs use `nanoseconds: null`, reason and status. Placeholder provenance is explicitly not supplied, counters not measured, model/data not yet created. There are no fabricated zero costs/resources/hashes. Generic metric mappings preserve caller-supplied null/reason entries exactly. No direct metric normalization or invented measurements.
+
+Per-file snapshot publication is atomic; the collection of config/manifest/events or terminal metrics/manifest is **not a multi-file transaction**. A process/OS failure during create may leave an exclusively claimed partial directory for inspection. A crash after metrics publication but before manifest update may leave metrics with a nonterminal manifest; retries refuse to overwrite those metrics. Resume/reconciliation is deferred to the checkpoint/recovery task; this task does not delete or silently repair evidence. Locks protect cooperative writers, not malicious local owner modifications. Serial fork execution remains the research contract.
+
+## TDD and verification evidence
+
+1. Wrote both new test files before implementation. `.venv/bin/python -m pytest tests/test_config.py tests/test_artifacts.py -q`: expected **RED 50 failed in 0.22s**, missing treeneuron.config/artifacts APIs (imports are inside test bodies). No typo/dependency failures hidden. Tests catch omitted defaults, unknown keys in all seven scopes, type coercion, nonfinite inputs, invalid tau/ranges, duplicate YAML keys, protected-phase admission, unstable/insensitive hashes, overwrite/truncation, missing unavailable-counter reasons, lost interruption records, forged identity and fake draft authority.
+2. Implemented only task-owned source/draft files. Same focused command **GREEN 50 passed in 0.79s**.
+3. Added a numerical boundary regression before its fix: `test_out_of_range_numeric_input_is_a_validation_error`. RED **1 failed in 0.10s**: tau=10**400 reached math.isfinite's implicit float conversion and leaked OverflowError. Traced YAML->resolve->_section->_typed; ordinary valid integers pass, huge finite Python ints exceed float64 conversion. Fixed conversion at the typed float boundary with an explicit ValueError. Focused regression GREEN **1 passed in 0.03s**.
+4. Refactored temporary RunPaths construction only. Required focused command: **51 passed in 0.14s**, exit0, no warnings.
+5. Generated one actual run inside tempfile.TemporaryDirectory and parsed its config/manifest/events. Observed all six top-level schema keys; namespaces/seeds exactly exploratory/0/1/2/3/4/5; F/G/V counts2306/577/577, unresolved T null/reason; exact F fit/G checkpoint-and-growth/V HPO/T protected-only roles; false T access; RSS null/not measured; real SHA256 config identity; unknown revisions/hashes remain null/not supplied. Temporary directory removed on context exit; no predictive artifacts or permanent run created.
+6. Complete repository suite `.venv/bin/python -m pytest -q`: **55 passed in 4.85s**, exit0, no warnings/failures (51 new +4 doctor tests). Ran full suite once after final production edit as directed.
+7. `git diff --check` exit0; only the five task-owned source/test/draft files untracked before staging. No shared CLI, plan, DECISIONS or ledger edits.
+
+No additional installations, external network access, environment/system changes or predictive runs were needed. Remaining scientific gates and protected evaluator are deliberately outside Task2. Parent should inspect the new schema/API before later tasks consume it, and review the explicit per-file atomicity/recovery boundary above.
+
+## Commit and final handoff
+
+**DONE_WITH_CONCERNS** — commit `bcd0da7f96338234f01e81cee97be859528852b3` (`feat: add strict experiment configuration and run ledger`). Exactly the five task-owned files committed; report remains in ignored agent workspace. Initial sandbox stage/commit attempts could not create .git/index.lock; explicit authorized escalation for git add and git commit succeeded. No auto-review rejection occurred. Cached whitespace check exit0, final git status empty. Parent independent review pending; per-file atomicity/recovery and intentionally unobserved provenance placeholders described above are the material handoff boundaries.
+
+## Review round 1 revisions
+
+Parent requested three verified schema corrections on bcd0da7, without further agents. Read receiving-code-review skill and inspected each referenced production boundary before edits. No independent reviewer was dispatched; parent continues to own review.
+
+The earlier training/noise schema descriptions in this report are superseded as follows:
+
+- Training optimizer is now `Literal['adamw','sgd']`, default **adamw**. AdamW names decoupled weight decay unambiguously; SGD remains the diagnostic alternate. Unsupported ambiguous `adam` rejects. Draft protocol now explicitly records `training: {optimizer: adamw}`. Growth `policy: adam` remains the Adam ranking score from spec §5; it is not an optimizer selection and was not renamed.
+- Named `conditional_slope_2d` requires d=2 as before, now resolves omitted `noise_sigma` to0 and rejects explicit nonzero noise. A noisy control needs a separately named future variant. Primary synthetic noise remains0.1. Explicit zero continues to work in the pre-existing control test.
+- Derived n_fit is computed only when omitted. Density×P0 must be finite; an overflowing integer-to-float conversion or nonfinite product raises ValueError. Explicit positive arbitrarily large integer n_fit needs no floating conversion. G/V defaults use exact `(n_fit+3)//4`, preserving ceiling even beyond float64 range.
+
+TDD evidence:
+
+1. Added seven targeted behavior regressions before production edits. `.venv/bin/python -m pytest tests/test_config.py -q -k 'adamw or ambiguous_adam or conditional_slope_control or density_product or exact_integer_ceiling'`: **RED 7 failed,39 deselected in0.12s**. Failures independently showed default adam instead of adamw, adamw rejection, ambiguous adam admission, noisy default0.1, nonzero named-control admission, float infinity->ceil OverflowError, and huge-integer division->float OverflowError. No unrelated failure.
+2. Changed training literal/default and draft; optimizer subset **GREEN3 passed,43 deselected in0.03s**.
+3. Added population-specific noise resolution/validation; noise subset **GREEN2 passed,44 deselected in0.03s**.
+4. Guarded the derived product and replaced G/V floating ceiling with integer ceiling; arithmetic subset **GREEN2 passed,44 deselected in0.03s**. The hand-derived large expected row count is25×10**398+1 for n_fit=10**400+1.
+5. Required focused `.venv/bin/python -m pytest tests/test_config.py tests/test_artifacts.py -q`: **58 passed in0.10s**, exit0.
+6. Complete `.venv/bin/python -m pytest -q`: **62 passed in5.49s**, exit0, no warnings/failures. Full suite run once after final production edit.
+7. `git diff --check` exit0; changes limited to config.py, test_config.py and draft.yaml (58 additions,5 deletions). No artifacts API changes or shared ledger/plan/CLI edits.
+
+Review clarification retained: per-file atomicity is an accepted boundary, not a Task2 defect. Later Tasks9/12 must populate currently unknown manifest observations through a tested update API; that integration obligation is intentionally not implemented in this correction. No new task-blocking concerns.
+
+Review round1 final: **DONE**, commit `baf30ed5c1354c773ba352ad7f2b980dc213c727` (`fix: enforce primary optimizer and noise-free control schema`). Three task-owned files committed; cached whitespace check passed; git status empty. No auto-review rejection or further installation occurred. Seven observed RED regressions became seven GREEN checks; focused58/full62 pass. Ready for parent re-review.
