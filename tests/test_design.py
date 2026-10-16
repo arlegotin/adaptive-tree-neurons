@@ -173,3 +173,106 @@ def test_design_retains_numeric_inference_and_retry_policy_even_for_estimation()
     assert d.statistical_policy['bootstrap_seed']==31
     assert d.statistical_policy['retries']==1
     assert d.statistical_policy['power_iterations']==1000
+
+
+def crossed_records(*, teacher_sd=0., optimizer_sd=0., row_sd=1., interaction_sd=0.,
+                    teacher_count=128, repetitions=3, evaluation_rows=16):
+    """Pure crossed-effects fixture; every true teacher effect is 2 if teacher_sd=0."""
+    rng=np.random.default_rng(198)
+    result=[]
+    for i in range(teacher_count):
+        mean=2.+teacher_sd*rng.normal()
+        optimizer=optimizer_sd*rng.normal(size=(repetitions,1))
+        shared_e=row_sd*rng.normal(size=(1,evaluation_rows))
+        interaction=interaction_sd*rng.normal(size=(repetitions,evaluation_rows))
+        matrix=mean+optimizer+shared_e+interaction
+        for j in range(repetitions):
+            result.append(dict(teacher_id=f'crossed-{i}',repetition=j,data_hash=f'd{i}',
+                evaluation_hash=f'e{i}',recipe_hash='crossed-fixture',h1_rows=matrix[j].tolist(),
+                static_rows=matrix[j].tolist(),controls=list(('B1','B2','B3','B4','B5','B6')),
+                status='completed'))
+    return result
+
+
+def test_zero_intrinsic_variance_with_independent_finite_E_noise_uses_estimation():
+    # Unlike identical observed means, these teachers' E means differ by sampling noise.
+    s=summarize_pilot(crossed_records(),batch_runtimes=(1.,1.),bootstrap_iterations=4000,
+        seed=7,purpose='scientific')
+    assert s.sd_interval[0]>0 and np.ptp(s.teacher_means)>.1
+    assert s.repetition_variance==pytest.approx(0.,abs=1e-25)
+    assert s.between_teacher_variance_lower==0.
+    d=choose_design(s,constraints())
+    assert d.branch=='estimation' and d.n_T==100 and d.K_calc is None
+    assert d.K==128 and d.repetitions==3
+
+
+def test_crossed_interaction_allowance_is_conservative_and_component_unresolved():
+    s=summarize_pilot(crossed_records(optimizer_sd=.5,row_sd=.5,interaction_sd=2.),
+        batch_runtimes=(1.,1.),bootstrap_iterations=4000,seed=7,purpose='scientific')
+    assert s.between_teacher_variance_lower==0.
+    diagnostic=s.diagnostics['intrinsic_variance']
+    # ANOVA fixture: A/R + B/N + 2*C/(RN) = .25/3 + .25/16 + 8/48.
+    assert diagnostic['mean_nuisance_allowance']==pytest.approx(.265625,rel=.15)
+    assert diagnostic['nuisance_mean_upper']>=diagnostic['mean_nuisance_allowance']
+    assert diagnostic['interaction_policy']=='conservative double counting; no residual subtraction'
+    assert choose_design(s,constraints()).branch=='estimation'
+
+
+def test_intrinsic_component_can_resolve_and_larger_E_reduces_noise_allowance():
+    summaries=[summarize_pilot(crossed_records(teacher_sd=1.,evaluation_rows=n),
+        batch_runtimes=(1.,1.),bootstrap_iterations=2000,seed=7) for n in (16,128)]
+    assert all(s.between_teacher_variance_lower>0 for s in summaries)
+    assert (summaries[1].diagnostics['intrinsic_variance']['mean_nuisance_allowance']
+        <summaries[0].diagnostics['intrinsic_variance']['mean_nuisance_allowance']/4)
+
+
+def test_intrinsic_bound_unresolved_without_repeated_optimizers():
+    s=summarize_pilot(crossed_records(teacher_sd=1.,repetitions=1),
+        batch_runtimes=(1.,1.),bootstrap_iterations=1000,seed=7)
+    assert s.between_teacher_variance_lower is None
+
+
+def test_missing_additional_declared_control_blocks_design():
+    c=constraints(); c['required_controls'].append('additional_anchor')
+    d=choose_design(summary(),c)
+    assert d.branch=='blocked'
+    assert any('additional_anchor' in reason for reason in d.limitations)
+    present=summary(controls=(*summary().controls,'additional_anchor'))
+    assert choose_design(present,c).branch=='powered'
+
+
+def test_aggregation_preserves_extra_control_only_when_every_pair_has_it():
+    r=records()
+    for record in r: record['controls'].append('additional_anchor')
+    s=summarize_pilot(r,batch_runtimes=(1.,1.),bootstrap_iterations=1000,seed=7)
+    assert 'additional_anchor' in s.controls
+    r[-1]['controls'].remove('additional_anchor')
+    s=summarize_pilot(r,batch_runtimes=(1.,1.),bootstrap_iterations=1000,seed=7)
+    assert 'additional_anchor' not in s.controls
+
+
+@pytest.mark.parametrize('bad',['B1,B2,B3,B4,B5,B6',{'B1':True},None,
+    ['B1','B2','B3','B4','B5','B6',7],['B1','B2','B3','B4','B5','B6',''],
+    ['B1','B2','B3','B4','B5','B6',' B7'],['B1','B2','B3','B4','B5','B6','B 7'],
+    ['B1','B2','B3','B4','B5','B6','B1']])
+def test_required_control_declaration_has_strict_identifier_sequence_domain(bad):
+    c=constraints(); c['required_controls']=bad
+    with pytest.raises(ValueError,match='control'): choose_design(summary(),c)
+
+
+@pytest.mark.parametrize('bad',['B1',{'B1':True},[None],['B1','B1'],['']])
+def test_raw_and_summary_control_domains_are_validated(bad):
+    r=records(); r[0]['controls']=bad
+    with pytest.raises(ValueError,match='control'):
+        summarize_pilot(r,batch_runtimes=(1.,1.),bootstrap_iterations=1000,seed=7)
+    with pytest.raises(ValueError,match='control'):
+        choose_design(summary(controls=bad),constraints())
+
+
+def test_absent_or_empty_declaration_remains_blocked_and_minimum_is_retained():
+    c=constraints(); del c['required_controls']
+    assert choose_design(summary(),c).branch=='blocked'
+    c['required_controls']=[]
+    assert choose_design(summary(),c).branch=='blocked'
+    c['required_controls']=['additional_anchor']
+    assert choose_design(summary(controls=('additional_anchor',)),c).branch=='blocked'

@@ -7,6 +7,7 @@ from __future__ import annotations
 from collections.abc import Mapping, Sequence
 from dataclasses import asdict, dataclass, field
 import math
+import re
 from typing import Any
 
 import numpy as np
@@ -85,14 +86,29 @@ def _interval(values, level=.95):
     return tuple(float(x) for x in np.quantile(values, [(1-level)/2, (1+level)/2]))
 
 
+def _control_set(value, name):
+    """Canonical control IDs, including explicitly declared additional anchors."""
+    if not isinstance(value, (list, tuple)) or any(
+            type(item) is not str or re.fullmatch(r'[A-Za-z][A-Za-z0-9_-]*', item) is None
+            for item in value):
+        raise ValueError(f'{name}: controls must be a sequence of nonempty identifier strings')
+    if len(set(value)) != len(value):
+        raise ValueError(f'{name}: duplicate control identifiers')
+    return set(value)
+
+
 def summarize_pilot(records: Sequence[Mapping[str, Any]], *, batch_runtimes: Sequence[float],
                     bootstrap_iterations: int, seed: int, purpose='engineering') -> PilotSummary:
     """Average repeated optimizers within teacher and resample whole teachers.
 
     E row order/data is identical within each teacher. Row variance is computed
     AFTER averaging repetitions on each row, preserving their correlations.
-    The lower variance-component bound subtracts within-repetition noise / R;
-    it is clipped at zero, which routes unresolved precision to estimation.
+    Conditional on a teacher, optimizer seeds and E rows are independent crossed
+    draws. Their mean has nuisance variance A/R + B/N + C/(R*N), where C is
+    optimizer-by-row interaction. Rep-mean variance/R + row-mean variance/N
+    estimates A/R + B/N + 2*C/(R*N): deliberately over-subtract interaction.
+    Subtract its upper bootstrap bound from the observed teacher-mean variance
+    lower bound; unresolved intrinsic variance routes to finite-row estimation.
     """
     canonical_json({'records': records, 'batch_runtimes': batch_runtimes})
     if type(bootstrap_iterations) is not int or bootstrap_iterations < 200:
@@ -117,8 +133,8 @@ def summarize_pilot(records: Sequence[Mapping[str, Any]], *, batch_runtimes: Seq
     lengths = {len(rows) for rows in groups.values()}
     if len(lengths) != 1: raise ValueError('Unbalanced repetitions cannot enter accepted pilot')
     repetitions = lengths.pop()
-    means, static_means, within, rowvars = [], [], [], []
-    controls = set(CONTROLS)
+    means, static_means, within, rowvars, rowcounts = [], [], [], [], []
+    controls = None
     for rows in groups.values():
         if {r['repetition'] for r in rows} != set(range(repetitions)):
             raise ValueError('Repetitions must be consecutive from zero')
@@ -132,7 +148,10 @@ def summarize_pilot(records: Sequence[Mapping[str, Any]], *, batch_runtimes: Seq
         static_means.append(float(s.mean()))
         within.append(float(h.mean(axis=1).var(ddof=1)) if repetitions > 1 else 0.)
         rowvars.append(float(h.mean(axis=0).var(ddof=1)))
-        for row in rows: controls.intersection_update(row['controls'])
+        rowcounts.append(h.shape[1])
+        for row in rows:
+            observed = _control_set(row['controls'], 'record.controls')
+            controls = observed if controls is None else controls & observed
     values, static = np.asarray(means), np.asarray(static_means)
     n = len(values)
     diagnostics = dict(effective_independent_count=n, optimizer_repetitions=repetitions,
@@ -140,7 +159,17 @@ def summarize_pilot(records: Sequence[Mapping[str, Any]], *, batch_runtimes: Seq
         bootstrap_unit='whole teacher; all inner repetitions remain together',
         bootstrap_iterations=bootstrap_iterations, bootstrap_seed=seed,
         student_t_df=n-1, coverage_limit='Empirical bootstrap and t sensitivity do not establish nominal coverage',
-        future_namespaces='confirmatory teacher/data/observation namespaces reserved; pilot never reuses them')
+        future_namespaces='confirmatory teacher/data/observation namespaces reserved; pilot never reuses them',
+        intrinsic_variance=dict(status='unresolved',
+            assumptions='Conditional on teacher/development data: iid optimizer draws, iid E rows independent of optimizers, finite second moments; independent teachers',
+            decomposition='D = teacher mean + optimizer main effect + E-row main effect + centered optimizer-by-E interaction',
+            true_mean_noise='A/R + B/N + C/(R*N)',
+            nuisance_allowance='rep-mean sample variance/R + row-mean sample variance/N; expectation A/R + B/N + 2*C/(R*N)',
+            interaction_policy='conservative double counting; no residual subtraction',
+            bound='max(0, observed teacher-mean variance 2.5% lower - mean nuisance allowance 97.5% upper)',
+            tail_policy='Two 2.5% one-sided bootstrap tails; union bound needs no independence between endpoints',
+            limitation='Conservative decomposition in expectation; empirical whole-teacher bootstrap bounds are conditional approximations, not finite-sample coverage guarantees',
+            evaluation_rows_per_teacher=rowcounts))
     sd_ci = h_ci = s_ci = None
     mc = between_lower = row_upper = None
     if n >= 2:
@@ -150,23 +179,40 @@ def summarize_pilot(records: Sequence[Mapping[str, Any]], *, batch_runtimes: Seq
         sd = draws.std(axis=1,ddof=1)
         hmeans, smeans = draws.mean(axis=1), static[indices].mean(axis=1)
         sd_ci, h_ci, s_ci = _interval(sd), _interval(hmeans), _interval(smeans)
-        between = np.maximum(0., sd**2-np.asarray(within)[indices].mean(axis=1)/repetitions)
-        between_lower = float(np.quantile(between,.025))
+        component_endpoints = []
+        if repetitions >= 2:
+            # Shared E noise does not shrink as 1/R. Row-mean variance contains
+            # its full main effect plus interaction/R. Rep-mean variance also
+            # contains interaction/N; keeping both is conservative, unlike
+            # subtracting an unstable estimated interaction component.
+            nuisance = np.asarray(within)/repetitions + np.asarray(rowvars)/np.asarray(rowcounts)
+            nuisance_draws = nuisance[indices].mean(axis=1)
+            observed_lower = float(np.quantile(sd**2,.025))
+            nuisance_upper = float(np.quantile(nuisance_draws,.975))
+            between_lower = max(0., observed_lower-nuisance_upper)
+            diagnostics['intrinsic_variance'].update(
+                status='resolved' if between_lower>0 else 'unresolved',
+                observed_teacher_variance_lower=observed_lower,
+                mean_nuisance_allowance=float(nuisance.mean()),
+                nuisance_allowance_per_teacher=nuisance.tolist(),
+                nuisance_mean_upper=nuisance_upper)
+            component_endpoints = [(sd**2,.025),(nuisance_draws,.975)]
         row_upper = float(np.quantile(np.asarray(rowvars)[indices].mean(axis=1),.975))
         # Ten independent RNG sections: MC standard error of endpoint estimators.
         endpoint_vectors = [np.concatenate([np.quantile(a,[.025,.975]) for a in
-            (sd[part],hmeans[part],smeans[part])])
+            (sd[part],hmeans[part],smeans[part])] +
+            [np.atleast_1d(np.quantile(a[part],q)) for a,q in component_endpoints])
             for part in np.array_split(np.arange(bootstrap_iterations),10)]
         mc = float(np.std(endpoint_vectors,axis=0,ddof=1).max()/math.sqrt(10))
         margin = float(t.ppf(.975,n-1)*values.std(ddof=1)/math.sqrt(n))
         diagnostics.update(student_t_interval=(float(values.mean()-margin),float(values.mean()+margin)),
             median=float(np.median(values)), observed_teacher_variance=float(values.var(ddof=1)),
             within_teacher_variances=within, paired_row_variances=rowvars,
-            variance_component_method='max(0, sample variance of teacher means - mean within variance / R)',
-            endpoint_mc_method='maximum endpoint SE over 10 disjoint bootstrap chunks; absolute effect/SD units')
+            variance_component_method='crossed optimizer/E nuisance upper bound subtracted from observed teacher variance lower bound',
+            endpoint_mc_method='maximum endpoint SE over 10 disjoint bootstrap chunks; absolute mean/SD/variance endpoint values')
     return PilotSummary(n,repetitions,tuple(means),float(np.mean(within)) if repetitions>1 else None,
         row_upper,between_lower,sd_ci,tuple(batch_runtimes),float(values.mean()),h_ci,
-        float(static.mean()),s_ci,mc,tuple(sorted(controls)),failed,
+        float(static.mean()),s_ci,mc,tuple(sorted(controls or ())),failed,
         {'raw_records':canonical_hash({'records':records})},purpose,diagnostics)
 
 
@@ -289,8 +335,12 @@ def choose_design(summary: PilotSummary, constraints: Mapping[str, Any]) -> Desi
     power={}; forecast={}; curve=()
     branch='estimation'
     if missing: reasons.append('Missing measured inputs: '+', '.join(missing))
-    if not set(CONTROLS).issubset(summary.controls) or not set(CONTROLS).issubset(c.get('required_controls',[])):
-        reasons.append('Required baseline/control coverage missing')
+    observed_controls = _control_set(summary.controls, 'summary.controls')
+    declared_controls = _control_set(c.get('required_controls', []), 'required_controls')
+    missing_controls = ((set(CONTROLS) - observed_controls) |
+        (set(CONTROLS) - declared_controls) | (declared_controls - observed_controls))
+    if missing_controls:
+        reasons.append('Required baseline/control coverage or declaration missing: '+', '.join(sorted(missing_controls)))
     if summary.failed_pairs: reasons.append('Unresolved invalid pairs block design')
     if reasons: branch='blocked'
     else:
