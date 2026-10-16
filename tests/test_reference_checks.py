@@ -94,20 +94,21 @@ def test_verification_preserves_caller_dtype_rng_and_threads():
     assert torch.get_default_dtype() == dtype
     assert torch.get_num_threads() == threads
     assert torch.equal(torch.random.get_rng_state(), rng)
-    assert report["scope"] == "reference_and_package_math_cpu_only"
+    assert report["scope"] == "reference_package_and_backend_gates"
     layer = report["gates"]["package_layer_math"]
     assert layer["status"] == "passed"
     assert layer["report"]["check"] == "package_layer_math"
     assert layer["report"]["results"]["forward_max_abs"] < 1e-10
     assert layer["report"]["results"]["growth_preservation_max_abs"] == 0
     assert report["implemented_checks_passed"] is True
-    assert report["complete"] is False
+    assert report["complete"] is True
     score_gate = report['gates']['package_score_math']
     assert score_gate['status'] == 'passed'
     assert score_gate['report']['check'] == 'package_score_math'
     assert score_gate['report']['results']['gate_gradient_max_abs'] < 1e-10
-    for gate in ("cpu_backend", "mps_backend"):
-        assert report["gates"][gate]["status"] == "not_implemented"
+    assert report["gates"]["cpu_backend"]["status"] == "passed"
+    assert report["gates"]["mps_backend"]["status"] in ("passed", "unavailable")
+    assert report["backend_probes"]["decision"]["selected_backend"] in ("cpu", "mps")
     for check in report["reference_checks"].values():
         assert check["status"] == "passed"
         assert check["returncode"] == 0
@@ -125,7 +126,7 @@ def test_verify_math_cli_emits_reference_scope(tmp_path, output_file):
     assert result.returncode == 0, result.stderr
     report = json.loads(result.stdout)
     assert report["reference_checks_passed"] is True
-    assert report["complete"] is False
+    assert report["complete"] is True
     if output_file:
         assert json.loads(output.read_text()) == report
 
@@ -213,3 +214,15 @@ def test_package_score_failure_reaches_cli(tmp_path, monkeypatch, capsys):
     assert report['reference_checks_passed'] is True
     assert report['implemented_checks_passed'] is False
     assert report['gates']['package_score_math']['status'] == 'failed'
+
+
+def test_backend_status_only_cannot_complete_math_gate(monkeypatch):
+    from treeneuron import verification
+
+    monkeypatch.setattr(verification, 'collect_backend_report', lambda: {
+        'status': 'passed', 'probes': {'cpu': {'status': 'passed', 'device': 'cpu'}},
+        'decision': {'selected_backend': 'cpu'}})
+    report = verification.collect_math_report()
+    assert report['complete'] is False
+    assert report['implemented_checks_passed'] is False
+    assert report['gates']['cpu_backend']['status'] == 'failed'

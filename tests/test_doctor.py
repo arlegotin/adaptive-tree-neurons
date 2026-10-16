@@ -87,4 +87,5 @@ def test_doctor_module_cli_reports_real_process_and_lock(tmp_path):
     assert report["cpu_ready"] is True
     assert len(report["lock"]["sha256"]) == 64
     assert report["sources"]["status"] == "recorded"
-    assert report["torch"]["kernel_gate"] == "not_run"
+    assert report["torch"]["kernel_gate"] == "passed"
+    assert report["backend_probes"]["status"] == "passed"

@@ -132,3 +132,28 @@ def test_zero_zero_insertion_has_dead_gradients():
     for module in (layer.gate, layer.contrast):
         for parameter in module.parameters():
             assert torch.count_nonzero(parameter.grad) == 0
+
+
+@pytest.mark.parametrize('device', ['cpu', 'mps'])
+def test_native_float32_insertion_and_indexed_backward(device):
+    from treeneuron.backend import TOLERANCE
+
+    if device == 'mps' and not torch.backends.mps.is_available():
+        pytest.skip('MPS unavailable in this process; native backend gate must run separately')
+    layer = SelectiveAffineLayer(2, 4).to(device)
+    with torch.no_grad():
+        layer.base.weight.fill_(.2)
+        layer.base.bias.fill_(1.)
+    x = torch.tensor([[.2, .3], [.4, .5]], device=device)
+    before = layer(x).detach().clone()
+    layer.grow(torch.tensor([1, 3]), torch.full((2, 3), .05, device=device))
+    assert torch.equal(layer(x), before)
+    layer(x).square().mean().backward()
+    assert torch.count_nonzero(layer.gate.weight.grad) > 0
+    assert torch.count_nonzero(layer.contrast.weight.grad) == 0
+    reference = SelectiveAffineLayer.from_config(layer.export_config()).double()
+    reference.load_state_dict({name: value.detach().cpu().double() if value.is_floating_point()
+                               else value.detach().cpu() for name, value in layer.state_dict().items()})
+    reference(x.cpu().double()).square().mean().backward()
+    for actual, expected in zip(layer.parameters(), reference.parameters()):
+        torch.testing.assert_close(actual.grad.cpu().double(), expected.grad, **TOLERANCE)

@@ -15,6 +15,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from treeneuron.backend import probe_backend
+
 CORE_PACKAGES = {
     "torch": "torch", "numpy": "numpy", "scipy": "scipy", "pandas": "pandas",
     "scikit-learn": "sklearn", "PyYAML": "yaml", "pytest": "pytest",
@@ -37,7 +39,8 @@ def _probe(args: list[str]) -> dict[str, Any]:
         return {"command": args, "value": None, "reason": _redact(str(error)), "returncode": None}
     stdout, stderr = _redact(result.stdout).strip(), _redact(result.stderr).strip()
     return {"command": args, "value": stdout if result.returncode == 0 and stdout else None,
-            "reason": stderr or (None if stdout and result.returncode == 0 else "No output"),
+            "reason": stderr or (stdout if result.returncode != 0 and stdout else
+                                None if stdout and result.returncode == 0 else "No output"),
             "returncode": result.returncode}
 
 

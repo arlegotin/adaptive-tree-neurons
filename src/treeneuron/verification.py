@@ -10,6 +10,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
+from treeneuron.backend import collect_backend_report, select_backend
+
 ROOT = Path(__file__).resolve().parents[2]
 REFERENCE_CHECKS = {
     "appendix_a": ROOT / "tests" / "reference_math_checks.py",
@@ -139,21 +141,36 @@ def _run_reference_check(script: Path, expected_check: str | None = None) -> dic
     return result
 
 
-def collect_math_report() -> dict[str, Any]:
-    """Check references and package math in isolation; backends stay pending."""
+def collect_math_report(*, backend_report: dict[str, Any] | None = None) -> dict[str, Any]:
+    """Check CPU64 math and actual isolated backend evidence before opening gates.
+
+    A supplied doctor artifact is revalidated against the current implementation,
+    full operation/error schema and measured batch-selection contract.
+    """
     checks = {name: _run_reference_check(script, name) for name, script in REFERENCE_CHECKS.items()}
     passed = bool(checks) and all(check["status"] == "passed" for check in checks.values())
     layer = _run_reference_check(PACKAGE_LAYER_CHECK, 'package_layer_math')
     score = _run_reference_check(PACKAGE_SCORE_CHECK, 'package_score_math')
+    backend = collect_backend_report() if backend_report is None else backend_report
+    try:
+        if backend.get('schema_version') != 1 or not isinstance(backend.get('probes'), dict):
+            raise ValueError('Invalid actual backend aggregate schema')
+        decision = select_backend(backend['probes'], comparison_blocks=backend.get('comparison_blocks'))
+        backend = dict(backend, status='passed', decision=decision)
+        backend_passed = True
+    except (ValueError, TypeError, AttributeError) as error:
+        backend = dict(status='failed', reason=str(error), probes={}, decision=None)
+        backend_passed = False
+    complete = passed and layer['status'] == 'passed' and score['status'] == 'passed' and backend_passed
     return {
-        "schema_version": 1, "scope": "reference_and_package_math_cpu_only", "complete": False,
-        "reference_checks_passed": passed, "reference_checks": checks,
-        "implemented_checks_passed": passed and layer["status"] == "passed" and score['status'] == 'passed',
-        "gates": {
-            "reference_cpu": {"status": "passed" if passed else "failed"},
-            "package_layer_math": layer,
-            "package_score_math": score,
-            "cpu_backend": {"status": "not_implemented", "reason": "Pending Core Task 8"},
-            "mps_backend": {"status": "not_implemented", "reason": "Pending Core Task 8; CPU references do not validate MPS"},
+        'schema_version': 1, 'scope': 'reference_package_and_backend_gates', 'complete': complete,
+        'reference_checks_passed': passed, 'reference_checks': checks,
+        'implemented_checks_passed': complete, 'backend_probes': backend,
+        'gates': {
+            'reference_cpu': {'status': 'passed' if passed else 'failed'},
+            'package_layer_math': layer,
+            'package_score_math': score,
+            'cpu_backend': backend['probes'].get('cpu', {'status': 'failed', 'reason': backend.get('reason')}),
+            'mps_backend': backend['probes'].get('mps', {'status': 'unavailable', 'reason': 'No validated MPS evidence'}),
         },
     }
