@@ -1,0 +1,207 @@
+[
+  {
+    "name": "alembic",
+    "version": "1.20.0",
+    "license": "MIT",
+    "files": [
+      {
+        "path": "locks/search/licenses/alembic/alembic-1.20.0.dist-info/licenses/LICENSE",
+        "sha256": "6e68d94a03a0e3e327ddf3e86d1ebedc14eece3922022618fc246a36296fd0cc"
+      }
+    ]
+  },
+  {
+    "name": "colorlog",
+    "version": "6.12.0",
+    "license": "MIT License",
+    "files": [
+      {
+        "path": "locks/search/licenses/colorlog/colorlog-6.12.0.dist-info/licenses/LICENSE",
+        "sha256": "b1d9082bc483623fd59fc7279b457f0e40d942a76426cde257239e04dfe4125a"
+      }
+    ]
+  },
+  {
+    "name": "Mako",
+    "version": "1.4.3",
+    "license": "MIT",
+    "files": [
+      {
+        "path": "locks/search/licenses/Mako/mako-1.4.3.dist-info/licenses/LICENSE",
+        "sha256": "8c1d171bc5d341ad9cd33d5e2c39b96a82c7bd49b3ae89a470c37e5822232054"
+      }
+    ]
+  },
+  {
+    "name": "MarkupSafe",
+    "version": "3.0.4",
+    "license": "BSD-3-Clause",
+    "files": [
+      {
+        "path": "locks/search/licenses/MarkupSafe/markupsafe-3.0.4.dist-info/licenses/LICENSE.txt",
+        "sha256": "489a8e1108509ed98a37bb983e11e0f7e1d31f0bd8f99a79c8448e7ff37d07ea"
+      }
+    ]
+  },
+  {
+    "name": "numpy",
+    "version": "2.5.4",
+    "license": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+    "files": [
+      {
+        "path": "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/LICENSE.txt",
+        "sha256": "649a589ab31076e79e9ce62ba24eae9959598124176640dbc95f87bd10f34fcf"
+      },
+      {
+        "path": "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt",
+        "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec"
+      },
+      {
+        "path": "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING",
+        "sha256": "3f2c1ffa76383a55ae0aac01c9737cd70050dff63e1f026694fbe9d662573c98"
+      },
+      {
+        "path": "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE",
+        "sha256": "e340270d4f64384569a91d546acb5b094d69ce47f0c015db77abb74dc6f815af"
+      },
+      {
+        "path": "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md",
+        "sha256": "211e7d737d6179a08f791ebb0a99897ce7cd2457410c542876d125576edfe910"
+      },
+      {
+        "path": "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE",
+        "sha256": "c17011467b4fe6e20fbfbeda4df09e58c2bca5480a063e55735a4000a379aad9"
+      },
+      {
+        "path": "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md",
+        "sha256": "a85ca13fdf90160b64a0698215868c13b74d835ad0a4e2ba44713b8c5058a056"
+      },
+      {
+        "path": "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt",
+        "sha256": "a14cc25e10d40a3aa705b7de2fb764a6535d8ee9b2db4e1724900585457dfd55"
+      },
+      {
+        "path": "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE",
+        "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6"
+      },
+      {
+        "path": "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md",
+        "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f"
+      },
+      {
+        "path": "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/random/src/distributions/LICENSE.md",
+        "sha256": "469778be8f33d54e1bcaab28c281cc472916d2d273f835e55bc487d30503face"
+      },
+      {
+        "path": "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md",
+        "sha256": "0e111337b25494a773106695f0e799f642b8567aaacca4f116a74a8177179156"
+      },
+      {
+        "path": "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md",
+        "sha256": "e7d4f4fb20358f314210a892ae17351e04993813646f697ec387385ca2a36918"
+      },
+      {
+        "path": "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/random/src/philox/LICENSE.md",
+        "sha256": "6f5828a57223d4cc7f8ea505a2623e7b978b242752c1515e355f46ba2cec1800"
+      },
+      {
+        "path": "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md",
+        "sha256": "9d4098846018319cd68e228ee6220361787f73bccbf00237a85e4fc9621b998f"
+      },
+      {
+        "path": "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md",
+        "sha256": "268b0ca06759d31ea3ca68dd35f20e877916e927b1c2a835e4592a3c4354b1f9"
+      },
+      {
+        "path": "locks/search/licenses/numpy/numpy/_core/include/numpy/random/LICENSE.txt",
+        "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec"
+      },
+      {
+        "path": "locks/search/licenses/numpy/numpy/ma/LICENSE",
+        "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6"
+      },
+      {
+        "path": "locks/search/licenses/numpy/numpy/random/LICENSE.md",
+        "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f"
+      }
+    ]
+  },
+  {
+    "name": "optuna",
+    "version": "4.5.0",
+    "license": "MIT (archived LICENSE; metadata classifier)",
+    "files": [
+      {
+        "path": "locks/search/licenses/optuna/optuna-4.5.0.dist-info/licenses/LICENSE",
+        "sha256": "c3df8e8523cf46be4b366ee7dd11578454b10ea5ec5159e57df849513aafe059"
+      },
+      {
+        "path": "locks/search/licenses/optuna/optuna-4.5.0.dist-info/licenses/LICENSE_THIRD_PARTY",
+        "sha256": "dbff6df3cb59b7fb11de7e234630e139318ee8cada55e2f14a24d184c48954a8"
+      }
+    ]
+  },
+  {
+    "name": "packaging",
+    "version": "26.3",
+    "license": "Apache-2.0 OR BSD-2-Clause",
+    "files": [
+      {
+        "path": "locks/search/licenses/packaging/packaging-26.3.dist-info/licenses/LICENSE",
+        "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48"
+      },
+      {
+        "path": "locks/search/licenses/packaging/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+        "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+      },
+      {
+        "path": "locks/search/licenses/packaging/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+        "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
+      }
+    ]
+  },
+  {
+    "name": "PyYAML",
+    "version": "6.0.3",
+    "license": "MIT",
+    "files": [
+      {
+        "path": "locks/search/licenses/PyYAML/pyyaml-6.0.3.dist-info/licenses/LICENSE",
+        "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4"
+      }
+    ]
+  },
+  {
+    "name": "SQLAlchemy",
+    "version": "2.1.4",
+    "license": "MIT",
+    "files": [
+      {
+        "path": "locks/search/licenses/SQLAlchemy/sqlalchemy-2.1.4.dist-info/licenses/LICENSE",
+        "sha256": "e862bb5b904fb5513c3e14288d7a25a12eb0ecc7847a0a965d310e9a955e7cb9"
+      }
+    ]
+  },
+  {
+    "name": "tqdm",
+    "version": "4.67.1",
+    "license": "MPL-2.0 AND MIT",
+    "files": [
+      {
+        "path": "locks/search/licenses/tqdm/tqdm-4.67.1.dist-info/LICENCE",
+        "sha256": "dc33252e829015e3b150086fb9b3a40f6ad6fb32c2f4610ce812fa677d35986a"
+      }
+    ]
+  },
+  {
+    "name": "typing_extensions",
+    "version": "4.16.0",
+    "license": "PSF-2.0",
+    "files": [
+      {
+        "path": "locks/search/licenses/typing_extensions/typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+        "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf"
+      }
+    ]
+  }
+]

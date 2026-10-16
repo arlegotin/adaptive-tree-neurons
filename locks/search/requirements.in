@@ -1,0 +1,6 @@
+optuna==4.5.0
+# Reuse the verified native core packages; do not replace them in the overlay.
+numpy==2.5.4
+PyYAML==6.0.3
+# Shared with the separately pinned NODE reference-only environment.
+tqdm==4.67.1
