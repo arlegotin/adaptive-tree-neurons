@@ -242,7 +242,7 @@ def test_resumed_parameters_match_uninterrupted(cpu_resumed, cpu_uninterrupted):
 
 **Interfaces:** Produce `insert_growth(state: TrainingState, allocation: Allocation) -> GrowthManifest`, `migrate_optimizer(state: TrainingState, manifest: GrowthManifest) -> None`. Use named state and explicit slices, not optimizer positional IDs. Base/head parameter objects and moments are unchanged; new parameter groups use current scheduled LR/shared recipe and zero moments/step.
 
-- [ ] **Step 1:** Write `test_growth_keeps_old_moments_and_predictions`, asserting exact old moment tensors/steps, prediction preservation and parameter counts; `test_new_gate_step_starts_at_zero` checks the first new Adam step; `test_empty_allocation_preserves_run` checks valid zero-growth event; `test_resume_through_growth_matches_uninterrupted` interrupts immediately before and after insertion. Run `.venv/bin/python -m pytest tests/test_optimizer_growth.py -q`; expect missing APIs.
+- [x] **Step 1:** Write `test_growth_keeps_old_moments_and_predictions`, asserting exact old moment tensors/steps, prediction preservation and parameter counts; `test_new_gate_step_starts_at_zero` checks the first new Adam step; `test_empty_allocation_preserves_run` checks valid zero-growth event; `test_resume_through_growth_matches_uninterrupted` interrupts immediately before and after insertion. Run `.venv/bin/python -m pytest tests/test_optimizer_growth.py -q`; expect missing APIs.
 
 ```python
 def test_growth_keeps_old_moments_and_predictions(growth_case):
@@ -252,10 +252,10 @@ def test_growth_keeps_old_moments_and_predictions(growth_case):
         assert torch.equal(old_moments[name], migrated_moments[name])
 ```
 
-- [ ] **Step 2:** Implement insertion, manifest-based migration, scheduler-group extension and checkpoint reconstruction. No resetting old state, learning-rate restart or reinitializing existing weights. Capture training versus allocation RNGs separately; attaching groups cannot shift paired row order.
-- [ ] **Step 3:** Add a negative test for unmapped/duplicate parameter names, incompatible optimizer group config, and second insertion; reject before mutating durable state. Test the first post-growth ordinary-parameter update against a manually migrated reference.
-- [ ] **Step 4:** Run optimizer-growth plus checkpoint tests on CPU and available selected MPS backend; expect old-state integrity, correct zero/new-step semantics and resume agreement within the recorded same-backend tolerance.
-- [ ] **Step 5:** Commit `feat: preserve optimizer state across one-event specialization`.
+- [x] **Step 2:** Implement insertion, manifest-based migration, scheduler-group extension and checkpoint reconstruction. No resetting old state, learning-rate restart or reinitializing existing weights. Capture training versus allocation RNGs separately; attaching groups cannot shift paired row order.
+- [x] **Step 3:** Add a negative test for unmapped/duplicate parameter names, incompatible optimizer group config, and second insertion; reject before mutating durable state. Test the first post-growth ordinary-parameter update against a manually migrated reference.
+- [x] **Step 4:** Run optimizer-growth plus checkpoint tests on CPU and available selected MPS backend; expect old-state integrity, correct zero/new-step semantics and resume agreement within the recorded same-backend tolerance.
+- [x] **Step 5:** Commit `feat: preserve optimizer state across one-event specialization`.
 
 ## Task 11: Implement honest causal capacity and static-gated controls
 

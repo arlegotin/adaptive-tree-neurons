@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "scope": "one-event CPU insertion, optimizer migration and complete state recovery; no predictive result",
+  "source_commit": "f7416bb5878984fe636adfc6f45af65dc88e51c7",
+  "execution_source_sha256": "a57aa94f0b126a06d5012b81e9675233b46bd564b3a8609df6090e87dc632deb",
+  "review_status": "Task10 spec and quality approved, no findings",
+  "artifacts": {
+    "environment/task10-red.txt": "149b6cce2ffcb271e4c713e38db338e5e2b28a3d525c63e1d56fb1777223f7a6",
+    "environment/task10-green1.txt": "888ebcfe4f0cbe6230b72c3b629005445ed6f155af23da931cf58928c5777f81",
+    "environment/task10-green2.txt": "c80eb23115e36b8d81a63d469c3b4cc1e09cf558e4109e938f483d0d51895ae4",
+    "environment/task10-focused.txt": "7e9bdc9f23a5e0b6c9c089e9a50816a856b8050ec33c33eaf5a3dd65de783753",
+    "environment/task10-pytest.txt": "31b29e6557881db8b0c7f8c57ea4ec73b0e980a92a0e19c061d14b6a10a9cc08"
+  },
+  "verification": {
+    "focused_passed": 85,
+    "full_passed": 479,
+    "full_skipped": 48,
+    "full_seconds": 130.49,
+    "skip_reason": "existing sandbox MPS availability cases; no new native MPS insertion/recovery claim"
+  },
+  "initial_coordinate": {
+    "d": 16,
+    "h": 64,
+    "m": 16,
+    "base_parameters": 1153,
+    "added_parameters": 544,
+    "grown_parameters": 1697,
+    "insertion_prediction_change": 0.0
+  },
+  "behavior_checked": [
+    "old base/head parameter objects and named Adam moments/steps preserved",
+    "new moments/steps zero, first new step one, inherited current LR and absolute future schedule",
+    "allocation construction cannot advance training RNG/sampler stream",
+    "finite allocation validation, explicit name/shape/slice mappings and rollback",
+    "empty growth teacher retained and repeated growth rejected",
+    "real scorer/allocator policies integrate with insertion",
+    "exact CPU checkpoint replay before/after insertion and during continuation"
+  ],
+  "limits": [
+    "CPU float32 eager AdamW only; no native MPS migration/recovery claim.",
+    "Migration helper accepts full identity slices; ordinary widening requires its own adapter.",
+    "Active or noncanonical completed-last parents reject; use a completed selected parent.",
+    "Parameter counts and exact preservation are diagnostic evidence, not predictive superiority.",
+    "No protected T, protocol freeze, confirmation or practical efficiency result."
+  ]
+}
