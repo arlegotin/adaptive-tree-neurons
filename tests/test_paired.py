@@ -142,3 +142,65 @@ def test_failed_fork_retains_completed_losers_and_terminal_cost(tmp_path, cpu_tr
     assert report['methods']['top']['status'] == 'failed'
     assert report['methods']['top']['enclosing_ns'] > 0
     assert report['failures'][0]['message'] == 'intentional factory failure'
+
+
+def test_completed_coordinator_and_children_publish_observed_manifests(study):
+    from treeneuron.config import canonical_hash
+    report=json.loads((study/'study.json').read_text())
+    manifest=json.loads((study/'manifest.json').read_text())
+    splits=json.loads((study/'splits.json').read_text())
+    teacher=json.loads((study/'teacher.json').read_text())
+    assert manifest['method']['scope']=='coordinator'
+    assert manifest['data']['raw_hash']==splits['dataset_id']
+    assert manifest['data']['split_hash']==report['data']['split_hash']
+    assert manifest['method']['backend']['actual']['device']=='cpu'
+    assert manifest['resources']['rss_bytes']==report['resources']['process_peak_rss_bytes']
+    assert manifest['costs']['enclosing']['nanoseconds']==report['costs']['total_study_ns']
+    for field in ('total_parameters','trainable_parameters','weight_checkpoint','weight_hash','serialized_bytes','context_bytes','cache_bytes','weight_terms'):
+        assert manifest['method'][field]['value'] is None
+        assert 'coordinator' in manifest['method'][field]['reason'].lower()
+    all_manifests=[manifest]
+    for name,method in report['methods'].items():
+        for i,stage in enumerate(method['stages']):
+            child=json.loads((study/stage['path']/'manifest.json').read_text());all_manifests.append(child)
+            assert child['identity']['status']=='completed'
+            assert child['identity']['coordinator_run_id']==study.name
+            assert child['method']['scope']=='single_model'
+            assert child['method']['total_parameters']==method['total_parameters']
+            assert child['resources']['rss_bytes']>0
+            if method.get('parent_run_id'): assert child['identity']['parent_run_id']==method['parent_run_id']
+            elif i: assert child['identity']['parent_run_id']==method['stages'][i-1]['run_id']
+            if name in ('top','random','gaussian','sgd'):
+                assert child['identity']['growth_hash']==canonical_hash(method['growth_metadata'])
+                assert child['identity']['score_hash']==method['allocation']['table_hash']
+            if i==len(method['stages'])-1:
+                assert child['method']['prediction_artifacts']==method['predictions']
+                assert json.loads((study/stage['path']/'metrics.json').read_text())==method['metrics']
+    for record in all_manifests:
+        assert record['data']['boundaries']['V']=='descriptive_only'
+        for part,n in [('F',16),('G',8),('V',8)]:assert record['data']['counts'][part]=={'rows':n,'groups':n}
+        for key in ('reference_mean','reference_std','reference_rows','reference_seed'):
+            assert record['data']['teacher_normalization'][key]==teacher[key]
+        assert record['data']['teacher_normalization']['target_normalization']=='none'
+        assert record['data']['test_labels_accessed'] is False
+        assert record['resources']['pressure']['value'] is None
+        assert record['resources']['swap_delta_bytes']['value'] is None
+
+
+def test_prediction_failure_finalizes_open_child_with_known_observations(tmp_path,cpu_training_evidence,monkeypatch):
+    from treeneuron.experiments import paired
+    predict=paired._predictions
+    def fail(predictor,data,root,name):
+        if name=='top':raise RuntimeError('prediction publication failed')
+        return predict(predictor,data,root,name)
+    monkeypatch.setattr(paired,'_predictions',fail)
+    with pytest.raises(RuntimeError,match='prediction publication'):
+        paired.run_paired(small_config(tmp_path,cpu_training_evidence))
+    root=next(tmp_path.glob('*/study.json')).parent
+    report=json.loads((root/'study.json').read_text())
+    child=json.loads((root/report['methods']['top']['stages'][0]['path']/'manifest.json').read_text())
+    assert child['identity']['status']=='failed'
+    assert child['data']['counts']['V']=={'rows':8,'groups':8}
+    assert child['data']['boundaries']['V']=='descriptive_only'
+    assert child['identity']['score_hash']==report['methods']['top']['allocation']['table_hash']
+    assert json.loads((root/'manifest.json').read_text())['data']['counts']['V']=={'rows':8,'groups':8}

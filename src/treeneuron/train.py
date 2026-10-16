@@ -837,13 +837,14 @@ def _run(state, data, policy, paths):
             state.stage['updates_completed'] += 1
             evaluation_due = (state.stage['updates_completed'] % policy.validation_interval == 0
                               or state.stage['updates_completed'] == policy.max_updates)
-            checkpoint_safe = not evaluation_due
             record({'type': 'update', 'update': state.update, 'stage_update': state.stage['updates_completed'],
                     'loss_standardized_mse': float(loss.detach().cpu()), 'learning_rate': lr,
                     'rows': len(ids), 'row_ids': data.F.row_id[ids.cpu().numpy()].tolist()})
             if evaluation_due:
                 evaluate()
-                checkpoint_safe = True
+            # History and durable event publication (including due G selection)
+            # must return before an interruption may snapshot this update.
+            checkpoint_safe = True
             if evaluation_due or state.stage['updates_completed'] % policy.checkpoint_interval == 0:
                 publish()
         state.stage['complete'] = True

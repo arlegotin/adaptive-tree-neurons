@@ -82,6 +82,7 @@ def _manifest(paths: RunPaths, resolved: dict[str, Any]) -> dict[str, Any]:
         "first_prediction": "first permitted prediction call",
         "warm_prediction": "subsequent permitted prediction call",
         "acquisition": "asset acquisition, separate from training costs",
+        "enclosing": "enclosing run region; includes nested costs, never add twice",
     }
     return {
         "schema_version": 1,
@@ -91,7 +92,8 @@ def _manifest(paths: RunPaths, resolved: dict[str, Any]) -> dict[str, Any]:
             "failure_class": missing("no scientific failure assessed"),
             "config_hash": canonical_hash(resolved),
             **{field: missing("not supplied") for field in (
-                "code_revision", "adapter_revision", "protocol_hash", "lock_hash", "hardware_hash", "growth_hash")},
+                "code_revision", "adapter_revision", "protocol_hash", "lock_hash", "hardware_hash", "growth_hash",
+                "coordinator_run_id", "score_hash")},
         },
         "data": {
             "dataset": resolved["data"]["dataset"], "population": resolved["data"]["population"],
@@ -103,6 +105,8 @@ def _manifest(paths: RunPaths, resolved: dict[str, Any]) -> dict[str, Any]:
             "test_labels_accessed": False, "full_development_refit": False,
         },
         "method": {
+            "scope": "single_model",
+            "prediction_artifacts": missing("predictions not recorded"),
             "resolved_config": resolved,
             **{field: missing("model not initialized") for field in (
                 "trainable_parameters", "total_parameters", "serialized_bytes", "weight_checkpoint",
@@ -212,15 +216,15 @@ def update_run_observations(paths: RunPaths, observations: Mapping[str, Any]) ->
     canonical_json(observations)
     allowed = {
         'identity': {'parent_run_id', 'code_revision', 'adapter_revision', 'lock_hash',
-                     'hardware_hash', 'growth_hash', 'failure_class'},
-        'data': {'raw_hash', 'split_hash', 'transform_hash', 'teacher_normalization', 'counts', 'seeds'},
+                     'hardware_hash', 'growth_hash', 'failure_class', 'coordinator_run_id', 'score_hash'},
+        'data': {'raw_hash', 'split_hash', 'transform_hash', 'teacher_normalization', 'counts', 'seeds', 'boundaries'},
         'method': {'trainable_parameters', 'total_parameters', 'serialized_bytes', 'weight_checkpoint',
                    'weight_hash', 'weight_terms', 'context_bytes', 'cache_bytes', 'backend', 'threads',
-                   'checkpoint_retention'},
+                   'checkpoint_retention', 'scope', 'prediction_artifacts'},
         'costs': {'search', 'preprocess', 'base', 'score', 'probe', 'continuation', 'validation',
-                  'first_prediction', 'warm_prediction', 'acquisition'},
+                  'first_prediction', 'warm_prediction', 'acquisition', 'enclosing'},
         'resources': {'rss_bytes', 'mps_allocated_bytes', 'mps_driver_bytes', 'pressure', 'swap_delta_bytes',
-                      'interruption_links', 'retry_links', 'timing_exclusions'},
+                      'interruption_links', 'retry_links', 'timing_exclusions', 'memory_accounting'},
     }
     with _locked_manifest(paths) as manifest:
         if (manifest['identity']['status'] in TERMINAL_STATUSES
@@ -238,6 +242,29 @@ def update_run_observations(paths: RunPaths, observations: Mapping[str, Any]) ->
                         raise ValueError('Identity observations require nonempty strings')
                     if previous != value and not (isinstance(previous, dict) and previous.get('value') is None):
                         raise ValueError('Previously observed identity is immutable')
+                elif section == 'data' and key == 'boundaries':
+                    if (not isinstance(value, Mapping) or set(value) != {'V'}
+                            or value['V'] not in ('select_hyperparameters', 'descriptive_only')):
+                        raise ValueError('Only the exploratory V role may be declared')
+                    value = {**previous, **value}
+                elif section == 'method' and key == 'scope':
+                    if value not in ('single_model', 'coordinator'):
+                        raise ValueError('Unknown run method scope')
+                elif section == 'method' and key == 'prediction_artifacts':
+                    # Paths are relative to the linked coordinator, not the child.
+                    if not unavailable:
+                        if not isinstance(value, Mapping) or not value or set(value) - {'G', 'V'}:
+                            raise ValueError('Only G/V prediction artifacts may be observed')
+                        for link in value.values():
+                            if (not isinstance(link, Mapping) or set(link) != {'path', 'sha256'}
+                                    or type(link['path']) is not str or not link['path']
+                                    or Path(link['path']).is_absolute() or '..' in Path(link['path']).parts
+                                    or type(link['sha256']) is not str or len(link['sha256']) != 64
+                                    or any(c not in '0123456789abcdef' for c in link['sha256'])):
+                                raise ValueError('Prediction links require a coordinator-relative path and SHA256')
+                elif section == 'resources' and key == 'memory_accounting':
+                    if type(value) is not str or not value:
+                        raise ValueError('Memory accounting requires a nonempty boundary')
                 elif section == 'data' and key == 'seeds':
                     if value != previous:
                         raise ValueError('Observed seeds must match immutable resolved configuration')

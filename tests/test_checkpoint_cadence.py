@@ -35,14 +35,18 @@ def test_interruption_between_snapshots_publishes_complete_update_and_resumes(tr
     data,config,baseline=cadence_case(training_case,3)
     reference=train.fit_parent(data,config,baseline)
     attempt=create_run(baseline.directory.parent,config.to_dict())
-    append=train.append_event
-    def stop(paths,event):
-        append(paths,event)
-        if event['type']=='update' and event['update']==1:
-            raise KeyboardInterrupt('between durable snapshot intervals')
-    monkeypatch.setattr(train,'append_event',stop)
-    with pytest.raises(KeyboardInterrupt):train.fit_parent(data,config,attempt)
-    monkeypatch.setattr(train,'append_event',append)
+    import sys
+    def stop(frame,event,arg):
+        if event=='line' and frame.f_code is train._run.__code__:
+            state=frame.f_locals['state']
+            if state.update==1 and frame.f_locals.get('checkpoint_safe') is True:
+                raise KeyboardInterrupt('completed bookkeeping between durable intervals')
+        return stop
+    sys.settrace(stop)
+    try:
+        with pytest.raises(KeyboardInterrupt):train.fit_parent(data,config,attempt)
+    finally:
+        sys.settrace(None)
     restored=load_checkpoint(attempt.directory/'checkpoints/last.json',expected_hashes=reference.identity_hashes,device='cpu')
     assert restored.update==1
     assert restored.stage['policy']['checkpoint_interval']==3
@@ -85,3 +89,49 @@ def test_cadence_mismatch_rejects_save_and_continuation(training_case):
 @pytest.mark.parametrize('bad',[0,-1,True,1.5])
 def test_checkpoint_interval_is_strict_positive_integer(training_case,bad):
     with pytest.raises(ValueError):cadence_case(training_case,bad)
+
+
+@pytest.mark.parametrize('event_type,update', [('update',1),('update',2),('evaluation',2)])
+@pytest.mark.parametrize('boundary', ['before_history','before_append','after_append'])
+def test_incomplete_event_bookkeeping_replays_previous_durable_state(training_case,monkeypatch,event_type,update,boundary):
+    """No partial update/G ledger publication may advance recovery past its rows."""
+    import sys
+    data,config,baseline=cadence_case(training_case,3)
+    reference=train.fit_parent(data,config,baseline)
+    attempt=create_run(baseline.directory.parent,config.to_dict())
+    append=train.append_event
+    fired=[]
+    def matches(event):
+        return event.get('type')==event_type and event.get('update')==update
+    def trace(frame,kind,arg):
+        if kind=='call' and frame.f_code.co_name=='record' and frame.f_globals.get('__name__')==train.__name__ and matches(frame.f_locals['event']):
+            fired.append(True)
+            raise KeyboardInterrupt('before history bookkeeping')
+        return trace
+    def stop(paths,event):
+        if matches(event) and boundary=='before_append':
+            fired.append(True)
+            raise KeyboardInterrupt('before event append')
+        append(paths,event)
+        if matches(event) and boundary=='after_append':
+            fired.append(True)
+            raise KeyboardInterrupt('append returned before bookkeeping completed')
+    if boundary=='before_history': sys.settrace(trace)
+    else: monkeypatch.setattr(train,'append_event',stop)
+    try:
+        with pytest.raises(KeyboardInterrupt):train.fit_parent(data,config,attempt)
+    finally:
+        sys.settrace(None)
+        monkeypatch.setattr(train,'append_event',append)
+    assert fired
+    restored=load_checkpoint(attempt.directory/'checkpoints/last.json',expected_hashes=reference.identity_hashes,device='cpu')
+    assert restored.update==0
+    assert not [e for e in restored.history if e['type']=='update']
+    retry=create_run(baseline.directory.parent,config.to_dict())
+    actual=train.continue_fit(restored,data,train.TrainingPolicy.from_config(config),retry)
+    assert_state_equal(reference,actual)
+    np.testing.assert_array_equal(reference.predict(data.G.X),actual.predict(data.G.X))
+    for event in ('update','evaluation'):
+        expected=[e for e in events(baseline) if e['type']==event]
+        if event=='evaluation':expected=expected[1:]  # update-zero selection is durable
+        assert [e for e in events(retry) if e['type']==event]==expected

@@ -1,0 +1,2638 @@
+{
+  "kind": "append_only_manifest_observation_correction",
+  "original_evidence_sha256": "ad07a1d24a9c19b184ce996c518374ee15428fc137dc9763dcaf69e1d3d1d854",
+  "original_index_sha256": "fab7d7e0c0c73b9394eefc0e9cc8ed2eeff7fe42a84b87d0c7dd5c96fe3a9437",
+  "schema_version": 1,
+  "scope": "Metadata-only overlays on original immutable manifests. Original statuses, numerical results, source/config/checkout hashes and measured timing values remain unchanged. These are derived observations, not newly executed historical measurements. No old checkpoint is loaded. Prediction links are coordinator-relative. Intermediate-stage V predictions were not generated; final links are supplied only for final stages.",
+  "studies": [
+    {
+      "derived_from": {
+        "runs/9e4a617e519e44f0ac3f75c58dbc51c9/manifest.json": "450bac391b0ee06c363171bf5576e6e8ffb6c16397b040208daaa814c24c04b9",
+        "splits.json": "e84c7afbd4271ec974bb9cc9a675233060f9909e06466442e39a84e19dda4635",
+        "study.json": "322c7a68cfeff86ded55aff48507add78c8652c8ebbe7fd6a56f7af559c221fb",
+        "teacher.json": "9971a0f3efa56cafa177b555356c20d16a64e9866aec0daea072f2cc94502e50"
+      },
+      "manifest_corrections": [
+        {
+          "manifest_path": "manifest.json",
+          "observations": {
+            "costs": {
+              "enclosing": {
+                "boundary": "Enclosing generation, hardware observations, setup, factory/probes, base, shared scoring, continuation, G/V predictions, artifact IO; excludes imports and final index publication. Per-method regions exclude shared parent/scoring. Nested validation is never added again.",
+                "nanoseconds": 253604398584,
+                "reason": null,
+                "status": "measured"
+              }
+            },
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "raw_hash": "e183c8fc60a5abf0d36e58df59897c78620d9fb8c352e397b5c894a6cf19a652",
+              "split_hash": "f8420842ec8417d50fb926211b2193ae704d60a6fdb0168a8a761030566d3b55",
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              },
+              "transform_hash": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              }
+            },
+            "method": {
+              "backend": {
+                "actual": {
+                  "cpu_threads": 1,
+                  "device": "cpu",
+                  "dtype": "float32",
+                  "evidence_sha256": "44899df8ec13349ee74b37511b25bfcda3aeace9a0640449e05e51669ce60197",
+                  "execution": "eager",
+                  "fallback": false,
+                  "interop_threads": 14,
+                  "kernel_implementation_sha256": "237035c85e84b706facd7a7054a159f62dcff50e00f3ca3a5fdae0a11ca4fd7e",
+                  "kernel_tolerance": {
+                    "atol": 7.62939453125e-06,
+                    "rtol": 3.0517578125e-05
+                  },
+                  "performance_calibration_matches": true,
+                  "performance_scope": "bounded d16/h64 F2306 calibration; remeasure for other workloads",
+                  "resume_tolerance": {
+                    "atol": 0.0,
+                    "rtol": 0.0
+                  },
+                  "workload": {
+                    "d": 16,
+                    "h": 64,
+                    "logical_batch_size": 128,
+                    "n_fit": 2306,
+                    "physical_batch_size": 128
+                  }
+                }
+              },
+              "cache_bytes": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "context_bytes": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "prediction_artifacts": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "scope": "coordinator",
+              "serialized_bytes": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "threads": {
+                "cpu": 1,
+                "interop": 14
+              },
+              "total_parameters": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "trainable_parameters": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "weight_checkpoint": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "weight_hash": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "weight_terms": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              }
+            },
+            "resources": {
+              "memory_accounting": "process lifetime RSS high-water; MPS not used; not incremental or summed",
+              "rss_bytes": 716881920,
+              "timing_exclusions": [
+                "imports",
+                "final artifact-index and terminal manifest publication"
+              ]
+            }
+          },
+          "original_manifest_sha256": "14327d0b0eaf5dc50fdf4bfc5489fb4310bfb1eecd3fd0f1f8c70393bbd12381"
+        },
+        {
+          "manifest_path": "runs/9e4a617e519e44f0ac3f75c58dbc51c9/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "475e0835ed6c4e3090a7650fb51c6dab"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "reason": "Interrupted parent; no completed G/V prediction artifacts",
+                "value": null
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "450bac391b0ee06c363171bf5576e6e8ffb6c16397b040208daaa814c24c04b9"
+        }
+      ],
+      "original_provenance": {
+        "backend_report_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/task11-parent-backend.json",
+        "backend_report_sha256": "44899df8ec13349ee74b37511b25bfcda3aeace9a0640449e05e51669ce60197",
+        "checkout": "2afd9cb496f72b249c4b5bdf76752f90f05b3fd1",
+        "checkout_status": [],
+        "hardware_report_sha256": "393c03b9bd2707cbf051bd693860f79fd93d5857792ecc46c842806521ab9e9f",
+        "lock_sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "runtime_sha256": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "source_sha256": "b3a24ea14987ee1608c7b434549489eb5a34e8d4416749f3040d751da8881eea"
+      },
+      "original_study_sha256": "322c7a68cfeff86ded55aff48507add78c8652c8ebbe7fd6a56f7af559c221fb",
+      "path": "artifacts/exploratory/475e0835ed6c4e3090a7650fb51c6dab"
+    },
+    {
+      "derived_from": {
+        "runs/b290ce37b43647e7811937c060f5d99c/manifest.json": "3fb0894d897d62acfbf62335bef7cfce31d09d473c0901fb7973f312405ea342",
+        "splits.json": "e84c7afbd4271ec974bb9cc9a675233060f9909e06466442e39a84e19dda4635",
+        "study.json": "4d60f9d78eb7a23f621f3acc95456e8ea147adc3f85d9a314805af33c7670b8a",
+        "teacher.json": "9971a0f3efa56cafa177b555356c20d16a64e9866aec0daea072f2cc94502e50"
+      },
+      "manifest_corrections": [
+        {
+          "manifest_path": "manifest.json",
+          "observations": {
+            "costs": {
+              "enclosing": {
+                "boundary": "Enclosing generation, hardware observations, setup, factory/probes, base, shared scoring, continuation, G/V predictions, artifact IO; excludes imports and final index publication. Per-method regions exclude shared parent/scoring. Nested validation is never added again.",
+                "nanoseconds": 611655416375,
+                "reason": null,
+                "status": "measured"
+              }
+            },
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "raw_hash": "e183c8fc60a5abf0d36e58df59897c78620d9fb8c352e397b5c894a6cf19a652",
+              "split_hash": "f8420842ec8417d50fb926211b2193ae704d60a6fdb0168a8a761030566d3b55",
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              },
+              "transform_hash": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              }
+            },
+            "identity": {
+              "score_hash": "4b1d9b801509830d87c0b09c7b3ddb65e26c44ce57ae413ec337e3c172140aa1"
+            },
+            "method": {
+              "backend": {
+                "actual": {
+                  "cpu_threads": 1,
+                  "device": "cpu",
+                  "dtype": "float32",
+                  "evidence_sha256": "44899df8ec13349ee74b37511b25bfcda3aeace9a0640449e05e51669ce60197",
+                  "execution": "eager",
+                  "fallback": false,
+                  "interop_threads": 14,
+                  "kernel_implementation_sha256": "237035c85e84b706facd7a7054a159f62dcff50e00f3ca3a5fdae0a11ca4fd7e",
+                  "kernel_tolerance": {
+                    "atol": 7.62939453125e-06,
+                    "rtol": 3.0517578125e-05
+                  },
+                  "performance_calibration_matches": true,
+                  "performance_scope": "bounded d16/h64 F2306 calibration; remeasure for other workloads",
+                  "resume_tolerance": {
+                    "atol": 0.0,
+                    "rtol": 0.0
+                  },
+                  "workload": {
+                    "d": 16,
+                    "h": 64,
+                    "logical_batch_size": 128,
+                    "n_fit": 2306,
+                    "physical_batch_size": 128
+                  }
+                }
+              },
+              "cache_bytes": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "context_bytes": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "prediction_artifacts": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "scope": "coordinator",
+              "serialized_bytes": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "threads": {
+                "cpu": 1,
+                "interop": 14
+              },
+              "total_parameters": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "trainable_parameters": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "weight_checkpoint": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "weight_hash": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "weight_terms": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              }
+            },
+            "resources": {
+              "memory_accounting": "process lifetime RSS high-water; MPS not used; not incremental or summed",
+              "rss_bytes": 1157070848,
+              "timing_exclusions": [
+                "imports",
+                "final artifact-index and terminal manifest publication"
+              ]
+            }
+          },
+          "original_manifest_sha256": "b4fd430602148abfa78bf187194da1d8c85cc5394d7211c5893d7a8f343a7dca"
+        },
+        {
+          "manifest_path": "runs/01f5a92f46d2480a9e8b952a12751bd6/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "4417a390dc0a4e74a8abe7ad479cf876"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "reason": "Intermediate stage; final G/V artifacts belong to the subsequent stage",
+                "value": null
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "3a6c71faa7cbf9f8ebfc1f9ff2660a50c969d6eac22404b3a65b072304ac58f7"
+        },
+        {
+          "manifest_path": "runs/0d275825f6d5493d902ae00d00e2189c/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "4417a390dc0a4e74a8abe7ad479cf876",
+              "growth_hash": "6e7c983dc14441c37fd63cc89521d58376363fdbe9f0c9af47c5f437d80c5792",
+              "parent_run_id": "f4d0f978cacf404db8c58973748b1a19"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/static_partial_centered-G.json",
+                  "sha256": "9315e1d86a50ef5ca779963e8657a20d8eecc369404035d4f30b9afa5e3354e6"
+                },
+                "V": {
+                  "path": "predictions/static_partial_centered-V.json",
+                  "sha256": "913da3a2e85770535a6f95cf89876f0accaeedb1453195cfcf8f932cf7d79298"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "ae7055461448c69f7d25462a8947d5a8ce5e3498a970b76e243e913ab8ce02d5"
+        },
+        {
+          "manifest_path": "runs/15e1e2bfbadb455dbe876edecea57706/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "4417a390dc0a4e74a8abe7ad479cf876"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "reason": "Intermediate stage; final G/V artifacts belong to the subsequent stage",
+                "value": null
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "17873023efb90a4dfa6383cfe3f4104626faa5d4cfc6e17ad8da3ae4f4086e7a"
+        },
+        {
+          "manifest_path": "runs/21657ac11b3c46938ddd16b38436ecbf/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "4417a390dc0a4e74a8abe7ad479cf876",
+              "growth_hash": "b4c043f1dfed1b4a295147a51bd9ef169ef02baba68641160231aa8b5e30ac38",
+              "parent_run_id": "b290ce37b43647e7811937c060f5d99c",
+              "score_hash": "4b1d9b801509830d87c0b09c7b3ddb65e26c44ce57ae413ec337e3c172140aa1"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/top-G.json",
+                  "sha256": "05d043c950704969071fdc1645bd5a3814f09412abdc8952eee6d8cf44279ed5"
+                },
+                "V": {
+                  "path": "predictions/top-V.json",
+                  "sha256": "450794505eba9dc1a76d189fe2ca7cedb9889b6301409e4219ebc085e00d2bb3"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "ed46e353b2e83575391d6918ee5dc12a8e14f3e4cdafe900495834b843b19029"
+        },
+        {
+          "manifest_path": "runs/26f6ce12106547a98aa13b20954fbdd8/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "4417a390dc0a4e74a8abe7ad479cf876",
+              "growth_hash": "0f2b1338197a329b2258edee2d6d1e9687469da20926c6d701e773c2dfc221bf",
+              "parent_run_id": "b290ce37b43647e7811937c060f5d99c",
+              "score_hash": "4b1d9b801509830d87c0b09c7b3ddb65e26c44ce57ae413ec337e3c172140aa1"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/sgd-G.json",
+                  "sha256": "a3272073db1799722aeb4fe218577bea496ffdce877041bf117163c1a5308a4f"
+                },
+                "V": {
+                  "path": "predictions/sgd-V.json",
+                  "sha256": "b6b923631f0097a909296610a0dd3da6fa8b9e73ad23b08b44826002e82041f1"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "9625392d83012858476c88f24a0d2cb766ff6dd41a2d2563ca0bad9e2a1977ad"
+        },
+        {
+          "manifest_path": "runs/4a320218739e46d9a80cb9a13ee9c115/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "4417a390dc0a4e74a8abe7ad479cf876",
+              "growth_hash": "6f3fdd6f0050188cbc575a07b549d711afd0a20901cc5ab734f89f595190ecfc",
+              "parent_run_id": "b290ce37b43647e7811937c060f5d99c"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/widen_upper-G.json",
+                  "sha256": "fe96b5d502d1a7ed02a418d8c1b67653f4e2295bce6fdec88e601e968ff32319"
+                },
+                "V": {
+                  "path": "predictions/widen_upper-V.json",
+                  "sha256": "71e6dcb5f0163a73a642d57b6feee73a4859f70c321175febebd9b38a8882f22"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "17c8c991d4095319aaf14f8d1faaa59e29373742432ad2a31e1b6b5feeb3c925"
+        },
+        {
+          "manifest_path": "runs/553996da97824e2ebe94dc03a0facf91/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "4417a390dc0a4e74a8abe7ad479cf876",
+              "growth_hash": "5f1be47525c921017acc84826dd1d0b9fb3756a1ade8fd286c6d5f5a7e57d482",
+              "parent_run_id": "ae9364b7c57b4866be83348a0b51ca20"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/ordinary_lower-G.json",
+                  "sha256": "973c383c09debdc6757a11aa379b2e579690bbd2629a1c874fe679e4c390c313"
+                },
+                "V": {
+                  "path": "predictions/ordinary_lower-V.json",
+                  "sha256": "219c9c201a289db0495fce438b2d0cd2d4eb56e403a18a9c421c7abac3a6c837"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "7993d7954f75bb1d10967b6109a43507d114bb56621603b4448963a5d80dcf69"
+        },
+        {
+          "manifest_path": "runs/5f6c35bb154440f59d8e60932b2ac47e/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "4417a390dc0a4e74a8abe7ad479cf876",
+              "growth_hash": "83a7492dc993ba13f73b6c1c55ed5b80db94e381e668474f56b678348430c654",
+              "parent_run_id": "b290ce37b43647e7811937c060f5d99c",
+              "score_hash": "4b1d9b801509830d87c0b09c7b3ddb65e26c44ce57ae413ec337e3c172140aa1"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/random-G.json",
+                  "sha256": "f84981420a1255f744681f8d0ab2e1f968a7fea81954826ab8196f9d0819cc34"
+                },
+                "V": {
+                  "path": "predictions/random-V.json",
+                  "sha256": "661720f530c26129ca9239817d6e80de35c5e9362b0c7fc420eb6de8f9c811e1"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "fd5afe8a924fdb60afa37257ce097694d5b9320c00a10424f07f826ff7915da8"
+        },
+        {
+          "manifest_path": "runs/80db50a35e3b43d9b8576ee449190657/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "4417a390dc0a4e74a8abe7ad479cf876",
+              "growth_hash": "4485363ecfe928dacaa7d8b80970e9dd21d7735464f896cffd0409248cb8d131",
+              "parent_run_id": "b290ce37b43647e7811937c060f5d99c",
+              "score_hash": "4b1d9b801509830d87c0b09c7b3ddb65e26c44ce57ae413ec337e3c172140aa1"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/gaussian-G.json",
+                  "sha256": "aeea8ac8267fd3a530dfd3599b737ba8eeaa1a92228f3a12540c5d1fff4b69a8"
+                },
+                "V": {
+                  "path": "predictions/gaussian-V.json",
+                  "sha256": "ca4e00b611e7feb757cb0fff512010c759bbce9525bf9840fadfaf279f85f71d"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "c97e7f69c0d5d2233d521f34990879c60a4016249f1b67ae8e3846a3432abbe5"
+        },
+        {
+          "manifest_path": "runs/a47b4734b8c54b32972b4e15ca752c79/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "4417a390dc0a4e74a8abe7ad479cf876"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "reason": "Intermediate stage; final G/V artifacts belong to the subsequent stage",
+                "value": null
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "c9fdf43c75a3972649d2ddf135efb10bb847b6aaa99874ddd96d5a21652c79e5"
+        },
+        {
+          "manifest_path": "runs/a81debc2ffd34154b87acf8c9e725821/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "4417a390dc0a4e74a8abe7ad479cf876",
+              "growth_hash": "9ab9d95304f3ad91701d2bd976296938718f36853baf40c9a0a833a26d19f7c2",
+              "parent_run_id": "b290ce37b43647e7811937c060f5d99c"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/keep-G.json",
+                  "sha256": "a72b3528e5e1d7767b36df422acf074ebb6a4af457b3467d3a32c8a6d518c0e8"
+                },
+                "V": {
+                  "path": "predictions/keep-V.json",
+                  "sha256": "439fe4dd17758ac49b8673dbd9421bbb76a1edb426a96575f97600f901a3cf18"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "a896d20fcb1467deaa0f193265c001185f95be6eafc4f02c3e9ff0685a711d39"
+        },
+        {
+          "manifest_path": "runs/ae9364b7c57b4866be83348a0b51ca20/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "4417a390dc0a4e74a8abe7ad479cf876"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "reason": "Intermediate stage; final G/V artifacts belong to the subsequent stage",
+                "value": null
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "a84be6cfc4df10dcd281838c812d18d1dc2aa6013bea0adb38c2dad05887773a"
+        },
+        {
+          "manifest_path": "runs/afdee878b21d4f8e9f9ba971bfe0926c/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "4417a390dc0a4e74a8abe7ad479cf876",
+              "growth_hash": "d9512459ec5e3240a9919f7a3d6154e15ffc76ed2e916d156fe0ec97bc62ddf3",
+              "parent_run_id": "e765a42161174702924c1c32357d6ffb"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/ordinary_upper-G.json",
+                  "sha256": "2345dc7f05689c15954e341a77a255ac554766160dca4a5ecd5225a41f5d0266"
+                },
+                "V": {
+                  "path": "predictions/ordinary_upper-V.json",
+                  "sha256": "26f114072bcd7f006d76060e4eb74886707cdb1401a4185a055dd8d435aeec24"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "2dcdb24ec349299d3eeb28e33d22ce8ef0942d838f1f45f77ac0875551fcd63f"
+        },
+        {
+          "manifest_path": "runs/b28a655ae4d74cc296410ef7f9d0c698/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "4417a390dc0a4e74a8abe7ad479cf876",
+              "growth_hash": "62445e180181a3eb1a78dceaf53641d357281a92cfee7e7b4b1e56951b8db69d",
+              "parent_run_id": "a47b4734b8c54b32972b4e15ca752c79"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/static_full_centered-G.json",
+                  "sha256": "4cd0aa507d98720e69cb6d676565fb59ebf52635c058eca7f58bd83dc2ad08d2"
+                },
+                "V": {
+                  "path": "predictions/static_full_centered-V.json",
+                  "sha256": "99ec0df093124b4d11062d072509b5339a8c0e83b4706cdef88b1923a3306ab5"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "2af457142e431aeed406d488a43f0843adb8ae287e1198c7d2483a02d32a57cb"
+        },
+        {
+          "manifest_path": "runs/b290ce37b43647e7811937c060f5d99c/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "4417a390dc0a4e74a8abe7ad479cf876"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/parent-G.json",
+                  "sha256": "35319e6f776103db5bf4861b89a2329dcf10602c1e163538992862597952accc"
+                },
+                "V": {
+                  "path": "predictions/parent-V.json",
+                  "sha256": "8df126ae47495af17c4b2b4c7cf16794fe6eb12d043a4b55abf56e194945021c"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "3fb0894d897d62acfbf62335bef7cfce31d09d473c0901fb7973f312405ea342"
+        },
+        {
+          "manifest_path": "runs/c08efb794fd340b29b78e6f9730ccee1/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "4417a390dc0a4e74a8abe7ad479cf876",
+              "growth_hash": "9ab9d95304f3ad91701d2bd976296938718f36853baf40c9a0a833a26d19f7c2",
+              "parent_run_id": "b290ce37b43647e7811937c060f5d99c"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/sham-G.json",
+                  "sha256": "a72b3528e5e1d7767b36df422acf074ebb6a4af457b3467d3a32c8a6d518c0e8"
+                },
+                "V": {
+                  "path": "predictions/sham-V.json",
+                  "sha256": "439fe4dd17758ac49b8673dbd9421bbb76a1edb426a96575f97600f901a3cf18"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "9a594409a728fa657249395c9042a51911b2685142a489394402cc0bc34f3c08"
+        },
+        {
+          "manifest_path": "runs/cca13a82808a4d92bf02143f20c11ffc/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "4417a390dc0a4e74a8abe7ad479cf876",
+              "growth_hash": "d5bbdcb4c098b7ceae2aa0ef11f8ac1e8634406c6b0863930f9642e853f3d2d5",
+              "parent_run_id": "b290ce37b43647e7811937c060f5d99c"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/widen_lower-G.json",
+                  "sha256": "582b462c6729042df76603fea68367f80daada38d2553c8c0e75c7bd66606379"
+                },
+                "V": {
+                  "path": "predictions/widen_lower-V.json",
+                  "sha256": "df9bee27e9093bfb7740222b025eac710126d088ae590e7724ba083839f3072f"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "39cb476f080ec5aba298adc8957c22bbbfe1d0bd3a4328f6fb05f233fe0f6bd9"
+        },
+        {
+          "manifest_path": "runs/e74e1881005a4769bea1c6a3938a3548/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "4417a390dc0a4e74a8abe7ad479cf876",
+              "growth_hash": "9bd75fe4bd994ef10fca407f3ba2196e3c0f3894f1b39c06fdd2c733d4fe1e6c",
+              "parent_run_id": "15e1e2bfbadb455dbe876edecea57706"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/static_partial_direct_leaf-G.json",
+                  "sha256": "20dd49e101f8fbdc45179c436618d27283fb8361b51c4f0a0bb64c6375372c59"
+                },
+                "V": {
+                  "path": "predictions/static_partial_direct_leaf-V.json",
+                  "sha256": "a1654ae18f8eb54d87fdd1eb9fadef7120f332353bbc818b1843400df5d626b7"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "6f1b263de4e8aa6c26f855645024c25f9d2aae5f1ce72585b6cee9c2541b3458"
+        },
+        {
+          "manifest_path": "runs/e765a42161174702924c1c32357d6ffb/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "4417a390dc0a4e74a8abe7ad479cf876"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "reason": "Intermediate stage; final G/V artifacts belong to the subsequent stage",
+                "value": null
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "a460f555dea49f3b88c23451e9f7ed8a12fdfb587851b713b4bf24d049060247"
+        },
+        {
+          "manifest_path": "runs/f4d0f978cacf404db8c58973748b1a19/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "4417a390dc0a4e74a8abe7ad479cf876"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "reason": "Intermediate stage; final G/V artifacts belong to the subsequent stage",
+                "value": null
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "e0c77cd626a77e4d473e045fa88d1663bceaac64a9bd5ce6c02d5ac265b6818e"
+        },
+        {
+          "manifest_path": "runs/fa2ee7a92d5641178f9a9d55c585d59f/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": -0.006814484443327708,
+                "reference_rows": 65536,
+                "reference_seed": 121605,
+                "reference_std": 0.8914228509009743,
+                "target_normalization": "reference_center_scale"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "4417a390dc0a4e74a8abe7ad479cf876",
+              "growth_hash": "3f3e88d9d91f0a843c3fa8bd47ad857f075455cbfc32f0ecec13c77455f5334b",
+              "parent_run_id": "01f5a92f46d2480a9e8b952a12751bd6"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/static_full_direct_leaf-G.json",
+                  "sha256": "3aafe1175ea05a1dc965699f4e50d10d43acdd33d6e65b123e58cc5a3409f8ed"
+                },
+                "V": {
+                  "path": "predictions/static_full_direct_leaf-V.json",
+                  "sha256": "fd159f095bb197be7b7e766736fffa43a23c9148a07bb209e6d39a53cebe8173"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "d78880677f6cadfe7cae0be8bc79da429123c5332be71f5dad452e56f48a69d1"
+        }
+      ],
+      "original_provenance": {
+        "backend_report_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/task11-parent-backend.json",
+        "backend_report_sha256": "44899df8ec13349ee74b37511b25bfcda3aeace9a0640449e05e51669ce60197",
+        "checkout": "46d537cb201ec6376d9e5541ab907a72034fd50b",
+        "checkout_status": [],
+        "hardware_report_sha256": "9882768b5fbdfcdd4a9a6a3e0b8f4db579cba6660f09a4e4ed76ee86c0d6f9ea",
+        "lock_sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "runtime_sha256": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "source_sha256": "ec52c04a8d3e65e90be17b64d93f4ab794479b46f932f24598dc0af79c634e17"
+      },
+      "original_study_sha256": "4d60f9d78eb7a23f621f3acc95456e8ea147adc3f85d9a314805af33c7670b8a",
+      "path": "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876"
+    },
+    {
+      "derived_from": {
+        "runs/970bf51362344470b2b26975d42c81db/manifest.json": "64ab8089648d107fa7970449050113d211cea5dc57ca208236089e463011d483",
+        "splits.json": "135461409a028d5849c733fdb5a5e2aeb068a7e8811862a558234b8ac1439c6a",
+        "study.json": "f8e4ce163ec7b00b520c0d8ee73f3105aa4ce28df6282e59fe1cf9ca1d28c476",
+        "teacher.json": "1f0bda27688bf35d29fac4e6a7309bc6dc018d87d9f24c0add39fc80541861e5"
+      },
+      "manifest_corrections": [
+        {
+          "manifest_path": "manifest.json",
+          "observations": {
+            "costs": {
+              "enclosing": {
+                "boundary": "Enclosing generation, hardware observations, setup, factory/probes, base, shared scoring, continuation, G/V predictions, artifact IO; excludes imports and final index publication. Per-method regions exclude shared parent/scoring. Nested validation is never added again.",
+                "nanoseconds": 713469662334,
+                "reason": null,
+                "status": "measured"
+              }
+            },
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "raw_hash": "09ccd7a977061fb84a0a8831c09db80689cef7aeb7241f3d359ef8911adcbeca",
+              "split_hash": "0afaf1f57dfcf7bf81698a4fc1f8d6c08874f2b95b1ea5bce30bed75844b4252",
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              },
+              "transform_hash": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              }
+            },
+            "identity": {
+              "score_hash": "16c6e2cfea34fcd476d76e940ec2c59548bc65c700fb6a3c6b7e66d2ab0a4698"
+            },
+            "method": {
+              "backend": {
+                "actual": {
+                  "cpu_threads": 1,
+                  "device": "cpu",
+                  "dtype": "float32",
+                  "evidence_sha256": "44899df8ec13349ee74b37511b25bfcda3aeace9a0640449e05e51669ce60197",
+                  "execution": "eager",
+                  "fallback": false,
+                  "interop_threads": 14,
+                  "kernel_implementation_sha256": "237035c85e84b706facd7a7054a159f62dcff50e00f3ca3a5fdae0a11ca4fd7e",
+                  "kernel_tolerance": {
+                    "atol": 7.62939453125e-06,
+                    "rtol": 3.0517578125e-05
+                  },
+                  "performance_calibration_matches": false,
+                  "performance_scope": "CPU correctness diagnostic; kernel compatibility only; throughput not calibrated",
+                  "resume_tolerance": {
+                    "atol": 0.0,
+                    "rtol": 0.0
+                  },
+                  "workload": {
+                    "d": 2,
+                    "h": 64,
+                    "logical_batch_size": 128,
+                    "n_fit": 2306,
+                    "physical_batch_size": 128
+                  }
+                }
+              },
+              "cache_bytes": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "context_bytes": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "prediction_artifacts": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "scope": "coordinator",
+              "serialized_bytes": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "threads": {
+                "cpu": 1,
+                "interop": 14
+              },
+              "total_parameters": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "trainable_parameters": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "weight_checkpoint": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "weight_hash": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              },
+              "weight_terms": {
+                "reason": "Study coordinator; see individual child methods",
+                "value": null
+              }
+            },
+            "resources": {
+              "memory_accounting": "process lifetime RSS high-water; MPS not used; not incremental or summed",
+              "rss_bytes": 1107116032,
+              "timing_exclusions": [
+                "imports",
+                "final artifact-index and terminal manifest publication"
+              ]
+            }
+          },
+          "original_manifest_sha256": "25b1a4641ade1fe25d1f90ae1142f0af46cfc8e87325a388d4be4ec8f25d7e66"
+        },
+        {
+          "manifest_path": "runs/1657402b3103479195fe7b60cce0d132/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "9d30073889c543bd95ea0db95dcfd2aa",
+              "growth_hash": "9ab9d95304f3ad91701d2bd976296938718f36853baf40c9a0a833a26d19f7c2",
+              "parent_run_id": "970bf51362344470b2b26975d42c81db"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/keep-G.json",
+                  "sha256": "b4863c995cfcadd7eb53bf7576d154a6210eafbe1b9cadd134abde78edb33eb8"
+                },
+                "V": {
+                  "path": "predictions/keep-V.json",
+                  "sha256": "d4e8f0da2f2569850555a83a2ba14cad0d7658df205fe1d8a21562b5397ff89f"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "8c30888766605bb97b6a4b4979e595879ce6575f400049104020f4dea8d8c035"
+        },
+        {
+          "manifest_path": "runs/1bd3e92f3f8648d9a3aa5fb0d3995d84/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "9d30073889c543bd95ea0db95dcfd2aa"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "reason": "Intermediate stage; final G/V artifacts belong to the subsequent stage",
+                "value": null
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "7ee6df3c27676c25c15832511ae08dec70a1f45f57a2cfb9866948961940951f"
+        },
+        {
+          "manifest_path": "runs/3365a23f41fb47edab94a0b8b7b87dd9/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "9d30073889c543bd95ea0db95dcfd2aa",
+              "growth_hash": "62445e180181a3eb1a78dceaf53641d357281a92cfee7e7b4b1e56951b8db69d",
+              "parent_run_id": "65054c5597254107bd7c998c02297abb"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/static_full_centered-G.json",
+                  "sha256": "93e3acc1a6ffeab9140027cc216cd9fcc77b9bd8939459e995f6e4bcfb9c78a8"
+                },
+                "V": {
+                  "path": "predictions/static_full_centered-V.json",
+                  "sha256": "d3a3c9ae8f297a8d7e7fe62d34565d98200f5e1aacc2155a1148a1fdc1e0f038"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "2bbfbf5c834f38d1322350c2e4e6bede89233df78c043eeaf3056bbd8889e3b2"
+        },
+        {
+          "manifest_path": "runs/43afb2d8a1e14f63a011b7da7e260763/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "9d30073889c543bd95ea0db95dcfd2aa",
+              "growth_hash": "0df363f3f37c309f18b6b34bb6dd9dfb8c764f13fb482cee9eb51d20af376e0f",
+              "parent_run_id": "970bf51362344470b2b26975d42c81db",
+              "score_hash": "16c6e2cfea34fcd476d76e940ec2c59548bc65c700fb6a3c6b7e66d2ab0a4698"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/random-G.json",
+                  "sha256": "a1c948257f08629aa0b94ef222030ac2c012d3a54ae7c04046cc8c0a68cd1d86"
+                },
+                "V": {
+                  "path": "predictions/random-V.json",
+                  "sha256": "b0a1ed73fc5a8db60c3b9c55d9628f67cf63d4a0b69bced1e772a534d8e518ce"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "b2459486940b9c2478afcfb701e78bc95b818baaaf1a186bdc97767f520be478"
+        },
+        {
+          "manifest_path": "runs/4b613ecd8fc54ec8bf9d33cdbef1f683/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "9d30073889c543bd95ea0db95dcfd2aa",
+              "growth_hash": "7e182ecf1db3a46274037c7bae5893f8c6ba302eddc363e886e04320004aae2e",
+              "parent_run_id": "96dfcbb06d8045a2b737f5c126ee6beb"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/ordinary_upper-G.json",
+                  "sha256": "7111d6b4228c6dd6b622266bf675c9f593416ae7ad2d23745dac61ccb5c32bba"
+                },
+                "V": {
+                  "path": "predictions/ordinary_upper-V.json",
+                  "sha256": "48fbffc502f505c31dacff62f24068cee558355742950711a7f1f48a80c4d61d"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "f277e498f0d25964b518708289fae319bc1081f0da8c035df07205cef78ae673"
+        },
+        {
+          "manifest_path": "runs/5a3942dfee9a416b9ea4768233fdebbb/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "9d30073889c543bd95ea0db95dcfd2aa"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "reason": "Intermediate stage; final G/V artifacts belong to the subsequent stage",
+                "value": null
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "1f5dd3bfc9b5a71f8c18c5fb617465f8289e5c621a037df1b964f8c5d752d0f2"
+        },
+        {
+          "manifest_path": "runs/65054c5597254107bd7c998c02297abb/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "9d30073889c543bd95ea0db95dcfd2aa"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "reason": "Intermediate stage; final G/V artifacts belong to the subsequent stage",
+                "value": null
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "0168dcea2d7725160d58535aecfa49c78018cf14ca52d42b4f35e35583d8de60"
+        },
+        {
+          "manifest_path": "runs/6c7ba47926584dd09e3b991cbf20005b/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "9d30073889c543bd95ea0db95dcfd2aa"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "reason": "Intermediate stage; final G/V artifacts belong to the subsequent stage",
+                "value": null
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "c8315511c562fff9ad7af3d131f8c551d652ad375103bbcc07692050d4402e1b"
+        },
+        {
+          "manifest_path": "runs/73aa82d0920845e6bb8462ae303819e6/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "9d30073889c543bd95ea0db95dcfd2aa",
+              "growth_hash": "9ab9d95304f3ad91701d2bd976296938718f36853baf40c9a0a833a26d19f7c2",
+              "parent_run_id": "970bf51362344470b2b26975d42c81db"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/sham-G.json",
+                  "sha256": "b4863c995cfcadd7eb53bf7576d154a6210eafbe1b9cadd134abde78edb33eb8"
+                },
+                "V": {
+                  "path": "predictions/sham-V.json",
+                  "sha256": "d4e8f0da2f2569850555a83a2ba14cad0d7658df205fe1d8a21562b5397ff89f"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "e267a766e9a00eaa132013de706931c31a14dd30080f3672759b1906fea0b0b9"
+        },
+        {
+          "manifest_path": "runs/7b1a5c7753334533b5a961e73d2e9f00/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "9d30073889c543bd95ea0db95dcfd2aa",
+              "growth_hash": "52511bf528aa7f3fddd278eeb4bda71560a6ce2aeafee250d6643b06f1eef5f4",
+              "parent_run_id": "1bd3e92f3f8648d9a3aa5fb0d3995d84"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/static_partial_centered-G.json",
+                  "sha256": "9271c783339b51c7de874428dc84db844cec676d824dab1286d102f390e0b6e5"
+                },
+                "V": {
+                  "path": "predictions/static_partial_centered-V.json",
+                  "sha256": "612ecd0f6b15bcbd14666b508178caf8d2c2413a54feebc9ab8832cf13ac0a54"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "21d387b207a074a12593d7401d904714383090f567c79f75beee42dbd216ff92"
+        },
+        {
+          "manifest_path": "runs/819ede88ab64476db4fa464f918104a8/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "9d30073889c543bd95ea0db95dcfd2aa",
+              "growth_hash": "3f3e88d9d91f0a843c3fa8bd47ad857f075455cbfc32f0ecec13c77455f5334b",
+              "parent_run_id": "6c7ba47926584dd09e3b991cbf20005b"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/static_full_direct_leaf-G.json",
+                  "sha256": "e6d8bd062fabcf10b433c366031fc92ff1701e731226c0b4e91b264179abe8e0"
+                },
+                "V": {
+                  "path": "predictions/static_full_direct_leaf-V.json",
+                  "sha256": "d95dffa099ae8b34fece0818b51291029b4a775aa919f4db45705cf1c0f6a161"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "1532a9ce2840e4cebe5dff5f19a9e2f270d12225155b9af2e5a28693a53a8e7b"
+        },
+        {
+          "manifest_path": "runs/851f62ec80f1429c975d85f1c9df831d/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "9d30073889c543bd95ea0db95dcfd2aa"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "reason": "Intermediate stage; final G/V artifacts belong to the subsequent stage",
+                "value": null
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "50feaa1a46150db88a475cd7e1a538b8fe56db76521bc3dd95c552c062094e22"
+        },
+        {
+          "manifest_path": "runs/8c5f682ec526410d86d74ade2ee0f72e/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "9d30073889c543bd95ea0db95dcfd2aa",
+              "growth_hash": "14c62a9a01a94f80603688d721cd892212caf94386d1c74313c19fd6f9b89a3a",
+              "parent_run_id": "851f62ec80f1429c975d85f1c9df831d"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/static_partial_direct_leaf-G.json",
+                  "sha256": "ce5adcecfc9ca4732af283ebbcd55989c1d8d75daa5063f1f347fc899c6b5702"
+                },
+                "V": {
+                  "path": "predictions/static_partial_direct_leaf-V.json",
+                  "sha256": "3c60cb6b680348f86ece5d418e011a0c34a701b519c00b6ea50102c029724738"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "30b88e3e2922965c72569339458c81b20f5b43bec0c154ff2c666dde630c00d3"
+        },
+        {
+          "manifest_path": "runs/8cae093424f548309815c4adf856a7b3/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "9d30073889c543bd95ea0db95dcfd2aa",
+              "growth_hash": "fd6c60c4eed6d9a5007cd59534cabf38379ca67f5c38707f86c0937a2a055cd3",
+              "parent_run_id": "970bf51362344470b2b26975d42c81db",
+              "score_hash": "16c6e2cfea34fcd476d76e940ec2c59548bc65c700fb6a3c6b7e66d2ab0a4698"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/top-G.json",
+                  "sha256": "80d8dfdb7ef1f4993888542c2985dfb5f608273453884d9c9006c4ab4904c209"
+                },
+                "V": {
+                  "path": "predictions/top-V.json",
+                  "sha256": "a2069e6258a11840f0c39f2725c210057949beeb239d91fcdc0a539360d112d3"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "f190d02efde41cbc70c4d6c97a0e6cf83ef321961d2eaef3f3a7b91a8364d5b8"
+        },
+        {
+          "manifest_path": "runs/96dfcbb06d8045a2b737f5c126ee6beb/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "9d30073889c543bd95ea0db95dcfd2aa"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "reason": "Intermediate stage; final G/V artifacts belong to the subsequent stage",
+                "value": null
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "7782062c5c4edc9d5ce21b253c1dddc8d736de62fc90079aa443b382be04dc18"
+        },
+        {
+          "manifest_path": "runs/970bf51362344470b2b26975d42c81db/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "9d30073889c543bd95ea0db95dcfd2aa"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/parent-G.json",
+                  "sha256": "c4fbc91a4d9b810863f679af07337a1b2c1eeeee9e215722f3bd35df90adcab6"
+                },
+                "V": {
+                  "path": "predictions/parent-V.json",
+                  "sha256": "09b75667dec68f647d777213fcf720bc4b265e614f84040b324169c02b46191a"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "64ab8089648d107fa7970449050113d211cea5dc57ca208236089e463011d483"
+        },
+        {
+          "manifest_path": "runs/cc38bf5602f34cacbe78f8c3fa676e84/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "9d30073889c543bd95ea0db95dcfd2aa",
+              "growth_hash": "98e8b40f3ad568fd323ee1946c779f37ad65ca920420c9792a00cae9ceb842fa",
+              "parent_run_id": "970bf51362344470b2b26975d42c81db",
+              "score_hash": "16c6e2cfea34fcd476d76e940ec2c59548bc65c700fb6a3c6b7e66d2ab0a4698"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/sgd-G.json",
+                  "sha256": "16a10fab65fd5e402cbef6fb9f13d7bc0220338ff941254eae1955b37f655b7e"
+                },
+                "V": {
+                  "path": "predictions/sgd-V.json",
+                  "sha256": "0a3685c8af55f22eed79395153e0d1d9465712a4fd0a53277b6899b501cf6d4c"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "dd98ced36fd1c0a980b235ce66086ea5326720790facfe5bf48a4a532ed889fe"
+        },
+        {
+          "manifest_path": "runs/d4efffd160dc48a7ade7c7a761e3eb0e/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "9d30073889c543bd95ea0db95dcfd2aa",
+              "growth_hash": "c2c71881f829eb587e7a879b74da6e0478c706b7fe779710b0f6770aa64b5f5f",
+              "parent_run_id": "970bf51362344470b2b26975d42c81db"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/widen_lower-G.json",
+                  "sha256": "dd421daa425bb8d6553596e44843dd13d5dbbaad2faa4185fc243477de44f4d1"
+                },
+                "V": {
+                  "path": "predictions/widen_lower-V.json",
+                  "sha256": "23ccebce4a7809cbb29b25690889506ef67afef9da6d21e61c47ddbbcd3f6ce1"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "e0e9d38b980d6c1df709189fb1b6e057219ac97a6316cf5d310f98ef718a77ed"
+        },
+        {
+          "manifest_path": "runs/deb0f2503c2849728ab52d2878d34424/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "9d30073889c543bd95ea0db95dcfd2aa",
+              "growth_hash": "bda050bbc4452c1dc2568d2b1e638113346f3e10bdf4e7e202c9de4f7fc29756",
+              "parent_run_id": "5a3942dfee9a416b9ea4768233fdebbb"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/ordinary_lower-G.json",
+                  "sha256": "7111d6b4228c6dd6b622266bf675c9f593416ae7ad2d23745dac61ccb5c32bba"
+                },
+                "V": {
+                  "path": "predictions/ordinary_lower-V.json",
+                  "sha256": "48fbffc502f505c31dacff62f24068cee558355742950711a7f1f48a80c4d61d"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "fc36fa36ce8dc5e2c909e24c18399270515d45abfad921769469326959feceed"
+        },
+        {
+          "manifest_path": "runs/eb0d55ef93b34a44ae0244592c9eaef4/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "9d30073889c543bd95ea0db95dcfd2aa",
+              "growth_hash": "c2c71881f829eb587e7a879b74da6e0478c706b7fe779710b0f6770aa64b5f5f",
+              "parent_run_id": "970bf51362344470b2b26975d42c81db"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/widen_upper-G.json",
+                  "sha256": "dd421daa425bb8d6553596e44843dd13d5dbbaad2faa4185fc243477de44f4d1"
+                },
+                "V": {
+                  "path": "predictions/widen_upper-V.json",
+                  "sha256": "23ccebce4a7809cbb29b25690889506ef67afef9da6d21e61c47ddbbcd3f6ce1"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "d0f3d86304999fb4279e81ac91202487cbf8466b106f2e53e785caca6271f4f0"
+        },
+        {
+          "manifest_path": "runs/ecdaec684cd94eca9e56e452b3cc4f17/manifest.json",
+          "observations": {
+            "data": {
+              "boundaries": {
+                "V": "descriptive_only"
+              },
+              "counts": {
+                "F": {
+                  "groups": 2306,
+                  "rows": 2306
+                },
+                "G": {
+                  "groups": 577,
+                  "rows": 577
+                },
+                "V": {
+                  "groups": 577,
+                  "rows": 577
+                }
+              },
+              "teacher_normalization": {
+                "reference_mean": 0.5002570798987429,
+                "reference_rows": 65536,
+                "reference_seed": 122605,
+                "reference_std": 0.2887801585504725,
+                "target_normalization": "none"
+              }
+            },
+            "identity": {
+              "coordinator_run_id": "9d30073889c543bd95ea0db95dcfd2aa",
+              "growth_hash": "9a84fd85508c11698dbd3a6de1e545c92550c64c2a1f02bc4e3271020a94d2c8",
+              "parent_run_id": "970bf51362344470b2b26975d42c81db",
+              "score_hash": "16c6e2cfea34fcd476d76e940ec2c59548bc65c700fb6a3c6b7e66d2ab0a4698"
+            },
+            "method": {
+              "prediction_artifacts": {
+                "G": {
+                  "path": "predictions/gaussian-G.json",
+                  "sha256": "6d2e69afcd791330985ea5b833ff2563061475bdf98254347ca764a655c5e0d8"
+                },
+                "V": {
+                  "path": "predictions/gaussian-V.json",
+                  "sha256": "cf843157d82b67e007ed91c573f627c9e622922ee3475aba2730cf2d6af6ee1a"
+                }
+              },
+              "scope": "single_model"
+            },
+            "resources": {
+              "memory_accounting": "Original recorded process lifetime RSS high-water; no incremental or additive interpretation"
+            }
+          },
+          "original_manifest_sha256": "98b265e775a55c4a8873e99f2d794fc2195501ccdee3076854a5b48f3fa54609"
+        }
+      ],
+      "original_provenance": {
+        "backend_report_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/task11-parent-backend.json",
+        "backend_report_sha256": "44899df8ec13349ee74b37511b25bfcda3aeace9a0640449e05e51669ce60197",
+        "checkout": "46d537cb201ec6376d9e5541ab907a72034fd50b",
+        "checkout_status": [],
+        "hardware_report_sha256": "478446f5f80a6614799f4f8a3dc5603219840a2ec21a29113ff13f3b08c87a5b",
+        "lock_sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "runtime_sha256": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "source_sha256": "ec52c04a8d3e65e90be17b64d93f4ab794479b46f932f24598dc0af79c634e17"
+      },
+      "original_study_sha256": "f8e4ce163ec7b00b520c0d8ee73f3105aa4ce28df6282e59fe1cf9ca1d28c476",
+      "path": "artifacts/exploratory/9d30073889c543bd95ea0db95dcfd2aa"
+    }
+  ]
+}

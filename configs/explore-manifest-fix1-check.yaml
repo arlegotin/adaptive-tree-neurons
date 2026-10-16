@@ -1,0 +1,19 @@
+# Task12 fix1 engineering integration check; not a predictive experiment.
+study_id: core12-manifest-fix1-check
+phase: exploratory
+model: {d: 2, h: 4, tau: 1.0}
+growth: {m_requested: 2, epsilon: 0.05}
+data: {population: conditional_slope_2d, noise_sigma: 0.0, n_fit: 16, n_growth: 8, n_validation: 8}
+training:
+  base_updates: 6
+  continuation_updates: 6
+  batch_size: 8
+  validation_interval: 2
+  checkpoint_interval: 3
+  patience: 20
+  scheduler: constant
+seeds: {namespace: exploratory, teacher: 123600, data: 123601, optimizer: 123602, allocation: 123603, contrast: 123604, reference: 123605}
+backend: {device: cpu, cpu_threads: 1}
+execution:
+  backend_report: environment/task11-parent-backend.json
+  artifacts_root: artifacts/exploratory

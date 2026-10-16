@@ -186,3 +186,27 @@ def test_observation_update_rejects_unknown_nested_backend_field(tmp_path):
     with pytest.raises(ValueError, match='backend'):
         update_run_observations(paths, {'method': {'backend': {'actual': {
             'device': 'cpu', 'dtype': 'float32', 'fallback': False, 'invented': 'not observed'}}}})
+
+
+def test_study_observations_are_strict_and_terminal_immutable(tmp_path):
+    from treeneuron.artifacts import create_run, update_run_observations, finish_run
+    paths=create_run(tmp_path,{'study_id':'study-observations'})
+    patch={'identity':{'coordinator_run_id':'coordinator','score_hash':'a'*64},
+           'data':{'boundaries':{'V':'descriptive_only'}},
+           'method':{'scope':'single_model','prediction_artifacts':{'V':{'path':'predictions/top-V.json','sha256':'b'*64}}},
+           'resources':{'memory_accounting':'process lifetime high-water; not additive'}}
+    update_run_observations(paths,patch)
+    manifest=json.loads((paths.directory/'manifest.json').read_text())
+    assert manifest['data']['boundaries']=={'F':'fit_weights_and_transforms','G':'select_checkpoint_and_growth','V':'descriptive_only','T':'protected_evaluator_only'}
+    assert manifest['method']['prediction_artifacts']==patch['method']['prediction_artifacts']
+    before=(paths.directory/'manifest.json').read_bytes()
+    for bad in [{'data':{'boundaries':{'T':'descriptive_only'}}},
+                {'data':{'boundaries':{'V':'train'}}},
+                {'method':{'scope':'invented'}},
+                {'method':{'prediction_artifacts':{'T':{'path':'predictions/T.json','sha256':'b'*64}}}},
+                {'method':{'prediction_artifacts':{'V':{'path':'../elsewhere','sha256':'bad'}}}},
+                {'identity':{'score_hash':'c'*64}}]:
+        with pytest.raises(ValueError):update_run_observations(paths,bad)
+        assert (paths.directory/'manifest.json').read_bytes()==before
+    finish_run(paths,{},'completed')
+    with pytest.raises(ValueError):update_run_observations(paths,patch)

@@ -20,7 +20,7 @@ import numpy as np
 import torch
 
 from treeneuron import train
-from treeneuron.artifacts import create_run, finish_run, append_event, update_run_observations
+from treeneuron.artifacts import create_run, finish_run, append_event, update_run_observations, TERMINAL_STATUSES
 from treeneuron.backend import runtime_hash, lock_hash
 from treeneuron.baselines.api import FitRequest
 from treeneuron.baselines.causal import build_causal, ordinary_width_brackets
@@ -203,6 +203,7 @@ def run_paired(config: ExperimentConfig) -> Path:
     previous_receipt = train.BACKEND_REPORT_PATH
     previous_rng = train.capture_rng()
     previous_threads = torch.get_num_threads()
+    open_child = None
     study: dict[str, Any] = dict(schema_version=1, study_id=config.study_id, phase='exploratory',
         status='running', test_labels_accessed=False, methods={}, costs={}, failures=[],
         interpretation='One teacher/optimizer seed, descriptive G/V only; no population confidence or superiority claim',
@@ -232,15 +233,37 @@ def run_paired(config: ExperimentConfig) -> Path:
         def request(allowance):
             return FitRequest(data.F.X,data.F.y,data.G.X,data.G.y,config.seeds.optimizer,
                 {'development_data':data},{'max_updates':allowance},root/'runs')
-        def complete_run(run, metrics, parent_id=None):
-            identity = {'hardware_hash':hardware_hash}
-            if parent_id is not None: identity['parent_run_id']=parent_id
-            update_run_observations(run, {'identity':identity})
-            finish_run(run,metrics,'completed')
+        normalization = {key: teacher.to_dict()[key] for key in
+            ('reference_mean', 'reference_std', 'reference_rows', 'reference_seed')}
+        normalization['target_normalization'] = teacher.to_dict().get('target_normalization', 'reference_center_scale')
+        development_observations = dict(
+            counts={part: dict(rows=len(getattr(data, part).y), groups=len(np.unique(getattr(data, part).group_id)))
+                    for part in ('F', 'G', 'V')},
+            teacher_normalization=normalization, boundaries={'V': 'descriptive_only'})
+        unavailable_model = {'value': None, 'reason': 'Study coordinator; see individual child methods'}
+        update_run_observations(paths, {
+            'data': {**development_observations, 'raw_hash': data.manifest.dataset_id,
+                     'split_hash': data.manifest.assignment_hash, 'transform_hash': unavailable_model},
+            'method': {'scope': 'coordinator', **{key: unavailable_model for key in
+                ('trainable_parameters', 'total_parameters', 'serialized_bytes', 'weight_checkpoint',
+                 'weight_hash', 'weight_terms', 'context_bytes', 'cache_bytes', 'prediction_artifacts')}}})
+        def observe_child(run, state, parent_id=None, allocation=None, predictions=None):
+            identity = {'hardware_hash': hardware_hash, 'coordinator_run_id': paths.run_id,
+                        'growth_hash': canonical_hash(state.growth_metadata)}
+            if parent_id is not None: identity['parent_run_id'] = parent_id
+            if allocation is not None: identity['score_hash'] = allocation.table_hash
+            update_run_observations(run, {'identity': identity, 'data': development_observations,
+                'method': {'scope': 'single_model', 'prediction_artifacts': predictions if predictions is not None else
+                           {'value': None, 'reason': 'No final G/V prediction artifacts published for this stage'}},
+                'resources': {'memory_accounting': 'Process lifetime RSS high-water; MPS unused; not incremental or additive'}})
         # Parent setup, preprocessing, backend validation, fit, diagnostics and prediction are enclosed.
         start = time.perf_counter_ns()
         parent_paths = create_run(root/'runs', config.to_dict())
+        open_child = parent_paths
         parent = train.fit_parent(data,config,parent_paths)
+        observe_child(parent_paths, parent)
+        update_run_observations(paths, {'method': {'backend': {'actual': parent.backend},
+            'threads': {'cpu': torch.get_num_threads(), 'interop': torch.get_num_interop_threads()}}})
         metrics, predictions, prediction_ns = _predictions(parent,data,root,'parent')
         parent_stage = _stage_record(parent,parent_paths,root)
         parent_checkpoint = parent_paths.directory/'checkpoints'/'best.json'
@@ -251,7 +274,9 @@ def run_paired(config: ExperimentConfig) -> Path:
             stages=[parent_stage],prediction_ns=prediction_ns,diagnostics=_diagnostics(parent,data),
             total_parameters=sum(p.numel() for p in parent.model.parameters()),
             selected_update=parent.update,declared_total_updates=config.training.base_updates)
-        complete_run(parent_paths,metrics)
+        observe_child(parent_paths, parent, predictions=predictions)
+        finish_run(parent_paths,metrics,'completed')
+        open_child = None
         study['methods']['parent']['enclosing_ns'] = time.perf_counter_ns()-start
         event_start = time.perf_counter_ns()
         # Real scoring inputs use the learned F-only coordinates, never raw X/y.
@@ -267,6 +292,7 @@ def run_paired(config: ExperimentConfig) -> Path:
         table_record.update(table_hash=table.table_hash,transform_hash=parent.identity_hashes['transform'],
                             coordinates='F-only standardized X and y; explicit bias last')
         write_json(root/'score-table.json',table_record)
+        update_run_observations(paths, {'identity': {'score_hash': table.table_hash}})
         allocations = {name:allocate(table,config.growth.m_requested,policy=policy,
             seed=config.seeds.contrast if policy=='gaussian' else config.seeds.allocation)
             for name,policy in [('top','adam'),('random','random'),('gaussian','gaussian'),('sgd','sgd')]}
@@ -335,12 +361,17 @@ def run_paired(config: ExperimentConfig) -> Path:
                 adapter = build_causal(method_id,recipe)
                 # Fresh controls have the same two G-selected stages and total opportunity.
                 allowances = [config.training.base_updates,config.training.continuation_updates]
-            for allowance in allowances:
+            stage_parent_id = parent_paths.run_id if warm else None
+            for stage_index, allowance in enumerate(allowances):
                 adapter.fit(request(allowance))
+                open_child = adapter.run_paths
                 stage = _stage_record(adapter.state,adapter.run_paths,root)
                 record['stages'].append(stage)
-                complete_run(adapter.run_paths,{'selected_g_mse':adapter.state.stage['best_mse']},
-                             parent_paths.run_id if warm else None)
+                observe_child(adapter.run_paths, adapter.state, stage_parent_id, allocation)
+                if stage_index < len(allowances)-1:
+                    finish_run(adapter.run_paths, {'selected_g_mse': adapter.state.stage['best_mse']}, 'completed')
+                    open_child = None
+                    stage_parent_id = adapter.run_paths.run_id
             record['executed_row_ids'] = record['stages'][-1]['row_hashes']
             record['growth_metadata'] = copy.deepcopy(adapter.state.growth_metadata)
             record['metrics'],record['predictions'],record['prediction_ns'] = _predictions(adapter,data,root,name)
@@ -348,6 +379,9 @@ def run_paired(config: ExperimentConfig) -> Path:
             record['selected_update'] = adapter.state.update
             record['total_parameters'] = sum(p.numel() for p in adapter.state.model.parameters())
             record['identities'] = adapter.state.identity_hashes
+            observe_child(adapter.run_paths, adapter.state, stage_parent_id, allocation, record['predictions'])
+            finish_run(adapter.run_paths, record['metrics'], 'completed')
+            open_child = None
             record['status']='completed'
             record['enclosing_ns']=time.perf_counter_ns()-start
             append_event(paths,{'type':'method_completed','name':name,'enclosing_ns':record['enclosing_ns']})
@@ -365,6 +399,10 @@ def run_paired(config: ExperimentConfig) -> Path:
     except BaseException as error:
         study['status']='interrupted' if isinstance(error,KeyboardInterrupt) else 'failed'
         study['failures'].append(dict(type=type(error).__name__,message=str(error)))
+        if open_child is not None:
+            child_manifest = json.loads((open_child.directory/'manifest.json').read_text())
+            if child_manifest['identity']['status'] not in TERMINAL_STATUSES:
+                finish_run(open_child, {'failure': study['failures'][-1]}, study['status'])
         for record in study['methods'].values():
             if record['status']=='running':
                 record['status']=study['status']
@@ -376,6 +414,15 @@ def run_paired(config: ExperimentConfig) -> Path:
         study['costs']['boundary']='Enclosing generation, hardware observations, setup, factory/probes, base, shared scoring, continuation, G/V predictions, artifact IO; excludes imports and final index publication. Per-method regions exclude shared parent/scoring. Nested validation is never added again.'
         study['resources']=dict(process_peak_rss_bytes=int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)*(1 if sys.platform=='darwin' else 1024),
             memory_accounting='process lifetime RSS high-water; MPS not used; not incremental or summed')
+        measured = lambda ns, boundary: dict(nanoseconds=ns, status='measured', reason=None, boundary=boundary)
+        costs = {'enclosing': measured(study['costs']['total_study_ns'], study['costs']['boundary'])}
+        for key, slot in [('shared_scoring_ns', 'score'), ('tiny_gate_probe_ns', 'probe')]:
+            if key in study['costs']:
+                costs[slot] = measured(study['costs'][key], 'Shared study region nested inside enclosing cost; do not add again')
+        update_run_observations(paths, {'costs': costs, 'resources': {
+            'rss_bytes': study['resources']['process_peak_rss_bytes'],
+            'memory_accounting': study['resources']['memory_accounting'],
+            'timing_exclusions': ['imports', 'final artifact-index and terminal manifest publication']}})
         # Hash every retained artifact, including failed checkpoints and full raw row streams.
         study['artifacts']={str(p.relative_to(root)):file_hash(p) for p in sorted(root.rglob('*')) if p.is_file()
             and p.name not in ('.ledger.lock','manifest.json','events.jsonl')}
