@@ -2,7 +2,11 @@
 
 A research proof of concept for testing whether a training-derived score can choose which learned neurons should acquire conditional affine specialists better than random placement at the same capacity budget.
 
-The repository has a locked native Python 3.12 environment, an environment doctor, reproduced CPU algebra checks, a compact selective affine layer, a verified moment score, native CPU/MPS kernel checks, deterministic CPU training, checkpoint recovery and state-preserving growth insertion, independent synthetic development data, F-only preprocessing, and mean/ridge sanity controls. The remaining implementation follows the specification and gated plans. No held-out predictive or allocation result is available. The soft affine-stump model belongs to an established gated family; the research target is the allocation procedure and its measured limits, including a negative result.
+The first complete exploratory comparison gives a negative result for the score: on one 16-dimensional synthetic teacher, top-scored growth had validation MSE **0.14753**, versus **0.14384** for random placement at the same 1,697 parameters. Both improved on continuing the 1,153-parameter parent (**0.16066**). Ordinary warm widening to 1,693/1,711 parameters gave **0.15644/0.15881**. This keeps conditional growth interesting on this problem, but supplies no evidence that the score chooses better locations.
+
+These are descriptive G/V results from one teacher and optimizer seed, with provisional update limits. Top was still improving at its limit. The separate noiseless 2-D control learns the intended opposite slopes; keep, top and random all give validation MSE about **0.001338**, with no useful extra-growth gain. It is a different diagnostic population, not another primary replicate. The [curated evidence](docs/research/2026-10-16-exploratory-paired-evidence.json) records all controls, costs, hashes and limitations; [DECISIONS.md](DECISIONS.md#d008--16-october-2026-exploratory-checkpoint-cost-and-first-paired-study) records the bounded conclusion and next gates.
+
+The repository implements the compact selective affine layer, CPU64 moment score, deterministic CPU training, complete checkpoint recovery, state-preserving growth, F-only preprocessing and serial paired controls. Algebra, native CPU/MPS kernel checks and the CPU causal path have been tested. The soft affine-stump model belongs to an established gated family; the research target is the allocation procedure and its measured limits.
 
 Start with the [specification](docs/superpowers/specs/2026-10-16-selective-tree-neurons-design.md), then follow the plans in gate order:
 
@@ -24,7 +28,7 @@ env PYTORCH_ENABLE_MPS_FALLBACK=0 .venv/bin/python -m treeneuron.cli doctor --ou
 
 The core lock resolves Torch 2.14.1, NumPy 2.5.4, SciPy 1.18.1, pandas 3.0.6, scikit-learn 1.9.1, PyYAML 6.0.3 and development pytest 9.1.1. It is scoped to Python 3.12. Runtime reports and acquired source artifacts stay outside Git. Doctor records denied probes as null with reasons, strips serial/UUID fields and returns nonzero for indispensable package import failures. Sandboxed observations can differ from native process observations; Doctor runs actual isolated kernel probes; a saved report is revalidated against execution source, lock and runtime. Sandboxed MPS unavailability remains separate from the executed native MPS evidence.
 
-For the measured resident-data d16/h64/F2306 calibration, CPU was faster: about 36.1 ms versus 66.9 ms for MPS across base epoch, CPU64 scoring and grown epoch. The initial recipe uses one CPU thread and physical/logical batch 128. This is a bounded engineering calibration; full training/search costs remain unmeasured. Two isolated stage timing caps are retained in the [gate evidence](docs/research/2026-10-16-core-gate-evidence.json); all four complete-path blocks met their stability rule.
+For the measured resident-data d16/h64/F2306 calibration, CPU was faster: about 36.1 ms versus 66.9 ms for MPS across base epoch, CPU64 scoring and grown epoch. The initial recipe uses one CPU thread and physical/logical batch 128. This is a bounded kernel calibration. The complete primary exploratory study subsequently took 611.7 seconds on CPU, including data generation, setup, training, shared scoring and artifact work; calibrated search and practical comparisons remain pending. Two isolated stage timing caps are retained in the [gate evidence](docs/research/2026-10-16-core-gate-evidence.json); all four complete-path blocks met their stability rule.
 
 [Source provenance](provenance/sources.json) records exact installed wheel terms and license hashes. [Prior-art status](protocol/prior_art_delta.md) records successful official R12 PDF retrieval and the remaining provisional overlap decision.
 
@@ -93,3 +97,11 @@ counts are not timings. Validation is nested inside training, and process peak
 RSS is not incremental per-method memory. Bulk datasets, predictions and
 checkpoints stay outside Git; curated scalar evidence and hashes belong in
 `docs/research/`.
+
+The executed starter YAMLs remain at 2,000 + 2,000 updates. Because improving
+curves reached those limits, `configs/explore-next-allowance.yaml` and
+`configs/explore-positive-control-next-allowance.yaml` separately declare a
+symmetric 4,000 + 4,000 next-run allowance. They are **unexecuted and calibration
+pending**. They change no batch, scoring, checkpoint-selection or patience rule.
+Definitive ceiling calibration follows the required baseline/data and pre-freeze
+implementation gates; no repeated inventory run or variance pilot is claimed here.
