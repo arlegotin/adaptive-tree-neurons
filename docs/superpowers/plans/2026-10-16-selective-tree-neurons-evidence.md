@@ -103,10 +103,10 @@ def test_greedy_charges_losing_probes(probe_costs):
 
 - [x] **Step 2:** Implement the restricted B6 algorithm from spec §8. Select the fixed effective m by ranked G improvement among the same eligible units, even if improvements are negative; keep is a separate candidate/practical G decision. Do not sequentially train accepted probes into one accumulated parent. Label the method ANT-inspired restricted allocation, never full ANT reproduction.
 - [x] **Step 3:** Add `SplineRidgePredictor` in the simple baseline module: per-feature knots fit F only, V chooses regularization through the search runner, no multivariable gates. Extend the common contract tests for `[N]` finite original-unit predictions, state save/reload and truthful null counters.
-- [ ] **Step 4:** Run adapter/greedy tests and `verify-baselines --track causal`. Expect B0–B6 verified, all probe costs counted and no oracle/target access. B7 closes in Task 3; do not mark complete until it is checked.
+- [x] **Step 4:** Run adapter/greedy tests and `verify-baselines --track causal`. Expect B0–B6 verified, all probe costs counted and no oracle/target access. B7 closes in Task 3; do not mark complete until it is checked.
 - [x] **Step 5:** Commit `feat: add costed validation-probed allocation and adapter capabilities`.
 
-**Implementation review accepted:** B0–B6 tests and causal verification pass; Step 4 remains open only for the explicitly deferred B7/full-readiness gate in Task 3. Do not repeat the accepted Task 2 implementation. The review's minor caller-owned coordinator lifecycle item is carried into Task 3 verification integration.
+**Accepted:** B0–B6 implementation review passes; Task 3 now closes B7/full causal correctness readiness with fresh retained CLI evidence. The dedicated caller coordinator lifecycle item is fixed and independently reviewed in Task 3. This gate does not establish quality calibration or prediction superiority.
 
 ## Task 3: Pin and verify the actual NODE regression recipe
 
@@ -114,7 +114,7 @@ def test_greedy_charges_losing_probes(probe_costs):
 
 **Interfaces:** Produce `NodePredictor(config: Mapping[str, Any])` under the shared adapter contract and a reproducible isolated worker entrypoint if needed. Config records source commit, experiment choice/bin functions, initialization rows, depth/ensemble/optimization/default mapping and terms.
 
-- [ ] **Step 1:** Inspect the pinned official experiment/config and `odst.py`; preserve original files/hash/notices. Write tests against independent CPU vendor evaluation for choice/bin forward and backward behavior and data-aware initialization; changing G/V values must not change F-derived thresholds/temperatures. A sigmoid replacement must fail parity. Run the NODE tests in its resolved environment; expect absent adapter/parity failure before implementation.
+- [x] **Step 1:** Inspect the pinned official experiment/config and `odst.py`; preserve original files/hash/notices. Write tests against independent CPU vendor evaluation for choice/bin forward and backward behavior and data-aware initialization; changing G/V values must not change F-derived thresholds/temperatures. A sigmoid replacement must fail parity. Run the NODE tests in its resolved environment; expect absent adapter/parity failure before implementation.
 
 ```python
 def test_node_preserves_choice_backward(node_choice_gradients):
@@ -122,10 +122,12 @@ def test_node_preserves_choice_backward(node_choice_gradients):
     np.testing.assert_allclose(adapter_gradient, vendor_gradient, **recorded_tolerance)
 ```
 
-- [ ] **Step 2:** Implement the faithful regression adapter and lock a compatible native environment. Use a tested CPU path if custom operations lack MPS support. Do not infer the paper’s configuration from constructor defaults, claim its scores reproduced, or port unrelated legacy infrastructure.
-- [ ] **Step 3:** Run vendor examples/tests where available, the independent sparse-function tests and a tiny finite fit/save/reload. Record exact recipe discrepancies, update method capability and measured default cost; unresolved faithful execution is a named exclusion that narrows claims, not a swapped function.
-- [ ] **Step 4:** Run `.venv/bin/python -m pytest tests/test_node.py -q` and `verify-baselines --track causal`; expect B0–B7 valid or a documented explicit gate failure. Append WP03 causal acceptance before WP05; resource infeasibility may narrow the claim only through a recorded pre-test decision.
-- [ ] **Step 5:** Commit `feat: add provenance-pinned NODE regression adapter`.
+- [x] **Step 2:** Implement the faithful regression adapter and lock a compatible native environment. Use a tested CPU path if custom operations lack MPS support. Do not infer the paper’s configuration from constructor defaults, claim its scores reproduced, or port unrelated legacy infrastructure.
+- [x] **Step 3:** Run vendor examples/tests where available, the independent sparse-function tests and a tiny finite fit/save/reload. Record exact recipe discrepancies, update method capability and measured default cost; unresolved faithful execution is a named exclusion that narrows claims, not a swapped function.
+- [x] **Step 4:** Run `.venv/bin/python -m pytest tests/test_node.py -q` and `verify-baselines --track causal`; expect B0–B7 valid or a documented explicit gate failure. Append WP03 causal acceptance before WP05; resource infeasibility may narrow the claim only through a recorded pre-test decision.
+- [x] **Step 5:** Commit `feat: add provenance-pinned NODE regression adapter`.
+
+**Accepted:** Implementation `41d0178`, evidence `bc8da2b`; independent task review approves spec and quality with no Critical/Important issues. The measured three-update full-size endpoint remains quality-ineligible. Two minor observations (row-trace bookkeeping and expected-warning capture) are retained for Task 7/final review.
 
 ## Task 4: Verify native boosting and the simpler local-affine alternative
 

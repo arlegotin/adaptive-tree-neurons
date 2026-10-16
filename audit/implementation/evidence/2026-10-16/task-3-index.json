@@ -1,0 +1,33 @@
+{
+  "scope": "Task3 accepted implementation, independent review and retained artifact index; engineering gate only",
+  "base": "232ba2c",
+  "implementation_commit": "41d0178",
+  "evidence_commit": "bc8da2b",
+  "review_counts": {
+    "critical": 0,
+    "important": 0,
+    "minor": 2
+  },
+  "files": [
+    {
+      "path": "audit/implementation/evidence/2026-10-16/task-3-review.md",
+      "bytes": 6936,
+      "sha256": "311bdaab67de7ae736e250ba81ee2da3f43bdd4df3a0296eff6c17fe7f37a6a3"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-16/task-3-report.md",
+      "bytes": 14723,
+      "sha256": "399abeb981261b6a796b7517c7e0979dc9189c20c4bbcdecb85b87a09ba835b7"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-16/task-3-artifact-index.json",
+      "bytes": 113496,
+      "sha256": "008b37858dcbcafdd6f3ecac8452f8b226e484b74b0c43c496cdce93b68ec052"
+    },
+    {
+      "path": "docs/research/2026-10-16-evidence3-node.json",
+      "bytes": 11243,
+      "sha256": "980c1f450d09e285ed14e68cf3d034e521a9d734d497085bfbb620544e22b9de"
+    }
+  ]
+}
