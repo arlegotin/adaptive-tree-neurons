@@ -177,7 +177,7 @@ def _fg_hashes(data):
 
 @dataclass
 class TrainingState:
-    model: SelectiveRegressor
+    model: nn.Module
     optimizer: torch.optim.AdamW
     scheduler: UpdateSchedule
     update: int
@@ -236,7 +236,7 @@ def _optimizer(model, config):
         weight_decay=t.weight_decay, foreach=False)
 
 
-def _backend_evidence(config, data):
+def _backend_evidence(config, data, *, causal_model=None):
     path = BACKEND_REPORT_PATH
     report = json.loads(path.read_text())['backend_probes']
     for probe in report['probes'].values():
@@ -254,7 +254,7 @@ def _backend_evidence(config, data):
     interop = report['probes'][b.device]['environment'].get('interop_threads')
     if interop is not None and torch.get_num_interop_threads() != interop:
         raise ValueError('Live interop threads differ from backend evidence')
-    if (config.model.d > 16 or config.model.h > 64 or len(data.F.y) > 2306
+    if (config.model.d > 16 or config.model.h > (95 if causal_model is not None else 64) or len(data.F.y) > 2306
             or config.training.batch_size > 128):
         raise ValueError('Workload exceeds bounded backend evidence; obtain a relevant new probe')
     if b.device == 'mps' and (not torch.backends.mps.is_available() or os.environ.get('PYTORCH_ENABLE_MPS_FALLBACK') != '0'):
@@ -266,13 +266,17 @@ def _backend_evidence(config, data):
         raise ValueError('Small diagnostic workload is supported only on CPU; remeasure other workloads')
     if any(decision['selected_batches'][key] != 128 for key in ('base_epoch', 'grown_epoch')):
         raise ValueError('Selected physical recipe requires unimplemented accumulation')
-    return {'device': b.device, 'dtype': 'float32', 'execution': 'eager', 'fallback': False,
+    evidence = {'device': b.device, 'dtype': 'float32', 'execution': 'eager', 'fallback': False,
             'cpu_threads': 1, 'interop_threads': torch.get_num_interop_threads(),
             'kernel_tolerance': decision['tolerance'], 'resume_tolerance': {'rtol': 0., 'atol': 0.} if b.device == 'cpu' else decision['tolerance'],
             'evidence_sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
             'kernel_implementation_sha256': report['probes'][b.device]['implementation_sha256'],
             'workload': workload, 'performance_calibration_matches': calibrated,
             'performance_scope': decision['scope'] if calibrated else 'CPU correctness diagnostic; kernel compatibility only; throughput not calibrated'}
+    if causal_model is not None:
+        from .baselines.causal_evidence import attach_causal_evidence
+        evidence = attach_causal_evidence(evidence, causal_model, config.training.batch_size)
+    return evidence
 
 
 def _validate_inputs(data, config, paths):
@@ -315,6 +319,9 @@ def _tensor_copy(value):
 
 def pack_state(state: TrainingState) -> dict[str, Any]:
     """Internal complete snapshot; no nested best state or unbounded curves."""
+    if 'causal_cpu_evidence' in state.backend:
+        from .growth.insert import _validate_optimizer
+        _validate_optimizer(state, set(dict(state.model.named_parameters())))
     optimizer = state.optimizer.state_dict()
     groups = []
     named = dict(state.model.named_parameters())
@@ -358,24 +365,55 @@ def validate_metadata(meta, expected_hashes, device):
     config = resolve_experiment(meta['config'])
     TrainingPolicy.from_config(config)
     topology = meta['model']
-    if (not isinstance(topology, dict) or set(topology) != {'schema_version', 'kind', 'layer'}
-            or type(topology['schema_version']) is not int or topology['schema_version'] != 1
-            or topology['kind'] != 'selective_relu_scalar'):
+    if not isinstance(topology, dict) or set(topology) != {'schema_version','kind','layer'} or not isinstance(topology['layer'], dict):
         raise ValueError('Invalid model topology')
-    layer = topology['layer']
-    if (not isinstance(layer, dict) or set(layer) != {'schema_version', 'd', 'h', 'tau', 'growth_applied', 'grown_ids'}
-            or type(layer['schema_version']) is not int or layer['schema_version'] != 1
-            or type(layer['d']) is not int or type(layer['h']) is not int
-            or (layer['d'], layer['h'], layer['tau']) != (config.model.d, config.model.h, config.model.tau)
-            or not 0 < layer['d'] <= 16 or not 0 < layer['h'] <= 64
-            or type(layer['growth_applied']) is not bool or type(layer['grown_ids']) is not list
-            or any(type(i) is not int or not 0 <= i < layer['h'] for i in layer['grown_ids'])
-            or layer['grown_ids'] != sorted(set(layer['grown_ids']))
-            or (layer['grown_ids'] and not layer['growth_applied'])):
-        raise ValueError('Model topology differs from bounded config or is malformed')
-    expected_names = {'layer.base.weight', 'layer.base.bias', 'head.weight', 'head.bias'}
-    if layer['grown_ids']:
-        expected_names.update({'layer.gate.weight', 'layer.gate.bias', 'layer.contrast.weight', 'layer.contrast.bias'})
+    if config.model.coordinates == 'widened':
+        from .models.widened import WidenedRegressor
+        from .baselines.causal_evidence import validate_causal_evidence
+        validate_causal_evidence(meta['backend'], topology, config)
+        before = capture_rng()
+        try:
+            candidate = WidenedRegressor.from_config(topology)
+            if topology['layer'] != dict(d=config.model.d,h=config.model.h,parent_width=config.model.parent_width,tau=config.model.tau):
+                raise ValueError('Widening topology differs from resolved config')
+            expected_names = set(dict(candidate.named_parameters()))
+        finally:
+            restore_rng(before)
+    elif config.model.coordinates != 'selective':
+        from .models.static import StaticRegressor
+        from .baselines.causal_evidence import validate_causal_evidence
+        validate_causal_evidence(meta['backend'], topology, config)
+        before = capture_rng()
+        try:
+            candidate = StaticRegressor.from_config(topology)
+            if candidate.layer.export_config() != dict(d=config.model.d,h=config.model.h,
+                    count=config.model.static_count,coordinates=config.model.coordinates,tau=config.model.tau):
+                raise ValueError('Static topology differs from resolved config')
+            expected_names = set(dict(candidate.named_parameters()))
+        finally:
+            restore_rng(before)
+    else:
+        if (not isinstance(topology, dict) or set(topology) != {'schema_version', 'kind', 'layer'}
+                or type(topology['schema_version']) is not int or topology['schema_version'] != 1
+                or topology['kind'] != 'selective_relu_scalar'):
+            raise ValueError('Invalid model topology')
+        layer = topology['layer']
+        if (not isinstance(layer, dict) or set(layer) != {'schema_version', 'd', 'h', 'tau', 'growth_applied', 'grown_ids'}
+                or type(layer['schema_version']) is not int or layer['schema_version'] != 1
+                or type(layer['d']) is not int or type(layer['h']) is not int
+                or (layer['d'], layer['h'], layer['tau']) != (config.model.d, config.model.h, config.model.tau)
+                or not 0 < layer['d'] <= 16 or not 0 < layer['h'] <= (95 if 'causal_cpu_evidence' in meta['backend'] else 64)
+                or type(layer['growth_applied']) is not bool or type(layer['grown_ids']) is not list
+                or any(type(i) is not int or not 0 <= i < layer['h'] for i in layer['grown_ids'])
+                or layer['grown_ids'] != sorted(set(layer['grown_ids']))
+                or (layer['grown_ids'] and not layer['growth_applied'])):
+            raise ValueError('Model topology differs from bounded config or is malformed')
+        expected_names = {'layer.base.weight', 'layer.base.bias', 'head.weight', 'head.bias'}
+        if layer['grown_ids']:
+            expected_names.update({'layer.gate.weight', 'layer.gate.bias', 'layer.contrast.weight', 'layer.contrast.bias'})
+    if 'causal_cpu_evidence' in meta['backend']:
+        from .baselines.causal_evidence import validate_causal_evidence
+        validate_causal_evidence(meta['backend'], topology, config)
     if canonical_hash(config.to_dict()) != identities['config']:
         raise ValueError('Checkpoint config identity mismatch')
     if device not in ('cpu', 'mps') or meta['device'] != device or meta['backend']['device'] != device:
@@ -465,7 +503,22 @@ def unpack_state(snapshot, *, expected_hashes, device):
     # Rebuilding Linear modules consumes RNG; never let it alter paired streams.
     before = capture_rng()
     try:
-        model = SelectiveRegressor.from_config(meta['model']).to(device=device, dtype=torch.float32)
+        if config.model.coordinates == 'selective':
+            model = SelectiveRegressor.from_config(meta['model'])
+        elif config.model.coordinates == 'widened':
+            from .models.widened import WidenedRegressor
+            model = WidenedRegressor.from_config(meta['model'])
+        else:
+            from .models.static import StaticRegressor
+            model = StaticRegressor.from_config(meta['model'])
+        model = model.to(device=device, dtype=torch.float32)
+        if 'causal_cpu_evidence' in meta['backend']:
+            expected_tensors = model.state_dict()
+            if set(tensors['model']) != set(expected_tensors) or any(
+                    not isinstance(tensors['model'][n], torch.Tensor)
+                    or tensors['model'][n].shape != p.shape or tensors['model'][n].dtype != p.dtype
+                    or tensors['model'][n].device.type != device for n,p in expected_tensors.items()):
+                raise ValueError('Causal model tensor shape/dtype/device mismatch')
         model.load_state_dict(tensors['model'], strict=True)
         named = dict(model.named_parameters())
         names = [name for group in meta['optimizer_groups'] for name in group['names']]
@@ -482,6 +535,24 @@ def unpack_state(snapshot, *, expected_hashes, device):
             actual = {k: v for k, v in source.items() if k not in ('params', 'param_names')}
             if canonical_json(actual) != canonical_json(expected['options']):
                 raise ValueError('Saved optimizer options mismatch')
+        if 'causal_cpu_evidence' in meta['backend']:
+            # Adam.load_state_dict casts moments to the parameter dtype. Check
+            # the saved values first so malformed float64 state cannot pass by
+            # being silently converted to the required float32 recipe.
+            for group in saved['param_groups']:
+                if len(group['params']) != len(group['param_names']):
+                    raise ValueError('Saved Adam parameter count mismatch')
+                for name, identifier in zip(group['param_names'], group['params']):
+                    record = saved['state'].get(identifier, {})
+                    if not record:
+                        continue
+                    if not isinstance(record, Mapping) or set(record) != {'step','exp_avg','exp_avg_sq'}:
+                        raise ValueError('Invalid saved causal Adam state')
+                    for key, tensor in record.items():
+                        shape = torch.Size([]) if key == 'step' else named[name].shape
+                        if (not isinstance(tensor, torch.Tensor) or tensor.shape != shape
+                                or tensor.dtype != torch.float32 or tensor.device.type != 'cpu'):
+                            raise ValueError('Saved causal Adam shape/dtype/device mismatch')
         # CPU optimizer loading can retain tensor storage from its input. Keep
         # the live moments/step independent of the durable embedded best, even
         # when serialization deduplicated a best checkpoint's two snapshots.
@@ -496,6 +567,9 @@ def unpack_state(snapshot, *, expected_hashes, device):
             meta['cursor'], generator, _tensor_copy(tensors['rng_states']), preprocessing,
             dict(meta['identity_hashes']), config, copy.deepcopy(meta['backend']), meta['fit_target_variance'],
             copy.deepcopy(meta['data_hashes']), copy.deepcopy(meta['stage']), growth_metadata=copy.deepcopy(meta['growth_metadata']))
+        if 'causal_cpu_evidence' in meta['backend']:
+            from .growth.insert import _validate_optimizer
+            _validate_optimizer(state, set(named))
         model.eval()
     except BaseException:
         restore_rng(before)
@@ -532,7 +606,6 @@ def fit_parent(data: DevelopmentData, config: ExperimentConfig, paths: RunPaths)
     try:
         config = _validate_inputs(data, config, paths)
         policy = TrainingPolicy.from_config(config)
-        backend = _backend_evidence(config, data)
         start = time.perf_counter_ns()
         preprocessing = FittedTransform.fit(data.F.X, data.F.y)
         preprocess_ns = time.perf_counter_ns() - start
@@ -540,7 +613,16 @@ def fit_parent(data: DevelopmentData, config: ExperimentConfig, paths: RunPaths)
         np.random.seed(config.seeds.optimizer)
         torch.manual_seed(config.seeds.optimizer)
         if torch.backends.mps.is_available(): torch.mps.manual_seed(config.seeds.optimizer)
-        model = SelectiveRegressor(config.model.d, config.model.h, config.model.tau).to(config.backend.device, dtype=torch.float32)
+        if config.model.coordinates == 'widened':
+            raise ValueError('Widened models require a selected parent, not fresh fit')
+        if config.model.coordinates == 'selective':
+            model = SelectiveRegressor(config.model.d, config.model.h, config.model.tau)
+        else:
+            from .models.static import StaticRegressor
+            model = StaticRegressor(config.model.d, config.model.h, config.model.static_count, config.model.coordinates, config.model.tau)
+        model = model.to(config.backend.device, dtype=torch.float32)
+        causal = model if config.model.h > 64 or config.model.coordinates != 'selective' else None
+        backend = _backend_evidence(config, data, causal_model=causal)
         optimizer = _optimizer(model, config)
         schedule = UpdateSchedule(optimizer, kind=config.training.scheduler,
             horizon=config.training.base_updates + config.training.continuation_updates,

@@ -24,6 +24,9 @@ class ModelConfig:
     depth: int = 1
     tau: float = 1.0
     activation: Literal["relu"] = "relu"
+    coordinates: Literal["selective", "centered", "direct_leaf", "widened"] = "selective"
+    static_count: int = 0
+    parent_width: int = 0
 
 
 @dataclass(frozen=True)
@@ -224,6 +227,10 @@ def resolve_experiment(value: Mapping[str, Any]) -> ExperimentConfig:
     data.setdefault("n_validation", (data["n_fit"] + 3) // 4)
     config = ExperimentConfig(**{**{f.name: getattr(config, f.name) for f in fields(config)},
                                  "data": _section(DataConfig, data, "experiment.data")})
+    if not 0 <= config.model.static_count <= config.model.h or (config.model.coordinates == "selective" and config.model.static_count):
+        raise ValueError("Invalid static coordinate count")
+    if (config.model.coordinates == "widened" and (not 0 < config.model.parent_width <= min(config.model.h, 64) or config.model.static_count)) or (config.model.coordinates != "widened" and config.model.parent_width):
+        raise ValueError("Invalid widening parent width")
     positive = {
         "model.d": config.model.d, "model.h": config.model.h,
         "model.depth": config.model.depth, "model.tau": config.model.tau,

@@ -24,11 +24,13 @@ class ParameterMapping:
 
 @dataclass(frozen=True)
 class GrowthManifest:
-    """One layer-local event; new_parameter_names contains only added tensors.
+    """One producer-scoped event; new_parameter_names lists only added tensors.
 
-    Counts refer to scalar parameters in this layer, excluding a caller's head.
-    Old parameters survive by identity; added parameters have no old mapping and
-    require new optimizer state. Names are relative to the selective layer.
+    SelectiveAffineLayer emits layer-relative names/counts excluding the caller's
+    head and retains old Parameter objects. widen_parent emits model-qualified
+    names/counts including the head, explicitly records that scope in its state
+    metadata, and maps copied old values/moments by full slices. Added tensors
+    have no old mapping and require fresh optimizer state in either producer.
     """
 
     schema_version: int
