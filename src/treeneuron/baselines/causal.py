@@ -191,7 +191,7 @@ class CausalPredictor:
         self.fit_nanoseconds=None
         self.run_paths=None
 
-    def fit(self, request: FitRequest):
+    def fit(self, request: FitRequest, *, on_run_created=None):
         if (not isinstance(request.config,dict) or set(request.config)!={'development_data'}
                 or not isinstance(request.config['development_data'],DevelopmentData)):
             raise ValueError('FitRequest.config requires original development_data runtime context')
@@ -216,9 +216,17 @@ class CausalPredictor:
         tick=time.perf_counter_ns()
         paths=create_run(Path(request.artifact_dir),config.to_dict())
         self.run_paths=paths
-        self.state=(continue_fit(self.state,data,policy,paths) if continuation else fit_parent(data,config,paths))
+        metadata=copy.deepcopy(self.state.growth_metadata) if continuation else {}
+        metadata['causal_adapter']={'method_id':self.method_id,'recipe':self.recipe}
+        if continuation:
+            self.state.growth_metadata=copy.deepcopy(metadata)
+            if self.state.best_snapshot is not None:
+                self.state.best_snapshot['metadata']['growth_metadata']=copy.deepcopy(metadata)
+        if on_run_created is not None:
+            on_run_created(paths,metadata)
+        self.state=(continue_fit(self.state,data,policy,paths) if continuation else
+                    fit_parent(data,config,paths,growth_metadata=metadata))
         self.fit_nanoseconds=time.perf_counter_ns()-tick
-        self.state.growth_metadata['causal_adapter']={'method_id':self.method_id,'recipe':self.recipe}
         self.config=self.state.config
         return self
 

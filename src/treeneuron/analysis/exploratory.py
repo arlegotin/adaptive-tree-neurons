@@ -35,7 +35,8 @@ def summarize_exploratory(study_dir: Path) -> dict[str, Any]:
         for stage in record['stages']:
             events=[json.loads(line) for line in (root/stage['path']/'events.jsonl').read_text().splitlines()]
             rows=[array_hash(np.array(e['row_ids'],dtype=np.int64)) for e in events if e['type']=='update']
-            if rows!=stage['row_hashes']: raise ValueError('Pairing row stream disagrees with executed events')
+            if rows!=stage['row_hashes'] or len(rows)!=stage['executed_updates']:
+                raise ValueError('pairing row stream/count disagrees with executed events')
         values={}
         metrics={}
         for split,link in record['predictions'].items():

@@ -40,9 +40,10 @@ def file_hash(path: Path) -> str:
 
 
 def write_json(path: Path, record: dict) -> None:
+    payload = canonical_json(record) + '\n'
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open('x') as stream:
-        stream.write(canonical_json(record) + '\n')
+        stream.write(payload)
 
 
 def _json_tree(value):
@@ -81,6 +82,11 @@ def audit_pairing(study: dict) -> dict:
             raise ValueError('pairing initial sampler/RNG/schedule/policy mismatch')
         if method['parent_checkpoint_sha256'] != study['parent_checkpoint_sha256']:
             raise ValueError('pairing parent checkpoint mismatch')
+    for method in warm:
+        final_stage = method['stages'][-1]
+        if (method['executed_row_ids'] != final_stage['row_hashes']
+                or len(final_stage['row_hashes']) != final_stage['executed_updates']):
+            raise ValueError('pairing duplicate stream/count disagrees with final stage')
     reference = study['methods']['keep']['executed_row_ids']
     for method in warm:
         actual = method['executed_row_ids']
@@ -96,6 +102,38 @@ def audit_pairing(study: dict) -> dict:
     return dict(passed=True, warm_forks=len(warm), common_prefix_updates=min(len(m['executed_row_ids']) for m in warm),
         row_stream_representation='SHA256 per ordered int64 row-ID minibatch; full IDs in stage events',
         early_stopping='G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment')
+
+
+def _score_record(table):
+    """Finite diagnostic view; the identity still binds the original tensor bytes."""
+    record = {}
+    unavailable = []
+    for field in fields(table):
+        value = getattr(table, field.name)
+        if not isinstance(value, torch.Tensor):
+            record[field.name] = value
+            continue
+        exported = value.tolist()
+        if value.is_floating_point() and not bool(torch.isfinite(value).all()):
+            # Only row-local, explicitly ineligible statistics may be unavailable.
+            # Global Gram statistics and eligible rows remain hard failures.
+            if field.name == 'gram':
+                raise ValueError('Nonfinite global score statistics')
+            for index in (~torch.isfinite(value)).nonzero().tolist():
+                unit = index[0]
+                if bool(table.eligible[unit]):
+                    raise ValueError('Nonfinite eligible score statistics')
+                target = exported
+                for coordinate in index[:-1]:
+                    target = target[coordinate]
+                target[index[-1]] = None
+                unavailable.append(dict(field=field.name, index=index,
+                    unit_id=int(table.ids[unit]), reason=table.status[unit]))
+        record[field.name] = exported
+    record.update(table_hash=table.table_hash, unavailable_diagnostics=unavailable,
+        export_schema_version=1,
+        identity_semantics='table_hash binds original ScoreTable bytes; nulls are an export-only diagnostic view')
+    return record
 
 
 def _allocation_record(value):
@@ -133,24 +171,73 @@ def _gate_probe(model, x, y, allocation, epsilon, table):
         train.restore_rng(before)
 
 
-def _diagnostics(state, data):
+def _distribution(values):
+    values = np.asarray(values, dtype=np.float64)
+    probabilities = [0., .25, .5, .75, 1.]
+    return dict(mean=float(values.mean()), variance=float(values.var()),
+        min=float(values.min()), max=float(values.max()),
+        rms=float(np.sqrt(np.mean(values**2))), quantile_probabilities=probabilities,
+        quantiles=np.quantile(values, probabilities).tolist(),
+        quantile_method='linear', variance_ddof=0)
+
+
+def _regime_occupancy(teacher, data):
+    from treeneuron.data.synthetic import TeacherSpec, evaluate_teacher
+    common = dict(population='F', rows=len(data.F.X), role='oracle_diagnostic_only')
+    if isinstance(teacher, TeacherSpec):
+        _, gates = evaluate_teacher(teacher, data.F.X, return_gates=True)
+        return dict(**common, status='observed', definition='per teacher component on raw F inputs',
+            mean_gate_probability=gates.mean(axis=0).tolist(),
+            fraction_at_or_above_half=(gates >= .5).mean(axis=0).tolist())
+    if getattr(teacher, 'kind', None) == 'conditional_slope_2d':
+        left = int((data.F.X[:, 0] < 0).sum())
+        counts = dict(left=left, right=len(data.F.X)-left)
+        return dict(**common, status='observed', definition='left: raw x0 < 0; right: raw x0 >= 0',
+            counts=counts, fractions={key: value/len(data.F.X) for key, value in counts.items()})
+    return dict(**common, status='not_applicable', value=None,
+        reason='No supplied population with an applicable synthetic regime definition')
+
+
+def _diagnostics(state, data, teacher=None):
+    """Selected-state F diagnostics; teacher observations never enter fit/score inputs."""
+    unavailable = dict(status='not_applicable', value=None, reason='Model has no gated leaf pairs')
+    result = dict(schema_version=1, population='F', role='diagnostic_only',
+        gate=copy.deepcopy(unavailable), leaf_disagreement=copy.deepcopy(unavailable),
+        synthetic_regime_occupancy=_regime_occupancy(teacher, data),
+        input_norms=dict(definition='Euclidean norm per F row, excluding the explicit bias coordinate',
+            raw=_distribution(np.linalg.norm(data.F.X, axis=1)),
+            standardized=dict(status='not_applicable', value=None, reason='No neural F transform supplied')))
+    if state is None:
+        canonical_json(result)
+        return result
     x = torch.tensor(state.preprocessing.transform_X(data.F.X), dtype=torch.float32)
     y = torch.tensor(state.preprocessing.transform_y(data.F.y), dtype=torch.float32)
+    result['input_norms']['standardized'] = _distribution(np.linalg.norm(x.numpy().astype(np.float64), axis=1))
     model = copy.deepcopy(state.model).eval()
     loss = (model(x)-y).square().mean()
     loss.backward()
-    result = dict(fit_standardized_mse=float(loss.detach()),
+    result.update(fit_standardized_mse=float(loss.detach()),
         gradient_norms={name: float(p.grad.norm()) for name, p in model.named_parameters() if p.grad is not None},
         parameter_norms={name: float(p.norm().detach()) for name, p in model.named_parameters()})
     gate = getattr(model.layer, 'gate', None)
     if gate is not None:
         with torch.no_grad():
-            probability = torch.sigmoid(gate(x)/state.config.model.tau)
-            result['gate'] = dict(mean=float(probability.mean()), min=float(probability.min()),
-                max=float(probability.max()), saturated_fraction=float(((probability < .01)|(probability > .99)).float().mean()))
+            probability = torch.sigmoid(gate(x)/state.config.model.tau).double().numpy()
+            result['gate'] = dict(**_distribution(probability), status='observed',
+                aggregation='pooled F rows and gated units', rows=len(x), units=probability.shape[1],
+                mean_g_one_minus_g=float(np.mean(probability*(1-probability))),
+                saturation_thresholds=[.01,.99],
+                saturated_fraction=float(((probability < .01)|(probability > .99)).mean()))
             contrast = getattr(model.layer, 'contrast', None)
             if contrast is not None:
-                result['leaf_separation_rms'] = float((2*contrast(x)).square().mean().sqrt())
+                difference, coordinates = 2*contrast(x), 'centered'
+            else:
+                difference, coordinates = model.layer.left(x)-model.layer.right(x), 'direct_leaf'
+            rms = float(difference.double().square().mean().sqrt())
+            result['leaf_disagreement'] = dict(status='observed', rms=rms, coordinates=coordinates,
+                definition='RMS left-minus-right affine preactivation over F rows and gated units')
+            result['leaf_separation_rms'] = rms
+    canonical_json(result)
     return result
 
 
@@ -197,6 +284,9 @@ def run_paired(config: ExperimentConfig) -> Path:
         raise ValueError('Paired exploration requires the validated ordinary CPU parent')
     if config.training.scheduler != 'constant':
         raise ValueError('This first paired study declares constant LR with no restarts')
+    if (config.growth.policy != 'adam' or config.growth.direction != 'eigenvector'
+            or config.growth.projection_rms_floor != 1e-12):
+        raise ValueError('Paired fixed causal inventory requires growth policy=adam, direction=eigenvector, projection_rms_floor=1e-12')
     tick = time.perf_counter_ns()
     paths = create_run(Path(config.execution.artifacts_root), config.to_dict())
     root = paths.directory
@@ -206,8 +296,25 @@ def run_paired(config: ExperimentConfig) -> Path:
     open_child = None
     study: dict[str, Any] = dict(schema_version=1, study_id=config.study_id, phase='exploratory',
         status='running', test_labels_accessed=False, methods={}, costs={}, failures=[],
+        execution_semantics=dict(inventory='fixed_causal_comparison',
+            proposed=dict(policy='adam', direction='eigenvector'), projection_rms_floor=1e-12,
+            selectors='growth policy/direction identify the proposed arm; controls remain fixed'),
         interpretation='One teacher/optimizer seed, descriptive G/V only; no population confidence or superiority claim',
         config=config.to_dict(), config_hash=canonical_hash(config.to_dict()))
+    primary_error = None
+    def publication_failure(error, phase, primary=None):
+        record = dict(type=type(error).__name__, message=str(error), phase=phase,
+            primary_error=None if primary is None else dict(type=type(primary).__name__, message=str(primary)))
+        failures = study.setdefault('publication_failures', [])
+        failures.append(record)
+        if primary is not None:
+            primary.add_note(f'Secondary {phase} publication failed: {type(error).__name__}: {error}')
+        # Independent best-effort evidence, even when study/index/manifest cannot publish.
+        try:
+            write_json(root/f'publication-failure-{len(failures)}.json', record)
+        except BaseException as recording_error:
+            (primary if primary is not None else error).add_note(
+                f'Publication failure sidecar also failed: {recording_error}')
     try:
         torch.set_num_threads(1)
         train.BACKEND_REPORT_PATH = Path(config.execution.backend_report)
@@ -247,19 +354,32 @@ def run_paired(config: ExperimentConfig) -> Path:
             'method': {'scope': 'coordinator', **{key: unavailable_model for key in
                 ('trainable_parameters', 'total_parameters', 'serialized_bytes', 'weight_checkpoint',
                  'weight_hash', 'weight_terms', 'context_bytes', 'cache_bytes', 'prediction_artifacts')}}})
-        def observe_child(run, state, parent_id=None, allocation=None, predictions=None):
+        def observe_child(run, state=None, parent_id=None, allocation=None, predictions=None, growth_metadata=None):
             identity = {'hardware_hash': hardware_hash, 'coordinator_run_id': paths.run_id,
-                        'growth_hash': canonical_hash(state.growth_metadata)}
+                        'growth_hash': canonical_hash(state.growth_metadata if state is not None else growth_metadata)}
             if parent_id is not None: identity['parent_run_id'] = parent_id
             if allocation is not None: identity['score_hash'] = allocation.table_hash
             update_run_observations(run, {'identity': identity, 'data': development_observations,
                 'method': {'scope': 'single_model', 'prediction_artifacts': predictions if predictions is not None else
                            {'value': None, 'reason': 'No final G/V prediction artifacts published for this stage'}},
                 'resources': {'memory_accounting': 'Process lifetime RSS high-water; MPS unused; not incremental or additive'}})
+        def register_child(run, record, name, stage_index, metadata, parent_id=None, allocation=None):
+            nonlocal open_child
+            open_child = run
+            record['growth_metadata'] = copy.deepcopy(metadata)
+            stage = dict(run_id=run.run_id, path=str(run.directory.relative_to(root)),
+                observation_status='registered_before_training', selected_update=None,
+                executed_updates=None, unavailable_reason='Training has not returned a selected state')
+            record['stages'].append(stage)
+            append_event(paths, dict(type='child_registered', method=name, stage_index=stage_index,
+                run_id=run.run_id, path=stage['path'], parent_run_id=parent_id))
+            observe_child(run, parent_id=parent_id, allocation=allocation, growth_metadata=metadata)
         # Parent setup, preprocessing, backend validation, fit, diagnostics and prediction are enclosed.
         start = time.perf_counter_ns()
         parent_paths = create_run(root/'runs', config.to_dict())
-        open_child = parent_paths
+        study['methods']['parent'] = dict(method_id='B1-parent',status='running',stages=[],
+            declared_total_updates=config.training.base_updates)
+        register_child(parent_paths, study['methods']['parent'], 'parent', 0, {})
         parent = train.fit_parent(data,config,parent_paths)
         observe_child(parent_paths, parent)
         update_run_observations(paths, {'method': {'backend': {'actual': parent.backend},
@@ -271,7 +391,7 @@ def run_paired(config: ExperimentConfig) -> Path:
         study['parent_pairing'] = pairing_snapshot(parent)
         study['parent_checkpoint_sha256'] = file_hash(parent_checkpoint)
         study['methods']['parent'] = dict(method_id='B1-parent',status='completed',metrics=metrics,predictions=predictions,
-            stages=[parent_stage],prediction_ns=prediction_ns,diagnostics=_diagnostics(parent,data),
+            stages=[parent_stage],prediction_ns=prediction_ns,diagnostics=_diagnostics(parent,data,teacher),
             total_parameters=sum(p.numel() for p in parent.model.parameters()),
             selected_update=parent.update,declared_total_updates=config.training.base_updates)
         observe_child(parent_paths, parent, predictions=predictions)
@@ -287,8 +407,7 @@ def run_paired(config: ExperimentConfig) -> Path:
             epsilon=config.growth.epsilon,tau=config.model.tau,adam_epsilon=config.training.adam_epsilon,
             batch_size=config.training.batch_size,unit_block_size=config.growth.block_units)
         study['costs']['shared_scoring_ns'] = time.perf_counter_ns()-start
-        table_record = {f.name:(getattr(table,f.name).tolist() if isinstance(getattr(table,f.name),torch.Tensor)
-                               else getattr(table,f.name)) for f in fields(table)}
+        table_record = _score_record(table)
         table_record.update(table_hash=table.table_hash,transform_hash=parent.identity_hashes['transform'],
                             coordinates='F-only standardized X and y; explicit bias last')
         write_json(root/'score-table.json',table_record)
@@ -363,10 +482,10 @@ def run_paired(config: ExperimentConfig) -> Path:
                 allowances = [config.training.base_updates,config.training.continuation_updates]
             stage_parent_id = parent_paths.run_id if warm else None
             for stage_index, allowance in enumerate(allowances):
-                adapter.fit(request(allowance))
-                open_child = adapter.run_paths
+                adapter.fit(request(allowance), on_run_created=lambda run, metadata:
+                    register_child(run, record, name, stage_index, metadata, stage_parent_id, allocation))
                 stage = _stage_record(adapter.state,adapter.run_paths,root)
-                record['stages'].append(stage)
+                record['stages'][-1] = stage
                 observe_child(adapter.run_paths, adapter.state, stage_parent_id, allocation)
                 if stage_index < len(allowances)-1:
                     finish_run(adapter.run_paths, {'selected_g_mse': adapter.state.stage['best_mse']}, 'completed')
@@ -375,7 +494,7 @@ def run_paired(config: ExperimentConfig) -> Path:
             record['executed_row_ids'] = record['stages'][-1]['row_hashes']
             record['growth_metadata'] = copy.deepcopy(adapter.state.growth_metadata)
             record['metrics'],record['predictions'],record['prediction_ns'] = _predictions(adapter,data,root,name)
-            record['diagnostics'] = _diagnostics(adapter.state,data)
+            record['diagnostics'] = _diagnostics(adapter.state,data,teacher)
             record['selected_update'] = adapter.state.update
             record['total_parameters'] = sum(p.numel() for p in adapter.state.model.parameters())
             record['identities'] = adapter.state.identity_hashes
@@ -393,16 +512,21 @@ def run_paired(config: ExperimentConfig) -> Path:
             predictor.save(root/f'{name}.json')
             study['methods'][name]=dict(method_id='B0',status='completed',metrics=metrics,predictions=predictions,
                 recipe={'alpha':1.} if name=='ridge' else {},prediction_ns=prediction_ns,
+                diagnostics=_diagnostics(None,data,teacher),
                 declared_total_updates=0,stages=[],enclosing_ns=time.perf_counter_ns()-start)
         study['pairing_audit']=audit_pairing(study)
         study['status']='completed'
     except BaseException as error:
+        primary_error = error
         study['status']='interrupted' if isinstance(error,KeyboardInterrupt) else 'failed'
         study['failures'].append(dict(type=type(error).__name__,message=str(error)))
         if open_child is not None:
-            child_manifest = json.loads((open_child.directory/'manifest.json').read_text())
-            if child_manifest['identity']['status'] not in TERMINAL_STATUSES:
-                finish_run(open_child, {'failure': study['failures'][-1]}, study['status'])
+            try:
+                child_manifest = json.loads((open_child.directory/'manifest.json').read_text())
+                if child_manifest['identity']['status'] not in TERMINAL_STATUSES:
+                    finish_run(open_child, {'failure': study['failures'][-1]}, study['status'])
+            except BaseException as publication_error:
+                publication_failure(publication_error, 'child terminal', error)
         for record in study['methods'].values():
             if record['status']=='running':
                 record['status']=study['status']
@@ -410,30 +534,38 @@ def run_paired(config: ExperimentConfig) -> Path:
                 record['failure']=study['failures'][-1]
         raise
     finally:
-        study['costs']['total_study_ns']=time.perf_counter_ns()-tick
-        study['costs']['boundary']='Enclosing generation, hardware observations, setup, factory/probes, base, shared scoring, continuation, G/V predictions, artifact IO; excludes imports and final index publication. Per-method regions exclude shared parent/scoring. Nested validation is never added again.'
-        study['resources']=dict(process_peak_rss_bytes=int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)*(1 if sys.platform=='darwin' else 1024),
-            memory_accounting='process lifetime RSS high-water; MPS not used; not incremental or summed')
-        measured = lambda ns, boundary: dict(nanoseconds=ns, status='measured', reason=None, boundary=boundary)
-        costs = {'enclosing': measured(study['costs']['total_study_ns'], study['costs']['boundary'])}
-        for key, slot in [('shared_scoring_ns', 'score'), ('tiny_gate_probe_ns', 'probe')]:
-            if key in study['costs']:
-                costs[slot] = measured(study['costs'][key], 'Shared study region nested inside enclosing cost; do not add again')
-        update_run_observations(paths, {'costs': costs, 'resources': {
-            'rss_bytes': study['resources']['process_peak_rss_bytes'],
-            'memory_accounting': study['resources']['memory_accounting'],
-            'timing_exclusions': ['imports', 'final artifact-index and terminal manifest publication']}})
-        # Hash every retained artifact, including failed checkpoints and full raw row streams.
-        study['artifacts']={str(p.relative_to(root)):file_hash(p) for p in sorted(root.rglob('*')) if p.is_file()
-            and p.name not in ('.ledger.lock','manifest.json','events.jsonl')}
-        # Include child run manifests/events: only the enclosing study is still open.
-        for p in sorted((root/'runs').rglob('*')) if (root/'runs').exists() else []:
-            if p.is_file() and p.name in ('manifest.json','events.jsonl'):
-                study['artifacts'][str(p.relative_to(root))]=file_hash(p)
-        write_json(root/'study.json',study)
-        finish_run(paths,{'study':'study.json','study_sha256':file_hash(root/'study.json'),
-                         'failures':study['failures']},study['status'])
-        train.BACKEND_REPORT_PATH=previous_receipt
-        train.restore_rng(previous_rng)
-        torch.set_num_threads(previous_threads)
+        try:
+            study['costs']['total_study_ns']=time.perf_counter_ns()-tick
+            study['costs']['boundary']='Enclosing generation, hardware observations, setup, factory/probes, base, shared scoring, continuation, G/V predictions, artifact IO; excludes imports and final index publication. Per-method regions exclude shared parent/scoring. Nested validation is never added again.'
+            study['resources']=dict(process_peak_rss_bytes=int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)*(1 if sys.platform=='darwin' else 1024),
+                memory_accounting='process lifetime RSS high-water; MPS not used; not incremental or summed')
+            measured = lambda ns, boundary: dict(nanoseconds=ns, status='measured', reason=None, boundary=boundary)
+            costs = {'enclosing': measured(study['costs']['total_study_ns'], study['costs']['boundary'])}
+            for key, slot in [('shared_scoring_ns', 'score'), ('tiny_gate_probe_ns', 'probe')]:
+                if key in study['costs']:
+                    costs[slot] = measured(study['costs'][key], 'Shared study region nested inside enclosing cost; do not add again')
+            update_run_observations(paths, {'costs': costs, 'resources': {
+                'rss_bytes': study['resources']['process_peak_rss_bytes'],
+                'memory_accounting': study['resources']['memory_accounting'],
+                'timing_exclusions': ['imports', 'final artifact-index and terminal manifest publication']}})
+            # Hash every retained artifact, including failed checkpoints and full raw row streams.
+            study['artifacts']={str(p.relative_to(root)):file_hash(p) for p in sorted(root.rglob('*')) if p.is_file()
+                and p.name not in ('.ledger.lock','manifest.json','events.jsonl')}
+            # Include child run manifests/events: only the enclosing study is still open.
+            for p in sorted((root/'runs').rglob('*')) if (root/'runs').exists() else []:
+                if p.is_file() and p.name in ('manifest.json','events.jsonl'):
+                    study['artifacts'][str(p.relative_to(root))]=file_hash(p)
+            write_json(root/'study.json',study)
+            finish_run(paths,{'study':'study.json','study_sha256':file_hash(root/'study.json'),
+                             'failures':study['failures']},study['status'])
+        except BaseException as publication_error:
+            publication_failure(publication_error, 'final study', primary_error)
+            if primary_error is None:
+                raise
+        finally:
+            train.BACKEND_REPORT_PATH=previous_receipt
+            try:
+                train.restore_rng(previous_rng)
+            finally:
+                torch.set_num_threads(previous_threads)
     return root

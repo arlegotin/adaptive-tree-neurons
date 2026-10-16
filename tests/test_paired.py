@@ -204,3 +204,201 @@ def test_prediction_failure_finalizes_open_child_with_known_observations(tmp_pat
     assert child['data']['boundaries']['V']=='descriptive_only'
     assert child['identity']['score_hash']==report['methods']['top']['allocation']['table_hash']
     assert json.loads((root/'manifest.json').read_text())['data']['counts']['V']=={'rows':8,'groups':8}
+
+
+@pytest.mark.parametrize('field,value', [('policy','keep'), ('policy','sgd'), ('policy','random'),
+    ('direction','gaussian'), ('projection_rms_floor',1.0), ('projection_rms_floor',1e-13)])
+def test_unsupported_growth_request_rejected_before_artifacts(tmp_path, cpu_training_evidence, field, value):
+    from treeneuron.experiments.paired import run_paired
+    config = small_config(tmp_path, cpu_training_evidence)
+    config = replace(config, growth=replace(config.growth, **{field:value}))
+    with pytest.raises(ValueError, match='fixed.*growth'):
+        run_paired(config)
+    assert list(tmp_path.iterdir()) == []
+
+
+def test_fixed_inventory_semantics_are_explicit(study):
+    report=json.loads((study/'study.json').read_text())
+    semantics=report['execution_semantics']
+    assert semantics['proposed'] == {'policy':'adam','direction':'eigenvector'}
+    assert semantics['projection_rms_floor'] == 1e-12
+    assert semantics['inventory'] == 'fixed_causal_comparison'
+
+
+@pytest.mark.parametrize('fail_count', [1,4])
+def test_ineligible_diagnostic_score_export_and_summary(tmp_path, cpu_training_evidence, monkeypatch, fail_count):
+    from treeneuron.experiments import paired
+    from treeneuron.analysis.exploratory import summarize_exploratory
+    score=paired.score_units
+    original_eigh=torch.linalg.eigh
+    identities=[]
+    def score_with_eigen_failure(*args, **kwargs):
+        calls=0
+        def eigh(moment):
+            nonlocal calls
+            calls+=1
+            if calls<=fail_count: raise torch.linalg.LinAlgError('injected unavailable eigenvalues')
+            return original_eigh(moment)
+        with monkeypatch.context() as patch:
+            patch.setattr(torch.linalg, 'eigh', eigh)
+            table=score(*args, **kwargs)
+        identities.append(table.table_hash)
+        return table
+    monkeypatch.setattr(paired,'score_units',score_with_eigen_failure)
+    directory=paired.run_paired(small_config(tmp_path,cpu_training_evidence))
+    raw=(directory/'score-table.json').read_text()
+    assert 'NaN' not in raw and 'Infinity' not in raw
+    table=json.loads(raw)
+    assert table['table_hash']==identities[0]
+    assert table['status'][:fail_count]==['eigendecomposition_failed']*fail_count
+    assert table['eigenvalues'][:fail_count]==[[None]*3]*fail_count
+    assert all(item['reason']=='eigendecomposition_failed' for item in table['unavailable_diagnostics'])
+    report=summarize_exploratory(directory)
+    assert report['status']=='completed'
+    for method in ('top','random','gaussian','sgd'):
+        allocation=report['methods'][method]['allocation']
+        assert allocation['effective_count']=={1:2,4:0}[fail_count]
+        assert allocation['table_hash']==identities[0]
+
+
+def test_invalid_json_leaves_no_export_file(tmp_path):
+    from treeneuron.experiments.paired import write_json
+    path=tmp_path/'score-table.json'
+    with pytest.raises(ValueError,match='finite'):
+        write_json(path,{'unavailable':float('nan')})
+    assert not path.exists()
+
+
+@pytest.mark.parametrize('target,failure', [('parent',KeyboardInterrupt), ('top',FloatingPointError),
+    ('ordinary_lower',RuntimeError)])
+def test_training_failure_retains_registered_child_context(tmp_path,cpu_training_evidence,monkeypatch,target,failure):
+    from treeneuron import train
+    from treeneuron.experiments import paired
+    from treeneuron.config import canonical_hash
+    observe=train._observe_initial
+    step=torch.optim.AdamW.step
+    active=False
+    def mark_stage(state,data,paths,*args):
+        nonlocal active
+        observe(state,data,paths,*args)
+        if target=='parent': active=True
+        elif target=='top': active=len(state.optimizer.param_groups)>1
+        else: active=state.growth_metadata.get('causal_adapter',{}).get('recipe',{}).get('variant')=='lower'
+    def fail_step(optimizer,*args,**kwargs):
+        if active: raise failure('injected actual training failure')
+        return step(optimizer,*args,**kwargs)
+    monkeypatch.setattr(train,'_observe_initial',mark_stage)
+    monkeypatch.setattr(torch.optim.AdamW,'step',fail_step)
+    with pytest.raises(failure,match='actual training failure'):
+        paired.run_paired(small_config(tmp_path,cpu_training_evidence))
+    root=next(tmp_path.glob('*/study.json')).parent
+    study=json.loads((root/'study.json').read_text())
+    expected_status='interrupted' if target=='parent' else 'failed'
+    assert study['status']==expected_status
+    method=study['methods'][target]
+    assert method['status']==expected_status
+    assert len(method['stages'])==1
+    stage=method['stages'][0]
+    child=json.loads((root/stage['path']/'manifest.json').read_text())
+    assert child['identity']['status']==expected_status
+    assert child['identity']['coordinator_run_id']==root.name
+    assert child['data']['boundaries']['V']=='descriptive_only'
+    assert child['data']['counts']['V']=={'rows':8,'groups':8}
+    assert child['data']['teacher_normalization']['reference_rows']>0
+    assert child['data']['teacher_normalization']['target_normalization']=='none'
+    assert child['data']['test_labels_accessed'] is False
+    events=[json.loads(line) for line in (root/'events.jsonl').read_text().splitlines()]
+    assert any(e['type']=='child_registered' and e['method']==target and e['run_id']==stage['run_id'] for e in events)
+    if target=='top':
+        assert child['identity']['parent_run_id']==study['methods']['parent']['stages'][0]['run_id']
+        assert child['identity']['score_hash']==method['allocation']['table_hash']
+        assert child['identity']['growth_hash']==canonical_hash(method['growth_metadata'])
+        pointer=json.loads((root/stage['path']/'checkpoints'/'last.json').read_text())
+        metadata=json.loads((root/stage['path']/'checkpoints'/pointer['metadata']).read_text())
+        assert metadata['state']['growth_metadata']==method['growth_metadata']
+
+
+@pytest.mark.parametrize('mutation',['empty','truncated','changed','count'])
+def test_pairing_rejects_duplicate_stream_corruption(study,tmp_path,mutation):
+    import shutil
+    from treeneuron.experiments.paired import audit_pairing
+    from treeneuron.analysis.exploratory import summarize_exploratory
+    report=json.loads((study/'study.json').read_text())
+    method=report['methods']['random']
+    if mutation=='empty': method['executed_row_ids']=[]
+    elif mutation=='truncated': method['executed_row_ids']=method['executed_row_ids'][:-1]
+    elif mutation=='changed': method['executed_row_ids'][0]='0'*64
+    else: method['stages'][-1]['executed_updates']+=1
+    with pytest.raises(ValueError,match='pairing'):
+        audit_pairing(report)
+    root=tmp_path/'corrupted'
+    shutil.copytree(study,root)
+    (root/'study.json').write_text(json.dumps(report))
+    with pytest.raises(ValueError,match='pairing'):
+        summarize_exploratory(root)
+
+
+def test_pairing_accepts_consistent_unequal_stopping_lengths(study):
+    from treeneuron.experiments.paired import audit_pairing
+    report=json.loads((study/'study.json').read_text())
+    method=report['methods']['random']
+    method['executed_row_ids']=method['executed_row_ids'][:1]
+    method['stages'][-1]['row_hashes']=method['stages'][-1]['row_hashes'][:1]
+    method['stages'][-1]['executed_updates']=1
+    assert audit_pairing(report)['passed']
+
+
+@pytest.mark.parametrize('phase',['observation','index','study','terminal'])
+@pytest.mark.parametrize('body_failure',[False,True])
+def test_final_publication_failure_restores_process_and_primary_error(tmp_path,cpu_training_evidence,monkeypatch,phase,body_failure):
+    from treeneuron import train
+    from treeneuron.experiments import paired
+    from treeneuron.config import canonical_hash
+    receipt=train.BACKEND_REPORT_PATH
+    rng=train.capture_rng()
+    threads=torch.get_num_threads()
+    expected_rng=canonical_hash(paired._json_tree(rng))
+    build=paired.build_causal
+    observe=paired.update_run_observations
+    hash_file=paired.file_hash
+    write=paired.write_json
+    finish=paired.finish_run
+    finalizing=False
+    def fail_factory(method,recipe,**kwargs):
+        if method=='B5' and recipe.get('variant')=='adam': raise RuntimeError('primary experiment failure')
+        return build(method,recipe,**kwargs)
+    def observe_final(paths,values):
+        nonlocal finalizing
+        if 'enclosing' in values.get('costs',{}):
+            finalizing=True
+            if phase=='observation': raise OSError('secondary observation publication failure')
+        return observe(paths,values)
+    def hash_final(path):
+        if finalizing and phase=='index': raise OSError('secondary index publication failure')
+        return hash_file(path)
+    def write_final(path,value):
+        if path.name=='study.json' and phase=='study': raise OSError('secondary study publication failure')
+        return write(path,value)
+    def finish_final(paths,*args):
+        if paths.directory.parent==tmp_path and phase=='terminal': raise OSError('secondary terminal publication failure')
+        return finish(paths,*args)
+    if body_failure: monkeypatch.setattr(paired,'build_causal',fail_factory)
+    monkeypatch.setattr(paired,'update_run_observations',observe_final)
+    monkeypatch.setattr(paired,'file_hash',hash_final)
+    monkeypatch.setattr(paired,'write_json',write_final)
+    monkeypatch.setattr(paired,'finish_run',finish_final)
+    try:
+        with pytest.raises(RuntimeError if body_failure else OSError,
+                match='primary experiment failure' if body_failure else 'secondary') as caught:
+            paired.run_paired(small_config(tmp_path,cpu_training_evidence))
+        assert train.BACKEND_REPORT_PATH==receipt
+        assert torch.get_num_threads()==threads
+        assert canonical_hash(paired._json_tree(train.capture_rng()))==expected_rng
+        if body_failure:
+            assert any('secondary' in note for note in caught.value.__notes__)
+        sidecar=json.loads(next(tmp_path.glob('*/publication-failure-*.json')).read_text())
+        assert 'secondary' in sidecar['message']
+    finally:
+        train.BACKEND_REPORT_PATH=receipt
+        train.restore_rng(rng)
+        torch.set_num_threads(threads)

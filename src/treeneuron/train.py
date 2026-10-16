@@ -642,7 +642,6 @@ def _observe_initial(state, data, paths, preprocess_ns=None):
         'identity': {'code_revision': state.identity_hashes['code'], 'lock_hash': state.identity_hashes['lock']},
         'data': {'raw_hash': state.identity_hashes['raw'], 'split_hash': state.identity_hashes['split'],
                  'transform_hash': state.identity_hashes['transform'], 'seeds': state.config.seeds.__dict__,
-                 'teacher_normalization': {'value': None, 'reason': 'Teacher normalization is owned by the generator; not supplied to training'},
                  'counts': {s: {'rows': len(getattr(data, s).y), 'groups': len(np.unique(getattr(data, s).group_id))}
                             for s in ('F', 'G')}},
         'method': {'trainable_parameters': sum(p.numel() for p in model.parameters() if p.requires_grad),
@@ -659,7 +658,8 @@ def _observe_initial(state, data, paths, preprocess_ns=None):
     update_run_observations(paths, updates)
 
 
-def fit_parent(data: DevelopmentData, config: ExperimentConfig, paths: RunPaths) -> TrainingState:
+def fit_parent(data: DevelopmentData, config: ExperimentConfig, paths: RunPaths, *,
+               growth_metadata: dict | None = None) -> TrainingState:
     """Train on F; return earliest strict G-best complete state, leaving run open."""
     try:
         config = _validate_inputs(data, config, paths)
@@ -690,6 +690,7 @@ def fit_parent(data: DevelopmentData, config: ExperimentConfig, paths: RunPaths)
             torch.randperm(len(data.F.y), generator=generator), 0, generator, capture_rng(),
             preprocessing, _identities(data, config, preprocessing), config, backend,
             float(np.var(data.F.y, ddof=0)), _fg_hashes(data))
+        state.growth_metadata = copy.deepcopy(growth_metadata or {})
         _new_stage(state, policy, 'base')
         _observe_initial(state, data, paths, preprocess_ns)
     except BaseException as error:
