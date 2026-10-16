@@ -1,0 +1,39 @@
+# Bounded ENGINEERING invocation only. These tiny values are not WP05 outputs.
+# Genuine variance calibration starts at 8 teachers x >=2 repetitions, then
+# doubles the completed count; it waits for reviewed Tasks 9/10/13 code.
+study_id: evidence8-engineering
+model:
+  d: 2
+  h: 2
+data:
+  n_fit: 8
+  n_growth: 4
+  n_validation: 4
+training:
+  batch_size: 2
+  base_updates: 1
+  continuation_updates: 1
+  validation_interval: 1
+  patience: 2
+growth:
+  m_requested: 1
+backend:
+  device: cpu
+  cpu_threads: 1
+  interop_threads: 1
+execution:
+  backend_report: environment/evidence7-calibration-fix1/search-backend.json
+  artifacts_root: artifacts/evidence8-engineering
+pilot:
+  purpose: engineering
+  initial_teachers: 1
+  max_teachers: 1
+  repetitions: 2
+  evaluation_rows: 8
+  bootstrap_iterations: 200
+  bootstrap_seed: 731
+  endpoint_tolerance: 0.001
+  probe_updates: 1
+  max_seconds: 60.0
+  # No fabricated final budgets: an absent constraints file blocks design.
+  constraints_path: null

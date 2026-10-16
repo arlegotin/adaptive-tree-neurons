@@ -29,7 +29,15 @@ def main(argv: list[str] | None = None) -> int:
     report_parser.add_argument('--mode', choices=['exploratory'], required=True)
     report_parser.add_argument('--study-dir', type=Path, required=True)
     report_parser.add_argument('--output', type=Path)
+    calibration = commands.add_parser('calibrate', help='Run explicitly bounded exploratory engineering pilot machinery')
+    calibration.add_argument('--config', type=Path, required=True)
     args = parser.parse_args(argv)
+    if args.command == 'calibrate':
+        from dataclasses import asdict
+        from treeneuron.config import load_experiment
+        from treeneuron.pilot.calibrate import calibrate
+        print(json.dumps(asdict(calibrate(load_experiment(args.config))), indent=2, sort_keys=True, allow_nan=False))
+        return 0
     if args.command == 'run':
         from treeneuron.config import load_experiment
         from treeneuron.experiments.paired import run_paired

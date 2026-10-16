@@ -121,6 +121,22 @@ class ExecutionConfig:
 
 
 @dataclass(frozen=True)
+class PilotConfig:
+    # Genuine execution is deliberately unavailable before Tasks 9/10/13.
+    purpose: Literal["engineering"] = "engineering"
+    initial_teachers: int = 8
+    max_teachers: int = 8
+    repetitions: int = 2
+    evaluation_rows: int = 128
+    bootstrap_iterations: int = 2000
+    bootstrap_seed: int = 731
+    endpoint_tolerance: float = 0.001
+    probe_updates: int = 1
+    max_seconds: float = 60.0
+    constraints_path: str | None = None
+
+
+@dataclass(frozen=True)
 class ExperimentConfig:
     study_id: str
     phase: Literal["exploratory"] = "exploratory"
@@ -131,10 +147,14 @@ class ExperimentConfig:
     seeds: SeedsConfig = SeedsConfig()
     backend: BackendConfig = BackendConfig()
     execution: ExecutionConfig = ExecutionConfig()
+    pilot: PilotConfig | None = None
 
     def to_dict(self) -> dict[str, Any]:
         """Return a fresh JSON-compatible resolved configuration."""
-        return json.loads(canonical_json(asdict(self)))
+        value = asdict(self)
+        if self.pilot is None:
+            value.pop('pilot')  # preserve legacy resolved config identities
+        return json.loads(canonical_json(value))
 
 
 def _json_value(value: Any) -> Any:
@@ -290,6 +310,24 @@ def resolve_experiment(value: Mapping[str, Any]) -> ExperimentConfig:
         raise ValueError("nuisance_dimensions must be less than model.d")
     if config.data.population == "conditional_slope_2d" and config.model.d != 2:
         raise ValueError("conditional_slope_2d requires model.d=2")
+    if config.pilot is not None:
+        p = config.pilot
+        for name in ('initial_teachers', 'max_teachers', 'repetitions', 'evaluation_rows',
+                     'bootstrap_iterations', 'probe_updates', 'max_seconds', 'endpoint_tolerance'):
+            if getattr(p, name) <= 0: raise ValueError(f'pilot.{name} must be positive')
+        if p.evaluation_rows < 2 or p.bootstrap_iterations < 200 or p.bootstrap_seed < 0:
+            raise ValueError('Pilot needs >=2 E rows, >=200 bootstrap iterations and nonnegative seed')
+        if p.max_teachers < p.initial_teachers or p.max_teachers % p.initial_teachers:
+            raise ValueError('Pilot maximum must be a doubling of initial teacher count')
+        ratio = p.max_teachers // p.initial_teachers
+        if ratio & (ratio - 1): raise ValueError('Pilot teacher batches must double completed counts')
+        if config.data.n_test is not None:
+            raise ValueError('Pilot cannot request protected test observations')
+        if config.growth.policy != 'adam' or config.growth.direction != 'eigenvector':
+            raise ValueError('Pilot H1 uses a common Adam/eigenvector recipe')
+        if (config.training.continuation_updates is not None
+                and p.probe_updates > config.training.continuation_updates):
+            raise ValueError('Pilot probe allowance exceeds continuation')
     return config
 
 
