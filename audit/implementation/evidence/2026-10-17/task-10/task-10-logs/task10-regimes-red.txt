@@ -1,0 +1,19 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____ test_frozen_regime_masks_are_saved_only_after_label_free_prediction ______
+
+grant = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4006/test_frozen_re...3b7ce1a4583312d0dc15dbb9db4a', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'))
+
+    def test_frozen_regime_masks_are_saved_only_after_label_free_prediction(grant):
+        from treeneuron.evaluation import protected
+        root,frozen,manifest=grant
+        protected.open_test(frozen,manifest,run_id='unit-0-rep-0').evaluate(predictors())
+        rows=protected.load_evaluation(frozen,run_id='unit-0-rep-0')
+>       masks=rows['observations']['regime_masks']
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'regime_masks'
+
+tests/test_protected.py:147: KeyError
+=========================== short test summary info ============================
+FAILED tests/test_protected.py::test_frozen_regime_masks_are_saved_only_after_label_free_prediction
+1 failed in 17.73s

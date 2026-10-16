@@ -1,0 +1,12 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______ test_policy_rejects_undeclared_methods_and_overlapping_families ________
+
+    def test_policy_rejects_undeclared_methods_and_overlapping_families():
+>       from treeneuron.protocol import confirmation_policy
+E       ImportError: cannot import name 'confirmation_policy' from 'treeneuron.protocol' (/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/protocol.py)
+
+tests/test_primary.py:94: ImportError
+=========================== short test summary info ============================
+FAILED tests/test_primary.py::test_policy_rejects_undeclared_methods_and_overlapping_families
+1 failed in 0.48s

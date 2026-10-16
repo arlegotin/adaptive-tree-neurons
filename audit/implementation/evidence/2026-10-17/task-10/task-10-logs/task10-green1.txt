@@ -1,0 +1,34 @@
+..........F..                                                            [100%]
+=================================== FAILURES ===================================
+__ test_seed_mapping_uses_committed_optimizer_and_distinct_allocation_streams __
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4007/test_seed_mapping_uses_committ0')
+
+    def test_seed_mapping_uses_committed_optimizer_and_distinct_allocation_streams(tmp_path):
+        from test_pilot_calibrate import config
+        from treeneuron.protocol import confirmation_seeds
+        from treeneuron.evaluation.confirm import repetition_config
+        seeds=confirmation_seeds('toy','fixture',7,0,2)
+>       a,b=[repetition_config(config(tmp_path),seeds,j) for j in range(2)]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_confirmation.py:16: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/evaluation/confirm.py:37: in repetition_config
+    value['seeds'][name]=derive_seed(nominal,f'confirmation-streams/v1/{name}')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+seed = 9021944258926129508, namespace = 'confirmation-streams/v1/allocation'
+
+    def derive_seed(seed: int, namespace: str) -> int:
+        """Stable 63-bit seed from an explicit exploratory domain and integer root."""
+        _integer(seed, 'seed')
+        if not namespace or not namespace.startswith('exploratory/'):
+>           raise ValueError('Generation supports an explicit exploratory seed namespace only')
+E           ValueError: Generation supports an explicit exploratory seed namespace only
+
+src/treeneuron/data/synthetic.py:36: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_confirmation.py::test_seed_mapping_uses_committed_optimizer_and_distinct_allocation_streams
+1 failed, 12 passed in 9.01s

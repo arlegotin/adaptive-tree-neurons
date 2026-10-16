@@ -1,0 +1,125 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________ test_cli_confirmation_and_preparation_expose_distinct_gates __________
+
+self = ArgumentParser(prog='treeneuron', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+args = ['confirm', '--protocol', '/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4008/test_cli_confirmation_and_prep0/frozen.json', '--study', 'synthetic']
+namespace = Namespace(command=None), intermixed = False
+
+    def _parse_known_args2(self, args, namespace, intermixed):
+        if args is None:
+            # args default to the system args
+            args = _sys.argv[1:]
+        else:
+            # make sure that args are mutable
+            args = list(args)
+    
+        # default Namespace built from parser defaults
+        if namespace is None:
+            namespace = Namespace()
+    
+        # add any action defaults that aren't present
+        for action in self._actions:
+            if action.dest is not SUPPRESS:
+                if not hasattr(namespace, action.dest):
+                    if action.default is not SUPPRESS:
+                        setattr(namespace, action.dest, action.default)
+    
+        # add any parser defaults that aren't present
+        for dest in self._defaults:
+            if not hasattr(namespace, dest):
+                setattr(namespace, dest, self._defaults[dest])
+    
+        # parse the arguments and exit if there are any errors
+        if self.exit_on_error:
+            try:
+>               namespace, args = self._parse_known_args(args, namespace, intermixed)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:1943: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:2165: in _parse_known_args
+    positionals_end_index = consume_positionals(start_index)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:2141: in consume_positionals
+    take_action(action, args)
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:2003: in take_action
+    argument_values = self._get_values(action, argument_strings)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:2523: in _get_values
+    self._check_value(action, value[0])
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ArgumentParser(prog='treeneuron', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+action = _SubParsersAction(option_strings=[], dest='command', nargs='A...', const=None, default=None, type=None, choices={'doct...ss=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)}, required=True, help=None, metavar=None)
+value = 'confirm'
+
+    def _check_value(self, action, value):
+        # converted value must be one of the choices (if specified)
+        choices = action.choices
+        if choices is not None:
+            if isinstance(choices, str):
+                choices = iter(choices)
+            if value not in choices:
+                args = {'value': str(value),
+                        'choices': ', '.join(map(str, action.choices))}
+                msg = _('invalid choice: %(value)r (choose from %(choices)s)')
+>               raise ArgumentError(action, msg % args)
+E               argparse.ArgumentError: argument command: invalid choice: 'confirm' (choose from doctor, verify-math, verify-baselines, run, report, calibrate, freeze, amend)
+
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:2573: ArgumentError
+
+During handling of the above exception, another exception occurred:
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10bbb69f0>
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4008/test_cli_confirmation_and_prep0')
+capsys = <_pytest.capture.CaptureFixture object at 0x10c1dc9e0>
+
+    def test_cli_confirmation_and_preparation_expose_distinct_gates(monkeypatch,tmp_path,capsys):
+        from treeneuron.cli import main
+        from treeneuron import protocol
+        module=importlib.import_module('treeneuron.evaluation.confirm')
+        frozen_path=write(tmp_path,'frozen.json',{'payload':{'sources':{'root':str(tmp_path)}}})
+        frozen=protocol.FrozenProtocol(frozen_path,'hash','pin','checkout')
+        monkeypatch.setattr(protocol,'validate_frozen',lambda path,current: frozen)
+        seen=[]
+        monkeypatch.setattr(module,'run_confirmation',lambda p,s: seen.append((p,s)) or tmp_path)
+>       assert main(['confirm','--protocol',str(frozen_path),'--study','synthetic'])==0
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_confirmation.py:153: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/cli.py:41: in main
+    args = parser.parse_args(argv)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:1904: in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:1914: in parse_known_args
+    return self._parse_known_args2(args, namespace, intermixed=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:1945: in _parse_known_args2
+    self.error(str(err))
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:2650: in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ArgumentParser(prog='treeneuron', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+status = 2
+message = "treeneuron: error: argument command: invalid choice: 'confirm' (choose from doctor, verify-math, verify-baselines, run, report, calibrate, freeze, amend)\n"
+
+    def exit(self, status=0, message=None):
+        if message:
+            self._print_message(message, _sys.stderr)
+>       _sys.exit(status)
+E       SystemExit: 2
+
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/argparse.py:2637: SystemExit
+----------------------------- Captured stderr call -----------------------------
+usage: treeneuron [-h]
+                  {doctor,verify-math,verify-baselines,run,report,calibrate,freeze,amend}
+                  ...
+treeneuron: error: argument command: invalid choice: 'confirm' (choose from doctor, verify-math, verify-baselines, run, report, calibrate, freeze, amend)
+=========================== short test summary info ============================
+FAILED tests/test_confirmation.py::test_cli_confirmation_and_preparation_expose_distinct_gates
+1 failed in 3.06s

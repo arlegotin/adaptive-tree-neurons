@@ -1,0 +1,34 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________ test_sealed_evidence_failure_does_not_retry_immutable_evidence ________
+
+mock_cohort = (<module 'treeneuron.evaluation.confirm' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treen..., ('unit-1', 0), ('unit-1', 1), ('unit-2', 0), ('unit-2', 1), ...], <function mock_cohort.<locals>.fit at 0x114e4ff60>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10fa8a8d0>
+
+    def test_sealed_evidence_failure_does_not_retry_immutable_evidence(mock_cohort,monkeypatch):
+        from treeneuron.evaluation import protected
+        module,root,frozen,decision,calls,fit=mock_cohort
+        directory=module.run_confirmation(frozen,'synthetic')
+        ledger=json.loads((directory/'confirmation.json').read_text())
+        ledger['status']='running'; ledger['runs'][0]['status']='pending'
+        (directory/'confirmation.json').write_text(json.dumps(ledger))
+        original=protected.load_evaluation; reads=[]
+        def fail_first(protocol,*,run_id):
+            reads.append(run_id)
+            if len(reads)==1: raise ValueError('sealed evidence drift fixture')
+            return original(protocol,run_id=run_id)
+        monkeypatch.setattr(protected,'load_evaluation',fail_first)
+        module.run_confirmation(frozen,'synthetic')
+        result=json.loads((directory/'confirmation.json').read_text())
+>       assert result['status']=='incomplete' and len(reads)==1
+E       AssertionError: assert ('completed' == 'incomplete'
+E         
+E         - incomplete
+E         ? --
+E         + completed
+E         ?         +)
+
+tests/test_confirmation.py:279: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_confirmation.py::test_sealed_evidence_failure_does_not_retry_immutable_evidence
+1 failed in 18.43s

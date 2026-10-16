@@ -1,0 +1,152 @@
+FFFFEEE                                                                  [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of test_fixed_cohort_completes_zero_growth_all_units_and_resume_once _
+
+candidate = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4005/test_fixed_coh...7003b6460fefe7b5cb3fb0', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'), ...])
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x110f9c500>
+
+    @pytest.fixture
+    def mock_cohort(candidate,monkeypatch):
+        from treeneuron.protocol import freeze, EVALUATION_METHODS
+>       module=importlib.import_module('treeneuron.evaluation.confirm')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_confirmation.py:77: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'treeneuron.evaluation.confirm'
+import_ = <function _gcd_import at 0x105b880e0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'treeneuron.evaluation.confirm'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+_ ERROR at setup of test_failed_unit_retries_finite_same_seed_and_rest_of_cohort_runs _
+
+candidate = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4005/test_failed_un...7003b6460fefe7b5cb3fb0', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'), ...])
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x11210d1f0>
+
+    @pytest.fixture
+    def mock_cohort(candidate,monkeypatch):
+        from treeneuron.protocol import freeze, EVALUATION_METHODS
+>       module=importlib.import_module('treeneuron.evaluation.confirm')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_confirmation.py:77: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'treeneuron.evaluation.confirm'
+import_ = <function _gcd_import at 0x105b880e0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'treeneuron.evaluation.confirm'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+_ ERROR at setup of test_interrupt_resumes_declared_unit_without_replacing_teacher _
+
+candidate = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4005/test_interrupt...7003b6460fefe7b5cb3fb0', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'), ...])
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x11103a4e0>
+
+    @pytest.fixture
+    def mock_cohort(candidate,monkeypatch):
+        from treeneuron.protocol import freeze, EVALUATION_METHODS
+>       module=importlib.import_module('treeneuron.evaluation.confirm')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_confirmation.py:77: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'treeneuron.evaluation.confirm'
+import_ = <function _gcd_import at 0x105b880e0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'treeneuron.evaluation.confirm'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+=================================== FAILURES ===================================
+__ test_seed_mapping_uses_committed_optimizer_and_distinct_allocation_streams __
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4005/test_seed_mapping_uses_committ0')
+
+    def test_seed_mapping_uses_committed_optimizer_and_distinct_allocation_streams(tmp_path):
+        from test_pilot_calibrate import config
+        from treeneuron.protocol import confirmation_seeds
+>       from treeneuron.evaluation.confirm import repetition_config
+E       ModuleNotFoundError: No module named 'treeneuron.evaluation.confirm'
+
+tests/test_confirmation.py:14: ModuleNotFoundError
+__________ test_prepare_creates_only_development_and_committed_T_ids ___________
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4005/test_prepare_c...'path': 'evidence/pilot/raw.json', 'sha256': '9d486857df4c42b7623c19dc48c5e83836a1230caa93c8afcd840faa89b45ba8'}, ...})
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10e0bf9e0>
+
+    def test_prepare_creates_only_development_and_committed_T_ids(prepared,monkeypatch):
+>       from treeneuron.evaluation.confirm import prepare_cohort
+E       ModuleNotFoundError: No module named 'treeneuron.evaluation.confirm'
+
+tests/test_confirmation.py:26: ModuleNotFoundError
+_________ test_label_free_fitting_saves_reloadable_all_eight_models[0] _________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4005/test_label_free_fitting_saves_0')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4005/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x110b3f110>
+growth_count = 0
+
+    @pytest.mark.parametrize('growth_count',[0,1])
+    def test_label_free_fitting_saves_reloadable_all_eight_models(tmp_path,cpu_training_evidence,monkeypatch,growth_count):
+        import torch
+        from test_pilot_calibrate import config
+        from treeneuron.config import resolve_experiment
+>       from treeneuron.pilot.calibrate import teacher_inputs, fit_repetition
+E       ImportError: cannot import name 'fit_repetition' from 'treeneuron.pilot.calibrate' (/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/pilot/calibrate.py)
+
+tests/test_confirmation.py:53: ImportError
+_________ test_label_free_fitting_saves_reloadable_all_eight_models[1] _________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4005/test_label_free_fitting_saves_1')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4005/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x110c32e40>
+growth_count = 1
+
+    @pytest.mark.parametrize('growth_count',[0,1])
+    def test_label_free_fitting_saves_reloadable_all_eight_models(tmp_path,cpu_training_evidence,monkeypatch,growth_count):
+        import torch
+        from test_pilot_calibrate import config
+        from treeneuron.config import resolve_experiment
+>       from treeneuron.pilot.calibrate import teacher_inputs, fit_repetition
+E       ImportError: cannot import name 'fit_repetition' from 'treeneuron.pilot.calibrate' (/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/pilot/calibrate.py)
+
+tests/test_confirmation.py:53: ImportError
+=========================== short test summary info ============================
+FAILED tests/test_confirmation.py::test_seed_mapping_uses_committed_optimizer_and_distinct_allocation_streams
+FAILED tests/test_confirmation.py::test_prepare_creates_only_development_and_committed_T_ids
+FAILED tests/test_confirmation.py::test_label_free_fitting_saves_reloadable_all_eight_models[0]
+FAILED tests/test_confirmation.py::test_label_free_fitting_saves_reloadable_all_eight_models[1]
+ERROR tests/test_confirmation.py::test_fixed_cohort_completes_zero_growth_all_units_and_resume_once
+ERROR tests/test_confirmation.py::test_failed_unit_retries_finite_same_seed_and_rest_of_cohort_runs
+ERROR tests/test_confirmation.py::test_interrupt_resumes_declared_unit_without_replacing_teacher
+4 failed, 3 errors in 17.12s

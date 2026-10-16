@@ -6,6 +6,8 @@ The first complete exploratory comparison gives a negative result for the score:
 
 These are descriptive G/V results from one teacher and optimizer seed, with provisional update limits. Top was still improving at its limit. The separate noiseless 2-D control learns the intended opposite slopes; keep, top and random all give validation MSE about **0.001338**, with no useful extra-growth gain. It is a different diagnostic population, not another primary replicate. The [curated evidence](docs/research/2026-10-16-exploratory-paired-evidence.json) records all controls, costs, hashes and limitations; [DECISIONS.md](DECISIONS.md#d008--16-october-2026-exploratory-checkpoint-cost-and-first-paired-study) records the bounded conclusion and next gates.
 
+The [plain-language interpretation](docs/research/2026-10-17-exploratory-interpretation.md) explains what these early results support and what remains unresolved. Protocol protection and the independent-cohort runner have passed implementation review. Audit and reproduction code come next, before the genuine pilot and test-data freeze. No independent accuracy result exists yet.
+
 The repository implements the compact selective affine layer, CPU64 moment score, deterministic CPU training, complete checkpoint recovery, state-preserving growth, F-only preprocessing and serial paired controls. Algebra, native CPU/MPS kernel checks and the CPU causal path have been tested. The soft affine-stump model belongs to an established gated family; the research target is the allocation procedure and its measured limits.
 
 Start with the [specification](docs/superpowers/specs/2026-10-16-selective-tree-neurons-design.md), then follow the plans in gate order:

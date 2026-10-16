@@ -1,0 +1,32 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________ test_saved_primary_counts_entire_unobserved_cohort ______________
+
+candidate = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4023/test_saved_pri...7003b6460fefe7b5cb3fb0', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'), ...])
+
+    def test_saved_primary_counts_entire_unobserved_cohort(candidate):
+        from treeneuron.protocol import freeze
+        from treeneuron.analysis.primary import analyze_primary
+        import json
+        root,decision,sources,manifests=candidate
+        frozen=freeze(decision,sources,root/'protocol/frozen.yaml')
+        directory=frozen.path.parent/'confirmation'/frozen.protocol_hash; directory.mkdir(parents=True)
+        ledger=dict(protocol_hash=frozen.protocol_hash,status='incomplete',costs={},runs=[
+            dict(unit_id=u['unit_id'],repetition=j,run_id=rid,status='failed',attempts=[])
+            for u in sources['cohort']['units'] for j,rid in enumerate(u['run_ids'])])
+        (directory/'confirmation.json').write_text(json.dumps(ledger))
+        report=analyze_primary(directory,frozen)
+        assert report['status']=='incomplete' and not report['primary']['superiority']
+        assert report['declared_teachers']==report['observed_teachers']==decision.K
+        assert report['valid_teachers']==0 and report['valid_runs']==0
+>       assert {'ordinary_upper:static_partial','ordinary_upper:widen_upper'}<=set(report['controls'])
+E       AssertionError: assert {'ordinary_up...:widen_upper'} <= {'greedy:top'...ial:top', ...}
+E         
+E         Extra items in the left set:
+E         'ordinary_upper:widen_upper'
+E         'ordinary_upper:static_partial'
+
+tests/test_primary.py:118: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_primary.py::test_saved_primary_counts_entire_unobserved_cohort
+1 failed in 12.89s

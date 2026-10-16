@@ -1,0 +1,83 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+______________ test_saved_primary_counts_entire_unobserved_cohort ______________
+
+candidate = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4010/test_saved_pri...7003b6460fefe7b5cb3fb0', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'), ...])
+
+    def test_saved_primary_counts_entire_unobserved_cohort(candidate):
+        from treeneuron.protocol import freeze
+        from treeneuron.analysis.primary import analyze_primary
+        import json
+        root,decision,sources,manifests=candidate
+        frozen=freeze(decision,sources,root/'protocol/frozen.yaml')
+        directory=frozen.path.parent/'confirmation'/frozen.protocol_hash; directory.mkdir(parents=True)
+        ledger=dict(protocol_hash=frozen.protocol_hash,status='incomplete',costs={},runs=[
+            dict(unit_id=u['unit_id'],repetition=j,run_id=rid,status='failed',attempts=[])
+            for u in sources['cohort']['units'] for j,rid in enumerate(u['run_ids'])])
+        (directory/'confirmation.json').write_text(json.dumps(ledger))
+>       report=analyze_primary(directory,frozen)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_primary.py:114: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+study_dir = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4010/test_saved_primary_counts_enti0/repo/protocol/confirmation/6cfe60b91a47ad507a3d067c74e7a9459e54b21495969a5e2a31f84f6d5342ec')
+protocol = FrozenProtocol(path=PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-..., pinned_commit='91618277c8768aaebcf18fbb26be146f52e2d0f8', checkout_commit='df55709fce71aee424ce1883e2772dda310969af')
+
+    def analyze_primary(study_dir: Path, protocol: FrozenProtocol) -> dict[str, Any]:
+        """Rebuild from original protected rows and declared identities, never scores."""
+        payload=_payload(protocol); root=Path(payload['sources']['root']); study_dir=Path(study_dir)
+        expected=protocol.path.parent/'confirmation'/protocol.protocol_hash
+        if study_dir.resolve()!=expected.resolve(): raise ValueError('Study directory differs from frozen protocol')
+        ledger=_read(study_dir/'confirmation.json')
+        if ledger['protocol_hash']!=protocol.protocol_hash: raise ValueError('Study identity differs')
+        raw=_read(_reference(root,payload['sources']['raw'])); config=resolve_experiment(raw['config'])
+        declared=[(u,rep,rid) for u in payload['sources']['cohort']['units'] for rep,rid in enumerate(u['run_ids'])]
+        if [(r['unit_id'],r['repetition'],r['run_id']) for r in ledger['runs']]!=[(u['unit_id'],j,rid) for u,j,rid in declared]:
+            raise ValueError('Run ledger omits or changes declared cohort')
+        lookup={r['run_id']:r for r in ledger['runs']}; runs=[]; predictions={}
+        for unit,rep,rid in declared:
+>           teacher=_read(_reference(root,unit['teacher']))['teacher_id']
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           KeyError: 'teacher_id'
+
+src/treeneuron/analysis/primary.py:153: KeyError
+_________ test_label_free_fitting_saves_reloadable_all_eight_models[0] _________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4010/test_label_free_fitting_saves_0')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4010/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x115c3b230>
+growth_count = 0
+
+    @pytest.mark.parametrize('growth_count',[0,1])
+    def test_label_free_fitting_saves_reloadable_all_eight_models(tmp_path,cpu_training_evidence,monkeypatch,growth_count):
+        import torch
+        from test_pilot_calibrate import config
+        from treeneuron.config import resolve_experiment
+        from treeneuron.pilot.calibrate import teacher_inputs, fit_repetition
+>       from treeneuron.evaluation.confirm import load_predictors, audit_models
+E       ImportError: cannot import name 'audit_models' from 'treeneuron.evaluation.confirm' (/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/evaluation/confirm.py)
+
+tests/test_confirmation.py:54: ImportError
+_________ test_label_free_fitting_saves_reloadable_all_eight_models[1] _________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4010/test_label_free_fitting_saves_1')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4010/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x114d735c0>
+growth_count = 1
+
+    @pytest.mark.parametrize('growth_count',[0,1])
+    def test_label_free_fitting_saves_reloadable_all_eight_models(tmp_path,cpu_training_evidence,monkeypatch,growth_count):
+        import torch
+        from test_pilot_calibrate import config
+        from treeneuron.config import resolve_experiment
+        from treeneuron.pilot.calibrate import teacher_inputs, fit_repetition
+>       from treeneuron.evaluation.confirm import load_predictors, audit_models
+E       ImportError: cannot import name 'audit_models' from 'treeneuron.evaluation.confirm' (/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/evaluation/confirm.py)
+
+tests/test_confirmation.py:54: ImportError
+=========================== short test summary info ============================
+FAILED tests/test_primary.py::test_saved_primary_counts_entire_unobserved_cohort
+FAILED tests/test_confirmation.py::test_label_free_fitting_saves_reloadable_all_eight_models[0]
+FAILED tests/test_confirmation.py::test_label_free_fitting_saves_reloadable_all_eight_models[1]
+3 failed in 11.27s

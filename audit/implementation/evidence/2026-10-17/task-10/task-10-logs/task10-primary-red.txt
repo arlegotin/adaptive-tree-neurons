@@ -1,0 +1,85 @@
+FFFFFFFFF                                                                [100%]
+=================================== FAILURES ===================================
+________________ test_repetitions_are_not_independent_teachers _________________
+
+    def test_repetitions_are_not_independent_teachers():
+>       from treeneuron.analysis.primary import aggregate_teachers, summarize_effects
+E       ModuleNotFoundError: No module named 'treeneuron.analysis.primary'
+
+tests/test_primary.py:25: ModuleNotFoundError
+__________ test_missing_invalid_pair_counts_teacher_without_zero_fill __________
+
+    def test_missing_invalid_pair_counts_teacher_without_zero_fill():
+>       from treeneuron.analysis.primary import aggregate_teachers
+E       ModuleNotFoundError: No module named 'treeneuron.analysis.primary'
+
+tests/test_primary.py:39: ModuleNotFoundError
+_______ test_degenerate_intervals_cannot_establish_superiority[effects0] _______
+
+effects = (1.0,)
+
+    @pytest.mark.parametrize('effects',[(1.,),(1.,1.,1.),(0.,0.,0.)])
+    def test_degenerate_intervals_cannot_establish_superiority(effects):
+>       from treeneuron.analysis.primary import summarize_effects
+E       ModuleNotFoundError: No module named 'treeneuron.analysis.primary'
+
+tests/test_primary.py:50: ModuleNotFoundError
+_______ test_degenerate_intervals_cannot_establish_superiority[effects1] _______
+
+effects = (1.0, 1.0, 1.0)
+
+    @pytest.mark.parametrize('effects',[(1.,),(1.,1.,1.),(0.,0.,0.)])
+    def test_degenerate_intervals_cannot_establish_superiority(effects):
+>       from treeneuron.analysis.primary import summarize_effects
+E       ModuleNotFoundError: No module named 'treeneuron.analysis.primary'
+
+tests/test_primary.py:50: ModuleNotFoundError
+_______ test_degenerate_intervals_cannot_establish_superiority[effects2] _______
+
+effects = (0.0, 0.0, 0.0)
+
+    @pytest.mark.parametrize('effects',[(1.,),(1.,1.,1.),(0.,0.,0.)])
+    def test_degenerate_intervals_cannot_establish_superiority(effects):
+>       from treeneuron.analysis.primary import summarize_effects
+E       ModuleNotFoundError: No module named 'treeneuron.analysis.primary'
+
+tests/test_primary.py:50: ModuleNotFoundError
+____ test_positive_sign_favors_top_and_distinguishes_negative_inconclusive _____
+
+    def test_positive_sign_favors_top_and_distinguishes_negative_inconclusive():
+>       from treeneuron.analysis.primary import summarize_effects
+E       ModuleNotFoundError: No module named 'treeneuron.analysis.primary'
+
+tests/test_primary.py:57: ModuleNotFoundError
+____________ test_exact_metric_reconstruction_and_degenerate_scale _____________
+
+    def test_exact_metric_reconstruction_and_degenerate_scale():
+>       from treeneuron.analysis.primary import aggregate_teachers
+E       ModuleNotFoundError: No module named 'treeneuron.analysis.primary'
+
+tests/test_primary.py:66: ModuleNotFoundError
+_________________ test_conflicting_duplicate_identity_rejected _________________
+
+    def test_conflicting_duplicate_identity_rejected():
+>       from treeneuron.analysis.primary import aggregate_teachers
+E       ModuleNotFoundError: No module named 'treeneuron.analysis.primary'
+
+tests/test_primary.py:82: ModuleNotFoundError
+__________________ test_only_declared_holm_family_is_adjusted __________________
+
+    def test_only_declared_holm_family_is_adjusted():
+>       from treeneuron.analysis.primary import holm_adjust
+E       ModuleNotFoundError: No module named 'treeneuron.analysis.primary'
+
+tests/test_primary.py:88: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_primary.py::test_repetitions_are_not_independent_teachers
+FAILED tests/test_primary.py::test_missing_invalid_pair_counts_teacher_without_zero_fill
+FAILED tests/test_primary.py::test_degenerate_intervals_cannot_establish_superiority[effects0]
+FAILED tests/test_primary.py::test_degenerate_intervals_cannot_establish_superiority[effects1]
+FAILED tests/test_primary.py::test_degenerate_intervals_cannot_establish_superiority[effects2]
+FAILED tests/test_primary.py::test_positive_sign_favors_top_and_distinguishes_negative_inconclusive
+FAILED tests/test_primary.py::test_exact_metric_reconstruction_and_degenerate_scale
+FAILED tests/test_primary.py::test_conflicting_duplicate_identity_rejected - ...
+FAILED tests/test_primary.py::test_only_declared_holm_family_is_adjusted - Mo...
+9 failed in 0.07s

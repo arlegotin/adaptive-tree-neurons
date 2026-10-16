@@ -1,0 +1,54 @@
+{
+  "changed_files": {
+    "DECISIONS.md": "221f2514abfe583229b86611c7f95057e4b687fe98734e8092e3a949beff04f7",
+    "src/treeneuron/analysis/primary.py": "a5f600ad0038a8a2a2be09f5ed2af14e7cca4d762fc1966484094fd39a217a2c",
+    "src/treeneuron/cli.py": "d2931a3cfb1b9038c42740c5829c88fd4aae1924c479c4d31ad43372de312740",
+    "src/treeneuron/evaluation/confirm.py": "46160256916c7f411b434190c09d1213ae24e0affc66b9a940a43b9bf277a6cd",
+    "src/treeneuron/evaluation/protected.py": "e03e2f3e715bed486ee4f63ea1e73850e42e51032ac364a1459498edefc4ae50",
+    "src/treeneuron/pilot/calibrate.py": "e08d3ca6e37dfcd878bf8b615e621ab82def88369a14b7edc264bc458c942adf",
+    "src/treeneuron/protocol.py": "739844cb8716dc07af5fc35540c48d2b0c533397f7e1d1be20dca55e3c3a8bf3",
+    "tests/test_confirmation.py": "e991f27d31f4533198e6746e3f77057e99879e0ef39916d13d6d5a72d10788ef",
+    "tests/test_primary.py": "c328782eb62301f6a6dc9eaa40871a9d75f15994905904fdce997088dc2a9710",
+    "tests/test_protected.py": "8a8f98401d2216077729fa88a55969623b2309121d75f994fa7701dd28c20987"
+  },
+  "commit": "b40cee4d705a03b90044ac36b023803df69503e2",
+  "execution_snapshot": {
+    "path": "task-10-execution-snapshot.json",
+    "sha256": "11f9d269455b7078e2dfa7dc820c1bcf7a002e6d1ae68f22b5b61f0e3a317e5c"
+  },
+  "logs": {
+    "task-10-logs/task10-audit-red.txt": "b51f13b1cbdb3f5fe1fd30ad444379b758a40e0cc775a0358ee14581b2e4593e",
+    "task-10-logs/task10-cli-red.txt": "6cde9ff3e0fa4489551cf70c70058898dacf59fbff847aad4e38093dc99c9693",
+    "task-10-logs/task10-cost-red.txt": "f1678a7a0e2ce50a03aa766716ce1c774159695f810be8a50e713d1354cfca53",
+    "task-10-logs/task10-final-fixes.txt": "5f73f3422db04cb59762cf6ea9bdeaac86f4bf93b464a3b4805671030ebf88da",
+    "task-10-logs/task10-final-focused.txt": "250b1dddc182685e2e6c7d1d134b75036373ba2ae618cc4eb67e070a1e98722c",
+    "task-10-logs/task10-full.txt": "97f4024575becb49338b7d79820036df3e37527a6dd39aefc21fe21fd208a9ee",
+    "task-10-logs/task10-green1.txt": "1b7f98ddda7faa276c617045ee8caf1be7fb09d37638e3c50108d98cb9d457a2",
+    "task-10-logs/task10-green2.txt": "c76eb251d41f66b564bb6bd3fb4bc01f3f37cea6c6dd50fcc2cc657db7402163",
+    "task-10-logs/task10-green3.txt": "5fbf47b7930c4fc22800ae4146499e05b3cb3dc66e2bc6a7189340df86c3bb63",
+    "task-10-logs/task10-h2-red.txt": "3201aea64d7496dd756f9b8c0bb00d204eea4f26fc54f359e0cfbcf5ca0980e6",
+    "task-10-logs/task10-order-green.txt": "654580162333c10dfb363b3a6352c75e365acc7f8cd601058dd467ad1067ca28",
+    "task-10-logs/task10-order-red.txt": "69cd44599eb55c4007d44a08f0e28e53aac418eb53b0bd660d22531419edbbf4",
+    "task-10-logs/task10-policy-red.txt": "dac31b4f0a59b6fe396c0765526aedc9d04112977cbd9f01d8e8db1bde7fbf87",
+    "task-10-logs/task10-primary-red.txt": "f5b5e32ee104cacb260a67fd5886697b22fedf09af43dea0b001c3c9a375d657",
+    "task-10-logs/task10-red.txt": "ee2b775fa813e664ffa404db220bb7474a64fbb6bf7ed6c65e9c0e2b0ab626ce",
+    "task-10-logs/task10-regimes-red.txt": "bd05cfa2bd0397865443f12f064a521bb4c8a9d6ce28201df00dc45aaa657d7c",
+    "task-10-logs/task10-retry-binding-green.txt": "734522ea1fe4ca2d3eaf6989f3210715c2b879799b92a3b61079d63a3d3bd62a",
+    "task-10-logs/task10-retry-binding-red.txt": "8b669bfd70232afc0c9d94814baf7beb562ae7292601650450d561a6452736e4",
+    "task-10-logs/task10-sealed-red.txt": "ffac3558704378dcccc2088ab6526763be375e12cc0353c9667f4a3f20bef54c"
+  },
+  "package_source_hash": "18cb7f063c533ea612630736108dd26cb39584b9a4ac182b3f8bd2ef1fe38108",
+  "report": {
+    "path": "task-10-report.md",
+    "sha256": "478b56c2565a9f4073831382c2ab5d397765f524636e38b6d51107601a1368a2"
+  },
+  "status": "implementation_verified_review_pending",
+  "tests": {
+    "command": ".venv/bin/python -m pytest -q",
+    "exit_code": 0,
+    "passed": 890,
+    "seconds": 900.2,
+    "skipped": 48,
+    "warnings": 28
+  }
+}

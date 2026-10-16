@@ -1,0 +1,83 @@
+.F......F..............                                                  [100%]
+=================================== FAILURES ===================================
+__________ test_prepare_creates_only_development_and_committed_T_ids ___________
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4020/test_prepare_c...'path': 'evidence/pilot/raw.json', 'sha256': '8c171554a1b175ecaad86bfb3c601cfe14e91363b823bddcd3c8d4b6bff69532'}, ...})
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x113b6e930>
+
+    def test_prepare_creates_only_development_and_committed_T_ids(prepared,monkeypatch):
+        from treeneuron.evaluation.confirm import prepare_cohort
+        from treeneuron.evaluation import protected
+        from treeneuron.protocol import eligible_design, _scientific_sources
+        root,config,sources=prepared
+        def forbidden(*a,**kw): raise AssertionError('T generation before freeze')
+        monkeypatch.setattr(protected,'_rng',forbidden)
+        monkeypatch.setattr(protected,'_test_labels',forbidden)
+        decision=eligible_design(sources)
+>       result=prepare_cohort(decision,sources,root/'prepared',cohort_id='fixture',root_seed=72)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_confirmation.py:34: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/evaluation/confirm.py:79: in prepare_cohort
+    receipt=dict(schema_version=1,units_sha256=canonical_hash(units),raw_sha256=sources['raw']['sha256'],
+                                               ^^^^^^^^^^^^^^^^^^^^^
+src/treeneuron/config.py:186: in canonical_hash
+    return hashlib.sha256(canonical_json(value).encode("utf-8")).hexdigest()
+                          ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+value = [{'unit_id': 'unit-0', 'seeds': {'teacher': 5993728606515802802, 'reference': 490037963494315741, 'data': 394859751862...th': 'prepared/unit-5/F.npy', 'sha256': 'b767ebfece983643404bc612b54a5761503493d171534b54be17e4358583104e'}, ...}, ...]
+
+    def canonical_json(value: Mapping[str, Any]) -> str:
+        """Sorted compact UTF-8 JSON; reject coercion, unsupported types and NaN."""
+        if not isinstance(value, Mapping):
+>           raise ValueError("Expected a mapping")
+E           ValueError: Expected a mapping
+
+src/treeneuron/config.py:180: ValueError
+__________ test_real_prepared_fits_protected_rows_and_saved_analysis ___________
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4020/test_real_prep...'path': 'evidence/pilot/raw.json', 'sha256': '9ba858a84910f6fca89c9df381f07b1e563de0174929e7d7873a9f0b63b1e24c'}, ...})
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4020/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1193d07d0>
+
+    def test_real_prepared_fits_protected_rows_and_saved_analysis(prepared,cpu_training_evidence,monkeypatch):
+        """One real toy teacher, two repetitions; other declared units retained failed.
+    
+        Only the numerical receipt path/thread fixture is substituted for pytest's
+        runtime; genuine CPU1/1 receipts and scientific runs are not produced here.
+        """
+        import torch
+        from treeneuron.protocol import eligible_design, freeze
+        from treeneuron.analysis.primary import analyze_primary
+        from treeneuron.config import resolve_experiment
+        from treeneuron.evaluation import protected
+        module=importlib.import_module('treeneuron.evaluation.confirm')
+        root,config,sources=prepared; decision=eligible_design(sources)
+>       sources=module.prepare_cohort(decision,sources,root/'real-toy',cohort_id='tiny-real-path',root_seed=17)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_confirmation.py:201: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/evaluation/confirm.py:79: in prepare_cohort
+    receipt=dict(schema_version=1,units_sha256=canonical_hash(units),raw_sha256=sources['raw']['sha256'],
+                                               ^^^^^^^^^^^^^^^^^^^^^
+src/treeneuron/config.py:186: in canonical_hash
+    return hashlib.sha256(canonical_json(value).encode("utf-8")).hexdigest()
+                          ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+value = [{'unit_id': 'unit-0', 'seeds': {'teacher': 2636265144201303413, 'reference': 666813653618213631, 'data': 220270835748...th': 'real-toy/unit-5/F.npy', 'sha256': '68634e04ee5ea91aac35e3835744bae680ab6227016ebab05d0ecc25c8823e5e'}, ...}, ...]
+
+    def canonical_json(value: Mapping[str, Any]) -> str:
+        """Sorted compact UTF-8 JSON; reject coercion, unsupported types and NaN."""
+        if not isinstance(value, Mapping):
+>           raise ValueError("Expected a mapping")
+E           ValueError: Expected a mapping
+
+src/treeneuron/config.py:180: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_confirmation.py::test_prepare_creates_only_development_and_committed_T_ids
+FAILED tests/test_confirmation.py::test_real_prepared_fits_protected_rows_and_saved_analysis
+2 failed, 21 passed in 130.48s (0:02:10)

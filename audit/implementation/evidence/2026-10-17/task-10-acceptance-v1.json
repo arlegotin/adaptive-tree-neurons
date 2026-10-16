@@ -1,0 +1,27 @@
+{
+  "artifacts": [
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-10/task-10-review.md",
+      "sha256": "a6c1f641d6d087901f2a7fdecd4593fdbc2a32e78b5e17f04ad804e3ec93f93b"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-10/task-10-report.md",
+      "sha256": "478b56c2565a9f4073831382c2ab5d397765f524636e38b6d51107601a1368a2"
+    }
+  ],
+  "execution_sha256": "f5a265b16404cd5a5779b11127d98863c6a5bcf46486fe8bfd21f256df625221",
+  "files": {
+    "src/treeneuron/analysis/primary.py": "a5f600ad0038a8a2a2be09f5ed2af14e7cca4d762fc1966484094fd39a217a2c",
+    "src/treeneuron/cli.py": "d2931a3cfb1b9038c42740c5829c88fd4aae1924c479c4d31ad43372de312740",
+    "src/treeneuron/evaluation/confirm.py": "46160256916c7f411b434190c09d1213ae24e0affc66b9a940a43b9bf277a6cd",
+    "src/treeneuron/evaluation/protected.py": "e03e2f3e715bed486ee4f63ea1e73850e42e51032ac364a1459498edefc4ae50",
+    "src/treeneuron/pilot/calibrate.py": "e08d3ca6e37dfcd878bf8b615e621ab82def88369a14b7edc264bc458c942adf",
+    "src/treeneuron/protocol.py": "739844cb8716dc07af5fc35540c48d2b0c533397f7e1d1be20dca55e3c3a8bf3",
+    "tests/test_confirmation.py": "e991f27d31f4533198e6746e3f77057e99879e0ef39916d13d6d5a72d10788ef",
+    "tests/test_primary.py": "c328782eb62301f6a6dc9eaa40871a9d75f15994905904fdce997088dc2a9710",
+    "tests/test_protected.py": "8a8f98401d2216077729fa88a55969623b2309121d75f994fa7701dd28c20987"
+  },
+  "implementation_commit": "b40cee4d705a03b90044ac36b023803df69503e2",
+  "task": "10",
+  "verdict": "accepted"
+}

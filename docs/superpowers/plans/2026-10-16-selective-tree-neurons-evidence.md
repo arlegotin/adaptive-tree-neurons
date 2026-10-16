@@ -255,11 +255,13 @@ def test_rejected_freeze_never_reads_test_labels(drift_case):
 
 ## Task 10: Complete the independent H1 cohort and teacher-level analysis
 
+**Phase (17 October 2026):** Implementation accepted after independent spec and quality review; WP06 scientific execution remains pending audit/reproduction implementation, genuine pilot/design and real freeze. [Review and evidence](../../../audit/implementation/evidence/2026-10-17/task-10-index.json).
+
 **Files:** Create `src/treeneuron/evaluation/confirm.py`, `analysis/primary.py`, `tests/test_confirmation.py`, `tests/test_primary.py`; extend CLI `confirm --protocol PATH --study synthetic`.
 
 **Interfaces:** Produce `run_confirmation(protocol: FrozenProtocol, study: str) -> Path`, `aggregate_teachers(predictions: Any, runs: Any) -> Any`, `analyze_primary(study_dir: Path, protocol: FrozenProtocol) -> dict[str, Any]`. Teacher aggregation averages optimizer/allocation repetitions within each teacher/data unit, then calculates `D=R_random-R_top` and whole-teacher uncertainty. Keep unnormalized and degenerate-risk statuses explicit.
 
-- [ ] **Step 1:** Write fixed-cohort mock tests: K×repetition units execute independent of intermediate signs; zero-growth and unfavorable units stay; interruption resumes the declared unit once; paired missing/invalid runs remain counted and block completed-cohort superiority. `test_repetitions_are_not_independent_teachers` duplicates seed rows and asserts effective sample count and bootstrap input are teacher count. Singleton and zero/undefined-variance inputs must not turn a degenerate point interval into a superiority result. Run confirmation/primary tests; expect missing implementations.
+- [x] **Step 1:** Write fixed-cohort mock tests: K×repetition units execute independent of intermediate signs; zero-growth and unfavorable units stay; interruption resumes the declared unit once; paired missing/invalid runs remain counted and block completed-cohort superiority. `test_repetitions_are_not_independent_teachers` duplicates seed rows and asserts effective sample count and bootstrap input are teacher count. Singleton and zero/undefined-variance inputs must not turn a degenerate point interval into a superiority result. Run confirmation/primary tests; expect missing implementations.
 
 ```python
 def test_repetitions_are_not_independent_teachers(three_teachers_two_repetitions):
@@ -267,8 +269,8 @@ def test_repetitions_are_not_independent_teachers(three_teachers_two_repetitions
     assert len(rows) == 3
 ```
 
-- [ ] **Step 2:** Implement serial protected evaluation, symmetric frozen finite retries and immutable saved predictions/metrics. Failures retain exception/resource/linkage; no new seed substituted for a losing or failed teacher. Compare measured total work with forecast. Run each fixed causal/attribution anchor with its declared allowance; no covertly reassigned unused updates.
-- [ ] **Step 3:** Implement paired mean/95% whole-unit bootstrap, Student-t sensitivity, median/full effects, guardrails/noise-free diagnostics and declared Holm families only. Tests with saved toy predictions require exact metric reconstruction, same-model zero D, seed-duplication invariance of independent count and H1 sign interpretation. Bootstrap interval endpoints use the frozen reproducible precision policy.
+- [x] **Step 2:** Implement serial protected evaluation, symmetric frozen finite retries and immutable saved predictions/metrics. Failures retain exception/resource/linkage; no new seed substituted for a losing or failed teacher. Compare measured total work with forecast. Run each fixed causal/attribution anchor with its declared allowance; no covertly reassigned unused updates.
+- [x] **Step 3:** Implement paired mean/95% whole-unit bootstrap, Student-t sensitivity, median/full effects, guardrails/noise-free diagnostics and declared Holm families only. Tests with saved toy predictions require exact metric reconstruction, same-model zero D, seed-duplication invariance of independent count and H1 sign interpretation. Bootstrap interval endpoints use the frozen reproducible precision policy.
 - [ ] **Step 4:** Run `.venv/bin/python -m pytest tests/test_confirmation.py tests/test_primary.py -q`, then the entire frozen cohort. Regenerate the analysis solely from saved predictions/run identities. Acceptance is a completed audited cohort or honestly incomplete/resource-limited record, never a positive p-value. H1 positive but static/widening equal yields a placement-only conclusion; narrow negative and wide inconclusive intervals remain distinct.
 - [ ] **Step 5:** Append WP06 decision and commit `feat: execute and analyze independent allocation confirmation` plus curated result/provenance indexes. Do not commit bulk T artifacts or select favorable units for the report.
 

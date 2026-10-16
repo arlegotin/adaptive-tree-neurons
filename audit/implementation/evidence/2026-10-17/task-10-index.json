@@ -1,0 +1,136 @@
+{
+  "base_commit": "9fb5be61d094eb3c7b21a4200cfe4fc8186b735c",
+  "execution_sha256": "f5a265b16404cd5a5779b11127d98863c6a5bcf46486fe8bfd21f256df625221",
+  "files": {
+    "audit/implementation/evidence/2026-10-17/rulings-for-final.md": {
+      "bytes": 748,
+      "sha256": "124ae04d1b1a97b62f22071c186df84eacb05c127fe3a9e3059c456ead5cd5ba"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10-acceptance-v1.json": {
+      "bytes": 1545,
+      "sha256": "617c5820116472cc39b11984d43eac7d31fad76f4db90618c455403bd6dbae57"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-execution-snapshot.json": {
+      "bytes": 39951,
+      "sha256": "11f9d269455b7078e2dfa7dc820c1bcf7a002e6d1ae68f22b5b61f0e3a317e5c"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-index.json": {
+      "bytes": 3811,
+      "sha256": "3f9b6d19f9c54ac4bfd9385939a94ca20d7e5ba817571497e3683794661ce180"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-logs/task10-audit-red.txt": {
+      "bytes": 6087,
+      "sha256": "b51f13b1cbdb3f5fe1fd30ad444379b758a40e0cc775a0358ee14581b2e4593e"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-logs/task10-cli-red.txt": {
+      "bytes": 7387,
+      "sha256": "6cde9ff3e0fa4489551cf70c70058898dacf59fbff847aad4e38093dc99c9693"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-logs/task10-cost-red.txt": {
+      "bytes": 5070,
+      "sha256": "f1678a7a0e2ce50a03aa766716ce1c774159695f810be8a50e713d1354cfca53"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-logs/task10-final-fixes.txt": {
+      "bytes": 109,
+      "sha256": "5f73f3422db04cb59762cf6ea9bdeaac86f4bf93b464a3b4805671030ebf88da"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-logs/task10-final-focused.txt": {
+      "bytes": 5556,
+      "sha256": "250b1dddc182685e2e6c7d1d134b75036373ba2ae618cc4eb67e070a1e98722c"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-logs/task10-full.txt": {
+      "bytes": 3712,
+      "sha256": "97f4024575becb49338b7d79820036df3e37527a6dd39aefc21fe21fd208a9ee"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-logs/task10-green1.txt": {
+      "bytes": 2042,
+      "sha256": "1b7f98ddda7faa276c617045ee8caf1be7fb09d37638e3c50108d98cb9d457a2"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-logs/task10-green2.txt": {
+      "bytes": 291,
+      "sha256": "c76eb251d41f66b564bb6bd3fb4bc01f3f37cea6c6dd50fcc2cc657db7402163"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-logs/task10-green3.txt": {
+      "bytes": 111,
+      "sha256": "5fbf47b7930c4fc22800ae4146499e05b3cb3dc66e2bc6a7189340df86c3bb63"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-logs/task10-h2-red.txt": {
+      "bytes": 2106,
+      "sha256": "3201aea64d7496dd756f9b8c0bb00d204eea4f26fc54f359e0cfbcf5ca0980e6"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-logs/task10-order-green.txt": {
+      "bytes": 99,
+      "sha256": "654580162333c10dfb363b3a6352c75e365acc7f8cd601058dd467ad1067ca28"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-logs/task10-order-red.txt": {
+      "bytes": 6053,
+      "sha256": "69cd44599eb55c4007d44a08f0e28e53aac418eb53b0bd660d22531419edbbf4"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-logs/task10-policy-red.txt": {
+      "bytes": 790,
+      "sha256": "dac31b4f0a59b6fe396c0765526aedc9d04112977cbd9f01d8e8db1bde7fbf87"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-logs/task10-primary-red.txt": {
+      "bytes": 4387,
+      "sha256": "f5b5e32ee104cacb260a67fd5886697b22fedf09af43dea0b001c3c9a375d657"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-logs/task10-red.txt": {
+      "bytes": 8927,
+      "sha256": "ee2b775fa813e664ffa404db220bb7474a64fbb6bf7ed6c65e9c0e2b0ab626ce"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-logs/task10-regimes-red.txt": {
+      "bytes": 1197,
+      "sha256": "bd05cfa2bd0397865443f12f064a521bb4c8a9d6ce28201df00dc45aaa657d7c"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-logs/task10-retry-binding-green.txt": {
+      "bytes": 109,
+      "sha256": "734522ea1fe4ca2d3eaf6989f3210715c2b879799b92a3b61079d63a3d3bd62a"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-logs/task10-retry-binding-red.txt": {
+      "bytes": 5955,
+      "sha256": "8b669bfd70232afc0c9d94814baf7beb562ae7292601650450d561a6452736e4"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-logs/task10-sealed-red.txt": {
+      "bytes": 1970,
+      "sha256": "ffac3558704378dcccc2088ab6526763be375e12cc0353c9667f4a3f20bef54c"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-report.md": {
+      "bytes": 22863,
+      "sha256": "478b56c2565a9f4073831382c2ab5d397765f524636e38b6d51107601a1368a2"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10/task-10-review.md": {
+      "bytes": 9371,
+      "sha256": "a6c1f641d6d087901f2a7fdecd4593fdbc2a32e78b5e17f04ad804e3ec93f93b"
+    },
+    "audit/implementation/evidence/2026-10-17/task-9-acceptance-v2.json": {
+      "bytes": 1944,
+      "sha256": "bf5e3249fad72e599ee975574def0cd199e3227df4b60b4b01fcda0c0d1527b3"
+    }
+  },
+  "implementation_commit": "b40cee4d705a03b90044ac36b023803df69503e2",
+  "limits": [
+    "No genuine pilot/freeze/cohort result",
+    "Task13 portable live/archived artifact resolution and audit/report code before genuine pilot",
+    "Later reviewed shared-file edits require renewed9/10acceptance bindings",
+    "Actualtoy32prepared units:1teacher2reps8roles fit;31x2omitted retained as failures, incomplete"
+  ],
+  "package_sha256": "18cb7f063c533ea612630736108dd26cb39584b9a4ac182b3f8bd2ef1fe38108",
+  "phase": "implementation_accepted_scientific_evidence_pending",
+  "review": {
+    "critical": 0,
+    "important": 0,
+    "inherited_minor": [
+      "Task3 NODE/vendor/Torch/sklearn expected-warning triage"
+    ],
+    "new_minor": 0
+  },
+  "task": 10,
+  "verification": {
+    "command": ".venv/bin/python -m pytest -q",
+    "exit_code": 0,
+    "passed": 890,
+    "seconds": 900.2,
+    "skipped": 48,
+    "warnings": 28
+  }
+}

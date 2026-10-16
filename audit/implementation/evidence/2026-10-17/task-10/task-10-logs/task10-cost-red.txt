@@ -1,0 +1,78 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+__________ test_prepare_creates_only_development_and_committed_T_ids ___________
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4015/test_prepare_c...'path': 'evidence/pilot/raw.json', 'sha256': '6229a0e829483308bd5f028964df4a43612660525ae0d894d012ae585452cf3e'}, ...})
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1090171a0>
+
+    def test_prepare_creates_only_development_and_committed_T_ids(prepared,monkeypatch):
+        from treeneuron.evaluation.confirm import prepare_cohort
+        from treeneuron.evaluation import protected
+        from treeneuron.protocol import eligible_design, _scientific_sources
+        root,config,sources=prepared
+        def forbidden(*a,**kw): raise AssertionError('T generation before freeze')
+        monkeypatch.setattr(protected,'_rng',forbidden)
+        monkeypatch.setattr(protected,'_test_labels',forbidden)
+        decision=eligible_design(sources)
+        result=prepare_cohort(decision,sources,root/'prepared',cohort_id='fixture',root_seed=72)
+        assert len(result['cohort']['units'])==decision.K
+        assert sources['cohort'] is None
+        _scientific_sources(result,decision)
+>       receipt=json.loads((root/result['cohort']['preparation']['path']).read_text())
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'preparation'
+
+tests/test_confirmation.py:38: KeyError
+______ test_fixed_cohort_completes_zero_growth_all_units_and_resume_once _______
+
+mock_cohort = (<module 'treeneuron.evaluation.confirm' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treen..., ('unit-1', 0), ('unit-1', 1), ('unit-2', 0), ('unit-2', 1), ...], <function mock_cohort.<locals>.fit at 0x1135274c0>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x11371d4f0>
+
+    def test_fixed_cohort_completes_zero_growth_all_units_and_resume_once(mock_cohort,monkeypatch):
+        module,root,frozen,decision,calls,fit=mock_cohort
+        directory=module.run_confirmation(frozen,'synthetic')
+        ledger=json.loads((directory/'confirmation.json').read_text())
+        assert ledger['status']=='completed'
+        assert len(calls)==decision.K*decision.repetitions
+        assert len(ledger['runs'])==len(calls)
+        assert all(r['status']=='completed' for r in ledger['runs'])
+        assert module.run_confirmation(frozen,'synthetic')==directory
+        assert len(calls)==decision.K*decision.repetitions
+        assert ledger['costs']['seconds']>=0 and ledger['costs']['forecast_seconds']>0
+>       assert ledger['costs']['preparation_seconds'] is None
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'preparation_seconds'
+
+tests/test_confirmation.py:121: KeyError
+______________ test_saved_primary_counts_entire_unobserved_cohort ______________
+
+candidate = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4015/test_saved_pri...7003b6460fefe7b5cb3fb0', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'), ...])
+
+    def test_saved_primary_counts_entire_unobserved_cohort(candidate):
+        from treeneuron.protocol import freeze
+        from treeneuron.analysis.primary import analyze_primary
+        import json
+        root,decision,sources,manifests=candidate
+        frozen=freeze(decision,sources,root/'protocol/frozen.yaml')
+        directory=frozen.path.parent/'confirmation'/frozen.protocol_hash; directory.mkdir(parents=True)
+        ledger=dict(protocol_hash=frozen.protocol_hash,status='incomplete',costs={},runs=[
+            dict(unit_id=u['unit_id'],repetition=j,run_id=rid,status='failed',attempts=[])
+            for u in sources['cohort']['units'] for j,rid in enumerate(u['run_ids'])])
+        (directory/'confirmation.json').write_text(json.dumps(ledger))
+        report=analyze_primary(directory,frozen)
+        assert report['status']=='incomplete' and not report['primary']['superiority']
+        assert report['declared_teachers']==report['observed_teachers']==decision.K
+        assert report['valid_teachers']==0 and report['valid_runs']==0
+        assert all(r['D'] is None for r in report['teachers'])
+        assert len(list(directory.glob('primary-*.json')))==1
+        import json
+>       receipt=json.loads(next((directory/'analysis-work').glob('*.json')).read_text())
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       StopIteration
+
+tests/test_primary.py:121: StopIteration
+=========================== short test summary info ============================
+FAILED tests/test_confirmation.py::test_prepare_creates_only_development_and_committed_T_ids
+FAILED tests/test_confirmation.py::test_fixed_cohort_completes_zero_growth_all_units_and_resume_once
+FAILED tests/test_primary.py::test_saved_primary_counts_entire_unobserved_cohort
+3 failed in 32.45s

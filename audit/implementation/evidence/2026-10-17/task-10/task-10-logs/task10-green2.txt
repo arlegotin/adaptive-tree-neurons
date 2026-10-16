@@ -1,0 +1,5 @@
+....
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! KeyboardInterrupt !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/config.py:163: KeyboardInterrupt
+(to show a full traceback on KeyboardInterrupt use --full-trace)
+4 passed in 106.33s (0:01:46)
