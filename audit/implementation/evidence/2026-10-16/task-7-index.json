@@ -1,0 +1,54 @@
+{
+  "scope": "Reviewed Task7 implementation phase; definitive numeric WP05 evidence remains pending",
+  "base": "9afded2",
+  "reviewed_initial_head": "2e921d3",
+  "accepted_fix_head": "e90b315",
+  "current_package_sha256": "1979ab38867c2acabe989817ad15d59ea30ea10e5e0f30a9501edc87cc3676b5",
+  "findings": {
+    "I1": "addressed",
+    "I2": "addressed",
+    "I3": "addressed"
+  },
+  "files": [
+    {
+      "path": "audit/implementation/evidence/2026-10-16/task-7-review.md",
+      "bytes": 10076,
+      "sha256": "a7c0f638417dfc44d683e3592e88a2fdbbb04a58cb9d2ee3b61cc045ad362b32"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-16/task-7-fix1-review.md",
+      "bytes": 4954,
+      "sha256": "3181f0a938b882ec501cd45704e3ba07cdd1cd7bccbd207b4cd8f8c230031780"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-16/task-7-report.md",
+      "bytes": 21296,
+      "sha256": "c1a0d585ce781322ee5110dd35d7ef95742f442394aaf07d7fac8ba94b07492d"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-16/task-7-fix1-report.md",
+      "bytes": 11249,
+      "sha256": "ee36e334c203bf03b186e67c41fdd7565c3a3ed70f4e353e0455f3a4b801510d"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-16/task-7-artifact-index.json",
+      "bytes": 179423,
+      "sha256": "84773888615d4a57f5a742aab5cdcc4111dcb8e140cf7d3913876430adf9ed17"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-16/task-7-fix1-artifact-index.json",
+      "bytes": 11913,
+      "sha256": "d1fda88e88d0dfa80b7399949784086235ce2875db1146390a3df9ee52f32157"
+    },
+    {
+      "path": "docs/research/2026-10-16-evidence7-search-timing.json",
+      "bytes": 9893,
+      "sha256": "23faf85425e1c60dffa3042f35d34d85ce16d524573ecd69423ffcbb1bf7a242"
+    },
+    {
+      "path": "docs/research/2026-10-16-evidence7-fix1.json",
+      "bytes": 6693,
+      "sha256": "bd45f81a1182d2d6ad6c1785c9839f4bd525146a9e7f1b473bda7e74f5a07b45"
+    }
+  ]
+}

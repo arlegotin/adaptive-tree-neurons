@@ -194,17 +194,19 @@ def test_gated_weights_are_not_downloaded(unauthorized_asset_case):
 
 **Interfaces:** Produce `SearchBudget` (seconds, trial/order policies, G stopping, official anchors), `SearchResult` (V winner plus all trials/costs/sampler state), `search(method_id: str, data: DevelopmentData, budget: SearchBudget, seed: int, paths: RunPaths) -> SearchResult`; `TimingPolicy` (boundaries/batches/threads/warmup precision/repetitions/block order), `measure_predictor(predictor: Predictor, X: Any, policy: TimingPolicy) -> dict[str, Any]`. A tuning runner sees V but never T; `FitRequest` still contains only F/G.
 
-- [ ] **Step 1:** Write deterministic mock-clock tests requiring official defaults first and retained even when not best, all failed/rejected trials charged, immutable sampler resume, G used for checkpoints and V for HPO/champion only. Timeout during an official default records unavailable-at-budget status, not a misleading partial model win. Run search/timing tests; expect missing APIs.
+- [x] **Step 1:** Write deterministic mock-clock tests requiring official defaults first and retained even when not best, all failed/rejected trials charged, immutable sampler resume, G used for checkpoints and V for HPO/champion only. Timeout during an official default records unavailable-at-budget status, not a misleading partial model win. Run search/timing tests; expect missing APIs.
 
 ```python
 def test_mps_timing_synchronizes_both_boundaries(timing_trace):
     assert timing_trace == ["sync", "start", "predict", "sync", "stop"]
 ```
 
-- [ ] **Step 2:** Implement seeded TPE with archived state and exact search supports; serialize isolated workers, no CPU oversubscription. Count preprocess/base/score/probe/validation/continuation/compilation in method budget; data acquisition and weights acquisition separate. A static competitor can spend saved allocation cost. Run exploratory doubling budgets, expand improving ceilings/search boundaries before freeze and retain official anchors.
-- [ ] **Step 3:** Implement `perf_counter_ns` boundaries with MPS synchronization, fresh process import/load/first prediction, host→device→host and kernel-only warm modes, complete batching and cached/uncached context modes. Tests with an injected sync/timer must show calls on both sides of the measured region. ABBA/balanced random blocks and rolling warmup are explicit; excluded/warmup work is retained. RSS/MPS counters stay separate.
+- [x] **Step 2:** Implement seeded TPE with archived state and exact search supports; serialize isolated workers, no CPU oversubscription. Count preprocess/base/score/probe/validation/continuation/compilation in method budget; data acquisition and weights acquisition separate. A static competitor can spend saved allocation cost. Run exploratory doubling budgets, expand improving ceilings/search boundaries before freeze and retain official anchors.
+- [x] **Step 3:** Implement `perf_counter_ns` boundaries with MPS synchronization, fresh process import/load/first prediction, host→device→host and kernel-only warm modes, complete batching and cached/uncached context modes. Tests with an injected sync/timer must show calls on both sides of the measured region. ABBA/balanced random blocks and rolling warmup are explicit; excluded/warmup work is retained. RSS/MPS counters stay separate.
 - [ ] **Step 4:** Measure on this laptop: low/common quality-budget candidates, timing variance/warmup stability, smallest safe batch reaching 95% peak throughput, median/tail repetition precision and default plateau curves. Select actual numeric policies in WP05 from these records; no global fixed time invented by this plan. Run `.venv/bin/python -m pytest tests/test_search.py tests/test_timing.py -q` and rebuild one timing summary from raw blocks.
-- [ ] **Step 5:** Commit `feat: account for local search costs and synchronized latency`.
+- [x] **Step 5:** Commit `feat: account for local search costs and synchronized latency`.
+
+**Implementation phase accepted; evidence pending WP05:** The independent review and scoped fix review close method interleaving, block-based precision and resumed-search cost lineage (`75fde42`, evidence `e90b315`). The current fix has35 passing covering tests; the preceding source passed708 full-suite tests. Step4's final quality/default-budget, training-batch and precision policies remain open until all pre-freeze H1 code exists and genuine pilot evidence supports them. Bounded timing/search receipts do not complete that scientific gate. Continue Task8 implementation, then Tasks9/10/13 implementation before the definitive pilot/freeze.
 
 ## Task 8: Calibrate variance, test size and the fixed confirmation design
 

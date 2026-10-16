@@ -1,0 +1,50 @@
+# Task 7 implementation-phase review
+
+## Spec compliance
+
+**❌ Issues found: 0 Critical, 3 Important, 0 new Minor.** The authorized bounded implementation phase is substantially implemented, but comparative method timing, block-aware repetition precision, and complete resumed-search cost/anchor lineage remain implementation gaps. Deferring final numeric WP05 policies does not resolve these gaps.
+
+**✅ Phase scope is honest.** The bounded fixture is identified as engineering evidence, final policy is null, and the capped resident result remains unresolved (`docs/research/2026-10-16-evidence7-search-timing.json:3`, `:219`, `:282`; `audit/implementation/evidence/2026-10-16/reproduce-task7.py:113`). Full default/quality plateaus, actual numeric study budgets and subsequent final-source calibration are legitimately deferred by `task-7-execution.md:9`; this review does not require a long NODE run, protected T, or whole-Task-7 scientific completion.
+
+## Strengths
+
+- The coordinator publishes F/G labels and V features only; the worker reconstructs original split commitments and seals V access. V MSE is calculated only in the coordinator (`src/treeneuron/evaluation/search.py:238`, `:264`; `src/treeneuron/evaluation/search_worker.py:10`, `:125`). F/G-only `FitRequest` construction and fresh causal parents/probes are explicit (`search_worker.py:42`).
+- The fresh serial process sets native thread limits and disables fallback before import; worker source/core-lock/input/receipt checks precede fitting (`search.py:180`; `search_worker.py:107`). The enclosing timer includes fresh parent/scoring/probes/continuation, serialization and failed work without adding nested timers; late V results and ineligible official checkpoints cannot win (`search.py:24`, `:259`, `:267`, `:277`).
+- Pinned ask/tell replay verifies proposals instead of deserializing executable sampler state, and ordinary failed trials remain in the trial ledger (`search.py:81`, `:132`, `:270`). The overlay has an explicit pinned resolution and archived terms (`locks/search/requirements.in:1`; `locks/search/environment.json:3`; `locks/search/dependency-licenses.json:139`).
+- Prediction timing has both synchronization boundaries, complete remainder batching, explicit resident exclusions, separate overlapping memory counters, and exact raw-summary reconstruction (`timing.py:58`, `:136`, `:185`, `:213`). The measured nontermination/interruption defect received targeted regression tests (`tests/test_timing.py:119`, `:140`).
+
+## Important findings
+
+### I1 — Implement balanced blocks across methods, not only prediction batch sizes
+
+**`src/treeneuron/evaluation/timing.py:96`, `:120`, `:147`.** `_order` constructs mirrored orders from `policy.batch_sizes`; `measure_predictor` executes one predictor to completion. There is no method identifier, method schedule, or shared comparative block in the raw records. Calling it once for each model measures successive whole sessions; ABBA over the batch sizes of each individual model does not counterbalance method order or pair their exposure to thermal/system drift. The design specifically requires interleaved ABBA or randomized balanced **method** blocks (`docs/superpowers/specs/2026-10-16-selective-tree-neurons-design.md:234`).
+
+Add a comparison/block coordinator or composable block primitive that schedules multiple method/mode calls in a retained balanced order, preserving method identity and common block identity. Keep batch calibration as a distinct supported use. Cover actual method-call order and raw block membership with a deterministic test. This is executable machinery needed before final calibration, not a missing numeric choice.
+
+### I2 — Do not let iid call resampling certify block-level precision
+
+**`src/treeneuron/evaluation/timing.py:66`, `:76`, `:179`, `:200`.** `rebuild_summary` discards the `block` field and bootstraps individual calls. Its iid interval directly stops measurement and sets `precision_reached` / `precision_status='reached'`. Within-block duplicate observations therefore count as independent information. The explanatory diagnostic string correctly discloses the limitation, but does not prevent a future policy consumer from accepting this successful precision flag. More calls from the same correlated block can narrow the interval without adding independent timing evidence.
+
+The single focused check in this review supplied twenty identical successful measurements with `block=0`. `rebuild_summary` returned `precision_reached=True` and both intervals `[100.0, 100.0]`, despite having only one block. Existing tests exercise interval reconstruction and caps but not this dependence failure.
+
+Use retained complete blocks as the resampling/precision unit, require enough independent blocks for the requested median/tail assessment, and preserve pairing for comparative timing. If iid diagnostics remain, give them a separate diagnostic status that cannot authorize final precision. Test that duplicating calls inside a fixed set of blocks cannot manufacture independent precision. Final thresholds and repetition counts may remain pending WP05; the valid computation and gating must exist first.
+
+### I3 — Bind resumed sampler information to the full prior trial and cost ledger
+
+**`src/treeneuron/evaluation/search.py:122`, `:125`, `:222`, `:234`, `:247`, `:286`; `tests/test_search.py:160`.** A sampler archive retains only historical parameters, anchor parameters and objective values. Resume consumes those outcomes, skips the official anchor, and returns only new trials and the new attempt's elapsed time. The only external link is a sampler pathname in `search.budget.json`; neither the loaded archive nor the result binds the originating run, prior charged costs, prior failure/status details, or the full official-anchor artifact record. A valid standalone `ReplayTPE` archive can thus provide arbitrarily extensive tuning information with no cost ledger at all.
+
+Keeping historical models ineligible for the new attempt is sensible, and the original anchor parameters/objective do survive replay. Nevertheless, method-specific total search cost and always-reported complete anchors cannot be reconstructed from the accepted resume contract. Repeated resumed attempts can use expensive prior optimization while presenting only the last attempt's charge. This contradicts the required all-trials/all-costs result and complete method budget accounting (`task-7-brief.md:5`, `:14`; design `:200`, `:232`).
+
+Bind each resumable archive to immutable prior run/trial-ledger hashes, retain verified anchor records and failed attempts, and expose separate current-attempt and cumulative method costs. Reject a resume lacking the requisite cost lineage, or explicitly make it ineligible for costed-search results. Preserve the existing rule against silently promoting historical model artifacts. Extend the resume test to verify prior failed charges, anchor availability and tampered/missing ancestry, not merely parameter replay.
+
+## Scoped checks and remaining limits
+
+- **Support/track risk assessed:** The different LR/weight-decay support at `search.py:170` is scoped by this phase to exploratory causal H1 adapters; the practical custom-network support in design `:196` also includes depth/width and is not implemented here. Pending families reject explicitly at `search.py:174`, and B7 exposes only its immutable anchor. I do not require future practical HPO or classify these H1 exploratory bounds as a substituted practical search. Task 8 must still freeze shared optimizer choices across causal forks; the generic search API does not itself establish that study-level policy.
+- **Outside-diff checks:** Read the design's concrete search-support and method-timing requirements (`docs/superpowers/specs/2026-10-16-selective-tree-neurons-design.md:196`, `:200`, `:232`, `:234`). For the concrete risk that redacted worker context or the registered causal cold loader bypasses the existing producer contracts, inspected `_validate_context` / `CausalPredictor.load` in `src/treeneuron/baselines/causal.py:127`, `:248`, backend evidence checks in `src/treeneuron/train.py:241`, and safe loader validation in `src/treeneuron/checkpoint.py:146`. These checks did not establish an additional finding. Native cold integration in the new tests covers Ridge, not every registered loader (`tests/test_timing.py:58`); no broader verification claim is made.
+- **Evidence inspected without rerun:** The full report and curated diff preserve the failed calibration and final current-source measurements. The controller supplied independent verification of all 705 indexed files and the actual full-suite result: 708 passed, 48 existing skips, 28 known warnings, 270.79s. I did not rerun the suite or CLI, and did not duplicate the controller's file rehash audit. The only executed diagnostic was the focused one-block `rebuild_summary` check described in I2; it exited 0 and printed the erroneous successful precision status.
+- **Carried-forward triage, not new findings:** Task 3 per-visit Python row tracing and 28 expected vendor/fixture warnings remain the two existing Minor items (`task-7-context.md:37`; `audit/implementation/evidence/2026-10-16/task-7-report.md:51`). No long NODE fit or numerical vendor edit in this diff creates an additional issue there.
+- **Review scope:** Reviewed the supplied `9afded2..2e921d3` diff in passes, using it as the changed-code view; no separate changed-file rereads, git regeneration, production edits or helper agents. Bulk artifact hashes and original license bytes were not independently re-audited. The review file is the only write.
+
+## Assessment
+
+**Task quality: Needs fixes.** The isolation, cost enclosure, replay and failure-retention foundations are strong, and the bounded evidence avoids unsupported scientific claims. The three gaps above affect the meaning of future cost comparisons and timing precision, so they should be corrected before accepting the implementation handoff; final numerical calibration can remain deferred.

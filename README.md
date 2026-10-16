@@ -1,6 +1,6 @@
 # Selectively growing tree-neurons
 
-A research proof of concept for testing whether a training-derived score can choose which learned neurons should acquire conditional affine specialists better than random placement at the same capacity budget.
+A research proof of concept where selected neurons grow two specialists and a switch that blends them for each input. The question is whether a cheap score can choose where to grow better than random placement, using the same added capacity.
 
 The first complete exploratory comparison gives a negative result for the score: on one 16-dimensional synthetic teacher, top-scored growth had validation MSE **0.14753**, versus **0.14384** for random placement at the same 1,697 parameters. Both improved on continuing the 1,153-parameter parent (**0.16066**). Ordinary warm widening to 1,693/1,711 parameters gave **0.15644/0.15881**. This keeps conditional growth interesting on this problem, but supplies no evidence that the score chooses better locations.
 
@@ -42,7 +42,7 @@ The current causal checks use an explicit CPU-only receipt after a shared-source
 .venv/bin/python -m treeneuron.cli verify-baselines --track causal --backend-report environment/task11-parent-backend.json --output environment/causal-capabilities.json
 ```
 
-That local receipt is an ignored runtime artifact. On a fresh checkout, generate current doctor evidence first and pass its output path. The [control evidence](docs/research/2026-10-16-causal-control-evidence.json) distinguishes executed diagnostic recipes from pending spline/B6/B7 controls. The [evidence plan](docs/superpowers/plans/2026-10-16-selective-tree-neurons-evidence.md#execution-order-before-the-source-freeze) now requires all confirmation/analysis/audit code to be committed before the definitive pilot and real source freeze.
+That local receipt is an ignored runtime artifact. On a fresh checkout, generate current doctor evidence first and pass its output path. The [original control evidence](docs/research/2026-10-16-causal-control-evidence.json) records the earlier gate. The [costed probe and spline checks](docs/research/2026-10-16-evidence2-capabilities.json) and [NODE checks](docs/research/2026-10-16-evidence3-node.json) now close causal correctness readiness through B7. NODE's full-size three-update check establishes execution and cost; it ends before official checkpoint selection and is ineligible as a quality result. The [evidence plan](docs/superpowers/plans/2026-10-16-selective-tree-neurons-evidence.md#execution-order-before-the-source-freeze) now requires all confirmation/analysis/audit code to be committed before the definitive pilot and real source freeze.
 
 The first paired study is explicitly exploratory. Its builder-chosen starting
 allowances are 2,000 parent and 2,000 continuation updates, evaluated on G every
@@ -120,7 +120,12 @@ supplies hash-linked metadata overlays without changing their results or files.
 The core has now passed its whole-implementation review and scoped fix review.
 The [reviewed handoff](docs/research/2026-10-16-reviewed-core-handoff.md) records
 629 passing tests, 48 sandbox MPS skips, the final engineering checks and all
-review decisions. The next control probes every eligible neuron briefly and
-charges every attempt, allowing comparison with the cheap score. Independent
-pilot, freeze, confirmation and scientific audit remain pending; the early
-prediction results above are unchanged.
+review decisions. The exhaustive probe control now exists and charges every attempted neuron.
+Search and timing machinery has also passed its [implementation review and fix
+review](audit/implementation/evidence/2026-10-16/task-7-fix1-review.md): model
+timings share balanced blocks, precision uses complete blocks, and resumed
+searches retain cumulative costs. The [bounded fix evidence](docs/research/2026-10-16-evidence7-fix1.json)
+remains below its timing-precision requirement. Pilot-design, protected evaluation
+and audit code must be finished before the definitive pilot chooses the study
+size and budgets. Independent confirmation and scientific audit remain pending;
+the early prediction results above are unchanged.
