@@ -1,0 +1,17 @@
+........................................................................ [  8%]
+........................................................................ [ 16%]
+..........sssssssssssssssssssssssssssssssssssssssssssssss............... [ 24%]
+........................................................................ [ 32%]
+........................................................................ [ 40%]
+........................................................................ [ 49%]
+..
+=============================== warnings summary ===============================
+tests/test_causal_baselines.py::test_node_gate_failure_preserves_completed_b0_b6_checks
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! KeyboardInterrupt !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/selectors.py:415: KeyboardInterrupt
+(to show a full traceback on KeyboardInterrupt use --full-trace)
+387 passed, 47 skipped, 1 warning in 89.07s (0:01:29)

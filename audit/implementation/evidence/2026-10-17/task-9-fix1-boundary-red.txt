@@ -1,0 +1,134 @@
+..FF.                                                                    [100%]
+=================================== FAILURES ===================================
+_ test_rare_recipe_retains_versioned_prevalence_normalization[prevalences2-False] _
+
+candidate = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3974/test_rare_reci...7003b6460fefe7b5cb3fb0', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'), ...])
+prevalences = [0.2], valid = False
+
+    @pytest.mark.parametrize('prevalences,valid', [([.1,.5],True),([.01],True),([.2],False)])
+    def test_rare_recipe_retains_versioned_prevalence_normalization(candidate,prevalences,valid):
+        from dataclasses import replace
+        from treeneuron.data.synthetic import make_teacher
+        from treeneuron.protocol import _scientific_sources
+        root,decision,sources,manifests=candidate
+        raw_path=root/sources['raw']['path']; raw=json.loads(raw_path.read_text())
+        raw['config']['data'].update(regime='rare',gate_prevalences=prevalences)
+        raw_path.write_text(json.dumps(raw)); sources['raw']=ref(root,raw_path)
+        teacher=make_teacher(999,raw['config']['model']['d'],regime='rare')
+        for unit,manifest in zip(sources['cohort']['units'],manifests):
+            value=replace(teacher,seed=unit['seeds']['teacher'],reference_seed=unit['seeds']['reference'])
+            path=root/unit['teacher']['path']; path.write_text(json.dumps(value.to_dict())); unit['teacher']=ref(root,path)
+            unit['manifest']=replace(manifest,teacher_id=value.teacher_id).to_dict()
+        if valid:
+            assert _scientific_sources(sources,decision)['study_id']=='toy'
+        else:
+>           with pytest.raises(ValueError,match='rare|prevalence|recipe'):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:627: Failed
+___________ test_real_minimal_pair_controls_lineage_and_E_losses[0] ____________
+
+path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3974/test_real_minimal_pair_control0/pair/pair/runs/9106dc6a317742c5992be27614b719c1/manifest.json')
+
+    def _read(path):
+        def unique(items):
+            result = {}
+            for key, value in items:
+                if key in result: raise ValueError(f'Duplicate JSON key: {key}')
+                result[key] = value
+            return result
+        try:
+>           value = json.loads(Path(path).read_text(), object_pairs_hook=unique)
+                               ^^^^^^^^^^^^^^^^^^^^^^
+
+/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/protocol.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3974/test_real_minimal_pair_control0/pair/pair/runs/9106dc6a317742c5992be27614b719c1/manifest.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3974/test_real_minimal_pair_control0/pair/pair/runs/9106dc6a317742c5992be27614b719c1/manifest.json'
+
+/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/pathlib.py:1013: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3974/test_real_minimal_pair_control0')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3974/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1119b9dc0>
+growth_count = 0
+
+    @pytest.mark.parametrize('growth_count',[0,1])
+    def test_real_minimal_pair_controls_lineage_and_E_losses(tmp_path,cpu_training_evidence,monkeypatch,growth_count):
+        import torch
+        from treeneuron import train
+        from treeneuron.pilot.calibrate import teacher_inputs,repetition_config,run_repetition
+        from treeneuron.baselines.causal import CausalPredictor
+        c=config(tmp_path); raw=c.to_dict()
+        raw['execution']['backend_report']=str(cpu_training_evidence)
+        raw['growth']['m_requested']=growth_count
+        raw['backend']['interop_threads']=torch.get_num_interop_threads()
+        c=resolve_experiment(raw)
+        teacher,data,e,tc=teacher_inputs(c,0)
+        tc=repetition_config(tc,0)
+        monkeypatch.setattr(train,'BACKEND_REPORT_PATH',cpu_training_evidence)
+        original=CausalPredictor.predict
+        def predict(self,X,**kw):
+            assert not np.array_equal(X,data.V.X), 'V must not be scored by pilot paired driver'
+            return original(self,X,**kw)
+        monkeypatch.setattr(CausalPredictor,'predict',predict)
+        # Exercise both producer locator forms without changing its schema.
+        monkeypatch.chdir(tmp_path)
+        pair_root=Path('pair') if growth_count==0 else tmp_path/'pair'
+        result=run_repetition(tc,data,e,pair_root,'common')
+        assert result['status']=='completed'
+        from treeneuron.protocol import _validate_pilot_graph
+>       _validate_pilot_graph(result,tmp_path/'pair',tc)
+
+/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/tests/test_pilot_calibrate.py:132: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/protocol.py:307: in _validate_pilot_graph
+    children[run_id]=(path,completed(path,run_id),child['growth_metadata'])
+                           ^^^^^^^^^^^^^^^^^^^^^^
+/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/protocol.py:270: in completed
+    manifest=_read(path/'manifest.json')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3974/test_real_minimal_pair_control0/pair/pair/runs/9106dc6a317742c5992be27614b719c1/manifest.json')
+
+    def _read(path):
+        def unique(items):
+            result = {}
+            for key, value in items:
+                if key in result: raise ValueError(f'Duplicate JSON key: {key}')
+                result[key] = value
+            return result
+        try:
+            value = json.loads(Path(path).read_text(), object_pairs_hook=unique)
+            canonical_json(value)
+            return value
+        except (OSError, json.JSONDecodeError) as error:
+>           raise ValueError(f'Cannot read canonical evidence: {path}') from error
+E           ValueError: Cannot read canonical evidence: /private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3974/test_real_minimal_pair_control0/pair/pair/runs/9106dc6a317742c5992be27614b719c1/manifest.json
+
+/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/protocol.py:41: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_protocol.py::test_rare_recipe_retains_versioned_prevalence_normalization[prevalences2-False]
+FAILED tests/test_pilot_calibrate.py::test_real_minimal_pair_controls_lineage_and_E_losses[0]
+2 failed, 3 passed, 70 deselected in 20.77s

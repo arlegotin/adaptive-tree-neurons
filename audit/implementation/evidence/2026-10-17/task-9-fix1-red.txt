@@ -1,0 +1,291 @@
+FFFF.FFFFFFFFF                                                           [100%]
+=================================== FAILURES ===================================
+_ test_staged_execution_change_with_restored_worktree_is_rejected[src/model.py] _
+
+repository = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3967/test_staged_execution_change_w0/repo')
+name = 'src/model.py'
+
+    @pytest.mark.parametrize('name', ['src/model.py', 'configs/scientific.yaml', 'analysis/infer.py', 'requirements.lock'])
+    def test_staged_execution_change_with_restored_worktree_is_rejected(repository, name):
+        from treeneuron.protocol import execution_snapshot
+        pinned=git(repository,'rev-parse','HEAD'); path=repository/name
+        original=path.read_bytes(); path.write_text('# staged drift\n')
+        git(repository,'add',name); path.write_bytes(original)
+        assert git(repository,'diff','--name-only','HEAD')==''
+>       with pytest.raises(ValueError,match='Dirty'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:408: Failed
+_ test_staged_execution_change_with_restored_worktree_is_rejected[configs/scientific.yaml] _
+
+repository = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3967/test_staged_execution_change_w1/repo')
+name = 'configs/scientific.yaml'
+
+    @pytest.mark.parametrize('name', ['src/model.py', 'configs/scientific.yaml', 'analysis/infer.py', 'requirements.lock'])
+    def test_staged_execution_change_with_restored_worktree_is_rejected(repository, name):
+        from treeneuron.protocol import execution_snapshot
+        pinned=git(repository,'rev-parse','HEAD'); path=repository/name
+        original=path.read_bytes(); path.write_text('# staged drift\n')
+        git(repository,'add',name); path.write_bytes(original)
+        assert git(repository,'diff','--name-only','HEAD')==''
+>       with pytest.raises(ValueError,match='Dirty'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:408: Failed
+_ test_staged_execution_change_with_restored_worktree_is_rejected[analysis/infer.py] _
+
+repository = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3967/test_staged_execution_change_w2/repo')
+name = 'analysis/infer.py'
+
+    @pytest.mark.parametrize('name', ['src/model.py', 'configs/scientific.yaml', 'analysis/infer.py', 'requirements.lock'])
+    def test_staged_execution_change_with_restored_worktree_is_rejected(repository, name):
+        from treeneuron.protocol import execution_snapshot
+        pinned=git(repository,'rev-parse','HEAD'); path=repository/name
+        original=path.read_bytes(); path.write_text('# staged drift\n')
+        git(repository,'add',name); path.write_bytes(original)
+        assert git(repository,'diff','--name-only','HEAD')==''
+>       with pytest.raises(ValueError,match='Dirty'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:408: Failed
+_ test_staged_execution_change_with_restored_worktree_is_rejected[requirements.lock] _
+
+repository = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3967/test_staged_execution_change_w3/repo')
+name = 'requirements.lock'
+
+    @pytest.mark.parametrize('name', ['src/model.py', 'configs/scientific.yaml', 'analysis/infer.py', 'requirements.lock'])
+    def test_staged_execution_change_with_restored_worktree_is_rejected(repository, name):
+        from treeneuron.protocol import execution_snapshot
+        pinned=git(repository,'rev-parse','HEAD'); path=repository/name
+        original=path.read_bytes(); path.write_text('# staged drift\n')
+        git(repository,'add',name); path.write_bytes(original)
+        assert git(repository,'diff','--name-only','HEAD')==''
+>       with pytest.raises(ValueError,match='Dirty'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:408: Failed
+__ test_declarations_and_unrelated_child_do_not_establish_control_completion ___
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3967/test_declarati...'path': 'evidence/pilot/raw.json', 'sha256': '18db901e89aca65aba2960b86fdb7791b68e20a2cab76d9ab8b934e1be43a560'}, ...})
+
+    def test_declarations_and_unrelated_child_do_not_establish_control_completion(prepared):
+        from treeneuron.protocol import eligible_design
+        root,_,sources=prepared; raw=json.loads((root/sources['raw']['path']).read_text())
+        record=raw['accepted_records'][0]
+        record['methods']={name:{'method_id':method['method_id'],'status':'completed'}
+            for name,method in record['methods'].items()}
+        reseal_pair(root,sources,raw,record)
+>       with pytest.raises(ValueError,match='control|stage|checkpoint'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:437: Failed
+_________ test_self_consistent_development_counts_must_match_recipe[F] _________
+
+candidate = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3967/test_self_cons...7003b6460fefe7b5cb3fb0', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'), ...])
+part = 'F'
+
+    @pytest.mark.parametrize('part',list('FGV'))
+    def test_self_consistent_development_counts_must_match_recipe(candidate,part):
+        from dataclasses import replace
+        import numpy as np
+        from treeneuron.data.types import array_hash
+        from treeneuron.protocol import freeze
+        root,decision,sources,manifests=candidate; unit=sources['cohort']['units'][0]
+        manifest=manifests[0]
+        hashes=manifest.hashes
+        if part=='F':
+            fit=np.array([0.,1.,2.]); path=root/unit['fit_targets']['path']; np.save(path,fit)
+            unit['fit_targets']=ref(root,path); hashes=(('F.y',array_hash(fit)),)
+        manifest=replace(manifest,row_id=manifest.row_id+(999,),group_id=manifest.group_id+(999,),
+            assignments=manifest.assignments+(part,),hashes=hashes)
+        unit['manifest']=manifest.to_dict()
+>       with pytest.raises(ValueError,match='count|recipe'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:456: Failed
+_________ test_self_consistent_development_counts_must_match_recipe[G] _________
+
+candidate = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3967/test_self_cons...7003b6460fefe7b5cb3fb0', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'), ...])
+part = 'G'
+
+    @pytest.mark.parametrize('part',list('FGV'))
+    def test_self_consistent_development_counts_must_match_recipe(candidate,part):
+        from dataclasses import replace
+        import numpy as np
+        from treeneuron.data.types import array_hash
+        from treeneuron.protocol import freeze
+        root,decision,sources,manifests=candidate; unit=sources['cohort']['units'][0]
+        manifest=manifests[0]
+        hashes=manifest.hashes
+        if part=='F':
+            fit=np.array([0.,1.,2.]); path=root/unit['fit_targets']['path']; np.save(path,fit)
+            unit['fit_targets']=ref(root,path); hashes=(('F.y',array_hash(fit)),)
+        manifest=replace(manifest,row_id=manifest.row_id+(999,),group_id=manifest.group_id+(999,),
+            assignments=manifest.assignments+(part,),hashes=hashes)
+        unit['manifest']=manifest.to_dict()
+>       with pytest.raises(ValueError,match='count|recipe'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:456: Failed
+_________ test_self_consistent_development_counts_must_match_recipe[V] _________
+
+candidate = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3967/test_self_cons...7003b6460fefe7b5cb3fb0', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'), ...])
+part = 'V'
+
+    @pytest.mark.parametrize('part',list('FGV'))
+    def test_self_consistent_development_counts_must_match_recipe(candidate,part):
+        from dataclasses import replace
+        import numpy as np
+        from treeneuron.data.types import array_hash
+        from treeneuron.protocol import freeze
+        root,decision,sources,manifests=candidate; unit=sources['cohort']['units'][0]
+        manifest=manifests[0]
+        hashes=manifest.hashes
+        if part=='F':
+            fit=np.array([0.,1.,2.]); path=root/unit['fit_targets']['path']; np.save(path,fit)
+            unit['fit_targets']=ref(root,path); hashes=(('F.y',array_hash(fit)),)
+        manifest=replace(manifest,row_id=manifest.row_id+(999,),group_id=manifest.group_id+(999,),
+            assignments=manifest.assignments+(part,),hashes=hashes)
+        unit['manifest']=manifest.to_dict()
+>       with pytest.raises(ValueError,match='count|recipe'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:456: Failed
+____ test_valid_teacher_spec_must_match_declared_generation_recipe[regime] _____
+
+candidate = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3967/test_valid_tea...7003b6460fefe7b5cb3fb0', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'), ...])
+change = 'regime'
+
+    @pytest.mark.parametrize('change',['regime','nuisance','prevalences','gates','probabilities'])
+    def test_valid_teacher_spec_must_match_declared_generation_recipe(candidate,change):
+        from dataclasses import replace
+        from treeneuron.data.synthetic import TeacherSpec,make_teacher
+        from treeneuron.protocol import freeze
+        root,decision,sources,manifests=candidate; unit=sources['cohort']['units'][0]
+        path=root/unit['teacher']['path']; old=TeacherSpec.from_dict(json.loads(path.read_text()))
+        kwargs={'regime':{'regime':'axis_aligned'},'nuisance':{'nuisance_dimensions':1},
+            'prevalences':{'gate_prevalences':(.2,)},'gates':{'gate_types':('hard',)}}
+        teacher=(replace(old,gate_type_probabilities=(.2,.3,.5)) if change=='probabilities' else
+            make_teacher(old.seed,old.d,reference_seed=old.reference_seed,**kwargs[change]))
+        path.write_text(json.dumps(teacher.to_dict())); unit['teacher']=ref(root,path)
+        unit['manifest']=replace(manifests[0],teacher_id=teacher.teacher_id).to_dict()
+>       with pytest.raises(ValueError,match='recipe|generation'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:474: Failed
+___ test_valid_teacher_spec_must_match_declared_generation_recipe[nuisance] ____
+
+candidate = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3967/test_valid_tea...7003b6460fefe7b5cb3fb0', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'), ...])
+change = 'nuisance'
+
+    @pytest.mark.parametrize('change',['regime','nuisance','prevalences','gates','probabilities'])
+    def test_valid_teacher_spec_must_match_declared_generation_recipe(candidate,change):
+        from dataclasses import replace
+        from treeneuron.data.synthetic import TeacherSpec,make_teacher
+        from treeneuron.protocol import freeze
+        root,decision,sources,manifests=candidate; unit=sources['cohort']['units'][0]
+        path=root/unit['teacher']['path']; old=TeacherSpec.from_dict(json.loads(path.read_text()))
+        kwargs={'regime':{'regime':'axis_aligned'},'nuisance':{'nuisance_dimensions':1},
+            'prevalences':{'gate_prevalences':(.2,)},'gates':{'gate_types':('hard',)}}
+        teacher=(replace(old,gate_type_probabilities=(.2,.3,.5)) if change=='probabilities' else
+            make_teacher(old.seed,old.d,reference_seed=old.reference_seed,**kwargs[change]))
+        path.write_text(json.dumps(teacher.to_dict())); unit['teacher']=ref(root,path)
+        unit['manifest']=replace(manifests[0],teacher_id=teacher.teacher_id).to_dict()
+>       with pytest.raises(ValueError,match='recipe|generation'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:474: Failed
+__ test_valid_teacher_spec_must_match_declared_generation_recipe[prevalences] __
+
+candidate = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3967/test_valid_tea...7003b6460fefe7b5cb3fb0', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'), ...])
+change = 'prevalences'
+
+    @pytest.mark.parametrize('change',['regime','nuisance','prevalences','gates','probabilities'])
+    def test_valid_teacher_spec_must_match_declared_generation_recipe(candidate,change):
+        from dataclasses import replace
+        from treeneuron.data.synthetic import TeacherSpec,make_teacher
+        from treeneuron.protocol import freeze
+        root,decision,sources,manifests=candidate; unit=sources['cohort']['units'][0]
+        path=root/unit['teacher']['path']; old=TeacherSpec.from_dict(json.loads(path.read_text()))
+        kwargs={'regime':{'regime':'axis_aligned'},'nuisance':{'nuisance_dimensions':1},
+            'prevalences':{'gate_prevalences':(.2,)},'gates':{'gate_types':('hard',)}}
+        teacher=(replace(old,gate_type_probabilities=(.2,.3,.5)) if change=='probabilities' else
+            make_teacher(old.seed,old.d,reference_seed=old.reference_seed,**kwargs[change]))
+        path.write_text(json.dumps(teacher.to_dict())); unit['teacher']=ref(root,path)
+        unit['manifest']=replace(manifests[0],teacher_id=teacher.teacher_id).to_dict()
+>       with pytest.raises(ValueError,match='recipe|generation'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:474: Failed
+_____ test_valid_teacher_spec_must_match_declared_generation_recipe[gates] _____
+
+candidate = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3967/test_valid_tea...7003b6460fefe7b5cb3fb0', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'), ...])
+change = 'gates'
+
+    @pytest.mark.parametrize('change',['regime','nuisance','prevalences','gates','probabilities'])
+    def test_valid_teacher_spec_must_match_declared_generation_recipe(candidate,change):
+        from dataclasses import replace
+        from treeneuron.data.synthetic import TeacherSpec,make_teacher
+        from treeneuron.protocol import freeze
+        root,decision,sources,manifests=candidate; unit=sources['cohort']['units'][0]
+        path=root/unit['teacher']['path']; old=TeacherSpec.from_dict(json.loads(path.read_text()))
+        kwargs={'regime':{'regime':'axis_aligned'},'nuisance':{'nuisance_dimensions':1},
+            'prevalences':{'gate_prevalences':(.2,)},'gates':{'gate_types':('hard',)}}
+        teacher=(replace(old,gate_type_probabilities=(.2,.3,.5)) if change=='probabilities' else
+            make_teacher(old.seed,old.d,reference_seed=old.reference_seed,**kwargs[change]))
+        path.write_text(json.dumps(teacher.to_dict())); unit['teacher']=ref(root,path)
+        unit['manifest']=replace(manifests[0],teacher_id=teacher.teacher_id).to_dict()
+>       with pytest.raises(ValueError,match='recipe|generation'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:474: Failed
+_ test_valid_teacher_spec_must_match_declared_generation_recipe[probabilities] _
+
+candidate = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3967/test_valid_tea...7003b6460fefe7b5cb3fb0', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'), ...])
+change = 'probabilities'
+
+    @pytest.mark.parametrize('change',['regime','nuisance','prevalences','gates','probabilities'])
+    def test_valid_teacher_spec_must_match_declared_generation_recipe(candidate,change):
+        from dataclasses import replace
+        from treeneuron.data.synthetic import TeacherSpec,make_teacher
+        from treeneuron.protocol import freeze
+        root,decision,sources,manifests=candidate; unit=sources['cohort']['units'][0]
+        path=root/unit['teacher']['path']; old=TeacherSpec.from_dict(json.loads(path.read_text()))
+        kwargs={'regime':{'regime':'axis_aligned'},'nuisance':{'nuisance_dimensions':1},
+            'prevalences':{'gate_prevalences':(.2,)},'gates':{'gate_types':('hard',)}}
+        teacher=(replace(old,gate_type_probabilities=(.2,.3,.5)) if change=='probabilities' else
+            make_teacher(old.seed,old.d,reference_seed=old.reference_seed,**kwargs[change]))
+        path.write_text(json.dumps(teacher.to_dict())); unit['teacher']=ref(root,path)
+        unit['manifest']=replace(manifests[0],teacher_id=teacher.teacher_id).to_dict()
+>       with pytest.raises(ValueError,match='recipe|generation'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:474: Failed
+=========================== short test summary info ============================
+FAILED tests/test_protocol.py::test_staged_execution_change_with_restored_worktree_is_rejected[src/model.py]
+FAILED tests/test_protocol.py::test_staged_execution_change_with_restored_worktree_is_rejected[configs/scientific.yaml]
+FAILED tests/test_protocol.py::test_staged_execution_change_with_restored_worktree_is_rejected[analysis/infer.py]
+FAILED tests/test_protocol.py::test_staged_execution_change_with_restored_worktree_is_rejected[requirements.lock]
+FAILED tests/test_protocol.py::test_declarations_and_unrelated_child_do_not_establish_control_completion
+FAILED tests/test_protocol.py::test_self_consistent_development_counts_must_match_recipe[F]
+FAILED tests/test_protocol.py::test_self_consistent_development_counts_must_match_recipe[G]
+FAILED tests/test_protocol.py::test_self_consistent_development_counts_must_match_recipe[V]
+FAILED tests/test_protocol.py::test_valid_teacher_spec_must_match_declared_generation_recipe[regime]
+FAILED tests/test_protocol.py::test_valid_teacher_spec_must_match_declared_generation_recipe[nuisance]
+FAILED tests/test_protocol.py::test_valid_teacher_spec_must_match_declared_generation_recipe[prevalences]
+FAILED tests/test_protocol.py::test_valid_teacher_spec_must_match_declared_generation_recipe[gates]
+FAILED tests/test_protocol.py::test_valid_teacher_spec_must_match_declared_generation_recipe[probabilities]
+13 failed, 1 passed, 39 deselected in 19.11s

@@ -1,0 +1,129 @@
+{
+  "base_commit": "79d139c",
+  "execution_sha256": "3f398b607aca5348d8eea74d6db8022036533e1fc228fa10c090e591d720aa1d",
+  "files": {
+    "audit/implementation/evidence/2026-10-17/task-9-acceptance-v1.json": {
+      "bytes": 1584,
+      "sha256": "d32de909a3194a47184b4d6fdabc69fba1076c076387dd942cb009588084b1f7"
+    },
+    "audit/implementation/evidence/2026-10-17/task-9-covering.txt": {
+      "bytes": 192,
+      "sha256": "1e0f7743450a62adeb67e7a1c01ffbbef9a5324e6849ab9b496367b25a5375e6"
+    },
+    "audit/implementation/evidence/2026-10-17/task-9-final-source-snapshot.json": {
+      "bytes": 40251,
+      "sha256": "14fa44b22cae355736ab580b1758502d3963199f600fb5a303a77a7ff82e2233"
+    },
+    "audit/implementation/evidence/2026-10-17/task-9-fix1-boundary-green.txt": {
+      "bytes": 114,
+      "sha256": "fe97903e3a0b03820f4f896e69615e5b4d55962bbd0d27fa0f157987e7641806"
+    },
+    "audit/implementation/evidence/2026-10-17/task-9-fix1-boundary-red.txt": {
+      "bytes": 8470,
+      "sha256": "510fba068d784d56590e1fff3aca368248fb7cb866b92b2f7863aa0cfb1efa46"
+    },
+    "audit/implementation/evidence/2026-10-17/task-9-fix1-covering.txt": {
+      "bytes": 191,
+      "sha256": "a534d61cdb5e033693860374b1fee31812ab379e4a68890d3bcc1653094d542b"
+    },
+    "audit/implementation/evidence/2026-10-17/task-9-fix1-focused.txt": {
+      "bytes": 125,
+      "sha256": "b20da79f7ae11e17d27598a41d7fb51c04a0f8db2f04559620ad8bd100f41b3a"
+    },
+    "audit/implementation/evidence/2026-10-17/task-9-fix1-graph-red.txt": {
+      "bytes": 27465,
+      "sha256": "053ad4377d1e2424f95e2d305d3fb210ad0fcfe46ebc405209833caf13e5a4e9"
+    },
+    "audit/implementation/evidence/2026-10-17/task-9-fix1-linkage-green.txt": {
+      "bytes": 113,
+      "sha256": "94c9234903772383b085e43c09aae10afd00bc09feb6a149cdd988fda01b2aa0"
+    },
+    "audit/implementation/evidence/2026-10-17/task-9-fix1-linkage-red.txt": {
+      "bytes": 4868,
+      "sha256": "cae51497c29db40643093568ad98cd017a222bc33a725f8891fed6959f0a2079"
+    },
+    "audit/implementation/evidence/2026-10-17/task-9-fix1-producer.txt": {
+      "bytes": 112,
+      "sha256": "9232b890a66115d622226e0c981982cc27c40d1bd1a31388d0eba2f222e1ed7d"
+    },
+    "audit/implementation/evidence/2026-10-17/task-9-fix1-red.txt": {
+      "bytes": 19051,
+      "sha256": "805350fdfd2a63f9d960998997faa09dc2c4213e71db58e7259a2ff2ba049255"
+    },
+    "audit/implementation/evidence/2026-10-17/task-9-fix1-review.md": {
+      "bytes": 8535,
+      "sha256": "a934c563dabad3e3f5d2a3ab8a9a79e5e588af13fdb58ed6f5e663f7d8d4ad4d"
+    },
+    "audit/implementation/evidence/2026-10-17/task-9-full-interrupted.txt": {
+      "bytes": 1330,
+      "sha256": "6d589784cc8d0d4ddf3fca9002ec37dc56288e49f1a013c09ea74f9b4567a71e"
+    },
+    "audit/implementation/evidence/2026-10-17/task-9-full.txt": {
+      "bytes": 3632,
+      "sha256": "1f989aef4332447c878b341e3586b53ca338afd7511caeea65b2c97abc80da43"
+    },
+    "audit/implementation/evidence/2026-10-17/task-9-install-metadata-relocation.json": {
+      "bytes": 1062,
+      "sha256": "65a8ca49dc5aa1a3a769c39fdaad7b47457c81b24c0910f9ab98f5bb2388b544"
+    },
+    "audit/implementation/evidence/2026-10-17/task-9-report.md": {
+      "bytes": 40095,
+      "sha256": "9c98b590082defe5d525a24a8a57ea0d034b6cb8e3cf12556597d7b252fc2e20"
+    },
+    "audit/implementation/evidence/2026-10-17/task-9-review.md": {
+      "bytes": 14343,
+      "sha256": "2350219db8ecdfdd71e5fb90bcfcd443695b4bf7585a6fdf1dd842df2b9b5da5"
+    },
+    "audit/implementation/evidence/2026-10-17/task-9-workload-red.txt": {
+      "bytes": 5940,
+      "sha256": "92930c779547727046957d6b50de819051217880ec847800afc17e383b43321f"
+    }
+  },
+  "fix_commit": "3df4e078d0b792674e73af301931d1dfe109d3b8",
+  "implementation_commit": "5180d56e3c46b8a3cab0f6d7c870f3bb1243dfd1",
+  "limits": [
+    "Task10 actual confirmation preparation/fitting provenance/orchestration/analysis pending",
+    "Task13 portable locators and amended archival reanalysis pending before genuine pilot",
+    "Acceptance records must be renewed after later reviewed changes to affected files",
+    "No genuine scientific pilot, protected T, root freeze or independent cohort result"
+  ],
+  "package_source_sha256": "b780b85a5643675cc3f1335bc727a7405dc09de6e054276dbfec84f9683350b7",
+  "phase": "implementation_accepted_scientific_evidence_pending",
+  "review": {
+    "deferred": [
+      "Existing Task3 vendor/Torch warning triage"
+    ],
+    "fix1": {
+      "addressed": [
+        "I1",
+        "I2",
+        "I3"
+      ],
+      "new_breakage": 0,
+      "open_critical": 0,
+      "open_important": 0
+    },
+    "initial": {
+      "critical": 0,
+      "important": 3,
+      "minor": 1
+    }
+  },
+  "task": 9,
+  "verification": {
+    "fix_covering": {
+      "package_sha256": "b780b85a5643675cc3f1335bc727a7405dc09de6e054276dbfec84f9683350b7",
+      "result": "92 passed in431.87s, no warnings/skips"
+    },
+    "full_interruption": "Retained intentional SIGINT record, not full-suite success",
+    "full_preceding_source": {
+      "package_sha256": "f051bd96e395e79626ab7d9683dbbc3d299581a669f8c24b05e57de0f1adc56e",
+      "result": "833 passed,48 skipped,28 warnings in372.67s"
+    },
+    "pre_review_covering": {
+      "package_sha256": "3a56d0f139a28cfd8ca54eca73ba13538ed8da8a575c7fb35e9d1b9be3b7e0fb",
+      "result": "109 passed in104.16s"
+    },
+    "root_source_snapshot": "Initially rejected redundant ignored generated egg-info; moved five files intact outside src. Package version unchanged, no guard waiver; clean298-file snapshot then passed."
+  }
+}

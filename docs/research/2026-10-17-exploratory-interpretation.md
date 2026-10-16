@@ -1,0 +1,11 @@
+# Interpreting the first exploratory allocation result
+
+The project asks whether a training-derived score can choose which learned neurons should acquire conditional affine specialists. The first primary exploratory problem does not establish that advantage: normalized validation MSE was 0.160662 for continued ordinary training, 0.147531 for scored growth and 0.143840 for random placement. Lower is better. Scored growth improved over continuing the parent but lost to the precisely matched random placement. See the [original result and provenance](2026-10-16-exploratory-paired-evidence.json). This was one teacher/data/optimizer realization with provisional training allowances, not independent confirmation.
+
+A separate easy two-dimensional conditional-slope example was already learned well by the ordinary network; growth made little difference. Expressing that example with a tree-shaped unit therefore does not by itself establish a useful advantage.
+
+After seeing the first comparison, an F-only diagnostic compared the starting contrast functions of the 16 grown units. On the same F observations, the mean absolute normalized inner product across the 120 distinct contrast pairs was 0.547744 for scored placement and 0.461380 for random placement. The [retained diagnostic](2026-10-17-posthoc-contrast-similarity.json) records exact values, the original study/development hashes and the definition. It uses augmented F-standardized inputs and initialized affine contrast outputs, with no mean subtraction after applying contrasts and no diagonal pairs.
+
+This is a post-hoc descriptive observation. It ignores each unit's ReLU mask, outgoing weight and subsequent learning. It neither establishes redundant final specialists nor explains the held-out difference. No new models were fitted, test labels read, or score/training rules changed. Any proposed diversity refinement would require a separately recorded exploratory comparison and fresh independent confirmation.
+
+The mechanism is implemented and can learn conditional behavior. The value of scored allocation remains unresolved. A defensible negative result is a successful research outcome; the next scientific gate is an independently generated fixed cohort under the reviewed, calibrated protocol.

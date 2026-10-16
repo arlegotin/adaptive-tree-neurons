@@ -1,0 +1,40 @@
+........................................................................ [  8%]
+........................................................................ [ 16%]
+..........sssssssssssssssssssssssssssssssssssssssssssssss............... [ 24%]
+........................................................................ [ 32%]
+........................................................................ [ 40%]
+........................................................................ [ 49%]
+....................................................s................... [ 57%]
+........................................................................ [ 65%]
+........................................................................ [ 73%]
+........................................................................ [ 81%]
+........................................................................ [ 89%]
+........................................................................ [ 98%]
+.................                                                        [100%]
+=============================== warnings summary ===============================
+tests/test_causal_baselines.py::test_node_gate_failure_preserves_completed_b0_b6_checks
+tests/test_node.py::test_sparse_choice_independent_cpu_backward[shape0-0]
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+tests/test_node.py: 12 warnings
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/baselines/_node_vendor/odst.py:113: UserWarning: Data-aware initialization is performed on less than 1000 data points. This may cause instability.To avoid potential problems, run this model on a data batch with at least 1000 data samples.You can do so manually before training. Use with torch.no_grad() for memory efficiency.
+    warn("Data-aware initialization is performed on less than 1000 data points. This may cause instability."
+
+tests/test_node.py::test_model_vendor_head_axis_init_and_backward
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/configs/vendor/node/upstream/lib/odst.py:113: UserWarning: Data-aware initialization is performed on less than 1000 data points. This may cause instability.To avoid potential problems, run this model on a data batch with at least 1000 data samples.You can do so manually before training. Use with torch.no_grad() for memory efficiency.
+    warn("Data-aware initialization is performed on less than 1000 data points. This may cause instability."
+
+tests/test_node.py: 12 warnings
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/lib/python3.12/site-packages/sklearn/preprocessing/_data.py:2912: UserWarning: n_quantiles (1000) is greater than the total number of samples (37). n_quantiles is set to n_samples.
+    warnings.warn(
+
+tests/test_node.py::test_f_only_initialization_full_fit_and_original_unit_reload
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/baselines/_node_vendor/qhadam.py:133: UserWarning: This overload of add_ is deprecated:
+  	add_(Number alpha, Tensor other)
+  Consider using one of the following signatures instead:
+  	add_(Tensor other, *, Number alpha = 1) (Triggered internally at /Users/runner/work/pytorch/pytorch/torch/csrc/utils/python_arg_parser.cpp:1841.)
+    exp_avg.mul_(beta1_adj).add_(1.0 - beta1_adj, d_p)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+833 passed, 48 skipped, 28 warnings in 372.67s (0:06:12)

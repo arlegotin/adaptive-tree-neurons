@@ -1,0 +1,15 @@
+{
+  "execution_sha256": "3f398b607aca5348d8eea74d6db8022036533e1fc228fa10c090e591d720aa1d",
+  "files": {
+    "PKG-INFO": "7685affaeee216ea14fb4be60804c8f391d249a0f49b4759a3d9583744b7f819",
+    "SOURCES.txt": "0dfbdaab8022ad80ed9e0328ebfe9da152a31545cff01bc911e2aeeac30a5113",
+    "dependency_links.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "requires.txt": "454b3348934236e25886f5bc9558ca051c312f61a837895d952c0e1770d2304e",
+    "top_level.txt": "04e7456c41004dece0362d28c6dd2ae861fb47458b4ba34dbe2f24aeef4f62ef"
+  },
+  "new_path": "environment/install-metadata/2026-10-17/treeneuron.egg-info",
+  "old_path": "src/treeneuron.egg-info",
+  "reason": "Preserved redundant generated editable-install egg-info outside execution source tree; the guard correctly rejected ignored untracked inputs. Existing installed dist-info remains; import/package version unchanged. No source-policy waiver or code change.",
+  "source_after": "b780b85a5643675cc3f1335bc727a7405dc09de6e054276dbfec84f9683350b7",
+  "version_before_after": "0.1.0"
+}

@@ -1,0 +1,32 @@
+{
+  "status": "posthoc_F_only_historical_diagnostic_not_new_predictive_evidence",
+  "study_path": "artifacts/exploratory/4417a390dc0a4e74a8abe7ad479cf876",
+  "study_sha256": "4d60f9d78eb7a23f621f3acc95456e8ea147adc3f85d9a314805af33c7670b8a",
+  "metric": "Absolute normalized inner product of initialized affine contrast outputs on F; no mean subtraction after applying contrast; pair diagonal omitted",
+  "results": {
+    "top": {
+      "units": 16,
+      "pairs": 120,
+      "mean_abs_F_contrast_cosine": 0.5477435779536605,
+      "median": 0.6276678345957856,
+      "min": 0.011335398740557695,
+      "max": 0.9795530986027955
+    },
+    "random": {
+      "units": 16,
+      "pairs": 120,
+      "mean_abs_F_contrast_cosine": 0.46137966272827646,
+      "median": 0.42040061885536106,
+      "min": 0.010992983613445636,
+      "max": 0.9471411331862337
+    }
+  },
+  "limits": [
+    "One historical primary teacher",
+    "Initialization similarity does not establish redundant final experts or explain held-out differences",
+    "ReLU masks and downstream head weights differ across units",
+    "No new fits, test labels or method changes"
+  ],
+  "development_sha256": "770c2f29a712bc262a101b39059e1bfa3da5d2cb27196129be5eec113c0e9000",
+  "prespecification_status": "Hypothesis raised after observing the first exploratory comparison; descriptive only, no primary claim or scoring/training change."
+}

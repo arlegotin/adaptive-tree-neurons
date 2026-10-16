@@ -1,0 +1,70 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_ test_resealed_checkpoint_graph_preserves_common_data_and_probe_allowance[fresh_data] _
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3977/test_resealed_...'path': 'evidence/pilot/raw.json', 'sha256': '1d221a70411844742627920ba51dc4eae2c4441fafdae485cd7acf84d43ab29b'}, ...})
+change = 'fresh_data'
+
+    @pytest.mark.parametrize('change',['fresh_data','probe_policy'])
+    def test_resealed_checkpoint_graph_preserves_common_data_and_probe_allowance(prepared,change):
+        from treeneuron.protocol import eligible_design
+        root,_,sources=prepared; raw=json.loads((root/sources['raw']['path']).read_text())
+        record=raw['accepted_records'][0]; pair=root/'evidence/pilot/teacher-0/repetition-0'
+        if change=='fresh_data':
+            paths=[pair/stage['path'] for stage in record['methods']['ordinary_upper']['stages']]
+        else:
+            greedy_path=Path(record['greedy_report']); greedy=json.loads(greedy_path.read_text())
+            paths=[greedy_path.parent/greedy['trials'][-1]['path']]
+        for path in paths:
+            pointer=json.loads((path/'checkpoints/best.json').read_text())
+            descriptor_path=path/'checkpoints'/pointer['metadata']; descriptor=json.loads(descriptor_path.read_text())
+            manifest=json.loads((path/'manifest.json').read_text())
+            if change=='fresh_data':
+                descriptor['state']['identity_hashes']['raw']='different-population'
+                manifest['data']['raw_hash']='different-population'
+            else: descriptor['state']['stage']['policy']['max_updates']+=1
+            descriptor_path.write_text(json.dumps(descriptor)); pointer['sha256']=ref(root,descriptor_path)['sha256']
+            write(path,'checkpoints/best.json',pointer); manifest['method']['weight_hash']=pointer['sha256']
+            write(path,'manifest.json',manifest)
+        reseal_pair(root,sources,raw,record)
+>       with pytest.raises(ValueError,match='control|probe|identity'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:653: Failed
+_ test_resealed_checkpoint_graph_preserves_common_data_and_probe_allowance[probe_policy] _
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3977/test_resealed_...'path': 'evidence/pilot/raw.json', 'sha256': '6c6a2cf61629dbe8bf85753ca9ac1a94da55bc81f170f51dd0a0c68a91617ca2'}, ...})
+change = 'probe_policy'
+
+    @pytest.mark.parametrize('change',['fresh_data','probe_policy'])
+    def test_resealed_checkpoint_graph_preserves_common_data_and_probe_allowance(prepared,change):
+        from treeneuron.protocol import eligible_design
+        root,_,sources=prepared; raw=json.loads((root/sources['raw']['path']).read_text())
+        record=raw['accepted_records'][0]; pair=root/'evidence/pilot/teacher-0/repetition-0'
+        if change=='fresh_data':
+            paths=[pair/stage['path'] for stage in record['methods']['ordinary_upper']['stages']]
+        else:
+            greedy_path=Path(record['greedy_report']); greedy=json.loads(greedy_path.read_text())
+            paths=[greedy_path.parent/greedy['trials'][-1]['path']]
+        for path in paths:
+            pointer=json.loads((path/'checkpoints/best.json').read_text())
+            descriptor_path=path/'checkpoints'/pointer['metadata']; descriptor=json.loads(descriptor_path.read_text())
+            manifest=json.loads((path/'manifest.json').read_text())
+            if change=='fresh_data':
+                descriptor['state']['identity_hashes']['raw']='different-population'
+                manifest['data']['raw_hash']='different-population'
+            else: descriptor['state']['stage']['policy']['max_updates']+=1
+            descriptor_path.write_text(json.dumps(descriptor)); pointer['sha256']=ref(root,descriptor_path)['sha256']
+            write(path,'checkpoints/best.json',pointer); manifest['method']['weight_hash']=pointer['sha256']
+            write(path,'manifest.json',manifest)
+        reseal_pair(root,sources,raw,record)
+>       with pytest.raises(ValueError,match='control|probe|identity'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:653: Failed
+=========================== short test summary info ============================
+FAILED tests/test_protocol.py::test_resealed_checkpoint_graph_preserves_common_data_and_probe_allowance[fresh_data]
+FAILED tests/test_protocol.py::test_resealed_checkpoint_graph_preserves_common_data_and_probe_allowance[probe_policy]
+2 failed, 66 deselected in 11.26s

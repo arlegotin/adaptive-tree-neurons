@@ -1,0 +1,356 @@
+FFF.FFFFFF                                                               [100%]
+=================================== FAILURES ===================================
+_ test_resealed_role_graph_must_retain_completed_selected_evidence[missing_stage] _
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3968/test_resealed_...'path': 'evidence/pilot/raw.json', 'sha256': 'df3412c48537a36b1274b67a8cdf7af0d380e0d3902d9899b31c6a31d72aa4e7'}, ...})
+change = 'missing_stage'
+
+    @pytest.mark.parametrize('change',['missing_stage','wrong_role','missing_child','incomplete_child',
+        'wrong_checkpoint','incomplete_checkpoint','missing_probe','incomplete_probe','selected_update'])
+    def test_resealed_role_graph_must_retain_completed_selected_evidence(prepared,change):
+        from treeneuron.protocol import eligible_design
+        root,_,sources=prepared; raw=json.loads((root/sources['raw']['path']).read_text())
+        record=raw['accepted_records'][0]; method=record['methods']['ordinary_upper']
+        pair=root/'evidence/pilot/teacher-0/repetition-0'; stage=method['stages'][-1]
+        path=pair/stage['path']
+        if change=='missing_stage': method['stages'].pop()
+        elif change=='wrong_role': method['stages']=copy.deepcopy(record['methods']['ordinary_lower']['stages'])
+        elif change=='missing_child': record['child_runs']=[r for r in record['child_runs'] if r['run_id']!=stage['run_id']]
+        elif change=='incomplete_child':
+            manifest=json.loads((path/'manifest.json').read_text()); manifest['identity']['status']='failed'
+            write(path,'manifest.json',manifest)
+        elif change in ('wrong_checkpoint','incomplete_checkpoint'):
+            pointer=json.loads((path/'checkpoints/best.json').read_text())
+            descriptor_path=path/'checkpoints'/pointer['metadata']; descriptor=json.loads(descriptor_path.read_text())
+            if change=='wrong_checkpoint': descriptor['state']['growth_metadata']['causal_adapter']['recipe']['variant']='lower'
+            else: descriptor['state']['stage']['complete']=False
+            descriptor_path.write_text(json.dumps(descriptor)); pointer['sha256']=ref(root,descriptor_path)['sha256']
+            write(path,'checkpoints/best.json',pointer)
+            manifest=json.loads((path/'manifest.json').read_text()); manifest['method']['weight_hash']=pointer['sha256']
+            write(path,'manifest.json',manifest)
+        elif change in ('missing_probe','incomplete_probe'):
+            gp=Path(record['greedy_report']); greedy=json.loads(gp.read_text()); trial=greedy['trials'][-1]
+            if change=='missing_probe': greedy['trials'].pop(); gp.write_text(json.dumps(greedy))
+            else:
+                mp=gp.parent/trial['path']/'manifest.json'; manifest=json.loads(mp.read_text())
+                manifest['identity']['status']='failed'; mp.write_text(json.dumps(manifest))
+        else: stage['selected_update']+=1
+        reseal_pair(root,sources,raw,record)
+>       with pytest.raises(ValueError,match='control|stage|checkpoint|pilot|probe|selection'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:596: Failed
+_ test_resealed_role_graph_must_retain_completed_selected_evidence[wrong_role] _
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3968/test_resealed_...'path': 'evidence/pilot/raw.json', 'sha256': 'fcd833f0aac5fcd1c130cb0b40a1e3ef3d37acfcd9ab93a93a493471857dfc1a'}, ...})
+change = 'wrong_role'
+
+    @pytest.mark.parametrize('change',['missing_stage','wrong_role','missing_child','incomplete_child',
+        'wrong_checkpoint','incomplete_checkpoint','missing_probe','incomplete_probe','selected_update'])
+    def test_resealed_role_graph_must_retain_completed_selected_evidence(prepared,change):
+        from treeneuron.protocol import eligible_design
+        root,_,sources=prepared; raw=json.loads((root/sources['raw']['path']).read_text())
+        record=raw['accepted_records'][0]; method=record['methods']['ordinary_upper']
+        pair=root/'evidence/pilot/teacher-0/repetition-0'; stage=method['stages'][-1]
+        path=pair/stage['path']
+        if change=='missing_stage': method['stages'].pop()
+        elif change=='wrong_role': method['stages']=copy.deepcopy(record['methods']['ordinary_lower']['stages'])
+        elif change=='missing_child': record['child_runs']=[r for r in record['child_runs'] if r['run_id']!=stage['run_id']]
+        elif change=='incomplete_child':
+            manifest=json.loads((path/'manifest.json').read_text()); manifest['identity']['status']='failed'
+            write(path,'manifest.json',manifest)
+        elif change in ('wrong_checkpoint','incomplete_checkpoint'):
+            pointer=json.loads((path/'checkpoints/best.json').read_text())
+            descriptor_path=path/'checkpoints'/pointer['metadata']; descriptor=json.loads(descriptor_path.read_text())
+            if change=='wrong_checkpoint': descriptor['state']['growth_metadata']['causal_adapter']['recipe']['variant']='lower'
+            else: descriptor['state']['stage']['complete']=False
+            descriptor_path.write_text(json.dumps(descriptor)); pointer['sha256']=ref(root,descriptor_path)['sha256']
+            write(path,'checkpoints/best.json',pointer)
+            manifest=json.loads((path/'manifest.json').read_text()); manifest['method']['weight_hash']=pointer['sha256']
+            write(path,'manifest.json',manifest)
+        elif change in ('missing_probe','incomplete_probe'):
+            gp=Path(record['greedy_report']); greedy=json.loads(gp.read_text()); trial=greedy['trials'][-1]
+            if change=='missing_probe': greedy['trials'].pop(); gp.write_text(json.dumps(greedy))
+            else:
+                mp=gp.parent/trial['path']/'manifest.json'; manifest=json.loads(mp.read_text())
+                manifest['identity']['status']='failed'; mp.write_text(json.dumps(manifest))
+        else: stage['selected_update']+=1
+        reseal_pair(root,sources,raw,record)
+>       with pytest.raises(ValueError,match='control|stage|checkpoint|pilot|probe|selection'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:596: Failed
+_ test_resealed_role_graph_must_retain_completed_selected_evidence[missing_child] _
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3968/test_resealed_...'path': 'evidence/pilot/raw.json', 'sha256': 'ae17101c4a0b766fbb1ac8a8570aef4e2ab938d63ce67e298aea31d1cc38b05b'}, ...})
+change = 'missing_child'
+
+    @pytest.mark.parametrize('change',['missing_stage','wrong_role','missing_child','incomplete_child',
+        'wrong_checkpoint','incomplete_checkpoint','missing_probe','incomplete_probe','selected_update'])
+    def test_resealed_role_graph_must_retain_completed_selected_evidence(prepared,change):
+        from treeneuron.protocol import eligible_design
+        root,_,sources=prepared; raw=json.loads((root/sources['raw']['path']).read_text())
+        record=raw['accepted_records'][0]; method=record['methods']['ordinary_upper']
+        pair=root/'evidence/pilot/teacher-0/repetition-0'; stage=method['stages'][-1]
+        path=pair/stage['path']
+        if change=='missing_stage': method['stages'].pop()
+        elif change=='wrong_role': method['stages']=copy.deepcopy(record['methods']['ordinary_lower']['stages'])
+        elif change=='missing_child': record['child_runs']=[r for r in record['child_runs'] if r['run_id']!=stage['run_id']]
+        elif change=='incomplete_child':
+            manifest=json.loads((path/'manifest.json').read_text()); manifest['identity']['status']='failed'
+            write(path,'manifest.json',manifest)
+        elif change in ('wrong_checkpoint','incomplete_checkpoint'):
+            pointer=json.loads((path/'checkpoints/best.json').read_text())
+            descriptor_path=path/'checkpoints'/pointer['metadata']; descriptor=json.loads(descriptor_path.read_text())
+            if change=='wrong_checkpoint': descriptor['state']['growth_metadata']['causal_adapter']['recipe']['variant']='lower'
+            else: descriptor['state']['stage']['complete']=False
+            descriptor_path.write_text(json.dumps(descriptor)); pointer['sha256']=ref(root,descriptor_path)['sha256']
+            write(path,'checkpoints/best.json',pointer)
+            manifest=json.loads((path/'manifest.json').read_text()); manifest['method']['weight_hash']=pointer['sha256']
+            write(path,'manifest.json',manifest)
+        elif change in ('missing_probe','incomplete_probe'):
+            gp=Path(record['greedy_report']); greedy=json.loads(gp.read_text()); trial=greedy['trials'][-1]
+            if change=='missing_probe': greedy['trials'].pop(); gp.write_text(json.dumps(greedy))
+            else:
+                mp=gp.parent/trial['path']/'manifest.json'; manifest=json.loads(mp.read_text())
+                manifest['identity']['status']='failed'; mp.write_text(json.dumps(manifest))
+        else: stage['selected_update']+=1
+        reseal_pair(root,sources,raw,record)
+>       with pytest.raises(ValueError,match='control|stage|checkpoint|pilot|probe|selection'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:596: Failed
+_ test_resealed_role_graph_must_retain_completed_selected_evidence[wrong_checkpoint] _
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3968/test_resealed_...'path': 'evidence/pilot/raw.json', 'sha256': 'eac25c5cdcd17f68de2096c4eb86531c488456fab99c8d59391791fdaef048b4'}, ...})
+change = 'wrong_checkpoint'
+
+    @pytest.mark.parametrize('change',['missing_stage','wrong_role','missing_child','incomplete_child',
+        'wrong_checkpoint','incomplete_checkpoint','missing_probe','incomplete_probe','selected_update'])
+    def test_resealed_role_graph_must_retain_completed_selected_evidence(prepared,change):
+        from treeneuron.protocol import eligible_design
+        root,_,sources=prepared; raw=json.loads((root/sources['raw']['path']).read_text())
+        record=raw['accepted_records'][0]; method=record['methods']['ordinary_upper']
+        pair=root/'evidence/pilot/teacher-0/repetition-0'; stage=method['stages'][-1]
+        path=pair/stage['path']
+        if change=='missing_stage': method['stages'].pop()
+        elif change=='wrong_role': method['stages']=copy.deepcopy(record['methods']['ordinary_lower']['stages'])
+        elif change=='missing_child': record['child_runs']=[r for r in record['child_runs'] if r['run_id']!=stage['run_id']]
+        elif change=='incomplete_child':
+            manifest=json.loads((path/'manifest.json').read_text()); manifest['identity']['status']='failed'
+            write(path,'manifest.json',manifest)
+        elif change in ('wrong_checkpoint','incomplete_checkpoint'):
+            pointer=json.loads((path/'checkpoints/best.json').read_text())
+            descriptor_path=path/'checkpoints'/pointer['metadata']; descriptor=json.loads(descriptor_path.read_text())
+            if change=='wrong_checkpoint': descriptor['state']['growth_metadata']['causal_adapter']['recipe']['variant']='lower'
+            else: descriptor['state']['stage']['complete']=False
+            descriptor_path.write_text(json.dumps(descriptor)); pointer['sha256']=ref(root,descriptor_path)['sha256']
+            write(path,'checkpoints/best.json',pointer)
+            manifest=json.loads((path/'manifest.json').read_text()); manifest['method']['weight_hash']=pointer['sha256']
+            write(path,'manifest.json',manifest)
+        elif change in ('missing_probe','incomplete_probe'):
+            gp=Path(record['greedy_report']); greedy=json.loads(gp.read_text()); trial=greedy['trials'][-1]
+            if change=='missing_probe': greedy['trials'].pop(); gp.write_text(json.dumps(greedy))
+            else:
+                mp=gp.parent/trial['path']/'manifest.json'; manifest=json.loads(mp.read_text())
+                manifest['identity']['status']='failed'; mp.write_text(json.dumps(manifest))
+        else: stage['selected_update']+=1
+        reseal_pair(root,sources,raw,record)
+>       with pytest.raises(ValueError,match='control|stage|checkpoint|pilot|probe|selection'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:596: Failed
+_ test_resealed_role_graph_must_retain_completed_selected_evidence[incomplete_checkpoint] _
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3968/test_resealed_...'path': 'evidence/pilot/raw.json', 'sha256': 'abbf49e04a35a2d1c19590912e136306dcfcdd75a1a9765d9d2b8dfa1940b61f'}, ...})
+change = 'incomplete_checkpoint'
+
+    @pytest.mark.parametrize('change',['missing_stage','wrong_role','missing_child','incomplete_child',
+        'wrong_checkpoint','incomplete_checkpoint','missing_probe','incomplete_probe','selected_update'])
+    def test_resealed_role_graph_must_retain_completed_selected_evidence(prepared,change):
+        from treeneuron.protocol import eligible_design
+        root,_,sources=prepared; raw=json.loads((root/sources['raw']['path']).read_text())
+        record=raw['accepted_records'][0]; method=record['methods']['ordinary_upper']
+        pair=root/'evidence/pilot/teacher-0/repetition-0'; stage=method['stages'][-1]
+        path=pair/stage['path']
+        if change=='missing_stage': method['stages'].pop()
+        elif change=='wrong_role': method['stages']=copy.deepcopy(record['methods']['ordinary_lower']['stages'])
+        elif change=='missing_child': record['child_runs']=[r for r in record['child_runs'] if r['run_id']!=stage['run_id']]
+        elif change=='incomplete_child':
+            manifest=json.loads((path/'manifest.json').read_text()); manifest['identity']['status']='failed'
+            write(path,'manifest.json',manifest)
+        elif change in ('wrong_checkpoint','incomplete_checkpoint'):
+            pointer=json.loads((path/'checkpoints/best.json').read_text())
+            descriptor_path=path/'checkpoints'/pointer['metadata']; descriptor=json.loads(descriptor_path.read_text())
+            if change=='wrong_checkpoint': descriptor['state']['growth_metadata']['causal_adapter']['recipe']['variant']='lower'
+            else: descriptor['state']['stage']['complete']=False
+            descriptor_path.write_text(json.dumps(descriptor)); pointer['sha256']=ref(root,descriptor_path)['sha256']
+            write(path,'checkpoints/best.json',pointer)
+            manifest=json.loads((path/'manifest.json').read_text()); manifest['method']['weight_hash']=pointer['sha256']
+            write(path,'manifest.json',manifest)
+        elif change in ('missing_probe','incomplete_probe'):
+            gp=Path(record['greedy_report']); greedy=json.loads(gp.read_text()); trial=greedy['trials'][-1]
+            if change=='missing_probe': greedy['trials'].pop(); gp.write_text(json.dumps(greedy))
+            else:
+                mp=gp.parent/trial['path']/'manifest.json'; manifest=json.loads(mp.read_text())
+                manifest['identity']['status']='failed'; mp.write_text(json.dumps(manifest))
+        else: stage['selected_update']+=1
+        reseal_pair(root,sources,raw,record)
+>       with pytest.raises(ValueError,match='control|stage|checkpoint|pilot|probe|selection'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:596: Failed
+_ test_resealed_role_graph_must_retain_completed_selected_evidence[missing_probe] _
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3968/test_resealed_...'path': 'evidence/pilot/raw.json', 'sha256': '3f5cd77f071f0a711873d7015f3d32d42ca6ca5440b0c9736d89e1338fadc852'}, ...})
+change = 'missing_probe'
+
+    @pytest.mark.parametrize('change',['missing_stage','wrong_role','missing_child','incomplete_child',
+        'wrong_checkpoint','incomplete_checkpoint','missing_probe','incomplete_probe','selected_update'])
+    def test_resealed_role_graph_must_retain_completed_selected_evidence(prepared,change):
+        from treeneuron.protocol import eligible_design
+        root,_,sources=prepared; raw=json.loads((root/sources['raw']['path']).read_text())
+        record=raw['accepted_records'][0]; method=record['methods']['ordinary_upper']
+        pair=root/'evidence/pilot/teacher-0/repetition-0'; stage=method['stages'][-1]
+        path=pair/stage['path']
+        if change=='missing_stage': method['stages'].pop()
+        elif change=='wrong_role': method['stages']=copy.deepcopy(record['methods']['ordinary_lower']['stages'])
+        elif change=='missing_child': record['child_runs']=[r for r in record['child_runs'] if r['run_id']!=stage['run_id']]
+        elif change=='incomplete_child':
+            manifest=json.loads((path/'manifest.json').read_text()); manifest['identity']['status']='failed'
+            write(path,'manifest.json',manifest)
+        elif change in ('wrong_checkpoint','incomplete_checkpoint'):
+            pointer=json.loads((path/'checkpoints/best.json').read_text())
+            descriptor_path=path/'checkpoints'/pointer['metadata']; descriptor=json.loads(descriptor_path.read_text())
+            if change=='wrong_checkpoint': descriptor['state']['growth_metadata']['causal_adapter']['recipe']['variant']='lower'
+            else: descriptor['state']['stage']['complete']=False
+            descriptor_path.write_text(json.dumps(descriptor)); pointer['sha256']=ref(root,descriptor_path)['sha256']
+            write(path,'checkpoints/best.json',pointer)
+            manifest=json.loads((path/'manifest.json').read_text()); manifest['method']['weight_hash']=pointer['sha256']
+            write(path,'manifest.json',manifest)
+        elif change in ('missing_probe','incomplete_probe'):
+            gp=Path(record['greedy_report']); greedy=json.loads(gp.read_text()); trial=greedy['trials'][-1]
+            if change=='missing_probe': greedy['trials'].pop(); gp.write_text(json.dumps(greedy))
+            else:
+                mp=gp.parent/trial['path']/'manifest.json'; manifest=json.loads(mp.read_text())
+                manifest['identity']['status']='failed'; mp.write_text(json.dumps(manifest))
+        else: stage['selected_update']+=1
+        reseal_pair(root,sources,raw,record)
+>       with pytest.raises(ValueError,match='control|stage|checkpoint|pilot|probe|selection'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:596: Failed
+_ test_resealed_role_graph_must_retain_completed_selected_evidence[incomplete_probe] _
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3968/test_resealed_...'path': 'evidence/pilot/raw.json', 'sha256': '47c190751ab6e4d288588d43fa9b24f9baae539059cbf272d6fd0a191d6715aa'}, ...})
+change = 'incomplete_probe'
+
+    @pytest.mark.parametrize('change',['missing_stage','wrong_role','missing_child','incomplete_child',
+        'wrong_checkpoint','incomplete_checkpoint','missing_probe','incomplete_probe','selected_update'])
+    def test_resealed_role_graph_must_retain_completed_selected_evidence(prepared,change):
+        from treeneuron.protocol import eligible_design
+        root,_,sources=prepared; raw=json.loads((root/sources['raw']['path']).read_text())
+        record=raw['accepted_records'][0]; method=record['methods']['ordinary_upper']
+        pair=root/'evidence/pilot/teacher-0/repetition-0'; stage=method['stages'][-1]
+        path=pair/stage['path']
+        if change=='missing_stage': method['stages'].pop()
+        elif change=='wrong_role': method['stages']=copy.deepcopy(record['methods']['ordinary_lower']['stages'])
+        elif change=='missing_child': record['child_runs']=[r for r in record['child_runs'] if r['run_id']!=stage['run_id']]
+        elif change=='incomplete_child':
+            manifest=json.loads((path/'manifest.json').read_text()); manifest['identity']['status']='failed'
+            write(path,'manifest.json',manifest)
+        elif change in ('wrong_checkpoint','incomplete_checkpoint'):
+            pointer=json.loads((path/'checkpoints/best.json').read_text())
+            descriptor_path=path/'checkpoints'/pointer['metadata']; descriptor=json.loads(descriptor_path.read_text())
+            if change=='wrong_checkpoint': descriptor['state']['growth_metadata']['causal_adapter']['recipe']['variant']='lower'
+            else: descriptor['state']['stage']['complete']=False
+            descriptor_path.write_text(json.dumps(descriptor)); pointer['sha256']=ref(root,descriptor_path)['sha256']
+            write(path,'checkpoints/best.json',pointer)
+            manifest=json.loads((path/'manifest.json').read_text()); manifest['method']['weight_hash']=pointer['sha256']
+            write(path,'manifest.json',manifest)
+        elif change in ('missing_probe','incomplete_probe'):
+            gp=Path(record['greedy_report']); greedy=json.loads(gp.read_text()); trial=greedy['trials'][-1]
+            if change=='missing_probe': greedy['trials'].pop(); gp.write_text(json.dumps(greedy))
+            else:
+                mp=gp.parent/trial['path']/'manifest.json'; manifest=json.loads(mp.read_text())
+                manifest['identity']['status']='failed'; mp.write_text(json.dumps(manifest))
+        else: stage['selected_update']+=1
+        reseal_pair(root,sources,raw,record)
+>       with pytest.raises(ValueError,match='control|stage|checkpoint|pilot|probe|selection'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:596: Failed
+_ test_resealed_role_graph_must_retain_completed_selected_evidence[selected_update] _
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3968/test_resealed_...'path': 'evidence/pilot/raw.json', 'sha256': 'd0dad62921fb60d581bba2b25034586075ab286d6361f4a88667730c6c2f93ee'}, ...})
+change = 'selected_update'
+
+    @pytest.mark.parametrize('change',['missing_stage','wrong_role','missing_child','incomplete_child',
+        'wrong_checkpoint','incomplete_checkpoint','missing_probe','incomplete_probe','selected_update'])
+    def test_resealed_role_graph_must_retain_completed_selected_evidence(prepared,change):
+        from treeneuron.protocol import eligible_design
+        root,_,sources=prepared; raw=json.loads((root/sources['raw']['path']).read_text())
+        record=raw['accepted_records'][0]; method=record['methods']['ordinary_upper']
+        pair=root/'evidence/pilot/teacher-0/repetition-0'; stage=method['stages'][-1]
+        path=pair/stage['path']
+        if change=='missing_stage': method['stages'].pop()
+        elif change=='wrong_role': method['stages']=copy.deepcopy(record['methods']['ordinary_lower']['stages'])
+        elif change=='missing_child': record['child_runs']=[r for r in record['child_runs'] if r['run_id']!=stage['run_id']]
+        elif change=='incomplete_child':
+            manifest=json.loads((path/'manifest.json').read_text()); manifest['identity']['status']='failed'
+            write(path,'manifest.json',manifest)
+        elif change in ('wrong_checkpoint','incomplete_checkpoint'):
+            pointer=json.loads((path/'checkpoints/best.json').read_text())
+            descriptor_path=path/'checkpoints'/pointer['metadata']; descriptor=json.loads(descriptor_path.read_text())
+            if change=='wrong_checkpoint': descriptor['state']['growth_metadata']['causal_adapter']['recipe']['variant']='lower'
+            else: descriptor['state']['stage']['complete']=False
+            descriptor_path.write_text(json.dumps(descriptor)); pointer['sha256']=ref(root,descriptor_path)['sha256']
+            write(path,'checkpoints/best.json',pointer)
+            manifest=json.loads((path/'manifest.json').read_text()); manifest['method']['weight_hash']=pointer['sha256']
+            write(path,'manifest.json',manifest)
+        elif change in ('missing_probe','incomplete_probe'):
+            gp=Path(record['greedy_report']); greedy=json.loads(gp.read_text()); trial=greedy['trials'][-1]
+            if change=='missing_probe': greedy['trials'].pop(); gp.write_text(json.dumps(greedy))
+            else:
+                mp=gp.parent/trial['path']/'manifest.json'; manifest=json.loads(mp.read_text())
+                manifest['identity']['status']='failed'; mp.write_text(json.dumps(manifest))
+        else: stage['selected_update']+=1
+        reseal_pair(root,sources,raw,record)
+>       with pytest.raises(ValueError,match='control|stage|checkpoint|pilot|probe|selection'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:596: Failed
+__________ test_scientific_primary_claim_must_match_pilot_population ___________
+
+candidate = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3968/test_scientifi...7003b6460fefe7b5cb3fb0', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'), ...])
+
+    def test_scientific_primary_claim_must_match_pilot_population(candidate):
+        from treeneuron.protocol import _scientific_sources,pilot_seal
+        root,decision,sources,_=candidate; raw_path=root/sources['raw']['path']
+        raw=json.loads(raw_path.read_text()); raw['config']['data']['population']='pure_noise'
+        raw_path.write_text(json.dumps(raw)); sources['raw']=ref(root,raw_path)
+        seal=write(root,sources['raw_seal']['path'],pilot_seal(raw_path.parent)); sources['raw_seal']=ref(root,seal)
+>       with pytest.raises(ValueError,match='population'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:606: Failed
+=========================== short test summary info ============================
+FAILED tests/test_protocol.py::test_resealed_role_graph_must_retain_completed_selected_evidence[missing_stage]
+FAILED tests/test_protocol.py::test_resealed_role_graph_must_retain_completed_selected_evidence[wrong_role]
+FAILED tests/test_protocol.py::test_resealed_role_graph_must_retain_completed_selected_evidence[missing_child]
+FAILED tests/test_protocol.py::test_resealed_role_graph_must_retain_completed_selected_evidence[wrong_checkpoint]
+FAILED tests/test_protocol.py::test_resealed_role_graph_must_retain_completed_selected_evidence[incomplete_checkpoint]
+FAILED tests/test_protocol.py::test_resealed_role_graph_must_retain_completed_selected_evidence[missing_probe]
+FAILED tests/test_protocol.py::test_resealed_role_graph_must_retain_completed_selected_evidence[incomplete_probe]
+FAILED tests/test_protocol.py::test_resealed_role_graph_must_retain_completed_selected_evidence[selected_update]
+FAILED tests/test_protocol.py::test_scientific_primary_claim_must_match_pilot_population
+9 failed, 1 passed, 53 deselected in 39.29s

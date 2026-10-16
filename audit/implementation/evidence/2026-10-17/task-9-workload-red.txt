@@ -1,0 +1,96 @@
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+___________ test_resource_recipe_binds_inner_workload[repetitions-3] ___________
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3959/test_resource_...'path': 'evidence/pilot/raw.json', 'sha256': 'd7d13f2d060a84fdcb13eda7ca2e55706df3ed89749b4c214bc8478cf520c459'}, ...})
+field = 'repetitions', value = 3
+
+    @pytest.mark.parametrize('field,value', [
+        ('repetitions',3),('evaluation_rows',6),('probe_updates',2),('bootstrap_iterations',3000)])
+    def test_resource_recipe_binds_inner_workload(prepared,field,value):
+        from treeneuron.protocol import validate_pilot_readiness
+        root,config,sources=prepared
+        changed=config.to_dict(); changed['pilot'][field]=value
+        config=resolve_experiment(changed)
+        path=root/sources['readiness']['path']; ready=json.loads(path.read_text())
+        ready['config_sha256']=canonical_hash(config.to_dict())
+        ready['seed_plan']['repetitions']=config.pilot.repetitions
+        path.write_text(json.dumps(ready))
+        # A newly issued readiness config cannot reuse a cheaper measured workload.
+>       with pytest.raises(ValueError,match='recipe'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:397: Failed
+_________ test_resource_recipe_binds_inner_workload[evaluation_rows-6] _________
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3959/test_resource_...'path': 'evidence/pilot/raw.json', 'sha256': '2fd82dbd5b7101d651189135603a3dbfe5243752b6c07d0c4bbda3f94365bb52'}, ...})
+field = 'evaluation_rows', value = 6
+
+    @pytest.mark.parametrize('field,value', [
+        ('repetitions',3),('evaluation_rows',6),('probe_updates',2),('bootstrap_iterations',3000)])
+    def test_resource_recipe_binds_inner_workload(prepared,field,value):
+        from treeneuron.protocol import validate_pilot_readiness
+        root,config,sources=prepared
+        changed=config.to_dict(); changed['pilot'][field]=value
+        config=resolve_experiment(changed)
+        path=root/sources['readiness']['path']; ready=json.loads(path.read_text())
+        ready['config_sha256']=canonical_hash(config.to_dict())
+        ready['seed_plan']['repetitions']=config.pilot.repetitions
+        path.write_text(json.dumps(ready))
+        # A newly issued readiness config cannot reuse a cheaper measured workload.
+>       with pytest.raises(ValueError,match='recipe'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:397: Failed
+__________ test_resource_recipe_binds_inner_workload[probe_updates-2] __________
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3959/test_resource_...'path': 'evidence/pilot/raw.json', 'sha256': '3e25e7a1d56163f44efcb290b9dd3920d2d44d4a4a293751f8625699df4e299a'}, ...})
+field = 'probe_updates', value = 2
+
+    @pytest.mark.parametrize('field,value', [
+        ('repetitions',3),('evaluation_rows',6),('probe_updates',2),('bootstrap_iterations',3000)])
+    def test_resource_recipe_binds_inner_workload(prepared,field,value):
+        from treeneuron.protocol import validate_pilot_readiness
+        root,config,sources=prepared
+        changed=config.to_dict(); changed['pilot'][field]=value
+        config=resolve_experiment(changed)
+        path=root/sources['readiness']['path']; ready=json.loads(path.read_text())
+        ready['config_sha256']=canonical_hash(config.to_dict())
+        ready['seed_plan']['repetitions']=config.pilot.repetitions
+        path.write_text(json.dumps(ready))
+        # A newly issued readiness config cannot reuse a cheaper measured workload.
+>       with pytest.raises(ValueError,match='recipe'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:397: Failed
+_____ test_resource_recipe_binds_inner_workload[bootstrap_iterations-3000] _____
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3959/test_resource_...'path': 'evidence/pilot/raw.json', 'sha256': '34ff879e17fc082b6b07d0991961a27374a0bb1ad8f9c1d52368120ed334fddd'}, ...})
+field = 'bootstrap_iterations', value = 3000
+
+    @pytest.mark.parametrize('field,value', [
+        ('repetitions',3),('evaluation_rows',6),('probe_updates',2),('bootstrap_iterations',3000)])
+    def test_resource_recipe_binds_inner_workload(prepared,field,value):
+        from treeneuron.protocol import validate_pilot_readiness
+        root,config,sources=prepared
+        changed=config.to_dict(); changed['pilot'][field]=value
+        config=resolve_experiment(changed)
+        path=root/sources['readiness']['path']; ready=json.loads(path.read_text())
+        ready['config_sha256']=canonical_hash(config.to_dict())
+        ready['seed_plan']['repetitions']=config.pilot.repetitions
+        path.write_text(json.dumps(ready))
+        # A newly issued readiness config cannot reuse a cheaper measured workload.
+>       with pytest.raises(ValueError,match='recipe'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_protocol.py:397: Failed
+=========================== short test summary info ============================
+FAILED tests/test_protocol.py::test_resource_recipe_binds_inner_workload[repetitions-3]
+FAILED tests/test_protocol.py::test_resource_recipe_binds_inner_workload[evaluation_rows-6]
+FAILED tests/test_protocol.py::test_resource_recipe_binds_inner_workload[probe_updates-2]
+FAILED tests/test_protocol.py::test_resource_recipe_binds_inner_workload[bootstrap_iterations-3000]
+4 failed in 4.82s
