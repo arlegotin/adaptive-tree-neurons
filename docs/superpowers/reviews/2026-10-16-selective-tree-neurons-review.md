@@ -12,4 +12,16 @@ The reviewer raised no other blocking questions. This check did not verify the r
 
 ## Plan self-review
 
-Pending until both implementation plans are written. Review coverage, task step specificity, interface consistency, the five failure modes in each Review Focus, and proportionality against the design before the plan commit.
+The author reviewed both plans against the specification using the writing-plans checklist:
+
+- Coverage: every design section has an owning task in the evidence plan’s coverage table. The core implements WP00–WP04 and stages raw-data/practical adapters into the evidence plan; no broad infrastructure or extension is required before the mechanism gate.
+- Step specificity: tasks name files, producer/consumer APIs, meaningful test assertions, verification commands and commit boundaries. Numeric runtime/sample choices are measured gate outputs with deterministic selection rules, not unspecified implementation discretion. All execution boxes remain unchecked.
+- Interface consistency: shared `ObservationSet`/`SplitManifest` live in the core, including optional dates, so synthetic confirmation does not depend on running transfer acquisition. Allocation count fields and pilot planning-effect fields are explicit. Adapter contracts return finite original-unit `[N]` predictions and isolated workers preserve incompatible environments.
+- Review Focus: zero growth, batch-mean scaling, optimizer/resume state, missing/constant data, drift/access, few groups, vendor semantics, degenerate variance and incomplete cohorts have task-owned assertions.
+- Proportion: two phased plans carry task decisions and representative assertions rather than implementations. They defer extension algorithms until evidence identifies a question; conditional assets and unavailable methods stay visible.
+
+The self-review also resolved two consequential lifecycle ambiguities. Complete G-best optimizer/sampler/RNG state must accompany the selected parent, and continuation update zero remains eligible. Source identity uses a pinned commit plus execution/input digests, with the actual checkout commit separately recorded, so merely committing a frozen artifact does not invalidate its own protocol. Separate exploratory E observations can calibrate variance without protected T access or future teacher reuse.
+
+Documentation validation checks relative links, Markdown anchors/fences, task/step structure, assertion-snippet Python syntax, key parameter/sample calculations, absence of a fake frozen protocol, and whitespace. These checks validate the planning artifacts only. No model, reference algebra, package adapter, latency or scientific hypothesis was tested in this documentation task.
+
+The validation run passed for 7 Markdown documents, 18 relative links/anchors, 27 Python snippets parsed without execution, 25 task contracts and the R01–R39 ledger. Parameter/sample checks confirmed 1,153→1,697 parameters, ordinary widths 94/95 at 1,693/1,711 parameters, F=2,306 and G=V=577, and the 36 GiB/9 GiB reservation calculations. `git diff --check` passed. No `src/`, `pyproject.toml` or `protocol/frozen.yaml` existed at validation time.
