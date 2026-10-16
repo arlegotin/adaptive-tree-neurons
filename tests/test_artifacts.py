@@ -125,3 +125,64 @@ def test_draft_has_no_authority_to_create_protected_run(tmp_path):
     assert draft["test_access_authorized"] is False
     with pytest.raises(ValueError):
         create_run(tmp_path, {"study_id": "pilot", "phase": "confirmatory", "protocol": draft})
+
+
+def test_observations_update_measured_fields_and_parent_atomically(tmp_path):
+    from treeneuron.artifacts import create_run, update_run_observations
+    paths = create_run(tmp_path, {'study_id': 'pilot'})
+    update_run_observations(paths, {'identity': {'parent_run_id': 'parent', 'code_revision': 'abc'},
+                                   'method': {'trainable_parameters': 17},
+                                   'data': {'counts': {'F': {'rows': 2306, 'groups': 2306}}}})
+    manifest = json.loads((paths.directory / 'manifest.json').read_text())
+    assert manifest['identity']['parent_run_id'] == 'parent'
+    assert manifest['method']['trainable_parameters'] == 17
+    assert manifest['data']['counts']['G']['groups']['value'] is None
+    before = (paths.directory / 'manifest.json').read_bytes()
+    with pytest.raises(ValueError):
+        update_run_observations(paths, {'method': {'trainable_parameters': 99}, 'identity': {'run_id': 'forged'}})
+    assert (paths.directory / 'manifest.json').read_bytes() == before
+
+
+@pytest.mark.parametrize('patch', [
+    {'identity': {'protocol_hash': 'forged'}}, {'identity': {'study_id': 'forged'}},
+    {'identity': {'status': 'completed'}}, {'method': {'resolved_config': {}}},
+    {'data': {'test_labels_accessed': True}}, {'unknown': {}},
+    {'method': {'trainable_parameters': -1}}, {'costs': {'base': {'nanoseconds': float('nan')}}},
+])
+def test_observation_api_rejects_identity_and_invalid_updates(tmp_path, patch):
+    from treeneuron.artifacts import create_run, update_run_observations
+    paths = create_run(tmp_path, {'study_id': 'pilot'})
+    before = (paths.directory / 'manifest.json').read_bytes()
+    with pytest.raises(ValueError): update_run_observations(paths, patch)
+    assert (paths.directory / 'manifest.json').read_bytes() == before
+
+
+def test_observation_api_rejects_terminal_and_inconsistent_records(tmp_path):
+    from treeneuron.artifacts import create_run, finish_run, update_run_observations
+    paths = create_run(tmp_path, {'study_id': 'pilot'})
+    finish_run(paths, {}, 'failed')
+    with pytest.raises(ValueError): update_run_observations(paths, {'identity': {'parent_run_id': 'p'}})
+    other = create_run(tmp_path, {'study_id': 'pilot'})
+    (other.directory / 'metrics.json').write_text('{}')
+    with pytest.raises(ValueError): update_run_observations(other, {'identity': {'parent_run_id': 'p'}})
+
+
+def test_observation_update_rejects_tampered_study_identity(tmp_path):
+    from treeneuron.artifacts import create_run, update_run_observations
+    paths = create_run(tmp_path, {'study_id': 'pilot'})
+    path = paths.directory / 'manifest.json'
+    manifest = json.loads(path.read_text())
+    manifest['identity']['study_id'] = 'other'
+    path.write_text(json.dumps(manifest))
+    before = path.read_bytes()
+    with pytest.raises(ValueError, match='identity'):
+        update_run_observations(paths, {'method': {'trainable_parameters': 17}})
+    assert path.read_bytes() == before
+
+
+def test_observation_update_rejects_unknown_nested_backend_field(tmp_path):
+    from treeneuron.artifacts import create_run, update_run_observations
+    paths = create_run(tmp_path, {'study_id': 'pilot'})
+    with pytest.raises(ValueError, match='backend'):
+        update_run_observations(paths, {'method': {'backend': {'actual': {
+            'device': 'cpu', 'dtype': 'float32', 'fallback': False, 'invented': 'not observed'}}}})

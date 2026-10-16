@@ -158,7 +158,9 @@ def _locked_manifest(paths: RunPaths):
             config = json.loads((paths.directory / "config.resolved.json").read_text(encoding="utf-8"))
             if (identity["run_id"] != paths.run_id or paths.directory.name != paths.run_id
                     or identity["phase"] != "exploratory"
-                    or identity["config_hash"] != canonical_hash(config)):
+                    or identity["config_hash"] != canonical_hash(config)
+                    or identity["study_id"] != config["study_id"]
+                    or manifest["method"]["resolved_config"] != config):
                 raise ValueError("Run identity, phase or resolved config hash mismatch")
             if identity["status"] not in RUN_STATUSES:
                 raise ValueError("Unknown operational run status")
@@ -197,3 +199,98 @@ def finish_run(paths: RunPaths, metrics: Mapping[str, Any], status: str) -> None
         manifest["resources"]["finished_utc"] = _utc()
         _atomic_json(paths.directory / "metrics.json", metrics)
         _atomic_json(paths.directory / "manifest.json", manifest, replace=True)
+
+
+def update_run_observations(paths: RunPaths, observations: Mapping[str, Any]) -> None:
+    """Atomically merge only measured fields into a nonterminal run manifest.
+
+    Scientific/run identity and protocol are immutable. ``parent_run_id`` is a
+    one-time linkage; code/lock/data identity observations cannot be changed once
+    supplied. Serial callers own measurements; this is not a cross-file ledger
+    transaction. A metrics-before-manifest interruption is preserved and rejected.
+    """
+    canonical_json(observations)
+    allowed = {
+        'identity': {'parent_run_id', 'code_revision', 'adapter_revision', 'lock_hash',
+                     'hardware_hash', 'growth_hash', 'failure_class'},
+        'data': {'raw_hash', 'split_hash', 'transform_hash', 'teacher_normalization', 'counts', 'seeds'},
+        'method': {'trainable_parameters', 'total_parameters', 'serialized_bytes', 'weight_checkpoint',
+                   'weight_hash', 'weight_terms', 'context_bytes', 'cache_bytes', 'backend', 'threads',
+                   'checkpoint_retention'},
+        'costs': {'search', 'preprocess', 'base', 'score', 'probe', 'continuation', 'validation',
+                  'first_prediction', 'warm_prediction', 'acquisition'},
+        'resources': {'rss_bytes', 'mps_allocated_bytes', 'mps_driver_bytes', 'pressure', 'swap_delta_bytes',
+                      'interruption_links', 'retry_links', 'timing_exclusions'},
+    }
+    with _locked_manifest(paths) as manifest:
+        if (manifest['identity']['status'] in TERMINAL_STATUSES
+                or (paths.directory / 'metrics.json').exists()):
+            raise ValueError('Cannot update terminal or inconsistent metrics-before-manifest record')
+        for section, updates in observations.items():
+            if section not in allowed or not isinstance(updates, Mapping) or set(updates) - allowed[section]:
+                raise ValueError('Unsupported observation field or immutable identity update')
+            for key, value in updates.items():
+                previous = manifest[section].get(key)
+                unavailable = (isinstance(value, dict) and set(value) == {'value', 'reason'}
+                               and value['value'] is None and isinstance(value['reason'], str) and bool(value['reason']))
+                if section == 'identity' or (section == 'data' and key.endswith('_hash')):
+                    if not unavailable and (type(value) is not str or not value):
+                        raise ValueError('Identity observations require nonempty strings')
+                    if previous != value and not (isinstance(previous, dict) and previous.get('value') is None):
+                        raise ValueError('Previously observed identity is immutable')
+                elif section == 'data' and key == 'seeds':
+                    if value != previous:
+                        raise ValueError('Observed seeds must match immutable resolved configuration')
+                elif section == 'data' and key == 'counts':
+                    if not isinstance(value, Mapping) or set(value) - {'F', 'G', 'V', 'T'}:
+                        raise ValueError('Unsupported split counts')
+                    merged = {p: dict(counts) for p, counts in previous.items()}
+                    for split, counts in value.items():
+                        if not isinstance(counts, Mapping) or set(counts) - {'rows', 'groups'}:
+                            raise ValueError('Unsupported count observation')
+                        for field, count in counts.items():
+                            if type(count) is not int or count < 0:
+                                raise ValueError('Counts must be nonnegative integers')
+                            if field == 'rows' and isinstance(previous[split]['rows'], int) and count != previous[split]['rows']:
+                                raise ValueError('Observed row count differs from resolved configuration')
+                            merged[split][field] = count
+                    value = merged
+                elif section == 'method' and key in {'trainable_parameters', 'total_parameters', 'serialized_bytes',
+                                                     'context_bytes', 'cache_bytes'}:
+                    if not unavailable and (type(value) is not int or value < 0):
+                        raise ValueError('Parameter and byte observations must be nonnegative integers')
+                elif section == 'method' and key in {'weight_checkpoint', 'weight_hash'}:
+                    if not unavailable and (type(value) is not str or not value):
+                        raise ValueError('Weight artifact observations must be nonempty strings')
+                elif section == 'method' and key == 'backend':
+                    if not isinstance(value, Mapping) or set(value) != {'actual'} or not isinstance(value['actual'], Mapping):
+                        raise ValueError('Only actual backend observations may be updated')
+                    actual = value['actual']
+                    backend_fields = {'device', 'dtype', 'execution', 'fallback', 'cpu_threads', 'interop_threads',
+                                      'kernel_tolerance', 'resume_tolerance', 'evidence_sha256',
+                                      'kernel_implementation_sha256', 'workload', 'performance_calibration_matches',
+                                      'performance_scope'}
+                    if set(actual) - backend_fields:
+                        raise ValueError('Unsupported actual backend observation field')
+                    if actual.get('device') not in ('cpu', 'mps') or actual.get('dtype') != 'float32' or actual.get('fallback') is not False:
+                        raise ValueError('Actual backend requires explicit float32 CPU/MPS without fallback')
+                    value = {**previous, 'actual': dict(actual)}
+                elif section == 'method' and key == 'threads':
+                    if (not isinstance(value, Mapping) or set(value) != {'cpu', 'interop'}
+                            or any(type(n) is not int or n <= 0 for n in value.values())):
+                        raise ValueError('Thread observations require positive CPU and interop counts')
+                elif section == 'costs':
+                    if (not isinstance(value, Mapping) or not {'nanoseconds', 'status', 'reason'} <= set(value)
+                            or set(value) - {'nanoseconds', 'status', 'reason', 'boundary'}
+                            or ('boundary' in value and (type(value['boundary']) is not str or not value['boundary']))
+                            or type(value['nanoseconds']) is not int or value['nanoseconds'] < 0
+                            or value['status'] not in ('measured', 'estimated') or value['reason'] is not None):
+                        raise ValueError('Cost observations require finite nonnegative duration and measurement status')
+                    value = {**previous, **value}
+                elif section == 'resources' and key.endswith('_bytes'):
+                    if not unavailable and (type(value) is not int or (key != 'swap_delta_bytes' and value < 0)):
+                        raise ValueError('Resource bytes must be integers or unavailable with reason')
+                elif not unavailable and not isinstance(value, (Mapping, list, str, int)):
+                    raise ValueError('Malformed observation')
+                manifest[section][key] = value
+        _atomic_json(paths.directory / 'manifest.json', manifest, replace=True)
