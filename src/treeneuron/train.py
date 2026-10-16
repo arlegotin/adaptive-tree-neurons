@@ -478,8 +478,7 @@ def unpack_state(snapshot, *, expected_hashes, device):
 def _observe_initial(state, data, paths, preprocess_ns=None):
     model = state.model
     updates = {
-        'identity': {'code_revision': state.identity_hashes['code'], 'lock_hash': state.identity_hashes['lock'],
-                     'hardware_hash': state.identity_hashes['runtime']},
+        'identity': {'code_revision': state.identity_hashes['code'], 'lock_hash': state.identity_hashes['lock']},
         'data': {'raw_hash': state.identity_hashes['raw'], 'split_hash': state.identity_hashes['split'],
                  'transform_hash': state.identity_hashes['transform'], 'seeds': state.config.seeds.__dict__,
                  'teacher_normalization': {'value': None, 'reason': 'Teacher normalization is owned by the generator; not supplied to training'},

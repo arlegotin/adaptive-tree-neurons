@@ -74,9 +74,13 @@ def assert_state_equal(a, b):
     equal(a.rng_states, b.rng_states)
 
 
-def test_parent_predictions_original_units_and_no_validation_access(training_case):
+@pytest.mark.parametrize('hardware_hash', [None, 'a'*64])
+def test_parent_predictions_original_units_and_no_validation_access(training_case, hardware_hash):
     from treeneuron.train import fit_parent
     data, config, paths = training_case
+    if hardware_hash is not None:
+        from treeneuron.artifacts import update_run_observations
+        update_run_observations(paths, {'identity': {'hardware_hash': hardware_hash}})
     class Forbidden:
         def __getattribute__(self, name):
             raise AssertionError('V must never be read during training')
@@ -96,6 +100,10 @@ def test_parent_predictions_original_units_and_no_validation_access(training_cas
     assert manifest['data']['split_hash'] == data.manifest.assignment_hash
     assert manifest['method']['trainable_parameters'] == 17
     assert manifest['method']['backend']['actual']['device'] == 'cpu'
+    if hardware_hash is None:
+        assert manifest['identity']['hardware_hash']['value'] is None
+    else:
+        assert manifest['identity']['hardware_hash'] == hardware_hash
     assert manifest['method']['serialized_bytes'] > 0
     assert manifest['costs']['base']['nanoseconds'] > 0
     assert manifest['data']['test_labels_accessed'] is False
