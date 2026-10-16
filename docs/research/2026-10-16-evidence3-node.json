@@ -1,0 +1,277 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-16",
+  "base": "232ba2c",
+  "implementation_commit": "41d0178cf1747ff1ee2ab44159c9dc39662210bc",
+  "source_sha256": "6146d731db228c5a9495f19262139622dec462b9707208476f84400342710fd7",
+  "status": "engineering_gate_passed; root independent review pending",
+  "track_ready": true,
+  "scope": "WP03 causal correctness/readiness and measured bounded full-size NODE cost; no new predictive study or quality winner",
+  "verification": {
+    "full_suite": {
+      "command": ".venv/bin/python -m pytest -q",
+      "passed": 678,
+      "skipped": 48,
+      "warnings": 28,
+      "seconds": 249.77,
+      "log": "artifacts/evidence3-node/final-full-suite.txt"
+    },
+    "node": {
+      "command": ".venv/bin/python -m pytest tests/test_node.py -q",
+      "passed": 19,
+      "warnings": 28,
+      "seconds": 2.28,
+      "log": "artifacts/evidence3-node/required-node-tests.txt"
+    },
+    "covering": {
+      "passed": 106,
+      "seconds": 46.43
+    },
+    "causal": {
+      "command": ".venv/bin/python -m treeneuron.cli verify-baselines --track causal --backend-report environment/task11-parent-backend.json --artifacts-dir environment/evidence3-node-causal-runs --output environment/evidence3-node-causal.json",
+      "exit_code": 0,
+      "report": "environment/evidence3-node-causal.json",
+      "report_sha256": "2d0890b590c83e8e02b6c0b63325826ec1fa8777de44b86309a0a7d0dc7cbca2",
+      "neural_B1_B6_recipes": 14,
+      "B0": [
+        "mean",
+        "ridge",
+        "spline_ridge"
+      ],
+      "B7": "independent vendor parity and full-size bounded worker"
+    }
+  },
+  "node_identity": {
+    "core_lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+    "machine": "arm64",
+    "node_commit": "3bae6a8a63f0205683270b6d566d9cfa659403e4",
+    "node_lock_sha256": "89ce6a4b559114eb759d31092d88287ff5e0cd04672bdcabd9143c3a4e56b561",
+    "package_source": "6146d731db228c5a9495f19262139622dec462b9707208476f84400342710fd7",
+    "packages": {
+      "numpy": "2.5.4",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "torch": "2.14.1"
+    },
+    "python": "3.12.13",
+    "qhoptim_commit": "0e0dc6053c4f7f95bc26cfeb336c6471fea4c5ea"
+  },
+  "vendor_sources": {
+    "path": "configs/vendor/node/sources.json",
+    "sha256": "75e27a438d1c632284a02472508a5011ad1fc8b39e7da683bad2128cc230fe50"
+  },
+  "baseline_lock": {
+    "path": "locks/node/environment.json",
+    "sha256": "89ce6a4b559114eb759d31092d88287ff5e0cd04672bdcabd9143c3a4e56b561"
+  },
+  "terms_inventory": {
+    "path": "locks/node/dependency-licenses.json",
+    "sha256": "410caa4b8631f6244eac3f4e923e5a7fe3a5c50785611916c1417ecc4406699b"
+  },
+  "backend": {
+    "receipt": "environment/task11-parent-backend.json",
+    "sha256": "44899df8ec13349ee74b37511b25bfcda3aeace9a0640449e05e51669ce60197",
+    "producer": "237035c85e84b706facd7a7054a159f62dcff50e00f3ca3a5fdae0a11ca4fd7e",
+    "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+    "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+    "current_source": "6146d731db228c5a9495f19262139622dec462b9707208476f84400342710fd7",
+    "scope": "Unchanged genuine core CPU receipt reused only for matching B0\u2013B6 recipe. NODE CPU execution is independently measured by its own worker."
+  },
+  "parity": {
+    "tolerance": {
+      "atol": 1e-07,
+      "rtol": 1e-06
+    },
+    "observed_forward_max_abs": 0.0,
+    "independent_reference": "immutable archived upstream modules, separately imported; numerical modules unchanged",
+    "sigmoid_counterexample_rejected": true,
+    "numerical_vendor_patches": false,
+    "known_warnings": [
+      "TorchScript deprecated",
+      "legacy positional add_ deprecated",
+      "short-F initialization and n_quantiles clamp on named small fixtures"
+    ]
+  },
+  "default_cost": {
+    "G_selection_exercised": false,
+    "G_selection_reason": "budget 3 < report frequency 100; latest raw model, no selected checkpoint",
+    "checkpoint": {
+      "bytes": 9743514,
+      "json": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/evidence3-node-causal-runs/node/anchor/model.json",
+      "npz_sha256": "2e7e22c90a44303106eae629a8c3666b441c1578976873e57dd2e63378ea95fc",
+      "reload_max_abs": 0.0,
+      "reload_seconds": 0.04862600000342354,
+      "save_seconds": 0.3387105419533327
+    },
+    "default_patience_training_executed": false,
+    "forecast_scope": "measured one full F1025 epoch; no extrapolation to real datasets or convergence",
+    "identity": {
+      "core_lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+      "machine": "arm64",
+      "node_commit": "3bae6a8a63f0205683270b6d566d9cfa659403e4",
+      "node_lock_sha256": "89ce6a4b559114eb759d31092d88287ff5e0cd04672bdcabd9143c3a4e56b561",
+      "package_source": "6146d731db228c5a9495f19262139622dec462b9707208476f84400342710fd7",
+      "packages": {
+        "numpy": "2.5.4",
+        "scikit-learn": "1.9.1",
+        "scipy": "1.18.1",
+        "torch": "2.14.1"
+      },
+      "python": "3.12.13",
+      "qhoptim_commit": "0e0dc6053c4f7f95bc26cfeb336c6471fea4c5ea"
+    },
+    "initialization_prefix": "ordered first 1000 F rows; no G initialization",
+    "peak_process_rss_bytes": 10002169856,
+    "peak_scope": "entire dedicated process including imports, init, fitting, prediction and reload",
+    "quality_plateau_calibrated": false,
+    "resources": {
+      "backend": "CPU float32 eager",
+      "cache": false,
+      "categories": "unsupported",
+      "context": false,
+      "costs": {
+        "fit_seconds": 7.974388250033371,
+        "initialization_seconds": 1.0040138749754988,
+        "last_prediction_seconds": 1.2754065000335686,
+        "preprocessing_seconds": 0.016368209035135806,
+        "step_seconds": [
+          4.388720500050113,
+          2.042689624999184,
+          0.015904041996691376
+        ],
+        "training_seconds": 6.4475237089791335
+      },
+      "executed_updates": 3,
+      "fallback": false,
+      "identity": {
+        "core_lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "machine": "arm64",
+        "node_commit": "3bae6a8a63f0205683270b6d566d9cfa659403e4",
+        "node_lock_sha256": "89ce6a4b559114eb759d31092d88287ff5e0cd04672bdcabd9143c3a4e56b561",
+        "package_source": "6146d731db228c5a9495f19262139622dec462b9707208476f84400342710fd7",
+        "packages": {
+          "numpy": "2.5.4",
+          "scikit-learn": "1.9.1",
+          "scipy": "1.18.1",
+          "torch": "2.14.1"
+        },
+        "python": "3.12.13",
+        "qhoptim_commit": "0e0dc6053c4f7f95bc26cfeb336c6471fea4c5ea"
+      },
+      "initialization_prefix_sha256": "44ff6f312e5a4071d8600bc125e5dcd5aa3359457ffe3c4d1378603ff4000d91",
+      "initialization_requested": 1000,
+      "initialization_rows": 1000,
+      "internal_selection": "G latest-five parameter averaging",
+      "memory": {
+        "reason": "process peak measured by separate cost worker",
+        "value": null
+      },
+      "method": "B7",
+      "missingness": "unsupported",
+      "n_fit": 1025,
+      "n_select": 1024,
+      "official_selection_completed": false,
+      "optimizer": {
+        "name": "QHAdam",
+        "resolved": {
+          "betas": [
+            0.95,
+            0.998
+          ],
+          "decouple_weight_decay": false,
+          "eps": 1e-08,
+          "lr": 0.001,
+          "nus": [
+            0.7,
+            1.0
+          ],
+          "weight_decay": 0.0
+        },
+        "version": "1.1.0"
+      },
+      "quality_plateau_calibrated": false,
+      "quality_selection_eligible": false,
+      "recipe": {
+        "batch_size": 512,
+        "depth": 6,
+        "device": "cpu",
+        "initialization_rows": 1000,
+        "latest_checkpoints": 5,
+        "layers": 1,
+        "patience": 5000,
+        "recipe": "year_node_shallow",
+        "report_frequency": 100,
+        "tree_dim": 3,
+        "trees": 2048,
+        "validation_chunk": 1024
+      },
+      "selected_step": null,
+      "selection_checkpoint_available": false,
+      "selection_status": "unavailable_at_budget",
+      "source_commit": "3bae6a8a63f0205683270b6d566d9cfa659403e4",
+      "stop_reason": "budget",
+      "trainable_parameters": 614400,
+      "training_rows_seen": 1025,
+      "transduction": false,
+      "unique_training_rows": 1025
+    },
+    "status": "passed",
+    "worker_run_seconds": 10.087284124980215,
+    "workload": "synthetic F1025 G1024 d16; full 2048x1 depth6 channels3 anchor; one complete F epoch"
+  },
+  "worker_startup_inclusive_seconds": 11.935680875030812,
+  "M1": {
+    "status": "passed",
+    "response_shape": [
+      2048,
+      3,
+      64
+    ],
+    "selector_shape": [
+      16,
+      2048,
+      6
+    ],
+    "trainable_parameters": 614400,
+    "training_rows_seen": 1025,
+    "initialization_rows": 1000,
+    "dedicated_coordinator": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/evidence3-node-causal-runs/4fa37922b24c49539683877f37610992",
+    "dedicated_coordinator_status": "completed",
+    "quality_selection_eligible": false,
+    "source": "6146d731db228c5a9495f19262139622dec462b9707208476f84400342710fd7",
+    "total_parameters_including_nontrainable": 615169,
+    "nontrainable_parameters": 769
+  },
+  "artifact_index": {
+    "path": "audit/implementation/evidence/2026-10-16/task-3-artifact-index.json",
+    "sha256": "008b37858dcbcafdd6f3ecac8452f8b226e484b74b0c43c496cdce93b68ec052",
+    "files": 521
+  },
+  "historical_integrity": {
+    "status": "passed",
+    "evidence2_entries_resolved": 329,
+    "evidence2_files_unchanged": 325,
+    "expected_updated_source_files": [
+      "src/treeneuron/baselines/causal_checks.py",
+      "src/treeneuron/baselines/registry.py",
+      "tests/test_adapters.py",
+      "tests/test_causal_baselines.py"
+    ],
+    "original_updated_sources_verified_in_git_base": true,
+    "historical_research_audit_files_byte_identical": 17,
+    "historical_base": "232ba2c",
+    "checkpoint_policy": "No old-source checkpoint was loaded under the new package source"
+  },
+  "limitations": [
+    "Native arm64 CPU repository-checkout path only; no MPS fallback.",
+    "Full-size F1025/G1024/d16 run has 1000 init rows and batches512/512/1; not primary F2306.",
+    "Budget3 does not reach report100: no official G-selected checkpoint, unavailable_at_budget and quality_selection_eligible=false.",
+    "No default5000+ stopping or quality plateau calibration; Task7 must measure these.",
+    "Snapshot averaging tested with independent vendor execution and named engineering fixtures; default-cost run does not time a G report.",
+    "Historical sklearn/QHOptim dependency resolutions unknown; modern versions/defaults explicitly pinned.",
+    "Exact pre-NODE entmax source revision unknown; NODE attribution and MIT notices plus pinned DeepSPIN notice preserved.",
+    "Notebook logging/UI and temporary checkpoint filesystem I/O are replaced by in-memory recent snapshots and explicit endpoint serialization.",
+    "No YEAR/split/weight asset acquired or terms inferred; no published YEAR score reproduction.",
+    "No T/freeze/pilot/new predictive inventory or independent H1 confirmation."
+  ]
+}
