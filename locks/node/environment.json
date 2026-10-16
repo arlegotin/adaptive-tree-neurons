@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "python": "3.12.13",
+  "architecture": "arm64",
+  "execution": "native CPU eager float32; no environment downgrade",
+  "core_lock_sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+  "packages": {
+    "torch": "2.14.1",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "pandas": "3.0.6"
+  },
+  "vendor": {
+    "node_commit": "3bae6a8a63f0205683270b6d566d9cfa659403e4",
+    "qhoptim_commit": "0e0dc6053c4f7f95bc26cfeb336c6471fea4c5ea",
+    "qhoptim_version": "1.1.0"
+  },
+  "reference_only_packages": {
+    "requests": "2.32.5",
+    "tqdm": "4.67.1",
+    "certifi": "2026.7.22",
+    "charset-normalizer": "3.5.2",
+    "idna": "3.20",
+    "urllib3": "2.8.0"
+  },
+  "resolved_quantile_defaults": {
+    "n_quantiles": 1000,
+    "output_distribution": "normal",
+    "ignore_implicit_zeros": false,
+    "subsample": 10000,
+    "copy": true,
+    "random_state": "FitRequest seed"
+  },
+  "historical_dependency_resolution": "unknown; modern explicit defaults are not claimed to reproduce historical sklearn/qhoptim resolutions"
+}

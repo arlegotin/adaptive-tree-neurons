@@ -1,0 +1,38 @@
+[
+  {
+    "original": "configs/vendor/node/upstream/lib/nn_utils.py",
+    "runtime": "src/treeneuron/baselines/_node_vendor/nn_utils.py",
+    "original_sha256": "91fcac1db376552fef6ec9555cbfefbe468036d8a7d1e1d836d8d5aca8d52a4a",
+    "runtime_sha256": "91fcac1db376552fef6ec9555cbfefbe468036d8a7d1e1d836d8d5aca8d52a4a"
+  },
+  {
+    "original": "configs/vendor/node/upstream/lib/odst.py",
+    "runtime": "src/treeneuron/baselines/_node_vendor/odst.py",
+    "original_sha256": "878fa48cbf3c319dc9909400efe0ed601dae180754ae30997aaf14c94e59b81b",
+    "runtime_sha256": "878fa48cbf3c319dc9909400efe0ed601dae180754ae30997aaf14c94e59b81b"
+  },
+  {
+    "original": "configs/vendor/node/upstream/lib/arch.py",
+    "runtime": "src/treeneuron/baselines/_node_vendor/arch.py",
+    "original_sha256": "02f9d08cfadc96b3d77c04dbe6720be7a5e165892949944c366439c018e50541",
+    "runtime_sha256": "02f9d08cfadc96b3d77c04dbe6720be7a5e165892949944c366439c018e50541"
+  },
+  {
+    "original": "configs/vendor/node/upstream/qhoptim/qhoptim/pyt/qhadam.py",
+    "runtime": "src/treeneuron/baselines/_node_vendor/qhadam.py",
+    "original_sha256": "ab29409cfa20fcd576ba239440ee3a651dbe734d68743cd3f768727bbc3aeb2e",
+    "runtime_sha256": "10acd3bd21c5ae7cae70138f981e1e8485ed40c34275354ee1a4dbacb123047d"
+  },
+  {
+    "original": "configs/vendor/node/upstream/qhoptim-wheel/qhoptim/common/param_conv.py",
+    "runtime": "src/treeneuron/baselines/_node_vendor/param_conv.py",
+    "original_sha256": "520925a24cdf861fbf9129eda0892e5f2294cd111c968bc0c4d67a04c96efaf4",
+    "runtime_sha256": "520925a24cdf861fbf9129eda0892e5f2294cd111c968bc0c4d67a04c96efaf4"
+  },
+  {
+    "original": "configs/vendor/node/upstream/lib/utils.py",
+    "runtime": "src/treeneuron/baselines/_node_vendor/utils.py",
+    "original_sha256": "fac08661980a8097f8e4e7e6fd3745be19bd91db17def866b6023c9d6127354c",
+    "runtime_sha256": "d4f70f6ce070ed1eb26c0bfb90f73d1ef472bd08972bbf0c6b5962af5faef1fa"
+  }
+]

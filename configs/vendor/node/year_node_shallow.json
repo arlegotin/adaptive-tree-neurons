@@ -1,0 +1,42 @@
+{
+  "source_commit": "3bae6a8a63f0205683270b6d566d9cfa659403e4",
+  "qhoptim_commit": "0e0dc6053c4f7f95bc26cfeb336c6471fea4c5ea",
+  "model": {
+    "recipe": "year_node_shallow",
+    "trees": 2048,
+    "layers": 1,
+    "depth": 6,
+    "tree_dim": 3,
+    "initialization_rows": 1000,
+    "batch_size": 512,
+    "validation_chunk": 1024,
+    "report_frequency": 100,
+    "patience": 5000,
+    "latest_checkpoints": 5,
+    "device": "cpu"
+  },
+  "optimizer": {
+    "lr": 0.001,
+    "betas": [
+      0.95,
+      0.998
+    ],
+    "nus": [
+      0.7,
+      1.0
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0,
+    "decouple_weight_decay": false
+  },
+  "choice": "entmax15",
+  "bin": "entmoid15",
+  "head": "channel0 mean over trees",
+  "quantile_noise": 0.001,
+  "seed_notebook": 1337,
+  "precision": "float32",
+  "device": "CPU",
+  "historical_dependency_versions": "unknown; new explicit resolution",
+  "source_terms": "MIT",
+  "dataset_asset_terms": "not acquired or established"
+}

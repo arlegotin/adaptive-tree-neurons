@@ -1,0 +1,23 @@
+{
+  "url": "https://files.pythonhosted.org/packages/bc/e6/b3fb8a75287252ae697e7b8ab092d54eceaf3fd76f766ebefc3c2e82108e/qhoptim-1.1.0-py3-none-any.whl",
+  "sha256": "cdd9660b8310ef7749733db03fe372bf5453861ba9cb0aa31db59f6127b3ae00",
+  "members": {
+    "qhoptim/__init__.py": "a5534d8bb0404a6f1a4a613e3d7bddc0dc18ccd059b4d8d2f36ad9bb3648c3f6",
+    "qhoptim/version.py": "a6b0552b8565919aa903b817841f1d34a8c9a6ec4786eeebdbcbc4fc0e6ff728",
+    "qhoptim/common/__init__.py": "7a6086d5dcf565a7ccf9f11f825c2e58d09ed012f080acf8ba68d970d31cbd35",
+    "qhoptim/common/param_conv.py": "520925a24cdf861fbf9129eda0892e5f2294cd111c968bc0c4d67a04c96efaf4",
+    "qhoptim/pyt/__init__.py": "1f6e73810c773ec8888db36d5c2017f4eec998fb79bad9b25d5454ce9f364f44",
+    "qhoptim/pyt/qhadam.py": "ab29409cfa20fcd576ba239440ee3a651dbe734d68743cd3f768727bbc3aeb2e",
+    "qhoptim/pyt/qhm.py": "e04b9f10f22216a702c2569beb45a109a1edd90850158f14502b96f90eefe87e",
+    "qhoptim/tf/__init__.py": "881966806ea6ef14fcc41e47b3b7f4804f0bc49bf2d5c74d4a8cfcb43dcd7c09",
+    "qhoptim/tf/qhadam.py": "4773c9cc2b819db15dacf059819e3ae17e7a9b903e58f49deeaac3490abc963c",
+    "qhoptim/tf/qhm.py": "734e0e01648da18b0969abf7e36ec747f987a306ba227b36e63f0c3e32ca6c30",
+    "qhoptim/tf/util.py": "96a6fb94ee63bf02c99788f0572062fc3f41ea2089ad96769dcb0830037df8f2",
+    "qhoptim-1.1.0.dist-info/LICENSE": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85",
+    "qhoptim-1.1.0.dist-info/METADATA": "b8cfffd31027114ba0c74a56bba5fc43c28bbf5785ef15e2aab983629cc23df1",
+    "qhoptim-1.1.0.dist-info/WHEEL": "fcd39722a16039a626966f5124b3d0675dc126e108ae9e63c79a6d443e6e8776",
+    "qhoptim-1.1.0.dist-info/top_level.txt": "3405639d7be1939c739e73c10e32dd10aa0bdd67e8f54b41f95de989fc6bd55c",
+    "qhoptim-1.1.0.dist-info/zip-safe": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "qhoptim-1.1.0.dist-info/RECORD": "06ebe85fc0599c78f40ded399628e36333f8134863a5eb9235c76eff21701d79"
+  }
+}

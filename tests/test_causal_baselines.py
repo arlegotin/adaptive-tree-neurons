@@ -1,3 +1,4 @@
+from pathlib import Path
 """Causal controls must be active, independent, reconstructible and paired."""
 import copy
 import json
@@ -220,13 +221,17 @@ def test_causal_cli_executes_recipes(tmp_path, cpu_training_evidence):
     assert run.returncode==0,run.stdout+run.stderr
     report=json.loads(path.read_text())
     assert report['implemented_checks_passed']
-    assert report['track_ready'] is False
+    assert report['track_ready'] is True
     assert {row['method'] for row in report['adapter_matrix'] if row['status']=='verified'} >= {'Mean','Ridge','SplineRidge','B6'}
     probes=report['greedy_probes']
     assert probes['complete'] and len(probes['trials'])==3
     assert all(t['nanoseconds']>0 for t in probes['trials'])
     assert report['capabilities']['B6']['status']=='verified'
-    assert report['capabilities']['B7']['status']=='pending'
+    assert report['capabilities']['B7']['status']=='verified'
+    coordinator=Path(probes['artifact_directory'])
+    assert json.loads((coordinator/'manifest.json').read_text())['identity']['status']=='completed'
+    assert (coordinator/'metrics.json').exists()
+    assert report['node']['anchor']['unique_training_rows']==1025
     assert report['capabilities']['B0']['spline']=='verified'
     records=report['recipes']
     assert {r['total_parameters'] for r in records if r['method_id']=='B2'}=={1693,1711}
@@ -335,3 +340,30 @@ def test_widen_enforces_float32_independent_of_process_default(training_case):
     finally:torch.set_default_dtype(previous)
     assert all(p.dtype==torch.float32 for p in state.model.parameters())
     assert all(v['step'].dtype==torch.float32 for v in state.optimizer.state.values())
+
+
+def test_dedicated_greedy_coordinator_terminal_on_failure(tmp_path,monkeypatch,cpu_training_evidence):
+    from treeneuron.baselines import causal_checks
+    owned=[]
+    def fail(*args,**kwargs):
+        owned.append(kwargs['paths'].directory)
+        raise RuntimeError('injected probe failure')
+    monkeypatch.setattr(causal_checks,'run_greedy_probes',fail)
+    report=causal_checks.collect_causal_report(backend_report=cpu_training_evidence,artifacts_dir=tmp_path)
+    assert 'injected probe failure' in report['failure']
+    assert len(owned)==1
+    assert json.loads((owned[0]/'manifest.json').read_text())['identity']['status']=='failed'
+    assert 'injected probe failure' in json.loads((owned[0]/'metrics.json').read_text())['failure']
+
+
+def test_node_gate_failure_preserves_completed_b0_b6_checks(tmp_path,monkeypatch,cpu_training_evidence):
+    from treeneuron.baselines import causal_checks,node_checks
+    def fail(directory):raise RuntimeError('injected NODE gate failure')
+    monkeypatch.setattr(node_checks,'verify_node',fail)
+    report=causal_checks.collect_causal_report(backend_report=cpu_training_evidence,artifacts_dir=tmp_path)
+    assert report['track_ready'] is False and report['implemented_checks_passed'] is False
+    assert report['capabilities']['B0']['status']=='verified'
+    assert report['capabilities']['B6']['status']=='verified'
+    assert report['capabilities']['B7']['status']=='invalid'
+    matrix={r['method']:r for r in report['adapter_matrix']}
+    assert matrix['B6']['status']=='verified' and matrix['B7']['status']=='invalid'

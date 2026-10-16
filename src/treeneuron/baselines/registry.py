@@ -49,8 +49,13 @@ def capabilities() -> list[AdapterCapability]:
             'context':'original DevelopmentData F/G provenance; no V/T access',
             'internal_selection':'G checkpoint selection; G allocation for B6','backend':'PyTorch CPU eager float32; CPU64 scoring',
             'categories':'numerical causal fixtures only; transformed width must equal declared model width'}))
+    result.append(AdapterCapability(**{**common,'method':'B7','version':'NODE 3bae6a8; QHOptim 1.1.0',
+        'recipe':'year_node_shallow: 2048 trees, depth 6, channels 3; entmax15/entmoid15; QHAdam',
+        'source':'pinned MIT vendor sources; full source/runtime identity in NODE receipt',
+        'preprocessing':'F noisy normal quantile transform and F target standardization',
+        'categories':'unsupported; finite numerical input required','context':'ordered F prefix, requested 1000 rows',
+        'internal_selection':'G latest-five parameter checkpoint averaging','backend':'PyTorch CPU eager float32'}))
     for method,track,required,reason in [
-        ('B7','causal',True,'Evidence Task3: pinned official NODE recipe not implemented or verified'),
         ('B8','practical',True,'RealMLP-TD: pinned pytabkit native recipe and preprocessing pending'),
         ('B9','practical',True,'TabM: default/embedding k=32 native recipe and member-loss contract pending'),
         ('B10','practical',True,'CatBoost: native adapter and categorical/missingness contract pending'),

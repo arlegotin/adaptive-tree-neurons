@@ -9,7 +9,7 @@ import tempfile
 import numpy as np
 import torch
 from treeneuron import train
-from treeneuron.artifacts import create_run
+from treeneuron.artifacts import create_run, finish_run
 from treeneuron.baselines.api import FitRequest
 from treeneuron.baselines.causal import build_causal, CausalPredictor
 from treeneuron.baselines.simple import MeanPredictor, RidgePredictor, SplineRidgePredictor
@@ -28,10 +28,10 @@ def collect_causal_report(*, backend_report: Path | None=None, artifacts_dir: Pa
         capabilities={'B0':{'status':'implemented','recipes':['mean','ridge','spline_ridge'],'spline':'implemented'},
             **{f'B{i}':{'status':'implemented'} for i in range(1,6)},
             'B6':{'status':'implemented','recipe':'ANT-inspired restricted allocation'},
-            'B7':{'status':'pending','reason':'Evidence-plan pinned official NODE recipe'},
+            'B7':{'status':'implemented','recipe':'Pinned shallow NODE'},
             'B2_duplication':{'status':'deferred','reason':'No duplication/state/symmetry recipe executed'}},
         adapter_matrix=[asdict(c) for c in capabilities() if c.track=='causal'],
-        track_ready=False, implementation_scope='B0–B6; B7 gate explicitly pending Evidence Task3',recipes=[])
+        track_ready=False, implementation_scope='B0–B7 CPU correctness; default plateau/calibration is a later gate',recipes=[])
     old_path=train.BACKEND_REPORT_PATH
     before=train.capture_rng();threads=torch.get_num_threads()
     try:
@@ -96,9 +96,15 @@ def collect_causal_report(*, backend_report: Path | None=None, artifacts_dir: Pa
                 torch.tensor(probe_parent.preprocessing.transform_y(data.F.y)),epsilon=.05,tau=1.,adam_epsilon=1e-8,
                 batch_size=128,unit_block_size=2)
             probe_paths=create_run(root,probe_config.to_dict())
-            greedy=run_greedy_probes(probe_parent,probe_table,data,probe_updates=2,seed=3,paths=probe_paths)
-            report['greedy_probes']=json.loads((probe_paths.directory/'greedy.json').read_text())
-            report['greedy_probes']['artifact_directory']=str(probe_paths.directory.resolve())
+            try:
+                greedy=run_greedy_probes(probe_parent,probe_table,data,probe_updates=2,seed=3,paths=probe_paths)
+                report['greedy_probes']=json.loads((probe_paths.directory/'greedy.json').read_text())
+                report['greedy_probes']['artifact_directory']=str(probe_paths.directory.resolve())
+            except BaseException as error:
+                finish_run(probe_paths,{'failure':f'{type(error).__name__}: {error}'},'failed')
+                raise
+            else:
+                finish_run(probe_paths,{'greedy_complete':True,'scope':'dedicated CLI probe coordinator'},'completed')
             recipes.append(('B6',{},probe_parent,greedy))
             for index,(method,cfg,source,allocation) in enumerate(recipes):
                 adapter=build_causal(method,cfg,parent=source,allocation=allocation)
@@ -126,7 +132,16 @@ def collect_causal_report(*, backend_report: Path | None=None, artifacts_dir: Pa
                     checkpoint=str(path.resolve()),checkpoint_sha256=json.loads(path.read_text())['sha256'],
                     cpu_evidence=state.backend.get('causal_cpu_evidence'),
                     identities=state.identity_hashes,fit_cost=adapter.resource_summary()['costs']))
-        for key in ('B0','B1','B2','B3','B4','B5','B6'): report['capabilities'][key]['status']='verified'
+        for key in ('B0','B1','B2','B3','B4','B5','B6'):
+            report['capabilities'][key]['status']='verified'
+        report['capabilities']['B0']['spline']='verified'
+        for row in report['adapter_matrix']:
+            if row['status']=='implemented' and row['method']!='B7':row['status']='verified'
+        from treeneuron.baselines.node_checks import verify_node
+        report['node']=verify_node(root/'node')
+        if report['node']['status']!='passed':raise RuntimeError('B7 NODE gate failed: '+str(report['node']))
+        report['track_ready']=True
+        for key in ('B0','B1','B2','B3','B4','B5','B6','B7'): report['capabilities'][key]['status']='verified'
         report['capabilities']['B0']['spline']='verified'
         for row in report['adapter_matrix']:
             if row['status']=='implemented': row['status']='verified'
@@ -136,6 +151,8 @@ def collect_causal_report(*, backend_report: Path | None=None, artifacts_dir: Pa
         for row in report['adapter_matrix']:
             if row['status']=='implemented':
                 row.update(status='invalid',unavailable_reason='Verification did not complete: '+report['failure'])
+                if row['method'] in report['capabilities']:
+                    report['capabilities'][row['method']].update(status='invalid',reason=report['failure'])
     finally:
         train.BACKEND_REPORT_PATH=old_path;torch.set_num_threads(threads);train.restore_rng(before)
     return report

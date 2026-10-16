@@ -65,7 +65,7 @@ def test_capabilities_do_not_claim_pending_adapters_verified():
     by_method={r.method:r for r in rows}
     assert by_method['B6'].status=='implemented'
     assert 'restricted' in by_method['B6'].recipe
-    assert by_method['B7'].status=='pending' and by_method['B7'].unavailable_reason
+    assert by_method['B7'].status=='implemented' and by_method['B7'].unavailable_reason is None
     assert by_method['SplineRidge'].internal_selection is False
     assert by_method['SplineRidge'].fallback is False
     for row in rows:
