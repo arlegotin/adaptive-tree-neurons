@@ -222,7 +222,7 @@ def test_index_copy_backward_matches_reference(index_copy_gradients):
 
 **Interfaces:** Produce `TrainingState` (model, optimizer, scheduler, update/epoch, sampler order/cursor, named RNG states, preprocessing, identity hashes), `TrainingPolicy` (logical/physical batch, max updates, evaluation interval, G patience, strict-improvement rule), `fit_parent(data: DevelopmentData, config: ExperimentConfig, paths: RunPaths) -> TrainingState`, `continue_fit(state: TrainingState, data: DevelopmentData, policy: TrainingPolicy, paths: RunPaths) -> TrainingState`, `save_checkpoint(state: TrainingState, path: Path) -> str`, `load_checkpoint(path: Path, *, expected_hashes: Mapping[str, str], device: str) -> TrainingState`.
 
-- [ ] **Step 1:** Write tests for earliest G-best selection with its complete optimizer/sampler/RNG state, initial update-zero G eligibility for every continuation, no V/T use, deterministic sampler cursor at a non-epoch checkpoint, RNG reconstruction, original-unit prediction inversion, and finite-loss failure logging. `test_failed_atomic_write_keeps_last_valid` injects failure before rename; `test_resume_rejects_identity_drift` changes split/config/code/lock hash independently. Run the two test files; expect missing APIs.
+- [x] **Step 1:** Write tests for earliest G-best selection with its complete optimizer/sampler/RNG state, initial update-zero G eligibility for every continuation, no V/T use, deterministic sampler cursor at a non-epoch checkpoint, RNG reconstruction, original-unit prediction inversion, and finite-loss failure logging. `test_failed_atomic_write_keeps_last_valid` injects failure before rename; `test_resume_rejects_identity_drift` changes split/config/code/lock hash independently. Run the two test files; expect missing APIs.
 
 ```python
 def test_resumed_parameters_match_uninterrupted(cpu_resumed, cpu_uninterrupted):
@@ -231,10 +231,10 @@ def test_resumed_parameters_match_uninterrupted(cpu_resumed, cpu_uninterrupted):
         torch.testing.assert_close(cpu_resumed.model.state_dict()[name], tensor, rtol=0, atol=0)
 ```
 
-- [ ] **Step 2:** Implement logical-update training/evaluation with explicit loss semantics, AdamW and schedule configuration, G-only checkpoint selection and all required state. Return the complete G-best checkpoint, never best weights plus last-state moments. Store checkpoints at complete updates only; checksums and atomic last-valid pointer protect prior state. Catch/log failure details before propagating; do not mark a partially trained run completed.
-- [ ] **Step 3:** Implement same-backend resume and a controlled interruption test comparing uninterrupted predictions, parameters, optimizer tensors/steps, scheduler and next row IDs. Use exact deterministic CPU agreement where supported and the recorded backend tolerance otherwise. No cross-backend resumption parity claim.
-- [ ] **Step 4:** Run `.venv/bin/python -m pytest tests/test_train.py tests/test_checkpoint.py -q`; expect parent checkpoint selection and recovery pass, including mid-epoch interruption and corrupted-checksum rejection.
-- [ ] **Step 5:** Commit `feat: add deterministic parent training and atomic recovery`.
+- [x] **Step 2:** Implement logical-update training/evaluation with explicit loss semantics, AdamW and schedule configuration, G-only checkpoint selection and all required state. Return the complete G-best checkpoint, never best weights plus last-state moments. Store checkpoints at complete updates only; checksums and atomic last-valid pointer protect prior state. Catch/log failure details before propagating; do not mark a partially trained run completed.
+- [x] **Step 3:** Implement same-backend resume and a controlled interruption test comparing uninterrupted predictions, parameters, optimizer tensors/steps, scheduler and next row IDs. Use exact deterministic CPU agreement where supported and the recorded backend tolerance otherwise. No cross-backend resumption parity claim.
+- [x] **Step 4:** Run `.venv/bin/python -m pytest tests/test_train.py tests/test_checkpoint.py -q`; expect parent checkpoint selection and recovery pass, including mid-epoch interruption and corrupted-checksum rejection.
+- [x] **Step 5:** Commit `feat: add deterministic parent training and atomic recovery`.
 
 ## Task 10: Insert growth without corrupting optimizer or update streams
 

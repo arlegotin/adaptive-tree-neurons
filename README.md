@@ -2,14 +2,14 @@
 
 A research proof of concept for testing whether a training-derived score can choose which learned neurons should acquire conditional affine specialists better than random placement at the same capacity budget.
 
-The repository has a locked native Python 3.12 environment, an environment doctor, reproduced CPU algebra checks, a compact selective affine layer, a verified moment score, native CPU/MPS kernel checks, independent synthetic development data, F-only preprocessing, and mean/ridge sanity controls. The remaining implementation follows the specification and gated plans. No held-out predictive or allocation result is available. The soft affine-stump model belongs to an established gated family; the research target is the allocation procedure and its measured limits, including a negative result.
+The repository has a locked native Python 3.12 environment, an environment doctor, reproduced CPU algebra checks, a compact selective affine layer, a verified moment score, native CPU/MPS kernel checks, deterministic CPU training and checkpoint recovery, independent synthetic development data, F-only preprocessing, and mean/ridge sanity controls. The remaining implementation follows the specification and gated plans. No held-out predictive or allocation result is available. The soft affine-stump model belongs to an established gated family; the research target is the allocation procedure and its measured limits, including a negative result.
 
 Start with the [specification](docs/superpowers/specs/2026-10-16-selective-tree-neurons-design.md), then follow the plans in gate order:
 
 1. [Core plan: WP00–WP04](docs/superpowers/plans/2026-10-16-selective-tree-neurons-core.md) — environment verification, algebra, compact layer, score, data/metrics, paired training, optimizer recovery and the first complete exploratory experiment.
 2. [Evidence plan: remaining WP02/WP03 scope and WP05–WP09](docs/superpowers/plans/2026-10-16-selective-tree-neurons-evidence.md) — faithful baselines, grouped/temporal data, pilot-derived design, protocol freeze, independent confirmation, justified transfer and reproduction.
 
-The plans contain file/API boundaries, tests, verification commands and acceptance gates. `doctor` and `verify-math` are available. Core environment, reference/layer/score algebra and native CPU/MPS operation gates pass. Training, growth-state recovery and study commands remain unimplemented.
+The plans contain file/API boundaries, tests, verification commands and acceptance gates. `doctor` and `verify-math` are available. Core environment, reference/layer/score algebra and native CPU/MPS operation gates pass. Parent/continuation training and complete CPU checkpoint recovery are implemented and reviewed. Growth insertion with optimizer migration, causal capacity controls and study commands remain next.
 
 Install the locked core locally with `uv` (Python first tries 3.12):
 

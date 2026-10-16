@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "scope": "CPU training-state and atomic checkpoint correctness; no predictive allocation result",
+  "source_commit": "bc04f0a0f97a279db613abf6ddec361c599e03c7",
+  "execution_source_sha256": "62b8201404c79fd58930c4d2f9a1b39047258274aa5d17b7b56b47f519127c00",
+  "lock_sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+  "artifacts": {
+    "environment/task9-fix1-red.txt": "214745c794b3fdf7395dcc853e45cf06af607184e0c0693b7f57769190d84fdc",
+    "environment/task9-fix1-focused-before-copy.txt": "55a5ad710b0d4316af62b792a8250febd85dfd81954865291d1ac456cd42e399",
+    "environment/task9-fix1-focused.txt": "a66f415b89851c9efc255148d3110c56141fa5028607f9ab79cc136e94b43625",
+    "environment/task9-fix1-pytest.txt": "516bf0e7c0ae3bc89e7263b45da484bef201d8a2b4bc647a216e023487ea7bed"
+  },
+  "verification": {
+    "focused_passed": 88,
+    "full_passed": 441,
+    "full_skipped": 48,
+    "full_seconds": 110.63,
+    "skip_reason": "sandbox MPS unavailable; no new native MPS training-state recovery claim"
+  },
+  "behavior_checked": [
+    "strict G selection includes stage update zero and retains full selected state",
+    "same-backend interrupted CPU recovery preserves model, optimizer, schedule, sampler and RNG state",
+    "active best checkpoint recovery at updates zero and two executes original remaining allowance",
+    "live optimizer state cannot mutate embedded selected state",
+    "public save/load rejects nonfinite current and embedded state before publication or optimizer/RNG changes",
+    "source/config/lock/split/runtime identity and payload integrity checks",
+    "durable last-valid and best publication with bounded successful payload retention",
+    "observations preserve runtime versus hardware distinction"
+  ],
+  "limits": [
+    "No growth optimizer migration or causal comparison has executed.",
+    "CPU correctness fixtures may be smaller than the calibrated primary workload and are explicitly labeled.",
+    "Attempt timer includes conversion, G and IO; validation is nested. Initial model/optimizer/backend-validation setup is outside that timer. The study runner must measure enclosing end-to-end costs.",
+    "No native MPS complete training recovery was newly established.",
+    "No protected T, protocol freeze, predictive advantage or generalization claim."
+  ],
+  "review_status": "Task9 spec and quality approved after scoped fix review; both Important findings addressed, no new breakage"
+}
