@@ -105,7 +105,8 @@ def execution_snapshot(root: Path, pinned_commit: str) -> dict:
     for p in root.iterdir():
         if p.is_file() and p.name not in tracked and _execution(p.name): untracked.add(p.name)
     if any(_execution(p) for p in untracked): raise ValueError('Untracked executable/scientific input')
-    dirty = set(_git(root, 'diff', '--name-only', 'HEAD').decode().splitlines())
+    dirty = set(_git(root, 'diff', '--name-only').decode().splitlines())
+    dirty.update(_git(root, 'diff', '--cached', '--name-only', 'HEAD').decode().splitlines())
     if dirty & selected: raise ValueError('Dirty executable/scientific inputs')
     files = {}
     for name in sorted(selected):
@@ -246,6 +247,169 @@ def pilot_seal(directory: Path) -> dict:
                 source_sha256=raw['provenance']['source_sha256'],files=files)
 
 
+def _validate_pilot_graph(record, directory, config):
+    """Trace the existing pilot producer's roles to selected retained checkpoints.
+
+    Descriptor/payload hashes and JSON/event provenance are read without loading
+    tensor state, predicting, or consuming any evaluation labels. Probe losers
+    belong to the coordinator's graph, not the top-level child registration list.
+    """
+    from .checkpoint import _descriptor
+    from .data.types import array_hash
+    from .experiments.paired import audit_pairing
+    import numpy as np
+
+    directory=Path(directory).resolve()
+    def contained(base, value):
+        path=Path(value)
+        path=(path if path.is_absolute() else base/path).resolve()
+        if not path.is_relative_to(base.resolve()): raise ValueError('Pilot control path escapes enclosing run')
+        return path
+
+    def completed(path, run_id):
+        manifest=_read(path/'manifest.json')
+        identity=manifest['identity']
+        if (identity['run_id']!=run_id or identity['status']!='completed'
+                or identity['phase']!='exploratory' or manifest['data']['test_labels_accessed'] is not False):
+            raise ValueError('Incomplete or protected pilot control/probe')
+        return manifest
+
+    def selected(path, manifest):
+        method=manifest['method']
+        if method['weight_checkpoint']!='checkpoints/best.json':
+            raise ValueError('Pilot control lacks selected checkpoint')
+        pointer,descriptor,_=_descriptor(path/'checkpoints/best.json')
+        state=descriptor['state']; stage=state['stage']; identities=state['identity_hashes']
+        if (pointer['sha256']!=method['weight_hash'] or stage['complete'] is not True
+                or descriptor['best_state'] is not None or state['config']!=method['resolved_config']
+                or canonical_hash(state['config'])!=manifest['identity']['config_hash']
+                or identities['code']!=manifest['identity']['code_revision']
+                or identities['lock']!=manifest['identity']['lock_hash']
+                or identities['split']!=record['data_hash']
+                or any(identities[k]!=manifest['data'][v] for k,v in
+                    (('raw','raw_hash'),('split','split_hash'),('transform','transform_hash')))):
+            raise ValueError('Pilot selected checkpoint identity/completion differs')
+        events=[json.loads(line) for line in (path/'events.jsonl').read_text().splitlines()]
+        updates=[e for e in events if e['type']=='update']
+        selections=[e for e in events if e['type']=='selection']
+        if (len(selections)!=1 or selections[0]['selected_update']!=state['update']
+                or selections[0]['executed_updates']!=stage['updates_completed']
+                or len(updates)!=stage['updates_completed'] or selections[0]['g_mse']!=stage['best_mse']):
+            raise ValueError('Pilot checkpoint differs from completed stage selection')
+        return state,events,updates
+
+    try:
+        children={}
+        for child in record['child_runs']:
+            # Top-level child locators are emitted relative to the producer CWD;
+            # stage/trial locators below are relative to their enclosing run.
+            path=contained(directory,Path(child['path']).resolve()); run_id=child['run_id']
+            if run_id in children or path in [entry[0] for entry in children.values()]:
+                raise ValueError('Duplicate pilot control registration')
+            children[run_id]=(path,completed(path,run_id),child['growth_metadata'])
+        parent_id=record['parent_run_id']; parent_path,parent_manifest,parent_growth=children[parent_id]
+        parent,_,_=selected(parent_path,parent_manifest)
+        if (parent['identity_hashes']!=record['parent_identity_hashes']
+                or parent['identity_hashes']['code']!=record['source_sha256']
+                or _hash(parent_path/'checkpoints/best.json')!=record['parent_checkpoint_sha256']
+                or parent['growth_metadata'] or parent_growth or parent['stage']['kind']!='base'
+                or parent['stage']['policy']['max_updates']!=config.training.base_updates
+                or parent['update']!=record['parent_pairing']['update']):
+            raise ValueError('Pilot shared parent checkpoint differs')
+        used={parent_id}
+        for name,method in record['methods'].items():
+            warm=name in ('keep','top','random','greedy','widen_upper')
+            stages=method['stages']; recipe=method['recipe']
+            variant=dict(top='adam',widen_upper='widen',ordinary_lower='lower',ordinary_upper='upper',static_partial='partial')
+            if (len(stages)!=(1 if warm else 2)
+                    or (name in variant and recipe.get('variant')!=variant[name])
+                    or (name=='static_partial' and recipe.get('coordinates')!='centered')
+                    or (name in ('keep','random','greedy') and recipe)):
+                raise ValueError('Pilot control stage/recipe differs from role')
+            adapter=dict(method_id=method['method_id'],recipe={k:v for k,v in recipe.items() if k!='experiment'})
+            if warm and (method['parent_run_id']!=parent_id
+                    or method['parent_checkpoint_sha256']!=record['parent_checkpoint_sha256']):
+                raise ValueError('Pilot control shared parent linkage differs')
+            previous=parent if warm else None
+            for index,stage in enumerate(stages):
+                run_id=stage['run_id']
+                if run_id in used: raise ValueError('Pilot control stage reused by another role')
+                path,manifest,growth=children[run_id]; used.add(run_id)
+                if contained(directory,stage['path'])!=path:
+                    raise ValueError('Pilot control stage/run path differs')
+                state,events,updates=selected(path,manifest)
+                expected_allowance=config.training.continuation_updates if warm or index else config.training.base_updates
+                if (any(state['identity_hashes'][k]!=parent['identity_hashes'][k]
+                        for k in ('code','lock','raw','split','transform','runtime'))
+                        or state['growth_metadata'].get('causal_adapter')!=adapter or growth.get('causal_adapter')!=adapter
+                        or state['stage']['kind']!=('continuation' if warm or index else 'base')
+                        or state['stage']['policy']['max_updates']!=expected_allowance
+                        or stage['max_updates']!=expected_allowance
+                        or stage['checkpoint_interval']!=state['stage']['policy']['checkpoint_interval']
+                        or stage['selected_update']!=state['update']
+                        or stage['executed_updates']!=state['stage']['updates_completed']
+                        or stage['evaluations']!=[e for e in events if e['type']=='evaluation']
+                        or stage['training_loss']!=[dict(update=e['update'],value=e['loss_standardized_mse']) for e in updates]
+                        or stage['row_hashes']!=[array_hash(np.array(e['row_ids'],dtype=np.int64)) for e in updates]):
+                    raise ValueError('Pilot control stage/checkpoint provenance differs')
+                if previous is not None and (state['stage']['start_update']!=previous['update']
+                        or any(state['identity_hashes'][k]!=previous['identity_hashes'][k]
+                               for k in ('code','lock','raw','split','transform','runtime'))):
+                    raise ValueError('Pilot control continuation linkage differs')
+                previous=state
+            if (method['selected_g_mse']!=state['stage']['best_mse']
+                    or method['executed_row_ids']!=stages[-1]['row_hashes']):
+                raise ValueError('Pilot control selected result differs')
+        audit_pairing(record)
+        greedy_path=contained(directory,Path(record['greedy_report']).resolve()); coordinator_path=greedy_path.parent
+        coordinator_ids=[key for key,value in children.items() if value[0]==coordinator_path]
+        if len(coordinator_ids)!=1: raise ValueError('Pilot probe coordinator missing')
+        coordinator_id=coordinator_ids[0]
+        if coordinator_id in used or children[coordinator_id][1]['method']['scope']!='coordinator':
+            raise ValueError('Pilot probe coordinator role differs')
+        used.add(coordinator_id)
+        if used!=set(children): raise ValueError('Unlinked pilot control child')
+        greedy=_read(greedy_path)
+        parent_pointer,parent_descriptor,_=_descriptor(coordinator_path/'parent.json')
+        allocation=record['methods']['greedy']['allocation']
+        if (greedy['complete'] is not True or greedy['method']!='B6' or greedy['not_attempted']
+                or greedy['selection_split']!='G' or greedy['V_accessed'] is not False or greedy['T_accessed'] is not False
+                or greedy['probe_updates']!=config.pilot.probe_updates
+                or greedy['parent_checkpoint_sha256']!=parent_pointer['sha256']
+                or parent_descriptor['state']!=parent or greedy['parent_identity_hashes']!=parent['identity_hashes']
+                or any(greedy['allocation'][k]!=allocation[k] for k in ('ids','table_hash','requested_count','effective_count'))):
+            raise ValueError('Pilot probe graph/parent/allocation differs')
+        score=greedy['score_artifact']
+        if _hash(contained(coordinator_path,score['path']))!=score['sha256']:
+            raise ValueError('Pilot probe score artifact differs')
+        expected={'keep':None,**{f'unit_{unit}':unit for unit in greedy['eligible_ids']}}
+        if (len(expected)!=len(greedy['trials']) or {t['candidate'] for t in greedy['trials']}!=set(expected)):
+            raise ValueError('Pilot probe trials missing or duplicated')
+        probe_paths=set(); probe_ids=set()
+        for trial in greedy['trials']:
+            path=contained(coordinator_path,trial['path'])
+            if path in probe_paths or trial['run_id'] in probe_ids|used:
+                raise ValueError('Pilot probe run reused')
+            probe_paths.add(path); probe_ids.add(trial['run_id'])
+            manifest=completed(path,trial['run_id']); state,_,_=selected(path,manifest)
+            metadata=state['growth_metadata']['greedy_probe']
+            if (trial['unit_id']!=expected[trial['candidate']] or trial['method_id']!='B6'
+                    or trial['outcome']!='completed' or trial['executed_updates']!=config.pilot.probe_updates
+                    or state['stage']['policy']['max_updates']!=config.pilot.probe_updates
+                    or state['stage']['kind']!='continuation' or state['stage']['start_update']!=parent['update']
+                    or any(state['identity_hashes'][k]!=parent['identity_hashes'][k]
+                           for k in ('code','lock','raw','split','transform','runtime'))
+                    or trial['executed_updates']!=state['stage']['updates_completed']
+                    or trial['selected_update']!=state['update'] or trial['g_mse']!=state['stage']['best_mse']
+                    or manifest['identity']['coordinator_run_id']!=coordinator_id
+                    or metadata['coordinator_run_id']!=coordinator_id or metadata['candidate']!=trial['candidate']
+                    or metadata['parent_checkpoint_sha256']!=greedy['parent_checkpoint_sha256']
+                    or metadata['score_hash']!=greedy['score_hash']):
+                raise ValueError('Pilot probe selected checkpoint linkage differs')
+    except (KeyError,TypeError,OSError) as error:
+        raise ValueError('Missing or invalid pilot control stage/checkpoint evidence') from error
+
+
 def eligible_design(sources: Mapping[str, Any]) -> DesignDecision:
     """POST-pilot gate: recompute numeric design from sealed completed raw evidence."""
     from .train import source_hash
@@ -297,6 +461,7 @@ def eligible_design(sources: Mapping[str, Any]) -> DesignDecision:
                 methods[k].get('status')!='completed' or methods[k].get('method_id')!=v
                 for k,v in expected_methods.items()):
             raise ValueError('Actual completed control methods missing')
+        _validate_pilot_graph(record,pair_path.parent,config)
         prediction_path=pair_path.with_name('E-predictions.npz')
         if not prediction_path.is_file() or _hash(prediction_path)!=record.get('E_predictions_sha256'):
             raise ValueError('Pilot prediction artifact hash differs')
@@ -323,13 +488,6 @@ def eligible_design(sources: Mapping[str, Any]) -> DesignDecision:
             if (not np.array_equal(losses['random']-losses['top'],record['h1_rows'])
                     or not np.array_equal(losses['ordinary_upper']-losses['static_partial'],record['static_rows'])):
                 raise ValueError('Effect rows differ from retained predictions')
-        for child in record['child_runs']:
-            path = Path(child['path'])
-            if not path.resolve().is_relative_to(raw_path.parent.resolve()): raise ValueError('Child run escapes pilot')
-            manifest = _read(path/'manifest.json')
-            if (manifest['identity']['status'] != 'completed' or manifest['identity']['run_id'] != child['run_id']
-                    or manifest['identity']['phase'] != 'exploratory' or manifest['data']['test_labels_accessed'] is not False):
-                raise ValueError('Incomplete or protected pilot child')
     counts=raw['batch_completed_counts']
     unique_teachers={r['teacher_id'] for r in records}
     if (not counts or counts[0]!=config.pilot.initial_teachers or counts[-1]!=len(unique_teachers)
@@ -416,6 +574,11 @@ def _scientific_sources(sources, design):
     cohort=sources['cohort']
     _keys(cohort,('study_id','cohort_id','root_seed','units'),'confirmation cohort')
     raw=_read(_reference(root,sources['raw']))
+    data_config=raw['config']['data']
+    if data_config['regime']=='rare' and tuple(data_config['gate_prevalences']) not in ((.1,.5),(.01,)):
+        raise ValueError('Rare generation recipe fixes prevalence at .01')
+    if data_config['population']!=scientific['population']:
+        raise ValueError('Pilot population differs from scientific population')
     if cohort['study_id']!=raw['config']['study_id'] or len(cohort['units'])!=design.K:
         raise ValueError('Confirmation study/count differs from design')
     pilot_teachers={r['teacher_id'] for r in raw['accepted_records']}
@@ -429,6 +592,21 @@ def _scientific_sources(sources, design):
         seed_values.update(values)
         teacher=TeacherSpec.from_dict(_read(_reference(root,unit['teacher'])))
         manifest=_manifest(unit['manifest'])
+        prevalence_options=(.01,) if data_config['regime']=='rare' else tuple(data_config['gate_prevalences'])
+        gate_options=tuple(data_config['gate_types'])
+        if (teacher.regime!=data_config['regime']
+                or teacher.nuisance_dimensions!=data_config['nuisance_dimensions']
+                or teacher.reference_rows!=data_config['reference_rows']
+                or len(teacher.u)!=data_config['components']
+                or teacher.prevalence_options!=prevalence_options
+                or teacher.gate_type_options!=gate_options
+                or teacher.gate_type_probabilities!=tuple(1/len(gate_options) for _ in gate_options)
+                or not set(teacher.prevalences)<=set(prevalence_options)
+                or not set(teacher.gate_types)<=set(gate_options)):
+            raise ValueError('Teacher generation recipe differs from configured population')
+        if any(manifest.assignments.count(part)!=data_config[key] for part,key in
+                (('F','n_fit'),('G','n_growth'),('V','n_validation'))):
+            raise ValueError('Development count differs from configured recipe')
         from .evaluation.protected import _test_ids
         expected_rows=_test_ids(f'confirmatory/{cohort["study_id"]}/{cohort["cohort_id"]}/T',
                                 expected_seeds['test'],design.n_T)

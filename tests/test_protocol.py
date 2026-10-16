@@ -139,10 +139,7 @@ def prepared(repository, monkeypatch):
             np.savez(prediction_path,**predictions,y=E_y,row_id=E_rows)
             row['h1_rows']=(predictions['random']**2-predictions['top']**2).tolist()
             row['E_predictions_sha256']=ref(root,prediction_path)['sha256']
-            child=write(root, f'evidence/pilot/teacher-{i}/repetition-{j}/child/manifest.json',
-                {'identity': {'status': 'completed', 'run_id': f'child-{i}-{j}', 'phase': 'exploratory'},
-                 'data': {'test_labels_accessed': False}})
-            row['child_runs']=[{'run_id': f'child-{i}-{j}', 'path': str(child.parent)}]
+            simulated_pair_graph(prediction_path.parent,row,config)
             write(root, f'evidence/pilot/teacher-{i}/repetition-{j}/pair.json', row)
             records.append(row); attempts.append(dict(teacher_index=i,repetition=j,status='completed',record=row))
     raw=dict(schema_version=1,purpose='scientific',status='completed',config=config.to_dict(),
@@ -396,3 +393,262 @@ def test_resource_recipe_binds_inner_workload(prepared,field,value):
     # A newly issued readiness config cannot reuse a cheaper measured workload.
     with pytest.raises(ValueError,match='recipe'):
         validate_pilot_readiness(config,path,root=root)
+
+
+@pytest.mark.parametrize('name', ['src/model.py', 'configs/scientific.yaml', 'analysis/infer.py', 'requirements.lock'])
+def test_staged_execution_change_with_restored_worktree_is_rejected(repository, name):
+    from treeneuron.protocol import execution_snapshot
+    pinned=git(repository,'rev-parse','HEAD'); path=repository/name
+    original=path.read_bytes(); path.write_text('# staged drift\n')
+    git(repository,'add',name); path.write_bytes(original)
+    assert git(repository,'diff','--name-only','HEAD')==''
+    with pytest.raises(ValueError,match='Dirty'):
+        execution_snapshot(repository,pinned)
+
+
+def test_staged_document_only_change_remains_allowed(repository):
+    from treeneuron.protocol import execution_snapshot
+    pinned=git(repository,'rev-parse','HEAD')
+    expected=execution_snapshot(repository,pinned)
+    write(repository,'docs/note.json',{'simulated':'staged documentation'})
+    git(repository,'add','docs')
+    assert execution_snapshot(repository,pinned)==expected
+
+
+def reseal_pair(root,sources,raw,record):
+    from treeneuron.protocol import pilot_seal
+    raw['accepted_records'][0]=record; raw['attempts'][0]['record']=record
+    write(root,'evidence/pilot/teacher-0/repetition-0/pair.json',record)
+    raw_path=write(root,sources['raw']['path'],raw); sources['raw']=ref(root,raw_path)
+    seal=write(root,sources['raw_seal']['path'],pilot_seal(raw_path.parent))
+    sources['raw_seal']=ref(root,seal)
+
+
+def test_declarations_and_unrelated_child_do_not_establish_control_completion(prepared):
+    from treeneuron.protocol import eligible_design
+    root,_,sources=prepared; raw=json.loads((root/sources['raw']['path']).read_text())
+    record=raw['accepted_records'][0]
+    record['methods']={name:{'method_id':method['method_id'],'status':'completed'}
+        for name,method in record['methods'].items()}
+    reseal_pair(root,sources,raw,record)
+    with pytest.raises(ValueError,match='control|stage|checkpoint'):
+        eligible_design(sources)
+
+
+@pytest.mark.parametrize('part',list('FGV'))
+def test_self_consistent_development_counts_must_match_recipe(candidate,part):
+    from dataclasses import replace
+    import numpy as np
+    from treeneuron.data.types import array_hash
+    from treeneuron.protocol import freeze
+    root,decision,sources,manifests=candidate; unit=sources['cohort']['units'][0]
+    manifest=manifests[0]
+    hashes=manifest.hashes
+    if part=='F':
+        fit=np.array([0.,1.,2.]); path=root/unit['fit_targets']['path']; np.save(path,fit)
+        unit['fit_targets']=ref(root,path); hashes=(('F.y',array_hash(fit)),)
+    manifest=replace(manifest,row_id=manifest.row_id+(999,),group_id=manifest.group_id+(999,),
+        assignments=manifest.assignments+(part,),hashes=hashes)
+    unit['manifest']=manifest.to_dict()
+    with pytest.raises(ValueError,match='count|recipe'):
+        freeze(decision,sources,root/'protocol/frozen.yaml')
+    assert not (root/'protocol/frozen.yaml').exists()
+
+
+@pytest.mark.parametrize('change',['regime','nuisance','prevalences','gates','probabilities'])
+def test_valid_teacher_spec_must_match_declared_generation_recipe(candidate,change):
+    from dataclasses import replace
+    from treeneuron.data.synthetic import TeacherSpec,make_teacher
+    from treeneuron.protocol import freeze
+    root,decision,sources,manifests=candidate; unit=sources['cohort']['units'][0]
+    path=root/unit['teacher']['path']; old=TeacherSpec.from_dict(json.loads(path.read_text()))
+    kwargs={'regime':{'regime':'axis_aligned'},'nuisance':{'nuisance_dimensions':1},
+        'prevalences':{'gate_prevalences':(.2,)},'gates':{'gate_types':('hard',)}}
+    teacher=(replace(old,gate_type_probabilities=(.2,.3,.5)) if change=='probabilities' else
+        make_teacher(old.seed,old.d,reference_seed=old.reference_seed,**kwargs[change]))
+    path.write_text(json.dumps(teacher.to_dict())); unit['teacher']=ref(root,path)
+    unit['manifest']=replace(manifests[0],teacher_id=teacher.teacher_id).to_dict()
+    with pytest.raises(ValueError,match='recipe|generation'):
+        freeze(decision,sources,root/'protocol/frozen.yaml')
+    assert not (root/'protocol/frozen.yaml').exists()
+
+
+def simulated_pair_graph(root,record,config):
+    """Small producer-shaped JSON/payload graph; deliberately no trained model."""
+    import hashlib
+    import numpy as np
+    from treeneuron.data.types import array_hash
+    identities=dict(code=record['source_sha256'],lock='simulated-lock',raw='simulated-raw',
+        split=record['data_hash'],transform='simulated-transform',runtime='simulated-runtime',
+        config=canonical_hash(config.to_dict()))
+    record['child_runs']=[]
+    def run(name,kind='continuation',start=1,metadata=None,coordinator=None,allowance=10):
+        directory=root/'runs'/name
+        metadata=metadata or {}
+        events=[dict(type='update',update=start+1,row_ids=[1,2],loss_standardized_mse=1.),
+            dict(type='evaluation',update=start+1,improved=True),
+            dict(type='selection',selected_update=start+1,executed_updates=1,g_mse=1.)]
+        state=dict(identity_hashes=identities,config=config.to_dict(),update=start+1,
+            stage=dict(complete=True,kind=kind,start_update=start,updates_completed=1,best_mse=1.,
+                policy=dict(max_updates=allowance,checkpoint_interval=1)),growth_metadata=metadata)
+        checkpoint=directory/'checkpoints'; checkpoint.mkdir(parents=True)
+        version='checkpoint-'+'0'*32
+        payload=checkpoint/(version+'.pt'); payload.write_bytes(b'simulated non-model payload')
+        desc=write(checkpoint,version+'.meta.json',dict(schema_version=1,payload=payload.name,
+            sha256=hashlib.sha256(payload.read_bytes()).hexdigest(),state=state,best_state=None,history=[]))
+        pointer=write(checkpoint,'best.json',dict(schema_version=1,metadata=desc.name,sha256=ref(checkpoint,desc)['sha256']))
+        manifest=dict(identity=dict(run_id=name,status='completed',phase='exploratory',
+            config_hash=canonical_hash(config.to_dict()),code_revision=identities['code'],lock_hash=identities['lock']),
+            data=dict(test_labels_accessed=False,raw_hash=identities['raw'],split_hash=identities['split'],
+                transform_hash=identities['transform']),method=dict(scope='single_model',resolved_config=config.to_dict(),
+                weight_checkpoint='checkpoints/best.json',weight_hash=ref(checkpoint,desc)['sha256']))
+        if coordinator: manifest['identity']['coordinator_run_id']=coordinator
+        else: record['child_runs'].append(dict(run_id=name,path=str(directory),growth_metadata=metadata))
+        write(directory,'manifest.json',manifest)
+        (directory/'events.jsonl').write_text(''.join(json.dumps(e)+'\n' for e in events))
+        stage=dict(run_id=name,path=str(directory.relative_to(root)),selected_update=start+1,executed_updates=1,
+            max_updates=allowance,checkpoint_interval=1,hit_ceiling=allowance==1,improving_at_ceiling=allowance==1,
+            evaluations=[events[1]],training_loss=[dict(update=start+1,value=1.)],
+            row_hashes=[array_hash(np.array([1,2],dtype=np.int64))])
+        return stage,pointer
+    parent,pointer=run('parent',kind='base',start=0,allowance=config.training.base_updates)
+    record.update(parent_run_id='parent',parent_checkpoint_sha256=ref(root,pointer)['sha256'],
+        parent_identity_hashes=identities,parent_pairing={'update':1})
+    allocations={name:dict(requested_count=1,effective_count=1,table_hash='simulated-table',ids=[0],
+        contrasts_float64=[[1.,0.]],policy=policy) for name,policy in [('top','adam'),('random','random'),('greedy','greedy')]}
+    for name,method in record['methods'].items():
+        warm=name not in ('ordinary_lower','ordinary_upper','static_partial')
+        recipe={'top':{'variant':'adam'},'widen_upper':{'variant':'widen'},
+            'ordinary_lower':{'variant':'lower'},'ordinary_upper':{'variant':'upper'},
+            'static_partial':{'variant':'partial','coordinates':'centered'}}.get(name,{})
+        method.update(recipe=recipe,stages=[],selected_g_mse=1.)
+        metadata={'causal_adapter':{'method_id':method['method_id'],'recipe':recipe}}
+        start=1 if warm else 0
+        for j,allowance in enumerate([config.training.continuation_updates] if warm else
+                [config.training.base_updates,config.training.continuation_updates]):
+            stage,_=run(f'{name}-{j}',kind='continuation' if warm or j else 'base',start=start,
+                metadata=metadata,allowance=allowance)
+            method['stages'].append(stage); start=stage['selected_update']
+        method['executed_row_ids']=method['stages'][-1]['row_hashes']
+        if warm: method.update(parent_run_id='parent',parent_checkpoint_sha256=record['parent_checkpoint_sha256'],
+            initial_pairing=record['parent_pairing'])
+        if name in allocations: method['allocation']=allocations[name]
+    coordinator=root/'runs'/'coordinator'; coordinator.mkdir()
+    write(coordinator,'manifest.json',dict(identity=dict(status='completed',phase='exploratory',run_id='coordinator'),
+        data={'test_labels_accessed':False},method={'scope':'coordinator'}))
+    record['child_runs'].append(dict(run_id='coordinator',path=str(coordinator),growth_metadata={}))
+    import shutil
+    # The coordinator's parent is a separate pointer/descriptor publication in the real producer.
+    parent_pointer=json.loads(pointer.read_text()); parent_desc=json.loads((pointer.parent/parent_pointer['metadata']).read_text())
+    for filename in (parent_pointer['metadata'],parent_desc['payload']):
+        shutil.copyfile(pointer.parent/filename,coordinator/filename)
+    write(coordinator,'parent.json',parent_pointer)
+    trials=[]
+    for candidate,unit in [('keep',None),('unit_0',0),('unit_1',1)]:
+        stage,_=run('probe-'+candidate,start=1,metadata={'greedy_probe':dict(candidate=candidate,
+            coordinator_run_id='coordinator',parent_checkpoint_sha256=parent_pointer['sha256'],score_hash='simulated-table')},
+            coordinator='coordinator',allowance=config.pilot.probe_updates)
+        directory=root/stage['path']; target=coordinator/'probes'/directory.name
+        target.parent.mkdir(exist_ok=True); shutil.move(str(directory),target)
+        trials.append(dict(candidate=candidate,unit_id=unit,run_id=directory.name,
+            path=str(target.relative_to(coordinator)),method_id='B6',outcome='completed',
+            selected_update=2,executed_updates=1,g_mse=1.))
+    score=coordinator/'score-table.npz'; score.write_bytes(b'simulated score table')
+    greedy=write(coordinator,'greedy.json',dict(complete=True,method='B6',not_attempted=[],trials=trials,
+        eligible_ids=[0,1],probe_updates=config.pilot.probe_updates,selection_split='G',V_accessed=False,T_accessed=False,
+        parent_identity_hashes=identities,parent_checkpoint_sha256=parent_pointer['sha256'],score_hash='simulated-table',
+        score_artifact=ref(coordinator,score),allocation=dict(ids=[0],table_hash='simulated-table',
+            requested_count=1,effective_count=1)))
+    record['greedy_report']=str(greedy)
+
+
+@pytest.mark.parametrize('change',['missing_stage','wrong_role','missing_child','incomplete_child',
+    'wrong_checkpoint','incomplete_checkpoint','missing_probe','incomplete_probe','selected_update'])
+def test_resealed_role_graph_must_retain_completed_selected_evidence(prepared,change):
+    from treeneuron.protocol import eligible_design
+    root,_,sources=prepared; raw=json.loads((root/sources['raw']['path']).read_text())
+    record=raw['accepted_records'][0]; method=record['methods']['ordinary_upper']
+    pair=root/'evidence/pilot/teacher-0/repetition-0'; stage=method['stages'][-1]
+    path=pair/stage['path']
+    if change=='missing_stage': method['stages'].pop()
+    elif change=='wrong_role': method['stages']=copy.deepcopy(record['methods']['ordinary_lower']['stages'])
+    elif change=='missing_child': record['child_runs']=[r for r in record['child_runs'] if r['run_id']!=stage['run_id']]
+    elif change=='incomplete_child':
+        manifest=json.loads((path/'manifest.json').read_text()); manifest['identity']['status']='failed'
+        write(path,'manifest.json',manifest)
+    elif change in ('wrong_checkpoint','incomplete_checkpoint'):
+        pointer=json.loads((path/'checkpoints/best.json').read_text())
+        descriptor_path=path/'checkpoints'/pointer['metadata']; descriptor=json.loads(descriptor_path.read_text())
+        if change=='wrong_checkpoint': descriptor['state']['growth_metadata']['causal_adapter']['recipe']['variant']='lower'
+        else: descriptor['state']['stage']['complete']=False
+        descriptor_path.write_text(json.dumps(descriptor)); pointer['sha256']=ref(root,descriptor_path)['sha256']
+        write(path,'checkpoints/best.json',pointer)
+        manifest=json.loads((path/'manifest.json').read_text()); manifest['method']['weight_hash']=pointer['sha256']
+        write(path,'manifest.json',manifest)
+    elif change in ('missing_probe','incomplete_probe'):
+        gp=Path(record['greedy_report']); greedy=json.loads(gp.read_text()); trial=greedy['trials'][-1]
+        if change=='missing_probe': greedy['trials'].pop(); gp.write_text(json.dumps(greedy))
+        else:
+            mp=gp.parent/trial['path']/'manifest.json'; manifest=json.loads(mp.read_text())
+            manifest['identity']['status']='failed'; mp.write_text(json.dumps(manifest))
+    else: stage['selected_update']+=1
+    reseal_pair(root,sources,raw,record)
+    with pytest.raises(ValueError,match='control|stage|checkpoint|pilot|probe|selection'):
+        eligible_design(sources)
+
+
+def test_scientific_primary_claim_must_match_pilot_population(candidate):
+    from treeneuron.protocol import _scientific_sources,pilot_seal
+    root,decision,sources,_=candidate; raw_path=root/sources['raw']['path']
+    raw=json.loads(raw_path.read_text()); raw['config']['data']['population']='pure_noise'
+    raw_path.write_text(json.dumps(raw)); sources['raw']=ref(root,raw_path)
+    seal=write(root,sources['raw_seal']['path'],pilot_seal(raw_path.parent)); sources['raw_seal']=ref(root,seal)
+    with pytest.raises(ValueError,match='population'):
+        _scientific_sources(sources,decision)
+
+
+@pytest.mark.parametrize('prevalences,valid', [([.1,.5],True),([.01],True),([.2],False)])
+def test_rare_recipe_retains_versioned_prevalence_normalization(candidate,prevalences,valid):
+    from dataclasses import replace
+    from treeneuron.data.synthetic import make_teacher
+    from treeneuron.protocol import _scientific_sources
+    root,decision,sources,manifests=candidate
+    raw_path=root/sources['raw']['path']; raw=json.loads(raw_path.read_text())
+    raw['config']['data'].update(regime='rare',gate_prevalences=prevalences)
+    raw_path.write_text(json.dumps(raw)); sources['raw']=ref(root,raw_path)
+    teacher=make_teacher(999,raw['config']['model']['d'],regime='rare')
+    for unit,manifest in zip(sources['cohort']['units'],manifests):
+        value=replace(teacher,seed=unit['seeds']['teacher'],reference_seed=unit['seeds']['reference'])
+        path=root/unit['teacher']['path']; path.write_text(json.dumps(value.to_dict())); unit['teacher']=ref(root,path)
+        unit['manifest']=replace(manifest,teacher_id=value.teacher_id).to_dict()
+    if valid:
+        assert _scientific_sources(sources,decision)['study_id']=='toy'
+    else:
+        with pytest.raises(ValueError,match='rare|prevalence|recipe'):
+            _scientific_sources(sources,decision)
+
+
+@pytest.mark.parametrize('change',['fresh_data','probe_policy'])
+def test_resealed_checkpoint_graph_preserves_common_data_and_probe_allowance(prepared,change):
+    from treeneuron.protocol import eligible_design
+    root,_,sources=prepared; raw=json.loads((root/sources['raw']['path']).read_text())
+    record=raw['accepted_records'][0]; pair=root/'evidence/pilot/teacher-0/repetition-0'
+    if change=='fresh_data':
+        paths=[pair/stage['path'] for stage in record['methods']['ordinary_upper']['stages']]
+    else:
+        greedy_path=Path(record['greedy_report']); greedy=json.loads(greedy_path.read_text())
+        paths=[greedy_path.parent/greedy['trials'][-1]['path']]
+    for path in paths:
+        pointer=json.loads((path/'checkpoints/best.json').read_text())
+        descriptor_path=path/'checkpoints'/pointer['metadata']; descriptor=json.loads(descriptor_path.read_text())
+        manifest=json.loads((path/'manifest.json').read_text())
+        if change=='fresh_data':
+            descriptor['state']['identity_hashes']['raw']='different-population'
+            manifest['data']['raw_hash']='different-population'
+        else: descriptor['state']['stage']['policy']['max_updates']+=1
+        descriptor_path.write_text(json.dumps(descriptor)); pointer['sha256']=ref(root,descriptor_path)['sha256']
+        write(path,'checkpoints/best.json',pointer); manifest['method']['weight_hash']=pointer['sha256']
+        write(path,'manifest.json',manifest)
+    reseal_pair(root,sources,raw,record)
+    with pytest.raises(ValueError,match='control|probe|identity'):
+        eligible_design(sources)

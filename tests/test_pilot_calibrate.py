@@ -123,8 +123,18 @@ def test_real_minimal_pair_controls_lineage_and_E_losses(tmp_path,cpu_training_e
         assert not np.array_equal(X,data.V.X), 'V must not be scored by pilot paired driver'
         return original(self,X,**kw)
     monkeypatch.setattr(CausalPredictor,'predict',predict)
-    result=run_repetition(tc,data,e,tmp_path/'pair','common')
+    # Exercise both producer locator forms without changing its schema.
+    monkeypatch.chdir(tmp_path)
+    pair_root=Path('pair') if growth_count==0 else tmp_path/'pair'
+    result=run_repetition(tc,data,e,pair_root,'common')
     assert result['status']=='completed'
+    from treeneuron.protocol import _validate_pilot_graph
+    _validate_pilot_graph(result,tmp_path/'pair',tc)
+    import copy
+    broken=copy.deepcopy(result)
+    broken['methods']['ordinary_upper']['stages']=copy.deepcopy(broken['methods']['ordinary_lower']['stages'])
+    with pytest.raises(ValueError,match='reused|provenance'):
+        _validate_pilot_graph(broken,tmp_path/'pair',tc)
     assert set(result['methods'])=={'keep','top','random','ordinary_lower','ordinary_upper','widen_upper','static_partial','greedy'}
     assert result['pairing_audit']['passed']
     assert result['methods']['top']['parent_checkpoint_sha256']==result['methods']['random']['parent_checkpoint_sha256']
