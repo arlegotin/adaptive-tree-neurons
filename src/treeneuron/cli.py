@@ -19,7 +19,7 @@ def main(argv: list[str] | None = None) -> int:
     verify_math.add_argument("--output", type=Path)
     verify_math.add_argument("--backend-report", type=Path, help="Revalidate an existing doctor report against current code")
     causal = commands.add_parser('verify-baselines', help='Execute bounded causal control correctness recipes')
-    causal.add_argument('--track', choices=['causal'], required=True)
+    causal.add_argument('--track', choices=['causal','practical'], required=True)
     causal.add_argument('--output', type=Path)
     causal.add_argument('--backend-report', type=Path)
     causal.add_argument('--artifacts-dir', type=Path, help='Retain diagnostic runs/checkpoints, including failures')
@@ -43,7 +43,11 @@ def main(argv: list[str] | None = None) -> int:
         return 0 if report['status'] == 'completed' else 1
     if args.command == 'verify-baselines':
         from treeneuron.baselines.causal_checks import collect_causal_report
-        report = collect_causal_report(backend_report=args.backend_report, artifacts_dir=args.artifacts_dir)
+        if args.track == 'causal':
+            report = collect_causal_report(backend_report=args.backend_report, artifacts_dir=args.artifacts_dir)
+        else:
+            from treeneuron.baselines.registry import collect_practical_report
+            report = collect_practical_report()
         if args.output is not None: write_report(report, args.output)
         print(json.dumps(report, indent=2, sort_keys=True, allow_nan=False))
         return 0 if report['implemented_checks_passed'] else 1

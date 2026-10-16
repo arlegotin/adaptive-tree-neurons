@@ -220,9 +220,14 @@ def test_causal_cli_executes_recipes(tmp_path, cpu_training_evidence):
     assert run.returncode==0,run.stdout+run.stderr
     report=json.loads(path.read_text())
     assert report['implemented_checks_passed']
-    assert report['capabilities']['B6']['status']=='pending'
+    assert report['track_ready'] is False
+    assert {row['method'] for row in report['adapter_matrix'] if row['status']=='verified'} >= {'Mean','Ridge','SplineRidge','B6'}
+    probes=report['greedy_probes']
+    assert probes['complete'] and len(probes['trials'])==3
+    assert all(t['nanoseconds']>0 for t in probes['trials'])
+    assert report['capabilities']['B6']['status']=='verified'
     assert report['capabilities']['B7']['status']=='pending'
-    assert report['capabilities']['B0']['spline']=='pending EvidenceTask2'
+    assert report['capabilities']['B0']['spline']=='verified'
     records=report['recipes']
     assert {r['total_parameters'] for r in records if r['method_id']=='B2'}=={1693,1711}
     assert all(r['reload_max_abs']==0 for r in records)

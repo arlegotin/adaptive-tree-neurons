@@ -1,4 +1,4 @@
-"""B1–B5 causal controls using the shared F/G training/recovery contract.
+"""B1–B6 causal controls using the shared F/G training/recovery contract.
 
 Factory config is finite JSON: ``experiment`` is a resolved experiment for fresh
 controls; ``variant`` and variant-specific counts identify the recipe. FitRequest
@@ -173,11 +173,11 @@ def _validate_adapter_identity(method,recipe,state):
         valid=(variant in ('partial','full') and set(recipe)==({'variant','coordinates','count'} if variant=='partial' else {'variant','coordinates'})
             and c.coordinates in ('centered','direct_leaf') and c.coordinates==recipe.get('coordinates')
             and c.static_count==(recipe.get('count') if variant=='partial' else c.h))
-    elif method in ('B4','B5'):
-        policy='random' if method=='B4' else recipe.get('variant')
+    elif method in ('B4','B5','B6'):
+        policy='greedy' if method=='B6' else 'random' if method=='B4' else recipe.get('variant')
         allocation=state.growth_metadata.get('allocation',{})
-        valid=(set(recipe)==(set() if method=='B4' else {'variant'})
-            and policy in (('random',) if method=='B4' else ('gaussian','adam','sgd'))
+        valid=(set(recipe)==(set() if method in ('B4','B6') else {'variant'})
+            and policy in (('greedy',) if method=='B6' else ('random',) if method=='B4' else ('gaussian','adam','sgd'))
             and c.coordinates=='selective' and allocation.get('policy')==policy
             and allocation.get('ids')==state.model.layer.grown_ids.tolist()
             and allocation.get('effective_count')==len(state.model.layer.grown_ids))
@@ -249,7 +249,7 @@ class CausalPredictor:
         from treeneuron.checkpoint import load_checkpoint
         state=load_checkpoint(path,expected_hashes=expected_hashes,device='cpu')
         metadata=state.growth_metadata.get('causal_adapter')
-        if not metadata or set(metadata)!={'method_id','recipe'} or metadata['method_id'] not in ('B1','B2','B3','B4','B5'):
+        if not metadata or set(metadata)!={'method_id','recipe'} or metadata['method_id'] not in ('B1','B2','B3','B4','B5','B6'):
             raise ValueError('Checkpoint has no valid causal adapter identity')
         _validate_adapter_identity(metadata['method_id'],metadata['recipe'],state)
         return cls(metadata['method_id'],metadata['recipe'],config=state.config,state=state)
@@ -278,20 +278,20 @@ def build_causal(method_id: str, config: Mapping, *, parent: TrainingState | Non
                  allocation: Allocation | None=None) -> CausalPredictor:
     canonical_json(config)
     cfg=dict(config)
-    if method_id not in ('B1','B2','B3','B4','B5'): raise ValueError('Unsupported causal method; B6/B7 pending')
-    warm=method_id in ('B1','B4','B5') or (method_id=='B2' and cfg.get('variant')=='widen')
+    if method_id not in ('B1','B2','B3','B4','B5','B6'): raise ValueError('Unsupported causal method; B7 pending')
+    warm=method_id in ('B1','B4','B5','B6') or (method_id=='B2' and cfg.get('variant')=='widen')
     if warm:
-        allowed={'B1':set(),'B2':{'variant','added_units','seed'},'B4':set(),'B5':{'variant'}}[method_id]
+        allowed={'B1':set(),'B2':{'variant','added_units','seed'},'B4':set(),'B5':{'variant'},'B6':set()}[method_id]
         if set(cfg)!=allowed or parent is None: raise ValueError('Invalid warm control recipe or missing parent')
         snapshot=_selected_parent(parent)
         before=capture_rng()
         try: state=unpack_state(snapshot,expected_hashes=parent.identity_hashes,device='cpu')
         finally: restore_rng(before)
         state.history=copy.deepcopy(parent.history)
-        if method_id in ('B4','B5'):
-            expected='random' if method_id=='B4' else cfg['variant']
-            if expected not in ('random','gaussian','adam','sgd') or (method_id=='B5' and expected=='random') or allocation is None or allocation.policy!=expected:
-                raise ValueError('Allocation policy differs from declared B4/B5 recipe')
+        if method_id in ('B4','B5','B6'):
+            expected='greedy' if method_id=='B6' else 'random' if method_id=='B4' else cfg['variant']
+            if expected not in ('random','gaussian','adam','sgd','greedy') or (method_id=='B5' and expected not in ('gaussian','adam','sgd')) or allocation is None or allocation.policy!=expected:
+                raise ValueError('Allocation policy differs from declared B4/B5/B6 recipe')
             insert_growth(state,allocation)
             state.backend=attach_causal_evidence(state.backend,state.model,state.config.training.batch_size)
         else:

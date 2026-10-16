@@ -1,6 +1,7 @@
 """Executable diagnostic recipes, with actual shapes and pending capabilities."""
 from __future__ import annotations
 import copy
+from dataclasses import asdict
 import json
 from contextlib import nullcontext
 from pathlib import Path
@@ -11,7 +12,9 @@ from treeneuron import train
 from treeneuron.artifacts import create_run
 from treeneuron.baselines.api import FitRequest
 from treeneuron.baselines.causal import build_causal, CausalPredictor
-from treeneuron.baselines.simple import MeanPredictor, RidgePredictor
+from treeneuron.baselines.simple import MeanPredictor, RidgePredictor, SplineRidgePredictor
+from treeneuron.baselines.registry import capabilities
+from treeneuron.baselines.greedy import run_greedy_probes
 from treeneuron.config import resolve_experiment
 from treeneuron.data.types import DevelopmentData, ObservationSet
 from treeneuron.growth.allocate import allocate
@@ -22,11 +25,13 @@ def collect_causal_report(*, backend_report: Path | None=None, artifacts_dir: Pa
     """Run finite F/G-only synthetic correctness checks; no predictive study claim."""
     report=dict(schema_version=1,track='causal',implemented_checks_passed=False,
         source_hash=train.source_hash(),scope='CPU correctness diagnostics, not predictive or throughput evidence',
-        capabilities={'B0':{'status':'implemented','recipes':['mean','ridge'],'spline':'pending EvidenceTask2'},
+        capabilities={'B0':{'status':'implemented','recipes':['mean','ridge','spline_ridge'],'spline':'implemented'},
             **{f'B{i}':{'status':'implemented'} for i in range(1,6)},
-            'B6':{'status':'pending','reason':'Evidence-plan validation-probed recipe'},
+            'B6':{'status':'implemented','recipe':'ANT-inspired restricted allocation'},
             'B7':{'status':'pending','reason':'Evidence-plan pinned official NODE recipe'},
-            'B2_duplication':{'status':'deferred','reason':'No duplication/state/symmetry recipe executed'}},recipes=[])
+            'B2_duplication':{'status':'deferred','reason':'No duplication/state/symmetry recipe executed'}},
+        adapter_matrix=[asdict(c) for c in capabilities() if c.track=='causal'],
+        track_ready=False, implementation_scope='B0–B6; B7 gate explicitly pending Evidence Task3',recipes=[])
     old_path=train.BACKEND_REPORT_PATH
     before=train.capture_rng();threads=torch.get_num_threads()
     try:
@@ -49,7 +54,7 @@ def collect_causal_report(*, backend_report: Path | None=None, artifacts_dir: Pa
             root.mkdir(parents=True,exist_ok=True)
             report['artifacts_root']=str(root.resolve())
             request=FitRequest(data.F.X,data.F.y,data.G.X,data.G.y,2,{'development_data':data},{'max_updates':2},root)
-            for model in (MeanPredictor(),RidgePredictor(.3)):
+            for model in (MeanPredictor(),RidgePredictor(.3),SplineRidgePredictor(.3,n_knots=3)):
                 model.fit(request)
                 prediction=model.predict(data.G.X)
                 assert prediction.shape==(32,) and np.isfinite(prediction).all()
@@ -59,7 +64,7 @@ def collect_causal_report(*, backend_report: Path | None=None, artifacts_dir: Pa
                     penalty=np.diag([0.]+[.3]*x.shape[1])
                     coefficients=np.linalg.solve(design.T@design+penalty,design.T@target)
                     np.testing.assert_allclose(model._coefficients,coefficients,rtol=1e-10,atol=1e-10)
-                else: np.testing.assert_allclose(prediction,np.mean(data.F.y),rtol=0,atol=1e-12)
+                elif type(model) is MeanPredictor: np.testing.assert_allclose(prediction,np.mean(data.F.y),rtol=0,atol=1e-12)
                 path=root/(type(model).__name__+'.json'); model.save(path)
                 np.testing.assert_array_equal(type(model).load(path).predict(data.G.X),prediction)
             parent=train.fit_parent(data,config,create_run(root,config.to_dict()))
@@ -79,10 +84,26 @@ def collect_causal_report(*, backend_report: Path | None=None, artifacts_dir: Pa
             for method,policy in (('B4','random'),('B5','gaussian'),('B5','adam'),('B5','sgd')):
                 allocation=allocate(table,16,policy=policy,seed=3)
                 recipes.append((method,{'variant':policy} if method=='B5' else {},parent,allocation))
+            # Two-unit B6 engineering fixture: all eligible probes plus keep,
+            # same F128/G32 data, two updates each, then fresh joint continuation.
+            probe_config=config.to_dict()
+            probe_config['model']['h']=2
+            probe_config['growth']['m_requested']=1
+            probe_config=resolve_experiment(probe_config)
+            probe_parent=train.fit_parent(data,probe_config,create_run(root,probe_config.to_dict()))
+            probe_table=score_units(copy.deepcopy(probe_parent.model).double().eval(),
+                torch.tensor(probe_parent.preprocessing.transform_X(data.F.X)),
+                torch.tensor(probe_parent.preprocessing.transform_y(data.F.y)),epsilon=.05,tau=1.,adam_epsilon=1e-8,
+                batch_size=128,unit_block_size=2)
+            probe_paths=create_run(root,probe_config.to_dict())
+            greedy=run_greedy_probes(probe_parent,probe_table,data,probe_updates=2,seed=3,paths=probe_paths)
+            report['greedy_probes']=json.loads((probe_paths.directory/'greedy.json').read_text())
+            report['greedy_probes']['artifact_directory']=str(probe_paths.directory.resolve())
+            recipes.append(('B6',{},probe_parent,greedy))
             for index,(method,cfg,source,allocation) in enumerate(recipes):
                 adapter=build_causal(method,cfg,parent=source,allocation=allocation)
                 if source is not None:
-                    np.testing.assert_array_equal(adapter.predict(data.G.X),parent.predict(data.G.X))
+                    np.testing.assert_array_equal(adapter.predict(data.G.X),source.predict(data.G.X))
                 adapter.fit(request)
                 values=adapter.predict(data.G.X); state=adapter.state
                 path=root/f'control-{index}.json'; adapter.save(path)
@@ -105,10 +126,16 @@ def collect_causal_report(*, backend_report: Path | None=None, artifacts_dir: Pa
                     checkpoint=str(path.resolve()),checkpoint_sha256=json.loads(path.read_text())['sha256'],
                     cpu_evidence=state.backend.get('causal_cpu_evidence'),
                     identities=state.identity_hashes,fit_cost=adapter.resource_summary()['costs']))
-        for key in ('B0','B1','B2','B3','B4','B5'): report['capabilities'][key]['status']='verified'
+        for key in ('B0','B1','B2','B3','B4','B5','B6'): report['capabilities'][key]['status']='verified'
+        report['capabilities']['B0']['spline']='verified'
+        for row in report['adapter_matrix']:
+            if row['status']=='implemented': row['status']='verified'
         report['implemented_checks_passed']=True
     except Exception as error:
         report['failure']=f'{type(error).__name__}: {error}'
+        for row in report['adapter_matrix']:
+            if row['status']=='implemented':
+                row.update(status='invalid',unavailable_reason='Verification did not complete: '+report['failure'])
     finally:
         train.BACKEND_REPORT_PATH=old_path;torch.set_num_threads(threads);train.restore_rng(before)
     return report
