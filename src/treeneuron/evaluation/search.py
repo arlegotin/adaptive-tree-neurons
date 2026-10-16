@@ -25,7 +25,7 @@ ROOT = Path(__file__).resolve().parents[3]
 COST_BOUNDARY = ('Enclosing serial search: input publication, sampler/replay, isolated process startup/import, '
     'F preprocessing, fresh parent/base, score and all probes, continuation, compilation, G selection, '
     'checkpoint/save, V prediction/scoring, failed/rejected work and trial/sampler publication. '
-    'Ends after final sampler publication, before terminal manifest/metrics publication. Nested durations must not be added. Data/weight acquisition precedes this boundary.')
+    'Ends after final sampler publication, before terminal cost-ledger/resume-descriptor/manifest/metrics publication. Nested durations must not be added. Data/weight acquisition precedes this boundary.')
 
 
 def file_hash(path):
@@ -71,12 +71,22 @@ class SearchBudget:
 
 @dataclass(frozen=True)
 class SearchResult:
+    """Winner indexes current trials only; charged_ns aliases attempt_charged_ns.
+
+    all_trials and cumulative_charged_ns include verified prior attempts; prior
+    fitted artifacts remain historical and are never winner candidates.
+    """
     winner: int | None
     trials: tuple[dict[str, Any], ...]
     charged_ns: int
     sampler_state: str | None
     status: str
     identity: dict[str, Any]
+    attempt_charged_ns: int
+    cumulative_charged_ns: int
+    prior_trials: tuple[dict[str, Any], ...]
+    all_trials: tuple[dict[str, Any], ...]
+    attempts: tuple[dict[str, Any], ...]
 
 
 class ReplayTPE:
@@ -214,8 +224,71 @@ class WorkerError(RuntimeError):
         super().__init__(result.get('error',{}).get('message','worker failed'))
 
 
+def _reference(path):
+    path=Path(path).resolve()
+    return {'path':str(path),'sha256':file_hash(path)}
+
+
+def _read_reference(reference):
+    if not isinstance(reference,dict) or set(reference)!={'path','sha256'}:raise ValueError('Invalid cost lineage reference')
+    path=Path(reference['path'])
+    if not path.is_file():raise ValueError('Missing cost lineage artifact: '+str(path))
+    if file_hash(path)!=reference['sha256']:raise ValueError('Cost lineage artifact hash mismatch: '+str(path))
+    return json.loads(path.read_text())
+
+
+def _load_costed_resume(path,identity):
+    """Verify every immutable ancestor before importing its tuning information."""
+    ancestors=[];seen=set();reference=_reference(path)
+    while reference is not None:
+        if reference['path'] in seen:raise ValueError('Cyclic cost lineage')
+        seen.add(reference['path']);envelope=_read_reference(reference)
+        if set(envelope)!={'payload','sha256'} or canonical_hash(envelope['payload'])!=envelope['sha256']:
+            raise ValueError('Costed resume requires verified cost lineage')
+        descriptor=envelope['payload']
+        if set(descriptor)!={'schema_version','kind','ledger'} or descriptor['schema_version']!=1 or descriptor['kind']!='costed_search_resume':
+            raise ValueError('Costed resume requires verified cost lineage')
+        ledger=_read_reference(descriptor['ledger'])
+        if set(ledger)!={'schema_version','run_id','identity','configuration','budget','sampler','trials','previous_resume','attempt_charged_ns','cumulative_charged_ns','cost_boundary'} or ledger['schema_version']!=1:
+            raise ValueError('Cost lineage ledger schema mismatch')
+        if canonical_hash(_read_reference(ledger['identity']))!=canonical_hash(identity):raise ValueError('Cost lineage identity mismatch')
+        if _read_reference(ledger['configuration'])!=identity['experiment']:raise ValueError('Cost lineage configuration mismatch')
+        budget=_read_reference(ledger['budget']);SearchBudget(**budget)
+        previous=ledger['previous_resume']
+        if (budget['resume_sampler'] is None)!=(previous is None):raise ValueError('Cost lineage predecessor mismatch')
+        if previous is not None and str(Path(budget['resume_sampler']).resolve())!=previous['path']:raise ValueError('Cost lineage resume path mismatch')
+        ancestors.append((ledger,descriptor['ledger']));reference=previous
+    trials=[];cost=0;attempts=[];history=[];last_sampler=None;run_ids=set()
+    for ledger,reference in reversed(ancestors):
+        if not isinstance(ledger['run_id'],str) or ledger['run_id'] in run_ids:raise ValueError('Invalid/repeated originating run')
+        run_ids.add(ledger['run_id'])
+        charge=ledger['attempt_charged_ns']
+        if type(charge) is not int or charge<0:raise ValueError('Invalid attempt charge')
+        current=[_read_reference(r) for r in ledger['trials']]
+        last_sampler=ledger['sampler'];archive=_read_reference(last_sampler)
+        if set(archive)!={'state','sha256'} or canonical_hash(archive['state'])!=archive['sha256']:raise ValueError('Sampler hash mismatch in cost lineage')
+        state=archive['state'];new_history=state['history']
+        if new_history[:len(history)]!=history or len(new_history)!=len(history)+len(current):raise ValueError('Uncharged sampler history in cost lineage')
+        nested=0
+        for number,trial in enumerate(current):
+            global_number=len(trials);event=new_history[global_number]
+            if trial['number']!=number or trial['sampler_number']!=global_number or trial['run_id']!=ledger['run_id']:raise ValueError('Trial lineage ordering mismatch')
+            if trial['official_anchor']!=(global_number==0) or (event['anchor'] is not None)!=trial['official_anchor']:raise ValueError('Missing official anchor lineage')
+            if any(trial['config'].get(k)!=v for k,v in event['params'].items()) or trial['validation_mse']!=event['value']:raise ValueError('Trial/sampler outcome mismatch')
+            if trial['status'] not in ('completed','failed','unavailable_at_budget') or (trial['status']=='completed')!=(event['value'] is not None):raise ValueError('Trial status lineage mismatch')
+            if type(trial['charged_ns']) is not int or trial['charged_ns']<0:raise ValueError('Invalid trial charge')
+            nested+=trial['charged_ns'];trials.append(trial)
+        if nested>charge:raise ValueError('Attempt charge omits trial costs')
+        cost+=charge
+        if type(ledger['cumulative_charged_ns']) is not int or ledger['cumulative_charged_ns']!=cost:raise ValueError('Cumulative cost lineage mismatch')
+        history=new_history;attempts.append(dict(run_id=ledger['run_id'],ledger=reference,attempt_charged_ns=charge,cumulative_charged_ns=cost))
+    sampler=ReplayTPE.load(last_sampler['path'],identity=identity)
+    return sampler,tuple(trials),cost,tuple(attempts)
+
+
 def search(method_id: str,data: DevelopmentData,budget: SearchBudget,seed: int,paths: RunPaths)->SearchResult:
     started=time.perf_counter_ns(); trials=[]; identity={'method':method_id,'seed':seed}; sampler=None; winner=None
+    prior_trials=();prior_cost=0;prior_attempts=();previous_resume=None
     try:
         append_event(paths,{'type':'search_started','status':'running','method':method_id})
         update_run_observations(paths,{'method':{'scope':'coordinator'}})
@@ -231,7 +304,10 @@ def search(method_id: str,data: DevelopmentData,budget: SearchBudget,seed: int,p
         _atomic_json(paths.directory/'search.identity.json',identity)
         update_run_observations(paths,{'identity':{'code_revision':identity['source'],'lock_hash':identity['core_lock']},
             'data':{'raw_hash':data.manifest.dataset_id,'split_hash':data.manifest.assignment_hash}})
-        sampler=(ReplayTPE.load(budget.resume_sampler,identity=identity) if budget.resume_sampler else ReplayTPE(seed,support,identity))
+        if budget.resume_sampler:
+            previous_resume=_reference(budget.resume_sampler)
+            sampler,prior_trials,prior_cost,prior_attempts=_load_costed_resume(budget.resume_sampler,identity)
+        else:sampler=ReplayTPE(seed,support,identity)
         if sampler.seed!=seed or sampler.support!=support:raise ValueError('Resume seed/support mismatch')
         # Resume is a new attempt with a new wall budget; historical outcomes are
         # sampler evidence only. Historical model artifacts cannot silently win.
@@ -247,7 +323,7 @@ def search(method_id: str,data: DevelopmentData,budget: SearchBudget,seed: int,p
             official=number==0 and prior_count==0
             params=sampler.ask(anchor if official else None)
             config={**recipe,**params}
-            record=dict(number=number,sampler_number=prior_count+number,official_anchor=official,config=config,
+            record=dict(number=number,run_id=paths.run_id,sampler_number=prior_count+number,official_anchor=official,config=config,
                         status='running',validation_mse=None,error=None,resource_summary={},artifact_directory=str(directory))
             try:
                 request=dict(schema_version=1,method=method_id,config=config,seed=seed,experiment=experiment,
@@ -283,7 +359,18 @@ def search(method_id: str,data: DevelopmentData,budget: SearchBudget,seed: int,p
             if not support:break
         state_path=paths.directory/'sampler.final.json';sampler.save(state_path)
         elapsed=time.perf_counter_ns()-started
-        result=SearchResult(winner,tuple(trials),elapsed,str(state_path),'completed',identity)
+        ledger_path=paths.directory/'search.ledger.json'
+        ledger=dict(schema_version=1,run_id=paths.run_id,identity=_reference(paths.directory/'search.identity.json'),
+            configuration=_reference(paths.directory/'config.resolved.json'),budget=_reference(paths.directory/'search.budget.json'),
+            sampler=_reference(state_path),trials=[_reference(Path(t['artifact_directory'])/'trial.json') for t in trials],
+            previous_resume=previous_resume,attempt_charged_ns=elapsed,cumulative_charged_ns=prior_cost+elapsed,cost_boundary=COST_BOUNDARY)
+        _atomic_json(ledger_path,ledger)
+        descriptor=dict(schema_version=1,kind='costed_search_resume',ledger=_reference(ledger_path))
+        resume_path=paths.directory/'sampler.resume.json'
+        _atomic_json(resume_path,dict(payload=descriptor,sha256=canonical_hash(descriptor)))
+        attempts=prior_attempts+(dict(run_id=paths.run_id,ledger=_reference(ledger_path),attempt_charged_ns=elapsed,cumulative_charged_ns=prior_cost+elapsed),)
+        result=SearchResult(winner,tuple(trials),elapsed,str(resume_path),'completed',identity,
+            elapsed,prior_cost+elapsed,prior_trials,prior_trials+tuple(trials),attempts)
         update_run_observations(paths,{'costs':{'search':dict(nanoseconds=elapsed,status='measured',reason=None,boundary=COST_BOUNDARY)}})
         finish_run(paths,asdict(result),'completed')
         return result
@@ -291,8 +378,10 @@ def search(method_id: str,data: DevelopmentData,budget: SearchBudget,seed: int,p
         # Preserve the original error even if a filesystem failure also prevents
         # terminal publication; known metadata lives in earlier immutable files.
         try:
+            failed_elapsed=time.perf_counter_ns()-started
             finish_run(paths,dict(error=dict(type=type(exc).__name__,message=str(exc)),identity=identity,
-                trials=trials,charged_ns=time.perf_counter_ns()-started),'interrupted' if isinstance(exc,KeyboardInterrupt) else 'failed')
+                trials=trials,prior_trials=prior_trials,prior_attempts=prior_attempts,prior_charged_ns=prior_cost,
+                charged_ns=failed_elapsed,cumulative_charged_ns=prior_cost+failed_elapsed),'interrupted' if isinstance(exc,KeyboardInterrupt) else 'failed')
         except Exception as publication_error:
             exc.add_note(f'Terminal publication also failed: {publication_error!r}')
         raise

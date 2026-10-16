@@ -213,3 +213,37 @@ def test_changed_backend_receipt_between_coordinator_and_worker_fails(case,searc
     result=s.search('B1',data,s.SearchBudget(seconds=30,backend_report=str(receipt)),5,paths)
     assert result.winner is None
     assert 'receipt hash mismatch' in result.trials[0]['error']['message']
+
+
+def test_costed_resume_retains_failed_anchor_and_cumulative_lineage(case,monkeypatch):
+    s=api();data,paths=case;clock=[0];calls=[0]
+    monkeypatch.setattr(s.time,'perf_counter_ns',lambda:clock[0])
+    def worker(request,directory,timeout):
+        calls[0]+=1;clock[0]+=2_000_000_000
+        if calls[0]==1:raise RuntimeError('paid anchor failure')
+        np.save(directory/'prediction.npy',data.V.y,allow_pickle=False)
+        return {'quality_selection_eligible':True,'prediction_sha256':s.file_hash(directory/'prediction.npy'),'resource_summary':{}}
+    monkeypatch.setattr(s,'_run_worker',worker)
+    first=s.search('Ridge',data,s.SearchBudget(seconds=10,max_trials=2),11,paths)
+    new=create_run(paths.directory.parent,json.loads((paths.directory/'config.resolved.json').read_text()))
+    second=s.search('Ridge',data,s.SearchBudget(seconds=10,resume_sampler=first.sampler_state),11,new)
+    assert second.attempt_charged_ns==second.charged_ns==2_000_000_000
+    assert second.cumulative_charged_ns==6_000_000_000
+    assert len(second.prior_trials)==2 and len(second.all_trials)==3
+    assert second.prior_trials[0]['official_anchor'] and second.prior_trials[0]['error']['message']=='paid anchor failure'
+    assert second.prior_trials[0]['charged_ns']==2_000_000_000
+    assert second.winner==0 and not second.trials[0]['official_anchor']
+    # Both missing full ledger ancestry and changed retained trial artifacts fail closed.
+    raw=paths.directory/'sampler.final.json'
+    attempt=create_run(paths.directory.parent,json.loads((paths.directory/'config.resolved.json').read_text()))
+    with pytest.raises(ValueError,match='lineage'):s.search('Ridge',data,s.SearchBudget(seconds=10,resume_sampler=str(raw)),11,attempt)
+    trial=paths.directory/'trial-0000'/'trial.json';original=trial.read_bytes();trial.write_bytes(original+b'\n')
+    attempt=create_run(paths.directory.parent,json.loads((paths.directory/'config.resolved.json').read_text()))
+    with pytest.raises(ValueError,match='hash'):s.search('Ridge',data,s.SearchBudget(seconds=10,resume_sampler=second.sampler_state),11,attempt)
+
+    trial.write_bytes(original)
+    descriptor=json.loads(Path(first.sampler_state).read_text())['payload']
+    Path(descriptor['ledger']['path']).unlink()
+    attempt=create_run(paths.directory.parent,json.loads((paths.directory/'config.resolved.json').read_text()))
+    with pytest.raises(ValueError,match='Missing cost lineage'):
+        s.search('Ridge',data,s.SearchBudget(seconds=10,resume_sampler=second.sampler_state),11,attempt)

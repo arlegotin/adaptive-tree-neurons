@@ -1,4 +1,5 @@
 """Timing boundaries, complete batches, warmup and reconstructible summaries."""
+import json
 import numpy as np
 import pytest
 
@@ -35,7 +36,7 @@ def test_timing_complete_batches_retains_warmup_and_rebuilds(tmp_path):
 
 def test_batch_selection_smallest_at_95_percent_and_precision():
     t=api();p=t.TimingPolicy(batch_sizes=(1,2,4),min_repetitions=4,max_repetitions=4,warmup_window=2,max_warmup=2)
-    raw=[{'phase':'measurement','batch_size':b,'elapsed_ns':n,'rows':100,'status':'ok','block':i} for i in range(4) for b,n in ((1,200),(2,104),(4,100))]
+    raw=[{'phase':'measurement','batch_size':b,'elapsed_ns':n,'rows':100,'status':'ok','block':i//2,'repeat':i%2} for i in range(4) for b,n in ((1,200),(2,104),(4,100))]
     summary=t.rebuild_summary(raw,p)
     assert summary['selected_batch']==2
     assert summary['batches']['2']['median_ns']==104
@@ -154,3 +155,65 @@ def test_interruption_between_blocks_retains_measured_warmup(monkeypatch):
         t.measure_predictor(Model(),np.ones((2,1)),t.TimingPolicy(batch_sizes=(1,2),warmup_window=2,max_warmup=4,min_repetitions=4,max_repetitions=4))
     assert len(caught.value.timing_record['raw_blocks'])==4
     assert caught.value.timing_record['error']['type']=='KeyboardInterrupt'
+
+
+def test_comparison_interleaves_methods_in_complete_shared_blocks(monkeypatch):
+    t=api();calls=[]
+    class Model:
+        def __init__(self,name):self.name=name
+        def resource_summary(self):return {'capabilities':{'backend':'numpy_cpu','cache':False,'context':False}}
+        def predict(self,X,*,batch_size=None):calls.append(self.name);return np.zeros(len(X))
+    monkeypatch.setattr(t,'measured_call',lambda call,**kwargs:(call(),100))
+    p=t.TimingPolicy(batch_sizes=(4,),warmup_window=2,max_warmup=2,min_repetitions=4,max_repetitions=4,tail_quantile=.5)
+    result=t.measure_comparison({'A':(Model('A'),p),'B':(Model('B'),p)},np.ones((3,1)))
+    assert calls==['A','B','B','A','B','A','A','B','A','B','B','A']
+    for block in range(3):
+        rows=[r for r in result['raw_blocks'] if r['block']==block]
+        assert sorted((r['method_id'],r['repeat']) for r in rows)==[('A',0),('A',1),('B',0),('B',1)]
+    assert result['summary']['complete_block_ids']==[1,2]
+    assert result['summary']['paired_ratios']['B/A']['median_ratio']==1
+    assert result['summary']['precision_reached']
+    assert result['summary']==t.rebuild_comparison(result['raw_blocks'],result['policies'])
+
+
+def test_precision_requires_multiple_complete_blocks_and_ignores_repeat_duplicates():
+    t=api();p=t.TimingPolicy(min_repetitions=4,max_repetitions=40,tail_quantile=.5)
+    one=[dict(phase='measurement',batch_size=1,elapsed_ns=100,rows=10,status='ok',block=0,repeat=i) for i in range(2)]
+    assert not t.rebuild_summary(one*10,p)['precision_reached']
+    raw=one+[dict(r,block=1,elapsed_ns=200) for r in one]
+    base=t.rebuild_summary(raw,p);duplicated=t.rebuild_summary(raw+one*30,p)
+    assert base==duplicated
+    assert base['batches']['1']['independent_blocks']==2
+    partial=raw+[dict(one[0],block=2,elapsed_ns=1)]
+    assert t.rebuild_summary(partial,p)['batches']['1']['median_ns']==150
+    assert t.rebuild_summary(partial,p)['batches']['1']['independent_blocks']==2
+
+
+def test_comparison_precision_preserves_pairing_and_drops_partial_blocks():
+    t=api();p=t.TimingPolicy(min_repetitions=4,max_repetitions=40,tail_quantile=.5)
+    raw=[dict(method_id=m,phase='measurement',batch_size=1,elapsed_ns=n*scale,rows=10,status='ok',block=b,repeat=i)
+        for b,n in enumerate((100,200,400,800)) for m,scale in [('A',1),('B',2)] for i in range(2)]
+    raw.extend(dict(raw[i],block=10,elapsed_ns=1) for i in (0,1))
+    result=t.rebuild_comparison(raw,{'A':p,'B':p})
+    assert result['complete_block_ids']==[0,1,2,3]
+    pair=result['paired_ratios']['B/A']
+    assert pair['median_ratio']==2 and pair['interval']==[2.,2.]
+    assert result==t.rebuild_comparison(raw+raw[:4]*30,{'A':p,'B':p})
+
+
+def test_balanced_random_comparison_roundtrips_with_explicit_ids(tmp_path,monkeypatch):
+    t=api()
+    class Model:
+        def resource_summary(self):return {'capabilities':{'backend':'numpy_cpu','cache':False,'context':False}}
+        def predict(self,X,*,batch_size=None):return np.zeros(len(X))
+    monkeypatch.setattr(t,'measured_call',lambda call,**kwargs:(call(),100))
+    p=t.TimingPolicy(batch_sizes=(4,),warmup_window=2,max_warmup=2,min_repetitions=4,max_repetitions=4,block_order='balanced_random',seed=3)
+    cases={k:(Model(),p) for k in ('C','B','A')}
+    first=t.measure_comparison(cases,np.ones((3,1)));second=t.measure_comparison(cases,np.ones((3,1)))
+    assert first['raw_blocks']==second['raw_blocks']
+    for block in (0,1,2):
+        order=[r['method_id'] for r in first['raw_blocks'] if r['block']==block]
+        assert order==order[::-1] and sorted(order)==['A','A','B','B','C','C']
+    assert not first['summary']['precision_reached']  # two blocks cannot assess p95
+    path=tmp_path/'comparison.json';t.write_timing(path,first)
+    assert t.read_timing(path)==json.loads(json.dumps(first))
