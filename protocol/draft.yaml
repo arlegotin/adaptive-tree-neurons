@@ -1,0 +1,19 @@
+schema_version: 1
+status: draft
+freeze_hash: null
+test_access_authorized: false
+reason: Exploratory scaffold only; protected protocol validation is not implemented in core.
+phase: exploratory
+study_id: selective-tree-neurons
+experiment:
+  model: {d: 16, h: 64, depth: 1, tau: 1.0}
+  growth: {m_requested: 16, epsilon: 0.05, policy: adam, direction: eigenvector}
+  data: {dataset: synthetic, population: primary, noise_sigma: 0.1, n_fit: 2306, n_growth: 577, n_validation: 577, n_test: null}
+  seeds: {namespace: exploratory, teacher: 0, data: 1, optimizer: 2, allocation: 3, contrast: 4, reference: 5}
+unresolved:
+  - numeric_base_stopping_rule
+  - continuation_allowance
+  - validation_interval
+  - patience
+  - confirmatory_teacher_and_test_counts
+  - protected_evaluator_capability
