@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "status": "review_fixes_ready_for_scoped_re_review; evidence_pending_WP05",
+  "findings_addressed": [
+    "I1 balanced method blocks",
+    "I2 complete-block paired precision with duplication protection",
+    "I3 verified cumulative resume cost/anchor lineage"
+  ],
+  "FIX_BASE": "2e921d3",
+  "measurement": {
+    "applicable_cpu_receipt": {
+      "path": "environment/evidence7-calibration-fix1/search-backend.json",
+      "sha256": "e403a1fb2216b58557dfb414254facda09acfaa5dfbabf05a9f61ce8bca7095d",
+      "threads": {
+        "cpu": 1,
+        "interop": 1
+      }
+    },
+    "backend_producer_sha256": "237035c85e84b706facd7a7054a159f62dcff50e00f3ca3a5fdae0a11ca4fd7e",
+    "core_lock_sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+    "cumulative_ns": 1171951167,
+    "final_WP05_policy": null,
+    "first_attempt_ns": 269365083,
+    "historical_models_promoted": false,
+    "implementation_commit": "75fde4239e0803cf7292988508bcf0276b3c3a6d",
+    "prior_anchor_error": {
+      "message": "Worker exceeded remaining search budget; process killed and waited",
+      "type": "TimeoutError"
+    },
+    "prior_anchor_status": "unavailable_at_budget",
+    "raw_sampler_rejection": "Costed resume requires verified cost lineage",
+    "raw_summary_rebuilt": true,
+    "resumed_attempt_ns": 902586084,
+    "runtime_hash": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+    "schema_version": 1,
+    "scope": "bounded engineering method blocks and failed-anchor cost lineage, not WP05 calibration",
+    "single_block_rejected_for_precision": true,
+    "source_sha256": "1979ab38867c2acabe989817ad15d59ea30ea10e5e0f30a9501edc87cc3676b5",
+    "timing_precision_status": "unresolved_at_repetition_or_warmup_cap",
+    "timing_summary": {
+      "complete_block_ids": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "methods": {
+        "Mean/host": {
+          "independent_blocks": 4,
+          "median_ns": 154250.0,
+          "median_precision": {
+            "estimate_ns": 154250.0,
+            "interval_ns": [
+              148500.0,
+              158833.0
+            ],
+            "method": "1000 deterministic complete-block bootstrap replicates; two repeat slots per block; between-block independence remains a design assumption",
+            "relative_half_width": 0.033494327390599675
+          },
+          "precision_reached": false,
+          "repetitions": 8,
+          "required_blocks": 20,
+          "tail_ns": 172997.8,
+          "tail_precision": {
+            "estimate_ns": 172997.8,
+            "interval_ns": [
+              152333.0,
+              180625.0
+            ],
+            "method": "1000 deterministic complete-block bootstrap replicates; two repeat slots per block; between-block independence remains a design assumption",
+            "relative_half_width": 0.08176982597466557
+          },
+          "throughput_rows_per_second": 1666126.41815235
+        },
+        "Ridge/host": {
+          "independent_blocks": 4,
+          "median_ns": 161229.0,
+          "median_precision": {
+            "estimate_ns": 161229.0,
+            "interval_ns": [
+              150833.0,
+              171020.5
+            ],
+            "method": "1000 deterministic complete-block bootstrap replicates; two repeat slots per block; between-block independence remains a design assumption",
+            "relative_half_width": 0.06260505244093804
+          },
+          "precision_reached": false,
+          "repetitions": 8,
+          "required_blocks": 20,
+          "tail_ns": 183982.9,
+          "tail_precision": {
+            "estimate_ns": 183982.9,
+            "interval_ns": [
+              161576.805,
+              186666.0
+            ],
+            "method": "1000 deterministic complete-block bootstrap replicates; two repeat slots per block; between-block independence remains a design assumption",
+            "relative_half_width": 0.06818349694455302
+          },
+          "throughput_rows_per_second": 1594006.041096825
+        }
+      },
+      "paired_ratios": {
+        "Ridge/host/Mean/host": {
+          "independent_blocks": 4,
+          "interval": [
+            0.990153151319806,
+            1.1226716382148378
+          ],
+          "median_ratio": 1.0452447325769854,
+          "method": "paired complete-block bootstrap; identical block draws for numerator and denominator",
+          "precision_reached": false,
+          "relative_half_width": 0.06339112877819333
+        }
+      },
+      "precision_reached": false
+    },
+    "verified_attempts": 2,
+    "within_block_duplication_invariant": true
+  },
+  "measurement_path": "environment/evidence7-review-fix1/fix1.json",
+  "measurement_sha256": "d0a2d14dcb26dc393c2b114a246c21286cb949955fde5e4167ff06c8e7ac4e43",
+  "comparison_path": "environment/evidence7-review-fix1/comparison.json",
+  "comparison_sha256": "d1f4cd9d3921d13ad424c5f29d6b169bb1ffe9907676f4728b9c1750ab13c56e",
+  "actual_method_order_by_block": {
+    "0": [
+      "Mean/host",
+      "Ridge/host",
+      "Ridge/host",
+      "Mean/host"
+    ],
+    "1": [
+      "Ridge/host",
+      "Mean/host",
+      "Mean/host",
+      "Ridge/host"
+    ],
+    "2": [
+      "Mean/host",
+      "Ridge/host",
+      "Ridge/host",
+      "Mean/host"
+    ],
+    "3": [
+      "Ridge/host",
+      "Mean/host",
+      "Mean/host",
+      "Ridge/host"
+    ],
+    "4": [
+      "Mean/host",
+      "Ridge/host",
+      "Ridge/host",
+      "Mean/host"
+    ],
+    "5": [
+      "Ridge/host",
+      "Mean/host",
+      "Mean/host",
+      "Ridge/host"
+    ]
+  },
+  "warmup_stable": {
+    "Mean/host": false,
+    "Ridge/host": false
+  },
+  "memory_guard_observed": true,
+  "tests": {
+    "command": ".venv/bin/python -m pytest tests/test_search.py tests/test_timing.py -q",
+    "output": "35 passed in27.14s",
+    "log": "artifacts/evidence7-fix1/covering-final-after-json-test.txt",
+    "whole_suite_rerun": false
+  },
+  "verification": {
+    "path": "artifacts/evidence7-fix1/final-verification.json",
+    "sha256": "f17cba212f375f766707feafa86108226cc354dc5277a9e0308baef78783ef7e",
+    "historical_entries_verified": 705
+  },
+  "index": {
+    "path": "audit/implementation/evidence/2026-10-16/task-7-fix1-artifact-index.json",
+    "sha256": "d1fda88e88d0dfa80b7399949784086235ce2875db1146390a3df9ee52f32157",
+    "files": 54
+  },
+  "limitations": [
+    "warmup unstable at bounded cap",
+    "four measured blocks insufficient for p95; precision remains unresolved",
+    "between-block independence remains a design assumption",
+    "fullquality/default plateaus and final numeric WP05 still pending",
+    "historical schema1 timings require their original-source reader"
+  ]
+}
