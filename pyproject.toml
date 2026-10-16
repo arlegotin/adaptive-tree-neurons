@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "treeneuron"
+version = "0.1.0"
+description = "Selective affine-stump allocation research proof of concept"
+requires-python = ">=3.12,<3.13"
+dependencies = ["torch", "numpy", "scipy", "pandas", "scikit-learn", "PyYAML"]
+
+[dependency-groups]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
