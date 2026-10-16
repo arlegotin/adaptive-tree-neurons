@@ -113,6 +113,13 @@ class BackendConfig:
 
 
 @dataclass(frozen=True)
+class ExecutionConfig:
+    # Explicit local inputs; receipts remain source/lock/runtime validated.
+    backend_report: str = "environment/report.json"
+    artifacts_root: str = "artifacts/exploratory"
+
+
+@dataclass(frozen=True)
 class ExperimentConfig:
     study_id: str
     phase: Literal["exploratory"] = "exploratory"
@@ -122,6 +129,7 @@ class ExperimentConfig:
     data: DataConfig = DataConfig()
     seeds: SeedsConfig = SeedsConfig()
     backend: BackendConfig = BackendConfig()
+    execution: ExecutionConfig = ExecutionConfig()
 
     def to_dict(self) -> dict[str, Any]:
         """Return a fresh JSON-compatible resolved configuration."""

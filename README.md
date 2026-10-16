@@ -9,7 +9,7 @@ Start with the [specification](docs/superpowers/specs/2026-10-16-selective-tree-
 1. [Core plan: WP00–WP04](docs/superpowers/plans/2026-10-16-selective-tree-neurons-core.md) — environment verification, algebra, compact layer, score, data/metrics, paired training, optimizer recovery and the first complete exploratory experiment.
 2. [Evidence plan: remaining WP02/WP03 scope and WP05–WP09](docs/superpowers/plans/2026-10-16-selective-tree-neurons-evidence.md) — faithful baselines, grouped/temporal data, pilot-derived design, protocol freeze, independent confirmation, justified transfer and reproduction.
 
-The plans contain file/API boundaries, tests, verification commands and acceptance gates. `doctor` and `verify-math` are available. Core environment, reference/layer/score algebra and native CPU/MPS operation gates pass. Parent/continuation training and complete CPU checkpoint recovery are implemented and reviewed. One-event growth preserves old optimizer/schedule/RNG state on CPU. Causal ordinary/widening and static-gated controls are implemented and reviewed; the first complete exploratory study runner is next.
+The plans contain file/API boundaries, tests, verification commands and acceptance gates. `doctor` and `verify-math` are available. Core environment, reference/layer/score algebra and native CPU/MPS operation gates pass. Parent/continuation training and complete CPU checkpoint recovery are implemented and reviewed. One-event growth preserves old optimizer/schedule/RNG state on CPU. Causal ordinary/widening and static-gated controls are implemented and reviewed; the complete serial exploratory study runner and artifact-only report command are available.
 
 Install the locked core locally with `uv` (Python first tries 3.12):
 
@@ -39,3 +39,54 @@ The current causal checks use an explicit CPU-only receipt after a shared-source
 ```
 
 That local receipt is an ignored runtime artifact. On a fresh checkout, generate current doctor evidence first and pass its output path. The [control evidence](docs/research/2026-10-16-causal-control-evidence.json) distinguishes executed diagnostic recipes from pending spline/B6/B7 controls. The [evidence plan](docs/superpowers/plans/2026-10-16-selective-tree-neurons-evidence.md#execution-order-before-the-source-freeze) now requires all confirmation/analysis/audit code to be committed before the definitive pilot and real source freeze.
+
+The first paired study is explicitly exploratory. Its builder-chosen starting
+allowances are 2,000 parent and 2,000 continuation updates, evaluated on G every
+25 updates with patience 20. Fresh static/wider controls receive both stages.
+All methods use the same logical batch 128; V metrics are descriptive. There is
+no protected T access or confirmatory claim.
+
+Run the CPU-only study with the explicitly selected, source-validated receipt.
+The older Task11 training receipt lacks the math aggregate's schema header;
+create a derived envelope (the original receipt and all probes stay unchanged):
+
+```bash
+.venv/bin/python - <<'PYCODE'
+import json, hashlib
+from pathlib import Path
+source = Path('environment/task11-parent-backend.json')
+r = json.loads(source.read_text())
+assert r['schema_version'] == 1 and 'schema_version' not in r['backend_probes']
+r['backend_probes']['schema_version'] = 1
+r['derived_from'] = {'path': str(source), 'sha256': hashlib.sha256(source.read_bytes()).hexdigest(), 'change': 'Add required aggregate schema_version=1; all probe/decision/comparison content unchanged'}
+Path('environment/task12-cpu-math-receipt.json').write_text(json.dumps(r, indent=2, sort_keys=True) + '\n')
+PYCODE
+```
+
+```bash
+.venv/bin/python -m treeneuron.cli verify-math --backend-report environment/task12-cpu-math-receipt.json --output environment/task12-math-final.json
+.venv/bin/python -m treeneuron.cli verify-baselines --track causal --backend-report environment/task11-parent-backend.json --artifacts-dir environment/task12-causal-runs --output environment/task12-causal.json
+.venv/bin/python -m treeneuron.cli run --config configs/explore.yaml
+.venv/bin/python -m treeneuron.cli run --config configs/explore-positive-control.yaml
+.venv/bin/python -m treeneuron.cli report --mode exploratory --study-dir artifacts/exploratory/STUDY_UUID --output environment/exploratory-summary.json
+```
+
+`execution.backend_report` and `execution.artifacts_root` are explicit config
+fields. The referenced local receipt is ignored evidence, not a shipped hidden
+input. On a fresh checkout, run `doctor --output environment/current-report.json`
+and put that path in the config; the selected device/batches must match the
+config, and strict source/lock/runtime guards still apply. Historical
+`environment/report.json` does not match the current producer digest. The existing
+CPU-only receipt remains applicable while those producer files and the runtime
+are unchanged; it does not establish current native MPS recovery or comparisons.
+
+Each new invocation preserves an independent UUID directory, including failures.
+`study.json` binds config/source/checkout, receipt and hardware reports, every
+fork's parent, score table, float64 contrasts and actual float32 insertion, raw
+row streams, G/V predictions, selected states and enclosing costs. The reporter
+checks hashes and rebuilds metrics from these artifacts. Shared scoring is timed
+once. A standalone sampled random scorer is explicitly unmeasured; required work
+counts are not timings. Validation is nested inside training, and process peak
+RSS is not incremental per-method memory. Bulk datasets, predictions and
+checkpoints stay outside Git; curated scalar evidence and hashes belong in
+`docs/research/`.

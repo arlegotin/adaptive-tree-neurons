@@ -23,7 +23,24 @@ def main(argv: list[str] | None = None) -> int:
     causal.add_argument('--output', type=Path)
     causal.add_argument('--backend-report', type=Path)
     causal.add_argument('--artifacts-dir', type=Path, help='Retain diagnostic runs/checkpoints, including failures')
+    run = commands.add_parser('run', help='Execute a complete exploratory paired study (G/V only)')
+    run.add_argument('--config', type=Path, required=True)
+    report_parser = commands.add_parser('report', help='Rebuild exploratory metrics from retained artifacts')
+    report_parser.add_argument('--mode', choices=['exploratory'], required=True)
+    report_parser.add_argument('--study-dir', type=Path, required=True)
+    report_parser.add_argument('--output', type=Path)
     args = parser.parse_args(argv)
+    if args.command == 'run':
+        from treeneuron.config import load_experiment
+        from treeneuron.experiments.paired import run_paired
+        print(run_paired(load_experiment(args.config)))
+        return 0
+    if args.command == 'report':
+        from treeneuron.analysis.exploratory import summarize_exploratory
+        report = summarize_exploratory(args.study_dir)
+        if args.output is not None: write_report(report, args.output)
+        print(json.dumps(report, indent=2, sort_keys=True, allow_nan=False))
+        return 0 if report['status'] == 'completed' else 1
     if args.command == 'verify-baselines':
         from treeneuron.baselines.causal_checks import collect_causal_report
         report = collect_causal_report(backend_report=args.backend_report, artifacts_dir=args.artifacts_dir)
