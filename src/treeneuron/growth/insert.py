@@ -17,7 +17,7 @@ from treeneuron.config import canonical_json
 from treeneuron.growth.allocate import Allocation
 from treeneuron.growth.types import GrowthManifest
 from treeneuron.train import (TrainingState, capture_rng, pack_state, restore_rng,
-                              validate_metadata, validate_tensor_state)
+                              validate_metadata, validate_tensor_state, validate_adam_history)
 
 _BASE = ('base.weight', 'base.bias')
 _ADDED = ('gate.weight', 'gate.bias', 'contrast.weight', 'contrast.bias')
@@ -58,12 +58,14 @@ def _validate_optimizer(state, expected_names):
         raise ValueError('Unmapped or duplicate optimizer parameter names')
     if any(p not in set(parameters) for p in optimizer.state):
         raise ValueError('Unmapped optimizer state')
+    validate_adam_history(state.update, state.model.export_config()['kind'],
+        {name: optimizer.state.get(p, {}) for name, p in zip(seen, parameters)})
     for p in parameters:
         if p.dtype != torch.float32 or p.device.type != 'cpu' or not bool(torch.isfinite(p).all()):
             raise ValueError('Growth requires finite CPU float32 parameters')
         saved = optimizer.state.get(p, {})
         if not saved:
-            continue  # Selected update zero has lazy old state.
+            continue  # Validated original update-zero lazy state only.
         if set(saved) != {'step', 'exp_avg', 'exp_avg_sq'}:
             raise ValueError('Incompatible Adam state keys')
         step = saved['step']

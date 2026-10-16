@@ -317,8 +317,61 @@ def _tensor_copy(value):
     return copy.deepcopy(value)
 
 
+def validate_adam_history(update, model_kind, records):
+    """Require complete history without equating per-parameter Adam ages.
+
+    Original ordinary/static parameters can be lazy only at selected update
+    zero. Selective gates/contrasts and widening blocks are explicitly created
+    with complete step-zero state, even when inserted into an update-zero parent.
+    A fresh added record may therefore have age zero at a positive global update.
+    """
+    added_prefixes = {
+        'selective_relu_scalar': ('layer.gate.', 'layer.contrast.'),
+        'widened_relu_scalar': ('layer.added.', 'head.added.'),
+        'static_gated_relu_scalar': (),
+    }[model_kind]
+    for name, record in records.items():
+        if not isinstance(record, Mapping):
+            raise ValueError(f'Invalid Adam history for {name}')
+        if not record:
+            if update > 0 or name.startswith(added_prefixes):
+                raise ValueError(f'Missing required Adam history for {name}')
+        elif set(record) != {'step', 'exp_avg', 'exp_avg_sq'}:
+            raise ValueError(f'Incomplete Adam history for {name}')
+
+
+def _validate_live_adam_history(state):
+    validate_adam_history(state.update, state.model.export_config()['kind'],
+        {name: state.optimizer.state.get(parameter, {})
+         for name, parameter in state.model.named_parameters()})
+
+
+def validate_saved_adam_history(meta, tensors):
+    """Check named serialized history before construction, loading or writing."""
+    saved = tensors['optimizer']
+    if (not isinstance(saved, Mapping) or not isinstance(saved.get('param_groups'), list)
+            or not isinstance(saved.get('state'), Mapping)
+            or len(saved['param_groups']) != len(meta['optimizer_groups'])):
+        raise ValueError('Invalid saved Adam history groups')
+    records, identifiers = {}, set()
+    for source, expected in zip(saved['param_groups'], meta['optimizer_groups']):
+        if (not isinstance(source, Mapping) or source.get('param_names') != expected['names']
+                or not isinstance(source.get('params'), list)
+                or len(source['params']) != len(expected['names'])):
+            raise ValueError('Saved Adam history parameter names/count mismatch')
+        for name, identifier in zip(expected['names'], source['params']):
+            if type(identifier) is not int or identifier < 0 or identifier in identifiers:
+                raise ValueError('Invalid saved Adam history parameter identifiers')
+            identifiers.add(identifier)
+            records[name] = saved['state'].get(identifier, {})
+    if set(saved['state']) - identifiers:
+        raise ValueError('Unmapped saved Adam history')
+    validate_adam_history(meta['update'], meta['model']['kind'], records)
+
+
 def pack_state(state: TrainingState) -> dict[str, Any]:
     """Internal complete snapshot; no nested best state or unbounded curves."""
+    _validate_live_adam_history(state)
     if 'causal_cpu_evidence' in state.backend:
         from .growth.insert import _validate_optimizer
         _validate_optimizer(state, set(dict(state.model.named_parameters())))
@@ -500,6 +553,7 @@ def unpack_state(snapshot, *, expected_hashes, device):
     meta, tensors = snapshot['metadata'], snapshot['tensors']
     config, preprocessing = validate_metadata(meta, expected_hashes, device)
     validate_tensor_state(tensors)
+    validate_saved_adam_history(meta, tensors)
     # Rebuilding Linear modules consumes RNG; never let it alter paired streams.
     before = capture_rng()
     try:
@@ -650,6 +704,9 @@ def continue_fit(state: TrainingState, data: DevelopmentData, policy: TrainingPo
                 or policy.validation_interval != state.config.training.validation_interval
                 or policy.patience != state.config.training.patience):
             raise ValueError('Continuation must preserve paired batch/evaluation/patience policy')
+        _validate_live_adam_history(state)
+        if state.best_snapshot is not None:
+            validate_saved_adam_history(state.best_snapshot['metadata'], state.best_snapshot['tensors'])
         if state.stage['complete']:
             # Recovery can land after durable completion of last.json but before
             # final best publication/return. Continue from the selected full

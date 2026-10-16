@@ -135,6 +135,12 @@ def test_grown_topology_and_named_multiple_groups_roundtrip(training_case):
     # This checks checkpoint reconstruction, not Task10 optimizer migration.
     state.optimizer.add_param_group({'params': [named[n] for n in new_names],
                                       'param_names': new_names, 'lr': state.optimizer.param_groups[0]['lr']})
+    # Added growth parameters own explicit fresh records, including at age zero.
+    for name in new_names:
+        parameter = named[name]
+        state.optimizer.state[parameter] = {
+            'step': torch.tensor(0., dtype=torch.float32),
+            'exp_avg': torch.zeros_like(parameter), 'exp_avg_sq': torch.zeros_like(parameter)}
     schedule = state.scheduler.state_dict()
     schedule['base_lrs'].append(config.training.learning_rate)
     state.scheduler = UpdateSchedule(state.optimizer, **schedule)
