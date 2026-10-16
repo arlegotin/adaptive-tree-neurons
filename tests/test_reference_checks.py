@@ -94,7 +94,7 @@ def test_verification_preserves_caller_dtype_rng_and_threads():
     assert torch.get_default_dtype() == dtype
     assert torch.get_num_threads() == threads
     assert torch.equal(torch.random.get_rng_state(), rng)
-    assert report["scope"] == "reference_and_package_layer_cpu_only"
+    assert report["scope"] == "reference_and_package_math_cpu_only"
     layer = report["gates"]["package_layer_math"]
     assert layer["status"] == "passed"
     assert layer["report"]["check"] == "package_layer_math"
@@ -102,7 +102,11 @@ def test_verification_preserves_caller_dtype_rng_and_threads():
     assert layer["report"]["results"]["growth_preservation_max_abs"] == 0
     assert report["implemented_checks_passed"] is True
     assert report["complete"] is False
-    for gate in ("package_score_math", "cpu_backend", "mps_backend"):
+    score_gate = report['gates']['package_score_math']
+    assert score_gate['status'] == 'passed'
+    assert score_gate['report']['check'] == 'package_score_math'
+    assert score_gate['report']['results']['gate_gradient_max_abs'] < 1e-10
+    for gate in ("cpu_backend", "mps_backend"):
         assert report["gates"][gate]["status"] == "not_implemented"
     for check in report["reference_checks"].values():
         assert check["status"] == "passed"
@@ -196,3 +200,16 @@ def test_package_layer_failure_reaches_cli(tmp_path, monkeypatch, capsys):
     assert report['reference_checks_passed'] is True
     assert report['implemented_checks_passed'] is False
     assert report['gates']['package_layer_math']['status'] == 'failed'
+
+
+def test_package_score_failure_reaches_cli(tmp_path, monkeypatch, capsys):
+    from treeneuron import cli, verification
+
+    script = tmp_path / 'broken_score.py'
+    script.write_text("raise AssertionError('package score mismatch')\n")
+    monkeypatch.setattr(verification, 'PACKAGE_SCORE_CHECK', script)
+    assert cli.main(['verify-math']) == 1
+    report = json.loads(capsys.readouterr().out)
+    assert report['reference_checks_passed'] is True
+    assert report['implemented_checks_passed'] is False
+    assert report['gates']['package_score_math']['status'] == 'failed'

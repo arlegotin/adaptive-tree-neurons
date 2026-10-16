@@ -17,6 +17,7 @@ REFERENCE_CHECKS = {
 }
 
 PACKAGE_LAYER_CHECK = ROOT / "src" / "treeneuron" / "layer_checks.py"
+PACKAGE_SCORE_CHECK = ROOT / "src" / "treeneuron" / "score_checks.py"
 
 # Required fields of the actual standalone A/B reports, plus the package check.
 _SCHEMAS = {
@@ -39,6 +40,13 @@ _SCHEMAS = {
          'contrast_gradient_norm', 'dead_gradient_norm', 'soft_hard_gap_max_abs',
          'relu_bound_max_violation', 'post_mixture_relu', 'leafwise_relu',
          'base_parameter_count', 'grown_parameter_count')),
+    'package_score_math': (1602029, (29, 3, 5),
+        {'epsilon': .05, 'tau': 1., 'adam_epsilon': 1e-8, 'learning_rate': 1e-7,
+         'error_threshold': 1e-10, 'adam_relative_error_threshold': 1e-4},
+        ('gate_gradient_max_abs', 'batch_score_max_abs', 'batch_contrast_max_abs',
+         'rescaled_score_max_abs', 'permuted_score_max_abs', 'normalization_max_abs',
+         'random_contrast_max_abs', 'effective_count', 'predicted_loss_decrease',
+         'observed_loss_decrease', 'adam_prediction_relative_error')),
 }
 
 
@@ -89,10 +97,12 @@ def _validate_report(report: dict[str, Any], expected_check: str | None) -> None
         if (results['growth_preservation_max_abs'] != 0 or results['contrast_gradient_norm'] != 0
                 or results['gate_gradient_norm'] <= 0 or results['gate_step_size'] <= 0):
             raise ValueError('Reference schema: insertion gradient contract failed')
-    if identity == 'appendix_b':
+    if identity in ('appendix_b', 'package_score_math'):
         if (results['observed_loss_decrease'] <= 0 or results['predicted_loss_decrease'] <= 0
                 or not 0 <= results['adam_prediction_relative_error'] < 1e-4):
             raise ValueError('Reference schema: Adam descent contract failed')
+    if identity == 'package_score_math' and results['effective_count'] != 3:
+        raise ValueError('Reference schema: package allocation count failed')
     if identity == 'package_layer_math':
         if (any(results[k] != 0 for k in ('growth_preservation_max_abs', 'contrast_gradient_norm',
                                          'dead_gradient_norm', 'post_mixture_relu'))
@@ -130,18 +140,19 @@ def _run_reference_check(script: Path, expected_check: str | None = None) -> dic
 
 
 def collect_math_report() -> dict[str, Any]:
-    """Check references and package layer in isolation; score/backends stay pending."""
+    """Check references and package math in isolation; backends stay pending."""
     checks = {name: _run_reference_check(script, name) for name, script in REFERENCE_CHECKS.items()}
     passed = bool(checks) and all(check["status"] == "passed" for check in checks.values())
     layer = _run_reference_check(PACKAGE_LAYER_CHECK, 'package_layer_math')
+    score = _run_reference_check(PACKAGE_SCORE_CHECK, 'package_score_math')
     return {
-        "schema_version": 1, "scope": "reference_and_package_layer_cpu_only", "complete": False,
+        "schema_version": 1, "scope": "reference_and_package_math_cpu_only", "complete": False,
         "reference_checks_passed": passed, "reference_checks": checks,
-        "implemented_checks_passed": passed and layer["status"] == "passed",
+        "implemented_checks_passed": passed and layer["status"] == "passed" and score['status'] == 'passed',
         "gates": {
             "reference_cpu": {"status": "passed" if passed else "failed"},
             "package_layer_math": layer,
-            "package_score_math": {"status": "not_implemented", "reason": "Pending Core Task 7"},
+            "package_score_math": score,
             "cpu_backend": {"status": "not_implemented", "reason": "Pending Core Task 8"},
             "mps_backend": {"status": "not_implemented", "reason": "Pending Core Task 8; CPU references do not validate MPS"},
         },
