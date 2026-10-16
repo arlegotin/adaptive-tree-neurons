@@ -184,7 +184,7 @@ def test_normalized_risk_uses_fitting_population_variance():
 
 **Interfaces:** `ScoreTable` stores unit IDs, `[h,d+1]` contrasts/gradients, `[h]` Adam/SGD scores, spectra/gaps/RMS and per-unit eligibility/status. Produce `score_units(model: nn.Module, X_fit: Tensor, y_fit: Tensor, *, epsilon: float, tau: float, adam_epsilon: float, batch_size: int, unit_block_size: int) -> ScoreTable`, `allocate(table: ScoreTable, requested: int, *, policy: str, seed: int) -> Allocation`. `Allocation` stores `requested_count: int`, `effective_count: int`, sorted CPU-int64 `ids`, `contrasts`, `policy`, `seed` and `table_hash`. Scoring accepts a CPU-float64 evaluation copy of the model only, preserving training RNG/state.
 
-- [ ] **Step 1:** Write tests for analytic gate gradient versus autograd, first gate-only Adam step prediction, sign convention, permutation and positive-ReLU-rescaling agreement `<1e-10`. `test_score_batch_invariance` compares full data to batches of 7 with a short tail and multiple unit block sizes. `test_e_uses_sum_of_row_losses` catches the extra `1/n` failure. Run both files; expect missing APIs.
+- [x] **Step 1:** Write tests for analytic gate gradient versus autograd, first gate-only Adam step prediction, sign convention, permutation and positive-ReLU-rescaling agreement `<1e-10`. `test_score_batch_invariance` compares full data to batches of 7 with a short tail and multiple unit block sizes. `test_e_uses_sum_of_row_losses` catches the extra `1/n` failure. Run both files; expect missing APIs.
 
 ```python
 def test_gate_gradient_matches_moment_formula(score_case):
@@ -192,10 +192,10 @@ def test_gate_gradient_matches_moment_formula(score_case):
     assert (analytic - autograd_gradient).abs().max().item() < 1e-10
 ```
 
-- [ ] **Step 2:** Implement the exact spec §5 moment, symmetrization, eigenvector, RMS normalization, scores and eligibility. Never call a PSD covariance routine. Ties of positive scores sort by ID; log eigenvalue ties without claiming stable directions in repeated eigenspaces. Record zero/nonfinite statistics instead of selecting them. Bound moment memory by block size.
-- [ ] **Step 3:** Implement top/random/SGD policies and top-ID Gaussian-direction ablation. Tests require equal `m_eff`, uniform sampling without replacement via the seeded generator, exact per-ID contrasts shared between top/random, and all-zero/ineligible inputs yielding empty allocations. Negative requested count rejects. Random-only standalone cost records sampled contrast work separately from shared research scoring.
-- [ ] **Step 4:** Run `.venv/bin/python -m pytest tests/test_score.py tests/test_allocation.py -q`; expect all pass. Run both reference scripts again only if this task changes their numerical implementation. Record blocked nonfinite runs separately from individual ineligible units.
-- [ ] **Step 5:** Commit `feat: implement normalized moment scoring and matched allocation`.
+- [x] **Step 2:** Implement the exact spec §5 moment, symmetrization, eigenvector, RMS normalization, scores and eligibility. Never call a PSD covariance routine. Ties of positive scores sort by ID; log eigenvalue ties without claiming stable directions in repeated eigenspaces. Record zero/nonfinite statistics instead of selecting them. Bound moment memory by block size.
+- [x] **Step 3:** Implement top/random/SGD policies and top-ID Gaussian-direction ablation. Tests require equal `m_eff`, uniform sampling without replacement via the seeded generator, exact per-ID contrasts shared between top/random, and all-zero/ineligible inputs yielding empty allocations. Negative requested count rejects. Random-only standalone cost records sampled contrast work separately from shared research scoring.
+- [x] **Step 4:** Run `.venv/bin/python -m pytest tests/test_score.py tests/test_allocation.py -q`; expect all pass. Run both reference scripts again only if this task changes their numerical implementation. Record blocked nonfinite runs separately from individual ineligible units.
+- [x] **Step 5:** Commit `feat: implement normalized moment scoring and matched allocation`.
 
 ## Task 8: Close the actual CPU/MPS operation and batching gate
 
@@ -203,7 +203,7 @@ def test_gate_gradient_matches_moment_formula(score_case):
 
 **Interfaces:** Produce `probe_backend(device: str, *, seed: int, batch_sizes: Sequence[int]) -> dict[str, Any]` and CLI doctor report section `backend_probes`. Report selected whole-method backend, fallback disabled status, operation/error table, float32 tolerances with CPU-float64 reference errors, working set/RSS/pressure/swap availability and epoch/scoring costs.
 
-- [ ] **Step 1:** Write conditional tests for float32 GEMM, tanh/sigmoid, ReLU, index-select/copy forward/backward, AdamW `foreach=False`, serialization and a resumed update. CPU is mandatory; unavailable MPS is a reasoned skip, not a pass. A deliberately unsupported path must select CPU or error, never silently mix execution. Run `.venv/bin/python -m pytest tests/test_backend.py -q`; expect missing probe functionality.
+- [x] **Step 1:** Write conditional tests for float32 GEMM, tanh/sigmoid, ReLU, index-select/copy forward/backward, AdamW `foreach=False`, serialization and a resumed update. CPU is mandatory; unavailable MPS is a reasoned skip, not a pass. A deliberately unsupported path must select CPU or error, never silently mix execution. Run `.venv/bin/python -m pytest tests/test_backend.py -q`; expect missing probe functionality.
 
 ```python
 def test_index_copy_backward_matches_reference(index_copy_gradients):
@@ -211,10 +211,10 @@ def test_index_copy_backward_matches_reference(index_copy_gradients):
     torch.testing.assert_close(actual, reference, **recorded_tolerance)
 ```
 
-- [ ] **Step 2:** Implement explicit probes with `PYTORCH_ENABLE_MPS_FALLBACK` disabled before process import. Derive and record float32 tolerance from CPU-float64 references across seeds and magnitudes; justify any MPS-specific allowance before predictive runs. CPU float64 eigendecomposition stays off MPS. If indexing needs a selection-matrix fallback, verify gradients and record/timing-name it separately.
-- [ ] **Step 3:** Measure complete epoch/score passes at safe doubled batches, using synchronized timers. Select the smallest safe tested batch reaching at least 95% of maximum median throughput; record physical/logical distinction and the 9 GiB initial reserve/current pressure. Do not allocate to a budget inferred solely from installed RAM or free disk. No forecast is measured until this command runs.
-- [ ] **Step 4:** Run backend tests and `doctor --output environment/report.json`; expect mandatory operations valid on the selected backend, explicit unsupported paths/exclusions and recorded tolerances. Append final WP00 and WP01 decisions after CPU reference/layer/score tests pass; retain R12 novelty hold if unresolved.
-- [ ] **Step 5:** Commit `feat: verify local backend kernels and calibration boundaries`.
+- [x] **Step 2:** Implement explicit probes with `PYTORCH_ENABLE_MPS_FALLBACK` disabled before process import. Derive and record float32 tolerance from CPU-float64 references across seeds and magnitudes; justify any MPS-specific allowance before predictive runs. CPU float64 eigendecomposition stays off MPS. If indexing needs a selection-matrix fallback, verify gradients and record/timing-name it separately.
+- [x] **Step 3:** Measure complete epoch/score passes at safe doubled batches, using synchronized timers. Select the smallest safe tested batch reaching at least 95% of maximum median throughput; record physical/logical distinction and the 9 GiB initial reserve/current pressure. Do not allocate to a budget inferred solely from installed RAM or free disk. No forecast is measured until this command runs.
+- [x] **Step 4:** Run backend tests and `doctor --output environment/report.json`; expect mandatory operations valid on the selected backend, explicit unsupported paths/exclusions and recorded tolerances. Append final WP00 and WP01 decisions after CPU reference/layer/score tests pass; retain R12 novelty hold if unresolved.
+- [x] **Step 5:** Commit `feat: verify local backend kernels and calibration boundaries`.
 
 ## Task 9: Train a parent and recover it atomically
 

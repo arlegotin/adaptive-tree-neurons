@@ -1,0 +1,488 @@
+{
+  "schema_version": 1,
+  "scope": "bounded core correctness and d16/h64/F2306 backend calibration; no predictive result",
+  "review_status": "Task8 spec and quality approved after scoped fix review",
+  "source_commit": "a4f4cdc79521d0749a28b0b5e9cb3b543d991ef1",
+  "artifacts": {
+    "environment/report.json": "60f5cc801909f2b83b1963c814432f5e1bc8a3e37a3ebdf649aa8e8b239b18dc",
+    "environment/task8-verify-math.json": "d8d8c5a99911c7429e37489f89ac0fcb304a6a30d7238631c0ece0a1614e7162"
+  },
+  "lock_sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+  "decision": {
+    "block_medians_ns": {
+      "cpu": [
+        36616792,
+        35589542
+      ],
+      "mps": [
+        65874667,
+        67917875
+      ]
+    },
+    "comparison_order": [
+      "cpu",
+      "mps",
+      "mps",
+      "cpu"
+    ],
+    "excluded": {},
+    "logical_batch_size": 128,
+    "scope": "bounded d16/h64 F2306 calibration; remeasure for other workloads",
+    "scoring_backend": "cpu_float64",
+    "selected_backend": "cpu",
+    "selected_batches": {
+      "base_epoch": 128,
+      "grown_epoch": 128,
+      "score": 128
+    },
+    "selection_basis": "minimum median directly timed complete path; balanced ABBA when both backends pass",
+    "tolerance": {
+      "atol": 7.62939453125e-06,
+      "rtol": 3.0517578125e-05
+    },
+    "whole_method_ns": {
+      "cpu": 36103167.0,
+      "mps": 66896271.0
+    }
+  },
+  "gates": {
+    "cpu_backend": "passed",
+    "mps_backend": "passed",
+    "package_layer_math": "passed",
+    "package_score_math": "passed",
+    "reference_cpu": "passed"
+  },
+  "probes": {
+    "cpu": {
+      "utc": "2026-10-16T15:06:26.958157+00:00",
+      "status": "passed",
+      "environment": {
+        "architecture": "arm64",
+        "dtype": "torch.float32",
+        "fallback_env": "0",
+        "interop_threads": 14,
+        "mps_available": true,
+        "platform": "macOS-26.7.1-arm64-arm-64bit",
+        "python": "3.12.13",
+        "threads": 1,
+        "torch": "2.14.1"
+      },
+      "implementation_sha256": "0f054cb12e1ace3a9f46fc8edbb452d3a89b2e48c58c92fc6c4bb202a84cab51",
+      "tolerance": {
+        "atol": 7.62939453125e-06,
+        "rtol": 3.0517578125e-05
+      },
+      "tolerance_basis": "64 eps absolute +256 eps relative, binary32 eps; short d<=16,h<=64 reductions. Fixed before native results; all errors recorded including CPU32 baseline, no MPS allowance.",
+      "operations": {
+        "adamw_resumed_step": {
+          "status": "passed",
+          "max_abs": 1.1602222088624714e-07,
+          "max_normalized_error": 0.011141588774015169
+        },
+        "adamw_step": {
+          "status": "passed",
+          "max_abs": 1.1152257362034845e-07,
+          "max_normalized_error": 0.010732854435778994
+        },
+        "gemm": {
+          "status": "passed",
+          "max_abs": 1.4542418114160682e-06,
+          "max_normalized_error": 0.05229777003997921
+        },
+        "index_copy": {
+          "status": "passed",
+          "max_abs": 4.76837158203125e-07,
+          "max_normalized_error": 0.002464344172987032
+        },
+        "index_select": {
+          "status": "passed",
+          "max_abs": 3.973642981325298e-08,
+          "max_normalized_error": 0.0013652277574384235
+        },
+        "input_gradient": {
+          "status": "passed",
+          "max_abs": 1.4869735401323858e-08,
+          "max_normalized_error": 0.0016927227416340372
+        },
+        "layer_output": {
+          "status": "passed",
+          "max_abs": 3.0208872452419655e-06,
+          "max_normalized_error": 0.06985844077687295
+        },
+        "loss": {
+          "status": "passed",
+          "max_abs": 3.981022880239493e-07,
+          "max_normalized_error": 0.0031309540770153624
+        },
+        "parameter_gradients": {
+          "status": "passed",
+          "max_abs": 3.488564289000351e-06,
+          "max_normalized_error": 0.06686235618425163
+        },
+        "prediction": {
+          "status": "passed",
+          "max_abs": 1.043610749817958e-06,
+          "max_normalized_error": 0.016834323666178416
+        },
+        "relu": {
+          "status": "passed",
+          "max_abs": 9.718148619164424e-09,
+          "max_normalized_error": 0.0008093495481573353
+        },
+        "resumed_update": {
+          "status": "passed",
+          "max_abs": 0.0,
+          "max_normalized_error": 0.0
+        },
+        "serialization": {
+          "status": "passed",
+          "max_abs": 0.0,
+          "max_normalized_error": 0.0
+        },
+        "sigmoid": {
+          "status": "passed",
+          "max_abs": 8.41003809926022e-08,
+          "max_normalized_error": 0.0023795423954744745
+        },
+        "tanh": {
+          "status": "passed",
+          "max_abs": 5.8180577799937794e-08,
+          "max_normalized_error": 0.0015251690096668605
+        }
+      },
+      "calibration": {
+        "d": 16,
+        "h": 64,
+        "n_rows": 2306,
+        "logical_batch_size": 128,
+        "selected_batches": {
+          "base_epoch": 128,
+          "grown_epoch": 128,
+          "score": 128
+        },
+        "accumulation_max_abs": 2.9802322387695312e-08,
+        "score_boundary": {
+          "device": "cpu",
+          "dtype": "torch.float64",
+          "includes": "synchronized trained-backend model copy to CPU, cast64, actual score_units; inputs already CPU64",
+          "transfer_samples_ns": [
+            611750,
+            324291,
+            252541,
+            252792,
+            366916,
+            248708,
+            245458,
+            459375,
+            682000,
+            329958,
+            294750,
+            268167,
+            358333,
+            339334,
+            273125,
+            370041,
+            647916,
+            269041,
+            247291,
+            213125,
+            204041,
+            384333,
+            295042,
+            198125,
+            546250,
+            247375,
+            314417,
+            288333,
+            269541,
+            257666,
+            233417,
+            337167,
+            204375,
+            337750,
+            306375,
+            177166,
+            268666,
+            181208,
+            182084,
+            286708
+          ],
+          "unit_block_size": 16
+        },
+        "whole_method_boundary": "base epoch -> CPU64 copy/score -> matched growth -> grown epoch; fresh optimizer per phase",
+        "timing": "perf_counter_ns with MPS synchronize before/after whole region; includes reconstruction and AdamW creation",
+        "precision_rule": "3..9 warmups until last3 range/median<=20%; 5..11 samples until last5 range/median<=20%; capped instability retained",
+        "memory_guard": "bounded physical<=128;512MiB allowance above9GiB current pressure headroom; normal pressure if observable; missing counters explicitly uncertified"
+      },
+      "direct_complete_path": {
+        "logical_batch_size": 128,
+        "physical_batches": {
+          "base_epoch": 128,
+          "grown_epoch": 128,
+          "score": 128
+        },
+        "median_ns": 35589542,
+        "timing_stable": true,
+        "warmup_stable": true
+      },
+      "resources_after": {
+        "peak_rss_bytes": 296878080,
+        "rss_bytes": {
+          "reason": null,
+          "value": 296878080
+        },
+        "mps_memory_bytes": {
+          "current_allocated_memory": {
+            "reason": null,
+            "value": 0
+          },
+          "driver_allocated_memory": {
+            "reason": null,
+            "value": 475136
+          },
+          "recommended_max_memory": {
+            "reason": null,
+            "value": 30150672384
+          }
+        },
+        "pressure_headroom_bytes": {
+          "interpretation": "coarse memory_pressure free percentage times physical; not free VM pages",
+          "reason": null,
+          "value": 28604482191
+        },
+        "swap_used_bytes": {
+          "reason": null,
+          "value": 12978288066
+        }
+      }
+    },
+    "mps": {
+      "utc": "2026-10-16T15:06:18.688307+00:00",
+      "status": "passed",
+      "environment": {
+        "architecture": "arm64",
+        "dtype": "torch.float32",
+        "fallback_env": "0",
+        "interop_threads": 14,
+        "mps_available": true,
+        "platform": "macOS-26.7.1-arm64-arm-64bit",
+        "python": "3.12.13",
+        "threads": 1,
+        "torch": "2.14.1"
+      },
+      "implementation_sha256": "0f054cb12e1ace3a9f46fc8edbb452d3a89b2e48c58c92fc6c4bb202a84cab51",
+      "tolerance": {
+        "atol": 7.62939453125e-06,
+        "rtol": 3.0517578125e-05
+      },
+      "tolerance_basis": "64 eps absolute +256 eps relative, binary32 eps; short d<=16,h<=64 reductions. Fixed before native results; all errors recorded including CPU32 baseline, no MPS allowance.",
+      "operations": {
+        "adamw_resumed_step": {
+          "status": "passed",
+          "max_abs": 1.0857164028932331e-07,
+          "max_normalized_error": 0.010426111130987034
+        },
+        "adamw_step": {
+          "status": "passed",
+          "max_abs": 1.0407199302342462e-07,
+          "max_normalized_error": 0.010015815773444608
+        },
+        "gemm": {
+          "status": "passed",
+          "max_abs": 1.4542418114160682e-06,
+          "max_normalized_error": 0.05229777003997921
+        },
+        "index_copy": {
+          "status": "passed",
+          "max_abs": 4.76837158203125e-07,
+          "max_normalized_error": 0.002464344172987032
+        },
+        "index_select": {
+          "status": "passed",
+          "max_abs": 3.973642981325298e-08,
+          "max_normalized_error": 0.0013652277574384235
+        },
+        "input_gradient": {
+          "status": "passed",
+          "max_abs": 1.1974149158322511e-08,
+          "max_normalized_error": 0.0013501534882522101
+        },
+        "layer_output": {
+          "status": "passed",
+          "max_abs": 2.940115141569777e-06,
+          "max_normalized_error": 0.0690920315040824
+        },
+        "loss": {
+          "status": "passed",
+          "max_abs": 2.6512082484941857e-07,
+          "max_normalized_error": 0.0031309540770153624
+        },
+        "parameter_gradients": {
+          "status": "passed",
+          "max_abs": 2.8575263826269293e-06,
+          "max_normalized_error": 0.07534283262937296
+        },
+        "prediction": {
+          "status": "passed",
+          "max_abs": 8.839409275651633e-07,
+          "max_normalized_error": 0.03126420722927243
+        },
+        "relu": {
+          "status": "passed",
+          "max_abs": 9.718148619164424e-09,
+          "max_normalized_error": 0.0008093495481573353
+        },
+        "resumed_update": {
+          "status": "passed",
+          "max_abs": 0.0,
+          "max_normalized_error": 0.0
+        },
+        "serialization": {
+          "status": "passed",
+          "max_abs": 0.0,
+          "max_normalized_error": 0.0
+        },
+        "sigmoid": {
+          "status": "passed",
+          "max_abs": 8.41003809926022e-08,
+          "max_normalized_error": 0.0028454256032495405
+        },
+        "tanh": {
+          "status": "passed",
+          "max_abs": 1.1721256720775841e-07,
+          "max_normalized_error": 0.003445053963093414
+        }
+      },
+      "calibration": {
+        "d": 16,
+        "h": 64,
+        "n_rows": 2306,
+        "logical_batch_size": 128,
+        "selected_batches": {
+          "base_epoch": 128,
+          "grown_epoch": 128,
+          "score": 128
+        },
+        "accumulation_max_abs": 2.9802322387695312e-08,
+        "score_boundary": {
+          "device": "cpu",
+          "dtype": "torch.float64",
+          "includes": "synchronized trained-backend model copy to CPU, cast64, actual score_units; inputs already CPU64",
+          "transfer_samples_ns": [
+            1734417,
+            1714917,
+            2275375,
+            2831667,
+            2544500,
+            1303083,
+            1735917,
+            2023709,
+            3586125,
+            1634667,
+            2374750,
+            1429458,
+            2149625,
+            2565792,
+            2552750,
+            2039250,
+            2919167,
+            1906459,
+            2443334,
+            1914709,
+            2176333,
+            2028333,
+            1851458,
+            2771958,
+            2237750,
+            1814458,
+            1858542,
+            2482916,
+            2113959,
+            2919125,
+            2134500,
+            1838542,
+            1329000,
+            1458250,
+            1225917,
+            1342208,
+            1349875,
+            1657708,
+            1440708,
+            1437000
+          ],
+          "unit_block_size": 16
+        },
+        "whole_method_boundary": "base epoch -> CPU64 copy/score -> matched growth -> grown epoch; fresh optimizer per phase",
+        "timing": "perf_counter_ns with MPS synchronize before/after whole region; includes reconstruction and AdamW creation",
+        "precision_rule": "3..9 warmups until last3 range/median<=20%; 5..11 samples until last5 range/median<=20%; capped instability retained",
+        "memory_guard": "bounded physical<=128;512MiB allowance above9GiB current pressure headroom; normal pressure if observable; missing counters explicitly uncertified"
+      },
+      "direct_complete_path": {
+        "logical_batch_size": 128,
+        "physical_batches": {
+          "base_epoch": 128,
+          "grown_epoch": 128,
+          "score": 128
+        },
+        "median_ns": 67917875,
+        "timing_stable": true,
+        "warmup_stable": true
+      },
+      "resources_after": {
+        "peak_rss_bytes": 458391552,
+        "rss_bytes": {
+          "reason": null,
+          "value": 458391552
+        },
+        "mps_memory_bytes": {
+          "current_allocated_memory": {
+            "reason": null,
+            "value": 268288
+          },
+          "driver_allocated_memory": {
+            "reason": null,
+            "value": 17514496
+          },
+          "recommended_max_memory": {
+            "reason": null,
+            "value": 30150672384
+          }
+        },
+        "pressure_headroom_bytes": {
+          "interpretation": "coarse memory_pressure free percentage times physical; not free VM pages",
+          "reason": null,
+          "value": 28604482191
+        },
+        "swap_used_bytes": {
+          "reason": null,
+          "value": 12978288066
+        }
+      }
+    }
+  },
+  "verification": {
+    "native_focused_passed": 109,
+    "sandbox_full_passed": 365,
+    "sandbox_full_skipped": 48,
+    "skip_reason": "MPS unavailable to sandbox; native CPU and MPS separately executed",
+    "full_suite_artifact": "environment/task8-pytest.txt",
+    "full_suite_sha256": "a1326af17cf5eb324b2825a036ecd83809c700a69bf5c6f13e114794a9922200"
+  },
+  "isolated_stage_precision_caps": [
+    {
+      "block": 1,
+      "backend": "cpu",
+      "stage": "base_epoch",
+      "physical_batch": 128,
+      "timed_samples": 11
+    },
+    {
+      "block": 2,
+      "backend": "mps",
+      "stage": "base_epoch",
+      "physical_batch": 64,
+      "timed_samples": 11
+    }
+  ],
+  "precision_limit": "All four directly timed complete paths met stability. Two isolated stage cases reached the sample cap without stability; retained without exclusions. WP05 must remeasure actual training-pipeline precision."
+}
