@@ -63,8 +63,8 @@ def main():
     for method,recipe in [('B1',{}),('B3',{'variant':'partial','count':16,'coordinates':'centered'}),('B5',{'variant':'adam'})]:
         result,paths=run(method,SearchBudget(seconds=2*low,max_trials=2,recipe=recipe,backend_report=str(receipt)))
         if method=='B5' and result.winner is not None:last_causal=paths.directory/f'trial-{result.winner:04d}'/'predictor.json'
-    # The short B7 deadline verifies process-timeout exclusion, without starting
-    # another full-size training run or extrapolating its quality plateau.
+    # The short B7 deadline checks budget exclusion, possibly before worker
+    # startup, without a full-size fit or a claimed quality plateau.
     run('B7',SearchBudget(seconds=min(.01,low/100),max_updates=3))
     from treeneuron.baselines.simple import RidgePredictor
     from treeneuron.baselines.api import FitRequest
@@ -78,7 +78,13 @@ def main():
         prediction=np.concatenate([model.predict(X[i:i+batch],batch_size=batch) for i in range(0,len(X),batch)])
         np.testing.assert_allclose(prediction,reference,rtol=1e-12,atol=1e-12)
         ridge_parity[str(batch)]=float(np.max(np.abs(prediction-reference)))
-    timing=measure_predictor(model,X,policy);write_timing(root/'ridge-timing.json',timing)
+    def measured(predictor,configuration,name):
+        try:return measure_predictor(predictor,X,configuration)
+        except BaseException as exc:
+            _atomic_json(root/f'{name}-failure.json',getattr(exc,'timing_record',
+                {'error':{'type':type(exc).__name__,'message':str(exc)}}))
+            raise
+    timing=measured(model,policy,'ridge');write_timing(root/'ridge-timing.json',timing)
     rebuilt=read_timing(root/'ridge-timing.json')
     _atomic_json(root/'ridge-summary-rebuilt.json',rebuilt['summary'])
     cold=measure_cold_predictor(model,X,policy,root/'ridge-cold')
@@ -100,7 +106,7 @@ def main():
                 else:prediction=np.concatenate([predictor.predict(X[i:i+batch],batch_size=batch) for i in range(0,len(X),batch)])
                 np.testing.assert_allclose(prediction,causal_reference,rtol=2e-5,atol=2e-6)
                 parity[str(batch)]=float(np.max(np.abs(prediction-causal_reference)))
-            result=measure_predictor(predictor,X,cp);write_timing(root/f'causal-{mode}.json',result)
+            result=measured(predictor,cp,f'causal-{mode}');write_timing(root/f'causal-{mode}.json',result)
             causal_timing[mode]=dict(batch_parity_max_abs=parity,parity_tolerance={'rtol':2e-5,'atol':2e-6},summary=result['summary'],precision_status=result['precision_status'],warmup_stable=result['warmup_stable'])
     report=dict(schema_version=1,scope='bounded synthetic engineering search/timing; not H1 pilot, quality plateau or final WP05 policy',
         status='evidence_pending_WP05',source_sha256=source_hash(),implementation_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),

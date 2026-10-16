@@ -114,3 +114,43 @@ def test_cached_uncached_boundaries_retain_cache_work():
     uncached=t.measure_predictor(b,np.ones((3,1)),t.TimingPolicy(context_mode='uncached',**kwargs))
     assert a.builds==1 and b.builds==6
     assert len(cached['raw_blocks'])==len(uncached['raw_blocks'])==6
+
+
+def test_mixed_early_stable_and_capped_unstable_warmup_terminates(monkeypatch):
+    t=api()
+    class Model:
+        def predict(self,X,*,batch_size=None):return np.zeros(len(X))
+        def resource_summary(self):return {'capabilities':{'backend':'numpy_cpu','cache':False,'context':False}}
+    durations=iter([100,100,200,100,100,200]+[100]*8)
+    monkeypatch.setattr(t,'measured_call',lambda call,**kwargs:(call(),next(durations)))
+    original=t._order;calls=[0]
+    def bounded_order(*args):
+        calls[0]+=1
+        if calls[0]>10:raise AssertionError('Warmup loop failed to terminate at explicit cap')
+        return original(*args)
+    monkeypatch.setattr(t,'_order',bounded_order)
+    result=t.measure_predictor(Model(),np.ones((2,1)),t.TimingPolicy(batch_sizes=(1,2),warmup_window=2,max_warmup=4,min_repetitions=4,max_repetitions=4))
+    warm=[r for r in result['raw_blocks'] if r['phase']=='warmup']
+    assert [r['batch_size'] for r in warm]==[1,2,2,1,2,2]
+    assert result['warmup_stable']=={'1':True,'2':False}
+    assert result['precision_status']=='unresolved_at_repetition_or_warmup_cap'
+    assert len(result['raw_blocks'])==14
+
+
+def test_interruption_between_blocks_retains_measured_warmup(monkeypatch):
+    t=api()
+    class Model:
+        def predict(self,X,*,batch_size=None):return np.zeros(len(X))
+        def resource_summary(self):return {'capabilities':{'backend':'numpy_cpu','cache':False,'context':False}}
+    durations=iter([100,200,300,400])
+    monkeypatch.setattr(t,'measured_call',lambda call,**kwargs:(call(),next(durations)))
+    original=t._order;calls=[0]
+    def interrupt(*args):
+        calls[0]+=1
+        if calls[0]==2:raise KeyboardInterrupt('between blocks')
+        return original(*args)
+    monkeypatch.setattr(t,'_order',interrupt)
+    with pytest.raises(KeyboardInterrupt) as caught:
+        t.measure_predictor(Model(),np.ones((2,1)),t.TimingPolicy(batch_sizes=(1,2),warmup_window=2,max_warmup=4,min_repetitions=4,max_repetitions=4))
+    assert len(caught.value.timing_record['raw_blocks'])==4
+    assert caught.value.timing_record['error']['type']=='KeyboardInterrupt'

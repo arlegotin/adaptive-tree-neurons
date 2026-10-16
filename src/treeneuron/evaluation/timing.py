@@ -144,7 +144,8 @@ def measure_predictor(predictor:Predictor,X:Any,policy:TimingPolicy)->dict[str,A
                 return torch.cat(pieces) if policy.mode=='resident_kernel' else np.concatenate(pieces)
             for phase,limit in (('warmup',policy.max_warmup),('measurement',policy.max_repetitions)):
                 counts={b:0 for b in policy.batch_sizes}
-                while any(counts[b]<limit for b in policy.batch_sizes if b not in failed):
+                while any(counts[b]<limit for b in policy.batch_sizes
+                          if b not in failed and not (phase=='warmup' and stable[b])):
                     for batch in _order(policy,rng,block):
                         if batch in failed or counts[batch]>=limit or (phase=='warmup' and stable[batch]):continue
                         tick=time.perf_counter_ns()
@@ -197,6 +198,11 @@ def measure_predictor(predictor:Predictor,X:Any,policy:TimingPolicy)->dict[str,A
                 memory_accounting='RSS and MPS counters overlap; do not add; process peak RSS is not incremental model memory',
                 boundary='inference_mode; complete row batching; host input/preprocessing through original-unit host output' if policy.mode=='host_to_host' else 'inference_mode; resident standardized float32 input through standardized resident output; excludes transforms, original-unit inversion and host transfers',
                 precision_status='reached' if measured_summary['precision_reached'] and all(stable.values()) else 'unresolved_at_repetition_or_warmup_cap')
+    except BaseException as exc:
+        if not hasattr(exc,'timing_record'):
+            exc.timing_record=dict(raw_blocks=raw,excluded_work=excluded,policy=asdict(policy),
+                error=dict(type=type(exc).__name__,message=str(exc)))
+        raise
     finally:torch.set_num_threads(old_threads)
 
 
