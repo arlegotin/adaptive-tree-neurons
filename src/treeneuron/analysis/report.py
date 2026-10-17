@@ -21,6 +21,9 @@ def render_report(audit_result: Mapping, output: Path) -> None:
            f'Interpretation: {conclusion["interpretation"]}. Completed-cohort superiority: {conclusion["superiority"]}.', '']
     if value['reasons']:
         lines+=['Evidence problems:', '']+[f'- {reason}' for reason in value['reasons']]+['']
+    if 'archive_eligibility' in value:
+        eligibility=value['archive_eligibility']
+        lines += [f'Archive eligibility: {eligibility["status"]}. {eligibility["reason"] or "Verified repository-local prospective binding"}.', '']
     primary=value.get('primary')
     if primary:
         lines += [f'Declared teachers: {primary["declared_teachers"]}; valid teachers: {primary["valid_teachers"]}; '

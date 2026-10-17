@@ -114,6 +114,7 @@ def test_fixed_cohort_completes_zero_growth_all_units_and_resume_once(mock_cohor
     directory=module.run_confirmation(frozen,'synthetic')
     ledger=json.loads((directory/'confirmation.json').read_text())
     assert ledger['status']=='completed'
+    assert json.loads((directory/'archive-completion.json').read_text())['status']=='unsealed'
     assert len(calls)==decision.K*decision.repetitions
     assert len(ledger['runs'])==len(calls)
     assert all(r['status']=='completed' for r in ledger['runs'])
@@ -122,6 +123,8 @@ def test_fixed_cohort_completes_zero_growth_all_units_and_resume_once(mock_cohor
     assert ledger['costs']['seconds']>=0 and ledger['costs']['forecast_seconds']>0
     assert ledger['costs']['preparation_seconds'] is None
     assert ledger['costs']['combined_seconds'] is None
+    # Model a stop before terminal publication, including its completion receipt.
+    (directory/'archive-completion.json').unlink()
     ledger['status']='running'; ledger['runs'][0]['status']='pending'
     ledger['runs'][0]['attempts'][-1].update(status='running',seconds=None)
     (directory/'confirmation.json').write_text(json.dumps(ledger))
@@ -129,6 +132,13 @@ def test_fixed_cohort_completes_zero_growth_all_units_and_resume_once(mock_cohor
     recovered=json.loads((directory/'confirmation.json').read_text())
     assert recovered['status']=='completed' and recovered['costs']['hard_interrupt_cost_unknown']
     assert recovered['costs']['combined_seconds'] is None
+    previous=recovered['runs'][0]['attempts'][0]
+    assert previous['retained']['state']=='unknown_hard_stop' and previous['seconds'] is None
+    from treeneuron.analysis.audit import _account,conclude
+    payload=json.loads(frozen.path.read_text())['payload']
+    accounting=_account(payload,recovered,root,directory)
+    assert accounting['retention']['status']=='unknown_hard_stop'
+    assert conclude({'status':'completed'},[],accounting['retention'])['status']=='incomplete'
     assert len(calls)==decision.K*decision.repetitions
 
 
@@ -268,6 +278,8 @@ def test_sealed_evidence_failure_does_not_retry_immutable_evidence(mock_cohort,m
     module,root,frozen,decision,calls,fit=mock_cohort
     directory=module.run_confirmation(frozen,'synthetic')
     ledger=json.loads((directory/'confirmation.json').read_text())
+    # Model a stop before terminal publication, including its completion receipt.
+    (directory/'archive-completion.json').unlink()
     ledger['status']='running'; ledger['runs'][0]['status']='pending'
     (directory/'confirmation.json').write_text(json.dumps(ledger))
     original=protected.load_evaluation; reads=[]

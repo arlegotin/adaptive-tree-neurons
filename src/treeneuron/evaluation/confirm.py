@@ -172,6 +172,28 @@ def _payload(protocol):
     return payload
 
 
+def _capture_attempt_inventory(directory, *, hard_stop=False, protected_directory=None):
+    """Seal only bytes actually materialized; a hard stop cannot prove history."""
+    directory=Path(directory); files={}; protected_files={}
+    try:
+        if directory.exists() and not directory.is_dir(): raise ValueError('Attempt path is not a directory')
+        for path in sorted(directory.rglob('*')):
+            if path.is_symlink(): raise ValueError('Attempt inventory contains a symlink')
+            if path.is_file(): files[path.relative_to(directory).as_posix()]=_hash(path)
+        if protected_directory is not None:
+            for path in sorted(Path(protected_directory).rglob('*')):
+                if path.is_symlink(): raise ValueError('Protected inventory contains a symlink')
+                if path.is_file(): protected_files[path.relative_to(protected_directory).as_posix()]=_hash(path)
+        state='captured' if directory.is_dir() else 'not_materialized'
+        reason=None if state=='captured' else 'Failure before attempt directory existed'
+        if hard_stop:
+            state='unknown_hard_stop'
+            reason='Observed after process interruption; earlier materialized inventory is unknown'
+    except (OSError,ValueError) as error:
+        state='unknown_capture_failure';reason=str(error)
+    return dict(schema_version=1,state=state,files=files,protected_files=protected_files,reason=reason)
+
+
 @located
 def run_confirmation(protocol: FrozenProtocol, study: str) -> Path:
     """Run every frozen unit serially, with finite same-unit attempts and resume.
@@ -202,7 +224,10 @@ def run_confirmation(protocol: FrozenProtocol, study: str) -> Path:
         expected=[(u['unit_id'],run,j) for u in payload['sources']['cohort']['units'] for j,run in enumerate(u['run_ids'])]
         if [(r['unit_id'],r['run_id'],r['repetition']) for r in ledger['runs']]!=expected:
             raise ValueError('Declared cohort ledger differs')
-        if ledger['status'] in ('completed','incomplete','resource_limited'): return directory
+        if ledger['status'] in ('completed','incomplete','resource_limited'):
+            from ..archive_binding import completion_record
+            completion_record(directory,protocol.protocol_hash)
+            return directory
         started=invocation_started
         max_attempts=1+payload['design']['statistical_policy']['retries']
         units={u['unit_id']:u for u in payload['sources']['cohort']['units']}
@@ -216,6 +241,7 @@ def run_confirmation(protocol: FrozenProtocol, study: str) -> Path:
                 # A hard process stop leaves a running attempt; charge it once.
                 if run['attempts'] and run['attempts'][-1]['status']=='running':
                     run['attempts'][-1].update(status='interrupted',error='Process ended before attempt completion',seconds=None,duration_incomplete=True)
+                    run['attempts'][-1]['retained']=_capture_attempt_inventory(root/run['attempts'][-1]['path'],hard_stop=True,protected_directory=link_path.parent)
                     save()
                 while True:
                     events=protected.access_events(protocol) if link_path.exists() else []
@@ -266,8 +292,10 @@ def run_confirmation(protocol: FrozenProtocol, study: str) -> Path:
                         # The next iteration may retry inference only, with identical
                         # registered models; any label-access event forbids a retry.
                     finally:
+                        if attempt['status'] in ('failed','interrupted') and not attempt.get('duration_incomplete'):
+                            attempt['retained']=_capture_attempt_inventory(root/attempt['path'],protected_directory=link_path.parent)
                         elapsed=(time.perf_counter_ns()-tick)/1e9
-                        attempt['seconds']=(attempt.get('seconds') or 0.)+elapsed
+                        attempt['seconds']=None if attempt.get('duration_incomplete') else (attempt.get('seconds') or 0.)+elapsed
                         attempt['peak_rss_bytes']=int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)*(1 if sys.platform=='darwin' else 1024)
                         save()
                 if run['status']!='completed': run['status']='failed'
@@ -296,8 +324,10 @@ def run_confirmation(protocol: FrozenProtocol, study: str) -> Path:
                 retained_bytes=retained,forecast_storage_bytes=forecast['storage_bytes'],
                 storage_deviation=retained-forecast['storage_bytes'] if preparation is not None else None,
                 aggregation='disjoint preparation plus active invocation clocks; child/control clocks are nested; reanalysis separate',
-                boundary='active invocation preflight, all attempts, fitting, protected prediction and ledger IO; excludes final ledger write and no-op terminal validation calls',
+                boundary='active invocation preflight, all attempts, fitting, protected prediction and ledger IO; excludes final ledger/completion-receipt writes and no-op terminal validation calls',
                 forecast_boundary='frozen preparation/setup plus repetitions/evaluation and retry allowance; reanalysis reported separately',
                 hard_interrupt_cost_unknown=interrupted)
             save()
+            from ..archive_binding import completion_record
+            completion_record(directory,protocol.protocol_hash)
     return directory

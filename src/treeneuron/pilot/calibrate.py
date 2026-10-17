@@ -22,6 +22,7 @@ import torch
 import yaml
 
 from treeneuron import train
+from treeneuron.locators import locate
 from treeneuron.artifacts import create_run, finish_run, _atomic_json, TERMINAL_STATUSES
 from treeneuron.backend import lock_hash, runtime_hash
 from treeneuron.baselines.api import FitRequest
@@ -76,7 +77,7 @@ def _runtime_preflight(config):
         torch.set_num_interop_threads(1)  # fresh CLI process; never change pytest controller
     train.TrainingPolicy.from_config(config)
     train.TrainingPolicy.from_config(config,continuation=True)
-    receipt=Path(config.execution.backend_report)
+    receipt=locate(config.execution.backend_report,producer=True)
     # The numerical training boundary validates full producer/lock/runtime receipt.
     return dict(cpu_threads=torch.get_num_threads(),interop_threads=torch.get_num_interop_threads(),
         receipt_path=str(receipt.resolve()),receipt_sha256=file_hash(receipt))
@@ -97,7 +98,7 @@ def fit_repetition(config, data, root: Path, recipe_hash: str) -> dict:
         source_sha256=train.source_hash(),failures=[])
     open_child=None
     original_backend=train.BACKEND_REPORT_PATH
-    train.BACKEND_REPORT_PATH=Path(config.execution.backend_report)
+    train.BACKEND_REPORT_PATH=locate(config.execution.backend_report,producer=True)
     def register(paths, metadata):
         nonlocal open_child
         open_child=paths

@@ -173,6 +173,8 @@ def test_real_incomplete_audit_relocation_archive_and_tamper(prepared,cpu_traini
         seal_archive(directory,frozen,tmp_path/'too-late')
     (root/'src/model.py').write_text('# changed analysis source\n')
     git(root,'add','src/model.py'); git(root,'commit','-qm','toy source amendment')
+    from test_audit_fix1 import analysis_checkout
+    analysis_checkout(root)
     archived=audit_archive(archive,analysis_root=root)
     assert not archived['reasons'], archived['reasons']
     assert archived['status']=='incomplete' and archived['conclusion']['superiority'] is False
@@ -293,6 +295,8 @@ def test_complete_negative_toy_audit_and_missing_probe(prepared,cpu_training_evi
     assert 'probe' in ' '.join(invalid['reasons']).lower()
     greedy.write_bytes(original)
     bundle=seal_archive(directory,frozen,tmp_path/'negative-archive')
+    from test_audit_fix1 import analysis_checkout
+    analysis_checkout(root)
     archived=audit_archive(bundle,analysis_root=root)
     assert archived['valid'] is True and archived['status']=='exploratory',archived['reasons']
     assert not archived['conclusion']['superiority']
@@ -349,6 +353,8 @@ def test_outer_ledger_status_and_enclosing_work_are_authoritative(tmp_path,monke
         hard_interrupt_cost_unknown=False,aggregation='disjoint invocation',boundary='active invocation',
         forecast_boundary='preparation and invocations',retained_bytes=0,storage_deviation=None,
         combined_reason='Preparation not measured'))
+    from treeneuron.evaluation.confirm import _capture_attempt_inventory
+    ledger['runs'][0]['attempts'][0]['retained']=_capture_attempt_inventory(study/'run-0/attempt-0')
     assert module._account(payload,ledger,root,study)['failed_attempts']==1
     ledger['status']='invented'
     with pytest.raises(ValueError,match='ledger status'): module._account(payload,ledger,root,study)

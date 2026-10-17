@@ -21,6 +21,8 @@ def locate(path, *, producer=False):
     original, current = location
     if not path.is_absolute():
         return current/path if producer else path
+    if path.is_relative_to(current):
+        return path
     try:
         return current/path.relative_to(original)
     except ValueError:

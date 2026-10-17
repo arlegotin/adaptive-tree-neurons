@@ -239,7 +239,8 @@ def _optimizer(model, config):
 
 
 def _backend_evidence(config, data, *, causal_model=None):
-    path = BACKEND_REPORT_PATH
+    from .locators import locate
+    path = locate(BACKEND_REPORT_PATH,producer=True)
     report = json.loads(path.read_text())['backend_probes']
     for probe in report['probes'].values():
         if probe.get('status') == 'passed': validate_backend_report(probe)

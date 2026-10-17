@@ -149,6 +149,11 @@ def analyze_primary(study_dir: Path, protocol: FrozenProtocol) -> dict[str, Any]
         return _analyze_primary(study_dir, protocol)
 
 
+def _previous_analysis_seconds(work):
+    """Reduce recorded durations independently of filesystem enumeration order."""
+    return math.fsum(_read(path)['seconds'] for path in work.glob('*.json'))
+
+
 def _analyze_primary(study_dir, protocol):
     started=time.perf_counter_ns()
     payload=_payload(protocol); root=locate(payload['sources']['root']); study_dir=Path(study_dir)
@@ -204,7 +209,7 @@ def _analyze_primary(study_dir, protocol):
     if not path.exists(): _atomic_json(path,report)
     # Variable work measurements are separate from deterministic scientific output.
     work=study_dir/'analysis-work'; work.mkdir(exist_ok=True)
-    previous=sum(_read(p)['seconds'] for p in work.glob('*.json'))
+    previous=_previous_analysis_seconds(work)
     elapsed=(time.perf_counter_ns()-started)/1e9
     base=ledger['costs'].get('combined_seconds')
     _atomic_json(work/f'{uuid.uuid4().hex}.json',dict(schema_version=1,protocol_hash=protocol.protocol_hash,
