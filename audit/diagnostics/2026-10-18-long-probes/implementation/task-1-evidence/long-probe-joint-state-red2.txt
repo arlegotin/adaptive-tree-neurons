@@ -1,0 +1,56 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_____ test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts[0] _____
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4257/test_long_probe_opt_in_nine_ro0')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4257/training-evidence0/report.json')
+growth_count = 0
+
+    @pytest.mark.parametrize('growth_count',[0,1])
+    def test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts(tmp_path,cpu_training_evidence,growth_count):
+        import torch
+        from treeneuron.pilot.calibrate import teacher_inputs,repetition_config,run_repetition
+        raw=config(tmp_path).to_dict()
+        raw['execution']['backend_report']=str(cpu_training_evidence)
+        raw['backend']['interop_threads']=torch.get_num_interop_threads()
+        raw['growth']['m_requested']=growth_count
+        c=resolve_experiment(raw)
+        _,data,e,tc=teacher_inputs(c,0)
+        result=run_repetition(repetition_config(tc,0),data,e,tmp_path/'long-pair','diagnostic',reference_probe_updates=1)
+        assert set(result['methods'])=={'keep','top','random','greedy','greedy_long','widen_upper','ordinary_lower','ordinary_upper','static_partial'}
+        assert result['pairing_audit']['passed'] and result['pairing_audit']['warm_forks']==6
+        assert result['long_probe_audit']['passed']
+>       assert result['methods']['greedy_long']['original_parent_audit']['passed']
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'original_parent_audit'
+
+tests/test_pilot_calibrate.py:224: KeyError
+_____ test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts[1] _____
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4257/test_long_probe_opt_in_nine_ro1')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4257/training-evidence0/report.json')
+growth_count = 1
+
+    @pytest.mark.parametrize('growth_count',[0,1])
+    def test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts(tmp_path,cpu_training_evidence,growth_count):
+        import torch
+        from treeneuron.pilot.calibrate import teacher_inputs,repetition_config,run_repetition
+        raw=config(tmp_path).to_dict()
+        raw['execution']['backend_report']=str(cpu_training_evidence)
+        raw['backend']['interop_threads']=torch.get_num_interop_threads()
+        raw['growth']['m_requested']=growth_count
+        c=resolve_experiment(raw)
+        _,data,e,tc=teacher_inputs(c,0)
+        result=run_repetition(repetition_config(tc,0),data,e,tmp_path/'long-pair','diagnostic',reference_probe_updates=1)
+        assert set(result['methods'])=={'keep','top','random','greedy','greedy_long','widen_upper','ordinary_lower','ordinary_upper','static_partial'}
+        assert result['pairing_audit']['passed'] and result['pairing_audit']['warm_forks']==6
+        assert result['long_probe_audit']['passed']
+>       assert result['methods']['greedy_long']['original_parent_audit']['passed']
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'original_parent_audit'
+
+tests/test_pilot_calibrate.py:224: KeyError
+=========================== short test summary info ============================
+FAILED tests/test_pilot_calibrate.py::test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts[0]
+FAILED tests/test_pilot_calibrate.py::test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts[1]
+2 failed, 14 deselected in 8.61s

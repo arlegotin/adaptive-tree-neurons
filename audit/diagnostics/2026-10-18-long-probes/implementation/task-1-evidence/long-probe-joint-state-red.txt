@@ -1,0 +1,152 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_____ test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts[0] _____
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4256/test_long_probe_opt_in_nine_ro0')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4256/training-evidence0/report.json')
+growth_count = 0
+
+    @pytest.mark.parametrize('growth_count',[0,1])
+    def test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts(tmp_path,cpu_training_evidence,growth_count):
+        import torch
+        from treeneuron.pilot.calibrate import teacher_inputs,repetition_config,run_repetition
+        raw=config(tmp_path).to_dict()
+        raw['execution']['backend_report']=str(cpu_training_evidence)
+        raw['backend']['interop_threads']=torch.get_num_interop_threads()
+        raw['growth']['m_requested']=growth_count
+        c=resolve_experiment(raw)
+        _,data,e,tc=teacher_inputs(c,0)
+>       result=run_repetition(repetition_config(tc,0),data,e,tmp_path/'long-pair','diagnostic',reference_probe_updates=1)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_pilot_calibrate.py:220: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/pilot/calibrate.py:263: in run_repetition
+    report=fit_repetition(config,data,root,recipe_hash,reference_probe_updates=reference_probe_updates,resource_guard=resource_guard)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/treeneuron/pilot/calibrate.py:145: in fit_repetition
+    allocations['greedy']=run_greedy_probes(parent,table,data,
+src/treeneuron/baselines/greedy.py:182: in run_greedy_probes
+    update_run_observations(child, {'identity':{'growth_hash':canonical_hash(selected.growth_metadata)},
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+paths = RunPaths(run_id='f5be7268feba4de0b0dc84bb70788147', directory=PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8...t_long_probe_opt_in_nine_ro0/long-pair/runs/63b154fb621244ba8fedaccf63e1e291/probes/f5be7268feba4de0b0dc84bb70788147'))
+observations = {'identity': {'growth_hash': '87a66650e338c16a821308c5902b2022dbea7ae26caf125f3555631b6ee85818'}, 'method': {'weight_h...attempts', 'pointers': ['best.json', 'last.json'], 'referenced_bytes': 102017, 'retained_version_bytes': 102017, ...}}}
+
+    def update_run_observations(paths: RunPaths, observations: Mapping[str, Any]) -> None:
+        """Atomically merge only measured fields into a nonterminal run manifest.
+    
+        Scientific/run identity and protocol are immutable. ``parent_run_id`` is a
+        one-time linkage; code/lock/data identity observations cannot be changed once
+        supplied. Serial callers own measurements; this is not a cross-file ledger
+        transaction. A metrics-before-manifest interruption is preserved and rejected.
+        """
+        canonical_json(observations)
+        allowed = {
+            'identity': {'parent_run_id', 'code_revision', 'adapter_revision', 'lock_hash',
+                         'hardware_hash', 'growth_hash', 'failure_class', 'coordinator_run_id', 'score_hash'},
+            'data': {'raw_hash', 'split_hash', 'transform_hash', 'teacher_normalization', 'counts', 'seeds', 'boundaries'},
+            'method': {'trainable_parameters', 'total_parameters', 'serialized_bytes', 'weight_checkpoint',
+                       'weight_hash', 'weight_terms', 'context_bytes', 'cache_bytes', 'backend', 'threads',
+                       'checkpoint_retention', 'scope', 'prediction_artifacts'},
+            'costs': {'search', 'preprocess', 'base', 'score', 'probe', 'continuation', 'validation',
+                      'first_prediction', 'warm_prediction', 'acquisition', 'enclosing'},
+            'resources': {'rss_bytes', 'mps_allocated_bytes', 'mps_driver_bytes', 'pressure', 'swap_delta_bytes',
+                          'interruption_links', 'retry_links', 'timing_exclusions', 'memory_accounting'},
+        }
+        with _locked_manifest(paths) as manifest:
+            if (manifest['identity']['status'] in TERMINAL_STATUSES
+                    or (paths.directory / 'metrics.json').exists()):
+                raise ValueError('Cannot update terminal or inconsistent metrics-before-manifest record')
+            for section, updates in observations.items():
+                if section not in allowed or not isinstance(updates, Mapping) or set(updates) - allowed[section]:
+                    raise ValueError('Unsupported observation field or immutable identity update')
+                for key, value in updates.items():
+                    previous = manifest[section].get(key)
+                    unavailable = (isinstance(value, dict) and set(value) == {'value', 'reason'}
+                                   and value['value'] is None and isinstance(value['reason'], str) and bool(value['reason']))
+                    if section == 'identity' or (section == 'data' and key.endswith('_hash')):
+                        if not unavailable and (type(value) is not str or not value):
+                            raise ValueError('Identity observations require nonempty strings')
+                        if previous != value and not (isinstance(previous, dict) and previous.get('value') is None):
+>                           raise ValueError('Previously observed identity is immutable')
+E                           ValueError: Previously observed identity is immutable
+
+src/treeneuron/artifacts.py:244: ValueError
+_____ test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts[1] _____
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4256/test_long_probe_opt_in_nine_ro1')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4256/training-evidence0/report.json')
+growth_count = 1
+
+    @pytest.mark.parametrize('growth_count',[0,1])
+    def test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts(tmp_path,cpu_training_evidence,growth_count):
+        import torch
+        from treeneuron.pilot.calibrate import teacher_inputs,repetition_config,run_repetition
+        raw=config(tmp_path).to_dict()
+        raw['execution']['backend_report']=str(cpu_training_evidence)
+        raw['backend']['interop_threads']=torch.get_num_interop_threads()
+        raw['growth']['m_requested']=growth_count
+        c=resolve_experiment(raw)
+        _,data,e,tc=teacher_inputs(c,0)
+>       result=run_repetition(repetition_config(tc,0),data,e,tmp_path/'long-pair','diagnostic',reference_probe_updates=1)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_pilot_calibrate.py:220: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/pilot/calibrate.py:263: in run_repetition
+    report=fit_repetition(config,data,root,recipe_hash,reference_probe_updates=reference_probe_updates,resource_guard=resource_guard)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/treeneuron/pilot/calibrate.py:145: in fit_repetition
+    allocations['greedy']=run_greedy_probes(parent,table,data,
+src/treeneuron/baselines/greedy.py:182: in run_greedy_probes
+    update_run_observations(child, {'identity':{'growth_hash':canonical_hash(selected.growth_metadata)},
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+paths = RunPaths(run_id='b12e1b2e82fd42f39c7aa565df33ec68', directory=PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8...t_long_probe_opt_in_nine_ro1/long-pair/runs/4cac00fe80a64183bd140fb78e6fd9e9/probes/b12e1b2e82fd42f39c7aa565df33ec68'))
+observations = {'identity': {'growth_hash': '30d91d408612de77b60b39f80882c2c1dfa1012aaf8b3febf8b7a4b989c00429'}, 'method': {'weight_h...attempts', 'pointers': ['best.json', 'last.json'], 'referenced_bytes': 102017, 'retained_version_bytes': 102017, ...}}}
+
+    def update_run_observations(paths: RunPaths, observations: Mapping[str, Any]) -> None:
+        """Atomically merge only measured fields into a nonterminal run manifest.
+    
+        Scientific/run identity and protocol are immutable. ``parent_run_id`` is a
+        one-time linkage; code/lock/data identity observations cannot be changed once
+        supplied. Serial callers own measurements; this is not a cross-file ledger
+        transaction. A metrics-before-manifest interruption is preserved and rejected.
+        """
+        canonical_json(observations)
+        allowed = {
+            'identity': {'parent_run_id', 'code_revision', 'adapter_revision', 'lock_hash',
+                         'hardware_hash', 'growth_hash', 'failure_class', 'coordinator_run_id', 'score_hash'},
+            'data': {'raw_hash', 'split_hash', 'transform_hash', 'teacher_normalization', 'counts', 'seeds', 'boundaries'},
+            'method': {'trainable_parameters', 'total_parameters', 'serialized_bytes', 'weight_checkpoint',
+                       'weight_hash', 'weight_terms', 'context_bytes', 'cache_bytes', 'backend', 'threads',
+                       'checkpoint_retention', 'scope', 'prediction_artifacts'},
+            'costs': {'search', 'preprocess', 'base', 'score', 'probe', 'continuation', 'validation',
+                      'first_prediction', 'warm_prediction', 'acquisition', 'enclosing'},
+            'resources': {'rss_bytes', 'mps_allocated_bytes', 'mps_driver_bytes', 'pressure', 'swap_delta_bytes',
+                          'interruption_links', 'retry_links', 'timing_exclusions', 'memory_accounting'},
+        }
+        with _locked_manifest(paths) as manifest:
+            if (manifest['identity']['status'] in TERMINAL_STATUSES
+                    or (paths.directory / 'metrics.json').exists()):
+                raise ValueError('Cannot update terminal or inconsistent metrics-before-manifest record')
+            for section, updates in observations.items():
+                if section not in allowed or not isinstance(updates, Mapping) or set(updates) - allowed[section]:
+                    raise ValueError('Unsupported observation field or immutable identity update')
+                for key, value in updates.items():
+                    previous = manifest[section].get(key)
+                    unavailable = (isinstance(value, dict) and set(value) == {'value', 'reason'}
+                                   and value['value'] is None and isinstance(value['reason'], str) and bool(value['reason']))
+                    if section == 'identity' or (section == 'data' and key.endswith('_hash')):
+                        if not unavailable and (type(value) is not str or not value):
+                            raise ValueError('Identity observations require nonempty strings')
+                        if previous != value and not (isinstance(previous, dict) and previous.get('value') is None):
+>                           raise ValueError('Previously observed identity is immutable')
+E                           ValueError: Previously observed identity is immutable
+
+src/treeneuron/artifacts.py:244: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_pilot_calibrate.py::test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts[0]
+FAILED tests/test_pilot_calibrate.py::test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts[1]
+2 failed, 14 deselected in 3.49s

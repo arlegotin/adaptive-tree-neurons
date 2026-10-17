@@ -676,3 +676,21 @@ descriptive paired uncertainty, not the original missing frozen confirmation
 or proof of practical superiority. Old results and eighteen rulings stay intact.
 Implementation/review, one full cost measurement and the fixed cohort/audit
 will now execute on current main without another permission checkpoint.
+
+## D029 — 18 October 2026: accept the reviewed diagnostic implementation
+
+The opt-in longer-probe path is implemented at `b2a9937`. The existing eight-role
+and fixed-320 paths remain defaults; the new nine-role path uses separate
+same-parent short/long searches and checks original weights, Adam state,
+contrasts and minibatch pairing. The affected three test files pass all 55
+checks, including a bounded real measure/run/analysis/report pipeline. The old
+full suite was not repeated. An independent whole-change review approved the
+source with no Critical or Important findings. [Implementation evidence](audit/diagnostics/2026-10-18-long-probes/implementation/index.json)
+retains the diff, review, exact red/green logs and disclosed setup corrections.
+
+One small accounting distinction remains explicit: the internal clock excludes
+final summary/seal publication. The next measurement therefore also records the
+complete outer command and post-publication bytes; its broader forecast will
+inform the prospective resource decision. No predictive conclusion, completed
+production receipt, cost comparison or cohort is claimed by these tests.
+Source is now held fixed for the fresh CPU receipt and engineering cost run.

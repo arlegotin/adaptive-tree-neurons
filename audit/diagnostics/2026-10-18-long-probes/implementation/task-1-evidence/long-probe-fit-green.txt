@@ -1,0 +1,82 @@
+.................................FF....                                  [100%]
+=================================== FAILURES ===================================
+_____ test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts[0] _____
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4247/test_long_probe_opt_in_nine_ro0')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4247/training-evidence1/report.json')
+growth_count = 0
+
+    @pytest.mark.parametrize('growth_count',[0,1])
+    def test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts(tmp_path,cpu_training_evidence,growth_count):
+        import torch
+        from treeneuron.pilot.calibrate import teacher_inputs,repetition_config,run_repetition
+        raw=config(tmp_path).to_dict()
+        raw['execution']['backend_report']=str(cpu_training_evidence)
+        raw['backend']['interop_threads']=torch.get_num_interop_threads()
+        raw['growth']['m_requested']=growth_count
+        c=resolve_experiment(raw)
+        _,data,e,tc=teacher_inputs(c,0)
+>       result=run_repetition(repetition_config(tc,0),data,e,tmp_path/'long-pair','diagnostic',reference_probe_updates=1)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_pilot_calibrate.py:220: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/pilot/calibrate.py:265: in run_repetition
+    predictors=load_predictors(root,report['models'])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4247/test_long_probe_opt_in_nine_ro0/long-pair')
+models = {'keep': {'path': '/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4247/test_lo..._ro0/long-pair/models/greedy.json', 'sha256': '354421951568e73a3541608dd94bbe1208b5f124fa89ba02cded87b76c5c6596'}, ...}
+
+    def load_predictors(root: Path, models: dict) -> dict:
+        """Load actual registered selected checkpoints, then expose X-only methods."""
+        from ..baselines.causal import CausalPredictor
+        from ..checkpoint import _descriptor
+>       if set(models)!=set(EVALUATION_METHODS): raise ValueError('Incomplete model inventory')
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ValueError: Incomplete model inventory
+
+src/treeneuron/evaluation/confirm.py:136: ValueError
+_____ test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts[1] _____
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4247/test_long_probe_opt_in_nine_ro1')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4247/training-evidence1/report.json')
+growth_count = 1
+
+    @pytest.mark.parametrize('growth_count',[0,1])
+    def test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts(tmp_path,cpu_training_evidence,growth_count):
+        import torch
+        from treeneuron.pilot.calibrate import teacher_inputs,repetition_config,run_repetition
+        raw=config(tmp_path).to_dict()
+        raw['execution']['backend_report']=str(cpu_training_evidence)
+        raw['backend']['interop_threads']=torch.get_num_interop_threads()
+        raw['growth']['m_requested']=growth_count
+        c=resolve_experiment(raw)
+        _,data,e,tc=teacher_inputs(c,0)
+>       result=run_repetition(repetition_config(tc,0),data,e,tmp_path/'long-pair','diagnostic',reference_probe_updates=1)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_pilot_calibrate.py:220: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/pilot/calibrate.py:265: in run_repetition
+    predictors=load_predictors(root,report['models'])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4247/test_long_probe_opt_in_nine_ro1/long-pair')
+models = {'keep': {'path': '/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4247/test_lo..._ro1/long-pair/models/greedy.json', 'sha256': '683d128117f59e06eae2d2065048ed29ed7de90fb53e6df4290920132df70848'}, ...}
+
+    def load_predictors(root: Path, models: dict) -> dict:
+        """Load actual registered selected checkpoints, then expose X-only methods."""
+        from ..baselines.causal import CausalPredictor
+        from ..checkpoint import _descriptor
+>       if set(models)!=set(EVALUATION_METHODS): raise ValueError('Incomplete model inventory')
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ValueError: Incomplete model inventory
+
+src/treeneuron/evaluation/confirm.py:136: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_pilot_calibrate.py::test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts[0]
+FAILED tests/test_pilot_calibrate.py::test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts[1]
+2 failed, 37 passed in 28.42s

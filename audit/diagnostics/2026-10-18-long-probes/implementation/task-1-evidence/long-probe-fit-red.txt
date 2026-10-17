@@ -1,0 +1,112 @@
+FFFFFF                                                                   [100%]
+=================================== FAILURES ===================================
+_____ test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts[0] _____
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4246/test_long_probe_opt_in_nine_ro0')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4246/training-evidence0/report.json')
+growth_count = 0
+
+    @pytest.mark.parametrize('growth_count',[0,1])
+    def test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts(tmp_path,cpu_training_evidence,growth_count):
+        import torch
+        from treeneuron.pilot.calibrate import teacher_inputs,repetition_config,run_repetition
+        raw=config(tmp_path).to_dict()
+        raw['execution']['backend_report']=str(cpu_training_evidence)
+        raw['backend']['interop_threads']=torch.get_num_interop_threads()
+        raw['growth']['m_requested']=growth_count
+        c=resolve_experiment(raw)
+        _,data,e,tc=teacher_inputs(c,0)
+>       result=run_repetition(repetition_config(tc,0),data,e,tmp_path/'long-pair','diagnostic',reference_probe_updates=1)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: run_repetition() got an unexpected keyword argument 'reference_probe_updates'
+
+tests/test_pilot_calibrate.py:220: TypeError
+_____ test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts[1] _____
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4246/test_long_probe_opt_in_nine_ro1')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4246/training-evidence0/report.json')
+growth_count = 1
+
+    @pytest.mark.parametrize('growth_count',[0,1])
+    def test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts(tmp_path,cpu_training_evidence,growth_count):
+        import torch
+        from treeneuron.pilot.calibrate import teacher_inputs,repetition_config,run_repetition
+        raw=config(tmp_path).to_dict()
+        raw['execution']['backend_report']=str(cpu_training_evidence)
+        raw['backend']['interop_threads']=torch.get_num_interop_threads()
+        raw['growth']['m_requested']=growth_count
+        c=resolve_experiment(raw)
+        _,data,e,tc=teacher_inputs(c,0)
+>       result=run_repetition(repetition_config(tc,0),data,e,tmp_path/'long-pair','diagnostic',reference_probe_updates=1)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: run_repetition() got an unexpected keyword argument 'reference_probe_updates'
+
+tests/test_pilot_calibrate.py:220: TypeError
+___________ test_long_probe_allowance_validated_before_parent_fit[0] ___________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4246/test_long_probe_allowance_vali0')
+allowance = 0
+
+    @pytest.mark.parametrize('allowance',[0,-1,True,2])
+    def test_long_probe_allowance_validated_before_parent_fit(tmp_path,allowance):
+        from treeneuron.pilot.calibrate import teacher_inputs,fit_repetition
+        c=config(tmp_path)
+        _,data,_,_=teacher_inputs(c,0)
+        with pytest.raises(ValueError,match='reference probe'):
+>           fit_repetition(c,data,tmp_path/'invalid','recipe',reference_probe_updates=allowance)
+E           TypeError: fit_repetition() got an unexpected keyword argument 'reference_probe_updates'
+
+tests/test_pilot_calibrate.py:246: TypeError
+__________ test_long_probe_allowance_validated_before_parent_fit[-1] ___________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4246/test_long_probe_allowance_vali1')
+allowance = -1
+
+    @pytest.mark.parametrize('allowance',[0,-1,True,2])
+    def test_long_probe_allowance_validated_before_parent_fit(tmp_path,allowance):
+        from treeneuron.pilot.calibrate import teacher_inputs,fit_repetition
+        c=config(tmp_path)
+        _,data,_,_=teacher_inputs(c,0)
+        with pytest.raises(ValueError,match='reference probe'):
+>           fit_repetition(c,data,tmp_path/'invalid','recipe',reference_probe_updates=allowance)
+E           TypeError: fit_repetition() got an unexpected keyword argument 'reference_probe_updates'
+
+tests/test_pilot_calibrate.py:246: TypeError
+_________ test_long_probe_allowance_validated_before_parent_fit[True] __________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4246/test_long_probe_allowance_vali2')
+allowance = True
+
+    @pytest.mark.parametrize('allowance',[0,-1,True,2])
+    def test_long_probe_allowance_validated_before_parent_fit(tmp_path,allowance):
+        from treeneuron.pilot.calibrate import teacher_inputs,fit_repetition
+        c=config(tmp_path)
+        _,data,_,_=teacher_inputs(c,0)
+        with pytest.raises(ValueError,match='reference probe'):
+>           fit_repetition(c,data,tmp_path/'invalid','recipe',reference_probe_updates=allowance)
+E           TypeError: fit_repetition() got an unexpected keyword argument 'reference_probe_updates'
+
+tests/test_pilot_calibrate.py:246: TypeError
+___________ test_long_probe_allowance_validated_before_parent_fit[2] ___________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4246/test_long_probe_allowance_vali3')
+allowance = 2
+
+    @pytest.mark.parametrize('allowance',[0,-1,True,2])
+    def test_long_probe_allowance_validated_before_parent_fit(tmp_path,allowance):
+        from treeneuron.pilot.calibrate import teacher_inputs,fit_repetition
+        c=config(tmp_path)
+        _,data,_,_=teacher_inputs(c,0)
+        with pytest.raises(ValueError,match='reference probe'):
+>           fit_repetition(c,data,tmp_path/'invalid','recipe',reference_probe_updates=allowance)
+E           TypeError: fit_repetition() got an unexpected keyword argument 'reference_probe_updates'
+
+tests/test_pilot_calibrate.py:246: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_pilot_calibrate.py::test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts[0]
+FAILED tests/test_pilot_calibrate.py::test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts[1]
+FAILED tests/test_pilot_calibrate.py::test_long_probe_allowance_validated_before_parent_fit[0]
+FAILED tests/test_pilot_calibrate.py::test_long_probe_allowance_validated_before_parent_fit[-1]
+FAILED tests/test_pilot_calibrate.py::test_long_probe_allowance_validated_before_parent_fit[True]
+FAILED tests/test_pilot_calibrate.py::test_long_probe_allowance_validated_before_parent_fit[2]
+6 failed, 10 deselected in 3.48s

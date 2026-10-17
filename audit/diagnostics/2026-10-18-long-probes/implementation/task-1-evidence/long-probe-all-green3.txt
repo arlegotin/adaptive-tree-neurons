@@ -1,0 +1,159 @@
+..................................................F....                  [100%]
+=================================== FAILURES ===================================
+_ test_bounded_real_diagnostic_graph_is_auditable_and_cli_report_is_deterministic _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4258/test_bounded_real_diagnostic_g0')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4258/training-evidence2/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x118a74ad0>
+
+    def test_bounded_real_diagnostic_graph_is_auditable_and_cli_report_is_deterministic(tmp_path,cpu_training_evidence,monkeypatch):
+        m=module(); value=spec(tmp_path)
+        value.update(teachers=1,repetitions=1)
+        value['base_config']['execution']['backend_report']=str(cpu_training_evidence)
+        monkeypatch.setattr(m,'_resource_snapshot',lambda path: dict(free_disk_bytes=10**14,peak_rss_bytes=100,available_percent=80,swapouts=0))
+>       m.measure(value,tmp_path/'cost-real')
+
+tests/test_probe_diagnostic.py:193: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/pilot/probe_diagnostic.py:303: in measure
+    ledger=_run_members(spec,'cost',output,provenance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/treeneuron/pilot/probe_diagnostic.py:261: in _run_members
+    pair=run_repetition(repetition_config(tc,repetition),data,e,output/entry['pair_path'],
+src/treeneuron/pilot/calibrate.py:276: in run_repetition
+    report=fit_repetition(config,data,root,recipe_hash,reference_probe_updates=reference_probe_updates,resource_guard=resource_guard)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+config = ExperimentConfig(study_id='engineering-pilot', phase='exploratory', model=ModelConfig(d=2, h=2, depth=1, tau=1.0, acti..._iterations=200, bootstrap_seed=123, endpoint_tolerance=0.1, probe_updates=1, max_seconds=30.0, constraints_path=None))
+data = DevelopmentData(F=ObservationSet(X=array([[-3.28929195e-01,  2.14817986e-01],
+       [ 9.70534622e-02, -1.72056160e-01...46bc28ba8f9dcc96356ebb3364c1', feature_schema_hash='91cf515874508c7c7e4cbf868bc528b478e1f5a81a14481b90c81bc2601e73ab'))
+root = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4258/test_bounded_real_diagnostic_g0/cost-real/teacher-0/repetition-0')
+recipe_hash = 'b37aab40a70cb3d8295aeb59d270aaf26255b1844276ef98435b214fee35bfa0'
+reference_probe_updates = 1
+resource_guard = <function _resource_guard.<locals>.check at 0x118ea9580>
+
+    def fit_repetition(config, data, root: Path, recipe_hash: str, *,
+                       reference_probe_updates: int | None = None, resource_guard=None) -> dict:
+        """Fresh complete parent, paired forks, B2/B3 attribution, B6 G ranking.
+    
+        No evaluation observations are accepted. All child runs are registered
+        before training and failures retain terminal records and the enclosing cost.
+        No cross-source or cross-attempt checkpoint reuse is supported.
+        """
+        if reference_probe_updates is not None and (type(reference_probe_updates) is not int
+                or not 0 < reference_probe_updates <= config.training.continuation_updates):
+            raise ValueError('Invalid reference probe allowance')
+        started=time.perf_counter_ns()
+        root=Path(root); root.mkdir(parents=True,exist_ok=False)
+        report=dict(status='running',teacher_id=data.teacher_id,optimizer_seed=config.seeds.optimizer,
+            data_hash=data.manifest.assignment_hash,
+            recipe_hash=recipe_hash,controls=[],methods={},costs={},V_accessed=False,T_accessed=False,
+            source_sha256=train.source_hash(),failures=[])
+        open_child=None
+        original_backend=train.BACKEND_REPORT_PATH
+        train.BACKEND_REPORT_PATH=locate(config.execution.backend_report,producer=True)
+        def register(paths, metadata):
+            nonlocal open_child
+            open_child=paths
+            report.setdefault('child_runs',[]).append(dict(run_id=paths.run_id,path=str(paths.directory),
+                growth_metadata=metadata))
+            _atomic_json(root/'pair.json',report,replace=True)
+            if resource_guard is not None: resource_guard()
+        def finish(paths,metrics):
+            nonlocal open_child
+            finish_run(paths,metrics,'completed'); open_child=None
+        def load_parent():
+            fork=load_checkpoint(checkpoint,expected_hashes=identities,device='cpu')
+            if pairing_snapshot(fork)!=report['parent_pairing']:
+                raise ValueError('Loaded parent pairing changed')
+            return fork
+        try:
+            parent_paths=create_run(root/'runs',config.to_dict())
+            register(parent_paths,{})
+            tick=time.perf_counter_ns()
+            parent=train.fit_parent(data,config,parent_paths)
+            finish(parent_paths,{'selected_g_mse':parent.stage['best_mse']})
+            report['costs']['parent_ns']=time.perf_counter_ns()-tick
+            checkpoint=parent_paths.directory/'checkpoints'/'best.json'
+            identities=dict(parent.identity_hashes)
+            report.update(parent_pairing=pairing_snapshot(parent),parent_checkpoint_sha256=file_hash(checkpoint),
+                parent_identity_hashes=identities,parent_run_id=parent_paths.run_id)
+            if resource_guard is not None: resource_guard()
+            tick=time.perf_counter_ns()
+            x=torch.tensor(parent.preprocessing.transform_X(data.F.X),dtype=torch.float64)
+            y=torch.tensor(parent.preprocessing.transform_y(data.F.y),dtype=torch.float64)
+            table=score_units(copy.deepcopy(parent.model).double().eval(),x,y,
+                epsilon=config.growth.epsilon,tau=config.model.tau,adam_epsilon=config.training.adam_epsilon,
+                batch_size=config.training.batch_size,unit_block_size=config.growth.block_units)
+            write_json(root/'score-table.json',_score_record(table))
+            allocations={name:allocate(table,config.growth.m_requested,policy=policy,seed=config.seeds.allocation)
+                for name,policy in (('top','adam'),('random','random'))}
+            report['costs']['score_ns']=time.perf_counter_ns()-tick
+            tick=time.perf_counter_ns()
+            probes=create_run(root/'runs',config.to_dict()); register(probes,{})
+            allocations['greedy']=run_greedy_probes(parent,table,data,
+                probe_updates=config.pilot.probe_updates,seed=config.seeds.allocation,paths=probes,resource_guard=resource_guard)
+            report['greedy_report']=str(probes.directory/'greedy.json')
+            finish(probes,{'complete':True})
+            report['costs']['probe_ns']=time.perf_counter_ns()-tick
+            if reference_probe_updates is not None:
+                report['reference_probe_updates']=reference_probe_updates
+                tick=time.perf_counter_ns()
+                long_probes=create_run(root/'runs',config.to_dict()); register(long_probes,{})
+                allocations['greedy_long']=run_greedy_probes(parent,table,data,
+                    probe_updates=reference_probe_updates,seed=config.seeds.allocation,paths=long_probes,
+                    stopping_mode='patience',resource_guard=resource_guard)
+                report['greedy_long_report']=str(long_probes.directory/'greedy.json')
+                finish(long_probes,{'complete':True})
+                report['costs']['long_probe_ns']=time.perf_counter_ns()-tick
+                short_report=json.loads(Path(report['greedy_report']).read_text())
+                long_report=json.loads(Path(report['greedy_long_report']).read_text())
+                for key in ('parent_state_sha256','score_hash','eligible_ids','requested_count','effective_count'):
+                    if short_report[key]!=long_report[key]:
+                        raise ValueError('Short/long original-parent or score binding mismatch')
+            target=(config.model.d+2)*config.model.h+1+2*allocations['top'].effective_count*(config.model.d+1)
+            lower,upper=ordinary_width_brackets(config.model.d,target)
+            report['capacity']=dict(effective_count=allocations['top'].effective_count,
+                target_parameters=target,ordinary_widths=[lower,upper],
+                ordinary_parameters=[(config.model.d+2)*w+1 for w in (lower,upper)])
+            # Discard in-memory parent before reconstruction; every warm fork loads
+            # this attempt's full G-selected checkpoint with source/lock validation.
+            del parent,x,y
+            recipes=[('keep','B1',{},True),('top','B5',{'variant':'adam'},True),
+                ('random','B4',{},True),('greedy','B6',{},True),
+                ('widen_upper','B2',dict(variant='widen',added_units=upper-config.model.h,seed=config.seeds.contrast),True),
+                ('ordinary_lower','B2',dict(variant='lower',target_parameters=target,experiment=config.to_dict()),False),
+                ('ordinary_upper','B2',dict(variant='upper',target_parameters=target,experiment=config.to_dict()),False),
+                ('static_partial','B3',dict(variant='partial',coordinates='centered',
+                    count=allocations['top'].effective_count,experiment=config.to_dict()),False)]
+            if reference_probe_updates is not None:
+                recipes.insert(4,('greedy_long','B6',{},True))
+            fitted={}
+            for name,method,recipe,warm in recipes:
+                tick=time.perf_counter_ns()
+                allocation=allocations.get(name)
+                record=dict(method_id=method,recipe=recipe,stages=[],status='running')
+                report['methods'][name]=record
+                if warm:
+                    parent=load_parent()
+                    adapter=build_causal(method,recipe,parent=parent,allocation=allocation)
+                    if name=='greedy_long':
+                        original=dict(parent.model.named_parameters())
+                        actual=dict(adapter.state.model.named_parameters())
+                        for key,p in original.items():
+                            q=actual[key]
+                            if not torch.equal(p,q) or _json_tree(parent.optimizer.state[p])!=_json_tree(adapter.state.optimizer.state[q]):
+                                raise ValueError('Long warm fork changes original parameters or Adam state')
+                        record['original_parent_audit']=dict(passed=True,
+                            complete_state_sha256=canonical_hash(_json_tree(train.pack_state(parent))),
+                            parameter_sha256=canonical_hash(_json_tree(parent.model.state_dict())),
+                            old_optimizer_sha256=canonical_hash(_json_tree({key:parent.optimizer.state[p] for key,p in original.items()})))
+                        if record['original_parent_audit']['complete_state_sha256']!=short_report['parent_state_sha256']:
+>                           raise ValueError('Long joint fork does not reload the original probe parent')
+E                           ValueError: Long joint fork does not reload the original probe parent
+
+src/treeneuron/pilot/calibrate.py:203: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_probe_diagnostic.py::test_bounded_real_diagnostic_graph_is_auditable_and_cli_report_is_deterministic
+1 failed, 54 passed in 32.24s

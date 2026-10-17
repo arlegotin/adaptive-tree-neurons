@@ -1,0 +1,404 @@
+FFFFFFFFFFF                                                              [100%]
+=================================== FAILURES ===================================
+_______________ test_spec_strict_and_cost_study_streams_disjoint _______________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4248/test_spec_strict_and_cost_stud0')
+
+    def test_spec_strict_and_cost_study_streams_disjoint(tmp_path):
+>       m=module(); value=spec(tmp_path)
+          ^^^^^^^^
+
+tests/test_probe_diagnostic.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_probe_diagnostic.py:16: in module
+    return importlib.import_module('treeneuron.pilot.probe_diagnostic')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'treeneuron.pilot.probe_diagnostic'
+import_ = <function _gcd_import at 0x105e1c0e0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'treeneuron.pilot.probe_diagnostic'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+_____________ test_measurement_lock_and_ordered_failure_membership _____________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4248/test_measurement_lock_and_orde0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x11341a7b0>
+
+    def test_measurement_lock_and_ordered_failure_membership(tmp_path,monkeypatch):
+>       m,calls=fake_execution(monkeypatch,tmp_path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_probe_diagnostic.py:70: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_probe_diagnostic.py:50: in fake_execution
+    m=module(); calls=[]
+      ^^^^^^^^
+tests/test_probe_diagnostic.py:16: in module
+    return importlib.import_module('treeneuron.pilot.probe_diagnostic')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'treeneuron.pilot.probe_diagnostic'
+import_ = <function _gcd_import at 0x105e1c0e0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'treeneuron.pilot.probe_diagnostic'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+__________ test_resource_failure_retains_attempt_without_silent_retry __________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4248/test_resource_failure_retains_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x113419130>
+
+    def test_resource_failure_retains_attempt_without_silent_retry(tmp_path,monkeypatch):
+>       m,calls=fake_execution(monkeypatch,tmp_path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_probe_diagnostic.py:96: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_probe_diagnostic.py:50: in fake_execution
+    m=module(); calls=[]
+      ^^^^^^^^
+tests/test_probe_diagnostic.py:16: in module
+    return importlib.import_module('treeneuron.pilot.probe_diagnostic')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'treeneuron.pilot.probe_diagnostic'
+import_ = <function _gcd_import at 0x105e1c0e0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'treeneuron.pilot.probe_diagnostic'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+_____ test_severe_pressure_requires_both_low_availability_and_new_swapouts _____
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4248/test_severe_pressure_requires_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x11341a060>
+
+    def test_severe_pressure_requires_both_low_availability_and_new_swapouts(tmp_path,monkeypatch):
+>       m=module(); policy=spec(tmp_path)['resources']
+          ^^^^^^^^
+
+tests/test_probe_diagnostic.py:106: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_probe_diagnostic.py:16: in module
+    return importlib.import_module('treeneuron.pilot.probe_diagnostic')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'treeneuron.pilot.probe_diagnostic'
+import_ = <function _gcd_import at 0x105e1c0e0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'treeneuron.pilot.probe_diagnostic'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+_____ test_analysis_teacher_weighting_original_units_and_retained_effects ______
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4248/test_analysis_teacher_weightin0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x11341ade0>
+
+    def test_analysis_teacher_weighting_original_units_and_retained_effects(tmp_path,monkeypatch):
+>       m,root=analysis_fixture(tmp_path,monkeypatch)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_probe_diagnostic.py:146: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_probe_diagnostic.py:118: in analysis_fixture
+    m,calls=fake_execution(monkeypatch,tmp_path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_probe_diagnostic.py:50: in fake_execution
+    m=module(); calls=[]
+      ^^^^^^^^
+tests/test_probe_diagnostic.py:16: in module
+    return importlib.import_module('treeneuron.pilot.probe_diagnostic')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'treeneuron.pilot.probe_diagnostic'
+import_ = <function _gcd_import at 0x105e1c0e0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'treeneuron.pilot.probe_diagnostic'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+________ test_analysis_rejects_missing_or_altered_evidence[prediction] _________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4248/test_analysis_rejects_missing_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1134c0080>
+tamper = 'prediction'
+
+    @pytest.mark.parametrize('tamper',['prediction','targets','rows','fit_variance','pair','source'])
+    def test_analysis_rejects_missing_or_altered_evidence(tmp_path,monkeypatch,tamper):
+>       m,root=analysis_fixture(tmp_path,monkeypatch)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_probe_diagnostic.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_probe_diagnostic.py:118: in analysis_fixture
+    m,calls=fake_execution(monkeypatch,tmp_path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_probe_diagnostic.py:50: in fake_execution
+    m=module(); calls=[]
+      ^^^^^^^^
+tests/test_probe_diagnostic.py:16: in module
+    return importlib.import_module('treeneuron.pilot.probe_diagnostic')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'treeneuron.pilot.probe_diagnostic'
+import_ = <function _gcd_import at 0x105e1c0e0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'treeneuron.pilot.probe_diagnostic'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+__________ test_analysis_rejects_missing_or_altered_evidence[targets] __________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4248/test_analysis_rejects_missing_1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1134c34d0>
+tamper = 'targets'
+
+    @pytest.mark.parametrize('tamper',['prediction','targets','rows','fit_variance','pair','source'])
+    def test_analysis_rejects_missing_or_altered_evidence(tmp_path,monkeypatch,tamper):
+>       m,root=analysis_fixture(tmp_path,monkeypatch)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_probe_diagnostic.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_probe_diagnostic.py:118: in analysis_fixture
+    m,calls=fake_execution(monkeypatch,tmp_path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_probe_diagnostic.py:50: in fake_execution
+    m=module(); calls=[]
+      ^^^^^^^^
+tests/test_probe_diagnostic.py:16: in module
+    return importlib.import_module('treeneuron.pilot.probe_diagnostic')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'treeneuron.pilot.probe_diagnostic'
+import_ = <function _gcd_import at 0x105e1c0e0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'treeneuron.pilot.probe_diagnostic'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+___________ test_analysis_rejects_missing_or_altered_evidence[rows] ____________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4248/test_analysis_rejects_missing_2')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x11341ad80>
+tamper = 'rows'
+
+    @pytest.mark.parametrize('tamper',['prediction','targets','rows','fit_variance','pair','source'])
+    def test_analysis_rejects_missing_or_altered_evidence(tmp_path,monkeypatch,tamper):
+>       m,root=analysis_fixture(tmp_path,monkeypatch)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_probe_diagnostic.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_probe_diagnostic.py:118: in analysis_fixture
+    m,calls=fake_execution(monkeypatch,tmp_path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_probe_diagnostic.py:50: in fake_execution
+    m=module(); calls=[]
+      ^^^^^^^^
+tests/test_probe_diagnostic.py:16: in module
+    return importlib.import_module('treeneuron.pilot.probe_diagnostic')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'treeneuron.pilot.probe_diagnostic'
+import_ = <function _gcd_import at 0x105e1c0e0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'treeneuron.pilot.probe_diagnostic'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+_______ test_analysis_rejects_missing_or_altered_evidence[fit_variance] ________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4248/test_analysis_rejects_missing_3')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x113419130>
+tamper = 'fit_variance'
+
+    @pytest.mark.parametrize('tamper',['prediction','targets','rows','fit_variance','pair','source'])
+    def test_analysis_rejects_missing_or_altered_evidence(tmp_path,monkeypatch,tamper):
+>       m,root=analysis_fixture(tmp_path,monkeypatch)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_probe_diagnostic.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_probe_diagnostic.py:118: in analysis_fixture
+    m,calls=fake_execution(monkeypatch,tmp_path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_probe_diagnostic.py:50: in fake_execution
+    m=module(); calls=[]
+      ^^^^^^^^
+tests/test_probe_diagnostic.py:16: in module
+    return importlib.import_module('treeneuron.pilot.probe_diagnostic')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'treeneuron.pilot.probe_diagnostic'
+import_ = <function _gcd_import at 0x105e1c0e0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'treeneuron.pilot.probe_diagnostic'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+___________ test_analysis_rejects_missing_or_altered_evidence[pair] ____________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4248/test_analysis_rejects_missing_4')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1134c3710>
+tamper = 'pair'
+
+    @pytest.mark.parametrize('tamper',['prediction','targets','rows','fit_variance','pair','source'])
+    def test_analysis_rejects_missing_or_altered_evidence(tmp_path,monkeypatch,tamper):
+>       m,root=analysis_fixture(tmp_path,monkeypatch)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_probe_diagnostic.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_probe_diagnostic.py:118: in analysis_fixture
+    m,calls=fake_execution(monkeypatch,tmp_path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_probe_diagnostic.py:50: in fake_execution
+    m=module(); calls=[]
+      ^^^^^^^^
+tests/test_probe_diagnostic.py:16: in module
+    return importlib.import_module('treeneuron.pilot.probe_diagnostic')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'treeneuron.pilot.probe_diagnostic'
+import_ = <function _gcd_import at 0x105e1c0e0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'treeneuron.pilot.probe_diagnostic'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+__________ test_analysis_rejects_missing_or_altered_evidence[source] ___________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4248/test_analysis_rejects_missing_5')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1134c1ac0>
+tamper = 'source'
+
+    @pytest.mark.parametrize('tamper',['prediction','targets','rows','fit_variance','pair','source'])
+    def test_analysis_rejects_missing_or_altered_evidence(tmp_path,monkeypatch,tamper):
+>       m,root=analysis_fixture(tmp_path,monkeypatch)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_probe_diagnostic.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_probe_diagnostic.py:118: in analysis_fixture
+    m,calls=fake_execution(monkeypatch,tmp_path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_probe_diagnostic.py:50: in fake_execution
+    m=module(); calls=[]
+      ^^^^^^^^
+tests/test_probe_diagnostic.py:16: in module
+    return importlib.import_module('treeneuron.pilot.probe_diagnostic')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'treeneuron.pilot.probe_diagnostic'
+import_ = <function _gcd_import at 0x105e1c0e0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'treeneuron.pilot.probe_diagnostic'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_probe_diagnostic.py::test_spec_strict_and_cost_study_streams_disjoint
+FAILED tests/test_probe_diagnostic.py::test_measurement_lock_and_ordered_failure_membership
+FAILED tests/test_probe_diagnostic.py::test_resource_failure_retains_attempt_without_silent_retry
+FAILED tests/test_probe_diagnostic.py::test_severe_pressure_requires_both_low_availability_and_new_swapouts
+FAILED tests/test_probe_diagnostic.py::test_analysis_teacher_weighting_original_units_and_retained_effects
+FAILED tests/test_probe_diagnostic.py::test_analysis_rejects_missing_or_altered_evidence[prediction]
+FAILED tests/test_probe_diagnostic.py::test_analysis_rejects_missing_or_altered_evidence[targets]
+FAILED tests/test_probe_diagnostic.py::test_analysis_rejects_missing_or_altered_evidence[rows]
+FAILED tests/test_probe_diagnostic.py::test_analysis_rejects_missing_or_altered_evidence[fit_variance]
+FAILED tests/test_probe_diagnostic.py::test_analysis_rejects_missing_or_altered_evidence[pair]
+FAILED tests/test_probe_diagnostic.py::test_analysis_rejects_missing_or_altered_evidence[source]
+11 failed in 0.44s

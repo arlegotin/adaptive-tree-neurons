@@ -1,0 +1,130 @@
+{
+  "bytes": 256825,
+  "count": 20,
+  "files": [
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/implementation/task-1-report.md",
+      "bytes": 61716,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-1-report.md",
+      "sha256": "5770aa94c53f45e652b6b24243724b25896993152bc286a630daeee0d69e805a"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/implementation/task-1-review.md",
+      "bytes": 5983,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-1-review.md",
+      "sha256": "24237db27c9256d631c4ac8810787900a6432f2127830ef9814c6aa124b2b829"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/implementation/historical-preservation.json",
+      "bytes": 691,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/historical-preservation.json",
+      "sha256": "e3e381359a27fdd311e8948e831bcb7513f1a756d72cfb52f5f66251886c2ef8"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/implementation/review-5b0483e..b2a9937.diff",
+      "bytes": 96155,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/review-5b0483e..b2a9937.diff",
+      "sha256": "d3e711301ced6fe07869bfbe1a2b5d7ac8767e5620f2d507bd1396698a7787ad"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/implementation/task-1-evidence/long-probe-all-green1.txt",
+      "bytes": 100,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-1-evidence/long-probe-all-green1.txt",
+      "sha256": "fca5b39a671b6fa7b3558182e9d38359216c56094f85ee2890f362de1f15b2f4"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/implementation/task-1-evidence/long-probe-all-green2.txt",
+      "bytes": 100,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-1-evidence/long-probe-all-green2.txt",
+      "sha256": "0bb02f8507b1ae95db3f8748741e8cc847c32dafb34f2fa56ac37e88579a89d6"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/implementation/task-1-evidence/long-probe-all-green3.txt",
+      "bytes": 11673,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-1-evidence/long-probe-all-green3.txt",
+      "sha256": "ba5006f8e1554d70fb189df9529cd0dde25a582d450794334dbd5d7d2e4823a7"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/implementation/task-1-evidence/long-probe-all-green4.txt",
+      "bytes": 100,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-1-evidence/long-probe-all-green4.txt",
+      "sha256": "0931f0d755bed62ffb08e1ad54887544317fd3032e262261966479bb13ee6b48"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/implementation/task-1-evidence/long-probe-diagnostic-green1.txt",
+      "bytes": 8780,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-1-evidence/long-probe-diagnostic-green1.txt",
+      "sha256": "e862dac28b4d7e5d4cdb7d462466b44d4e387d86e088473d178ab65612c73a97"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/implementation/task-1-evidence/long-probe-diagnostic-green2.txt",
+      "bytes": 2030,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-1-evidence/long-probe-diagnostic-green2.txt",
+      "sha256": "a6e619c33c6809b288b1cf8db9f3d78d841c56f86aa5e1c0308fe79548b2172a"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/implementation/task-1-evidence/long-probe-diagnostic-red.txt",
+      "bytes": 20041,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-1-evidence/long-probe-diagnostic-red.txt",
+      "sha256": "973eef15df952e9149372c211fff6235719c4b57fa4a9c641263ea5459fb61b4"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/implementation/task-1-evidence/long-probe-fit-green.txt",
+      "bytes": 5596,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-1-evidence/long-probe-fit-green.txt",
+      "sha256": "f150fc6f71e6e93371f9d51b1902f1bc03df2e68b72646658946b1f4da5f8ed1"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/implementation/task-1-evidence/long-probe-fit-red.txt",
+      "bytes": 6995,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-1-evidence/long-probe-fit-red.txt",
+      "sha256": "bc6ab51d82c07b7b0b26c0565371e0f9a5958db76bbd2b619e741b0ffb970750"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/implementation/task-1-evidence/long-probe-greedy-green.txt",
+      "bytes": 2188,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-1-evidence/long-probe-greedy-green.txt",
+      "sha256": "117e390240395dcb74ac71da80b32278f0db43993b1825cc606f9d8dde7c39f6"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/implementation/task-1-evidence/long-probe-greedy-red.txt",
+      "bytes": 8584,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-1-evidence/long-probe-greedy-red.txt",
+      "sha256": "1a5b30fb2f77a43634ff591d8b447a63e9dab8bb55ae2f26fd882253b1013cf1"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/implementation/task-1-evidence/long-probe-joint-state-red.txt",
+      "bytes": 11891,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-1-evidence/long-probe-joint-state-red.txt",
+      "sha256": "f0fc1fe51a2d9d9bae58c799378c5aff8897eea06d4a89335e3bd4f5e426f306"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/implementation/task-1-evidence/long-probe-joint-state-red2.txt",
+      "bytes": 3817,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-1-evidence/long-probe-joint-state-red2.txt",
+      "sha256": "8071638b6438e58c024d50ec9eff91dfc4d95e70e36a60a75e2b2b40b81bc6d2"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/implementation/task-1-evidence/long-probe-metadata-red.txt",
+      "bytes": 2450,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-1-evidence/long-probe-metadata-red.txt",
+      "sha256": "5588f5588acd4b38465d04ab46054bd33d6c7dd37e223d9b640b14df972d3aea"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/implementation/task-1-evidence/long-probe-retention-red.txt",
+      "bytes": 6017,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-1-evidence/long-probe-retention-red.txt",
+      "sha256": "f0cff6c1c7f1a2392cd68a562463dcb31a50dc844556092bc0f359ef1622d2a8"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/implementation/task-1-evidence/long-probe-v-red.txt",
+      "bytes": 1918,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-1-evidence/long-probe-v-red.txt",
+      "sha256": "4d34c2638f6dc48fb0083fe943ce1ff241d58f0723fdad1135a942f5fcd7c5db"
+    }
+  ],
+  "implementation_commit": "b2a993721b85aa559fd5b3d89fa80a33a93892a0",
+  "review": "Approved; no Critical or Important findings",
+  "review_base": "5b0483e",
+  "tests": "55 passed in 36.45s; affected three files; full suite not rerun"
+}

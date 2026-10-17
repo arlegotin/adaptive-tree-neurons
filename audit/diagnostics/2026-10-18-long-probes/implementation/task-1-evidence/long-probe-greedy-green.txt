@@ -1,0 +1,36 @@
+......................F                                                  [100%]
+=================================== FAILURES ===================================
+_________ test_short_and_long_have_independent_identical_parent_starts _________
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-4245/test_short_and_long_have_indep0/a2906c6352e949b39a2b615cf6c91631/23a5627f86fa4f45ba95e8dd7b92889f')))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1115ebd10>
+
+    def test_short_and_long_have_independent_identical_parent_starts(probe_case,monkeypatch):
+        from treeneuron.baselines import greedy
+        data,parent,table,short=probe_case
+        long=create_run(short.directory/'long',parent.config.to_dict())
+        starts=[]
+        real=greedy.continue_fit
+        def observe(state,*a,**kw):
+            starts.append(copy.deepcopy(state))
+            return real(state,*a,**kw)
+        monkeypatch.setattr(greedy,'continue_fit',observe)
+        before=copy.copy(parent); before.rng_states=capture_rng()
+        greedy.run_greedy_probes(parent,table,data,probe_updates=2,seed=7,paths=short)
+        greedy.run_greedy_probes(parent,table,data,probe_updates=6,seed=7,paths=long,stopping_mode='patience')
+        for a,b in zip(starts[:3],starts[3:]): assert_state_equal(a,b)
+        after=copy.copy(parent); after.rng_states=capture_rng()
+        assert_state_equal(before,after)
+        reports=[json.loads((p.directory/'greedy.json').read_text()) for p in (short,long)]
+>       assert reports[0]['parent_checkpoint_sha256']==reports[1]['parent_checkpoint_sha256']
+E       AssertionError: assert '204979bec742...06313133e3ba2' == 'a525a587dfc0...cfdea3da41510'
+E         
+E         - a525a587dfc0844f265e90823a7d0fa5019142c21e5665ca7d8cfdea3da41510
+E         + 204979bec74291fb5ef5d243958254f977d58a924aa3bcbd00206313133e3ba2
+
+tests/test_greedy.py:315: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_greedy.py::test_short_and_long_have_independent_identical_parent_starts
+1 failed, 22 passed in 11.73s

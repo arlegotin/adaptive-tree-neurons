@@ -1,0 +1,38 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________ test_patience_mode_accepts_genuine_completed_early_stop[1] __________
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-4255/test_patience_mode_accepts_gen0/09effeac767242f5967ea3e29809f89c/a01c700c15ed4c02848cb001345f3627')))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x111d089e0>
+
+    @pytest.mark.parametrize('probe_case',[1],indirect=True)
+    def test_patience_mode_accepts_genuine_completed_early_stop(probe_case,monkeypatch):
+        from treeneuron.baselines import greedy
+        from treeneuron import train
+        data,parent,table,paths=probe_case
+        monkeypatch.setattr(train,'regression_metrics',lambda *a,**k: {'mse':1.})
+        before=copy.deepcopy(parent)
+        greedy.run_greedy_probes(parent,table,data,probe_updates=6,seed=7,paths=paths,stopping_mode='patience')
+        report=json.loads((paths.directory/'greedy.json').read_text())
+        assert report['complete'] and report['stopping_mode']=='patience'
+        for trial in report['trials']:
+            assert trial['executed_updates']==2 and trial['selected_stage_updates']==0
+            assert trial['stopping_reason']=='patience' and not trial['hit_ceiling']
+            assert trial['allowance']==6
+            from treeneuron.checkpoint import load_checkpoint
+            from treeneuron.config import canonical_hash
+            child=paths.directory/trial['path']
+            restored=load_checkpoint(child/'checkpoints'/'best.json',expected_hashes=parent.identity_hashes,device='cpu')
+            manifest=json.loads((child/'manifest.json').read_text())
+>           assert manifest['identity']['growth_hash']==canonical_hash(restored.growth_metadata)
+E           AssertionError: assert '376f02323d10...4e5d74a3069cb' == 'ccf1c937e27a...4e60d61c6de28'
+E             
+E             - ccf1c937e27aa024e0baf5fb39883b48e67bd63ba4121a77a9a4e60d61c6de28
+E             + 376f02323d1087e54e5cb7fb7d0d1915d83a4d63e6282b902434e5d74a3069cb
+
+tests/test_greedy.py:282: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_greedy.py::test_patience_mode_accepts_genuine_completed_early_stop[1]
+1 failed, 22 deselected in 3.78s

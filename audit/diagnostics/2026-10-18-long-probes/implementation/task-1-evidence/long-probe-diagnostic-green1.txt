@@ -1,0 +1,136 @@
+.F..F......FF....                                                        [100%]
+=================================== FAILURES ===================================
+_____________ test_measurement_lock_and_ordered_failure_membership _____________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4249/test_measurement_lock_and_orde0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x110e70200>
+
+    def test_measurement_lock_and_ordered_failure_membership(tmp_path,monkeypatch):
+        m,calls=fake_execution(monkeypatch,tmp_path)
+        value=spec(tmp_path)
+        cost=m.measure(value,tmp_path/'cost')
+        assert len(calls)==1 and cost['phase']=='cost' and cost['status']=='completed'
+        decision=tmp_path/'cost'/'resource-decision.json'
+        assert decision.is_file()
+        cohort=m.run(value,decision,tmp_path/'study')
+        assert cohort['status']=='completed' and len(calls)==7
+        assert [(v['teacher_index'],v['repetition']) for v in cohort['members']]==[(0,0),(0,1),(1,0),(1,1),(2,0),(2,1)]
+        assert all('record' not in v and 'pair_sha256' in v for v in cohort['members'])
+        assert (tmp_path/'study'/'study-lock.json').is_file()
+        assert cohort['members'][0]['teacher_id']!=cost['members'][0]['teacher_id']
+        # The resource decision is hash bound and cannot silently change the recipe.
+        changed=copy.deepcopy(value); changed['short_probe_updates']=2
+>       with pytest.raises(ValueError,match='spec|decision'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'spec|decision'
+E         Actual message: 'Invalid short/long probe allowances'
+
+tests/test_probe_diagnostic.py:84: AssertionError
+_____ test_analysis_teacher_weighting_original_units_and_retained_effects ______
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4249/test_analysis_teacher_weightin0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1108f40b0>
+
+    def test_analysis_teacher_weighting_original_units_and_retained_effects(tmp_path,monkeypatch):
+        m,root=analysis_fixture(tmp_path,monkeypatch)
+>       result=m.analyze(root)
+               ^^^^^^^^^^^^^^^
+
+tests/test_probe_diagnostic.py:147: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/pilot/probe_diagnostic.py:428: in analyze
+    ledger=_read_sealed(output/'members.json')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4249/test_analysis_teacher_weightin0/study/members.json')
+
+    def _read_sealed(path):
+        if _read_json(path.with_name(path.stem+'-seal.json'))!={'sha256':file_hash(path)}:
+>           raise ValueError(f'{path.name} hash mismatch')
+E           ValueError: members.json hash mismatch
+
+src/treeneuron/pilot/probe_diagnostic.py:200: ValueError
+_____ test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts[0] _____
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4249/test_long_probe_opt_in_nine_ro0')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4249/training-evidence0/report.json')
+growth_count = 0
+
+    @pytest.mark.parametrize('growth_count',[0,1])
+    def test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts(tmp_path,cpu_training_evidence,growth_count):
+        import torch
+        from treeneuron.pilot.calibrate import teacher_inputs,repetition_config,run_repetition
+        raw=config(tmp_path).to_dict()
+        raw['execution']['backend_report']=str(cpu_training_evidence)
+        raw['backend']['interop_threads']=torch.get_num_interop_threads()
+        raw['growth']['m_requested']=growth_count
+        c=resolve_experiment(raw)
+        _,data,e,tc=teacher_inputs(c,0)
+>       result=run_repetition(repetition_config(tc,0),data,e,tmp_path/'long-pair','diagnostic',reference_probe_updates=1)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_pilot_calibrate.py:220: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/pilot/calibrate.py:267: in run_repetition
+    predictors=load_predictors(root,report['models'])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4249/test_long_probe_opt_in_nine_ro0/long-pair')
+models = {'keep': {'path': '/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4249/test_lo..._ro0/long-pair/models/greedy.json', 'sha256': '8dcad385d23298486f3a6c30126e23cc2a3412b768820a3c7faf60557ab26cd8'}, ...}
+
+    def load_predictors(root: Path, models: dict) -> dict:
+        """Load actual registered selected checkpoints, then expose X-only methods."""
+        from ..baselines.causal import CausalPredictor
+        from ..checkpoint import _descriptor
+>       if set(models)!=set(EVALUATION_METHODS): raise ValueError('Incomplete model inventory')
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ValueError: Incomplete model inventory
+
+src/treeneuron/evaluation/confirm.py:136: ValueError
+_____ test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts[1] _____
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4249/test_long_probe_opt_in_nine_ro1')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4249/training-evidence0/report.json')
+growth_count = 1
+
+    @pytest.mark.parametrize('growth_count',[0,1])
+    def test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts(tmp_path,cpu_training_evidence,growth_count):
+        import torch
+        from treeneuron.pilot.calibrate import teacher_inputs,repetition_config,run_repetition
+        raw=config(tmp_path).to_dict()
+        raw['execution']['backend_report']=str(cpu_training_evidence)
+        raw['backend']['interop_threads']=torch.get_num_interop_threads()
+        raw['growth']['m_requested']=growth_count
+        c=resolve_experiment(raw)
+        _,data,e,tc=teacher_inputs(c,0)
+>       result=run_repetition(repetition_config(tc,0),data,e,tmp_path/'long-pair','diagnostic',reference_probe_updates=1)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_pilot_calibrate.py:220: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/pilot/calibrate.py:267: in run_repetition
+    predictors=load_predictors(root,report['models'])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4249/test_long_probe_opt_in_nine_ro1/long-pair')
+models = {'keep': {'path': '/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4249/test_lo..._ro1/long-pair/models/greedy.json', 'sha256': '03681f4502b8f4aed45c001586e725614d693fd836cede39ec58106c485a54e3'}, ...}
+
+    def load_predictors(root: Path, models: dict) -> dict:
+        """Load actual registered selected checkpoints, then expose X-only methods."""
+        from ..baselines.causal import CausalPredictor
+        from ..checkpoint import _descriptor
+>       if set(models)!=set(EVALUATION_METHODS): raise ValueError('Incomplete model inventory')
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ValueError: Incomplete model inventory
+
+src/treeneuron/evaluation/confirm.py:136: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_probe_diagnostic.py::test_measurement_lock_and_ordered_failure_membership
+FAILED tests/test_probe_diagnostic.py::test_analysis_teacher_weighting_original_units_and_retained_effects
+FAILED tests/test_pilot_calibrate.py::test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts[0]
+FAILED tests/test_pilot_calibrate.py::test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts[1]
+4 failed, 13 passed, 10 deselected in 8.79s

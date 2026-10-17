@@ -1,0 +1,34 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________ test_observation_retention_does_not_access_V_labels ______________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4253/test_observation_retention_doe0')
+
+    def test_observation_retention_does_not_access_V_labels(tmp_path):
+        m=module()
+        from treeneuron.pilot.calibrate import teacher_inputs
+        teacher,data,e,_=teacher_inputs(m._config(spec(tmp_path),'cost'),0)
+        class Forbidden:
+            def __getattribute__(self,name): raise AssertionError('V must remain unused')
+        object.__setattr__(data,'V',Forbidden())
+>       path=m._observations(tmp_path,0,teacher,data,e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_probe_diagnostic.py:240: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/pilot/probe_diagnostic.py:211: in _observations
+    **{f'{part}_{key}':getattr(getattr(data,part),key) for part in 'FGV' for key in ('X','y','row_id')})
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <test_probe_diagnostic.test_observation_retention_does_not_access_V_labels.<locals>.Forbidden object at 0x1137d2180>
+name = 'X'
+
+>   def __getattribute__(self,name): raise AssertionError('V must remain unused')
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: V must remain unused
+
+tests/test_probe_diagnostic.py:238: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_probe_diagnostic.py::test_observation_retention_does_not_access_V_labels
+1 failed, 15 deselected in 0.77s

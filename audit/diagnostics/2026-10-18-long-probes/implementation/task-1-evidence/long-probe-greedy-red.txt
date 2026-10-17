@@ -1,0 +1,148 @@
+FFFFFFF                                                                  [100%]
+=================================== FAILURES ===================================
+_______ test_probe_rejects_unknown_stopping_mode_before_trials[unknown] ________
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-4244/test_probe_rejects_unknown_sto0/74820691032c4e53ac8af38e27c3686a/9e95ec2623ce4060bbe77fa504857c89')))
+mode = 'unknown'
+
+    @pytest.mark.parametrize('mode', ['unknown', None, True])
+    def test_probe_rejects_unknown_stopping_mode_before_trials(probe_case, mode):
+        from treeneuron.baselines.greedy import run_greedy_probes
+        data,parent,table,paths=probe_case
+        with pytest.raises(ValueError,match='stopping mode'):
+>           run_greedy_probes(parent,table,data,probe_updates=2,seed=7,paths=paths,stopping_mode=mode)
+E           TypeError: run_greedy_probes() got an unexpected keyword argument 'stopping_mode'
+
+tests/test_greedy.py:258: TypeError
+_________ test_probe_rejects_unknown_stopping_mode_before_trials[None] _________
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-4244/test_probe_rejects_unknown_sto1/42d9b8b53c55404b8a46e39218510f51/90bd2e2a1df24ff3b288c3fe70cceff9')))
+mode = None
+
+    @pytest.mark.parametrize('mode', ['unknown', None, True])
+    def test_probe_rejects_unknown_stopping_mode_before_trials(probe_case, mode):
+        from treeneuron.baselines.greedy import run_greedy_probes
+        data,parent,table,paths=probe_case
+        with pytest.raises(ValueError,match='stopping mode'):
+>           run_greedy_probes(parent,table,data,probe_updates=2,seed=7,paths=paths,stopping_mode=mode)
+E           TypeError: run_greedy_probes() got an unexpected keyword argument 'stopping_mode'
+
+tests/test_greedy.py:258: TypeError
+_________ test_probe_rejects_unknown_stopping_mode_before_trials[True] _________
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-4244/test_probe_rejects_unknown_sto2/8e2de2a1f8364b05a54af4eeffd38252/a893bbaf43e442d2b7f64f978aa0f756')))
+mode = True
+
+    @pytest.mark.parametrize('mode', ['unknown', None, True])
+    def test_probe_rejects_unknown_stopping_mode_before_trials(probe_case, mode):
+        from treeneuron.baselines.greedy import run_greedy_probes
+        data,parent,table,paths=probe_case
+        with pytest.raises(ValueError,match='stopping mode'):
+>           run_greedy_probes(parent,table,data,probe_updates=2,seed=7,paths=paths,stopping_mode=mode)
+E           TypeError: run_greedy_probes() got an unexpected keyword argument 'stopping_mode'
+
+tests/test_greedy.py:258: TypeError
+__________ test_patience_mode_accepts_genuine_completed_early_stop[1] __________
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-4244/test_patience_mode_accepts_gen0/bbcf372212794703951a42f5dc8c6293/80c290f6877b440a8f64963e8a5ee30f')))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x115b8ca40>
+
+    @pytest.mark.parametrize('probe_case',[1],indirect=True)
+    def test_patience_mode_accepts_genuine_completed_early_stop(probe_case,monkeypatch):
+        from treeneuron.baselines import greedy
+        from treeneuron import train
+        data,parent,table,paths=probe_case
+        monkeypatch.setattr(train,'regression_metrics',lambda *a,**k: {'mse':1.})
+        before=copy.deepcopy(parent)
+>       greedy.run_greedy_probes(parent,table,data,probe_updates=6,seed=7,paths=paths,stopping_mode='patience')
+E       TypeError: run_greedy_probes() got an unexpected keyword argument 'stopping_mode'
+
+tests/test_greedy.py:270: TypeError
+___ test_patience_mode_rejects_unfinished_or_unexplained_return[unfinished] ____
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-4244/test_patience_mode_rejects_unf0/b13d823c297844228e0932fae1f33792/dba5264750514b54b63fcbc4d5fc9882')))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x115b68410>
+mutation = 'unfinished'
+
+    @pytest.mark.parametrize('mutation',['unfinished','unexplained'])
+    def test_patience_mode_rejects_unfinished_or_unexplained_return(probe_case,monkeypatch,mutation):
+        from treeneuron.baselines import greedy
+        data,parent,table,paths=probe_case
+        real=greedy.continue_fit
+        def corrupt(*a,**kw):
+            state=real(*a,**kw)
+            if mutation=='unfinished': state.stage['complete']=False
+            else: state.stage['updates_completed']=1
+            return state
+        monkeypatch.setattr(greedy,'continue_fit',corrupt)
+        with pytest.raises(ValueError,match='completed|unexplained'):
+>           greedy.run_greedy_probes(parent,table,data,probe_updates=2,seed=7,paths=paths,stopping_mode='patience')
+E           TypeError: run_greedy_probes() got an unexpected keyword argument 'stopping_mode'
+
+tests/test_greedy.py:292: TypeError
+___ test_patience_mode_rejects_unfinished_or_unexplained_return[unexplained] ___
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-4244/test_patience_mode_rejects_unf1/5153ca69c94240219577d479a9c9537b/96f2f6141f9348f9a24488dcb642c2eb')))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x115ab7110>
+mutation = 'unexplained'
+
+    @pytest.mark.parametrize('mutation',['unfinished','unexplained'])
+    def test_patience_mode_rejects_unfinished_or_unexplained_return(probe_case,monkeypatch,mutation):
+        from treeneuron.baselines import greedy
+        data,parent,table,paths=probe_case
+        real=greedy.continue_fit
+        def corrupt(*a,**kw):
+            state=real(*a,**kw)
+            if mutation=='unfinished': state.stage['complete']=False
+            else: state.stage['updates_completed']=1
+            return state
+        monkeypatch.setattr(greedy,'continue_fit',corrupt)
+        with pytest.raises(ValueError,match='completed|unexplained'):
+>           greedy.run_greedy_probes(parent,table,data,probe_updates=2,seed=7,paths=paths,stopping_mode='patience')
+E           TypeError: run_greedy_probes() got an unexpected keyword argument 'stopping_mode'
+
+tests/test_greedy.py:292: TypeError
+_________ test_short_and_long_have_independent_identical_parent_starts _________
+
+probe_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...gotin/pytest-4244/test_short_and_long_have_indep0/3151e773c34d4990b4d4b918b7883d4c/35782ff622194495944643d3e8db304b')))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x115b8cd10>
+
+    def test_short_and_long_have_independent_identical_parent_starts(probe_case,monkeypatch):
+        from treeneuron.baselines import greedy
+        data,parent,table,short=probe_case
+        long=create_run(short.directory/'long',parent.config.to_dict())
+        starts=[]
+        real=greedy.continue_fit
+        def observe(state,*a,**kw):
+            starts.append(copy.deepcopy(state))
+            return real(state,*a,**kw)
+        monkeypatch.setattr(greedy,'continue_fit',observe)
+        before=copy.copy(parent); before.rng_states=capture_rng()
+        greedy.run_greedy_probes(parent,table,data,probe_updates=2,seed=7,paths=short)
+>       greedy.run_greedy_probes(parent,table,data,probe_updates=6,seed=7,paths=long,stopping_mode='patience')
+E       TypeError: run_greedy_probes() got an unexpected keyword argument 'stopping_mode'
+
+tests/test_greedy.py:310: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_greedy.py::test_probe_rejects_unknown_stopping_mode_before_trials[unknown]
+FAILED tests/test_greedy.py::test_probe_rejects_unknown_stopping_mode_before_trials[None]
+FAILED tests/test_greedy.py::test_probe_rejects_unknown_stopping_mode_before_trials[True]
+FAILED tests/test_greedy.py::test_patience_mode_accepts_genuine_completed_early_stop[1]
+FAILED tests/test_greedy.py::test_patience_mode_rejects_unfinished_or_unexplained_return[unfinished]
+FAILED tests/test_greedy.py::test_patience_mode_rejects_unfinished_or_unexplained_return[unexplained]
+FAILED tests/test_greedy.py::test_short_and_long_have_independent_identical_parent_starts
+7 failed, 16 deselected in 4.56s
