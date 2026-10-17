@@ -1,0 +1,44 @@
+[
+  {
+    "problem": "a",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v2/development-8000/paired-development.py",
+      "environment/h1-v2/development-8000/primary-a.json"
+    ],
+    "exit_code": 0,
+    "outer_ns": 69471644583,
+    "config_file_sha256": "9d76090479f8de55da509c24c66360f16eb6dc552e7ff2ff32e199f6bf595eaf",
+    "wrapper_sha256": "8d084efe9d4e53702f76769089d7b4ac2da28faad40272f340f3e4884208841e",
+    "environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src"
+    }
+  },
+  {
+    "problem": "b",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v2/development-8000/paired-development.py",
+      "environment/h1-v2/development-8000/primary-b.json"
+    ],
+    "exit_code": 0,
+    "outer_ns": 68646678917,
+    "config_file_sha256": "8356e01636e8f1ccb0f0f9bdd58b613943c3c7f1fbe15f59a3864441862e059d",
+    "wrapper_sha256": "8d084efe9d4e53702f76769089d7b4ac2da28faad40272f340f3e4884208841e",
+    "environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src"
+    }
+  }
+]

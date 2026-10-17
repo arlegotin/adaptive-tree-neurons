@@ -1,0 +1,115 @@
+{
+  "status": "two_exploratory_problems_one_repetition_each_not_scientific_pilot",
+  "complete_ignored_inventory": {
+    "path": "environment/h1-v2/development-8000/inventory.json",
+    "sha256": "ebae76287ad5f14b0fc66a65c77293c4e8786295543294b63ec60c1d512db039",
+    "files": 282,
+    "bytes": 157930582,
+    "root_rehash_errors": []
+  },
+  "files": [
+    {
+      "original_path": "environment/h1-v2/development-8000/launcher.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/environment/h1-v2/development-8000/launcher.stdout",
+      "bytes": 1428,
+      "sha256": "0e2d22cb0400d1a2fa20aedf7b0b3f226d1f7a24a66f78b0a012d4bcbfcf6bef"
+    },
+    {
+      "original_path": "environment/h1-v2/development-8000/primary-a.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/environment/h1-v2/development-8000/primary-a.stdout",
+      "bytes": 410,
+      "sha256": "a3b5ef9d4a4e0dfbe45f6ac8e26e957d3dd08612025b3736cb4dc7595d5bc83a"
+    },
+    {
+      "original_path": "environment/h1-v2/development-8000/summarize-raw-stages.py",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/environment/h1-v2/development-8000/summarize-raw-stages.py",
+      "bytes": 3527,
+      "sha256": "7654c545b1803281a62814f514590fb1e5a10e17015ceeb1c23b9b01b7c9a089"
+    },
+    {
+      "original_path": "environment/h1-v2/development-8000/primary-b.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/environment/h1-v2/development-8000/primary-b.json",
+      "bytes": 2491,
+      "sha256": "8356e01636e8f1ccb0f0f9bdd58b613943c3c7f1fbe15f59a3864441862e059d"
+    },
+    {
+      "original_path": "environment/h1-v2/development-8000/invocations.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/environment/h1-v2/development-8000/invocations.json",
+      "bytes": 1644,
+      "sha256": "6dbe43d69509f172d689319fd87c4cada509880b375b227727a4a46c6d4d3380"
+    },
+    {
+      "original_path": "environment/h1-v2/development-8000/launcher.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/environment/h1-v2/development-8000/launcher.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/development-8000/primary-a.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/environment/h1-v2/development-8000/primary-a.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/development-8000/paired-development.py",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/environment/h1-v2/development-8000/paired-development.py",
+      "bytes": 11374,
+      "sha256": "8d084efe9d4e53702f76769089d7b4ac2da28faad40272f340f3e4884208841e"
+    },
+    {
+      "original_path": "environment/h1-v2/development-8000/primary-b.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/environment/h1-v2/development-8000/primary-b.stdout",
+      "bytes": 408,
+      "sha256": "3d9f160b285a32085879676ae4ed481b5e066e0b1892fb2e0d15cdd67ce65c7a"
+    },
+    {
+      "original_path": "environment/h1-v2/development-8000/primary-a.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/environment/h1-v2/development-8000/primary-a.json",
+      "bytes": 2491,
+      "sha256": "9d76090479f8de55da509c24c66360f16eb6dc552e7ff2ff32e199f6bf595eaf"
+    },
+    {
+      "original_path": "environment/h1-v2/development-8000/inventory.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/environment/h1-v2/development-8000/inventory.json",
+      "bytes": 70895,
+      "sha256": "ebae76287ad5f14b0fc66a65c77293c4e8786295543294b63ec60c1d512db039"
+    },
+    {
+      "original_path": "environment/h1-v2/development-8000/raw-stage-summary.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/environment/h1-v2/development-8000/raw-stage-summary.json",
+      "bytes": 17589,
+      "sha256": "094dc4d73cf2fd0058380dfc9cbeb53c59fdf085e14ff93c9fbe5ddd36c2e87f"
+    },
+    {
+      "original_path": "environment/h1-v2/development-8000/primary-b.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/environment/h1-v2/development-8000/primary-b.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/development-8000/launch-two.py",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/environment/h1-v2/development-8000/launch-two.py",
+      "bytes": 1786,
+      "sha256": "71a7d5d1ddecbc804cce756e767f2475ad88f521b89e9d4b8defcca34f4d4703"
+    },
+    {
+      "original_path": "artifacts/h1-v2/development-8000/h1-v2-primary-b-8000/measurements.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/artifacts/h1-v2/development-8000/h1-v2-primary-b-8000/measurements.json",
+      "bytes": 2234848,
+      "sha256": "52b06738359540df8a8b934724dc96c543d2f993c3010aaf4a49d9b3dbb63414"
+    },
+    {
+      "original_path": "artifacts/h1-v2/development-8000/h1-v2-primary-a-8000/measurements.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/artifacts/h1-v2/development-8000/h1-v2-primary-a-8000/measurements.json",
+      "bytes": 2214493,
+      "sha256": "49bacbde9bfbb28423bee7467869fc4e88e1c76956e1458b549a80dac7497596"
+    },
+    {
+      "original_path": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/scientific-calibration-phase-b-development-8000-report.md",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/measurement-report.md",
+      "bytes": 9916,
+      "sha256": "a61ac6d9c1dd95da68eb72eab59d53b428783c3aa560e705bf0063678f81dca1"
+    }
+  ],
+  "limits": "No independent confirmation or full all8/B6/R2 resource sample. Original diagnostic stage.examples are superseded by copied direct raw-stage summaries. All original data/run/model/prediction bytes remain retained and indexed."
+}

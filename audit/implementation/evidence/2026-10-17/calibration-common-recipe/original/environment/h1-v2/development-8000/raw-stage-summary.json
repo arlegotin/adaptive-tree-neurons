@@ -1,0 +1,457 @@
+{
+  "status": "raw_stage_count_receipt",
+  "scope": "authoritative per-stage examples/bytes from original stage events; no training/prediction",
+  "note": "The executing wrapper stage.examples helper filters inherited checkpoint histories by global update and can include the parent executed-after-selected tail. Preserve original measurements; these direct stage-event counts supersede that diagnostic field only. Executed updates, selected states, curves, pairing, predictions and costs are unchanged.",
+  "problems": [
+    {
+      "problem": "a",
+      "measurement_path": "artifacts/h1-v2/development-8000/h1-v2-primary-a-8000/measurements.json",
+      "measurement_sha256": "49bacbde9bfbb28423bee7467869fc4e88e1c76956e1458b549a80dac7497596",
+      "source_sha256": "d8e5c0c6549f3b1948ee86b39a2d3234ebe5230e7bb09c13ebfc4351c2cf891c",
+      "config_sha256": "a944a7ae67cb99c266df0070dbe26a99120f896ed285230cdeac397bc6114f78",
+      "roles": [
+        {
+          "role": "keep",
+          "method_id": "B1",
+          "stage_index": 0,
+          "path": "artifacts/h1-v2/development-8000/h1-v2-primary-a-8000/runs/a1563e5c79d24bc58bfe8b26f66ed3e0/events.jsonl",
+          "events_sha256": "8316dc305f3c29ca868c59fa55c848a64b96e330a5172b8894afd8479d6b0551",
+          "events_bytes": 1285520,
+          "update_event_bytes": 1273997,
+          "updates": 500,
+          "examples": 60598,
+          "helper_examples": 121196,
+          "actual_row_counts": {
+            "2": 27,
+            "128": 473
+          },
+          "selected_update": 4350,
+          "max_updates": 8000,
+          "hit_ceiling": false,
+          "improving_at_ceiling": false,
+          "final_nonimproving_evaluations": 20,
+          "early_stop_patience_reached": true
+        },
+        {
+          "role": "ordinary_upper",
+          "method_id": "B2",
+          "stage_index": 0,
+          "path": "artifacts/h1-v2/development-8000/h1-v2-primary-a-8000/runs/4a333bc8ef8b4e9e959038cfe3e40fa7/events.jsonl",
+          "events_sha256": "78ca7ceaed3a58a6c244eb2e085243388dd2364e554f84b272874f92c64c2d35",
+          "events_bytes": 6499359,
+          "update_event_bytes": 6444440,
+          "updates": 2525,
+          "examples": 306568,
+          "helper_examples": 306568,
+          "actual_row_counts": {
+            "128": 2393,
+            "2": 132
+          },
+          "selected_update": 2025,
+          "max_updates": 8000,
+          "hit_ceiling": false,
+          "improving_at_ceiling": false,
+          "final_nonimproving_evaluations": 20,
+          "early_stop_patience_reached": true
+        },
+        {
+          "role": "ordinary_upper",
+          "method_id": "B2",
+          "stage_index": 1,
+          "path": "artifacts/h1-v2/development-8000/h1-v2-primary-a-8000/runs/c7ee83886dab493b971a756708bc1c71/events.jsonl",
+          "events_sha256": "9c53ee0a4f380c7cbff10b4aa11096381b95b82e5fc1a1d5f9123c684d8a4f75",
+          "events_bytes": 1287900,
+          "update_event_bytes": 1276382,
+          "updates": 500,
+          "examples": 60724,
+          "helper_examples": 121448,
+          "actual_row_counts": {
+            "128": 474,
+            "2": 26
+          },
+          "selected_update": 2025,
+          "max_updates": 8000,
+          "hit_ceiling": false,
+          "improving_at_ceiling": false,
+          "final_nonimproving_evaluations": 20,
+          "early_stop_patience_reached": true
+        },
+        {
+          "role": "parent",
+          "method_id": "B1",
+          "stage_index": 0,
+          "path": "artifacts/h1-v2/development-8000/h1-v2-primary-a-8000/runs/17721f3d5abe4dab9a49ac5c20edb6f0/events.jsonl",
+          "events_sha256": "cd5b49e14694f634794c2fdc6890b22082fd657c6d799b7ceb40a16985788796",
+          "events_bytes": 12482442,
+          "update_event_bytes": 12377481,
+          "updates": 4850,
+          "examples": 588670,
+          "helper_examples": 588670,
+          "actual_row_counts": {
+            "128": 4595,
+            "2": 255
+          },
+          "selected_update": 4350,
+          "max_updates": 8000,
+          "hit_ceiling": false,
+          "improving_at_ceiling": false,
+          "final_nonimproving_evaluations": 20,
+          "early_stop_patience_reached": true
+        },
+        {
+          "role": "random",
+          "method_id": "B4",
+          "stage_index": 0,
+          "path": "artifacts/h1-v2/development-8000/h1-v2-primary-a-8000/runs/3b187268e56e4218929cb961a75e34aa/events.jsonl",
+          "events_sha256": "974c8e6ef1d4f55ddb11a24566a96213a20ea62c733d6b7e8a456bca05db28a9",
+          "events_bytes": 1864114,
+          "update_event_bytes": 1847742,
+          "updates": 725,
+          "examples": 87886,
+          "helper_examples": 148484,
+          "actual_row_counts": {
+            "2": 39,
+            "128": 686
+          },
+          "selected_update": 4575,
+          "max_updates": 8000,
+          "hit_ceiling": false,
+          "improving_at_ceiling": false,
+          "final_nonimproving_evaluations": 20,
+          "early_stop_patience_reached": true
+        },
+        {
+          "role": "sham",
+          "method_id": "B1",
+          "stage_index": 0,
+          "path": "artifacts/h1-v2/development-8000/h1-v2-primary-a-8000/runs/cb9e9133c65c4824ac00f11a63596021/events.jsonl",
+          "events_sha256": "b60d95e04b5049a95c848fa00d9421347e897e4bfc694486352d9d801f7b82da",
+          "events_bytes": 1285520,
+          "update_event_bytes": 1273997,
+          "updates": 500,
+          "examples": 60598,
+          "helper_examples": 121196,
+          "actual_row_counts": {
+            "2": 27,
+            "128": 473
+          },
+          "selected_update": 4350,
+          "max_updates": 8000,
+          "hit_ceiling": false,
+          "improving_at_ceiling": false,
+          "final_nonimproving_evaluations": 20,
+          "early_stop_patience_reached": true
+        },
+        {
+          "role": "static_partial",
+          "method_id": "B3",
+          "stage_index": 0,
+          "path": "artifacts/h1-v2/development-8000/h1-v2-primary-a-8000/runs/0f6862b017c54594a78fa1157beabe8e/events.jsonl",
+          "events_sha256": "45a959942f4b461efa804c3bd2c5aa59cc049e27975cef42a88552f13881f955",
+          "events_bytes": 10036997,
+          "update_event_bytes": 9952510,
+          "updates": 3900,
+          "examples": 473370,
+          "helper_examples": 473370,
+          "actual_row_counts": {
+            "128": 3695,
+            "2": 205
+          },
+          "selected_update": 3400,
+          "max_updates": 8000,
+          "hit_ceiling": false,
+          "improving_at_ceiling": false,
+          "final_nonimproving_evaluations": 20,
+          "early_stop_patience_reached": true
+        },
+        {
+          "role": "static_partial",
+          "method_id": "B3",
+          "stage_index": 1,
+          "path": "artifacts/h1-v2/development-8000/h1-v2-primary-a-8000/runs/0b52d2ae8f694de9846ba6525b6c8090/events.jsonl",
+          "events_sha256": "704f6bfce33efe7c0227f31b9d48b48bc546044525e61e6bd2d974f4b2df42eb",
+          "events_bytes": 1285579,
+          "update_event_bytes": 1274056,
+          "updates": 500,
+          "examples": 60598,
+          "helper_examples": 121196,
+          "actual_row_counts": {
+            "2": 27,
+            "128": 473
+          },
+          "selected_update": 3400,
+          "max_updates": 8000,
+          "hit_ceiling": false,
+          "improving_at_ceiling": false,
+          "final_nonimproving_evaluations": 20,
+          "early_stop_patience_reached": true
+        },
+        {
+          "role": "top",
+          "method_id": "B5",
+          "stage_index": 0,
+          "path": "artifacts/h1-v2/development-8000/h1-v2-primary-a-8000/runs/a41cb49f46e848069dfa7778da716022/events.jsonl",
+          "events_sha256": "15872ee2fb1d407fc36abb6169a69564369bda5914ca60bbc888a603b026f191",
+          "events_bytes": 1864131,
+          "update_event_bytes": 1847764,
+          "updates": 725,
+          "examples": 87886,
+          "helper_examples": 148484,
+          "actual_row_counts": {
+            "2": 39,
+            "128": 686
+          },
+          "selected_update": 4575,
+          "max_updates": 8000,
+          "hit_ceiling": false,
+          "improving_at_ceiling": false,
+          "final_nonimproving_evaluations": 20,
+          "early_stop_patience_reached": true
+        }
+      ],
+      "byte_buckets": {
+        "other": 2657370,
+        "npz_data_predictions": 1470739,
+        "tensor_payloads": 2126918,
+        "checkpoint_metadata": 35519694,
+        "raw_events": 37891562
+      },
+      "final_retained_bytes": 79666283,
+      "peak_rss_bytes": 520945664,
+      "enclosing_ns": 63849719500,
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 4
+      },
+      "sham_max_abs": 0.0
+    },
+    {
+      "problem": "b",
+      "measurement_path": "artifacts/h1-v2/development-8000/h1-v2-primary-b-8000/measurements.json",
+      "measurement_sha256": "52b06738359540df8a8b934724dc96c543d2f993c3010aaf4a49d9b3dbb63414",
+      "source_sha256": "d8e5c0c6549f3b1948ee86b39a2d3234ebe5230e7bb09c13ebfc4351c2cf891c",
+      "config_sha256": "bd937ab3a50d71ffb26c6d79c1a117fcbfb779f3cf318526bbaccdc020f4ad4d",
+      "roles": [
+        {
+          "role": "keep",
+          "method_id": "B1",
+          "stage_index": 0,
+          "path": "artifacts/h1-v2/development-8000/h1-v2-primary-b-8000/runs/4eba55ae480346eb970afad9263224c0/events.jsonl",
+          "events_sha256": "91f1d7ef3a13b78d18d29eb5ba238b0136717c12de91d4c7ebaa1279e258bcd5",
+          "events_bytes": 1288623,
+          "update_event_bytes": 1277052,
+          "updates": 500,
+          "examples": 60724,
+          "helper_examples": 121448,
+          "actual_row_counts": {
+            "128": 474,
+            "2": 26
+          },
+          "selected_update": 3200,
+          "max_updates": 8000,
+          "hit_ceiling": false,
+          "improving_at_ceiling": false,
+          "final_nonimproving_evaluations": 20,
+          "early_stop_patience_reached": true
+        },
+        {
+          "role": "ordinary_upper",
+          "method_id": "B2",
+          "stage_index": 0,
+          "path": "artifacts/h1-v2/development-8000/h1-v2-primary-b-8000/runs/42a2e524987a4e8da94e2e1b6eb1b355/events.jsonl",
+          "events_sha256": "e8d55a29a05736961e920268e083154feca3324a99b5475ebfbc8e3eea4bb81d",
+          "events_bytes": 8818477,
+          "update_event_bytes": 8743993,
+          "updates": 3425,
+          "examples": 415720,
+          "helper_examples": 415720,
+          "actual_row_counts": {
+            "128": 3245,
+            "2": 180
+          },
+          "selected_update": 2925,
+          "max_updates": 8000,
+          "hit_ceiling": false,
+          "improving_at_ceiling": false,
+          "final_nonimproving_evaluations": 20,
+          "early_stop_patience_reached": true
+        },
+        {
+          "role": "ordinary_upper",
+          "method_id": "B2",
+          "stage_index": 1,
+          "path": "artifacts/h1-v2/development-8000/h1-v2-primary-b-8000/runs/43ef0a645ba7481ab749c796b6607184/events.jsonl",
+          "events_sha256": "268c55ad672a50bd35e31fc1b1bf98491760c8c82010c0394139430ec81e6879",
+          "events_bytes": 1286156,
+          "update_event_bytes": 1274595,
+          "updates": 500,
+          "examples": 60598,
+          "helper_examples": 121196,
+          "actual_row_counts": {
+            "2": 27,
+            "128": 473
+          },
+          "selected_update": 2925,
+          "max_updates": 8000,
+          "hit_ceiling": false,
+          "improving_at_ceiling": false,
+          "final_nonimproving_evaluations": 20,
+          "early_stop_patience_reached": true
+        },
+        {
+          "role": "parent",
+          "method_id": "B1",
+          "stage_index": 0,
+          "path": "artifacts/h1-v2/development-8000/h1-v2-primary-b-8000/runs/c12fd993eca746b5b1cb851450c173c2/events.jsonl",
+          "events_sha256": "3f954476776cf237a61d0d77468eb623fdd3ae0d95015e46ab77622a9f6067f1",
+          "events_bytes": 9527588,
+          "update_event_bytes": 9447195,
+          "updates": 3700,
+          "examples": 449156,
+          "helper_examples": 449156,
+          "actual_row_counts": {
+            "128": 3506,
+            "2": 194
+          },
+          "selected_update": 3200,
+          "max_updates": 8000,
+          "hit_ceiling": false,
+          "improving_at_ceiling": false,
+          "final_nonimproving_evaluations": 20,
+          "early_stop_patience_reached": true
+        },
+        {
+          "role": "random",
+          "method_id": "B4",
+          "stage_index": 0,
+          "path": "artifacts/h1-v2/development-8000/h1-v2-primary-b-8000/runs/ea9d82470f3b490595f9b1e757ff7b17/events.jsonl",
+          "events_sha256": "353eddcdbdb3e3fad45cc200cd443f2e803bc67ab7b2d13075034705ebc5fdcc",
+          "events_bytes": 1288638,
+          "update_event_bytes": 1277080,
+          "updates": 500,
+          "examples": 60724,
+          "helper_examples": 121448,
+          "actual_row_counts": {
+            "128": 474,
+            "2": 26
+          },
+          "selected_update": 3200,
+          "max_updates": 8000,
+          "hit_ceiling": false,
+          "improving_at_ceiling": false,
+          "final_nonimproving_evaluations": 20,
+          "early_stop_patience_reached": true
+        },
+        {
+          "role": "sham",
+          "method_id": "B1",
+          "stage_index": 0,
+          "path": "artifacts/h1-v2/development-8000/h1-v2-primary-b-8000/runs/316249afbc674d3a95d1667316e2d6b8/events.jsonl",
+          "events_sha256": "b45770dee1b0fb4527c6df1a9c477fa381631946147986ba76bce7119594da1e",
+          "events_bytes": 1288623,
+          "update_event_bytes": 1277052,
+          "updates": 500,
+          "examples": 60724,
+          "helper_examples": 121448,
+          "actual_row_counts": {
+            "128": 474,
+            "2": 26
+          },
+          "selected_update": 3200,
+          "max_updates": 8000,
+          "hit_ceiling": false,
+          "improving_at_ceiling": false,
+          "final_nonimproving_evaluations": 20,
+          "early_stop_patience_reached": true
+        },
+        {
+          "role": "static_partial",
+          "method_id": "B3",
+          "stage_index": 0,
+          "path": "artifacts/h1-v2/development-8000/h1-v2-primary-b-8000/runs/55208440908e4ba399375329253f3c04/events.jsonl",
+          "events_sha256": "55b067b922478b71ef6ea01bb895364a3e3207fb78f6b8705528bdf61af82f86",
+          "events_bytes": 12746801,
+          "update_event_bytes": 12639522,
+          "updates": 4950,
+          "examples": 600840,
+          "helper_examples": 600840,
+          "actual_row_counts": {
+            "128": 4690,
+            "2": 260
+          },
+          "selected_update": 4450,
+          "max_updates": 8000,
+          "hit_ceiling": false,
+          "improving_at_ceiling": false,
+          "final_nonimproving_evaluations": 20,
+          "early_stop_patience_reached": true
+        },
+        {
+          "role": "static_partial",
+          "method_id": "B3",
+          "stage_index": 1,
+          "path": "artifacts/h1-v2/development-8000/h1-v2-primary-b-8000/runs/17378dbd65d24809beefa14ddd22c7ed/events.jsonl",
+          "events_sha256": "b7ffeea20852222f5f2d779e35d2ffa8858c055d305d1a804112205431bcb4f0",
+          "events_bytes": 1288690,
+          "update_event_bytes": 1277127,
+          "updates": 500,
+          "examples": 60724,
+          "helper_examples": 121448,
+          "actual_row_counts": {
+            "128": 474,
+            "2": 26
+          },
+          "selected_update": 4450,
+          "max_updates": 8000,
+          "hit_ceiling": false,
+          "improving_at_ceiling": false,
+          "final_nonimproving_evaluations": 20,
+          "early_stop_patience_reached": true
+        },
+        {
+          "role": "top",
+          "method_id": "B5",
+          "stage_index": 0,
+          "path": "artifacts/h1-v2/development-8000/h1-v2-primary-b-8000/runs/1744f35643334effb340f3775eda6b6c/events.jsonl",
+          "events_sha256": "2910c948a8ef32d086d62bb39bf4152e0a0bf8f7214c0ea5e5d5302960463f06",
+          "events_bytes": 1288638,
+          "update_event_bytes": 1277070,
+          "updates": 500,
+          "examples": 60724,
+          "helper_examples": 121448,
+          "actual_row_counts": {
+            "128": 474,
+            "2": 26
+          },
+          "selected_update": 3200,
+          "max_updates": 8000,
+          "hit_ceiling": false,
+          "improving_at_ceiling": false,
+          "final_nonimproving_evaluations": 20,
+          "early_stop_patience_reached": true
+        }
+      ],
+      "byte_buckets": {
+        "other": 2682039,
+        "npz_data_predictions": 1470487,
+        "tensor_payloads": 2128582,
+        "checkpoint_metadata": 33103562,
+        "raw_events": 38822234
+      },
+      "final_retained_bytes": 78206904,
+      "peak_rss_bytes": 508608512,
+      "enclosing_ns": 64485560833,
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 4
+      },
+      "sham_max_abs": 0.0
+    }
+  ]
+}

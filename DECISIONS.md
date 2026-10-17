@@ -439,3 +439,33 @@ protected access. If the batch decision is wrong, claims remain limited to the
 chosen recipe; another batch needs separately budgeted calibration and fresh
 independent confirmation, with more time and storage. No batch-independent
 allocation advantage is claimed.
+
+
+## D021 — 17 October 2026: common-recipe development checks remain mixed
+
+The two predeclared primary problems completed under the shared 128/0.005,
+8,000+8,000 candidate recipe. All 18 stages exhausted patience 20 before their
+ceilings; insertion and unchanged-model shams preserve predictions exactly,
+and both sample-stream pairing audits pass. Root independently rehashed all
+282 retained files / 157,930,582 bytes, with no mismatch.
+
+On A, exploratory normalized E risk is 0.0755812 for selected growth,
+0.0757393 for random growth and 0.0762721 for keeping the parent. On B, all
+three are 0.0425751; the upper ordinary network gives 0.0336228. The
+[complete table and limitations](docs/research/2026-10-17-common-recipe-exploratory.md)
+and [source-specific archive](audit/implementation/evidence/2026-10-17/calibration-common-recipe/index.json)
+retain every control, including unfavorable static and ordinary results.
+These are two exploratory teachers with one repetition each, not a genuine
+variance pilot or independent confirmation. Do not pool different recipes or
+replace the registered metric with whichever result is favorable.
+
+An auxiliary wrapper's continuation-example count included an inherited history
+tail. Original records remain retained, with a direct raw-stage summary
+superseding that diagnostic count. Model updates, predictions, selected
+checkpoints and pairing were unaffected. No production/source change was needed.
+
+Continue finite one-factor sensitivities, negative controls and measured
+precision/probe calibration. The primary recipe stays fixed during those checks;
+no growth-sign-driven tuning is allowed. Complete matching all-eight-role,
+R>=2 resource evidence and strict readiness still precede the genuine pilot,
+numeric design, full independent cohort and actual reproduction/audit.

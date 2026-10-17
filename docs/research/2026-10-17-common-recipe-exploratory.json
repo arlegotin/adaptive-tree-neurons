@@ -1,0 +1,130 @@
+{
+  "status": "exploratory",
+  "independent_teachers": 2,
+  "repetitions_per_teacher": 1,
+  "protected_T_access": false,
+  "inferential_claim": null,
+  "source_execution_sha256": "07366c506b309cce841f08d54f25d718e246f75daea5696d6542c300cfadaf6c",
+  "source_package_sha256": "d8e5c0c6549f3b1948ee86b39a2d3234ebe5230e7bb09c13ebfc4351c2cf891c",
+  "raw_index": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/index.json",
+  "teachers": {
+    "a": {
+      "teacher_id": "2bfc126302b1f4913acfce64b20f97362128b1d3926bc519229133ea3d9cc09f",
+      "config_sha256": "a944a7ae67cb99c266df0070dbe26a99120f896ed285230cdeac397bc6114f78",
+      "measurement_sha256": "49bacbde9bfbb28423bee7467869fc4e88e1c76956e1458b549a80dac7497596",
+      "methods": {
+        "keep": {
+          "method_id": "B1",
+          "normalized_G": 0.06766088674889302,
+          "normalized_E": 0.07627213578000135
+        },
+        "ordinary_upper": {
+          "method_id": "B2",
+          "normalized_G": 0.07773581394605504,
+          "normalized_E": 0.0943150211419381
+        },
+        "parent": {
+          "method_id": "B1",
+          "normalized_G": 0.06766088674889302,
+          "normalized_E": null
+        },
+        "random": {
+          "method_id": "B4",
+          "normalized_G": 0.06740267625141899,
+          "normalized_E": 0.07573929757184286
+        },
+        "sham": {
+          "method_id": "B1",
+          "normalized_G": 0.06766088674889302,
+          "normalized_E": 0.07627213578000135
+        },
+        "static_partial": {
+          "method_id": "B3",
+          "normalized_G": 0.12199086893339008,
+          "normalized_E": 0.13277035270747112
+        },
+        "top": {
+          "method_id": "B5",
+          "normalized_G": 0.0660719760084503,
+          "normalized_E": 0.07558117203300721,
+          "variant": "adam"
+        }
+      },
+      "random_minus_top_E": 0.00015812553883565172,
+      "sham_max_abs": 0.0,
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 4
+      },
+      "E": {
+        "disjoint_FGV": true,
+        "role": "independent exploratory evaluation only",
+        "rows": 4096,
+        "seed": 261018100
+      },
+      "limits": "Auxiliary original stage.examples reporting bug corrected only by retained direct raw-stage-summary; no training or predictions changed."
+    },
+    "b": {
+      "teacher_id": "22a334ed9bc32194f4f32a59896d4897f8a491a00fd20301cb505b5adb72f88c",
+      "config_sha256": "bd937ab3a50d71ffb26c6d79c1a117fcbfb779f3cf318526bbaccdc020f4ad4d",
+      "measurement_sha256": "52b06738359540df8a8b934724dc96c543d2f993c3010aaf4a49d9b3dbb63414",
+      "methods": {
+        "keep": {
+          "method_id": "B1",
+          "normalized_G": 0.04035736272320475,
+          "normalized_E": 0.0425751369761054
+        },
+        "ordinary_upper": {
+          "method_id": "B2",
+          "normalized_G": 0.03548237378129363,
+          "normalized_E": 0.03362279989050382
+        },
+        "parent": {
+          "method_id": "B1",
+          "normalized_G": 0.04035736272320475,
+          "normalized_E": null
+        },
+        "random": {
+          "method_id": "B4",
+          "normalized_G": 0.04035736272320475,
+          "normalized_E": 0.0425751369761054
+        },
+        "sham": {
+          "method_id": "B1",
+          "normalized_G": 0.04035736272320475,
+          "normalized_E": 0.0425751369761054
+        },
+        "static_partial": {
+          "method_id": "B3",
+          "normalized_G": 0.04839400207865965,
+          "normalized_E": 0.04755875320787342
+        },
+        "top": {
+          "method_id": "B5",
+          "normalized_G": 0.04035736272320475,
+          "normalized_E": 0.0425751369761054,
+          "variant": "adam"
+        }
+      },
+      "random_minus_top_E": 0.0,
+      "sham_max_abs": 0.0,
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 4
+      },
+      "E": {
+        "disjoint_FGV": true,
+        "role": "independent exploratory evaluation only",
+        "rows": 4096,
+        "seed": 261018200
+      },
+      "limits": "Auxiliary original stage.examples reporting bug corrected only by retained direct raw-stage-summary; no training or predictions changed."
+    }
+  }
+}
