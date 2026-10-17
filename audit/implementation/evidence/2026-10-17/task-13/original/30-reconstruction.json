@@ -1,0 +1,191 @@
+{
+  "seeds": {
+    "teacher": 3125574141037463169,
+    "reference": 3104679785265044226,
+    "data": 3305746848283221295,
+    "test": 3437439415164990257,
+    "optimizers": [
+      6633935458659283065,
+      5546168831123949674
+    ]
+  },
+  "config": {
+    "backend": {
+      "allow_fallback": false,
+      "cpu_threads": 1,
+      "device": "cpu",
+      "execution": "eager",
+      "interop_threads": 14,
+      "score_device": "cpu",
+      "score_dtype": "float64",
+      "training_dtype": "float32"
+    },
+    "data": {
+      "components": 4,
+      "dataset": "synthetic",
+      "fit_transforms_on": "F",
+      "gate_prevalences": [
+        0.1,
+        0.5
+      ],
+      "gate_types": [
+        "hard",
+        "smooth_0.2",
+        "smooth_1.0"
+      ],
+      "n_fit": 2,
+      "n_growth": 1,
+      "n_test": null,
+      "n_validation": 1,
+      "noise_sigma": 0.1,
+      "nuisance_dimensions": 0,
+      "population": "primary",
+      "reference_rows": 65536,
+      "refit_full_development": false,
+      "regime": "isotropic",
+      "row_rounding": "ceiling",
+      "sample_density": 2.0,
+      "standardize_inputs": true,
+      "standardize_targets": true
+    },
+    "execution": {
+      "artifacts_root": "artifacts/exploratory",
+      "backend_report": "/private/tmp/task13-seed42-diagnostic/pytest/training-evidence0/report.json"
+    },
+    "growth": {
+      "block_units": 8,
+      "direction": "eigenvector",
+      "epsilon": 0.05,
+      "m_requested": 16,
+      "policy": "adam",
+      "projection_rms_floor": 1e-12,
+      "retain_zero_growth": true
+    },
+    "model": {
+      "activation": "relu",
+      "coordinates": "selective",
+      "d": 16,
+      "depth": 1,
+      "h": 64,
+      "parent_width": 0,
+      "static_count": 0,
+      "tau": 1.0
+    },
+    "phase": "exploratory",
+    "pilot": {
+      "bootstrap_iterations": 2000,
+      "bootstrap_seed": 731,
+      "constraints_path": "evidence/constraints.json",
+      "endpoint_tolerance": 0.1,
+      "evaluation_rows": 5,
+      "initial_teachers": 8,
+      "max_seconds": 10000.0,
+      "max_teachers": 32,
+      "probe_updates": 1,
+      "purpose": "scientific",
+      "readiness_path": "evidence/readiness.json",
+      "repetitions": 2
+    },
+    "seeds": {
+      "allocation": 716955712345342559,
+      "contrast": 4624428809740495636,
+      "data": 3305746848283221295,
+      "namespace": "exploratory",
+      "optimizer": 3279718506,
+      "reference": 3104679785265044226,
+      "teacher": 3125574141037463169
+    },
+    "study_id": "toy",
+    "training": {
+      "adam_beta1": 0.9,
+      "adam_beta2": 0.999,
+      "adam_epsilon": 1e-08,
+      "base_updates": 10,
+      "batch_size": 8,
+      "checkpoint_interval": 1,
+      "checkpoint_selection": "strict_improvement_earliest",
+      "continuation_updates": 10,
+      "evaluate_at_update_zero": true,
+      "learning_rate": 0.001,
+      "min_learning_rate": 0.0,
+      "optimizer": "adamw",
+      "patience": 5,
+      "scheduler": "constant",
+      "sgd_momentum": 0.0,
+      "validation_interval": 1,
+      "weight_decay": 0.0
+    }
+  },
+  "manifest": {
+    "dataset_id": "6d832402e8bdc105ea80f61b507623612d9ff621b8bfcfaa36fd1d6365146017",
+    "row_id": [
+      4919836319320054362,
+      9049457399400215021,
+      3169765963051469681,
+      8145955798820859562
+    ],
+    "group_id": [
+      4919836319320054362,
+      9049457399400215021,
+      3169765963051469681,
+      8145955798820859562
+    ],
+    "assignments": [
+      "F",
+      "F",
+      "G",
+      "V"
+    ],
+    "teacher_id": "d277c75482fd0e499df906ed5adecaf51bf886cd8b59a1776cc105a20c54e99e",
+    "fold": null,
+    "phase": "exploratory",
+    "date_boundaries": [],
+    "hashes": [
+      [
+        "F.X",
+        "e53736374136fc45da64154cc416f213b8e770530f4517fcad92955e4e69a8d1"
+      ],
+      [
+        "F.y",
+        "0a253ddb53c8475876052583d73ad5e11dd60c077c4c986a7be60640de64bcc0"
+      ],
+      [
+        "G.X",
+        "eda70dcb507f796b06910ad9662c6c5372231fcf300c8e91c53a9b45564c488b"
+      ],
+      [
+        "G.y",
+        "48ddd32c13e27e22a16a3bbd368cc4b37b581b16f11f6718de13bba5028dffe5"
+      ],
+      [
+        "V.X",
+        "499950fb06d3f66c2d3badef1e5d182fa7d02864ff59b9a009c14025d9bc3ff5"
+      ],
+      [
+        "V.y",
+        "16be06b00ed6a48003fccdb0940b803f599b593ed0a1631c7c174fb84a32dd03"
+      ]
+    ],
+    "feature_names": [
+      "x0",
+      "x1",
+      "x2",
+      "x3",
+      "x4",
+      "x5",
+      "x6",
+      "x7",
+      "x8",
+      "x9",
+      "x10",
+      "x11",
+      "x12",
+      "x13",
+      "x14",
+      "x15"
+    ],
+    "descriptive_only_reason": null,
+    "assignment_hash": "b6274a2931996830f8af6b851ff52bb6631d5fed956fbff756697ad54ab26604",
+    "feature_schema_hash": "a49a80e3cbcbf9796cfda7f69115f92093d746c116a93415c1fc7f7824f8b125"
+  }
+}

@@ -1,0 +1,962 @@
+diff --git a/src/treeneuron/analysis/audit.py b/src/treeneuron/analysis/audit.py
+index 85402e1..3c5b960 100644
+--- a/src/treeneuron/analysis/audit.py
++++ b/src/treeneuron/analysis/audit.py
+@@ -30,11 +30,14 @@ _ERRORS = (ValueError, KeyError, TypeError, OSError, IndexError, RuntimeError,
+            AttributeError, EOFError, OverflowError, pickle.UnpicklingError)
+ 
+ 
+-def conclude(primary, reasons):
++def conclude(primary, reasons, retention=None):
+     """Completeness and validity precede the sign of the scientific result."""
+     if reasons:
+         return dict(status='blocked', interpretation='blocked', superiority=False,
+                     decision='revise', reason='Evidence integrity or accounting failed')
++    if retention and retention['status']!='verified':
++        return dict(status='incomplete', interpretation='incomplete', superiority=False,
++                    decision='continue', reason='Historical attempt retention remains unknown after a hard stop')
+     if primary is None or primary['status'] != 'completed':
+         return dict(status='incomplete', interpretation='incomplete', superiority=False,
+                     decision='continue', reason='Finish every frozen unit; retain all failures')
+@@ -53,7 +56,7 @@ def _number(value, name):
+     return value
+ 
+ 
+-def _account(payload, ledger, root, study_dir):
++def _account(payload, ledger, root, study_dir, *, validate_retained_models=True):
+     """Reconstruct all attempts and disjoint work, never sum nested clocks."""
+     if ledger.get('schema_version') != 1 or ledger.get('study') != 'synthetic':
+         raise ValueError('Unsupported confirmation ledger schema/study')
+@@ -70,7 +73,7 @@ def _account(payload, ledger, root, study_dir):
+         raise ValueError('Run ledger omits or changes frozen cohort')
+     max_attempts = 1 + payload['design']['statistical_policy']['retries']
+     attempts = []; unknown = bool(ledger.get('unmeasured_interruption', False))
+-    declared_paths = set()
++    declared_paths = set(); unknown_retention=[]
+     for run in ledger['runs']:
+         previous = None
+         if len(run['attempts']) > max_attempts:
+@@ -97,6 +100,10 @@ def _account(payload, ledger, root, study_dir):
+                 _number(attempt['seconds'], 'attempt seconds')
+             if attempt['status'] in ('failed','interrupted') and not attempt.get('error'):
+                 raise ValueError('Failure classification missing')
++            if attempt['status'] in ('failed','interrupted') or 'retained' in attempt:
++                state=_audit_retained_attempt(path,attempt.get('retained'),validate_models=validate_retained_models,
++                    protected_directory=study_dir.parent.parent/'access'/ledger['protocol_hash']/'runs'/run['run_id'])
++                if state=='unknown_hard_stop': unknown_retention.append(f'{run["run_id"]}:{index}')
+             if 'pair' in attempt:
+                 pair_path = _reference(root, attempt['pair'])
+                 if pair_path.resolve() != path/'pair.json':
+@@ -139,7 +146,9 @@ def _account(payload, ledger, root, study_dir):
+         raise ValueError('Storage forecast deviation differs')
+     if combined is None and not recorded.get('combined_reason'):
+         raise ValueError('Unknown combined work needs a reason')
+-    return dict(attempts=attempts, attempted_runs=sum(bool(r['attempts']) for r in ledger['runs']),
++    return dict(retention=dict(status='unknown_hard_stop' if unknown_retention else 'verified',
++                               unknown_attempts=unknown_retention),
++                attempts=attempts, attempted_runs=sum(bool(r['attempts']) for r in ledger['runs']),
+                 failed_attempts=sum(a['status']=='failed' for a in attempts),
+                 interrupted_attempts=sum(a['status']=='interrupted' for a in attempts),
+                 costs=dict(expected_cost, retained_bytes_at_execution=retained,
+@@ -148,6 +157,84 @@ def _account(payload, ledger, root, study_dir):
+                     storage_note='Execution storage was sampled before its final ledger write; current bytes include later analyses'))
+ 
+ 
++def _audit_retained_attempt(directory, inventory, *, validate_models=True, protected_directory=None):
++    """Validate captured unsuccessful work without assuming a complete graph."""
++    from ..evaluation.confirm import _capture_attempt_inventory
++    from ..artifacts import RUN_STATUSES
++    _keys(inventory,('schema_version','state','files','protected_files','reason'),'retained attempt inventory')
++    if inventory['schema_version']!=1 or inventory['state'] not in ('captured','not_materialized','unknown_hard_stop'):
++        raise ValueError('Retained attempt inventory is unknown; historical completeness cannot be attested')
++    observed=_capture_attempt_inventory(directory,hard_stop=inventory['state']=='unknown_hard_stop',
++                                        protected_directory=protected_directory)
++    if (not isinstance(inventory['protected_files'],dict) or any(
++            observed['protected_files'].get(name)!=digest for name,digest in inventory['protected_files'].items())):
++        raise ValueError('Retained protected files are missing or changed')
++    # Later inference-only retries may publish new protected files, but may not
++    # alter any byte already captured for this attempt. Attempt directories close.
++    observed['protected_files']=inventory['protected_files']
++    if inventory!=observed:
++        raise ValueError('Retained attempt files are missing, extra or changed')
++    if inventory['state']=='not_materialized': return inventory['state']
++    pair_path=directory/'pair.json'
++    if pair_path.is_file():
++        pair=_read(pair_path)
++        for child in pair.get('child_runs',[]):
++            path=locate(child['path'],producer=True).resolve()
++            if not path.is_relative_to(directory) or not (path/'manifest.json').is_file():
++                raise ValueError('Retained partial child registration differs')
++    for name in inventory['files']:
++        if not name.endswith('/manifest.json'): continue
++        path=directory/name;manifest=_read(path);identity=manifest['identity'];method=manifest['method']
++        config=_read(path.parent/'config.resolved.json')
++        if (identity['status'] not in RUN_STATUSES or identity['run_id']!=path.parent.name
++                or identity['config_hash']!=canonical_hash(config) or method['resolved_config']!=config):
++            raise ValueError('Retained partial child identity differs')
++        _validate_cost_terms(manifest['costs'])
++        # Uninitialized children legitimately carry explicit unavailable counts.
++        terms=method['weight_terms']
++        if isinstance(method['total_parameters'],int):
++            if (set(terms)!={'layer','head'} or any(type(v) is not int or v<0 for v in terms.values())
++                    or sum(terms.values())!=method['total_parameters']):
++                raise ValueError('Retained partial child parameter terms differ')
++        elif terms.get('value') is not None or not terms.get('reason'):
++            raise ValueError('Retained uninitialized child lacks a reason')
++        for pointer in ('best.json','last.json'):
++            checkpoint=path.parent/'checkpoints'/pointer
++            if validate_models and checkpoint.is_file(): _validate_checkpoint(checkpoint,method['total_parameters'])
++    return inventory['state']
++
++
++def _validate_cost_terms(costs):
++    expected={'search','preprocess','base','score','probe','continuation','validation',
++              'first_prediction','warm_prediction','acquisition','enclosing'}
++    if set(costs)!=expected: raise ValueError('Missing declared cost terms')
++    for value in costs.values():
++        if not value.get('boundary'): raise ValueError('Missing timing boundary')
++        if value['status']=='unmeasured':
++            if value['nanoseconds'] is not None or not value['reason']: raise ValueError('Unmeasured cost needs null and reason')
++        elif value['status'] in ('measured','estimated'):
++            _number(value['nanoseconds'],'nested nanoseconds')
++            if value['reason'] is not None: raise ValueError('Measured cost has inconsistent reason')
++        else: raise ValueError('Unknown timing classification')
++
++
++def _validate_checkpoint(checkpoint, expected_count):
++    from ..checkpoint import load_checkpoint, _descriptor
++    from ..train import capture_rng, restore_rng, source_hash
++    from ..backend import lock_hash, runtime_hash
++    _,descriptor,_=_descriptor(checkpoint)
++    identities=descriptor['state']['identity_hashes']
++    if identities['code']!=source_hash() or identities['lock']!=lock_hash() or identities['runtime']!=runtime_hash():
++        raise ValueError('Checkpoint source/lock/runtime differs')
++    before=capture_rng()
++    try:
++        state=load_checkpoint(checkpoint,expected_hashes=identities,device=descriptor['state']['device'])
++        if type(expected_count) is not int or sum(t.numel() for t in state.model.parameters())!=expected_count:
++            raise ValueError('Checkpoint parameter count differs')
++    finally:
++        restore_rng(before)
++
++
+ def _validate_saved(saved, unit, payload, variance):
+     """Check producer scalar metrics against original-unit rows and frozen IDs."""
+     manifest = _manifest(unit['manifest'])
+@@ -212,32 +299,11 @@ def _audit_pair_inventory(root, pair, directory):
+         counts[str(path.relative_to(directory))]=dict(weight_terms=terms,total_parameters=method['total_parameters'],
+             trainable_parameters=method['trainable_parameters'])
+         costs=manifest['costs']
+-        expected={'search','preprocess','base','score','probe','continuation','validation',
+-                  'first_prediction','warm_prediction','acquisition','enclosing'}
+-        if set(costs)!=expected: raise ValueError('Missing declared cost terms')
+-        for name,value in costs.items():
+-            if not value.get('boundary'): raise ValueError('Missing timing boundary')
+-            if value['status']=='unmeasured':
+-                if value['nanoseconds'] is not None or not value['reason']: raise ValueError('Unmeasured cost needs null and reason')
+-            elif value['status'] in ('measured','estimated'):
+-                _number(value['nanoseconds'],'nested nanoseconds')
+-                if value['reason'] is not None: raise ValueError('Measured cost has inconsistent reason')
+-            else: raise ValueError('Unknown timing classification')
++        _validate_cost_terms(costs)
+         clocks.append(dict(path=str(path.relative_to(directory)),costs=costs))
+         for pointer in ('best.json','last.json'):
+             checkpoint=path/'checkpoints'/pointer
+-            _,descriptor,_=_descriptor(checkpoint)
+-            identities=descriptor['state']['identity_hashes']
+-            if identities['code']!=source_hash() or identities['lock']!=lock_hash() or identities['runtime']!=runtime_hash():
+-                raise ValueError('Checkpoint source/lock/runtime differs')
+-            before=capture_rng()
+-            try:
+-                state=load_checkpoint(checkpoint,expected_hashes=identities,device=descriptor['state']['device'])
+-                actual=sum(t.numel() for t in state.model.parameters())
+-                # last and G-selected best share the role topology and count.
+-                if actual!=method['total_parameters']: raise ValueError('Checkpoint parameter count differs')
+-            finally:
+-                restore_rng(before)
++            _validate_checkpoint(checkpoint,method['total_parameters'])
+             checkpoints+=1
+     return dict(selected_models=len(pair['models']),probe_candidates=len(greedy['trials']),
+                 checkpoint_pointers=checkpoints,model_counts=counts,nested_costs=clocks,
+@@ -282,6 +348,8 @@ def audit(study_dir: Path, protocol: FrozenProtocol) -> dict[str, Any]:
+             if ledger['protocol_hash'] != protocol.protocol_hash:
+                 raise ValueError('Confirmation protocol identity differs')
+             result['accounting'] = _account(payload, ledger, root, study_dir)
++            from ..archive_binding import archive_eligibility
++            result['archive_eligibility']=archive_eligibility(study_dir,root,protocol.protocol_hash)
+             events = protected.access_events(protocol)
+             declared = {rid:u for u in payload['sources']['cohort']['units'] for rid in u['run_ids']}
+             if any(e.get('run_id') not in declared for e in events):
+@@ -300,7 +368,7 @@ def audit(study_dir: Path, protocol: FrozenProtocol) -> dict[str, Any]:
+                 if run['status']=='invalid': result['reasons'].append(f'{run["run_id"]}: {run["reason"]}')
+     except _ERRORS as error:
+         result['reasons'].append(f'{type(error).__name__}: {error}')
+-    result['conclusion']=conclude(result['primary'],result['reasons'])
++    result['conclusion']=conclude(result['primary'],result['reasons'],(result.get('accounting') or {}).get('retention'))
+     result['status']=result['conclusion']['status']
+     result['valid']=result['status']=='completed' and not result['reasons']
+     result['audit_sha256']=canonical_hash(result)
+@@ -352,16 +420,18 @@ def seal_archive(study_dir: Path, protocol: FrozenProtocol, output: Path) -> Pat
+         files=files,live_audit=result,authority='Prospective live validation; immutable copied access-ledger prefix; no new T, fit, predict, or resume')
+     manifest['archive_sha256']=canonical_hash(manifest)
+     _atomic_json(output/'archive.json',manifest)
++    from ..archive_binding import bind_archive
++    bind_archive(study_dir,root,protocol.protocol_hash,output/'archive.json')
+     _atomic_json(output/'copy-work.json',dict(schema_version=1,archive_sha256=manifest['archive_sha256'],
+         seconds=(time.perf_counter_ns()-copy_started)/1e9,
+-        boundary='inventory and copying after live audit; excludes final copy-work receipt',
++        boundary='inventory, copying, verification and binding after live audit; excludes final copy-work receipt',
+         aggregation='disjoint from live audit; do not count copied historical work again'))
+     return output/'archive.json'
+ 
+ 
+ def _read_archive(bundle):
+     """Verify the prospective copied inventory without granting live authority."""
+-    bundle=Path(bundle)
++    bundle=Path(bundle).resolve()
+     directory=bundle.parent if bundle.is_file() else bundle
+     manifest=_read(bundle if bundle.is_file() else bundle/'archive.json')
+     _keys(manifest,('schema_version','mode','protocol_hash','protocol_path','study_path',
+@@ -391,6 +461,26 @@ def _read_archive(bundle):
+     return directory,manifest,digest,root,payload
+ 
+ 
++def _analysis_identity(current):
++    """Bind a clean checkout to every imported package source byte.
++
++    Equal installed/relocated packages may live elsewhere; an unrelated clean
++    repository or a different committed package cannot attest this interpreter.
++    """
++    from ..train import source_hash
++    current=Path(current).resolve()
++    snapshot=execution_snapshot(current,_git(current,'rev-parse','HEAD').decode().strip())
++    package=Path(__file__).resolve().parents[1]
++    imported={'src/treeneuron/'+p.relative_to(package).as_posix():_hash(p)
++              for p in package.rglob('*.py')}
++    verified={name:digest for name,digest in snapshot['files'].items()
++              if name.startswith('src/treeneuron/') and name.endswith('.py')}
++    if imported!=verified:
++        raise ValueError('Verified analysis checkout differs from imported package source')
++    return dict(analysis_execution_sha256=snapshot['execution_sha256'],
++                analysis_commit=snapshot['checkout_commit'],analysis_package_sha256=source_hash())
++
++
+ def audit_archive(bundle: Path, *, analysis_root: Path | None = None) -> dict[str, Any]:
+     """Recompute only sealed observations; all archived claims are exploratory."""
+     from ..backend import ROOT
+@@ -402,13 +492,12 @@ def audit_archive(bundle: Path, *, analysis_root: Path | None = None) -> dict[st
+         directory,manifest,digest,root,payload=_read_archive(bundle)
+         original=manifest['live_audit']
+         current=Path(analysis_root or ROOT).resolve()
+-        snapshot=execution_snapshot(current,_git(current,'rev-parse','HEAD').decode().strip())
++        identity=_analysis_identity(current)
+         result.update(protocol_hash=manifest['protocol_hash'],archive_sha256=digest,
+-            identity=dict(original=original['identity'],analysis_execution_sha256=snapshot['execution_sha256'],
+-                          analysis_commit=snapshot['checkout_commit'],analysis_package_sha256=source_hash()))
++            identity=dict(original=original['identity'],**identity))
+         with relocated(payload['sources']['root'],root):
+             study=_relative(root,manifest['study_path']); ledger=_read(study/'confirmation.json')
+-            result['accounting']=_account(payload,ledger,root,study)
++            result['accounting']=_account(payload,ledger,root,study,validate_retained_models=False)
+             result['accounting']['graphs']=original['accounting']['graphs']
+             runs=[]; predictions={}
+             lookup={r['run_id']:r for r in ledger['runs']}
+@@ -432,11 +521,11 @@ def audit_archive(bundle: Path, *, analysis_root: Path | None = None) -> dict[st
+                 raise ValueError('Archived raw-row reconstruction differs from sealed live analysis')
+     except _ERRORS as error:
+         result['reasons'].append(f'{type(error).__name__}: {error}')
+-    result['conclusion']=conclude(result['primary'],result['reasons'])
++    result['conclusion']=conclude(result['primary'],result['reasons'],(result.get('accounting') or {}).get('retention'))
+     if not result['reasons']:
+         result['conclusion'].update(superiority=False,interpretation='exploratory',decision='replicate',
+             reason='Archived saved-evidence analysis; fresh confirmation required after amendment/source drift')
+-        result['valid']=result['primary']['status']=='completed'
++        result['valid']=result['primary']['status']=='completed' and result['accounting']['retention']['status']=='verified'
+         result['status']='exploratory' if result['valid'] else 'incomplete'
+         result['conclusion']['status']=result['status']
+         result['primary']['primary']['superiority']=False
+@@ -457,17 +546,18 @@ def _finish_audit_work(study, result, work_id, started, previous_analysis):
+     nested=sorted(set((study/'analysis-work').glob('*.json'))-previous_analysis)
+     references=[dict(path=str(p.relative_to(study)),sha256=_hash(p)) for p in nested]
+     outer=0.; linked=set(r['path'] for r in references); completed=set()
+-    unknown=False
++    unknown=False; outer_values=[]
+     try:
+         for path in work.glob('*.json'):
+             receipt=_read(path); completed.add(path.stem)
+             if receipt['schema_version']!=1 or receipt['protocol_hash']!=result['protocol_hash']:
+                 raise ValueError('Audit work identity differs')
+-            outer+=_number(receipt['seconds'],'audit seconds')
++            outer_values.append(_number(receipt['seconds'],'audit seconds'))
+             for reference in receipt['nested_analysis_receipts']:
+                 _reference(study,reference)
+                 if reference['path'] in linked: raise ValueError('Analysis work charged to multiple audits')
+                 linked.add(reference['path'])
++        outer=math.fsum(outer_values)
+         analysis=[]
+         for path in (study/'analysis-work').glob('*.json'):
+             receipt=_read(path)
+@@ -478,15 +568,16 @@ def _finish_audit_work(study, result, work_id, started, previous_analysis):
+             if canonical_hash({k:v for k,v in report.items() if k!='report_sha256'})!=receipt['report_sha256']:
+                 raise ValueError('Analysis work report identity differs')
+             analysis.append((receipt['previous_analysis_seconds'],seconds,path))
+-        previous=0.; standalone=0.
++        previous=0.; prefix=[]; standalone_values=[]
+         for prior,seconds,path in sorted(analysis):
+             if prior!=previous: raise ValueError('Analysis work sequence differs')
+-            previous+=seconds
+-            if str(path.relative_to(study)) not in linked: standalone+=seconds
++            prefix.append(seconds); previous=math.fsum(prefix)
++            if str(path.relative_to(study)) not in linked: standalone_values.append(seconds)
++        standalone=math.fsum(standalone_values)
+         unknown=any(p.stem not in completed|{work_id} for p in (study/'audit-starts').glob('*.json'))
+     except _ERRORS as error:
+         result['reasons'].append(f'Work receipt integrity: {error}')
+-        result['conclusion']=conclude(result['primary'],result['reasons'])
++        result['conclusion']=conclude(result['primary'],result['reasons'],(result.get('accounting') or {}).get('retention'))
+         result['valid']=False; result['status']='blocked'
+         result.pop('audit_sha256'); result['audit_sha256']=canonical_hash(result)
+         unknown=True; standalone=0.
+diff --git a/src/treeneuron/analysis/primary.py b/src/treeneuron/analysis/primary.py
+index 09e49e0..66a6627 100644
+--- a/src/treeneuron/analysis/primary.py
++++ b/src/treeneuron/analysis/primary.py
+@@ -149,6 +149,11 @@ def analyze_primary(study_dir: Path, protocol: FrozenProtocol) -> dict[str, Any]
+         return _analyze_primary(study_dir, protocol)
+ 
+ 
++def _previous_analysis_seconds(work):
++    """Reduce recorded durations independently of filesystem enumeration order."""
++    return math.fsum(_read(path)['seconds'] for path in work.glob('*.json'))
++
++
+ def _analyze_primary(study_dir, protocol):
+     started=time.perf_counter_ns()
+     payload=_payload(protocol); root=locate(payload['sources']['root']); study_dir=Path(study_dir)
+@@ -204,7 +209,7 @@ def _analyze_primary(study_dir, protocol):
+     if not path.exists(): _atomic_json(path,report)
+     # Variable work measurements are separate from deterministic scientific output.
+     work=study_dir/'analysis-work'; work.mkdir(exist_ok=True)
+-    previous=sum(_read(p)['seconds'] for p in work.glob('*.json'))
++    previous=_previous_analysis_seconds(work)
+     elapsed=(time.perf_counter_ns()-started)/1e9
+     base=ledger['costs'].get('combined_seconds')
+     _atomic_json(work/f'{uuid.uuid4().hex}.json',dict(schema_version=1,protocol_hash=protocol.protocol_hash,
+diff --git a/src/treeneuron/analysis/report.py b/src/treeneuron/analysis/report.py
+index e968306..29c61ca 100644
+--- a/src/treeneuron/analysis/report.py
++++ b/src/treeneuron/analysis/report.py
+@@ -21,6 +21,9 @@ def render_report(audit_result: Mapping, output: Path) -> None:
+            f'Interpretation: {conclusion["interpretation"]}. Completed-cohort superiority: {conclusion["superiority"]}.', '']
+     if value['reasons']:
+         lines+=['Evidence problems:', '']+[f'- {reason}' for reason in value['reasons']]+['']
++    if 'archive_eligibility' in value:
++        eligibility=value['archive_eligibility']
++        lines += [f'Archive eligibility: {eligibility["status"]}. {eligibility["reason"] or "Verified repository-local prospective binding"}.', '']
+     primary=value.get('primary')
+     if primary:
+         lines += [f'Declared teachers: {primary["declared_teachers"]}; valid teachers: {primary["valid_teachers"]}; '
+diff --git a/src/treeneuron/archive_binding.py b/src/treeneuron/archive_binding.py
+new file mode 100644
+index 0000000..7ce297e
+--- /dev/null
++++ b/src/treeneuron/archive_binding.py
+@@ -0,0 +1,87 @@
++"""Immutable terminal eligibility and prospective portable archive bindings.
++
++These receipts grant no evaluation or execution authority. Archive inventories
++are validated directly, without recursively invoking a live audit.
++"""
++from pathlib import Path
++from .artifacts import _atomic_json
++from .config import canonical_hash
++from .protocol import _read, _hash, _keys, _relative
++
++
++def completion_record(directory, protocol_hash):
++    directory=Path(directory); ledger=directory/'confirmation.json'
++    value=_read(ledger)
++    if value.get('status') not in ('completed','incomplete','resource_limited'):
++        if (directory/'archive-completion.json').exists(): raise ValueError('Archive completion is no longer terminal')
++        return
++    if value['protocol_hash']!=protocol_hash: raise ValueError('Archive completion protocol differs')
++    record=dict(schema_version=1,protocol_hash=protocol_hash,confirmation_sha256=_hash(ledger),
++                terminal_status=value['status'],status='unsealed',
++                reason='No verified prospective archive supplied at completion')
++    path=directory/'archive-completion.json'
++    if path.exists():
++        if _read(path)!=record: raise ValueError('Archive completion identity differs')
++    else: _atomic_json(path,record)
++
++
++def _verified_binding(directory, root, protocol_hash, value):
++    from .analysis.audit import _read_archive
++    _keys(value,('schema_version','protocol_hash','confirmation_sha256','archive_sha256','scope','path','reason'),
++          'archive binding')
++    if (value['schema_version']!=1 or value['protocol_hash']!=protocol_hash
++            or value['confirmation_sha256']!=_hash(directory/'confirmation.json')):
++        raise ValueError('Archive binding completion identity differs')
++    if value['scope']=='repo_local':
++        if value['reason'] is not None: raise ValueError('Portable archive binding reason differs')
++        _,manifest,digest,copied,_=_read_archive(_relative(root,value['path']))
++        if (digest!=value['archive_sha256'] or manifest['protocol_hash']!=protocol_hash
++                or manifest['study_path']!=directory.relative_to(root).as_posix()
++                or _hash(copied/manifest['study_path']/'confirmation.json')!=value['confirmation_sha256']):
++            raise ValueError('Archive binding inventory identity differs')
++    elif value['scope']=='external_unbound':
++        if value['path'] is not None or value['reason']!='External archive requires explicit saved-evidence selection':
++            raise ValueError('External archive eligibility differs')
++    else: raise ValueError('Unknown archive binding scope')
++
++
++def archive_eligibility(directory, root, protocol_hash):
++    directory=Path(directory);root=Path(root)
++    path=directory/'archive-completion.json'
++    bindings=[]
++    if path.exists():
++        completion_record(directory,protocol_hash)
++    for path in sorted((directory/'archive-bindings').glob('*.json')):
++        value=_read(path)
++        if path.stem!=canonical_hash(value): raise ValueError('Archive binding receipt digest differs')
++        _verified_binding(directory,root,protocol_hash,value);bindings.append(value)
++    if bindings and not (directory/'archive-completion.json').is_file():
++        raise ValueError('Archive bindings lack completion receipt')
++    bound=any(value['scope']=='repo_local' for value in bindings)
++    status='bound' if bound else 'external_unbound' if bindings else 'unsealed'
++    reason=None if bound else ('External archive requires explicit saved-evidence selection' if bindings
++                              else 'No verified prospective archive supplied at completion')
++    return dict(schema_version=1,status=status,reason=reason,bindings=bindings)
++
++
++def bind_archive(directory, root, protocol_hash, bundle):
++    """Publish only after exact copied inventory verification; never edit history."""
++    from .analysis.audit import _read_archive
++    directory=Path(directory).resolve();root=Path(root).resolve();bundle=Path(bundle).resolve()
++    _,manifest,digest,copied,_=_read_archive(bundle)
++    if (manifest['protocol_hash']!=protocol_hash
++            or manifest['study_path']!=directory.relative_to(root).as_posix()
++            or _hash(copied/manifest['study_path']/'confirmation.json')!=_hash(directory/'confirmation.json')):
++        raise ValueError('Archive binding original completion differs')
++    completion_record(directory,protocol_hash)
++    # Running/interrupted evidence may be archived, but has no terminal binding.
++    if not (directory/'archive-completion.json').is_file(): return
++    local=bundle.is_relative_to(root)
++    value=dict(schema_version=1,protocol_hash=protocol_hash,confirmation_sha256=_hash(directory/'confirmation.json'),
++               archive_sha256=digest,scope='repo_local' if local else 'external_unbound',
++               path=bundle.relative_to(root).as_posix() if local else None,
++               reason=None if local else 'External archive requires explicit saved-evidence selection')
++    _verified_binding(directory,root,protocol_hash,value)
++    destination=directory/'archive-bindings'/f'{canonical_hash(value)}.json'
++    destination.parent.mkdir(exist_ok=True)
++    if not destination.exists(): _atomic_json(destination,value)
+diff --git a/src/treeneuron/evaluation/confirm.py b/src/treeneuron/evaluation/confirm.py
+index 4d594f6..ccfad44 100644
+--- a/src/treeneuron/evaluation/confirm.py
++++ b/src/treeneuron/evaluation/confirm.py
+@@ -172,6 +172,28 @@ def _payload(protocol):
+     return payload
+ 
+ 
++def _capture_attempt_inventory(directory, *, hard_stop=False, protected_directory=None):
++    """Seal only bytes actually materialized; a hard stop cannot prove history."""
++    directory=Path(directory); files={}; protected_files={}
++    try:
++        if directory.exists() and not directory.is_dir(): raise ValueError('Attempt path is not a directory')
++        for path in sorted(directory.rglob('*')):
++            if path.is_symlink(): raise ValueError('Attempt inventory contains a symlink')
++            if path.is_file(): files[path.relative_to(directory).as_posix()]=_hash(path)
++        if protected_directory is not None:
++            for path in sorted(Path(protected_directory).rglob('*')):
++                if path.is_symlink(): raise ValueError('Protected inventory contains a symlink')
++                if path.is_file(): protected_files[path.relative_to(protected_directory).as_posix()]=_hash(path)
++        state='captured' if directory.is_dir() else 'not_materialized'
++        reason=None if state=='captured' else 'Failure before attempt directory existed'
++        if hard_stop:
++            state='unknown_hard_stop'
++            reason='Observed after process interruption; earlier materialized inventory is unknown'
++    except (OSError,ValueError) as error:
++        state='unknown_capture_failure';reason=str(error)
++    return dict(schema_version=1,state=state,files=files,protected_files=protected_files,reason=reason)
++
++
+ @located
+ def run_confirmation(protocol: FrozenProtocol, study: str) -> Path:
+     """Run every frozen unit serially, with finite same-unit attempts and resume.
+@@ -202,7 +224,10 @@ def run_confirmation(protocol: FrozenProtocol, study: str) -> Path:
+         expected=[(u['unit_id'],run,j) for u in payload['sources']['cohort']['units'] for j,run in enumerate(u['run_ids'])]
+         if [(r['unit_id'],r['run_id'],r['repetition']) for r in ledger['runs']]!=expected:
+             raise ValueError('Declared cohort ledger differs')
+-        if ledger['status'] in ('completed','incomplete','resource_limited'): return directory
++        if ledger['status'] in ('completed','incomplete','resource_limited'):
++            from ..archive_binding import completion_record
++            completion_record(directory,protocol.protocol_hash)
++            return directory
+         started=invocation_started
+         max_attempts=1+payload['design']['statistical_policy']['retries']
+         units={u['unit_id']:u for u in payload['sources']['cohort']['units']}
+@@ -216,6 +241,7 @@ def run_confirmation(protocol: FrozenProtocol, study: str) -> Path:
+                 # A hard process stop leaves a running attempt; charge it once.
+                 if run['attempts'] and run['attempts'][-1]['status']=='running':
+                     run['attempts'][-1].update(status='interrupted',error='Process ended before attempt completion',seconds=None,duration_incomplete=True)
++                    run['attempts'][-1]['retained']=_capture_attempt_inventory(root/run['attempts'][-1]['path'],hard_stop=True,protected_directory=link_path.parent)
+                     save()
+                 while True:
+                     events=protected.access_events(protocol) if link_path.exists() else []
+@@ -266,8 +292,10 @@ def run_confirmation(protocol: FrozenProtocol, study: str) -> Path:
+                         # The next iteration may retry inference only, with identical
+                         # registered models; any label-access event forbids a retry.
+                     finally:
++                        if attempt['status'] in ('failed','interrupted') and not attempt.get('duration_incomplete'):
++                            attempt['retained']=_capture_attempt_inventory(root/attempt['path'],protected_directory=link_path.parent)
+                         elapsed=(time.perf_counter_ns()-tick)/1e9
+-                        attempt['seconds']=(attempt.get('seconds') or 0.)+elapsed
++                        attempt['seconds']=None if attempt.get('duration_incomplete') else (attempt.get('seconds') or 0.)+elapsed
+                         attempt['peak_rss_bytes']=int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)*(1 if sys.platform=='darwin' else 1024)
+                         save()
+                 if run['status']!='completed': run['status']='failed'
+@@ -296,8 +324,10 @@ def run_confirmation(protocol: FrozenProtocol, study: str) -> Path:
+                 retained_bytes=retained,forecast_storage_bytes=forecast['storage_bytes'],
+                 storage_deviation=retained-forecast['storage_bytes'] if preparation is not None else None,
+                 aggregation='disjoint preparation plus active invocation clocks; child/control clocks are nested; reanalysis separate',
+-                boundary='active invocation preflight, all attempts, fitting, protected prediction and ledger IO; excludes final ledger write and no-op terminal validation calls',
++                boundary='active invocation preflight, all attempts, fitting, protected prediction and ledger IO; excludes final ledger/completion-receipt writes and no-op terminal validation calls',
+                 forecast_boundary='frozen preparation/setup plus repetitions/evaluation and retry allowance; reanalysis reported separately',
+                 hard_interrupt_cost_unknown=interrupted)
+             save()
++            from ..archive_binding import completion_record
++            completion_record(directory,protocol.protocol_hash)
+     return directory
+diff --git a/src/treeneuron/locators.py b/src/treeneuron/locators.py
+index bf953ef..12cba59 100644
+--- a/src/treeneuron/locators.py
++++ b/src/treeneuron/locators.py
+@@ -21,6 +21,8 @@ def locate(path, *, producer=False):
+     original, current = location
+     if not path.is_absolute():
+         return current/path if producer else path
++    if path.is_relative_to(current):
++        return path
+     try:
+         return current/path.relative_to(original)
+     except ValueError:
+diff --git a/src/treeneuron/pilot/calibrate.py b/src/treeneuron/pilot/calibrate.py
+index 0e1c6f5..c1c7ce2 100644
+--- a/src/treeneuron/pilot/calibrate.py
++++ b/src/treeneuron/pilot/calibrate.py
+@@ -22,6 +22,7 @@ import torch
+ import yaml
+ 
+ from treeneuron import train
++from treeneuron.locators import locate
+ from treeneuron.artifacts import create_run, finish_run, _atomic_json, TERMINAL_STATUSES
+ from treeneuron.backend import lock_hash, runtime_hash
+ from treeneuron.baselines.api import FitRequest
+@@ -76,7 +77,7 @@ def _runtime_preflight(config):
+         torch.set_num_interop_threads(1)  # fresh CLI process; never change pytest controller
+     train.TrainingPolicy.from_config(config)
+     train.TrainingPolicy.from_config(config,continuation=True)
+-    receipt=Path(config.execution.backend_report)
++    receipt=locate(config.execution.backend_report,producer=True)
+     # The numerical training boundary validates full producer/lock/runtime receipt.
+     return dict(cpu_threads=torch.get_num_threads(),interop_threads=torch.get_num_interop_threads(),
+         receipt_path=str(receipt.resolve()),receipt_sha256=file_hash(receipt))
+@@ -97,7 +98,7 @@ def fit_repetition(config, data, root: Path, recipe_hash: str) -> dict:
+         source_sha256=train.source_hash(),failures=[])
+     open_child=None
+     original_backend=train.BACKEND_REPORT_PATH
+-    train.BACKEND_REPORT_PATH=Path(config.execution.backend_report)
++    train.BACKEND_REPORT_PATH=locate(config.execution.backend_report,producer=True)
+     def register(paths, metadata):
+         nonlocal open_child
+         open_child=paths
+diff --git a/src/treeneuron/train.py b/src/treeneuron/train.py
+index 1476143..3d1ebbb 100644
+--- a/src/treeneuron/train.py
++++ b/src/treeneuron/train.py
+@@ -239,7 +239,8 @@ def _optimizer(model, config):
+ 
+ 
+ def _backend_evidence(config, data, *, causal_model=None):
+-    path = BACKEND_REPORT_PATH
++    from .locators import locate
++    path = locate(BACKEND_REPORT_PATH,producer=True)
+     report = json.loads(path.read_text())['backend_probes']
+     for probe in report['probes'].values():
+         if probe.get('status') == 'passed': validate_backend_report(probe)
+diff --git a/tests/test_audit.py b/tests/test_audit.py
+index 33028b9..2edd565 100644
+--- a/tests/test_audit.py
++++ b/tests/test_audit.py
+@@ -173,6 +173,8 @@ def test_real_incomplete_audit_relocation_archive_and_tamper(prepared,cpu_traini
+         seal_archive(directory,frozen,tmp_path/'too-late')
+     (root/'src/model.py').write_text('# changed analysis source\n')
+     git(root,'add','src/model.py'); git(root,'commit','-qm','toy source amendment')
++    from test_audit_fix1 import analysis_checkout
++    analysis_checkout(root)
+     archived=audit_archive(archive,analysis_root=root)
+     assert not archived['reasons'], archived['reasons']
+     assert archived['status']=='incomplete' and archived['conclusion']['superiority'] is False
+@@ -293,6 +295,8 @@ def test_complete_negative_toy_audit_and_missing_probe(prepared,cpu_training_evi
+     assert 'probe' in ' '.join(invalid['reasons']).lower()
+     greedy.write_bytes(original)
+     bundle=seal_archive(directory,frozen,tmp_path/'negative-archive')
++    from test_audit_fix1 import analysis_checkout
++    analysis_checkout(root)
+     archived=audit_archive(bundle,analysis_root=root)
+     assert archived['valid'] is True and archived['status']=='exploratory',archived['reasons']
+     assert not archived['conclusion']['superiority']
+@@ -349,6 +353,8 @@ def test_outer_ledger_status_and_enclosing_work_are_authoritative(tmp_path,monke
+         hard_interrupt_cost_unknown=False,aggregation='disjoint invocation',boundary='active invocation',
+         forecast_boundary='preparation and invocations',retained_bytes=0,storage_deviation=None,
+         combined_reason='Preparation not measured'))
++    from treeneuron.evaluation.confirm import _capture_attempt_inventory
++    ledger['runs'][0]['attempts'][0]['retained']=_capture_attempt_inventory(study/'run-0/attempt-0')
+     assert module._account(payload,ledger,root,study)['failed_attempts']==1
+     ledger['status']='invented'
+     with pytest.raises(ValueError,match='ledger status'): module._account(payload,ledger,root,study)
+diff --git a/tests/test_audit_fix1.py b/tests/test_audit_fix1.py
+new file mode 100644
+index 0000000..90977cf
+--- /dev/null
++++ b/tests/test_audit_fix1.py
+@@ -0,0 +1,296 @@
++"""Scoped Task13 review regressions; bounded engineering fixtures only."""
++import json
++import os
++from pathlib import Path
++import shutil
++import subprocess
++import sys
++import pytest
++from test_protocol import repository,prepared,candidate,git
++
++
++@pytest.mark.parametrize('absolute',[True,False])
++def test_receipt_io_survives_unavailable_original_root(tmp_path,absolute):
++    from test_pilot_calibrate import config
++    original=(tmp_path/'original').resolve(); original.mkdir()
++    receipt=original/'environment/backend.json'; receipt.parent.mkdir()
++    source=Path('environment/evidence7-calibration-fix1/search-backend.json').resolve()
++    shutil.copyfile(source,receipt)
++    value=config(tmp_path).to_dict(); value['growth']['m_requested']=1
++    value['execution']['backend_report']=str(receipt) if absolute else 'environment/backend.json'
++    (original/'config.json').write_text(json.dumps(value))
++    restored=tmp_path/'restored'; shutil.copytree(original,restored)
++    original.rename(tmp_path/'unavailable')
++    script=r'''
++import importlib,json,sys
++from pathlib import Path
++from treeneuron.config import resolve_experiment,canonical_hash
++from treeneuron.locators import relocated,producer_directory
++from treeneuron.protocol import FrozenProtocol,_ref
++from treeneuron.pilot.calibrate import _runtime_preflight,fit_repetition
++from treeneuron.data.synthetic import make_from_config
++original,root=map(Path,sys.argv[1:])
++value=json.loads((root/'config.json').read_text()); c=resolve_experiment(value)
++with relocated(original,root),producer_directory(root):
++    preflight=_runtime_preflight(c)
++    assert Path(preflight['receipt_path'])==root/'environment/backend.json'
++    _,data=make_from_config(c)
++    pair=fit_repetition(c,data,root/'fit',canonical_hash(value))
++    assert pair['status']=='completed' and len(pair['models'])==8
++    # Source/protocol construction is isolated here; actual terminal preflight
++    # and its receipt I/O remain unpatched. No label access or further fitting.
++    module=importlib.import_module('treeneuron.evaluation.confirm')
++    (root/'raw.json').write_text(json.dumps({'config':value}))
++    payload={'sources':{'root':str(original),'raw':_ref(root,root/'raw.json'),'cohort':{'units':[]}}}
++    path=root/'protocol/frozen.yaml';path.parent.mkdir()
++    path.write_text(json.dumps({'payload':payload}))
++    frozen=FrozenProtocol(path,'toy','toy','toy')
++    directory=root/'protocol/confirmation/toy';directory.mkdir(parents=True)
++    (directory/'confirmation.json').write_text(json.dumps({'protocol_hash':'toy','status':'completed','runs':[]}))
++    module._payload=lambda protocol:payload
++    assert module.run_confirmation(frozen,'synthetic')==directory
++    assert json.loads((root/'config.json').read_text())==value
++    # A relocated receipt still undergoes ordinary producer validation in fit.
++    (root/'environment/backend.json').write_text('{}')
++    try: fit_repetition(c,data,root/'bad',canonical_hash(value))
++    except (ValueError,KeyError): pass
++    else: raise AssertionError('Corrupt receipt accepted')
++'''
++    env=dict(os.environ,PYTHONPATH=str(Path('src').resolve()),PYTORCH_ENABLE_MPS_FALLBACK='0')
++    for name in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS','NUMEXPR_NUM_THREADS'): env[name]='1'
++    result=subprocess.run([sys.executable,'-c',script,str(original),str(restored.resolve())],env=env,capture_output=True,text=True)
++    assert result.returncode==0,result.stdout+result.stderr
++
++
++def analysis_checkout(root):
++    """A real committed copy of the imported package, not a source-check bypass."""
++    import treeneuron
++    shutil.copytree(Path(treeneuron.__file__).parent,root/'src/treeneuron',ignore=shutil.ignore_patterns('__pycache__'))
++    git(root,'add','src/treeneuron');git(root,'commit','-qm','same-source installed analysis fixture')
++    return root
++
++
++def test_analysis_identity_binds_imported_bytes_to_verified_checkout(repository):
++    from treeneuron.analysis.audit import _analysis_identity
++    from treeneuron.train import source_hash
++    with pytest.raises(ValueError,match='imported package'):
++        _analysis_identity(repository)
++    analysis_checkout(repository)
++    identity=_analysis_identity(repository)
++    assert identity['analysis_package_sha256']==source_hash()
++    # A different clean committed source must not attest the running package.
++    copied=repository/'src/treeneuron/analysis/audit.py'
++    copied.write_text(copied.read_text()+'\n# Different verified source\n')
++    git(repository,'add','src/treeneuron/analysis/audit.py');git(repository,'commit','-qm','different package')
++    with pytest.raises(ValueError,match='imported package'):
++        _analysis_identity(repository)
++
++from test_train import cpu_training_evidence
++
++
++def test_real_partial_failure_inventory_survives_successful_retry(prepared,cpu_training_evidence,monkeypatch,tmp_path):
++    import importlib
++    import torch
++    from treeneuron import train
++    from treeneuron.protocol import eligible_design,freeze
++    from treeneuron.analysis.audit import audit,seal_archive
++    module=importlib.import_module('treeneuron.evaluation.confirm')
++    root,config,sources=prepared;decision=eligible_design(sources)
++    sources=module.prepare_cohort(decision,sources,root/'cohort',cohort_id='partial-failure',root_seed=17)
++    frozen=freeze(decision,sources,root/'protocol/frozen.yaml')
++    resolve=module.resolve_experiment
++    def fixture_runtime(value):
++        value=dict(value);value['execution']=dict(value['execution'],backend_report=str(cpu_training_evidence))
++        value['backend']=dict(value['backend'],interop_threads=torch.get_num_interop_threads())
++        return resolve(value)
++    monkeypatch.setattr(module,'resolve_experiment',fixture_runtime)
++    monkeypatch.setattr(module,'_runtime_preflight',lambda c:{})
++    fit=module._fit_run
++    def one_run(p,payload,unit,repetition,directory):
++        if unit['unit_id']!='unit-0' or repetition!=0: raise RuntimeError('Deliberately omitted toy numerical work')
++        return fit(p,payload,unit,repetition,directory)
++    monkeypatch.setattr(module,'_fit_run',one_run)
++    original_parent=train.fit_parent; first=True
++    def partial(*args,**kwargs):
++        nonlocal first
++        result=original_parent(*args,**kwargs)
++        if first:
++            first=False
++            raise RuntimeError('Injected after real parent checkpoint publication')
++        return result
++    monkeypatch.setattr(train,'fit_parent',partial)
++    directory=module.run_confirmation(frozen,'synthetic')
++    ledger=json.loads((directory/'confirmation.json').read_text())
++    retried=ledger['runs'][0]
++    assert retried['status']=='completed' and [a['status'] for a in retried['attempts']]==['failed','completed']
++    failed=retried['attempts'][0];inventory=failed['retained']
++    assert inventory['state']=='captured' and inventory['files']
++    assert ledger['runs'][1]['attempts'][0]['retained']['state']=='not_materialized'
++    baseline=audit(directory,frozen)
++    assert baseline['status']=='incomplete' and not baseline['reasons']
++    for suffix in ('manifest.json','checkpoints/last.json'):
++        name=next(name for name in inventory['files'] if name.endswith(suffix))
++        path=root/failed['path']/name;original=path.read_bytes()
++        for mutation in ('delete','corrupt'):
++            if mutation=='delete':path.unlink()
++            else:path.write_bytes(b'{}')
++            result=audit(directory,frozen)
++            assert result['status']=='blocked' and 'retained' in ' '.join(result['reasons']).lower()
++            with pytest.raises(ValueError,match='live evidence'):
++                seal_archive(directory,frozen,tmp_path/f'blocked-{suffix.replace("/","-")}-{mutation}')
++            path.write_bytes(original)
++    # Direct ledger fixture mutation models a hard-stop observation, not a new
++    # numerical experiment. Original terminal evidence remains byte-identical.
++    unknown_root=tmp_path/'unknown-repo';shutil.copytree(root,unknown_root)
++    unknown_dir=unknown_root/directory.relative_to(root)
++    unknown_ledger=json.loads((unknown_dir/'confirmation.json').read_text())
++    prior=unknown_ledger['runs'][0]['attempts'][0]
++    prior.update(status='interrupted',seconds=None,duration_incomplete=True,error='Simulated unknown hard stop')
++    prior['retained'].update(state='unknown_hard_stop',reason='Observed after process interruption; earlier materialized inventory is unknown')
++    unknown_ledger['unmeasured_interruption']=True
++    unknown_ledger['costs'].update(combined_seconds=None,seconds_deviation=None,hard_interrupt_cost_unknown=True,
++                                  combined_reason='Hard interruption duration unknown')
++    (unknown_dir/'confirmation.json').write_text(json.dumps(unknown_ledger))
++    # This copy represents the state before publication of a terminal receipt.
++    (unknown_dir/'archive-completion.json').unlink()
++    from treeneuron.protocol import FrozenProtocol
++    unknown_protocol=FrozenProtocol(unknown_root/'protocol/frozen.yaml',frozen.protocol_hash,frozen.pinned_commit,frozen.checkout_commit)
++    unknown=audit(unknown_dir,unknown_protocol)
++    assert unknown['status']=='incomplete' and not unknown['reasons']
++    assert unknown['accounting']['retention']['status']=='unknown_hard_stop'
++    assert unknown['primary']['valid_runs']==1
++    unknown_archive=seal_archive(unknown_dir,unknown_protocol,tmp_path/'unknown-archive')
++    assert json.loads(unknown_archive.read_text())['live_audit']['accounting']['retention']['status']=='unknown_hard_stop'
++    terminal=(directory/'confirmation.json').read_bytes()
++    completion=(directory/'archive-completion.json').read_bytes()
++    assert baseline['archive_eligibility']['status']=='unsealed'
++    external=seal_archive(directory,frozen,tmp_path/'valid-external')
++    external_status=audit(directory,frozen)['archive_eligibility']
++    assert external_status['status']=='external_unbound' and external_status['reason']
++    assert external_status['bindings'][0]['path'] is None
++    internal=seal_archive(directory,frozen,root/'audit/archives/partial')
++    status=audit(directory,frozen)['archive_eligibility']
++    assert status['status']=='bound'
++    assert next(b for b in status['bindings'] if b['scope']=='repo_local')['path']=='audit/archives/partial/archive.json'
++    assert (directory/'confirmation.json').read_bytes()==terminal
++    assert (directory/'archive-completion.json').read_bytes()==completion
++    # Binding verification never trusts a digest without its copied inventory.
++    archived=next((internal.parent/'files').rglob('teacher.json')); saved=archived.read_bytes()
++    archived.write_bytes(b'{}')
++    assert audit(directory,frozen)['status']=='blocked'
++    archived.write_bytes(saved)
++    # A local binding retains authority after relocation with original absent.
++    restored=tmp_path/'bound-restored';shutil.copytree(root,restored)
++    hidden=tmp_path/'bound-hidden';root.rename(hidden)
++    moved=FrozenProtocol(restored/'protocol/frozen.yaml',frozen.protocol_hash,frozen.pinned_commit,frozen.checkout_commit)
++    relocated=audit(restored/directory.relative_to(root),moved)
++    assert not relocated['reasons'] and relocated['archive_eligibility']['status']=='bound'
++    hidden.rename(root)
++    # Current analysis executes equal imported source, but never loads an old
++    # retained checkpoint. Exact copied bytes and original live audit attest it.
++    analysis_checkout(root)
++    audit_module=importlib.import_module('treeneuron.analysis.audit')
++    monkeypatch.setattr(audit_module,'_validate_checkpoint',lambda *a:pytest.fail('Archive loaded a checkpoint'))
++    for bundle in (internal,external,unknown_archive):
++        archived_result=audit_module.audit_archive(bundle,analysis_root=root)
++        assert archived_result['status']=='incomplete' and not archived_result['reasons'],archived_result['reasons']
++        if bundle==unknown_archive:
++            assert archived_result['accounting']['retention']['status']=='unknown_hard_stop'
++            assert archived_result['primary']['valid_runs']==1 and not archived_result['valid']
++
++
++
++def test_unknown_hard_stop_retains_observation_without_certifying_history(tmp_path):
++    from treeneuron.evaluation.confirm import _capture_attempt_inventory
++    from treeneuron.analysis.audit import _audit_retained_attempt,conclude
++    directory=tmp_path/'attempt';directory.mkdir();observed=directory/'observed.json';observed.write_text('{}')
++    inventory=_capture_attempt_inventory(directory,hard_stop=True)
++    assert _audit_retained_attempt(directory,inventory)=='unknown_hard_stop'
++    conclusion=conclude({'status':'completed'},[],{'status':'unknown_hard_stop','unknown_attempts':['run-0:0']})
++    assert conclusion['status']=='incomplete' and not conclusion['superiority']
++    observed.write_text('changed')
++    with pytest.raises(ValueError,match='Retained attempt'):
++        _audit_retained_attempt(directory,inventory)
++
++
++def test_terminal_completion_records_explicit_unsealed_eligibility(tmp_path):
++    from treeneuron.archive_binding import completion_record,archive_eligibility
++    directory=tmp_path/'protocol/confirmation/toy';directory.mkdir(parents=True)
++    ledger=directory/'confirmation.json';ledger.write_text(json.dumps({'protocol_hash':'toy','status':'completed'}))
++    original=ledger.read_bytes()
++    completion_record(directory,'toy')
++    receipt=directory/'archive-completion.json';before=receipt.read_bytes()
++    completion_record(directory,'toy')
++    assert receipt.read_bytes()==before and ledger.read_bytes()==original
++    value=archive_eligibility(directory,tmp_path,'toy')
++    assert value['status']=='unsealed' and value['reason'] and value['bindings']==[]
++    ledger.write_text('{}')
++    with pytest.raises(ValueError,match='completion'):
++        archive_eligibility(directory,tmp_path,'toy')
++
++
++def test_archive_locator_is_idempotent_inside_original_root(tmp_path):
++    from treeneuron.locators import relocated,locate
++    original=tmp_path/'repo';current=original/'audit/archives/example/files'
++    with relocated(original,current):
++        mapped=locate(original/'protocol/frozen.yaml')
++        assert mapped==current/'protocol/frozen.yaml'
++        assert locate(mapped)==mapped
++
++
++def test_retained_partial_prediction_bytes_are_immutable_but_later_publication_is_allowed(tmp_path):
++    from treeneuron.evaluation.confirm import _capture_attempt_inventory
++    from treeneuron.analysis.audit import _audit_retained_attempt
++    directory=tmp_path/'attempt';access=tmp_path/'access';access.mkdir()
++    link=access/'link.json';link.write_text('{}')
++    inventory=_capture_attempt_inventory(directory,protected_directory=access)
++    # An inference-only retry may add a prediction after the failure snapshot.
++    prediction=access/'predictions.json';prediction.write_text('{}')
++    assert _audit_retained_attempt(directory,inventory,protected_directory=access)=='not_materialized'
++    observed=_capture_attempt_inventory(directory,protected_directory=access,hard_stop=True)
++    prediction.write_text('changed')
++    with pytest.raises(ValueError,match='Retained protected'):
++        _audit_retained_attempt(directory,observed,protected_directory=access)
++    prediction.write_text('{}');link.unlink()
++    with pytest.raises(ValueError,match='Retained protected'):
++        _audit_retained_attempt(directory,inventory,protected_directory=access)
++
++
++@pytest.mark.parametrize('durations',[
++    [4.240696667,4.2385195,4.27692,4.471023208],
++    [1e308,1e308],
++])
++def test_work_receipt_exact_prefix_and_overflow_classification(tmp_path,durations):
++    import math,time
++    from treeneuron.analysis.audit import _finish_audit_work,conclude
++    from treeneuron.config import canonical_hash
++    work=tmp_path/'analysis-work';work.mkdir()
++    report={};digest=canonical_hash(report);report['report_sha256']=digest
++    (tmp_path/f'primary-{digest}.json').write_text(json.dumps(report))
++    files=[]
++    for index,seconds in enumerate(durations):
++        path=work/f'{len(durations)-index}.json';files.append(path)
++        path.write_text(json.dumps(dict(schema_version=1,protocol_hash='toy',report_sha256=digest,
++                                       previous_analysis_seconds=math.fsum(durations[:index]),seconds=seconds)))
++    result=dict(protocol_hash='toy',primary=None,reasons=[],accounting={'costs':{'combined_seconds':0}},
++                conclusion=conclude(None,[]),status='incomplete',valid=False)
++    result['audit_sha256']=canonical_hash(result)
++    _finish_audit_work(tmp_path,result,'clock',time.perf_counter_ns(),set(files))
++    if durations[0]==1e308:
++        assert result['status']=='blocked' and 'overflow' in ' '.join(result['reasons']).lower()
++        assert json.loads((tmp_path/'audit-work/clock.json').read_text())['total_study_work_seconds'] is None
++    else:
++        assert not result['reasons']
++
++
++def test_analysis_clock_writer_is_independent_of_filesystem_order(tmp_path):
++    import math
++    from treeneuron.analysis.primary import _previous_analysis_seconds
++    durations=[4.240696667,4.2385195,4.27692]
++    paths=[]
++    for index,seconds in enumerate(durations):
++        path=tmp_path/f'{index}.json';path.write_text(json.dumps({'seconds':seconds}));paths.append(path)
++    class Receipts:
++        def __init__(self,paths):self.paths=paths
++        def glob(self,pattern):return iter(self.paths)
++    assert _previous_analysis_seconds(Receipts(paths))==_previous_analysis_seconds(Receipts(paths[::-1]))==math.fsum(durations)
+diff --git a/tests/test_confirmation.py b/tests/test_confirmation.py
+index fc134c6..decc2e2 100644
+--- a/tests/test_confirmation.py
++++ b/tests/test_confirmation.py
+@@ -114,6 +114,7 @@ def test_fixed_cohort_completes_zero_growth_all_units_and_resume_once(mock_cohor
+     directory=module.run_confirmation(frozen,'synthetic')
+     ledger=json.loads((directory/'confirmation.json').read_text())
+     assert ledger['status']=='completed'
++    assert json.loads((directory/'archive-completion.json').read_text())['status']=='unsealed'
+     assert len(calls)==decision.K*decision.repetitions
+     assert len(ledger['runs'])==len(calls)
+     assert all(r['status']=='completed' for r in ledger['runs'])
+@@ -122,6 +123,8 @@ def test_fixed_cohort_completes_zero_growth_all_units_and_resume_once(mock_cohor
+     assert ledger['costs']['seconds']>=0 and ledger['costs']['forecast_seconds']>0
+     assert ledger['costs']['preparation_seconds'] is None
+     assert ledger['costs']['combined_seconds'] is None
++    # Model a stop before terminal publication, including its completion receipt.
++    (directory/'archive-completion.json').unlink()
+     ledger['status']='running'; ledger['runs'][0]['status']='pending'
+     ledger['runs'][0]['attempts'][-1].update(status='running',seconds=None)
+     (directory/'confirmation.json').write_text(json.dumps(ledger))
+@@ -129,6 +132,13 @@ def test_fixed_cohort_completes_zero_growth_all_units_and_resume_once(mock_cohor
+     recovered=json.loads((directory/'confirmation.json').read_text())
+     assert recovered['status']=='completed' and recovered['costs']['hard_interrupt_cost_unknown']
+     assert recovered['costs']['combined_seconds'] is None
++    previous=recovered['runs'][0]['attempts'][0]
++    assert previous['retained']['state']=='unknown_hard_stop' and previous['seconds'] is None
++    from treeneuron.analysis.audit import _account,conclude
++    payload=json.loads(frozen.path.read_text())['payload']
++    accounting=_account(payload,recovered,root,directory)
++    assert accounting['retention']['status']=='unknown_hard_stop'
++    assert conclude({'status':'completed'},[],accounting['retention'])['status']=='incomplete'
+     assert len(calls)==decision.K*decision.repetitions
+ 
+ 
+@@ -268,6 +278,8 @@ def test_sealed_evidence_failure_does_not_retry_immutable_evidence(mock_cohort,m
+     module,root,frozen,decision,calls,fit=mock_cohort
+     directory=module.run_confirmation(frozen,'synthetic')
+     ledger=json.loads((directory/'confirmation.json').read_text())
++    # Model a stop before terminal publication, including its completion receipt.
++    (directory/'archive-completion.json').unlink()
+     ledger['status']='running'; ledger['runs'][0]['status']='pending'
+     (directory/'confirmation.json').write_text(json.dumps(ledger))
+     original=protected.load_evaluation; reads=[]

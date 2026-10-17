@@ -1,0 +1,57 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________ test_complete_negative_toy_audit_and_missing_probe ______________
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4071/test_complete_...'path': 'evidence/pilot/raw.json', 'sha256': 'e93fc93c6a7a8a0aaf3e7f46db18bef5ee7ba02b9dc44adffcea43d8d2ca92de'}, ...})
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4071/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10c6dbf20>
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4071/test_complete_negative_toy_aud0')
+
+    def test_complete_negative_toy_audit_and_missing_probe(prepared,cpu_training_evidence,monkeypatch,tmp_path):
+        """Three-unit toy design seam; actual fitting graph, controlled adverse rows.
+    
+        The numeric pilot gate is replaced solely to bound this status/authority
+        fixture. Predictor outputs are controlled to guarantee a negative sign; this
+        is never model performance evidence. Source, frozen identities, actual model
+        graphs, original access chain, metrics and auditing remain real.
+        """
+        import importlib
+        import numpy as np
+        import torch
+        from dataclasses import replace
+        from treeneuron import protocol
+        from treeneuron.analysis.audit import audit,seal_archive,audit_archive
+        from treeneuron.evaluation import protected
+        module=importlib.import_module('treeneuron.evaluation.confirm')
+        root,config,sources=prepared
+        decision=protocol.eligible_design(sources)
+>       decision=replace(decision,K=3,statistical_policy=dict(decision.statistical_policy,
+            inference_supported=True,bootstrap_iterations=200,endpoint_tolerance=1e20))
+
+tests/test_audit.py:239: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/dataclasses.py:1588: in replace
+    return obj.__class__(**changes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+<string>:19: in __init__
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = DesignDecision(branch='estimation', K_calc=None, pilot_teachers=32, K=3, repetitions=2, n_T=1, delta_plan=None, numeri...wo-sided t rejection under centered empirical teacher resampling', 'bootstrap_iterations': 200}, freeze_eligible=False)
+
+    def __post_init__(self):
+        if self.branch not in ('powered','estimation','blocked','calibrate'):
+            raise ValueError('Invalid design branch')
+        if self.branch in ('powered','estimation'):
+            if set(POLICIES)-set(self.numeric_policies):
+                raise ValueError('Selected design requires complete numeric policies')
+            if set(COSTS)-set(self.budgets) or not self.forecast:
+                raise ValueError('Selected design requires complete measured budgets and forecast')
+            if self.n_T is None or self.n_T < 1 or self.K < 8 or self.repetitions < 2:
+>               raise ValueError('Selected design requires resolved numeric counts')
+E               ValueError: Selected design requires resolved numeric counts
+
+src/treeneuron/pilot/design.py:76: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_audit.py::test_complete_negative_toy_audit_and_missing_probe
+1 failed in 9.31s

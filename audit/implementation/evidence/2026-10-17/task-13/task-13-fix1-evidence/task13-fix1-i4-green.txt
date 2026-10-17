@@ -1,0 +1,41 @@
+F.                                                                       [100%]
+=================================== FAILURES ===================================
+________ test_terminal_completion_records_explicit_unsealed_eligibility ________
+
+tmp_path = PosixPath('/private/tmp/task13-fix1-i4-green/test_terminal_completion_recor0')
+
+    def test_terminal_completion_records_explicit_unsealed_eligibility(tmp_path):
+        from treeneuron.archive_binding import completion_record,archive_eligibility
+        directory=tmp_path/'protocol/confirmation/toy';directory.mkdir(parents=True)
+        ledger=directory/'confirmation.json';ledger.write_text(json.dumps({'protocol_hash':'toy','status':'completed'}))
+        original=ledger.read_bytes()
+        completion_record(directory,'toy')
+        receipt=directory/'archive-completion.json';before=receipt.read_bytes()
+        completion_record(directory,'toy')
+        assert receipt.read_bytes()==before and ledger.read_bytes()==original
+        value=archive_eligibility(directory,tmp_path,'toy')
+        assert value['status']=='unsealed' and value['reason'] and value['bindings']==[]
+        ledger.write_text('{}')
+        with pytest.raises(ValueError,match='completion'):
+>           archive_eligibility(directory,tmp_path,'toy')
+
+tests/test_audit_fix1.py:171: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/archive_binding.py:51: in archive_eligibility
+    completion_record(directory,protocol_hash)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+directory = PosixPath('/private/tmp/task13-fix1-i4-green/test_terminal_completion_recor0/protocol/confirmation/toy')
+protocol_hash = 'toy'
+
+    def completion_record(directory, protocol_hash):
+        directory=Path(directory); ledger=directory/'confirmation.json'
+        value=_read(ledger)
+>       if value['status'] not in ('completed','incomplete','resource_limited'): return
+           ^^^^^^^^^^^^^^^
+E       KeyError: 'status'
+
+src/treeneuron/archive_binding.py:15: KeyError
+=========================== short test summary info ============================
+FAILED tests/test_audit_fix1.py::test_terminal_completion_records_explicit_unsealed_eligibility
+1 failed, 1 passed in 1.16s

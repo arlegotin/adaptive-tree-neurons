@@ -1,0 +1,95 @@
+...F..                                                                   [100%]
+=================================== FAILURES ===================================
+________ test_real_partial_failure_inventory_survives_successful_retry _________
+
+prepared = (PosixPath('/private/tmp/task13-fix1-focused/test_real_partial_failure_inve0/repo'), ExperimentConfig(study_id='toy', ...'path': 'evidence/pilot/raw.json', 'sha256': '5de47ef1e35365622a82b6609003c91d455815f59cf5427223fa344c65d84c55'}, ...})
+cpu_training_evidence = PosixPath('/private/tmp/task13-fix1-focused/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10fb88650>
+tmp_path = PosixPath('/private/tmp/task13-fix1-focused/test_real_partial_failure_inve0')
+
+    def test_real_partial_failure_inventory_survives_successful_retry(prepared,cpu_training_evidence,monkeypatch,tmp_path):
+        import importlib
+        import torch
+        from treeneuron import train
+        from treeneuron.protocol import eligible_design,freeze
+        from treeneuron.analysis.audit import audit,seal_archive
+        module=importlib.import_module('treeneuron.evaluation.confirm')
+        root,config,sources=prepared;decision=eligible_design(sources)
+        sources=module.prepare_cohort(decision,sources,root/'cohort',cohort_id='partial-failure',root_seed=17)
+        frozen=freeze(decision,sources,root/'protocol/frozen.yaml')
+        resolve=module.resolve_experiment
+        def fixture_runtime(value):
+            value=dict(value);value['execution']=dict(value['execution'],backend_report=str(cpu_training_evidence))
+            value['backend']=dict(value['backend'],interop_threads=torch.get_num_interop_threads())
+            return resolve(value)
+        monkeypatch.setattr(module,'resolve_experiment',fixture_runtime)
+        monkeypatch.setattr(module,'_runtime_preflight',lambda c:{})
+        fit=module._fit_run
+        def one_run(p,payload,unit,repetition,directory):
+            if unit['unit_id']!='unit-0' or repetition!=0: raise RuntimeError('Deliberately omitted toy numerical work')
+            return fit(p,payload,unit,repetition,directory)
+        monkeypatch.setattr(module,'_fit_run',one_run)
+        original_parent=train.fit_parent; first=True
+        def partial(*args,**kwargs):
+            nonlocal first
+            result=original_parent(*args,**kwargs)
+            if first:
+                first=False
+                raise RuntimeError('Injected after real parent checkpoint publication')
+            return result
+        monkeypatch.setattr(train,'fit_parent',partial)
+        directory=module.run_confirmation(frozen,'synthetic')
+        ledger=json.loads((directory/'confirmation.json').read_text())
+        retried=ledger['runs'][0]
+        assert retried['status']=='completed' and [a['status'] for a in retried['attempts']]==['failed','completed']
+        failed=retried['attempts'][0];inventory=failed['retained']
+        assert inventory['state']=='captured' and inventory['files']
+        assert ledger['runs'][1]['attempts'][0]['retained']['state']=='not_materialized'
+        baseline=audit(directory,frozen)
+        assert baseline['status']=='incomplete' and not baseline['reasons']
+        for suffix in ('manifest.json','checkpoints/last.json'):
+            name=next(name for name in inventory['files'] if name.endswith(suffix))
+            path=root/failed['path']/name;original=path.read_bytes()
+            for mutation in ('delete','corrupt'):
+                if mutation=='delete':path.unlink()
+                else:path.write_bytes(b'{}')
+                result=audit(directory,frozen)
+                assert result['status']=='blocked' and 'retained' in ' '.join(result['reasons']).lower()
+                with pytest.raises(ValueError,match='live evidence'):
+                    seal_archive(directory,frozen,tmp_path/f'blocked-{suffix.replace("/","-")}-{mutation}')
+                path.write_bytes(original)
+        terminal=(directory/'confirmation.json').read_bytes()
+        completion=(directory/'archive-completion.json').read_bytes()
+        assert baseline['archive_eligibility']['status']=='unsealed'
+        external=seal_archive(directory,frozen,tmp_path/'valid-external')
+        external_status=audit(directory,frozen)['archive_eligibility']
+        assert external_status['status']=='external_unbound' and external_status['reason']
+        assert external_status['bindings'][0]['path'] is None
+        internal=seal_archive(directory,frozen,root/'audit/archives/partial')
+        status=audit(directory,frozen)['archive_eligibility']
+        assert status['status']=='bound'
+        assert next(b for b in status['bindings'] if b['scope']=='repo_local')['path']=='audit/archives/partial/archive.json'
+        assert (directory/'confirmation.json').read_bytes()==terminal
+        assert (directory/'archive-completion.json').read_bytes()==completion
+        # Binding verification never trusts a digest without its copied inventory.
+        archived=next((internal.parent/'files').rglob('teacher.json')); saved=archived.read_bytes()
+        archived.write_bytes(b'{}')
+        assert audit(directory,frozen)['status']=='blocked'
+        archived.write_bytes(saved)
+        # Current analysis executes equal imported source, but never loads an old
+        # retained checkpoint. Exact copied bytes and original live audit attest it.
+        analysis_checkout(root)
+        audit_module=importlib.import_module('treeneuron.analysis.audit')
+        monkeypatch.setattr(audit_module,'_validate_checkpoint',lambda *a:pytest.fail('Archive loaded a checkpoint'))
+        for bundle in (internal,external):
+            archived_result=audit_module.audit_archive(bundle,analysis_root=root)
+>           assert archived_result['status']=='incomplete' and not archived_result['reasons']
+E           AssertionError: assert ('blocked' == 'incomplete'
+E             
+E             - incomplete
+E             + blocked)
+
+tests/test_audit_fix1.py:167: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_audit_fix1.py::test_real_partial_failure_inventory_survives_successful_retry
+1 failed, 5 passed in 135.45s (0:02:15)

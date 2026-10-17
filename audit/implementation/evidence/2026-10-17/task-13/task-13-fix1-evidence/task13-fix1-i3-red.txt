@@ -1,0 +1,14 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______ test_analysis_identity_binds_imported_bytes_to_verified_checkout _______
+
+repository = PosixPath('/private/tmp/task13-fix1-i3-red/test_analysis_identity_binds_i0/repo')
+
+    def test_analysis_identity_binds_imported_bytes_to_verified_checkout(repository):
+>       from treeneuron.analysis.audit import _analysis_identity
+E       ImportError: cannot import name '_analysis_identity' from 'treeneuron.analysis.audit' (/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/analysis/audit.py)
+
+tests/test_audit_fix1.py:74: ImportError
+=========================== short test summary info ============================
+FAILED tests/test_audit_fix1.py::test_analysis_identity_binds_imported_bytes_to_verified_checkout
+1 failed in 1.16s

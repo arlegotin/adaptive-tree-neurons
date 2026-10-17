@@ -1,0 +1,43 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+______ test_checkpoint_inventory_rejects_missing_terms_and_invalid_resume ______
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4064/test_checkpoint_inventory_reje0')
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4064/training-evidence0/report.json')
+
+    def test_checkpoint_inventory_rejects_missing_terms_and_invalid_resume(tmp_path,cpu_training_evidence):
+        import torch
+        from test_pilot_calibrate import config
+        from test_protocol import ref
+        from treeneuron.config import resolve_experiment
+        from treeneuron.pilot.calibrate import teacher_inputs,fit_repetition
+>       from treeneuron.analysis.audit import _audit_pair_inventory
+E       ImportError: cannot import name '_audit_pair_inventory' from 'treeneuron.analysis.audit' (/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/analysis/audit.py)
+
+tests/test_audit.py:174: ImportError
+____________ test_cli_audit_and_report_do_not_accept_summary_scores ____________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4064/test_cli_audit_and_report_do_n0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x110f43cb0>
+
+    def test_cli_audit_and_report_do_not_accept_summary_scores(tmp_path,monkeypatch):
+        from treeneuron.cli import main
+        with pytest.raises(SystemExit) as error:
+            main(['audit','--protocol',str(tmp_path/'absent.yaml'),'--study-dir',str(tmp_path)])
+        # The actual audit route returns a blocked structured result, not argparse's
+        # unknown-command error. Missing input must not accidentally become success.
+>       assert error.value.code != 2
+E       assert 2 != 2
+E        +  where 2 = SystemExit(2).code
+E        +    where SystemExit(2) = <ExceptionInfo SystemExit(2) tblen=7>.value
+
+tests/test_audit.py:202: AssertionError
+----------------------------- Captured stderr call -----------------------------
+usage: treeneuron [-h]
+                  {doctor,verify-math,verify-baselines,run,report,calibrate,freeze,prepare-cohort,confirm,analyze-primary,amend}
+                  ...
+treeneuron: error: argument command: invalid choice: 'audit' (choose from doctor, verify-math, verify-baselines, run, report, calibrate, freeze, prepare-cohort, confirm, analyze-primary, amend)
+=========================== short test summary info ============================
+FAILED tests/test_audit.py::test_checkpoint_inventory_rejects_missing_terms_and_invalid_resume
+FAILED tests/test_audit.py::test_cli_audit_and_report_do_not_accept_summary_scores
+2 failed in 4.70s

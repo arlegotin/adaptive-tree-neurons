@@ -1,0 +1,45 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_________ test_seed42_causal_probe_accepts_conditioned_first_adam_step _________
+
+    def test_seed42_causal_probe_accepts_conditioned_first_adam_step():
+        from treeneuron.baselines.causal_evidence import probe_causal_cpu
+>       model=failed_probe(); original=copy.deepcopy(model.state_dict())
+              ^^^^^^^^^^^^^^
+
+tests/test_causal_precision.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def failed_probe():
+>       from treeneuron.models.regressor import SelectiveRegressor
+E       ModuleNotFoundError: No module named 'treeneuron.models.regressor'
+
+tests/test_causal_precision.py:9: ModuleNotFoundError
+_____________ test_causal_probe_rejects_incorrect_first_adam_step ______________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10fb65430>
+
+    def test_causal_probe_rejects_incorrect_first_adam_step(monkeypatch):
+        from treeneuron.baselines.causal_evidence import probe_causal_cpu
+        step=torch.optim.AdamW.step
+        def incorrect(optimizer,*args,**kwargs):
+            result=step(optimizer,*args,**kwargs)
+            with torch.no_grad(): optimizer.param_groups[0]['params'][0].add_(1e-4)
+            return result
+        monkeypatch.setattr(torch.optim.AdamW,'step',incorrect)
+        with pytest.raises(AssertionError,match='first AdamW formula'):
+>           probe_causal_cpu(failed_probe(),batch_size=8)
+                             ^^^^^^^^^^^^^^
+
+tests/test_causal_precision.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def failed_probe():
+>       from treeneuron.models.regressor import SelectiveRegressor
+E       ModuleNotFoundError: No module named 'treeneuron.models.regressor'
+
+tests/test_causal_precision.py:9: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_causal_precision.py::test_seed42_causal_probe_accepts_conditioned_first_adam_step
+FAILED tests/test_causal_precision.py::test_causal_probe_rejects_incorrect_first_adam_step
+2 failed in 0.48s

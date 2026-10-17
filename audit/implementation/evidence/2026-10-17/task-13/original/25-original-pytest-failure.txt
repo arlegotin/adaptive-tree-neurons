@@ -1,0 +1,56 @@
+F.                                                                       [100%]
+=================================== FAILURES ===================================
+______________ test_complete_negative_toy_audit_and_missing_probe ______________
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4073/test_complete_...'path': 'evidence/pilot/raw.json', 'sha256': 'fa59ede2642ef3a554f279e7b0f67bd1e8fce68f595987c29438204e40a0b17a'}, ...})
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4073/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10c0bbfb0>
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4073/test_complete_negative_toy_aud0')
+
+    def test_complete_negative_toy_audit_and_missing_probe(prepared,cpu_training_evidence,monkeypatch,tmp_path):
+        """Eight-unit toy design seam; actual fitting graph, controlled adverse rows.
+    
+        The numeric pilot gate is replaced solely to bound this status/authority
+        fixture. Predictor outputs are controlled to guarantee a negative sign; this
+        is never model performance evidence. Source, frozen identities, actual model
+        graphs, original access chain, metrics and auditing remain real.
+        """
+        import importlib
+        import numpy as np
+        import torch
+        from dataclasses import replace
+        from treeneuron import protocol
+        from treeneuron.analysis.audit import audit,seal_archive,audit_archive
+        from treeneuron.evaluation import protected
+        module=importlib.import_module('treeneuron.evaluation.confirm')
+        root,config,sources=prepared
+        decision=protocol.eligible_design(sources)
+        decision=replace(decision,K=8,statistical_policy=dict(decision.statistical_policy,
+            inference_supported=True,bootstrap_iterations=200,endpoint_tolerance=1e20))
+        monkeypatch.setattr(protocol,'eligible_design',lambda source:decision)
+        monkeypatch.setattr(module,'eligible_design',lambda source:decision)
+        sources=module.prepare_cohort(decision,sources,root/'negative',cohort_id='negative-fixture',root_seed=42)
+        frozen=protocol.freeze(decision,sources,root/'protocol/frozen.yaml')
+        original_resolve=module.resolve_experiment
+        def fixture_runtime(value):
+            value=dict(value); value['execution']=dict(value['execution'],backend_report=str(cpu_training_evidence))
+            value['backend']=dict(value['backend'],interop_threads=torch.get_num_interop_threads())
+            return original_resolve(value)
+        monkeypatch.setattr(module,'resolve_experiment',fixture_runtime)
+        monkeypatch.setattr(module,'_runtime_preflight',lambda c: {})
+        monkeypatch.setattr(module,'load_predictors',lambda root,models:
+            {role:(lambda X,role=role:np.full(len(X),1e6 if role=='top' else 0.)) for role in protocol.EVALUATION_METHODS})
+        directory=module.run_confirmation(frozen,'synthetic')
+        def forbidden(*args,**kwargs): raise AssertionError('New T/prediction/fit in audit')
+        monkeypatch.setattr(protected,'_test_labels',forbidden)
+        monkeypatch.setattr(module,'_fit_run',forbidden)
+        monkeypatch.setattr(module,'load_predictors',forbidden)
+        result=audit(directory,frozen)
+>       assert result['valid'] is True and result['status']=='completed',result['reasons']
+E       AssertionError: []
+E       assert (False is True)
+
+tests/test_audit.py:260: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_audit.py::test_complete_negative_toy_audit_and_missing_probe
+1 failed, 1 passed in 282.90s (0:04:42)

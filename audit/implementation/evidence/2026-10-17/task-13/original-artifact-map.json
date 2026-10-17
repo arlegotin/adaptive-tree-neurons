@@ -1,0 +1,224 @@
+[
+  {
+    "bytes": 3962,
+    "original_path": "/private/tmp/task13-red.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/00-task13-red.txt",
+    "sha256": "87d2bd56fb1fd99f13019781d19d46a7d89ec53a2cc2bd3d69b86b71cd05ca30"
+  },
+  {
+    "bytes": 99,
+    "original_path": "/private/tmp/task13-portable-green.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/01-task13-portable-green.txt",
+    "sha256": "38ac59adcd982f4c23411e1cf1db88cf31e79fe556bfc5adecaf9a8343334108"
+  },
+  {
+    "bytes": 866,
+    "original_path": "/private/tmp/task13-conclusion-red.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/02-task13-conclusion-red.txt",
+    "sha256": "5823647b91132e1973ca00c928b0937ceff92dc54217b004cf0a469e08198076"
+  },
+  {
+    "bytes": 100,
+    "original_path": "/private/tmp/task13-initial-green.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/03-task13-initial-green.txt",
+    "sha256": "5957018eeda9c69a08c10022009aacdf215912c60c4667f38537941ccdc9788a"
+  },
+  {
+    "bytes": 4525,
+    "original_path": "/private/tmp/task13-integration-red.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/04-task13-integration-red.txt",
+    "sha256": "01bdc9983ac8aaa46f5664b5f98a1b7dec1b0aaf163abc1ced9d963f5680b8ec"
+  },
+  {
+    "bytes": 2891,
+    "original_path": "/private/tmp/task13-checkpoint-cli-red.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/05-task13-checkpoint-cli-red.txt",
+    "sha256": "9d54773cf10770a66c59e7d041001d99c17f716ba9b7951c9a9eae193d9222da"
+  },
+  {
+    "bytes": 98,
+    "original_path": "/private/tmp/task13-checkpoint-cli-green.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/06-task13-checkpoint-cli-green.txt",
+    "sha256": "bad973848c6b6c3dbc78f19d81c53c3a20929a6cfa8655685e9bbe74a606d2c0"
+  },
+  {
+    "bytes": 110,
+    "original_path": "/private/tmp/task13-integration-green.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/07-task13-integration-green.txt",
+    "sha256": "8ff67c104e1e4e336606b0e3486e4fc1e2acbe656dc7d07674ab9e5b234f1634"
+  },
+  {
+    "bytes": 3912,
+    "original_path": "/private/tmp/task13-work-relocation-red.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/08-task13-work-relocation-red.txt",
+    "sha256": "e18c40a63d6f82a306d035e2b0701af0366198c1f62aed06874665d136f09491"
+  },
+  {
+    "bytes": 110,
+    "original_path": "/private/tmp/task13-audit-green.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/09-task13-audit-green.txt",
+    "sha256": "5b4cb0a58f10a412211b045a8b9b529506379b100dc49bf6b6c58c145ea88c1c"
+  },
+  {
+    "bytes": 3671,
+    "original_path": "/private/tmp/task13-negative-green.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/10-task13-negative-green.txt",
+    "sha256": "2663f498f41c2aed71eab364212ba037e3863b32dc76d707769294000b2b9fc4"
+  },
+  {
+    "bytes": 2480,
+    "original_path": "/private/tmp/task13-native-error-red.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/11-task13-native-error-red.txt",
+    "sha256": "21ae0faf00bee5d00d7dd2e4ec0e4f94ed5082002b40b467b5feebf0d262e142"
+  },
+  {
+    "bytes": 3840,
+    "original_path": "/private/tmp/task13-final-focused.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/12-task13-final-focused.txt",
+    "sha256": "a5e63b6aae0162d18e4d89d482e144014158c42c4617efefabfb365b9e70c4f5"
+  },
+  {
+    "bytes": 1244,
+    "original_path": "/private/tmp/task13-amend-red.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/13-task13-amend-red.txt",
+    "sha256": "a14d4bb794ff37112fc9c45a746ac5b52e892b1ba2e34fbee81a3ad3a0b43ba1"
+  },
+  {
+    "bytes": 1289,
+    "original_path": "/private/tmp/task13-amend-missing-red.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/14-task13-amend-missing-red.txt",
+    "sha256": "ccac70390c5506cf1bd03933e60fd8f36877d8032f452093405bf0342a2871cd"
+  },
+  {
+    "bytes": 2245,
+    "original_path": "/private/tmp/task13-precision-red.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/15-task13-precision-red.txt",
+    "sha256": "d3a33a8624fd4464964bb96aadbb7058175c33f0dc1d1a041fb3a62821373b21"
+  },
+  {
+    "bytes": 4595,
+    "original_path": "/private/tmp/task13-precision-red2.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/16-task13-precision-red2.txt",
+    "sha256": "6cab79966b48186dc2e8bb7c98502ee94727a3b48c92e4c61231de0e015ddb01"
+  },
+  {
+    "bytes": 99,
+    "original_path": "/private/tmp/task13-precision-amend-green.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/17-task13-precision-amend-green.txt",
+    "sha256": "0223ee6691869d85abd0a260733139c5a518fa2b699c33ee6218829d8bfcfc22"
+  },
+  {
+    "bytes": 610,
+    "original_path": "/private/tmp/task13-covering.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/18-task13-covering.txt",
+    "sha256": "32b08e31df71912a1cb1ee336a3c80e912e21020947368c7da57c6b8cf0d4025"
+  },
+  {
+    "bytes": 6141,
+    "original_path": "/private/tmp/task13-accounting-red.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/19-task13-accounting-red.txt",
+    "sha256": "b467f9c72cd670b253337ddec156e437369e8c9120cb18042824cafb788266a4"
+  },
+  {
+    "bytes": 99,
+    "original_path": "/private/tmp/task13-accounting-green.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/20-task13-accounting-green.txt",
+    "sha256": "72b362fe95fb0a118eea208fa924d2424631c1c986db0b509b3719f087ce0053"
+  },
+  {
+    "bytes": 3713,
+    "original_path": "/private/tmp/task13-stable-full.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/21-task13-stable-full.txt",
+    "sha256": "5fcf8cd6f9d4417159cedb1cf976095358f281b4324ac36f187d5c0f0b60431a"
+  },
+  {
+    "bytes": 41127,
+    "original_path": "/private/tmp/task13-stable-source.json",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/22-task13-stable-source.json",
+    "sha256": "aa513fa48565e9aa2c67c291b8d5daf393dcb4b8fa8851e7e9b1d31226b5e0a5"
+  },
+  {
+    "bytes": 41488,
+    "original_path": "/private/tmp/task13-committed-source.json",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/23-task13-committed-source.json",
+    "sha256": "312387ff67ebcd0147a60d6c084f408d2709e543d4b969be3f0a70b6bbaf4efc"
+  },
+  {
+    "bytes": 25320,
+    "original_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/task-13-report.md",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/24-task-13-report.md",
+    "sha256": "d66f158d9a92aeff0227328e75379e4e8e862668774d32df7eb1257ef2f36c3d"
+  },
+  {
+    "bytes": 3840,
+    "original_path": "/private/tmp/task13-seed42-diagnostic/original-pytest-failure.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/25-original-pytest-failure.txt",
+    "sha256": "a5e63b6aae0162d18e4d89d482e144014158c42c4617efefabfb365b9e70c4f5"
+  },
+  {
+    "bytes": 3883,
+    "original_path": "/private/tmp/task13-seed42-diagnostic/test_rebuild.py",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/26-test_rebuild.py",
+    "sha256": "a128fb616d9ae4e1b2c03c183ab4d09a4217a14fc3a57620c9a8b6738bbe9447"
+  },
+  {
+    "bytes": 5966,
+    "original_path": "/private/tmp/task13-seed42-diagnostic/rebuild-log.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/27-rebuild-log.txt",
+    "sha256": "62bbc28cfe6f413f0977c39ee0d4897cd43ca5354513a1e624be4aedf816d941"
+  },
+  {
+    "bytes": 1008,
+    "original_path": "/private/tmp/task13-seed42-diagnostic/traceback.txt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/28-traceback.txt",
+    "sha256": "975fdc208509f64304b79398c16ad5b06084578622b8a1406cc099bf6d5e5002"
+  },
+  {
+    "bytes": 1289,
+    "original_path": "/private/tmp/task13-seed42-diagnostic/diagnostic.json",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/29-diagnostic.json",
+    "sha256": "1825b23bc15de4c5866ac0494fcc92ac379aa718db494a966717f20ed9aeaaf3"
+  },
+  {
+    "bytes": 4780,
+    "original_path": "/private/tmp/task13-seed42-diagnostic/reconstruction.json",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/30-reconstruction.json",
+    "sha256": "75ca8f58ee4ce6f16da2b70ee16d778125a7c3dc6c8b01895d9af7494664531d"
+  },
+  {
+    "bytes": 11246,
+    "original_path": "/private/tmp/task13-seed42-diagnostic/failed-probe-model.pt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/31-failed-probe-model.pt",
+    "sha256": "34e2d6653f14764df60ada5cdd5f4730b5c6123268d1174470df209c191b92a1"
+  },
+  {
+    "bytes": 47989,
+    "original_path": "/private/tmp/task13-seed42-diagnostic/operands-torch.float32.pt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/32-operands-torch.float32.pt",
+    "sha256": "fe6be68ee6545684a93308e45a51b68507045ae808cd4d1ba409022c4aaab279"
+  },
+  {
+    "bytes": 82485,
+    "original_path": "/private/tmp/task13-seed42-diagnostic/operands-torch.float64.pt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/33-operands-torch.float64.pt",
+    "sha256": "53412b500b3949f0471a1235aa18f13798adc5bf97041419f086834cd285107a"
+  },
+  {
+    "bytes": 71793,
+    "original_path": "/private/tmp/task13-seed42-diagnostic/reconstructed-attempt/pair.json",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/34-pair.json",
+    "sha256": "1287c4fc2a9ad3047034f9c5a08199e402ba37a739a9f0418f3306a9c26cc7b9"
+  },
+  {
+    "bytes": 2447,
+    "original_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/tests/fixtures/causal_seed42_probe.md",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/35-causal_seed42_probe.md",
+    "sha256": "8726dd90cd94e1803fd644bcbf75bad1935b2fbb6452bbcf0820e0231e3fbab0"
+  },
+  {
+    "bytes": 11246,
+    "original_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/tests/fixtures/causal_seed42_probe.pt",
+    "restored_path": "audit/implementation/evidence/2026-10-17/task-13/original/36-causal_seed42_probe.pt",
+    "sha256": "34e2d6653f14764df60ada5cdd5f4730b5c6123268d1174470df209c191b92a1"
+  }
+]

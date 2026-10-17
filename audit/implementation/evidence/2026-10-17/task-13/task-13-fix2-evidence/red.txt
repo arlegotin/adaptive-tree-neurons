@@ -1,0 +1,126 @@
+FF.                                                                      [100%]
+=================================== FAILURES ===================================
+_ test_final_work_total_cross_category_overflow_is_blocked[0.0-1e+308-1e+308-True] _
+
+tmp_path = PosixPath('/private/tmp/task13-fix2-red/test_final_work_total_cross_ca0')
+base = 0.0, outer = 1e+308, standalone = 1e+308, overflow = True
+
+    @pytest.mark.parametrize('base,outer,standalone,overflow',[
+        (0.,1e308,1e308,True),
+        (1e308,1e308,0.,True),
+        (2.,3.,5.,False),
+    ])
+    def test_final_work_total_cross_category_overflow_is_blocked(tmp_path,base,outer,standalone,overflow):
+        import math,time
+        from treeneuron.analysis.audit import _finish_audit_work,conclude
+        from treeneuron.config import canonical_hash
+        analysis=tmp_path/'analysis-work';analysis.mkdir()
+        audits=tmp_path/'audit-work';audits.mkdir()
+        report={};digest=canonical_hash(report);report['report_sha256']=digest
+        (tmp_path/f'primary-{digest}.json').write_text(json.dumps(report))
+        prior=analysis/'standalone.json'
+        prior.write_text(json.dumps(dict(schema_version=1,protocol_hash='toy',report_sha256=digest,
+                                        previous_analysis_seconds=0.,seconds=standalone)))
+        (audits/'prior.json').write_text(json.dumps(dict(schema_version=1,protocol_hash='toy',seconds=outer,
+                                                      nested_analysis_receipts=[])))
+        result=dict(protocol_hash='toy',primary=None,reasons=[],accounting={'costs':{'combined_seconds':base}},
+                    conclusion=conclude(None,[]),status='incomplete',valid=False)
+        result['audit_sha256']=canonical_hash(result)
+>       _finish_audit_work(tmp_path,result,'current',time.perf_counter_ns(),{prior})
+
+tests/test_audit_fix1.py:320: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/analysis/audit.py:588: in _finish_audit_work
+    _atomic_json(work/f'{work_id}.json',dict(schema_version=1,protocol_hash=result['protocol_hash'],
+src/treeneuron/artifacts.py:43: in _atomic_json
+    payload = (canonical_json(value) + "\n").encode("utf-8")
+               ^^^^^^^^^^^^^^^^^^^^^
+src/treeneuron/config.py:181: in canonical_json
+    return json.dumps(_json_value(value), sort_keys=True, separators=(",", ":"),
+                      ^^^^^^^^^^^^^^^^^^
+src/treeneuron/config.py:167: in _json_value
+    return {key: _json_value(item) for key, item in value.items()}
+                 ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+value = inf
+
+    def _json_value(value: Any) -> Any:
+        if isinstance(value, Mapping):
+            if any(type(key) is not str for key in value):
+                raise ValueError("JSON mapping keys must be strings")
+            return {key: _json_value(item) for key, item in value.items()}
+        if isinstance(value, (tuple, list)):
+            return [_json_value(item) for item in value]
+        if value is None or type(value) in (str, bool, int):
+            return value
+        if type(value) is float and math.isfinite(value):
+            return value
+>       raise ValueError(f"Expected finite JSON value, got {type(value).__name__}")
+E       ValueError: Expected finite JSON value, got float
+
+src/treeneuron/config.py:174: ValueError
+_ test_final_work_total_cross_category_overflow_is_blocked[1e+308-1e+308-0.0-True] _
+
+tmp_path = PosixPath('/private/tmp/task13-fix2-red/test_final_work_total_cross_ca1')
+base = 1e+308, outer = 1e+308, standalone = 0.0, overflow = True
+
+    @pytest.mark.parametrize('base,outer,standalone,overflow',[
+        (0.,1e308,1e308,True),
+        (1e308,1e308,0.,True),
+        (2.,3.,5.,False),
+    ])
+    def test_final_work_total_cross_category_overflow_is_blocked(tmp_path,base,outer,standalone,overflow):
+        import math,time
+        from treeneuron.analysis.audit import _finish_audit_work,conclude
+        from treeneuron.config import canonical_hash
+        analysis=tmp_path/'analysis-work';analysis.mkdir()
+        audits=tmp_path/'audit-work';audits.mkdir()
+        report={};digest=canonical_hash(report);report['report_sha256']=digest
+        (tmp_path/f'primary-{digest}.json').write_text(json.dumps(report))
+        prior=analysis/'standalone.json'
+        prior.write_text(json.dumps(dict(schema_version=1,protocol_hash='toy',report_sha256=digest,
+                                        previous_analysis_seconds=0.,seconds=standalone)))
+        (audits/'prior.json').write_text(json.dumps(dict(schema_version=1,protocol_hash='toy',seconds=outer,
+                                                      nested_analysis_receipts=[])))
+        result=dict(protocol_hash='toy',primary=None,reasons=[],accounting={'costs':{'combined_seconds':base}},
+                    conclusion=conclude(None,[]),status='incomplete',valid=False)
+        result['audit_sha256']=canonical_hash(result)
+>       _finish_audit_work(tmp_path,result,'current',time.perf_counter_ns(),{prior})
+
+tests/test_audit_fix1.py:320: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/analysis/audit.py:588: in _finish_audit_work
+    _atomic_json(work/f'{work_id}.json',dict(schema_version=1,protocol_hash=result['protocol_hash'],
+src/treeneuron/artifacts.py:43: in _atomic_json
+    payload = (canonical_json(value) + "\n").encode("utf-8")
+               ^^^^^^^^^^^^^^^^^^^^^
+src/treeneuron/config.py:181: in canonical_json
+    return json.dumps(_json_value(value), sort_keys=True, separators=(",", ":"),
+                      ^^^^^^^^^^^^^^^^^^
+src/treeneuron/config.py:167: in _json_value
+    return {key: _json_value(item) for key, item in value.items()}
+                 ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+value = inf
+
+    def _json_value(value: Any) -> Any:
+        if isinstance(value, Mapping):
+            if any(type(key) is not str for key in value):
+                raise ValueError("JSON mapping keys must be strings")
+            return {key: _json_value(item) for key, item in value.items()}
+        if isinstance(value, (tuple, list)):
+            return [_json_value(item) for item in value]
+        if value is None or type(value) in (str, bool, int):
+            return value
+        if type(value) is float and math.isfinite(value):
+            return value
+>       raise ValueError(f"Expected finite JSON value, got {type(value).__name__}")
+E       ValueError: Expected finite JSON value, got float
+
+src/treeneuron/config.py:174: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_audit_fix1.py::test_final_work_total_cross_category_overflow_is_blocked[0.0-1e+308-1e+308-True]
+FAILED tests/test_audit_fix1.py::test_final_work_total_cross_category_overflow_is_blocked[1e+308-1e+308-0.0-True]
+2 failed, 1 passed in 1.58s

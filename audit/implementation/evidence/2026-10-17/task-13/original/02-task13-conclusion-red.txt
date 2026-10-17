@@ -1,0 +1,13 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___ test_negative_complete_rows_and_missing_pair_have_different_conclusions ____
+
+    def test_negative_complete_rows_and_missing_pair_have_different_conclusions():
+        from test_primary import rows, policy
+>       from treeneuron.analysis.primary import summarize_cohort
+E       ImportError: cannot import name 'summarize_cohort' from 'treeneuron.analysis.primary' (/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/analysis/primary.py)
+
+tests/test_audit.py:45: ImportError
+=========================== short test summary info ============================
+FAILED tests/test_audit.py::test_negative_complete_rows_and_missing_pair_have_different_conclusions
+1 failed in 1.05s

@@ -1,0 +1,108 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+____ test_work_receipt_exact_prefix_and_overflow_classification[durations0] ____
+
+tmp_path = PosixPath('/private/tmp/task13-fix1-clock-red/test_work_receipt_exact_prefix0')
+durations = [4.240696667, 4.2385195, 4.27692, 4.471023208]
+
+    @pytest.mark.parametrize('durations',[
+        [4.240696667,4.2385195,4.27692,4.471023208],
+        [1e308,1e308],
+    ])
+    def test_work_receipt_exact_prefix_and_overflow_classification(tmp_path,durations):
+        import math,time
+        from treeneuron.analysis.audit import _finish_audit_work,conclude
+        from treeneuron.config import canonical_hash
+        work=tmp_path/'analysis-work';work.mkdir()
+        report={};digest=canonical_hash(report);report['report_sha256']=digest
+        (tmp_path/f'primary-{digest}.json').write_text(json.dumps(report))
+        files=[]
+        for index,seconds in enumerate(durations):
+            path=work/f'{len(durations)-index}.json';files.append(path)
+            path.write_text(json.dumps(dict(schema_version=1,protocol_hash='toy',report_sha256=digest,
+                                           previous_analysis_seconds=math.fsum(durations[:index]),seconds=seconds)))
+        result=dict(protocol_hash='toy',primary=None,reasons=[],accounting={'costs':{'combined_seconds':0}},
+                    conclusion=conclude(None,[]),status='incomplete',valid=False)
+        result['audit_sha256']=canonical_hash(result)
+        _finish_audit_work(tmp_path,result,'clock',time.perf_counter_ns(),set(files))
+        if durations[0]==1e308:
+            assert result['status']=='blocked' and 'overflow' in ' '.join(result['reasons']).lower()
+            assert json.loads((tmp_path/'audit-work/clock.json').read_text())['total_study_work_seconds'] is None
+        else:
+>           assert not result['reasons']
+E           AssertionError: assert not ['Work receipt integrity: Analysis work sequence differs']
+
+tests/test_audit_fix1.py:283: AssertionError
+____ test_work_receipt_exact_prefix_and_overflow_classification[durations1] ____
+
+tmp_path = PosixPath('/private/tmp/task13-fix1-clock-red/test_work_receipt_exact_prefix1')
+durations = [1e+308, 1e+308]
+
+    @pytest.mark.parametrize('durations',[
+        [4.240696667,4.2385195,4.27692,4.471023208],
+        [1e308,1e308],
+    ])
+    def test_work_receipt_exact_prefix_and_overflow_classification(tmp_path,durations):
+        import math,time
+        from treeneuron.analysis.audit import _finish_audit_work,conclude
+        from treeneuron.config import canonical_hash
+        work=tmp_path/'analysis-work';work.mkdir()
+        report={};digest=canonical_hash(report);report['report_sha256']=digest
+        (tmp_path/f'primary-{digest}.json').write_text(json.dumps(report))
+        files=[]
+        for index,seconds in enumerate(durations):
+            path=work/f'{len(durations)-index}.json';files.append(path)
+            path.write_text(json.dumps(dict(schema_version=1,protocol_hash='toy',report_sha256=digest,
+                                           previous_analysis_seconds=math.fsum(durations[:index]),seconds=seconds)))
+        result=dict(protocol_hash='toy',primary=None,reasons=[],accounting={'costs':{'combined_seconds':0}},
+                    conclusion=conclude(None,[]),status='incomplete',valid=False)
+        result['audit_sha256']=canonical_hash(result)
+>       _finish_audit_work(tmp_path,result,'clock',time.perf_counter_ns(),set(files))
+
+tests/test_audit_fix1.py:278: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/analysis/audit.py:586: in _finish_audit_work
+    _atomic_json(work/f'{work_id}.json',dict(schema_version=1,protocol_hash=result['protocol_hash'],
+src/treeneuron/artifacts.py:43: in _atomic_json
+    payload = (canonical_json(value) + "\n").encode("utf-8")
+               ^^^^^^^^^^^^^^^^^^^^^
+src/treeneuron/config.py:181: in canonical_json
+    return json.dumps(_json_value(value), sort_keys=True, separators=(",", ":"),
+                      ^^^^^^^^^^^^^^^^^^
+src/treeneuron/config.py:167: in _json_value
+    return {key: _json_value(item) for key, item in value.items()}
+                 ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+value = inf
+
+    def _json_value(value: Any) -> Any:
+        if isinstance(value, Mapping):
+            if any(type(key) is not str for key in value):
+                raise ValueError("JSON mapping keys must be strings")
+            return {key: _json_value(item) for key, item in value.items()}
+        if isinstance(value, (tuple, list)):
+            return [_json_value(item) for item in value]
+        if value is None or type(value) in (str, bool, int):
+            return value
+        if type(value) is float and math.isfinite(value):
+            return value
+>       raise ValueError(f"Expected finite JSON value, got {type(value).__name__}")
+E       ValueError: Expected finite JSON value, got float
+
+src/treeneuron/config.py:174: ValueError
+________ test_analysis_clock_writer_is_independent_of_filesystem_order _________
+
+tmp_path = PosixPath('/private/tmp/task13-fix1-clock-red/test_analysis_clock_writer_is_0')
+
+    def test_analysis_clock_writer_is_independent_of_filesystem_order(tmp_path):
+        import math
+>       from treeneuron.analysis.primary import _previous_analysis_seconds
+E       ImportError: cannot import name '_previous_analysis_seconds' from 'treeneuron.analysis.primary' (/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/analysis/primary.py)
+
+tests/test_audit_fix1.py:288: ImportError
+=========================== short test summary info ============================
+FAILED tests/test_audit_fix1.py::test_work_receipt_exact_prefix_and_overflow_classification[durations0]
+FAILED tests/test_audit_fix1.py::test_work_receipt_exact_prefix_and_overflow_classification[durations1]
+FAILED tests/test_audit_fix1.py::test_analysis_clock_writer_is_independent_of_filesystem_order
+3 failed in 1.45s

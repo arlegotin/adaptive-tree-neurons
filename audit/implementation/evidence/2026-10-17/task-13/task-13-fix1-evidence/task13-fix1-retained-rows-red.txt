@@ -1,0 +1,19 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_ test_retained_partial_prediction_bytes_are_immutable_but_later_publication_is_allowed _
+
+tmp_path = PosixPath('/private/tmp/task13-fix1-retained-rows-red/test_retained_partial_predicti0')
+
+    def test_retained_partial_prediction_bytes_are_immutable_but_later_publication_is_allowed(tmp_path):
+        from treeneuron.evaluation.confirm import _capture_attempt_inventory
+        from treeneuron.analysis.audit import _audit_retained_attempt
+        directory=tmp_path/'attempt';access=tmp_path/'access';access.mkdir()
+        link=access/'link.json';link.write_text('{}')
+>       inventory=_capture_attempt_inventory(directory,protected_directory=access)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: _capture_attempt_inventory() got an unexpected keyword argument 'protected_directory'
+
+tests/test_audit_fix1.py:214: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_audit_fix1.py::test_retained_partial_prediction_bytes_are_immutable_but_later_publication_is_allowed
+1 failed in 1.11s

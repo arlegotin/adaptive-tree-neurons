@@ -1,0 +1,20 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________ test_archive_locator_is_idempotent_inside_original_root ____________
+
+tmp_path = PosixPath('/private/tmp/task13-fix1-nested-red/test_archive_locator_is_idempo0')
+
+    def test_archive_locator_is_idempotent_inside_original_root(tmp_path):
+        from treeneuron.locators import relocated,locate
+        original=tmp_path/'repo';current=original/'audit/archives/example/files'
+        with relocated(original,current):
+            mapped=locate(original/'protocol/frozen.yaml')
+            assert mapped==current/'protocol/frozen.yaml'
+>           assert locate(mapped)==mapped
+E           AssertionError: assert PosixPath('/private/tmp/task13-fix1-nested-red/test_archive_locator_is_idempo0/repo/audit/archives/example/files/audit/archives/example/files/protocol/frozen.yaml') == PosixPath('/private/tmp/task13-fix1-nested-red/test_archive_locator_is_idempo0/repo/audit/archives/example/files/protocol/frozen.yaml')
+E            +  where PosixPath('/private/tmp/task13-fix1-nested-red/test_archive_locator_is_idempo0/repo/audit/archives/example/files/audit/archives/example/files/protocol/frozen.yaml') = <function locate at 0x10ffb8180>(PosixPath('/private/tmp/task13-fix1-nested-red/test_archive_locator_is_idempo0/repo/audit/archives/example/files/protocol/frozen.yaml'))
+
+tests/test_audit_fix1.py:206: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_audit_fix1.py::test_archive_locator_is_idempotent_inside_original_root
+1 failed in 0.50s

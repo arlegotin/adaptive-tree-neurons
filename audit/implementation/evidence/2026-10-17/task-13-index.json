@@ -1,0 +1,418 @@
+{
+  "base_commit": "110a33f3a6412e7f07237fde76580fe0b9018a54",
+  "execution_sha256": "15254c54ac4bf7f3547c660b9b8734dcd62c9a3efbd2d60011fab98a3f290384",
+  "files": {
+    "audit/implementation/evidence/2026-10-17/ruling-12-archive-sealing.md": {
+      "bytes": 1178,
+      "sha256": "2cb34c81a2f1f4ca1a095ecc20dd24b95dd13eaa45947bbdb3bd625c93160a3e"
+    },
+    "audit/implementation/evidence/2026-10-17/ruling-13-live-archive-bindings.md": {
+      "bytes": 1767,
+      "sha256": "b8f92afc6b260d938aeef664d7d5138c80255e67bf67746e8ea9a93289007669"
+    },
+    "audit/implementation/evidence/2026-10-17/task-10-acceptance-v2.json": {
+      "bytes": 3818,
+      "sha256": "58c59e415221702585accf7b8420db47fd7863cbf7def7596280fc026d6b81ee"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13-acceptance-v1.json": {
+      "bytes": 3262,
+      "sha256": "2456b23af1b24ee9acca5977ca0ce5b718bed435b6fe6f272ebfecc3c3d9e522"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/execution-snapshot.json": {
+      "bytes": 40906,
+      "sha256": "29537be45c413a246d7793f34651752df0bdd4dbff19adf98ff0557edbe9aad1"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original-artifact-map.json": {
+      "bytes": 10828,
+      "sha256": "2da4cac09874e415f73b56a9bc0fb906566106bff3256942399a2ee62d4d0a56"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/00-task13-red.txt": {
+      "bytes": 3962,
+      "sha256": "87d2bd56fb1fd99f13019781d19d46a7d89ec53a2cc2bd3d69b86b71cd05ca30"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/01-task13-portable-green.txt": {
+      "bytes": 99,
+      "sha256": "38ac59adcd982f4c23411e1cf1db88cf31e79fe556bfc5adecaf9a8343334108"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/02-task13-conclusion-red.txt": {
+      "bytes": 866,
+      "sha256": "5823647b91132e1973ca00c928b0937ceff92dc54217b004cf0a469e08198076"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/03-task13-initial-green.txt": {
+      "bytes": 100,
+      "sha256": "5957018eeda9c69a08c10022009aacdf215912c60c4667f38537941ccdc9788a"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/04-task13-integration-red.txt": {
+      "bytes": 4525,
+      "sha256": "01bdc9983ac8aaa46f5664b5f98a1b7dec1b0aaf163abc1ced9d963f5680b8ec"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/05-task13-checkpoint-cli-red.txt": {
+      "bytes": 2891,
+      "sha256": "9d54773cf10770a66c59e7d041001d99c17f716ba9b7951c9a9eae193d9222da"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/06-task13-checkpoint-cli-green.txt": {
+      "bytes": 98,
+      "sha256": "bad973848c6b6c3dbc78f19d81c53c3a20929a6cfa8655685e9bbe74a606d2c0"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/07-task13-integration-green.txt": {
+      "bytes": 110,
+      "sha256": "8ff67c104e1e4e336606b0e3486e4fc1e2acbe656dc7d07674ab9e5b234f1634"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/08-task13-work-relocation-red.txt": {
+      "bytes": 3912,
+      "sha256": "e18c40a63d6f82a306d035e2b0701af0366198c1f62aed06874665d136f09491"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/09-task13-audit-green.txt": {
+      "bytes": 110,
+      "sha256": "5b4cb0a58f10a412211b045a8b9b529506379b100dc49bf6b6c58c145ea88c1c"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/10-task13-negative-green.txt": {
+      "bytes": 3671,
+      "sha256": "2663f498f41c2aed71eab364212ba037e3863b32dc76d707769294000b2b9fc4"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/11-task13-native-error-red.txt": {
+      "bytes": 2480,
+      "sha256": "21ae0faf00bee5d00d7dd2e4ec0e4f94ed5082002b40b467b5feebf0d262e142"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/12-task13-final-focused.txt": {
+      "bytes": 3840,
+      "sha256": "a5e63b6aae0162d18e4d89d482e144014158c42c4617efefabfb365b9e70c4f5"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/13-task13-amend-red.txt": {
+      "bytes": 1244,
+      "sha256": "a14d4bb794ff37112fc9c45a746ac5b52e892b1ba2e34fbee81a3ad3a0b43ba1"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/14-task13-amend-missing-red.txt": {
+      "bytes": 1289,
+      "sha256": "ccac70390c5506cf1bd03933e60fd8f36877d8032f452093405bf0342a2871cd"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/15-task13-precision-red.txt": {
+      "bytes": 2245,
+      "sha256": "d3a33a8624fd4464964bb96aadbb7058175c33f0dc1d1a041fb3a62821373b21"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/16-task13-precision-red2.txt": {
+      "bytes": 4595,
+      "sha256": "6cab79966b48186dc2e8bb7c98502ee94727a3b48c92e4c61231de0e015ddb01"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/17-task13-precision-amend-green.txt": {
+      "bytes": 99,
+      "sha256": "0223ee6691869d85abd0a260733139c5a518fa2b699c33ee6218829d8bfcfc22"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/18-task13-covering.txt": {
+      "bytes": 610,
+      "sha256": "32b08e31df71912a1cb1ee336a3c80e912e21020947368c7da57c6b8cf0d4025"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/19-task13-accounting-red.txt": {
+      "bytes": 6141,
+      "sha256": "b467f9c72cd670b253337ddec156e437369e8c9120cb18042824cafb788266a4"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/20-task13-accounting-green.txt": {
+      "bytes": 99,
+      "sha256": "72b362fe95fb0a118eea208fa924d2424631c1c986db0b509b3719f087ce0053"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/21-task13-stable-full.txt": {
+      "bytes": 3713,
+      "sha256": "5fcf8cd6f9d4417159cedb1cf976095358f281b4324ac36f187d5c0f0b60431a"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/22-task13-stable-source.json": {
+      "bytes": 41127,
+      "sha256": "aa513fa48565e9aa2c67c291b8d5daf393dcb4b8fa8851e7e9b1d31226b5e0a5"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/23-task13-committed-source.json": {
+      "bytes": 41488,
+      "sha256": "312387ff67ebcd0147a60d6c084f408d2709e543d4b969be3f0a70b6bbaf4efc"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/24-task-13-report.md": {
+      "bytes": 25320,
+      "sha256": "d66f158d9a92aeff0227328e75379e4e8e862668774d32df7eb1257ef2f36c3d"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/25-original-pytest-failure.txt": {
+      "bytes": 3840,
+      "sha256": "a5e63b6aae0162d18e4d89d482e144014158c42c4617efefabfb365b9e70c4f5"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/26-test_rebuild.py": {
+      "bytes": 3883,
+      "sha256": "a128fb616d9ae4e1b2c03c183ab4d09a4217a14fc3a57620c9a8b6738bbe9447"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/27-rebuild-log.txt": {
+      "bytes": 5966,
+      "sha256": "62bbc28cfe6f413f0977c39ee0d4897cd43ca5354513a1e624be4aedf816d941"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/28-traceback.txt": {
+      "bytes": 1008,
+      "sha256": "975fdc208509f64304b79398c16ad5b06084578622b8a1406cc099bf6d5e5002"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/29-diagnostic.json": {
+      "bytes": 1289,
+      "sha256": "1825b23bc15de4c5866ac0494fcc92ac379aa718db494a966717f20ed9aeaaf3"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/30-reconstruction.json": {
+      "bytes": 4780,
+      "sha256": "75ca8f58ee4ce6f16da2b70ee16d778125a7c3dc6c8b01895d9af7494664531d"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/31-failed-probe-model.pt": {
+      "bytes": 11246,
+      "sha256": "34e2d6653f14764df60ada5cdd5f4730b5c6123268d1174470df209c191b92a1"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/32-operands-torch.float32.pt": {
+      "bytes": 47989,
+      "sha256": "fe6be68ee6545684a93308e45a51b68507045ae808cd4d1ba409022c4aaab279"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/33-operands-torch.float64.pt": {
+      "bytes": 82485,
+      "sha256": "53412b500b3949f0471a1235aa18f13798adc5bf97041419f086834cd285107a"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/34-pair.json": {
+      "bytes": 71793,
+      "sha256": "1287c4fc2a9ad3047034f9c5a08199e402ba37a739a9f0418f3306a9c26cc7b9"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/35-causal_seed42_probe.md": {
+      "bytes": 2447,
+      "sha256": "8726dd90cd94e1803fd644bcbf75bad1935b2fbb6452bbcf0820e0231e3fbab0"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/original/36-causal_seed42_probe.pt": {
+      "bytes": 11246,
+      "sha256": "34e2d6653f14764df60ada5cdd5f4730b5c6123268d1174470df209c191b92a1"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-evidence-index.json": {
+      "bytes": 7504,
+      "sha256": "2afa9051e0d2cdf164b6bf1118e539db637a1e22c956d63260a78e697cf547d5"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence-index.json": {
+      "bytes": 5759,
+      "sha256": "05b410d70086f20b36607508f34c594f354040afb49c7fa8525062eea5ec3b6a"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/binding-external_unbound.json": {
+      "bytes": 387,
+      "sha256": "c4170fbef9467f0820f60cb41d5edb5acc9cabdc0416a706fb68c211e74a8247"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/binding-repo_local.json": {
+      "bytes": 357,
+      "sha256": "f3c0f2a4dc4e1d492c49bb1d9a254dcd32c000195e6f7d5dcac869644ab71acd"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/clock-failure-operands.json": {
+      "bytes": 2940,
+      "sha256": "3788921b2ee42eb4b5f73164cbd0c19b9ce0c614344e85de307e779369cf7f83"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/covering-source.json": {
+      "bytes": 40742,
+      "sha256": "5adad714f1bba6d49fb66e533d98753f6c3815f5f3f333665e71e9fcb80f648e"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/external-archive-manifest.json": {
+      "bytes": 1386112,
+      "sha256": "be3e801b7311765402a19acb0eeb82a8b5b5c7b22742a24f8fcb54ea226c77cd"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/fixture-evidence-locations.json": {
+      "bytes": 2535,
+      "sha256": "9785faead6a4735c836b43956315fb1e1c511590efa9f1b9bad8f1f839421f7b"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/local-archive-manifest.json": {
+      "bytes": 1388226,
+      "sha256": "6147ecba1ab6cff649f765888a83421bfa1412d2fe3de7935066dbe8ee5dc91c"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-affected-source.json": {
+      "bytes": 40830,
+      "sha256": "7ba83c09a7b937326b50c152c0687fe649aa03bd975dbe8a4554dda0969daf16"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-affected.txt": {
+      "bytes": 111,
+      "sha256": "fb1a92afb31ef0deecfbc6fa484af4252601367757e93a9c28741cf375960b22"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-clock-green.txt": {
+      "bytes": 98,
+      "sha256": "a2753365e886c8f64087f74eb07733d9b9be6d393434d1d76ffaf6b594bb1b25"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-clock-red.txt": {
+      "bytes": 6135,
+      "sha256": "b05491400229c8c0529bca414ff7d14ac939a833490763061a3a49b6fd4b336d"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-covering.txt": {
+      "bytes": 8105,
+      "sha256": "bb16d1727758f88ebcf21bfbe4a1e63f3eb580c95089a1f1b5e44a406bfc24b8"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-focused.txt": {
+      "bytes": 6227,
+      "sha256": "7b23130195d768f96a09e6ac8335297757107429dade1f76fec62e3916acd6da"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-hardstop-green.txt": {
+      "bytes": 98,
+      "sha256": "8707f6d4c96754710bf0a62f35c31285b102588e841b88c1f9f5d0aae715dadd"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-hardstop-red.txt": {
+      "bytes": 2308,
+      "sha256": "8c053c4b17fcbca166a51e9975a364495bdf4ebf0799f69eb6d301a4d912af3c"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-i1-green.txt": {
+      "bytes": 109,
+      "sha256": "d9e29576c95a85223028a7e91baf78ae0f9c25c12a576ed608d7a384999a7cae"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-i1-red.txt": {
+      "bytes": 3273,
+      "sha256": "833584ac475ed3b0a123d6027a10e7f7e8c0f2ae045a23d7d5913984429a498c"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-i2-green.txt": {
+      "bytes": 98,
+      "sha256": "d7c8397bfcc2899f10c8acf6d956894dfe8dacc14d4a218e32b7f5328d5c9bd9"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-i2-red.txt": {
+      "bytes": 5930,
+      "sha256": "0dd0d29ca611ab16fe21ff8cb09d153b510ca7bc302f88d8438b4c6c1bc6ce5a"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-i3-green.txt": {
+      "bytes": 98,
+      "sha256": "f0f27487f17dd9fb792ee4ae39fb569dac181a58044719cf1e82e9d1a902d200"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-i3-red.txt": {
+      "bytes": 920,
+      "sha256": "affed8519c22fba20b9fc258c1e8c495f795c95d1287fbebab6754c43689df17"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-i4-green.txt": {
+      "bytes": 2277,
+      "sha256": "c5753e2a1d41fee6765e8be24f70ecc31164de4fd0fb6dba8e961826957650fc"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-i4-red.txt": {
+      "bytes": 819,
+      "sha256": "2c8bfa315ee6944a70dcb2673b69e6f97d0733becae228ad172c6a724930fd37"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-nested-green.txt": {
+      "bytes": 98,
+      "sha256": "a2753365e886c8f64087f74eb07733d9b9be6d393434d1d76ffaf6b594bb1b25"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-nested-red.txt": {
+      "bytes": 1682,
+      "sha256": "eb2a307da2ee47f849c63c7951ef5890d98de01a5b55fe2c823e62247e2a50fb"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-retained-rows-green.txt": {
+      "bytes": 99,
+      "sha256": "ad022a9bff2019e020ad4101f89d87020b5917ebaa8a132d2f3b896a55adbb00"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-retained-rows-red.txt": {
+      "bytes": 1265,
+      "sha256": "d78b4cb00b68196089f817c2e057f35593a4ac4a694daf1db56f8915e314c982"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/terminal-archive-completion.json": {
+      "bytes": 310,
+      "sha256": "6b3c6f406010422478c9128968ad9614f4b9c62fb281167373f8099f081934d2"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/terminal-confirmation.json": {
+      "bytes": 68101,
+      "sha256": "77559b9c421b76d3fab7fb93d7a799ae6226916acd828e5500a9bf9a1adb8629"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/tested-execution-snapshot.json": {
+      "bytes": 40906,
+      "sha256": "969bedd4a613ca3c722ecb1dc76f00b5dc3ee4f7d7f614160a6f7b8c74d39f9f"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/tested-fix.diff": {
+      "bytes": 60122,
+      "sha256": "d703266799d7f5f1a9361a4b12408190459ed64942e524eee92290ba23ffc918"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/unknown-retention-archive-manifest.json": {
+      "bytes": 1387168,
+      "sha256": "6930f5297c20a5b1b932326d28b662fa3c1332bafd9ea8c14c5f995ed65e1f79"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-report.md": {
+      "bytes": 18545,
+      "sha256": "4118c1e57637df8655e72341206be2fc77e22554af5b114ad8ce865c2ba56a8d"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-review.md": {
+      "bytes": 8916,
+      "sha256": "1d123a7835bd26ce99b3895a22b37bfddfd3ccb053e24f2402ef54cea1eff7c5"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-evidence-index.json": {
+      "bytes": 1634,
+      "sha256": "2111d44f87a2834ac11faf0831a82be1fee02a51d4c4ee66d99e8fbd0d9bc2bb"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-evidence/affected.txt": {
+      "bytes": 100,
+      "sha256": "df6130cc0347c8e4e264c8293192c6ca9fb2420a1533df7dcfa18509050570ef"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-evidence/cross-category-results.json": {
+      "bytes": 5756,
+      "sha256": "3e4729c60421b4b62134df7308321ae0d3e16eebe93372b1735db439958d232f"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-evidence/green.txt": {
+      "bytes": 98,
+      "sha256": "d7ba8c071e5c81ad5d9c8ab565dcf88b56d8f3a0da3a365bf1fc48cd97607119"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-evidence/preserved-prior-evidence.json": {
+      "bytes": 4559,
+      "sha256": "9eb5d78c36e949408c6cf7072157fcb72602cd0695c5cebfd98c7fc49a41b6ae"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-evidence/red.txt": {
+      "bytes": 6996,
+      "sha256": "4a795fc8e90ce3d17bcb465ea7642efe2ec19d525fe12617a3cee76ae3cfd621"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-evidence/test-launch-source.json": {
+      "bytes": 40830,
+      "sha256": "07cfadf7185a905b3b7fdb00d162858c0c937758648d819f2adda017aaba58ed"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-evidence/tested-execution-snapshot.json": {
+      "bytes": 40906,
+      "sha256": "29537be45c413a246d7793f34651752df0bdd4dbff19adf98ff0557edbe9aad1"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-evidence/tested-fix.diff": {
+      "bytes": 5453,
+      "sha256": "ed4096d14cfc6ff01067bf07967b85648329cd312545739511160d8790888ebd"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-report.md": {
+      "bytes": 5696,
+      "sha256": "3fe3dc4483d350cadefd4e762f7a5abcde436a505cffbe4819d9660fd204a0e5"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-review.md": {
+      "bytes": 3804,
+      "sha256": "4443b2c06beb7bb4b007baa6983796a354cade28d95c40d89b50a495a31b0734"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-report.md": {
+      "bytes": 25320,
+      "sha256": "d66f158d9a92aeff0227328e75379e4e8e862668774d32df7eb1257ef2f36c3d"
+    },
+    "audit/implementation/evidence/2026-10-17/task-13/task-13-review.md": {
+      "bytes": 11928,
+      "sha256": "48de7f190bb5ee9f11c654038ef579d13f791c3e6f10e50a6a17e1ff53ee3300"
+    },
+    "audit/implementation/evidence/2026-10-17/task-9-acceptance-v3.json": {
+      "bytes": 4541,
+      "sha256": "fbde3a5ea09669a608283dd320ad8f608ce9689af1f395a615dc8e04401e2034"
+    }
+  },
+  "implementation_commit": "d5c8828a6b4ceb48e29ec64c834b2d8335ff54d8",
+  "limits": [
+    "No genuine scientific pilot, frozen protocol, independent cohort or final scientific report",
+    "Full-suite coverage is source-specific; no unchanged full suite replayed for the narrow fixes",
+    "One broad H1 implementation review still precedes definitive calibration",
+    "Three carried Minor items remain for broad review"
+  ],
+  "package_sha256": "5d8f34f31c2b71f816a73efe934a124c7941eeee8769cbbbab7f6d065c0032da",
+  "phase": "implementation_accepted_scientific_evidence_pending",
+  "review": {
+    "critical": 0,
+    "followup_findings_closed": 1,
+    "important": 0,
+    "new_minor": 0,
+    "original_findings_closed": 4
+  },
+  "schema_version": 1,
+  "task": 13,
+  "verification_stages": [
+    {
+      "commit": "3b5095df5a5b16916ec5a103d128dea6100ce207",
+      "passed": 908,
+      "scope": "original full suite",
+      "seconds": 1485.54,
+      "skipped": 48,
+      "warnings": 28
+    },
+    {
+      "commit": "69d2d3c4d00322e8541c17c9f0374dc9a5ec3dd5",
+      "passed": 15,
+      "scope": "fix1 final affected; earlier covering155pass1fail retained separately",
+      "seconds": 185.78
+    },
+    {
+      "commit": "d5c8828a6b4ceb48e29ec64c834b2d8335ff54d8",
+      "passed": 17,
+      "scope": "fix2 affected clock and primary checks",
+      "seconds": 11.52
+    }
+  ]
+}

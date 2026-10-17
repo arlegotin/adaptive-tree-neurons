@@ -1,0 +1,20 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________ test_amendment_explicitly_records_absent_archive_eligibility _________
+
+candidate = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4079/test_amendment...7003b6460fefe7b5cb3fb0', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'), ...])
+
+    def test_amendment_explicitly_records_absent_archive_eligibility(candidate):
+        from treeneuron.protocol import freeze,amend
+        root,decision,sources,_=candidate
+        frozen=freeze(decision,sources,root/'protocol/frozen.yaml')
+        path=amend(frozen,reason='Toy amendment without seal',replacement_study_id='toy-next')
+        value=json.loads(path.read_text())
+>       assert value['archive']['eligibility']=='unavailable_no_archive_supplied'
+               ^^^^^^^^^^^^^^^^
+E       KeyError: 'archive'
+
+tests/test_audit.py:298: KeyError
+=========================== short test summary info ============================
+FAILED tests/test_audit.py::test_amendment_explicitly_records_absent_archive_eligibility
+1 failed in 7.62s

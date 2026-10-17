@@ -1,0 +1,95 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________________________ test_exact_failed_unit ____________________________
+
+prepared = (PosixPath('/private/tmp/task13-seed42-diagnostic/pytest/test_exact_failed_unit0/repo'), ExperimentConfig(study_id='to...'path': 'evidence/pilot/raw.json', 'sha256': '2eddbcd0e7c0288dac81296aaced266222bf8530f24c6166bce830cdc3cf2bfc'}, ...})
+cpu_training_evidence = PosixPath('/private/tmp/task13-seed42-diagnostic/pytest/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10bfd7e90>
+
+    def test_exact_failed_unit(prepared,cpu_training_evidence,monkeypatch):
+        from treeneuron.protocol import confirmation_seeds
+        from treeneuron.evaluation.confirm import repetition_config
+        from treeneuron.data.synthetic import make_from_config
+        from treeneuron.config import resolve_experiment,canonical_hash
+        from treeneuron.pilot.calibrate import fit_repetition
+        from treeneuron.baselines import causal_evidence as ce
+        root,base,sources=prepared
+        seeds=confirmation_seeds('toy','negative-fixture',42,6,2)
+        tc=repetition_config(base,seeds,0)
+        teacher,data=make_from_config(tc)
+        cfg=repetition_config(base,seeds,1).to_dict()
+        cfg['execution']['backend_report']=str(cpu_training_evidence)
+        cfg['backend']['interop_threads']=torch.get_num_interop_threads()
+        config=resolve_experiment(cfg)
+        (OUT/'reconstruction.json').write_text(json.dumps(dict(seeds=seeds,config=cfg,manifest=data.manifest.to_dict()),indent=2))
+        original=ce.probe_causal_cpu
+        def capture(model,**kwargs):
+            try: return original(model,**kwargs)
+            except AssertionError:
+                (OUT/'traceback.txt').write_text(traceback.format_exc())
+                torch.save(dict(topology=model.export_config(),state=model.state_dict()),OUT/'failed-probe-model.pt')
+                diagnose(model,kwargs['batch_size'],ce)
+                raise
+        monkeypatch.setattr(ce,'probe_causal_cpu',capture)
+>       fit_repetition(config,data,OUT/'reconstructed-attempt',canonical_hash(config.to_dict()))
+
+/tmp/task13-seed42-diagnostic/test_rebuild.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/pilot/calibrate.py:166: in fit_repetition
+    adapter=build_causal(method,recipe,parent=parent,allocation=allocation)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/treeneuron/baselines/causal.py:296: in build_causal
+    state.backend=attach_causal_evidence(state.backend,state.model,state.config.training.batch_size)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/treeneuron/baselines/causal_evidence.py:93: in attach_causal_evidence
+    result['causal_cpu_evidence']=probe_causal_cpu(model,batch_size=batch_size)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/tmp/task13-seed42-diagnostic/test_rebuild.py:28: in capture
+    try: return original(model,**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = SelectiveRegressor(
+  (layer): SelectiveAffineLayer(
+    (base): Linear(in_features=16, out_features=64, bias=True)
+  ...6, out_features=16, bias=True)
+  )
+  (activation): ReLU()
+  (head): Linear(in_features=64, out_features=1, bias=True)
+)
+batch_size = 8
+
+    def probe_causal_cpu(model, *, batch_size=128):
+        from treeneuron.train import capture_rng, restore_rng, source_hash
+        if (type(batch_size) is not int or not 0 < batch_size <= 128
+                or any(p.device.type!='cpu' or p.dtype!=torch.float32 for p in model.parameters())):
+            raise ValueError('Causal probe requires CPU float32 and batch <=128')
+        before=capture_rng(); threads=torch.get_num_threads()
+        try:
+            torch.set_num_threads(1)
+            # Probe independent copies, preserving the actual caller tensors and RNG.
+            a,b=copy.deepcopy(model),copy.deepcopy(model)
+            g=torch.Generator().manual_seed(1602041)
+            x=torch.randn(batch_size,model.layer.d,generator=g,dtype=torch.float32)
+            y=torch.randn(batch_size,generator=g,dtype=torch.float32)
+            opts=dict(lr=.001,weight_decay=.01,foreach=False)
+            oa,ob=torch.optim.AdamW(a.parameters(),**opts),torch.optim.AdamW(b.parameters(),**opts)
+            out,ref=a(x),_reference(b,x)
+            torch.testing.assert_close(out,ref,rtol=2e-5,atol=2e-6)
+            ((out-y)**2).mean().backward(); ((ref-y)**2).mean().backward()
+            grad_error=max(float((p.grad-q.grad).abs().max()) for p,q in zip(a.parameters(),b.parameters()))
+            for p,q in zip(a.parameters(),b.parameters()): torch.testing.assert_close(p.grad,q.grad,rtol=2e-4,atol=2e-6)
+            oa.step(); ob.step()
+            optimizer_error=max(float((p-q).abs().max().detach()) for p,q in zip(a.parameters(),b.parameters()))
+>           for p,q in zip(a.parameters(),b.parameters()): torch.testing.assert_close(p,q,rtol=2e-5,atol=2e-6)
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AssertionError: Tensor-likes are not close!
+E           
+E           Mismatched elements: 1 / 256 (0.4%)
+E           Greatest absolute difference: 2.442335244268179e-06 at index (0, 11) (up to 2e-06 allowed)
+E           Greatest relative difference: 0.004203699994832277 at index (0, 11) (up to 2e-05 allowed)
+
+src/treeneuron/baselines/causal_evidence.py:69: AssertionError
+=========================== short test summary info ============================
+FAILED ../../../../../tmp/task13-seed42-diagnostic/test_rebuild.py::test_exact_failed_unit
+1 failed in 13.19s

@@ -1,0 +1,35 @@
+{
+  "boundary": "Small immutable toy ledgers/manifests/bindings retained here; full actual checkpoint trees remain in unique explicit basetemp. No scientific study.",
+  "commit": "69d2d3c4d00322e8541c17c9f0374dc9a5ec3dd5",
+  "copied_evidence": {
+    "binding-external_unbound.json": {
+      "original": "/private/tmp/task13-fix1-affected/test_real_partial_failure_inve0/repo/protocol/confirmation/e2ee54d73651a605cd13b4cb1c67c5ec178c19ce1ca82cc102faca22e11944e2/archive-bindings/647b512d4c56ab3a7f314fc1b53d0a91dc19aadd014ac94a52d4d98ce743f297.json",
+      "sha256": "c4170fbef9467f0820f60cb41d5edb5acc9cabdc0416a706fb68c211e74a8247"
+    },
+    "binding-repo_local.json": {
+      "original": "/private/tmp/task13-fix1-affected/test_real_partial_failure_inve0/repo/protocol/confirmation/e2ee54d73651a605cd13b4cb1c67c5ec178c19ce1ca82cc102faca22e11944e2/archive-bindings/22723cecd5c2089563a52fab1d998880bdab349125095f1f54982c1d2ab742f9.json",
+      "sha256": "f3c0f2a4dc4e1d492c49bb1d9a254dcd32c000195e6f7d5dcac869644ab71acd"
+    },
+    "external-archive-manifest.json": {
+      "original": "/private/tmp/task13-fix1-affected/test_real_partial_failure_inve0/valid-external/archive.json",
+      "sha256": "be3e801b7311765402a19acb0eeb82a8b5b5c7b22742a24f8fcb54ea226c77cd"
+    },
+    "local-archive-manifest.json": {
+      "original": "/private/tmp/task13-fix1-affected/test_real_partial_failure_inve0/repo/audit/archives/partial/archive.json",
+      "sha256": "6147ecba1ab6cff649f765888a83421bfa1412d2fe3de7935066dbe8ee5dc91c"
+    },
+    "terminal-archive-completion.json": {
+      "original": "/private/tmp/task13-fix1-affected/test_real_partial_failure_inve0/repo/protocol/confirmation/e2ee54d73651a605cd13b4cb1c67c5ec178c19ce1ca82cc102faca22e11944e2/archive-completion.json",
+      "sha256": "6b3c6f406010422478c9128968ad9614f4b9c62fb281167373f8099f081934d2"
+    },
+    "terminal-confirmation.json": {
+      "original": "/private/tmp/task13-fix1-affected/test_real_partial_failure_inve0/repo/protocol/confirmation/e2ee54d73651a605cd13b4cb1c67c5ec178c19ce1ca82cc102faca22e11944e2/confirmation.json",
+      "sha256": "77559b9c421b76d3fab7fb93d7a799ae6226916acd828e5500a9bf9a1adb8629"
+    },
+    "unknown-retention-archive-manifest.json": {
+      "original": "/private/tmp/task13-fix1-affected/test_real_partial_failure_inve0/unknown-archive/archive.json",
+      "sha256": "6930f5297c20a5b1b932326d28b662fa3c1332bafd9ea8c14c5f995ed65e1f79"
+    }
+  },
+  "fixture_root": "/private/tmp/task13-fix1-affected/test_real_partial_failure_inve0"
+}

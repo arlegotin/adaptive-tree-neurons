@@ -190,6 +190,14 @@ and Track C references stay outside local measured tables.
 
 Audit-start markers and immutable audit-work receipts retain interrupted or completed audit work. Nested primary-analysis receipts are linked and excluded from the outer total. Archive copying/reanalysis and Markdown rendering have separate copy-work, archive-work and report-work receipts; these variable measurements are outside deterministic report content.
 
+The [implementation review and fixes](audit/implementation/evidence/2026-10-17/task-13-index.json)
+are accepted. Failed attempts retain the partial artifacts they actually wrote;
+an unknown hard-stop history stays explicitly incomplete. Terminal confirmation
+records unsealed archive eligibility until a verified seal exists. Repository-local
+seals create a portable binding; external bundles remain available by explicit
+saved-evidence path, as recorded in [Ruling 13](audit/implementation/evidence/2026-10-17/ruling-13-live-archive-bindings.md).
+The final implementation review and measured scientific calibration are next.
+
 Pass `--archive audit/archives/STUDY` to `amend` to bind the verified prospective
 archive digest to the amendment. Without it the amendment explicitly records
 `unavailable_no_archive_supplied`. A mismatched or damaged supplied archive

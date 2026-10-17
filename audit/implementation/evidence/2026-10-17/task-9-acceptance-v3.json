@@ -1,0 +1,76 @@
+{
+  "artifacts": [
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-9-review.md",
+      "sha256": "2350219db8ecdfdd71e5fb90bcfcd443695b4bf7585a6fdf1dd842df2b9b5da5"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-9-fix1-review.md",
+      "sha256": "a934c563dabad3e3f5d2a3ab8a9a79e5e588af13fdb58ed6f5e663f7d8d4ad4d"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-9-report.md",
+      "sha256": "9c98b590082defe5d525a24a8a57ea0d034b6cb8e3cf12556597d7b252fc2e20"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-10/task-10-review.md",
+      "sha256": "a6c1f641d6d087901f2a7fdecd4593fdbc2a32e78b5e17f04ad804e3ec93f93b"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-10/task-10-report.md",
+      "sha256": "478b56c2565a9f4073831382c2ab5d397765f524636e38b6d51107601a1368a2"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-13/task-13-report.md",
+      "sha256": "d66f158d9a92aeff0227328e75379e4e8e862668774d32df7eb1257ef2f36c3d"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-13/task-13-review.md",
+      "sha256": "48de7f190bb5ee9f11c654038ef579d13f791c3e6f10e50a6a17e1ff53ee3300"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-report.md",
+      "sha256": "4118c1e57637df8655e72341206be2fc77e22554af5b114ad8ce865c2ba56a8d"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-review.md",
+      "sha256": "1d123a7835bd26ce99b3895a22b37bfddfd3ccb053e24f2402ef54cea1eff7c5"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-report.md",
+      "sha256": "3fe3dc4483d350cadefd4e762f7a5abcde436a505cffbe4819d9660fd204a0e5"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-review.md",
+      "sha256": "4443b2c06beb7bb4b007baa6983796a354cade28d95c40d89b50a495a31b0734"
+    }
+  ],
+  "execution_sha256": "15254c54ac4bf7f3547c660b9b8734dcd62c9a3efbd2d60011fab98a3f290384",
+  "files": {
+    "src/treeneuron/analysis/audit.py": "ddbfd3f5453169e425335394e0ab3493216db54bf50936e6b308ad001a516d29",
+    "src/treeneuron/analysis/primary.py": "78ed345b2aa67984b6b0fde365537de1fd9b162e7c0ac2150ae2b3717143469d",
+    "src/treeneuron/analysis/report.py": "6978c61910ab98df827106104d9b43e952c5e16255eb0c00229c2e8001eec779",
+    "src/treeneuron/archive_binding.py": "189e3f502641122c6f9eaf8b463d4304da64cff99107d7e9669929460d21f6fe",
+    "src/treeneuron/baselines/causal_evidence.py": "b12ec3dfc21b1583cb90f225e38700887226c9bd02b0004cfdd0d590d4e18b5a",
+    "src/treeneuron/cli.py": "7af3fd5e6bf9ef908f7c1dd301637f16f73b5d2d0f54f27ae242be84be044883",
+    "src/treeneuron/config.py": "11b45cdb70442232686218dbf49eacd20b5ff521b67b72b2bb1ec657424d1a3a",
+    "src/treeneuron/evaluation/confirm.py": "020828b970acc0ce289d0b4ecb5ac031a365d050cddcc562f34d7196165af24a",
+    "src/treeneuron/evaluation/protected.py": "793ecf7b7e98b8f8b501cf92eec1661b942f45a8344015a41059deac3de5135d",
+    "src/treeneuron/locators.py": "185b67071c460f3bc75a8ee786c08187168b432a76dc43193d85adb84ae4893c",
+    "src/treeneuron/pilot/calibrate.py": "d670c593209eebb762b021fa6cbc8e639f850cd5e7cd8532e2820e32b18ce5cb",
+    "src/treeneuron/protocol.py": "84688c1806176f52a9fad1eab82adf356e661b4fdcd2dd2d2f31eaa9ab0f2b9b",
+    "src/treeneuron/train.py": "c3c1cd81a9959cb353a7f8d921e03f788f85c73c470b8523daa595b911489751",
+    "tests/fixtures/causal_seed42_probe.md": "8726dd90cd94e1803fd644bcbf75bad1935b2fbb6452bbcf0820e0231e3fbab0",
+    "tests/fixtures/causal_seed42_probe.pt": "34e2d6653f14764df60ada5cdd5f4730b5c6123268d1174470df209c191b92a1",
+    "tests/test_audit.py": "49e2163b8b370d23f3ff1067a952cfe924cbcbaca35e14162a787f677cdd1234",
+    "tests/test_audit_fix1.py": "6d8cc14773f411aa1b96f6b822eb993c3da9619d3c8d560d45d8fbfbe8d537a9",
+    "tests/test_causal_precision.py": "c40d0449bd4397a0af0c52e4133baddabf26d4135ead985606aedc254e156af7",
+    "tests/test_confirmation.py": "580b4936f1eafc7c0bfe4db4d15c9116083ddb0579213afddf9e2b56735b6fe8",
+    "tests/test_pilot_calibrate.py": "11337d6a24186a24d49810524986219f1012bca7e9076532fab5e0cc6d72b2ff",
+    "tests/test_protected.py": "8a8f98401d2216077729fa88a55969623b2309121d75f994fa7701dd28c20987",
+    "tests/test_protocol.py": "d87aca2c4e75dd8b3c933655710e242d879be8e21b30b24da9158df42770eb9e"
+  },
+  "implementation_commit": "d5c8828a6b4ceb48e29ec64c834b2d8335ff54d8",
+  "task": "9",
+  "verdict": "accepted"
+}

@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/tmp/task13-seed42-diagnostic/test_rebuild.py", line 28, in capture
+    try: return original(model,**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/baselines/causal_evidence.py", line 69, in probe_causal_cpu
+    for p,q in zip(a.parameters(),b.parameters()): torch.testing.assert_close(p,q,rtol=2e-5,atol=2e-6)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/lib/python3.12/site-packages/torch/testing/_comparison.py", line 1689, in assert_close
+    raise error_metas[0].to_error(msg)
+AssertionError: Tensor-likes are not close!
+
+Mismatched elements: 1 / 256 (0.4%)
+Greatest absolute difference: 2.442335244268179e-06 at index (0, 11) (up to 2e-06 allowed)
+Greatest relative difference: 0.004203699994832277 at index (0, 11) (up to 2e-05 allowed)

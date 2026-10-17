@@ -1,0 +1,19 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________ test_amendment_rejects_missing_supplied_archive ________________
+
+candidate = (PosixPath('/private/tmp/task13-amend-missing-red/test_amendment_rejects_missing0/repo'), DesignDecision(branch='estim...7003b6460fefe7b5cb3fb0', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'), ...])
+tmp_path = PosixPath('/private/tmp/task13-amend-missing-red/test_amendment_rejects_missing0')
+
+    def test_amendment_rejects_missing_supplied_archive(candidate,tmp_path):
+        from treeneuron.protocol import freeze,amend
+        root,decision,sources,_=candidate
+        frozen=freeze(decision,sources,root/'protocol/frozen.yaml')
+        with pytest.raises(ValueError,match='evidence'):
+>           amend(frozen,reason='Toy archive binding',replacement_study_id='toy-next',archive=tmp_path/'missing')
+E           TypeError: amend() got an unexpected keyword argument 'archive'
+
+tests/test_audit.py:307: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_audit.py::test_amendment_rejects_missing_supplied_archive
+1 failed in 6.91s

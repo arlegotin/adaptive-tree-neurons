@@ -1,0 +1,54 @@
+[
+  {
+    "aggregation": "disjoint completed analysis invocations plus preparation/confirmation total; no nested child timers",
+    "boundary": "source/model/graph and saved-row audit, aggregation/inference and report IO; excludes final work receipt",
+    "file": "3e1f9dd739af4dab9233315f7cd69464.json",
+    "previous_analysis_seconds": 0,
+    "protocol_hash": "40202292e6c8885fdc47d69c1f42a202454aa6e329e6ff720feecac20ce9ec58",
+    "report_sha256": "45865899681ec6a906efd36a825fa6b24a5be68ab957e55ae467dc0c92142860",
+    "schema_version": 1,
+    "seconds": 4.240696667,
+    "sha256": "0ee0ec2c794bc4d366764e3e460a023e611c3ee1a8349712113bbe2f7490ab55",
+    "total_reason": null,
+    "total_study_work_seconds": 27.297993126
+  },
+  {
+    "aggregation": "disjoint completed analysis invocations plus preparation/confirmation total; no nested child timers",
+    "boundary": "source/model/graph and saved-row audit, aggregation/inference and report IO; excludes final work receipt",
+    "file": "fae2cdf705ff49b19582c967c41d2fd5.json",
+    "previous_analysis_seconds": 4.240696667,
+    "protocol_hash": "40202292e6c8885fdc47d69c1f42a202454aa6e329e6ff720feecac20ce9ec58",
+    "report_sha256": "45865899681ec6a906efd36a825fa6b24a5be68ab957e55ae467dc0c92142860",
+    "schema_version": 1,
+    "seconds": 4.2385195,
+    "sha256": "8659fcf7c550524c6b39c83f78ea0d4b073b9eb260bd51db40cbc75b1a3a2af7",
+    "total_reason": null,
+    "total_study_work_seconds": 31.536512626
+  },
+  {
+    "aggregation": "disjoint completed analysis invocations plus preparation/confirmation total; no nested child timers",
+    "boundary": "source/model/graph and saved-row audit, aggregation/inference and report IO; excludes final work receipt",
+    "file": "12f0b536d2844fbe9783c035693afea6.json",
+    "previous_analysis_seconds": 8.479216167,
+    "protocol_hash": "40202292e6c8885fdc47d69c1f42a202454aa6e329e6ff720feecac20ce9ec58",
+    "report_sha256": "45865899681ec6a906efd36a825fa6b24a5be68ab957e55ae467dc0c92142860",
+    "schema_version": 1,
+    "seconds": 4.27692,
+    "sha256": "88ea5b5e8c98a4765adc73aa7ee20ea8b8495836eed9067c36d98a5cd7997e01",
+    "total_reason": null,
+    "total_study_work_seconds": 35.813432626
+  },
+  {
+    "aggregation": "disjoint completed analysis invocations plus preparation/confirmation total; no nested child timers",
+    "boundary": "source/model/graph and saved-row audit, aggregation/inference and report IO; excludes final work receipt",
+    "file": "562e00530885416f98e32604a113716d.json",
+    "previous_analysis_seconds": 12.756136167,
+    "protocol_hash": "40202292e6c8885fdc47d69c1f42a202454aa6e329e6ff720feecac20ce9ec58",
+    "report_sha256": "45865899681ec6a906efd36a825fa6b24a5be68ab957e55ae467dc0c92142860",
+    "schema_version": 1,
+    "seconds": 4.471023208,
+    "sha256": "a82ccc0cd7904b3ad6861bfc1a3efdb7917473f1322cb6803c65739da8635b12",
+    "total_reason": null,
+    "total_study_work_seconds": 40.284455834
+  }
+]

@@ -1,0 +1,14 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________ test_terminal_completion_records_explicit_unsealed_eligibility ________
+
+tmp_path = PosixPath('/private/tmp/task13-fix1-i4-red/test_terminal_completion_recor0')
+
+    def test_terminal_completion_records_explicit_unsealed_eligibility(tmp_path):
+>       from treeneuron.archive_binding import completion_record,archive_eligibility
+E       ModuleNotFoundError: No module named 'treeneuron.archive_binding'
+
+tests/test_audit_fix1.py:159: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_audit_fix1.py::test_terminal_completion_records_explicit_unsealed_eligibility
+1 failed in 0.50s

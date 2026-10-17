@@ -1,0 +1,59 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________ test_real_incomplete_audit_relocation_archive_and_tamper ___________
+
+prepared = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4067/test_real_inco...'path': 'evidence/pilot/raw.json', 'sha256': 'eea27782884c73d3494307d25d74410c7f5f4a82c65f5c76ee2fe5eca9990def'}, ...})
+cpu_training_evidence = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4067/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10bc6fe30>
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4067/test_real_incomplete_audit_rel0')
+
+    def test_real_incomplete_audit_relocation_archive_and_tamper(prepared,cpu_training_evidence,monkeypatch,tmp_path):
+        """Actual eight-role fits for one teacher/two reps; 31 missing teachers.
+    
+        Pytest substitutes only its numerical receipt and interop setting. The
+        temporary source/readiness pilot is the existing simulated protocol fixture.
+        """
+        import importlib
+        import torch
+        from test_protocol import git, ref
+        from treeneuron.protocol import eligible_design, freeze, amend, validate_frozen
+        from treeneuron.analysis.audit import audit, seal_archive, audit_archive
+        from treeneuron.analysis.report import render_report
+        from treeneuron.evaluation import protected
+        module=importlib.import_module('treeneuron.evaluation.confirm')
+        root,config,sources=prepared; decision=eligible_design(sources)
+        sources=module.prepare_cohort(decision,sources,root/'cohort',cohort_id='audit-toy',root_seed=17)
+        frozen=freeze(decision,sources,root/'protocol/frozen.yaml')
+        original_resolve=module.resolve_experiment
+        def fixture_runtime(value):
+            value=dict(value); value['execution']=dict(value['execution'],backend_report=str(cpu_training_evidence))
+            value['backend']=dict(value['backend'],interop_threads=torch.get_num_interop_threads())
+            return original_resolve(value)
+        monkeypatch.setattr(module,'resolve_experiment',fixture_runtime)
+        monkeypatch.setattr(module,'_runtime_preflight',lambda c: {})
+        original_fit=module._fit_run
+        def fit(p,payload,unit,rep,directory):
+            if unit['unit_id']!='unit-0': raise RuntimeError('Deliberately omitted toy numerical work')
+            return original_fit(p,payload,unit,rep,directory)
+        monkeypatch.setattr(module,'_fit_run',fit)
+        directory=module.run_confirmation(frozen,'synthetic')
+        def forbidden(*args,**kwargs): raise AssertionError('Audit attempted new fit/predict/T access')
+        monkeypatch.setattr(module,'_fit_run',forbidden)
+        monkeypatch.setattr(module,'load_predictors',forbidden)
+        monkeypatch.setattr(protected,'_test_labels',forbidden)
+        monkeypatch.setattr(protected,'_rng',forbidden)
+        first=audit(directory,frozen)
+        assert first['status']=='incomplete' and not first['valid'], first['reasons']
+        assert not first['reasons'] and first['primary']['valid_runs']==2
+        assert first['accounting']['failed_attempts']==124
+        second=audit(directory,frozen)
+        assert first==second
+        work=[json.loads(p.read_text()) for p in (directory/'audit-work').glob('*.json')]
+>       assert len(work)==2 and all(w['seconds']>0 for w in work)
+E       assert (0 == 2)
+E        +  where 0 = len([])
+
+tests/test_audit.py:109: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_audit.py::test_real_incomplete_audit_relocation_archive_and_tamper
+1 failed in 95.52s (0:01:35)

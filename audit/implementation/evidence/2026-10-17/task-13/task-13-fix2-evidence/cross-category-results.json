@@ -1,0 +1,153 @@
+{
+  "test_final_work_total_cross_ca0": {
+    "analysis-work/standalone.json": {
+      "previous_analysis_seconds": 0.0,
+      "protocol_hash": "toy",
+      "report_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "schema_version": 1,
+      "seconds": 1e+308
+    },
+    "audit-570c2fdbb8adf34027248e8d027647f8c1c32137db8088f225b39bf3ca2d935e.json": {
+      "accounting": {
+        "costs": {
+          "combined_seconds": 0.0
+        }
+      },
+      "audit_sha256": "570c2fdbb8adf34027248e8d027647f8c1c32137db8088f225b39bf3ca2d935e",
+      "conclusion": {
+        "decision": "revise",
+        "interpretation": "blocked",
+        "reason": "Evidence integrity or accounting failed",
+        "status": "blocked",
+        "superiority": false
+      },
+      "primary": null,
+      "protocol_hash": "toy",
+      "reasons": [
+        "Work receipt integrity: intermediate overflow in fsum"
+      ],
+      "status": "blocked",
+      "valid": false
+    },
+    "audit-work/current.json": {
+      "aggregation": "preparation/execution plus outer audits plus standalone analyses; nested analysis excluded",
+      "audit_sha256": "570c2fdbb8adf34027248e8d027647f8c1c32137db8088f225b39bf3ca2d935e",
+      "boundary": "entire audit including nested primary reconstruction; excludes final deterministic snapshot and work receipt",
+      "nested_analysis_receipts": [],
+      "protocol_hash": "toy",
+      "schema_version": 1,
+      "seconds": 0.000516375,
+      "total_reason": "Missing preparation/execution or interrupted/invalid audit work",
+      "total_study_work_seconds": null
+    },
+    "audit-work/prior.json": {
+      "nested_analysis_receipts": [],
+      "protocol_hash": "toy",
+      "schema_version": 1,
+      "seconds": 1e+308
+    },
+    "primary-44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a.json": {
+      "report_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    }
+  },
+  "test_final_work_total_cross_ca1": {
+    "analysis-work/standalone.json": {
+      "previous_analysis_seconds": 0.0,
+      "protocol_hash": "toy",
+      "report_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "schema_version": 1,
+      "seconds": 0.0
+    },
+    "audit-0d02901bf6c18c9ad13077247742bdecb6bdf4c7abdbf2e16c9e87ed29ca044a.json": {
+      "accounting": {
+        "costs": {
+          "combined_seconds": 1e+308
+        }
+      },
+      "audit_sha256": "0d02901bf6c18c9ad13077247742bdecb6bdf4c7abdbf2e16c9e87ed29ca044a",
+      "conclusion": {
+        "decision": "revise",
+        "interpretation": "blocked",
+        "reason": "Evidence integrity or accounting failed",
+        "status": "blocked",
+        "superiority": false
+      },
+      "primary": null,
+      "protocol_hash": "toy",
+      "reasons": [
+        "Work receipt integrity: intermediate overflow in fsum"
+      ],
+      "status": "blocked",
+      "valid": false
+    },
+    "audit-work/current.json": {
+      "aggregation": "preparation/execution plus outer audits plus standalone analyses; nested analysis excluded",
+      "audit_sha256": "0d02901bf6c18c9ad13077247742bdecb6bdf4c7abdbf2e16c9e87ed29ca044a",
+      "boundary": "entire audit including nested primary reconstruction; excludes final deterministic snapshot and work receipt",
+      "nested_analysis_receipts": [],
+      "protocol_hash": "toy",
+      "schema_version": 1,
+      "seconds": 0.000324917,
+      "total_reason": "Missing preparation/execution or interrupted/invalid audit work",
+      "total_study_work_seconds": null
+    },
+    "audit-work/prior.json": {
+      "nested_analysis_receipts": [],
+      "protocol_hash": "toy",
+      "schema_version": 1,
+      "seconds": 1e+308
+    },
+    "primary-44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a.json": {
+      "report_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    }
+  },
+  "test_final_work_total_cross_ca2": {
+    "analysis-work/standalone.json": {
+      "previous_analysis_seconds": 0.0,
+      "protocol_hash": "toy",
+      "report_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "schema_version": 1,
+      "seconds": 5.0
+    },
+    "audit-651f2b6107049ef14ac23d98efa0b6c72c4dbc786a796e2ea403def2c2e9f012.json": {
+      "accounting": {
+        "costs": {
+          "combined_seconds": 2.0
+        }
+      },
+      "audit_sha256": "651f2b6107049ef14ac23d98efa0b6c72c4dbc786a796e2ea403def2c2e9f012",
+      "conclusion": {
+        "decision": "continue",
+        "interpretation": "incomplete",
+        "reason": "Finish every frozen unit; retain all failures",
+        "status": "incomplete",
+        "superiority": false
+      },
+      "primary": null,
+      "protocol_hash": "toy",
+      "reasons": [],
+      "status": "incomplete",
+      "valid": false
+    },
+    "audit-work/current.json": {
+      "aggregation": "preparation/execution plus outer audits plus standalone analyses; nested analysis excluded",
+      "audit_sha256": "651f2b6107049ef14ac23d98efa0b6c72c4dbc786a796e2ea403def2c2e9f012",
+      "boundary": "entire audit including nested primary reconstruction; excludes final deterministic snapshot and work receipt",
+      "nested_analysis_receipts": [],
+      "protocol_hash": "toy",
+      "schema_version": 1,
+      "seconds": 0.00028175,
+      "total_reason": null,
+      "total_study_work_seconds": 10.00028175
+    },
+    "audit-work/prior.json": {
+      "nested_analysis_receipts": [],
+      "protocol_hash": "toy",
+      "schema_version": 1,
+      "seconds": 3.0
+    },
+    "primary-44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a.json": {
+      "report_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    }
+  }
+}

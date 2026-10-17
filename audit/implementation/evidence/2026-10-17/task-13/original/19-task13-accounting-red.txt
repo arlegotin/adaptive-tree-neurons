@@ -1,0 +1,106 @@
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+________ test_outer_ledger_status_and_enclosing_work_are_authoritative _________
+
+tmp_path = PosixPath('/private/tmp/task13-accounting-red/test_outer_ledger_status_and_e0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1094f6d50>
+
+    def test_outer_ledger_status_and_enclosing_work_are_authoritative(tmp_path,monkeypatch):
+        import importlib
+        module=importlib.import_module('treeneuron.analysis.audit')
+        monkeypatch.setattr(module,'preparation_receipt',lambda *args:None)
+        root=tmp_path; study=root/'protocol/confirmation/toy'; study.mkdir(parents=True)
+        payload={'sources':{'cohort':{'units':[{'unit_id':'unit-0','run_ids':['run-0']}]}},
+            'design':{'statistical_policy':{'retries':1},'forecast':{'seconds':10.,'storage_bytes':1000}}}
+        from treeneuron.evaluation.confirm import SEED_POLICY
+        ledger=dict(schema_version=1,study='synthetic',protocol_hash='toy',seed_policy=SEED_POLICY,
+            status='incomplete',runs=[dict(unit_id='unit-0',repetition=0,run_id='run-0',status='failed',
+            attempts=[dict(index=0,status='failed',phase='fitting_and_evaluation',
+            path=str((study/'run-0/attempt-0').relative_to(root)),seconds=.5,error='Toy failure')])],
+            invocations=[{'seconds':1.}],costs=dict(seconds=1.,preparation_seconds=None,combined_seconds=None,
+            forecast_seconds=10.,seconds_deviation=None,forecast_storage_bytes=1000,
+            hard_interrupt_cost_unknown=False,aggregation='disjoint invocation',boundary='active invocation',
+            forecast_boundary='preparation and invocations',retained_bytes=0,storage_deviation=None,
+            combined_reason='Preparation not measured'))
+        assert module._account(payload,ledger,root,study)['failed_attempts']==1
+        ledger['status']='invented'
+>       with pytest.raises(ValueError,match='ledger status'): module._account(payload,ledger,root,study)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_audit.py:354: Failed
+________ test_nonterminal_publication_does_not_claim_complete[running] _________
+
+outer_status = 'running'
+
+    @pytest.mark.parametrize('outer_status',['running','interrupted','incomplete'])
+    def test_nonterminal_publication_does_not_claim_complete(outer_status):
+        from test_primary import rows,policy
+        from treeneuron.analysis.primary import summarize_cohort
+        from treeneuron.protocol import EVALUATION_METHODS
+        predictions,runs=rows((-1.,-2.,-3.),2)
+        for saved in predictions.values():
+            saved['predictions'].update({role:[0.,0.] for role in EVALUATION_METHODS if role not in ('top','random')})
+        payload={'design':{'K':3,'statistical_policy':policy(),'branch':'estimation'},'sources':{'scientific':{}}}
+        result=summarize_cohort(payload,{'status':outer_status,'costs':{}},runs,predictions,'toy')
+>       assert result['status']=='incomplete' and result['primary']['superiority'] is False
+E       AssertionError: assert ('completed' == 'incomplete'
+E         
+E         - incomplete
+E         ? --
+E         + completed
+E         ?         +)
+
+tests/test_audit.py:374: AssertionError
+______ test_nonterminal_publication_does_not_claim_complete[interrupted] _______
+
+outer_status = 'interrupted'
+
+    @pytest.mark.parametrize('outer_status',['running','interrupted','incomplete'])
+    def test_nonterminal_publication_does_not_claim_complete(outer_status):
+        from test_primary import rows,policy
+        from treeneuron.analysis.primary import summarize_cohort
+        from treeneuron.protocol import EVALUATION_METHODS
+        predictions,runs=rows((-1.,-2.,-3.),2)
+        for saved in predictions.values():
+            saved['predictions'].update({role:[0.,0.] for role in EVALUATION_METHODS if role not in ('top','random')})
+        payload={'design':{'K':3,'statistical_policy':policy(),'branch':'estimation'},'sources':{'scientific':{}}}
+        result=summarize_cohort(payload,{'status':outer_status,'costs':{}},runs,predictions,'toy')
+>       assert result['status']=='incomplete' and result['primary']['superiority'] is False
+E       AssertionError: assert ('completed' == 'incomplete'
+E         
+E         - incomplete
+E         ? --
+E         + completed
+E         ?         +)
+
+tests/test_audit.py:374: AssertionError
+_______ test_nonterminal_publication_does_not_claim_complete[incomplete] _______
+
+outer_status = 'incomplete'
+
+    @pytest.mark.parametrize('outer_status',['running','interrupted','incomplete'])
+    def test_nonterminal_publication_does_not_claim_complete(outer_status):
+        from test_primary import rows,policy
+        from treeneuron.analysis.primary import summarize_cohort
+        from treeneuron.protocol import EVALUATION_METHODS
+        predictions,runs=rows((-1.,-2.,-3.),2)
+        for saved in predictions.values():
+            saved['predictions'].update({role:[0.,0.] for role in EVALUATION_METHODS if role not in ('top','random')})
+        payload={'design':{'K':3,'statistical_policy':policy(),'branch':'estimation'},'sources':{'scientific':{}}}
+        result=summarize_cohort(payload,{'status':outer_status,'costs':{}},runs,predictions,'toy')
+>       assert result['status']=='incomplete' and result['primary']['superiority'] is False
+E       AssertionError: assert ('completed' == 'incomplete'
+E         
+E         - incomplete
+E         ? --
+E         + completed
+E         ?         +)
+
+tests/test_audit.py:374: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_audit.py::test_outer_ledger_status_and_enclosing_work_are_authoritative
+FAILED tests/test_audit.py::test_nonterminal_publication_does_not_claim_complete[running]
+FAILED tests/test_audit.py::test_nonterminal_publication_does_not_claim_complete[interrupted]
+FAILED tests/test_audit.py::test_nonterminal_publication_does_not_claim_complete[incomplete]
+4 failed in 1.16s

@@ -1,0 +1,59 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+_____________ test_live_frozen_identity_survives_restored_checkout _____________
+
+candidate = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4047/test_live_froz...7003b6460fefe7b5cb3fb0', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'), ...])
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4047/test_live_frozen_identity_surv0')
+
+    def test_live_frozen_identity_survives_restored_checkout(candidate, tmp_path):
+        from treeneuron.protocol import freeze, validate_frozen
+        root, decision, sources, _ = candidate
+        frozen = freeze(decision, sources, root/'protocol/frozen.yaml')
+        restored = tmp_path/'restored'
+        shutil.copytree(root, restored)
+        root.rename(tmp_path/'unavailable-original')
+>       checked = validate_frozen(restored/'protocol/frozen.yaml', {'root': str(restored)})
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_audit.py:16: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4047/test_live_frozen_identity_surv0/restored/protocol/frozen.yaml')
+current = {'root': '/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4047/test_live_frozen_identity_surv0/restored'}
+
+    def validate_frozen(path: Path, current: Mapping[str, Any]) -> FrozenProtocol:
+        """Validate original hashes, current source and all retained scientific inputs."""
+        _keys(current,('root',),'current checkout')
+        path=Path(path).resolve(); value=_read(path)
+        _keys(value,('protocol_hash','payload'),'frozen protocol')
+        payload=value['payload']; digest=canonical_hash(payload)
+        if digest!=value['protocol_hash'] or _read(_archive(path)/f'{digest}.json')!=value:
+            raise ValueError('Frozen protocol/history hash drift')
+        if Path(current['root']).resolve()!=Path(payload['sources']['root']).resolve():
+>           raise ValueError('Frozen checkout root differs')
+E           ValueError: Frozen checkout root differs
+
+src/treeneuron/protocol.py:744: ValueError
+_______ test_audit_missing_study_is_blocked_and_report_is_deterministic ________
+
+candidate = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4047/test_audit_mis...7003b6460fefe7b5cb3fb0', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'), ...])
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4047/test_audit_missing_study_is_bl0')
+
+    def test_audit_missing_study_is_blocked_and_report_is_deterministic(candidate, tmp_path):
+        from treeneuron.protocol import freeze
+>       from treeneuron.analysis.audit import audit
+E       ModuleNotFoundError: No module named 'treeneuron.analysis.audit'
+
+tests/test_audit.py:25: ModuleNotFoundError
+______________ test_archive_api_is_distinct_from_live_capability _______________
+
+    def test_archive_api_is_distinct_from_live_capability():
+>       from treeneuron.analysis.audit import audit_archive, seal_archive
+E       ModuleNotFoundError: No module named 'treeneuron.analysis.audit'
+
+tests/test_audit.py:39: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_audit.py::test_live_frozen_identity_survives_restored_checkout
+FAILED tests/test_audit.py::test_audit_missing_study_is_blocked_and_report_is_deterministic
+FAILED tests/test_audit.py::test_archive_api_is_distinct_from_live_capability
+3 failed in 11.35s

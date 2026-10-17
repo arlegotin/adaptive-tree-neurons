@@ -314,11 +314,13 @@ def test_extension_rejects_reused_confirmation_seeds(reused_seed_extension):
 
 ## Task 13: Audit, reproduce and write a decision report
 
+**Phase (17 October 2026):** Implementation accepted after scoped review and two fix rounds; [source-specific tests, reviews and acceptance](../../../audit/implementation/evidence/2026-10-17/task-13-index.json) are archived. Steps 3–5 remain scientific obligations. The single broad H1 implementation review precedes definitive calibration; no genuine pilot, freeze or independent cohort has run.
+
 **Files:** Create `src/treeneuron/analysis/audit.py`, `analysis/report.py`, `tests/test_audit.py`, `reports/final.md`, curated `audit/` metadata; extend CLI `audit`, `report`; update README/DECISIONS.
 
 **Interfaces:** Produce `audit(study_dir: Path, protocol: FrozenProtocol) -> dict[str, Any]`, `render_report(audit_result: Mapping[str, Any], output: Path) -> None`. Reports consume validated artifacts and protocol-defined analyses, never editable summary-score inputs. An invalid/incomplete audit emits blocked/incomplete conclusion status and reasons, not a success table.
 
-- [ ] **Step 1:** Write tamper/missing-run fixtures: changed prediction hash, absent failed candidate, manual metric mismatch, dirty source identity, missing terms and invalid resume evidence must be detected. Include a valid negative cohort and an incomplete cohort; only the complete valid result receives a completed scientific interpretation. Run `.venv/bin/python -m pytest tests/test_audit.py -q`; expect missing audit/report APIs.
+- [x] **Step 1:** Write tamper/missing-run fixtures: changed prediction hash, absent failed candidate, manual metric mismatch, dirty source identity, missing terms and invalid resume evidence must be detected. Include a valid negative cohort and an incomplete cohort; only the complete valid result receives a completed scientific interpretation. Run `.venv/bin/python -m pytest tests/test_audit.py -q`; expect missing audit/report APIs.
 
 ```python
 def test_audit_keeps_negative_result_and_blocks_missing_pair(audit_cases):
@@ -327,7 +329,7 @@ def test_audit_keeps_negative_result_and_blocks_missing_pair(audit_cases):
     assert missing_pair["valid"] is False
 ```
 
-- [ ] **Step 2:** Implement independent original-unit metric recomputation, all-run accounting, source/lock/asset/checkpoint/protocol verification, timing boundary validation and exact claim-family checks. Render per-task regressions/exclusions/costs/uncertainty/novelty limits and failure classifications. Keep Energy simulation separate and Track C outside local measured tables.
+- [x] **Step 2:** Implement independent original-unit metric recomputation, all-run accounting, source/lock/asset/checkpoint/protocol verification, timing boundary validation and exact claim-family checks. Render per-task regressions/exclusions/costs/uncertainty/novelty limits and failure classifications. Keep Energy simulation separate and Track C outside local measured tables.
 - [ ] **Step 3:** From a clean locked environment rerun reference/kernel checks, interrupted growth/resume and at least one representative paired pipeline. Verify existing protected artifacts without silently creating a new adaptive test selection; any new confirmatory evaluation follows its protocol/access ledger. Revisit R12 and closest prior art; unresolved access preserves the novelty hold. All evidence paths/hashes must survive a fresh checkout plus separately restored allowed artifacts.
 - [ ] **Step 4:** Run the relevant complete tests, `audit`, and `report`; rebuild reports from raw records twice and compare deterministic content apart from declared generation metadata. Report discrepancies before scientific claims. Include actual forecast deviations, effective counts, unavailable strongest models, achieved precision and evidence-supported continue/revise/narrow/replicate/stop decision.
 - [ ] **Step 5:** Append WP09 decision and commit `docs: publish audited reproduction and research decision`. Publish nothing externally without separate authorization. A useful negative/replication result satisfies the project when the declared study and audit are complete.

@@ -1,0 +1,33 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____ test_unknown_hard_stop_retains_observation_without_certifying_history _____
+
+tmp_path = PosixPath('/private/tmp/task13-fix1-hardstop-red/test_unknown_hard_stop_retains0')
+
+    def test_unknown_hard_stop_retains_observation_without_certifying_history(tmp_path):
+        from treeneuron.evaluation.confirm import _capture_attempt_inventory
+        from treeneuron.analysis.audit import _audit_retained_attempt,conclude
+        directory=tmp_path/'attempt';directory.mkdir();observed=directory/'observed.json';observed.write_text('{}')
+        inventory=_capture_attempt_inventory(directory,hard_stop=True)
+>       assert _audit_retained_attempt(directory,inventory)=='unknown_hard_stop'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_audit_fix1.py:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+directory = PosixPath('/private/tmp/task13-fix1-hardstop-red/test_unknown_hard_stop_retains0/attempt')
+inventory = {'schema_version': 1, 'state': 'unknown_hard_stop', 'files': {'observed.json': '44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a'}, 'reason': 'Observed after process interruption; earlier materialized inventory is unknown'}
+
+    def _audit_retained_attempt(directory, inventory):
+        """Validate captured unsuccessful work without assuming a complete graph."""
+        from ..evaluation.confirm import _capture_attempt_inventory
+        from ..artifacts import RUN_STATUSES
+        _keys(inventory,('schema_version','state','files','reason'),'retained attempt inventory')
+        if inventory['schema_version']!=1 or inventory['state'] not in ('captured','not_materialized'):
+>           raise ValueError('Retained attempt inventory is unknown; historical completeness cannot be attested')
+E           ValueError: Retained attempt inventory is unknown; historical completeness cannot be attested
+
+src/treeneuron/analysis/audit.py:159: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_audit_fix1.py::test_unknown_hard_stop_retains_observation_without_certifying_history
+1 failed in 1.17s

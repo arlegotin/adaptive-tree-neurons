@@ -299,3 +299,21 @@ a derived componentwise conditioning/rounding allowance. Forward/gradient
 criteria, measured discrepancy, receipt ceiling and exact replay stay binding.
 Actual training, seeds and model equations are unchanged. The preserved toy
 regression and derivation are in `tests/fixtures/causal_seed42_probe.md`.
+
+**17 October 2026 — Task13 implementation accepted:** The independent review and
+same-reviewer scoped checks close the four original Important findings and the
+follow-up final work-total overflow. The [public evidence index](audit/implementation/evidence/2026-10-17/task-13-index.json)
+preserves the original 908-pass full suite, the fix1 affected 15-pass result and
+the fix2 affected 17-pass result under their distinct source identities. No
+unchanged full suite was repeated. Final implementation is `d5c8828`; reviewed
+shared-file acceptance records for Tasks9/10 are renewed and Task13 acceptance is
+published. Failed partial graphs, original-root receipts, actual executing analysis
+bytes and completion-time archive eligibility are now checked. Root Rulings12/13
+are committed separately from the historical Ruling11 record.
+
+This accepts code and bounded fixtures, not a scientific result. Next is the one
+broad H1 implementation review, including the three carried Minor items and
+executable calibration coverage, followed by genuine measured calibration,
+numeric design, freeze, the entire independent cohort and scientific reproduction
+and audit. The initial score-versus-random loss remains the only primary
+exploratory predictive comparison; no new accuracy claim is made.

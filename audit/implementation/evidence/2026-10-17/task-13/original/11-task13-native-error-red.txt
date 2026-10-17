@@ -1,0 +1,37 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________ test_native_evidence_read_failure_is_a_blocked_audit _____________
+
+candidate = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4072/test_native_ev...7003b6460fefe7b5cb3fb0', feature_schema_hash='4a4bc71647f99163a21a48d7afd0b811b1f517d035c7a0dc79a203c2b5e692af'), ...])
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10c14b0e0>
+
+    def test_native_evidence_read_failure_is_a_blocked_audit(candidate,monkeypatch):
+        import importlib
+        from treeneuron.protocol import freeze
+        module=importlib.import_module('treeneuron.analysis.audit')
+        root,decision,sources,_=candidate
+        frozen=freeze(decision,sources,root/'protocol/frozen.yaml')
+        directory=root/'protocol/confirmation'/frozen.protocol_hash; directory.mkdir(parents=True)
+        (directory/'confirmation.json').write_text(json.dumps({'protocol_hash':frozen.protocol_hash}))
+        def failed_read(*args): raise RuntimeError('Native checkpoint reader rejected malformed tensors')
+        monkeypatch.setattr(module,'_account',failed_read)
+>       result=module.audit(directory,frozen)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_audit.py:287: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/analysis/audit.py:273: in audit
+    result['accounting'] = _account(payload, ledger, root, study_dir)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = ({'design': {'K': 32, 'K_calc': None, 'branch': 'estimation', 'budgets': {'available_memory_bytes': 10000000000, 'byte...tive_evidence_read_fail0/repo/protocol/confirmation/1248f30d58bbef0ce8ea9e275f067413f8bc26308f4cff0e6e27dd8007d48fdf'))
+
+>   def failed_read(*args): raise RuntimeError('Native checkpoint reader rejected malformed tensors')
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   RuntimeError: Native checkpoint reader rejected malformed tensors
+
+tests/test_audit.py:285: RuntimeError
+=========================== short test summary info ============================
+FAILED tests/test_audit.py::test_native_evidence_read_failure_is_a_blocked_audit
+1 failed in 8.63s

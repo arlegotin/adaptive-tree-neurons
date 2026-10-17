@@ -1,0 +1,43 @@
+{
+  "execution_sha256": "15254c54ac4bf7f3547c660b9b8734dcd62c9a3efbd2d60011fab98a3f290384",
+  "files": {
+    "task-13-fix2-evidence/affected.txt": {
+      "bytes": 100,
+      "sha256": "df6130cc0347c8e4e264c8293192c6ca9fb2420a1533df7dcfa18509050570ef"
+    },
+    "task-13-fix2-evidence/cross-category-results.json": {
+      "bytes": 5756,
+      "sha256": "3e4729c60421b4b62134df7308321ae0d3e16eebe93372b1735db439958d232f"
+    },
+    "task-13-fix2-evidence/green.txt": {
+      "bytes": 98,
+      "sha256": "d7ba8c071e5c81ad5d9c8ab565dcf88b56d8f3a0da3a365bf1fc48cd97607119"
+    },
+    "task-13-fix2-evidence/preserved-prior-evidence.json": {
+      "bytes": 4559,
+      "sha256": "9eb5d78c36e949408c6cf7072157fcb72602cd0695c5cebfd98c7fc49a41b6ae"
+    },
+    "task-13-fix2-evidence/red.txt": {
+      "bytes": 6996,
+      "sha256": "4a795fc8e90ce3d17bcb465ea7642efe2ec19d525fe12617a3cee76ae3cfd621"
+    },
+    "task-13-fix2-evidence/test-launch-source.json": {
+      "bytes": 40830,
+      "sha256": "07cfadf7185a905b3b7fdb00d162858c0c937758648d819f2adda017aaba58ed"
+    },
+    "task-13-fix2-evidence/tested-execution-snapshot.json": {
+      "bytes": 40906,
+      "sha256": "29537be45c413a246d7793f34651752df0bdd4dbff19adf98ff0557edbe9aad1"
+    },
+    "task-13-fix2-evidence/tested-fix.diff": {
+      "bytes": 5453,
+      "sha256": "ed4096d14cfc6ff01067bf07967b85648329cd312545739511160d8790888ebd"
+    },
+    "task-13-fix2-report.md": {
+      "bytes": 5696,
+      "sha256": "3fe3dc4483d350cadefd4e762f7a5abcde436a505cffbe4819d9660fd204a0e5"
+    }
+  },
+  "schema_version": 1,
+  "tested_commit": "d5c8828a6b4ceb48e29ec64c834b2d8335ff54d8"
+}

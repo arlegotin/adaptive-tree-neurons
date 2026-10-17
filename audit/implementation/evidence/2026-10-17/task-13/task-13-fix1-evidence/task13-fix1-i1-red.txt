@@ -1,0 +1,52 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________ test_real_partial_failure_inventory_survives_successful_retry _________
+
+prepared = (PosixPath('/private/tmp/task13-fix1-i1-red/test_real_partial_failure_inve0/repo'), ExperimentConfig(study_id='toy', p...'path': 'evidence/pilot/raw.json', 'sha256': 'c00028e5e7744aa29ec541afd429f5340e7afd8ec01dc09c82c49c257b757fed'}, ...})
+cpu_training_evidence = PosixPath('/private/tmp/task13-fix1-i1-red/training-evidence0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10feccbf0>
+tmp_path = PosixPath('/private/tmp/task13-fix1-i1-red/test_real_partial_failure_inve0')
+
+    def test_real_partial_failure_inventory_survives_successful_retry(prepared,cpu_training_evidence,monkeypatch,tmp_path):
+        import importlib
+        import torch
+        from treeneuron import train
+        from treeneuron.protocol import eligible_design,freeze
+        from treeneuron.analysis.audit import audit,seal_archive
+        module=importlib.import_module('treeneuron.evaluation.confirm')
+        root,config,sources=prepared;decision=eligible_design(sources)
+        sources=module.prepare_cohort(decision,sources,root/'cohort',cohort_id='partial-failure',root_seed=17)
+        frozen=freeze(decision,sources,root/'protocol/frozen.yaml')
+        resolve=module.resolve_experiment
+        def fixture_runtime(value):
+            value=dict(value);value['execution']=dict(value['execution'],backend_report=str(cpu_training_evidence))
+            value['backend']=dict(value['backend'],interop_threads=torch.get_num_interop_threads())
+            return resolve(value)
+        monkeypatch.setattr(module,'resolve_experiment',fixture_runtime)
+        monkeypatch.setattr(module,'_runtime_preflight',lambda c:{})
+        fit=module._fit_run
+        def one_run(p,payload,unit,repetition,directory):
+            if unit['unit_id']!='unit-0' or repetition!=0: raise RuntimeError('Deliberately omitted toy numerical work')
+            return fit(p,payload,unit,repetition,directory)
+        monkeypatch.setattr(module,'_fit_run',one_run)
+        original_parent=train.fit_parent; first=True
+        def partial(*args,**kwargs):
+            nonlocal first
+            result=original_parent(*args,**kwargs)
+            if first:
+                first=False
+                raise RuntimeError('Injected after real parent checkpoint publication')
+            return result
+        monkeypatch.setattr(train,'fit_parent',partial)
+        directory=module.run_confirmation(frozen,'synthetic')
+        ledger=json.loads((directory/'confirmation.json').read_text())
+        retried=ledger['runs'][0]
+        assert retried['status']=='completed' and [a['status'] for a in retried['attempts']]==['failed','completed']
+>       failed=retried['attempts'][0];inventory=failed['retained']
+                                                ^^^^^^^^^^^^^^^^^^
+E       KeyError: 'retained'
+
+tests/test_audit_fix1.py:126: KeyError
+=========================== short test summary info ============================
+FAILED tests/test_audit_fix1.py::test_real_partial_failure_inventory_survives_successful_retry
+1 failed in 31.33s

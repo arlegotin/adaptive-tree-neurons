@@ -1,0 +1,82 @@
+F.                                                                       [100%]
+=================================== FAILURES ===================================
+___________ test_receipt_io_survives_unavailable_original_root[True] ___________
+
+tmp_path = PosixPath('/private/tmp/task13-fix1-i2-red/test_receipt_io_survives_unava0')
+absolute = True
+
+    @pytest.mark.parametrize('absolute',[True,False])
+    def test_receipt_io_survives_unavailable_original_root(tmp_path,absolute):
+        from test_pilot_calibrate import config
+        original=(tmp_path/'original').resolve(); original.mkdir()
+        receipt=original/'environment/backend.json'; receipt.parent.mkdir()
+        source=Path('environment/evidence7-calibration-fix1/search-backend.json').resolve()
+        shutil.copyfile(source,receipt)
+        value=config(tmp_path).to_dict(); value['growth']['m_requested']=1
+        value['execution']['backend_report']=str(receipt) if absolute else 'environment/backend.json'
+        (original/'config.json').write_text(json.dumps(value))
+        restored=tmp_path/'restored'; shutil.copytree(original,restored)
+        original.rename(tmp_path/'unavailable')
+        script=r'''
+    import importlib,json,sys
+    from pathlib import Path
+    from treeneuron.config import resolve_experiment,canonical_hash
+    from treeneuron.locators import relocated,producer_directory
+    from treeneuron.protocol import FrozenProtocol,_ref
+    from treeneuron.pilot.calibrate import _runtime_preflight,fit_repetition
+    from treeneuron.data.synthetic import make_from_config
+    original,root=map(Path,sys.argv[1:])
+    value=json.loads((root/'config.json').read_text()); c=resolve_experiment(value)
+    with relocated(original,root),producer_directory(root):
+        preflight=_runtime_preflight(c)
+        assert Path(preflight['receipt_path'])==root/'environment/backend.json'
+        _,data=make_from_config(c)
+        pair=fit_repetition(c,data,root/'fit',canonical_hash(value))
+        assert pair['status']=='completed' and len(pair['models'])==8
+        # Source/protocol construction is isolated here; actual terminal preflight
+        # and its receipt I/O remain unpatched. No label access or further fitting.
+        module=importlib.import_module('treeneuron.evaluation.confirm')
+        payload={'sources':{'root':str(original),'raw':_ref(root,root/'raw.json'),'cohort':{'units':[]}}} if (root/'raw.json').exists() else None
+        (root/'raw.json').write_text(json.dumps({'config':value}))
+        payload={'sources':{'root':str(original),'raw':_ref(root,root/'raw.json'),'cohort':{'units':[]}}}
+        path=root/'protocol/frozen.yaml';path.parent.mkdir()
+        path.write_text(json.dumps({'payload':payload}))
+        frozen=FrozenProtocol(path,'toy','toy','toy')
+        directory=root/'protocol/confirmation/toy';directory.mkdir(parents=True)
+        (directory/'confirmation.json').write_text(json.dumps({'protocol_hash':'toy','status':'completed','runs':[]}))
+        module._payload=lambda protocol:payload
+        assert module.run_confirmation(frozen,'synthetic')==directory
+        assert json.loads((root/'config.json').read_text())==value
+        # A relocated receipt still undergoes ordinary producer validation in fit.
+        (root/'environment/backend.json').write_text('{}')
+        try: fit_repetition(c,data,root/'bad',canonical_hash(value))
+        except (ValueError,KeyError): pass
+        else: raise AssertionError('Corrupt receipt accepted')
+    '''
+        env=dict(os.environ,PYTHONPATH=str(Path('src').resolve()),PYTORCH_ENABLE_MPS_FALLBACK='0')
+        for name in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS','NUMEXPR_NUM_THREADS'): env[name]='1'
+        result=subprocess.run([sys.executable,'-c',script,str(original),str(restored.resolve())],env=env,capture_output=True,text=True)
+>       assert result.returncode==0,result.stdout+result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "<string>", line 12, in <module>
+E           File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/pilot/calibrate.py", line 82, in _runtime_preflight
+E             receipt_path=str(receipt.resolve()),receipt_sha256=file_hash(receipt))
+E                                                                ^^^^^^^^^^^^^^^^^^
+E           File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/experiments/paired.py", line 39, in file_hash
+E             return hashlib.sha256(path.read_bytes()).hexdigest()
+E                                   ^^^^^^^^^^^^^^^^^
+E           File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/pathlib.py", line 1019, in read_bytes
+E             with self.open(mode='rb') as f:
+E                  ^^^^^^^^^^^^^^^^^^^^
+E           File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/pathlib.py", line 1013, in open
+E             return io.open(self, mode, buffering, encoding, errors, newline)
+E                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E         FileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/task13-fix1-i2-red/test_receipt_io_survives_unava0/original/environment/backend.json'
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python', '-c', "\nimpo...or directory: \'/private/tmp/task13-fix1-i2-red/test_receipt_io_survives_unava0/original/environment/backend.json\'\n').returncode
+
+tests/test_audit_fix1.py:63: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_audit_fix1.py::test_receipt_io_survives_unavailable_original_root[True]
+1 failed, 1 passed in 5.62s

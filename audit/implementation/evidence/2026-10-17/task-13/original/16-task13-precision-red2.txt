@@ -1,0 +1,77 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_________ test_seed42_causal_probe_accepts_conditioned_first_adam_step _________
+
+    def test_seed42_causal_probe_accepts_conditioned_first_adam_step():
+        from treeneuron.baselines.causal_evidence import probe_causal_cpu
+        model=failed_probe(); original=copy.deepcopy(model.state_dict())
+>       report=probe_causal_cpu(model,batch_size=8)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_causal_precision.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = SelectiveRegressor(
+  (layer): SelectiveAffineLayer(
+    (base): Linear(in_features=16, out_features=64, bias=True)
+  ...6, out_features=16, bias=True)
+  )
+  (activation): ReLU()
+  (head): Linear(in_features=64, out_features=1, bias=True)
+)
+batch_size = 8
+
+    def probe_causal_cpu(model, *, batch_size=128):
+        from treeneuron.train import capture_rng, restore_rng, source_hash
+        if (type(batch_size) is not int or not 0 < batch_size <= 128
+                or any(p.device.type!='cpu' or p.dtype!=torch.float32 for p in model.parameters())):
+            raise ValueError('Causal probe requires CPU float32 and batch <=128')
+        before=capture_rng(); threads=torch.get_num_threads()
+        try:
+            torch.set_num_threads(1)
+            # Probe independent copies, preserving the actual caller tensors and RNG.
+            a,b=copy.deepcopy(model),copy.deepcopy(model)
+            g=torch.Generator().manual_seed(1602041)
+            x=torch.randn(batch_size,model.layer.d,generator=g,dtype=torch.float32)
+            y=torch.randn(batch_size,generator=g,dtype=torch.float32)
+            opts=dict(lr=.001,weight_decay=.01,foreach=False)
+            oa,ob=torch.optim.AdamW(a.parameters(),**opts),torch.optim.AdamW(b.parameters(),**opts)
+            out,ref=a(x),_reference(b,x)
+            torch.testing.assert_close(out,ref,rtol=2e-5,atol=2e-6)
+            ((out-y)**2).mean().backward(); ((ref-y)**2).mean().backward()
+            grad_error=max(float((p.grad-q.grad).abs().max()) for p,q in zip(a.parameters(),b.parameters()))
+            for p,q in zip(a.parameters(),b.parameters()): torch.testing.assert_close(p.grad,q.grad,rtol=2e-4,atol=2e-6)
+            oa.step(); ob.step()
+            optimizer_error=max(float((p-q).abs().max().detach()) for p,q in zip(a.parameters(),b.parameters()))
+>           for p,q in zip(a.parameters(),b.parameters()): torch.testing.assert_close(p,q,rtol=2e-5,atol=2e-6)
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AssertionError: Tensor-likes are not close!
+E           
+E           Mismatched elements: 1 / 256 (0.4%)
+E           Greatest absolute difference: 2.442335244268179e-06 at index (0, 11) (up to 2e-06 allowed)
+E           Greatest relative difference: 0.004203699994832277 at index (0, 11) (up to 2e-05 allowed)
+
+src/treeneuron/baselines/causal_evidence.py:69: AssertionError
+_____________ test_causal_probe_rejects_incorrect_first_adam_step ______________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1136b5010>
+
+    def test_causal_probe_rejects_incorrect_first_adam_step(monkeypatch):
+        from treeneuron.baselines.causal_evidence import probe_causal_cpu
+        step=torch.optim.AdamW.step
+        def incorrect(optimizer,*args,**kwargs):
+            result=step(optimizer,*args,**kwargs)
+            with torch.no_grad(): optimizer.param_groups[0]['params'][0].add_(1e-4)
+            return result
+        monkeypatch.setattr(torch.optim.AdamW,'step',incorrect)
+>       with pytest.raises(AssertionError,match='first AdamW formula'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'first AdamW formula'
+E         Actual message: 'Tensor-likes are not close!\n\nMismatched elements: 1 / 256 (0.4%)\nGreatest absolute difference: 2.442335244268179e-06 at index (0, 11) (up to 2e-06 allowed)\nGreatest relative difference: 0.004203699994832277 at index (0, 11) (up to 2e-05 allowed)'
+
+tests/test_causal_precision.py:34: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_causal_precision.py::test_seed42_causal_probe_accepts_conditioned_first_adam_step
+FAILED tests/test_causal_precision.py::test_causal_probe_rejects_incorrect_first_adam_step
+2 failed in 1.13s

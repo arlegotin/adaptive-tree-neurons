@@ -1,0 +1,59 @@
+{
+  "topology": {
+    "schema_version": 1,
+    "kind": "selective_relu_scalar",
+    "layer": {
+      "schema_version": 1,
+      "d": 16,
+      "h": 64,
+      "tau": 1.0,
+      "growth_applied": true,
+      "grown_ids": [
+        6,
+        10,
+        13,
+        18,
+        24,
+        28,
+        30,
+        32,
+        33,
+        46,
+        50,
+        51,
+        52,
+        56,
+        57,
+        60
+      ]
+    }
+  },
+  "outcomes": {
+    "torch.float32": {
+      "forward_max_abs": 1.1920928955078125e-07,
+      "gradient_max_abs": 1.1920928955078125e-07,
+      "update_max_abs": 2.442335244268179e-06,
+      "failed_elements": [
+        {
+          "parameter": "layer.gate.weight",
+          "index": [
+            0,
+            11
+          ],
+          "initial": 0.0,
+          "gradient_actual": -1.400608429236172e-08,
+          "gradient_reference": -1.3866156223230064e-08,
+          "updated_actual": 0.0005834389012306929,
+          "updated_reference": 0.0005809965659864247,
+          "absolute_difference": 2.442335244268179e-06
+        }
+      ]
+    },
+    "torch.float64": {
+      "forward_max_abs": 1.1102230246251565e-16,
+      "gradient_max_abs": 1.1102230246251565e-16,
+      "update_max_abs": 4.065432886168896e-15,
+      "failed_elements": []
+    }
+  }
+}
