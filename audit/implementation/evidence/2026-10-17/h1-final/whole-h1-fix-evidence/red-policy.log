@@ -1,0 +1,24 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____ test_checkpoint_rejects_supported_policy_batch_different_from_config _____
+
+training_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...ry=PosixPath('/private/tmp/h1-final-fix-red-policy/test_checkpoint_rejects_suppor0/900d23913f754b4d83aada1aaae39c36')))
+
+    def test_checkpoint_rejects_supported_policy_batch_different_from_config(training_case):
+        from treeneuron.train import fit_parent, pack_state, validate_metadata
+        data, config, paths = training_case
+        state = fit_parent(data, config, paths)
+        metadata = pack_state(state)['metadata']
+        # Both values are individually supported, but only the resolved batch4
+        # belongs to this checkpoint's workload and numerical receipt.
+        metadata['stage']['policy'].update(logical_batch_size=256, physical_batch_size=256)
+>       with pytest.raises(ValueError, match='batch differs from resolved config'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_checkpoint.py:20: Failed
+=========================== short test summary info ============================
+FAILED tests/test_checkpoint.py::test_checkpoint_rejects_supported_policy_batch_different_from_config
+1 failed in 2.86s

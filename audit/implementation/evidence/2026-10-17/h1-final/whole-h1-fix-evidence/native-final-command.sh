@@ -1,0 +1,1 @@
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTORCH_ENABLE_MPS_FALLBACK=0 PYTHONPATH=src .venv/bin/python .superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/whole-h1-fix-evidence/make-final-evidence.py

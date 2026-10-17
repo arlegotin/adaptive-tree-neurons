@@ -1,0 +1,596 @@
+...FFFFFFFF...................                                           [100%]
+=================================== FAILURES ===================================
+________ test_high_density_parent_growth_control_checkpoint_paths[128] _________
+
+cls = <class 'treeneuron.config.ExperimentConfig'>
+value = {'model': {'d': 16, 'h': 64}, 'growth': {'m_requested': 16}, 'data': {'n_fit': 9224, 'n_growth': 8, 'n_validation': 8}, 'training': {'batch_size': 128, 'base_updates': 1, 'continuation_updates': 1, 'validation_interval': 1, ...}, ...}
+path = 'experiment'
+
+    def _section(cls: type, value: Any, path: str) -> Any:
+        if not isinstance(value, Mapping) or any(type(key) is not str for key in value):
+            raise ValueError(f"{path}: expected a string-keyed mapping")
+        names = {field.name for field in fields(cls)}
+        unknown = set(value) - names
+        if unknown:
+            raise ValueError(f"{path}: unknown keys {sorted(unknown)}")
+        hints = get_type_hints(cls)
+        try:
+>           return cls(**{key: _typed(item, hints[key], f"{path}.{key}")
+                          for key, item in value.items()})
+E                         TypeError: ExperimentConfig.__init__() missing 1 required positional argument: 'study_id'
+
+src/treeneuron/config.py:229: TypeError
+
+The above exception was the direct cause of the following exception:
+
+tmp_path = PosixPath('/private/tmp/h1-final-fix-green-envelope-2/test_high_density_parent_growt0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x11210b530>
+cpu_envelope_receipt = PosixPath('/private/tmp/h1-final-fix-green-envelope-2/cpu-envelope0/report.json')
+batch = 128
+
+    @pytest.mark.parametrize('batch',[128,256,512,1024,2048,4096,8192,16384])
+    def test_high_density_parent_growth_control_checkpoint_paths(tmp_path,monkeypatch,cpu_envelope_receipt,batch):
+        import copy,json
+        import numpy as np
+        import torch
+        from treeneuron import train
+        from treeneuron.artifacts import create_run
+        from treeneuron.checkpoint import load_checkpoint
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.types import ObservationSet,DevelopmentData
+        from treeneuron.baselines.causal import widen_parent
+        from treeneuron.growth.allocate import Allocation
+        from treeneuron.growth.insert import insert_growth
+>       c=resolve_experiment(dict(model=dict(d=16,h=64),growth=dict(m_requested=16),
+            data=dict(n_fit=9224,n_growth=8,n_validation=8),
+            training=dict(batch_size=batch,base_updates=1,continuation_updates=1,validation_interval=1,patience=2),
+            backend=dict(cpu_threads=1,interop_threads=1),execution=dict(backend_report=str(cpu_envelope_receipt))))
+
+tests/test_cpu_envelope.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/config.py:240: in resolve_experiment
+    config = _section(ExperimentConfig, value, "experiment")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.config.ExperimentConfig'>
+value = {'model': {'d': 16, 'h': 64}, 'growth': {'m_requested': 16}, 'data': {'n_fit': 9224, 'n_growth': 8, 'n_validation': 8}, 'training': {'batch_size': 128, 'base_updates': 1, 'continuation_updates': 1, 'validation_interval': 1, ...}, ...}
+path = 'experiment'
+
+    def _section(cls: type, value: Any, path: str) -> Any:
+        if not isinstance(value, Mapping) or any(type(key) is not str for key in value):
+            raise ValueError(f"{path}: expected a string-keyed mapping")
+        names = {field.name for field in fields(cls)}
+        unknown = set(value) - names
+        if unknown:
+            raise ValueError(f"{path}: unknown keys {sorted(unknown)}")
+        hints = get_type_hints(cls)
+        try:
+            return cls(**{key: _typed(item, hints[key], f"{path}.{key}")
+                          for key, item in value.items()})
+        except TypeError as error:
+>           raise ValueError(f"{path}: missing required fields") from error
+E           ValueError: experiment: missing required fields
+
+src/treeneuron/config.py:232: ValueError
+________ test_high_density_parent_growth_control_checkpoint_paths[256] _________
+
+cls = <class 'treeneuron.config.ExperimentConfig'>
+value = {'model': {'d': 16, 'h': 64}, 'growth': {'m_requested': 16}, 'data': {'n_fit': 9224, 'n_growth': 8, 'n_validation': 8}, 'training': {'batch_size': 256, 'base_updates': 1, 'continuation_updates': 1, 'validation_interval': 1, ...}, ...}
+path = 'experiment'
+
+    def _section(cls: type, value: Any, path: str) -> Any:
+        if not isinstance(value, Mapping) or any(type(key) is not str for key in value):
+            raise ValueError(f"{path}: expected a string-keyed mapping")
+        names = {field.name for field in fields(cls)}
+        unknown = set(value) - names
+        if unknown:
+            raise ValueError(f"{path}: unknown keys {sorted(unknown)}")
+        hints = get_type_hints(cls)
+        try:
+>           return cls(**{key: _typed(item, hints[key], f"{path}.{key}")
+                          for key, item in value.items()})
+E                         TypeError: ExperimentConfig.__init__() missing 1 required positional argument: 'study_id'
+
+src/treeneuron/config.py:229: TypeError
+
+The above exception was the direct cause of the following exception:
+
+tmp_path = PosixPath('/private/tmp/h1-final-fix-green-envelope-2/test_high_density_parent_growt1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1121315e0>
+cpu_envelope_receipt = PosixPath('/private/tmp/h1-final-fix-green-envelope-2/cpu-envelope0/report.json')
+batch = 256
+
+    @pytest.mark.parametrize('batch',[128,256,512,1024,2048,4096,8192,16384])
+    def test_high_density_parent_growth_control_checkpoint_paths(tmp_path,monkeypatch,cpu_envelope_receipt,batch):
+        import copy,json
+        import numpy as np
+        import torch
+        from treeneuron import train
+        from treeneuron.artifacts import create_run
+        from treeneuron.checkpoint import load_checkpoint
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.types import ObservationSet,DevelopmentData
+        from treeneuron.baselines.causal import widen_parent
+        from treeneuron.growth.allocate import Allocation
+        from treeneuron.growth.insert import insert_growth
+>       c=resolve_experiment(dict(model=dict(d=16,h=64),growth=dict(m_requested=16),
+            data=dict(n_fit=9224,n_growth=8,n_validation=8),
+            training=dict(batch_size=batch,base_updates=1,continuation_updates=1,validation_interval=1,patience=2),
+            backend=dict(cpu_threads=1,interop_threads=1),execution=dict(backend_report=str(cpu_envelope_receipt))))
+
+tests/test_cpu_envelope.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/config.py:240: in resolve_experiment
+    config = _section(ExperimentConfig, value, "experiment")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.config.ExperimentConfig'>
+value = {'model': {'d': 16, 'h': 64}, 'growth': {'m_requested': 16}, 'data': {'n_fit': 9224, 'n_growth': 8, 'n_validation': 8}, 'training': {'batch_size': 256, 'base_updates': 1, 'continuation_updates': 1, 'validation_interval': 1, ...}, ...}
+path = 'experiment'
+
+    def _section(cls: type, value: Any, path: str) -> Any:
+        if not isinstance(value, Mapping) or any(type(key) is not str for key in value):
+            raise ValueError(f"{path}: expected a string-keyed mapping")
+        names = {field.name for field in fields(cls)}
+        unknown = set(value) - names
+        if unknown:
+            raise ValueError(f"{path}: unknown keys {sorted(unknown)}")
+        hints = get_type_hints(cls)
+        try:
+            return cls(**{key: _typed(item, hints[key], f"{path}.{key}")
+                          for key, item in value.items()})
+        except TypeError as error:
+>           raise ValueError(f"{path}: missing required fields") from error
+E           ValueError: experiment: missing required fields
+
+src/treeneuron/config.py:232: ValueError
+________ test_high_density_parent_growth_control_checkpoint_paths[512] _________
+
+cls = <class 'treeneuron.config.ExperimentConfig'>
+value = {'model': {'d': 16, 'h': 64}, 'growth': {'m_requested': 16}, 'data': {'n_fit': 9224, 'n_growth': 8, 'n_validation': 8}, 'training': {'batch_size': 512, 'base_updates': 1, 'continuation_updates': 1, 'validation_interval': 1, ...}, ...}
+path = 'experiment'
+
+    def _section(cls: type, value: Any, path: str) -> Any:
+        if not isinstance(value, Mapping) or any(type(key) is not str for key in value):
+            raise ValueError(f"{path}: expected a string-keyed mapping")
+        names = {field.name for field in fields(cls)}
+        unknown = set(value) - names
+        if unknown:
+            raise ValueError(f"{path}: unknown keys {sorted(unknown)}")
+        hints = get_type_hints(cls)
+        try:
+>           return cls(**{key: _typed(item, hints[key], f"{path}.{key}")
+                          for key, item in value.items()})
+E                         TypeError: ExperimentConfig.__init__() missing 1 required positional argument: 'study_id'
+
+src/treeneuron/config.py:229: TypeError
+
+The above exception was the direct cause of the following exception:
+
+tmp_path = PosixPath('/private/tmp/h1-final-fix-green-envelope-2/test_high_density_parent_growt2')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1121328a0>
+cpu_envelope_receipt = PosixPath('/private/tmp/h1-final-fix-green-envelope-2/cpu-envelope0/report.json')
+batch = 512
+
+    @pytest.mark.parametrize('batch',[128,256,512,1024,2048,4096,8192,16384])
+    def test_high_density_parent_growth_control_checkpoint_paths(tmp_path,monkeypatch,cpu_envelope_receipt,batch):
+        import copy,json
+        import numpy as np
+        import torch
+        from treeneuron import train
+        from treeneuron.artifacts import create_run
+        from treeneuron.checkpoint import load_checkpoint
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.types import ObservationSet,DevelopmentData
+        from treeneuron.baselines.causal import widen_parent
+        from treeneuron.growth.allocate import Allocation
+        from treeneuron.growth.insert import insert_growth
+>       c=resolve_experiment(dict(model=dict(d=16,h=64),growth=dict(m_requested=16),
+            data=dict(n_fit=9224,n_growth=8,n_validation=8),
+            training=dict(batch_size=batch,base_updates=1,continuation_updates=1,validation_interval=1,patience=2),
+            backend=dict(cpu_threads=1,interop_threads=1),execution=dict(backend_report=str(cpu_envelope_receipt))))
+
+tests/test_cpu_envelope.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/config.py:240: in resolve_experiment
+    config = _section(ExperimentConfig, value, "experiment")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.config.ExperimentConfig'>
+value = {'model': {'d': 16, 'h': 64}, 'growth': {'m_requested': 16}, 'data': {'n_fit': 9224, 'n_growth': 8, 'n_validation': 8}, 'training': {'batch_size': 512, 'base_updates': 1, 'continuation_updates': 1, 'validation_interval': 1, ...}, ...}
+path = 'experiment'
+
+    def _section(cls: type, value: Any, path: str) -> Any:
+        if not isinstance(value, Mapping) or any(type(key) is not str for key in value):
+            raise ValueError(f"{path}: expected a string-keyed mapping")
+        names = {field.name for field in fields(cls)}
+        unknown = set(value) - names
+        if unknown:
+            raise ValueError(f"{path}: unknown keys {sorted(unknown)}")
+        hints = get_type_hints(cls)
+        try:
+            return cls(**{key: _typed(item, hints[key], f"{path}.{key}")
+                          for key, item in value.items()})
+        except TypeError as error:
+>           raise ValueError(f"{path}: missing required fields") from error
+E           ValueError: experiment: missing required fields
+
+src/treeneuron/config.py:232: ValueError
+________ test_high_density_parent_growth_control_checkpoint_paths[1024] ________
+
+cls = <class 'treeneuron.config.ExperimentConfig'>
+value = {'model': {'d': 16, 'h': 64}, 'growth': {'m_requested': 16}, 'data': {'n_fit': 9224, 'n_growth': 8, 'n_validation': 8}, 'training': {'batch_size': 1024, 'base_updates': 1, 'continuation_updates': 1, 'validation_interval': 1, ...}, ...}
+path = 'experiment'
+
+    def _section(cls: type, value: Any, path: str) -> Any:
+        if not isinstance(value, Mapping) or any(type(key) is not str for key in value):
+            raise ValueError(f"{path}: expected a string-keyed mapping")
+        names = {field.name for field in fields(cls)}
+        unknown = set(value) - names
+        if unknown:
+            raise ValueError(f"{path}: unknown keys {sorted(unknown)}")
+        hints = get_type_hints(cls)
+        try:
+>           return cls(**{key: _typed(item, hints[key], f"{path}.{key}")
+                          for key, item in value.items()})
+E                         TypeError: ExperimentConfig.__init__() missing 1 required positional argument: 'study_id'
+
+src/treeneuron/config.py:229: TypeError
+
+The above exception was the direct cause of the following exception:
+
+tmp_path = PosixPath('/private/tmp/h1-final-fix-green-envelope-2/test_high_density_parent_growt3')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x11219b440>
+cpu_envelope_receipt = PosixPath('/private/tmp/h1-final-fix-green-envelope-2/cpu-envelope0/report.json')
+batch = 1024
+
+    @pytest.mark.parametrize('batch',[128,256,512,1024,2048,4096,8192,16384])
+    def test_high_density_parent_growth_control_checkpoint_paths(tmp_path,monkeypatch,cpu_envelope_receipt,batch):
+        import copy,json
+        import numpy as np
+        import torch
+        from treeneuron import train
+        from treeneuron.artifacts import create_run
+        from treeneuron.checkpoint import load_checkpoint
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.types import ObservationSet,DevelopmentData
+        from treeneuron.baselines.causal import widen_parent
+        from treeneuron.growth.allocate import Allocation
+        from treeneuron.growth.insert import insert_growth
+>       c=resolve_experiment(dict(model=dict(d=16,h=64),growth=dict(m_requested=16),
+            data=dict(n_fit=9224,n_growth=8,n_validation=8),
+            training=dict(batch_size=batch,base_updates=1,continuation_updates=1,validation_interval=1,patience=2),
+            backend=dict(cpu_threads=1,interop_threads=1),execution=dict(backend_report=str(cpu_envelope_receipt))))
+
+tests/test_cpu_envelope.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/config.py:240: in resolve_experiment
+    config = _section(ExperimentConfig, value, "experiment")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.config.ExperimentConfig'>
+value = {'model': {'d': 16, 'h': 64}, 'growth': {'m_requested': 16}, 'data': {'n_fit': 9224, 'n_growth': 8, 'n_validation': 8}, 'training': {'batch_size': 1024, 'base_updates': 1, 'continuation_updates': 1, 'validation_interval': 1, ...}, ...}
+path = 'experiment'
+
+    def _section(cls: type, value: Any, path: str) -> Any:
+        if not isinstance(value, Mapping) or any(type(key) is not str for key in value):
+            raise ValueError(f"{path}: expected a string-keyed mapping")
+        names = {field.name for field in fields(cls)}
+        unknown = set(value) - names
+        if unknown:
+            raise ValueError(f"{path}: unknown keys {sorted(unknown)}")
+        hints = get_type_hints(cls)
+        try:
+            return cls(**{key: _typed(item, hints[key], f"{path}.{key}")
+                          for key, item in value.items()})
+        except TypeError as error:
+>           raise ValueError(f"{path}: missing required fields") from error
+E           ValueError: experiment: missing required fields
+
+src/treeneuron/config.py:232: ValueError
+________ test_high_density_parent_growth_control_checkpoint_paths[2048] ________
+
+cls = <class 'treeneuron.config.ExperimentConfig'>
+value = {'model': {'d': 16, 'h': 64}, 'growth': {'m_requested': 16}, 'data': {'n_fit': 9224, 'n_growth': 8, 'n_validation': 8}, 'training': {'batch_size': 2048, 'base_updates': 1, 'continuation_updates': 1, 'validation_interval': 1, ...}, ...}
+path = 'experiment'
+
+    def _section(cls: type, value: Any, path: str) -> Any:
+        if not isinstance(value, Mapping) or any(type(key) is not str for key in value):
+            raise ValueError(f"{path}: expected a string-keyed mapping")
+        names = {field.name for field in fields(cls)}
+        unknown = set(value) - names
+        if unknown:
+            raise ValueError(f"{path}: unknown keys {sorted(unknown)}")
+        hints = get_type_hints(cls)
+        try:
+>           return cls(**{key: _typed(item, hints[key], f"{path}.{key}")
+                          for key, item in value.items()})
+E                         TypeError: ExperimentConfig.__init__() missing 1 required positional argument: 'study_id'
+
+src/treeneuron/config.py:229: TypeError
+
+The above exception was the direct cause of the following exception:
+
+tmp_path = PosixPath('/private/tmp/h1-final-fix-green-envelope-2/test_high_density_parent_growt4')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x11219aae0>
+cpu_envelope_receipt = PosixPath('/private/tmp/h1-final-fix-green-envelope-2/cpu-envelope0/report.json')
+batch = 2048
+
+    @pytest.mark.parametrize('batch',[128,256,512,1024,2048,4096,8192,16384])
+    def test_high_density_parent_growth_control_checkpoint_paths(tmp_path,monkeypatch,cpu_envelope_receipt,batch):
+        import copy,json
+        import numpy as np
+        import torch
+        from treeneuron import train
+        from treeneuron.artifacts import create_run
+        from treeneuron.checkpoint import load_checkpoint
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.types import ObservationSet,DevelopmentData
+        from treeneuron.baselines.causal import widen_parent
+        from treeneuron.growth.allocate import Allocation
+        from treeneuron.growth.insert import insert_growth
+>       c=resolve_experiment(dict(model=dict(d=16,h=64),growth=dict(m_requested=16),
+            data=dict(n_fit=9224,n_growth=8,n_validation=8),
+            training=dict(batch_size=batch,base_updates=1,continuation_updates=1,validation_interval=1,patience=2),
+            backend=dict(cpu_threads=1,interop_threads=1),execution=dict(backend_report=str(cpu_envelope_receipt))))
+
+tests/test_cpu_envelope.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/config.py:240: in resolve_experiment
+    config = _section(ExperimentConfig, value, "experiment")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.config.ExperimentConfig'>
+value = {'model': {'d': 16, 'h': 64}, 'growth': {'m_requested': 16}, 'data': {'n_fit': 9224, 'n_growth': 8, 'n_validation': 8}, 'training': {'batch_size': 2048, 'base_updates': 1, 'continuation_updates': 1, 'validation_interval': 1, ...}, ...}
+path = 'experiment'
+
+    def _section(cls: type, value: Any, path: str) -> Any:
+        if not isinstance(value, Mapping) or any(type(key) is not str for key in value):
+            raise ValueError(f"{path}: expected a string-keyed mapping")
+        names = {field.name for field in fields(cls)}
+        unknown = set(value) - names
+        if unknown:
+            raise ValueError(f"{path}: unknown keys {sorted(unknown)}")
+        hints = get_type_hints(cls)
+        try:
+            return cls(**{key: _typed(item, hints[key], f"{path}.{key}")
+                          for key, item in value.items()})
+        except TypeError as error:
+>           raise ValueError(f"{path}: missing required fields") from error
+E           ValueError: experiment: missing required fields
+
+src/treeneuron/config.py:232: ValueError
+________ test_high_density_parent_growth_control_checkpoint_paths[4096] ________
+
+cls = <class 'treeneuron.config.ExperimentConfig'>
+value = {'model': {'d': 16, 'h': 64}, 'growth': {'m_requested': 16}, 'data': {'n_fit': 9224, 'n_growth': 8, 'n_validation': 8}, 'training': {'batch_size': 4096, 'base_updates': 1, 'continuation_updates': 1, 'validation_interval': 1, ...}, ...}
+path = 'experiment'
+
+    def _section(cls: type, value: Any, path: str) -> Any:
+        if not isinstance(value, Mapping) or any(type(key) is not str for key in value):
+            raise ValueError(f"{path}: expected a string-keyed mapping")
+        names = {field.name for field in fields(cls)}
+        unknown = set(value) - names
+        if unknown:
+            raise ValueError(f"{path}: unknown keys {sorted(unknown)}")
+        hints = get_type_hints(cls)
+        try:
+>           return cls(**{key: _typed(item, hints[key], f"{path}.{key}")
+                          for key, item in value.items()})
+E                         TypeError: ExperimentConfig.__init__() missing 1 required positional argument: 'study_id'
+
+src/treeneuron/config.py:229: TypeError
+
+The above exception was the direct cause of the following exception:
+
+tmp_path = PosixPath('/private/tmp/h1-final-fix-green-envelope-2/test_high_density_parent_growt5')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x11219b290>
+cpu_envelope_receipt = PosixPath('/private/tmp/h1-final-fix-green-envelope-2/cpu-envelope0/report.json')
+batch = 4096
+
+    @pytest.mark.parametrize('batch',[128,256,512,1024,2048,4096,8192,16384])
+    def test_high_density_parent_growth_control_checkpoint_paths(tmp_path,monkeypatch,cpu_envelope_receipt,batch):
+        import copy,json
+        import numpy as np
+        import torch
+        from treeneuron import train
+        from treeneuron.artifacts import create_run
+        from treeneuron.checkpoint import load_checkpoint
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.types import ObservationSet,DevelopmentData
+        from treeneuron.baselines.causal import widen_parent
+        from treeneuron.growth.allocate import Allocation
+        from treeneuron.growth.insert import insert_growth
+>       c=resolve_experiment(dict(model=dict(d=16,h=64),growth=dict(m_requested=16),
+            data=dict(n_fit=9224,n_growth=8,n_validation=8),
+            training=dict(batch_size=batch,base_updates=1,continuation_updates=1,validation_interval=1,patience=2),
+            backend=dict(cpu_threads=1,interop_threads=1),execution=dict(backend_report=str(cpu_envelope_receipt))))
+
+tests/test_cpu_envelope.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/config.py:240: in resolve_experiment
+    config = _section(ExperimentConfig, value, "experiment")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.config.ExperimentConfig'>
+value = {'model': {'d': 16, 'h': 64}, 'growth': {'m_requested': 16}, 'data': {'n_fit': 9224, 'n_growth': 8, 'n_validation': 8}, 'training': {'batch_size': 4096, 'base_updates': 1, 'continuation_updates': 1, 'validation_interval': 1, ...}, ...}
+path = 'experiment'
+
+    def _section(cls: type, value: Any, path: str) -> Any:
+        if not isinstance(value, Mapping) or any(type(key) is not str for key in value):
+            raise ValueError(f"{path}: expected a string-keyed mapping")
+        names = {field.name for field in fields(cls)}
+        unknown = set(value) - names
+        if unknown:
+            raise ValueError(f"{path}: unknown keys {sorted(unknown)}")
+        hints = get_type_hints(cls)
+        try:
+            return cls(**{key: _typed(item, hints[key], f"{path}.{key}")
+                          for key, item in value.items()})
+        except TypeError as error:
+>           raise ValueError(f"{path}: missing required fields") from error
+E           ValueError: experiment: missing required fields
+
+src/treeneuron/config.py:232: ValueError
+________ test_high_density_parent_growth_control_checkpoint_paths[8192] ________
+
+cls = <class 'treeneuron.config.ExperimentConfig'>
+value = {'model': {'d': 16, 'h': 64}, 'growth': {'m_requested': 16}, 'data': {'n_fit': 9224, 'n_growth': 8, 'n_validation': 8}, 'training': {'batch_size': 8192, 'base_updates': 1, 'continuation_updates': 1, 'validation_interval': 1, ...}, ...}
+path = 'experiment'
+
+    def _section(cls: type, value: Any, path: str) -> Any:
+        if not isinstance(value, Mapping) or any(type(key) is not str for key in value):
+            raise ValueError(f"{path}: expected a string-keyed mapping")
+        names = {field.name for field in fields(cls)}
+        unknown = set(value) - names
+        if unknown:
+            raise ValueError(f"{path}: unknown keys {sorted(unknown)}")
+        hints = get_type_hints(cls)
+        try:
+>           return cls(**{key: _typed(item, hints[key], f"{path}.{key}")
+                          for key, item in value.items()})
+E                         TypeError: ExperimentConfig.__init__() missing 1 required positional argument: 'study_id'
+
+src/treeneuron/config.py:229: TypeError
+
+The above exception was the direct cause of the following exception:
+
+tmp_path = PosixPath('/private/tmp/h1-final-fix-green-envelope-2/test_high_density_parent_growt6')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1121daa80>
+cpu_envelope_receipt = PosixPath('/private/tmp/h1-final-fix-green-envelope-2/cpu-envelope0/report.json')
+batch = 8192
+
+    @pytest.mark.parametrize('batch',[128,256,512,1024,2048,4096,8192,16384])
+    def test_high_density_parent_growth_control_checkpoint_paths(tmp_path,monkeypatch,cpu_envelope_receipt,batch):
+        import copy,json
+        import numpy as np
+        import torch
+        from treeneuron import train
+        from treeneuron.artifacts import create_run
+        from treeneuron.checkpoint import load_checkpoint
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.types import ObservationSet,DevelopmentData
+        from treeneuron.baselines.causal import widen_parent
+        from treeneuron.growth.allocate import Allocation
+        from treeneuron.growth.insert import insert_growth
+>       c=resolve_experiment(dict(model=dict(d=16,h=64),growth=dict(m_requested=16),
+            data=dict(n_fit=9224,n_growth=8,n_validation=8),
+            training=dict(batch_size=batch,base_updates=1,continuation_updates=1,validation_interval=1,patience=2),
+            backend=dict(cpu_threads=1,interop_threads=1),execution=dict(backend_report=str(cpu_envelope_receipt))))
+
+tests/test_cpu_envelope.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/config.py:240: in resolve_experiment
+    config = _section(ExperimentConfig, value, "experiment")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.config.ExperimentConfig'>
+value = {'model': {'d': 16, 'h': 64}, 'growth': {'m_requested': 16}, 'data': {'n_fit': 9224, 'n_growth': 8, 'n_validation': 8}, 'training': {'batch_size': 8192, 'base_updates': 1, 'continuation_updates': 1, 'validation_interval': 1, ...}, ...}
+path = 'experiment'
+
+    def _section(cls: type, value: Any, path: str) -> Any:
+        if not isinstance(value, Mapping) or any(type(key) is not str for key in value):
+            raise ValueError(f"{path}: expected a string-keyed mapping")
+        names = {field.name for field in fields(cls)}
+        unknown = set(value) - names
+        if unknown:
+            raise ValueError(f"{path}: unknown keys {sorted(unknown)}")
+        hints = get_type_hints(cls)
+        try:
+            return cls(**{key: _typed(item, hints[key], f"{path}.{key}")
+                          for key, item in value.items()})
+        except TypeError as error:
+>           raise ValueError(f"{path}: missing required fields") from error
+E           ValueError: experiment: missing required fields
+
+src/treeneuron/config.py:232: ValueError
+_______ test_high_density_parent_growth_control_checkpoint_paths[16384] ________
+
+cls = <class 'treeneuron.config.ExperimentConfig'>
+value = {'model': {'d': 16, 'h': 64}, 'growth': {'m_requested': 16}, 'data': {'n_fit': 9224, 'n_growth': 8, 'n_validation': 8}, 'training': {'batch_size': 16384, 'base_updates': 1, 'continuation_updates': 1, 'validation_interval': 1, ...}, ...}
+path = 'experiment'
+
+    def _section(cls: type, value: Any, path: str) -> Any:
+        if not isinstance(value, Mapping) or any(type(key) is not str for key in value):
+            raise ValueError(f"{path}: expected a string-keyed mapping")
+        names = {field.name for field in fields(cls)}
+        unknown = set(value) - names
+        if unknown:
+            raise ValueError(f"{path}: unknown keys {sorted(unknown)}")
+        hints = get_type_hints(cls)
+        try:
+>           return cls(**{key: _typed(item, hints[key], f"{path}.{key}")
+                          for key, item in value.items()})
+E                         TypeError: ExperimentConfig.__init__() missing 1 required positional argument: 'study_id'
+
+src/treeneuron/config.py:229: TypeError
+
+The above exception was the direct cause of the following exception:
+
+tmp_path = PosixPath('/private/tmp/h1-final-fix-green-envelope-2/test_high_density_parent_growt7')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1121dbc20>
+cpu_envelope_receipt = PosixPath('/private/tmp/h1-final-fix-green-envelope-2/cpu-envelope0/report.json')
+batch = 16384
+
+    @pytest.mark.parametrize('batch',[128,256,512,1024,2048,4096,8192,16384])
+    def test_high_density_parent_growth_control_checkpoint_paths(tmp_path,monkeypatch,cpu_envelope_receipt,batch):
+        import copy,json
+        import numpy as np
+        import torch
+        from treeneuron import train
+        from treeneuron.artifacts import create_run
+        from treeneuron.checkpoint import load_checkpoint
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.types import ObservationSet,DevelopmentData
+        from treeneuron.baselines.causal import widen_parent
+        from treeneuron.growth.allocate import Allocation
+        from treeneuron.growth.insert import insert_growth
+>       c=resolve_experiment(dict(model=dict(d=16,h=64),growth=dict(m_requested=16),
+            data=dict(n_fit=9224,n_growth=8,n_validation=8),
+            training=dict(batch_size=batch,base_updates=1,continuation_updates=1,validation_interval=1,patience=2),
+            backend=dict(cpu_threads=1,interop_threads=1),execution=dict(backend_report=str(cpu_envelope_receipt))))
+
+tests/test_cpu_envelope.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/config.py:240: in resolve_experiment
+    config = _section(ExperimentConfig, value, "experiment")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.config.ExperimentConfig'>
+value = {'model': {'d': 16, 'h': 64}, 'growth': {'m_requested': 16}, 'data': {'n_fit': 9224, 'n_growth': 8, 'n_validation': 8}, 'training': {'batch_size': 16384, 'base_updates': 1, 'continuation_updates': 1, 'validation_interval': 1, ...}, ...}
+path = 'experiment'
+
+    def _section(cls: type, value: Any, path: str) -> Any:
+        if not isinstance(value, Mapping) or any(type(key) is not str for key in value):
+            raise ValueError(f"{path}: expected a string-keyed mapping")
+        names = {field.name for field in fields(cls)}
+        unknown = set(value) - names
+        if unknown:
+            raise ValueError(f"{path}: unknown keys {sorted(unknown)}")
+        hints = get_type_hints(cls)
+        try:
+            return cls(**{key: _typed(item, hints[key], f"{path}.{key}")
+                          for key, item in value.items()})
+        except TypeError as error:
+>           raise ValueError(f"{path}: missing required fields") from error
+E           ValueError: experiment: missing required fields
+
+src/treeneuron/config.py:232: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_cpu_envelope.py::test_high_density_parent_growth_control_checkpoint_paths[128]
+FAILED tests/test_cpu_envelope.py::test_high_density_parent_growth_control_checkpoint_paths[256]
+FAILED tests/test_cpu_envelope.py::test_high_density_parent_growth_control_checkpoint_paths[512]
+FAILED tests/test_cpu_envelope.py::test_high_density_parent_growth_control_checkpoint_paths[1024]
+FAILED tests/test_cpu_envelope.py::test_high_density_parent_growth_control_checkpoint_paths[2048]
+FAILED tests/test_cpu_envelope.py::test_high_density_parent_growth_control_checkpoint_paths[4096]
+FAILED tests/test_cpu_envelope.py::test_high_density_parent_growth_control_checkpoint_paths[8192]
+FAILED tests/test_cpu_envelope.py::test_high_density_parent_growth_control_checkpoint_paths[16384]
+8 failed, 22 passed in 18.11s

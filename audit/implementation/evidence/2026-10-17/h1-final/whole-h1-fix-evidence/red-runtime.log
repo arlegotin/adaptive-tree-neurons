@@ -1,0 +1,94 @@
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+__________ test_extended_receipt_rejects_live_runtime_drift[fallback] __________
+
+cpu_envelope_receipt = PosixPath('/private/tmp/h1-final-fix-red-runtime/cpu-envelope0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1105032c0>
+change = 'fallback'
+
+    @pytest.mark.parametrize('change',['fallback','blas','threads'])
+    def test_extended_receipt_rejects_live_runtime_drift(cpu_envelope_receipt,monkeypatch,change):
+        import hashlib,torch
+        from treeneuron.cpu_envelope import validate_envelope_reference
+        from treeneuron.config import resolve_experiment
+        c=resolve_experiment(dict(study_id='runtime-drift',model=dict(d=16,h=64),growth=dict(m_requested=16),
+            data=dict(n_fit=9224),training=dict(batch_size=256)))
+        reference=dict(path=str(cpu_envelope_receipt),sha256=hashlib.sha256(cpu_envelope_receipt.read_bytes()).hexdigest())
+        previous=torch.get_num_threads()
+        try:
+            if change=='fallback':monkeypatch.setenv('PYTORCH_ENABLE_MPS_FALLBACK','1')
+            elif change=='blas':monkeypatch.setenv('OMP_NUM_THREADS','2')
+            else:torch.set_num_threads(2)
+>           with pytest.raises(ValueError,match='runtime'):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE ValueError
+
+tests/test_cpu_envelope.py:136: Failed
+____________ test_extended_receipt_rejects_live_runtime_drift[blas] ____________
+
+cpu_envelope_receipt = PosixPath('/private/tmp/h1-final-fix-red-runtime/cpu-envelope0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x112624e30>
+change = 'blas'
+
+    @pytest.mark.parametrize('change',['fallback','blas','threads'])
+    def test_extended_receipt_rejects_live_runtime_drift(cpu_envelope_receipt,monkeypatch,change):
+        import hashlib,torch
+        from treeneuron.cpu_envelope import validate_envelope_reference
+        from treeneuron.config import resolve_experiment
+        c=resolve_experiment(dict(study_id='runtime-drift',model=dict(d=16,h=64),growth=dict(m_requested=16),
+            data=dict(n_fit=9224),training=dict(batch_size=256)))
+        reference=dict(path=str(cpu_envelope_receipt),sha256=hashlib.sha256(cpu_envelope_receipt.read_bytes()).hexdigest())
+        previous=torch.get_num_threads()
+        try:
+            if change=='fallback':monkeypatch.setenv('PYTORCH_ENABLE_MPS_FALLBACK','1')
+            elif change=='blas':monkeypatch.setenv('OMP_NUM_THREADS','2')
+            else:torch.set_num_threads(2)
+>           with pytest.raises(ValueError,match='runtime'):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE ValueError
+
+tests/test_cpu_envelope.py:136: Failed
+__________ test_extended_receipt_rejects_live_runtime_drift[threads] ___________
+
+cpu_envelope_receipt = PosixPath('/private/tmp/h1-final-fix-red-runtime/cpu-envelope0/report.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1104cf170>
+change = 'threads'
+
+    @pytest.mark.parametrize('change',['fallback','blas','threads'])
+    def test_extended_receipt_rejects_live_runtime_drift(cpu_envelope_receipt,monkeypatch,change):
+        import hashlib,torch
+        from treeneuron.cpu_envelope import validate_envelope_reference
+        from treeneuron.config import resolve_experiment
+        c=resolve_experiment(dict(study_id='runtime-drift',model=dict(d=16,h=64),growth=dict(m_requested=16),
+            data=dict(n_fit=9224),training=dict(batch_size=256)))
+        reference=dict(path=str(cpu_envelope_receipt),sha256=hashlib.sha256(cpu_envelope_receipt.read_bytes()).hexdigest())
+        previous=torch.get_num_threads()
+        try:
+            if change=='fallback':monkeypatch.setenv('PYTORCH_ENABLE_MPS_FALLBACK','1')
+            elif change=='blas':monkeypatch.setenv('OMP_NUM_THREADS','2')
+            else:torch.set_num_threads(2)
+>           with pytest.raises(ValueError,match='runtime'):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE ValueError
+
+tests/test_cpu_envelope.py:136: Failed
+___________________ test_extended_receipt_rejects_loss_error ___________________
+
+cpu_envelope_receipt = PosixPath('/private/tmp/h1-final-fix-red-runtime/cpu-envelope0/report.json')
+
+    def test_extended_receipt_rejects_loss_error(cpu_envelope_receipt):
+        import json
+        from treeneuron.cpu_envelope import validate_cpu_envelope
+        r=json.loads(cpu_envelope_receipt.read_text())['cpu_envelope']
+        r['operations'][0]['float64_reference']['loss_max_normalized_error']=2.
+>       with pytest.raises(ValueError):validate_cpu_envelope(r)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cpu_envelope.py:146: Failed
+=========================== short test summary info ============================
+FAILED tests/test_cpu_envelope.py::test_extended_receipt_rejects_live_runtime_drift[fallback]
+FAILED tests/test_cpu_envelope.py::test_extended_receipt_rejects_live_runtime_drift[blas]
+FAILED tests/test_cpu_envelope.py::test_extended_receipt_rejects_live_runtime_drift[threads]
+FAILED tests/test_cpu_envelope.py::test_extended_receipt_rejects_loss_error
+4 failed in 17.12s

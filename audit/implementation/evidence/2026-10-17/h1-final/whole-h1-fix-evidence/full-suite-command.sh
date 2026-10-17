@@ -1,0 +1,1 @@
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTORCH_ENABLE_MPS_FALLBACK=0 .venv/bin/python -c 'import torch; torch.set_num_threads(1); torch.set_num_interop_threads(1); import pytest; raise SystemExit(pytest.main(["-q","--basetemp=/tmp/h1-final-fix-full-suite"]))'

@@ -1,0 +1,347 @@
+..EEEEEEEEEEEEEEEEEE.................................................... [ 75%]
+........................                                                 [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of test_real_logical_sweep_keeps_density_tail_and_saturation __
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-green-1'), _trace=<pluggy._tracing.TagTracerSub object at 0x1102fe5a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-green-1'), _retention_count=3, _retention_policy='all')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-green-1/training-evidence0/report.json')
+
+    @pytest.fixture(scope='session')
+    def cpu_envelope_receipt(tmp_path_factory,cpu_training_evidence):
+        import json
+        from treeneuron.cpu_envelope import probe_cpu_envelope
+        measured=probe_cpu_envelope()
+>       assert measured['status']=='passed',measured.get('reason')
+E       AssertionError: ValueError: CPU64 operation tolerance failed
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_cpu_envelope.py:27: AssertionError
+_ ERROR at setup of test_high_density_parent_growth_control_checkpoint_paths[128] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-green-1'), _trace=<pluggy._tracing.TagTracerSub object at 0x1102fe5a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-green-1'), _retention_count=3, _retention_policy='all')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-green-1/training-evidence0/report.json')
+
+    @pytest.fixture(scope='session')
+    def cpu_envelope_receipt(tmp_path_factory,cpu_training_evidence):
+        import json
+        from treeneuron.cpu_envelope import probe_cpu_envelope
+        measured=probe_cpu_envelope()
+>       assert measured['status']=='passed',measured.get('reason')
+E       AssertionError: ValueError: CPU64 operation tolerance failed
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_cpu_envelope.py:27: AssertionError
+_ ERROR at setup of test_high_density_parent_growth_control_checkpoint_paths[256] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-green-1'), _trace=<pluggy._tracing.TagTracerSub object at 0x1102fe5a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-green-1'), _retention_count=3, _retention_policy='all')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-green-1/training-evidence0/report.json')
+
+    @pytest.fixture(scope='session')
+    def cpu_envelope_receipt(tmp_path_factory,cpu_training_evidence):
+        import json
+        from treeneuron.cpu_envelope import probe_cpu_envelope
+        measured=probe_cpu_envelope()
+>       assert measured['status']=='passed',measured.get('reason')
+E       AssertionError: ValueError: CPU64 operation tolerance failed
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_cpu_envelope.py:27: AssertionError
+_ ERROR at setup of test_high_density_parent_growth_control_checkpoint_paths[512] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-green-1'), _trace=<pluggy._tracing.TagTracerSub object at 0x1102fe5a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-green-1'), _retention_count=3, _retention_policy='all')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-green-1/training-evidence0/report.json')
+
+    @pytest.fixture(scope='session')
+    def cpu_envelope_receipt(tmp_path_factory,cpu_training_evidence):
+        import json
+        from treeneuron.cpu_envelope import probe_cpu_envelope
+        measured=probe_cpu_envelope()
+>       assert measured['status']=='passed',measured.get('reason')
+E       AssertionError: ValueError: CPU64 operation tolerance failed
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_cpu_envelope.py:27: AssertionError
+_ ERROR at setup of test_high_density_parent_growth_control_checkpoint_paths[1024] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-green-1'), _trace=<pluggy._tracing.TagTracerSub object at 0x1102fe5a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-green-1'), _retention_count=3, _retention_policy='all')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-green-1/training-evidence0/report.json')
+
+    @pytest.fixture(scope='session')
+    def cpu_envelope_receipt(tmp_path_factory,cpu_training_evidence):
+        import json
+        from treeneuron.cpu_envelope import probe_cpu_envelope
+        measured=probe_cpu_envelope()
+>       assert measured['status']=='passed',measured.get('reason')
+E       AssertionError: ValueError: CPU64 operation tolerance failed
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_cpu_envelope.py:27: AssertionError
+_ ERROR at setup of test_high_density_parent_growth_control_checkpoint_paths[2048] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-green-1'), _trace=<pluggy._tracing.TagTracerSub object at 0x1102fe5a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-green-1'), _retention_count=3, _retention_policy='all')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-green-1/training-evidence0/report.json')
+
+    @pytest.fixture(scope='session')
+    def cpu_envelope_receipt(tmp_path_factory,cpu_training_evidence):
+        import json
+        from treeneuron.cpu_envelope import probe_cpu_envelope
+        measured=probe_cpu_envelope()
+>       assert measured['status']=='passed',measured.get('reason')
+E       AssertionError: ValueError: CPU64 operation tolerance failed
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_cpu_envelope.py:27: AssertionError
+_ ERROR at setup of test_high_density_parent_growth_control_checkpoint_paths[4096] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-green-1'), _trace=<pluggy._tracing.TagTracerSub object at 0x1102fe5a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-green-1'), _retention_count=3, _retention_policy='all')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-green-1/training-evidence0/report.json')
+
+    @pytest.fixture(scope='session')
+    def cpu_envelope_receipt(tmp_path_factory,cpu_training_evidence):
+        import json
+        from treeneuron.cpu_envelope import probe_cpu_envelope
+        measured=probe_cpu_envelope()
+>       assert measured['status']=='passed',measured.get('reason')
+E       AssertionError: ValueError: CPU64 operation tolerance failed
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_cpu_envelope.py:27: AssertionError
+_ ERROR at setup of test_high_density_parent_growth_control_checkpoint_paths[8192] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-green-1'), _trace=<pluggy._tracing.TagTracerSub object at 0x1102fe5a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-green-1'), _retention_count=3, _retention_policy='all')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-green-1/training-evidence0/report.json')
+
+    @pytest.fixture(scope='session')
+    def cpu_envelope_receipt(tmp_path_factory,cpu_training_evidence):
+        import json
+        from treeneuron.cpu_envelope import probe_cpu_envelope
+        measured=probe_cpu_envelope()
+>       assert measured['status']=='passed',measured.get('reason')
+E       AssertionError: ValueError: CPU64 operation tolerance failed
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_cpu_envelope.py:27: AssertionError
+_ ERROR at setup of test_high_density_parent_growth_control_checkpoint_paths[16384] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-green-1'), _trace=<pluggy._tracing.TagTracerSub object at 0x1102fe5a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-green-1'), _retention_count=3, _retention_policy='all')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-green-1/training-evidence0/report.json')
+
+    @pytest.fixture(scope='session')
+    def cpu_envelope_receipt(tmp_path_factory,cpu_training_evidence):
+        import json
+        from treeneuron.cpu_envelope import probe_cpu_envelope
+        measured=probe_cpu_envelope()
+>       assert measured['status']=='passed',measured.get('reason')
+E       AssertionError: ValueError: CPU64 operation tolerance failed
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_cpu_envelope.py:27: AssertionError
+_ ERROR at setup of test_envelope_rejects_mismatched_or_incomplete_measurement[source] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-green-1'), _trace=<pluggy._tracing.TagTracerSub object at 0x1102fe5a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-green-1'), _retention_count=3, _retention_policy='all')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-green-1/training-evidence0/report.json')
+
+    @pytest.fixture(scope='session')
+    def cpu_envelope_receipt(tmp_path_factory,cpu_training_evidence):
+        import json
+        from treeneuron.cpu_envelope import probe_cpu_envelope
+        measured=probe_cpu_envelope()
+>       assert measured['status']=='passed',measured.get('reason')
+E       AssertionError: ValueError: CPU64 operation tolerance failed
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_cpu_envelope.py:27: AssertionError
+_ ERROR at setup of test_envelope_rejects_mismatched_or_incomplete_measurement[runtime] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-green-1'), _trace=<pluggy._tracing.TagTracerSub object at 0x1102fe5a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-green-1'), _retention_count=3, _retention_policy='all')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-green-1/training-evidence0/report.json')
+
+    @pytest.fixture(scope='session')
+    def cpu_envelope_receipt(tmp_path_factory,cpu_training_evidence):
+        import json
+        from treeneuron.cpu_envelope import probe_cpu_envelope
+        measured=probe_cpu_envelope()
+>       assert measured['status']=='passed',measured.get('reason')
+E       AssertionError: ValueError: CPU64 operation tolerance failed
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_cpu_envelope.py:27: AssertionError
+_ ERROR at setup of test_envelope_rejects_mismatched_or_incomplete_measurement[rows] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-green-1'), _trace=<pluggy._tracing.TagTracerSub object at 0x1102fe5a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-green-1'), _retention_count=3, _retention_policy='all')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-green-1/training-evidence0/report.json')
+
+    @pytest.fixture(scope='session')
+    def cpu_envelope_receipt(tmp_path_factory,cpu_training_evidence):
+        import json
+        from treeneuron.cpu_envelope import probe_cpu_envelope
+        measured=probe_cpu_envelope()
+>       assert measured['status']=='passed',measured.get('reason')
+E       AssertionError: ValueError: CPU64 operation tolerance failed
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_cpu_envelope.py:27: AssertionError
+_ ERROR at setup of test_envelope_rejects_mismatched_or_incomplete_measurement[batch] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-green-1'), _trace=<pluggy._tracing.TagTracerSub object at 0x1102fe5a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-green-1'), _retention_count=3, _retention_policy='all')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-green-1/training-evidence0/report.json')
+
+    @pytest.fixture(scope='session')
+    def cpu_envelope_receipt(tmp_path_factory,cpu_training_evidence):
+        import json
+        from treeneuron.cpu_envelope import probe_cpu_envelope
+        measured=probe_cpu_envelope()
+>       assert measured['status']=='passed',measured.get('reason')
+E       AssertionError: ValueError: CPU64 operation tolerance failed
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_cpu_envelope.py:27: AssertionError
+_ ERROR at setup of test_envelope_rejects_mismatched_or_incomplete_measurement[missing_operation] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-green-1'), _trace=<pluggy._tracing.TagTracerSub object at 0x1102fe5a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-green-1'), _retention_count=3, _retention_policy='all')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-green-1/training-evidence0/report.json')
+
+    @pytest.fixture(scope='session')
+    def cpu_envelope_receipt(tmp_path_factory,cpu_training_evidence):
+        import json
+        from treeneuron.cpu_envelope import probe_cpu_envelope
+        measured=probe_cpu_envelope()
+>       assert measured['status']=='passed',measured.get('reason')
+E       AssertionError: ValueError: CPU64 operation tolerance failed
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_cpu_envelope.py:27: AssertionError
+_ ERROR at setup of test_envelope_rejects_mismatched_or_incomplete_measurement[numerical] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-green-1'), _trace=<pluggy._tracing.TagTracerSub object at 0x1102fe5a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-green-1'), _retention_count=3, _retention_policy='all')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-green-1/training-evidence0/report.json')
+
+    @pytest.fixture(scope='session')
+    def cpu_envelope_receipt(tmp_path_factory,cpu_training_evidence):
+        import json
+        from treeneuron.cpu_envelope import probe_cpu_envelope
+        measured=probe_cpu_envelope()
+>       assert measured['status']=='passed',measured.get('reason')
+E       AssertionError: ValueError: CPU64 operation tolerance failed
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_cpu_envelope.py:27: AssertionError
+_ ERROR at setup of test_envelope_rejects_mismatched_or_incomplete_measurement[tail] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-green-1'), _trace=<pluggy._tracing.TagTracerSub object at 0x1102fe5a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-green-1'), _retention_count=3, _retention_policy='all')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-green-1/training-evidence0/report.json')
+
+    @pytest.fixture(scope='session')
+    def cpu_envelope_receipt(tmp_path_factory,cpu_training_evidence):
+        import json
+        from treeneuron.cpu_envelope import probe_cpu_envelope
+        measured=probe_cpu_envelope()
+>       assert measured['status']=='passed',measured.get('reason')
+E       AssertionError: ValueError: CPU64 operation tolerance failed
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_cpu_envelope.py:27: AssertionError
+_ ERROR at setup of test_envelope_rejects_mismatched_or_incomplete_measurement[resource] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-green-1'), _trace=<pluggy._tracing.TagTracerSub object at 0x1102fe5a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-green-1'), _retention_count=3, _retention_policy='all')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-green-1/training-evidence0/report.json')
+
+    @pytest.fixture(scope='session')
+    def cpu_envelope_receipt(tmp_path_factory,cpu_training_evidence):
+        import json
+        from treeneuron.cpu_envelope import probe_cpu_envelope
+        measured=probe_cpu_envelope()
+>       assert measured['status']=='passed',measured.get('reason')
+E       AssertionError: ValueError: CPU64 operation tolerance failed
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_cpu_envelope.py:27: AssertionError
+_ ERROR at setup of test_envelope_rejects_mismatched_or_incomplete_measurement[fallback] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-green-1'), _trace=<pluggy._tracing.TagTracerSub object at 0x1102fe5a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-green-1'), _retention_count=3, _retention_policy='all')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-green-1/training-evidence0/report.json')
+
+    @pytest.fixture(scope='session')
+    def cpu_envelope_receipt(tmp_path_factory,cpu_training_evidence):
+        import json
+        from treeneuron.cpu_envelope import probe_cpu_envelope
+        measured=probe_cpu_envelope()
+>       assert measured['status']=='passed',measured.get('reason')
+E       AssertionError: ValueError: CPU64 operation tolerance failed
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_cpu_envelope.py:27: AssertionError
+=========================== short test summary info ============================
+ERROR tests/test_cpu_envelope.py::test_real_logical_sweep_keeps_density_tail_and_saturation
+ERROR tests/test_cpu_envelope.py::test_high_density_parent_growth_control_checkpoint_paths[128]
+ERROR tests/test_cpu_envelope.py::test_high_density_parent_growth_control_checkpoint_paths[256]
+ERROR tests/test_cpu_envelope.py::test_high_density_parent_growth_control_checkpoint_paths[512]
+ERROR tests/test_cpu_envelope.py::test_high_density_parent_growth_control_checkpoint_paths[1024]
+ERROR tests/test_cpu_envelope.py::test_high_density_parent_growth_control_checkpoint_paths[2048]
+ERROR tests/test_cpu_envelope.py::test_high_density_parent_growth_control_checkpoint_paths[4096]
+ERROR tests/test_cpu_envelope.py::test_high_density_parent_growth_control_checkpoint_paths[8192]
+ERROR tests/test_cpu_envelope.py::test_high_density_parent_growth_control_checkpoint_paths[16384]
+ERROR tests/test_cpu_envelope.py::test_envelope_rejects_mismatched_or_incomplete_measurement[source]
+ERROR tests/test_cpu_envelope.py::test_envelope_rejects_mismatched_or_incomplete_measurement[runtime]
+ERROR tests/test_cpu_envelope.py::test_envelope_rejects_mismatched_or_incomplete_measurement[rows]
+ERROR tests/test_cpu_envelope.py::test_envelope_rejects_mismatched_or_incomplete_measurement[batch]
+ERROR tests/test_cpu_envelope.py::test_envelope_rejects_mismatched_or_incomplete_measurement[missing_operation]
+ERROR tests/test_cpu_envelope.py::test_envelope_rejects_mismatched_or_incomplete_measurement[numerical]
+ERROR tests/test_cpu_envelope.py::test_envelope_rejects_mismatched_or_incomplete_measurement[tail]
+ERROR tests/test_cpu_envelope.py::test_envelope_rejects_mismatched_or_incomplete_measurement[resource]
+ERROR tests/test_cpu_envelope.py::test_envelope_rejects_mismatched_or_incomplete_measurement[fallback]
+78 passed, 18 errors in 16.49s

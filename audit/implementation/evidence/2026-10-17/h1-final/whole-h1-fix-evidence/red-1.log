@@ -1,0 +1,103 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+__________ test_material_evaluation_cost_reduces_advisory_repetitions __________
+
+    def test_material_evaluation_cost_reduces_advisory_repetitions():
+        s=summary(repetition_variance=.1)
+        cheap=constraints(); cheap['seconds_per_evaluation_row']=1e-9
+        costly=constraints(); costly['seconds_per_evaluation_row']=.1
+        low,high=[choose_design(s,c) for c in (cheap,costly)]
+        a,b=[d.forecast['repetition_tradeoff'] for d in (low,high)]
+        assert a['recommended_repetitions']>100
+>       assert b['recommended_repetitions']==2
+E       assert 141 == 2
+
+tests/test_design.py:288: AssertionError
+_ test_authentic_coordinator_publishes_equal_pair_attempt_and_accepted_ledgers _
+
+tmp_path = PosixPath('/private/tmp/h1-final-fix-red-1/test_authentic_coordinator_pub0')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-red-1/training-evidence0/report.json')
+
+    def test_authentic_coordinator_publishes_equal_pair_attempt_and_accepted_ledgers(tmp_path,cpu_training_evidence):
+        from treeneuron.pilot.calibrate import calibrate
+        c=config(tmp_path).to_dict()
+        c['pilot'].update(initial_teachers=1,max_teachers=1,max_seconds=300.)
+        c['execution']['backend_report']=str(cpu_training_evidence)
+>       result=calibrate(resolve_experiment(c))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_pilot_calibrate.py:198: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/pilot/calibrate.py:354: in calibrate
+    record=run_repetition(repetition_config(tc,repetition),data,e,
+src/treeneuron/pilot/calibrate.py:224: in run_repetition
+    report=fit_repetition(config,data,root,recipe_hash)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/treeneuron/pilot/calibrate.py:120: in fit_repetition
+    parent=train.fit_parent(data,config,parent_paths)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/treeneuron/train.py:684: in fit_parent
+    backend = _backend_evidence(config, data, causal_model=causal)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+config = ExperimentConfig(study_id='engineering-pilot', phase='exploratory', model=ModelConfig(d=2, h=2, depth=1, tau=1.0, acti...iterations=200, bootstrap_seed=123, endpoint_tolerance=0.1, probe_updates=1, max_seconds=300.0, constraints_path=None))
+data = DevelopmentData(F=ObservationSet(X=array([[ 2.03915597, -0.93594123],
+       [ 1.13693865,  0.9757175 ],
+       [ 2.21...ed3d6ce39ce9f6de49ced2c33fcf', feature_schema_hash='91cf515874508c7c7e4cbf868bc528b478e1f5a81a14481b90c81bc2601e73ab'))
+causal_model = None
+
+    def _backend_evidence(config, data, *, causal_model=None):
+        from .locators import locate
+        path = locate(BACKEND_REPORT_PATH,producer=True)
+        report = json.loads(path.read_text())['backend_probes']
+        for probe in report['probes'].values():
+            if probe.get('status') == 'passed': validate_backend_report(probe)
+        decision = select_backend(report['probes'], comparison_blocks=report['comparison_blocks'])
+        if decision != report['decision']:
+            raise ValueError('Backend decision differs from validated numerical evidence')
+        b = config.backend
+        if b.device != decision['selected_backend']:
+            raise ValueError('Requested backend differs from validated selected backend recipe')
+        if b.cpu_threads not in (None, 1):
+            raise ValueError('Backend evidence requires one CPU thread')
+        if b.interop_threads not in (None, torch.get_num_interop_threads()):
+            raise ValueError('Requested interop threads differ from live runtime; configure before training')
+        interop = report['probes'][b.device]['environment'].get('interop_threads')
+        if interop is not None and torch.get_num_interop_threads() != interop:
+>           raise ValueError('Live interop threads differ from backend evidence')
+E           ValueError: Live interop threads differ from backend evidence
+
+src/treeneuron/train.py:259: ValueError
+_________ test_new_logical_batch_is_executable_policy_and_causal_probe _________
+
+    def test_new_logical_batch_is_executable_policy_and_causal_probe():
+        from treeneuron.train import TrainingPolicy, SelectiveRegressor
+        from treeneuron.baselines.causal_evidence import probe_causal_cpu
+>       policy=TrainingPolicy(256,256,1,1,1)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_cpu_envelope.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+<string>:11: in __init__
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = TrainingPolicy(logical_batch_size=256, physical_batch_size=256, max_updates=1, validation_interval=1, patience=1, checkpoint_selection='strict_improvement_earliest', evaluate_at_update_zero=True, checkpoint_interval=1)
+
+    def __post_init__(self):
+        for name in ('logical_batch_size', 'physical_batch_size', 'max_updates', 'validation_interval', 'patience', 'checkpoint_interval'):
+            if type(getattr(self, name)) is not int or getattr(self, name) <= 0:
+                raise ValueError(f'{name} must be a positive integer')
+        if self.physical_batch_size != self.logical_batch_size:
+            raise ValueError('physical batch must equal logical batch; accumulation is not implemented')
+        if self.logical_batch_size > 128:
+>           raise ValueError('Batch exceeds bounded backend evidence (128)')
+E           ValueError: Batch exceeds bounded backend evidence (128)
+
+src/treeneuron/train.py:88: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_design.py::test_material_evaluation_cost_reduces_advisory_repetitions
+FAILED tests/test_pilot_calibrate.py::test_authentic_coordinator_publishes_equal_pair_attempt_and_accepted_ledgers
+FAILED tests/test_cpu_envelope.py::test_new_logical_batch_is_executable_policy_and_causal_probe
+3 failed in 2.72s

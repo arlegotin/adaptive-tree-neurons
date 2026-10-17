@@ -317,3 +317,55 @@ executable calibration coverage, followed by genuine measured calibration,
 numeric design, freeze, the entire independent cohort and scientific reproduction
 and audit. The initial score-versus-random loss remains the only primary
 exploratory predictive comparison; no new accuracy claim is made.
+
+## D018 — 17 October 2026: final H1 implementation accepted; scientific execution next
+
+The single broad review found two Important integration gaps and retained three
+Minor observations. The one combined fix at `dfed0d2` corrects actual pilot
+pair/attempt publication, admits the required finite CPU density/logical-batch
+range through measured source-bound evidence, and includes evaluation cost in
+the advisory repetition calculation. The original reviewer closes I1/I2/M3 with
+zero new Critical, Important or Minor findings. [The complete review/evidence
+index](audit/implementation/evidence/2026-10-17/h1-final-index.json) renews
+Task9-v4, Task10-v3 and Task13-v2 bindings without rewriting historical records.
+
+The full-suite stage produced 958 passes, 48 skips, 2 failures, 9 setup errors
+and 28 known warnings. The failures/errors exposed a historical receipt copied
+by relocation tests and a duplicate Torch inter-op setter. Those exact paths
+were corrected; final affected coverage passed 190 tests with 47 optional skips.
+The final package is `5c66c556…`, execution map `ccb5447a…` (314 files). Fresh
+native evidence covers 40 numerical cells, 162 timing cells, 24 scoring-parity
+checks and 8 high-density parent/prediction reloads. It is source-specific
+verification, not a clean final full-suite claim or a predictive result.
+
+The finite CPU range is F577/2306/9224, primary d16/h64/m16 with derived
+controls, and logical=physical batches128 through16384 on the measured doubling
+grid. Diagnostic32768 adds no actual rows beyond9224. Final timing variation is
+retained; there is no universal optimum or stable less-than5% plateau claim.
+A diagnosed near-zero ReLU branch discrepancy led to a reference-only,
+rounding-certified derivative check with unchanged training, seeds and gradient
+tolerances. Unsupported nonlinear ambiguities remain failed attempts; no seed
+substitution or hidden tolerance change is authorized.
+
+**Ruling14:** Defer NODE's per-visit trace and scoped warning cleanup to the
+conditional long-run NODE/practical phase; H1's fitted cohort does not use NODE.
+If wrong, adapter instrumentation/warning assertions and measurements must be
+reworked before that comparison can be available. The [exact ruling and
+cost](audit/implementation/evidence/2026-10-17/ruling-14-conditional-node-instrumentation.md)
+preserve the short anchor's quality-ineligible status.
+
+**Ruling15:** Keep actual H1 resident timing within explicitly asserted and
+recorded supported chunks no larger than min(128,F). The direct resident view
+does not gain the extended host predictor's enforced bound. If wrong, add a
+reviewed capability/guard and redo affected timing/source-bound evidence before
+a broader claim; source changes after T require amendment/fresh confirmation.
+The [exact scope](audit/implementation/evidence/2026-10-17/ruling-15-resident-timing-scope.md)
+leaves the model and protected host predictions unchanged.
+
+**Next:** Measure common batching/stopping/sensitivity/timing policies and a
+complete current-recipe resource teacher, validate readiness, run genuine
+independent-teacher variance calibration, derive/freeze the numeric design,
+execute the entire fixed cohort regardless of sign, and complete actual locked
+reproduction, interrupted growth/resume, saved-row audit, repeated report rebuild
+and closest-prior-art claim review. The old single-teacher result remains
+keep0.16066/top0.14753/random0.14384; no independent accuracy evidence exists yet.

@@ -1,0 +1,17 @@
+E                                                                        [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of test_real_logical_sweep_keeps_density_tail_and_saturation __
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-red-envelope'), _trace=<pluggy._tracing.TagTracerSub obje...10da9e450>, _basetemp=PosixPath('/private/tmp/h1-final-fix-red-envelope'), _retention_count=3, _retention_policy='all')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-red-envelope/training-evidence0/report.json')
+
+    @pytest.fixture(scope='session')
+    def cpu_envelope_receipt(tmp_path_factory,cpu_training_evidence):
+        import json
+>       from treeneuron.cpu_envelope import probe_cpu_envelope
+E       ModuleNotFoundError: No module named 'treeneuron.cpu_envelope'
+
+tests/test_cpu_envelope.py:25: ModuleNotFoundError
+=========================== short test summary info ============================
+ERROR tests/test_cpu_envelope.py::test_real_logical_sweep_keeps_density_tail_and_saturation
+1 error in 1.83s

@@ -1,0 +1,16 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________ test_numerical_receipt_uses_serial_interop_runtime ______________
+
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-red-interop/training-evidence0/report.json')
+
+    def test_numerical_receipt_uses_serial_interop_runtime(cpu_training_evidence):
+        import json
+        report=json.loads(cpu_training_evidence.read_text())
+>       assert report['backend_probes']['probes']['cpu']['environment']['interop_threads']==1
+E       assert 14 == 1
+
+tests/test_cpu_envelope.py:19: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_cpu_envelope.py::test_numerical_receipt_uses_serial_interop_runtime
+1 failed in 1.81s

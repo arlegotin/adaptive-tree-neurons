@@ -1,0 +1,1497 @@
+# Review package: b26931fda9a60ead929850e4589183e690de7e1d..dfed0d24fce9c53860b1742c31d74337c27cb6cb
+
+## Commits
+dfed0d2 Fix H1 ledger handoff and validate finite CPU calibration envelope
+
+## Files changed
+ docs/research/2026-10-17-h1-cpu-envelope.md | 109 +++++++++++
+ src/treeneuron/artifacts.py                 |   2 +-
+ src/treeneuron/backend.py                   |   2 +
+ src/treeneuron/baselines/causal_evidence.py | 167 ++++++++++++++--
+ src/treeneuron/cli.py                       |   5 +
+ src/treeneuron/cpu_envelope.py              | 286 ++++++++++++++++++++++++++++
+ src/treeneuron/pilot/calibrate.py           |   3 +
+ src/treeneuron/pilot/design.py              |   5 +-
+ src/treeneuron/train.py                     |  30 ++-
+ tests/fixtures/h1_widened_relu_rounding.pt  | Bin 0 -> 1125320 bytes
+ tests/test_audit_fix1.py                    |   7 +-
+ tests/test_causal_precision.py              |  48 +++++
+ tests/test_checkpoint.py                    |  12 ++
+ tests/test_cpu_envelope.py                  | 170 +++++++++++++++++
+ tests/test_design.py                        |  13 ++
+ tests/test_pilot_calibrate.py               |  17 ++
+ 16 files changed, 843 insertions(+), 33 deletions(-)
+
+## Diff
+diff --git a/docs/research/2026-10-17-h1-cpu-envelope.md b/docs/research/2026-10-17-h1-cpu-envelope.md
+new file mode 100644
+index 0000000..33d7f6f
+--- /dev/null
++++ b/docs/research/2026-10-17-h1-cpu-envelope.md
+@@ -0,0 +1,109 @@
++# Finite H1 CPU operation envelope
++
++The H1 extension admits F577, F2306 and F9224 with d16, parent h64,
++requested growth m16, and the derived ordinary/widened widths through95.
++Logical optimizer batches are128,256,512,1024,2048,4096,8192,16384.
++Physical equals logical; each update ends at the epoch boundary. A request
++above F consumes F actual rows. Prediction chunks are also bounded by F.
++The existing CPU diagnostic bounds and MPS/physical-divisor calibration
++remain separate. This extension adds no accumulation, model depth, optimizer,
++dimension, or MPS operations.
++
++The finite extension covers effective selective growth0..16, ordinary
++widths64..95, widening from64 through95, and centered static count0..16 at
++width64. Other extended shapes reject. Full first-layer H1 recipes retain
++one common batch across forks. The representative envelope measures parent64,
++grown16, ordinary95, widened64→95, and static16 operations; live causal
++controls also receive their own actual-topology arithmetic/replay checks.
++
++## Producer and consumers
++
++`treeneuron.cpu_envelope.probe_cpu_envelope()` launches a fresh CPU1,
++inter-op1, BLAS1, fallback0 interpreter. It returns actual measurements and
++numerical checks, or retained partial failure evidence. It does not choose
++the study batch. Combine it with a fresh legacy CPU kernel report:
++
++```python
++import json
++from pathlib import Path
++from treeneuron.backend import probe_backend, select_backend
++from treeneuron.cpu_envelope import probe_cpu_envelope
++
++probe = probe_backend('cpu', seed=1602030, batch_sizes=(128,))
++envelope = probe_cpu_envelope()
++assert probe['status'] == envelope['status'] == 'passed'
++probes = {'cpu': probe}
++report = {'backend_probes': {'probes': probes, 'comparison_blocks': [],
++                           'decision': select_backend(probes)},
++          'cpu_envelope': envelope}
++Path('environment/NEW-RECEIPT.json').write_text(json.dumps(report, sort_keys=True))
++```
++
++Run fitting and reload in a fresh CPU1/inter-op1/BLAS1/fallback0 process.
++The resolved `execution.backend_report` must identify this receipt; existing
++API launchers that supply `train.BACKEND_REPORT_PATH` must supply the same
++file. Training validates both kernel evidence and the new envelope.
++Checkpoint metadata retains `backend.cpu_envelope={path,sha256}`. Reload
++checks that exact file, current whole-package source, core lock, runtime,
++actual topology, and current thread/environment settings. Existing relocation
++contexts translate paths without changing hashes. Old receipts/checkpoints
++retain their original bytes and identities; no source mismatch is waived.
++
++The envelope schema is version1 with check
++`h1_cpu_logical_batch_density_envelope`. It contains source/lock/runtime
++SHA256 values, explicit environment, logical batches, densities, diagnostic
++batch32768, fixed tolerance, exact representative topologies,40 operation
++cells,162 timing cells,24 score-parity cells, and resource observations.
++Each operation retains requested and actual batch rows, CPU64 raw/conditioned
++reference checks, and causal schema2 evidence. Timing cells retain requested
++logical/physical batch, actual maximum/tail rows, update count, one discarded
++warmup and five measurements. Training epochs include model reconstruction
++and optimizer creation; scoring includes CPU64 model copy. These boundaries
++exclude checkpoint IO, G selection, and the full paired graph.
++
++Requested16384 and32768 both saturate at actualF9224;32768 is diagnostic-only.
++Timing variance and ambient interference remain explicit. A finite saturated
++operation measurement is not a universal throughput optimum or a completed
++common-recipe calibration. The existing primary128 recipe remains valid.
++
++## ReLU reference semantics, version2
++
++A retained widened95 fixture has one preactivation at row1417/unit66:
++CPU64−1.0459109800464716e−8 versus CPU32+3.725290298461914e−9.
++Its predictions agree within the fixed forward tolerance, but the ReLU
++branches differ and unconditional gradients fail. The original failed
++measurements and exact tensors are retained; neither is relabelled as a pass.
++
++For an affine preactivation with d products and bias, let k=2d+2,
++S=sum(abs(x_i*w_i))+abs(b), u32=2^-24, u64=2^-53 and
++`gamma(k,u)=k*u/(1-k*u)`. The certificate radius is
++`(gamma(k,u32)+gamma(k,u64))*S + k*tiny32`, centered on an independent
++CPU64 evaluation from the exact float32 operands. The operation count covers
++unfused multiplication/reduction/bias; fused evaluation has no larger bound.
++The second gamma term covers center evaluation; the tiny term conservatively
++covers underflow. Both computed preactivations must lie in that interval,
++and the interval must contain zero before differing masks are admitted.
++
++The independent reference preserves its forward ReLU values and computes
++its VJP on the actual CPU32 branch. This is reference-only conditioning: the
++training model, score, optimizer, inputs, seed and dtype are unchanged.
++Forward, loss and branch-conditioned gradients retain their previous
++numerical tolerances. Own-gradient first-AdamW formula checks and exact
++optimizer/checkpoint replay remain mandatory. Raw unconditional gradient
++errors, ambiguity counts, indices, preactivations, centers and radii remain
++in each reference check. A false mask outside its interval, an incorrect
++backward, or an incorrect AdamW update still rejects.
++
++This affine certificate applies to ordinary rows, widened rows, and ordinary
++rows within mixed models. Gated/contrast rows do not receive an affine-only
++certificate: a mask disagreement there fails closed because no composed
++interval has been established. No global warning suppression or vendor math
++change accompanies the extension.
++
++Causal receipts use schema2 and add `actual_batch_size` and `reference_check`.
++The check labels `reference_semantics=relu-affine-branch-conditioned-v2` and
++retains `raw_gradient_max_normalized_error`,
++`conditioned_gradient_max_normalized_error`, `forward_max_normalized_error`,
++`loss_max_normalized_error`, and the branch certificate. A raw derivative
++failure is permitted only with an explicit certified ambiguity; it is never
++reported as unconditional derivative parity.
+diff --git a/src/treeneuron/artifacts.py b/src/treeneuron/artifacts.py
+index c571b50..7b9713f 100644
+--- a/src/treeneuron/artifacts.py
++++ b/src/treeneuron/artifacts.py
+@@ -289,21 +289,21 @@ def update_run_observations(paths: RunPaths, observations: Mapping[str, Any]) ->
+                 elif section == 'method' and key in {'weight_checkpoint', 'weight_hash'}:
+                     if not unavailable and (type(value) is not str or not value):
+                         raise ValueError('Weight artifact observations must be nonempty strings')
+                 elif section == 'method' and key == 'backend':
+                     if not isinstance(value, Mapping) or set(value) != {'actual'} or not isinstance(value['actual'], Mapping):
+                         raise ValueError('Only actual backend observations may be updated')
+                     actual = value['actual']
+                     backend_fields = {'device', 'dtype', 'execution', 'fallback', 'cpu_threads', 'interop_threads',
+                                       'kernel_tolerance', 'resume_tolerance', 'evidence_sha256',
+                                       'kernel_implementation_sha256', 'workload', 'performance_calibration_matches',
+-                                      'performance_scope', 'causal_cpu_evidence'}
++                                      'performance_scope', 'causal_cpu_evidence', 'cpu_envelope'}
+                     if set(actual) - backend_fields:
+                         raise ValueError('Unsupported actual backend observation field')
+                     if actual.get('device') not in ('cpu', 'mps') or actual.get('dtype') != 'float32' or actual.get('fallback') is not False:
+                         raise ValueError('Actual backend requires explicit float32 CPU/MPS without fallback')
+                     value = {**previous, 'actual': dict(actual)}
+                 elif section == 'method' and key == 'threads':
+                     if (not isinstance(value, Mapping) or set(value) != {'cpu', 'interop'}
+                             or any(type(n) is not int or n <= 0 for n in value.values())):
+                         raise ValueError('Thread observations require positive CPU and interop counts')
+                 elif section == 'costs':
+diff --git a/src/treeneuron/backend.py b/src/treeneuron/backend.py
+index 22631f0..da379ec 100644
+--- a/src/treeneuron/backend.py
++++ b/src/treeneuron/backend.py
+@@ -299,20 +299,22 @@ def _guard(resources):
+ 
+ def _run(device, seed, batches, *, evidence):
+     # Called only by the fresh child after checking the import-time environment.
+     batches = _validate_physical_batches(batches)
+     import copy
+     import torch
+     from treeneuron.models.units import SelectiveAffineLayer
+     from treeneuron.growth.score import score_units
+ 
+     torch.set_num_threads(1)
++    if torch.get_num_interop_threads() != 1:
++        torch.set_num_interop_threads(1)
+     report = evidence
+     report.update(dict(schema_version=1, check='actual_backend_kernels_and_batches', device=device,
+                   status='failed', reason=None, implementation_sha256=implementation_hash(),
+                   lock_sha256=lock_hash(), environment_sha256=runtime_hash(),
+                   fallback_disabled_before_import=True, utc=datetime.now(timezone.utc).isoformat(),
+                   environment=dict(python=platform.python_version(), torch=torch.__version__,
+                       platform=platform.platform(), architecture=platform.machine(),
+                       dtype='torch.float32', threads=torch.get_num_threads(),
+                       interop_threads=torch.get_num_interop_threads(),
+                       mps_available=torch.backends.mps.is_available(),
+diff --git a/src/treeneuron/baselines/causal_evidence.py b/src/treeneuron/baselines/causal_evidence.py
+index f2b2f9d..8216eb4 100644
+--- a/src/treeneuron/baselines/causal_evidence.py
++++ b/src/treeneuron/baselines/causal_evidence.py
+@@ -5,50 +5,146 @@ A second optimizer consumes its gradients. Save/load checks include optimizer
+ moments and a subsequent update. This diagnostic is separate from study timing.
+ """
+ from __future__ import annotations
+ import copy
+ import io
+ import math
+ import torch
+ from treeneuron.config import canonical_hash
+ 
+ 
+-def _reference(model, x):
++def _reference(model, x, *, mask=None, preactivations=None):
+     p = dict(model.named_parameters())
++    offset=0
++    def relu(z):
++        nonlocal offset
++        if preactivations is not None: preactivations.append(z.detach())
++        selected=None if mask is None else mask[:,offset:offset+z.shape[1]]
++        offset+=z.shape[1]
++        # Reference-only VJP: preserve the independently evaluated forward value.
++        return torch.relu(z) if selected is None else torch.relu(z).detach()+(z-z.detach())*selected
+     def affine(name):
+         # Per-row reductions provide an independent path from the batched GEMM.
+         return torch.stack([(x*w).sum(-1)+b for w,b in zip(p[name+'.weight'],p[name+'.bias'])],dim=1)
+     layer = model.layer
+     if model.export_config()['kind'] == 'widened_relu_scalar':
+-        old = torch.relu(affine('layer.base'))
++        old = relu(affine('layer.base'))
+         result = (old*p['head.base.weight']).sum(-1)+p['head.base.bias'][0]
+         if layer.added is not None:
+-            result = result+(torch.relu(affine('layer.added'))*p['head.added.weight']).sum(-1)
++            result = result+(relu(affine('layer.added'))*p['head.added.weight']).sum(-1)
+         return result
+     if model.export_config()['kind'] == 'selective_relu_scalar':
+         z = affine('layer.base')
+         if layer.grown_ids.numel():
+             gate = torch.sigmoid(affine('layer.gate')/layer.tau)
+             a = z[:,layer.grown_ids]; q = affine('layer.contrast')
+             z = z.index_copy(1,layer.grown_ids,gate*(a+q)+(1-gate)*(a-q))
+     else:
+         parts=[]
+         if layer.count:
+             gate=torch.sigmoid(affine('layer.gate')/layer.tau)
+             if layer.coordinates=='centered':
+                 a,q=affine('layer.center'),affine('layer.contrast')
+                 parts.append(gate*(a+q)+(1-gate)*(a-q))
+             else:
+                 parts.append(gate*affine('layer.left')+(1-gate)*affine('layer.right'))
+         if layer.ordinary is not None: parts.append(affine('layer.ordinary'))
+         z=torch.cat(parts,dim=1)
+-    return (torch.relu(z)*p['head.weight']).sum(-1)+p['head.bias'][0]
++    return (relu(z)*p['head.weight']).sum(-1)+p['head.bias'][0]
++
++
++
++def validate_relu_branches(model, x, actual, reference):
++    """Certify differing ReLU masks only for independently bounded affine rows.
++
++    For d products, their reduction and bias addition, k=2*d+2 elementary
++    binary32 roundings conservatively cover fused or unfused implementations.
++    |fl(a)-a| <= gamma_k * (sum |x_i*w_i| + |b|) plus k*tiny covers
++    gradual underflow. The binary64 center gets its own gamma_k allowance.
++    Both computed preactivations must lie in that interval and it must contain
++    zero. Gated/contrast rows have no affine-only certificate: fail closed there.
++    """
++    different=(actual>0)!=(reference>0)
++    result=dict(semantics='actual float32 ReLU branch; affine-rounding-certified reference only',
++        ambiguous_count=int(different.sum()),mismatches=[],
++        interval='gamma_(2d+2) absolute affine sum + binary64 center error + (2d+2)*tiny32; gated rows unsupported')
++    if not different.any(): return result
++    layer=model.layer
++    kind=model.export_config()['kind']
++    affine={}
++    if kind=='widened_relu_scalar':
++        affine.update({j:(layer.base,j) for j in range(layer.parent_width)})
++        if layer.added is not None:
++            affine.update({layer.parent_width+j:(layer.added,j) for j in range(layer.h-layer.parent_width)})
++    elif kind=='selective_relu_scalar':
++        grown=set(layer.grown_ids.tolist())
++        affine.update({j:(layer.base,j) for j in range(layer.h) if j not in grown})
++    elif layer.ordinary is not None:
++        affine.update({layer.count+j:(layer.ordinary,j) for j in range(layer.h-layer.count)})
++    k=2*layer.d+2
++    u32,u64=torch.finfo(torch.float32).eps/2,torch.finfo(torch.float64).eps/2
++    gamma=k*u32/(1-k*u32)+k*u64/(1-k*u64)
++    for row,column in different.nonzero().tolist():
++        if column not in affine:
++            raise AssertionError('ReLU branch disagreement has no supported composed rounding interval')
++        linear,j=affine[column]
++        operands=x[row].detach().double()*linear.weight[j].detach().double()
++        bias=linear.bias[j].detach().double()
++        center=float(operands.sum()+bias)
++        radius=gamma*float(operands.abs().sum()+bias.abs())+k*torch.finfo(torch.float32).tiny
++        a,b=float(actual[row,column]),float(reference[row,column])
++        if not (abs(center)<=radius and abs(a-center)<=radius and abs(b-center)<=radius):
++            raise AssertionError('ReLU mask lies outside independently derived rounding interval')
++        result['mismatches'].append(dict(index=[row,column],actual=a,reference=b,center=center,radius=radius))
++    return result
++
++
++def _reference_gradients(a,b,x,y,*,atol,rtol):
++    """Independent forward and VJP oracle; raw kink differences stay explicit."""
++    actual_x=x.detach().clone().requires_grad_()
++    reference_x=x.detach().to(dtype=next(b.parameters()).dtype).requires_grad_()
++    out=a(actual_x)
++    parts=[]
++    raw=_reference(b,reference_x,preactivations=parts)
++    reference_z=torch.cat(parts,dim=1)
++    actual_z=a.layer(actual_x).detach()
++    branch=validate_relu_branches(a,actual_x,actual_z,reference_z)
++    ref=raw if branch['ambiguous_count']==0 else _reference(b,reference_x,mask=(actual_z>0))
++    target=y.to(dtype=reference_x.dtype)
++    raw_grad=torch.autograd.grad((raw-target).square().mean(),(reference_x,*b.parameters()),retain_graph=True)
++    actual_loss=(out-y).square().mean();reference_loss=(ref-target).square().mean()
++    actual_loss.backward();reference_loss.backward()
++    actual_grad=(actual_x.grad,*[p.grad for p in a.parameters()])
++    conditioned_grad=(reference_x.grad,*[p.grad for p in b.parameters()])
++    def normalized(left,right):
++        return float(((left.detach().double()-right.detach().double()).abs()/(atol+rtol*right.detach().double().abs())).max())
++    raw_error=max(normalized(p,q) for p,q in zip(actual_grad,raw_grad))
++    conditioned_error=max(normalized(p,q) for p,q in zip(actual_grad,conditioned_grad))
++    forward_error=normalized(out,ref)
++    loss_error=normalized(actual_loss,reference_loss)
++    torch.testing.assert_close(actual_loss.double(),reference_loss.double(),rtol=rtol,atol=atol)
++    torch.testing.assert_close(out.double(),ref.double(),rtol=rtol,atol=atol)
++    for p,q in zip(actual_grad,conditioned_grad):
++        torch.testing.assert_close(p.double(),q.double(),rtol=rtol,atol=atol)
++    return out,ref,dict(reference_semantics='relu-affine-branch-conditioned-v2',branch=branch,
++        raw_gradient_max_normalized_error=raw_error,conditioned_gradient_max_normalized_error=conditioned_error,
++        forward_max_normalized_error=forward_error,loss_max_normalized_error=loss_error,
++        raw_gradient_contract='diagnostic only at certified ReLU ambiguity; never relabelled as unconditional parity')
++
++
++def compare_reference(model,x,y,*,reference_dtype):
++    """Check CPU32 execution against an independent branch-aware reference."""
++    from treeneuron.backend import TOLERANCE
++    a,b=copy.deepcopy(model),copy.deepcopy(model).to(dtype=reference_dtype)
++    tolerance=TOLERANCE if reference_dtype==torch.float64 else dict(atol=2e-6,rtol=2e-4)
++    _,_,result=_reference_gradients(a,b,x,y,**tolerance)
++    return result
+ 
+ 
+ def _first_adam_rounding(initial, gradient, *, lr, weight_decay, eps):
+     """Independent bias-corrected first AdamW step and float32 rounding bound.
+ 
+     With zero moments, bias correction gives m_hat=g, v_hat=g**2.
+     Thus p1=p0*(1-lr*decay)-lr*g/(abs(g)+eps). Evaluation here is
+     float64 from the exact float32 operands. gamma_20 bounds the at-most
+     twenty elementary roundings (moments, bias correction, sqrt, division,
+     decay and addition); summing both term magnitudes covers cancellation.
+@@ -76,97 +172,105 @@ def _check_first_adam(a, b, initial, gradients_a, gradients_b, opts):
+         # Opposite signs: |f(g)-f(h)| = |g|/(|g|+eps)+|h|/(|h|+eps).
+         # Forward/gradient equivalence was checked independently before step().
+         conditioning=torch.where(ga*gb>=0,
+             eps*(ga-gb).abs()/((ga.abs()+eps)*(gb.abs()+eps)),
+             ga.abs()/(ga.abs()+eps)+gb.abs()/(gb.abs()+eps))
+         allowance=opts['lr']*conditioning+round_a+round_b
+         if torch.any((p.double()-q.double()).abs()>allowance):
+             raise AssertionError(f'First AdamW conditioning bound exceeded: {name}')
+ 
+ 
+-def probe_causal_cpu(model, *, batch_size=128):
++def probe_causal_cpu(model, *, batch_size=128, n_rows=None):
+     from treeneuron.train import capture_rng, restore_rng, source_hash
+-    if (type(batch_size) is not int or not 0 < batch_size <= 128
++    if (type(batch_size) is not int or not 0 < batch_size <= 16384
+             or any(p.device.type!='cpu' or p.dtype!=torch.float32 for p in model.parameters())):
+-        raise ValueError('Causal probe requires CPU float32 and batch <=128')
++        raise ValueError('Causal probe requires CPU float32 and batch <=16384')
++    if n_rows is not None and (type(n_rows) is not int or n_rows<=0):
++        raise ValueError('Require positive actual F row bound')
++    actual_batch=min(batch_size,n_rows) if n_rows is not None else batch_size
+     before=capture_rng(); threads=torch.get_num_threads()
+     try:
+         torch.set_num_threads(1)
+         # Probe independent copies, preserving the actual caller tensors and RNG.
+         a,b=copy.deepcopy(model),copy.deepcopy(model)
+         g=torch.Generator().manual_seed(1602041)
+-        x=torch.randn(batch_size,model.layer.d,generator=g,dtype=torch.float32)
+-        y=torch.randn(batch_size,generator=g,dtype=torch.float32)
++        x=torch.randn(actual_batch,model.layer.d,generator=g,dtype=torch.float32)
++        y=torch.randn(actual_batch,generator=g,dtype=torch.float32)
+         opts=dict(lr=.001,weight_decay=.01,eps=1e-8)
+         oa,ob=torch.optim.AdamW(a.parameters(),foreach=False,**opts),torch.optim.AdamW(b.parameters(),foreach=False,**opts)
+-        out,ref=a(x),_reference(b,x)
++        out,ref,reference_check=_reference_gradients(a,b,x,y,atol=2e-6,rtol=2e-4)
+         torch.testing.assert_close(out,ref,rtol=2e-5,atol=2e-6)
+-        ((out-y)**2).mean().backward(); ((ref-y)**2).mean().backward()
+         grad_error=max(float((p.grad-q.grad).abs().max()) for p,q in zip(a.parameters(),b.parameters()))
+         for p,q in zip(a.parameters(),b.parameters()): torch.testing.assert_close(p.grad,q.grad,rtol=2e-4,atol=2e-6)
+         initial={name:p.detach().clone() for name,p in a.named_parameters()}
+         gradients_a={name:p.grad.clone() for name,p in a.named_parameters()}
+         gradients_b={name:p.grad.clone() for name,p in b.named_parameters()}
+         oa.step(); ob.step()
+         optimizer_error=max(float((p-q).abs().max().detach()) for p,q in zip(a.parameters(),b.parameters()))
+         _check_first_adam(a,b,initial,gradients_a,gradients_b,opts)
+         payload=io.BytesIO(); torch.save({'model':a.state_dict(),'optimizer':oa.state_dict()},payload)
+         payload.seek(0); saved=torch.load(payload,weights_only=True)
+         c=type(a).from_config(a.export_config()).to(dtype=torch.float32); c.load_state_dict(saved['model'],strict=True)
+         oc=torch.optim.AdamW(c.parameters(),foreach=False,**opts); oc.load_state_dict(saved['optimizer'])
+         for candidate,optimizer in ((a,oa),(c,oc)):
+             optimizer.zero_grad(); ((candidate(x)-y)**2).mean().backward(); optimizer.step()
+         for p,q in zip(a.parameters(),c.parameters()):
+             torch.testing.assert_close(p,q,rtol=0,atol=0)
+             for key in ('step','exp_avg','exp_avg_sq'):
+                 torch.testing.assert_close(oa.state[p][key],oc.state[q][key],rtol=0,atol=0)
+-        return dict(schema_version=1,status='passed',source_hash=source_hash(),topology=model.export_config(),
++        return dict(schema_version=2,status='passed',source_hash=source_hash(),topology=model.export_config(),
++            reference_check=reference_check,
+             parameter_shapes={n:list(p.shape) for n,p in model.named_parameters()},
+-            total_parameters=sum(p.numel() for p in model.parameters()),batch_size=batch_size,
++            total_parameters=sum(p.numel() for p in model.parameters()),batch_size=batch_size,actual_batch_size=actual_batch,
+             device='cpu',dtype='float32',execution='eager',seed=1602041,
+             forward_max_abs=float((out-ref).abs().max().detach()),gradient_max_abs=grad_error,
+-            optimizer_max_abs=optimizer_error,reload_next_update_max_abs=0.,scope='float32 forward/gradient equivalence; own-gradient first AdamW formula and componentwise conditioning; exact serialization replay; no throughput measurement')
++            optimizer_max_abs=optimizer_error,reload_next_update_max_abs=0.,scope='float32 forward and certified branch-conditioned gradient equivalence (raw discrepancies retained); own-gradient first AdamW formula and componentwise conditioning; exact serialization replay; no throughput measurement')
+     finally:
+         torch.set_num_threads(threads); restore_rng(before)
+ 
+ 
+ def attach_causal_evidence(backend, model, batch_size):
+     result=copy.deepcopy(backend)
+     if result['device']!='cpu': raise ValueError('Causal controls are verified only on selected CPU')
+-    result['causal_cpu_evidence']=probe_causal_cpu(model,batch_size=batch_size)
++    result['causal_cpu_evidence']=probe_causal_cpu(model,batch_size=batch_size,n_rows=backend['workload']['n_fit'])
+     result['performance_calibration_matches']=False
+     result['performance_scope']='Actual causal topology CPU correctness; performance uncalibrated'
+     result['workload']['h']=model.layer.h
+     result['workload']['coordinate_family']=model.export_config()['kind'] if not hasattr(model.layer,'coordinates') else model.layer.coordinates
+     result['workload']['actual_growth_count']=len(model.layer.grown_ids) if hasattr(model.layer,'grown_ids') else getattr(model.layer,'count',model.layer.h-getattr(model.layer,'parent_width',model.layer.h))
+     return result
+ 
+ 
+ def validate_causal_evidence(backend, topology, config):
+     from treeneuron.train import source_hash
++    from treeneuron.cpu_envelope import requires_envelope, validate_envelope_reference
++    if requires_envelope(config):
++        validate_envelope_reference(backend.get('cpu_envelope',{}),config,topology)
+     e=backend.get('causal_cpu_evidence',{})
+     if not isinstance(e,dict): raise ValueError('Malformed causal CPU evidence')
+     if (e.get('status')!='passed' or e.get('source_hash')!=source_hash() or e.get('topology')!=topology
+-            or e.get('batch_size')!=config.training.batch_size or e.get('device')!='cpu'
++            or e.get('batch_size')!=config.training.batch_size
++            or e.get('actual_batch_size')!=min(config.training.batch_size,config.data.n_fit) or e.get('device')!='cpu'
+             or e.get('dtype')!='float32' or e.get('execution')!='eager' or backend.get('device')!='cpu'
+             or backend.get('performance_calibration_matches') is not False
+-            or not 0 < config.model.d <=16 or not 0 < config.model.h <=95 or config.data.n_fit>2306):
++            or not 0 < config.model.d <=16 or not 0 < config.model.h <=95 or (config.data.n_fit>2306 and not requires_envelope(config))):
+         raise ValueError('Missing or mismatched actual causal CPU evidence')
+ 
+-    required={'schema_version','status','source_hash','topology','parameter_shapes','total_parameters',
+-              'batch_size','device','dtype','execution','seed','forward_max_abs','gradient_max_abs',
++    required={'reference_check','schema_version','status','source_hash','topology','parameter_shapes','total_parameters',
++              'batch_size','actual_batch_size','device','dtype','execution','seed','forward_max_abs','gradient_max_abs',
+               'optimizer_max_abs','reload_next_update_max_abs','scope'}
+-    if set(e)!=required or e['schema_version']!=1 or e['seed']!=1602041:
++    if set(e)!=required or e['schema_version']!=2 or e['seed']!=1602041:
+         raise ValueError('Malformed causal CPU evidence schema')
+     for key in ('forward_max_abs','gradient_max_abs','optimizer_max_abs','reload_next_update_max_abs'):
+         if type(e[key]) not in (float,int) or not math.isfinite(e[key]) or not 0<=e[key]<=1e-4:
+             raise ValueError('Failed causal CPU numerical evidence')
++    validate_reference_check(e['reference_check'])
+     if e['reload_next_update_max_abs']!=0:
+         raise ValueError('CPU causal replay must be exact')
+     d,h=config.model.d,config.model.h
+     shapes={}
+     def linear(name,rows,columns,bias=True):
+         shapes[name+'.weight']=[rows,columns]
+         if bias: shapes[name+'.bias']=[rows]
+     kind=topology.get('kind')
+     if kind=='widened_relu_scalar':
+         old=config.model.parent_width
+@@ -179,10 +283,33 @@ def validate_causal_evidence(backend, topology, config):
+             for name in ('gate','center','contrast') if config.model.coordinates=='centered' else ('gate','left','right'):
+                 linear('layer.'+name,m,d)
+         linear('head',1,h)
+     elif kind=='selective_relu_scalar':
+         linear('layer.base',h,d);linear('head',1,h)
+         m=len(topology['layer']['grown_ids'])
+         if m: linear('layer.gate',m,d);linear('layer.contrast',m,d)
+     else: raise ValueError('Unknown causal coordinate topology')
+     if e['parameter_shapes']!=shapes or e['total_parameters']!=sum(math.prod(s) for s in shapes.values()):
+         raise ValueError('Causal evidence parameter shapes/count mismatch')
++
++
++def validate_reference_check(check):
++    if not isinstance(check,dict): raise ValueError('Malformed reference check')
++    if check.get('reference_semantics')!='relu-affine-branch-conditioned-v2':
++        raise ValueError('Unsupported causal reference semantics')
++    for key in ('raw_gradient_max_normalized_error','conditioned_gradient_max_normalized_error','forward_max_normalized_error','loss_max_normalized_error'):
++        value=check.get(key)
++        if type(value) not in (int,float) or not math.isfinite(value) or value<0:
++            raise ValueError('Invalid reference diagnostic')
++    if max(check[k] for k in ('conditioned_gradient_max_normalized_error','forward_max_normalized_error','loss_max_normalized_error'))>1:
++        raise ValueError('Reference forward/conditioned gradient failed')
++    branch=check['branch']
++    if (type(branch['ambiguous_count']) is not int or branch['ambiguous_count']!=len(branch['mismatches'])
++            or branch['semantics']!='actual float32 ReLU branch; affine-rounding-certified reference only'):
++        raise ValueError('Invalid ReLU branch certificate')
++    if not branch['ambiguous_count'] and check['raw_gradient_max_normalized_error']>1:
++        raise ValueError('Unconditional gradient failed without certified ambiguity')
++    for row in branch['mismatches']:
++        a,b,center,radius=(row[k] for k in ('actual','reference','center','radius'))
++        if (any(type(v) not in (int,float) or not math.isfinite(v) for v in (a,b,center,radius))
++                or radius<0 or (a>0)==(b>0) or abs(center)>radius or abs(a-center)>radius or abs(b-center)>radius):
++            raise ValueError('Invalid ReLU rounding interval')
+diff --git a/src/treeneuron/cli.py b/src/treeneuron/cli.py
+index cd0331b..66bc858 100644
+--- a/src/treeneuron/cli.py
++++ b/src/treeneuron/cli.py
+@@ -136,20 +136,25 @@ def main(argv: list[str] | None = None) -> int:
+     if args.command == 'report':
+         if args.study_dir is None: parser.error('Exploratory report requires --study-dir')
+         from treeneuron.analysis.exploratory import summarize_exploratory
+         report = summarize_exploratory(args.study_dir)
+         if args.output is not None: write_report(report, args.output)
+         print(json.dumps(report, indent=2, sort_keys=True, allow_nan=False))
+         return 0 if report['status'] == 'completed' else 1
+     if args.command == 'verify-baselines':
+         from treeneuron.baselines.causal_checks import collect_causal_report
+         if args.track == 'causal':
++            # This CLI owns its serial numerical runtime, matching fresh CPU
++            # receipts. In-process callers retain the explicit runtime contract.
++            import torch
++            if torch.get_num_interop_threads() != 1:
++                torch.set_num_interop_threads(1)
+             report = collect_causal_report(backend_report=args.backend_report, artifacts_dir=args.artifacts_dir)
+         else:
+             from treeneuron.baselines.registry import collect_practical_report
+             report = collect_practical_report()
+         if args.output is not None: write_report(report, args.output)
+         print(json.dumps(report, indent=2, sort_keys=True, allow_nan=False))
+         return 0 if report['implemented_checks_passed'] else 1
+     if args.command == "verify-math":
+         backend_report = None
+         if args.backend_report is not None:
+diff --git a/src/treeneuron/cpu_envelope.py b/src/treeneuron/cpu_envelope.py
+new file mode 100644
+index 0000000..c45711c
+--- /dev/null
++++ b/src/treeneuron/cpu_envelope.py
+@@ -0,0 +1,286 @@
++"""Finite H1 CPU logical-batch/density evidence, separate from MPS calibration.
++
++The producer runs in a fresh CPU1/inter-op1/BLAS1 interpreter. Each optimizer
++step consumes its whole logical batch; requested batches above F saturate at F.
++Timing includes reconstruction and optimizer creation, excludes checkpoint IO,
++G selection and the full paired fitting graph. It never selects a study recipe.
++"""
++from __future__ import annotations
++import copy
++import hashlib
++import json
++import math
++import os
++from pathlib import Path
++import statistics
++import subprocess
++import sys
++import time
++
++from .backend import TOLERANCE, _guard, _resources, lock_hash, runtime_hash
++
++LOGICAL_BATCHES = (128,256,512,1024,2048,4096,8192,16384)
++DENSITIES = (577,2306,9224)
++DIAGNOSTIC_BATCH = 32768
++PHASES = ('base_epoch','grown_epoch','ordinary_epoch','widened_epoch','static_epoch','score')
++BLAS_ENV = ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS',
++            'VECLIB_MAXIMUM_THREADS','NUMEXPR_NUM_THREADS')
++
++
++def supported_batch(batch):
++    return type(batch) is int and (0 < batch <=128 or batch in LOGICAL_BATCHES)
++
++
++def requires_envelope(config):
++    return config.data.n_fit>2306 or config.training.batch_size>128
++
++
++def validate_workload(config, topology=None):
++    """Only the required first-layer density family and its derived controls."""
++    c=config.model
++    if (config.backend.device!='cpu' or c.d!=16 or c.depth!=1
++            or config.training.optimizer!='adamw' or config.data.n_fit not in DENSITIES
++            or config.training.batch_size not in LOGICAL_BATCHES
++            or config.growth.m_requested!=16):
++        raise ValueError('Workload outside finite H1 CPU envelope')
++    if c.coordinates=='selective':
++        valid=64<=c.h<=95
++        if topology is not None:
++            count=len(topology['layer']['grown_ids'])
++            valid=valid and (count<=16 if c.h==64 else count==0)
++    elif c.coordinates=='widened':
++        valid=c.parent_width==64 and 64<=c.h<=95
++    else:
++        valid=c.coordinates=='centered' and c.h==64 and 0<=c.static_count<=16
++    if not valid:
++        raise ValueError('Topology outside finite H1 CPU envelope')
++
++
++def _positive(value):
++    return type(value) in (int,float) and math.isfinite(value) and value>0
++
++
++def validate_cpu_envelope(report):
++    """Validate every measured cell and numerical/resource identity, fail closed."""
++    from .train import source_hash
++    source=source_hash()
++    try:
++        def require(ok):
++            if not ok: raise ValueError('CPU envelope contract failed')
++        require(report['schema_version']==1 and report['status']=='passed' and report['seed']==1602042)
++        require(report['check']=='h1_cpu_logical_batch_density_envelope')
++        require(report['source_sha256']==source and report['lock_sha256']==lock_hash()
++            and report['runtime_sha256']==runtime_hash())
++        require(report['logical_batches']==list(LOGICAL_BATCHES) and report['densities']==list(DENSITIES))
++        require(report['diagnostic_batch']==DIAGNOSTIC_BATCH and report['tolerance']==TOLERANCE)
++        env=report['environment']
++        require(env==dict(device='cpu',dtype='float32',execution='eager',threads=1,interop_threads=1,
++            fallback_env='0',blas={k:'1' for k in BLAS_ENV}))
++        require(report['selection_claim']=='finite candidates only; no universal throughput optimum')
++        # Actual per-topology float32/CPU64 operations and independent causal
++        # formula/AdamW/replay evidence for every newly admitted logical batch.
++        operations=report['operations']
++        expected={(phase,b) for phase in PHASES[:-1] for b in LOGICAL_BATCHES}
++        require(len(operations)==len(expected))
++        require({(op['phase'],op['logical_batch']) for op in operations}==expected)
++        for op in operations:
++            error=op['float64_max_normalized_error']
++            require(type(error) in (int,float) and math.isfinite(error) and 0<=error<=1)
++            from .baselines.causal_evidence import validate_reference_check
++            validate_reference_check(op['float64_reference'])
++            require(error==max(op['float64_reference'][k] for k in ('forward_max_normalized_error','conditioned_gradient_max_normalized_error','loss_max_normalized_error')))
++            e=op['causal']
++            require(e['schema_version']==2 and e['device']=='cpu' and e['dtype']=='float32'
++                and e['execution']=='eager' and e['seed']==1602041)
++            shapes=_parameter_shapes(op['phase'])
++            require(e['parameter_shapes']==shapes and e['total_parameters']==sum(math.prod(v) for v in shapes.values()))
++            validate_reference_check(e['reference_check'])
++            require(e['status']=='passed' and e['source_hash']==source
++                and e['batch_size']==op['logical_batch'] and e['actual_batch_size']==min(op['logical_batch'],9224)
++                and op['actual_batch_size']==min(op['logical_batch'],9224) and e['reload_next_update_max_abs']==0)
++            require(e['topology']==report['topologies'][op['phase']])
++            for key in ('forward_max_abs','gradient_max_abs','optimizer_max_abs'):
++                require(type(e[key]) in (int,float) and math.isfinite(e[key]) and 0<=e[key]<=1e-4)
++        require(report['topologies']==_topologies())
++        expected={(n,b,p) for n in DENSITIES for b in (*LOGICAL_BATCHES,DIAGNOSTIC_BATCH) for p in PHASES}
++        rows=report['measurements']
++        require(len(rows)==len(expected))
++        require({(r['n_fit'],r['logical_batch'],r['phase']) for r in rows}==expected)
++        for row in rows:
++            n,b=row['n_fit'],row['logical_batch']
++            require(type(n) is int and type(b) is int and row['physical_batch']==b)
++            require(row['actual_max_rows']==min(n,b) and row['tail_rows']==(n%b or min(n,b)))
++            require(row['updates_per_epoch']==(math.ceil(n/b) if row['phase']!='score' else 0))
++            samples=row['samples_ns']
++            require(len(samples)==5 and all(_positive(v) for v in samples))
++            require(row['median_ns']==statistics.median(samples) and row['rows_per_second']==n*1e9/row['median_ns'])
++            require(len(row['discarded_warmup_ns'])==1 and _positive(row['discarded_warmup_ns'][0]))
++            require(_positive(row['peak_rss_bytes']))
++        require(len(report['score_parity'])==len(DENSITIES)*len(LOGICAL_BATCHES))
++        require({(r['n_fit'],r['batch']) for r in report['score_parity']}=={(n,b) for n in DENSITIES for b in LOGICAL_BATCHES})
++        for row in report['score_parity']:
++            require(_positive(row['tolerance']) and row['tolerance']==1e-10
++                and 0<=row['max_normalized_error']<=1)
++        for key in ('resources_before','resources_after'):
++            require(_positive(report[key]['peak_rss_bytes']))
++            _guard(report[key])
++    except (KeyError,TypeError,ValueError,RuntimeError) as error:
++        raise ValueError('Invalid source-bound CPU envelope evidence') from error
++
++
++def validate_envelope_reference(reference, config, topology=None):
++    """Resolve the same immutable producer receipt on fit and checkpoint reload."""
++    from .locators import locate
++    validate_workload(config,topology)
++    import torch
++    if (torch.get_num_threads()!=1 or torch.get_num_interop_threads()!=1
++            or os.environ.get('PYTORCH_ENABLE_MPS_FALLBACK')!='0'
++            or any(os.environ.get(k)!='1' for k in BLAS_ENV)):
++        raise ValueError('Extended CPU runtime requires CPU1/inter-op1/BLAS1/fallback0')
++    try:
++        if set(reference)!={'path','sha256'}: raise ValueError('CPU envelope reference schema')
++        path=locate(reference['path'],producer=True)
++        payload=path.read_bytes()
++        if hashlib.sha256(payload).hexdigest()!=reference['sha256']:
++            raise ValueError('CPU envelope receipt hash mismatch')
++        validate_cpu_envelope(json.loads(payload)['cpu_envelope'])
++    except (OSError,KeyError,TypeError) as error:
++        raise ValueError('Missing source-bound CPU envelope receipt') from error
++
++
++def _topologies():
++    # JSON specifications avoid allocating models or consuming RNG on reload.
++    def selective(h,ids):
++        return dict(schema_version=1,kind='selective_relu_scalar',layer=dict(schema_version=1,
++            d=16,h=h,tau=1.,growth_applied=bool(ids),grown_ids=ids))
++    return dict(base_epoch=selective(64,[]),grown_epoch=selective(64,list(range(16))),
++        ordinary_epoch=selective(95,[]),
++        widened_epoch=dict(schema_version=1,kind='widened_relu_scalar',layer=dict(d=16,h=95,parent_width=64,tau=1.)),
++        static_epoch=dict(schema_version=1,kind='static_gated_relu_scalar',layer=dict(d=16,h=64,count=16,coordinates='centered',tau=1.)))
++
++
++def _parameter_shapes(phase):
++    shapes={}
++    def linear(name,rows,columns,bias=True):
++        shapes[name+'.weight']=[rows,columns]
++        if bias: shapes[name+'.bias']=[rows]
++    if phase=='widened_epoch':
++        linear('layer.base',64,16);linear('layer.added',31,16)
++        linear('head.base',1,64);linear('head.added',1,31,False)
++    elif phase=='static_epoch':
++        linear('layer.ordinary',48,16)
++        for part in ('gate','center','contrast'):linear('layer.'+part,16,16)
++        linear('head',1,64)
++    else:
++        h=95 if phase=='ordinary_epoch' else 64
++        linear('layer.base',h,16);linear('head',1,h)
++        if phase=='grown_epoch':
++            linear('layer.gate',16,16);linear('layer.contrast',16,16)
++    return shapes
++
++
++def probe_cpu_envelope():
++    """Obtain actual finite CPU measurements in isolation, retaining failed output."""
++    env=dict(os.environ,PYTORCH_ENABLE_MPS_FALLBACK='0',**{k:'1' for k in BLAS_ENV})
++    try:
++        child=subprocess.run([sys.executable,'-m','treeneuron.cpu_envelope'],env=env,
++            capture_output=True,text=True,timeout=240,check=False)
++        if child.returncode: raise RuntimeError(child.stderr or child.stdout)
++        report=json.loads(child.stdout)
++        if report.get('status')=='passed': validate_cpu_envelope(report)
++        return report
++    except (OSError,RuntimeError,ValueError,subprocess.TimeoutExpired) as error:
++        return dict(status='failed',reason=f'{type(error).__name__}: {error}')
++
++
++def _run(report):
++    import torch
++    from .train import SelectiveRegressor, source_hash
++    from .models.static import StaticRegressor
++    from .models.widened import WidenedRegressor
++    from .baselines.causal_evidence import probe_causal_cpu, compare_reference
++    from .growth.score import score_units
++    torch.set_num_threads(1);torch.set_num_interop_threads(1)
++    torch.manual_seed(1602042)
++    report.update(schema_version=1,status='running',seed=1602042,check='h1_cpu_logical_batch_density_envelope',
++        source_sha256=source_hash(),lock_sha256=lock_hash(),runtime_sha256=runtime_hash(),
++        logical_batches=list(LOGICAL_BATCHES),diagnostic_batch=DIAGNOSTIC_BATCH,densities=list(DENSITIES),
++        environment=dict(device='cpu',dtype='float32',execution='eager',threads=torch.get_num_threads(),
++            interop_threads=torch.get_num_interop_threads(),fallback_env=os.environ.get('PYTORCH_ENABLE_MPS_FALLBACK'),
++            blas={k:os.environ.get(k) for k in BLAS_ENV}),tolerance=TOLERANCE,
++        selection_claim='finite candidates only; no universal throughput optimum',
++        timing_boundary='reconstruction + AdamW creation + full F epoch; score includes CPU64 copy; no checkpoint IO/G selection/full paired graph; ambient interference possible',
++        resources_before=_resources(torch),topologies=_topologies(),operations=[],measurements=[],score_parity=[])
++    _guard(report['resources_before'])
++    classes={'selective_relu_scalar':SelectiveRegressor,'static_gated_relu_scalar':StaticRegressor,
++        'widened_relu_scalar':WidenedRegressor}
++    models={phase:classes[spec['kind']].from_config(spec) for phase,spec in report['topologies'].items()}
++    # from_config reconstructs zero contrast tensors; activate gates/contrasts so
++    # the grown operation evidence exercises actual nontrivial branches.
++    with torch.no_grad():
++        models['grown_epoch'].layer.contrast.weight.normal_(0,.05)
++        models['grown_epoch'].layer.contrast.bias.fill_(.01)
++        models['grown_epoch'].layer.gate.weight.normal_(0,.04)
++        models['grown_epoch'].layer.gate.bias.fill_(.1)
++    for phase,model in models.items():
++        for batch in LOGICAL_BATCHES:
++            actual_batch=min(batch,9224)
++            x=torch.randn(actual_batch,16);y=torch.randn(actual_batch)
++            comparison=compare_reference(model,x,y,reference_dtype=torch.float64)
++            error=max(comparison[k] for k in ('forward_max_normalized_error','conditioned_gradient_max_normalized_error','loss_max_normalized_error'))
++            report['operations'].append(dict(phase=phase,logical_batch=batch,actual_batch_size=actual_batch,
++                float64_max_normalized_error=error,float64_reference=comparison,
++                causal=probe_causal_cpu(model,batch_size=batch,n_rows=9224)))
++    for n in DENSITIES:
++        x=torch.randn(n,16);y=torch.randn(n)
++        x64,y64=x.double(),y.double()
++        def score(batch):
++            return score_units(copy.deepcopy(models['base_epoch']).double().eval(),x64,y64,
++                epsilon=.05,tau=1.,adam_epsilon=1e-8,batch_size=batch,unit_block_size=16)
++        reference=score(128)
++        for batch in LOGICAL_BATCHES:
++            actual=score(batch)
++            errors=[]
++            for key in ('gram','adam_scores','sgd_scores','eigenvalues','gradients'):
++                a,b=getattr(actual,key),getattr(reference,key)
++                errors.append(float(((a-b).abs()/(1e-10+1e-10*b.abs())).max()))
++            error=max(errors)
++            if not math.isfinite(error) or error>1: raise ValueError('CPU64 score batch parity failed')
++            report['score_parity'].append(dict(n_fit=n,batch=batch,max_normalized_error=error,tolerance=1e-10))
++        def epoch(original,batch):
++            net=copy.deepcopy(original)
++            opt=torch.optim.AdamW(net.parameters(),lr=.001,weight_decay=.01,foreach=False)
++            for offset in range(0,n,batch):
++                opt.zero_grad(set_to_none=True)
++                (net(x[offset:offset+batch])-y[offset:offset+batch]).square().mean().backward()
++                opt.step()
++        for phase in PHASES:
++            report['latest_resource_observation']=_resources(torch)
++            _guard(report['latest_resource_observation'])
++            for batch in (*LOGICAL_BATCHES,DIAGNOSTIC_BATCH):
++                samples=[]
++                for _ in range(6):
++                    start=time.perf_counter_ns()
++                    score(batch) if phase=='score' else epoch(models[phase],batch)
++                    samples.append(time.perf_counter_ns()-start)
++                report['measurements'].append(dict(phase=phase,n_fit=n,logical_batch=batch,physical_batch=batch,
++                    actual_max_rows=min(n,batch),tail_rows=n%batch or min(n,batch),
++                    updates_per_epoch=0 if phase=='score' else math.ceil(n/batch),
++                    discarded_warmup_ns=samples[:1],samples_ns=samples[1:],median_ns=statistics.median(samples[1:]),
++                    rows_per_second=n*1e9/statistics.median(samples[1:]),peak_rss_bytes=_resources(torch)['peak_rss_bytes']))
++    report['resources_after']=_resources(torch);_guard(report['resources_after'])
++    report['status']='passed'
++    validate_cpu_envelope(report)
++    return report
++
++
++def main():
++    if 'torch' in sys.modules or os.environ.get('PYTORCH_ENABLE_MPS_FALLBACK')!='0' or any(os.environ.get(k)!='1' for k in BLAS_ENV):
++        raise RuntimeError('Fresh CPU envelope requires fallback0 and BLAS1 before numerical imports')
++    report={}
++    try: _run(report)
++    except Exception as error: report.update(status='failed',reason=f'{type(error).__name__}: {error}')
++    print(json.dumps(report,sort_keys=True,allow_nan=False))
++
++
++if __name__=='__main__': main()
+diff --git a/src/treeneuron/pilot/calibrate.py b/src/treeneuron/pilot/calibrate.py
+index c1c7ce2..306e738 100644
+--- a/src/treeneuron/pilot/calibrate.py
++++ b/src/treeneuron/pilot/calibrate.py
+@@ -347,20 +347,23 @@ def calibrate(config: ExperimentConfig) -> PilotSummary:
+                 for repetition in range(pilot.repetitions):
+                     if (time.perf_counter_ns()-started)/1e9 > pilot.max_seconds:
+                         raise TimeoutError('Engineering pilot time cap reached between paired repetitions')
+                     entry=dict(teacher_index=index,repetition=repetition,status='running')
+                     raw['attempts'].append(entry); _atomic_json(root/'raw.json',raw,replace=True)
+                     tick=time.perf_counter_ns()
+                     try:
+                         record=run_repetition(repetition_config(tc,repetition),data,e,
+                             directory/f'repetition-{repetition}',recipe_hash)
+                         record['repetition']=repetition
++                        # Publish the complete accepted schema before the raw ledger
++                        # can reference it; the consumer compares all three records.
++                        _atomic_json(directory/f'repetition-{repetition}'/'pair.json',record,replace=True)
+                         entry.update(status='completed',record=record)
+                         batch.append(record)
+                     except BaseException as error:
+                         entry.update(status='interrupted' if isinstance(error,KeyboardInterrupt) else 'failed',
+                             failure=f'{type(error).__name__}: {error}')
+                         raw['failed_pairs']+=1
+                         raise
+                     finally:
+                         entry['enclosing_ns']=time.perf_counter_ns()-tick
+                         _atomic_json(root/'raw.json',raw,replace=True)
+diff --git a/src/treeneuron/pilot/design.py b/src/treeneuron/pilot/design.py
+index 439a87e..4f8a445 100644
+--- a/src/treeneuron/pilot/design.py
++++ b/src/treeneuron/pilot/design.py
+@@ -388,25 +388,26 @@ def choose_design(summary: PilotSummary, constraints: Mapping[str, Any]) -> Desi
+                     or power.get('mc_half_width',1)>c['power_mc_tolerance']
+                     or power.get('interval',(0,0))[0]<.8):
+                     branch='estimation'; reasons.append('Finite-sample/resampling inference or power precision unsupported')
+             sd=summary.sd_interval[1] if summary.sd_interval else None
+             if sd is not None:
+                 curve=tuple(dict(K=count,half_width=float(t.ppf(1-alpha/2,count-1)*sd/math.sqrt(count)),
+                     detectable_effect=float((norm.ppf(1-alpha/2)+norm.ppf(.8))*sd/math.sqrt(count)),
+                     **cost(count)) for count in (k,2*k,4*k))
+             within=summary.repetition_variance
+             between=summary.between_teacher_variance_lower
++            repetition_cost=c['seconds_per_repetition']+nt*c['seconds_per_evaluation_row']
+             optimum=(math.sqrt(within*c['setup_seconds_per_teacher']/
+-                (between*c['seconds_per_repetition'])) if within is not None and between and between>0 else None)
++                (between*repetition_cost)) if within is not None and between and between>0 else None)
+             candidates={2,r} if optimum is None else {2,r,max(2,math.floor(optimum)),max(2,math.ceil(optimum))}
+             recommended=(min(candidates,key=lambda count:(between+within/count)*
+-                (c['setup_seconds_per_teacher']+count*c['seconds_per_repetition']))
++                (c['setup_seconds_per_teacher']+count*repetition_cost))
+                 if optimum is not None else r)
+             forecast['repetition_tradeoff']=dict(observed_within_variance=within,
+                 conservative_between_variance=between,
+                 continuous_cost_optimum=optimum,recommended_repetitions=recommended,
+                 requires_new_calibration=recommended!=r,
+                 selected=r,policy='Keep completed pilot repetitions; any expansion requires new variance/cost calibration, never count repeats as teachers')
+     if summary.purpose!='scientific':
+         branch='blocked'; reasons.append('Engineering fixtures are not genuine pilot/design evidence')
+     statistical_policy={key:c[key] for key in ('bootstrap_seed','power_iterations','endpoint_tolerance',
+         'power_mc_tolerance','retries','estimation_rows','inference_supported') if key in c}
+diff --git a/src/treeneuron/train.py b/src/treeneuron/train.py
+index 3d1ebbb..2336f92 100644
+--- a/src/treeneuron/train.py
++++ b/src/treeneuron/train.py
+@@ -26,20 +26,21 @@ import resource
+ import sys
+ import time
+ from typing import Any
+ 
+ import numpy as np
+ import torch
+ from torch import nn
+ 
+ from .artifacts import RunPaths, append_event, finish_run, update_run_observations
+ from .backend import ROOT, lock_hash, runtime_hash, select_backend, validate_backend_report
++from .cpu_envelope import supported_batch, requires_envelope, validate_envelope_reference
+ from .config import ExperimentConfig, canonical_hash, canonical_json, resolve_experiment
+ from .data.transforms import FittedTransform
+ from .data.types import DevelopmentData, ObservationSet, array_hash
+ from .evaluation.metrics import regression_metrics
+ from .models.units import SelectiveAffineLayer
+ 
+ BACKEND_REPORT_PATH = ROOT / 'environment' / 'report.json'
+ 
+ 
+ class SelectiveRegressor(nn.Module):
+@@ -77,22 +78,22 @@ class TrainingPolicy:
+     checkpoint_selection: str = 'strict_improvement_earliest'
+     evaluate_at_update_zero: bool = True
+     checkpoint_interval: int = 1
+ 
+     def __post_init__(self):
+         for name in ('logical_batch_size', 'physical_batch_size', 'max_updates', 'validation_interval', 'patience', 'checkpoint_interval'):
+             if type(getattr(self, name)) is not int or getattr(self, name) <= 0:
+                 raise ValueError(f'{name} must be a positive integer')
+         if self.physical_batch_size != self.logical_batch_size:
+             raise ValueError('physical batch must equal logical batch; accumulation is not implemented')
+-        if self.logical_batch_size > 128:
+-            raise ValueError('Batch exceeds bounded backend evidence (128)')
++        if not supported_batch(self.logical_batch_size):
++            raise ValueError('Batch outside bounded backend evidence; extended CPU batches require a measured envelope')
+         if self.checkpoint_selection != 'strict_improvement_earliest' or self.evaluate_at_update_zero is not True:
+             raise ValueError('Require strict improvement, earliest ties, and update-zero evaluation')
+ 
+     @classmethod
+     def from_config(cls, config: ExperimentConfig, *, continuation: bool = False):
+         t = config.training
+         for name in ('base_updates', 'continuation_updates', 'validation_interval', 'patience'):
+             if getattr(t, name) is None:
+                 raise ValueError(f'training.{name} must be supplied before training')
+         return cls(t.batch_size, t.batch_size, t.continuation_updates if continuation else t.base_updates,
+@@ -198,22 +199,26 @@ class TrainingState:
+     history: list[dict[str, Any]] = field(default_factory=list)
+     growth_metadata: dict[str, Any] = field(default_factory=dict)
+     best_snapshot: dict[str, Any] | None = None
+ 
+     @property
+     def device(self):
+         return str(next(self.model.parameters()).device)
+ 
+     def predict(self, X, *, batch_size: int | None = None) -> np.ndarray:
+         batch = self.config.training.batch_size if batch_size is None else batch_size
+-        if type(batch) is not int or batch <= 0 or batch > 128:
+-            raise ValueError('Prediction batch must be a positive integer at most 128')
++        if not supported_batch(batch) or (batch>128 and 'cpu_envelope' not in self.backend):
++            raise ValueError('Prediction batch requires bounded source-bound CPU evidence')
++        # The finite CPU extension certifies actual tensors through max F9224.
++        # Prediction chunks obey that same bound, including much larger E/T sets.
++        if 'cpu_envelope' in self.backend:
++            batch=min(batch,self.config.data.n_fit)
+         transformed = self.preprocessing.transform_X(X)
+         values = []
+         self.model.eval()
+         with torch.no_grad():
+             for i in range(0, len(transformed), batch):
+                 x = torch.tensor(transformed[i:i+batch], dtype=torch.float32, device=self.device)
+                 values.append(self.model(x).cpu().numpy().astype(np.float64))
+         return self.preprocessing.inverse_y(np.concatenate(values) if values else np.empty(0))
+ 
+     def next_row_ids(self, rows: ObservationSet) -> np.ndarray:
+@@ -234,55 +239,62 @@ def _optimizer(model, config):
+         raise ValueError('sgd training is not implemented; use explicit AdamW configuration')
+     names, parameters = zip(*model.named_parameters())
+     return torch.optim.AdamW([{'params': list(parameters), 'param_names': list(names)}],
+         lr=t.learning_rate, betas=(t.adam_beta1, t.adam_beta2), eps=t.adam_epsilon,
+         weight_decay=t.weight_decay, foreach=False)
+ 
+ 
+ def _backend_evidence(config, data, *, causal_model=None):
+     from .locators import locate
+     path = locate(BACKEND_REPORT_PATH,producer=True)
+-    report = json.loads(path.read_text())['backend_probes']
++    document = json.loads(path.read_text())
++    report = document['backend_probes']
+     for probe in report['probes'].values():
+         if probe.get('status') == 'passed': validate_backend_report(probe)
+     decision = select_backend(report['probes'], comparison_blocks=report['comparison_blocks'])
+     if decision != report['decision']:
+         raise ValueError('Backend decision differs from validated numerical evidence')
+     b = config.backend
+     if b.device != decision['selected_backend']:
+         raise ValueError('Requested backend differs from validated selected backend recipe')
+     if b.cpu_threads not in (None, 1):
+         raise ValueError('Backend evidence requires one CPU thread')
+     if b.interop_threads not in (None, torch.get_num_interop_threads()):
+         raise ValueError('Requested interop threads differ from live runtime; configure before training')
+     interop = report['probes'][b.device]['environment'].get('interop_threads')
+     if interop is not None and torch.get_num_interop_threads() != interop:
+         raise ValueError('Live interop threads differ from backend evidence')
+-    if (config.model.d > 16 or config.model.h > (95 if causal_model is not None else 64) or len(data.F.y) > 2306
+-            or config.training.batch_size > 128):
++    envelope = None
++    if requires_envelope(config):
++        envelope = dict(path=str(path.resolve()),sha256=hashlib.sha256(path.read_bytes()).hexdigest())
++        validate_envelope_reference(envelope,config,causal_model.export_config() if causal_model is not None else None)
++    if (config.model.d > 16 or config.model.h > (95 if causal_model is not None else 64)
++            or (envelope is None and (len(data.F.y)>2306 or config.training.batch_size>128))):
+         raise ValueError('Workload exceeds bounded backend evidence; obtain a relevant new probe')
+     if b.device == 'mps' and (not torch.backends.mps.is_available() or os.environ.get('PYTORCH_ENABLE_MPS_FALLBACK') != '0'):
+         raise ValueError('MPS requires availability and fallback disabled before process import')
+     workload = {'d': config.model.d, 'h': config.model.h, 'n_fit': len(data.F.y),
+                 'logical_batch_size': config.training.batch_size, 'physical_batch_size': config.training.batch_size}
+     calibrated = workload == {'d': 16, 'h': 64, 'n_fit': 2306, 'logical_batch_size': 128, 'physical_batch_size': 128}
+     if not calibrated and b.device != 'cpu':
+         raise ValueError('Small diagnostic workload is supported only on CPU; remeasure other workloads')
+     if any(decision['selected_batches'][key] != 128 for key in ('base_epoch', 'grown_epoch')):
+         raise ValueError('Selected physical recipe requires unimplemented accumulation')
+     evidence = {'device': b.device, 'dtype': 'float32', 'execution': 'eager', 'fallback': False,
+             'cpu_threads': 1, 'interop_threads': torch.get_num_interop_threads(),
+             'kernel_tolerance': decision['tolerance'], 'resume_tolerance': {'rtol': 0., 'atol': 0.} if b.device == 'cpu' else decision['tolerance'],
+             'evidence_sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+             'kernel_implementation_sha256': report['probes'][b.device]['implementation_sha256'],
+             'workload': workload, 'performance_calibration_matches': calibrated,
+             'performance_scope': decision['scope'] if calibrated else 'CPU correctness diagnostic; kernel compatibility only; throughput not calibrated'}
++    if envelope is not None:
++        evidence['cpu_envelope']=envelope
+     if causal_model is not None:
+         from .baselines.causal_evidence import attach_causal_evidence
+         evidence = attach_causal_evidence(evidence, causal_model, config.training.batch_size)
+     return evidence
+ 
+ 
+ def _validate_inputs(data, config, paths):
+     config = resolve_experiment(config.to_dict())
+     if config.model.depth != 1:
+         raise ValueError('Only depth=1 is supported')
+@@ -416,20 +428,22 @@ def validate_metadata(meta, expected_hashes, device):
+     if (set(identities) != keys or set(expected_hashes) != keys or identities != dict(expected_hashes)
+             or any(type(v) is not str or len(v) != 64 or any(c not in '0123456789abcdef' for c in v) for v in identities.values())):
+         raise ValueError('Checkpoint identity mismatch or incomplete expected identities')
+     if identities['code'] != source_hash() or identities['lock'] != lock_hash() or identities['runtime'] != runtime_hash():
+         raise ValueError('Checkpoint code/lock/runtime identity differs from live execution')
+     config = resolve_experiment(meta['config'])
+     TrainingPolicy.from_config(config)
+     topology = meta['model']
+     if not isinstance(topology, dict) or set(topology) != {'schema_version','kind','layer'} or not isinstance(topology['layer'], dict):
+         raise ValueError('Invalid model topology')
++    if requires_envelope(config):
++        validate_envelope_reference(meta['backend'].get('cpu_envelope',{}),config,topology)
+     if config.model.coordinates == 'widened':
+         from .models.widened import WidenedRegressor
+         from .baselines.causal_evidence import validate_causal_evidence
+         validate_causal_evidence(meta['backend'], topology, config)
+         before = capture_rng()
+         try:
+             candidate = WidenedRegressor.from_config(topology)
+             if topology['layer'] != dict(d=config.model.d,h=config.model.h,parent_width=config.model.parent_width,tau=config.model.tau):
+                 raise ValueError('Widening topology differs from resolved config')
+             expected_names = set(dict(candidate.named_parameters()))
+@@ -487,20 +501,22 @@ def validate_metadata(meta, expected_hashes, device):
+     transform = FittedTransform.from_state(meta['preprocessing'])
+     if canonical_hash(transform.to_state()) != identities['transform']:
+         raise ValueError('Transform identity mismatch')
+     if type(meta['fit_target_variance']) not in (int, float) or meta['fit_target_variance'] < 0:
+         raise ValueError('Invalid F target variance')
+     stage = meta['stage']
+     if (set(stage) != {'kind', 'start_update', 'updates_completed', 'bad_evaluations', 'best_mse', 'policy', 'complete'}
+             or stage['kind'] not in ('base', 'continuation') or type(stage['complete']) is not bool):
+         raise ValueError('Invalid stage metadata')
+     policy = TrainingPolicy(**stage['policy'])
++    if policy.logical_batch_size != config.training.batch_size:
++        raise ValueError('Checkpoint batch differs from resolved config')
+     if policy.checkpoint_interval != config.training.checkpoint_interval:
+         raise ValueError('Checkpoint cadence differs from resolved config')
+     for key in ('start_update', 'updates_completed', 'bad_evaluations'):
+         if type(stage[key]) is not int or stage[key] < 0: raise ValueError('Invalid stage counters')
+     if stage['updates_completed'] > policy.max_updates or (not stage['complete'] and meta['update'] != stage['start_update'] + stage['updates_completed']):
+         raise ValueError('Stage update/counter mismatch')
+     if stage['best_mse'] is not None and (type(stage['best_mse']) not in (int, float) or stage['best_mse'] < 0):
+         raise ValueError('Invalid best risk')
+     schedule = meta['scheduler']
+     if (set(schedule) != {'kind', 'horizon', 'min_lr', 'base_lrs', 'position'}
+diff --git a/tests/fixtures/h1_widened_relu_rounding.pt b/tests/fixtures/h1_widened_relu_rounding.pt
+new file mode 100644
+index 0000000..95e021d
+Binary files /dev/null and b/tests/fixtures/h1_widened_relu_rounding.pt differ
+diff --git a/tests/test_audit_fix1.py b/tests/test_audit_fix1.py
+index 1909089..0cfa7c6 100644
+--- a/tests/test_audit_fix1.py
++++ b/tests/test_audit_fix1.py
+@@ -3,26 +3,27 @@ import json
+ import os
+ from pathlib import Path
+ import shutil
+ import subprocess
+ import sys
+ import pytest
+ from test_protocol import repository,prepared,candidate,git
+ 
+ 
+ @pytest.mark.parametrize('absolute',[True,False])
+-def test_receipt_io_survives_unavailable_original_root(tmp_path,absolute):
++def test_receipt_io_survives_unavailable_original_root(tmp_path,absolute,cpu_training_evidence):
+     from test_pilot_calibrate import config
+     original=(tmp_path/'original').resolve(); original.mkdir()
+     receipt=original/'environment/backend.json'; receipt.parent.mkdir()
+-    source=Path('environment/evidence7-calibration-fix1/search-backend.json').resolve()
+-    shutil.copyfile(source,receipt)
++    # Live relocation must use an actual current-source producer receipt;
++    # historical receipts retain their original source identity.
++    shutil.copyfile(cpu_training_evidence,receipt)
+     value=config(tmp_path).to_dict(); value['growth']['m_requested']=1
+     value['execution']['backend_report']=str(receipt) if absolute else 'environment/backend.json'
+     (original/'config.json').write_text(json.dumps(value))
+     restored=tmp_path/'restored'; shutil.copytree(original,restored)
+     original.rename(tmp_path/'unavailable')
+     script=r'''
+ import importlib,json,sys
+ from pathlib import Path
+ from treeneuron.config import resolve_experiment,canonical_hash
+ from treeneuron.locators import relocated,producer_directory
+diff --git a/tests/test_causal_precision.py b/tests/test_causal_precision.py
+index 5463133..8aa2a62 100644
+--- a/tests/test_causal_precision.py
++++ b/tests/test_causal_precision.py
+@@ -26,10 +26,58 @@ def test_seed42_causal_probe_accepts_conditioned_first_adam_step():
+ def test_causal_probe_rejects_incorrect_first_adam_step(monkeypatch):
+     from treeneuron.baselines.causal_evidence import probe_causal_cpu
+     step=torch.optim.AdamW.step
+     def incorrect(optimizer,*args,**kwargs):
+         result=step(optimizer,*args,**kwargs)
+         with torch.no_grad(): optimizer.param_groups[0]['params'][0].add_(1e-4)
+         return result
+     monkeypatch.setattr(torch.optim.AdamW,'step',incorrect)
+     with pytest.raises(AssertionError,match='first AdamW formula'):
+         probe_causal_cpu(failed_probe(),batch_size=8)
++
++
++def widened_rounding_case():
++    from treeneuron.models.widened import WidenedRegressor
++    saved=torch.load(Path(__file__).parent/'fixtures/h1_widened_relu_rounding.pt',weights_only=True)
++    model=WidenedRegressor.from_config(saved['topology']);model.load_state_dict(saved['model'])
++    return model,saved['x'][:9224],saved['y'][:9224]
++
++
++@pytest.mark.parametrize('dtype',[torch.float32,torch.float64])
++def test_retained_widened_relu_case_checks_actual_branch_without_hiding_raw_error(dtype):
++    from treeneuron.baselines.causal_evidence import compare_reference
++    model,x,y=widened_rounding_case()
++    result=compare_reference(model,x,y,reference_dtype=dtype)
++    assert result['raw_gradient_max_normalized_error']>18
++    assert result['conditioned_gradient_max_normalized_error']<1
++    assert result['branch']['ambiguous_count']==1
++    assert result['branch']['mismatches'][0]['index']==[1417,66]
++    assert result['branch']['semantics']=='actual float32 ReLU branch; affine-rounding-certified reference only'
++
++
++def test_wrong_relu_mask_outside_rounding_interval_is_rejected():
++    from treeneuron.baselines.causal_evidence import validate_relu_branches
++    model,x,_=widened_rounding_case()
++    actual=model.layer(x).detach();reference=copy.deepcopy(model).double().layer(x.double()).detach()
++    actual[0,0]=-reference[0,0].sign().float()
++    with pytest.raises(AssertionError,match='rounding interval'):
++        validate_relu_branches(model,x,actual,reference)
++
++
++def test_branch_reference_still_rejects_incorrect_backward(monkeypatch):
++    from treeneuron.baselines.causal_evidence import compare_reference
++    from treeneuron.models.widened import WidenedRegressor
++    model,x,y=widened_rounding_case()
++    original=WidenedRegressor.forward
++    def wrong(self,x):
++        return original(self,x)+(self.layer.added.weight-self.layer.added.weight.detach()).sum()*.01
++    monkeypatch.setattr(WidenedRegressor,'forward',wrong)
++    with pytest.raises(AssertionError): compare_reference(model,x,y,reference_dtype=torch.float64)
++
++
++def test_gated_relu_ambiguity_without_composed_interval_fails_closed():
++    from treeneuron.train import SelectiveRegressor
++    from treeneuron.baselines.causal_evidence import validate_relu_branches
++    model=SelectiveRegressor(2,2)
++    model.layer.grow(torch.tensor([0]),torch.ones(1,3))
++    with pytest.raises(AssertionError,match='composed rounding interval'):
++        validate_relu_branches(model,torch.ones(1,2),torch.tensor([[1e-9,1.]]),torch.tensor([[-1e-9,1.]]))
+diff --git a/tests/test_checkpoint.py b/tests/test_checkpoint.py
+index 9997e38..a3b9856 100644
+--- a/tests/test_checkpoint.py
++++ b/tests/test_checkpoint.py
+@@ -2,20 +2,32 @@
+ import json
+ import random
+ 
+ import numpy as np
+ import pytest
+ import torch
+ 
+ from test_train import training_case, cpu_training_evidence, assert_state_equal
+ 
+ 
++def test_checkpoint_rejects_supported_policy_batch_different_from_config(training_case):
++    from treeneuron.train import fit_parent, pack_state, validate_metadata
++    data, config, paths = training_case
++    state = fit_parent(data, config, paths)
++    metadata = pack_state(state)['metadata']
++    # Both values are individually supported, but only the resolved batch4
++    # belongs to this checkpoint's workload and numerical receipt.
++    metadata['stage']['policy'].update(logical_batch_size=256, physical_batch_size=256)
++    with pytest.raises(ValueError, match='batch differs from resolved config'):
++        validate_metadata(metadata, state.identity_hashes, 'cpu')
++
++
+ def test_roundtrip_named_optimizer_rng_and_topology(training_case):
+     from treeneuron.train import fit_parent, restore_rng
+     from treeneuron.checkpoint import save_checkpoint, load_checkpoint
+     data, config, paths = training_case
+     state = fit_parent(data, config, paths)
+     pointer = paths.directory / 'checkpoint.json'
+     digest = save_checkpoint(state, pointer)
+     restore_rng(state.rng_states)
+     expected = (random.random(), np.random.random(), torch.rand(3))
+     loaded = load_checkpoint(pointer, expected_hashes=state.identity_hashes, device='cpu')
+diff --git a/tests/test_cpu_envelope.py b/tests/test_cpu_envelope.py
+new file mode 100644
+index 0000000..2e8e0ec
+--- /dev/null
++++ b/tests/test_cpu_envelope.py
+@@ -0,0 +1,170 @@
++"""Source-bound CPU envelope correctness, not predictive study evidence."""
++import pytest
++
++
++def test_new_logical_batch_is_executable_policy_and_causal_probe():
++    from treeneuron.train import TrainingPolicy, SelectiveRegressor
++    from treeneuron.baselines.causal_evidence import probe_causal_cpu
++    policy=TrainingPolicy(256,256,1,1,1)
++    assert policy.logical_batch_size==policy.physical_batch_size
++    receipt=probe_causal_cpu(SelectiveRegressor(16,64),batch_size=256)
++    assert receipt['reload_next_update_max_abs']==0
++
++
++from test_train import cpu_training_evidence
++
++def test_numerical_receipt_uses_serial_interop_runtime(cpu_training_evidence):
++    import json
++    report=json.loads(cpu_training_evidence.read_text())
++    assert report['backend_probes']['probes']['cpu']['environment']['interop_threads']==1
++
++
++@pytest.fixture(scope='session')
++def cpu_envelope_receipt(tmp_path_factory,cpu_training_evidence):
++    import json
++    from treeneuron.cpu_envelope import probe_cpu_envelope
++    measured=probe_cpu_envelope()
++    assert measured['status']=='passed',measured.get('reason')
++    report=json.loads(cpu_training_evidence.read_text())
++    report['cpu_envelope']=measured
++    path=tmp_path_factory.mktemp('cpu-envelope')/'report.json'
++    path.write_text(json.dumps(report))
++    return path
++
++
++def test_real_logical_sweep_keeps_density_tail_and_saturation(cpu_envelope_receipt):
++    import json
++    from treeneuron.cpu_envelope import validate_cpu_envelope
++    r=json.loads(cpu_envelope_receipt.read_text())['cpu_envelope']
++    validate_cpu_envelope(r)
++    for n in (577,2306,9224):
++        rows=[v for v in r['measurements'] if v['n_fit']==n and v['phase']=='base_epoch']
++        assert [v['logical_batch'] for v in rows]==[128,256,512,1024,2048,4096,8192,16384,32768]
++        assert rows[-1]['actual_max_rows']==rows[-2]['actual_max_rows']==n
++        assert rows[-1]['updates_per_epoch']==rows[-2]['updates_per_epoch']==1
++        assert rows[0]['tail_rows']==n%128
++    assert r['selection_claim']=='finite candidates only; no universal throughput optimum'
++
++
++@pytest.mark.parametrize('batch',[128,256,512,1024,2048,4096,8192,16384])
++def test_high_density_parent_growth_control_checkpoint_paths(tmp_path,monkeypatch,cpu_envelope_receipt,batch):
++    import copy,json
++    import numpy as np
++    import torch
++    from treeneuron import train
++    from treeneuron.artifacts import create_run
++    from treeneuron.checkpoint import load_checkpoint
++    from treeneuron.config import resolve_experiment
++    from treeneuron.data.types import ObservationSet,DevelopmentData
++    from treeneuron.baselines.causal import widen_parent
++    from treeneuron.growth.allocate import Allocation
++    from treeneuron.growth.insert import insert_growth
++    c=resolve_experiment(dict(study_id='cpu-envelope-path',model=dict(d=16,h=64),growth=dict(m_requested=16),
++        data=dict(n_fit=9224,n_growth=8,n_validation=8),
++        training=dict(batch_size=batch,base_updates=1,continuation_updates=1,validation_interval=1,patience=2),
++        backend=dict(cpu_threads=1,interop_threads=1),execution=dict(backend_report=str(cpu_envelope_receipt))))
++    rng=np.random.default_rng(401)
++    def rows(n,start):
++        x=rng.normal(size=(n,16));ids=np.arange(start,start+n,dtype=np.int64)
++        return ObservationSet(x,x[:,0]-x[:,1],ids,ids)
++    data=DevelopmentData(rows(9224,0),rows(8,10000),rows(8,20000),'envelope-fixture')
++    monkeypatch.setattr(train,'BACKEND_REPORT_PATH',cpu_envelope_receipt)
++    def fit(config,label):
++        paths=create_run(tmp_path/label,config.to_dict())
++        state=train.fit_parent(data,config,paths)
++        loaded=load_checkpoint(paths.directory/'checkpoints/best.json',expected_hashes=state.identity_hashes,device='cpu')
++        np.testing.assert_array_equal(state.predict(data.G.X),loaded.predict(data.G.X))
++        return loaded
++    parent=fit(c,'parent')
++    ordinary=c.to_dict();ordinary['model']['h']=95
++    fit(resolve_experiment(ordinary),'ordinary')
++    static=c.to_dict();static['model'].update(coordinates='centered',static_count=16)
++    fit(resolve_experiment(static),'static')
++    widened=copy.deepcopy(parent);widen_parent(widened,31,17)
++    paths=create_run(tmp_path/'widened',widened.config.to_dict())
++    train.continue_fit(widened,data,train.TrainingPolicy.from_config(widened.config,continuation=True),paths)
++    load_checkpoint(paths.directory/'checkpoints/best.json',expected_hashes=widened.identity_hashes,device='cpu')
++    # Use actual scoring/allocation, including the CPU64 full-density reduction.
++    from treeneuron.growth.score import score_units
++    from treeneuron.growth.allocate import allocate
++    table=score_units(copy.deepcopy(parent.model).double().eval(),
++        torch.tensor(parent.preprocessing.transform_X(data.F.X),dtype=torch.float64),
++        torch.tensor(parent.preprocessing.transform_y(data.F.y),dtype=torch.float64),
++        epsilon=.05,tau=1.,adam_epsilon=1e-8,batch_size=batch,unit_block_size=16)
++    insert_growth(parent,allocate(table,16,policy='adam',seed=17))
++    paths=create_run(tmp_path/'grown',c.to_dict())
++    train.continue_fit(parent,data,train.TrainingPolicy.from_config(c,continuation=True),paths)
++    load_checkpoint(paths.directory/'checkpoints/best.json',expected_hashes=parent.identity_hashes,device='cpu')
++
++
++@pytest.mark.parametrize('mutation',['source','runtime','rows','batch','missing_operation','numerical','tail','resource','fallback'])
++def test_envelope_rejects_mismatched_or_incomplete_measurement(cpu_envelope_receipt,mutation):
++    import json
++    from treeneuron.cpu_envelope import validate_cpu_envelope
++    r=json.loads(cpu_envelope_receipt.read_text())['cpu_envelope']
++    if mutation=='source': r['source_sha256']='0'*64
++    elif mutation=='runtime': r['runtime_sha256']='0'*64
++    elif mutation=='rows': r['measurements'][0]['n_fit']=9225
++    elif mutation=='batch': r['measurements'][0]['logical_batch']=129
++    elif mutation=='missing_operation': r['operations'].pop()
++    elif mutation=='numerical': r['operations'][0]['float64_max_normalized_error']=2.
++    elif mutation=='tail': r['measurements'][0]['tail_rows']+=1
++    elif mutation=='resource': r['resources_after']['peak_rss_bytes']=0
++    else: r['environment']['fallback_env']='1'
++    with pytest.raises(ValueError): validate_cpu_envelope(r)
++
++
++@pytest.mark.parametrize('batch',[129,255,32768,True])
++def test_unsupported_logical_batch_remains_rejected(batch):
++    from treeneuron.train import TrainingPolicy
++    with pytest.raises(ValueError): TrainingPolicy(batch,batch,1,1,1)
++
++
++@pytest.mark.parametrize('change',['fallback','blas','threads'])
++def test_extended_receipt_rejects_live_runtime_drift(cpu_envelope_receipt,monkeypatch,change):
++    import hashlib,torch
++    from treeneuron.cpu_envelope import validate_envelope_reference
++    from treeneuron.config import resolve_experiment
++    c=resolve_experiment(dict(study_id='runtime-drift',model=dict(d=16,h=64),growth=dict(m_requested=16),
++        data=dict(n_fit=9224),training=dict(batch_size=256)))
++    reference=dict(path=str(cpu_envelope_receipt),sha256=hashlib.sha256(cpu_envelope_receipt.read_bytes()).hexdigest())
++    previous=torch.get_num_threads()
++    try:
++        if change=='fallback':monkeypatch.setenv('PYTORCH_ENABLE_MPS_FALLBACK','1')
++        elif change=='blas':monkeypatch.setenv('OMP_NUM_THREADS','2')
++        else:torch.set_num_threads(2)
++        with pytest.raises(ValueError,match='runtime'):
++            validate_envelope_reference(reference,c)
++    finally:torch.set_num_threads(previous)
++
++
++def test_extended_receipt_rejects_loss_error(cpu_envelope_receipt):
++    import json
++    from treeneuron.cpu_envelope import validate_cpu_envelope
++    r=json.loads(cpu_envelope_receipt.read_text())['cpu_envelope']
++    r['operations'][0]['float64_reference']['loss_max_normalized_error']=2.
++    with pytest.raises(ValueError):validate_cpu_envelope(r)
++
++
++@pytest.mark.parametrize('section,change',[
++    ('model',{'d':17}),('model',{'h':96}),('growth',{'m_requested':17}),
++    ('data',{'n_fit':9225}),('training',{'batch_size':129}),
++    ('model',{'coordinates':'direct_leaf','static_count':16}),
++    ('model',{'coordinates':'centered','static_count':17})])
++def test_extended_workload_preserves_other_limits(section,change):
++    from treeneuron.cpu_envelope import validate_workload
++    from treeneuron.config import resolve_experiment
++    value=dict(study_id='bounded',model=dict(d=16,h=64),growth=dict(m_requested=16),
++        data=dict(n_fit=9224),training=dict(batch_size=256))
++    value[section].update(change)
++    with pytest.raises(ValueError):validate_workload(resolve_experiment(value))
++
++
++@pytest.mark.parametrize('field,value',[
++    ('schema_version',1),('device','mps'),('parameter_shapes',{}),('total_parameters',1),('seed',1)])
++def test_envelope_validates_causal_operation_identity(cpu_envelope_receipt,field,value):
++    import json
++    from treeneuron.cpu_envelope import validate_cpu_envelope
++    r=json.loads(cpu_envelope_receipt.read_text())['cpu_envelope']
++    r['operations'][0]['causal'][field]=value
++    with pytest.raises(ValueError):validate_cpu_envelope(r)
+diff --git a/tests/test_design.py b/tests/test_design.py
+index 7a96239..a3fd903 100644
+--- a/tests/test_design.py
++++ b/tests/test_design.py
+@@ -269,10 +269,23 @@ def test_raw_and_summary_control_domains_are_validated(bad):
+         choose_design(summary(controls=bad),constraints())
+ 
+ 
+ def test_absent_or_empty_declaration_remains_blocked_and_minimum_is_retained():
+     c=constraints(); del c['required_controls']
+     assert choose_design(summary(),c).branch=='blocked'
+     c['required_controls']=[]
+     assert choose_design(summary(),c).branch=='blocked'
+     c['required_controls']=['additional_anchor']
+     assert choose_design(summary(controls=('additional_anchor',)),c).branch=='blocked'
++
++
++def test_material_evaluation_cost_reduces_advisory_repetitions():
++    s=summary(repetition_variance=.1)
++    cheap=constraints(); cheap['seconds_per_evaluation_row']=1e-9
++    costly=constraints(); costly['seconds_per_evaluation_row']=.1
++    low,high=[choose_design(s,c) for c in (cheap,costly)]
++    a,b=[d.forecast['repetition_tradeoff'] for d in (low,high)]
++    assert a['recommended_repetitions']>100
++    assert b['recommended_repetitions']==2
++    assert b['continuous_cost_optimum']==pytest.approx((20000/10001)**.5)
++    assert low.repetitions==high.repetitions==2
++    assert b['requires_new_calibration'] is False
+diff --git a/tests/test_pilot_calibrate.py b/tests/test_pilot_calibrate.py
+index bac76b7..1707582 100644
+--- a/tests/test_pilot_calibrate.py
++++ b/tests/test_pilot_calibrate.py
+@@ -45,20 +45,21 @@ def test_teacher_data_fixed_reps_fresh_E_and_no_confirmation_namespace(tmp_path)
+     assert a.seeds.teacher==b.seeds.teacher and a.seeds.data==b.seeds.data
+     assert a.seeds.optimizer!=b.seeds.optimizer and a.seeds.allocation!=b.seeds.allocation
+     assert a.seeds.namespace=='exploratory' and a.data.n_test is None
+     assert a.training==b.training
+ 
+ 
+ def test_coordinator_doubling_ledger_and_every_call_fresh_attempt(tmp_path,monkeypatch):
+     module=importlib.import_module('treeneuron.pilot.calibrate')
+     calls=[]
+     def run(c,data,e,root,recipe_hash):
++        Path(root).mkdir(parents=True)
+         calls.append((data.teacher_id,data.manifest.assignment_hash,tuple(e.row_id),c.seeds.optimizer))
+         return dict(teacher_id=data.teacher_id,repetition=0,data_hash=data.manifest.assignment_hash,
+             evaluation_hash=str(tuple(e.row_id)),recipe_hash=recipe_hash,
+             h1_rows=[0.,.01,.02,.03,.04],static_rows=[0.,.01,.02,.03,.04],
+             controls=['B1','B2','B3','B4','B5','B6'],status='completed',enclosing_ns=100)
+     monkeypatch.setattr(module,'run_repetition',run)
+     monkeypatch.setattr(module,'_runtime_preflight',lambda c: {'fixture':'explicitly mocked'})
+     c=config(tmp_path)
+     first=module.calibrate(c); second=module.calibrate(c)
+     assert first.independent_teachers==second.independent_teachers==4
+@@ -149,20 +150,21 @@ def test_real_minimal_pair_controls_lineage_and_E_losses(tmp_path,cpu_training_e
+     assert result['costs']['aggregation']=='enclosing only; all component clocks are nested'
+     assert json.loads(Path(result['greedy_report']).read_text())['complete']
+     assert result['source_sha256']==train.source_hash()
+     assert not result['V_accessed'] and not result['T_accessed']
+ 
+ 
+ def test_regeneration_rejects_source_drift_and_raw_measurement_tampering(tmp_path,monkeypatch):
+     module=importlib.import_module('treeneuron.pilot.calibrate')
+     monkeypatch.setattr(module,'_runtime_preflight',lambda c: {})
+     def run(c,data,e,root,recipe_hash):
++        Path(root).mkdir(parents=True)
+         return dict(teacher_id=data.teacher_id,repetition=0,data_hash=data.manifest.assignment_hash,
+             evaluation_hash=str(tuple(e.row_id)),recipe_hash=recipe_hash,h1_rows=[0.,1.,2.,3.,4.],
+             static_rows=[0.,1.,2.,3.,4.],controls=['B1','B2','B3','B4','B5','B6'],status='completed')
+     monkeypatch.setattr(module,'run_repetition',run)
+     original=module.calibrate(config(tmp_path))
+     directory=Path(original.diagnostics['attempt_directory'])
+     assert module.regenerate_design(directory)==original
+     raw=json.loads((directory/'raw.json').read_text())
+     raw['accepted_records'][0]['h1_rows'][0]=99.
+     (directory/'raw.json').write_text(json.dumps(raw))
+@@ -181,10 +183,25 @@ def test_pair_publication_failure_restores_global_receipt(tmp_path,cpu_training_
+     raw['backend']['interop_threads']=torch.get_num_interop_threads()
+     raw['execution']['backend_report']=str(cpu_training_evidence)
+     c=resolve_experiment(raw)
+     _,data,e,tc=module.teacher_inputs(c,0)
+     original=train.BACKEND_REPORT_PATH
+     def fail(*args,**kw): raise OSError('publication fixture')
+     monkeypatch.setattr(module,'_atomic_json',fail)
+     with pytest.raises(OSError,match='publication fixture'):
+         module.run_repetition(module.repetition_config(tc,0),data,e,tmp_path/'failed-pair','recipe')
+     assert train.BACKEND_REPORT_PATH==original
++
++
++def test_authentic_coordinator_publishes_equal_pair_attempt_and_accepted_ledgers(tmp_path,cpu_training_evidence):
++    from treeneuron.pilot.calibrate import calibrate
++    c=config(tmp_path).to_dict()
++    c['pilot'].update(initial_teachers=1,max_teachers=1,max_seconds=300.)
++    c['execution']['backend_report']=str(cpu_training_evidence)
++    result=calibrate(resolve_experiment(c))
++    directory=Path(result.diagnostics['attempt_directory'])
++    raw=json.loads((directory/'raw.json').read_text())
++    assert [r['repetition'] for r in raw['accepted_records']]==[0,1]
++    for attempt,accepted in zip(raw['attempts'],raw['accepted_records']):
++        pair=json.loads((directory/f"teacher-{attempt['teacher_index']}"/
++            f"repetition-{attempt['repetition']}"/'pair.json').read_text())
++        assert pair==attempt['record']==accepted

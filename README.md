@@ -6,7 +6,7 @@ The first complete exploratory comparison gives a negative result for the score:
 
 These are descriptive G/V results from one teacher and optimizer seed, with provisional update limits. Top was still improving at its limit. The separate noiseless 2-D control learns the intended opposite slopes; keep, top and random all give validation MSE about **0.001338**, with no useful extra-growth gain. It is a different diagnostic population, not another primary replicate. The [curated evidence](docs/research/2026-10-16-exploratory-paired-evidence.json) records all controls, costs, hashes and limitations; [DECISIONS.md](DECISIONS.md#d008--16-october-2026-exploratory-checkpoint-cost-and-first-paired-study) records the bounded conclusion and next gates.
 
-The [plain-language interpretation](docs/research/2026-10-17-exploratory-interpretation.md) explains what these early results support and what remains unresolved. Protocol protection and the independent-cohort runner have passed implementation review. Audit and reproduction code come next, before the genuine pilot and test-data freeze. No independent accuracy result exists yet.
+The [plain-language interpretation](docs/research/2026-10-17-exploratory-interpretation.md) explains what these early results support and what remains unresolved. Protocol protection, the independent-cohort runner and audit/report code have passed implementation review. The final calibration fixes have also passed scoped review. Next are measured recipe calibration, the genuine variance pilot and the independent test cohort. No independent accuracy result exists yet.
 
 The repository implements the compact selective affine layer, CPU64 moment score, deterministic CPU training, complete checkpoint recovery, state-preserving growth, F-only preprocessing and serial paired controls. Algebra, native CPU/MPS kernel checks and the CPU causal path have been tested. The soft affine-stump model belongs to an established gated family; the research target is the allocation procedure and its measured limits.
 
@@ -38,13 +38,14 @@ For the measured resident-data d16/h64/F2306 calibration, CPU was faster: about 
 
 [DECISIONS.md](DECISIONS.md) records project state and the next step. The [planning review](docs/superpowers/reviews/2026-10-16-selective-tree-neurons-review.md) records the fresh builder check and plan self-review. Work remains on the current branch, `main`.
 
-The current causal checks use an explicit CPU-only receipt after a shared-source documentation update:
+Generate a current CPU-only receipt before running causal checks. The historical Task11/Task12 receipts retain their original source identities and do not authorize the changed backend:
 
 ```sh
-.venv/bin/python -m treeneuron.cli verify-baselines --track causal --backend-report environment/task11-parent-backend.json --output environment/causal-capabilities.json
+env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTORCH_ENABLE_MPS_FALLBACK=0 .venv/bin/python -m treeneuron.evaluation.search_worker --backend-receipt environment/current-cpu.json
+env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTORCH_ENABLE_MPS_FALLBACK=0 .venv/bin/python -m treeneuron.cli verify-baselines --track causal --backend-report environment/current-cpu.json --output environment/causal-capabilities.json
 ```
 
-That local receipt is an ignored runtime artifact. On a fresh checkout, generate current doctor evidence first and pass its output path. The [original control evidence](docs/research/2026-10-16-causal-control-evidence.json) records the earlier gate. The [costed probe and spline checks](docs/research/2026-10-16-evidence2-capabilities.json) and [NODE checks](docs/research/2026-10-16-evidence3-node.json) now close causal correctness readiness through B7. NODE's full-size three-update check establishes execution and cost; it ends before official checkpoint selection and is ineligible as a quality result. The [evidence plan](docs/superpowers/plans/2026-10-16-selective-tree-neurons-evidence.md#execution-order-before-the-source-freeze) now requires all confirmation/analysis/audit code to be committed before the definitive pilot and real source freeze.
+That local receipt is an ignored runtime artifact. Use a new output filename if it already exists. The [finite CPU envelope](docs/research/2026-10-17-h1-cpu-envelope.md) documents the additional measured receipt needed for high-density or larger-batch H1 execution. The [original control evidence](docs/research/2026-10-16-causal-control-evidence.json), [costed probe and spline checks](docs/research/2026-10-16-evidence2-capabilities.json) and [NODE checks](docs/research/2026-10-16-evidence3-node.json) retain their source-specific correctness results. NODE's full-size three-update check ends before official checkpoint selection and is ineligible as a quality result. Long NODE instrumentation and warning handling remain conditional work under [Ruling14](audit/implementation/evidence/2026-10-17/ruling-14-conditional-node-instrumentation.md).
 
 The first paired study is explicitly exploratory. Its builder-chosen starting
 allowances are 2,000 parent and 2,000 continuation updates, evaluated on G every
@@ -55,30 +56,12 @@ snapshotted. Every update event is retained. Legacy callers default to interval 
 V metrics are descriptive. There is
 no protected T access or confirmatory claim.
 
-Run the CPU-only study with the explicitly selected, source-validated receipt.
-The older Task11 training receipt lacks the math aggregate's schema header;
-create a derived envelope (the original receipt and all probes stay unchanged):
-
-```bash
-.venv/bin/python - <<'PYCODE'
-import json, hashlib
-from pathlib import Path
-source = Path('environment/task11-parent-backend.json')
-r = json.loads(source.read_text())
-assert r['schema_version'] == 1 and 'schema_version' not in r['backend_probes']
-r['backend_probes']['schema_version'] = 1
-r['derived_from'] = {'path': str(source), 'sha256': hashlib.sha256(source.read_bytes()).hexdigest(), 'change': 'Add required aggregate schema_version=1; all probe/decision/comparison content unchanged'}
-Path('environment/task12-cpu-math-receipt.json').write_text(json.dumps(r, indent=2, sort_keys=True) + '\n')
-PYCODE
-```
-
-```bash
-.venv/bin/python -m treeneuron.cli verify-math --backend-report environment/task12-cpu-math-receipt.json --output environment/task12-math-final.json
-.venv/bin/python -m treeneuron.cli verify-baselines --track causal --backend-report environment/task11-parent-backend.json --artifacts-dir environment/task12-causal-runs --output environment/task12-causal.json
-.venv/bin/python -m treeneuron.cli run --config configs/explore.yaml
-.venv/bin/python -m treeneuron.cli run --config configs/explore-positive-control.yaml
-.venv/bin/python -m treeneuron.cli report --mode exploratory --study-dir artifacts/exploratory/STUDY_UUID --output environment/exploratory-summary.json
-```
+The executed starter configs and raw receipt bytes remain historical inputs.
+For a new exploratory study, create a versioned config with the fresh receipt
+path and a new artifact namespace, then use `python -m treeneuron.cli run
+--config PATH`. Preserve the original config rather than changing its recorded
+source or receipt identity. `report --mode exploratory --study-dir PATH
+--output PATH` rebuilds its development metrics from saved artifacts.
 
 `execution.backend_report` and `execution.artifacts_root` are explicit config
 fields. The referenced local receipt is ignored evidence, not a shipped hidden
@@ -128,9 +111,16 @@ review](audit/implementation/evidence/2026-10-16/task-7-fix1-review.md): model
 timings share balanced blocks, precision uses complete blocks, and resumed
 searches retain cumulative costs. The [bounded fix evidence](docs/research/2026-10-16-evidence7-fix1.json)
 remains below its timing-precision requirement. Pilot-design, protected evaluation
-and audit code must be finished before the definitive pilot chooses the study
-size and budgets. Independent confirmation and scientific audit remain pending;
-the early prediction results above are unchanged.
+and audit code are now implemented and reviewed. The final H1 review and its
+scoped fixes close the ledger handoff, CPU density/batch coverage and advisory
+cost issues. The full-suite stage retained 958 passes, 2 failures and 9 setup
+errors; the final affected checks passed 190 tests after those paths were fixed.
+Native checks cover 40 numerical cells, 162 timing cells, 24 scoring comparisons
+and 8 high-density parent reloads. The [final review evidence](audit/implementation/evidence/2026-10-17/h1-final-index.json)
+preserves each source identity. These are implementation checks. Independent
+confirmation and scientific audit remain pending; the early predictive results
+above are unchanged. Resident timing stays within the explicit smaller
+[Ruling15 scope](audit/implementation/evidence/2026-10-17/ruling-15-resident-timing-scope.md).
 
 ### Auditing and portable saved evidence (pre-freeze implementation)
 

@@ -28,6 +28,16 @@ Tasks are gated, not an instruction to run every method or extension automatical
 
 ## Execution order before the source freeze
 
+**17 October 2026:** The single broad H1 implementation review and its one
+scoped fix review are accepted at `dfed0d2`. I1/I2/M3 are closed; conditional
+NODE instrumentation/warnings and bounded resident timing are recorded in
+Rulings14/15. [Final implementation evidence and current Task9/10/13 acceptance
+bindings](../../../audit/implementation/evidence/2026-10-17/h1-final-index.json)
+preserve the failed full-suite stage and passing final affected/native checks.
+The remaining scientific steps below are still open. Proceed to measured
+calibration and the genuine pilot; no second broad review of unchanged code is
+required after execution.
+
 Task numbers group deliverables; implementation and scientific execution have separate gates. The H1 execution/analysis/audit code must exist before its source identity is frozen. Adding even an unused package Python file changes the current checkpoint digest. Do not weaken that guard to make the nominal numbered order run.
 
 Use two passes, with one reviewed implementation task/phase at a time:

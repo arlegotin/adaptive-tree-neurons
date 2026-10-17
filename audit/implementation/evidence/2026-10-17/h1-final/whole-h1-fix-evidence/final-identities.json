@@ -1,0 +1,17 @@
+{
+  "commit": "dfed0d24fce9c53860b1742c31d74337c27cb6cb",
+  "package_sha256": "5c66c55693825e7dec51f0e59c74bd995da98b54c36f34acc445039d9ef85495",
+  "execution_sha256": "ccb5447a6bec01c78b2448a8812bcc32d2ae4b64b8603cba72bfcf719ce3cdd5",
+  "execution_files": 314,
+  "kernel_producer_sha256": "6f702a34dda4b260fbef75d800ef183fcfeb1f716f266b8895bef50d07189401",
+  "lock_sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+  "runtime_sha256": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+  "receipt_hashes": {
+    "native-final/backend.json": "c2b12cb30d050da4ae9a1419c3f3e53d5179dfa810a9dd9bf0458ea7d850df30",
+    "native-final/envelope.json": "4834f28d877fdf132bee2d501a14795a3072531bbaa4d9829648be091c7e079d",
+    "native-final/kernel.json": "182a9309f902dd07d0dbf30cce21ca5b1a595dd167997ff6feb4d244b76fc0fa",
+    "native-final/launch.json": "58cd817e048b1ca9cee13824eb22afcae1ec92c3a94dce097b21091e69e1df11",
+    "native-final/parents.json": "3d152fa18a0940cb1095ebee23d340caede47d174deedb89a165aa94bd4e18fc"
+  },
+  "regression_tensor_sha256": "437121d680aeb561772c8630776340b699201886c4b0a7a7119493f7667dfaf2"
+}

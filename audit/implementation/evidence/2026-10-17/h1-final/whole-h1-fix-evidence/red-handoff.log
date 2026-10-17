@@ -1,0 +1,31 @@
+F.                                                                       [100%]
+=================================== FAILURES ===================================
+_ test_authentic_coordinator_publishes_equal_pair_attempt_and_accepted_ledgers _
+
+tmp_path = PosixPath('/private/tmp/h1-final-fix-red-handoff/test_authentic_coordinator_pub0')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-red-handoff/training-evidence0/report.json')
+
+    def test_authentic_coordinator_publishes_equal_pair_attempt_and_accepted_ledgers(tmp_path,cpu_training_evidence):
+        from treeneuron.pilot.calibrate import calibrate
+        c=config(tmp_path).to_dict()
+        c['pilot'].update(initial_teachers=1,max_teachers=1,max_seconds=300.)
+        c['execution']['backend_report']=str(cpu_training_evidence)
+        result=calibrate(resolve_experiment(c))
+        directory=Path(result.diagnostics['attempt_directory'])
+        raw=json.loads((directory/'raw.json').read_text())
+        assert [r['repetition'] for r in raw['accepted_records']]==[0,1]
+        for attempt,accepted in zip(raw['attempts'],raw['accepted_records']):
+            pair=json.loads((directory/f"teacher-{attempt['teacher_index']}"/
+                f"repetition-{attempt['repetition']}"/'pair.json').read_text())
+>           assert pair==attempt['record']==accepted
+E           AssertionError: assert {'E_predictio...rs': 21}, ...} == {'E_predictio...rs': 21}, ...}
+E             
+E             Omitting 30 identical items, use -vv to show
+E             Right contains 1 more item:
+E             {'repetition': 0}
+E             Use -v to get more diff
+
+tests/test_pilot_calibrate.py:205: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_pilot_calibrate.py::test_authentic_coordinator_publishes_equal_pair_attempt_and_accepted_ledgers
+1 failed, 1 passed in 8.95s

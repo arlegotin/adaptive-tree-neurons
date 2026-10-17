@@ -1,0 +1,111 @@
+{
+  "kernel_producer_sha256": "6f702a34dda4b260fbef75d800ef183fcfeb1f716f266b8895bef50d07189401",
+  "lock_sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+  "package_sha256": "5c66c55693825e7dec51f0e59c74bd995da98b54c36f34acc445039d9ef85495",
+  "resources": {
+    "initial_reservation_bytes": 9663676416,
+    "mps_memory_bytes": {
+      "current_allocated_memory": {
+        "reason": null,
+        "value": 0
+      },
+      "driver_allocated_memory": {
+        "reason": null,
+        "value": 475136
+      },
+      "recommended_max_memory": {
+        "reason": null,
+        "value": 30150672384
+      }
+    },
+    "observations": {
+      "physical": {
+        "command": [
+          "sysctl",
+          "-n",
+          "hw.memsize"
+        ],
+        "reason": null,
+        "returncode": 0,
+        "value": "38654705664"
+      },
+      "power": {
+        "command": [
+          "pmset",
+          "-g",
+          "batt"
+        ],
+        "reason": null,
+        "returncode": 0,
+        "value": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=redacted)\t100%; charged; 0:00 remaining present: true"
+      },
+      "pressure": {
+        "command": [
+          "memory_pressure",
+          "-Q"
+        ],
+        "reason": null,
+        "returncode": 0,
+        "value": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 81%"
+      },
+      "pressure_level": {
+        "command": [
+          "sysctl",
+          "-n",
+          "kern.memorystatus_vm_pressure_level"
+        ],
+        "reason": null,
+        "returncode": 0,
+        "value": "1"
+      },
+      "rss": {
+        "command": [
+          "ps",
+          "-o",
+          "rss=",
+          "-p",
+          "50138"
+        ],
+        "reason": null,
+        "returncode": 0,
+        "value": "229632"
+      },
+      "swap": {
+        "command": [
+          "sysctl",
+          "-n",
+          "vm.swapusage"
+        ],
+        "reason": null,
+        "returncode": 0,
+        "value": "total = 4096.00M  used = 3064.94M  free = 1031.06M  (encrypted)"
+      },
+      "vm_stat": {
+        "command": [
+          "vm_stat"
+        ],
+        "reason": null,
+        "returncode": 0,
+        "value": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   464475.\nPages active:                                 694982.\nPages inactive:                               663844.\nPages speculative:                             43960.\nPages throttled:                                   0.\nPages wired down:                             204703.\nPages purgeable:                                8121.\n\"Translation faults\":                     5773767109.\nPages copy-on-write:                       474517540.\nPages zero filled:                        5196700401.\nPages reactivated:                         143896460.\nPages purged:                               42872106.\nFile-backed pages:                            557417.\nAnonymous pages:                              845369.\nPages stored in compressor:                   806690.\nPages occupied by compressor:                 227719.\nDecompressions:                            156596443.\nCompressions:                              203675098.\nPageins:                                   146211652.\nPageouts:                                     648825.\nSwapins:                                     2851302.\nSwapouts:                                    4786629."
+      }
+    },
+    "peak_rss_bytes": 240844800,
+    "pressure_headroom_bytes": {
+      "interpretation": "coarse memory_pressure free percentage times physical; not free VM pages",
+      "reason": null,
+      "value": 31310311587
+    },
+    "rss_bytes": {
+      "reason": null,
+      "value": 235143168
+    },
+    "swap_used_bytes": {
+      "reason": null,
+      "value": 3213822525
+    },
+    "unified_memory_counters_overlap": true,
+    "utc": "2026-10-17T02:26:43.584617+00:00"
+  },
+  "runtime_sha256": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+  "scope": "fresh bounded CPU engineering receipts and one-update parents, no scientific pilot/cohort/E/T"
+}

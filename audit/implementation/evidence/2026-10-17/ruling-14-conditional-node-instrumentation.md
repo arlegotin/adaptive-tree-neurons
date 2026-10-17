@@ -1,0 +1,5 @@
+# Ruling 14 — conditional NODE instrumentation and warnings
+
+Ruling: Defer NODE's unbounded visit trace and narrow expected-warning cleanup to the conditional long-run NODE/practical-comparison phase; neither may support a current long-run quality or efficiency claim — H1's registered fitted cohort does not use NODE, and the retained short NODE run is explicitly correctness-only and quality-ineligible — what it costs if wrong: long-run NODE work must first replace or measure its instrumentation and add scoped warning assertions, with adapter/test reruns and extra time/storage; an affected comparison stays unavailable until those checks pass.
+
+This adjudicates carried final-review M1/M2. It does not suppress warnings, change vendor mathematics or count the short default anchor as a competitive result. Known warning categories remain visible. M3's advisory evaluation-cost omission is accepted for correction before scientific calibration. No hypothesis, scientific dataset, frozen procedure or protected access changes.

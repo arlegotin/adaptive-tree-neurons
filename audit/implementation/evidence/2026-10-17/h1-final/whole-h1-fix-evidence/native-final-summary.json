@@ -1,0 +1,181 @@
+{
+  "status": "passed",
+  "source": "5c66c55693825e7dec51f0e59c74bd995da98b54c36f34acc445039d9ef85495",
+  "operations": 40,
+  "timings": 162,
+  "score_parity": 24,
+  "parents": 8,
+  "drift": [],
+  "peak_rss_bytes": 495583232,
+  "receipt_sha256": "c2b12cb30d050da4ae9a1419c3f3e53d5179dfa810a9dd9bf0458ea7d850df30",
+  "boundary": [
+    {
+      "phase": "base_epoch",
+      "logical_batch": 16384,
+      "actual_max_rows": 9224,
+      "tail_rows": 9224,
+      "median_ns": 708166,
+      "samples_ns": [
+        801625,
+        713250,
+        700708,
+        689583,
+        708166
+      ]
+    },
+    {
+      "phase": "base_epoch",
+      "logical_batch": 32768,
+      "actual_max_rows": 9224,
+      "tail_rows": 9224,
+      "median_ns": 751875,
+      "samples_ns": [
+        748083,
+        873041,
+        904709,
+        751875,
+        705416
+      ]
+    },
+    {
+      "phase": "grown_epoch",
+      "logical_batch": 16384,
+      "actual_max_rows": 9224,
+      "tail_rows": 9224,
+      "median_ns": 2185166,
+      "samples_ns": [
+        2376625,
+        2160166,
+        2351834,
+        2185166,
+        2074250
+      ]
+    },
+    {
+      "phase": "grown_epoch",
+      "logical_batch": 32768,
+      "actual_max_rows": 9224,
+      "tail_rows": 9224,
+      "median_ns": 2306625,
+      "samples_ns": [
+        2528875,
+        2306625,
+        2289166,
+        2354625,
+        2166750
+      ]
+    },
+    {
+      "phase": "ordinary_epoch",
+      "logical_batch": 16384,
+      "actual_max_rows": 9224,
+      "tail_rows": 9224,
+      "median_ns": 1193375,
+      "samples_ns": [
+        1219334,
+        1180750,
+        1193375,
+        1193750,
+        1146458
+      ]
+    },
+    {
+      "phase": "ordinary_epoch",
+      "logical_batch": 32768,
+      "actual_max_rows": 9224,
+      "tail_rows": 9224,
+      "median_ns": 1245833,
+      "samples_ns": [
+        1317292,
+        1248375,
+        1245833,
+        1240167,
+        1223333
+      ]
+    },
+    {
+      "phase": "widened_epoch",
+      "logical_batch": 16384,
+      "actual_max_rows": 9224,
+      "tail_rows": 9224,
+      "median_ns": 1654083,
+      "samples_ns": [
+        1767833,
+        1676875,
+        1654083,
+        1607250,
+        1618667
+      ]
+    },
+    {
+      "phase": "widened_epoch",
+      "logical_batch": 32768,
+      "actual_max_rows": 9224,
+      "tail_rows": 9224,
+      "median_ns": 1661792,
+      "samples_ns": [
+        1787709,
+        1661792,
+        1617667,
+        1673125,
+        1616417
+      ]
+    },
+    {
+      "phase": "static_epoch",
+      "logical_batch": 16384,
+      "actual_max_rows": 9224,
+      "tail_rows": 9224,
+      "median_ns": 1770583,
+      "samples_ns": [
+        1813667,
+        1770583,
+        1736000,
+        1797208,
+        1759125
+      ]
+    },
+    {
+      "phase": "static_epoch",
+      "logical_batch": 32768,
+      "actual_max_rows": 9224,
+      "tail_rows": 9224,
+      "median_ns": 1766959,
+      "samples_ns": [
+        1850917,
+        1809875,
+        1766959,
+        1766125,
+        1765333
+      ]
+    },
+    {
+      "phase": "score",
+      "logical_batch": 16384,
+      "actual_max_rows": 9224,
+      "tail_rows": 9224,
+      "median_ns": 21434208,
+      "samples_ns": [
+        21308291,
+        21434208,
+        21742875,
+        21586792,
+        21415291
+      ]
+    },
+    {
+      "phase": "score",
+      "logical_batch": 32768,
+      "actual_max_rows": 9224,
+      "tail_rows": 9224,
+      "median_ns": 21330958,
+      "samples_ns": [
+        21574209,
+        21948958,
+        21330958,
+        21264500,
+        20593458
+      ]
+    }
+  ]
+}

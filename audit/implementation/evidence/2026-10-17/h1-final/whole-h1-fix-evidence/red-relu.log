@@ -1,0 +1,30 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+_ test_retained_widened_relu_case_checks_actual_branch_without_hiding_raw_error _
+
+    def test_retained_widened_relu_case_checks_actual_branch_without_hiding_raw_error():
+>       from treeneuron.baselines.causal_evidence import compare_reference
+E       ImportError: cannot import name 'compare_reference' from 'treeneuron.baselines.causal_evidence' (/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/baselines/causal_evidence.py)
+
+tests/test_causal_precision.py:46: ImportError
+__________ test_wrong_relu_mask_outside_rounding_interval_is_rejected __________
+
+    def test_wrong_relu_mask_outside_rounding_interval_is_rejected():
+>       from treeneuron.baselines.causal_evidence import validate_relu_branches
+E       ImportError: cannot import name 'validate_relu_branches' from 'treeneuron.baselines.causal_evidence' (/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/baselines/causal_evidence.py)
+
+tests/test_causal_precision.py:57: ImportError
+____________ test_branch_reference_still_rejects_incorrect_backward ____________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10fc13260>
+
+    def test_branch_reference_still_rejects_incorrect_backward(monkeypatch):
+>       from treeneuron.baselines.causal_evidence import compare_reference
+E       ImportError: cannot import name 'compare_reference' from 'treeneuron.baselines.causal_evidence' (/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/baselines/causal_evidence.py)
+
+tests/test_causal_precision.py:66: ImportError
+=========================== short test summary info ============================
+FAILED tests/test_causal_precision.py::test_retained_widened_relu_case_checks_actual_branch_without_hiding_raw_error
+FAILED tests/test_causal_precision.py::test_wrong_relu_mask_outside_rounding_interval_is_rejected
+FAILED tests/test_causal_precision.py::test_branch_reference_still_rejects_incorrect_backward
+3 failed, 2 deselected in 0.03s

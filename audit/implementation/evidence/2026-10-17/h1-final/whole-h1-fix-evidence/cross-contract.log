@@ -1,0 +1,279 @@
+.....................................................................F.. [ 32%]
+........................................................................ [ 65%]
+........................................................................ [ 97%]
+.....                                                                    [100%]
+=================================== FAILURES ===================================
+_______________________ test_causal_cli_executes_recipes _______________________
+
+tmp_path = PosixPath('/private/tmp/h1-final-fix-cross-contract/test_causal_cli_executes_recip0')
+cpu_training_evidence = PosixPath('/private/tmp/h1-final-fix-cross-contract/training-evidence1/report.json')
+
+    def test_causal_cli_executes_recipes(tmp_path, cpu_training_evidence):
+        import subprocess,sys
+        path=tmp_path/'capabilities.json'
+        run=subprocess.run([sys.executable,'-m','treeneuron.cli','verify-baselines','--track','causal',
+            '--backend-report',str(cpu_training_evidence),'--artifacts-dir',str(tmp_path/'recipes'),'--output',str(path)],capture_output=True,text=True)
+>       assert run.returncode==0,run.stdout+run.stderr
+E       AssertionError: {
+E           "adapter_matrix": [
+E             {
+E               "backend": "numpy CPU float64",
+E               "cache": false,
+E               "categories": "F-only ordinal codes and missing indicators",
+E               "context": false,
+E               "fallback": false,
+E               "internal_selection": false,
+E               "method": "Mean",
+E               "preprocessing": "F-only transform",
+E               "recipe": "F target mean",
+E               "required": true,
+E               "source": "local treeneuron package; exact source hash in verification receipt",
+E               "status": "invalid",
+E               "track": "causal",
+E               "transduction": false,
+E               "unavailable_reason": "Verification did not complete: ValueError: Live interop threads differ from backend evidence",
+E               "unknown_counts_reason": "parameter/serialized counts require a fitted instance; process memory not measured by registry",
+E               "version": "0.1.0"
+E             },
+E             {
+E               "backend": "numpy CPU float64",
+E               "cache": false,
+E               "categories": "F-only ordinal codes and missing indicators",
+E               "context": false,
+E               "fallback": false,
+E               "internal_selection": false,
+E               "method": "Ridge",
+E               "preprocessing": "F-only transform",
+E               "recipe": "linear ridge; caller selects alpha with V",
+E               "required": true,
+E               "source": "local treeneuron package; exact source hash in verification receipt",
+E               "status": "invalid",
+E               "track": "causal",
+E               "transduction": false,
+E               "unavailable_reason": "Verification did not complete: ValueError: Live interop threads differ from backend evidence",
+E               "unknown_counts_reason": "parameter/serialized counts require a fitted instance; process memory not measured by registry",
+E               "version": "0.1.0"
+E             },
+E             {
+E               "backend": "numpy CPU float64",
+E               "cache": false,
+E               "categories": "unsupported; explicit error",
+E               "context": false,
+E               "fallback": false,
+E               "internal_selection": false,
+E               "method": "SplineRidge",
+E               "preprocessing": "F-only numeric imputation/scaling and per-feature quantile knots",
+E               "recipe": "additive cubic regression spline ridge; caller selects alpha with V",
+E               "required": true,
+E               "source": "local treeneuron package; exact source hash in verification receipt",
+E               "status": "invalid",
+E               "track": "causal",
+E               "transduction": false,
+E               "unavailable_reason": "Verification did not complete: ValueError: Live interop threads differ from backend evidence",
+E               "unknown_counts_reason": "parameter/serialized counts require a fitted instance; process memory not measured by registry",
+E               "version": "0.1.0"
+E             },
+E             {
+E               "backend": "PyTorch CPU eager float32; CPU64 scoring",
+E               "cache": false,
+E               "categories": "numerical causal fixtures only; transformed width must equal declared model width",
+E               "context": "original DevelopmentData F/G provenance; no V/T access",
+E               "fallback": false,
+E               "internal_selection": "G checkpoint selection; G allocation for B6",
+E               "method": "B1",
+E               "preprocessing": "F-only transform",
+E               "recipe": "continued ordinary keep",
+E               "required": true,
+E               "source": "local treeneuron package; exact source hash in verification receipt",
+E               "status": "invalid",
+E               "track": "causal",
+E               "transduction": false,
+E               "unavailable_reason": "Verification did not complete: ValueError: Live interop threads differ from backend evidence",
+E               "unknown_counts_reason": "parameter/serialized counts require a fitted instance; process memory not measured by registry",
+E               "version": "0.1.0"
+E             },
+E             {
+E               "backend": "PyTorch CPU eager float32; CPU64 scoring",
+E               "cache": false,
+E               "categories": "numerical causal fixtures only; transformed width must equal declared model width",
+E               "context": "original DevelopmentData F/G provenance; no V/T access",
+E               "fallback": false,
+E               "internal_selection": "G checkpoint selection; G allocation for B6",
+E               "method": "B2",
+E               "preprocessing": "F-only transform",
+E               "recipe": "ordinary width brackets and zero-head widening; duplication deferred",
+E               "required": true,
+E               "source": "local treeneuron package; exact source hash in verification receipt",
+E               "status": "invalid",
+E               "track": "causal",
+E               "transduction": false,
+E               "unavailable_reason": "Verification did not complete: ValueError: Live interop threads differ from backend evidence",
+E               "unknown_counts_reason": "parameter/serialized counts require a fitted instance; process memory not measured by registry",
+E               "version": "0.1.0"
+E             },
+E             {
+E               "backend": "PyTorch CPU eager float32; CPU64 scoring",
+E               "cache": false,
+E               "categories": "numerical causal fixtures only; transformed width must equal declared model width",
+E               "context": "original DevelopmentData F/G provenance; no V/T access",
+E               "fallback": false,
+E               "internal_selection": "G checkpoint selection; G allocation for B6",
+E               "method": "B3",
+E               "preprocessing": "F-only transform",
+E               "recipe": "static partial/full centered/direct-leaf coordinates",
+E               "required": true,
+E               "source": "local treeneuron package; exact source hash in verification receipt",
+E               "status": "invalid",
+E               "track": "causal",
+E               "transduction": false,
+E               "unavailable_reason": "Verification did not complete: ValueError: Live interop threads differ from backend evidence",
+E               "unknown_counts_reason": "parameter/serialized counts require a fitted instance; process memory not measured by registry",
+E               "version": "0.1.0"
+E             },
+E             {
+E               "backend": "PyTorch CPU eager float32; CPU64 scoring",
+E               "cache": false,
+E               "categories": "numerical causal fixtures only; transformed width must equal declared model width",
+E               "context": "original DevelopmentData F/G provenance; no V/T access",
+E               "fallback": false,
+E               "internal_selection": "G checkpoint selection; G allocation for B6",
+E               "method": "B4",
+E               "preprocessing": "F-only transform",
+E               "recipe": "matched random allocation",
+E               "required": true,
+E               "source": "local treeneuron package; exact source hash in verification receipt",
+E               "status": "invalid",
+E               "track": "causal",
+E               "transduction": false,
+E               "unavailable_reason": "Verification did not complete: ValueError: Live interop threads differ from backend evidence",
+E               "unknown_counts_reason": "parameter/serialized counts require a fitted instance; process memory not measured by registry",
+E               "version": "0.1.0"
+E             },
+E             {
+E               "backend": "PyTorch CPU eager float32; CPU64 scoring",
+E               "cache": false,
+E               "categories": "numerical causal fixtures only; transformed width must equal declared model width",
+E               "context": "original DevelopmentData F/G provenance; no V/T access",
+E               "fallback": false,
+E               "internal_selection": "G checkpoint selection; G allocation for B6",
+E               "method": "B5",
+E               "preprocessing": "F-only transform",
+E               "recipe": "Adam/SGD eigenvector allocation and top-ID Gaussian directions",
+E               "required": true,
+E               "source": "local treeneuron package; exact source hash in verification receipt",
+E               "status": "invalid",
+E               "track": "causal",
+E               "transduction": false,
+E               "unavailable_reason": "Verification did not complete: ValueError: Live interop threads differ from backend evidence",
+E               "unknown_counts_reason": "parameter/serialized counts require a fitted instance; process memory not measured by registry",
+E               "version": "0.1.0"
+E             },
+E             {
+E               "backend": "PyTorch CPU eager float32; CPU64 scoring",
+E               "cache": false,
+E               "categories": "numerical causal fixtures only; transformed width must equal declared model width",
+E               "context": "original DevelopmentData F/G provenance; no V/T access",
+E               "fallback": false,
+E               "internal_selection": "G checkpoint selection; G allocation for B6",
+E               "method": "B6",
+E               "preprocessing": "F-only transform",
+E               "recipe": "ANT-inspired restricted independent single-unit G probes; fixed count; fresh joint continuation",
+E               "required": true,
+E               "source": "local treeneuron package; exact source hash in verification receipt",
+E               "status": "invalid",
+E               "track": "causal",
+E               "transduction": false,
+E               "unavailable_reason": "Verification did not complete: ValueError: Live interop threads differ from backend evidence",
+E               "unknown_counts_reason": "parameter/serialized counts require a fitted instance; process memory not measured by registry",
+E               "version": "0.1.0"
+E             },
+E             {
+E               "backend": "PyTorch CPU eager float32",
+E               "cache": false,
+E               "categories": "unsupported; finite numerical input required",
+E               "context": "ordered F prefix, requested 1000 rows",
+E               "fallback": false,
+E               "internal_selection": "G latest-five parameter checkpoint averaging",
+E               "method": "B7",
+E               "preprocessing": "F noisy normal quantile transform and F target standardization",
+E               "recipe": "year_node_shallow: 2048 trees, depth 6, channels 3; entmax15/entmoid15; QHAdam",
+E               "required": true,
+E               "source": "pinned MIT vendor sources; full source/runtime identity in NODE receipt",
+E               "status": "invalid",
+E               "track": "causal",
+E               "transduction": false,
+E               "unavailable_reason": "Verification did not complete: ValueError: Live interop threads differ from backend evidence",
+E               "unknown_counts_reason": "parameter/serialized counts require a fitted instance; process memory not measured by registry",
+E               "version": "NODE 3bae6a8; QHOptim 1.1.0"
+E             }
+E           ],
+E           "artifacts_root": "/private/tmp/h1-final-fix-cross-contract/test_causal_cli_executes_recip0/recipes",
+E           "capabilities": {
+E             "B0": {
+E               "recipes": [
+E                 "mean",
+E                 "ridge",
+E                 "spline_ridge"
+E               ],
+E               "spline": "implemented",
+E               "status": "implemented"
+E             },
+E             "B1": {
+E               "reason": "ValueError: Live interop threads differ from backend evidence",
+E               "status": "invalid"
+E             },
+E             "B2": {
+E               "reason": "ValueError: Live interop threads differ from backend evidence",
+E               "status": "invalid"
+E             },
+E             "B2_duplication": {
+E               "reason": "No duplication/state/symmetry recipe executed",
+E               "status": "deferred"
+E             },
+E             "B3": {
+E               "reason": "ValueError: Live interop threads differ from backend evidence",
+E               "status": "invalid"
+E             },
+E             "B4": {
+E               "reason": "ValueError: Live interop threads differ from backend evidence",
+E               "status": "invalid"
+E             },
+E             "B5": {
+E               "reason": "ValueError: Live interop threads differ from backend evidence",
+E               "status": "invalid"
+E             },
+E             "B6": {
+E               "reason": "ValueError: Live interop threads differ from backend evidence",
+E               "recipe": "ANT-inspired restricted allocation",
+E               "status": "invalid"
+E             },
+E             "B7": {
+E               "reason": "ValueError: Live interop threads differ from backend evidence",
+E               "recipe": "Pinned shallow NODE",
+E               "status": "invalid"
+E             }
+E           },
+E           "failure": "ValueError: Live interop threads differ from backend evidence",
+E           "implementation_scope": "B0\u2013B7 CPU correctness; default plateau/calibration is a later gate",
+E           "implemented_checks_passed": false,
+E           "recipes": [],
+E           "schema_version": 1,
+E           "scope": "CPU correctness diagnostics, not predictive or throughput evidence",
+E           "source_hash": "15554a45e744da891806bc26ef302194d4899b36ac85ccaf42dc7f5c7d791d03",
+E           "track": "causal",
+E           "track_ready": false
+E         }
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python', '-m', 'treene...4da891806bc26ef302194d4899b36ac85ccaf42dc7f5c7d791d03",\n  "track": "causal",\n  "track_ready": false\n}\n', stderr='').returncode
+
+tests/test_causal_baselines.py:221: AssertionError
+=============================== warnings summary ===============================
+tests/test_causal_baselines.py::test_node_gate_failure_preserves_completed_b0_b6_checks
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_causal_baselines.py::test_causal_cli_executes_recipes - Ass...
+1 failed, 220 passed, 1 warning in 82.20s (0:01:22)

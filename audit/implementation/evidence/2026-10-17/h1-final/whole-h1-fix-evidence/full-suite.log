@@ -1,0 +1,539 @@
+........................................................................ [  7%]
+...................................................FF................... [ 14%]
+........................................ssssssssssssssssssssssssssssssss [ 21%]
+sssssssssssssss......................................................... [ 28%]
+........................................................................ [ 35%]
+........................................................................ [ 42%]
+........................................................................ [ 49%]
+.....................................................................s.. [ 56%]
+........................................................................ [ 63%]
+........................................................................ [ 70%]
+........................................................................ [ 77%]
+......................................................................EE [ 84%]
+EEE..EEE....E........................................................... [ 92%]
+........................................................................ [ 99%]
+.........                                                                [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of test_actual_causal_worker_preserves_fg_provenance_and_closes_runs[B1-recipe0] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-full-suite'), _trace=<pluggy._tracing.TagTracerSub object...0x10ff222a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-full-suite'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module')
+    def search_backend(tmp_path_factory):
+        s=api();path=tmp_path_factory.mktemp('search-backend')/'report.json'
+>       s.produce_search_backend_receipt(path)
+
+tests/test_search.py:136: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/private/tmp/h1-final-fix-full-suite/search-backend0/report.json')
+
+    def produce_search_backend_receipt(path):
+        """Run the existing numerical CPU producer in an actual fresh 1/1 process."""
+        path=Path(path).resolve()
+        if path.exists():raise FileExistsError(path)
+        env=dict(os.environ,PYTORCH_ENABLE_MPS_FALLBACK='0',PYTHONPATH=str(ROOT/'src'))
+        for name in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS','NUMEXPR_NUM_THREADS'):env[name]='1'
+        run=subprocess.run([sys.executable,'-m','treeneuron.evaluation.search_worker','--backend-receipt',str(path)],
+            cwd=ROOT,env=env,capture_output=True,text=True,timeout=240)
+>       if run.returncode:raise RuntimeError(f'Fresh search backend producer failed: {run.stderr}')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Fresh search backend producer failed: Traceback (most recent call last):
+E         File "<frozen runpy>", line 198, in _run_module_as_main
+E         File "<frozen runpy>", line 88, in _run_code
+E         File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/evaluation/search_worker.py", line 164, in <module>
+E           result=_run('cpu',1602047,[128],evidence={})
+E                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E         File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/backend.py", line 309, in _run
+E           torch.set_num_interop_threads(1)
+E       RuntimeError: Error: cannot set number of interop threads after parallel work has started or set_num_interop_threads called
+
+src/treeneuron/evaluation/search.py:398: RuntimeError
+_ ERROR at setup of test_actual_causal_worker_preserves_fg_provenance_and_closes_runs[B3-recipe1] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-full-suite'), _trace=<pluggy._tracing.TagTracerSub object...0x10ff222a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-full-suite'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module')
+    def search_backend(tmp_path_factory):
+        s=api();path=tmp_path_factory.mktemp('search-backend')/'report.json'
+>       s.produce_search_backend_receipt(path)
+
+tests/test_search.py:136: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/private/tmp/h1-final-fix-full-suite/search-backend0/report.json')
+
+    def produce_search_backend_receipt(path):
+        """Run the existing numerical CPU producer in an actual fresh 1/1 process."""
+        path=Path(path).resolve()
+        if path.exists():raise FileExistsError(path)
+        env=dict(os.environ,PYTORCH_ENABLE_MPS_FALLBACK='0',PYTHONPATH=str(ROOT/'src'))
+        for name in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS','NUMEXPR_NUM_THREADS'):env[name]='1'
+        run=subprocess.run([sys.executable,'-m','treeneuron.evaluation.search_worker','--backend-receipt',str(path)],
+            cwd=ROOT,env=env,capture_output=True,text=True,timeout=240)
+>       if run.returncode:raise RuntimeError(f'Fresh search backend producer failed: {run.stderr}')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Fresh search backend producer failed: Traceback (most recent call last):
+E         File "<frozen runpy>", line 198, in _run_module_as_main
+E         File "<frozen runpy>", line 88, in _run_code
+E         File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/evaluation/search_worker.py", line 164, in <module>
+E           result=_run('cpu',1602047,[128],evidence={})
+E                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E         File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/backend.py", line 309, in _run
+E           torch.set_num_interop_threads(1)
+E       RuntimeError: Error: cannot set number of interop threads after parallel work has started or set_num_interop_threads called
+
+src/treeneuron/evaluation/search.py:398: RuntimeError
+_ ERROR at setup of test_actual_causal_worker_preserves_fg_provenance_and_closes_runs[B4-recipe2] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-full-suite'), _trace=<pluggy._tracing.TagTracerSub object...0x10ff222a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-full-suite'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module')
+    def search_backend(tmp_path_factory):
+        s=api();path=tmp_path_factory.mktemp('search-backend')/'report.json'
+>       s.produce_search_backend_receipt(path)
+
+tests/test_search.py:136: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/private/tmp/h1-final-fix-full-suite/search-backend0/report.json')
+
+    def produce_search_backend_receipt(path):
+        """Run the existing numerical CPU producer in an actual fresh 1/1 process."""
+        path=Path(path).resolve()
+        if path.exists():raise FileExistsError(path)
+        env=dict(os.environ,PYTORCH_ENABLE_MPS_FALLBACK='0',PYTHONPATH=str(ROOT/'src'))
+        for name in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS','NUMEXPR_NUM_THREADS'):env[name]='1'
+        run=subprocess.run([sys.executable,'-m','treeneuron.evaluation.search_worker','--backend-receipt',str(path)],
+            cwd=ROOT,env=env,capture_output=True,text=True,timeout=240)
+>       if run.returncode:raise RuntimeError(f'Fresh search backend producer failed: {run.stderr}')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Fresh search backend producer failed: Traceback (most recent call last):
+E         File "<frozen runpy>", line 198, in _run_module_as_main
+E         File "<frozen runpy>", line 88, in _run_code
+E         File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/evaluation/search_worker.py", line 164, in <module>
+E           result=_run('cpu',1602047,[128],evidence={})
+E                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E         File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/backend.py", line 309, in _run
+E           torch.set_num_interop_threads(1)
+E       RuntimeError: Error: cannot set number of interop threads after parallel work has started or set_num_interop_threads called
+
+src/treeneuron/evaluation/search.py:398: RuntimeError
+_ ERROR at setup of test_actual_causal_worker_preserves_fg_provenance_and_closes_runs[B5-recipe3] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-full-suite'), _trace=<pluggy._tracing.TagTracerSub object...0x10ff222a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-full-suite'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module')
+    def search_backend(tmp_path_factory):
+        s=api();path=tmp_path_factory.mktemp('search-backend')/'report.json'
+>       s.produce_search_backend_receipt(path)
+
+tests/test_search.py:136: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/private/tmp/h1-final-fix-full-suite/search-backend0/report.json')
+
+    def produce_search_backend_receipt(path):
+        """Run the existing numerical CPU producer in an actual fresh 1/1 process."""
+        path=Path(path).resolve()
+        if path.exists():raise FileExistsError(path)
+        env=dict(os.environ,PYTORCH_ENABLE_MPS_FALLBACK='0',PYTHONPATH=str(ROOT/'src'))
+        for name in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS','NUMEXPR_NUM_THREADS'):env[name]='1'
+        run=subprocess.run([sys.executable,'-m','treeneuron.evaluation.search_worker','--backend-receipt',str(path)],
+            cwd=ROOT,env=env,capture_output=True,text=True,timeout=240)
+>       if run.returncode:raise RuntimeError(f'Fresh search backend producer failed: {run.stderr}')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Fresh search backend producer failed: Traceback (most recent call last):
+E         File "<frozen runpy>", line 198, in _run_module_as_main
+E         File "<frozen runpy>", line 88, in _run_code
+E         File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/evaluation/search_worker.py", line 164, in <module>
+E           result=_run('cpu',1602047,[128],evidence={})
+E                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E         File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/backend.py", line 309, in _run
+E           torch.set_num_interop_threads(1)
+E       RuntimeError: Error: cannot set number of interop threads after parallel work has started or set_num_interop_threads called
+
+src/treeneuron/evaluation/search.py:398: RuntimeError
+_ ERROR at setup of test_actual_causal_worker_preserves_fg_provenance_and_closes_runs[B6-recipe4] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-full-suite'), _trace=<pluggy._tracing.TagTracerSub object...0x10ff222a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-full-suite'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module')
+    def search_backend(tmp_path_factory):
+        s=api();path=tmp_path_factory.mktemp('search-backend')/'report.json'
+>       s.produce_search_backend_receipt(path)
+
+tests/test_search.py:136: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/private/tmp/h1-final-fix-full-suite/search-backend0/report.json')
+
+    def produce_search_backend_receipt(path):
+        """Run the existing numerical CPU producer in an actual fresh 1/1 process."""
+        path=Path(path).resolve()
+        if path.exists():raise FileExistsError(path)
+        env=dict(os.environ,PYTORCH_ENABLE_MPS_FALLBACK='0',PYTHONPATH=str(ROOT/'src'))
+        for name in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS','NUMEXPR_NUM_THREADS'):env[name]='1'
+        run=subprocess.run([sys.executable,'-m','treeneuron.evaluation.search_worker','--backend-receipt',str(path)],
+            cwd=ROOT,env=env,capture_output=True,text=True,timeout=240)
+>       if run.returncode:raise RuntimeError(f'Fresh search backend producer failed: {run.stderr}')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Fresh search backend producer failed: Traceback (most recent call last):
+E         File "<frozen runpy>", line 198, in _run_module_as_main
+E         File "<frozen runpy>", line 88, in _run_code
+E         File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/evaluation/search_worker.py", line 164, in <module>
+E           result=_run('cpu',1602047,[128],evidence={})
+E                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E         File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/backend.py", line 309, in _run
+E           torch.set_num_interop_threads(1)
+E       RuntimeError: Error: cannot set number of interop threads after parallel work has started or set_num_interop_threads called
+
+src/treeneuron/evaluation/search.py:398: RuntimeError
+_ ERROR at setup of test_alternate_causal_recipes_have_only_their_own_keys[B2-recipe0] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-full-suite'), _trace=<pluggy._tracing.TagTracerSub object...0x10ff222a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-full-suite'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module')
+    def search_backend(tmp_path_factory):
+        s=api();path=tmp_path_factory.mktemp('search-backend')/'report.json'
+>       s.produce_search_backend_receipt(path)
+
+tests/test_search.py:136: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/private/tmp/h1-final-fix-full-suite/search-backend0/report.json')
+
+    def produce_search_backend_receipt(path):
+        """Run the existing numerical CPU producer in an actual fresh 1/1 process."""
+        path=Path(path).resolve()
+        if path.exists():raise FileExistsError(path)
+        env=dict(os.environ,PYTORCH_ENABLE_MPS_FALLBACK='0',PYTHONPATH=str(ROOT/'src'))
+        for name in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS','NUMEXPR_NUM_THREADS'):env[name]='1'
+        run=subprocess.run([sys.executable,'-m','treeneuron.evaluation.search_worker','--backend-receipt',str(path)],
+            cwd=ROOT,env=env,capture_output=True,text=True,timeout=240)
+>       if run.returncode:raise RuntimeError(f'Fresh search backend producer failed: {run.stderr}')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Fresh search backend producer failed: Traceback (most recent call last):
+E         File "<frozen runpy>", line 198, in _run_module_as_main
+E         File "<frozen runpy>", line 88, in _run_code
+E         File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/evaluation/search_worker.py", line 164, in <module>
+E           result=_run('cpu',1602047,[128],evidence={})
+E                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E         File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/backend.py", line 309, in _run
+E           torch.set_num_interop_threads(1)
+E       RuntimeError: Error: cannot set number of interop threads after parallel work has started or set_num_interop_threads called
+
+src/treeneuron/evaluation/search.py:398: RuntimeError
+_ ERROR at setup of test_alternate_causal_recipes_have_only_their_own_keys[B2-recipe1] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-full-suite'), _trace=<pluggy._tracing.TagTracerSub object...0x10ff222a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-full-suite'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module')
+    def search_backend(tmp_path_factory):
+        s=api();path=tmp_path_factory.mktemp('search-backend')/'report.json'
+>       s.produce_search_backend_receipt(path)
+
+tests/test_search.py:136: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/private/tmp/h1-final-fix-full-suite/search-backend0/report.json')
+
+    def produce_search_backend_receipt(path):
+        """Run the existing numerical CPU producer in an actual fresh 1/1 process."""
+        path=Path(path).resolve()
+        if path.exists():raise FileExistsError(path)
+        env=dict(os.environ,PYTORCH_ENABLE_MPS_FALLBACK='0',PYTHONPATH=str(ROOT/'src'))
+        for name in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS','NUMEXPR_NUM_THREADS'):env[name]='1'
+        run=subprocess.run([sys.executable,'-m','treeneuron.evaluation.search_worker','--backend-receipt',str(path)],
+            cwd=ROOT,env=env,capture_output=True,text=True,timeout=240)
+>       if run.returncode:raise RuntimeError(f'Fresh search backend producer failed: {run.stderr}')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Fresh search backend producer failed: Traceback (most recent call last):
+E         File "<frozen runpy>", line 198, in _run_module_as_main
+E         File "<frozen runpy>", line 88, in _run_code
+E         File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/evaluation/search_worker.py", line 164, in <module>
+E           result=_run('cpu',1602047,[128],evidence={})
+E                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E         File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/backend.py", line 309, in _run
+E           torch.set_num_interop_threads(1)
+E       RuntimeError: Error: cannot set number of interop threads after parallel work has started or set_num_interop_threads called
+
+src/treeneuron/evaluation/search.py:398: RuntimeError
+_ ERROR at setup of test_alternate_causal_recipes_have_only_their_own_keys[B3-recipe2] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-full-suite'), _trace=<pluggy._tracing.TagTracerSub object...0x10ff222a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-full-suite'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module')
+    def search_backend(tmp_path_factory):
+        s=api();path=tmp_path_factory.mktemp('search-backend')/'report.json'
+>       s.produce_search_backend_receipt(path)
+
+tests/test_search.py:136: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/private/tmp/h1-final-fix-full-suite/search-backend0/report.json')
+
+    def produce_search_backend_receipt(path):
+        """Run the existing numerical CPU producer in an actual fresh 1/1 process."""
+        path=Path(path).resolve()
+        if path.exists():raise FileExistsError(path)
+        env=dict(os.environ,PYTORCH_ENABLE_MPS_FALLBACK='0',PYTHONPATH=str(ROOT/'src'))
+        for name in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS','NUMEXPR_NUM_THREADS'):env[name]='1'
+        run=subprocess.run([sys.executable,'-m','treeneuron.evaluation.search_worker','--backend-receipt',str(path)],
+            cwd=ROOT,env=env,capture_output=True,text=True,timeout=240)
+>       if run.returncode:raise RuntimeError(f'Fresh search backend producer failed: {run.stderr}')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Fresh search backend producer failed: Traceback (most recent call last):
+E         File "<frozen runpy>", line 198, in _run_module_as_main
+E         File "<frozen runpy>", line 88, in _run_code
+E         File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/evaluation/search_worker.py", line 164, in <module>
+E           result=_run('cpu',1602047,[128],evidence={})
+E                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E         File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/backend.py", line 309, in _run
+E           torch.set_num_interop_threads(1)
+E       RuntimeError: Error: cannot set number of interop threads after parallel work has started or set_num_interop_threads called
+
+src/treeneuron/evaluation/search.py:398: RuntimeError
+_ ERROR at setup of test_changed_backend_receipt_between_coordinator_and_worker_fails _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=PosixPath('/tmp/h1-final-fix-full-suite'), _trace=<pluggy._tracing.TagTracerSub object...0x10ff222a0>, _basetemp=PosixPath('/private/tmp/h1-final-fix-full-suite'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module')
+    def search_backend(tmp_path_factory):
+        s=api();path=tmp_path_factory.mktemp('search-backend')/'report.json'
+>       s.produce_search_backend_receipt(path)
+
+tests/test_search.py:136: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/private/tmp/h1-final-fix-full-suite/search-backend0/report.json')
+
+    def produce_search_backend_receipt(path):
+        """Run the existing numerical CPU producer in an actual fresh 1/1 process."""
+        path=Path(path).resolve()
+        if path.exists():raise FileExistsError(path)
+        env=dict(os.environ,PYTORCH_ENABLE_MPS_FALLBACK='0',PYTHONPATH=str(ROOT/'src'))
+        for name in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS','NUMEXPR_NUM_THREADS'):env[name]='1'
+        run=subprocess.run([sys.executable,'-m','treeneuron.evaluation.search_worker','--backend-receipt',str(path)],
+            cwd=ROOT,env=env,capture_output=True,text=True,timeout=240)
+>       if run.returncode:raise RuntimeError(f'Fresh search backend producer failed: {run.stderr}')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: Fresh search backend producer failed: Traceback (most recent call last):
+E         File "<frozen runpy>", line 198, in _run_module_as_main
+E         File "<frozen runpy>", line 88, in _run_code
+E         File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/evaluation/search_worker.py", line 164, in <module>
+E           result=_run('cpu',1602047,[128],evidence={})
+E                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E         File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/backend.py", line 309, in _run
+E           torch.set_num_interop_threads(1)
+E       RuntimeError: Error: cannot set number of interop threads after parallel work has started or set_num_interop_threads called
+
+src/treeneuron/evaluation/search.py:398: RuntimeError
+=================================== FAILURES ===================================
+___________ test_receipt_io_survives_unavailable_original_root[True] ___________
+
+tmp_path = PosixPath('/private/tmp/h1-final-fix-full-suite/test_receipt_io_survives_unava0')
+absolute = True
+
+    @pytest.mark.parametrize('absolute',[True,False])
+    def test_receipt_io_survives_unavailable_original_root(tmp_path,absolute):
+        from test_pilot_calibrate import config
+        original=(tmp_path/'original').resolve(); original.mkdir()
+        receipt=original/'environment/backend.json'; receipt.parent.mkdir()
+        source=Path('environment/evidence7-calibration-fix1/search-backend.json').resolve()
+        shutil.copyfile(source,receipt)
+        value=config(tmp_path).to_dict(); value['growth']['m_requested']=1
+        value['execution']['backend_report']=str(receipt) if absolute else 'environment/backend.json'
+        (original/'config.json').write_text(json.dumps(value))
+        restored=tmp_path/'restored'; shutil.copytree(original,restored)
+        original.rename(tmp_path/'unavailable')
+        script=r'''
+    import importlib,json,sys
+    from pathlib import Path
+    from treeneuron.config import resolve_experiment,canonical_hash
+    from treeneuron.locators import relocated,producer_directory
+    from treeneuron.protocol import FrozenProtocol,_ref
+    from treeneuron.pilot.calibrate import _runtime_preflight,fit_repetition
+    from treeneuron.data.synthetic import make_from_config
+    original,root=map(Path,sys.argv[1:])
+    value=json.loads((root/'config.json').read_text()); c=resolve_experiment(value)
+    with relocated(original,root),producer_directory(root):
+        preflight=_runtime_preflight(c)
+        assert Path(preflight['receipt_path'])==root/'environment/backend.json'
+        _,data=make_from_config(c)
+        pair=fit_repetition(c,data,root/'fit',canonical_hash(value))
+        assert pair['status']=='completed' and len(pair['models'])==8
+        # Source/protocol construction is isolated here; actual terminal preflight
+        # and its receipt I/O remain unpatched. No label access or further fitting.
+        module=importlib.import_module('treeneuron.evaluation.confirm')
+        (root/'raw.json').write_text(json.dumps({'config':value}))
+        payload={'sources':{'root':str(original),'raw':_ref(root,root/'raw.json'),'cohort':{'units':[]}}}
+        path=root/'protocol/frozen.yaml';path.parent.mkdir()
+        path.write_text(json.dumps({'payload':payload}))
+        frozen=FrozenProtocol(path,'toy','toy','toy')
+        directory=root/'protocol/confirmation/toy';directory.mkdir(parents=True)
+        (directory/'confirmation.json').write_text(json.dumps({'protocol_hash':'toy','status':'completed','runs':[]}))
+        module._payload=lambda protocol:payload
+        assert module.run_confirmation(frozen,'synthetic')==directory
+        assert json.loads((root/'config.json').read_text())==value
+        # A relocated receipt still undergoes ordinary producer validation in fit.
+        (root/'environment/backend.json').write_text('{}')
+        try: fit_repetition(c,data,root/'bad',canonical_hash(value))
+        except (ValueError,KeyError): pass
+        else: raise AssertionError('Corrupt receipt accepted')
+    '''
+        env=dict(os.environ,PYTHONPATH=str(Path('src').resolve()),PYTORCH_ENABLE_MPS_FALLBACK='0')
+        for name in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS','NUMEXPR_NUM_THREADS'): env[name]='1'
+        result=subprocess.run([sys.executable,'-c',script,str(original),str(restored.resolve())],env=env,capture_output=True,text=True)
+>       assert result.returncode==0,result.stdout+result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/backend.py", line 131, in validate_backend_report
+E             _require(report['implementation_sha256'] == implementation_hash())
+E           File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/backend.py", line 127, in _require
+E             raise ValueError('Backend numerical/schema contract failed')
+E         ValueError: Backend numerical/schema contract failed
+E         
+E         The above exception was the direct cause of the following exception:
+E         
+E         Traceback (most recent call last):
+E           File "<string>", line 15, in <module>
+E           File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/pilot/calibrate.py", line 120, in fit_repetition
+E             parent=train.fit_parent(data,config,parent_paths)
+E                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/train.py", line 698, in fit_parent
+E             backend = _backend_evidence(config, data, causal_model=causal)
+E                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/train.py", line 252, in _backend_evidence
+E             if probe.get('status') == 'passed': validate_backend_report(probe)
+E                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/backend.py", line 189, in validate_backend_report
+E             raise ValueError('Invalid actual backend probe schema or numerical evidence') from error
+E         ValueError: Invalid actual backend probe schema or numerical evidence
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python', '-c', "\nimpo...e schema or numerical evidence\') from error\nValueError: Invalid actual backend probe schema or numerical evidence\n').returncode
+
+tests/test_audit_fix1.py:62: AssertionError
+__________ test_receipt_io_survives_unavailable_original_root[False] ___________
+
+tmp_path = PosixPath('/private/tmp/h1-final-fix-full-suite/test_receipt_io_survives_unava1')
+absolute = False
+
+    @pytest.mark.parametrize('absolute',[True,False])
+    def test_receipt_io_survives_unavailable_original_root(tmp_path,absolute):
+        from test_pilot_calibrate import config
+        original=(tmp_path/'original').resolve(); original.mkdir()
+        receipt=original/'environment/backend.json'; receipt.parent.mkdir()
+        source=Path('environment/evidence7-calibration-fix1/search-backend.json').resolve()
+        shutil.copyfile(source,receipt)
+        value=config(tmp_path).to_dict(); value['growth']['m_requested']=1
+        value['execution']['backend_report']=str(receipt) if absolute else 'environment/backend.json'
+        (original/'config.json').write_text(json.dumps(value))
+        restored=tmp_path/'restored'; shutil.copytree(original,restored)
+        original.rename(tmp_path/'unavailable')
+        script=r'''
+    import importlib,json,sys
+    from pathlib import Path
+    from treeneuron.config import resolve_experiment,canonical_hash
+    from treeneuron.locators import relocated,producer_directory
+    from treeneuron.protocol import FrozenProtocol,_ref
+    from treeneuron.pilot.calibrate import _runtime_preflight,fit_repetition
+    from treeneuron.data.synthetic import make_from_config
+    original,root=map(Path,sys.argv[1:])
+    value=json.loads((root/'config.json').read_text()); c=resolve_experiment(value)
+    with relocated(original,root),producer_directory(root):
+        preflight=_runtime_preflight(c)
+        assert Path(preflight['receipt_path'])==root/'environment/backend.json'
+        _,data=make_from_config(c)
+        pair=fit_repetition(c,data,root/'fit',canonical_hash(value))
+        assert pair['status']=='completed' and len(pair['models'])==8
+        # Source/protocol construction is isolated here; actual terminal preflight
+        # and its receipt I/O remain unpatched. No label access or further fitting.
+        module=importlib.import_module('treeneuron.evaluation.confirm')
+        (root/'raw.json').write_text(json.dumps({'config':value}))
+        payload={'sources':{'root':str(original),'raw':_ref(root,root/'raw.json'),'cohort':{'units':[]}}}
+        path=root/'protocol/frozen.yaml';path.parent.mkdir()
+        path.write_text(json.dumps({'payload':payload}))
+        frozen=FrozenProtocol(path,'toy','toy','toy')
+        directory=root/'protocol/confirmation/toy';directory.mkdir(parents=True)
+        (directory/'confirmation.json').write_text(json.dumps({'protocol_hash':'toy','status':'completed','runs':[]}))
+        module._payload=lambda protocol:payload
+        assert module.run_confirmation(frozen,'synthetic')==directory
+        assert json.loads((root/'config.json').read_text())==value
+        # A relocated receipt still undergoes ordinary producer validation in fit.
+        (root/'environment/backend.json').write_text('{}')
+        try: fit_repetition(c,data,root/'bad',canonical_hash(value))
+        except (ValueError,KeyError): pass
+        else: raise AssertionError('Corrupt receipt accepted')
+    '''
+        env=dict(os.environ,PYTHONPATH=str(Path('src').resolve()),PYTORCH_ENABLE_MPS_FALLBACK='0')
+        for name in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS','NUMEXPR_NUM_THREADS'): env[name]='1'
+        result=subprocess.run([sys.executable,'-c',script,str(original),str(restored.resolve())],env=env,capture_output=True,text=True)
+>       assert result.returncode==0,result.stdout+result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/backend.py", line 131, in validate_backend_report
+E             _require(report['implementation_sha256'] == implementation_hash())
+E           File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/backend.py", line 127, in _require
+E             raise ValueError('Backend numerical/schema contract failed')
+E         ValueError: Backend numerical/schema contract failed
+E         
+E         The above exception was the direct cause of the following exception:
+E         
+E         Traceback (most recent call last):
+E           File "<string>", line 15, in <module>
+E           File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/pilot/calibrate.py", line 120, in fit_repetition
+E             parent=train.fit_parent(data,config,parent_paths)
+E                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/train.py", line 698, in fit_parent
+E             backend = _backend_evidence(config, data, causal_model=causal)
+E                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/train.py", line 252, in _backend_evidence
+E             if probe.get('status') == 'passed': validate_backend_report(probe)
+E                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/backend.py", line 189, in validate_backend_report
+E             raise ValueError('Invalid actual backend probe schema or numerical evidence') from error
+E         ValueError: Invalid actual backend probe schema or numerical evidence
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python', '-c', "\nimpo...e schema or numerical evidence\') from error\nValueError: Invalid actual backend probe schema or numerical evidence\n').returncode
+
+tests/test_audit_fix1.py:62: AssertionError
+=============================== warnings summary ===============================
+tests/test_causal_baselines.py::test_node_gate_failure_preserves_completed_b0_b6_checks
+tests/test_node.py::test_sparse_choice_independent_cpu_backward[shape0-0]
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+tests/test_node.py: 12 warnings
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/baselines/_node_vendor/odst.py:113: UserWarning: Data-aware initialization is performed on less than 1000 data points. This may cause instability.To avoid potential problems, run this model on a data batch with at least 1000 data samples.You can do so manually before training. Use with torch.no_grad() for memory efficiency.
+    warn("Data-aware initialization is performed on less than 1000 data points. This may cause instability."
+
+tests/test_node.py::test_model_vendor_head_axis_init_and_backward
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/configs/vendor/node/upstream/lib/odst.py:113: UserWarning: Data-aware initialization is performed on less than 1000 data points. This may cause instability.To avoid potential problems, run this model on a data batch with at least 1000 data samples.You can do so manually before training. Use with torch.no_grad() for memory efficiency.
+    warn("Data-aware initialization is performed on less than 1000 data points. This may cause instability."
+
+tests/test_node.py: 12 warnings
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/lib/python3.12/site-packages/sklearn/preprocessing/_data.py:2912: UserWarning: n_quantiles (1000) is greater than the total number of samples (37). n_quantiles is set to n_samples.
+    warnings.warn(
+
+tests/test_node.py::test_f_only_initialization_full_fit_and_original_unit_reload
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/baselines/_node_vendor/qhadam.py:133: UserWarning: This overload of add_ is deprecated:
+  	add_(Number alpha, Tensor other)
+  Consider using one of the following signatures instead:
+  	add_(Tensor other, *, Number alpha = 1) (Triggered internally at /Users/runner/work/pytorch/pytorch/torch/csrc/utils/python_arg_parser.cpp:1841.)
+    exp_avg.mul_(beta1_adj).add_(1.0 - beta1_adj, d_p)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_audit_fix1.py::test_receipt_io_survives_unavailable_original_root[True]
+FAILED tests/test_audit_fix1.py::test_receipt_io_survives_unavailable_original_root[False]
+ERROR tests/test_search.py::test_actual_causal_worker_preserves_fg_provenance_and_closes_runs[B1-recipe0]
+ERROR tests/test_search.py::test_actual_causal_worker_preserves_fg_provenance_and_closes_runs[B3-recipe1]
+ERROR tests/test_search.py::test_actual_causal_worker_preserves_fg_provenance_and_closes_runs[B4-recipe2]
+ERROR tests/test_search.py::test_actual_causal_worker_preserves_fg_provenance_and_closes_runs[B5-recipe3]
+ERROR tests/test_search.py::test_actual_causal_worker_preserves_fg_provenance_and_closes_runs[B6-recipe4]
+ERROR tests/test_search.py::test_alternate_causal_recipes_have_only_their_own_keys[B2-recipe0]
+ERROR tests/test_search.py::test_alternate_causal_recipes_have_only_their_own_keys[B2-recipe1]
+ERROR tests/test_search.py::test_alternate_causal_recipes_have_only_their_own_keys[B3-recipe2]
+ERROR tests/test_search.py::test_changed_backend_receipt_between_coordinator_and_worker_fails
+2 failed, 958 passed, 48 skipped, 28 warnings, 9 errors in 1662.40s (0:27:42)

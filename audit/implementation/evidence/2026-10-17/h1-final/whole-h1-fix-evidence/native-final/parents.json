@@ -1,0 +1,1094 @@
+{
+  "parents": [
+    {
+      "actual_max_rows": 128,
+      "checkpoint": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/whole-h1-fix-evidence/native-final/batch-128/7e6aefa06c8f4ed2b5ca7412dca33815/checkpoints/best.json",
+      "checkpoint_sha256": "f973bcf78fbfc6fa077745c1b561f73c0eaadd03ecc259cb40df580acf843c39",
+      "elapsed_ns": 644534167,
+      "identities": {
+        "code": "5c66c55693825e7dec51f0e59c74bd995da98b54c36f34acc445039d9ef85495",
+        "config": "e0ce2d329aa4480ff4ec29218864c01ec24c18bf288ed739f284f700771efd87",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "fbdc4d3d9148951967eb913a8cb05ce7f28e6b0992560ca585977db5b20d78c2",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "d5f034c352bfea9a10150633331722e6d4576a90770e8fe93636ecd9b779d806",
+        "transform": "5fddc0499e56c66135185a9a6f1caa01488887e4bca0376fff049744bb064da1"
+      },
+      "logical_batch": 128,
+      "requested_updates": 1,
+      "resources": {
+        "initial_reservation_bytes": 9663676416,
+        "mps_memory_bytes": {
+          "current_allocated_memory": {
+            "reason": null,
+            "value": 0
+          },
+          "driver_allocated_memory": {
+            "reason": null,
+            "value": 475136
+          },
+          "recommended_max_memory": {
+            "reason": null,
+            "value": 30150672384
+          }
+        },
+        "observations": {
+          "physical": {
+            "command": [
+              "sysctl",
+              "-n",
+              "hw.memsize"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "38654705664"
+          },
+          "power": {
+            "command": [
+              "pmset",
+              "-g",
+              "batt"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=redacted)\t100%; charged; 0:00 remaining present: true"
+          },
+          "pressure": {
+            "command": [
+              "memory_pressure",
+              "-Q"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 81%"
+          },
+          "pressure_level": {
+            "command": [
+              "sysctl",
+              "-n",
+              "kern.memorystatus_vm_pressure_level"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "1"
+          },
+          "rss": {
+            "command": [
+              "ps",
+              "-o",
+              "rss=",
+              "-p",
+              "50138"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "326496"
+          },
+          "swap": {
+            "command": [
+              "sysctl",
+              "-n",
+              "vm.swapusage"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "total = 4096.00M  used = 3064.94M  free = 1031.06M  (encrypted)"
+          },
+          "vm_stat": {
+            "command": [
+              "vm_stat"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   443408.\nPages active:                                 712008.\nPages inactive:                               667078.\nPages speculative:                             44375.\nPages throttled:                                   0.\nPages wired down:                             205726.\nPages purgeable:                               17864.\n\"Translation faults\":                     5775290181.\nPages copy-on-write:                       474816944.\nPages zero filled:                        5196922532.\nPages reactivated:                         143896460.\nPages purged:                               42872106.\nFile-backed pages:                            556768.\nAnonymous pages:                              866693.\nPages stored in compressor:                   806667.\nPages occupied by compressor:                 227718.\nDecompressions:                            156596466.\nCompressions:                              203675098.\nPageins:                                   146213460.\nPageouts:                                     648825.\nSwapins:                                     2851310.\nSwapouts:                                    4786629."
+          }
+        },
+        "peak_rss_bytes": 334331904,
+        "pressure_headroom_bytes": {
+          "interpretation": "coarse memory_pressure free percentage times physical; not free VM pages",
+          "reason": null,
+          "value": 31310311587
+        },
+        "rss_bytes": {
+          "reason": null,
+          "value": 334331904
+        },
+        "swap_used_bytes": {
+          "reason": null,
+          "value": 3213822525
+        },
+        "unified_memory_counters_overlap": true,
+        "utc": "2026-10-17T02:27:03.749105+00:00"
+      },
+      "run": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/whole-h1-fix-evidence/native-final/batch-128/7e6aefa06c8f4ed2b5ca7412dca33815",
+      "selected_update": 1
+    },
+    {
+      "actual_max_rows": 256,
+      "checkpoint": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/whole-h1-fix-evidence/native-final/batch-256/a390eea6f07c4bf1a00f810795cca68f/checkpoints/best.json",
+      "checkpoint_sha256": "3d35574a661ccc982a83910df76fffb6cf25aeee95b54883aede56f78acc3cb0",
+      "elapsed_ns": 220276708,
+      "identities": {
+        "code": "5c66c55693825e7dec51f0e59c74bd995da98b54c36f34acc445039d9ef85495",
+        "config": "bb94af370c9ed6ede8b867fbbb0a17bbd00045de9197a40055c121212dbd09f4",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "fbdc4d3d9148951967eb913a8cb05ce7f28e6b0992560ca585977db5b20d78c2",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "d5f034c352bfea9a10150633331722e6d4576a90770e8fe93636ecd9b779d806",
+        "transform": "5fddc0499e56c66135185a9a6f1caa01488887e4bca0376fff049744bb064da1"
+      },
+      "logical_batch": 256,
+      "requested_updates": 1,
+      "resources": {
+        "initial_reservation_bytes": 9663676416,
+        "mps_memory_bytes": {
+          "current_allocated_memory": {
+            "reason": null,
+            "value": 0
+          },
+          "driver_allocated_memory": {
+            "reason": null,
+            "value": 475136
+          },
+          "recommended_max_memory": {
+            "reason": null,
+            "value": 30150672384
+          }
+        },
+        "observations": {
+          "physical": {
+            "command": [
+              "sysctl",
+              "-n",
+              "hw.memsize"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "38654705664"
+          },
+          "power": {
+            "command": [
+              "pmset",
+              "-g",
+              "batt"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=redacted)\t100%; charged; 0:00 remaining present: true"
+          },
+          "pressure": {
+            "command": [
+              "memory_pressure",
+              "-Q"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 81%"
+          },
+          "pressure_level": {
+            "command": [
+              "sysctl",
+              "-n",
+              "kern.memorystatus_vm_pressure_level"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "1"
+          },
+          "rss": {
+            "command": [
+              "ps",
+              "-o",
+              "rss=",
+              "-p",
+              "50138"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "327680"
+          },
+          "swap": {
+            "command": [
+              "sysctl",
+              "-n",
+              "vm.swapusage"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "total = 4096.00M  used = 3064.94M  free = 1031.06M  (encrypted)"
+          },
+          "vm_stat": {
+            "command": [
+              "vm_stat"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   445348.\nPages active:                                 710034.\nPages inactive:                               667097.\nPages speculative:                             44382.\nPages throttled:                                   0.\nPages wired down:                             205726.\nPages purgeable:                               15816.\n\"Translation faults\":                     5775304875.\nPages copy-on-write:                       474819904.\nPages zero filled:                        5196923807.\nPages reactivated:                         143896460.\nPages purged:                               42872106.\nFile-backed pages:                            556803.\nAnonymous pages:                              864710.\nPages stored in compressor:                   806667.\nPages occupied by compressor:                 227718.\nDecompressions:                            156596466.\nCompressions:                              203675098.\nPageins:                                   146213474.\nPageouts:                                     648825.\nSwapins:                                     2851310.\nSwapouts:                                    4786629."
+          }
+        },
+        "peak_rss_bytes": 335544320,
+        "pressure_headroom_bytes": {
+          "interpretation": "coarse memory_pressure free percentage times physical; not free VM pages",
+          "reason": null,
+          "value": 31310311587
+        },
+        "rss_bytes": {
+          "reason": null,
+          "value": 335544320
+        },
+        "swap_used_bytes": {
+          "reason": null,
+          "value": 3213822525
+        },
+        "unified_memory_counters_overlap": true,
+        "utc": "2026-10-17T02:27:04.068925+00:00"
+      },
+      "run": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/whole-h1-fix-evidence/native-final/batch-256/a390eea6f07c4bf1a00f810795cca68f",
+      "selected_update": 1
+    },
+    {
+      "actual_max_rows": 512,
+      "checkpoint": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/whole-h1-fix-evidence/native-final/batch-512/0e161ffe470741c394c823a8e7a8c767/checkpoints/best.json",
+      "checkpoint_sha256": "251a0cc28e22e385d4d7509908656c465c04206909c6c418a4ff0da35d96d436",
+      "elapsed_ns": 221745041,
+      "identities": {
+        "code": "5c66c55693825e7dec51f0e59c74bd995da98b54c36f34acc445039d9ef85495",
+        "config": "8ae8ba73d6e1b83e2c3e54bde9d4d56df3668ec58349d472aabe083ee4e0e676",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "fbdc4d3d9148951967eb913a8cb05ce7f28e6b0992560ca585977db5b20d78c2",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "d5f034c352bfea9a10150633331722e6d4576a90770e8fe93636ecd9b779d806",
+        "transform": "5fddc0499e56c66135185a9a6f1caa01488887e4bca0376fff049744bb064da1"
+      },
+      "logical_batch": 512,
+      "requested_updates": 1,
+      "resources": {
+        "initial_reservation_bytes": 9663676416,
+        "mps_memory_bytes": {
+          "current_allocated_memory": {
+            "reason": null,
+            "value": 0
+          },
+          "driver_allocated_memory": {
+            "reason": null,
+            "value": 475136
+          },
+          "recommended_max_memory": {
+            "reason": null,
+            "value": 30150672384
+          }
+        },
+        "observations": {
+          "physical": {
+            "command": [
+              "sysctl",
+              "-n",
+              "hw.memsize"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "38654705664"
+          },
+          "power": {
+            "command": [
+              "pmset",
+              "-g",
+              "batt"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=redacted)\t100%; charged; 0:00 remaining present: true"
+          },
+          "pressure": {
+            "command": [
+              "memory_pressure",
+              "-Q"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 81%"
+          },
+          "pressure_level": {
+            "command": [
+              "sysctl",
+              "-n",
+              "kern.memorystatus_vm_pressure_level"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "1"
+          },
+          "rss": {
+            "command": [
+              "ps",
+              "-o",
+              "rss=",
+              "-p",
+              "50138"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "327968"
+          },
+          "swap": {
+            "command": [
+              "sysctl",
+              "-n",
+              "vm.swapusage"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "total = 4096.00M  used = 3064.94M  free = 1031.06M  (encrypted)"
+          },
+          "vm_stat": {
+            "command": [
+              "vm_stat"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   444761.\nPages active:                                 710607.\nPages inactive:                               667080.\nPages speculative:                             44389.\nPages throttled:                                   0.\nPages wired down:                             205730.\nPages purgeable:                               15816.\n\"Translation faults\":                     5775321785.\nPages copy-on-write:                       474823359.\nPages zero filled:                        5196925625.\nPages reactivated:                         143896460.\nPages purged:                               42872106.\nFile-backed pages:                            556838.\nAnonymous pages:                              865238.\nPages stored in compressor:                   806667.\nPages occupied by compressor:                 227718.\nDecompressions:                            156596466.\nCompressions:                              203675098.\nPageins:                                   146213491.\nPageouts:                                     648825.\nSwapins:                                     2851310.\nSwapouts:                                    4786629."
+          }
+        },
+        "peak_rss_bytes": 335839232,
+        "pressure_headroom_bytes": {
+          "interpretation": "coarse memory_pressure free percentage times physical; not free VM pages",
+          "reason": null,
+          "value": 31310311587
+        },
+        "rss_bytes": {
+          "reason": null,
+          "value": 335839232
+        },
+        "swap_used_bytes": {
+          "reason": null,
+          "value": 3213822525
+        },
+        "unified_memory_counters_overlap": true,
+        "utc": "2026-10-17T02:27:04.392056+00:00"
+      },
+      "run": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/whole-h1-fix-evidence/native-final/batch-512/0e161ffe470741c394c823a8e7a8c767",
+      "selected_update": 1
+    },
+    {
+      "actual_max_rows": 1024,
+      "checkpoint": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/whole-h1-fix-evidence/native-final/batch-1024/077843c173e845f89a46b6654488e799/checkpoints/best.json",
+      "checkpoint_sha256": "3f142803c31d9792fa0d7d103ced840c3f032205873caa69841742a863624cb0",
+      "elapsed_ns": 211414500,
+      "identities": {
+        "code": "5c66c55693825e7dec51f0e59c74bd995da98b54c36f34acc445039d9ef85495",
+        "config": "bc9a923e23a843a2bc62bb4c38a58f45681b1859f8efd91808dd817c6b85901c",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "fbdc4d3d9148951967eb913a8cb05ce7f28e6b0992560ca585977db5b20d78c2",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "d5f034c352bfea9a10150633331722e6d4576a90770e8fe93636ecd9b779d806",
+        "transform": "5fddc0499e56c66135185a9a6f1caa01488887e4bca0376fff049744bb064da1"
+      },
+      "logical_batch": 1024,
+      "requested_updates": 1,
+      "resources": {
+        "initial_reservation_bytes": 9663676416,
+        "mps_memory_bytes": {
+          "current_allocated_memory": {
+            "reason": null,
+            "value": 0
+          },
+          "driver_allocated_memory": {
+            "reason": null,
+            "value": 475136
+          },
+          "recommended_max_memory": {
+            "reason": null,
+            "value": 30150672384
+          }
+        },
+        "observations": {
+          "physical": {
+            "command": [
+              "sysctl",
+              "-n",
+              "hw.memsize"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "38654705664"
+          },
+          "power": {
+            "command": [
+              "pmset",
+              "-g",
+              "batt"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=redacted)\t100%; charged; 0:00 remaining present: true"
+          },
+          "pressure": {
+            "command": [
+              "memory_pressure",
+              "-Q"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 81%"
+          },
+          "pressure_level": {
+            "command": [
+              "sysctl",
+              "-n",
+              "kern.memorystatus_vm_pressure_level"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "1"
+          },
+          "rss": {
+            "command": [
+              "ps",
+              "-o",
+              "rss=",
+              "-p",
+              "50138"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "328160"
+          },
+          "swap": {
+            "command": [
+              "sysctl",
+              "-n",
+              "vm.swapusage"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "total = 4096.00M  used = 3064.94M  free = 1031.06M  (encrypted)"
+          },
+          "vm_stat": {
+            "command": [
+              "vm_stat"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   444240.\nPages active:                                 710633.\nPages inactive:                               667102.\nPages speculative:                             44392.\nPages throttled:                                   0.\nPages wired down:                             205730.\nPages purgeable:                               15816.\n\"Translation faults\":                     5775336633.\nPages copy-on-write:                       474826402.\nPages zero filled:                        5196926861.\nPages reactivated:                         143896460.\nPages purged:                               42872106.\nFile-backed pages:                            556875.\nAnonymous pages:                              865252.\nPages stored in compressor:                   806667.\nPages occupied by compressor:                 227718.\nDecompressions:                            156596466.\nCompressions:                              203675098.\nPageins:                                   146213506.\nPageouts:                                     648825.\nSwapins:                                     2851310.\nSwapouts:                                    4786629."
+          }
+        },
+        "peak_rss_bytes": 336035840,
+        "pressure_headroom_bytes": {
+          "interpretation": "coarse memory_pressure free percentage times physical; not free VM pages",
+          "reason": null,
+          "value": 31310311587
+        },
+        "rss_bytes": {
+          "reason": null,
+          "value": 336035840
+        },
+        "swap_used_bytes": {
+          "reason": null,
+          "value": 3213822525
+        },
+        "unified_memory_counters_overlap": true,
+        "utc": "2026-10-17T02:27:04.693541+00:00"
+      },
+      "run": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/whole-h1-fix-evidence/native-final/batch-1024/077843c173e845f89a46b6654488e799",
+      "selected_update": 1
+    },
+    {
+      "actual_max_rows": 2048,
+      "checkpoint": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/whole-h1-fix-evidence/native-final/batch-2048/0fbfa69649604a5d9069df30a7ea84d5/checkpoints/best.json",
+      "checkpoint_sha256": "3bdba65e8c9c06712d17ed817d8bb9964aa887b2ca74102b4be5347e098fb8ae",
+      "elapsed_ns": 212137917,
+      "identities": {
+        "code": "5c66c55693825e7dec51f0e59c74bd995da98b54c36f34acc445039d9ef85495",
+        "config": "86aad61df680401081365ce2d54da45ca1b93d3f7df003ce7fefa1652728c10c",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "fbdc4d3d9148951967eb913a8cb05ce7f28e6b0992560ca585977db5b20d78c2",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "d5f034c352bfea9a10150633331722e6d4576a90770e8fe93636ecd9b779d806",
+        "transform": "5fddc0499e56c66135185a9a6f1caa01488887e4bca0376fff049744bb064da1"
+      },
+      "logical_batch": 2048,
+      "requested_updates": 1,
+      "resources": {
+        "initial_reservation_bytes": 9663676416,
+        "mps_memory_bytes": {
+          "current_allocated_memory": {
+            "reason": null,
+            "value": 0
+          },
+          "driver_allocated_memory": {
+            "reason": null,
+            "value": 475136
+          },
+          "recommended_max_memory": {
+            "reason": null,
+            "value": 30150672384
+          }
+        },
+        "observations": {
+          "physical": {
+            "command": [
+              "sysctl",
+              "-n",
+              "hw.memsize"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "38654705664"
+          },
+          "power": {
+            "command": [
+              "pmset",
+              "-g",
+              "batt"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=redacted)\t100%; charged; 0:00 remaining present: true"
+          },
+          "pressure": {
+            "command": [
+              "memory_pressure",
+              "-Q"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 81%"
+          },
+          "pressure_level": {
+            "command": [
+              "sysctl",
+              "-n",
+              "kern.memorystatus_vm_pressure_level"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "1"
+          },
+          "rss": {
+            "command": [
+              "ps",
+              "-o",
+              "rss=",
+              "-p",
+              "50138"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "328464"
+          },
+          "swap": {
+            "command": [
+              "sysctl",
+              "-n",
+              "vm.swapusage"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "total = 4096.00M  used = 3064.94M  free = 1031.06M  (encrypted)"
+          },
+          "vm_stat": {
+            "command": [
+              "vm_stat"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   444854.\nPages active:                                 710653.\nPages inactive:                               667128.\nPages speculative:                             44399.\nPages throttled:                                   0.\nPages wired down:                             205730.\nPages purgeable:                               15816.\n\"Translation faults\":                     5775351431.\nPages copy-on-write:                       474829373.\nPages zero filled:                        5196928038.\nPages reactivated:                         143896460.\nPages purged:                               42872106.\nFile-backed pages:                            556911.\nAnonymous pages:                              865269.\nPages stored in compressor:                   806667.\nPages occupied by compressor:                 227718.\nDecompressions:                            156596466.\nCompressions:                              203675098.\nPageins:                                   146213520.\nPageouts:                                     648825.\nSwapins:                                     2851310.\nSwapouts:                                    4786629."
+          }
+        },
+        "peak_rss_bytes": 336347136,
+        "pressure_headroom_bytes": {
+          "interpretation": "coarse memory_pressure free percentage times physical; not free VM pages",
+          "reason": null,
+          "value": 31310311587
+        },
+        "rss_bytes": {
+          "reason": null,
+          "value": 336347136
+        },
+        "swap_used_bytes": {
+          "reason": null,
+          "value": 3213822525
+        },
+        "unified_memory_counters_overlap": true,
+        "utc": "2026-10-17T02:27:04.997037+00:00"
+      },
+      "run": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/whole-h1-fix-evidence/native-final/batch-2048/0fbfa69649604a5d9069df30a7ea84d5",
+      "selected_update": 1
+    },
+    {
+      "actual_max_rows": 4096,
+      "checkpoint": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/whole-h1-fix-evidence/native-final/batch-4096/2eff3e9c1e654ccc807dc66888c38d45/checkpoints/best.json",
+      "checkpoint_sha256": "61d6b86eac5988ff9764b210485524e27aae929bc6cc7a1e16bc125e32bf47fa",
+      "elapsed_ns": 239800334,
+      "identities": {
+        "code": "5c66c55693825e7dec51f0e59c74bd995da98b54c36f34acc445039d9ef85495",
+        "config": "a61df3e6d6c7a6169d4d1dbb3333e065116b34cf5b2a7886ba5015a6409f1bf7",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "fbdc4d3d9148951967eb913a8cb05ce7f28e6b0992560ca585977db5b20d78c2",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "d5f034c352bfea9a10150633331722e6d4576a90770e8fe93636ecd9b779d806",
+        "transform": "5fddc0499e56c66135185a9a6f1caa01488887e4bca0376fff049744bb064da1"
+      },
+      "logical_batch": 4096,
+      "requested_updates": 1,
+      "resources": {
+        "initial_reservation_bytes": 9663676416,
+        "mps_memory_bytes": {
+          "current_allocated_memory": {
+            "reason": null,
+            "value": 0
+          },
+          "driver_allocated_memory": {
+            "reason": null,
+            "value": 475136
+          },
+          "recommended_max_memory": {
+            "reason": null,
+            "value": 30150672384
+          }
+        },
+        "observations": {
+          "physical": {
+            "command": [
+              "sysctl",
+              "-n",
+              "hw.memsize"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "38654705664"
+          },
+          "power": {
+            "command": [
+              "pmset",
+              "-g",
+              "batt"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=redacted)\t100%; charged; 0:00 remaining present: true"
+          },
+          "pressure": {
+            "command": [
+              "memory_pressure",
+              "-Q"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 81%"
+          },
+          "pressure_level": {
+            "command": [
+              "sysctl",
+              "-n",
+              "kern.memorystatus_vm_pressure_level"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "1"
+          },
+          "rss": {
+            "command": [
+              "ps",
+              "-o",
+              "rss=",
+              "-p",
+              "50138"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "329776"
+          },
+          "swap": {
+            "command": [
+              "sysctl",
+              "-n",
+              "vm.swapusage"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "total = 4096.00M  used = 3064.94M  free = 1031.06M  (encrypted)"
+          },
+          "vm_stat": {
+            "command": [
+              "vm_stat"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   446273.\nPages active:                                 709246.\nPages inactive:                               667154.\nPages speculative:                             44406.\nPages throttled:                                   0.\nPages wired down:                             205730.\nPages purgeable:                               14279.\n\"Translation faults\":                     5775369098.\nPages copy-on-write:                       474832893.\nPages zero filled:                        5196930028.\nPages reactivated:                         143896489.\nPages purged:                               42872106.\nFile-backed pages:                            556948.\nAnonymous pages:                              863858.\nPages stored in compressor:                   806667.\nPages occupied by compressor:                 227718.\nDecompressions:                            156596466.\nCompressions:                              203675098.\nPageins:                                   146213545.\nPageouts:                                     648825.\nSwapins:                                     2851310.\nSwapouts:                                    4786629."
+          }
+        },
+        "peak_rss_bytes": 337690624,
+        "pressure_headroom_bytes": {
+          "interpretation": "coarse memory_pressure free percentage times physical; not free VM pages",
+          "reason": null,
+          "value": 31310311587
+        },
+        "rss_bytes": {
+          "reason": null,
+          "value": 337690624
+        },
+        "swap_used_bytes": {
+          "reason": null,
+          "value": 3213822525
+        },
+        "unified_memory_counters_overlap": true,
+        "utc": "2026-10-17T02:27:05.335693+00:00"
+      },
+      "run": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/whole-h1-fix-evidence/native-final/batch-4096/2eff3e9c1e654ccc807dc66888c38d45",
+      "selected_update": 1
+    },
+    {
+      "actual_max_rows": 8192,
+      "checkpoint": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/whole-h1-fix-evidence/native-final/batch-8192/8b20cf9f9e61415d996565b15585a41f/checkpoints/best.json",
+      "checkpoint_sha256": "5d441eaccda137b5691fcd1f8e48221c6f978e147930363b110786fbeffb0e62",
+      "elapsed_ns": 234326583,
+      "identities": {
+        "code": "5c66c55693825e7dec51f0e59c74bd995da98b54c36f34acc445039d9ef85495",
+        "config": "8dce729255ad4facbd49856d8fd39805fe48606c894ad5c27d5dab2d47529c2e",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "fbdc4d3d9148951967eb913a8cb05ce7f28e6b0992560ca585977db5b20d78c2",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "d5f034c352bfea9a10150633331722e6d4576a90770e8fe93636ecd9b779d806",
+        "transform": "5fddc0499e56c66135185a9a6f1caa01488887e4bca0376fff049744bb064da1"
+      },
+      "logical_batch": 8192,
+      "requested_updates": 1,
+      "resources": {
+        "initial_reservation_bytes": 9663676416,
+        "mps_memory_bytes": {
+          "current_allocated_memory": {
+            "reason": null,
+            "value": 0
+          },
+          "driver_allocated_memory": {
+            "reason": null,
+            "value": 475136
+          },
+          "recommended_max_memory": {
+            "reason": null,
+            "value": 30150672384
+          }
+        },
+        "observations": {
+          "physical": {
+            "command": [
+              "sysctl",
+              "-n",
+              "hw.memsize"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "38654705664"
+          },
+          "power": {
+            "command": [
+              "pmset",
+              "-g",
+              "batt"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=redacted)\t100%; charged; 0:00 remaining present: true"
+          },
+          "pressure": {
+            "command": [
+              "memory_pressure",
+              "-Q"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 81%"
+          },
+          "pressure_level": {
+            "command": [
+              "sysctl",
+              "-n",
+              "kern.memorystatus_vm_pressure_level"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "1"
+          },
+          "rss": {
+            "command": [
+              "ps",
+              "-o",
+              "rss=",
+              "-p",
+              "50138"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "336576"
+          },
+          "swap": {
+            "command": [
+              "sysctl",
+              "-n",
+              "vm.swapusage"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "total = 4096.00M  used = 3064.94M  free = 1031.06M  (encrypted)"
+          },
+          "vm_stat": {
+            "command": [
+              "vm_stat"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   445983.\nPages active:                                 709672.\nPages inactive:                               667185.\nPages speculative:                             44416.\nPages throttled:                                   0.\nPages wired down:                             205730.\nPages purgeable:                               14280.\n\"Translation faults\":                     5775384288.\nPages copy-on-write:                       474835885.\nPages zero filled:                        5196931683.\nPages reactivated:                         143896489.\nPages purged:                               42872106.\nFile-backed pages:                            556991.\nAnonymous pages:                              864282.\nPages stored in compressor:                   806667.\nPages occupied by compressor:                 227718.\nDecompressions:                            156596466.\nCompressions:                              203675098.\nPageins:                                   146213559.\nPageouts:                                     648825.\nSwapins:                                     2851310.\nSwapouts:                                    4786629."
+          }
+        },
+        "peak_rss_bytes": 344653824,
+        "pressure_headroom_bytes": {
+          "interpretation": "coarse memory_pressure free percentage times physical; not free VM pages",
+          "reason": null,
+          "value": 31310311587
+        },
+        "rss_bytes": {
+          "reason": null,
+          "value": 344653824
+        },
+        "swap_used_bytes": {
+          "reason": null,
+          "value": 3213822525
+        },
+        "unified_memory_counters_overlap": true,
+        "utc": "2026-10-17T02:27:05.674877+00:00"
+      },
+      "run": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/whole-h1-fix-evidence/native-final/batch-8192/8b20cf9f9e61415d996565b15585a41f",
+      "selected_update": 1
+    },
+    {
+      "actual_max_rows": 9224,
+      "checkpoint": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/whole-h1-fix-evidence/native-final/batch-16384/5f9010cd256d405b81e68d7993ca8894/checkpoints/best.json",
+      "checkpoint_sha256": "f9f22b5d37b7879d801c569f3a82ec5f0b5e5f801622264612816f5999e931c8",
+      "elapsed_ns": 251506208,
+      "identities": {
+        "code": "5c66c55693825e7dec51f0e59c74bd995da98b54c36f34acc445039d9ef85495",
+        "config": "a1af9dccddae2dd3e766cd06c0d1ab204b865a661bd090d224790ed9fbc50451",
+        "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "raw": "fbdc4d3d9148951967eb913a8cb05ce7f28e6b0992560ca585977db5b20d78c2",
+        "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "split": "d5f034c352bfea9a10150633331722e6d4576a90770e8fe93636ecd9b779d806",
+        "transform": "5fddc0499e56c66135185a9a6f1caa01488887e4bca0376fff049744bb064da1"
+      },
+      "logical_batch": 16384,
+      "requested_updates": 1,
+      "resources": {
+        "initial_reservation_bytes": 9663676416,
+        "mps_memory_bytes": {
+          "current_allocated_memory": {
+            "reason": null,
+            "value": 0
+          },
+          "driver_allocated_memory": {
+            "reason": null,
+            "value": 475136
+          },
+          "recommended_max_memory": {
+            "reason": null,
+            "value": 30150672384
+          }
+        },
+        "observations": {
+          "physical": {
+            "command": [
+              "sysctl",
+              "-n",
+              "hw.memsize"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "38654705664"
+          },
+          "power": {
+            "command": [
+              "pmset",
+              "-g",
+              "batt"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=redacted)\t100%; charged; 0:00 remaining present: true"
+          },
+          "pressure": {
+            "command": [
+              "memory_pressure",
+              "-Q"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 81%"
+          },
+          "pressure_level": {
+            "command": [
+              "sysctl",
+              "-n",
+              "kern.memorystatus_vm_pressure_level"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "1"
+          },
+          "rss": {
+            "command": [
+              "ps",
+              "-o",
+              "rss=",
+              "-p",
+              "50138"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "344016"
+          },
+          "swap": {
+            "command": [
+              "sysctl",
+              "-n",
+              "vm.swapusage"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "total = 4096.00M  used = 3064.94M  free = 1031.06M  (encrypted)"
+          },
+          "vm_stat": {
+            "command": [
+              "vm_stat"
+            ],
+            "reason": null,
+            "returncode": 0,
+            "value": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   445149.\nPages active:                                 710142.\nPages inactive:                               667217.\nPages speculative:                             44423.\nPages throttled:                                   0.\nPages wired down:                             205730.\nPages purgeable:                               14279.\n\"Translation faults\":                     5775399540.\nPages copy-on-write:                       474838867.\nPages zero filled:                        5196933352.\nPages reactivated:                         143896489.\nPages purged:                               42872106.\nFile-backed pages:                            557031.\nAnonymous pages:                              864751.\nPages stored in compressor:                   806667.\nPages occupied by compressor:                 227718.\nDecompressions:                            156596466.\nCompressions:                              203675098.\nPageins:                                   146213573.\nPageouts:                                     648825.\nSwapins:                                     2851310.\nSwapouts:                                    4786629."
+          }
+        },
+        "peak_rss_bytes": 352272384,
+        "pressure_headroom_bytes": {
+          "interpretation": "coarse memory_pressure free percentage times physical; not free VM pages",
+          "reason": null,
+          "value": 31310311587
+        },
+        "rss_bytes": {
+          "reason": null,
+          "value": 352272384
+        },
+        "swap_used_bytes": {
+          "reason": null,
+          "value": 3213822525
+        },
+        "unified_memory_counters_overlap": true,
+        "utc": "2026-10-17T02:27:06.031088+00:00"
+      },
+      "run": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/whole-h1-fix-evidence/native-final/batch-16384/5f9010cd256d405b81e68d7993ca8894",
+      "selected_update": 1
+    }
+  ],
+  "resources_after": {
+    "initial_reservation_bytes": 9663676416,
+    "mps_memory_bytes": {
+      "current_allocated_memory": {
+        "reason": null,
+        "value": 0
+      },
+      "driver_allocated_memory": {
+        "reason": null,
+        "value": 475136
+      },
+      "recommended_max_memory": {
+        "reason": null,
+        "value": 30150672384
+      }
+    },
+    "observations": {
+      "physical": {
+        "command": [
+          "sysctl",
+          "-n",
+          "hw.memsize"
+        ],
+        "reason": null,
+        "returncode": 0,
+        "value": "38654705664"
+      },
+      "power": {
+        "command": [
+          "pmset",
+          "-g",
+          "batt"
+        ],
+        "reason": null,
+        "returncode": 0,
+        "value": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=redacted)\t100%; charged; 0:00 remaining present: true"
+      },
+      "pressure": {
+        "command": [
+          "memory_pressure",
+          "-Q"
+        ],
+        "reason": null,
+        "returncode": 0,
+        "value": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 81%"
+      },
+      "pressure_level": {
+        "command": [
+          "sysctl",
+          "-n",
+          "kern.memorystatus_vm_pressure_level"
+        ],
+        "reason": null,
+        "returncode": 0,
+        "value": "1"
+      },
+      "rss": {
+        "command": [
+          "ps",
+          "-o",
+          "rss=",
+          "-p",
+          "50138"
+        ],
+        "reason": null,
+        "returncode": 0,
+        "value": "344016"
+      },
+      "swap": {
+        "command": [
+          "sysctl",
+          "-n",
+          "vm.swapusage"
+        ],
+        "reason": null,
+        "returncode": 0,
+        "value": "total = 4096.00M  used = 3064.94M  free = 1031.06M  (encrypted)"
+      },
+      "vm_stat": {
+        "command": [
+          "vm_stat"
+        ],
+        "reason": null,
+        "returncode": 0,
+        "value": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   446315.\nPages active:                                 709120.\nPages inactive:                               667216.\nPages speculative:                             44424.\nPages throttled:                                   0.\nPages wired down:                             205730.\nPages purgeable:                               13255.\n\"Translation faults\":                     5775405956.\nPages copy-on-write:                       474840351.\nPages zero filled:                        5196933825.\nPages reactivated:                         143896489.\nPages purged:                               42872106.\nFile-backed pages:                            557032.\nAnonymous pages:                              863728.\nPages stored in compressor:                   806667.\nPages occupied by compressor:                 227718.\nDecompressions:                            156596466.\nCompressions:                              203675098.\nPageins:                                   146213580.\nPageouts:                                     648825.\nSwapins:                                     2851310.\nSwapouts:                                    4786629."
+      }
+    },
+    "peak_rss_bytes": 352272384,
+    "pressure_headroom_bytes": {
+      "interpretation": "coarse memory_pressure free percentage times physical; not free VM pages",
+      "reason": null,
+      "value": 31310311587
+    },
+    "rss_bytes": {
+      "reason": null,
+      "value": 352272384
+    },
+    "swap_used_bytes": {
+      "reason": null,
+      "value": 3213822525
+    },
+    "unified_memory_counters_overlap": true,
+    "utc": "2026-10-17T02:27:06.077292+00:00"
+  },
+  "source_sha256": "5c66c55693825e7dec51f0e59c74bd995da98b54c36f34acc445039d9ef85495",
+  "status": "passed"
+}

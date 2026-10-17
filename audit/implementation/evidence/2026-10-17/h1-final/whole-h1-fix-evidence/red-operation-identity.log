@@ -1,0 +1,94 @@
+FFFFF                                                                    [100%]
+=================================== FAILURES ===================================
+_____ test_envelope_validates_causal_operation_identity[schema_version-1] ______
+
+cpu_envelope_receipt = PosixPath('/private/tmp/h1-final-fix-red-operation-identity/cpu-envelope0/report.json')
+field = 'schema_version', value = 1
+
+    @pytest.mark.parametrize('field,value',[
+        ('schema_version',1),('device','mps'),('parameter_shapes',{}),('total_parameters',1),('seed',1)])
+    def test_envelope_validates_causal_operation_identity(cpu_envelope_receipt,field,value):
+        import json
+        from treeneuron.cpu_envelope import validate_cpu_envelope
+        r=json.loads(cpu_envelope_receipt.read_text())['cpu_envelope']
+        r['operations'][0]['causal'][field]=value
+>       with pytest.raises(ValueError):validate_cpu_envelope(r)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cpu_envelope.py:170: Failed
+________ test_envelope_validates_causal_operation_identity[device-mps] _________
+
+cpu_envelope_receipt = PosixPath('/private/tmp/h1-final-fix-red-operation-identity/cpu-envelope0/report.json')
+field = 'device', value = 'mps'
+
+    @pytest.mark.parametrize('field,value',[
+        ('schema_version',1),('device','mps'),('parameter_shapes',{}),('total_parameters',1),('seed',1)])
+    def test_envelope_validates_causal_operation_identity(cpu_envelope_receipt,field,value):
+        import json
+        from treeneuron.cpu_envelope import validate_cpu_envelope
+        r=json.loads(cpu_envelope_receipt.read_text())['cpu_envelope']
+        r['operations'][0]['causal'][field]=value
+>       with pytest.raises(ValueError):validate_cpu_envelope(r)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cpu_envelope.py:170: Failed
+__ test_envelope_validates_causal_operation_identity[parameter_shapes-value2] __
+
+cpu_envelope_receipt = PosixPath('/private/tmp/h1-final-fix-red-operation-identity/cpu-envelope0/report.json')
+field = 'parameter_shapes', value = {}
+
+    @pytest.mark.parametrize('field,value',[
+        ('schema_version',1),('device','mps'),('parameter_shapes',{}),('total_parameters',1),('seed',1)])
+    def test_envelope_validates_causal_operation_identity(cpu_envelope_receipt,field,value):
+        import json
+        from treeneuron.cpu_envelope import validate_cpu_envelope
+        r=json.loads(cpu_envelope_receipt.read_text())['cpu_envelope']
+        r['operations'][0]['causal'][field]=value
+>       with pytest.raises(ValueError):validate_cpu_envelope(r)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cpu_envelope.py:170: Failed
+____ test_envelope_validates_causal_operation_identity[total_parameters-1] _____
+
+cpu_envelope_receipt = PosixPath('/private/tmp/h1-final-fix-red-operation-identity/cpu-envelope0/report.json')
+field = 'total_parameters', value = 1
+
+    @pytest.mark.parametrize('field,value',[
+        ('schema_version',1),('device','mps'),('parameter_shapes',{}),('total_parameters',1),('seed',1)])
+    def test_envelope_validates_causal_operation_identity(cpu_envelope_receipt,field,value):
+        import json
+        from treeneuron.cpu_envelope import validate_cpu_envelope
+        r=json.loads(cpu_envelope_receipt.read_text())['cpu_envelope']
+        r['operations'][0]['causal'][field]=value
+>       with pytest.raises(ValueError):validate_cpu_envelope(r)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cpu_envelope.py:170: Failed
+__________ test_envelope_validates_causal_operation_identity[seed-1] ___________
+
+cpu_envelope_receipt = PosixPath('/private/tmp/h1-final-fix-red-operation-identity/cpu-envelope0/report.json')
+field = 'seed', value = 1
+
+    @pytest.mark.parametrize('field,value',[
+        ('schema_version',1),('device','mps'),('parameter_shapes',{}),('total_parameters',1),('seed',1)])
+    def test_envelope_validates_causal_operation_identity(cpu_envelope_receipt,field,value):
+        import json
+        from treeneuron.cpu_envelope import validate_cpu_envelope
+        r=json.loads(cpu_envelope_receipt.read_text())['cpu_envelope']
+        r['operations'][0]['causal'][field]=value
+>       with pytest.raises(ValueError):validate_cpu_envelope(r)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_cpu_envelope.py:170: Failed
+=========================== short test summary info ============================
+FAILED tests/test_cpu_envelope.py::test_envelope_validates_causal_operation_identity[schema_version-1]
+FAILED tests/test_cpu_envelope.py::test_envelope_validates_causal_operation_identity[device-mps]
+FAILED tests/test_cpu_envelope.py::test_envelope_validates_causal_operation_identity[parameter_shapes-value2]
+FAILED tests/test_cpu_envelope.py::test_envelope_validates_causal_operation_identity[total_parameters-1]
+FAILED tests/test_cpu_envelope.py::test_envelope_validates_causal_operation_identity[seed-1]
+5 failed in 17.38s
