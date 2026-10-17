@@ -784,7 +784,16 @@ def _run(state, data, policy, paths):
             raise FloatingPointError('Nonfinite float32 training data after conversion')
 
         def record(event):
-            state.history.append(event)
+            # Raw stage events retain the full ordered IDs. Checkpoint/fork
+            # histories need only their versioned ordered-int64 commitment.
+            history_event = event
+            if event['type'] == 'update':
+                row_ids = np.asarray(event['row_ids'], dtype=np.int64)
+                history_event = {k: v for k, v in event.items() if k != 'row_ids'}
+                history_event['row_ids_commitment'] = {
+                    'schema_version': 1, 'encoding': 'ordered_int64_array_hash',
+                    'count': len(row_ids), 'sha256': array_hash(row_ids)}
+            state.history.append(history_event)
             append_event(paths, event)
 
         def evaluate():

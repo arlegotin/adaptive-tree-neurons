@@ -165,7 +165,9 @@ def test_resume_through_growth_matches_uninterrupted(parent, monkeypatch, bounda
     assert_nested_equal(actual.growth_metadata, expected.growth_metadata)
     np.testing.assert_array_equal(actual.next_row_ids(data.F), expected.next_row_ids(data.F))
     assert actual.model.layer.growth_applied
-    assert [e['row_ids'] for e in actual.history if e['type'] == 'update'][-6:] == [e['row_ids'] for e in expected.history if e['type'] == 'update'][-6:]
+    assert [e['row_ids_commitment'] for e in actual.history if e['type'] == 'update'][-6:] == [e['row_ids_commitment'] for e in expected.history if e['type'] == 'update'][-6:]
+    replayed_events = (events(attempt) if boundary == 'during' else []) + events(retry)
+    assert [e['row_ids'] for e in replayed_events if e['type'] == 'update'] == [e['row_ids'] for e in events(uninterrupted_paths) if e['type'] == 'update']
 
 
 @pytest.mark.parametrize('defect', ['count', 'ids', 'dtype', 'shape', 'nan', 'overflow', 'zero', 'hash', 'policy', 'seed', 'attempts', 'cost'])

@@ -5,7 +5,7 @@ import json
 import numpy as np
 import pytest
 import torch
-from test_train import cpu_training_evidence, training_case, assert_state_equal
+from test_train import cpu_training_evidence, training_case, assert_state_equal, events
 from treeneuron.baselines.api import FitRequest
 from treeneuron.artifacts import create_run
 from treeneuron.train import fit_parent, pack_state, unpack_state, TrainingPolicy, continue_fit
@@ -259,7 +259,8 @@ def test_actual_shapes_interrupted_recovery(tmp_path,monkeypatch,cpu_training_ev
         config=state.config
         snapshot=pack_state(state)
         policy=TrainingPolicy.from_config(config,continuation=True)
-        expected=continue_fit(state,data,policy,create_run(tmp_path,config.to_dict()))
+        expected_paths=create_run(tmp_path,config.to_dict())
+        expected=continue_fit(state,data,policy,expected_paths)
         replay=unpack_state(snapshot,expected_hashes=state.identity_hashes,device='cpu')
         execute=lambda paths:continue_fit(replay,data,policy,paths)
         initial_update=replay.update
@@ -268,7 +269,8 @@ def test_actual_shapes_interrupted_recovery(tmp_path,monkeypatch,cpu_training_ev
         if variant in ('lower','upper'): recipe.update(variant=variant,target_parameters=1697);method='B2'
         else: recipe.update(variant='full',coordinates=variant);method='B3'
         config=causal().build_causal(method,recipe).config
-        expected=fit_parent(data,config,create_run(tmp_path,config.to_dict()))
+        expected_paths=create_run(tmp_path,config.to_dict())
+        expected=fit_parent(data,config,expected_paths)
         execute=lambda paths:fit_parent(data,config,paths)
         policy=TrainingPolicy.from_config(config);initial_update=0
     paths=create_run(tmp_path,config.to_dict())
@@ -281,10 +283,13 @@ def test_actual_shapes_interrupted_recovery(tmp_path,monkeypatch,cpu_training_ev
     with pytest.raises(KeyboardInterrupt):execute(paths)
     monkeypatch.setattr(train,'append_event',append)
     resumed=load_checkpoint(paths.directory/'checkpoints/last.json',expected_hashes=expected.identity_hashes,device='cpu')
-    actual=continue_fit(resumed,data,policy,create_run(tmp_path,config.to_dict()))
+    retry=create_run(tmp_path,config.to_dict())
+    actual=continue_fit(resumed,data,policy,retry)
     assert_state_equal(expected,actual)
     np.testing.assert_array_equal(expected.next_row_ids(data.F),actual.next_row_ids(data.F))
-    assert [e['row_ids'] for e in expected.history if e['type']=='update'][-3:]==[e['row_ids'] for e in actual.history if e['type']=='update'][-3:]
+    assert [e['row_ids_commitment'] for e in expected.history if e['type']=='update'][-3:]==[e['row_ids_commitment'] for e in actual.history if e['type']=='update'][-3:]
+    replayed_events=events(paths)+events(retry)
+    assert [e['row_ids'] for e in events(expected_paths) if e['type']=='update']==[e['row_ids'] for e in replayed_events if e['type']=='update']
 
 
 @pytest.mark.parametrize('added',[0,31])
