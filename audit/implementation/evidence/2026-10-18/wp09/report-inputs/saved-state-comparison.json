@@ -1,0 +1,3254 @@
+{
+  "status": "completed",
+  "comparisons": [
+    {
+      "name": "parent",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 20,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "base",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 8000,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 0,
+        "updates_completed": 5800
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "keep",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_0",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_1",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_2",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_3",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_4",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_5",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_6",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_7",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_8",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_9",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_10",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_11",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_12",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_13",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_14",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_15",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_16",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_17",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_18",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_19",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_20",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_21",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_22",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_23",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_24",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_25",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_26",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_27",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_28",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_29",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_30",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_31",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_32",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_33",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_34",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_35",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_36",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_37",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_38",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_39",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_40",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_41",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_42",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_43",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_44",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_45",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_46",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_47",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_48",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_49",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_50",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_51",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_52",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_53",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_54",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_55",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_56",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_57",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_58",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_59",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_60",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_61",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_62",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    },
+    {
+      "name": "unit_63",
+      "exact": true,
+      "maximum_difference": 0,
+      "selected_update": 5300,
+      "stage": {
+        "bad_evaluations": 13,
+        "best_mse": 0.059498702777318314,
+        "complete": true,
+        "kind": "continuation",
+        "policy": {
+          "checkpoint_interval": 25,
+          "checkpoint_selection": "strict_improvement_earliest",
+          "evaluate_at_update_zero": true,
+          "logical_batch_size": 128,
+          "max_updates": 320,
+          "patience": 20,
+          "physical_batch_size": 128,
+          "validation_interval": 25
+        },
+        "start_update": 5300,
+        "updates_completed": 320
+      },
+      "mps_rng_present": false
+    }
+  ],
+  "inputs": [
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/6fa808850bbb430a9c6f11e2be6161ae/checkpoints/best.json",
+      "sha256": "1eb50d3c533934dfd2ea831b8c87b061700c4e99dadd6ecd59861a0285bbe853"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/6fa808850bbb430a9c6f11e2be6161ae/checkpoints/checkpoint-e4e29181ab874a7e91a7ed669af887a1.meta.json",
+      "sha256": "79f1d4d01bbd1567a38364795db8982c5005001aa6cc1988cf5c384638d3209d"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/6fa808850bbb430a9c6f11e2be6161ae/checkpoints/checkpoint-e4e29181ab874a7e91a7ed669af887a1.pt",
+      "sha256": "13d747fb417defb204648d51cc878d195b503101afc5630162b25b3366b733b0"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/f73f8a79122748a19ad533501d58e641/checkpoints/best.json",
+      "sha256": "39d0826099078fe7dadf05e963aa7ec1fe4248ae8f00fe2df3397cc5a40e572c"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/f73f8a79122748a19ad533501d58e641/checkpoints/checkpoint-d98fd9b316134d6d9c05965bc8fe99b1.meta.json",
+      "sha256": "9bcde5d82727ba47fdf36e2beb15e0eae5fd6e176fba89699845a4dad0f11397"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/f73f8a79122748a19ad533501d58e641/checkpoints/checkpoint-d98fd9b316134d6d9c05965bc8fe99b1.pt",
+      "sha256": "13d747fb417defb204648d51cc878d195b503101afc5630162b25b3366b733b0"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/ff64c8cb8fb8440d8d29c798dcd5f055/checkpoints/best.json",
+      "sha256": "0b98f9c0d5bbb952b62c71738fdab444c07f5f4075571fa4cab3adf8de7536b8"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/ff64c8cb8fb8440d8d29c798dcd5f055/checkpoints/checkpoint-62d4db59cdc5463d91e6495fb200a913.meta.json",
+      "sha256": "f27b82843a60151e47be92b83f4c285c689d30349fa12265d29d953721860154"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/ff64c8cb8fb8440d8d29c798dcd5f055/checkpoints/checkpoint-62d4db59cdc5463d91e6495fb200a913.pt",
+      "sha256": "13d747fb417defb204648d51cc878d195b503101afc5630162b25b3366b733b0"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/fed8460ed1d94f2aae06db2c36d8c1b5/checkpoints/best.json",
+      "sha256": "eb3ebbecb14ab7094e7a964cc0ddd3f79dbb5491e79dff3ff53e9b317580bc39"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/fed8460ed1d94f2aae06db2c36d8c1b5/checkpoints/checkpoint-e077cc4e74a94bb095d9301870d05a69.meta.json",
+      "sha256": "01d6e3dc7fe0adf275bdd5b304b019bf1f107c78638c658bc9fd0ceb1f44d78d"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/fed8460ed1d94f2aae06db2c36d8c1b5/checkpoints/checkpoint-e077cc4e74a94bb095d9301870d05a69.pt",
+      "sha256": "13d747fb417defb204648d51cc878d195b503101afc5630162b25b3366b733b0"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/20597779c4d848489cee0653c0c7e0c8/checkpoints/best.json",
+      "sha256": "08c104ae6090966fa3e332eec6e33200eba1695b2fe21345cd063bed4fef1721"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/20597779c4d848489cee0653c0c7e0c8/checkpoints/checkpoint-b6de2a3ce3de4da0913c7376c1435a20.meta.json",
+      "sha256": "1468c7b2d69bc56c313f69a80ecebea703f54b89e01c902d96d8843069cbf747"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/20597779c4d848489cee0653c0c7e0c8/checkpoints/checkpoint-b6de2a3ce3de4da0913c7376c1435a20.pt",
+      "sha256": "1e5b289e48381663d28d691f49e564c38ca63f926e86d73188cbba6c9968b90e"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/ed92406d73734249bf7c1fb003646ff9/checkpoints/best.json",
+      "sha256": "fc4022c6b286980215e9bfd9e2ecf7efae5a4b813ff6d19c0c40a7b67b948819"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/ed92406d73734249bf7c1fb003646ff9/checkpoints/checkpoint-7db16aa24fef4dfcb1f1309de0b3c20d.meta.json",
+      "sha256": "597a19f66468735709fecbf65c7cccb59f2c8a0e3eb4e0188ba6ca7d855506a3"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/ed92406d73734249bf7c1fb003646ff9/checkpoints/checkpoint-7db16aa24fef4dfcb1f1309de0b3c20d.pt",
+      "sha256": "1e5b289e48381663d28d691f49e564c38ca63f926e86d73188cbba6c9968b90e"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/b22bb449cc9e49de871fb1a90698f5db/checkpoints/best.json",
+      "sha256": "d18d60938a981aa81109d7b201c4cc7c3d6cb9fddf776a2f66010d1ddb769a67"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/b22bb449cc9e49de871fb1a90698f5db/checkpoints/checkpoint-5c008ec394764c3fa5b8e44f34daeda8.meta.json",
+      "sha256": "6962eb52d5f7ccfa1e6310c17999da199f026205133546fd3419c2a05fa469c7"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/b22bb449cc9e49de871fb1a90698f5db/checkpoints/checkpoint-5c008ec394764c3fa5b8e44f34daeda8.pt",
+      "sha256": "9a1ed512857417ab10ef77e3f1751c7546de19db07735d240a8c6191d35cc872"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/c1c4c024dcaa4b2d81bfca77aff62ed1/checkpoints/best.json",
+      "sha256": "2cf8541c32604e609edf3716fb71f49e0bc4463fe6f794778c573ff6c03f856f"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/c1c4c024dcaa4b2d81bfca77aff62ed1/checkpoints/checkpoint-4983f16cd3524e07b408041a5e637848.meta.json",
+      "sha256": "d09cab6fe9778d0b0918310c4dc44018710de54c5a016a04986c560a60e34852"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/c1c4c024dcaa4b2d81bfca77aff62ed1/checkpoints/checkpoint-4983f16cd3524e07b408041a5e637848.pt",
+      "sha256": "9a1ed512857417ab10ef77e3f1751c7546de19db07735d240a8c6191d35cc872"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/111fe30e0e33488899a57905cec5ae80/checkpoints/best.json",
+      "sha256": "9b7f8873c70cd82ff2241184a393e3b7fcd917669615d9b0bfa06cf0bfc61ca1"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/111fe30e0e33488899a57905cec5ae80/checkpoints/checkpoint-9b3476e111e043539b76cde5fb8ec21a.meta.json",
+      "sha256": "e560a340f1c550b1b3b39a34193c5c2a27f9123045d35720009464284ac404bd"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/111fe30e0e33488899a57905cec5ae80/checkpoints/checkpoint-9b3476e111e043539b76cde5fb8ec21a.pt",
+      "sha256": "c3ce75ce6ced9a7a64718f473da6a774a87bdea5098c0a2495c081e00fc31a7f"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/deeec10d098543989706ac881ac83de5/checkpoints/best.json",
+      "sha256": "19701c52365374251bd899e74c7c061a06cd69be9cd7fbf608ff0c41cae28565"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/deeec10d098543989706ac881ac83de5/checkpoints/checkpoint-3e339a2219664200b2a5b0bfbc44ae48.meta.json",
+      "sha256": "aa7e606f3085ac831416df5158a9265d29ecbd057fd1706669c08fb76ea0fb71"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/deeec10d098543989706ac881ac83de5/checkpoints/checkpoint-3e339a2219664200b2a5b0bfbc44ae48.pt",
+      "sha256": "c3ce75ce6ced9a7a64718f473da6a774a87bdea5098c0a2495c081e00fc31a7f"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/85e0f10253504637a0ac0a6c8a7677ff/checkpoints/best.json",
+      "sha256": "e359e7b78a6c1a9d7b0fcc6e378a2ad62c3fcd053d36defa48883908856d8fdc"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/85e0f10253504637a0ac0a6c8a7677ff/checkpoints/checkpoint-f76ffe36224e4e218d22598ffb82a7e7.meta.json",
+      "sha256": "a0560e12e4ab641b26504a3cb1044677415d839db79d49b76cb209cfbaed4a0b"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/85e0f10253504637a0ac0a6c8a7677ff/checkpoints/checkpoint-f76ffe36224e4e218d22598ffb82a7e7.pt",
+      "sha256": "cdccd44e0df06a638b76404ecb9feea9c278244df3c0cc4b9adc8c78f4916aa2"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/d88e537fe95f403cb3da2e1e570b31d7/checkpoints/best.json",
+      "sha256": "efc88cbbf5623e58c94e5fce969bd0fae3f5fa7e3fafe38b783ca8be82f0a296"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/d88e537fe95f403cb3da2e1e570b31d7/checkpoints/checkpoint-93e0986e367f4807b0df88eef5850756.meta.json",
+      "sha256": "32dae41d333d596686d9392a0d504a889524262fb35164d8380515534511affa"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/d88e537fe95f403cb3da2e1e570b31d7/checkpoints/checkpoint-93e0986e367f4807b0df88eef5850756.pt",
+      "sha256": "cdccd44e0df06a638b76404ecb9feea9c278244df3c0cc4b9adc8c78f4916aa2"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/3232e45cc38d49c7acf519e3f45425c1/checkpoints/best.json",
+      "sha256": "e9cf1eac80559af4a6dc89bfce3e04bab83e56672c3eb46457fc540a2e74e467"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/3232e45cc38d49c7acf519e3f45425c1/checkpoints/checkpoint-0871f95f7fdb4c3f8b58557aabcb6185.meta.json",
+      "sha256": "0611c8b6cdaa9ddd473979c4981597550366efc2d68b1bfa05660c2cab4216d6"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/3232e45cc38d49c7acf519e3f45425c1/checkpoints/checkpoint-0871f95f7fdb4c3f8b58557aabcb6185.pt",
+      "sha256": "4d64be451f513b5a06e1b2825143e7f064d2e581b8c6d055a50882b14cc66ecb"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/3ed2d41bc3c845a49ab3a98010fc19f1/checkpoints/best.json",
+      "sha256": "3f71fdd37568932e9845cc36f600540f110de36437038163f2d70d479aa8f907"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/3ed2d41bc3c845a49ab3a98010fc19f1/checkpoints/checkpoint-2477c4d0c971414f9ba05567a8481cde.meta.json",
+      "sha256": "6ef892756414f31250aa21bc7250e36faf04f73fcafad81992b57c3ff4daee39"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/3ed2d41bc3c845a49ab3a98010fc19f1/checkpoints/checkpoint-2477c4d0c971414f9ba05567a8481cde.pt",
+      "sha256": "4d64be451f513b5a06e1b2825143e7f064d2e581b8c6d055a50882b14cc66ecb"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/4209445f5a394a29bceceeaef25abf91/checkpoints/best.json",
+      "sha256": "9cff68d48a1a5ec4bae87887c3b60a16c91422f569e284075c57562c6c8e23e3"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/4209445f5a394a29bceceeaef25abf91/checkpoints/checkpoint-12776745028f451aa3c480d50aa0915a.meta.json",
+      "sha256": "62a40c1e5b9b5273eab4e324ca59e751bec2a105a766bdd154ee65e3cbc59083"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/4209445f5a394a29bceceeaef25abf91/checkpoints/checkpoint-12776745028f451aa3c480d50aa0915a.pt",
+      "sha256": "1c34123cf80cdf1a14bf542fe83de1b03154f4bf69bfaca881aab676fa0f1bb1"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/f646327e5d4545fe97f05fb98327c5da/checkpoints/best.json",
+      "sha256": "51d18745cc0676fbc865ffcbfb446e6196f24eae19fca24f9e495ca4379f7d56"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/f646327e5d4545fe97f05fb98327c5da/checkpoints/checkpoint-73aa96e28d05493d8d04240a93ecd4d6.meta.json",
+      "sha256": "bbfbb953adc5c75b13ffd1066676e36f94b7b818d02f03b59db44d55dc8d83bb"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/f646327e5d4545fe97f05fb98327c5da/checkpoints/checkpoint-73aa96e28d05493d8d04240a93ecd4d6.pt",
+      "sha256": "1c34123cf80cdf1a14bf542fe83de1b03154f4bf69bfaca881aab676fa0f1bb1"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/2f631ed0f25d45ea9cc65e8d7611b8fc/checkpoints/best.json",
+      "sha256": "efcb8ff06261990c74b88fad69ca79cf6fe1f95db91bb0ae8a17f568b1c510a9"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/2f631ed0f25d45ea9cc65e8d7611b8fc/checkpoints/checkpoint-cfe4e8d5dd2b4707a481cd1b8534655a.meta.json",
+      "sha256": "b362b841d78ef44fd0290ea9e73e81d0a4045306309c1c1e961bdf6c801afa56"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/2f631ed0f25d45ea9cc65e8d7611b8fc/checkpoints/checkpoint-cfe4e8d5dd2b4707a481cd1b8534655a.pt",
+      "sha256": "93f1b0e704a790171f1700e4a024b21a1809e20b71b569696dcb7a9f9fab0d90"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/6d16a3564d394b54982272917b259513/checkpoints/best.json",
+      "sha256": "2eda13cb5dd9e3ebd1ba9076ed88e7a1209e3d2c12cfb44cc36dc2f0e1b5a954"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/6d16a3564d394b54982272917b259513/checkpoints/checkpoint-be5a5dd4936a4501a1f9823021427e2e.meta.json",
+      "sha256": "b5e1f81165fe36f156c805d99abbe46f0fbc86383ab61b15433183883b477aa5"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/6d16a3564d394b54982272917b259513/checkpoints/checkpoint-be5a5dd4936a4501a1f9823021427e2e.pt",
+      "sha256": "93f1b0e704a790171f1700e4a024b21a1809e20b71b569696dcb7a9f9fab0d90"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/7e70a3e16dea40f49987312c15c7811c/checkpoints/best.json",
+      "sha256": "497aafc8aa140fcab2d09362baf1bd5e93ce6fdf1870d89b6a4046a0bee9c60f"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/7e70a3e16dea40f49987312c15c7811c/checkpoints/checkpoint-da8d70e129114002b94a394825177eeb.meta.json",
+      "sha256": "bf06f0c48bbb48aa17cc4ce079ef4d7cfb55f3b92ab352026ac3976a02e4521d"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/7e70a3e16dea40f49987312c15c7811c/checkpoints/checkpoint-da8d70e129114002b94a394825177eeb.pt",
+      "sha256": "fe8e1999c33c365a232ae193975a0a208a029a2c7db8c4f77acdec38711df467"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/53cb0fc1c95b4ab9aff3e8f631fe77bd/checkpoints/best.json",
+      "sha256": "e5d350bc07d73e1c5ac64ba31661a4990bc0a0f0a302c429cc9665e06acf2444"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/53cb0fc1c95b4ab9aff3e8f631fe77bd/checkpoints/checkpoint-6295bc963ccc4f338cc23ccc3049731b.meta.json",
+      "sha256": "c178640aaf69eb16610b29429b73d99b98e9fdec0955c7ed9bd2d35bb341c770"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/53cb0fc1c95b4ab9aff3e8f631fe77bd/checkpoints/checkpoint-6295bc963ccc4f338cc23ccc3049731b.pt",
+      "sha256": "fe8e1999c33c365a232ae193975a0a208a029a2c7db8c4f77acdec38711df467"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/eb7e0028c8a54f9b94e05610f7121971/checkpoints/best.json",
+      "sha256": "d6634cfa2ffb218811866b59ef5045fc0bf7f3ae4a9a5e7ea493ef12ade737b2"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/eb7e0028c8a54f9b94e05610f7121971/checkpoints/checkpoint-86a406c2c674493dafdd0913184d86ce.meta.json",
+      "sha256": "519d7a1c4e80bd2c484d1b029130b739a4a2b89cf542e31463ed6dbac43c25d0"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/eb7e0028c8a54f9b94e05610f7121971/checkpoints/checkpoint-86a406c2c674493dafdd0913184d86ce.pt",
+      "sha256": "afa2277adc13b4bcb6bd7360ace63ee8e9e0e1920fe1a7ed41d6286b85852b6e"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/d8387ee00ee445ca8088292d0c6ee843/checkpoints/best.json",
+      "sha256": "c2c008dde5b0fa36e0fc065720545c2fb5062d81babf03cca48caf8d31753cd3"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/d8387ee00ee445ca8088292d0c6ee843/checkpoints/checkpoint-6e3e5a55dcba482da425e930217abd6a.meta.json",
+      "sha256": "974cc719b553a7ba6861da0b6e8e1571993ccf96c36b23874a59fff44e9985c7"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/d8387ee00ee445ca8088292d0c6ee843/checkpoints/checkpoint-6e3e5a55dcba482da425e930217abd6a.pt",
+      "sha256": "afa2277adc13b4bcb6bd7360ace63ee8e9e0e1920fe1a7ed41d6286b85852b6e"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/51a5a74543db4cccb67f333109deb3a2/checkpoints/best.json",
+      "sha256": "ad179b315f4b38b54160c1ee3c9e052d55809d9f86eb31b60a27c376eb0b986a"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/51a5a74543db4cccb67f333109deb3a2/checkpoints/checkpoint-86fce724c1b4433088906d2f29b0ce20.meta.json",
+      "sha256": "49d5511343fc667b498140a3c0846105f92d01caed0e356ed0584f4f0e50333b"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/51a5a74543db4cccb67f333109deb3a2/checkpoints/checkpoint-86fce724c1b4433088906d2f29b0ce20.pt",
+      "sha256": "ae715763c4f1e3b5bb2afcd3cbd0676bbd05a0964dcdea24fd5cd666fe9882f8"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/7c1985e85f7a4bcf83f785502d48164a/checkpoints/best.json",
+      "sha256": "b548a35c09b63c7557723b67de4970eeb2c5128f095ee3ebd247348ff08c2693"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/7c1985e85f7a4bcf83f785502d48164a/checkpoints/checkpoint-e220696c924b464bad8b0f639740ee36.meta.json",
+      "sha256": "242fe756b6e59326f26b7235a5accad13f203338b880072124e01f72329c2491"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/7c1985e85f7a4bcf83f785502d48164a/checkpoints/checkpoint-e220696c924b464bad8b0f639740ee36.pt",
+      "sha256": "ae715763c4f1e3b5bb2afcd3cbd0676bbd05a0964dcdea24fd5cd666fe9882f8"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/5e88cf41ff554af280f629155b578247/checkpoints/best.json",
+      "sha256": "d438700e59f4f6e98b84e2cbe0730346b3db9f712b8c93a6d43363c7ea0436b4"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/5e88cf41ff554af280f629155b578247/checkpoints/checkpoint-08472fdb9f674fb385ed05e4b1fa4fae.meta.json",
+      "sha256": "feb39224240b141a16a5c134d934fa61a63e06ecd585d93c86e5f9cc5f76835e"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/5e88cf41ff554af280f629155b578247/checkpoints/checkpoint-08472fdb9f674fb385ed05e4b1fa4fae.pt",
+      "sha256": "89f5ee8d0b1e3d71e02ad3f41142ec1f5649a3677cb23dd35a20d18670dfff2f"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/44bb8e0a36614bce96c071e5851e37db/checkpoints/best.json",
+      "sha256": "0bb78e466562a914ee1d530f7008adf50b57ed5e410b2e5d3da1e6417c0a8652"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/44bb8e0a36614bce96c071e5851e37db/checkpoints/checkpoint-30739ffb460948679ebf6a0f21aff717.meta.json",
+      "sha256": "ac351526b24033e9e95b006d573edefa325c56ef2463171e9361f7df2632a6cb"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/44bb8e0a36614bce96c071e5851e37db/checkpoints/checkpoint-30739ffb460948679ebf6a0f21aff717.pt",
+      "sha256": "89f5ee8d0b1e3d71e02ad3f41142ec1f5649a3677cb23dd35a20d18670dfff2f"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/83c39d8cd5784a4483938626e049a83c/checkpoints/best.json",
+      "sha256": "62ab79036ac5bbdd40fb8e253e4af11b7682b0ff03db7cd4e226b8cbc84b6bb8"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/83c39d8cd5784a4483938626e049a83c/checkpoints/checkpoint-1f335a729b41461781e8868f977fd745.meta.json",
+      "sha256": "d789c09bae4ffb3f86e811d62c22d2804ce22690f27ef4db78b049aa06b9f8a2"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/83c39d8cd5784a4483938626e049a83c/checkpoints/checkpoint-1f335a729b41461781e8868f977fd745.pt",
+      "sha256": "5f7cc11f6fbf216783c8cb6037967b2c6c1557d6ee9af19fea237633280f1bf0"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/448928058c414fbdb49dbd3f6c5e0be4/checkpoints/best.json",
+      "sha256": "953b7cb0dfdd12374b1d702de8a74729978281fac698931f128fbda9e26a2f1a"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/448928058c414fbdb49dbd3f6c5e0be4/checkpoints/checkpoint-d6aeaee02786484fb9cf549769704729.meta.json",
+      "sha256": "de6359cd2298442c2c819a9faf1c8d8c7f838c23a5b2a411ade05c183de12b0c"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/448928058c414fbdb49dbd3f6c5e0be4/checkpoints/checkpoint-d6aeaee02786484fb9cf549769704729.pt",
+      "sha256": "5f7cc11f6fbf216783c8cb6037967b2c6c1557d6ee9af19fea237633280f1bf0"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/d201a85b703d4f8297fc8b7b5eb80093/checkpoints/best.json",
+      "sha256": "08329ef333894c5ab1628ba6f6cb3eab68b2311a01f55182213da1c7f961fdab"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/d201a85b703d4f8297fc8b7b5eb80093/checkpoints/checkpoint-b6ed270511504b96a01810560b579347.meta.json",
+      "sha256": "c8e05bfe8e39d32f53fbba19d35f070c46f0732fcfc1a165b9f9dd095ab4f27a"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/d201a85b703d4f8297fc8b7b5eb80093/checkpoints/checkpoint-b6ed270511504b96a01810560b579347.pt",
+      "sha256": "daff85d57d3a34007fa37121629d63deb7ca0f7806c7eeb0c0232002f3784cae"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/5ab66bf82bc446b2bbdc306c3ca0a671/checkpoints/best.json",
+      "sha256": "3ecc26e9fcfd6d31df7644f67e66cf778c86739cce11bd933e1bcceeb34d9781"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/5ab66bf82bc446b2bbdc306c3ca0a671/checkpoints/checkpoint-19eecdb349b540368c2f05cc228afc97.meta.json",
+      "sha256": "d40d34a055a6ba36a6e087fd5d933bef478f389e75513b36f3fcbb229215fe1d"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/5ab66bf82bc446b2bbdc306c3ca0a671/checkpoints/checkpoint-19eecdb349b540368c2f05cc228afc97.pt",
+      "sha256": "daff85d57d3a34007fa37121629d63deb7ca0f7806c7eeb0c0232002f3784cae"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/3144ea494d3d4de892b1f25afe900a0e/checkpoints/best.json",
+      "sha256": "171288b3ea86ea00187154d03ffd745ef3b371cc4300ddd1bfc86c0aca1a7199"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/3144ea494d3d4de892b1f25afe900a0e/checkpoints/checkpoint-cb3df89f93944424945f16e12e39df01.meta.json",
+      "sha256": "bb15c90125037ec903170c0370ff3b5dd4bfd2b8dc983186ccd7a42cdb94ed2b"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/3144ea494d3d4de892b1f25afe900a0e/checkpoints/checkpoint-cb3df89f93944424945f16e12e39df01.pt",
+      "sha256": "9c2f2dd7a90049a6b5b41c28bb24564318ba6e72e3dbbcf01f60934ad8b59473"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/eb682bbe23ff4c9bac8f04c87261ec3d/checkpoints/best.json",
+      "sha256": "95d8a6b9e89de26033d2ca9ec289fe4915b86a64d68a508226e9918615f72b33"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/eb682bbe23ff4c9bac8f04c87261ec3d/checkpoints/checkpoint-7f78b0d38e9448e6b7888b0e3fec535c.meta.json",
+      "sha256": "2d6bf61ecc51a8d5e77d095348f7d633a9bed14ec4ea058d62611f4943bb14fd"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/eb682bbe23ff4c9bac8f04c87261ec3d/checkpoints/checkpoint-7f78b0d38e9448e6b7888b0e3fec535c.pt",
+      "sha256": "9c2f2dd7a90049a6b5b41c28bb24564318ba6e72e3dbbcf01f60934ad8b59473"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/206556e6acd9453a851dfdfdbb702410/checkpoints/best.json",
+      "sha256": "146e60f92ad2a90e31cafdf1c9fd5720f2fad06675861ca676af9f039a254378"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/206556e6acd9453a851dfdfdbb702410/checkpoints/checkpoint-4d835d6ad4ad457b9e9867c51fb9a82a.meta.json",
+      "sha256": "209df54f3443817582a53f0a4931ae584350632efa9a04e03b6fd6db751dd3fa"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/206556e6acd9453a851dfdfdbb702410/checkpoints/checkpoint-4d835d6ad4ad457b9e9867c51fb9a82a.pt",
+      "sha256": "cef5f3a12f508632b64b0fe6c0003ae94d10bfd2900d6b43e5b037ef357f4902"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/ecd8275cad7e437b8a852815f8ce0add/checkpoints/best.json",
+      "sha256": "c3dd6125ea60d134aa35220b8cb968bd0a0cee420a4eff0c6fa439735066d2b7"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/ecd8275cad7e437b8a852815f8ce0add/checkpoints/checkpoint-258530534c6b43249ecdf7750fc89067.meta.json",
+      "sha256": "e2b0ea024651c58d2235310febe89d4d583f75f7cbe16cd2a231063e54284a11"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/ecd8275cad7e437b8a852815f8ce0add/checkpoints/checkpoint-258530534c6b43249ecdf7750fc89067.pt",
+      "sha256": "cef5f3a12f508632b64b0fe6c0003ae94d10bfd2900d6b43e5b037ef357f4902"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/0e5183ad0ed64061901a5df70781270a/checkpoints/best.json",
+      "sha256": "24e761344b770c095e050b6cd62458334ab4f97aaf282e69df78bec5694ddbbe"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/0e5183ad0ed64061901a5df70781270a/checkpoints/checkpoint-0407aa55273944a38287c2162f34ef8c.meta.json",
+      "sha256": "0ed5dba91eb653747921e70106afab9033edccebe6897393a98947dd19e23d1b"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/0e5183ad0ed64061901a5df70781270a/checkpoints/checkpoint-0407aa55273944a38287c2162f34ef8c.pt",
+      "sha256": "5421e35d67ae010d443074d1f037e05751a246bc71279a62c4c70d93871fa578"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/8ec43115db02480bbcae0d9aff939e42/checkpoints/best.json",
+      "sha256": "ae1791fcc8e4fdd7c8cfeb60f697283707c4b04c3b83d8188d5b7af0ed057bac"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/8ec43115db02480bbcae0d9aff939e42/checkpoints/checkpoint-ab83c89dccb2453fbccb2946cabd2544.meta.json",
+      "sha256": "a808da01793021d61d7ddc620cb76100299b8be04bf4469fcdb2d2a3d02668dc"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/8ec43115db02480bbcae0d9aff939e42/checkpoints/checkpoint-ab83c89dccb2453fbccb2946cabd2544.pt",
+      "sha256": "5421e35d67ae010d443074d1f037e05751a246bc71279a62c4c70d93871fa578"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/eb08fc8ff2cd4603ab4d9268afb88ab1/checkpoints/best.json",
+      "sha256": "7e50368c6d5f466a2ac5954302ffcfb3cb7c85261b57a9a050ad5abe5f4123e0"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/eb08fc8ff2cd4603ab4d9268afb88ab1/checkpoints/checkpoint-267abf5b0283441eadcb8bb582261760.meta.json",
+      "sha256": "f41359b7c5a2782c10df00174dcc50294e9f208d5e682cc8e4e4f8534ef27e4e"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/eb08fc8ff2cd4603ab4d9268afb88ab1/checkpoints/checkpoint-267abf5b0283441eadcb8bb582261760.pt",
+      "sha256": "cf0913c155e7222b98d4fe32b871ca5a63c6445d35823573345eb450b7db8dd0"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/8d6a2d2bd6b748fca10c5b6428dc3cd3/checkpoints/best.json",
+      "sha256": "507cc6f17536768ff6bcbb30f7c6d48756bd6eef3671ebe221d46a07f217ad5b"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/8d6a2d2bd6b748fca10c5b6428dc3cd3/checkpoints/checkpoint-acafdabcd05642e684615fc729a0443c.meta.json",
+      "sha256": "01b921c7fb92c84b7a9a7d5d8505ff6b141fda5e56ccbe09ea4c5acda237d1e0"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/8d6a2d2bd6b748fca10c5b6428dc3cd3/checkpoints/checkpoint-acafdabcd05642e684615fc729a0443c.pt",
+      "sha256": "cf0913c155e7222b98d4fe32b871ca5a63c6445d35823573345eb450b7db8dd0"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/368dd994776e4190b94208690a2d5851/checkpoints/best.json",
+      "sha256": "6321d9f5225fd7d2d0096af5cc0fa5b556b79ec681bfd6422c6c604ac49b654b"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/368dd994776e4190b94208690a2d5851/checkpoints/checkpoint-73fec8a2950949659cee6ce78178d1cd.meta.json",
+      "sha256": "3e2ca6a2fbe10d5fe5fd399f234976362d576443488704371ec5f9cdf9993b7a"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/368dd994776e4190b94208690a2d5851/checkpoints/checkpoint-73fec8a2950949659cee6ce78178d1cd.pt",
+      "sha256": "c241c3699094f3c85c225e939c9d7ea2c34f2bc17eb78ac513bf1e6544ba26de"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/dbfedf15b3224f21ac8b39781f082f6a/checkpoints/best.json",
+      "sha256": "2500da0da0437c04694ad6265b6ea706c2bdd5cc3e47bd17d72e57dbecb56b9b"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/dbfedf15b3224f21ac8b39781f082f6a/checkpoints/checkpoint-f7cb1b900fbb446ca993007612ef8b8a.meta.json",
+      "sha256": "5904d7aee1b0599ad3c93ecaf14353fb1ee537bc33339be2bb3d299c82367675"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/dbfedf15b3224f21ac8b39781f082f6a/checkpoints/checkpoint-f7cb1b900fbb446ca993007612ef8b8a.pt",
+      "sha256": "c241c3699094f3c85c225e939c9d7ea2c34f2bc17eb78ac513bf1e6544ba26de"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/8032841948494976987332437f7c43ca/checkpoints/best.json",
+      "sha256": "476c9c8c766b9cc61da8eb52643528ef0558113ccb12686aa6aa9653058fe157"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/8032841948494976987332437f7c43ca/checkpoints/checkpoint-9251fbbbbdb64312b95d6d4e83f3e9f4.meta.json",
+      "sha256": "abe14ebdc83b3a4797ff7bc6f6e157626a39d7a1d4fb4a8de91ebc583d58db9f"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/8032841948494976987332437f7c43ca/checkpoints/checkpoint-9251fbbbbdb64312b95d6d4e83f3e9f4.pt",
+      "sha256": "ece418c31a9af80016bfc4c24dc227fea013b64146f168a0fba3de78319011bb"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/1bc4ec232f644837b2046a203999572c/checkpoints/best.json",
+      "sha256": "95201e5a2eeda5cff7533a84a59fc4eb7db4a60755af112e11241112fed67ae6"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/1bc4ec232f644837b2046a203999572c/checkpoints/checkpoint-7538fd539512476c8a5d85278e70372a.meta.json",
+      "sha256": "970a41278ae32270dc31f3c162bc87e28e5aab9db01f63ea1dbfe4a26afa0ac4"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/1bc4ec232f644837b2046a203999572c/checkpoints/checkpoint-7538fd539512476c8a5d85278e70372a.pt",
+      "sha256": "ece418c31a9af80016bfc4c24dc227fea013b64146f168a0fba3de78319011bb"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/c99490b4f01041eebb23e60b3ba68d10/checkpoints/best.json",
+      "sha256": "1e82e4a0dbf23c9399e933481e4958c8cad6de92c262dee38025b48ce4c24330"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/c99490b4f01041eebb23e60b3ba68d10/checkpoints/checkpoint-987f0e0422ec486885d38f57c966daba.meta.json",
+      "sha256": "11967af70ead6ba2f0f6cc256ce17628f99714e8c7b921d135df9a530b6b9a31"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/c99490b4f01041eebb23e60b3ba68d10/checkpoints/checkpoint-987f0e0422ec486885d38f57c966daba.pt",
+      "sha256": "177f2bff0f098f14295f8316e617bf0d29e69050d723c48d1278ce4da433deec"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/a8f05a19cdf6409e9efcf68803e29de8/checkpoints/best.json",
+      "sha256": "95cf3f5ad88602f1f3b7abe36275a1bf237c8b823b2be698874257a04cc442a8"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/a8f05a19cdf6409e9efcf68803e29de8/checkpoints/checkpoint-7cdfb26a94ee4870b5b7117907d7a8e2.meta.json",
+      "sha256": "06c42c0789558da227b0c02bf931fa16e847a0534f407b9074cbb5a9582745c6"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/a8f05a19cdf6409e9efcf68803e29de8/checkpoints/checkpoint-7cdfb26a94ee4870b5b7117907d7a8e2.pt",
+      "sha256": "177f2bff0f098f14295f8316e617bf0d29e69050d723c48d1278ce4da433deec"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/3d91326742d1431c84eb22f171967fac/checkpoints/best.json",
+      "sha256": "3558874fe91ffa317e55ccbfe6084d155e0730dc6e73bd7d6c316a7c72a8f1b2"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/3d91326742d1431c84eb22f171967fac/checkpoints/checkpoint-ee88e42dc1354eea98d4b766eb2ffd26.meta.json",
+      "sha256": "7d5f079ba83f34f4fe3023aee8297ec9329b9d9018f9a23b9ef5393f0015c265"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/3d91326742d1431c84eb22f171967fac/checkpoints/checkpoint-ee88e42dc1354eea98d4b766eb2ffd26.pt",
+      "sha256": "fb10adcd6d6a130e2fb06c9b44685f274e44ced13b59d6d3c6546a49b2731784"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/249f7653405d44a2a7daea514267af6c/checkpoints/best.json",
+      "sha256": "d3924a8c177d343501de24a39eb1c048e7c4599f2fa453dd12fe53b799c63b63"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/249f7653405d44a2a7daea514267af6c/checkpoints/checkpoint-1d1ab49f30cf42e3aa179703e6a5b0b0.meta.json",
+      "sha256": "575ff46f35f52750acd2edd8929603fe3817e9e8f2cc7c361c31351a594cf531"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/249f7653405d44a2a7daea514267af6c/checkpoints/checkpoint-1d1ab49f30cf42e3aa179703e6a5b0b0.pt",
+      "sha256": "fb10adcd6d6a130e2fb06c9b44685f274e44ced13b59d6d3c6546a49b2731784"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/419149e9a0f64decbe5a749d451a0269/checkpoints/best.json",
+      "sha256": "7dd061522e020b132a0ec532bc439c5f59b81a67a97cdfbe1cdf4b6803434116"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/419149e9a0f64decbe5a749d451a0269/checkpoints/checkpoint-99fc22f079204bc2b88f2e70e8b94689.meta.json",
+      "sha256": "f1e42ab5b21c25a11a4bb67ccf53906b6ee3472e1e12deacfc30260e0620f323"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/419149e9a0f64decbe5a749d451a0269/checkpoints/checkpoint-99fc22f079204bc2b88f2e70e8b94689.pt",
+      "sha256": "35e4776569125f361113ed48abfef3054bad811c30be38ba811883349e933124"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/9726a86a85d248a1b90e1641141a5dce/checkpoints/best.json",
+      "sha256": "3db92681f5f6a7d75749a78727ded67f664b6456be3a97c530c436d3013b5c0f"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/9726a86a85d248a1b90e1641141a5dce/checkpoints/checkpoint-511dcd0070004d81be0aafe8bba128eb.meta.json",
+      "sha256": "060fde49a5a19d7c4a998d6dc6099caf461f3b60ecef70d686bf66d9806512af"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/9726a86a85d248a1b90e1641141a5dce/checkpoints/checkpoint-511dcd0070004d81be0aafe8bba128eb.pt",
+      "sha256": "35e4776569125f361113ed48abfef3054bad811c30be38ba811883349e933124"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/9c363b1de4e04abda4dab8a9b5d5372d/checkpoints/best.json",
+      "sha256": "865590398670233a9a6557abb3fce25928ecbb9b58f17a6ebfa2eea2f55c4cd9"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/9c363b1de4e04abda4dab8a9b5d5372d/checkpoints/checkpoint-6e9704ed6bbd4c8d87e0d47fa3b8eb8a.meta.json",
+      "sha256": "2e7f487b5b34db4deb44b44043e5e0217ee10784fe5cf2c69d5ae03854c37e3a"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/9c363b1de4e04abda4dab8a9b5d5372d/checkpoints/checkpoint-6e9704ed6bbd4c8d87e0d47fa3b8eb8a.pt",
+      "sha256": "5d00cab28a4111adc087462d377bbe1cf24e40dab50b813582bfaddec1e6986c"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/d4902807cf134c0d800b25cafea67b58/checkpoints/best.json",
+      "sha256": "9c3541406bd6c84b3da7dc3db8b81edb6077f667782125b3045a4bc27d139c58"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/d4902807cf134c0d800b25cafea67b58/checkpoints/checkpoint-8b3a61ea95564d12b3bea342fc9ec17d.meta.json",
+      "sha256": "f541cf302fc5af056a2df71f71c46b990a168b443f6ba0452fab323ddd684169"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/d4902807cf134c0d800b25cafea67b58/checkpoints/checkpoint-8b3a61ea95564d12b3bea342fc9ec17d.pt",
+      "sha256": "5d00cab28a4111adc087462d377bbe1cf24e40dab50b813582bfaddec1e6986c"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/1ac0fdc28dac4ccd990d59a9e25e42ca/checkpoints/best.json",
+      "sha256": "bbea62f820871c333d92cef8456e469099264974c2d91a26e1ab6d2a2cfd2109"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/1ac0fdc28dac4ccd990d59a9e25e42ca/checkpoints/checkpoint-d797a6832077426e839980f84b8c05d6.meta.json",
+      "sha256": "cfbdb95e098a492cc75d05545b9a1cafd2e21edd74959b968f5246a3f4b491ca"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/1ac0fdc28dac4ccd990d59a9e25e42ca/checkpoints/checkpoint-d797a6832077426e839980f84b8c05d6.pt",
+      "sha256": "b684b675b56add7c3ea60423532d3cb4e5e487529c4554938836c3dec20d338f"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/d08a18c0d7254ae78a6c129c2c1b8d35/checkpoints/best.json",
+      "sha256": "43ea1d317770890fc083179a4be80d756249bebb5fccaa2dcb1ce911e440b820"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/d08a18c0d7254ae78a6c129c2c1b8d35/checkpoints/checkpoint-633d3021fa6847598f8b4a6de38dfb7d.meta.json",
+      "sha256": "9dc29e6fee3a77c55e5a8405fff59cc95810d58f831a141da6fcbe5749590998"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/d08a18c0d7254ae78a6c129c2c1b8d35/checkpoints/checkpoint-633d3021fa6847598f8b4a6de38dfb7d.pt",
+      "sha256": "b684b675b56add7c3ea60423532d3cb4e5e487529c4554938836c3dec20d338f"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/accde0433235410a9f6597592465a199/checkpoints/best.json",
+      "sha256": "8f0ce33ab2eadc01a214f50cf1837f81a001920d2bc216b6b4339bd0ad362f1b"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/accde0433235410a9f6597592465a199/checkpoints/checkpoint-81a52b86734547308d570c5533d8f4a9.meta.json",
+      "sha256": "b98a6d0a30a82245d2bab1a75be8d2af89a3ee4677abc28ee3a59c886f034d77"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/accde0433235410a9f6597592465a199/checkpoints/checkpoint-81a52b86734547308d570c5533d8f4a9.pt",
+      "sha256": "f4618c5050900a45acbf36e623c1c006299aef25ce461c67255c0894e1c2541c"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/13dd22b1041a41b0837d91504cdec365/checkpoints/best.json",
+      "sha256": "d1affdffbfd2ffb918e9f01fc820bd1d4fe0be29a79bf5e423aa34f25cab8a45"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/13dd22b1041a41b0837d91504cdec365/checkpoints/checkpoint-e09e9b1ae7eb4668a48013626062f8c6.meta.json",
+      "sha256": "297cc514f667e29f1fd0b2ec9cf782afb4a88b1027e7102bde49dc2300c98731"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/13dd22b1041a41b0837d91504cdec365/checkpoints/checkpoint-e09e9b1ae7eb4668a48013626062f8c6.pt",
+      "sha256": "f4618c5050900a45acbf36e623c1c006299aef25ce461c67255c0894e1c2541c"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/8d5f3eedf0b843a5b3324e5c6b42f7a1/checkpoints/best.json",
+      "sha256": "efafc55330e58316820c075e17011ebadbaa490f899f3049b8011c2827c86fa9"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/8d5f3eedf0b843a5b3324e5c6b42f7a1/checkpoints/checkpoint-3fc540a1f9d44ee2aeb27517a0d35249.meta.json",
+      "sha256": "89ac809d888381605f5e05808126134ed5a3f73d61c79926c4300ca89c5597cd"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/8d5f3eedf0b843a5b3324e5c6b42f7a1/checkpoints/checkpoint-3fc540a1f9d44ee2aeb27517a0d35249.pt",
+      "sha256": "ec69d6eabac9fd13ca46f5096cf05a53d6b56292cd508d93fed6151b08aed0eb"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/c544c63561df487d9fe589eb94072442/checkpoints/best.json",
+      "sha256": "46682d5fdccc85f79487480c7640ecec76b9869c0af89578688d88b796f2732c"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/c544c63561df487d9fe589eb94072442/checkpoints/checkpoint-132642abd26d4ec1a518679aded175ed.meta.json",
+      "sha256": "4cdc528d58a35a57da49387344b650a6aecf570fc920d1a21a264f6e3fe9d766"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/c544c63561df487d9fe589eb94072442/checkpoints/checkpoint-132642abd26d4ec1a518679aded175ed.pt",
+      "sha256": "ec69d6eabac9fd13ca46f5096cf05a53d6b56292cd508d93fed6151b08aed0eb"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/bee81cd73f5d4a3db0dee6528ac42ab6/checkpoints/best.json",
+      "sha256": "eeb5d37e05502a75e56ad63582a1f2a8aacda96ea7940c1f1c33350b8383c8a3"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/bee81cd73f5d4a3db0dee6528ac42ab6/checkpoints/checkpoint-01b41bbaca954b4d8950adc6454094e5.meta.json",
+      "sha256": "609442a74e7081571eed6104fa831658fe543c9da481c706e3452f73c28765da"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/bee81cd73f5d4a3db0dee6528ac42ab6/checkpoints/checkpoint-01b41bbaca954b4d8950adc6454094e5.pt",
+      "sha256": "24598501492313336a334b5709f3a4e25d43de907f3431829a86cf1500c05529"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/a02aa34ce7d84e17afbbafe8b0555bba/checkpoints/best.json",
+      "sha256": "323e528e9ab69549b2c50c49bf6f149b27557123c2f6d87e2e9fa6b1f4c0d7e6"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/a02aa34ce7d84e17afbbafe8b0555bba/checkpoints/checkpoint-9cb7d45b06494618a9b0505a744064ee.meta.json",
+      "sha256": "61f25552ebc0477dc4fca3abd8fe00dd7de189a278a220ec64588900895f21ac"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/a02aa34ce7d84e17afbbafe8b0555bba/checkpoints/checkpoint-9cb7d45b06494618a9b0505a744064ee.pt",
+      "sha256": "24598501492313336a334b5709f3a4e25d43de907f3431829a86cf1500c05529"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/a4010e4b7d454015a5ad3c8f881daa26/checkpoints/best.json",
+      "sha256": "02eb844dcea4e0d5e68a6bfe98c5222c78d2119dc6995062dc40c068434905b3"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/a4010e4b7d454015a5ad3c8f881daa26/checkpoints/checkpoint-1d7fbb3fe95f40039feea86e7f3ba63c.meta.json",
+      "sha256": "fd8a35ac4af7ac14265ef0ab03f51153b79b52de8f4bf3197b2ad119bb54abea"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/a4010e4b7d454015a5ad3c8f881daa26/checkpoints/checkpoint-1d7fbb3fe95f40039feea86e7f3ba63c.pt",
+      "sha256": "5102d18b8e644ea1252f1e5ffcc626832a2b8ffe36c87c6d3fd7a34f75f51dd2"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/6094755d6fab43ac984c93d3688b973e/checkpoints/best.json",
+      "sha256": "6f12c32eeaf94017289e5a5f819d3ecca07721aa333b9f68f120f728587e2620"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/6094755d6fab43ac984c93d3688b973e/checkpoints/checkpoint-0d4d6f74be7d400693666f03e5ae2d8b.meta.json",
+      "sha256": "f7228ee2fd0d6df1c42b9aa25e930bb9aef27e8b044c1d5d3d8021f0063d487f"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/6094755d6fab43ac984c93d3688b973e/checkpoints/checkpoint-0d4d6f74be7d400693666f03e5ae2d8b.pt",
+      "sha256": "5102d18b8e644ea1252f1e5ffcc626832a2b8ffe36c87c6d3fd7a34f75f51dd2"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/c7691d3b19124fa584066c780247bb40/checkpoints/best.json",
+      "sha256": "5729bc02f8098cd94db50b0d4341e187f7929fe4d2c43b055e30701c5532d260"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/c7691d3b19124fa584066c780247bb40/checkpoints/checkpoint-1252975793534fc78d72de0bef83bbb0.meta.json",
+      "sha256": "3a13e3fd00cdd2be6bffee9f489a892d1e07975a9c05b1103539f267ae4efe33"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/c7691d3b19124fa584066c780247bb40/checkpoints/checkpoint-1252975793534fc78d72de0bef83bbb0.pt",
+      "sha256": "0df98de1807996b7d841265dd34fe43901129b5061e638b122aa59356b2ea0d6"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/608bf56ae3c54c8b95d2041ef5e36cd2/checkpoints/best.json",
+      "sha256": "c30bddb13ed8ee7a087ac614f0584fafb17d70549c280c59914c5a433117bc94"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/608bf56ae3c54c8b95d2041ef5e36cd2/checkpoints/checkpoint-891c193ff7df40eb8643b8423588d77e.meta.json",
+      "sha256": "2786e31a0625682853f707e7f3bd0e677ec5f26d961a77914bc96af174c0cf85"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/608bf56ae3c54c8b95d2041ef5e36cd2/checkpoints/checkpoint-891c193ff7df40eb8643b8423588d77e.pt",
+      "sha256": "0df98de1807996b7d841265dd34fe43901129b5061e638b122aa59356b2ea0d6"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/3f025a2cda1a4e5bba3a9dcb0d52e4e0/checkpoints/best.json",
+      "sha256": "5f7affaf3f10c570b07004889a283379c83856a5f7b84895632f57cfde3b3868"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/3f025a2cda1a4e5bba3a9dcb0d52e4e0/checkpoints/checkpoint-4ca88a672c7447a5a5626d1d46db2aa1.meta.json",
+      "sha256": "49cb37b38a2d6c971ed3e2d15b186d08a3186f158c90e3b38e2b13daaa3d5799"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/3f025a2cda1a4e5bba3a9dcb0d52e4e0/checkpoints/checkpoint-4ca88a672c7447a5a5626d1d46db2aa1.pt",
+      "sha256": "23dfadc6979b94e4345ed01bd7cfaf171698d807de86c88479e32649c4d90341"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/18a675ddda81430385053faabbea2ffc/checkpoints/best.json",
+      "sha256": "dac1b2163114e04d8164b1df972556df74f2e09bed9a88def716d5cffd621bdb"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/18a675ddda81430385053faabbea2ffc/checkpoints/checkpoint-bd1eb3b523e7464eb561b8a2ac3ae6e1.meta.json",
+      "sha256": "59eec16389415288f9d7aa96796a696abe7f0571983c24f6398d1eb7b2ab5942"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/18a675ddda81430385053faabbea2ffc/checkpoints/checkpoint-bd1eb3b523e7464eb561b8a2ac3ae6e1.pt",
+      "sha256": "23dfadc6979b94e4345ed01bd7cfaf171698d807de86c88479e32649c4d90341"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/d576856eecbf469086560e3e58df71c9/checkpoints/best.json",
+      "sha256": "0f3dd42e0a20ddb440eadc5f618b0df20db919f46d1a1c2e2fd48bcae4d5e1e2"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/d576856eecbf469086560e3e58df71c9/checkpoints/checkpoint-d524881521174974be7c635f1fa03d01.meta.json",
+      "sha256": "f31d347f99559f62b65260eb3018876f2e8da6e655cabe46824bb4acfda88245"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/d576856eecbf469086560e3e58df71c9/checkpoints/checkpoint-d524881521174974be7c635f1fa03d01.pt",
+      "sha256": "20e9b3aa97cef708fa6b49d424b3878f055df1ccc139e9dc2c3be51af7ee65b6"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/cdde8ab12c114541996d09335e576d22/checkpoints/best.json",
+      "sha256": "77b2650cb57fcbdfc471b9a97f1950912526006cd1cda4a2c31fa20c2537f535"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/cdde8ab12c114541996d09335e576d22/checkpoints/checkpoint-eb1e1a1b51c54ad99db919e46df2f34b.meta.json",
+      "sha256": "e2428775800af2d35eceaad24c8183a28bf5545b2d3b6f2f781771e1fd7d5d7a"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/cdde8ab12c114541996d09335e576d22/checkpoints/checkpoint-eb1e1a1b51c54ad99db919e46df2f34b.pt",
+      "sha256": "20e9b3aa97cef708fa6b49d424b3878f055df1ccc139e9dc2c3be51af7ee65b6"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/c0583356441b4eaf9cfbdeedb78b3a10/checkpoints/best.json",
+      "sha256": "60e3a0cb7f66147f593c3074d7e0b5616a2e0fb2b805b9a10b0b7d2b5fe68f23"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/c0583356441b4eaf9cfbdeedb78b3a10/checkpoints/checkpoint-48bb9e0f884f42f1ae1c29f98c8bdf90.meta.json",
+      "sha256": "669b927db4260f4c8de28e551dc9672700601a6e768a99db212ac80b417fcb70"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/c0583356441b4eaf9cfbdeedb78b3a10/checkpoints/checkpoint-48bb9e0f884f42f1ae1c29f98c8bdf90.pt",
+      "sha256": "e4cbdc13338bdc2cb0c64db04eb15ea4ed7849a5678e5943e4685cd3a184cc7c"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/669a0941c0344e3d8e2a6c009a8234a2/checkpoints/best.json",
+      "sha256": "5e1dfef288c12c0259237edda1cbfff06942de0b5b2f49510aecf542079eb5f3"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/669a0941c0344e3d8e2a6c009a8234a2/checkpoints/checkpoint-a739798905564e248093584fd3c4e60f.meta.json",
+      "sha256": "975e1d25294ed698ab2668a496036052c6fd8dbae6251c08abd46d2701913e21"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/669a0941c0344e3d8e2a6c009a8234a2/checkpoints/checkpoint-a739798905564e248093584fd3c4e60f.pt",
+      "sha256": "e4cbdc13338bdc2cb0c64db04eb15ea4ed7849a5678e5943e4685cd3a184cc7c"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/8c5fd25b45124173b17f18d4eecaf850/checkpoints/best.json",
+      "sha256": "c2524e46a09a54b56bb7930fbf8df17e4c343fad6f3aa73686329c4afc34bea9"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/8c5fd25b45124173b17f18d4eecaf850/checkpoints/checkpoint-3c1fe0f8e16c4c889d86a78717a3dde2.meta.json",
+      "sha256": "66b25a6af2a694f87bd64a676e0450d69c0b431f913c7df4c0b0430fce82a1b1"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/8c5fd25b45124173b17f18d4eecaf850/checkpoints/checkpoint-3c1fe0f8e16c4c889d86a78717a3dde2.pt",
+      "sha256": "a20f2ec49122cf1ed4983d5aa8541a3cc2da03df2bba9bf5c8c09b3856cde7c3"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/b07f109e4e83420ca1cbdc5de4cf0461/checkpoints/best.json",
+      "sha256": "79ce24e1a8a9f75aa077010e42d9b336421f542323d250523acdc149361690d7"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/b07f109e4e83420ca1cbdc5de4cf0461/checkpoints/checkpoint-0752b4986e204466a37dd02bebfc8cfd.meta.json",
+      "sha256": "31647da2431e09165a6a88fc9096707986a59f39874e4245e751e8b17333ed85"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/b07f109e4e83420ca1cbdc5de4cf0461/checkpoints/checkpoint-0752b4986e204466a37dd02bebfc8cfd.pt",
+      "sha256": "a20f2ec49122cf1ed4983d5aa8541a3cc2da03df2bba9bf5c8c09b3856cde7c3"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/39a1daf147ac47929aef62a4287749ea/checkpoints/best.json",
+      "sha256": "5d5315522f6810425ed9ea0ebd4e8c8a024b1717b4737ef78f2970a53e6e2214"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/39a1daf147ac47929aef62a4287749ea/checkpoints/checkpoint-44783e6381db431181bae1128db635d2.meta.json",
+      "sha256": "a1eebcd09cbcd374827ffcbd9e57b1d52bdf47495aef1c480aa64af09e75558a"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/39a1daf147ac47929aef62a4287749ea/checkpoints/checkpoint-44783e6381db431181bae1128db635d2.pt",
+      "sha256": "b4d6610c9fe76f052bb9fb6d653d7f6b88e0deb58cab0965dae968034dffb83d"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/d1ad21f0dcbd492eb4e8d566bcd0f17f/checkpoints/best.json",
+      "sha256": "738027c3fd9bcbe762b8c4870adcdb7201a4e30cb2082068165abd0929e44f7c"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/d1ad21f0dcbd492eb4e8d566bcd0f17f/checkpoints/checkpoint-7d15cb3cd232402281253d2094efa1cd.meta.json",
+      "sha256": "dc55c0fac4540862eb9690daa2adc029bed78a5c37c68ac02ff2dc1f88176768"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/d1ad21f0dcbd492eb4e8d566bcd0f17f/checkpoints/checkpoint-7d15cb3cd232402281253d2094efa1cd.pt",
+      "sha256": "b4d6610c9fe76f052bb9fb6d653d7f6b88e0deb58cab0965dae968034dffb83d"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/b92d38734b114788a1eb031a1792fcc9/checkpoints/best.json",
+      "sha256": "deabca985218ad198e42551a5cce0ab2798734c1d1fd23576b039c416d9f13f3"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/b92d38734b114788a1eb031a1792fcc9/checkpoints/checkpoint-e5f5d21249af404aaa9627337d9e9443.meta.json",
+      "sha256": "b96488302d729adc833df2e9b9a4230454650189c08281109588cf0222987768"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/b92d38734b114788a1eb031a1792fcc9/checkpoints/checkpoint-e5f5d21249af404aaa9627337d9e9443.pt",
+      "sha256": "2efb17224b93d3842bbb0295cd4c0428b9b8c476bcd98255e707afb3e82230a9"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/7acd8a4552dc44619c36872119bf9f08/checkpoints/best.json",
+      "sha256": "b6077b81e7bdd6cf7f7c61378d95453359f18be80a1f56c79011193fe481e1d0"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/7acd8a4552dc44619c36872119bf9f08/checkpoints/checkpoint-a4d637b2d33b48c9869d9b9c4a5575f3.meta.json",
+      "sha256": "2a7747f07b5493fa0b029d3c84fda45bf6432d2a2f6ba645195e2a9d7c2f2886"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/7acd8a4552dc44619c36872119bf9f08/checkpoints/checkpoint-a4d637b2d33b48c9869d9b9c4a5575f3.pt",
+      "sha256": "2efb17224b93d3842bbb0295cd4c0428b9b8c476bcd98255e707afb3e82230a9"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/3c20d7dea8464faa907e4be5b6f08a5c/checkpoints/best.json",
+      "sha256": "b9a01faa6811383322f076257c6c39dd10d31b2221d73de671ceac5f95c1f244"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/3c20d7dea8464faa907e4be5b6f08a5c/checkpoints/checkpoint-9eabf4ee24c34a568f3a31aa409651f8.meta.json",
+      "sha256": "02d919108fecd474ba5f919c739edcbd093bf734622ffb372bb7a59766f446c8"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/3c20d7dea8464faa907e4be5b6f08a5c/checkpoints/checkpoint-9eabf4ee24c34a568f3a31aa409651f8.pt",
+      "sha256": "f2c9b9daee60f3fee2aedf17044b77982e3dc70efe6ff1beb202ba667ab6641c"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/464f5db44c6b4aa6812b9e40738f176a/checkpoints/best.json",
+      "sha256": "6bc23eb41050f52cd493bcd377fae9537d08613af712b867ebb8d5d771107fd8"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/464f5db44c6b4aa6812b9e40738f176a/checkpoints/checkpoint-63e98ba95f68485291a00dce6a56a8e8.meta.json",
+      "sha256": "543a963374f1750471f3e5709e48548e0048ae89f19699130f886252f4cadbb6"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/464f5db44c6b4aa6812b9e40738f176a/checkpoints/checkpoint-63e98ba95f68485291a00dce6a56a8e8.pt",
+      "sha256": "f2c9b9daee60f3fee2aedf17044b77982e3dc70efe6ff1beb202ba667ab6641c"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/5646578066744a5184baca2b552c41b1/checkpoints/best.json",
+      "sha256": "3eefd78e55654f3474b91cf62a9c9167e4963ca668d88326b3c2142a52a39914"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/5646578066744a5184baca2b552c41b1/checkpoints/checkpoint-824f4a6f173e4f1c87d0071fe3320376.meta.json",
+      "sha256": "5d6c142e913c6d029e9a2d052ac866c04cef006a4199273fc753d1465f8ae796"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/5646578066744a5184baca2b552c41b1/checkpoints/checkpoint-824f4a6f173e4f1c87d0071fe3320376.pt",
+      "sha256": "c199c2f944b0e5947c7b4145168bd892d81d67ee442b96990e1dd798c656c8ba"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/491ebb24caa7480c9dcba6a889fb6f23/checkpoints/best.json",
+      "sha256": "d0672b433d7cad2a097e7d690752acc9e646676ce4695c8c1b05b19b73026105"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/491ebb24caa7480c9dcba6a889fb6f23/checkpoints/checkpoint-d8273383b4c64257978dc7ecc3fe2b50.meta.json",
+      "sha256": "086099871bc9476ec7471510f8cb7ec28051f01fb4c0de31b34f0b13bd25416d"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/491ebb24caa7480c9dcba6a889fb6f23/checkpoints/checkpoint-d8273383b4c64257978dc7ecc3fe2b50.pt",
+      "sha256": "c199c2f944b0e5947c7b4145168bd892d81d67ee442b96990e1dd798c656c8ba"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/b4711ddd4a294c11b1ceb00594278918/checkpoints/best.json",
+      "sha256": "495481f9916eb93d9f44c5ff4f9d05e7d580d5a36a155f4814ed6ae552b03f18"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/b4711ddd4a294c11b1ceb00594278918/checkpoints/checkpoint-ea1c955631924e939b9562c6a931a508.meta.json",
+      "sha256": "cb406e6dc8fadfd48073275f5a28f42fbb17c8d1c0384e1a590a1c1357096659"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/b4711ddd4a294c11b1ceb00594278918/checkpoints/checkpoint-ea1c955631924e939b9562c6a931a508.pt",
+      "sha256": "ef4518766fc7aa415e9c337e7a74ad364684dbef7f666912aecd36c295c88417"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/baa15fc70d7c4698b63a4d4f2c8181ab/checkpoints/best.json",
+      "sha256": "eb16d83af1cf6eb9bcdd8629bab3237e7dee677e384926f141a6e263154eb7dd"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/baa15fc70d7c4698b63a4d4f2c8181ab/checkpoints/checkpoint-5ad72534a9364cc1915369395b603cdf.meta.json",
+      "sha256": "aa4ee19f62be1f8f4770c4ba546f153a9f5cf184f3e57fbeb4ac81c4bec43c81"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/baa15fc70d7c4698b63a4d4f2c8181ab/checkpoints/checkpoint-5ad72534a9364cc1915369395b603cdf.pt",
+      "sha256": "ef4518766fc7aa415e9c337e7a74ad364684dbef7f666912aecd36c295c88417"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/6f40b9201add43dfa99336ed8cbdb63b/checkpoints/best.json",
+      "sha256": "d0a68be8a9aa32c081005ee5ba3ecd6604ffcf6813a7d38df3e552d7574f78aa"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/6f40b9201add43dfa99336ed8cbdb63b/checkpoints/checkpoint-fc0f3a9f6c88401888dd137ae484ea36.meta.json",
+      "sha256": "0b59a1dceb2e95507eb5932fafd1c50cfef8c633184b47e1af1cb06a897301d7"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/6f40b9201add43dfa99336ed8cbdb63b/checkpoints/checkpoint-fc0f3a9f6c88401888dd137ae484ea36.pt",
+      "sha256": "e825b4a4c0414e737ae20fa6b500c01b458d7d27fb46d313aee80823faf708c7"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/4ae3fe32a45d4013ad74160115378eca/checkpoints/best.json",
+      "sha256": "839c48a84cd9c0c69f444121d5ff903ee2925e0ea34de484baa275545a3b462d"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/4ae3fe32a45d4013ad74160115378eca/checkpoints/checkpoint-9422f201574a4f238e931824eb0119d1.meta.json",
+      "sha256": "2f3551884d4ff8e5ac1de190d18d2e8a611b59bdc8ba104fa530f9d80230c245"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/4ae3fe32a45d4013ad74160115378eca/checkpoints/checkpoint-9422f201574a4f238e931824eb0119d1.pt",
+      "sha256": "e825b4a4c0414e737ae20fa6b500c01b458d7d27fb46d313aee80823faf708c7"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/cc3feccc053143a6b8aa8a6283a81251/checkpoints/best.json",
+      "sha256": "e9a037084c1e79c7e0692813a26827aa74880df08007fc2eb0d9ef08d7c24ab2"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/cc3feccc053143a6b8aa8a6283a81251/checkpoints/checkpoint-ab7219da09ea47f2a6964606b15a9362.meta.json",
+      "sha256": "eead00eb58425cc6140459031c7c5e6b632aee925549028094afcebcda091229"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/cc3feccc053143a6b8aa8a6283a81251/checkpoints/checkpoint-ab7219da09ea47f2a6964606b15a9362.pt",
+      "sha256": "58175cf554532c1379ac8d3f7dcd97c640dc276da22743023849b1ef71eb45f5"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/468e5dc6e9af467e8b8e5944f802cc8c/checkpoints/best.json",
+      "sha256": "fa6de7c97423b8acbb628b8bba4728114f3b9fe8407e8b082d095b51fb2ce195"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/468e5dc6e9af467e8b8e5944f802cc8c/checkpoints/checkpoint-22dd6646e0d44d0d954f3f09f4f11737.meta.json",
+      "sha256": "6228c51410fcb488e482f76a6790b1a206b6f15dadd804050bb7dbb9a1ab0c51"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/468e5dc6e9af467e8b8e5944f802cc8c/checkpoints/checkpoint-22dd6646e0d44d0d954f3f09f4f11737.pt",
+      "sha256": "58175cf554532c1379ac8d3f7dcd97c640dc276da22743023849b1ef71eb45f5"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/99fc792ed05346a0a1814a0a648bc832/checkpoints/best.json",
+      "sha256": "7392c9d13576c45487b82e82bb053fc8279856f79d0da843086e285a1c5fc002"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/99fc792ed05346a0a1814a0a648bc832/checkpoints/checkpoint-f783edb1fde04c6d9ebf7d58f802eb50.meta.json",
+      "sha256": "0cf3b40d1d13454108df824e02ae0051d2143269eb0bb35027e14d070b76e754"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/99fc792ed05346a0a1814a0a648bc832/checkpoints/checkpoint-f783edb1fde04c6d9ebf7d58f802eb50.pt",
+      "sha256": "97b8e9a1224845db3d7e20d3d1ca993119869204c6f95715f639ccfaf5b2888d"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/12c6bd037b8640e9868789cb9643e5e1/checkpoints/best.json",
+      "sha256": "8ae2cdb72279f1b77e12be3bcc24cc97b8babe3afdd90ce68649c04109a61006"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/12c6bd037b8640e9868789cb9643e5e1/checkpoints/checkpoint-9de4b9a72fc34d2eaad8d724e69845ef.meta.json",
+      "sha256": "5ba488f52ade14036197742f2878c4c1ab2d614c7f9f79fadaf156f7a3141c06"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/12c6bd037b8640e9868789cb9643e5e1/checkpoints/checkpoint-9de4b9a72fc34d2eaad8d724e69845ef.pt",
+      "sha256": "97b8e9a1224845db3d7e20d3d1ca993119869204c6f95715f639ccfaf5b2888d"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/e6d036ea47794f67bb83060170314932/checkpoints/best.json",
+      "sha256": "2fbacd9075a5c03f97535090d730bf7214f9736b181c44c0201bc3ecd564b8a3"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/e6d036ea47794f67bb83060170314932/checkpoints/checkpoint-47b2ff7a79ff413a84e606d937b9ada8.meta.json",
+      "sha256": "34469dab8572c9c6d368a11720c6543cf8361c82e31e3ad1be4ab9ffb2571ab3"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/e6d036ea47794f67bb83060170314932/checkpoints/checkpoint-47b2ff7a79ff413a84e606d937b9ada8.pt",
+      "sha256": "1ca1856fcc847554a50b4631dc17e7183d97ce4e6f3872805c1f0e1a486ba30f"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/76d87128e08c4676979417bb8c0d426a/checkpoints/best.json",
+      "sha256": "7861e53ce93e0ca16c13b7c64edd7058b7e097cb0abf134d71df83558b9df61e"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/76d87128e08c4676979417bb8c0d426a/checkpoints/checkpoint-ddcd4ae1c91f4dcaa6d3a29354aaf1b7.meta.json",
+      "sha256": "a018d5bfbdb7ae09d8ebed5ce6e18167c459499281b1cb08ab56185ff7f4b57c"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/76d87128e08c4676979417bb8c0d426a/checkpoints/checkpoint-ddcd4ae1c91f4dcaa6d3a29354aaf1b7.pt",
+      "sha256": "1ca1856fcc847554a50b4631dc17e7183d97ce4e6f3872805c1f0e1a486ba30f"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/422f538fe7584a03be587d7217a7600c/checkpoints/best.json",
+      "sha256": "0bd14e836446ab439e4be771b7d78fd9c45326eea87268cac99bc3b2ffc8e509"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/422f538fe7584a03be587d7217a7600c/checkpoints/checkpoint-bf2be65fb9b044c79b3522a5d38878cb.meta.json",
+      "sha256": "ceebe944484b5b50c730e2fb7e4ed7e3366fdb0a3c8130919c15ccbc6a732e75"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/422f538fe7584a03be587d7217a7600c/checkpoints/checkpoint-bf2be65fb9b044c79b3522a5d38878cb.pt",
+      "sha256": "7b1b894e0c0de3e888fae7f1ae2eafc85e9e3aa4e689cd1c1d93c027215f0688"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/08edc1a233e74c4185ef3632b108d526/checkpoints/best.json",
+      "sha256": "d0a5c3991cd1d1b5dc22bc9874df1866324fd2e5ad3450f990b84fa94ab6b42d"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/08edc1a233e74c4185ef3632b108d526/checkpoints/checkpoint-e55d60d75c6045ce95d8f04e6ca9a197.meta.json",
+      "sha256": "311a466a91d4f66385de0f9551b09c9dcdd15e4af1514c5f5df1596ae2bbd2ca"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/08edc1a233e74c4185ef3632b108d526/checkpoints/checkpoint-e55d60d75c6045ce95d8f04e6ca9a197.pt",
+      "sha256": "7b1b894e0c0de3e888fae7f1ae2eafc85e9e3aa4e689cd1c1d93c027215f0688"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/80c3b2ed86a44bfb915e819f0925fd47/checkpoints/best.json",
+      "sha256": "d23599d6df74f3236347ba6812a2dfc90b0b33fad21b3ffec48260d097c45943"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/80c3b2ed86a44bfb915e819f0925fd47/checkpoints/checkpoint-03fdf95afe7d49bfba8323196bfd2513.meta.json",
+      "sha256": "3fabe1ec1644d7d7df5736b03ea82bbc7387094cb2bf9c60f1764b6ed982a482"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/80c3b2ed86a44bfb915e819f0925fd47/checkpoints/checkpoint-03fdf95afe7d49bfba8323196bfd2513.pt",
+      "sha256": "cfd69c64803f6f9ba8d6d9ebf1fc1c8fab50de78adad7c160d7ed8751d0ed69e"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/021b3f45d75b48b1aa5cfba327752176/checkpoints/best.json",
+      "sha256": "f21d9adc63188ca966dd35a1ec0ba1559a599da4b6a74e318a294d501aea3c9e"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/021b3f45d75b48b1aa5cfba327752176/checkpoints/checkpoint-91d4bf0a06b24182864293e2e47a352f.meta.json",
+      "sha256": "482e7f82db9459c80bbc8070c84d9071a1df3ce0d5abbc559ef3c29f46661377"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/021b3f45d75b48b1aa5cfba327752176/checkpoints/checkpoint-91d4bf0a06b24182864293e2e47a352f.pt",
+      "sha256": "cfd69c64803f6f9ba8d6d9ebf1fc1c8fab50de78adad7c160d7ed8751d0ed69e"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/16be1026fe9f4e9ab784f21d244ad56c/checkpoints/best.json",
+      "sha256": "327162e71866a56c9eebaba2df6954c161aa54c9c5d1654a08dd1991d8447465"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/16be1026fe9f4e9ab784f21d244ad56c/checkpoints/checkpoint-7dc4f16265b74106a769fce25db49b9c.meta.json",
+      "sha256": "a11ea1fe39e613ca254961231df5c57d8e76234bdc7cff247c4141dabcf3020d"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/16be1026fe9f4e9ab784f21d244ad56c/checkpoints/checkpoint-7dc4f16265b74106a769fce25db49b9c.pt",
+      "sha256": "2ec69af0b0dd411fa8e566a18b38692a24e6f13b9fe0d8e92637ff77c22f9637"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/50afdf9a4f7746ab96caad9494243c89/checkpoints/best.json",
+      "sha256": "0e3583b8266677ebdb0c470656d2af4cc165ce392497812bc3c4d4713c577ce7"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/50afdf9a4f7746ab96caad9494243c89/checkpoints/checkpoint-de5414ff7d294496b018ffe7fff39469.meta.json",
+      "sha256": "4e65485318605e95bda1a7566ee442aeeb5c8d777750c2fed7e3175c51c684ab"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/50afdf9a4f7746ab96caad9494243c89/checkpoints/checkpoint-de5414ff7d294496b018ffe7fff39469.pt",
+      "sha256": "2ec69af0b0dd411fa8e566a18b38692a24e6f13b9fe0d8e92637ff77c22f9637"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/c1e59f4a479046c8be0a2651adf36341/checkpoints/best.json",
+      "sha256": "ce18d5119650cc9a502c91ff7f34a7e740c129d19e19699fd892906b7cd2e3b4"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/c1e59f4a479046c8be0a2651adf36341/checkpoints/checkpoint-1604760dcfc24142ab295ee000804706.meta.json",
+      "sha256": "9e7107232afe29ddea611ac0b5263e2a7d3680448fa416dc191280e1fe6726a0"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/c1e59f4a479046c8be0a2651adf36341/checkpoints/checkpoint-1604760dcfc24142ab295ee000804706.pt",
+      "sha256": "bc74b432db5ac1dcba0c0e55a3e287ebf8cbd38f4610002a2edd0224739fecf2"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/e8292531a6184bee9f95a5575e1b3ec2/checkpoints/best.json",
+      "sha256": "de7765b3a6343ebeeb8e47845a4807df581da9b82cc2e3666cd819916514e718"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/e8292531a6184bee9f95a5575e1b3ec2/checkpoints/checkpoint-360deb1c5fa74a6ea2da3664934c8425.meta.json",
+      "sha256": "756198471b6e69389333178f00081d878f8d2c451b38bc373f25854210a6bcd3"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/e8292531a6184bee9f95a5575e1b3ec2/checkpoints/checkpoint-360deb1c5fa74a6ea2da3664934c8425.pt",
+      "sha256": "bc74b432db5ac1dcba0c0e55a3e287ebf8cbd38f4610002a2edd0224739fecf2"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/cab2d5b6cbad4b1a91c3866f33f3d7e0/checkpoints/best.json",
+      "sha256": "fe6223149d472a4b12691450d02ec430f3a6288c9ffb2b037c1581289cb7fe94"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/cab2d5b6cbad4b1a91c3866f33f3d7e0/checkpoints/checkpoint-6a80bfc47f844d8994d74fc8ce34c94d.meta.json",
+      "sha256": "04cd237d1434814fe35fd1720bb0e1c0285ec8ddf96540219921ce3cf634badc"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/cab2d5b6cbad4b1a91c3866f33f3d7e0/checkpoints/checkpoint-6a80bfc47f844d8994d74fc8ce34c94d.pt",
+      "sha256": "54dd773d0bc6037b73752364b8a291898794b3e2f0e0023bfd057e15d91faaf8"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/24ff7af7be7141eb9bd8642a40df5314/checkpoints/best.json",
+      "sha256": "d771f139479e375761fe08e1fbe1b6f9217fe2505f308ad8a0907c8bfe5105e8"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/24ff7af7be7141eb9bd8642a40df5314/checkpoints/checkpoint-dbab5e4356c443d39f4e4e3312efc2ad.meta.json",
+      "sha256": "5c7cb7b2e463b77d27aa52b12d28450645fba4c753a2fb25a7ea420625e61e94"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/24ff7af7be7141eb9bd8642a40df5314/checkpoints/checkpoint-dbab5e4356c443d39f4e4e3312efc2ad.pt",
+      "sha256": "54dd773d0bc6037b73752364b8a291898794b3e2f0e0023bfd057e15d91faaf8"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/787f1d1b31ba40d0b05d537d2c5fae7f/checkpoints/best.json",
+      "sha256": "a5f8dfc3ba6caa0bc46dd97a57a69173d2a1a55ac2ff9eb7fea68a0072ff12a0"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/787f1d1b31ba40d0b05d537d2c5fae7f/checkpoints/checkpoint-37dd335fc3694697b96ac8fc1f93b885.meta.json",
+      "sha256": "acf88cbbe676f348ab4003a68741bed670544f6ae5530257b7f8380d2d6a2274"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/787f1d1b31ba40d0b05d537d2c5fae7f/checkpoints/checkpoint-37dd335fc3694697b96ac8fc1f93b885.pt",
+      "sha256": "e2dacc89e5e85d68f77102100bfefabae1b4776e01b5af3bd343b8178f2c17b1"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/b192c96da781418e9ef03acfd01dc539/checkpoints/best.json",
+      "sha256": "0d12d745b2a473911c63ad08dc2d8dd5c0c32cad06f901ff321ee7add962def3"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/b192c96da781418e9ef03acfd01dc539/checkpoints/checkpoint-7c027f8e4c9644f1b46dddf2d9dbb575.meta.json",
+      "sha256": "1ede8f8458e391dd0c9406d0bb89fbae4880a2e6afea832890de7f688e08c89b"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/b192c96da781418e9ef03acfd01dc539/checkpoints/checkpoint-7c027f8e4c9644f1b46dddf2d9dbb575.pt",
+      "sha256": "e2dacc89e5e85d68f77102100bfefabae1b4776e01b5af3bd343b8178f2c17b1"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/f72ae87d365f4c3c890d5268fd111a02/checkpoints/best.json",
+      "sha256": "b108780e63f4275399fc983bad98a036af27d3773cc0cd1f943aee69cd000b2b"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/f72ae87d365f4c3c890d5268fd111a02/checkpoints/checkpoint-9135059d40934586ae444d0965877779.meta.json",
+      "sha256": "d6f081b48f525ffe734a01b1af064dd940374bc671d6ec5c31cce8d595708301"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/f72ae87d365f4c3c890d5268fd111a02/checkpoints/checkpoint-9135059d40934586ae444d0965877779.pt",
+      "sha256": "3a5127915f53c00c3fb8ab1010e70536ff76fcd833674cc8e664c7c1077788a9"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/428bdc7091034a959fc1a97532d48770/checkpoints/best.json",
+      "sha256": "53cdfd5061d1828566fc50d3fba6c7236469a96bbc8acc8cc936e3b6e8fc6301"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/428bdc7091034a959fc1a97532d48770/checkpoints/checkpoint-a7db4445f6fb425483f96d821a79e526.meta.json",
+      "sha256": "53a305beb8cc7812fe96f611e0326d2b173a302fc15129230254ee32da83f3e5"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/428bdc7091034a959fc1a97532d48770/checkpoints/checkpoint-a7db4445f6fb425483f96d821a79e526.pt",
+      "sha256": "3a5127915f53c00c3fb8ab1010e70536ff76fcd833674cc8e664c7c1077788a9"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/720ce896a20c4582b141fdba9345e491/checkpoints/best.json",
+      "sha256": "b3cd8f3a52a8f0b0ca06e41759de70c55bd9e22e8dab27816d7e568a5869818a"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/720ce896a20c4582b141fdba9345e491/checkpoints/checkpoint-2f5f1ae416d94f15ae547ddf95f2be07.meta.json",
+      "sha256": "76acdfbf4a0e627804418d4fb943e86e2619e1dcb650075e1effd173b195929d"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/720ce896a20c4582b141fdba9345e491/checkpoints/checkpoint-2f5f1ae416d94f15ae547ddf95f2be07.pt",
+      "sha256": "7605372942a162cfa184793d814b85549a3358d4c723de7103748d7349193f0b"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/01e56f90951243e6a7a6f13b8c2e8e8c/checkpoints/best.json",
+      "sha256": "316d55bcc8c64b07c439a12082f98b7dd917c018318e217fdb490161fa1692c4"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/01e56f90951243e6a7a6f13b8c2e8e8c/checkpoints/checkpoint-fd18bae666c34e919f213a2b2c999cd2.meta.json",
+      "sha256": "9280cef97a874737b69a83dd2ea3ed33ea157bf50e176538389b08c55dd60c62"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/01e56f90951243e6a7a6f13b8c2e8e8c/checkpoints/checkpoint-fd18bae666c34e919f213a2b2c999cd2.pt",
+      "sha256": "7605372942a162cfa184793d814b85549a3358d4c723de7103748d7349193f0b"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/f44a2582c03b4c7ebb39c09e2325243e/checkpoints/best.json",
+      "sha256": "dfc5001c991f1b8ffc7da371af4b82c9a6d9de330742d2cdd3e5981fc7846f86"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/f44a2582c03b4c7ebb39c09e2325243e/checkpoints/checkpoint-c095e733f44d4a4393a50d1bf22c589f.meta.json",
+      "sha256": "a7a51415c2d92dd96f1b4d1434a3bbfcad7c452a7a2209e729118c39eedb1945"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/f44a2582c03b4c7ebb39c09e2325243e/checkpoints/checkpoint-c095e733f44d4a4393a50d1bf22c589f.pt",
+      "sha256": "2827a77ccfe2b9ad376c935b7c23390bbaf9486b2211e8cd2894054d14e2c10b"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/4ff58c49e5624d17b0f75a2461473943/checkpoints/best.json",
+      "sha256": "4fc56a99be6b2c5c96e9673d5af1274cdb117ca250ba06cbe1e745a06897dbba"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/4ff58c49e5624d17b0f75a2461473943/checkpoints/checkpoint-b5189e37982a4de5a84a6e7e0d321afe.meta.json",
+      "sha256": "c4a876a51d0fde44145f5089e6336cf73adb5868d3a413ae59e38e7bc99de504"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/4ff58c49e5624d17b0f75a2461473943/checkpoints/checkpoint-b5189e37982a4de5a84a6e7e0d321afe.pt",
+      "sha256": "2827a77ccfe2b9ad376c935b7c23390bbaf9486b2211e8cd2894054d14e2c10b"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/948546efff21427cbf646c6e68670c78/checkpoints/best.json",
+      "sha256": "d267a0d43cb778f01934bf5166cc3ac55725876106e741d964c82ef00dc997d7"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/948546efff21427cbf646c6e68670c78/checkpoints/checkpoint-7f212bcf1cf44ce3b45c1d8e82a7beae.meta.json",
+      "sha256": "827ea668161b914eba1a858c17fe05bd1d6224287d1a2745e0fc883a2dc8b5f3"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/948546efff21427cbf646c6e68670c78/checkpoints/checkpoint-7f212bcf1cf44ce3b45c1d8e82a7beae.pt",
+      "sha256": "c604eaccff6a7ac31decbe59cf8dccb023f74b1a4dc3ec9f54537ace8880e7a7"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/33d8404d43344dfbbd6e42e6cce9c421/checkpoints/best.json",
+      "sha256": "2ce2543621ce21b82e0a07e9b71e30c6bfe452a3b3ee0aabbceb2bd38b264ab4"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/33d8404d43344dfbbd6e42e6cce9c421/checkpoints/checkpoint-9fe0567d7fd94450851a542f44136094.meta.json",
+      "sha256": "2690b343a256354b83bff69cd555c6c27e00ccc54ed85d6325cda448dbb21655"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/33d8404d43344dfbbd6e42e6cce9c421/checkpoints/checkpoint-9fe0567d7fd94450851a542f44136094.pt",
+      "sha256": "c604eaccff6a7ac31decbe59cf8dccb023f74b1a4dc3ec9f54537ace8880e7a7"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/e4111d4bc617420e9547d9732974e6ed/checkpoints/best.json",
+      "sha256": "7c8e7a1a416ce224b10625feec4f05948c8ed75d5d4fab86dcbd872fdd811c93"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/e4111d4bc617420e9547d9732974e6ed/checkpoints/checkpoint-56190a0ed99244629894f3c7a80c2d5b.meta.json",
+      "sha256": "4cb931e8d8704aed98c82dd243b0e64ac346e79a8b7df6afdb05629be60722ca"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/e4111d4bc617420e9547d9732974e6ed/checkpoints/checkpoint-56190a0ed99244629894f3c7a80c2d5b.pt",
+      "sha256": "f177d5ad3a3de5a2cbf1de798dff49f248bab893e31b43b1098f869c80550f00"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/61e173d1a466494ea65f7c78cc41ccfc/checkpoints/best.json",
+      "sha256": "a09ff9250633a12e02f2d1f6fa87798d73d8df19cd0bc69434b7e26b2a8fcbc8"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/61e173d1a466494ea65f7c78cc41ccfc/checkpoints/checkpoint-d82b79ae6b2d4cea9172330c187026ef.meta.json",
+      "sha256": "ff4d69d6d9a165a86076bca81100545b53beb3806539a35a22636dc73860dfaf"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/61e173d1a466494ea65f7c78cc41ccfc/checkpoints/checkpoint-d82b79ae6b2d4cea9172330c187026ef.pt",
+      "sha256": "f177d5ad3a3de5a2cbf1de798dff49f248bab893e31b43b1098f869c80550f00"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/3d2ae0fb0d2149a086316a0cd3729c8b/checkpoints/best.json",
+      "sha256": "74c9f097c594d61792834116a7ab838ecf8062068a290222dd8421eebbcab4cf"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/3d2ae0fb0d2149a086316a0cd3729c8b/checkpoints/checkpoint-e32e0bce96cb41689d95c4182b8a8c26.meta.json",
+      "sha256": "3cd6b4b3cea2a3e237f5f78d65829d45c7d2dc1fbbf38f6e534bfd301de1f9aa"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/3d2ae0fb0d2149a086316a0cd3729c8b/checkpoints/checkpoint-e32e0bce96cb41689d95c4182b8a8c26.pt",
+      "sha256": "823a20b00c49bce718607ef93cdb6289ce4a09ba5be01352d62a756cd36e6379"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/ae53888ad1204eec8665a38772810356/checkpoints/best.json",
+      "sha256": "4d50c7988990e267ef299504a33b426351e33a39462544c257b922533887253b"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/ae53888ad1204eec8665a38772810356/checkpoints/checkpoint-303b3edf3f1842259f7c6e5b2eecd526.meta.json",
+      "sha256": "44289a220fe911094f638152a7faeffc4eaa2f2bcb54036e0e9ebacb74ec4283"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/ae53888ad1204eec8665a38772810356/checkpoints/checkpoint-303b3edf3f1842259f7c6e5b2eecd526.pt",
+      "sha256": "823a20b00c49bce718607ef93cdb6289ce4a09ba5be01352d62a756cd36e6379"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/84cb2241b1d4461e8a09d5db37ecc593/checkpoints/best.json",
+      "sha256": "b9170240c619c48c29479a2371bda427cd38a7000dd2aa09d06685d325c1e47f"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/84cb2241b1d4461e8a09d5db37ecc593/checkpoints/checkpoint-de4bb4b1412646589756e0b160179ac7.meta.json",
+      "sha256": "0badd5623a839319c637c91eff7a50180effef277b39192d91b52667f6572136"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/84cb2241b1d4461e8a09d5db37ecc593/checkpoints/checkpoint-de4bb4b1412646589756e0b160179ac7.pt",
+      "sha256": "9c6b1db66e7fbc97dfb177807ebad395c16712a8d7f1a2fb8d5f38c633fa325d"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/b9d0c252bb22470381a9644dfad01883/checkpoints/best.json",
+      "sha256": "c44322f75ea036e3ee88b7791c22cdc5f8366dd6f92b9469ea2c46f1cc86b122"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/b9d0c252bb22470381a9644dfad01883/checkpoints/checkpoint-0f389b7372d64de9b55ef8ea46f943e6.meta.json",
+      "sha256": "34882e8fe70e2d8e230af6aa2b128cbd2264680bb0ca463764437ef3889d5f25"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/b9d0c252bb22470381a9644dfad01883/checkpoints/checkpoint-0f389b7372d64de9b55ef8ea46f943e6.pt",
+      "sha256": "9c6b1db66e7fbc97dfb177807ebad395c16712a8d7f1a2fb8d5f38c633fa325d"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/91de4546d14c49d9b55ba659225ecc92/checkpoints/best.json",
+      "sha256": "2f7e76745f7bbcdb099a3c4e0d4c3ac0eb2be1a2c9abcd62556d3e752121b7e5"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/91de4546d14c49d9b55ba659225ecc92/checkpoints/checkpoint-6ea0bdf2f53f4d9a842d8e67a9e0bae2.meta.json",
+      "sha256": "ccbb25364c878453694e4ca844880d01866ea39df56eeb4cfecffde2ca44f96d"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/91de4546d14c49d9b55ba659225ecc92/checkpoints/checkpoint-6ea0bdf2f53f4d9a842d8e67a9e0bae2.pt",
+      "sha256": "3ecdf7a02d23c4e05c2565d9584e97fb5535175e47245c9a5503e12762b3b405"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/864448dee79645bca26d15e679414c54/checkpoints/best.json",
+      "sha256": "3cd8cb870f64ca59b913c69a95542aa6490873c7ae584a6fdfe107d90e6bb3e2"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/864448dee79645bca26d15e679414c54/checkpoints/checkpoint-bf88347abb504ba29a0e44880a8b7136.meta.json",
+      "sha256": "87762003a7182cfbbf87458eb16877dd5d734902829e55b150f21389375ea5d6"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/864448dee79645bca26d15e679414c54/checkpoints/checkpoint-bf88347abb504ba29a0e44880a8b7136.pt",
+      "sha256": "3ecdf7a02d23c4e05c2565d9584e97fb5535175e47245c9a5503e12762b3b405"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/44bef774b8864b1c87c5b74b3f59fa93/checkpoints/best.json",
+      "sha256": "5323ce7fc61961efbde8fba26b59634dc475c8e6b0fbd4e2eae07f365d5c998b"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/44bef774b8864b1c87c5b74b3f59fa93/checkpoints/checkpoint-c1c871eafd43451492ef7b1bd0bb9ab6.meta.json",
+      "sha256": "e3515776ecfe3dd0a5d80f0d8bd9d75bf86385fdc6f595e44c7c02ef8749ed93"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/44bef774b8864b1c87c5b74b3f59fa93/checkpoints/checkpoint-c1c871eafd43451492ef7b1bd0bb9ab6.pt",
+      "sha256": "4c7d0b16704f1a5bf874f8a7aa494a23ce61037d8f9b781e64d107927d8fa342"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/3127410968874b288b18c2b4c741ac18/checkpoints/best.json",
+      "sha256": "7eded7f91347df43cc36f70164b0ab04f8271927fdbbefdc499057e09a788979"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/3127410968874b288b18c2b4c741ac18/checkpoints/checkpoint-6f53c7a55d9f44148b48be3ad8775dc2.meta.json",
+      "sha256": "dc452433ab79a1ef3117bca6be5513277fa5f3452cbc67bb782ab9d02c052520"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/3127410968874b288b18c2b4c741ac18/checkpoints/checkpoint-6f53c7a55d9f44148b48be3ad8775dc2.pt",
+      "sha256": "4c7d0b16704f1a5bf874f8a7aa494a23ce61037d8f9b781e64d107927d8fa342"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/dd59289a705e4fe781ee2e921df2379f/checkpoints/best.json",
+      "sha256": "9f23da6a31f135066b7e225b2103ea2d2ca2a59c0b14e32f9b5d922116777f66"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/dd59289a705e4fe781ee2e921df2379f/checkpoints/checkpoint-75690936475e4ebabe5db9db9ed77f92.meta.json",
+      "sha256": "fa5fabdc1e997eca5a589f289e18c3b98964dbc3e7be1d78bc15a131fca20404"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/dd59289a705e4fe781ee2e921df2379f/checkpoints/checkpoint-75690936475e4ebabe5db9db9ed77f92.pt",
+      "sha256": "6497c8fa92a52bde319818ad835abf4554a574a16a7cc2ca044c2fd5bd6d14eb"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/8ecd87512b614a27b4a2c7c9520c6be7/checkpoints/best.json",
+      "sha256": "8e1cd877a03c1ff2834fd7f46e089d18d275dc2e26508eb5183298eab15e68ed"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/8ecd87512b614a27b4a2c7c9520c6be7/checkpoints/checkpoint-da9164d1c0f843468e089ffc3b57d0db.meta.json",
+      "sha256": "a7a37620d095ecc73cf26e2fee456e919b8bc1aed379ef68d4bfd5d0f6cf43ec"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/8ecd87512b614a27b4a2c7c9520c6be7/checkpoints/checkpoint-da9164d1c0f843468e089ffc3b57d0db.pt",
+      "sha256": "6497c8fa92a52bde319818ad835abf4554a574a16a7cc2ca044c2fd5bd6d14eb"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/34e9702886324a7a8fbc447e67556c39/checkpoints/best.json",
+      "sha256": "e854c7fd676d25baec5961268cb4c2e19a8ad46e361987879f0cb3952a0244cb"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/34e9702886324a7a8fbc447e67556c39/checkpoints/checkpoint-b9430f60b0154682aad7be73d9fb93c2.meta.json",
+      "sha256": "61cb3255d7b80deb51ede2ec0aa9c293f3e8687b12a3d52c22333a86107133de"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/34e9702886324a7a8fbc447e67556c39/checkpoints/checkpoint-b9430f60b0154682aad7be73d9fb93c2.pt",
+      "sha256": "71009a83fe874cabd4b31744f199a77ab81130fbad12b1fc220df4d451e627b3"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/0bfcedf303eb4e9d8afbbfa6cddcd45a/checkpoints/best.json",
+      "sha256": "44535069966c36342bc5d8054eade9215dcdca4d91dafce003ff5f4bdb20e2f0"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/0bfcedf303eb4e9d8afbbfa6cddcd45a/checkpoints/checkpoint-742077d39f0a476e8926745ed0353c25.meta.json",
+      "sha256": "fa11e2fc8bdcbf0dcde3eda2244c211318c891c39336fe8c3e27bcb4b8f1e613"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/0bfcedf303eb4e9d8afbbfa6cddcd45a/checkpoints/checkpoint-742077d39f0a476e8926745ed0353c25.pt",
+      "sha256": "71009a83fe874cabd4b31744f199a77ab81130fbad12b1fc220df4d451e627b3"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/fa4b12a466c2409fab5c4e5cc4fbc24a/checkpoints/best.json",
+      "sha256": "a964c016a1c3dfa7e3b41d6521d628beaa2b4fbe0938361b8b53626c9c8e7af9"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/fa4b12a466c2409fab5c4e5cc4fbc24a/checkpoints/checkpoint-3c9058fea1dd485085af5f145014f136.meta.json",
+      "sha256": "8fef03b24bbcd454ea604d675a1034a7530d9cde1166166f2ab08b1645256796"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/fa4b12a466c2409fab5c4e5cc4fbc24a/checkpoints/checkpoint-3c9058fea1dd485085af5f145014f136.pt",
+      "sha256": "eca7e91a944262042116be3f7e9795485754f9b37c4e181ed3ce8050dea724b0"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/fea420254c15469d83155f0059eaf617/checkpoints/best.json",
+      "sha256": "db828ccac7cc604feab87121e66a941ca41238f64bb5d4714240420a39cd24b1"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/fea420254c15469d83155f0059eaf617/checkpoints/checkpoint-89917e8bc26e4516bbb10de154b146cb.meta.json",
+      "sha256": "c2d1086f01ba5cafb8e609e43300e136aff025419aa9271f7befb1012165a721"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/fea420254c15469d83155f0059eaf617/checkpoints/checkpoint-89917e8bc26e4516bbb10de154b146cb.pt",
+      "sha256": "eca7e91a944262042116be3f7e9795485754f9b37c4e181ed3ce8050dea724b0"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/9283a4401cb94ef8bce9ee59e445480b/checkpoints/best.json",
+      "sha256": "0a08ad808e5e55867272bb454d496e12d24b391bfe79057a490d061dd35ca07f"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/9283a4401cb94ef8bce9ee59e445480b/checkpoints/checkpoint-7aca3295cf6547418d0eda80700789b4.meta.json",
+      "sha256": "c09757436bdb1c2e8b72327aaf4f710e1dcb37d28eeec63930062fc32af7d004"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/9283a4401cb94ef8bce9ee59e445480b/checkpoints/checkpoint-7aca3295cf6547418d0eda80700789b4.pt",
+      "sha256": "3214eea22e14322d00a287af960825774e82dc62bd41e1ccf0411b754b5578af"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/28c8587406af4cee825e310de4073ea1/checkpoints/best.json",
+      "sha256": "eeaeb001c267965de0e4f707687c8accaa11d173922f6e3c18ddd29269d7c078"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/28c8587406af4cee825e310de4073ea1/checkpoints/checkpoint-7e249a3ef78e43cc815869ce8235a796.meta.json",
+      "sha256": "b6f08d7703e282522fad1d22ca4aad9b0b0113021a0c6edbfc6ba5c9b5e6bd6d"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/28c8587406af4cee825e310de4073ea1/checkpoints/checkpoint-7e249a3ef78e43cc815869ce8235a796.pt",
+      "sha256": "3214eea22e14322d00a287af960825774e82dc62bd41e1ccf0411b754b5578af"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/d7062aef1426409188ab070813051a3b/checkpoints/best.json",
+      "sha256": "8a0d85ac9ef97eb9936d9e78e53456053080297506ff52c84ade2055673e7ff3"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/d7062aef1426409188ab070813051a3b/checkpoints/checkpoint-fcabed2e136740e4a0280bf850a35d46.meta.json",
+      "sha256": "8d43e553845cd493c46b5ee8e4ea2162857d7fcf91b59efa62f8ecd0e43d11de"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/d7062aef1426409188ab070813051a3b/checkpoints/checkpoint-fcabed2e136740e4a0280bf850a35d46.pt",
+      "sha256": "1540c28683ddff672f32e69d627fb9fa954e927fedec9466f784f598209280ea"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/9deb32ead559471c872d4a7763183a65/checkpoints/best.json",
+      "sha256": "a7538418fdd813d3a3d2b328d4f0c7b51b60f1bd69565629faaae4b4a152a218"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/9deb32ead559471c872d4a7763183a65/checkpoints/checkpoint-5182b1f8688f429abaa4ba603106430d.meta.json",
+      "sha256": "d700babf50f45b230d76f7c91ca92856217f0e806981aac25ac39374e38dd1ee"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/9deb32ead559471c872d4a7763183a65/checkpoints/checkpoint-5182b1f8688f429abaa4ba603106430d.pt",
+      "sha256": "1540c28683ddff672f32e69d627fb9fa954e927fedec9466f784f598209280ea"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/09b9dc2072f849e29677294cf1fe65f1/checkpoints/best.json",
+      "sha256": "ed94d0193d1af438a019f3919624b1882904f4773495d4721cbdd87c57d27e47"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/09b9dc2072f849e29677294cf1fe65f1/checkpoints/checkpoint-91305e6b5b434818975354c8a38aa52c.meta.json",
+      "sha256": "7fba5def997090aa31e1a948d5cba3293f802806089697433f70bd09bf49e417"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/09b9dc2072f849e29677294cf1fe65f1/checkpoints/checkpoint-91305e6b5b434818975354c8a38aa52c.pt",
+      "sha256": "caee949f1f4e0515c7a99474476b2189751a5d2e1dc55b8b6ef116d9eba94206"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/dd67035aa09f4ecbb0d60c99985df2f3/checkpoints/best.json",
+      "sha256": "dc98eafa05b661dc27bfd2b89508e3c37bea84bf7044a353d927baa58c1b7988"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/dd67035aa09f4ecbb0d60c99985df2f3/checkpoints/checkpoint-477bf426234240a8a985130eb6dac004.meta.json",
+      "sha256": "3349d9fd5c027d59a611751aa3a513c1373cba9ba307bbd435996f586b7fc173"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/dd67035aa09f4ecbb0d60c99985df2f3/checkpoints/checkpoint-477bf426234240a8a985130eb6dac004.pt",
+      "sha256": "caee949f1f4e0515c7a99474476b2189751a5d2e1dc55b8b6ef116d9eba94206"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/b0601f14e6a84318a86ddd964e40923e/checkpoints/best.json",
+      "sha256": "5953a2416ffe3ac39231273c18ce807fa6547464522c98bb2d6f38f07a72a8d4"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/b0601f14e6a84318a86ddd964e40923e/checkpoints/checkpoint-127991db7212487188182aa3fda20328.meta.json",
+      "sha256": "d3396e268a8ed25b627457c62b38046ec89158d5d4d60672b0512bf2aacd4ccc"
+    },
+    {
+      "path": "/private/tmp/h1-wp09-clean-7a63114/artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/probes/b0601f14e6a84318a86ddd964e40923e/checkpoints/checkpoint-127991db7212487188182aa3fda20328.pt",
+      "sha256": "1aa4b4fd23e16d44ec76b041296cb41797352f5e8bdf68091b5d8cd4cf52a1ce"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/60db1d87f73c479d83843fc0a4650158/checkpoints/best.json",
+      "sha256": "a03e759f4b237a32b147751f54397e5d2cd18ec4f84e3fb2fc1de021cce6aabc"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/60db1d87f73c479d83843fc0a4650158/checkpoints/checkpoint-1e1d249fe89f4bdfb1e7fa1e08241572.meta.json",
+      "sha256": "013a1ac547171fdf769a7b26da857698d34bf2e9a1f41de9e4118a31d386e2b7"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/h1-v2/wp09/clean-replay/repetition-0/runs/02c3e9ed51ce43be8bf5920cde374fb9/probes/60db1d87f73c479d83843fc0a4650158/checkpoints/checkpoint-1e1d249fe89f4bdfb1e7fa1e08241572.pt",
+      "sha256": "1aa4b4fd23e16d44ec76b041296cb41797352f5e8bdf68091b5d8cd4cf52a1ce"
+    }
+  ],
+  "failures": [],
+  "complete_probe_states": 65,
+  "parent_states": 1,
+  "role_stages": 11,
+  "recovery_updates": {
+    "interrupted": 25,
+    "retry": 525,
+    "uninterrupted": 550,
+    "exact_event_equality": true
+  },
+  "seconds": 11.418686792021617,
+  "peak_rss_bytes": 438616064,
+  "script_sha256": "2b51d37b36e34d448d1615ef36a676f50194274f3f7f32fc50b44942edeb62a8"
+}

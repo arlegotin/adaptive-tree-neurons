@@ -1,0 +1,18 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "environment/h1-v2/wp09/raw_audit.py"
+  ],
+  "pid": 67261,
+  "caffeinate_pid": 67262,
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "0"
+  },
+  "exit_code": 0,
+  "caffeinate_exit_code": 0
+}

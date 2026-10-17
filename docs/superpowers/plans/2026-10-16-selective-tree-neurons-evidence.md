@@ -10,6 +10,15 @@
 
 **Spec:** [2026-10-16-selective-tree-neurons-design.md](../specs/2026-10-16-selective-tree-neurons-design.md). This plan consumes the APIs from [the core plan](2026-10-16-selective-tree-neurons-core.md), not an existing implementation. Read both plans and the evidence record first.
 
+**Scientific status, 17 October 2026:** The [linked exploratory pilot](../../research/2026-10-17-complete-exploratory-pilot.md)
+contains all 16 prescribed teachers/R2, but the original producer failed after
+the explicit pause and only the two never-started pairs were completed under
+an operational amendment. Population-variance calibration remains unresolved;
+the saved 512k diagnostic only resolves numerical endpoint precision. No real
+freeze or independent confirmation exists. [Actual WP09](../../../audit/implementation/evidence/2026-10-18/wp09/index.json)
+validates this inconclusive diagnostic record. Conditional practical/extension tasks are not
+triggered, and their unchecked boxes do not authorize automatic execution.
+
 ## Global Constraints
 
 - Work in the current branch. Do not create a worktree or switch branches unless a later user instruction changes this constraint.
@@ -37,8 +46,9 @@ preserve the failed full-suite stage and passing final affected/native checks.
 A measured duplicate-history storage defect was subsequently corrected at
 `388c82c` and passed [scoped review and exact 4,000-update replay](../../../audit/implementation/evidence/2026-10-17/h1-history-storage-index.json).
 Current shared-file acceptances are Task 9-v5/10-v4/13-v3. The remaining scientific
-steps below are still open. Proceed to measured calibration and the genuine pilot;
-no second broad review of unchanged code is required after execution.
+steps below retain their individual gates. The genuine pilot has now produced
+the unresolved diagnostic above; actual WP09 validation is now complete.
+No second broad review of unchanged code is required after execution.
 
 Task numbers group deliverables; implementation and scientific execution have separate gates. The H1 execution/analysis/audit code must exist before its source identity is frozen. Adding even an unused package Python file changes the current checkpoint digest. Do not weaken that guard to make the nominal numbered order run.
 
@@ -222,7 +232,7 @@ def test_mps_timing_synchronizes_both_boundaries(timing_trace):
 
 ## Task 8: Calibrate variance, test size and the fixed confirmation design
 
-**Phase status:** Implementation accepted after independent review and fix1 (`a84ec74`); scientific WP05 evidence is pending. The one-teacher engineering invocation is not the genuine variance pilot. Tasks9/10/13 must be implemented and reviewed before definitive pilot/design execution. Steps4/5 remain open until that evidence exists.
+**Phase status:** Implementation accepted after independent review and fix1 (`a84ec74`). The genuine linked 16-teacher/R2 exploratory pilot is complete, with original failure/continuation provenance retained. Numeric design remains `calibrate`, with unresolved SD/intrinsic variance and missing canonical runtime batch; Steps4/5 have not produced an eligible freeze. Current blocking outputs are [design_decision.md](../../../pilot/design_decision.md) and [resource_forecast.json](../../../pilot/resource_forecast.json).
 
 **Files:** Create `src/treeneuron/pilot/calibrate.py`, `pilot/design.py`, `configs/pilot.yaml`, `tests/test_design.py`; extend CLI `calibrate --config PATH`. Outputs: `pilot/design_decision.md`, `pilot/resource_forecast.json` and raw pilot ledgers.
 
@@ -267,7 +277,7 @@ def test_rejected_freeze_never_reads_test_labels(drift_case):
 
 ## Task 10: Complete the independent H1 cohort and teacher-level analysis
 
-**Phase (17 October 2026):** Implementation accepted after independent spec and quality review; WP06 scientific execution remains pending audit/reproduction implementation, genuine pilot/design and real freeze. [Review and evidence](../../../audit/implementation/evidence/2026-10-17/task-10-index.json).
+**Phase (17 October 2026):** Implementation accepted after independent spec and quality review. WP06 remains unexecuted because the actual pilot has not supplied an accepted numeric design or real freeze. The completed exploratory E cohort is not an independent confirmatory cohort. [Review and evidence](../../../audit/implementation/evidence/2026-10-17/task-10-index.json).
 
 **Files:** Create `src/treeneuron/evaluation/confirm.py`, `analysis/primary.py`, `tests/test_confirmation.py`, `tests/test_primary.py`; extend CLI `confirm --protocol PATH --study synthetic`.
 
@@ -326,7 +336,7 @@ def test_extension_rejects_reused_confirmation_seeds(reused_seed_extension):
 
 ## Task 13: Audit, reproduce and write a decision report
 
-**Phase (17 October 2026):** Implementation accepted after scoped review and two fix rounds; [source-specific tests, reviews and acceptance](../../../audit/implementation/evidence/2026-10-17/task-13-index.json) are archived. Steps 3–5 remain scientific obligations. The single broad H1 implementation review precedes definitive calibration; no genuine pilot, freeze or independent cohort has run.
+**Phase (18 October 2026 local / 17 October UTC):** Implementation accepted after scoped review and two fix rounds; [source-specific tests, reviews and acceptance](../../../audit/implementation/evidence/2026-10-17/task-13-index.json) are archived. Actual clean replay, interrupted-growth recovery, independent raw audit and report regeneration are complete for the exploratory diagnostic, with no protected freeze/cohort authority. The canonical protected Steps3–5 remain gated by valid confirmation; their diagnostic counterparts and decision are recorded in the WP09 evidence above. The single broad implementation review is already complete; no repeat review/full suite substitutes for this numerical evidence.
 
 **Files:** Create `src/treeneuron/analysis/audit.py`, `analysis/report.py`, `tests/test_audit.py`, `reports/final.md`, curated `audit/` metadata; extend CLI `audit`, `report`; update README/DECISIONS.
 

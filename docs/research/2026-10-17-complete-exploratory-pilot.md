@@ -61,9 +61,10 @@ ledger rewrites are retained separately.
 [Linked original evidence and root checks](../../audit/implementation/evidence/2026-10-17/complete-linked-pilot/index.json)
 bind all prescribed members and both original inventories. The
 [saved-MC diagnostic](../../audit/implementation/evidence/2026-10-17/saved-mc-diagnostic/index.json)
-retains both draw counts and the original blocked branch. Actual independent
-raw-prediction recomputation, clean locked replay, interrupted-growth recovery
-and a report rebuilt twice are the remaining WP09 checks. Strong practical
+retains both draw counts and the original blocked branch. [Actual WP09 checks](../../audit/implementation/evidence/2026-10-18/wp09/index.json)
+now pass: independent raw-prediction recomputation, clean locked full replay,
+interrupted-growth recovery and a report rebuilt twice. See the [research report](../../reports/final.md).
+Strong practical
 baselines, transfer datasets, deeper growth and hard execution remain conditional.
 
 The appropriate direction is to **narrow the claim and examine the allocation

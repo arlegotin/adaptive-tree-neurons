@@ -1,0 +1,20 @@
+[
+  {
+    "name": "math",
+    "command": [
+      "/private/tmp/h1-wp09-clean-7a63114/.venv/bin/python",
+      "/private/tmp/h1-wp09-clean-7a63114/tests/reference_math_checks.py"
+    ],
+    "exit_code": 0,
+    "seconds": 8.405805875023361
+  },
+  {
+    "name": "score",
+    "command": [
+      "/private/tmp/h1-wp09-clean-7a63114/.venv/bin/python",
+      "/private/tmp/h1-wp09-clean-7a63114/tests/reference_score_checks.py"
+    ],
+    "exit_code": 0,
+    "seconds": 3.9405535419937223
+  }
+]

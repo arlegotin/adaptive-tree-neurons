@@ -1,0 +1,9 @@
+{
+  "utc": "2026-10-17T21:56:38Z",
+  "disk_free_bytes": 39880380416,
+  "memory_pressure": {
+    "exit_code": 0,
+    "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 126885 \nPages purgeable: 20828 \nPages purged: 46663080 \n\nSwap I/O:\nSwapins: 2864434 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 658099 \nPages inactive: 637992 \nPages speculative: 31892 \nPages throttled: 0 \nPages wired down: 261077 \n\nCompressor Stats:\nPages used by compressor: 584447 \nPages decompressed: 159930098 \nPages compressed: 209207687 \n\nFile I/O:\nPageins: 153974834 \nPageouts: 692524 \n\nSystem-wide memory free percentage: 63%\n",
+    "stderr": ""
+  }
+}

@@ -1,1 +1,39 @@
-{"actual_attempt_ns":4764845708,"actual_retained_bytes":3979428,"limitations":["Missing measured inputs: available_memory_bytes, bootstrap_seed, bytes_per_evaluation_row, endpoint_tolerance, estimation_rows, evidence_hashes, inference_supported, max_seconds, max_storage_bytes, peak_memory_bytes, power_iterations, power_mc_tolerance, required_controls, retries, seconds_per_evaluation_row, seconds_per_repetition, setup_seconds_per_teacher, storage_bytes_per_repetition, storage_bytes_per_teacher, policies.parent_updates, policies.continuation_updates, policies.patience, policies.validation_interval, policies.logical_batch, policies.physical_batch, policies.bootstrap_iterations, policies.probe_updates, policies.hpo_seconds, policies.hpo_trials, policies.timing_blocks, policies.timing_relative_precision","Required baseline/control coverage missing","Engineering fixtures are not genuine pilot/design evidence","Fresh independent confirmation teachers and observations required","Pilot-based count floor does not guarantee 95% coverage"],"status":"blocked"}
+{
+  "confirmation_forecast": null,
+  "confirmation_forecast_unavailable_reason": "No supported numeric design, final n_T or authorized independent cohort; original producer failed and second canonical runtime batch is absent",
+  "evidence": {
+    "complete_pilot_index": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/index.json",
+    "prospective_resource_record": "docs/research/2026-10-17-scientific-pilot-readiness.md",
+    "saved_MC_index": "audit/implementation/evidence/2026-10-17/saved-mc-diagnostic/index.json"
+  },
+  "freeze_eligible": false,
+  "independent_teachers": 16,
+  "limitations": [
+    "Pilot workload cap is not proof of physical impossibility",
+    "Per-stage method clocks are nested and must not be added to enclosing clocks",
+    "Bootstrap computation precision passes only in the labeled supplement; population calibration is unresolved",
+    "No complete local prediction-training-inference tradeoff or transfer baseline comparison"
+  ],
+  "observed_WP09_validation": {
+    "clean_replay_and_recovery_peak_rss_bytes": 812630016,
+    "clean_replay_and_recovery_seconds": 302.3978321660543,
+    "raw_prediction_audit_peak_rss_bytes": 384106496,
+    "raw_prediction_audit_seconds": 4.925965459027793,
+    "saved_state_comparison_seconds": 11.418686792021617,
+    "scope": "Separate engineering reproduction and saved-input audits; no new efficacy units; excludes install/restore/report curation"
+  },
+  "observed_costs": {
+    "continuation_clock_scope": "includes failed setup, gaps, fits, I/O and joined analysis; does not replace original clocks",
+    "continuation_first_wrapper_through_joined_diagnostics_seconds": 569.884515291,
+    "documented_suspended_controller_perf_seconds": 40020.992005584,
+    "original_elapsed_outside_documented_pause_seconds": 7036.143731624,
+    "original_outer_perf_seconds": 47057.135737208,
+    "original_peak_rss_bytes": 3667247104,
+    "original_plus_continuation_producer_bytes": 12953209885,
+    "saved_MC_clock_scope": "separate saved-scalar diagnostic; not new teacher information",
+    "saved_MC_outer_seconds": 0.695944791
+  },
+  "repetitions": 2,
+  "scope": "Linked exploratory diagnostic; observed costs are not prospective confirmation promises",
+  "status": "calibrate; no accepted confirmation forecast"
+}

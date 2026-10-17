@@ -1,0 +1,5 @@
+{
+  "stage": "AST-only renderer preflight; no imports or scientific calculation",
+  "error": "SyntaxError: unterminated f-string literal, line40",
+  "resolution": "Correct closing quote only; preserve failed source"
+}

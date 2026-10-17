@@ -1,0 +1,291 @@
+{
+  "bytes": 1115916,
+  "canonical_freeze_eligible": false,
+  "count": 46,
+  "execution_sha256": "07366c506b309cce841f08d54f25d718e246f75daea5696d6542c300cfadaf6c",
+  "files": [
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/technical-report-v1.md",
+      "bytes": 27688,
+      "original_path": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/scientific-wp09-report.md",
+      "sha256": "8b74492fddea1bd0e2dab101feefb2d80c0fd7b16d5563a1f35b6cb904700259"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/report.md",
+      "bytes": 19000,
+      "original_path": "artifacts/h1-v2/wp09-report-format-v2/reader-report-1.md",
+      "sha256": "4b26c13d7d171f466d2305a471ac7c8781e2dd7eadcdad918fb72473cbd11d38"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/render_report.py",
+      "bytes": 18309,
+      "original_path": "environment/h1-v2/wp09-report-format-v2/render_report.py",
+      "sha256": "2293a6a5b277bbb1868812e722dcc013d4bb1bcb9eac8c264e630f110be8adf1"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/report-inputs/appendix-invocations.json",
+      "bytes": 488,
+      "original_path": "environment/h1-v2/wp09-report-format-v2/report-inputs/appendix-invocations.json",
+      "sha256": "1a93345a9abbb047dc91a835abb6007e252f97028d4c1cd8c94a832c39daf443"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/report-inputs/clean-readout.json",
+      "bytes": 57579,
+      "original_path": "environment/h1-v2/wp09-report-format-v2/report-inputs/clean-readout.json",
+      "sha256": "3331c1f565a927e67aa14466be61a6ac2c02f1e44a76362ca4f35694f1472702"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/report-inputs/clean-restoration.json",
+      "bytes": 353401,
+      "original_path": "environment/h1-v2/wp09-report-format-v2/report-inputs/clean-restoration.json",
+      "sha256": "de221c8076135e7a253fbacd3e36c98dfdead44532d959da1f3a4767914f09cc"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/report-inputs/joined-design.json",
+      "bytes": 2184,
+      "original_path": "environment/h1-v2/wp09-report-format-v2/report-inputs/joined-design.json",
+      "sha256": "fd6844d27846b871259f5b54f5785fe57a6d99adac885e12e1df5be0eae55c2a"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/report-inputs/joined-summary.json",
+      "bytes": 4462,
+      "original_path": "environment/h1-v2/wp09-report-format-v2/report-inputs/joined-summary.json",
+      "sha256": "351c2578bde77e225a06478e212ac4a0b2bf60313a7f1daa535b6df5ea578fa1"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/report-inputs/manifest.json",
+      "bytes": 2213,
+      "original_path": "environment/h1-v2/wp09-report-format-v2/report-inputs/manifest.json",
+      "sha256": "63b836acc46e3d85bbe975f38cb70939a2f914a2d086bcc5ca4cd1f95e3c4a47"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/report-inputs/raw-audit.json",
+      "bytes": 86456,
+      "original_path": "environment/h1-v2/wp09-report-format-v2/report-inputs/raw-audit.json",
+      "sha256": "e89778c48de957dc3fb1ea1ec3c401728420fe5666f19f2aa855a57030ef4dea"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/report-inputs/saved-state-comparison.json",
+      "bytes": 189928,
+      "original_path": "environment/h1-v2/wp09-report-format-v2/report-inputs/saved-state-comparison.json",
+      "sha256": "2a1cebf4fe689bddd4b900af50a056094a43db723dac51c2cfde6df1383c6205"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/report-inputs/supplement-512000.json",
+      "bytes": 5601,
+      "original_path": "environment/h1-v2/wp09-report-format-v2/report-inputs/supplement-512000.json",
+      "sha256": "dd5781c2b2538dfe80362c02bc771abcda1a1a14f94931b72e4ac92c1f7cbbbd"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/raw_audit.py",
+      "bytes": 8285,
+      "original_path": "environment/h1-v2/wp09/raw_audit.py",
+      "sha256": "96f182796f54b351484da253250133a213de2694822e7562d42f3b3077da1ca4"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/clean_replay.py",
+      "bytes": 10283,
+      "original_path": "environment/h1-v2/wp09/clean_replay.py",
+      "sha256": "8f8f2bed4c57f8a57e7d96578a0e1adc435fe4764b8d844a734d143bdfa70c68"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/saved_state_comparison.py",
+      "bytes": 4607,
+      "original_path": "environment/h1-v2/wp09/saved_state_comparison.py",
+      "sha256": "2b51d37b36e34d448d1615ef36a676f50194274f3f7f32fc50b44942edeb62a8"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/prepare_clean.py",
+      "bytes": 2396,
+      "original_path": "environment/h1-v2/wp09/prepare_clean.py",
+      "sha256": "cefdfdd3160bfdbabd9ca1cf4e9d0459b80211d9ddeaa16669a3891ef89c7938"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/appendix-invocations.json",
+      "bytes": 488,
+      "original_path": "environment/h1-v2/wp09/appendix-invocations.json",
+      "sha256": "1a93345a9abbb047dc91a835abb6007e252f97028d4c1cd8c94a832c39daf443"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/appendix-math.stdout",
+      "bytes": 1044,
+      "original_path": "environment/h1-v2/wp09/appendix-math.stdout",
+      "sha256": "2bfbdbc3fb4e4ae70e24c2320917d080857707a5aadc111d1ab74c0a395e561b"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/appendix-math.stderr",
+      "bytes": 0,
+      "original_path": "environment/h1-v2/wp09/appendix-math.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/appendix-score.stdout",
+      "bytes": 2932,
+      "original_path": "environment/h1-v2/wp09/appendix-score.stdout",
+      "sha256": "20f06dc44a4626dcd230a9bd844838c19e165914bf34105d940d600306997faa"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/appendix-score.stderr",
+      "bytes": 0,
+      "original_path": "environment/h1-v2/wp09/appendix-score.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/raw-audit-invocation.json",
+      "bytes": 398,
+      "original_path": "environment/h1-v2/wp09/raw-audit-invocation.json",
+      "sha256": "ef99cc4d96f42b83a9a323ee51a3c3c8d022eef2552210e9558ad985f6dcedbe"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/raw-audit.stdout",
+      "bytes": 166,
+      "original_path": "environment/h1-v2/wp09/raw-audit.stdout",
+      "sha256": "c35502e8a32654ae117cac21d51747370a8b28f07e12b9586c4b19e63ee80c95"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/raw-audit.stderr",
+      "bytes": 0,
+      "original_path": "environment/h1-v2/wp09/raw-audit.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/clean-replay-invocation.json",
+      "bytes": 552,
+      "original_path": "environment/h1-v2/wp09/clean-replay-invocation.json",
+      "sha256": "4e14358840bdd9d713ae295681f5a1699d8f459043dae9758987a4bbd6a28183"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/clean-replay.stdout",
+      "bytes": 70,
+      "original_path": "environment/h1-v2/wp09/clean-replay.stdout",
+      "sha256": "da79f7d069e743b69fbee141d5876d02c063a0eceb92348d61aeeb49f96bb36e"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/clean-replay.stderr",
+      "bytes": 0,
+      "original_path": "environment/h1-v2/wp09/clean-replay.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/saved-state-invocation.json",
+      "bytes": 598,
+      "original_path": "environment/h1-v2/wp09/saved-state-invocation.json",
+      "sha256": "912c2b23328aafe25208a078931dcf2be533688f998317622d8261a635d97df7"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/replay-resource-observation.json",
+      "bytes": 713,
+      "original_path": "environment/h1-v2/wp09/replay-resource-observation.json",
+      "sha256": "fd85bbfca968cfe327d1f417f3873360aaec648768fb9962aeec45bd194a5454"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/report-rebuild.json",
+      "bytes": 1100,
+      "original_path": "environment/h1-v2/wp09/report-rebuild.json",
+      "sha256": "0722bd0b4e0a78130ade76f95e9e4fbd7c8db42b2294bf572d435baa4ac2ff8a"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/renderer-preflight-error.json",
+      "bytes": 218,
+      "original_path": "environment/h1-v2/wp09/renderer-preflight-error.json",
+      "sha256": "ac0886c1e570dd7b58e0e1a413f31d0ed60470111337f924b36fe789922505f5"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/render_report-syntax-failed.py",
+      "bytes": 11281,
+      "original_path": "environment/h1-v2/wp09/render_report-syntax-failed.py",
+      "sha256": "62f86eb0f9f392b40faa31f849f09790b03c614c514fae70f6638f6a037cb11e"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/inventory.json",
+      "bytes": 287498,
+      "original_path": "environment/h1-v2/wp09/inventory.json",
+      "sha256": "d6b05c5389228b02c31ecf6f0183bafdf7d820dc7bcff518dc7039ceed3a7900"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/presentation/inventory.json",
+      "bytes": 3427,
+      "original_path": "environment/h1-v2/wp09-report-format-v2/inventory.json",
+      "sha256": "f6009683463478ad78331c185ccea525b0d1f07c891a6e752776dccae172250b"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/presentation/render-manifest.json",
+      "bytes": 1560,
+      "original_path": "environment/h1-v2/wp09-report-format-v2/render-manifest.json",
+      "sha256": "d0479cc67c0e999f52ebf9dcab543d08ebebdc14bf4acaec3ec132fbe179f638"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/presentation/format-report.md",
+      "bytes": 1280,
+      "original_path": "environment/h1-v2/wp09-report-format-v2/format-report.md",
+      "sha256": "ff03c50efb8d92ee80fde78804a956b142804dbb18d0efec3d278eeeb0c7cfd1"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/install-metadata/PKG-INFO",
+      "bytes": 288,
+      "original_path": "environment/h1-v2/wp09/install-metadata/PKG-INFO",
+      "sha256": "7685affaeee216ea14fb4be60804c8f391d249a0f49b4759a3d9583744b7f819"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/install-metadata/SOURCES.txt",
+      "bytes": 3321,
+      "original_path": "environment/h1-v2/wp09/install-metadata/SOURCES.txt",
+      "sha256": "745a90bf34979901bfb13632e01925cb398d596e02674858174ad68bf156da51"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/install-metadata/dependency_links.txt",
+      "bytes": 1,
+      "original_path": "environment/h1-v2/wp09/install-metadata/dependency_links.txt",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/install-metadata/requires.txt",
+      "bytes": 45,
+      "original_path": "environment/h1-v2/wp09/install-metadata/requires.txt",
+      "sha256": "454b3348934236e25886f5bc9558ca051c312f61a837895d952c0e1770d2304e"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/execution/install-metadata/top_level.txt",
+      "bytes": 11,
+      "original_path": "environment/h1-v2/wp09/install-metadata/top_level.txt",
+      "sha256": "04e7456c41004dece0362d28c6dd2ae861fb47458b4ba34dbe2f24aeef4f62ef"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/root/inventory-verification.json",
+      "bytes": 247,
+      "original_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v2/wp09-root/inventory-verification.json",
+      "sha256": "d78c17765aadb3ac619175c3c6b987770e34a1491987e398250bf3629f069771"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/root/source-verification.json",
+      "bytes": 363,
+      "original_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v2/wp09-root/source-verification.json",
+      "sha256": "a2f783164b83047e25176e88be45d1b1418bf96d50f41ccb120ec0b26dd642d5"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/root/format-verification.json",
+      "bytes": 218,
+      "original_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v2/wp09-root/format-verification.json",
+      "sha256": "d16b85391357560e88ff82eef07dcd7c545c1fc8b6e531bb534bfda4c0a37cb0"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/curate.py",
+      "bytes": 4733,
+      "original_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v2/wp09-root/curate.py",
+      "sha256": "4ffdfcd1575135dd79b0956e0f4f4fe451f8f07239576e1bcf23e07255a88a3a"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-18/wp09/root/published-report-verification.json",
+      "bytes": 484,
+      "original_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v2/wp09-root/published-report-verification.json",
+      "sha256": "ac5399dc593f81b287e66844a1896ecbc263c29185b01796b8bec4ec80e94352"
+    }
+  ],
+  "original_WP09_inventory_sha256": "d6b05c5389228b02c31ecf6f0183bafdf7d820dc7bcff518dc7039ceed3a7900",
+  "package_sha256": "d8e5c0c6549f3b1948ee86b39a2d3234ebe5230e7bb09c13ebfc4351c2cf891c",
+  "presentation_inventory_sha256": "f6009683463478ad78331c185ccea525b0d1f07c891a6e752776dccae172250b",
+  "report_sha256": "4b26c13d7d171f466d2305a471ac7c8781e2dd7eadcdad918fb72473cbd11d38",
+  "scientific_decision": "narrow; exploratory and inconclusive placement effect",
+  "scope": "Actual independent raw E audit, clean locked engineering replay, growth recovery and deterministic diagnostic report; no frozen confirmation",
+  "source_commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0"
+}

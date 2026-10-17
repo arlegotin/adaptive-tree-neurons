@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/private/tmp/h1-wp09-clean-7a63114/.venv/bin/python",
+    "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v2/wp09/clean_replay.py"
+  ],
+  "cwd": "/private/tmp/h1-wp09-clean-7a63114",
+  "worker_pid": 67569,
+  "caffeinate_pid": 67570,
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "0"
+  },
+  "exit_code": 0,
+  "caffeinate_exit_code": 0
+}

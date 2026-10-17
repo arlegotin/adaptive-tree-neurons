@@ -1,0 +1,7 @@
+{
+  "scope": "Fresh root execution-source check after numerical STOP; no new backend producer or fit",
+  "files": 315,
+  "execution_sha256": "07366c506b309cce841f08d54f25d718e246f75daea5696d6542c300cfadaf6c",
+  "package_sha256": "d8e5c0c6549f3b1948ee86b39a2d3234ebe5230e7bb09c13ebfc4351c2cf891c",
+  "checkout_commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0"
+}

@@ -1,0 +1,14 @@
+{
+  "scope": "Published stdlib-only report command from curated location",
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "audit/implementation/evidence/2026-10-18/wp09/render_report.py",
+    "/private/tmp/tree-neuron-report-root-20261018.md"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "",
+  "seconds": 0.027763457968831062,
+  "same_bytes_as_reports_final": true,
+  "report_sha256": "4b26c13d7d171f466d2305a471ac7c8781e2dd7eadcdad918fb72473cbd11d38"
+}

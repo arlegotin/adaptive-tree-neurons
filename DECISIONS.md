@@ -606,3 +606,50 @@ study is triggered by these outcomes. Execute actual WP09 now: independent raw
 prediction/F-variance recomputation, fresh frozen-lock full representative replay,
 durable interrupted-growth recovery and deterministic report regeneration. This
 is evidence validation, not another efficacy teacher or a new source review.
+
+
+## D027 — 18 October 2026 local / 17 October UTC: diagnostic reproduction accepted; narrow the research claim
+
+Actual WP09 is complete for the exploratory diagnostic. A fresh separate
+offline frozen-lock environment reproduced both reference scripts and the
+complete eight-role/65-probe engineering pipeline. Model topology/tensors,
+every Adam moment/age/group, scheduler, complete RNG/sampler/cursor, next rows
+and F/G/E predictions match exactly. Parent/probe states and all 11 stage row
+streams/losses/evaluations also match. A real durable interruption 25 updates
+after growth, followed by a linked 525-update retry, matches the uninterrupted
+550-update continuation exactly without additional allowance.
+
+An independent calculation from actual saved predictions and original F/E
+labels/row identities verified all 32 pairs, 256 risks and hierarchical
+variances. Maximum risk rounding discrepancy was 1.39e−17; paired rows and
+teacher effects agree exactly. Root read the calculation/replay scripts and
+full report, rehashed all 1,030 new files / 481,577,468 bytes, and verified the
+unchanged 315-file execution map and package identity. No scientific or numerical
+WP09 failure occurred. The intentional interruption and a corrected pre-render
+quote error are retained separately from scientific pairs.
+
+The [report](reports/final.md) is generated from hash-bound compact records,
+with every teacher/method, inference limit, failure, cost and finite-probe
+association retained. A readability-only revision preserves the full technical
+report and replaces inline JSON dumps with tables. Two independent renders
+match byte-for-byte. Root additionally verified the published standard-library
+command from the curated location, yielding the identical report SHA
+4b26c13d7d171f466d2305a471ac7c8781e2dd7eadcdad918fb72473cbd11d38.
+[Evidence and reproduction inputs](audit/implementation/evidence/2026-10-18/wp09/index.json)
+retain exact commands, original inventories and independent root checks.
+
+Decision: **narrow and revise**. The specified score has no clear placement
+advantage at the achieved exploratory resolution; ordinary capacity remains
+competitive under the shared recipe. This is a reproducible inconclusive
+diagnostic, not equivalence, a powered rejection, practical superiority or
+model-family novelty. SD/intrinsic-variance calibration and canonical runtime
+evidence remain unresolved, so no accepted final n_T/K, freeze or independent
+confirmation is manufactured. The finite pilot cap is not a physical impossibility
+claim. Any future expansion needs a new prospective design; deeper growth,
+transfer and hard execution are not triggered by this result.
+
+The [current design decision](pilot/design_decision.md) and
+[cost record](pilot/resource_forecast.json) replace stale engineering placeholders
+while preserving all original bulk records. Work remains on the requested main
+branch. No further numerical work is running. All eighteen chronological
+rulings and their costs remain part of the final human handoff.

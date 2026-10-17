@@ -1,0 +1,53 @@
+{
+  "scope": "Self-contained saved audited inputs for renderer; no bulk tensors/NPZ required to regenerate prose",
+  "inputs": [
+    {
+      "original_path": "artifacts/h1-v2/wp09/raw-audit/audit.json",
+      "local_path": "raw-audit.json",
+      "sha256": "e89778c48de957dc3fb1ea1ec3c401728420fe5666f19f2aa855a57030ef4dea",
+      "bytes": 86456
+    },
+    {
+      "original_path": "environment/h1-v2/wp09/clean-readout.json",
+      "local_path": "clean-readout.json",
+      "sha256": "3331c1f565a927e67aa14466be61a6ac2c02f1e44a76362ca4f35694f1472702",
+      "bytes": 57579
+    },
+    {
+      "original_path": "environment/h1-v2/wp09/clean-restoration.json",
+      "local_path": "clean-restoration.json",
+      "sha256": "de221c8076135e7a253fbacd3e36c98dfdead44532d959da1f3a4767914f09cc",
+      "bytes": 353401
+    },
+    {
+      "original_path": "environment/h1-v2/wp09/appendix-invocations.json",
+      "local_path": "appendix-invocations.json",
+      "sha256": "1a93345a9abbb047dc91a835abb6007e252f97028d4c1cd8c94a832c39daf443",
+      "bytes": 488
+    },
+    {
+      "original_path": "environment/h1-v2/wp09/saved-state-comparison.json",
+      "local_path": "saved-state-comparison.json",
+      "sha256": "2a1cebf4fe689bddd4b900af50a056094a43db723dac51c2cfde6df1383c6205",
+      "bytes": 189928
+    },
+    {
+      "original_path": "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/joined-diagnostics/joined-summary-diagnostic.json",
+      "local_path": "joined-summary.json",
+      "sha256": "351c2578bde77e225a06478e212ac4a0b2bf60313a7f1daa535b6df5ea578fa1",
+      "bytes": 4462
+    },
+    {
+      "original_path": "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/joined-diagnostics/joined-design-diagnostic.json",
+      "local_path": "joined-design.json",
+      "sha256": "fd6844d27846b871259f5b54f5785fe57a6d99adac885e12e1df5be0eae55c2a",
+      "bytes": 2184
+    },
+    {
+      "original_path": "artifacts/h1-v2/pilot-saved-mc-supplement/892290e2c5914ef0815b9edd6cca6c3d/supplement-512000.json",
+      "local_path": "supplement-512000.json",
+      "sha256": "dd5781c2b2538dfe80362c02bc771abcda1a1a14f94931b72e4ac92c1f7cbbbd",
+      "bytes": 5601
+    }
+  ]
+}

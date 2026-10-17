@@ -1,0 +1,2150 @@
+{
+  "status": "completed",
+  "scope": "Independent original-unit saved E predictions audit; exploratory only",
+  "inputs": [
+    {
+      "path": "environment/h1-v2/genuine-pilot/inventory.json",
+      "sha256": "c0a46776b126cd4a30c1f586b25ea3c786155736b362322fccfb428f3c06f4ea"
+    },
+    {
+      "path": "environment/h1-v2/user-pause-continuation/inventory.json",
+      "sha256": "d984d8961a59dc5d996862a5361af30f28f5cc9b7c1a45e7be0c8a2fd33ff627"
+    },
+    {
+      "path": "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/joined-input-members.json",
+      "sha256": "7f42ae967496a7e6a36095175617567454b7384bd74a81121d9be23681f7ab92",
+      "bytes": 7559
+    },
+    {
+      "path": "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/joined-diagnostics/joined-scalars-and-risks.json",
+      "sha256": "7324942c0ee22b18b3fe76e22ba96c14be2b19d602e096c480ef5bda2a9bbff4",
+      "bytes": 29733
+    },
+    {
+      "path": "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/joined-diagnostics/joined-summary-diagnostic.json",
+      "sha256": "351c2578bde77e225a06478e212ac4a0b2bf60313a7f1daa535b6df5ea578fa1",
+      "bytes": 4462
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-0/observations.npz",
+      "sha256": "0cd1719d760370535edccf96a8851d2708b665f09cf29f953f6ee407a821dca8",
+      "bytes": 36830002
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-0/repetition-0/pair.json",
+      "sha256": "8a5647ab02890b3d4ca3cc05fcb7408c2c5dffa4c5a730be095721e5d87b52d2",
+      "bytes": 8513539
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-0/repetition-0/E-predictions.npz",
+      "sha256": "27f65c736492f60e09a6749e0ce74161b4755da87ff8d334b06eb31b816e97e2",
+      "bytes": 20229228
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-0/repetition-0/score-table.json",
+      "sha256": "8f970eb792d0f5c469560b7e2d83cfba4d72b282f50d1f870127e99373285248",
+      "bytes": 87563
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-0/repetition-0/runs/99d05a3f1ff34c698bccc9615ff2b777/greedy.json",
+      "sha256": "59f55d3492cccc2c6416ee26053a441db4a935dcf9e27f2596be12b82205a720",
+      "bytes": 80431
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-0/repetition-1/pair.json",
+      "sha256": "09a50fc8a4ea17e75e869ea8970be6755b3ecc296618ebb8bbc5474041be5166",
+      "bytes": 13617326
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-0/repetition-1/E-predictions.npz",
+      "sha256": "cc3a0f03c3edd651efab72b51223cb61db12816a4480908eef7807fe05345190",
+      "bytes": 20228645
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-0/repetition-1/score-table.json",
+      "sha256": "449b06aa75294c4ce37cb2bc4a88ecfd31209e5cb85e271a6c208d613ae8ab01",
+      "bytes": 87456
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-0/repetition-1/runs/6a17cf2cc14e486a9ae5253da46bde2a/greedy.json",
+      "sha256": "e89f50109822b775e135ea9560dc2aeef2906bd777701db6a9c77fec43815b47",
+      "bytes": 80489
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-1/observations.npz",
+      "sha256": "ee3b4a648810823ab8a15ff1fc70935dbf1f41b6301869b597bb26a3d3b6a328",
+      "bytes": 36829591
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-1/repetition-0/pair.json",
+      "sha256": "ff60993451afcb98ea746ba72a4dd5287d09638e1855b2ed892fa22fd97837c5",
+      "bytes": 13073701
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-1/repetition-0/E-predictions.npz",
+      "sha256": "9aa203cd67793708fb0d7002dbca60e4b8a17fb955ff77dafa97ad960eafd91b",
+      "bytes": 20230148
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-1/repetition-0/score-table.json",
+      "sha256": "6c08722b8e44079ca25cd5e9359fc131645b08a960e3c2f2a4bc0d531000bc58",
+      "bytes": 88083
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-1/repetition-0/runs/4bb63fd05ec54d3d941584559908a5c7/greedy.json",
+      "sha256": "f31e57157470238b0c923cb4dd94bb8c8cf2a9d3c6d5930d811b66ec6ddcea07",
+      "bytes": 80547
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-1/repetition-1/pair.json",
+      "sha256": "772daf752ff66a72c72ebe6130f6ee40bf4db36dc80449455f20c82c9c041055",
+      "bytes": 13446882
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-1/repetition-1/E-predictions.npz",
+      "sha256": "632a173d63d8f0c66112a47e29ee3876fd57783688d86aebc4e8bcc3acb65db8",
+      "bytes": 20231682
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-1/repetition-1/score-table.json",
+      "sha256": "3752be273e915cfbd52d25ebec70a4a6b2144fae520d24133a489f70b338ade7",
+      "bytes": 87824
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-1/repetition-1/runs/5a6bc28ddf8c456da7f9139dd697a31d/greedy.json",
+      "sha256": "f51e1196df8ed9da46f9d129c288c70cfc20779be2406fdbba3b8babc402ad67",
+      "bytes": 80621
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-2/observations.npz",
+      "sha256": "9f6691dc2392d0815e307c23ded1d18ae678e77696eb556b924248a295fb5954",
+      "bytes": 36829683
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-2/repetition-0/pair.json",
+      "sha256": "31c1e70d95e3e72177fc8499be98bff4e201d8b57588d474882e683466eb6193",
+      "bytes": 8678308
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-2/repetition-0/E-predictions.npz",
+      "sha256": "ba83f2d569b3a8f4c6251a59b0e96f06958c0d1cd5561fdf954d25db49365f89",
+      "bytes": 20229560
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-2/repetition-0/score-table.json",
+      "sha256": "9bc0e5b38aa94ad23c5a4671874d3c54b47e4d84a1e12c0a0fac1cfb2229f4fb",
+      "bytes": 87207
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-2/repetition-0/runs/faba1e230dfd49d8ad44debf617e4f2a/greedy.json",
+      "sha256": "d8db3cd036ed873364699b10a943cd3dbd0b7beee3d5c0470603c03bb109e74f",
+      "bytes": 80394
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-2/repetition-1/pair.json",
+      "sha256": "a1cf18e8c9b781a29134c5ea72727cd1101fd7936005fd84b05a2204d2f422ce",
+      "bytes": 8819316
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-2/repetition-1/E-predictions.npz",
+      "sha256": "0753b7fa3d3524dda0dd679cdad5a8e6f17357390386ccc280d401e80eec2e5d",
+      "bytes": 20229549
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-2/repetition-1/score-table.json",
+      "sha256": "dd12fcbb7abdab429dc39b31feded2f535161281a18380002e3077cf7f2e1fb1",
+      "bytes": 87249
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-2/repetition-1/runs/6989f768564d4273a7d0d3894362f609/greedy.json",
+      "sha256": "cc4929113e753f1e64f6b60b62836c2626c026fc03a4797460b7456fa4f333c6",
+      "bytes": 80360
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-3/observations.npz",
+      "sha256": "5cb3067cbbf71f1299a6ca0775813317720fd9dd30c758f8940d8aed65df6116",
+      "bytes": 36829562
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-3/repetition-0/pair.json",
+      "sha256": "74d3ed81b2cafc4c9314e93c1ccb8a1fa1271f06180189cf1d8498abd8805be1",
+      "bytes": 13659179
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-3/repetition-0/E-predictions.npz",
+      "sha256": "2c1696644076feed15413c97f98be1fca3c34e7b000875de3594a53cb8454c8c",
+      "bytes": 20229831
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-3/repetition-0/score-table.json",
+      "sha256": "5182eed6454c4d670009b6068a7e8dbc10eefc0a51a30a5519ba8b2eb2b3ac4f",
+      "bytes": 87530
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-3/repetition-0/runs/4c7d334b15ef4c3a8e8480fb4799b727/greedy.json",
+      "sha256": "f5e50d99953f9295e1d777d871128e0dbc60910bda6098bc5eb60f36da1c3d0f",
+      "bytes": 80457
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-3/repetition-1/pair.json",
+      "sha256": "8e538fd651efcb8c1e4907768cbf19409f4688eb4f866122cfda2432e98f0f12",
+      "bytes": 8632929
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-3/repetition-1/E-predictions.npz",
+      "sha256": "e5a4b1f616f62c05e0e468197a6049eae0350c0a3f2ff6820919b7b6ee266a4a",
+      "bytes": 20228049
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-3/repetition-1/score-table.json",
+      "sha256": "131efcc1b77d33a431dabf0039f8e23d28f3ef8e807393b7fc622c0fedaf9f51",
+      "bytes": 87458
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-3/repetition-1/runs/6573d6fe20024470b6cf1e7e75419f79/greedy.json",
+      "sha256": "99ce2b1f8a340c9fae2178e82a3856049dfb7b0943d61d1f7b5dcfe304e27b38",
+      "bytes": 80428
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-4/observations.npz",
+      "sha256": "380397c8eb632c452f5b2ad206fbb4cdbabcfe45bc77050c2890e7c52a437f2b",
+      "bytes": 36830111
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-4/repetition-0/pair.json",
+      "sha256": "03a0317fb034d1c5a2991c9173e5ca8dd637717b01d826e7105c3b39edb46684",
+      "bytes": 9097328
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-4/repetition-0/E-predictions.npz",
+      "sha256": "eb9135119bab9144522f6703fc73970fcba978c8156dc6185ca877dffa50cabf",
+      "bytes": 20231124
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-4/repetition-0/score-table.json",
+      "sha256": "19cf8a70ba2989c871af4333b01b4a0c544fb21816dcd2df4d2c76e152789066",
+      "bytes": 87439
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-4/repetition-0/runs/eb54f9e85cd34e6eae05d7cd02e7f7aa/greedy.json",
+      "sha256": "159e5384d94d36debbd0e664197a15f6b5db7fe071b15cb3be7e49aa5ca2d0f7",
+      "bytes": 80407
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-4/repetition-1/pair.json",
+      "sha256": "65d65c2899cc8bdaac4e595bb288cbc7fa1874df2afaec122aa28084a8a56e9b",
+      "bytes": 8703414
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-4/repetition-1/E-predictions.npz",
+      "sha256": "c364a61c9147097bb201a8745b042b1ae556b82abc41b79b3d387abfae6e09d2",
+      "bytes": 20231074
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-4/repetition-1/score-table.json",
+      "sha256": "af7939ce159cc9268f2c5e5ef50c1d73e7cca1c852482a7f6957312fe24925da",
+      "bytes": 87311
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-4/repetition-1/runs/a55613c58d2a45e58e04fbbe6531ee6c/greedy.json",
+      "sha256": "1d3c33fc66bcd5d815907a01bb0221991b8a8a0b5e7c6c1d22ece6cd1e32d4f8",
+      "bytes": 80379
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-5/observations.npz",
+      "sha256": "6dbea6a2489448c2a1b3b48d4a1d5cc68333ce400b02827f6d5a3f10c65f78ec",
+      "bytes": 36830287
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-5/repetition-0/pair.json",
+      "sha256": "214e5719c98a074b5f5f1b968dc67a77c0c9f3083fe71f1d41d80cb2d17e53cc",
+      "bytes": 13860261
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-5/repetition-0/E-predictions.npz",
+      "sha256": "772b762ebdf2ab62a85bf10a0c36a7308085c2a467302ca91b9e19bcaca68eeb",
+      "bytes": 20227079
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-5/repetition-0/score-table.json",
+      "sha256": "9ebc11542903e220c3834ccf0ed2f367ecf4f2448eb7d9d85582ee3a09851ad7",
+      "bytes": 87634
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-5/repetition-0/runs/a420cbbe42ad494da2ea585fa058ce02/greedy.json",
+      "sha256": "06fa9ac9663bd256493dc69efeee82af2c8e5fd02da1532661c78c45383ef7f2",
+      "bytes": 80519
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-5/repetition-1/pair.json",
+      "sha256": "732e771f7b5a6c231035ee666b24be5a5016b58569fce368657f8833b69788c3",
+      "bytes": 13268203
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-5/repetition-1/E-predictions.npz",
+      "sha256": "aba4a2013baf5b47753cf7b0dad17a08487dbdfdfbfa2cf21343352e091da92e",
+      "bytes": 20228202
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-5/repetition-1/score-table.json",
+      "sha256": "c585e19182687336f6d044d048c4912037df46d14a292f82b6bb734e8e8802c2",
+      "bytes": 87364
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-5/repetition-1/runs/e74998d168194ada9387874c51972daa/greedy.json",
+      "sha256": "da095523e35e6486b415392cb353d4dce89f06d287cdfd226337d1a98e26eb31",
+      "bytes": 80777
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-6/observations.npz",
+      "sha256": "e5dc9cb12a91bf73c63f591f7df226ce420ab39e0f86532a6025cf40721e4741",
+      "bytes": 36829568
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-6/repetition-0/pair.json",
+      "sha256": "ec580b7390974f0351282fcbc136ac037f1b617b6d9274ed4f237534bdb0fceb",
+      "bytes": 13279260
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-6/repetition-0/E-predictions.npz",
+      "sha256": "7bb102f56cc9da1b01bca3cada25742ec104b1ee4195969711ebe00bcaebe0ab",
+      "bytes": 20233014
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-6/repetition-0/score-table.json",
+      "sha256": "8d708a66f6f698435b456145e0a8c6e6d092c2a06a2e9d81af01520bc4881492",
+      "bytes": 87425
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-6/repetition-0/runs/cdb2ac70d1b64851ba15c41d9fad074a/greedy.json",
+      "sha256": "7df884a85881e9dc7649c65251312a462f7f9a9d2464443c60169b13d43939d8",
+      "bytes": 80478
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-6/repetition-1/pair.json",
+      "sha256": "b827994680e5ec3aec6e5e73a003f992ec382b3d316152c0459a7951197071ef",
+      "bytes": 13258406
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-6/repetition-1/E-predictions.npz",
+      "sha256": "915a46c4641ca251420876f8a22703b7c602fddaa3c52ae51c5bb05664c8061f",
+      "bytes": 20232092
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-6/repetition-1/score-table.json",
+      "sha256": "8f892325d2565fb8c050f01ac9885b90103e76b91d49ef04ab32fd4ec2a8d713",
+      "bytes": 87493
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-6/repetition-1/runs/b03febd61187460f89dba83a3241feb0/greedy.json",
+      "sha256": "db2a444eb0d9af34e9b240868eb556006606e95071e756ef45f1b03810aa2ddb",
+      "bytes": 80471
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-7/observations.npz",
+      "sha256": "01f187d0fc8bce5ad50c152547f2d78c9205e570508ecd2cbb8ed1fb6531edb5",
+      "bytes": 36829615
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-7/repetition-0/pair.json",
+      "sha256": "3d5c2ff903933ecf0dd6e603fdce52369ea331f7751bd9998ef86c5e520576fa",
+      "bytes": 8745096
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-7/repetition-0/E-predictions.npz",
+      "sha256": "08d3941722be9b2f856db4bc6c8f4c7140c98074be1d24f87d223bd3b8d49414",
+      "bytes": 20224173
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-7/repetition-0/score-table.json",
+      "sha256": "0760e398833727d1ec6661698d5bca1897be712fddbf69c83ac8b9622200b4aa",
+      "bytes": 87431
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-7/repetition-0/runs/bbd1424f1c98486c894c10475e805df3/greedy.json",
+      "sha256": "702c6f3169aaaded92b461ef91d9f4893e4686ce25a2bc450e3bdb29d2985142",
+      "bytes": 80510
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-7/repetition-1/pair.json",
+      "sha256": "b4f3d555f8a84439761e2654858574819f1192da2955baebadcc6a4c4cc8c5e5",
+      "bytes": 8779819
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-7/repetition-1/E-predictions.npz",
+      "sha256": "7e560ddb1dd191465a4a0a06e788d4c022134bb178df8b392fbb1b7df2eff7a0",
+      "bytes": 20227016
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-7/repetition-1/score-table.json",
+      "sha256": "4a2aea9421126654df207fdc4627f0d7ff3c31aeb38b8bdfb42baf7de87fa7a6",
+      "bytes": 87547
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-7/repetition-1/runs/0f62d5dbb5944a2fb8182d762ad24f48/greedy.json",
+      "sha256": "6a8bdd3105f5208211a23cd053585657707f8ca04e62d3bc02d48f4a1d2e0287",
+      "bytes": 80420
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-8/observations.npz",
+      "sha256": "26671190fb72c8f6233b97226c45679b5ddb50229a1c0051e12637bc98fbe53b",
+      "bytes": 36830230
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-8/repetition-0/pair.json",
+      "sha256": "36cca7ea92f36b931a1347c87ef7770cc493622a75cb92aeebf7b1d0b5485d65",
+      "bytes": 13688299
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-8/repetition-0/E-predictions.npz",
+      "sha256": "d1e6e56ed66ab06789b9975f4c89db81123399f3fc632b9a78c18bd8b2554b52",
+      "bytes": 20231169
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-8/repetition-0/score-table.json",
+      "sha256": "a95051d1c9d25d666769f7946d6e1b7526b869478557cbb0daf68885f3194db5",
+      "bytes": 87368
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-8/repetition-0/runs/7d9f4b885cbc4c548e9f1e07d27bd393/greedy.json",
+      "sha256": "543c032504da17cf4b71c5c136302827e48ec2d12a576265f1a984a09f9af7cb",
+      "bytes": 80509
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-8/repetition-1/pair.json",
+      "sha256": "eac8de36e9215344e60ad2cb4cca3f51792a107c8dac2ec1cad1f460c835d042",
+      "bytes": 13464567
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-8/repetition-1/E-predictions.npz",
+      "sha256": "9b687b66a339957dd4e26f6b873305e85c87b5e24d6d3171c7d5f16661a96537",
+      "bytes": 20229044
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-8/repetition-1/score-table.json",
+      "sha256": "643a1e29d3c7ccb82ab47812beeb58b9220b098d1263693d56cd5133a8779c62",
+      "bytes": 87337
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-8/repetition-1/runs/53ec864ce5144e43aa8ec5dea2b13234/greedy.json",
+      "sha256": "2b780c34a68eb76e26dc19777d3c137f1579a3413738913dad2dcaa48651d556",
+      "bytes": 80458
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-9/observations.npz",
+      "sha256": "b825d0521fef708308c2ed759f93e1f9754807f5e5ace10eb8a27b1e1884b272",
+      "bytes": 36829176
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-9/repetition-0/pair.json",
+      "sha256": "ef680a513b8e51511b27e0ad4ae2ede0b57b736ffeb76819130580ae391feec6",
+      "bytes": 8632683
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-9/repetition-0/E-predictions.npz",
+      "sha256": "0b55a53727707d415626c174d84960b044bd13de21df7263083180292119b8b5",
+      "bytes": 20225051
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-9/repetition-0/score-table.json",
+      "sha256": "e88ebebc64674f62f8f490d987c691590d4f38792226e3f23d3860603e3bdbd7",
+      "bytes": 87620
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-9/repetition-0/runs/149a2923756549e483b94f406960492b/greedy.json",
+      "sha256": "27660e4f9fd6148b76f3c82b8b0cdb0507e72bd26351aefd2b7e776c00238f77",
+      "bytes": 80524
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-9/repetition-1/pair.json",
+      "sha256": "74c4aef24b0c0000209f8fedd87afcde5a77f6781e03435a825dda88230a342c",
+      "bytes": 9338506
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-9/repetition-1/E-predictions.npz",
+      "sha256": "8625de23dc435e1319f8c0b32accd679668d9dd606efaca67bfc9a7c87d0e7cd",
+      "bytes": 20222751
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-9/repetition-1/score-table.json",
+      "sha256": "b1e44677794b5ea26113398dbf5ec116cd94defee1528f685baf66b90712e132",
+      "bytes": 87367
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-9/repetition-1/runs/dbd94eccd2ba4c0fa40c0a88fa3dee5a/greedy.json",
+      "sha256": "358f8278aedc99583afc654846f83f9fb67dcae634a74dd625d6e53cb3938565",
+      "bytes": 80405
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-10/observations.npz",
+      "sha256": "ea55519a4548b01ef857c5d96cad9ac6c4422f0ae1d32bd24b57c5e4a49da0d4",
+      "bytes": 36830634
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-10/repetition-0/pair.json",
+      "sha256": "e7c04d96251ad70604148a23714151ed6f75e4a32019b146a8c6019a4ee72906",
+      "bytes": 13548419
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-10/repetition-0/E-predictions.npz",
+      "sha256": "14e3b8085c30237684674486200b855db4687b1d72c055347fc72f00b3b8eda9",
+      "bytes": 20234866
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-10/repetition-0/score-table.json",
+      "sha256": "b93e8fc1de3368e10e7a4ada4b2d83ac4993f7f24ea67c6c943830864bbf4b7b",
+      "bytes": 87172
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-10/repetition-0/runs/b4f2104080bd4935b19a190ffeb39a8e/greedy.json",
+      "sha256": "5dc05998fd7c0d092b47f8cb87bf0f4440074d7eb3b6bd4afdb6ab88688b8334",
+      "bytes": 80403
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-10/repetition-1/pair.json",
+      "sha256": "6e1fe7b9bd7ab47f460eb177a0d70f809b0e94fe7fb1c970dd40d18a4af07281",
+      "bytes": 8814576
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-10/repetition-1/E-predictions.npz",
+      "sha256": "c21ce0d897cac2bf124cd013c4533c823165f30bce195e7d0c0cccfcdeca7aba",
+      "bytes": 20234179
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-10/repetition-1/score-table.json",
+      "sha256": "39354c5198627c0850d8a71754acc7337c6896a033cf6093f8b99f6e6193775f",
+      "bytes": 87477
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-10/repetition-1/runs/0f37b426bcdc4290a8d19f259cb54e9c/greedy.json",
+      "sha256": "44e068726c01151db17a5f95fc3948292bbe432044245b41b67f232e6127c061",
+      "bytes": 80473
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-11/observations.npz",
+      "sha256": "c71e46cd921c6bc13712f8414979b7dda056b85f2bd29c6d628d024a1335bf5c",
+      "bytes": 36829714
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-11/repetition-0/pair.json",
+      "sha256": "f7210451c1e56543eb2327a1b6e28241129cbdb7db8c582698a4f8cd1f0f7967",
+      "bytes": 13665337
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-11/repetition-0/E-predictions.npz",
+      "sha256": "181422df433b51f94f00536a26e32af8b12adf0bb0fe161bd3f8fa91f975a4b6",
+      "bytes": 20235201
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-11/repetition-0/score-table.json",
+      "sha256": "ec6d09da6aa6e3f29b9ef63f0b9ab8eecedae9a24088b8125ce436cc82e9f511",
+      "bytes": 87865
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-11/repetition-0/runs/5c8d9ab21cfa41aba9e3014565d6844e/greedy.json",
+      "sha256": "f8f8921a7e97dd29f984eb2b6593bad8d37c15aed5c5f9e3111d7322973193b5",
+      "bytes": 81122
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-11/repetition-1/pair.json",
+      "sha256": "228f885e268f37b8c2cd447d15c0e07e71371ac2907b94e526fe0007476114df",
+      "bytes": 13497446
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-11/repetition-1/E-predictions.npz",
+      "sha256": "f6567b2478be892155af2b7bd930516ea1c73435f6af72c1645666ec2a8daa62",
+      "bytes": 20235094
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-11/repetition-1/score-table.json",
+      "sha256": "925a2793975d821b654d73976e09c25c3ffa6b9f73df7549b0cd7e065d5f135b",
+      "bytes": 87794
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-11/repetition-1/runs/b7dcfce42704426a9f1a963660546110/greedy.json",
+      "sha256": "4fc9fec38e87e32500d7b0827cc1722fa3f3b15fb9455014572ba0bfc91a9f39",
+      "bytes": 80502
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-12/observations.npz",
+      "sha256": "ba6965a8b33e8f4314bcc9ad78b4a52f0b4dc54a332d5be7751f35707e1976fd",
+      "bytes": 36830339
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-12/repetition-0/pair.json",
+      "sha256": "70caea03165d86b423e77ac90c5e1c83b62259718fe2cd46a007dc34fe8f0122",
+      "bytes": 13725143
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-12/repetition-0/E-predictions.npz",
+      "sha256": "e7c76a8b0edcc9c4f35d66d459d89a64ee1ecaf39290811000682a547640767d",
+      "bytes": 20230323
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-12/repetition-0/score-table.json",
+      "sha256": "280d14919ccf895e389e8a6158bc0cc51b4f0060efbb17fbff6bc037f326d2e4",
+      "bytes": 87476
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-12/repetition-0/runs/08fd70995b6146d88c478bdb9f05188a/greedy.json",
+      "sha256": "0f03c4f49b3200d0488e79e4e6f08aa616d5b9e74b7a6b833625d859c9aee3d6",
+      "bytes": 80408
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-12/repetition-1/pair.json",
+      "sha256": "a69182b95baa80c645fe1e64e999ca606bf0ed567ed2fc143e1a5ba3c9c67e87",
+      "bytes": 13792306
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-12/repetition-1/E-predictions.npz",
+      "sha256": "0209d475931a4e5137c32be8a1d81a5dfaceea509ebbe57198b939eec74120d7",
+      "bytes": 20230802
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-12/repetition-1/score-table.json",
+      "sha256": "b7516108a7c286d3116728c48feb4cb7d32dd89a627956d508108f095cf95553",
+      "bytes": 87087
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-12/repetition-1/runs/cda1c0572d7f4a49b3a021a327f09055/greedy.json",
+      "sha256": "dcb79a1d354dd795ef97e5ab05e121049d02e1728305666946df6563f3e202de",
+      "bytes": 80666
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-13/observations.npz",
+      "sha256": "fc7330d71359d56ff34930bdd5fdd77293a9f6624252b1b582bb747cccd25f2a",
+      "bytes": 36830028
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-13/repetition-0/pair.json",
+      "sha256": "c85e0f8e3a0a296877027efe5dee507e934b2f594d402b43a6b68cc79084353f",
+      "bytes": 8844072
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-13/repetition-0/E-predictions.npz",
+      "sha256": "0639b9616fc064eb364584b8866779c300e463452e8c53fe3575bc5bcd9a1d81",
+      "bytes": 20231681
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-13/repetition-0/score-table.json",
+      "sha256": "73a7ddf388dc3f819891a9cf8887f9d383eae84eb32b0dfe7583fdd534551e64",
+      "bytes": 87503
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-13/repetition-0/runs/ae1cb303c53642f986345a73b923d5da/greedy.json",
+      "sha256": "bfb0680ec75cd614b1ad863ef922aa856b9c175f99f2b1f3bb68af6d1a1cd740",
+      "bytes": 80506
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-13/repetition-1/pair.json",
+      "sha256": "cc5e7b65491aa5fb126fe9c377d5551b0ba8c4e6a31e653f59469ddd0e2027ea",
+      "bytes": 8907293
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-13/repetition-1/E-predictions.npz",
+      "sha256": "ec1ece7542d056b5ae3856e2bccca71dd64a7fdefd048c2187882f43253f3559",
+      "bytes": 20231538
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-13/repetition-1/score-table.json",
+      "sha256": "eb09dca3bedad4484147504d9f5f4ac2bd2b7dc289a2e76f94893731fffc7284",
+      "bytes": 87567
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-13/repetition-1/runs/11bd636b82d146f7a90ad49145536e11/greedy.json",
+      "sha256": "279daa49c909aadb0ce6d7ad0624f00706bfb687edb40721c8956004320882b5",
+      "bytes": 80435
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-14/observations.npz",
+      "sha256": "108daf589232fc6a94670bd4d2636b6ee76a010cf2e89fc496ef467cfc51532d",
+      "bytes": 36829767
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-14/repetition-0/pair.json",
+      "sha256": "bbd23361c593c1f5447bd30cd64f82e96c657f756decdddde15c6ea04dc564d5",
+      "bytes": 9035319
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-14/repetition-0/E-predictions.npz",
+      "sha256": "2b45be66f766f98747d32c353649ce02ca64cf77951dcfcda341eb7e2a8a98dc",
+      "bytes": 20232857
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-14/repetition-0/score-table.json",
+      "sha256": "b7730b0f63baa7b1f36a36621036ae3581fe30f18aa4abea3a9afe98856283d3",
+      "bytes": 87698
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-14/repetition-0/runs/fb87b3be595a4de9829ba43ba6043f1b/greedy.json",
+      "sha256": "71b2e6da2d66cfd24f85d664d5bfc2c9699499f95bf4c9e7e32089c39c788780",
+      "bytes": 80487
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-14/repetition-1/pair.json",
+      "sha256": "5bc69f8bb1a368d3b5bf743b2e823153c96779f1ec403952e924fa93bfad7e90",
+      "bytes": 13717354
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-14/repetition-1/E-predictions.npz",
+      "sha256": "6a7f490a13e99483a472d82d3cb4b635fe9158f4d8eba3987aff43f84042e3c4",
+      "bytes": 20233990
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-14/repetition-1/score-table.json",
+      "sha256": "2d0e9195892f4d6654c8f43213a5c83ef6301884d4ddc624a0cfd868d85e69bb",
+      "bytes": 87805
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-14/repetition-1/runs/85f5ee33cc6949689fd6d78f5825158e/greedy.json",
+      "sha256": "0a5f2b347a44ae94d0e47414627e8bdedaa53961edbbd671bb6f7e98af6c676c",
+      "bytes": 80351
+    },
+    {
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-15/observations.npz",
+      "sha256": "4733ae24b45e7bc82a0c244487cfbf2041eac04eb0f348d748bc8601269df24a",
+      "bytes": 36829673
+    },
+    {
+      "path": "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/repetition-0/pair.json",
+      "sha256": "adeb7d93890464bfd8390b9299bf489f43c6be956343930476a0010449c43285",
+      "bytes": 9307095
+    },
+    {
+      "path": "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/repetition-0/E-predictions.npz",
+      "sha256": "83819b2cc2c861795032be5c600a1442dbcf711e2696e0157231df1842ff8f32",
+      "bytes": 20227782
+    },
+    {
+      "path": "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/repetition-0/score-table.json",
+      "sha256": "fadbdb467c1e6214f87f9af8438b84c8d3d2e69976f936d68a0ef5b3fc810eec",
+      "bytes": 87268
+    },
+    {
+      "path": "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/repetition-0/runs/85c58b736ea543c1ad91c3f8a1a053b3/greedy.json",
+      "sha256": "27688afe1f3565fc6e90bb1a6955b3d60f17c4e0a39b1b3267c92e09489ae9c9",
+      "bytes": 80943
+    },
+    {
+      "path": "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/repetition-1/pair.json",
+      "sha256": "9617c310b21142240fb382b9feb6383bb6807ddb9c729c3d1a9964558ac07ca9",
+      "bytes": 13783044
+    },
+    {
+      "path": "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/repetition-1/E-predictions.npz",
+      "sha256": "475876fa4c12324f04472108abae7c9443bce54b07069c26f2e838e52860d9f6",
+      "bytes": 20227587
+    },
+    {
+      "path": "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/repetition-1/score-table.json",
+      "sha256": "6f767637cf305c3becff965c4780bf702ab4d99a94056860e9b66df4a838e91c",
+      "bytes": 87426
+    },
+    {
+      "path": "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/repetition-1/runs/85d9b325561e495abe7fdfaabe915d52/greedy.json",
+      "sha256": "c951dc1028dd927cf21f2deaa64bf7dd6bbaa02ac16b9082ec455a4ac2c5421e",
+      "bytes": 80464
+    }
+  ],
+  "pairs": [
+    {
+      "teacher_index": 0,
+      "repetition": 0,
+      "teacher_id": "656c983586d601c21ed62c7361fd199496570959ade9d2a4c58fa1a97306e20f",
+      "F_population_variance": 0.9737403786436224,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.059608265859098966,
+        "top": 0.059608265859098966,
+        "random": 0.059608265859098966,
+        "greedy": 0.059608265859098966,
+        "widen_upper": 0.059608265859098966,
+        "ordinary_lower": 0.06600859794624675,
+        "ordinary_upper": 0.06738028833252818,
+        "static_partial": 0.08106956303365948
+      },
+      "h1_mean": 0.0,
+      "static_mean": -0.013689274701131302,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": null,
+        "spearman": null,
+        "tied_scores": 0,
+        "tied_improvements": 63,
+        "nonpositive_improvements": 64,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 187530872292,
+      "retained_bytes": 344979295
+    },
+    {
+      "teacher_index": 0,
+      "repetition": 1,
+      "teacher_id": "656c983586d601c21ed62c7361fd199496570959ade9d2a4c58fa1a97306e20f",
+      "F_population_variance": 0.9737403786436224,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.07159341644919147,
+        "top": 0.07159341644919147,
+        "random": 0.06599282427690818,
+        "greedy": 0.07159341644919147,
+        "widen_upper": 0.06109682297208696,
+        "ordinary_lower": 0.06637779954811779,
+        "ordinary_upper": 0.06617745356554824,
+        "static_partial": 0.08517933846920905
+      },
+      "h1_mean": -0.005600592172283288,
+      "static_mean": -0.019001884903660806,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": null,
+        "spearman": null,
+        "tied_scores": 0,
+        "tied_improvements": 63,
+        "nonpositive_improvements": 64,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 152237357041,
+      "retained_bytes": 273753336
+    },
+    {
+      "teacher_index": 1,
+      "repetition": 0,
+      "teacher_id": "bc184c8add6951447858b0ddda3e06f74510ed8845bf8f9059a53dd91fecf866",
+      "F_population_variance": 0.9944519087941855,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.02560207768116455,
+        "top": 0.02519657685418198,
+        "random": 0.025635593983241167,
+        "greedy": 0.02560207768116455,
+        "widen_upper": 0.025890070454031317,
+        "ordinary_lower": 0.024978511746687995,
+        "ordinary_upper": 0.022843558760928917,
+        "static_partial": 0.023297141531860292
+      },
+      "h1_mean": 0.0004390171290591873,
+      "static_mean": -0.0004535827709313759,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": 0.05384372460765633,
+        "spearman": 0.13602470532588865,
+        "tied_scores": 0,
+        "tied_improvements": 59,
+        "nonpositive_improvements": 60,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 119012213333,
+      "retained_bytes": 232042198
+    },
+    {
+      "teacher_index": 1,
+      "repetition": 1,
+      "teacher_id": "bc184c8add6951447858b0ddda3e06f74510ed8845bf8f9059a53dd91fecf866",
+      "F_population_variance": 0.9944519087941855,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.026355679433413003,
+        "top": 0.025574092524158,
+        "random": 0.024870380744056047,
+        "greedy": 0.02509062051269029,
+        "widen_upper": 0.026355679433413003,
+        "ordinary_lower": 0.02476225560858,
+        "ordinary_upper": 0.023525650632445202,
+        "static_partial": 0.025914012426935213
+      },
+      "h1_mean": -0.000703711780101954,
+      "static_mean": -0.0023883617944900075,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": 0.3557945851645416,
+        "spearman": 0.2987851128618396,
+        "tied_scores": 0,
+        "tied_improvements": 59,
+        "nonpositive_improvements": 60,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 165441825375,
+      "retained_bytes": 261005785
+    },
+    {
+      "teacher_index": 2,
+      "repetition": 0,
+      "teacher_id": "167888d80f20d0571a9f3cb876076c00eccc4cf0dd2e2c46b3df01c52c302224",
+      "F_population_variance": 1.023246883896656,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.07184691330379253,
+        "top": 0.07184691330379253,
+        "random": 0.07184691330379253,
+        "greedy": 0.07184691330379253,
+        "widen_upper": 0.07184691330379253,
+        "ordinary_lower": 0.07400425472315483,
+        "ordinary_upper": 0.07161721691618432,
+        "static_partial": 0.14447233486934424
+      },
+      "h1_mean": 0.0,
+      "static_mean": -0.07285511795315991,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": null,
+        "spearman": null,
+        "tied_scores": 0,
+        "tied_improvements": 63,
+        "nonpositive_improvements": 64,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 259391375750,
+      "retained_bytes": 387369025
+    },
+    {
+      "teacher_index": 2,
+      "repetition": 1,
+      "teacher_id": "167888d80f20d0571a9f3cb876076c00eccc4cf0dd2e2c46b3df01c52c302224",
+      "F_population_variance": 1.023246883896656,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.07239187498871255,
+        "top": 0.07239187498871255,
+        "random": 0.07239187498871255,
+        "greedy": 0.07239187498871255,
+        "widen_upper": 0.07239187498871255,
+        "ordinary_lower": 0.08185028057798732,
+        "ordinary_upper": 0.06853952199032419,
+        "static_partial": 0.11400802284949639
+      },
+      "h1_mean": 0.0,
+      "static_mean": -0.04546850085917221,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": null,
+        "spearman": null,
+        "tied_scores": 0,
+        "tied_improvements": 63,
+        "nonpositive_improvements": 64,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 226146806500,
+      "retained_bytes": 386723058
+    },
+    {
+      "teacher_index": 3,
+      "repetition": 0,
+      "teacher_id": "afc288e40fc6d968fbbcb9ab09a5fd30088b9e45bb4ec6970fce6ff831227920",
+      "F_population_variance": 1.052476786524645,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.05198692062444374,
+        "top": 0.04827455904263933,
+        "random": 0.0479660326250791,
+        "greedy": 0.04844031885905781,
+        "widen_upper": 0.05198692062444374,
+        "ordinary_lower": 0.04913271626614027,
+        "ordinary_upper": 0.06655662617994745,
+        "static_partial": 0.0842808519500155
+      },
+      "h1_mean": -0.00030852641756023524,
+      "static_mean": -0.017724225770068054,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": 0.18514486572286454,
+        "spearman": 0.22769304454842815,
+        "tied_scores": 0,
+        "tied_improvements": 61,
+        "nonpositive_improvements": 62,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 232268557125,
+      "retained_bytes": 391341369
+    },
+    {
+      "teacher_index": 3,
+      "repetition": 1,
+      "teacher_id": "afc288e40fc6d968fbbcb9ab09a5fd30088b9e45bb4ec6970fce6ff831227920",
+      "F_population_variance": 1.052476786524645,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.046576243292913766,
+        "top": 0.046576243292913766,
+        "random": 0.046576243292913766,
+        "greedy": 0.046576243292913766,
+        "widen_upper": 0.046576243292913766,
+        "ordinary_lower": 0.048182109958882516,
+        "ordinary_upper": 0.05076524737292348,
+        "static_partial": 0.08607902306077107
+      },
+      "h1_mean": 0.0,
+      "static_mean": -0.03531377568784759,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": null,
+        "spearman": null,
+        "tied_scores": 0,
+        "tied_improvements": 63,
+        "nonpositive_improvements": 64,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 225845692375,
+      "retained_bytes": 385822176
+    },
+    {
+      "teacher_index": 4,
+      "repetition": 0,
+      "teacher_id": "f9f14813407ebdb0198479827cb2eb01683c977e3442c63c3494641df474c60b",
+      "F_population_variance": 1.0464136613435782,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.06741026524553162,
+        "top": 0.06741026524553162,
+        "random": 0.06741026524553162,
+        "greedy": 0.06741026524553162,
+        "widen_upper": 0.06741026524553162,
+        "ordinary_lower": 0.05344361076013514,
+        "ordinary_upper": 0.05886705219672221,
+        "static_partial": 0.11310019245225719
+      },
+      "h1_mean": 0.0,
+      "static_mean": -0.054233140255534974,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": null,
+        "spearman": null,
+        "tied_scores": 0,
+        "tied_improvements": 63,
+        "nonpositive_improvements": 64,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 239090331875,
+      "retained_bytes": 382394935
+    },
+    {
+      "teacher_index": 4,
+      "repetition": 1,
+      "teacher_id": "f9f14813407ebdb0198479827cb2eb01683c977e3442c63c3494641df474c60b",
+      "F_population_variance": 1.0464136613435782,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.08478968781117155,
+        "top": 0.08478968781117155,
+        "random": 0.08478968781117155,
+        "greedy": 0.08478968781117155,
+        "widen_upper": 0.08478968781117155,
+        "ordinary_lower": 0.06985952256899972,
+        "ordinary_upper": 0.07236212237190923,
+        "static_partial": 0.10731775182061715
+      },
+      "h1_mean": 0.0,
+      "static_mean": -0.034955629448707934,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": null,
+        "spearman": null,
+        "tied_scores": 0,
+        "tied_improvements": 63,
+        "nonpositive_improvements": 64,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 238883279208,
+      "retained_bytes": 385234335
+    },
+    {
+      "teacher_index": 5,
+      "repetition": 0,
+      "teacher_id": "76b967f7afc4c6b7881a38eeef6326add44d90f7b0b65bb078fb82d4a5b340e5",
+      "F_population_variance": 1.0238029562887192,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.11080071512934092,
+        "top": 0.09844635937372717,
+        "random": 0.09850131990452042,
+        "greedy": 0.09906584374299646,
+        "widen_upper": 0.11080071512934092,
+        "ordinary_lower": 0.07472438458449926,
+        "ordinary_upper": 0.08072991847083508,
+        "static_partial": 0.11739430050753777
+      },
+      "h1_mean": 5.496053079324395e-05,
+      "static_mean": -0.03666438203670269,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": 0.3371757291951681,
+        "spearman": 0.24016017963011405,
+        "tied_scores": 0,
+        "tied_improvements": 56,
+        "nonpositive_improvements": 57,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 169416307167,
+      "retained_bytes": 282450243
+    },
+    {
+      "teacher_index": 5,
+      "repetition": 1,
+      "teacher_id": "76b967f7afc4c6b7881a38eeef6326add44d90f7b0b65bb078fb82d4a5b340e5",
+      "F_population_variance": 1.0238029562887192,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.07063021649177212,
+        "top": 0.0689229046091469,
+        "random": 0.07063021649177212,
+        "greedy": 0.06814304265014086,
+        "widen_upper": 0.06374523935894422,
+        "ordinary_lower": 0.11440168044422758,
+        "ordinary_upper": 0.09291791310876407,
+        "static_partial": 0.15347139606350949
+      },
+      "h1_mean": 0.0017073118826252047,
+      "static_mean": -0.06055348295474542,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": 0.26218579653533497,
+        "spearman": 0.3234566691924852,
+        "tied_scores": 0,
+        "tied_improvements": 43,
+        "nonpositive_improvements": 44,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 207157102000,
+      "retained_bytes": 367211993
+    },
+    {
+      "teacher_index": 6,
+      "repetition": 0,
+      "teacher_id": "66730c322aa3e38713884100a9fa689aa0f2595af32a1755d7e044938ea4bc65",
+      "F_population_variance": 1.0133602313414418,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.08393926160775292,
+        "top": 0.07928204211938943,
+        "random": 0.08393926160775292,
+        "greedy": 0.07696996011113533,
+        "widen_upper": 0.08393926160775292,
+        "ordinary_lower": 0.06902389016629637,
+        "ordinary_upper": 0.07002556486043614,
+        "static_partial": 0.12142638655047819
+      },
+      "h1_mean": 0.004657219488363489,
+      "static_mean": -0.05140082169004206,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": 0.06026913260666459,
+        "spearman": 0.21303501999944663,
+        "tied_scores": 0,
+        "tied_improvements": 61,
+        "nonpositive_improvements": 62,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 180040240791,
+      "retained_bytes": 326274537
+    },
+    {
+      "teacher_index": 6,
+      "repetition": 1,
+      "teacher_id": "66730c322aa3e38713884100a9fa689aa0f2595af32a1755d7e044938ea4bc65",
+      "F_population_variance": 1.0133602313414418,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.10168275689863426,
+        "top": 0.10054856150130075,
+        "random": 0.10168275689863426,
+        "greedy": 0.10168275689863426,
+        "widen_upper": 0.10168275689863426,
+        "ordinary_lower": 0.08965248812071862,
+        "ordinary_upper": 0.0785153990192968,
+        "static_partial": 0.11989002484507102
+      },
+      "h1_mean": 0.0011341953973335373,
+      "static_mean": -0.04137462582577422,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": null,
+        "spearman": null,
+        "tied_scores": 0,
+        "tied_improvements": 63,
+        "nonpositive_improvements": 64,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 160484312416,
+      "retained_bytes": 290977705
+    },
+    {
+      "teacher_index": 7,
+      "repetition": 0,
+      "teacher_id": "2c965a50bf0f7a2e4d71a0c49540fedb2cc056bc381d8e91db6816ba1fcb112a",
+      "F_population_variance": 1.014803246373693,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.09694097006832778,
+        "top": 0.09694097006832778,
+        "random": 0.09694097006832778,
+        "greedy": 0.09383611629898983,
+        "widen_upper": 0.09694097006832778,
+        "ordinary_lower": 0.09424996290671239,
+        "ordinary_upper": 0.08828909677431118,
+        "static_partial": 0.11581265730505991
+      },
+      "h1_mean": 0.0,
+      "static_mean": -0.027523560530748725,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": 0.2938972856554161,
+        "spearman": 0.25354644822575295,
+        "tied_scores": 0,
+        "tied_improvements": 58,
+        "nonpositive_improvements": 59,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 187379026750,
+      "retained_bytes": 335488889
+    },
+    {
+      "teacher_index": 7,
+      "repetition": 1,
+      "teacher_id": "2c965a50bf0f7a2e4d71a0c49540fedb2cc056bc381d8e91db6816ba1fcb112a",
+      "F_population_variance": 1.014803246373693,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.06734974335322745,
+        "top": 0.06734974335322745,
+        "random": 0.06734974335322745,
+        "greedy": 0.06734974335322745,
+        "widen_upper": 0.06734974335322745,
+        "ordinary_lower": 0.07582332526701202,
+        "ordinary_upper": 0.08594402649992612,
+        "static_partial": 0.11984702765283972
+      },
+      "h1_mean": 0.0,
+      "static_mean": -0.033903001152913594,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": null,
+        "spearman": null,
+        "tied_scores": 0,
+        "tied_improvements": 63,
+        "nonpositive_improvements": 64,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 216532393750,
+      "retained_bytes": 376014126
+    },
+    {
+      "teacher_index": 8,
+      "repetition": 0,
+      "teacher_id": "d3c5d7453076d1bf2933bcdc45ebe2cc37fee01473cd63b4bd87c45be8229fd6",
+      "F_population_variance": 0.9804797176590867,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.07218769491517252,
+        "top": 0.06971466635308157,
+        "random": 0.06736208699370971,
+        "greedy": 0.06638630939640514,
+        "widen_upper": 0.06474297776045132,
+        "ordinary_lower": 0.07184691927628976,
+        "ordinary_upper": 0.07232321997044455,
+        "static_partial": 0.08704834616304567
+      },
+      "h1_mean": -0.0023525793593718565,
+      "static_mean": -0.014725126192601114,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": -0.04163638569257254,
+        "spearman": 0.0896464463900662,
+        "tied_scores": 0,
+        "tied_improvements": 59,
+        "nonpositive_improvements": 60,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 210693462000,
+      "retained_bytes": 354614866
+    },
+    {
+      "teacher_index": 8,
+      "repetition": 1,
+      "teacher_id": "d3c5d7453076d1bf2933bcdc45ebe2cc37fee01473cd63b4bd87c45be8229fd6",
+      "F_population_variance": 0.9804797176590867,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.08642762619235232,
+        "top": 0.07481439816281166,
+        "random": 0.07399321623254904,
+        "greedy": 0.08642762619235232,
+        "widen_upper": 0.08642762619235232,
+        "ordinary_lower": 0.07243396647973521,
+        "ordinary_upper": 0.07217563614532149,
+        "static_partial": 0.08759239841654862
+      },
+      "h1_mean": -0.0008211819302626201,
+      "static_mean": -0.015416762271227137,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": null,
+        "spearman": null,
+        "tied_scores": 0,
+        "tied_improvements": 63,
+        "nonpositive_improvements": 64,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 155747940416,
+      "retained_bytes": 275152325
+    },
+    {
+      "teacher_index": 9,
+      "repetition": 0,
+      "teacher_id": "725e437265b89f2a2959f09f8eaa4856e13266b50bc06e17abceb228018355bb",
+      "F_population_variance": 1.012854226369334,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.042356430069737085,
+        "top": 0.042356430069737085,
+        "random": 0.042356430069737085,
+        "greedy": 0.042356430069737085,
+        "widen_upper": 0.042356430069737085,
+        "ordinary_lower": 0.04719715819945703,
+        "ordinary_upper": 0.04269724348316606,
+        "static_partial": 0.06998056301192732
+      },
+      "h1_mean": 0.0,
+      "static_mean": -0.027283319528761257,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": 0.05045174415702965,
+        "spearman": 0.23091715715399388,
+        "tied_scores": 0,
+        "tied_improvements": 58,
+        "nonpositive_improvements": 59,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 178628794250,
+      "retained_bytes": 311711214
+    },
+    {
+      "teacher_index": 9,
+      "repetition": 1,
+      "teacher_id": "725e437265b89f2a2959f09f8eaa4856e13266b50bc06e17abceb228018355bb",
+      "F_population_variance": 1.012854226369334,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.05010338531137958,
+        "top": 0.05010338531137958,
+        "random": 0.05010338531137958,
+        "greedy": 0.04503784003860074,
+        "widen_upper": 0.04486481980639022,
+        "ordinary_lower": 0.045265958166554626,
+        "ordinary_upper": 0.04367864473037236,
+        "static_partial": 0.07706024560060046
+      },
+      "h1_mean": 0.0,
+      "static_mean": -0.033381600870228095,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": null,
+        "spearman": null,
+        "tied_scores": 0,
+        "tied_improvements": 63,
+        "nonpositive_improvements": 64,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 236961127250,
+      "retained_bytes": 372683506
+    },
+    {
+      "teacher_index": 10,
+      "repetition": 0,
+      "teacher_id": "566298cacbf0cea534db79c687c4c9fcd6a852ed18ca080a263d3ddeadc7f665",
+      "F_population_variance": 0.9828958871137726,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.05176569794139823,
+        "top": 0.052619899490654085,
+        "random": 0.05048206971818704,
+        "greedy": 0.05099036935064942,
+        "widen_upper": 0.05176569794139823,
+        "ordinary_lower": 0.0685805383998479,
+        "ordinary_upper": 0.05350597749777733,
+        "static_partial": 0.07652287863367055
+      },
+      "h1_mean": -0.002137829772467044,
+      "static_mean": -0.02301690113589321,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": 0.2780903532059141,
+        "spearman": 0.18755389558175622,
+        "tied_scores": 0,
+        "tied_improvements": 62,
+        "nonpositive_improvements": 63,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 216120751375,
+      "retained_bytes": 364802531
+    },
+    {
+      "teacher_index": 10,
+      "repetition": 1,
+      "teacher_id": "566298cacbf0cea534db79c687c4c9fcd6a852ed18ca080a263d3ddeadc7f665",
+      "F_population_variance": 0.9828958871137726,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.048988565362947004,
+        "top": 0.048988565362947004,
+        "random": 0.048988565362947004,
+        "greedy": 0.048988565362947004,
+        "widen_upper": 0.048988565362947004,
+        "ordinary_lower": 0.056011272297904625,
+        "ordinary_upper": 0.053168093438986,
+        "static_partial": 0.07865875860925525
+      },
+      "h1_mean": 0.0,
+      "static_mean": -0.02549066517026926,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": null,
+        "spearman": null,
+        "tied_scores": 0,
+        "tied_improvements": 63,
+        "nonpositive_improvements": 64,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 224786474125,
+      "retained_bytes": 381913784
+    },
+    {
+      "teacher_index": 11,
+      "repetition": 0,
+      "teacher_id": "3a4d7ee9449c834a9ee0734123e47c32ed788a80fe9e2f3b4e1c28669c4e6776",
+      "F_population_variance": 0.9970967081835029,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.02813654244808777,
+        "top": 0.028069652846163508,
+        "random": 0.02761657623748224,
+        "greedy": 0.027300543989665586,
+        "widen_upper": 0.02813654244808777,
+        "ordinary_lower": 0.027252856500634456,
+        "ordinary_upper": 0.027329433467555366,
+        "static_partial": 0.042836917735575034
+      },
+      "h1_mean": -0.00045307660868127244,
+      "static_mean": -0.015507484268019671,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": 0.1740417277424105,
+        "spearman": 0.27405341123706095,
+        "tied_scores": 0,
+        "tied_improvements": 29,
+        "nonpositive_improvements": 30,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 228468852125,
+      "retained_bytes": 374809770
+    },
+    {
+      "teacher_index": 11,
+      "repetition": 1,
+      "teacher_id": "3a4d7ee9449c834a9ee0734123e47c32ed788a80fe9e2f3b4e1c28669c4e6776",
+      "F_population_variance": 0.9970967081835029,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.03441708028812891,
+        "top": 0.03441708028812891,
+        "random": 0.03339954918685157,
+        "greedy": 0.03441708028812891,
+        "widen_upper": 0.03441708028812891,
+        "ordinary_lower": 0.028799175999270215,
+        "ordinary_upper": 0.030663631721454938,
+        "static_partial": 0.03911213324101723
+      },
+      "h1_mean": -0.0010175311012773462,
+      "static_mean": -0.008448501519562288,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": null,
+        "spearman": null,
+        "tied_scores": 0,
+        "tied_improvements": 63,
+        "nonpositive_improvements": 64,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 290204957959,
+      "retained_bytes": 468223609
+    },
+    {
+      "teacher_index": 12,
+      "repetition": 0,
+      "teacher_id": "6814ba6b796b8be7c8ebaa9522e35b226770042456eae58fc3446bbbfc984a1f",
+      "F_population_variance": 1.019531648728223,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.06090163630992826,
+        "top": 0.06232603893230183,
+        "random": 0.060923634338575144,
+        "greedy": 0.06093872580218252,
+        "widen_upper": 0.06090163630992826,
+        "ordinary_lower": 0.06833428190840586,
+        "ordinary_upper": 0.06391706656350579,
+        "static_partial": 0.08757857542952799
+      },
+      "h1_mean": -0.001402404593726694,
+      "static_mean": -0.02366150886602221,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": 0.03228720748923991,
+        "spearman": 0.11935247900657214,
+        "tied_scores": 0,
+        "tied_improvements": 62,
+        "nonpositive_improvements": 63,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 308107943083,
+      "retained_bytes": 479597264
+    },
+    {
+      "teacher_index": 12,
+      "repetition": 1,
+      "teacher_id": "6814ba6b796b8be7c8ebaa9522e35b226770042456eae58fc3446bbbfc984a1f",
+      "F_population_variance": 1.019531648728223,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.06268234915911616,
+        "top": 0.06268234915911616,
+        "random": 0.059252922513704356,
+        "greedy": 0.059377783822287096,
+        "widen_upper": 0.0582954288213441,
+        "ordinary_lower": 0.07357146904521306,
+        "ordinary_upper": 0.0650475193423472,
+        "static_partial": 0.08868664575988783
+      },
+      "h1_mean": -0.0034294266454117923,
+      "static_mean": -0.02363912641754061,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": 0.6454102787857702,
+        "spearman": 0.16736717389614822,
+        "tied_scores": 0,
+        "tied_improvements": 48,
+        "nonpositive_improvements": 49,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 279057807458,
+      "retained_bytes": 432452605
+    },
+    {
+      "teacher_index": 13,
+      "repetition": 0,
+      "teacher_id": "18425eca1be602241ac5301d7be67ac33f28943592a737341f6a4bff581a0ec5",
+      "F_population_variance": 1.0307753610721138,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.057376014330451745,
+        "top": 0.057376014330451745,
+        "random": 0.057376014330451745,
+        "greedy": 0.057376014330451745,
+        "widen_upper": 0.057376014330451745,
+        "ordinary_lower": 0.05438188862483767,
+        "ordinary_upper": 0.061265648409137244,
+        "static_partial": 0.08240050121168487
+      },
+      "h1_mean": 0.0,
+      "static_mean": -0.021134852802547614,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": null,
+        "spearman": null,
+        "tied_scores": 0,
+        "tied_improvements": 63,
+        "nonpositive_improvements": 64,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 202816160959,
+      "retained_bytes": 323997652
+    },
+    {
+      "teacher_index": 13,
+      "repetition": 1,
+      "teacher_id": "18425eca1be602241ac5301d7be67ac33f28943592a737341f6a4bff581a0ec5",
+      "F_population_variance": 1.0307753610721138,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.05407871481368707,
+        "top": 0.05407871481368707,
+        "random": 0.05407871481368707,
+        "greedy": 0.05407871481368707,
+        "widen_upper": 0.05407871481368707,
+        "ordinary_lower": 0.05566217487113245,
+        "ordinary_upper": 0.05292765343032453,
+        "static_partial": 0.10883853975628412
+      },
+      "h1_mean": 0.0,
+      "static_mean": -0.055910886325959586,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": null,
+        "spearman": null,
+        "tied_scores": 0,
+        "tied_improvements": 63,
+        "nonpositive_improvements": 64,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 246605898959,
+      "retained_bytes": 367194239
+    },
+    {
+      "teacher_index": 14,
+      "repetition": 0,
+      "teacher_id": "a795a28bf27d9fb4f572a2b2ba01b72757eb5611f5c3108337d7f25fa67af445",
+      "F_population_variance": 1.0380227216904425,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.03343710351700749,
+        "top": 0.03343710351700749,
+        "random": 0.03343710351700749,
+        "greedy": 0.03152304722559622,
+        "widen_upper": 0.03343710351700749,
+        "ordinary_lower": 0.025004834160435578,
+        "ordinary_upper": 0.030497553377785768,
+        "static_partial": 0.031548584220472534
+      },
+      "h1_mean": 0.0,
+      "static_mean": -0.0010510308426867664,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": 0.03293182676572195,
+        "spearman": 0.15345318729416416,
+        "tied_scores": 0,
+        "tied_improvements": 62,
+        "nonpositive_improvements": 63,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 246467160792,
+      "retained_bytes": 381462475
+    },
+    {
+      "teacher_index": 14,
+      "repetition": 1,
+      "teacher_id": "a795a28bf27d9fb4f572a2b2ba01b72757eb5611f5c3108337d7f25fa67af445",
+      "F_population_variance": 1.0380227216904425,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.02612778303637913,
+        "top": 0.02612778303637913,
+        "random": 0.024773974460633126,
+        "greedy": 0.02612778303637913,
+        "widen_upper": 0.02612778303637913,
+        "ordinary_lower": 0.024453646774801767,
+        "ordinary_upper": 0.025965986579646265,
+        "static_partial": 0.039732909701905364
+      },
+      "h1_mean": -0.0013538085757460047,
+      "static_mean": -0.013766923122259092,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": null,
+        "spearman": null,
+        "tied_scores": 0,
+        "tied_improvements": 63,
+        "nonpositive_improvements": 64,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 371532944250,
+      "retained_bytes": 529747672
+    },
+    {
+      "teacher_index": 15,
+      "repetition": 0,
+      "teacher_id": "2d8dc49dc2817d19406d1809b1f5501234deb8dee63bab7d8e2a7a7ab20a4510",
+      "F_population_variance": 1.0041898493827446,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.07942514210937185,
+        "top": 0.07942514210937185,
+        "random": 0.07942514210937185,
+        "greedy": 0.07727417514776301,
+        "widen_upper": 0.07623477441003113,
+        "ordinary_lower": 0.08087302130160856,
+        "ordinary_upper": 0.08208091232627004,
+        "static_partial": 0.12498718057902959
+      },
+      "h1_mean": 0.0,
+      "static_mean": -0.04290626825275955,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": 0.21125571773917048,
+        "spearman": -0.010763236155857583,
+        "tied_scores": 0,
+        "tied_improvements": 34,
+        "nonpositive_improvements": 35,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 251126991333,
+      "retained_bytes": 417851000
+    },
+    {
+      "teacher_index": 15,
+      "repetition": 1,
+      "teacher_id": "2d8dc49dc2817d19406d1809b1f5501234deb8dee63bab7d8e2a7a7ab20a4510",
+      "F_population_variance": 1.0041898493827446,
+      "rows": 262144,
+      "risks": {
+        "keep": 0.09672531985092787,
+        "top": 0.09672531985092787,
+        "random": 0.091147352426548,
+        "greedy": 0.08890265833234029,
+        "widen_upper": 0.07962248607194598,
+        "ordinary_lower": 0.09037588394010679,
+        "ordinary_upper": 0.09331477199218174,
+        "static_partial": 0.12083804675341842
+      },
+      "h1_mean": -0.00557796742437987,
+      "static_mean": -0.027523274761236668,
+      "probe_count": 65,
+      "score_association": {
+        "n": 64,
+        "pearson": -0.04345874828797895,
+        "spearman": 0.03751077911635124,
+        "tied_scores": 0,
+        "tied_improvements": 62,
+        "nonpositive_improvements": 63,
+        "limitation": "320-update finite G probe; no final convergence/generalization claim"
+      },
+      "effective_growth": 16,
+      "near_ties": 0,
+      "enclosing_ns": 175779771333,
+      "retained_bytes": 304502421
+    }
+  ],
+  "teachers": [
+    {
+      "index": 0,
+      "teacher_id": "656c983586d601c21ed62c7361fd199496570959ade9d2a4c58fa1a97306e20f",
+      "h1_mean": -0.002800296086141644,
+      "static_mean": -0.016345579802396055,
+      "within_teacher_H1_variance": 1.5683316340120418e-05,
+      "paired_row_H1_variance": 0.0015362181445512115,
+      "within_teacher_static_mean_variance": 1.4111913582010289e-05,
+      "method_risks": {
+        "keep": 0.06560084115414522,
+        "top": 0.06560084115414522,
+        "random": 0.06280054506800357,
+        "greedy": 0.06560084115414522,
+        "widen_upper": 0.060352544415592964,
+        "ordinary_lower": 0.06619319874718227,
+        "ordinary_upper": 0.06677887094903821,
+        "static_partial": 0.08312445075143426
+      }
+    },
+    {
+      "index": 1,
+      "teacher_id": "bc184c8add6951447858b0ddda3e06f74510ed8845bf8f9059a53dd91fecf866",
+      "h1_mean": -0.00013234732552138337,
+      "static_mean": -0.0014209722827106916,
+      "within_teacher_H1_variance": 6.52914679916306e-07,
+      "paired_row_H1_variance": 0.00037818410143890095,
+      "within_teacher_static_mean_variance": 1.8716849350012459e-06,
+      "method_risks": {
+        "keep": 0.025978878557288775,
+        "top": 0.02538533468916999,
+        "random": 0.02525298736364861,
+        "greedy": 0.02534634909692742,
+        "widen_upper": 0.02612287494372216,
+        "ordinary_lower": 0.024870383677633997,
+        "ordinary_upper": 0.02318460469668706,
+        "static_partial": 0.024605576979397754
+      }
+    },
+    {
+      "index": 2,
+      "teacher_id": "167888d80f20d0571a9f3cb876076c00eccc4cf0dd2e2c46b3df01c52c302224",
+      "h1_mean": 0.0,
+      "static_mean": -0.059161809406166055,
+      "within_teacher_H1_variance": 0.0,
+      "paired_row_H1_variance": 0.0,
+      "within_teacher_static_mean_variance": 0.00037501339792634964,
+      "method_risks": {
+        "keep": 0.07211939414625254,
+        "top": 0.07211939414625254,
+        "random": 0.07211939414625254,
+        "greedy": 0.07211939414625254,
+        "widen_upper": 0.07211939414625254,
+        "ordinary_lower": 0.07792726765057108,
+        "ordinary_upper": 0.07007836945325426,
+        "static_partial": 0.12924017885942032
+      }
+    },
+    {
+      "index": 3,
+      "teacher_id": "afc288e40fc6d968fbbcb9ab09a5fd30088b9e45bb4ec6970fce6ff831227920",
+      "h1_mean": -0.00015426320878011762,
+      "static_mean": -0.026519000728957822,
+      "within_teacher_H1_variance": 4.7594275166276314e-08,
+      "paired_row_H1_variance": 0.0003757444405370485,
+      "within_teacher_static_mean_variance": 0.00015469613315502903,
+      "method_risks": {
+        "keep": 0.04928158195867875,
+        "top": 0.04742540116777655,
+        "random": 0.04727113795899643,
+        "greedy": 0.04750828107598579,
+        "widen_upper": 0.04928158195867875,
+        "ordinary_lower": 0.04865741311251139,
+        "ordinary_upper": 0.05866093677643547,
+        "static_partial": 0.0851799375053933
+      }
+    },
+    {
+      "index": 4,
+      "teacher_id": "f9f14813407ebdb0198479827cb2eb01683c977e3442c63c3494641df474c60b",
+      "h1_mean": 0.0,
+      "static_mean": -0.04459438485212146,
+      "within_teacher_H1_variance": 0.0,
+      "paired_row_H1_variance": 0.0,
+      "within_teacher_static_mean_variance": 0.00018581121145366667,
+      "method_risks": {
+        "keep": 0.07609997652835158,
+        "top": 0.07609997652835158,
+        "random": 0.07609997652835158,
+        "greedy": 0.07609997652835158,
+        "widen_upper": 0.07609997652835158,
+        "ordinary_lower": 0.06165156666456743,
+        "ordinary_upper": 0.06561458728431571,
+        "static_partial": 0.11020897213643717
+      }
+    },
+    {
+      "index": 5,
+      "teacher_id": "76b967f7afc4c6b7881a38eeef6326add44d90f7b0b65bb078fb82d4a5b340e5",
+      "h1_mean": 0.0008811362067092243,
+      "static_mean": -0.04860893249572405,
+      "within_teacher_H1_variance": 1.365132494950454e-06,
+      "paired_row_H1_variance": 0.004217578735490054,
+      "within_teacher_static_mean_variance": 0.000285344571336215,
+      "method_risks": {
+        "keep": 0.09071546581055652,
+        "top": 0.08368463199143704,
+        "random": 0.08456576819814626,
+        "greedy": 0.08360444319656865,
+        "widen_upper": 0.08727297724414257,
+        "ordinary_lower": 0.09456303251436342,
+        "ordinary_upper": 0.08682391578979957,
+        "static_partial": 0.13543284828552363
+      }
+    },
+    {
+      "index": 6,
+      "teacher_id": "66730c322aa3e38713884100a9fa689aa0f2595af32a1755d7e044938ea4bc65",
+      "h1_mean": 0.002895707442848513,
+      "static_mean": -0.04638772375790814,
+      "within_teacher_H1_variance": 6.205849372988709e-06,
+      "paired_row_H1_variance": 0.008500863029054017,
+      "within_teacher_static_mean_variance": 5.0262301754330766e-05,
+      "method_risks": {
+        "keep": 0.09281100925319359,
+        "top": 0.08991530181034509,
+        "random": 0.09281100925319359,
+        "greedy": 0.0893263585048848,
+        "widen_upper": 0.09281100925319359,
+        "ordinary_lower": 0.07933818914350749,
+        "ordinary_upper": 0.07427048193986646,
+        "static_partial": 0.1206582056977746
+      }
+    },
+    {
+      "index": 7,
+      "teacher_id": "2c965a50bf0f7a2e4d71a0c49540fedb2cc056bc381d8e91db6816ba1fcb112a",
+      "h1_mean": 0.0,
+      "static_mean": -0.03071328084183116,
+      "within_teacher_H1_variance": 0.0,
+      "paired_row_H1_variance": 0.0,
+      "within_teacher_static_mean_variance": 2.0348631325863643e-05,
+      "method_risks": {
+        "keep": 0.0821453567107776,
+        "top": 0.0821453567107776,
+        "random": 0.0821453567107776,
+        "greedy": 0.08059292982610863,
+        "widen_upper": 0.0821453567107776,
+        "ordinary_lower": 0.0850366440868622,
+        "ordinary_upper": 0.08711656163711864,
+        "static_partial": 0.11782984247894981
+      }
+    },
+    {
+      "index": 8,
+      "teacher_id": "d3c5d7453076d1bf2933bcdc45ebe2cc37fee01473cd63b4bd87c45be8229fd6",
+      "h1_mean": -0.0015868806448172384,
+      "static_mean": -0.015070944231914126,
+      "within_teacher_H1_variance": 1.1725890429411894e-06,
+      "paired_row_H1_variance": 0.0027686562772887193,
+      "within_teacher_static_mean_variance": 2.3918023262859114e-07,
+      "method_risks": {
+        "keep": 0.07930766055376243,
+        "top": 0.07226453225794661,
+        "random": 0.07067765161312937,
+        "greedy": 0.07640696779437872,
+        "widen_upper": 0.07558530197640181,
+        "ordinary_lower": 0.0721404428780125,
+        "ordinary_upper": 0.07224942805788302,
+        "static_partial": 0.08732037228979714
+      }
+    },
+    {
+      "index": 9,
+      "teacher_id": "725e437265b89f2a2959f09f8eaa4856e13266b50bc06e17abceb228018355bb",
+      "h1_mean": 0.0,
+      "static_mean": -0.030332460199494676,
+      "within_teacher_H1_variance": 0.0,
+      "paired_row_H1_variance": 0.0,
+      "within_teacher_static_mean_variance": 1.8594517659841288e-05,
+      "method_risks": {
+        "keep": 0.04622990769055833,
+        "top": 0.04622990769055833,
+        "random": 0.04622990769055833,
+        "greedy": 0.04369713505416892,
+        "widen_upper": 0.043610624938063655,
+        "ordinary_lower": 0.046231558183005825,
+        "ordinary_upper": 0.04318794410676921,
+        "static_partial": 0.07352040430626389
+      }
+    },
+    {
+      "index": 10,
+      "teacher_id": "566298cacbf0cea534db79c687c4c9fcd6a852ed18ca080a263d3ddeadc7f665",
+      "h1_mean": -0.001068914886233522,
+      "static_mean": -0.024253783153081236,
+      "within_teacher_H1_variance": 2.285158068023246e-06,
+      "paired_row_H1_variance": 0.0005035547110330567,
+      "within_teacher_static_mean_variance": 3.0597542488862366e-06,
+      "method_risks": {
+        "keep": 0.05037713165217261,
+        "top": 0.050804232426800544,
+        "random": 0.04973531754056702,
+        "greedy": 0.04998946735679821,
+        "widen_upper": 0.05037713165217261,
+        "ordinary_lower": 0.06229590534887626,
+        "ordinary_upper": 0.053337035468381665,
+        "static_partial": 0.0775908186214629
+      }
+    },
+    {
+      "index": 11,
+      "teacher_id": "3a4d7ee9449c834a9ee0734123e47c32ed788a80fe9e2f3b4e1c28669c4e6776",
+      "h1_mean": -0.0007353038549793093,
+      "static_mean": -0.011977992893790979,
+      "within_teacher_H1_variance": 1.5930443710594556e-07,
+      "paired_row_H1_variance": 0.00040361593424651627,
+      "within_teacher_static_mean_variance": 2.4914618721509474e-05,
+      "method_risks": {
+        "keep": 0.03127681136810834,
+        "top": 0.03124336656714621,
+        "random": 0.030508062712166904,
+        "greedy": 0.030858812138897247,
+        "widen_upper": 0.03127681136810834,
+        "ordinary_lower": 0.028026016249952337,
+        "ordinary_upper": 0.028996532594505152,
+        "static_partial": 0.04097452548829613
+      }
+    },
+    {
+      "index": 12,
+      "teacher_id": "6814ba6b796b8be7c8ebaa9522e35b226770042456eae58fc3446bbbfc984a1f",
+      "h1_mean": -0.0024159156195692434,
+      "static_mean": -0.02365031764178141,
+      "within_teacher_H1_variance": 2.0544091990088326e-06,
+      "paired_row_H1_variance": 0.0018679194500207292,
+      "within_teacher_static_mean_variance": 2.504870000157486e-10,
+      "method_risks": {
+        "keep": 0.06179199273452221,
+        "top": 0.062504194045709,
+        "random": 0.06008827842613975,
+        "greedy": 0.06015825481223481,
+        "widen_upper": 0.05959853256563618,
+        "ordinary_lower": 0.07095287547680945,
+        "ordinary_upper": 0.0644822929529265,
+        "static_partial": 0.08813261059470791
+      }
+    },
+    {
+      "index": 13,
+      "teacher_id": "18425eca1be602241ac5301d7be67ac33f28943592a737341f6a4bff581a0ec5",
+      "h1_mean": 0.0,
+      "static_mean": -0.0385228695642536,
+      "within_teacher_H1_variance": 0.0,
+      "paired_row_H1_variance": 0.0,
+      "within_teacher_static_mean_variance": 0.0006046862538107366,
+      "method_risks": {
+        "keep": 0.05572736457206941,
+        "top": 0.05572736457206941,
+        "random": 0.05572736457206941,
+        "greedy": 0.05572736457206941,
+        "widen_upper": 0.05572736457206941,
+        "ordinary_lower": 0.05502203174798506,
+        "ordinary_upper": 0.05709665091973089,
+        "static_partial": 0.09561952048398449
+      }
+    },
+    {
+      "index": 14,
+      "teacher_id": "a795a28bf27d9fb4f572a2b2ba01b72757eb5611f5c3108337d7f25fa67af445",
+      "h1_mean": -0.0006769042878730023,
+      "static_mean": -0.007408976982472929,
+      "within_teacher_H1_variance": 9.163988298817128e-07,
+      "paired_row_H1_variance": 0.00022572934307739102,
+      "within_teacher_static_mean_variance": 8.084695823284354e-05,
+      "method_risks": {
+        "keep": 0.02978244327669331,
+        "top": 0.02978244327669331,
+        "random": 0.029105538988820307,
+        "greedy": 0.028825415130987676,
+        "widen_upper": 0.02978244327669331,
+        "ordinary_lower": 0.024729240467618673,
+        "ordinary_upper": 0.028231769978716015,
+        "static_partial": 0.03564074696118895
+      }
+    },
+    {
+      "index": 15,
+      "teacher_id": "2d8dc49dc2817d19406d1809b1f5501234deb8dee63bab7d8e2a7a7ab20a4510",
+      "h1_mean": -0.002788983712189935,
+      "static_mean": -0.03521477150699811,
+      "within_teacher_H1_variance": 1.5556860293721503e-05,
+      "paired_row_H1_variance": 0.0017047728266288437,
+      "within_teacher_static_mean_variance": 0.00011831824438011762,
+      "method_risks": {
+        "keep": 0.08807523098014985,
+        "top": 0.08807523098014985,
+        "random": 0.08528624726795993,
+        "greedy": 0.08308841674005166,
+        "widen_upper": 0.07792863024098856,
+        "ordinary_lower": 0.08562445262085767,
+        "ordinary_upper": 0.0876978421592259,
+        "static_partial": 0.122912613666224
+      }
+    }
+  ],
+  "failures": [],
+  "maximum_differences": {
+    "h1_rows": 0.0,
+    "static_rows": 0.0,
+    "role_risks": 1.3877787807814457e-17,
+    "teacher_h1": 0.0,
+    "teacher_static": 0.0,
+    "within_variance": 0.0,
+    "row_variance": 0.0,
+    "summary_means": 0.0
+  },
+  "method_means": {
+    "keep": 0.06233256543420507,
+    "top": 0.06118796937595806,
+    "random": 0.06065153400242382,
+    "greedy": 0.06055940044555071,
+    "widen_upper": 0.06063078473692785,
+    "ordinary_lower": 0.06145376366064481,
+    "ordinary_upper": 0.06048798904779086,
+    "static_partial": 0.089249476569141
+  },
+  "h1_mean": -0.0005364353735342285,
+  "static_mean": -0.028761487521350156,
+  "counts": {
+    "teachers": 16,
+    "repetitions": 2,
+    "pairs": 32,
+    "roles": 256,
+    "probes": 2080
+  },
+  "script_sha256": "96f182796f54b351484da253250133a213de2694822e7562d42f3b3077da1ca4",
+  "command": [
+    "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+    "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v2/wp09/raw_audit.py"
+  ],
+  "seconds": 4.925965459027793,
+  "peak_rss_bytes": 384106496
+}

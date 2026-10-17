@@ -2,7 +2,7 @@ schema_version: 1
 status: draft
 freeze_hash: null
 test_access_authorized: false
-reason: Exploratory scaffold only; protected protocol validation is not implemented in core.
+reason: Linked exploratory pilot complete; numeric design remains calibrate and no protected confirmation is authorized.
 phase: exploratory
 study_id: selective-tree-neurons
 experiment:
@@ -12,9 +12,8 @@ experiment:
   data: {dataset: synthetic, population: primary, noise_sigma: 0.1, n_fit: 2306, n_growth: 577, n_validation: 577, n_test: null}
   seeds: {namespace: exploratory, teacher: 0, data: 1, optimizer: 2, allocation: 3, contrast: 4, reference: 5}
 unresolved:
-  - numeric_base_stopping_rule
-  - continuation_allowance
-  - validation_interval
-  - patience
+  - supported_numeric_design
+  - whole_teacher_variance_precision
+  - second_canonical_runtime_batch
   - confirmatory_teacher_and_test_counts
-  - protected_evaluator_capability
+  - independent_confirmatory_cohort

@@ -4,7 +4,7 @@ A research proof of concept where selected neurons grow two specialists and a sw
 
 The [complete exploratory pilot](docs/research/2026-10-17-complete-exploratory-pilot.md) contains **16 independent problems, trained twice**, with no model-pair failures. Guided growth averages normalized E MSE **0.0611880**, random placement **0.0606515**, and the upper ordinary parameter bracket **0.0604880**. The guided-placement benefit is **−0.0005364**, with a saved-data 95% bootstrap interval **[−0.0012050, +0.0001561]**. The score has no clear advantage in this recipe. This is an exploratory, inconclusive allocation result; protected confirmation and practical competitiveness remain unestablished.
 
-The original producer timed out after a user-requested suspension. The two never-started pairs were completed under a prospective amendment with identical inputs and recipe. Both lineages and the original failed record remain intact; the linked diagnostic is not freeze eligible. A larger prespecified saved-data bootstrap resolves numerical endpoint precision, while population-variance calibration remains unresolved. Actual clean replay and independent prediction audit are now the final checks for this diagnostic result.
+The original producer timed out after a user-requested suspension. The two never-started pairs were completed under a prospective amendment with identical inputs and recipe. Both lineages and the original failed record remain intact; the linked diagnostic is not freeze eligible. A larger prespecified saved-data bootstrap resolves numerical endpoint precision, while population-variance calibration remains unresolved. Independent prediction audit, clean locked replay and actual interrupted-growth recovery now pass. The [research report](reports/final.md) records the inconclusive result and reproduction evidence.
 
 An earlier single-teacher exploratory comparison gave a negative result for the score: on one 16-dimensional synthetic teacher, top-scored growth had validation MSE **0.14753**, versus **0.14384** for random placement at the same 1,697 parameters. Both improved on continuing the 1,153-parameter parent (**0.16066**). Ordinary warm widening to 1,693/1,711 parameters gave **0.15644/0.15881**. This keeps conditional growth interesting on this problem, but supplies no evidence that the score chooses better locations.
 
@@ -12,7 +12,7 @@ Two further [common-recipe calibration problems](docs/research/2026-10-17-common
 
 These are descriptive G/V results from one teacher and optimizer seed, with provisional update limits. Top was still improving at its limit. The separate noiseless 2-D control learns the intended opposite slopes; keep, top and random all give validation MSE about **0.001338**, with no useful extra-growth gain. It is a different diagnostic population, not another primary replicate. The [curated evidence](docs/research/2026-10-16-exploratory-paired-evidence.json) records all controls, costs, hashes and limitations; [DECISIONS.md](DECISIONS.md#d008--16-october-2026-exploratory-checkpoint-cost-and-first-paired-study) records the bounded conclusion and next gates.
 
-The [plain-language interpretation](docs/research/2026-10-17-exploratory-interpretation.md) explains the earlier results. Protocol protection, the independent-cohort runner and audit/report code passed implementation review and scoped fixes. The reviewed storage correction reproduces all 4,000 updates exactly while reducing checkpoint metadata from 20.6 MB to 2.6 MB. The complete two-repetition engineering workload took about eight minutes, and [strict scientific readiness](docs/research/2026-10-17-scientific-pilot-readiness.md) preceded the genuine pilot. A supported numeric design and independent confirmation remain distinct, unmet gates; WP09 is checking the completed exploratory evidence.
+The [plain-language interpretation](docs/research/2026-10-17-exploratory-interpretation.md) explains the earlier results. Protocol protection, the independent-cohort runner and audit/report code passed implementation review and scoped fixes. The reviewed storage correction reproduces all 4,000 updates exactly while reducing checkpoint metadata from 20.6 MB to 2.6 MB. The complete two-repetition engineering workload took about eight minutes, and [strict scientific readiness](docs/research/2026-10-17-scientific-pilot-readiness.md) preceded the genuine pilot. WP09 now validates the completed exploratory evidence. A supported numeric design and independent confirmation remain distinct, unmet gates.
 
 The repository implements the compact selective affine layer, CPU64 moment score, deterministic CPU training, complete checkpoint recovery, state-preserving growth, F-only preprocessing and serial paired controls. Algebra, native CPU/MPS kernel checks and the CPU causal path have been tested. The soft affine-stump model belongs to an established gated family; the research target is the allocation procedure and its measured limits.
 
@@ -124,8 +124,8 @@ errors; the final affected checks passed 190 tests after those paths were fixed.
 Native checks cover 40 numerical cells, 162 timing cells, 24 scoring comparisons
 and 8 high-density parent reloads. The [final review evidence](audit/implementation/evidence/2026-10-17/h1-final-index.json)
 preserves each source identity. These are implementation checks. Independent
-confirmation and scientific audit remain pending; the early predictive results
-above are unchanged. Resident timing stays within the explicit smaller
+confirmation remains unexecuted; the actual diagnostic reproduction and raw
+prediction audit are now complete. Resident timing stays within the explicit smaller
 [Ruling15 scope](audit/implementation/evidence/2026-10-17/ruling-15-resident-timing-scope.md).
 
 A later [narrow storage correction](audit/implementation/evidence/2026-10-17/h1-history-storage-index.json)
@@ -138,18 +138,32 @@ linked above; protected independent confirmation remains pending.
 
 ### Auditing and portable saved evidence (pre-freeze implementation)
 
-Task 13 supplies audit/report tooling. The genuine pilot has retained the
-partial record above; a supported numeric design, full independent cohort and
-actual scientific reproduction remain pending. `reports/final.md`
-is a blocked pre-study status, not a completed research result. After a reviewed
-freeze and complete execution, use:
+The [WP09 evidence](audit/implementation/evidence/2026-10-18/wp09/index.json)
+records a new frozen-lock environment, both reference scripts, all eight methods
+and all 65 probes in a representative replay, plus a real interruption and exact
+checkpoint recovery. Independently recomputed risks cover all 32 pilot pairs.
+The [final diagnostic report](reports/final.md) was rebuilt twice from saved
+records, byte-identically. Rebuild it from the shipped compact inputs using only
+Python's standard library:
+
+```sh
+python3 audit/implementation/evidence/2026-10-18/wp09/render_report.py /tmp/tree-neuron-diagnostic.md
+```
+
+This saved report command performs no fitting or protected evaluation. The
+complete raw-prediction audit requires the separately restored, hash-bound bulk
+artifacts named in the evidence inventory. The original failed producer and
+linked continuation remain separate; no frozen protocol or confirmation exists.
+
+The protected workflow below applies only after a future accepted numeric design,
+reviewed freeze and complete independent execution:
 
 ```sh
 .venv/bin/python -m treeneuron.cli audit --protocol protocol/frozen.yaml --study-dir protocol/confirmation/PROTOCOL_HASH --output audit/study.json
-.venv/bin/python -m treeneuron.cli report --mode audited --protocol protocol/frozen.yaml --study-dir protocol/confirmation/PROTOCOL_HASH --output reports/final.md
+.venv/bin/python -m treeneuron.cli report --mode audited --protocol protocol/frozen.yaml --study-dir protocol/confirmation/PROTOCOL_HASH --output reports/confirmation.md
 ```
 
-The report validates the frozen cohort, every attempt and selected graph (including
+That protected report validates the frozen cohort, every attempt and selected graph (including
 B6 losers), checkpoint topology/optimizer/resume state, original protected access,
 raw predictions, F variance, original-unit metrics and declared statistical policy.
 Incomplete or corrupt evidence cannot produce a success table. Whole teachers,
@@ -187,9 +201,9 @@ means archive eligibility is unavailable; restoring source does not undo an
 amendment. This prospective-only boundary is [Ruling 12](audit/implementation/evidence/2026-10-17/ruling-12-archive-sealing.md).
 
 R12's full text was retrieved in WP00; the former access obstacle is historical.
-The bounded mechanism comparison remains provisional. Actual final claims still
-require the closest-prior-art revisit, locked clean reproduction and post-cohort
-scientific audit. H1 component evidence does not establish H3 practical advantage;
+The bounded mechanism comparison remains provisional. The closest-prior-art
+revisit, locked clean replay and independent audit of the exploratory diagnostic
+are complete. H1 component evidence does not establish H3 practical advantage;
 unavailable strongest models remain explicit, Energy stays separate as simulation,
 and Track C references stay outside local measured tables.
 
