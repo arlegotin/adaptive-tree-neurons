@@ -1,0 +1,22 @@
+{
+  "status": "bounded_primary_paper_comparison_not_priority_proof",
+  "files": [
+    {
+      "original_path": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/prior-art-final-revisit-report.md",
+      "archive_path": "audit/implementation/evidence/2026-10-17/prior-art-final-revisit/report.md",
+      "bytes": 9427,
+      "sha256": "fd774bbe7faafc5f0e4e5c85201f804b36784f386f494a627df0d7a8cda4b53f"
+    },
+    {
+      "original_path": "environment/h1-v2/prior-art-revisit/evidence-index.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/prior-art-final-revisit/original-evidence-index.json",
+      "bytes": 3236,
+      "sha256": "9e48aea3fdb3fb51a63538db093e7b3167d3d59e732eae1be7408d83a60b010f"
+    }
+  ],
+  "root_verified_files": 6,
+  "root_verified_bytes": 18178057,
+  "root_rehash_errors": [],
+  "root_direct_check": "R07 AppendixB.2 actual extracted text confirms random prototype selection using that prototype splitting-matrix direction.",
+  "limits": "No author-code inspection, pilot-outcome inspection, priority proof, or independent peer review. PDFs/text retained outsideGit; original hashes and URLs preserved."
+}

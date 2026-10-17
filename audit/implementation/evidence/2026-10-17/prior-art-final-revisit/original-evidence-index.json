@@ -1,0 +1,69 @@
+{
+  "schema": "bounded-prior-art-revisit-v1",
+  "recorded_utc": "2026-10-17T05:45:44.150392+00:00",
+  "new_acquisitions": [
+    {
+      "reference": "R07",
+      "pdf_acquisition_url": "https://arxiv.org/pdf/1910.02366v3",
+      "primary_page_url": "https://arxiv.org/abs/1910.02366",
+      "retrieved_date_utc": "2026-10-17",
+      "files": [
+        {
+          "path": "environment/h1-v2/prior-art-revisit/R07-1910.02366v3.pdf",
+          "bytes": 5112785,
+          "sha256": "b5dae460a38b332cfcdc4348e47f1b1c7168e7cf6336f89a50834150a1d4ef0b"
+        },
+        {
+          "path": "environment/h1-v2/prior-art-revisit/R07-1910.02366v3.txt",
+          "bytes": 98486,
+          "sha256": "d0bd74a57d247d5d11048914832452e7ed3ecc568ad92dd24c9f3140fc45294e"
+        }
+      ],
+      "extraction": "pdftotext -layout",
+      "inspected_scope": "Sections 2.1-2.3, pp. 3-7; Eq. 1-9; Algorithm 1; Appendix A.1, pp. 12-14; section 3 RBF, p. 8; B.1/B.2, pp. 18-19; B.3 training, p. 21"
+    },
+    {
+      "reference": "R08",
+      "pdf_acquisition_url": "https://arxiv.org/pdf/2506.14951v2",
+      "primary_page_url": "https://arxiv.org/html/2506.14951v2",
+      "retrieved_date_utc": "2026-10-17",
+      "files": [
+        {
+          "path": "environment/h1-v2/prior-art-revisit/R08-2506.14951v2.pdf",
+          "bytes": 10091752,
+          "sha256": "e30538dc06a4fe0d8222b97536a9fe3df7c1a4e83297487fddf404fdcb3014b7"
+        },
+        {
+          "path": "environment/h1-v2/prior-art-revisit/R08-2506.14951v2.txt",
+          "bytes": 108791,
+          "sha256": "c248ca3e22618dcd27ead420f208e6722434d761e909e7df9181850bdf50da8e"
+        }
+      ],
+      "extraction": "pdftotext -layout",
+      "inspected_scope": "Section 2/Eq. 2, pp. 3-4; section 4/Eq. 3-6, pp. 7-9; discussion, pp. 9-10; A.1, p. 15; B.1-B.2, p. 19; C.1-C.2/Eq. 10-13, p. 26"
+    }
+  ],
+  "existing_source_rechecked": {
+    "reference": "R12",
+    "path": "environment/sources/R12-yan26o.pdf",
+    "pdf_acquisition_url": "https://raw.githubusercontent.com/mlresearch/v306/main/assets/yan26o/yan26o.pdf",
+    "primary_page_url": "https://proceedings.mlr.press/v306/yan26o.html",
+    "original_retrieval_date": "2026-10-16",
+    "bytes": 2756816,
+    "sha256": "f1628581fc83f79a4c32d4013299e56f2cf3693eb50821cb355b8c2c5926cd65",
+    "inspected_scope": "Figure 1; sections 3.1-3.4/Eq. 1-11, pp. 3-6; training details, p. 7; section 4.3/Table 4/section 5, pp. 8-9; complete Appendix A/Algorithm 1, p. 12"
+  },
+  "report": {
+    "path": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/prior-art-final-revisit-report.md",
+    "sha256": "fd774bbe7faafc5f0e4e5c85201f804b36784f386f494a627df0d7a8cda4b53f"
+  },
+  "acquisition_notes": [
+    "Initial sandbox curl attempts failed DNS resolution; no PDF bytes obtained by those attempts.",
+    "Public-paper curl retrievals succeeded with reviewed network permission.",
+    "Only papers and extracted text acquired; no author code, assets, weights, license agreements or accounts."
+  ],
+  "limits": [
+    "No pilot outcomes read; no scientific numerical work or test execution.",
+    "No author-code inspection, other-reference survey, priority proof, independent peer review, or performance-claim validation."
+  ]
+}

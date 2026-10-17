@@ -528,3 +528,20 @@ show exactly equal resolved config values; readiness then passed without source
 or policy changes. Launch the scientific pilot only after committing this
 record, hold execution source fixed, and continue through the resulting design,
 full eligible independent cohort and reproduction/audit.
+
+
+## D024 — 17 October 2026: closest-paper revisit narrows the contribution
+
+The independent source comparison and root inspection of the consequential R07
+Appendix B.2 passage confirm that random neuron selection with informed per-unit
+directions is already an allocation control. Related spectral splitting,
+function-preserving duplication and gated limits are established. The acquired
+R12 full architecture/training/parsing text resolves the previous access blocker.
+
+The [bounded comparison](docs/research/2026-10-17-prior-art-revisit.md) did not
+locate the exact combined centered insertion, residual-moment direction, RMS
+scaling and fresh-Adam ranking in R07/R08/R12. This is no priority proof or code
+survey. Frame any result as empirical characterization of a specified procedure
+in established model families. Root verified all six indexed source files;
+no code, weights or agreements were acquired through this comparison. The
+revisit used no pilot outcomes and changed no experiment or scientific gate.
