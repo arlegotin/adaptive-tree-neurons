@@ -1,0 +1,106 @@
+{
+  "backend": {
+    "allow_fallback": false,
+    "cpu_threads": 1,
+    "device": "cpu",
+    "execution": "eager",
+    "interop_threads": 1,
+    "score_device": "cpu",
+    "score_dtype": "float64",
+    "training_dtype": "float32"
+  },
+  "data": {
+    "components": 4,
+    "dataset": "synthetic",
+    "fit_transforms_on": "F",
+    "gate_prevalences": [
+      0.1,
+      0.5
+    ],
+    "gate_types": [
+      "hard",
+      "smooth_0.2",
+      "smooth_1.0"
+    ],
+    "n_fit": 2306,
+    "n_growth": 577,
+    "n_test": null,
+    "n_validation": 577,
+    "noise_sigma": 0.1,
+    "nuisance_dimensions": 0,
+    "population": "primary",
+    "reference_rows": 65536,
+    "refit_full_development": false,
+    "regime": "isotropic",
+    "row_rounding": "ceiling",
+    "sample_density": 2.0,
+    "standardize_inputs": true,
+    "standardize_targets": true
+  },
+  "execution": {
+    "artifacts_root": "artifacts/h1-v1/parent-safety",
+    "backend_report": "environment/h1-v1/backend.json"
+  },
+  "growth": {
+    "block_units": 8,
+    "direction": "eigenvector",
+    "epsilon": 0.05,
+    "m_requested": 16,
+    "policy": "adam",
+    "projection_rms_floor": 1e-12,
+    "retain_zero_growth": true
+  },
+  "model": {
+    "activation": "relu",
+    "coordinates": "selective",
+    "d": 16,
+    "depth": 1,
+    "h": 64,
+    "parent_width": 0,
+    "static_count": 0,
+    "tau": 1.0
+  },
+  "phase": "exploratory",
+  "pilot": {
+    "bootstrap_iterations": 2000,
+    "bootstrap_seed": 261017106,
+    "constraints_path": null,
+    "endpoint_tolerance": 0.005,
+    "evaluation_rows": 4096,
+    "initial_teachers": 1,
+    "max_seconds": 14400.0,
+    "max_teachers": 1,
+    "probe_updates": 20,
+    "purpose": "engineering",
+    "repetitions": 2
+  },
+  "seeds": {
+    "allocation": 261017103,
+    "contrast": 261017104,
+    "data": 261017101,
+    "namespace": "exploratory",
+    "optimizer": 261017102,
+    "reference": 261017105,
+    "teacher": 261017100
+  },
+  "study_id": "parent-b128-lr0p005-v2",
+  "training": {
+    "adam_beta1": 0.9,
+    "adam_beta2": 0.999,
+    "adam_epsilon": 1e-08,
+    "base_updates": 4000,
+    "batch_size": 128,
+    "checkpoint_interval": 25,
+    "checkpoint_selection": "strict_improvement_earliest",
+    "continuation_updates": 4000,
+    "evaluate_at_update_zero": true,
+    "learning_rate": 0.005,
+    "min_learning_rate": 0.0,
+    "optimizer": "adamw",
+    "patience": 20,
+    "scheduler": "constant",
+    "sgd_momentum": 0.0,
+    "validation_interval": 25,
+    "weight_decay": 0.0
+  }
+}

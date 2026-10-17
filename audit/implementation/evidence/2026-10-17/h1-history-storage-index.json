@@ -1,0 +1,271 @@
+{
+  "scope": "Accepted narrow history storage correction with independent root byte/source verification; scientific evidence pending",
+  "files": [
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/exact-tensor-hashes.json",
+      "bytes": 3108,
+      "sha256": "a46eac3ee3f5dad7ecde1e51d971d2a0ca1aa5596465b07643e78b1b76ccaf7f"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/green-1.log",
+      "bytes": 2033,
+      "sha256": "6a70ca5e6766823cfb3e6149233c356eb70691ccdc2d4fcc6616ae9aca6265ce"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/history-scaling.json",
+      "bytes": 479,
+      "sha256": "d43aafa796b574d1f2d200b297786b3cf887f73e9b0e824eb0b612d3568e22cc"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/implementation-report.md",
+      "bytes": 15460,
+      "sha256": "b712fef510544e1b80ee097d9802f1c48b1d2ffe0ce02b4c0d42bae0fd3cd183"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/index.json",
+      "bytes": 24961,
+      "sha256": "fc36d2db999babe1563b0ee84197e3006fd4c2207f2436a747568e085a37f166"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/metadata-differences.json",
+      "bytes": 879,
+      "sha256": "92b21702dac94dd8f304708a547deda1e0fc8e0e9f54bf8aa4dfd49a0aa479fc"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/migrations-green-1.log",
+      "bytes": 100,
+      "sha256": "7b4e25e039dc2adc8b64399f90fdfa8196f161428c2131d5138ebc6f39bb5f83"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/native-state-observation.json",
+      "bytes": 2458,
+      "sha256": "811b1cc0d8effdc0fddc6b249165eb16a4aef39ee0c955636c0f224e6e00ce8a"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/next-row-ids.json",
+      "bytes": 90,
+      "sha256": "4a1efef813b9520eaf18ea1029b933b13675f6df4d28a051a4f7b88da6e5db74"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/backend.json",
+      "bytes": 202980,
+      "sha256": "4cfb4983fbe8d152decf7e621dc79b2e77b7f4e3825cb379534ce6a4e05e9e42"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/comparison-2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/comparison-2.stdout",
+      "bytes": 235,
+      "sha256": "2b6fbf90d9ff129abeff72857c11c852c59bb3cde7d97dedde7ae34372e7acab"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/comparison.failed-1.stderr",
+      "bytes": 664,
+      "sha256": "362619890031725af02d7e25867613793b2f4c04f36c10f7034375165e58f877"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/comparison.failed-1.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/comparison.stderr",
+      "bytes": 664,
+      "sha256": "362619890031725af02d7e25867613793b2f4c04f36c10f7034375165e58f877"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/comparison.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/complete-reference-comparison.failed-1.py",
+      "bytes": 11074,
+      "sha256": "f3ae33ee3f0dd5f6d78df842d4d742c83a4a6a225c4dcedc76bc7aae92f10e7c"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/complete-reference-comparison.py",
+      "bytes": 11095,
+      "sha256": "335c3f81c6520df448862144cc24d8a642e460c20b257065d53d8dd466e24b11"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/envelope.json",
+      "bytes": 158427,
+      "sha256": "9c1e08bac7f7fefb571e29383cb0b734310ae5d4e3acc7c810b5892ff6966d98"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/kernel.json",
+      "bytes": 43980,
+      "sha256": "dccf78d3771d04ce39105d8f64cef929552175f11b7f9f68cdcb21a5e33735a1"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/receipt.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/receipt.stdout",
+      "bytes": 702,
+      "sha256": "bdabc8d83e20dd42867cefa29e617b8d5865da1e118c2ab6e1d2b66c55550f8b"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/reference-replay.failed-1.py",
+      "bytes": 12655,
+      "sha256": "b4e596f9f9cda4018f8cdcb81493d0475614f3e5a2ffaa6f5ca7ec2fc7d17af9"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/reference-replay.failed-2.py",
+      "bytes": 12721,
+      "sha256": "5b562f3f02ce795ec883d6ec084f000310c06cc22ab2d04331842d5cc0105641"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/reference-replay.failed-3.py",
+      "bytes": 12772,
+      "sha256": "bceeae95ce0d57d29a7d058ed42bd61203afda9ef29c38bb9dfe8cc0efc75b59"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/reference-replay.failed-4.py",
+      "bytes": 12772,
+      "sha256": "c637cae4adbbc5332b24f52aada27a6b0a85fbf5a6979293e594f1d98d53d939"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/reference-replay.py",
+      "bytes": 12772,
+      "sha256": "c637cae4adbbc5332b24f52aada27a6b0a85fbf5a6979293e594f1d98d53d939"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/renew-receipt.py",
+      "bytes": 1936,
+      "sha256": "2d7240b282deb5f9974839480239952a1f161c34c3e90f10b0ded999d020c641"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/replay-3.stderr",
+      "bytes": 1318,
+      "sha256": "e00eec72b5d0b170f19e328b556d71ad206c4017d16601c9d49a0b9331f4050d"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/replay-3.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/replay-4.stderr",
+      "bytes": 547,
+      "sha256": "be3a179eef884ed48c084728f25c7d08835a920650f4ffbe2e10e876c54808cf"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/replay-4.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/replay.failed-1.stderr",
+      "bytes": 355,
+      "sha256": "d48b80848dc4d7cdd921621ba85965f96dc476aa25aebbbd31cb8270c5d584c0"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/replay.failed-1.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/replay.failed-2.stderr",
+      "bytes": 899,
+      "sha256": "a6d1ee2f7f3a0afd12bae9232dd307ab68fb7318bad6a4d41053fda24d5e23e4"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/replay.failed-2.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/replay.stderr",
+      "bytes": 899,
+      "sha256": "a6d1ee2f7f3a0afd12bae9232dd307ab68fb7318bad6a4d41053fda24d5e23e4"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/replay.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/receipt-measurement.json",
+      "bytes": 683,
+      "sha256": "28ba8c962e5c32d3cacd0454d138ec9019fa49296be61c9e11e52e92673b160f"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/red-1.log",
+      "bytes": 9866,
+      "sha256": "a4ce6769c0eb33d700a2a09a876f5d6e87027192739ee5a156def825f8872d75"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/red-2.log",
+      "bytes": 7587,
+      "sha256": "8566b35e9e9b307c7a4aab84abdcc9da28680a5a2b43322bcb1cc069f0a25555"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/reference-validation.json",
+      "bytes": 2743,
+      "sha256": "3f1418930c5e71e481c2f88455ac5eacec212a31b6d5ed0fe93f8ac36518ac28"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/replay-measurement.json",
+      "bytes": 5751,
+      "sha256": "c4ff6a2368c20d42432c977794fff69768cba98f5e579fcfc666eda3d0190c04"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/review-6804299..388c82c.diff",
+      "bytes": 16023,
+      "sha256": "cbe01230c7dbb494afc2d3c03cabf7f0ebaae6bb06fb6ff9e1fd602a6e323bd5"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/review.md",
+      "bytes": 8522,
+      "sha256": "3ff05ec0f318f3593db04cacc6434a2e41409d8646a2229fd9b2c6379d5b795e"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/root-verification.json",
+      "bytes": 1357,
+      "sha256": "70a5885e3edadf6b85a57ecc0f7f34a58fa099272c727db378e74b50ac719841"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/strict-snapshot.json",
+      "bytes": 39427,
+      "sha256": "69b5514a3b78a681bec33e7147d3a9da9fc91d8f29f1377abbfb62b50bac6f4a"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/targeted-1.log",
+      "bytes": 33534,
+      "sha256": "ff924799c843749e842add6aca6167fcab6998416e60e550645f3031dcc91f74"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/verification-runs.json",
+      "bytes": 3811,
+      "sha256": "5c97926141a7b8931b9ff614806e7c3874f2758cfb9d0c86a847cdb6ce46c396"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-9-acceptance-v5.json",
+      "bytes": 8266,
+      "sha256": "a291f26a880f80b762a046128db43d20467ea38147f6d957b9e5b481c50fbd6e"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-10-acceptance-v4.json",
+      "bytes": 7648,
+      "sha256": "d04b90458a88b197233aa4573e4b76b01154f9c763850958a7ed729ca0138083"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-13-acceptance-v3.json",
+      "bytes": 7092,
+      "sha256": "23668637877017392acaa440c22985ed02ea6e115e7041becc7cb3c8540d868b"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/ruling-16-compact-checkpoint-row-history.md",
+      "bytes": 2471,
+      "sha256": "6741b3d1a22efc74eb7b71efe00c6ad1cc11d4f14434cb0e558c927da13bcf96"
+    }
+  ],
+  "self_excluded": true
+}

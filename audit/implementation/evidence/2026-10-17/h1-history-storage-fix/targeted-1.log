@@ -1,0 +1,511 @@
+........................................................................ [ 30%]
+................FFF..................................................... [ 61%]
+.......................FFFFFF........................................... [ 92%]
+..................                                                       [100%]
+=================================== FAILURES ===================================
+___________ test_resume_through_growth_matches_uninterrupted[before] ___________
+
+parent = (TrainingState(model=SelectiveRegressor(
+  (layer): SelectiveAffineLayer(
+    (base): Linear(in_features=2, out_featur...ixPath('/private/tmp/h1-history-storage-targeted-1/test_resume_through_growth_mat0/6fd45f93fc8a441483913591855e1c61')))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1124461b0>
+boundary = 'before'
+
+    @pytest.mark.parametrize('boundary', ['before', 'after', 'during'])
+    def test_resume_through_growth_matches_uninterrupted(parent, monkeypatch, boundary):
+        from treeneuron.growth.insert import insert_growth
+        state, data, config, paths = parent
+        recovered = clone(state)
+        policy = train.TrainingPolicy.from_config(config, continuation=True)
+        insert_growth(state, allocation())
+        uninterrupted_paths = create_run(paths.directory.parent, config.to_dict())
+        expected = train.continue_fit(state, data, policy, uninterrupted_paths)
+        if boundary == 'before':
+            pointer = paths.directory / 'before.json'
+            save_checkpoint(recovered, pointer)
+            recovered = load_checkpoint(pointer, expected_hashes=state.identity_hashes, device='cpu')
+        insert_growth(recovered, allocation())
+        if boundary == 'after':
+            pointer = paths.directory / 'after.json'
+            save_checkpoint(recovered, pointer)
+            recovered = load_checkpoint(pointer, expected_hashes=state.identity_hashes, device='cpu')
+        if boundary == 'during':
+            append = train.append_event
+            def interrupt(paths, event):
+                append(paths, event)
+                if event['type'] == 'checkpoint' and event['update'] == recovered.update:
+                    # Interrupt after the first actual continuation update.
+                    if recovered.stage['updates_completed'] == 1: raise KeyboardInterrupt()
+            attempt = create_run(paths.directory.parent, config.to_dict())
+            monkeypatch.setattr(train, 'append_event', interrupt)
+            with pytest.raises(KeyboardInterrupt): train.continue_fit(recovered, data, policy, attempt)
+            monkeypatch.setattr(train, 'append_event', append)
+            recovered = load_checkpoint(attempt.directory / 'checkpoints/last.json', expected_hashes=state.identity_hashes, device='cpu')
+        retry = create_run(paths.directory.parent, config.to_dict())
+        actual = train.continue_fit(recovered, data, policy, retry)
+        assert_state_equal(actual, expected)
+        assert_nested_equal(actual.growth_metadata, expected.growth_metadata)
+        np.testing.assert_array_equal(actual.next_row_ids(data.F), expected.next_row_ids(data.F))
+        assert actual.model.layer.growth_applied
+>       assert [e['row_ids'] for e in actual.history if e['type'] == 'update'][-6:] == [e['row_ids'] for e in expected.history if e['type'] == 'update'][-6:]
+                ^^^^^^^^^^^^
+E       KeyError: 'row_ids'
+
+tests/test_optimizer_growth.py:168: KeyError
+___________ test_resume_through_growth_matches_uninterrupted[after] ____________
+
+parent = (TrainingState(model=SelectiveRegressor(
+  (layer): SelectiveAffineLayer(
+    (base): Linear(in_features=2, out_featur...ixPath('/private/tmp/h1-history-storage-targeted-1/test_resume_through_growth_mat1/26aee6137e354807980632463fae4c13')))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1124a1df0>
+boundary = 'after'
+
+    @pytest.mark.parametrize('boundary', ['before', 'after', 'during'])
+    def test_resume_through_growth_matches_uninterrupted(parent, monkeypatch, boundary):
+        from treeneuron.growth.insert import insert_growth
+        state, data, config, paths = parent
+        recovered = clone(state)
+        policy = train.TrainingPolicy.from_config(config, continuation=True)
+        insert_growth(state, allocation())
+        uninterrupted_paths = create_run(paths.directory.parent, config.to_dict())
+        expected = train.continue_fit(state, data, policy, uninterrupted_paths)
+        if boundary == 'before':
+            pointer = paths.directory / 'before.json'
+            save_checkpoint(recovered, pointer)
+            recovered = load_checkpoint(pointer, expected_hashes=state.identity_hashes, device='cpu')
+        insert_growth(recovered, allocation())
+        if boundary == 'after':
+            pointer = paths.directory / 'after.json'
+            save_checkpoint(recovered, pointer)
+            recovered = load_checkpoint(pointer, expected_hashes=state.identity_hashes, device='cpu')
+        if boundary == 'during':
+            append = train.append_event
+            def interrupt(paths, event):
+                append(paths, event)
+                if event['type'] == 'checkpoint' and event['update'] == recovered.update:
+                    # Interrupt after the first actual continuation update.
+                    if recovered.stage['updates_completed'] == 1: raise KeyboardInterrupt()
+            attempt = create_run(paths.directory.parent, config.to_dict())
+            monkeypatch.setattr(train, 'append_event', interrupt)
+            with pytest.raises(KeyboardInterrupt): train.continue_fit(recovered, data, policy, attempt)
+            monkeypatch.setattr(train, 'append_event', append)
+            recovered = load_checkpoint(attempt.directory / 'checkpoints/last.json', expected_hashes=state.identity_hashes, device='cpu')
+        retry = create_run(paths.directory.parent, config.to_dict())
+        actual = train.continue_fit(recovered, data, policy, retry)
+        assert_state_equal(actual, expected)
+        assert_nested_equal(actual.growth_metadata, expected.growth_metadata)
+        np.testing.assert_array_equal(actual.next_row_ids(data.F), expected.next_row_ids(data.F))
+        assert actual.model.layer.growth_applied
+>       assert [e['row_ids'] for e in actual.history if e['type'] == 'update'][-6:] == [e['row_ids'] for e in expected.history if e['type'] == 'update'][-6:]
+                ^^^^^^^^^^^^
+E       KeyError: 'row_ids'
+
+tests/test_optimizer_growth.py:168: KeyError
+___________ test_resume_through_growth_matches_uninterrupted[during] ___________
+
+parent = (TrainingState(model=SelectiveRegressor(
+  (layer): SelectiveAffineLayer(
+    (base): Linear(in_features=2, out_featur...ixPath('/private/tmp/h1-history-storage-targeted-1/test_resume_through_growth_mat2/bf873f065f7e41b990738b51eea0b0d4')))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x112682450>
+boundary = 'during'
+
+    @pytest.mark.parametrize('boundary', ['before', 'after', 'during'])
+    def test_resume_through_growth_matches_uninterrupted(parent, monkeypatch, boundary):
+        from treeneuron.growth.insert import insert_growth
+        state, data, config, paths = parent
+        recovered = clone(state)
+        policy = train.TrainingPolicy.from_config(config, continuation=True)
+        insert_growth(state, allocation())
+        uninterrupted_paths = create_run(paths.directory.parent, config.to_dict())
+        expected = train.continue_fit(state, data, policy, uninterrupted_paths)
+        if boundary == 'before':
+            pointer = paths.directory / 'before.json'
+            save_checkpoint(recovered, pointer)
+            recovered = load_checkpoint(pointer, expected_hashes=state.identity_hashes, device='cpu')
+        insert_growth(recovered, allocation())
+        if boundary == 'after':
+            pointer = paths.directory / 'after.json'
+            save_checkpoint(recovered, pointer)
+            recovered = load_checkpoint(pointer, expected_hashes=state.identity_hashes, device='cpu')
+        if boundary == 'during':
+            append = train.append_event
+            def interrupt(paths, event):
+                append(paths, event)
+                if event['type'] == 'checkpoint' and event['update'] == recovered.update:
+                    # Interrupt after the first actual continuation update.
+                    if recovered.stage['updates_completed'] == 1: raise KeyboardInterrupt()
+            attempt = create_run(paths.directory.parent, config.to_dict())
+            monkeypatch.setattr(train, 'append_event', interrupt)
+            with pytest.raises(KeyboardInterrupt): train.continue_fit(recovered, data, policy, attempt)
+            monkeypatch.setattr(train, 'append_event', append)
+            recovered = load_checkpoint(attempt.directory / 'checkpoints/last.json', expected_hashes=state.identity_hashes, device='cpu')
+        retry = create_run(paths.directory.parent, config.to_dict())
+        actual = train.continue_fit(recovered, data, policy, retry)
+        assert_state_equal(actual, expected)
+        assert_nested_equal(actual.growth_metadata, expected.growth_metadata)
+        np.testing.assert_array_equal(actual.next_row_ids(data.F), expected.next_row_ids(data.F))
+        assert actual.model.layer.growth_applied
+>       assert [e['row_ids'] for e in actual.history if e['type'] == 'update'][-6:] == [e['row_ids'] for e in expected.history if e['type'] == 'update'][-6:]
+                ^^^^^^^^^^^^
+E       KeyError: 'row_ids'
+
+tests/test_optimizer_growth.py:168: KeyError
+________________ test_actual_shapes_interrupted_recovery[lower] ________________
+
+tmp_path = PosixPath('/private/tmp/h1-history-storage-targeted-1/test_actual_shapes_interrupted0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x11284e090>
+cpu_training_evidence = PosixPath('/private/tmp/h1-history-storage-targeted-1/training-evidence6/report.json')
+variant = 'lower'
+
+    @pytest.mark.parametrize('variant', ['lower','upper','centered','direct_leaf','widen94','widen95'])
+    def test_actual_shapes_interrupted_recovery(tmp_path,monkeypatch,cpu_training_evidence,variant):
+        from treeneuron import train
+        from treeneuron.checkpoint import load_checkpoint
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.types import DevelopmentData,ObservationSet
+        monkeypatch.setattr(train,'BACKEND_REPORT_PATH',cpu_training_evidence)
+        rng=np.random.default_rng(13)
+        def rows(n,start):
+            x=rng.normal(size=(n,16));ids=np.arange(start,start+n,dtype=np.int64)
+            return ObservationSet(x,7+3*x[:,0],ids,ids)
+        data=DevelopmentData(rows(129,0),rows(17,200),rows(3,300),'interrupted-causal')
+        config=resolve_experiment({'study_id':'interrupted-causal','data':{'n_fit':129,'n_growth':17,'n_validation':3},
+            'training':{'base_updates':3,'continuation_updates':3,'validation_interval':1,'patience':20,'scheduler':'cosine'}})
+        if variant.startswith('widen'):
+            parent=fit_parent(data,config,create_run(tmp_path,config.to_dict()))
+            state=causal().build_causal('B2',{'variant':'widen','added_units':int(variant[-2:])-64,'seed':11},parent=parent).state
+            config=state.config
+            snapshot=pack_state(state)
+            policy=TrainingPolicy.from_config(config,continuation=True)
+            expected=continue_fit(state,data,policy,create_run(tmp_path,config.to_dict()))
+            replay=unpack_state(snapshot,expected_hashes=state.identity_hashes,device='cpu')
+            execute=lambda paths:continue_fit(replay,data,policy,paths)
+            initial_update=replay.update
+        else:
+            recipe={'experiment':config.to_dict()}
+            if variant in ('lower','upper'): recipe.update(variant=variant,target_parameters=1697);method='B2'
+            else: recipe.update(variant='full',coordinates=variant);method='B3'
+            config=causal().build_causal(method,recipe).config
+            expected=fit_parent(data,config,create_run(tmp_path,config.to_dict()))
+            execute=lambda paths:fit_parent(data,config,paths)
+            policy=TrainingPolicy.from_config(config);initial_update=0
+        paths=create_run(tmp_path,config.to_dict())
+        append=train.append_event
+        def interrupt(paths,event):
+            append(paths,event)
+            if event['type']=='checkpoint' and event['update']==initial_update+1:
+                raise KeyboardInterrupt('durable new-shape update boundary')
+        monkeypatch.setattr(train,'append_event',interrupt)
+        with pytest.raises(KeyboardInterrupt):execute(paths)
+        monkeypatch.setattr(train,'append_event',append)
+        resumed=load_checkpoint(paths.directory/'checkpoints/last.json',expected_hashes=expected.identity_hashes,device='cpu')
+        actual=continue_fit(resumed,data,policy,create_run(tmp_path,config.to_dict()))
+        assert_state_equal(expected,actual)
+        np.testing.assert_array_equal(expected.next_row_ids(data.F),actual.next_row_ids(data.F))
+>       assert [e['row_ids'] for e in expected.history if e['type']=='update'][-3:]==[e['row_ids'] for e in actual.history if e['type']=='update'][-3:]
+                ^^^^^^^^^^^^
+E       KeyError: 'row_ids'
+
+tests/test_causal_baselines.py:287: KeyError
+________________ test_actual_shapes_interrupted_recovery[upper] ________________
+
+tmp_path = PosixPath('/private/tmp/h1-history-storage-targeted-1/test_actual_shapes_interrupted1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1126a3590>
+cpu_training_evidence = PosixPath('/private/tmp/h1-history-storage-targeted-1/training-evidence6/report.json')
+variant = 'upper'
+
+    @pytest.mark.parametrize('variant', ['lower','upper','centered','direct_leaf','widen94','widen95'])
+    def test_actual_shapes_interrupted_recovery(tmp_path,monkeypatch,cpu_training_evidence,variant):
+        from treeneuron import train
+        from treeneuron.checkpoint import load_checkpoint
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.types import DevelopmentData,ObservationSet
+        monkeypatch.setattr(train,'BACKEND_REPORT_PATH',cpu_training_evidence)
+        rng=np.random.default_rng(13)
+        def rows(n,start):
+            x=rng.normal(size=(n,16));ids=np.arange(start,start+n,dtype=np.int64)
+            return ObservationSet(x,7+3*x[:,0],ids,ids)
+        data=DevelopmentData(rows(129,0),rows(17,200),rows(3,300),'interrupted-causal')
+        config=resolve_experiment({'study_id':'interrupted-causal','data':{'n_fit':129,'n_growth':17,'n_validation':3},
+            'training':{'base_updates':3,'continuation_updates':3,'validation_interval':1,'patience':20,'scheduler':'cosine'}})
+        if variant.startswith('widen'):
+            parent=fit_parent(data,config,create_run(tmp_path,config.to_dict()))
+            state=causal().build_causal('B2',{'variant':'widen','added_units':int(variant[-2:])-64,'seed':11},parent=parent).state
+            config=state.config
+            snapshot=pack_state(state)
+            policy=TrainingPolicy.from_config(config,continuation=True)
+            expected=continue_fit(state,data,policy,create_run(tmp_path,config.to_dict()))
+            replay=unpack_state(snapshot,expected_hashes=state.identity_hashes,device='cpu')
+            execute=lambda paths:continue_fit(replay,data,policy,paths)
+            initial_update=replay.update
+        else:
+            recipe={'experiment':config.to_dict()}
+            if variant in ('lower','upper'): recipe.update(variant=variant,target_parameters=1697);method='B2'
+            else: recipe.update(variant='full',coordinates=variant);method='B3'
+            config=causal().build_causal(method,recipe).config
+            expected=fit_parent(data,config,create_run(tmp_path,config.to_dict()))
+            execute=lambda paths:fit_parent(data,config,paths)
+            policy=TrainingPolicy.from_config(config);initial_update=0
+        paths=create_run(tmp_path,config.to_dict())
+        append=train.append_event
+        def interrupt(paths,event):
+            append(paths,event)
+            if event['type']=='checkpoint' and event['update']==initial_update+1:
+                raise KeyboardInterrupt('durable new-shape update boundary')
+        monkeypatch.setattr(train,'append_event',interrupt)
+        with pytest.raises(KeyboardInterrupt):execute(paths)
+        monkeypatch.setattr(train,'append_event',append)
+        resumed=load_checkpoint(paths.directory/'checkpoints/last.json',expected_hashes=expected.identity_hashes,device='cpu')
+        actual=continue_fit(resumed,data,policy,create_run(tmp_path,config.to_dict()))
+        assert_state_equal(expected,actual)
+        np.testing.assert_array_equal(expected.next_row_ids(data.F),actual.next_row_ids(data.F))
+>       assert [e['row_ids'] for e in expected.history if e['type']=='update'][-3:]==[e['row_ids'] for e in actual.history if e['type']=='update'][-3:]
+                ^^^^^^^^^^^^
+E       KeyError: 'row_ids'
+
+tests/test_causal_baselines.py:287: KeyError
+______________ test_actual_shapes_interrupted_recovery[centered] _______________
+
+tmp_path = PosixPath('/private/tmp/h1-history-storage-targeted-1/test_actual_shapes_interrupted2')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1124a0c50>
+cpu_training_evidence = PosixPath('/private/tmp/h1-history-storage-targeted-1/training-evidence6/report.json')
+variant = 'centered'
+
+    @pytest.mark.parametrize('variant', ['lower','upper','centered','direct_leaf','widen94','widen95'])
+    def test_actual_shapes_interrupted_recovery(tmp_path,monkeypatch,cpu_training_evidence,variant):
+        from treeneuron import train
+        from treeneuron.checkpoint import load_checkpoint
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.types import DevelopmentData,ObservationSet
+        monkeypatch.setattr(train,'BACKEND_REPORT_PATH',cpu_training_evidence)
+        rng=np.random.default_rng(13)
+        def rows(n,start):
+            x=rng.normal(size=(n,16));ids=np.arange(start,start+n,dtype=np.int64)
+            return ObservationSet(x,7+3*x[:,0],ids,ids)
+        data=DevelopmentData(rows(129,0),rows(17,200),rows(3,300),'interrupted-causal')
+        config=resolve_experiment({'study_id':'interrupted-causal','data':{'n_fit':129,'n_growth':17,'n_validation':3},
+            'training':{'base_updates':3,'continuation_updates':3,'validation_interval':1,'patience':20,'scheduler':'cosine'}})
+        if variant.startswith('widen'):
+            parent=fit_parent(data,config,create_run(tmp_path,config.to_dict()))
+            state=causal().build_causal('B2',{'variant':'widen','added_units':int(variant[-2:])-64,'seed':11},parent=parent).state
+            config=state.config
+            snapshot=pack_state(state)
+            policy=TrainingPolicy.from_config(config,continuation=True)
+            expected=continue_fit(state,data,policy,create_run(tmp_path,config.to_dict()))
+            replay=unpack_state(snapshot,expected_hashes=state.identity_hashes,device='cpu')
+            execute=lambda paths:continue_fit(replay,data,policy,paths)
+            initial_update=replay.update
+        else:
+            recipe={'experiment':config.to_dict()}
+            if variant in ('lower','upper'): recipe.update(variant=variant,target_parameters=1697);method='B2'
+            else: recipe.update(variant='full',coordinates=variant);method='B3'
+            config=causal().build_causal(method,recipe).config
+            expected=fit_parent(data,config,create_run(tmp_path,config.to_dict()))
+            execute=lambda paths:fit_parent(data,config,paths)
+            policy=TrainingPolicy.from_config(config);initial_update=0
+        paths=create_run(tmp_path,config.to_dict())
+        append=train.append_event
+        def interrupt(paths,event):
+            append(paths,event)
+            if event['type']=='checkpoint' and event['update']==initial_update+1:
+                raise KeyboardInterrupt('durable new-shape update boundary')
+        monkeypatch.setattr(train,'append_event',interrupt)
+        with pytest.raises(KeyboardInterrupt):execute(paths)
+        monkeypatch.setattr(train,'append_event',append)
+        resumed=load_checkpoint(paths.directory/'checkpoints/last.json',expected_hashes=expected.identity_hashes,device='cpu')
+        actual=continue_fit(resumed,data,policy,create_run(tmp_path,config.to_dict()))
+        assert_state_equal(expected,actual)
+        np.testing.assert_array_equal(expected.next_row_ids(data.F),actual.next_row_ids(data.F))
+>       assert [e['row_ids'] for e in expected.history if e['type']=='update'][-3:]==[e['row_ids'] for e in actual.history if e['type']=='update'][-3:]
+                ^^^^^^^^^^^^
+E       KeyError: 'row_ids'
+
+tests/test_causal_baselines.py:287: KeyError
+_____________ test_actual_shapes_interrupted_recovery[direct_leaf] _____________
+
+tmp_path = PosixPath('/private/tmp/h1-history-storage-targeted-1/test_actual_shapes_interrupted3')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1125fd7c0>
+cpu_training_evidence = PosixPath('/private/tmp/h1-history-storage-targeted-1/training-evidence6/report.json')
+variant = 'direct_leaf'
+
+    @pytest.mark.parametrize('variant', ['lower','upper','centered','direct_leaf','widen94','widen95'])
+    def test_actual_shapes_interrupted_recovery(tmp_path,monkeypatch,cpu_training_evidence,variant):
+        from treeneuron import train
+        from treeneuron.checkpoint import load_checkpoint
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.types import DevelopmentData,ObservationSet
+        monkeypatch.setattr(train,'BACKEND_REPORT_PATH',cpu_training_evidence)
+        rng=np.random.default_rng(13)
+        def rows(n,start):
+            x=rng.normal(size=(n,16));ids=np.arange(start,start+n,dtype=np.int64)
+            return ObservationSet(x,7+3*x[:,0],ids,ids)
+        data=DevelopmentData(rows(129,0),rows(17,200),rows(3,300),'interrupted-causal')
+        config=resolve_experiment({'study_id':'interrupted-causal','data':{'n_fit':129,'n_growth':17,'n_validation':3},
+            'training':{'base_updates':3,'continuation_updates':3,'validation_interval':1,'patience':20,'scheduler':'cosine'}})
+        if variant.startswith('widen'):
+            parent=fit_parent(data,config,create_run(tmp_path,config.to_dict()))
+            state=causal().build_causal('B2',{'variant':'widen','added_units':int(variant[-2:])-64,'seed':11},parent=parent).state
+            config=state.config
+            snapshot=pack_state(state)
+            policy=TrainingPolicy.from_config(config,continuation=True)
+            expected=continue_fit(state,data,policy,create_run(tmp_path,config.to_dict()))
+            replay=unpack_state(snapshot,expected_hashes=state.identity_hashes,device='cpu')
+            execute=lambda paths:continue_fit(replay,data,policy,paths)
+            initial_update=replay.update
+        else:
+            recipe={'experiment':config.to_dict()}
+            if variant in ('lower','upper'): recipe.update(variant=variant,target_parameters=1697);method='B2'
+            else: recipe.update(variant='full',coordinates=variant);method='B3'
+            config=causal().build_causal(method,recipe).config
+            expected=fit_parent(data,config,create_run(tmp_path,config.to_dict()))
+            execute=lambda paths:fit_parent(data,config,paths)
+            policy=TrainingPolicy.from_config(config);initial_update=0
+        paths=create_run(tmp_path,config.to_dict())
+        append=train.append_event
+        def interrupt(paths,event):
+            append(paths,event)
+            if event['type']=='checkpoint' and event['update']==initial_update+1:
+                raise KeyboardInterrupt('durable new-shape update boundary')
+        monkeypatch.setattr(train,'append_event',interrupt)
+        with pytest.raises(KeyboardInterrupt):execute(paths)
+        monkeypatch.setattr(train,'append_event',append)
+        resumed=load_checkpoint(paths.directory/'checkpoints/last.json',expected_hashes=expected.identity_hashes,device='cpu')
+        actual=continue_fit(resumed,data,policy,create_run(tmp_path,config.to_dict()))
+        assert_state_equal(expected,actual)
+        np.testing.assert_array_equal(expected.next_row_ids(data.F),actual.next_row_ids(data.F))
+>       assert [e['row_ids'] for e in expected.history if e['type']=='update'][-3:]==[e['row_ids'] for e in actual.history if e['type']=='update'][-3:]
+                ^^^^^^^^^^^^
+E       KeyError: 'row_ids'
+
+tests/test_causal_baselines.py:287: KeyError
+_______________ test_actual_shapes_interrupted_recovery[widen94] _______________
+
+tmp_path = PosixPath('/private/tmp/h1-history-storage-targeted-1/test_actual_shapes_interrupted4')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1126813d0>
+cpu_training_evidence = PosixPath('/private/tmp/h1-history-storage-targeted-1/training-evidence6/report.json')
+variant = 'widen94'
+
+    @pytest.mark.parametrize('variant', ['lower','upper','centered','direct_leaf','widen94','widen95'])
+    def test_actual_shapes_interrupted_recovery(tmp_path,monkeypatch,cpu_training_evidence,variant):
+        from treeneuron import train
+        from treeneuron.checkpoint import load_checkpoint
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.types import DevelopmentData,ObservationSet
+        monkeypatch.setattr(train,'BACKEND_REPORT_PATH',cpu_training_evidence)
+        rng=np.random.default_rng(13)
+        def rows(n,start):
+            x=rng.normal(size=(n,16));ids=np.arange(start,start+n,dtype=np.int64)
+            return ObservationSet(x,7+3*x[:,0],ids,ids)
+        data=DevelopmentData(rows(129,0),rows(17,200),rows(3,300),'interrupted-causal')
+        config=resolve_experiment({'study_id':'interrupted-causal','data':{'n_fit':129,'n_growth':17,'n_validation':3},
+            'training':{'base_updates':3,'continuation_updates':3,'validation_interval':1,'patience':20,'scheduler':'cosine'}})
+        if variant.startswith('widen'):
+            parent=fit_parent(data,config,create_run(tmp_path,config.to_dict()))
+            state=causal().build_causal('B2',{'variant':'widen','added_units':int(variant[-2:])-64,'seed':11},parent=parent).state
+            config=state.config
+            snapshot=pack_state(state)
+            policy=TrainingPolicy.from_config(config,continuation=True)
+            expected=continue_fit(state,data,policy,create_run(tmp_path,config.to_dict()))
+            replay=unpack_state(snapshot,expected_hashes=state.identity_hashes,device='cpu')
+            execute=lambda paths:continue_fit(replay,data,policy,paths)
+            initial_update=replay.update
+        else:
+            recipe={'experiment':config.to_dict()}
+            if variant in ('lower','upper'): recipe.update(variant=variant,target_parameters=1697);method='B2'
+            else: recipe.update(variant='full',coordinates=variant);method='B3'
+            config=causal().build_causal(method,recipe).config
+            expected=fit_parent(data,config,create_run(tmp_path,config.to_dict()))
+            execute=lambda paths:fit_parent(data,config,paths)
+            policy=TrainingPolicy.from_config(config);initial_update=0
+        paths=create_run(tmp_path,config.to_dict())
+        append=train.append_event
+        def interrupt(paths,event):
+            append(paths,event)
+            if event['type']=='checkpoint' and event['update']==initial_update+1:
+                raise KeyboardInterrupt('durable new-shape update boundary')
+        monkeypatch.setattr(train,'append_event',interrupt)
+        with pytest.raises(KeyboardInterrupt):execute(paths)
+        monkeypatch.setattr(train,'append_event',append)
+        resumed=load_checkpoint(paths.directory/'checkpoints/last.json',expected_hashes=expected.identity_hashes,device='cpu')
+        actual=continue_fit(resumed,data,policy,create_run(tmp_path,config.to_dict()))
+        assert_state_equal(expected,actual)
+        np.testing.assert_array_equal(expected.next_row_ids(data.F),actual.next_row_ids(data.F))
+>       assert [e['row_ids'] for e in expected.history if e['type']=='update'][-3:]==[e['row_ids'] for e in actual.history if e['type']=='update'][-3:]
+                ^^^^^^^^^^^^
+E       KeyError: 'row_ids'
+
+tests/test_causal_baselines.py:287: KeyError
+_______________ test_actual_shapes_interrupted_recovery[widen95] _______________
+
+tmp_path = PosixPath('/private/tmp/h1-history-storage-targeted-1/test_actual_shapes_interrupted5')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1129057f0>
+cpu_training_evidence = PosixPath('/private/tmp/h1-history-storage-targeted-1/training-evidence6/report.json')
+variant = 'widen95'
+
+    @pytest.mark.parametrize('variant', ['lower','upper','centered','direct_leaf','widen94','widen95'])
+    def test_actual_shapes_interrupted_recovery(tmp_path,monkeypatch,cpu_training_evidence,variant):
+        from treeneuron import train
+        from treeneuron.checkpoint import load_checkpoint
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.types import DevelopmentData,ObservationSet
+        monkeypatch.setattr(train,'BACKEND_REPORT_PATH',cpu_training_evidence)
+        rng=np.random.default_rng(13)
+        def rows(n,start):
+            x=rng.normal(size=(n,16));ids=np.arange(start,start+n,dtype=np.int64)
+            return ObservationSet(x,7+3*x[:,0],ids,ids)
+        data=DevelopmentData(rows(129,0),rows(17,200),rows(3,300),'interrupted-causal')
+        config=resolve_experiment({'study_id':'interrupted-causal','data':{'n_fit':129,'n_growth':17,'n_validation':3},
+            'training':{'base_updates':3,'continuation_updates':3,'validation_interval':1,'patience':20,'scheduler':'cosine'}})
+        if variant.startswith('widen'):
+            parent=fit_parent(data,config,create_run(tmp_path,config.to_dict()))
+            state=causal().build_causal('B2',{'variant':'widen','added_units':int(variant[-2:])-64,'seed':11},parent=parent).state
+            config=state.config
+            snapshot=pack_state(state)
+            policy=TrainingPolicy.from_config(config,continuation=True)
+            expected=continue_fit(state,data,policy,create_run(tmp_path,config.to_dict()))
+            replay=unpack_state(snapshot,expected_hashes=state.identity_hashes,device='cpu')
+            execute=lambda paths:continue_fit(replay,data,policy,paths)
+            initial_update=replay.update
+        else:
+            recipe={'experiment':config.to_dict()}
+            if variant in ('lower','upper'): recipe.update(variant=variant,target_parameters=1697);method='B2'
+            else: recipe.update(variant='full',coordinates=variant);method='B3'
+            config=causal().build_causal(method,recipe).config
+            expected=fit_parent(data,config,create_run(tmp_path,config.to_dict()))
+            execute=lambda paths:fit_parent(data,config,paths)
+            policy=TrainingPolicy.from_config(config);initial_update=0
+        paths=create_run(tmp_path,config.to_dict())
+        append=train.append_event
+        def interrupt(paths,event):
+            append(paths,event)
+            if event['type']=='checkpoint' and event['update']==initial_update+1:
+                raise KeyboardInterrupt('durable new-shape update boundary')
+        monkeypatch.setattr(train,'append_event',interrupt)
+        with pytest.raises(KeyboardInterrupt):execute(paths)
+        monkeypatch.setattr(train,'append_event',append)
+        resumed=load_checkpoint(paths.directory/'checkpoints/last.json',expected_hashes=expected.identity_hashes,device='cpu')
+        actual=continue_fit(resumed,data,policy,create_run(tmp_path,config.to_dict()))
+        assert_state_equal(expected,actual)
+        np.testing.assert_array_equal(expected.next_row_ids(data.F),actual.next_row_ids(data.F))
+>       assert [e['row_ids'] for e in expected.history if e['type']=='update'][-3:]==[e['row_ids'] for e in actual.history if e['type']=='update'][-3:]
+                ^^^^^^^^^^^^
+E       KeyError: 'row_ids'
+
+tests/test_causal_baselines.py:287: KeyError
+=============================== warnings summary ===============================
+tests/test_causal_baselines.py::test_node_gate_failure_preserves_completed_b0_b6_checks
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_optimizer_growth.py::test_resume_through_growth_matches_uninterrupted[before]
+FAILED tests/test_optimizer_growth.py::test_resume_through_growth_matches_uninterrupted[after]
+FAILED tests/test_optimizer_growth.py::test_resume_through_growth_matches_uninterrupted[during]
+FAILED tests/test_causal_baselines.py::test_actual_shapes_interrupted_recovery[lower]
+FAILED tests/test_causal_baselines.py::test_actual_shapes_interrupted_recovery[upper]
+FAILED tests/test_causal_baselines.py::test_actual_shapes_interrupted_recovery[centered]
+FAILED tests/test_causal_baselines.py::test_actual_shapes_interrupted_recovery[direct_leaf]
+FAILED tests/test_causal_baselines.py::test_actual_shapes_interrupted_recovery[widen94]
+FAILED tests/test_causal_baselines.py::test_actual_shapes_interrupted_recovery[widen95]
+9 failed, 225 passed, 1 warning in 132.66s (0:02:12)

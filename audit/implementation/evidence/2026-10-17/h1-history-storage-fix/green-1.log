@@ -1,0 +1,36 @@
+.F.                                                                      [100%]
+=================================== FAILURES ===================================
+_______ test_history_bytes_scale_with_updates_instead_of_past_batch_rows _______
+
+training_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...PosixPath('/private/tmp/h1-history-storage-green-1/test_history_bytes_scale_with_0/628a2242821c409a896294f561ac51fc')))
+
+    def test_history_bytes_scale_with_updates_instead_of_past_batch_rows(training_case):
+        _, config, original = training_case
+        rng = np.random.default_rng(83)
+        def rows(n, start):
+            x = rng.normal(size=(n, 2))
+            ids = np.arange(start, start+n, dtype=np.int64)
+            return ObservationSet(x, x[:, 0] - x[:, 1], ids, ids)
+        data = DevelopmentData(rows(257, 100000000), rows(7, 200000000), rows(5, 300000000), 'storage')
+        sizes = []
+        for batch in (4, 128):
+            raw_config = config.to_dict()
+            raw_config['training']['batch_size'] = batch
+            raw_config['data']['n_fit'] = 257
+            config = resolve_experiment(raw_config)
+            paths = create_run(original.directory.parent, config.to_dict())
+            state = train.fit_parent(data, config, paths)
+            updates = [e for e in state.history if e['type'] == 'update']
+            raw_updates = [e for e in events(paths) if e['type'] == 'update']
+            assert_committed(updates, raw_updates)
+            sizes.append((len(json.dumps(updates)), len(json.dumps(raw_updates))))
+        assert abs(sizes[0][0] - sizes[1][0]) < 100
+>       assert sizes[1][1] > 10 * sizes[0][1]
+E       assert 6590 > (10 * 1192)
+
+tests/test_history_storage.py:77: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_history_storage.py::test_history_bytes_scale_with_updates_instead_of_past_batch_rows
+1 failed, 2 passed in 3.63s

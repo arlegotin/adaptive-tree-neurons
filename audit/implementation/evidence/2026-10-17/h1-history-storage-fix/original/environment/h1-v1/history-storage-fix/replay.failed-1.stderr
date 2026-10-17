@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v1/history-storage-fix/reference-replay.py", line 49, in <module>
+    assert teacher.to_dict() == json.loads((ref/'teacher.json').read_text())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

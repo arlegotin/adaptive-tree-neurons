@@ -3,7 +3,8 @@
 Status: **blocked; scientific evidence pending**.
 
 The pre-freeze implementation and its final calibration fixes have passed
-independent review. There is no genuine
+independent review. A subsequent storage correction also passed scoped review
+and exact 4,000-update numerical replay. There is no genuine
 variance pilot, accepted numeric confirmation design, real frozen protocol or
 completed independent confirmation cohort. Bounded engineering/toy fixtures do
 not supply a scientific effect, superiority claim or completed WP09 decision.

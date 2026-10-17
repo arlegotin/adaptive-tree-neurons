@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v1/history-storage-fix/reference-replay.py", line 34, in <module>
+    write_json(out/'replay-config.json', config.to_dict())
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/experiments/paired.py", line 45, in write_json
+    with path.open('x') as stream:
+         ^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileExistsError: [Errno 17] File exists: '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v1/history-storage-fix/replay-config.json'

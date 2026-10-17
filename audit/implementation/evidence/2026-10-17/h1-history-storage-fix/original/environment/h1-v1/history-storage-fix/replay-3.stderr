@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v1/history-storage-fix/reference-replay.py", line 99, in <module>
+    exact(expected['tensors'], actual['tensors'], 'tensors')
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v1/history-storage-fix/reference-replay.py", line 94, in exact
+    for k in a: exact(a[k], b[k], f'{path}.{k}')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v1/history-storage-fix/reference-replay.py", line 94, in exact
+    for k in a: exact(a[k], b[k], f'{path}.{k}')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v1/history-storage-fix/reference-replay.py", line 94, in exact
+    for k in a: exact(a[k], b[k], f'{path}.{k}')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v1/history-storage-fix/reference-replay.py", line 86, in exact
+    assert type(a) is type(b), (path, type(a), type(b))
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: ('tensors.rng_states.torch_mps.state', <class 'NoneType'>, <class 'torch.Tensor'>)

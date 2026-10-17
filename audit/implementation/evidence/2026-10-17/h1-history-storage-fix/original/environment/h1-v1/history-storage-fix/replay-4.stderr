@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v1/history-storage-fix/reference-replay.py", line 161, in <module>
+    scaling.append(dict(updates=n,old_history_bytes=len(canonical_json(oh).encode()),
+                                                        ^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/config.py", line 180, in canonical_json
+    raise ValueError("Expected a mapping")
+ValueError: Expected a mapping

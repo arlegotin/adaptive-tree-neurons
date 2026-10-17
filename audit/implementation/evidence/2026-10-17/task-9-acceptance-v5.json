@@ -1,0 +1,139 @@
+{
+  "artifacts": [
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-9-review.md",
+      "sha256": "2350219db8ecdfdd71e5fb90bcfcd443695b4bf7585a6fdf1dd842df2b9b5da5"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-9-fix1-review.md",
+      "sha256": "a934c563dabad3e3f5d2a3ab8a9a79e5e588af13fdb58ed6f5e663f7d8d4ad4d"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-9-report.md",
+      "sha256": "9c98b590082defe5d525a24a8a57ea0d034b6cb8e3cf12556597d7b252fc2e20"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-10/task-10-review.md",
+      "sha256": "a6c1f641d6d087901f2a7fdecd4593fdbc2a32e78b5e17f04ad804e3ec93f93b"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-10/task-10-report.md",
+      "sha256": "478b56c2565a9f4073831382c2ab5d397765f524636e38b6d51107601a1368a2"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-13/task-13-report.md",
+      "sha256": "d66f158d9a92aeff0227328e75379e4e8e862668774d32df7eb1257ef2f36c3d"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-13/task-13-review.md",
+      "sha256": "48de7f190bb5ee9f11c654038ef579d13f791c3e6f10e50a6a17e1ff53ee3300"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-report.md",
+      "sha256": "4118c1e57637df8655e72341206be2fc77e22554af5b114ad8ce865c2ba56a8d"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-review.md",
+      "sha256": "1d123a7835bd26ce99b3895a22b37bfddfd3ccb053e24f2402ef54cea1eff7c5"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-report.md",
+      "sha256": "3fe3dc4483d350cadefd4e762f7a5abcde436a505cffbe4819d9660fd204a0e5"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-review.md",
+      "sha256": "4443b2c06beb7bb4b007baa6983796a354cade28d95c40d89b50a495a31b0734"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-implementation-review-report.md",
+      "sha256": "496d7eb30778bc77146b8f2bd16d5e5e547ab1d373d173f4ed56e4cd9b7a85b3"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-report.md",
+      "sha256": "1398c19811a2831f4349e55a342fb959eb68e1e1e27f33a4f52afb8aa0861264"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-review.md",
+      "sha256": "7015485b98d79c95476ab95891ab693a8ccef94c7462b60fc77d3a2c4237d054"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-final/review-b26931f..dfed0d2.diff",
+      "sha256": "2e374cde4a1d79a74e8beba72c1856b3c2df65e7af60dcc392c2c95b9cbed796"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/ruling-14-conditional-node-instrumentation.md",
+      "sha256": "5b6bfab2289a4b84a29c8fd8c3b299f52f9ff0b10663d97570f0b5816a994af6"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/ruling-15-resident-timing-scope.md",
+      "sha256": "2a2cede233df83502bcc0632ce358108400fd30fa06cfcdb14f539dd0f8a4cf2"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/implementation-report.md",
+      "sha256": "b712fef510544e1b80ee097d9802f1c48b1d2ffe0ce02b4c0d42bae0fd3cd183"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/review.md",
+      "sha256": "3ff05ec0f318f3593db04cacc6434a2e41409d8646a2229fd9b2c6379d5b795e"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/review-6804299..388c82c.diff",
+      "sha256": "cbe01230c7dbb494afc2d3c03cabf7f0ebaae6bb06fb6ff9e1fd602a6e323bd5"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/index.json",
+      "sha256": "fc36d2db999babe1563b0ee84197e3006fd4c2207f2436a747568e085a37f166"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/replay-measurement.json",
+      "sha256": "c4ff6a2368c20d42432c977794fff69768cba98f5e579fcfc666eda3d0190c04"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/original/environment/h1-v1/history-storage-fix/backend.json",
+      "sha256": "4cfb4983fbe8d152decf7e621dc79b2e77b7f4e3825cb379534ce6a4e05e9e42"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/ruling-16-compact-checkpoint-row-history.md",
+      "sha256": "6741b3d1a22efc74eb7b71efe00c6ad1cc11d4f14434cb0e558c927da13bcf96"
+    }
+  ],
+  "execution_sha256": "07366c506b309cce841f08d54f25d718e246f75daea5696d6542c300cfadaf6c",
+  "files": {
+    "src/treeneuron/analysis/audit.py": "ddbfd3f5453169e425335394e0ab3493216db54bf50936e6b308ad001a516d29",
+    "src/treeneuron/analysis/primary.py": "78ed345b2aa67984b6b0fde365537de1fd9b162e7c0ac2150ae2b3717143469d",
+    "src/treeneuron/analysis/report.py": "6978c61910ab98df827106104d9b43e952c5e16255eb0c00229c2e8001eec779",
+    "src/treeneuron/archive_binding.py": "189e3f502641122c6f9eaf8b463d4304da64cff99107d7e9669929460d21f6fe",
+    "src/treeneuron/artifacts.py": "f98992545edef47249a74efde46a65ea8464b369cce35668ff576352c30101c0",
+    "src/treeneuron/backend.py": "87d3e0ad8feca8bba6a4c0f2c83c930f991bd87950e8ba6128d4dcabe01c7120",
+    "src/treeneuron/baselines/causal_evidence.py": "1d773e861bf229720187b7067c3d8d8fcc0e2083b39c4691df9666b04b30065a",
+    "src/treeneuron/cli.py": "27d4c9a06af6bb3371ff0b27c32542407adc8df1fc438897e3b1d3264bab5592",
+    "src/treeneuron/config.py": "11b45cdb70442232686218dbf49eacd20b5ff521b67b72b2bb1ec657424d1a3a",
+    "src/treeneuron/cpu_envelope.py": "0579de57a6600e23c84d747d3e23729cc55345a651ed96bb4a7fbc3887d33845",
+    "src/treeneuron/evaluation/confirm.py": "020828b970acc0ce289d0b4ecb5ac031a365d050cddcc562f34d7196165af24a",
+    "src/treeneuron/evaluation/protected.py": "793ecf7b7e98b8f8b501cf92eec1661b942f45a8344015a41059deac3de5135d",
+    "src/treeneuron/locators.py": "185b67071c460f3bc75a8ee786c08187168b432a76dc43193d85adb84ae4893c",
+    "src/treeneuron/pilot/calibrate.py": "1d614579f2893b28e9414b4b3f59da9fe42278b502e9dd471b79e1267b327a84",
+    "src/treeneuron/pilot/design.py": "0c61e83d1e986433953270225833843ce236061582d4cfc6dd329d3580eb842e",
+    "src/treeneuron/protocol.py": "84688c1806176f52a9fad1eab82adf356e661b4fdcd2dd2d2f31eaa9ab0f2b9b",
+    "src/treeneuron/train.py": "b17a6f836cc53822a5f6d9713e6525389ba95dc9af2bf7e4fadbd582fa4abc68",
+    "tests/fixtures/causal_seed42_probe.md": "8726dd90cd94e1803fd644bcbf75bad1935b2fbb6452bbcf0820e0231e3fbab0",
+    "tests/fixtures/causal_seed42_probe.pt": "34e2d6653f14764df60ada5cdd5f4730b5c6123268d1174470df209c191b92a1",
+    "tests/fixtures/h1_widened_relu_rounding.pt": "437121d680aeb561772c8630776340b699201886c4b0a7a7119493f7667dfaf2",
+    "tests/test_audit.py": "49e2163b8b370d23f3ff1067a952cfe924cbcbaca35e14162a787f677cdd1234",
+    "tests/test_audit_fix1.py": "bc8c98aa0838a4a25c5ecfeca68624d2d1d9fa3e0530b61b4512b5622052b41f",
+    "tests/test_causal_baselines.py": "fa7ab594473415fac672fb4804d78c13ef979190c468bf1e910e007be269acee",
+    "tests/test_causal_precision.py": "59a1fe06111bf9d614a6bc4f685290109280a577236b8042e0fcb256d20b7d01",
+    "tests/test_checkpoint.py": "4764e3971b622f2c627476e09ce0c06b7b0ed1e85153e18ea57e89b0d48d27c9",
+    "tests/test_confirmation.py": "580b4936f1eafc7c0bfe4db4d15c9116083ddb0579213afddf9e2b56735b6fe8",
+    "tests/test_cpu_envelope.py": "4754d16b7c77763bc659498a9b8d77673145ae32e6cb8e000c18cf9f2ace269a",
+    "tests/test_design.py": "df6374f14659334fc46c042e5f1b891b3a6b2078aa923a0a47f505edfa812c39",
+    "tests/test_history_storage.py": "7bcdecb1ed478f27ed65f9d7b8846a73618d78bac76a69c4d5bf0e4f83323179",
+    "tests/test_optimizer_growth.py": "a2c7dabf50b6b2b0bacdbdecc61ff6f6774f88f153951cd907fb7499eae2ef09",
+    "tests/test_pilot_calibrate.py": "dd28f22798eeeb3fedc0b09cd0beac305a0fa3105db40d0b0ecd313bf56c9ddc",
+    "tests/test_protected.py": "8a8f98401d2216077729fa88a55969623b2309121d75f994fa7701dd28c20987",
+    "tests/test_protocol.py": "d87aca2c4e75dd8b3c933655710e242d879be8e21b30b24da9158df42770eb9e"
+  },
+  "implementation_commit": "388c82c59e3dccb6425c55a4a3832dadf80e55fb",
+  "task": "9",
+  "verdict": "accepted"
+}

@@ -1,0 +1,155 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+_ test_minibatch_history_commits_without_changing_raw_events_or_checkpoint_resume _
+
+training_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...y=PosixPath('/private/tmp/h1-history-storage-red-1/test_minibatch_history_commits0/0982677ed838466f9653f62fd894bac7')))
+
+    def test_minibatch_history_commits_without_changing_raw_events_or_checkpoint_resume(training_case):
+        data, config, paths = training_case
+>       state = train.fit_parent(data, config, paths)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_history_storage.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/train.py:700: in fit_parent
+    backend = _backend_evidence(config, data, causal_model=causal)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+config = ExperimentConfig(study_id='training-contract', phase='exploratory', model=ModelConfig(d=2, h=4, depth=1, tau=1.0, acti...xecution=ExecutionConfig(backend_report='environment/report.json', artifacts_root='artifacts/exploratory'), pilot=None)
+data = DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.03...5e963805b6069de886ace15ee6f9', feature_schema_hash='91cf515874508c7c7e4cbf868bc528b478e1f5a81a14481b90c81bc2601e73ab'))
+causal_model = None
+
+    def _backend_evidence(config, data, *, causal_model=None):
+        from .locators import locate
+        path = locate(BACKEND_REPORT_PATH,producer=True)
+        document = json.loads(path.read_text())
+        report = document['backend_probes']
+        for probe in report['probes'].values():
+            if probe.get('status') == 'passed': validate_backend_report(probe)
+        decision = select_backend(report['probes'], comparison_blocks=report['comparison_blocks'])
+        if decision != report['decision']:
+            raise ValueError('Backend decision differs from validated numerical evidence')
+        b = config.backend
+        if b.device != decision['selected_backend']:
+            raise ValueError('Requested backend differs from validated selected backend recipe')
+        if b.cpu_threads not in (None, 1):
+            raise ValueError('Backend evidence requires one CPU thread')
+        if b.interop_threads not in (None, torch.get_num_interop_threads()):
+            raise ValueError('Requested interop threads differ from live runtime; configure before training')
+        interop = report['probes'][b.device]['environment'].get('interop_threads')
+        if interop is not None and torch.get_num_interop_threads() != interop:
+>           raise ValueError('Live interop threads differ from backend evidence')
+E           ValueError: Live interop threads differ from backend evidence
+
+src/treeneuron/train.py:265: ValueError
+_______ test_history_bytes_scale_with_updates_instead_of_past_batch_rows _______
+
+training_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...y=PosixPath('/private/tmp/h1-history-storage-red-1/test_history_bytes_scale_with_0/a21a77afd85142138120de69b3aa89f3')))
+
+    def test_history_bytes_scale_with_updates_instead_of_past_batch_rows(training_case):
+        _, config, original = training_case
+        rng = np.random.default_rng(83)
+        def rows(n, start):
+            x = rng.normal(size=(n, 2))
+            ids = np.arange(start, start+n, dtype=np.int64)
+            return ObservationSet(x, x[:, 0] - x[:, 1], ids, ids)
+        data = DevelopmentData(rows(257, 100000000), rows(7, 200000000), rows(5, 300000000), 'storage')
+        sizes = []
+        for batch in (4, 128):
+            raw_config = config.to_dict()
+            raw_config['training']['batch_size'] = batch
+            config = resolve_experiment(raw_config)
+            paths = create_run(original.directory.parent, config.to_dict())
+>           state = train.fit_parent(data, config, paths)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_history_storage.py:70: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/train.py:682: in fit_parent
+    config = _validate_inputs(data, config, paths)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+data = DevelopmentData(F=ObservationSet(X=array([[-1.46692975e+00, -4.19638099e-01],
+       [-4.05687505e-02,  3.92797445e-01...5fe8692a442ae62aba3f54a2bf9a', feature_schema_hash='91cf515874508c7c7e4cbf868bc528b478e1f5a81a14481b90c81bc2601e73ab'))
+config = ExperimentConfig(study_id='training-contract', phase='exploratory', model=ModelConfig(d=2, h=4, depth=1, tau=1.0, acti...xecution=ExecutionConfig(backend_report='environment/report.json', artifacts_root='artifacts/exploratory'), pilot=None)
+paths = RunPaths(run_id='b72877bc029241a3a59c8606fee3dc9c', directory=PosixPath('/private/tmp/h1-history-storage-red-1/test_history_bytes_scale_with_0/b72877bc029241a3a59c8606fee3dc9c'))
+
+    def _validate_inputs(data, config, paths):
+        config = resolve_experiment(config.to_dict())
+        if config.model.depth != 1:
+            raise ValueError('Only depth=1 is supported')
+        TrainingPolicy.from_config(config)
+        if config.training.optimizer != 'adamw':
+            raise ValueError('sgd training is not implemented')
+        if config.training.scheduler == 'constant' and config.training.min_learning_rate != 0:
+            raise ValueError('min_learning_rate is only supported with cosine scheduling')
+        if data.manifest.phase != 'exploratory':
+            raise ValueError('Training requires exploratory development data')
+        if (data.F.X.shape[1] != config.model.d or data.G.X.shape[1] != config.model.d
+                or len(data.F.y) != config.data.n_fit or len(data.G.y) != config.data.n_growth):
+>           raise ValueError('F/G dimensions and counts must match resolved configuration')
+E           ValueError: F/G dimensions and counts must match resolved configuration
+
+src/treeneuron/train.py:310: ValueError
+______ test_growth_keeps_compact_parent_prefix_and_full_new_stage_events _______
+
+training_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...y=PosixPath('/private/tmp/h1-history-storage-red-1/test_growth_keeps_compact_pare0/fdea5dcb7e31470eba1d878a43a9ec2f')))
+
+    def test_growth_keeps_compact_parent_prefix_and_full_new_stage_events(training_case):
+        from test_optimizer_growth import allocation
+        from treeneuron.growth.insert import insert_growth
+        data, config, paths = training_case
+>       parent = train.fit_parent(data, config, paths)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_history_storage.py:83: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/train.py:700: in fit_parent
+    backend = _backend_evidence(config, data, causal_model=causal)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+config = ExperimentConfig(study_id='training-contract', phase='exploratory', model=ModelConfig(d=2, h=4, depth=1, tau=1.0, acti...xecution=ExecutionConfig(backend_report='environment/report.json', artifacts_root='artifacts/exploratory'), pilot=None)
+data = DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.03...5e963805b6069de886ace15ee6f9', feature_schema_hash='91cf515874508c7c7e4cbf868bc528b478e1f5a81a14481b90c81bc2601e73ab'))
+causal_model = None
+
+    def _backend_evidence(config, data, *, causal_model=None):
+        from .locators import locate
+        path = locate(BACKEND_REPORT_PATH,producer=True)
+        document = json.loads(path.read_text())
+        report = document['backend_probes']
+        for probe in report['probes'].values():
+            if probe.get('status') == 'passed': validate_backend_report(probe)
+        decision = select_backend(report['probes'], comparison_blocks=report['comparison_blocks'])
+        if decision != report['decision']:
+            raise ValueError('Backend decision differs from validated numerical evidence')
+        b = config.backend
+        if b.device != decision['selected_backend']:
+            raise ValueError('Requested backend differs from validated selected backend recipe')
+        if b.cpu_threads not in (None, 1):
+            raise ValueError('Backend evidence requires one CPU thread')
+        if b.interop_threads not in (None, torch.get_num_interop_threads()):
+            raise ValueError('Requested interop threads differ from live runtime; configure before training')
+        interop = report['probes'][b.device]['environment'].get('interop_threads')
+        if interop is not None and torch.get_num_interop_threads() != interop:
+>           raise ValueError('Live interop threads differ from backend evidence')
+E           ValueError: Live interop threads differ from backend evidence
+
+src/treeneuron/train.py:265: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_history_storage.py::test_minibatch_history_commits_without_changing_raw_events_or_checkpoint_resume
+FAILED tests/test_history_storage.py::test_history_bytes_scale_with_updates_instead_of_past_batch_rows
+FAILED tests/test_history_storage.py::test_growth_keeps_compact_parent_prefix_and_full_new_stage_events
+3 failed in 2.47s

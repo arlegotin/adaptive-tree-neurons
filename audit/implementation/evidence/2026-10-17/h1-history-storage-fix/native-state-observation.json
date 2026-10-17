@@ -1,0 +1,110 @@
+{
+  "differences": [
+    {
+      "native_type": "Tensor",
+      "old_type": "NoneType",
+      "path": "tensors.rng_states.torch_mps.state"
+    },
+    {
+      "native_type": "NoneType",
+      "old_type": "str",
+      "path": "tensors.rng_states.torch_mps.reason"
+    }
+  ],
+  "exact_tensor_checks": [
+    {
+      "exact": true,
+      "path": "tensors.model.layer.grown_ids"
+    },
+    {
+      "exact": true,
+      "path": "tensors.model.layer.base.weight"
+    },
+    {
+      "exact": true,
+      "path": "tensors.model.layer.base.bias"
+    },
+    {
+      "exact": true,
+      "path": "tensors.model.head.weight"
+    },
+    {
+      "exact": true,
+      "path": "tensors.model.head.bias"
+    },
+    {
+      "exact": true,
+      "path": "tensors.optimizer.state.0.step"
+    },
+    {
+      "exact": true,
+      "path": "tensors.optimizer.state.0.exp_avg"
+    },
+    {
+      "exact": true,
+      "path": "tensors.optimizer.state.0.exp_avg_sq"
+    },
+    {
+      "exact": true,
+      "path": "tensors.optimizer.state.1.step"
+    },
+    {
+      "exact": true,
+      "path": "tensors.optimizer.state.1.exp_avg"
+    },
+    {
+      "exact": true,
+      "path": "tensors.optimizer.state.1.exp_avg_sq"
+    },
+    {
+      "exact": true,
+      "path": "tensors.optimizer.state.2.step"
+    },
+    {
+      "exact": true,
+      "path": "tensors.optimizer.state.2.exp_avg"
+    },
+    {
+      "exact": true,
+      "path": "tensors.optimizer.state.2.exp_avg_sq"
+    },
+    {
+      "exact": true,
+      "path": "tensors.optimizer.state.3.step"
+    },
+    {
+      "exact": true,
+      "path": "tensors.optimizer.state.3.exp_avg"
+    },
+    {
+      "exact": true,
+      "path": "tensors.optimizer.state.3.exp_avg_sq"
+    },
+    {
+      "exact": true,
+      "path": "tensors.order"
+    },
+    {
+      "exact": true,
+      "path": "tensors.sampler_generator"
+    },
+    {
+      "exact": true,
+      "path": "tensors.rng_states.numpy.keys"
+    },
+    {
+      "exact": true,
+      "path": "tensors.rng_states.torch_cpu"
+    }
+  ],
+  "executed_updates": 4000,
+  "native_fit_enclosing_ns": 12877012083,
+  "native_fit_peak_memory_bytes": 415301632,
+  "native_fit_process_peak_memory_bytes": 415432704,
+  "parent_directory_bytes": 13073595,
+  "schedule_exact": true,
+  "scope": "retained native4000 fit only; final exact parity uses matching sandbox visibility",
+  "selected_update": 3675,
+  "status": "failed_full_state_parity_due_to_runtime_visibility",
+  "two_metadata_bytes": 2567456
+}

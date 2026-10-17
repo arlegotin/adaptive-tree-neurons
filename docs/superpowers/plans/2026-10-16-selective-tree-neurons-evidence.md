@@ -34,9 +34,11 @@ NODE instrumentation/warnings and bounded resident timing are recorded in
 Rulings14/15. [Final implementation evidence and current Task9/10/13 acceptance
 bindings](../../../audit/implementation/evidence/2026-10-17/h1-final-index.json)
 preserve the failed full-suite stage and passing final affected/native checks.
-The remaining scientific steps below are still open. Proceed to measured
-calibration and the genuine pilot; no second broad review of unchanged code is
-required after execution.
+A measured duplicate-history storage defect was subsequently corrected at
+`388c82c` and passed [scoped review and exact 4,000-update replay](../../../audit/implementation/evidence/2026-10-17/h1-history-storage-index.json).
+Current shared-file acceptances are Task 9-v5/10-v4/13-v3. The remaining scientific
+steps below are still open. Proceed to measured calibration and the genuine pilot;
+no second broad review of unchanged code is required after execution.
 
 Task numbers group deliverables; implementation and scientific execution have separate gates. The H1 execution/analysis/audit code must exist before its source identity is frozen. Adding even an unused package Python file changes the current checkpoint digest. Do not weaken that guard to make the nominal numbered order run.
 

@@ -1,0 +1,28 @@
+{
+  "status": "accepted_after_scoped_review",
+  "implementation_commit": "388c82c59e3dccb6425c55a4a3832dadf80e55fb",
+  "execution_sha256": "07366c506b309cce841f08d54f25d718e246f75daea5696d6542c300cfadaf6c",
+  "package_sha256": "d8e5c0c6549f3b1948ee86b39a2d3234ebe5230e7bb09c13ebfc4351c2cf891c",
+  "root_verified_original_files": 113,
+  "root_verified_original_bytes": 31131569,
+  "root_rehash_errors": [],
+  "strict_execution_files": 315,
+  "strict_execution_equals_implementation_snapshot": true,
+  "prior_implementation_reviews_preserved": true,
+  "accepted_review_sha256": "3ff05ec0f318f3593db04cacc6434a2e41409d8646a2229fd9b2c6379d5b795e",
+  "deferred_minor": "Existing torch.jit.script warning; conditional NODE cleanup remains under Ruling14. No new scientific or performance claim.",
+  "acceptances": [
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-9-acceptance-v5.json",
+      "sha256": "a291f26a880f80b762a046128db43d20467ea38147f6d957b9e5b481c50fbd6e"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-10-acceptance-v4.json",
+      "sha256": "d04b90458a88b197233aa4573e4b76b01154f9c763850958a7ed729ca0138083"
+    },
+    {
+      "path": "audit/implementation/evidence/2026-10-17/task-13-acceptance-v3.json",
+      "sha256": "23668637877017392acaa440c22985ed02ea6e115e7041becc7cb3c8540d868b"
+    }
+  ]
+}

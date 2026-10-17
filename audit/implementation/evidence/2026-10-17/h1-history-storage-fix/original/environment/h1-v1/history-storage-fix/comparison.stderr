@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v1/history-storage-fix/complete-reference-comparison.py", line 141, in <module>
+    write_json(out/'history-scaling.json', scaling)
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/experiments/paired.py", line 43, in write_json
+    payload = canonical_json(record) + '\n'
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/config.py", line 180, in canonical_json
+    raise ValueError("Expected a mapping")
+ValueError: Expected a mapping

@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v1/calibration/parent-safety.py", line 13, in <module>
+    config_path=Path(sys.argv[1]);config=load_experiment(config_path)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/config.py", line 365, in load_experiment
+    return resolve_experiment(value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/config.py", line 240, in resolve_experiment
+    config = _section(ExperimentConfig, value, "experiment")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/config.py", line 229, in _section
+    return cls(**{key: _typed(item, hints[key], f"{path}.{key}")
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/config.py", line 217, in _typed
+    return _section(annotation, value, path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/config.py", line 229, in _section
+    return cls(**{key: _typed(item, hints[key], f"{path}.{key}")
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/config.py", line 205, in _typed
+    raise ValueError(f"{path}: expected a finite number")
+ValueError: experiment.growth.projection_rms_floor: expected a finite number

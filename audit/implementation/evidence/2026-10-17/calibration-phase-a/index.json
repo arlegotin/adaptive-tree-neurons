@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "status": "exploratory_parent_only_calibration_not_resource_sample",
+  "source_commit": "680429908735a8077fbfab972468b9d420b7a9f1",
+  "source_package_sha256": "5c66c55693825e7dec51f0e59c74bd995da98b54c36f34acc445039d9ef85495",
+  "execution_sha256": "ccb5447a6bec01c78b2448a8812bcc32d2ae4b64b8603cba72bfcf719ce3cdd5",
+  "complete_ignored_inventory": {
+    "path": "environment/h1-v1/calibration/phase-a-index.json",
+    "sha256": "94b11d9bc5204e610d57bf5a09a86f18456f831c06fcfb13afc7340950614950",
+    "files": 289,
+    "bytes": 1718434895,
+    "root_independently_rehashed": true
+  },
+  "files": [
+    {
+      "original_path": "environment/h1-v1/calibration/phase-a-index.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/phase-a-index.json",
+      "bytes": 67082,
+      "sha256": "94b11d9bc5204e610d57bf5a09a86f18456f831c06fcfb13afc7340950614950"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/batch-sweep.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/batch-sweep.json",
+      "bytes": 7260,
+      "sha256": "0f9bf56b4479aa48edfe518f63366bea0e9dc9037f1bb04958ea520d448509ea"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/fit-boundaries.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/fit-boundaries.json",
+      "bytes": 4082,
+      "sha256": "25fdc242070d014144c13443fea2b17366cb5633de6b813a1fbe3ab43aad13b8"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/grown-epoch-score-sweep.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/grown-epoch-score-sweep.json",
+      "bytes": 7861,
+      "sha256": "74aa1e6188d541f74496d4654455f132dd21558b67787db306491b44fd3d3630"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/contrast-sensitivity.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/contrast-sensitivity.json",
+      "bytes": 1867,
+      "sha256": "d98071cd228bfa7a185a5356b5265cb0023c40bfdff925148bd7b9d2c3194e70"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/paired-parent-timing.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/paired-parent-timing.json",
+      "bytes": 39371,
+      "sha256": "ae7b1656579166b5d25871e7d779be262bacb5736b491093b35f3a87c48c4ef9"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/prediction-scaling.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/prediction-scaling.json",
+      "bytes": 8520,
+      "sha256": "d245737453b16ebebaa2f3ea5bd7bdc6829be000afdf2738a00ad12634bc1e0f"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/parent-cost.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/parent-cost.json",
+      "bytes": 4581,
+      "sha256": "efe1029ac7b8481da2e298a341726e54b8a00a0c0f3f1420d6fe7389bbab56ba"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/parent-safety-prefix-forecast.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/parent-safety-prefix-forecast.json",
+      "bytes": 25782,
+      "sha256": "b881dfe6ebeb2a24775e4a062ba41581dd753bcd737bc6c1b74c7f6b4202836e"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/parent-safety-config-failure.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/parent-safety-config-failure.json",
+      "bytes": 345,
+      "sha256": "0e471c940421497e41295950b7f7106639f5d4557cfcce21fee620e9b8e0e812"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/primary-stopping-4000-a.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/primary-stopping-4000-a.json",
+      "bytes": 2492,
+      "sha256": "f81e02d34857040abaf5a20f348dd94d8ab256bb103b4ca3a4c66acb7908abe6"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/primary-stopping-4000-a.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/primary-stopping-4000-a.stderr",
+      "bytes": 3795,
+      "sha256": "ec1f5b938280b1d5c9a682ad8f1e298990f3b048b4796cc57e30806086ec6340"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/parent-b128-lr0p003.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/parent-b128-lr0p003.stderr",
+      "bytes": 1723,
+      "sha256": "3b77ed56b867165d735904733caf953c0533acb2902b44a35a61a54a6008efe1"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/parent-safety-launches-v1.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/parent-safety-launches-v1.json",
+      "bytes": 500,
+      "sha256": "dc9a17dea9c0cc3454ab30d4502cb5cf84933af51a3f99d7a111c4fa94f14af2"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/parent-safety-launches-v2.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/parent-safety-launches-v2.json",
+      "bytes": 3034,
+      "sha256": "40527f4b2fac14a69aef30f96a09185a9d30b50b2307d28ebad007c481697949"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/parent-safety.py",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/parent-safety.py",
+      "bytes": 3602,
+      "sha256": "a8aba50dcfa4896ddf7b5aa247255bd85b11fac41f6ada8ce08f74968d5a3b81"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/run-parent-safety.py",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/run-parent-safety.py",
+      "bytes": 1791,
+      "sha256": "6b40f1057638d5137db50f26cdd6bdc4943a64993d0e77295a94893b0f061bc3"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/extract-old-reference.py",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/extract-old-reference.py",
+      "bytes": 5319,
+      "sha256": "3e72fa4b3ae5fe6ec6e2a35ac803f685d00fed3adb33ca73c6ae08480645600e"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/development-curves-v2.py",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/development-curves-v2.py",
+      "bytes": 11498,
+      "sha256": "2bb93360f336af72829e05db0233be322cea9fb067f4ce7740d57f6d22bbe8a2"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/parent-diagnostics.py",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/parent-diagnostics.py",
+      "bytes": 7932,
+      "sha256": "a01ac24b09cbf5188de615f5d82ac50491d89e3554b9138385cf6c82e8fc01f6"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/parent-b128-lr0p003-v2.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/parent-b128-lr0p003-v2.json",
+      "bytes": 2490,
+      "sha256": "910186755e8105a9cd4108a0f082c301f6dac8498375977d7adb6462ca5849a9"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/parent-b128-lr0p005-v2.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/parent-b128-lr0p005-v2.json",
+      "bytes": 2490,
+      "sha256": "43a940bd12b17e413d8a2c5e33e1e999f48b2d75daa4731956fe927ee591cef5"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/parent-b256-lr0p003-v2.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/parent-b256-lr0p003-v2.json",
+      "bytes": 2490,
+      "sha256": "5141224f51ef7636d528dabc2ac47c107a5b24bdcad34dec71ab0530a651ed6c"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/parent-b256-lr0p005-v2.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/parent-b256-lr0p005-v2.json",
+      "bytes": 2490,
+      "sha256": "61bfa3232524650e49b9c9dd3cbe1ba0e89fba12a96061bfc08eae038bda76a0"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/parent-b512-lr0p003-v2.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/parent-b512-lr0p003-v2.json",
+      "bytes": 2490,
+      "sha256": "fb974b5985ea409d726f28f21aa095a94fd9e4f06915cb4923415de629ed76f5"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/parent-b512-lr0p005-v2.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/parent-b512-lr0p005-v2.json",
+      "bytes": 2490,
+      "sha256": "f49466ad50808a1933b822507dc9adc81efac3ffd7323bc16e00c5f02ffb579b"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/old-source-reference/observations.npz",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/old-source-reference/observations.npz",
+      "bytes": 1170880,
+      "sha256": "dcc6e190c27222ce109f6cb43712f1b33941d8a5633da28a6514dfb6f6cba8c0"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/old-source-reference/ordered-update-commitments.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/old-source-reference/ordered-update-commitments.json",
+      "bytes": 1153798,
+      "sha256": "dd10cac526dac4416ed7a7c42b948fc6cb6b86884761192f875b106a58dd2966"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/old-source-reference/predictions.npz",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/old-source-reference/predictions.npz",
+      "bytes": 54311,
+      "sha256": "be85106efd1136e6141b1c6b20c69ec0ebba979a63b7673f5333df473cf6d0f9"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/old-source-reference/provenance.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/old-source-reference/provenance.json",
+      "bytes": 9624,
+      "sha256": "1ef69743ca5fdbd11a3d4e65799dc3b026f428d7f360854bd93ac9e113e26c95"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/old-source-reference/selected-metadata.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/old-source-reference/selected-metadata.json",
+      "bytes": 7785,
+      "sha256": "b349b94e40a97a441ef4b36c260388ba3ed7dc2b16a251e6610be9c33c49a7c6"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/old-source-reference/selected-snapshot.pt",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/old-source-reference/selected-snapshot.pt",
+      "bytes": 66674,
+      "sha256": "13f6284d09b74444ecfaf351f304ffccb9dc8d0dbce2f362d814f76740a95bdf"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/old-source-reference/splits.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/old-source-reference/splits.json",
+      "bytes": 152355,
+      "sha256": "c69037f06b8522b4405f95d1f0351fe0e44b19dfe51b6bbe7bc1410988e74c15"
+    },
+    {
+      "original_path": "environment/h1-v1/calibration/old-source-reference/teacher.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/old-source-reference/teacher.json",
+      "bytes": 4863,
+      "sha256": "d9c4924df3f2fe717ceddd84ba2a05c39d0c6e47fbce8f8fae5c167b340f988c"
+    },
+    {
+      "original_path": "artifacts/h1-v1/parent-safety/parent-b128-lr0p003-v2/measurement.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/artifacts/h1-v1/parent-safety/parent-b128-lr0p003-v2/measurement.json",
+      "bytes": 510885,
+      "sha256": "937a281cb3f591afc3420003e2da21ddadf1a94ac160d75ebfa2043412e770fc"
+    },
+    {
+      "original_path": "artifacts/h1-v1/parent-safety/parent-b128-lr0p005-v2/measurement.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/artifacts/h1-v1/parent-safety/parent-b128-lr0p005-v2/measurement.json",
+      "bytes": 511240,
+      "sha256": "b494e97279e6ab5eb3475c2a81bf19b0ca9129cecbfcd99de719088f953da6db"
+    },
+    {
+      "original_path": "artifacts/h1-v1/parent-safety/parent-b256-lr0p003-v2/measurement.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/artifacts/h1-v1/parent-safety/parent-b256-lr0p003-v2/measurement.json",
+      "bytes": 510510,
+      "sha256": "0c9c39b0b16b88ecf5f69fbb059dd5f1dd5f7b233f8bcc1426d547fc45a2cf6a"
+    },
+    {
+      "original_path": "artifacts/h1-v1/parent-safety/parent-b256-lr0p005-v2/measurement.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/artifacts/h1-v1/parent-safety/parent-b256-lr0p005-v2/measurement.json",
+      "bytes": 491813,
+      "sha256": "0c1d67d89444c7f598021fd359eec69fd054d1268fb558d123b2031df8406218"
+    },
+    {
+      "original_path": "artifacts/h1-v1/parent-safety/parent-b512-lr0p003-v2/measurement.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/artifacts/h1-v1/parent-safety/parent-b512-lr0p003-v2/measurement.json",
+      "bytes": 512426,
+      "sha256": "e50fa735fff75b585bc35879afc1c47c7e7f8abe8b5ed31566db0db1d2b022c8"
+    },
+    {
+      "original_path": "artifacts/h1-v1/parent-safety/parent-b512-lr0p005-v2/measurement.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/artifacts/h1-v1/parent-safety/parent-b512-lr0p005-v2/measurement.json",
+      "bytes": 480954,
+      "sha256": "b3504a3254a12e03ef30593f1a0ba66aa0c7dfd189214fcbc428321652b420ee"
+    },
+    {
+      "original_path": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/scientific-calibration-report.md",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-a/measurement-report.md",
+      "bytes": 15295,
+      "sha256": "a62de476748a02ed4ec7c6377e293564cf7943f134317db01862138f071ba2bf"
+    }
+  ],
+  "exclusions": "Bulk raw events/checkpoints remain retained at original ignored paths and indexed above; archive preserves numerical reference, configs, measurements, failures and declared scopes. No completed all-role R2 teacher, genuine pilot, readiness, freeze, protected cohort or allocation effect."
+}

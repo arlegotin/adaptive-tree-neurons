@@ -1,0 +1,9 @@
+{
+  "field": "growth.projection_rms_floor",
+  "json_value": 1e-12,
+  "json_type": "float",
+  "yaml_value": "1e-12",
+  "yaml_type": "str",
+  "root_cause": "YAML1.1 safe loader interprets JSON scientific notation1e-12 as a string",
+  "remedy": "existing resolve_experiment(json.loads(...)) for generated JSON configs; no production modification"
+}

@@ -1,0 +1,91 @@
+{
+  "status": "completed_parent_only_not_resource_teacher",
+  "source_sha256": "5c66c55693825e7dec51f0e59c74bd995da98b54c36f34acc445039d9ef85495",
+  "execution_sha256": "ccb5447a6bec01c78b2448a8812bcc32d2ae4b64b8603cba72bfcf719ce3cdd5",
+  "receipt_sha256": "c2b12cb30d050da4ae9a1419c3f3e53d5179dfa810a9dd9bf0458ea7d850df30",
+  "config_sha256": "c17f516a65c1abf1cb3e544a2583089bbcdc1f1fad11f7699d44cae18977c367",
+  "parent_path": "artifacts/h1-v1/development/primary-stopping-4000-a/runs/d8029a268024481aa122b489117f2873",
+  "enclosing_seconds": 215.620825834,
+  "train_seconds": 215.088728042,
+  "nested_G_seconds": 0.021975419,
+  "peak_memory_bytes": 4297293824,
+  "retained_bytes": 551777966,
+  "updates": 4000,
+  "examples": 9224000,
+  "selected_update": 3800,
+  "allowance": 4000,
+  "hit_ceiling": true,
+  "improving_at_ceiling": false,
+  "configured_patience": 10,
+  "final_consecutive_nonimprovements": 2,
+  "convergence": "unresolved; 2 of required10 consecutive nonimprovements",
+  "files": [
+    {
+      "path": "artifacts/h1-v1/development/primary-stopping-4000-a/runs/d8029a268024481aa122b489117f2873/metrics.json",
+      "bytes": 3,
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    {
+      "path": "artifacts/h1-v1/development/primary-stopping-4000-a/runs/d8029a268024481aa122b489117f2873/.ledger.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/h1-v1/development/primary-stopping-4000-a/runs/d8029a268024481aa122b489117f2873/config.resolved.json",
+      "bytes": 1909,
+      "sha256": "55ad3756dcd244bc764737fe9482c7190c636d7acf7ecf670f42d8cc0bd97482"
+    },
+    {
+      "path": "artifacts/h1-v1/development/primary-stopping-4000-a/runs/d8029a268024481aa122b489117f2873/events.jsonl",
+      "bytes": 183853458,
+      "sha256": "d079b9eda71785598a2c5c3c2d2a142aa52ec45cb0976a90860ecb3587d95ef4"
+    },
+    {
+      "path": "artifacts/h1-v1/development/primary-stopping-4000-a/runs/d8029a268024481aa122b489117f2873/manifest.json",
+      "bytes": 8021,
+      "sha256": "4568497516372e3d83e6625611d7cbc7d189ee1e6029e894e2111c8cd64bbbed"
+    },
+    {
+      "path": "artifacts/h1-v1/development/primary-stopping-4000-a/runs/d8029a268024481aa122b489117f2873/checkpoints/checkpoint-4991e7483775417e8d7b235894d547f2.pt",
+      "bytes": 58020,
+      "sha256": "20c4e3c8cd5638e88d64ed766fb07d5617f667fba1423a65e6afd19b8eeca4f2"
+    },
+    {
+      "path": "artifacts/h1-v1/development/primary-stopping-4000-a/runs/d8029a268024481aa122b489117f2873/checkpoints/best.json",
+      "bytes": 164,
+      "sha256": "8c618787ae8e44959699ef1d8a76d7c5ae886202534735a8f04df9298668c17b"
+    },
+    {
+      "path": "artifacts/h1-v1/development/primary-stopping-4000-a/runs/d8029a268024481aa122b489117f2873/checkpoints/checkpoint-9a35717e1e7744cb86cecddc4b920a14.meta.json",
+      "bytes": 183869568,
+      "sha256": "7436a6ed63a02ba5595de3f1accf59c118c12622dfb42e2e72c238a5a3a144f5"
+    },
+    {
+      "path": "artifacts/h1-v1/development/primary-stopping-4000-a/runs/d8029a268024481aa122b489117f2873/checkpoints/checkpoint-4991e7483775417e8d7b235894d547f2.meta.json",
+      "bytes": 183861566,
+      "sha256": "84374e5e0a855bec078c2bd0feb49a9e4b2b03c3c0362ac863c4a1b688e3943e"
+    },
+    {
+      "path": "artifacts/h1-v1/development/primary-stopping-4000-a/runs/d8029a268024481aa122b489117f2873/checkpoints/published.jsonl",
+      "bytes": 10240,
+      "sha256": "7076d85719ab1810c126af21ecf7eff3ab106fe2d5b5b3f89c7fb55fd1080d14"
+    },
+    {
+      "path": "artifacts/h1-v1/development/primary-stopping-4000-a/runs/d8029a268024481aa122b489117f2873/checkpoints/checkpoint-9a35717e1e7744cb86cecddc4b920a14.pt",
+      "bytes": 114853,
+      "sha256": "f59b6c5738abde2ef2ec931171e6d5b2d3d1e745c97dd6bf8ae89704cdd9d291"
+    },
+    {
+      "path": "artifacts/h1-v1/development/primary-stopping-4000-a/runs/d8029a268024481aa122b489117f2873/checkpoints/last.json",
+      "bytes": 164,
+      "sha256": "0ee6c9448f92db23c3e0d82abb6b9d167f7f961282f04a37cbd457b3a6598a81"
+    }
+  ],
+  "scope": "fresh parent/G/checkpoints/ledger; does not include complete8role/R2/B6/E teacher",
+  "failure_disposition": {
+    "wrapper": "failed KeyboardInterrupt at root-directed resource checkpoint",
+    "watcher": "own-process signal denied by sandbox PermissionError",
+    "child": "keep continuation interrupted around200updates; second KeyboardInterrupt during recovery left stale running manifest; retain/exclude/no resume",
+    "no_allocation_outcome_observed": true
+  }
+}

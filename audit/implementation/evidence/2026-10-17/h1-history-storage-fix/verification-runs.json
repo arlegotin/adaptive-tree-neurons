@@ -1,0 +1,90 @@
+{
+  "failures": [
+    {
+      "evidence": "environment/h1-v1/history-storage-fix/red-1.log",
+      "id": "red-1",
+      "reason": "live inter-op default differed from receipt; storage fixture n_fit mismatch",
+      "result": "3 failed",
+      "scope": "test setup"
+    },
+    {
+      "evidence": "environment/h1-v1/history-storage-fix/red-2.log",
+      "id": "red-2",
+      "reason": "full row_ids present in history instead of versioned commitments",
+      "result": "3 failed",
+      "scope": "expected RED before production edit"
+    },
+    {
+      "evidence": "environment/h1-v1/history-storage-fix/green-1.log",
+      "id": "green-1",
+      "reason": "raw JSON 10x ratio assumption ignored fixed event overhead and epoch tails; conservative4x expectation passed later",
+      "result": "1 failed,2 passed",
+      "scope": "regression assertion"
+    },
+    {
+      "evidence": "environment/h1-v1/history-storage-fix/targeted-1.log",
+      "id": "targeted-1",
+      "reason": "3 optimizer-growth and6 causal recovery assertions expected legacy history.row_ids; migrated to commitments plus unchanged raw attempt/retry streams",
+      "result": "9 failed,225 passed,1 warning",
+      "scope": "234 affected cases"
+    },
+    {
+      "evidence": "environment/h1-v1/history-storage-fix/replay.failed-1.stderr",
+      "id": "replay-1",
+      "reason": "Python tuple versus parsed JSON list equality; canonical teacher/splits contents exact",
+      "result": "failed;0 optimizer updates",
+      "scope": "diagnostic prefit"
+    },
+    {
+      "evidence": "environment/h1-v1/history-storage-fix/replay.failed-2.stderr",
+      "id": "replay-2",
+      "reason": "exclusive write_json rejected reused replay-config path; no measurement created",
+      "result": "failed;0 optimizer updates",
+      "scope": "diagnostic prefit"
+    },
+    {
+      "evidence": "environment/h1-v1/history-storage-fix/replay-3.stderr",
+      "id": "replay-3",
+      "reason": "old MPS RNG state None vs native Tensor; all21 common tensors exact, schedule exact; not relabelled pass",
+      "result": "failed full-state parity",
+      "scope": "native completed4000 fit"
+    },
+    {
+      "evidence": "environment/h1-v1/history-storage-fix/replay-4.stderr",
+      "id": "replay-4",
+      "reason": "canonical_json requires mapping; list supplied for prefix-size summary",
+      "result": "failed storage postprocessing",
+      "scope": "sandbox completed4000 fit; exact comparisons passed"
+    },
+    {
+      "evidence": "environment/h1-v1/history-storage-fix/comparison.failed-1.stderr",
+      "id": "completion-1",
+      "reason": "write_json requires mapping; summary list payload supplied; final checker wraps measurements in mapping",
+      "result": "failed storage postprocessing",
+      "scope": "retained same-source checkpoint comparison only; no fit"
+    }
+  ],
+  "passing_runs": [
+    {
+      "id": "migrations-green-1",
+      "result": "12 passed in12.93s",
+      "scope": "3 new regressions plus9 migrated recovery cases"
+    },
+    {
+      "id": "receipt",
+      "result": "passed in19.017008959s",
+      "scope": "existing CPU128 kernel+whole finite envelope exactly once"
+    },
+    {
+      "id": "comparison-2",
+      "result": "passed",
+      "scope": "all exact state/data/prediction/raw-stream/commitment checks plus storage and new-source reload against retained sandbox replay-4"
+    }
+  ],
+  "tooling_notes": [
+    "Initial git add/commit was sandbox-denied; scoped commit succeeded under authorized escalation.",
+    "Read-only ps was sandbox-denied; no process action taken.",
+    "Some exploratory rg/sed requests used absent paths; no source or artifact changed."
+  ],
+  "warning": "Existing torch.jit.script FutureWarning in test_node_gate_failure_preserves_completed_b0_b6_checks; no warning suppression."
+}

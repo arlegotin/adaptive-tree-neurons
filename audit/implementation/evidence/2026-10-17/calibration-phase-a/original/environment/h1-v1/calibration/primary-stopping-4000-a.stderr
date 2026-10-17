@@ -1,0 +1,55 @@
+Traceback (most recent call last):
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/train.py", line 867, in _run
+    publish()
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/train.py", line 811, in publish
+    retention = prune_checkpoints(checkpoint_dir)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/checkpoint.py", line 184, in prune_checkpoints
+    pointer, descriptor, payload = _descriptor(path)
+                                   ^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/checkpoint.py", line 80, in _descriptor
+    descriptor = _read_json(metadata)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/checkpoint.py", line 59, in _read_json
+    canonical_json(value)
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/config.py", line 181, in canonical_json
+    return json.dumps(_json_value(value), sort_keys=True, separators=(",", ":"),
+                      ^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/config.py", line 167, in _json_value
+    return {key: _json_value(item) for key, item in value.items()}
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/config.py", line 169, in _json_value
+    return [_json_value(item) for item in value]
+            ^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/config.py", line 167, in _json_value
+    return {key: _json_value(item) for key, item in value.items()}
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/config.py", line 169, in _json_value
+    return [_json_value(item) for item in value]
+            ^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/config.py", line 164, in _json_value
+    if isinstance(value, Mapping):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen abc>", line 119, in __instancecheck__
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v1/calibration/development.py", line 155, in <module>
+    {'batches':batches,'fit-boundary':fit_boundary,'curves':curves}[sys.argv[1]]()
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v1/calibration/development.py", line 133, in curves
+    adapter.fit(FitRequest(data.F.X,data.F.y,data.G.X,data.G.y,c.seeds.optimizer,{'development_data':data},{'max_updates':allowance},out/'runs'))
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/baselines/causal.py", line 227, in fit
+    self.state=(continue_fit(self.state,data,policy,paths) if continuation else
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/train.py", line 751, in continue_fit
+    return _run(state, data, policy, paths)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/train.py", line 892, in _run
+    if isinstance(error, KeyboardInterrupt) and checkpoint_safe:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+time: command terminated abnormally
+      249.10 real       237.31 user         9.55 sys
+time: sysctl kern.clockrate: Operation not permitted

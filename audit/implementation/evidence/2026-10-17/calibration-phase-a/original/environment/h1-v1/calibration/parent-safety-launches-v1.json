@@ -1,0 +1,14 @@
+[
+  {
+    "name": "parent-b128-lr0p003",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v1/calibration/parent-safety.py",
+      "environment/h1-v1/calibration/parent-b128-lr0p003.json"
+    ],
+    "status": 1,
+    "outer_ns": 1084445334,
+    "config_sha256": "b4bf35198b112cb5fd3bd90c82966b90a060858c3d4f221eb59708928fba70cf",
+    "wrapper_sha256": "5e04392005b99bbda79debb7051687e63027a2c40dfdf718518bdfce8bd28220"
+  }
+]

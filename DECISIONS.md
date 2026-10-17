@@ -369,3 +369,43 @@ execute the entire fixed cohort regardless of sign, and complete actual locked
 reproduction, interrupted growth/resume, saved-row audit, repeated report rebuild
 and closest-prior-art claim review. The old single-teacher result remains
 keep0.16066/top0.14753/random0.14384; no independent accuracy evidence exists yet.
+
+
+## D019 — 17 October 2026: measured calibration exposes duplicated checkpoint histories
+
+Six parent-only development fits compared batches 128/256/512 with learning
+rates 0.003/0.005 on the same exploratory problem. Their normalized G errors
+range from 0.07099 to 0.09644. Several curves remain truncated; these measurements
+do not select a final recipe or provide another selective-versus-random result.
+The [calibration archive](audit/implementation/evidence/2026-10-17/calibration-phase-a/index.json)
+preserves all six measurements/configs, failures, timing boundaries and an exact
+prechange numerical reference. Root independently verified the complete ignored
+inventory: 289 files, 1,718,434,895bytes.
+
+The current checkpoint history repeats the complete ordered minibatch row IDs
+already preserved in each stage's raw event log. Copying that prefix into every
+one of 65 validation probes makes even the smaller-batch recipes project more
+than 85 GB of duplicate metadata over 16 pilot and 16 confirmation teachers, before
+other outputs. This is a measured-prefix projection, not a completed study cost.
+The original full-batch parent alone retained 551.8 MB, mostly checkpoint JSON.
+
+[Ruling16](audit/implementation/evidence/2026-10-17/ruling-16-compact-checkpoint-row-history.md)
+authorizes replacing only those redundant historical ID copies with explicit
+versioned row counts and the existing ordered-int64 SHA256 commitment. Every full
+raw stage log, ordered ID, failure and sampler/RNG state remains retained. The
+scoped correction at `388c82c` passed independent spec/quality review. Its actual
+4,000-update replay matches all 21 selected tensors, complete numerical metadata,
+F/G/E predictions and all 4,000 ordered row/loss/LR commitments exactly. The
+retained metadata sum fell from 20,613,624 to 2,567,456 bytes; the same fit boundary
+fell from 47.640 to 14.144 seconds in one observation. New-source recovery, raw-event
+audits and applicable CPU kernel/envelope receipts pass. The [review and verified
+evidence index](audit/implementation/evidence/2026-10-17/h1-history-storage-index.json)
+renews Task 9-v5/10-v4/13-v3 bindings; prior records remain unchanged.
+Checkpoint-only full historical inspection will require the retained stage logs;
+any numerical/audit discrepancy blocks acceptance and further scientific use.
+
+No complete resource teacher, genuine variance pilot, protocol freeze or protected
+test result exists. The throughput-only batch choice still needs reconciliation
+with complete-study feasibility; neither a batch-rule waiver nor a new scientific
+claim is implied. After this accepted storage correction, resume measured recipe/resource
+calibration and the independent study. All prior artifacts stay unchanged.

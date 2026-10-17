@@ -1,0 +1,64 @@
+{
+  "checked": [
+    {
+      "bytes": 1170880,
+      "path": "environment/h1-v1/calibration/old-source-reference/observations.npz",
+      "sha256": "dcc6e190c27222ce109f6cb43712f1b33941d8a5633da28a6514dfb6f6cba8c0"
+    },
+    {
+      "bytes": 1153798,
+      "path": "environment/h1-v1/calibration/old-source-reference/ordered-update-commitments.json",
+      "sha256": "dd10cac526dac4416ed7a7c42b948fc6cb6b86884761192f875b106a58dd2966"
+    },
+    {
+      "bytes": 54311,
+      "path": "environment/h1-v1/calibration/old-source-reference/predictions.npz",
+      "sha256": "be85106efd1136e6141b1c6b20c69ec0ebba979a63b7673f5333df473cf6d0f9"
+    },
+    {
+      "bytes": 7785,
+      "path": "environment/h1-v1/calibration/old-source-reference/selected-metadata.json",
+      "sha256": "b349b94e40a97a441ef4b36c260388ba3ed7dc2b16a251e6610be9c33c49a7c6"
+    },
+    {
+      "bytes": 66674,
+      "path": "environment/h1-v1/calibration/old-source-reference/selected-snapshot.pt",
+      "sha256": "13f6284d09b74444ecfaf351f304ffccb9dc8d0dbce2f362d814f76740a95bdf"
+    },
+    {
+      "bytes": 152355,
+      "path": "environment/h1-v1/calibration/old-source-reference/splits.json",
+      "sha256": "c69037f06b8522b4405f95d1f0351fe0e44b19dfe51b6bbe7bc1410988e74c15"
+    },
+    {
+      "bytes": 4863,
+      "path": "environment/h1-v1/calibration/old-source-reference/teacher.json",
+      "sha256": "d9c4924df3f2fe717ceddd84ba2a05c39d0c6e47fbce8f8fae5c167b340f988c"
+    },
+    {
+      "path": "environment/h1-v1/calibration/parent-b128-lr0p005-v2.json",
+      "sha256": "43a940bd12b17e413d8a2c5e33e1e999f48b2d75daa4731956fe927ee591cef5"
+    },
+    {
+      "path": "artifacts/h1-v1/parent-safety/parent-b128-lr0p005-v2/runs/4ee5bd2587e34a1e849a0fbd757718ab/checkpoints/best.json",
+      "sha256": "7c354cd59ec83679425f3245a57bcbd4868b2d53782d39895bc88b965642af1e"
+    },
+    {
+      "path": "artifacts/h1-v1/parent-safety/parent-b128-lr0p005-v2/measurement.json",
+      "sha256": "b494e97279e6ab5eb3475c2a81bf19b0ca9129cecbfcd99de719088f953da6db"
+    },
+    {
+      "path": "artifacts/h1-v1/parent-safety/parent-b128-lr0p005-v2/runs/4ee5bd2587e34a1e849a0fbd757718ab/events.jsonl",
+      "sha256": "b53cdb3d7b7c4d8ad5604fbc71d402b5cf22d7c58f276d54c2acf3b34ec475fb"
+    },
+    {
+      "path": "environment/h1-v1/backend.json",
+      "sha256": "c2b12cb30d050da4ae9a1419c3f3e53d5179dfa810a9dd9bf0458ea7d850df30"
+    }
+  ],
+  "cross_source_checkpoint_loaded": false,
+  "old_execution_sha256": "ccb5447a6bec01c78b2448a8812bcc32d2ae4b64b8603cba72bfcf719ce3cdd5",
+  "old_source_sha256": "5c66c55693825e7dec51f0e59c74bd995da98b54c36f34acc445039d9ef85495",
+  "provenance_sha256": "1ef69743ca5fdbd11a3d4e65799dc3b026f428d7f360854bd93ac9e113e26c95",
+  "status": "passed"
+}

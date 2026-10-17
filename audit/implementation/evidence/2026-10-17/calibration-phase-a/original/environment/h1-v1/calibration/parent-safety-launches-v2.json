@@ -1,0 +1,74 @@
+[
+  {
+    "name": "parent-b128-lr0p003-v2",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v1/calibration/parent-safety.py",
+      "environment/h1-v1/calibration/parent-b128-lr0p003-v2.json"
+    ],
+    "status": 0,
+    "outer_ns": 52462167667,
+    "config_sha256": "910186755e8105a9cd4108a0f082c301f6dac8498375977d7adb6462ca5849a9",
+    "wrapper_sha256": "a8aba50dcfa4896ddf7b5aa247255bd85b11fac41f6ada8ce08f74968d5a3b81"
+  },
+  {
+    "name": "parent-b128-lr0p005-v2",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v1/calibration/parent-safety.py",
+      "environment/h1-v1/calibration/parent-b128-lr0p005-v2.json"
+    ],
+    "status": 0,
+    "outer_ns": 51535797750,
+    "config_sha256": "43a940bd12b17e413d8a2c5e33e1e999f48b2d75daa4731956fe927ee591cef5",
+    "wrapper_sha256": "a8aba50dcfa4896ddf7b5aa247255bd85b11fac41f6ada8ce08f74968d5a3b81"
+  },
+  {
+    "name": "parent-b256-lr0p005-v2",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v1/calibration/parent-safety.py",
+      "environment/h1-v1/calibration/parent-b256-lr0p005-v2.json"
+    ],
+    "status": 0,
+    "outer_ns": 77994324417,
+    "config_sha256": "61bfa3232524650e49b9c9dd3cbe1ba0e89fba12a96061bfc08eae038bda76a0",
+    "wrapper_sha256": "a8aba50dcfa4896ddf7b5aa247255bd85b11fac41f6ada8ce08f74968d5a3b81"
+  },
+  {
+    "name": "parent-b256-lr0p003-v2",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v1/calibration/parent-safety.py",
+      "environment/h1-v1/calibration/parent-b256-lr0p003-v2.json"
+    ],
+    "status": 0,
+    "outer_ns": 86455863958,
+    "config_sha256": "5141224f51ef7636d528dabc2ac47c107a5b24bdcad34dec71ab0530a651ed6c",
+    "wrapper_sha256": "a8aba50dcfa4896ddf7b5aa247255bd85b11fac41f6ada8ce08f74968d5a3b81"
+  },
+  {
+    "name": "parent-b512-lr0p003-v2",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v1/calibration/parent-safety.py",
+      "environment/h1-v1/calibration/parent-b512-lr0p003-v2.json"
+    ],
+    "status": 0,
+    "outer_ns": 162275293208,
+    "config_sha256": "fb974b5985ea409d726f28f21aa095a94fd9e4f06915cb4923415de629ed76f5",
+    "wrapper_sha256": "a8aba50dcfa4896ddf7b5aa247255bd85b11fac41f6ada8ce08f74968d5a3b81"
+  },
+  {
+    "name": "parent-b512-lr0p005-v2",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v1/calibration/parent-safety.py",
+      "environment/h1-v1/calibration/parent-b512-lr0p005-v2.json"
+    ],
+    "status": 0,
+    "outer_ns": 138273602917,
+    "config_sha256": "f49466ad50808a1933b822507dc9adc81efac3ffd7323bc16e00c5f02ffb579b",
+    "wrapper_sha256": "a8aba50dcfa4896ddf7b5aa247255bd85b11fac41f6ada8ce08f74968d5a3b81"
+  }
+]

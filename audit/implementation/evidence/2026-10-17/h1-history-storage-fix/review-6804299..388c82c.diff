@@ -1,0 +1,283 @@
+# Review package: 680429908735a8077fbfab972468b9d420b7a9f1..388c82c59e3dccb6425c55a4a3832dadf80e55fb
+
+## Commits
+388c82c Compact duplicated checkpoint update row histories
+
+## Files changed
+ docs/research/2026-10-17-checkpoint-row-history.md | 19 +++++
+ src/treeneuron/train.py                            | 11 ++-
+ tests/test_causal_baselines.py                     | 15 ++--
+ tests/test_history_storage.py                      | 93 ++++++++++++++++++++++
+ tests/test_optimizer_growth.py                     |  4 +-
+ 5 files changed, 135 insertions(+), 7 deletions(-)
+
+## Diff
+diff --git a/docs/research/2026-10-17-checkpoint-row-history.md b/docs/research/2026-10-17-checkpoint-row-history.md
+new file mode 100644
+index 0000000..0418e86
+--- /dev/null
++++ b/docs/research/2026-10-17-checkpoint-row-history.md
+@@ -0,0 +1,19 @@
++# Checkpoint row history
++
++Newly recorded update events in `TrainingState.history` and checkpoint history
++replace `row_ids` with `row_ids_commitment`. Its schema version is 1, encoding
++is `ordered_int64_array_hash`, count is the number of ordered IDs, and `sha256`
++is the existing `data.types.array_hash` of the ordered `numpy.int64` array.
++That hash covers the dtype string, shape string, and contiguous ordered bytes;
++it is not a hash of a sorted set or JSON. `rows` and every other event field
++remain present. Every event remains in order.
++
++The append-only per-stage `events.jsonl` keeps the original full ordered
++`row_ids` list. Pairing and audit consumers continue to read those raw events.
++Sampler replay uses the saved order, cursor, generator and RNG state. The
++checkpoint's representation avoids duplicating historical minibatch IDs in
++each snapshot and each fork; it does not replace raw event retention.
++
++Opaque legacy history remains readable subject to its original source-bound
++checkpoint contract. Reading or copying it does not convert it to this format,
++and the new representation grants no cross-source checkpoint permission.
+diff --git a/src/treeneuron/train.py b/src/treeneuron/train.py
+index 2336f92..477ab9e 100644
+--- a/src/treeneuron/train.py
++++ b/src/treeneuron/train.py
+@@ -777,21 +777,30 @@ def _run(state, data, policy, paths):
+         torch.set_num_threads(state.backend['cpu_threads'])
+         restore_rng(state.rng_states)
+         append_event(paths, {'type': 'stage_started', 'status': 'running', 'stage': state.stage['kind'],
+                              'update': state.update, 'resumed_stage': state.stage['updates_completed'] > 0})
+         x = torch.tensor(state.preprocessing.transform_X(data.F.X), dtype=torch.float32, device=state.device)
+         y = torch.tensor(state.preprocessing.transform_y(data.F.y), dtype=torch.float32, device=state.device)
+         if not bool(torch.isfinite(x).all()) or not bool(torch.isfinite(y).all()):
+             raise FloatingPointError('Nonfinite float32 training data after conversion')
+ 
+         def record(event):
+-            state.history.append(event)
++            # Raw stage events retain the full ordered IDs. Checkpoint/fork
++            # histories need only their versioned ordered-int64 commitment.
++            history_event = event
++            if event['type'] == 'update':
++                row_ids = np.asarray(event['row_ids'], dtype=np.int64)
++                history_event = {k: v for k, v in event.items() if k != 'row_ids'}
++                history_event['row_ids_commitment'] = {
++                    'schema_version': 1, 'encoding': 'ordered_int64_array_hash',
++                    'count': len(row_ids), 'sha256': array_hash(row_ids)}
++            state.history.append(history_event)
+             append_event(paths, event)
+ 
+         def evaluate():
+             nonlocal validation_ns
+             tick = time.perf_counter_ns()
+             metrics = regression_metrics(data.G.y, state.predict(data.G.X), fit_target_variance=state.fit_target_variance)
+             validation_ns += time.perf_counter_ns() - tick
+             improved = state.stage['best_mse'] is None or metrics['mse'] < state.stage['best_mse']
+             record({'type': 'evaluation', 'split': 'G', 'update': state.update,
+                     'stage_update': state.stage['updates_completed'], 'metrics': metrics, 'improved': improved})
+diff --git a/tests/test_causal_baselines.py b/tests/test_causal_baselines.py
+index 6dcec64..3adfeae 100644
+--- a/tests/test_causal_baselines.py
++++ b/tests/test_causal_baselines.py
+@@ -1,18 +1,18 @@
+ from pathlib import Path
+ """Causal controls must be active, independent, reconstructible and paired."""
+ import copy
+ import json
+ import numpy as np
+ import pytest
+ import torch
+-from test_train import cpu_training_evidence, training_case, assert_state_equal
++from test_train import cpu_training_evidence, training_case, assert_state_equal, events
+ from treeneuron.baselines.api import FitRequest
+ from treeneuron.artifacts import create_run
+ from treeneuron.train import fit_parent, pack_state, unpack_state, TrainingPolicy, continue_fit
+ 
+ 
+ def causal():
+     from treeneuron.baselines import causal
+     return causal
+ 
+ 
+@@ -252,46 +252,51 @@ def test_actual_shapes_interrupted_recovery(tmp_path,monkeypatch,cpu_training_ev
+         return ObservationSet(x,7+3*x[:,0],ids,ids)
+     data=DevelopmentData(rows(129,0),rows(17,200),rows(3,300),'interrupted-causal')
+     config=resolve_experiment({'study_id':'interrupted-causal','data':{'n_fit':129,'n_growth':17,'n_validation':3},
+         'training':{'base_updates':3,'continuation_updates':3,'validation_interval':1,'patience':20,'scheduler':'cosine'}})
+     if variant.startswith('widen'):
+         parent=fit_parent(data,config,create_run(tmp_path,config.to_dict()))
+         state=causal().build_causal('B2',{'variant':'widen','added_units':int(variant[-2:])-64,'seed':11},parent=parent).state
+         config=state.config
+         snapshot=pack_state(state)
+         policy=TrainingPolicy.from_config(config,continuation=True)
+-        expected=continue_fit(state,data,policy,create_run(tmp_path,config.to_dict()))
++        expected_paths=create_run(tmp_path,config.to_dict())
++        expected=continue_fit(state,data,policy,expected_paths)
+         replay=unpack_state(snapshot,expected_hashes=state.identity_hashes,device='cpu')
+         execute=lambda paths:continue_fit(replay,data,policy,paths)
+         initial_update=replay.update
+     else:
+         recipe={'experiment':config.to_dict()}
+         if variant in ('lower','upper'): recipe.update(variant=variant,target_parameters=1697);method='B2'
+         else: recipe.update(variant='full',coordinates=variant);method='B3'
+         config=causal().build_causal(method,recipe).config
+-        expected=fit_parent(data,config,create_run(tmp_path,config.to_dict()))
++        expected_paths=create_run(tmp_path,config.to_dict())
++        expected=fit_parent(data,config,expected_paths)
+         execute=lambda paths:fit_parent(data,config,paths)
+         policy=TrainingPolicy.from_config(config);initial_update=0
+     paths=create_run(tmp_path,config.to_dict())
+     append=train.append_event
+     def interrupt(paths,event):
+         append(paths,event)
+         if event['type']=='checkpoint' and event['update']==initial_update+1:
+             raise KeyboardInterrupt('durable new-shape update boundary')
+     monkeypatch.setattr(train,'append_event',interrupt)
+     with pytest.raises(KeyboardInterrupt):execute(paths)
+     monkeypatch.setattr(train,'append_event',append)
+     resumed=load_checkpoint(paths.directory/'checkpoints/last.json',expected_hashes=expected.identity_hashes,device='cpu')
+-    actual=continue_fit(resumed,data,policy,create_run(tmp_path,config.to_dict()))
++    retry=create_run(tmp_path,config.to_dict())
++    actual=continue_fit(resumed,data,policy,retry)
+     assert_state_equal(expected,actual)
+     np.testing.assert_array_equal(expected.next_row_ids(data.F),actual.next_row_ids(data.F))
+-    assert [e['row_ids'] for e in expected.history if e['type']=='update'][-3:]==[e['row_ids'] for e in actual.history if e['type']=='update'][-3:]
++    assert [e['row_ids_commitment'] for e in expected.history if e['type']=='update'][-3:]==[e['row_ids_commitment'] for e in actual.history if e['type']=='update'][-3:]
++    replayed_events=events(paths)+events(retry)
++    assert [e['row_ids'] for e in events(expected_paths) if e['type']=='update']==[e['row_ids'] for e in replayed_events if e['type']=='update']
+ 
+ 
+ @pytest.mark.parametrize('added',[0,31])
+ def test_widen_rejects_bad_state_atomically_and_preserves_rng(training_case,added):
+     from treeneuron.train import capture_rng
+     data,config,paths=training_case
+     state=fit_parent(data,config,paths)
+     before=pack_state(state);rng=capture_rng()
+     for bad in (-1,True,100):
+         with pytest.raises(ValueError):causal().widen_parent(state,bad,4)
+diff --git a/tests/test_history_storage.py b/tests/test_history_storage.py
+new file mode 100644
+index 0000000..942ab16
+--- /dev/null
++++ b/tests/test_history_storage.py
+@@ -0,0 +1,93 @@
++"""Checkpoint row histories commit to full, separately retained stage events."""
++import copy
++import hashlib
++import json
++
++import numpy as np
++import pytest
++
++from test_train import cpu_training_evidence, training_case, events, assert_state_equal
++from treeneuron import train
++from treeneuron.artifacts import create_run
++from treeneuron.checkpoint import load_checkpoint
++from treeneuron.config import resolve_experiment
++from treeneuron.data.types import DevelopmentData, ObservationSet
++
++
++def assert_committed(history, raw):
++    assert len(history) == len(raw)
++    for saved, event in zip(history, raw):
++        if event['type'] != 'update':
++            assert saved == event
++            continue
++        # Independently reconstruct the existing dtype/shape/ordered-byte hash.
++        ids = np.asarray(event['row_ids'], dtype=np.int64)
++        digest = hashlib.sha256(b'int64' + str(ids.shape).encode() + ids.tobytes()).hexdigest()
++        assert saved == {
++            **{k: v for k, v in event.items() if k != 'row_ids'},
++            'row_ids_commitment': {'schema_version': 1, 'encoding': 'ordered_int64_array_hash',
++                                   'count': len(ids), 'sha256': digest}}
++        assert event['rows'] == len(ids)
++
++
++def test_minibatch_history_commits_without_changing_raw_events_or_checkpoint_resume(training_case):
++    data, config, paths = training_case
++    state = train.fit_parent(data, config, paths)
++    raw = [e for e in events(paths) if e['type'] in {'update', 'evaluation', 'checkpoint', 'selection'}]
++    assert_committed(state.history, raw)
++    for name in ('last', 'best'):
++        loaded = load_checkpoint(paths.directory / f'checkpoints/{name}.json',
++                                 expected_hashes=state.identity_hashes, device='cpu')
++        assert loaded.history == state.history
++    restored = load_checkpoint(paths.directory / 'checkpoints/best.json',
++                               expected_hashes=state.identity_hashes, device='cpu')
++    assert_state_equal(state, restored)
++    assert state.next_row_ids(data.F).tolist() == restored.next_row_ids(data.F).tolist()
++    policy = train.TrainingPolicy.from_config(config, continuation=True)
++    a = create_run(paths.directory.parent, config.to_dict())
++    b = create_run(paths.directory.parent, config.to_dict())
++    direct = train.continue_fit(state, data, policy, a)
++    resumed = train.continue_fit(restored, data, policy, b)
++    assert_state_equal(direct, resumed)
++    assert_committed(resumed.history[len(raw):],
++                     [e for e in events(b) if e['type'] in {'update', 'evaluation', 'checkpoint', 'selection'}])
++
++
++def test_history_bytes_scale_with_updates_instead_of_past_batch_rows(training_case):
++    _, config, original = training_case
++    rng = np.random.default_rng(83)
++    def rows(n, start):
++        x = rng.normal(size=(n, 2))
++        ids = np.arange(start, start+n, dtype=np.int64)
++        return ObservationSet(x, x[:, 0] - x[:, 1], ids, ids)
++    data = DevelopmentData(rows(257, 100000000), rows(7, 200000000), rows(5, 300000000), 'storage')
++    sizes = []
++    for batch in (4, 128):
++        raw_config = config.to_dict()
++        raw_config['training']['batch_size'] = batch
++        raw_config['data']['n_fit'] = 257
++        config = resolve_experiment(raw_config)
++        paths = create_run(original.directory.parent, config.to_dict())
++        state = train.fit_parent(data, config, paths)
++        updates = [e for e in state.history if e['type'] == 'update']
++        raw_updates = [e for e in events(paths) if e['type'] == 'update']
++        assert_committed(updates, raw_updates)
++        sizes.append((len(json.dumps(updates)), len(json.dumps(raw_updates))))
++    assert abs(sizes[0][0] - sizes[1][0]) < 100
++    # Fixed event overhead and epoch-tail batches limit the raw JSON ratio.
++    assert sizes[1][1] > 4 * sizes[0][1]
++
++
++def test_growth_keeps_compact_parent_prefix_and_full_new_stage_events(training_case):
++    from test_optimizer_growth import allocation
++    from treeneuron.growth.insert import insert_growth
++    data, config, paths = training_case
++    parent = train.fit_parent(data, config, paths)
++    prefix = copy.deepcopy(parent.history)
++    assert all('row_ids_commitment' in e for e in prefix if e['type'] == 'update')
++    insert_growth(parent, allocation())
++    child_paths = create_run(paths.directory.parent, config.to_dict())
++    child = train.continue_fit(parent, data, train.TrainingPolicy.from_config(config, continuation=True), child_paths)
++    assert child.history[:len(prefix)] == prefix
++    assert_committed(child.history[len(prefix):],
++                     [e for e in events(child_paths) if e['type'] in {'update', 'evaluation', 'checkpoint', 'selection'}])
+diff --git a/tests/test_optimizer_growth.py b/tests/test_optimizer_growth.py
+index 0b25fe7..68edc9e 100644
+--- a/tests/test_optimizer_growth.py
++++ b/tests/test_optimizer_growth.py
+@@ -158,21 +158,23 @@ def test_resume_through_growth_matches_uninterrupted(parent, monkeypatch, bounda
+         monkeypatch.setattr(train, 'append_event', interrupt)
+         with pytest.raises(KeyboardInterrupt): train.continue_fit(recovered, data, policy, attempt)
+         monkeypatch.setattr(train, 'append_event', append)
+         recovered = load_checkpoint(attempt.directory / 'checkpoints/last.json', expected_hashes=state.identity_hashes, device='cpu')
+     retry = create_run(paths.directory.parent, config.to_dict())
+     actual = train.continue_fit(recovered, data, policy, retry)
+     assert_state_equal(actual, expected)
+     assert_nested_equal(actual.growth_metadata, expected.growth_metadata)
+     np.testing.assert_array_equal(actual.next_row_ids(data.F), expected.next_row_ids(data.F))
+     assert actual.model.layer.growth_applied
+-    assert [e['row_ids'] for e in actual.history if e['type'] == 'update'][-6:] == [e['row_ids'] for e in expected.history if e['type'] == 'update'][-6:]
++    assert [e['row_ids_commitment'] for e in actual.history if e['type'] == 'update'][-6:] == [e['row_ids_commitment'] for e in expected.history if e['type'] == 'update'][-6:]
++    replayed_events = (events(attempt) if boundary == 'during' else []) + events(retry)
++    assert [e['row_ids'] for e in replayed_events if e['type'] == 'update'] == [e['row_ids'] for e in events(uninterrupted_paths) if e['type'] == 'update']
+ 
+ 
+ @pytest.mark.parametrize('defect', ['count', 'ids', 'dtype', 'shape', 'nan', 'overflow', 'zero', 'hash', 'policy', 'seed', 'attempts', 'cost'])
+ def test_bad_allocation_rejected_without_mutation(parent, defect):
+     from treeneuron.growth.insert import insert_growth
+     state, _, _, _ = parent
+     changes = {
+         'count': {'effective_count': 3}, 'ids': {'ids': torch.tensor([2, 0])},
+         'dtype': {'contrasts': allocation().contrasts.float()}, 'shape': {'contrasts': torch.ones(2, 2, dtype=torch.float64)},
+         'nan': {'contrasts': torch.full((2, 3), float('nan'), dtype=torch.float64)},

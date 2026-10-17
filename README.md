@@ -6,7 +6,7 @@ The first complete exploratory comparison gives a negative result for the score:
 
 These are descriptive G/V results from one teacher and optimizer seed, with provisional update limits. Top was still improving at its limit. The separate noiseless 2-D control learns the intended opposite slopes; keep, top and random all give validation MSE about **0.001338**, with no useful extra-growth gain. It is a different diagnostic population, not another primary replicate. The [curated evidence](docs/research/2026-10-16-exploratory-paired-evidence.json) records all controls, costs, hashes and limitations; [DECISIONS.md](DECISIONS.md#d008--16-october-2026-exploratory-checkpoint-cost-and-first-paired-study) records the bounded conclusion and next gates.
 
-The [plain-language interpretation](docs/research/2026-10-17-exploratory-interpretation.md) explains what these early results support and what remains unresolved. Protocol protection, the independent-cohort runner and audit/report code have passed implementation review. The final calibration fixes have also passed scoped review. Next are measured recipe calibration, the genuine variance pilot and the independent test cohort. No independent accuracy result exists yet.
+The [plain-language interpretation](docs/research/2026-10-17-exploratory-interpretation.md) explains what these early results support and what remains unresolved. Protocol protection, the independent-cohort runner and audit/report code have passed implementation review. The final calibration fixes have also passed scoped review. Measured calibration exposed duplicated checkpoint logs. The reviewed storage correction reproduces all 4,000 updates exactly while reducing checkpoint metadata from 20.6 MB to 2.6 MB; recipe and complete-study resource calibration continue. The genuine variance pilot and independent test cohort are still pending; no independent accuracy result exists yet.
 
 The repository implements the compact selective affine layer, CPU64 moment score, deterministic CPU training, complete checkpoint recovery, state-preserving growth, F-only preprocessing and serial paired controls. Algebra, native CPU/MPS kernel checks and the CPU causal path have been tested. The soft affine-stump model belongs to an established gated family; the research target is the allocation procedure and its measured limits.
 
@@ -69,8 +69,8 @@ input. On a fresh checkout, run `doctor --output environment/current-report.json
 and put that path in the config; the selected device/batches must match the
 config, and strict source/lock/runtime guards still apply. Historical
 `environment/report.json` does not match the current producer digest. The existing
-CPU-only receipt remains applicable while those producer files and the runtime
-are unchanged; it does not establish current native MPS recovery or comparisons.
+CPU-only receipt remains applicable while its bound package, producer, lock and
+runtime are unchanged; it does not establish current native MPS recovery or comparisons.
 
 Each new invocation preserves an independent UUID directory, including failures.
 `study.json` binds config/source/checkout, receipt and hardware reports, every
@@ -121,6 +121,13 @@ preserves each source identity. These are implementation checks. Independent
 confirmation and scientific audit remain pending; the early predictive results
 above are unchanged. Resident timing stays within the explicit smaller
 [Ruling15 scope](audit/implementation/evidence/2026-10-17/ruling-15-resident-timing-scope.md).
+
+A later [narrow storage correction](audit/implementation/evidence/2026-10-17/h1-history-storage-index.json)
+preserves full raw sample logs while replacing redundant checkpoint row lists
+with versioned counts and ordered hashes. The actual 4,000-update replay matches
+all selected model/optimizer/sampler/RNG state, predictions and ordered update
+records exactly. Its fitting boundary fell from 47.6 to 14.1 seconds in one run.
+This is an engineering observation; independent allocation evidence remains pending.
 
 ### Auditing and portable saved evidence (pre-freeze implementation)
 
