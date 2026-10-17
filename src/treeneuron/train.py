@@ -33,6 +33,7 @@ from torch import nn
 
 from .artifacts import RunPaths, append_event, finish_run, update_run_observations
 from .backend import ROOT, lock_hash, runtime_hash, select_backend, validate_backend_report
+from .cpu_envelope import supported_batch, requires_envelope, validate_envelope_reference
 from .config import ExperimentConfig, canonical_hash, canonical_json, resolve_experiment
 from .data.transforms import FittedTransform
 from .data.types import DevelopmentData, ObservationSet, array_hash
@@ -84,8 +85,8 @@ class TrainingPolicy:
                 raise ValueError(f'{name} must be a positive integer')
         if self.physical_batch_size != self.logical_batch_size:
             raise ValueError('physical batch must equal logical batch; accumulation is not implemented')
-        if self.logical_batch_size > 128:
-            raise ValueError('Batch exceeds bounded backend evidence (128)')
+        if not supported_batch(self.logical_batch_size):
+            raise ValueError('Batch outside bounded backend evidence; extended CPU batches require a measured envelope')
         if self.checkpoint_selection != 'strict_improvement_earliest' or self.evaluate_at_update_zero is not True:
             raise ValueError('Require strict improvement, earliest ties, and update-zero evaluation')
 
@@ -205,8 +206,12 @@ class TrainingState:
 
     def predict(self, X, *, batch_size: int | None = None) -> np.ndarray:
         batch = self.config.training.batch_size if batch_size is None else batch_size
-        if type(batch) is not int or batch <= 0 or batch > 128:
-            raise ValueError('Prediction batch must be a positive integer at most 128')
+        if not supported_batch(batch) or (batch>128 and 'cpu_envelope' not in self.backend):
+            raise ValueError('Prediction batch requires bounded source-bound CPU evidence')
+        # The finite CPU extension certifies actual tensors through max F9224.
+        # Prediction chunks obey that same bound, including much larger E/T sets.
+        if 'cpu_envelope' in self.backend:
+            batch=min(batch,self.config.data.n_fit)
         transformed = self.preprocessing.transform_X(X)
         values = []
         self.model.eval()
@@ -241,7 +246,8 @@ def _optimizer(model, config):
 def _backend_evidence(config, data, *, causal_model=None):
     from .locators import locate
     path = locate(BACKEND_REPORT_PATH,producer=True)
-    report = json.loads(path.read_text())['backend_probes']
+    document = json.loads(path.read_text())
+    report = document['backend_probes']
     for probe in report['probes'].values():
         if probe.get('status') == 'passed': validate_backend_report(probe)
     decision = select_backend(report['probes'], comparison_blocks=report['comparison_blocks'])
@@ -257,8 +263,12 @@ def _backend_evidence(config, data, *, causal_model=None):
     interop = report['probes'][b.device]['environment'].get('interop_threads')
     if interop is not None and torch.get_num_interop_threads() != interop:
         raise ValueError('Live interop threads differ from backend evidence')
-    if (config.model.d > 16 or config.model.h > (95 if causal_model is not None else 64) or len(data.F.y) > 2306
-            or config.training.batch_size > 128):
+    envelope = None
+    if requires_envelope(config):
+        envelope = dict(path=str(path.resolve()),sha256=hashlib.sha256(path.read_bytes()).hexdigest())
+        validate_envelope_reference(envelope,config,causal_model.export_config() if causal_model is not None else None)
+    if (config.model.d > 16 or config.model.h > (95 if causal_model is not None else 64)
+            or (envelope is None and (len(data.F.y)>2306 or config.training.batch_size>128))):
         raise ValueError('Workload exceeds bounded backend evidence; obtain a relevant new probe')
     if b.device == 'mps' and (not torch.backends.mps.is_available() or os.environ.get('PYTORCH_ENABLE_MPS_FALLBACK') != '0'):
         raise ValueError('MPS requires availability and fallback disabled before process import')
@@ -276,6 +286,8 @@ def _backend_evidence(config, data, *, causal_model=None):
             'kernel_implementation_sha256': report['probes'][b.device]['implementation_sha256'],
             'workload': workload, 'performance_calibration_matches': calibrated,
             'performance_scope': decision['scope'] if calibrated else 'CPU correctness diagnostic; kernel compatibility only; throughput not calibrated'}
+    if envelope is not None:
+        evidence['cpu_envelope']=envelope
     if causal_model is not None:
         from .baselines.causal_evidence import attach_causal_evidence
         evidence = attach_causal_evidence(evidence, causal_model, config.training.batch_size)
@@ -423,6 +435,8 @@ def validate_metadata(meta, expected_hashes, device):
     topology = meta['model']
     if not isinstance(topology, dict) or set(topology) != {'schema_version','kind','layer'} or not isinstance(topology['layer'], dict):
         raise ValueError('Invalid model topology')
+    if requires_envelope(config):
+        validate_envelope_reference(meta['backend'].get('cpu_envelope',{}),config,topology)
     if config.model.coordinates == 'widened':
         from .models.widened import WidenedRegressor
         from .baselines.causal_evidence import validate_causal_evidence
@@ -494,6 +508,8 @@ def validate_metadata(meta, expected_hashes, device):
             or stage['kind'] not in ('base', 'continuation') or type(stage['complete']) is not bool):
         raise ValueError('Invalid stage metadata')
     policy = TrainingPolicy(**stage['policy'])
+    if policy.logical_batch_size != config.training.batch_size:
+        raise ValueError('Checkpoint batch differs from resolved config')
     if policy.checkpoint_interval != config.training.checkpoint_interval:
         raise ValueError('Checkpoint cadence differs from resolved config')
     for key in ('start_update', 'updates_completed', 'bad_evaluations'):

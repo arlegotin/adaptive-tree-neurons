@@ -276,3 +276,16 @@ def test_absent_or_empty_declaration_remains_blocked_and_minimum_is_retained():
     assert choose_design(summary(),c).branch=='blocked'
     c['required_controls']=['additional_anchor']
     assert choose_design(summary(controls=('additional_anchor',)),c).branch=='blocked'
+
+
+def test_material_evaluation_cost_reduces_advisory_repetitions():
+    s=summary(repetition_variance=.1)
+    cheap=constraints(); cheap['seconds_per_evaluation_row']=1e-9
+    costly=constraints(); costly['seconds_per_evaluation_row']=.1
+    low,high=[choose_design(s,c) for c in (cheap,costly)]
+    a,b=[d.forecast['repetition_tradeoff'] for d in (low,high)]
+    assert a['recommended_repetitions']>100
+    assert b['recommended_repetitions']==2
+    assert b['continuous_cost_optimum']==pytest.approx((20000/10001)**.5)
+    assert low.repetitions==high.repetitions==2
+    assert b['requires_new_calibration'] is False

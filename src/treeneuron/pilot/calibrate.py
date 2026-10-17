@@ -354,6 +354,9 @@ def calibrate(config: ExperimentConfig) -> PilotSummary:
                         record=run_repetition(repetition_config(tc,repetition),data,e,
                             directory/f'repetition-{repetition}',recipe_hash)
                         record['repetition']=repetition
+                        # Publish the complete accepted schema before the raw ledger
+                        # can reference it; the consumer compares all three records.
+                        _atomic_json(directory/f'repetition-{repetition}'/'pair.json',record,replace=True)
                         entry.update(status='completed',record=record)
                         batch.append(record)
                     except BaseException as error:

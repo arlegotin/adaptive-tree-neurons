@@ -306,6 +306,8 @@ def _run(device, seed, batches, *, evidence):
     from treeneuron.growth.score import score_units
 
     torch.set_num_threads(1)
+    if torch.get_num_interop_threads() != 1:
+        torch.set_num_interop_threads(1)
     report = evidence
     report.update(dict(schema_version=1, check='actual_backend_kernels_and_batches', device=device,
                   status='failed', reason=None, implementation_sha256=implementation_hash(),

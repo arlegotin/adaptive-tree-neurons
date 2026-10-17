@@ -395,11 +395,12 @@ def choose_design(summary: PilotSummary, constraints: Mapping[str, Any]) -> Desi
                     **cost(count)) for count in (k,2*k,4*k))
             within=summary.repetition_variance
             between=summary.between_teacher_variance_lower
+            repetition_cost=c['seconds_per_repetition']+nt*c['seconds_per_evaluation_row']
             optimum=(math.sqrt(within*c['setup_seconds_per_teacher']/
-                (between*c['seconds_per_repetition'])) if within is not None and between and between>0 else None)
+                (between*repetition_cost)) if within is not None and between and between>0 else None)
             candidates={2,r} if optimum is None else {2,r,max(2,math.floor(optimum)),max(2,math.ceil(optimum))}
             recommended=(min(candidates,key=lambda count:(between+within/count)*
-                (c['setup_seconds_per_teacher']+count*c['seconds_per_repetition']))
+                (c['setup_seconds_per_teacher']+count*repetition_cost))
                 if optimum is not None else r)
             forecast['repetition_tradeoff']=dict(observed_within_variance=within,
                 conservative_between_variance=between,

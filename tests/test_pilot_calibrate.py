@@ -52,6 +52,7 @@ def test_coordinator_doubling_ledger_and_every_call_fresh_attempt(tmp_path,monke
     module=importlib.import_module('treeneuron.pilot.calibrate')
     calls=[]
     def run(c,data,e,root,recipe_hash):
+        Path(root).mkdir(parents=True)
         calls.append((data.teacher_id,data.manifest.assignment_hash,tuple(e.row_id),c.seeds.optimizer))
         return dict(teacher_id=data.teacher_id,repetition=0,data_hash=data.manifest.assignment_hash,
             evaluation_hash=str(tuple(e.row_id)),recipe_hash=recipe_hash,
@@ -156,6 +157,7 @@ def test_regeneration_rejects_source_drift_and_raw_measurement_tampering(tmp_pat
     module=importlib.import_module('treeneuron.pilot.calibrate')
     monkeypatch.setattr(module,'_runtime_preflight',lambda c: {})
     def run(c,data,e,root,recipe_hash):
+        Path(root).mkdir(parents=True)
         return dict(teacher_id=data.teacher_id,repetition=0,data_hash=data.manifest.assignment_hash,
             evaluation_hash=str(tuple(e.row_id)),recipe_hash=recipe_hash,h1_rows=[0.,1.,2.,3.,4.],
             static_rows=[0.,1.,2.,3.,4.],controls=['B1','B2','B3','B4','B5','B6'],status='completed')
@@ -188,3 +190,18 @@ def test_pair_publication_failure_restores_global_receipt(tmp_path,cpu_training_
     with pytest.raises(OSError,match='publication fixture'):
         module.run_repetition(module.repetition_config(tc,0),data,e,tmp_path/'failed-pair','recipe')
     assert train.BACKEND_REPORT_PATH==original
+
+
+def test_authentic_coordinator_publishes_equal_pair_attempt_and_accepted_ledgers(tmp_path,cpu_training_evidence):
+    from treeneuron.pilot.calibrate import calibrate
+    c=config(tmp_path).to_dict()
+    c['pilot'].update(initial_teachers=1,max_teachers=1,max_seconds=300.)
+    c['execution']['backend_report']=str(cpu_training_evidence)
+    result=calibrate(resolve_experiment(c))
+    directory=Path(result.diagnostics['attempt_directory'])
+    raw=json.loads((directory/'raw.json').read_text())
+    assert [r['repetition'] for r in raw['accepted_records']]==[0,1]
+    for attempt,accepted in zip(raw['attempts'],raw['accepted_records']):
+        pair=json.loads((directory/f"teacher-{attempt['teacher_index']}"/
+            f"repetition-{attempt['repetition']}"/'pair.json').read_text())
+        assert pair==attempt['record']==accepted

@@ -10,12 +10,13 @@ from test_protocol import repository,prepared,candidate,git
 
 
 @pytest.mark.parametrize('absolute',[True,False])
-def test_receipt_io_survives_unavailable_original_root(tmp_path,absolute):
+def test_receipt_io_survives_unavailable_original_root(tmp_path,absolute,cpu_training_evidence):
     from test_pilot_calibrate import config
     original=(tmp_path/'original').resolve(); original.mkdir()
     receipt=original/'environment/backend.json'; receipt.parent.mkdir()
-    source=Path('environment/evidence7-calibration-fix1/search-backend.json').resolve()
-    shutil.copyfile(source,receipt)
+    # Live relocation must use an actual current-source producer receipt;
+    # historical receipts retain their original source identity.
+    shutil.copyfile(cpu_training_evidence,receipt)
     value=config(tmp_path).to_dict(); value['growth']['m_requested']=1
     value['execution']['backend_report']=str(receipt) if absolute else 'environment/backend.json'
     (original/'config.json').write_text(json.dumps(value))

@@ -296,7 +296,7 @@ def update_run_observations(paths: RunPaths, observations: Mapping[str, Any]) ->
                     backend_fields = {'device', 'dtype', 'execution', 'fallback', 'cpu_threads', 'interop_threads',
                                       'kernel_tolerance', 'resume_tolerance', 'evidence_sha256',
                                       'kernel_implementation_sha256', 'workload', 'performance_calibration_matches',
-                                      'performance_scope', 'causal_cpu_evidence'}
+                                      'performance_scope', 'causal_cpu_evidence', 'cpu_envelope'}
                     if set(actual) - backend_fields:
                         raise ValueError('Unsupported actual backend observation field')
                     if actual.get('device') not in ('cpu', 'mps') or actual.get('dtype') != 'float32' or actual.get('fallback') is not False:

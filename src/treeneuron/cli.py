@@ -143,6 +143,11 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == 'verify-baselines':
         from treeneuron.baselines.causal_checks import collect_causal_report
         if args.track == 'causal':
+            # This CLI owns its serial numerical runtime, matching fresh CPU
+            # receipts. In-process callers retain the explicit runtime contract.
+            import torch
+            if torch.get_num_interop_threads() != 1:
+                torch.set_num_interop_threads(1)
             report = collect_causal_report(backend_report=args.backend_report, artifacts_dir=args.artifacts_dir)
         else:
             from treeneuron.baselines.registry import collect_practical_report

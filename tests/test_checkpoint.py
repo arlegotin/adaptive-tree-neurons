@@ -9,6 +9,18 @@ import torch
 from test_train import training_case, cpu_training_evidence, assert_state_equal
 
 
+def test_checkpoint_rejects_supported_policy_batch_different_from_config(training_case):
+    from treeneuron.train import fit_parent, pack_state, validate_metadata
+    data, config, paths = training_case
+    state = fit_parent(data, config, paths)
+    metadata = pack_state(state)['metadata']
+    # Both values are individually supported, but only the resolved batch4
+    # belongs to this checkpoint's workload and numerical receipt.
+    metadata['stage']['policy'].update(logical_batch_size=256, physical_batch_size=256)
+    with pytest.raises(ValueError, match='batch differs from resolved config'):
+        validate_metadata(metadata, state.identity_hashes, 'cpu')
+
+
 def test_roundtrip_named_optimizer_rng_and_topology(training_case):
     from treeneuron.train import fit_parent, restore_rng
     from treeneuron.checkpoint import save_checkpoint, load_checkpoint
