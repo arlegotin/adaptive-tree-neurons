@@ -1,0 +1,17 @@
+{
+  "attempt": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d",
+  "checked_at_utc": "2026-10-17T21:25:08.150913+00:00",
+  "disk": {
+    "free": 41730478080,
+    "total": 930662584320,
+    "used": 888932106240
+  },
+  "elapsed_seconds": 19.59076375,
+  "errors": [],
+  "expected_files": 28939,
+  "scope": "Original terminal raw seal; no statistical computation/source/model changes",
+  "seal_sha256": "48fbb78a29c4caa1ffb776f929326481d4a911554e64bf6c83ae8304a78f9842",
+  "source": "root_independent_stdlib_rehash",
+  "verified_bytes": 12207295459,
+  "verified_files": 28939
+}

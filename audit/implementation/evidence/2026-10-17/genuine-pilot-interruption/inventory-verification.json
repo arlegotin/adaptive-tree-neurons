@@ -1,0 +1,11 @@
+{
+  "checked_at_utc": "2026-10-17T21:27:29.296775+00:00",
+  "inventory_sha256": "c0a46776b126cd4a30c1f586b25ea3c786155736b362322fccfb428f3c06f4ea",
+  "files": 29003,
+  "bytes": 12219004537,
+  "previously_independently_verified_sealed_files": 28939,
+  "newly_independently_verified_files": 64,
+  "newly_verified_bytes": 11709078,
+  "errors": [],
+  "source": "Root composed exact original-seal verification plus independent all-extra-file rehash; no redundant bulk rehash"
+}

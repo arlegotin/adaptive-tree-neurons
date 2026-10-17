@@ -1,0 +1,3 @@
+   pid 15866(caffeinate): [0x00072cfb00019e96] 00:00:13 PreventUserIdleSystemSleep named: "caffeinate command-line tool"  
+	Details: caffeinate asserting on behalf of Process ID 6994
+	Created for PID: 6994. 

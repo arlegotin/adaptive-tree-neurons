@@ -1,0 +1,17 @@
+{
+  "reason": "Explicit user instruction: continue",
+  "resumed_at_utc": "2026-10-17T21:16:20.823479+00:00",
+  "controller_perf_counter_ns": 513685620640375,
+  "pause_receipt_sha256": "445382844be0b235b5b6767d426e1834d69e794eb5d21b45b2ee1dc294aa193d",
+  "user_paused_utc_seconds": 41833.008834,
+  "user_paused_perf_seconds": 40020.992005584,
+  "signals": {
+    "6993": "SIGCONT",
+    "6994": "SIGCONT"
+  },
+  "caffeinate_pid": 57678,
+  "caffeinate_scope": "Prevent idle sleep only while original worker6994 exists; no persistent power settings",
+  "before": " 6993 53534 Ts   .venv/bin/python environment/h1-v2/genuine-pilot/launch.py\n 6994  6993 T    /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python environment/h1-v2/genuine-pilot/run.py\n",
+  "after": " 6993 53534 Ss   .venv/bin/python environment/h1-v2/genuine-pilot/launch.py\n 6994  6993 R    /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python environment/h1-v2/genuine-pilot/run.py\n57678 57676 Rs   /usr/bin/caffeinate -i -w 6994\n",
+  "timing_policy": "Preserve original producer clocks/budget; separately report user pause duration and affected timing evidence. No source/config/model changes."
+}

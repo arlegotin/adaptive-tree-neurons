@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v2/genuine-pilot/run.py", line 111, in <module>
+    status=main(['calibrate','--config',str(config_path)])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/cli.py", line 129, in main
+    print(json.dumps(asdict(calibrate(load_experiment(args.config))), indent=2, sort_keys=True, allow_nan=False))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/pilot/calibrate.py", line 349, in calibrate
+    raise TimeoutError('Engineering pilot time cap reached between paired repetitions')
+TimeoutError: Engineering pilot time cap reached between paired repetitions

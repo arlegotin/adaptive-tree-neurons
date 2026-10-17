@@ -1,0 +1,32 @@
+{
+  "recorded_utc": "2026-10-17T08:42:30.859640+00:00",
+  "status": "native_sleep_events_confirmed",
+  "sleep_event_command": [
+    "pmset",
+    "-g",
+    "log"
+  ],
+  "sleep_event_filter": "2026-10-17 local07:00 onward; Sleep/DarkWake/Wake rows only; excludes private scheduled wake requests",
+  "sleep_event_count": 119,
+  "observed_first_utc": "2026-10-17T05:44:08Z",
+  "observed_last_utc": "2026-10-17T08:39:52Z",
+  "calendar_interval_seconds": 10544.0,
+  "perf_clock_interval_seconds": 3038.367388958,
+  "calendar_minus_perf_seconds": 7505.632611042,
+  "scope": "observed gaps plus actual sleep events support suspend explanation; not exact attribution of every excluded second",
+  "action": {
+    "command": [
+      "/usr/bin/caffeinate",
+      "-i",
+      "-w",
+      "6994"
+    ],
+    "pid": 15866,
+    "watched_pid": 6994,
+    "watched_command": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python environment/h1-v2/genuine-pilot/run.py",
+    "scope": "temporary idle-sleep assertion automatically released at worker exit; no display/user-active flags or persistent pmset setting"
+  },
+  "numeric_or_source_change": false,
+  "stopping_policy_change": false,
+  "limits": "retain both clock measurements and pre-assertion observations; original perf values are not unconditional UTC walltime"
+}

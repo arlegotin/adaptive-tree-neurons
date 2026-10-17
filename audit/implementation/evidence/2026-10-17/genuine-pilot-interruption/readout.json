@@ -1,0 +1,4143 @@
+{
+  "attempt_roots": [
+    "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d"
+  ],
+  "batches": [
+    {
+      "batch_runtimes": [
+        406.949557520875
+      ],
+      "call": 1,
+      "elapsed_seconds": 7.975914208,
+      "endpoint_mc_error": 0.00020226813323862236,
+      "independent_teachers": 8,
+      "sd_interval": [
+        0.00032156564110452884,
+        0.002177627807291007
+      ],
+      "summary": {
+        "batch_runtimes": [
+          406.949557520875
+        ],
+        "between_teacher_variance_lower": 0.0,
+        "controls": [
+          "B1",
+          "B2",
+          "B3",
+          "B4",
+          "B5",
+          "B6"
+        ],
+        "diagnostics": {
+          "bootstrap_iterations": 8000,
+          "bootstrap_seed": 261022106,
+          "bootstrap_unit": "whole teacher; all inner repetitions remain together",
+          "coverage_limit": "Empirical bootstrap and t sensitivity do not establish nominal coverage",
+          "effective_independent_count": 8,
+          "endpoint_mc_method": "maximum endpoint SE over 10 disjoint bootstrap chunks; absolute mean/SD/variance endpoint values",
+          "future_namespaces": "confirmatory teacher/data/observation namespaces reserved; pilot never reuses them",
+          "intrinsic_variance": {
+            "assumptions": "Conditional on teacher/development data: iid optimizer draws, iid E rows independent of optimizers, finite second moments; independent teachers",
+            "bound": "max(0, observed teacher-mean variance 2.5% lower - mean nuisance allowance 97.5% upper)",
+            "decomposition": "D = teacher mean + optimizer main effect + E-row main effect + centered optimizer-by-E interaction",
+            "evaluation_rows_per_teacher": [
+              262144,
+              262144,
+              262144,
+              262144,
+              262144,
+              262144,
+              262144,
+              262144
+            ],
+            "interaction_policy": "conservative double counting; no residual subtraction",
+            "limitation": "Conservative decomposition in expectation; empirical whole-teacher bootstrap bounds are conditional approximations, not finite-sample coverage guarantees",
+            "mean_nuisance_allowance": 1.5043321003620343e-06,
+            "nuisance_allowance": "rep-mean sample variance/R + row-mean sample variance/N; expectation A/R + B/N + 2*C/(R*N)",
+            "nuisance_allowance_per_teacher": [
+              7.847518377215632e-06,
+              3.278999978158148e-07,
+              0.0,
+              2.523048887302863e-08,
+              0.0,
+              6.98655033545059e-07,
+              3.13535290544674e-06,
+              0.0
+            ],
+            "nuisance_mean_upper": 3.5041793052772682e-06,
+            "observed_teacher_variance_lower": 1.0340446153896665e-07,
+            "status": "unresolved",
+            "tail_policy": "Two 2.5% one-sided bootstrap tails; union bound needs no independence between endpoints",
+            "true_mean_noise": "A/R + B/N + C/(R*N)"
+          },
+          "median": 0.0,
+          "observed_teacher_variance": 2.426427441934325e-06,
+          "optimizer_repetitions": 2,
+          "paired_row_variances": [
+            0.0015362181445512115,
+            0.00037818410143890095,
+            0.0,
+            0.0003757444405370485,
+            0.0,
+            0.004217578735490054,
+            0.008500863029054017,
+            0.0
+          ],
+          "row_variance": "variance across E rows after per-row repetition averaging; shared E correlations retained",
+          "student_t_df": 7,
+          "student_t_interval": [
+            -0.0012160271650527824,
+            0.0013885114223314305
+          ],
+          "variance_component_method": "crossed optimizer/E nuisance upper bound subtracted from observed teacher variance lower bound",
+          "within_teacher_variances": [
+            1.5683316340120418e-05,
+            6.52914679916306e-07,
+            0.0,
+            4.7594275166276314e-08,
+            0.0,
+            1.365132494950454e-06,
+            6.205849372988709e-06,
+            0.0
+          ]
+        },
+        "endpoint_mc_error": 0.00020226813323862236,
+        "evidence_hashes": {
+          "raw_records": "a5ea14505008e511c3fd8bf0d36619275663b67ac1240a753576d9943516fe9b"
+        },
+        "failed_pairs": 0,
+        "h1_interval": [
+          -0.0009565124221546363,
+          0.0010983438107030493
+        ],
+        "h1_mean": 8.624212863932401e-05,
+        "independent_teachers": 8,
+        "paired_row_variance_upper": 0.00400159427126014,
+        "purpose": "scientific",
+        "repetition_variance": 2.9943508953927704e-06,
+        "repetitions": 2,
+        "sd_interval": [
+          0.00032156564110452884,
+          0.002177627807291007
+        ],
+        "static_interval": [
+          -0.046113362475687064,
+          -0.02139664152717296
+        ],
+        "static_mean": -0.034218960520976935,
+        "teacher_means": [
+          -0.002800296086141644,
+          -0.00013234732552138337,
+          0.0,
+          -0.00015426320878011762,
+          0.0,
+          0.0008811362067092243,
+          0.002895707442848513,
+          0.0
+        ]
+      }
+    }
+  ],
+  "config_file_sha256": "25a8f33949ef7c13ba6e38676efa77b8964c28ffacf035976a7f364de6fdea75",
+  "config_path": "environment/h1-v2/scientific-ready/scientific-config.yaml",
+  "constraints_sha256": "85eb857af43d4867b73788b31ee7b30eadee7a2edf44c2e864199702a15e2ae0",
+  "failures": [
+    "TimeoutError: Engineering pilot time cap reached between paired repetitions"
+  ],
+  "package_sha256": "d8e5c0c6549f3b1948ee86b39a2d3234ebe5230e7bb09c13ebfc4351c2cf891c",
+  "paired": [
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 351552608,
+      "h1_mean": 0.0,
+      "optimizer_seed": 345717272,
+      "original_enclosing_ns": 187530872292,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-0/repetition-0",
+      "resource_observation_index": 2,
+      "static_mean": -0.013689274701131302,
+      "status": "completed",
+      "teacher_id": "656c983586d601c21ed62c7361fd199496570959ade9d2a4c58fa1a97306e20f",
+      "wrapper_seconds": 187.768030708
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 284857354,
+      "h1_mean": -0.005600592172283288,
+      "optimizer_seed": 2203189091,
+      "original_enclosing_ns": 152237357041,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-0/repetition-1",
+      "resource_observation_index": 4,
+      "static_mean": -0.019001884903660806,
+      "status": "completed",
+      "teacher_id": "656c983586d601c21ed62c7361fd199496570959ade9d2a4c58fa1a97306e20f",
+      "wrapper_seconds": 152.545969041
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 243325643,
+      "h1_mean": 0.0004390171290591873,
+      "optimizer_seed": 1554093488,
+      "original_enclosing_ns": 119012213333,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-1/repetition-0",
+      "resource_observation_index": 6,
+      "static_mean": -0.0004535827709313759,
+      "status": "completed",
+      "teacher_id": "bc184c8add6951447858b0ddda3e06f74510ed8845bf8f9059a53dd91fecf866",
+      "wrapper_seconds": 119.333719291
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 272265595,
+      "h1_mean": -0.000703711780101954,
+      "optimizer_seed": 3690316534,
+      "original_enclosing_ns": 165441825375,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-1/repetition-1",
+      "resource_observation_index": 8,
+      "static_mean": -0.002388361794490008,
+      "status": "completed",
+      "teacher_id": "bc184c8add6951447858b0ddda3e06f74510ed8845bf8f9059a53dd91fecf866",
+      "wrapper_seconds": 165.771891667
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 393915350,
+      "h1_mean": 0.0,
+      "optimizer_seed": 3064846202,
+      "original_enclosing_ns": 259391375750,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-2/repetition-0",
+      "resource_observation_index": 10,
+      "static_mean": -0.07285511795315991,
+      "status": "completed",
+      "teacher_id": "167888d80f20d0571a9f3cb876076c00eccc4cf0dd2e2c46b3df01c52c302224",
+      "wrapper_seconds": 259.673929041
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 393282381,
+      "h1_mean": 0.0,
+      "optimizer_seed": 2942833038,
+      "original_enclosing_ns": 226146806500,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-2/repetition-1",
+      "resource_observation_index": 12,
+      "static_mean": -0.04546850085917221,
+      "status": "completed",
+      "teacher_id": "167888d80f20d0571a9f3cb876076c00eccc4cf0dd2e2c46b3df01c52c302224",
+      "wrapper_seconds": 226.390115333
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 402509988,
+      "h1_mean": -0.00030852641756023524,
+      "optimizer_seed": 1715124891,
+      "original_enclosing_ns": 232268557125,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-3/repetition-0",
+      "resource_observation_index": 14,
+      "static_mean": -0.017724225770068058,
+      "status": "completed",
+      "teacher_id": "afc288e40fc6d968fbbcb9ab09a5fd30088b9e45bb4ec6970fce6ff831227920",
+      "wrapper_seconds": 232.581468542
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 392408660,
+      "h1_mean": 0.0,
+      "optimizer_seed": 3385582395,
+      "original_enclosing_ns": 225845692375,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-3/repetition-1",
+      "resource_observation_index": 16,
+      "static_mean": -0.03531377568784759,
+      "status": "completed",
+      "teacher_id": "afc288e40fc6d968fbbcb9ab09a5fd30088b9e45bb4ec6970fce6ff831227920",
+      "wrapper_seconds": 226.091516208
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 388956128,
+      "h1_mean": 0.0,
+      "optimizer_seed": 1775342924,
+      "original_enclosing_ns": 239090331875,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-4/repetition-0",
+      "resource_observation_index": 18,
+      "static_mean": -0.054233140255534974,
+      "status": "completed",
+      "teacher_id": "f9f14813407ebdb0198479827cb2eb01683c977e3442c63c3494641df474c60b",
+      "wrapper_seconds": 239.358268833
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 391794637,
+      "h1_mean": 0.0,
+      "optimizer_seed": 1008131100,
+      "original_enclosing_ns": 238883279208,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-4/repetition-1",
+      "resource_observation_index": 20,
+      "static_mean": -0.034955629448707934,
+      "status": "completed",
+      "teacher_id": "f9f14813407ebdb0198479827cb2eb01683c977e3442c63c3494641df474c60b",
+      "wrapper_seconds": 239.127237875
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 293460848,
+      "h1_mean": 5.496053079324401e-05,
+      "optimizer_seed": 4220705933,
+      "original_enclosing_ns": 169416307167,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-5/repetition-0",
+      "resource_observation_index": 22,
+      "static_mean": -0.03666438203670269,
+      "status": "completed",
+      "teacher_id": "76b967f7afc4c6b7881a38eeef6326add44d90f7b0b65bb078fb82d4a5b340e5",
+      "wrapper_seconds": 169.721790167
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 378299549,
+      "h1_mean": 0.001707311882625205,
+      "optimizer_seed": 713247048,
+      "original_enclosing_ns": 207157102000,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-5/repetition-1",
+      "resource_observation_index": 24,
+      "static_mean": -0.06055348295474542,
+      "status": "completed",
+      "teacher_id": "76b967f7afc4c6b7881a38eeef6326add44d90f7b0b65bb078fb82d4a5b340e5",
+      "wrapper_seconds": 207.457288958
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 337384491,
+      "h1_mean": 0.004657219488363489,
+      "optimizer_seed": 4143327650,
+      "original_enclosing_ns": 180040240791,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-6/repetition-0",
+      "resource_observation_index": 26,
+      "static_mean": -0.05140082169004206,
+      "status": "completed",
+      "teacher_id": "66730c322aa3e38713884100a9fa689aa0f2595af32a1755d7e044938ea4bc65",
+      "wrapper_seconds": 180.339889875
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 302002866,
+      "h1_mean": 0.0011341953973335376,
+      "optimizer_seed": 96223050,
+      "original_enclosing_ns": 160484312416,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-6/repetition-1",
+      "resource_observation_index": 28,
+      "static_mean": -0.04137462582577422,
+      "status": "completed",
+      "teacher_id": "66730c322aa3e38713884100a9fa689aa0f2595af32a1755d7e044938ea4bc65",
+      "wrapper_seconds": 160.781003291
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 342035820,
+      "h1_mean": 0.0,
+      "optimizer_seed": 4150659514,
+      "original_enclosing_ns": 187379026750,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-7/repetition-0",
+      "resource_observation_index": 30,
+      "static_mean": -0.027523560530748725,
+      "status": "completed",
+      "teacher_id": "2c965a50bf0f7a2e4d71a0c49540fedb2cc056bc381d8e91db6816ba1fcb112a",
+      "wrapper_seconds": 187.622403
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 382558371,
+      "h1_mean": 0.0,
+      "optimizer_seed": 3887736740,
+      "original_enclosing_ns": 216532393750,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-7/repetition-1",
+      "resource_observation_index": 32,
+      "static_mean": -0.03390300115291359,
+      "status": "completed",
+      "teacher_id": "2c965a50bf0f7a2e4d71a0c49540fedb2cc056bc381d8e91db6816ba1fcb112a",
+      "wrapper_seconds": 216.774691792
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 365729671,
+      "h1_mean": -0.0023525793593718565,
+      "optimizer_seed": 540777114,
+      "original_enclosing_ns": 210693462000,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-8/repetition-0",
+      "resource_observation_index": 34,
+      "static_mean": -0.014725126192601114,
+      "status": "completed",
+      "teacher_id": "d3c5d7453076d1bf2933bcdc45ebe2cc37fee01473cd63b4bd87c45be8229fd6",
+      "wrapper_seconds": 211.000158958
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 286272151,
+      "h1_mean": -0.0008211819302626201,
+      "optimizer_seed": 1184817659,
+      "original_enclosing_ns": 155747940416,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-8/repetition-1",
+      "resource_observation_index": 36,
+      "static_mean": -0.015416762271227135,
+      "status": "completed",
+      "teacher_id": "d3c5d7453076d1bf2933bcdc45ebe2cc37fee01473cd63b4bd87c45be8229fd6",
+      "wrapper_seconds": 156.063210458
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 318320190,
+      "h1_mean": 0.0,
+      "optimizer_seed": 1944034237,
+      "original_enclosing_ns": 178628794250,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-9/repetition-0",
+      "resource_observation_index": 38,
+      "static_mean": -0.027283319528761257,
+      "status": "completed",
+      "teacher_id": "725e437265b89f2a2959f09f8eaa4856e13266b50bc06e17abceb228018355bb",
+      "wrapper_seconds": 178.8809165
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 379290100,
+      "h1_mean": 0.0,
+      "optimizer_seed": 327406040,
+      "original_enclosing_ns": 236961127250,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-9/repetition-1",
+      "resource_observation_index": 40,
+      "static_mean": -0.03338160087022809,
+      "status": "completed",
+      "teacher_id": "725e437265b89f2a2959f09f8eaa4856e13266b50bc06e17abceb228018355bb",
+      "wrapper_seconds": 237.214156917
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 375997663,
+      "h1_mean": -0.002137829772467044,
+      "optimizer_seed": 3737937441,
+      "original_enclosing_ns": 216120751375,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-10/repetition-0",
+      "resource_observation_index": 42,
+      "static_mean": -0.02301690113589321,
+      "status": "completed",
+      "teacher_id": "566298cacbf0cea534db79c687c4c9fcd6a852ed18ca080a263d3ddeadc7f665",
+      "wrapper_seconds": 216.42412175
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 388503241,
+      "h1_mean": 0.0,
+      "optimizer_seed": 3347517102,
+      "original_enclosing_ns": 224786474125,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-10/repetition-1",
+      "resource_observation_index": 44,
+      "static_mean": -0.025490665170269263,
+      "status": "completed",
+      "teacher_id": "566298cacbf0cea534db79c687c4c9fcd6a852ed18ca080a263d3ddeadc7f665",
+      "wrapper_seconds": 225.033660625
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 386076112,
+      "h1_mean": -0.0004530766086812725,
+      "optimizer_seed": 2492312182,
+      "original_enclosing_ns": 228468852125,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-11/repetition-0",
+      "resource_observation_index": 46,
+      "static_mean": -0.015507484268019671,
+      "status": "completed",
+      "teacher_id": "3a4d7ee9449c834a9ee0734123e47c32ed788a80fe9e2f3b4e1c28669c4e6776",
+      "wrapper_seconds": 228.777138292
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 479441788,
+      "h1_mean": -0.0010175311012773462,
+      "optimizer_seed": 2263832510,
+      "original_enclosing_ns": 290204957959,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-11/repetition-1",
+      "resource_observation_index": 48,
+      "static_mean": -0.008448501519562288,
+      "status": "completed",
+      "teacher_id": "3a4d7ee9449c834a9ee0734123e47c32ed788a80fe9e2f3b4e1c28669c4e6776",
+      "wrapper_seconds": 290.515693083
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 490733736,
+      "h1_mean": -0.001402404593726694,
+      "optimizer_seed": 1207170027,
+      "original_enclosing_ns": 308107943083,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-12/repetition-0",
+      "resource_observation_index": 50,
+      "static_mean": -0.02366150886602221,
+      "status": "completed",
+      "teacher_id": "6814ba6b796b8be7c8ebaa9522e35b226770042456eae58fc3446bbbfc984a1f",
+      "wrapper_seconds": 308.422172125
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 443573753,
+      "h1_mean": -0.0034294266454117928,
+      "optimizer_seed": 1471435652,
+      "original_enclosing_ns": 279057807458,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-12/repetition-1",
+      "resource_observation_index": 52,
+      "static_mean": -0.023639126417540613,
+      "status": "completed",
+      "teacher_id": "6814ba6b796b8be7c8ebaa9522e35b226770042456eae58fc3446bbbfc984a1f",
+      "wrapper_seconds": 279.38471725
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 330565302,
+      "h1_mean": 0.0,
+      "optimizer_seed": 3238673077,
+      "original_enclosing_ns": 202816160959,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-13/repetition-0",
+      "resource_observation_index": 54,
+      "static_mean": -0.021134852802547614,
+      "status": "completed",
+      "teacher_id": "18425eca1be602241ac5301d7be67ac33f28943592a737341f6a4bff581a0ec5",
+      "wrapper_seconds": 203.090556666
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 373761253,
+      "h1_mean": 0.0,
+      "optimizer_seed": 252708443,
+      "original_enclosing_ns": 246605898959,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-13/repetition-1",
+      "resource_observation_index": 56,
+      "static_mean": -0.055910886325959586,
+      "status": "completed",
+      "teacher_id": "18425eca1be602241ac5301d7be67ac33f28943592a737341f6a4bff581a0ec5",
+      "wrapper_seconds": 246.863543
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 388095098,
+      "h1_mean": 0.0,
+      "optimizer_seed": 1370149318,
+      "original_enclosing_ns": 246467160792,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-14/repetition-0",
+      "resource_observation_index": 58,
+      "static_mean": -0.0010510308426867664,
+      "status": "completed",
+      "teacher_id": "a795a28bf27d9fb4f572a2b2ba01b72757eb5611f5c3108337d7f25fa67af445",
+      "wrapper_seconds": 246.728575417
+    },
+    {
+      "controls": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "failed_pairs": 0,
+      "final_pair_directory_bytes": 540984056,
+      "h1_mean": -0.0013538085757460047,
+      "optimizer_seed": 832857678,
+      "original_enclosing_ns": 371532944250,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-14/repetition-1",
+      "resource_observation_index": 60,
+      "static_mean": -0.013766923122259092,
+      "status": "completed",
+      "teacher_id": "a795a28bf27d9fb4f572a2b2ba01b72757eb5611f5c3108337d7f25fa67af445",
+      "wrapper_seconds": 371.856625584
+    }
+  ],
+  "peak_rss_bytes": 3667247104,
+  "raw_publications": [
+    {
+      "accepted_records": 0,
+      "attempts": 0,
+      "bytes": 2886,
+      "completed_attempts": 0,
+      "nanoseconds": 608959,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 298467328,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 1,
+      "bytes": 4466,
+      "completed_attempts": 0,
+      "nanoseconds": 536833,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 531021824,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 1,
+      "bytes": 8518044,
+      "completed_attempts": 1,
+      "nanoseconds": 216474584,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 744112128,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 2,
+      "bytes": 8518098,
+      "completed_attempts": 1,
+      "nanoseconds": 217054792,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 744112128,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 2,
+      "bytes": 22135463,
+      "completed_attempts": 2,
+      "nanoseconds": 512818208,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 809746432,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 3,
+      "bytes": 22135517,
+      "completed_attempts": 2,
+      "nanoseconds": 529781083,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 884457472,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 3,
+      "bytes": 35209257,
+      "completed_attempts": 3,
+      "nanoseconds": 1616725459,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 884457472,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 4,
+      "bytes": 35209311,
+      "completed_attempts": 3,
+      "nanoseconds": 1593942000,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 892764160,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 4,
+      "bytes": 48656232,
+      "completed_attempts": 4,
+      "nanoseconds": 1166012583,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 934936576,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 5,
+      "bytes": 48656286,
+      "completed_attempts": 4,
+      "nanoseconds": 1206503208,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1043677184,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 5,
+      "bytes": 57334633,
+      "completed_attempts": 5,
+      "nanoseconds": 1496758542,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1043677184,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 6,
+      "bytes": 57334687,
+      "completed_attempts": 5,
+      "nanoseconds": 1508426125,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1043677184,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 6,
+      "bytes": 66154042,
+      "completed_attempts": 6,
+      "nanoseconds": 1512781291,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1097154560,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 7,
+      "bytes": 66154096,
+      "completed_attempts": 6,
+      "nanoseconds": 1511991625,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1117126656,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 7,
+      "bytes": 79813314,
+      "completed_attempts": 7,
+      "nanoseconds": 1792723875,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1119469568,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 8,
+      "bytes": 79813368,
+      "completed_attempts": 7,
+      "nanoseconds": 1797959875,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1169375232,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 8,
+      "bytes": 88446336,
+      "completed_attempts": 8,
+      "nanoseconds": 2077018250,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1203355648,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 9,
+      "bytes": 88446390,
+      "completed_attempts": 8,
+      "nanoseconds": 2017916208,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1329643520,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 9,
+      "bytes": 97543757,
+      "completed_attempts": 9,
+      "nanoseconds": 2401630292,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1329643520,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 10,
+      "bytes": 97543811,
+      "completed_attempts": 9,
+      "nanoseconds": 2379568917,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1329643520,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 10,
+      "bytes": 106247264,
+      "completed_attempts": 10,
+      "nanoseconds": 2543258208,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1329643520,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 11,
+      "bytes": 106247318,
+      "completed_attempts": 10,
+      "nanoseconds": 2559758750,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1431322624,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 11,
+      "bytes": 120107618,
+      "completed_attempts": 11,
+      "nanoseconds": 2674311916,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1431322624,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 12,
+      "bytes": 120107672,
+      "completed_attempts": 11,
+      "nanoseconds": 2737128833,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1447378944,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 12,
+      "bytes": 133375914,
+      "completed_attempts": 12,
+      "nanoseconds": 3039693041,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1447378944,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 13,
+      "bytes": 133375968,
+      "completed_attempts": 12,
+      "nanoseconds": 3004736792,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1683374080,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 13,
+      "bytes": 146655267,
+      "completed_attempts": 13,
+      "nanoseconds": 3316118167,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1683374080,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 14,
+      "bytes": 146655321,
+      "completed_attempts": 13,
+      "nanoseconds": 3209963208,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1683374080,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 14,
+      "bytes": 159913766,
+      "completed_attempts": 14,
+      "nanoseconds": 3812868917,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1683374080,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 15,
+      "bytes": 159913820,
+      "completed_attempts": 14,
+      "nanoseconds": 3695694084,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1881767936,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 15,
+      "bytes": 168658955,
+      "completed_attempts": 15,
+      "nanoseconds": 3710305625,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1881767936,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 16,
+      "bytes": 168659009,
+      "completed_attempts": 15,
+      "nanoseconds": 3790437417,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1881767936,
+      "status": "running"
+    },
+    {
+      "accepted_records": 0,
+      "attempts": 16,
+      "bytes": 177438867,
+      "completed_attempts": 16,
+      "nanoseconds": 3933942500,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 1881767936,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 17,
+      "bytes": 354872126,
+      "completed_attempts": 16,
+      "nanoseconds": 8063719750,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 2611462144,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 17,
+      "bytes": 368560464,
+      "completed_attempts": 17,
+      "nanoseconds": 8470699417,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 2611462144,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 18,
+      "bytes": 368560518,
+      "completed_attempts": 17,
+      "nanoseconds": 8287387750,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 2611462144,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 18,
+      "bytes": 382025124,
+      "completed_attempts": 18,
+      "nanoseconds": 8857179959,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 2611462144,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 19,
+      "bytes": 382025178,
+      "completed_attempts": 18,
+      "nanoseconds": 8572928084,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 2698756096,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 19,
+      "bytes": 390657900,
+      "completed_attempts": 19,
+      "nanoseconds": 9213940541,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 2698756096,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 20,
+      "bytes": 390657954,
+      "completed_attempts": 19,
+      "nanoseconds": 9021027917,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 2698756096,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 20,
+      "bytes": 399996499,
+      "completed_attempts": 20,
+      "nanoseconds": 9223849875,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 2698756096,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 21,
+      "bytes": 399996554,
+      "completed_attempts": 20,
+      "nanoseconds": 9374919250,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 2698756096,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 21,
+      "bytes": 413545012,
+      "completed_attempts": 21,
+      "nanoseconds": 9417268375,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 2698756096,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 22,
+      "bytes": 413545067,
+      "completed_attempts": 21,
+      "nanoseconds": 9139154417,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 2726608896,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 22,
+      "bytes": 422359682,
+      "completed_attempts": 22,
+      "nanoseconds": 9609803041,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 2726608896,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 23,
+      "bytes": 422359737,
+      "completed_attempts": 22,
+      "nanoseconds": 9812668125,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 2862727168,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 23,
+      "bytes": 436025113,
+      "completed_attempts": 23,
+      "nanoseconds": 9687490625,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 2862727168,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 24,
+      "bytes": 436025168,
+      "completed_attempts": 23,
+      "nanoseconds": 10121524708,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 2877980672,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 24,
+      "bytes": 449522653,
+      "completed_attempts": 24,
+      "nanoseconds": 10251915875,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 2877980672,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 25,
+      "bytes": 449522708,
+      "completed_attempts": 24,
+      "nanoseconds": 10414565917,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 3135094784,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 25,
+      "bytes": 463247890,
+      "completed_attempts": 25,
+      "nanoseconds": 10679330084,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 3135094784,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 26,
+      "bytes": 463247945,
+      "completed_attempts": 25,
+      "nanoseconds": 10679751250,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 3135094784,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 26,
+      "bytes": 477040290,
+      "completed_attempts": 26,
+      "nanoseconds": 11226515500,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 3135094784,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 27,
+      "bytes": 477040345,
+      "completed_attempts": 26,
+      "nanoseconds": 10665141458,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 3295690752,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 27,
+      "bytes": 485884456,
+      "completed_attempts": 27,
+      "nanoseconds": 12659321708,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 3295690752,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 28,
+      "bytes": 485884511,
+      "completed_attempts": 27,
+      "nanoseconds": 11842952750,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 3295690752,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 28,
+      "bytes": 494791843,
+      "completed_attempts": 28,
+      "nanoseconds": 11764392417,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 3295690752,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 29,
+      "bytes": 494791898,
+      "completed_attempts": 28,
+      "nanoseconds": 11621606708,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 3308093440,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 29,
+      "bytes": 503827256,
+      "completed_attempts": 29,
+      "nanoseconds": 12039682667,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 3308093440,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 30,
+      "bytes": 503827311,
+      "completed_attempts": 29,
+      "nanoseconds": 40033385803250,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 3308093440,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 30,
+      "bytes": 517544704,
+      "completed_attempts": 30,
+      "nanoseconds": 12370849250,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 3308093440,
+      "status": "running"
+    },
+    {
+      "accepted_records": 16,
+      "attempts": 30,
+      "bytes": 517544989,
+      "completed_attempts": 30,
+      "nanoseconds": 11920593625,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 3308093440,
+      "status": "failed"
+    }
+  ],
+  "readiness_sha256": "8c422f6d278a8132f00b594e16d7a4c73a22e9f4fdaead3660b25fbc0694c6b1",
+  "receipt_sha256": "4cfb4983fbe8d152decf7e621dc79b2e77b7f4e3825cb379534ce6a4e05e9e42",
+  "recipe_sha256": "4579ba87ffc6be1678b935c5297e849e0a6a53adb0e055ecedea84596ab29c6a",
+  "resolved_config_sha256": "9152a59bb3180da35f780b44a78d9eee59f7efa3e1af9677e4acf307a1bbb073",
+  "resource_limited": false,
+  "resource_observations": [
+    {
+      "boundary": "initial",
+      "coarse_free_percent": 79,
+      "disk": {
+        "free": 56061685760,
+        "total": 930662584320,
+        "used": 874600898560
+      },
+      "elapsed_seconds": 4.03228825,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 489719 \nPages purgeable: 6330 \nPages purged: 43015288 \n\nSwap I/O:\nSwapins: 2853980 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 616486 \nPages inactive: 671058 \nPages speculative: 61883 \nPages throttled: 0 \nPages wired down: 207136 \n\nCompressor Stats:\nPages used by compressor: 254523 \nPages decompressed: 156625332 \nPages compressed: 203739544 \n\nFile I/O:\nPageins: 148065896 \nPageouts: 652137 \n\nSystem-wide memory free percentage: 79%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 296402944,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T05:44:08Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-0/repetition-0",
+      "coarse_free_percent": 79,
+      "disk": {
+        "free": 56001138688,
+        "total": 930662584320,
+        "used": 874661445632
+      },
+      "elapsed_seconds": 16.956217583,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 475726 \nPages purgeable: 2711 \nPages purged: 43015672 \n\nSwap I/O:\nSwapins: 2853988 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 624178 \nPages inactive: 677911 \nPages speculative: 62306 \nPages throttled: 0 \nPages wired down: 205803 \n\nCompressor Stats:\nPages used by compressor: 254531 \nPages decompressed: 156625334 \nPages compressed: 203739544 \n\nFile I/O:\nPageins: 148078454 \nPageouts: 652137 \n\nSystem-wide memory free percentage: 79%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 454058230,
+      "peak_rss_bytes": 531021824,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 36991903,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T05:44:21Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-0/repetition-0",
+      "coarse_free_percent": 79,
+      "disk": {
+        "free": 55522213888,
+        "total": 930662584320,
+        "used": 875140370432
+      },
+      "elapsed_seconds": 204.764518875,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 455321 \nPages purgeable: 2990 \nPages purged: 43017065 \n\nSwap I/O:\nSwapins: 2854096 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 647739 \nPages inactive: 675095 \nPages speculative: 61602 \nPages throttled: 0 \nPages wired down: 206116 \n\nCompressor Stats:\nPages used by compressor: 254548 \nPages decompressed: 156625546 \nPages compressed: 203739544 \n\nFile I/O:\nPageins: 148093375 \nPageouts: 652137 \n\nSystem-wide memory free percentage: 79%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 732069888,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T05:47:29Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-0/repetition-1",
+      "coarse_free_percent": 79,
+      "disk": {
+        "free": 55513645056,
+        "total": 930662584320,
+        "used": 875148939264
+      },
+      "elapsed_seconds": 205.44039475,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 453657 \nPages purgeable: 2949 \nPages purged: 43017065 \n\nSwap I/O:\nSwapins: 2854096 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 648954 \nPages inactive: 675092 \nPages speculative: 62129 \nPages throttled: 0 \nPages wired down: 206116 \n\nCompressor Stats:\nPages used by compressor: 254548 \nPages decompressed: 156625546 \nPages compressed: 203739544 \n\nFile I/O:\nPageins: 148093377 \nPageouts: 652137 \n\nSystem-wide memory free percentage: 79%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 471085494,
+      "peak_rss_bytes": 744112128,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 397058158,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T05:47:30Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-0/repetition-1",
+      "coarse_free_percent": 79,
+      "disk": {
+        "free": 55214747648,
+        "total": 930662584320,
+        "used": 875447836672
+      },
+      "elapsed_seconds": 358.046379041,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 402301 \nPages purgeable: 3590 \nPages purged: 43017841 \n\nSwap I/O:\nSwapins: 2854137 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 656759 \nPages inactive: 692113 \nPages speculative: 74413 \nPages throttled: 0 \nPages wired down: 220710 \n\nCompressor Stats:\nPages used by compressor: 254412 \nPages decompressed: 156626385 \nPages compressed: 203739544 \n\nFile I/O:\nPageins: 148107613 \nPageouts: 652137 \n\nSystem-wide memory free percentage: 79%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 782041088,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T05:50:02Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-1/repetition-0",
+      "coarse_free_percent": 79,
+      "disk": {
+        "free": 55164035072,
+        "total": 930662584320,
+        "used": 875498549248
+      },
+      "elapsed_seconds": 360.550391625,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 404390 \nPages purgeable: 9638 \nPages purged: 43017841 \n\nSwap I/O:\nSwapins: 2854137 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 664425 \nPages inactive: 694243 \nPages speculative: 75331 \nPages throttled: 0 \nPages wired down: 207327 \n\nCompressor Stats:\nPages used by compressor: 254395 \nPages decompressed: 156626425 \nPages compressed: 203739544 \n\nFile I/O:\nPageins: 148107635 \nPageouts: 652137 \n\nSystem-wide memory free percentage: 79%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 498320332,
+      "peak_rss_bytes": 884457472,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 732519925,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T05:50:05Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-1/repetition-0",
+      "coarse_free_percent": 77,
+      "disk": {
+        "free": 54914347008,
+        "total": 930662584320,
+        "used": 875748237312
+      },
+      "elapsed_seconds": 479.9629415,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 20147 \nPages purgeable: 15649 \nPages purged: 43030109 \n\nSwap I/O:\nSwapins: 2854182 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 942714 \nPages inactive: 828394 \nPages speculative: 5741 \nPages throttled: 0 \nPages wired down: 208898 \n\nCompressor Stats:\nPages used by compressor: 294301 \nPages decompressed: 156626868 \nPages compressed: 203812283 \n\nFile I/O:\nPageins: 148421982 \nPageouts: 652343 \n\nSystem-wide memory free percentage: 77%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 884457472,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T05:52:04Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-1/repetition-1",
+      "coarse_free_percent": 62,
+      "disk": {
+        "free": 54901010432,
+        "total": 930662584320,
+        "used": 875761573888
+      },
+      "elapsed_seconds": 483.529692666,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 11331 \nPages purgeable: 5715 \nPages purged: 43030115 \n\nSwap I/O:\nSwapins: 2854182 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 720082 \nPages inactive: 711657 \nPages speculative: 7252 \nPages throttled: 0 \nPages wired down: 555992 \n\nCompressor Stats:\nPages used by compressor: 294300 \nPages decompressed: 156626877 \nPages compressed: 203812283 \n\nFile I/O:\nPageins: 148422166 \nPageouts: 652343 \n\nSystem-wide memory free percentage: 62%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 524467920,
+      "peak_rss_bytes": 892764160,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 988919377,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T05:52:08Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-1/repetition-1",
+      "coarse_free_percent": 61,
+      "disk": {
+        "free": 54591492096,
+        "total": 930662584320,
+        "used": 876071092224
+      },
+      "elapsed_seconds": 649.457493291,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 24290 \nPages purgeable: 3255 \nPages purged: 43035771 \n\nSwap I/O:\nSwapins: 2854221 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 700352 \nPages inactive: 671943 \nPages speculative: 16643 \nPages throttled: 0 \nPages wired down: 593725 \n\nCompressor Stats:\nPages used by compressor: 293462 \nPages decompressed: 156628962 \nPages compressed: 203812283 \n\nFile I/O:\nPageins: 148439640 \nPageouts: 652703 \n\nSystem-wide memory free percentage: 61%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 892764160,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T06:14:44Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-2/repetition-0",
+      "coarse_free_percent": 63,
+      "disk": {
+        "free": 54541463552,
+        "total": 930662584320,
+        "used": 876121120768
+      },
+      "elapsed_seconds": 653.390448416,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 9401 \nPages purgeable: 3257 \nPages purged: 43035773 \n\nSwap I/O:\nSwapins: 2854221 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 722707 \nPages inactive: 703800 \nPages speculative: 17989 \nPages throttled: 0 \nPages wired down: 552584 \n\nCompressor Stats:\nPages used by compressor: 293462 \nPages decompressed: 156628962 \nPages compressed: 203812283 \n\nFile I/O:\nPageins: 148439653 \nPageouts: 652754 \n\nSystem-wide memory free percentage: 63%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 551361870,
+      "peak_rss_bytes": 1043677184,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 1311618991,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T06:14:48Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-2/repetition-0",
+      "coarse_free_percent": 63,
+      "disk": {
+        "free": 54095585280,
+        "total": 930662584320,
+        "used": 876566999040
+      },
+      "elapsed_seconds": 913.194583541,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 13924 \nPages purgeable: 7000 \nPages purged: 43041734 \n\nSwap I/O:\nSwapins: 2854225 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 720443 \nPages inactive: 690402 \nPages speculative: 36415 \nPages throttled: 0 \nPages wired down: 545908 \n\nCompressor Stats:\nPages used by compressor: 293305 \nPages decompressed: 156629589 \nPages compressed: 203812283 \n\nFile I/O:\nPageins: 148448475 \nPageouts: 653152 \n\nSystem-wide memory free percentage: 63%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 1043677184,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T06:51:09Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-2/repetition-1",
+      "coarse_free_percent": 63,
+      "disk": {
+        "free": 54086950912,
+        "total": 930662584320,
+        "used": 876575633408
+      },
+      "elapsed_seconds": 916.485971166,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 7085 \nPages purgeable: 4972 \nPages purged: 43042199 \n\nSwap I/O:\nSwapins: 2854225 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 726641 \nPages inactive: 689331 \nPages speculative: 37790 \nPages throttled: 0 \nPages wired down: 546114 \n\nCompressor Stats:\nPages used by compressor: 293305 \nPages decompressed: 156629589 \nPages compressed: 203812283 \n\nFile I/O:\nPageins: 148448498 \nPageouts: 653152 \n\nSystem-wide memory free percentage: 63%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 568718672,
+      "peak_rss_bytes": 1043677184,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 1714212757,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T06:51:12Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-2/repetition-1",
+      "coarse_free_percent": 78,
+      "disk": {
+        "free": 53652832256,
+        "total": 930662584320,
+        "used": 877009752064
+      },
+      "elapsed_seconds": 1143.00543175,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 521370 \nPages purgeable: 5597 \nPages purged: 43044079 \n\nSwap I/O:\nSwapins: 2854247 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 640363 \nPages inactive: 578055 \nPages speculative: 61519 \nPages throttled: 0 \nPages wired down: 207631 \n\nCompressor Stats:\nPages used by compressor: 291696 \nPages decompressed: 156630542 \nPages compressed: 203812283 \n\nFile I/O:\nPageins: 148487143 \nPageouts: 653178 \n\nSystem-wide memory free percentage: 78%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 1043677184,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T07:10:11Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-3/repetition-0",
+      "coarse_free_percent": 78,
+      "disk": {
+        "free": 53606957056,
+        "total": 930662584320,
+        "used": 877055627264
+      },
+      "elapsed_seconds": 1147.351235541,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 495013 \nPages purgeable: 4138 \nPages purged: 43044463 \n\nSwap I/O:\nSwapins: 2854247 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 653696 \nPages inactive: 585132 \nPages speculative: 67410 \nPages throttled: 0 \nPages wired down: 207640 \n\nCompressor Stats:\nPages used by compressor: 291696 \nPages decompressed: 156630542 \nPages compressed: 203812283 \n\nFile I/O:\nPageins: 148487147 \nPageouts: 653178 \n\nSystem-wide memory free percentage: 78%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 586357490,
+      "peak_rss_bytes": 1117126656,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 2153301459,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T07:10:16Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-3/repetition-0",
+      "coarse_free_percent": 78,
+      "disk": {
+        "free": 53184131072,
+        "total": 930662584320,
+        "used": 877478453248
+      },
+      "elapsed_seconds": 1380.157770833,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 501269 \nPages purgeable: 7301 \nPages purged: 43045636 \n\nSwap I/O:\nSwapins: 2854305 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 650252 \nPages inactive: 586211 \nPages speculative: 63036 \nPages throttled: 0 \nPages wired down: 207449 \n\nCompressor Stats:\nPages used by compressor: 291639 \nPages decompressed: 156630849 \nPages compressed: 203812283 \n\nFile I/O:\nPageins: 148503695 \nPageouts: 653178 \n\nSystem-wide memory free percentage: 78%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 1117126656,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T07:14:08Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-3/repetition-1",
+      "coarse_free_percent": 78,
+      "disk": {
+        "free": 53170257920,
+        "total": 930662584320,
+        "used": 877492326400
+      },
+      "elapsed_seconds": 1384.068651791,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 488401 \nPages purgeable: 4224 \nPages purged: 43046020 \n\nSwap I/O:\nSwapins: 2854305 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 656794 \nPages inactive: 591910 \nPages speculative: 63904 \nPages throttled: 0 \nPages wired down: 207454 \n\nCompressor Stats:\nPages used by compressor: 291637 \nPages decompressed: 156630850 \nPages compressed: 203812283 \n\nFile I/O:\nPageins: 148503752 \nPageouts: 653178 \n\nSystem-wide memory free percentage: 78%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 613676034,
+      "peak_rss_bytes": 1169375232,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 2569470734,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T07:14:12Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-3/repetition-1",
+      "coarse_free_percent": 78,
+      "disk": {
+        "free": 52744957952,
+        "total": 930662584320,
+        "used": 877917626368
+      },
+      "elapsed_seconds": 1610.318664041,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 465893 \nPages purgeable: 4256 \nPages purged: 43047172 \n\nSwap I/O:\nSwapins: 2854343 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 663999 \nPages inactive: 601538 \nPages speculative: 70008 \nPages throttled: 0 \nPages wired down: 207687 \n\nCompressor Stats:\nPages used by compressor: 291649 \nPages decompressed: 156630956 \nPages compressed: 203812283 \n\nFile I/O:\nPageins: 148507132 \nPageouts: 653178 \n\nSystem-wide memory free percentage: 78%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 1169375232,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T07:17:59Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-4/repetition-0",
+      "coarse_free_percent": 78,
+      "disk": {
+        "free": 52692328448,
+        "total": 930662584320,
+        "used": 877970255872
+      },
+      "elapsed_seconds": 1615.774956875,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 444811 \nPages purgeable: 11944 \nPages purged: 43047172 \n\nSwap I/O:\nSwapins: 2854343 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 678823 \nPages inactive: 604388 \nPages speculative: 73288 \nPages throttled: 0 \nPages wired down: 207860 \n\nCompressor Stats:\nPages used by compressor: 291647 \nPages decompressed: 156630960 \nPages compressed: 203812283 \n\nFile I/O:\nPageins: 148507285 \nPageouts: 653178 \n\nSystem-wide memory free percentage: 78%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 630942078,
+      "peak_rss_bytes": 1329643520,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 3007499899,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T07:18:04Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-4/repetition-0",
+      "coarse_free_percent": 61,
+      "disk": {
+        "free": 52181491712,
+        "total": 930662584320,
+        "used": 878481092608
+      },
+      "elapsed_seconds": 1855.314579208,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 19320 \nPages purgeable: 1799 \nPages purged: 43054510 \n\nSwap I/O:\nSwapins: 2854390 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 697225 \nPages inactive: 671181 \nPages speculative: 27377 \nPages throttled: 0 \nPages wired down: 558920 \n\nCompressor Stats:\nPages used by compressor: 326286 \nPages decompressed: 156631553 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 148833151 \nPageouts: 653338 \n\nSystem-wide memory free percentage: 61%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 1329643520,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T07:37:48Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-4/repetition-1",
+      "coarse_free_percent": 59,
+      "disk": {
+        "free": 52172677120,
+        "total": 930662584320,
+        "used": 878489907200
+      },
+      "elapsed_seconds": 1860.382649791,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 9068 \nPages purgeable: 1817 \nPages purged: 43054514 \n\nSwap I/O:\nSwapins: 2854390 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 686095 \nPages inactive: 675015 \nPages speculative: 10467 \nPages throttled: 0 \nPages wired down: 593445 \n\nCompressor Stats:\nPages used by compressor: 326286 \nPages decompressed: 156631554 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 148833415 \nPageouts: 653592 \n\nSystem-wide memory free percentage: 59%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 649136920,
+      "peak_rss_bytes": 1329643520,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 3405553463,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T07:37:53Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-4/repetition-1",
+      "coarse_free_percent": 59,
+      "disk": {
+        "free": 51745005568,
+        "total": 930662584320,
+        "used": 878917578752
+      },
+      "elapsed_seconds": 2099.711531166,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 11525 \nPages purgeable: 8299 \nPages purged: 43059181 \n\nSwap I/O:\nSwapins: 2854394 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 672487 \nPages inactive: 662895 \nPages speculative: 14609 \nPages throttled: 0 \nPages wired down: 613419 \n\nCompressor Stats:\nPages used by compressor: 326234 \nPages decompressed: 156631861 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 148854359 \nPageouts: 653625 \n\nSystem-wide memory free percentage: 59%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 1329643520,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:09:08Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-5/repetition-0",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 51698688000,
+        "total": 930662584320,
+        "used": 878963896320
+      },
+      "elapsed_seconds": 2106.250388958,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 24287 \nPages purgeable: 7009 \nPages purged: 43062120 \n\nSwap I/O:\nSwapins: 2854394 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 955389 \nPages inactive: 768164 \nPages speculative: 18568 \nPages throttled: 0 \nPages wired down: 207944 \n\nCompressor Stats:\nPages used by compressor: 326234 \nPages decompressed: 156631863 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 148854986 \nPageouts: 653625 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 666543934,
+      "peak_rss_bytes": 1431322624,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 3843039199,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:09:14Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-5/repetition-0",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 51391037440,
+        "total": 930662584320,
+        "used": 879271546880
+      },
+      "elapsed_seconds": 2276.188057041,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 483860 \nPages purgeable: 9878 \nPages purged: 43064424 \n\nSwap I/O:\nSwapins: 2854394 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 642047 \nPages inactive: 622239 \nPages speculative: 19492 \nPages throttled: 0 \nPages wired down: 206451 \n\nCompressor Stats:\nPages used by compressor: 326196 \nPages decompressed: 156632100 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 148878033 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 1431322624,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:27:06Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-5/repetition-1",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 51376963584,
+        "total": 930662584320,
+        "used": 879285620736
+      },
+      "elapsed_seconds": 2281.915276541,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 451357 \nPages purgeable: 6311 \nPages purged: 43064424 \n\nSwap I/O:\nSwapins: 2854394 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 658554 \nPages inactive: 631231 \nPages speculative: 26247 \nPages throttled: 0 \nPages wired down: 206464 \n\nCompressor Stats:\nPages used by compressor: 326196 \nPages decompressed: 156632101 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 148878036 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 694264642,
+      "peak_rss_bytes": 1447378944,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 4150360416,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:27:11Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-5/repetition-1",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 50983710720,
+        "total": 930662584320,
+        "used": 879678873600
+      },
+      "elapsed_seconds": 2489.589380833,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 538490 \nPages purgeable: 4181 \nPages purged: 43065955 \n\nSwap I/O:\nSwapins: 2854405 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 613501 \nPages inactive: 572231 \nPages speculative: 42918 \nPages throttled: 0 \nPages wired down: 207162 \n\nCompressor Stats:\nPages used by compressor: 326197 \nPages decompressed: 156632162 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 148894332 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 1447378944,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:30:39Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-6/repetition-0",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 50933227520,
+        "total": 930662584320,
+        "used": 879729356800
+      },
+      "elapsed_seconds": 2497.052863375,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 498370 \nPages purgeable: 4182 \nPages purged: 43065955 \n\nSwap I/O:\nSwapins: 2854409 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 634309 \nPages inactive: 588243 \nPages speculative: 46380 \nPages throttled: 0 \nPages wired down: 207179 \n\nCompressor Stats:\nPages used by compressor: 326197 \nPages decompressed: 156632170 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 148894577 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 720801234,
+      "peak_rss_bytes": 1683374080,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 4578915152,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:30:47Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-6/repetition-0",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 50527072256,
+        "total": 930662584320,
+        "used": 880135512064
+      },
+      "elapsed_seconds": 2677.631625916,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 580308 \nPages purgeable: 4203 \nPages purged: 43067107 \n\nSwap I/O:\nSwapins: 2854461 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 593967 \nPages inactive: 535644 \nPages speculative: 57592 \nPages throttled: 0 \nPages wired down: 206610 \n\nCompressor Stats:\nPages used by compressor: 326174 \nPages decompressed: 156632327 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 148914087 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 1683374080,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:33:47Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-6/repetition-1",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 50513522688,
+        "total": 930662584320,
+        "used": 880149061632
+      },
+      "elapsed_seconds": 2684.467369166,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 547661 \nPages purgeable: 4230 \nPages purged: 43067107 \n\nSwap I/O:\nSwapins: 2854461 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 610703 \nPages inactive: 551241 \nPages speculative: 58461 \nPages throttled: 0 \nPages wired down: 206612 \n\nCompressor Stats:\nPages used by compressor: 326174 \nPages decompressed: 156632327 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 148914151 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 747359940,
+      "peak_rss_bytes": 1683374080,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 4929579011,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:33:54Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-6/repetition-1",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 50179395584,
+        "total": 930662584320,
+        "used": 880483188736
+      },
+      "elapsed_seconds": 2845.503678375,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 535311 \nPages purgeable: 4303 \nPages purged: 43068295 \n\nSwap I/O:\nSwapins: 2854499 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 611619 \nPages inactive: 559353 \nPages speculative: 61500 \nPages throttled: 0 \nPages wired down: 206816 \n\nCompressor Stats:\nPages used by compressor: 326143 \nPages decompressed: 156632603 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 148928374 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 1683374080,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:36:35Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-7/repetition-0",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 50128969728,
+        "total": 930662584320,
+        "used": 880533614592
+      },
+      "elapsed_seconds": 2854.502760333,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 487129 \nPages purgeable: 4303 \nPages purged: 43068297 \n\nSwap I/O:\nSwapins: 2854519 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 640337 \nPages inactive: 575373 \nPages speculative: 64621 \nPages throttled: 0 \nPages wired down: 206632 \n\nCompressor Stats:\nPages used by compressor: 326160 \nPages decompressed: 156632613 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 148928456 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 773876938,
+      "peak_rss_bytes": 1881767936,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 5281827341,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:36:44Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-7/repetition-0",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 49764892672,
+        "total": 930662584320,
+        "used": 880897691648
+      },
+      "elapsed_seconds": 3042.399677208,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 466982 \nPages purgeable: 4808 \nPages purged: 43069469 \n\nSwap I/O:\nSwapins: 2854590 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 621243 \nPages inactive: 609722 \nPages speculative: 70050 \nPages throttled: 0 \nPages wired down: 206421 \n\nCompressor Stats:\nPages used by compressor: 326194 \nPages decompressed: 156632708 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 148972369 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 1881767936,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:39:52Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-7/repetition-1",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 49754177536,
+        "total": 930662584320,
+        "used": 880908406784
+      },
+      "elapsed_seconds": 3050.155952708,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 411714 \nPages purgeable: 3851 \nPages purged: 43069469 \n\nSwap I/O:\nSwapins: 2854590 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 660569 \nPages inactive: 609812 \nPages speculative: 70723 \nPages throttled: 0 \nPages wired down: 221001 \n\nCompressor Stats:\nPages used by compressor: 326192 \nPages decompressed: 156632710 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 148972638 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 791367316,
+      "peak_rss_bytes": 1881767936,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 5632608365,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:40:00Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-7/repetition-1",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 49535778816,
+        "total": 930662584320,
+        "used": 881126805504
+      },
+      "elapsed_seconds": 3267.218252208,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 407915 \nPages purgeable: 5348 \nPages purged: 43071296 \n\nSwap I/O:\nSwapins: 2854708 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 638266 \nPages inactive: 633230 \nPages speculative: 87692 \nPages throttled: 0 \nPages wired down: 207338 \n\nCompressor Stats:\nPages used by compressor: 326209 \nPages decompressed: 156632980 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 148986962 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 1881767936,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:43:37Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-8/repetition-0",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 49316454400,
+        "total": 930662584320,
+        "used": 881346129920
+      },
+      "elapsed_seconds": 3288.560770833,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 351072 \nPages purgeable: 4873 \nPages purged: 43071296 \n\nSwap I/O:\nSwapins: 2854744 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 683125 \nPages inactive: 631194 \nPages speculative: 101286 \nPages throttled: 0 \nPages wired down: 207379 \n\nCompressor Stats:\nPages used by compressor: 326237 \nPages decompressed: 156633009 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 148987301 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 1163793550,
+      "peak_rss_bytes": 2611462144,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 6238367394,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:43:58Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-8/repetition-0",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 48894332928,
+        "total": 930662584320,
+        "used": 881768251392
+      },
+      "elapsed_seconds": 3499.872779375,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 344619 \nPages purgeable: 5476 \nPages purged: 43073909 \n\nSwap I/O:\nSwapins: 2854846 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 659529 \nPages inactive: 654238 \nPages speculative: 108791 \nPages throttled: 0 \nPages wired down: 207568 \n\nCompressor Stats:\nPages used by compressor: 326224 \nPages decompressed: 156633228 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149002237 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 2611462144,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:47:29Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-8/repetition-1",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 48877727744,
+        "total": 930662584320,
+        "used": 881784856576
+      },
+      "elapsed_seconds": 3516.951796833,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 292454 \nPages purgeable: 5208 \nPages purged: 43074121 \n\nSwap I/O:\nSwapins: 2854868 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 707639 \nPages inactive: 654822 \nPages speculative: 112418 \nPages throttled: 0 \nPages wired down: 206764 \n\nCompressor Stats:\nPages used by compressor: 325997 \nPages decompressed: 156634514 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149006869 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 1191170334,
+      "peak_rss_bytes": 2611462144,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 6617785472,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:47:46Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-8/repetition-1",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 48488636416,
+        "total": 930662584320,
+        "used": 882173947904
+      },
+      "elapsed_seconds": 3673.338506875,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 300174 \nPages purgeable: 5216 \nPages purged: 43075287 \n\nSwap I/O:\nSwapins: 2854982 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 673825 \nPages inactive: 673546 \nPages speculative: 118930 \nPages throttled: 0 \nPages wired down: 207904 \n\nCompressor Stats:\nPages used by compressor: 325911 \nPages decompressed: 156635090 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149012365 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 2611462144,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:50:23Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-9/repetition-0",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 48386371584,
+        "total": 930662584320,
+        "used": 882276212736
+      },
+      "elapsed_seconds": 3692.241114625,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 250215 \nPages purgeable: 5251 \nPages purged: 43075334 \n\nSwap I/O:\nSwapins: 2854993 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 717982 \nPages inactive: 673545 \nPages speculative: 125216 \nPages throttled: 0 \nPages wired down: 208020 \n\nCompressor Stats:\nPages used by compressor: 325917 \nPages decompressed: 156635095 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149012537 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 1218099654,
+      "peak_rss_bytes": 2698756096,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 6954508887,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:50:42Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-9/repetition-0",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 47794216960,
+        "total": 930662584320,
+        "used": 882868367360
+      },
+      "elapsed_seconds": 3871.474587333,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 633501 \nPages purgeable: 5323 \nPages purged: 43076501 \n\nSwap I/O:\nSwapins: 2855059 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 556072 \nPages inactive: 511718 \nPages speculative: 66161 \nPages throttled: 0 \nPages wired down: 207535 \n\nCompressor Stats:\nPages used by compressor: 325956 \nPages decompressed: 156635152 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149017330 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 2698756096,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:53:41Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-9/repetition-1",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 47736557568,
+        "total": 930662584320,
+        "used": 882926026752
+      },
+      "elapsed_seconds": 3889.974529625,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 563041 \nPages purgeable: 5333 \nPages purged: 43076501 \n\nSwap I/O:\nSwapins: 2855059 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 596755 \nPages inactive: 514278 \nPages speculative: 92564 \nPages throttled: 0 \nPages wired down: 207566 \n\nCompressor Stats:\nPages used by compressor: 325956 \nPages decompressed: 156635155 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149017439 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 1235365206,
+      "peak_rss_bytes": 2698756096,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 7281461868,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:54:00Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-9/repetition-1",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 46958669824,
+        "total": 930662584320,
+        "used": 883703914496
+      },
+      "elapsed_seconds": 4127.967778833,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 461411 \nPages purgeable: 5643 \nPages purged: 43078144 \n\nSwap I/O:\nSwapins: 2855119 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 615655 \nPages inactive: 555381 \nPages speculative: 134208 \nPages throttled: 0 \nPages wired down: 208284 \n\nCompressor Stats:\nPages used by compressor: 325888 \nPages decompressed: 156635848 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149075272 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 2698756096,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:57:58Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-10/repetition-0",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 46912376832,
+        "total": 930662584320,
+        "used": 883750207488
+      },
+      "elapsed_seconds": 4147.99877375,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 412569 \nPages purgeable: 5642 \nPages purged: 43078528 \n\nSwap I/O:\nSwapins: 2855137 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 665142 \nPages inactive: 551585 \nPages speculative: 137099 \nPages throttled: 0 \nPages wired down: 208311 \n\nCompressor Stats:\nPages used by compressor: 325896 \nPages decompressed: 156635860 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149075772 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 1254042406,
+      "peak_rss_bytes": 2698756096,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 7707078481,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T08:58:18Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-10/repetition-0",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 46530011136,
+        "total": 930662584320,
+        "used": 884132573184
+      },
+      "elapsed_seconds": 4364.7955925,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 440245 \nPages purgeable: 6010 \nPages purged: 43079894 \n\nSwap I/O:\nSwapins: 2855239 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 600674 \nPages inactive: 619788 \nPages speculative: 105440 \nPages throttled: 0 \nPages wired down: 207862 \n\nCompressor Stats:\nPages used by compressor: 325928 \nPages decompressed: 156636007 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149081884 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 2698756096,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T09:01:54Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-10/repetition-1",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 46516219904,
+        "total": 930662584320,
+        "used": 884146364416
+      },
+      "elapsed_seconds": 4383.6715545,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 395688 \nPages purgeable: 5999 \nPages purged: 43080270 \n\nSwap I/O:\nSwapins: 2855239 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 644830 \nPages inactive: 620418 \nPages speculative: 105684 \nPages throttled: 0 \nPages wired down: 207890 \n\nCompressor Stats:\nPages used by compressor: 325928 \nPages decompressed: 156636010 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149082268 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 1281139432,
+      "peak_rss_bytes": 2726608896,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 8096624672,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T09:02:13Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-10/repetition-1",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 46069751808,
+        "total": 930662584320,
+        "used": 884592832512
+      },
+      "elapsed_seconds": 4609.0735095,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 392404 \nPages purgeable: 6007 \nPages purged: 43081446 \n\nSwap I/O:\nSwapins: 2855321 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 618336 \nPages inactive: 650124 \nPages speculative: 105212 \nPages throttled: 0 \nPages wired down: 207939 \n\nCompressor Stats:\nPages used by compressor: 325937 \nPages decompressed: 156636189 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149086492 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 2726608896,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T09:05:59Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-11/repetition-0",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 46022328320,
+        "total": 930662584320,
+        "used": 884640256000
+      },
+      "elapsed_seconds": 4629.892048291,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 336348 \nPages purgeable: 6007 \nPages purged: 43081830 \n\nSwap I/O:\nSwapins: 2855321 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 671657 \nPages inactive: 660962 \nPages speculative: 98142 \nPages throttled: 0 \nPages wired down: 207968 \n\nCompressor Stats:\nPages used by compressor: 325863 \nPages decompressed: 156636268 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149086989 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 1298768772,
+      "peak_rss_bytes": 2862727168,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 8530929676,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T09:06:19Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-11/repetition-0",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 45528031232,
+        "total": 930662584320,
+        "used": 885134553088
+      },
+      "elapsed_seconds": 4859.074219875,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 364240 \nPages purgeable: 8581 \nPages purged: 43082992 \n\nSwap I/O:\nSwapins: 2855393 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 608736 \nPages inactive: 690458 \nPages speculative: 103315 \nPages throttled: 0 \nPages wired down: 207828 \n\nCompressor Stats:\nPages used by compressor: 325863 \nPages decompressed: 156636435 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149114853 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 2862727168,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T09:10:09Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-11/repetition-1",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 45513904128,
+        "total": 930662584320,
+        "used": 885148680192
+      },
+      "elapsed_seconds": 4879.215582916,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 297506 \nPages purgeable: 6517 \nPages purged: 43083368 \n\nSwap I/O:\nSwapins: 2855397 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 673490 \nPages inactive: 693168 \nPages speculative: 102229 \nPages throttled: 0 \nPages wired down: 208094 \n\nCompressor Stats:\nPages used by compressor: 325866 \nPages decompressed: 156636448 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149115411 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 1326099634,
+      "peak_rss_bytes": 2877980672,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 8930671234,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T09:10:29Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-11/repetition-1",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 45040918528,
+        "total": 930662584320,
+        "used": 885621665792
+      },
+      "elapsed_seconds": 5170.177943,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 550404 \nPages purgeable: 7037 \nPages purged: 43085336 \n\nSwap I/O:\nSwapins: 2855471 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 600860 \nPages inactive: 563136 \nPages speculative: 52467 \nPages throttled: 0 \nPages wired down: 207855 \n\nCompressor Stats:\nPages used by compressor: 325741 \nPages decompressed: 156636772 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149182014 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 2877980672,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T09:15:20Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-12/repetition-0",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 44989620224,
+        "total": 930662584320,
+        "used": 885672964096
+      },
+      "elapsed_seconds": 5192.339889208,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 480311 \nPages purgeable: 7040 \nPages purged: 43085336 \n\nSwap I/O:\nSwapins: 2855483 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 636744 \nPages inactive: 568567 \nPages speculative: 81644 \nPages throttled: 0 \nPages wired down: 207016 \n\nCompressor Stats:\nPages used by compressor: 325744 \nPages decompressed: 156636789 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149182327 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 1353094714,
+      "peak_rss_bytes": 3135094784,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 9460598296,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T09:15:42Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-12/repetition-0",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 44484435968,
+        "total": 930662584320,
+        "used": 886178148352
+      },
+      "elapsed_seconds": 5501.71800325,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 378670 \nPages purgeable: 6160 \nPages purged: 43087442 \n\nSwap I/O:\nSwapins: 2855592 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 653129 \nPages inactive: 622800 \nPages speculative: 112795 \nPages throttled: 0 \nPages wired down: 207699 \n\nCompressor Stats:\nPages used by compressor: 325752 \nPages decompressed: 156637044 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149221989 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 3135094784,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T09:20:51Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-12/repetition-1",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 44464922624,
+        "total": 930662584320,
+        "used": 886197661696
+      },
+      "elapsed_seconds": 5523.409725625,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 327930 \nPages purgeable: 6159 \nPages purged: 43087810 \n\nSwap I/O:\nSwapins: 2855634 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 700541 \nPages inactive: 626806 \nPages speculative: 111428 \nPages throttled: 0 \nPages wired down: 207725 \n\nCompressor Stats:\nPages used by compressor: 325780 \nPages decompressed: 156637070 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149222243 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 1380545188,
+      "peak_rss_bytes": 3135094784,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 9965057284,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T09:21:13Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-12/repetition-1",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 43971944448,
+        "total": 930662584320,
+        "used": 886690639872
+      },
+      "elapsed_seconds": 5803.260233666,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 346827 \nPages purgeable: 6187 \nPages purged: 43089336 \n\nSwap I/O:\nSwapins: 2855826 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 663274 \nPages inactive: 661170 \nPages speculative: 96507 \nPages throttled: 0 \nPages wired down: 206673 \n\nCompressor Stats:\nPages used by compressor: 325845 \nPages decompressed: 156637302 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149228979 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 3135094784,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T09:25:53Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-13/repetition-0",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 43920306176,
+        "total": 930662584320,
+        "used": 886742278144
+      },
+      "elapsed_seconds": 5826.714862083,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 291754 \nPages purgeable: 6188 \nPages purged: 43089720 \n\nSwap I/O:\nSwapins: 2855826 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 713112 \nPages inactive: 662174 \nPages speculative: 99837 \nPages throttled: 0 \nPages wired down: 207798 \n\nCompressor Stats:\nPages used by compressor: 325845 \nPages decompressed: 156637302 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149229137 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 1408129988,
+      "peak_rss_bytes": 3295690752,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 10459410934,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T09:26:16Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-13/repetition-0",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 43525697536,
+        "total": 930662584320,
+        "used": 887136886784
+      },
+      "elapsed_seconds": 6030.274122958,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 301457 \nPages purgeable: 6203 \nPages purged: 43090886 \n\nSwap I/O:\nSwapins: 2855884 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 679049 \nPages inactive: 680471 \nPages speculative: 104899 \nPages throttled: 0 \nPages wired down: 208245 \n\nCompressor Stats:\nPages used by compressor: 325867 \nPages decompressed: 156637373 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149234130 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 3295690752,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T09:29:40Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-13/repetition-1",
+      "coarse_free_percent": 76,
+      "disk": {
+        "free": 43501142016,
+        "total": 930662584320,
+        "used": 887161442304
+      },
+      "elapsed_seconds": 6055.066646583,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 258677 \nPages purgeable: 12309 \nPages purged: 43090886 \n\nSwap I/O:\nSwapins: 2855909 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 720424 \nPages inactive: 681583 \nPages speculative: 105532 \nPages throttled: 0 \nPages wired down: 208199 \n\nCompressor Stats:\nPages used by compressor: 325867 \nPages decompressed: 156637406 \nPages compressed: 203857096 \n\nFile I/O:\nPageins: 149234961 \nPageouts: 653873 \n\nSystem-wide memory free percentage: 76%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 1425818320,
+      "peak_rss_bytes": 3295690752,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 10798820417,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T09:30:05Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-13/repetition-1",
+      "coarse_free_percent": 66,
+      "disk": {
+        "free": 43066445824,
+        "total": 930662584320,
+        "used": 887596138496
+      },
+      "elapsed_seconds": 6302.416778875,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 75443 \nPages purgeable: 11337 \nPages purged: 43142721 \n\nSwap I/O:\nSwapins: 2856597 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 724701 \nPages inactive: 715367 \nPages speculative: 8241 \nPages throttled: 0 \nPages wired down: 272968 \n\nCompressor Stats:\nPages used by compressor: 503780 \nPages decompressed: 156767418 \nPages compressed: 204317321 \n\nFile I/O:\nPageins: 149485168 \nPageouts: 659720 \n\nSystem-wide memory free percentage: 66%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 3295690752,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T09:34:12Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-14/repetition-0",
+      "coarse_free_percent": 66,
+      "disk": {
+        "free": 43027304448,
+        "total": 930662584320,
+        "used": 887635279872
+      },
+      "elapsed_seconds": 6327.271280625,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 34581 \nPages purgeable: 18550 \nPages purged: 43143926 \n\nSwap I/O:\nSwapins: 2856632 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 748516 \nPages inactive: 720442 \nPages speculative: 37857 \nPages throttled: 0 \nPages wired down: 266017 \n\nCompressor Stats:\nPages used by compressor: 493356 \nPages decompressed: 156812300 \nPages compressed: 204319661 \n\nFile I/O:\nPageins: 149530138 \nPageouts: 659848 \n\nSystem-wide memory free percentage: 66%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 1443633094,
+      "peak_rss_bytes": 3308093440,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 11218476163,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T09:34:37Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-14/repetition-0",
+      "coarse_free_percent": 63,
+      "disk": {
+        "free": 42563072000,
+        "total": 930662584320,
+        "used": 888099512320
+      },
+      "elapsed_seconds": 6575.070315833,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 13215 \nPages purgeable: 17999 \nPages purged: 43160927 \n\nSwap I/O:\nSwapins: 2857252 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 726289 \nPages inactive: 719587 \nPages speculative: 6293 \nPages throttled: 0 \nPages wired down: 292017 \n\nCompressor Stats:\nPages used by compressor: 543306 \nPages decompressed: 156890798 \nPages compressed: 204492829 \n\nFile I/O:\nPageins: 149725944 \nPageouts: 660316 \n\nSystem-wide memory free percentage: 63%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 3308093440,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T09:38:45Z"
+    },
+    {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-14/repetition-1",
+      "coarse_free_percent": 42,
+      "disk": {
+        "free": 42557251584,
+        "total": 930662584320,
+        "used": 888105332736
+      },
+      "elapsed_seconds": 46620.855981875,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 41573 \nPages purgeable: 102 \nPages purged: 46125737 \n\nSwap I/O:\nSwapins: 2864214 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 471792 \nPages inactive: 434981 \nPages speculative: 35895 \nPages throttled: 0 \nPages wired down: 389930 \n\nCompressor Stats:\nPages used by compressor: 925942 \nPages decompressed: 159486569 \nPages compressed: 208891750 \n\nFile I/O:\nPageins: 152074985 \nPageouts: 689576 \n\nSystem-wide memory free percentage: 42%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t53%; discharging; 2:15 remaining present: true\n"
+        }
+      ],
+      "next_pair_projection_bytes": 1461703920,
+      "peak_rss_bytes": 3308093440,
+      "projection_scope": "half observed fullR2 sample plus two current raw-ledger copies; conditional next-pair disk reserve, not a tail guarantee",
+      "retained_attempt_bytes": 11615606689,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T21:16:22Z"
+    },
+    {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-14/repetition-1",
+      "coarse_free_percent": 50,
+      "disk": {
+        "free": 41873911808,
+        "total": 930662584320,
+        "used": 888788672512
+      },
+      "elapsed_seconds": 46993.994170083,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 38703 \nPages purgeable: 5282 \nPages purged: 46276947 \n\nSwap I/O:\nSwapins: 2864217 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 551557 \nPages inactive: 540687 \nPages speculative: 35213 \nPages throttled: 0 \nPages wired down: 239294 \n\nCompressor Stats:\nPages used by compressor: 895194 \nPages decompressed: 159597862 \nPages compressed: 208924689 \n\nFile I/O:\nPageins: 152126919 \nPageouts: 689918 \n\nSystem-wide memory free percentage: 50%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t49%; discharging; 1:08 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 3308093440,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T21:22:36Z"
+    },
+    {
+      "boundary": "final",
+      "coarse_free_percent": 47,
+      "disk": {
+        "free": 41812631552,
+        "total": 930662584320,
+        "used": 888849952768
+      },
+      "elapsed_seconds": 47056.417542166,
+      "native": [
+        {
+          "command": [
+            "memory_pressure"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 145106 \nPages purgeable: 197 \nPages purged: 46334273 \n\nSwap I/O:\nSwapins: 2864217 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 476701 \nPages inactive: 456039 \nPages speculative: 20247 \nPages throttled: 0 \nPages wired down: 239415 \n\nCompressor Stats:\nPages used by compressor: 962948 \nPages decompressed: 159637266 \nPages compressed: 209165902 \n\nFile I/O:\nPageins: 152737474 \nPageouts: 690028 \n\nSystem-wide memory free percentage: 47%\n"
+        },
+        {
+          "command": [
+            "pmset",
+            "-g",
+            "batt"
+          ],
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t48%; discharging; 1:07 remaining present: true\n"
+        }
+      ],
+      "peak_rss_bytes": 3667247104,
+      "swapouts": 4786629,
+      "utc": "2026-10-17T21:23:38Z"
+    }
+  ],
+  "runtime": {
+    "cpu": 1,
+    "environment": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "interop": 1
+  },
+  "scope": "authorized genuine independent-teacher variance pilot8->16/R2; no freeze/cohort/T",
+  "source": {
+    "checkout_commit": "02d0b8ccef0b3193e2ff296694da8a1b78370887",
+    "execution_sha256": "07366c506b309cce841f08d54f25d718e246f75daea5696d6542c300cfadaf6c",
+    "files": {
+      "configs/explore-core-final-fix-check.yaml": "060ba94a83e6ef3f61e76ba9972c9a45c0da7fdc4cefdacb3dd1b9eb109d1a59",
+      "configs/explore-manifest-fix1-check.yaml": "d9e8f1897aff02e67354e70e809e02381ed029232ffb29807066ebaaf495abb4",
+      "configs/explore-next-allowance.yaml": "40071a886e2681686602c70b6c8c88ac9371c1d92e563c700c49e3e8f1fd1a0e",
+      "configs/explore-positive-control-next-allowance.yaml": "c95bf0aa3b5be4116a557cbc42bc9a633dd91f9932ee5f7e212c0971499100fb",
+      "configs/explore-positive-control.yaml": "349f58f1fe364039ba525cb9888b2afe2f04851e3b07fef2bab86897cbbab2e8",
+      "configs/explore.yaml": "3ec68774b75c46ba140e51f4050289da6e6f7f9c9cd64173ec35e8677697df14",
+      "configs/pilot.yaml": "2d9ce1315828c37ce7856475a9e1c4e5f31faeb47b5f9132ad44f64955d87eb0",
+      "configs/vendor/node/README.md": "4baac2c71c31abaa722cee1e329d042bf654da14f7fdc63e314d6ba33aeb93dd",
+      "configs/vendor/node/compatibility.patch": "8e9e829815409224f2a308fdda06cec7c3500827f8bc735781937fd91a342c4a",
+      "configs/vendor/node/runtime-files.json": "7b39516ddcd4d141c17a5ac80f561e76679ce7e7d2ad53bf333c5adafa67e68e",
+      "configs/vendor/node/sources.json": "75e27a438d1c632284a02472508a5011ad1fc8b39e7da683bad2128cc230fe50",
+      "configs/vendor/node/upstream/LICENSE.md": "60b6519a046458e6901cf233eb0d403ae56f499aa6fc008e95fceb75eea4edd4",
+      "configs/vendor/node/upstream/README.md": "d4bf222d99d3fb42cb26fbc37fb23490fd60c9a4465b0636ae3dcfd43da3e011",
+      "configs/vendor/node/upstream/lib/__init__.py": "16cd879e8b3a6354615dc32fe3335cd4597ab4ad206975f9483fd50a2aa98753",
+      "configs/vendor/node/upstream/lib/arch.py": "02f9d08cfadc96b3d77c04dbe6720be7a5e165892949944c366439c018e50541",
+      "configs/vendor/node/upstream/lib/data.py": "cbe0accfd0ce06bf640af27e7f3112338801383f1f92083449853b16c2d21808",
+      "configs/vendor/node/upstream/lib/nn_utils.py": "91fcac1db376552fef6ec9555cbfefbe468036d8a7d1e1d836d8d5aca8d52a4a",
+      "configs/vendor/node/upstream/lib/odst.py": "878fa48cbf3c319dc9909400efe0ed601dae180754ae30997aaf14c94e59b81b",
+      "configs/vendor/node/upstream/lib/trainer.py": "68db1c8af0f4a71619ba41aca580eea75329b0d231802a1a1c8f469f515549e7",
+      "configs/vendor/node/upstream/lib/utils.py": "fac08661980a8097f8e4e7e6fd3745be19bd91db17def866b6023c9d6127354c",
+      "configs/vendor/node/upstream/notebooks/year_node_8layers.ipynb": "a781e8d4642a593d68b1a74d695f10acaf49c693d820248f7dcb8d5269a3d0a1",
+      "configs/vendor/node/upstream/notebooks/year_node_shallow.ipynb": "28e2dd2fbd4122b282d6cd072772d42f67e4fa40caac9e85c707293e4d16ab0b",
+      "configs/vendor/node/upstream/qhoptim-wheel/qhoptim-1.1.0.dist-info/LICENSE": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85",
+      "configs/vendor/node/upstream/qhoptim-wheel/qhoptim-1.1.0.dist-info/METADATA": "b8cfffd31027114ba0c74a56bba5fc43c28bbf5785ef15e2aab983629cc23df1",
+      "configs/vendor/node/upstream/qhoptim-wheel/qhoptim-1.1.0.dist-info/RECORD": "06ebe85fc0599c78f40ded399628e36333f8134863a5eb9235c76eff21701d79",
+      "configs/vendor/node/upstream/qhoptim-wheel/qhoptim-1.1.0.dist-info/WHEEL": "fcd39722a16039a626966f5124b3d0675dc126e108ae9e63c79a6d443e6e8776",
+      "configs/vendor/node/upstream/qhoptim-wheel/qhoptim-1.1.0.dist-info/top_level.txt": "3405639d7be1939c739e73c10e32dd10aa0bdd67e8f54b41f95de989fc6bd55c",
+      "configs/vendor/node/upstream/qhoptim-wheel/qhoptim-1.1.0.dist-info/zip-safe": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "configs/vendor/node/upstream/qhoptim-wheel/qhoptim/__init__.py": "a5534d8bb0404a6f1a4a613e3d7bddc0dc18ccd059b4d8d2f36ad9bb3648c3f6",
+      "configs/vendor/node/upstream/qhoptim-wheel/qhoptim/common/__init__.py": "7a6086d5dcf565a7ccf9f11f825c2e58d09ed012f080acf8ba68d970d31cbd35",
+      "configs/vendor/node/upstream/qhoptim-wheel/qhoptim/common/param_conv.py": "520925a24cdf861fbf9129eda0892e5f2294cd111c968bc0c4d67a04c96efaf4",
+      "configs/vendor/node/upstream/qhoptim-wheel/qhoptim/pyt/__init__.py": "1f6e73810c773ec8888db36d5c2017f4eec998fb79bad9b25d5454ce9f364f44",
+      "configs/vendor/node/upstream/qhoptim-wheel/qhoptim/pyt/qhadam.py": "ab29409cfa20fcd576ba239440ee3a651dbe734d68743cd3f768727bbc3aeb2e",
+      "configs/vendor/node/upstream/qhoptim-wheel/qhoptim/pyt/qhm.py": "e04b9f10f22216a702c2569beb45a109a1edd90850158f14502b96f90eefe87e",
+      "configs/vendor/node/upstream/qhoptim-wheel/qhoptim/tf/__init__.py": "881966806ea6ef14fcc41e47b3b7f4804f0bc49bf2d5c74d4a8cfcb43dcd7c09",
+      "configs/vendor/node/upstream/qhoptim-wheel/qhoptim/tf/qhadam.py": "4773c9cc2b819db15dacf059819e3ae17e7a9b903e58f49deeaac3490abc963c",
+      "configs/vendor/node/upstream/qhoptim-wheel/qhoptim/tf/qhm.py": "734e0e01648da18b0969abf7e36ec747f987a306ba227b36e63f0c3e32ca6c30",
+      "configs/vendor/node/upstream/qhoptim-wheel/qhoptim/tf/util.py": "96a6fb94ee63bf02c99788f0572062fc3f41ea2089ad96769dcb0830037df8f2",
+      "configs/vendor/node/upstream/qhoptim-wheel/qhoptim/version.py": "a6b0552b8565919aa903b817841f1d34a8c9a6ec4786eeebdbcbc4fc0e6ff728",
+      "configs/vendor/node/upstream/qhoptim/LICENSE": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85",
+      "configs/vendor/node/upstream/qhoptim/qhoptim/pyt/qhadam.py": "ab29409cfa20fcd576ba239440ee3a651dbe734d68743cd3f768727bbc3aeb2e",
+      "configs/vendor/node/upstream/requirements.txt": "e40f34e2ec7ce8f2bf68bb203d1c82d31ed2ee794f7860753f88c1988ca1293f",
+      "configs/vendor/node/year_node_shallow.json": "c0b43aa1fd7c64d6dd2cd0a57a8272de6d62a47e6c63b9d4c2158d166eb557ea",
+      "locks/node/README.md": "a8969b1e18b81d01db6136de792bc19119669bb2e620b2e1d4bc51688299d64c",
+      "locks/node/dependency-licenses.json": "410caa4b8631f6244eac3f4e923e5a7fe3a5c50785611916c1417ecc4406699b",
+      "locks/node/entmax-LICENSE": "4ea5d4b77b0f1c3469f73f2e346336041f5a7b77266349ee9dfe7db16bd5cb57",
+      "locks/node/entmax-attribution.json": "4d97c8df8569744ff98ab843e8aa9805cc00e4a14f22c67d3bf9293fd85357c1",
+      "locks/node/environment.json": "89ce6a4b559114eb759d31092d88287ff5e0cd04672bdcabd9143c3a4e56b561",
+      "locks/node/licenses/certifi/licenses/LICENSE": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+      "locks/node/licenses/charset-normalizer/licenses/LICENSE": "6d0d41bfe170ac6c7dc248c9a63e254d0fb45a60d50a8257d0af92c6e249b887",
+      "locks/node/licenses/idna/licenses/LICENSE.md": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04",
+      "locks/node/licenses/numpy/licenses/LICENSE.txt": "649a589ab31076e79e9ce62ba24eae9959598124176640dbc95f87bd10f34fcf",
+      "locks/node/licenses/numpy/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+      "locks/node/licenses/numpy/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING": "3f2c1ffa76383a55ae0aac01c9737cd70050dff63e1f026694fbe9d662573c98",
+      "locks/node/licenses/numpy/licenses/numpy/_core/src/highway/LICENSE": "e340270d4f64384569a91d546acb5b094d69ce47f0c015db77abb74dc6f815af",
+      "locks/node/licenses/numpy/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt": "f7b14309e5f54e5022b26448eefd419988ada2aec01d3c1162d84a0ea8f21f2c",
+      "locks/node/licenses/numpy/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md": "211e7d737d6179a08f791ebb0a99897ce7cd2457410c542876d125576edfe910",
+      "locks/node/licenses/numpy/licenses/numpy/_core/src/umath/svml/LICENSE": "c17011467b4fe6e20fbfbeda4df09e58c2bca5480a063e55735a4000a379aad9",
+      "locks/node/licenses/numpy/licenses/numpy/fft/pocketfft/LICENSE.md": "a85ca13fdf90160b64a0698215868c13b74d835ad0a4e2ba44713b8c5058a056",
+      "locks/node/licenses/numpy/licenses/numpy/linalg/lapack_lite/LICENSE.txt": "a14cc25e10d40a3aa705b7de2fb764a6535d8ee9b2db4e1724900585457dfd55",
+      "locks/node/licenses/numpy/licenses/numpy/ma/LICENSE": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+      "locks/node/licenses/numpy/licenses/numpy/random/LICENSE.md": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+      "locks/node/licenses/numpy/licenses/numpy/random/src/distributions/LICENSE.md": "469778be8f33d54e1bcaab28c281cc472916d2d273f835e55bc487d30503face",
+      "locks/node/licenses/numpy/licenses/numpy/random/src/mt19937/LICENSE.md": "0e111337b25494a773106695f0e799f642b8567aaacca4f116a74a8177179156",
+      "locks/node/licenses/numpy/licenses/numpy/random/src/pcg64/LICENSE.md": "e7d4f4fb20358f314210a892ae17351e04993813646f697ec387385ca2a36918",
+      "locks/node/licenses/numpy/licenses/numpy/random/src/philox/LICENSE.md": "6f5828a57223d4cc7f8ea505a2623e7b978b242752c1515e355f46ba2cec1800",
+      "locks/node/licenses/numpy/licenses/numpy/random/src/sfc64/LICENSE.md": "9d4098846018319cd68e228ee6220361787f73bccbf00237a85e4fc9621b998f",
+      "locks/node/licenses/numpy/licenses/numpy/random/src/splitmix64/LICENSE.md": "268b0ca06759d31ea3ca68dd35f20e877916e927b1c2a835e4592a3c4354b1f9",
+      "locks/node/licenses/pandas/LICENSE": "5c1052e921e62d36ccda50a61585e9c0444b80c62f39b57c4f3f0d5fb62f5071",
+      "locks/node/licenses/requests/licenses/LICENSE": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
+      "locks/node/licenses/scikit-learn/licenses/COPYING": "fc8dc597df0e3f51da65e2a71021e7f92e0b481998ec572a53c03ac0441db040",
+      "locks/node/licenses/scipy/LICENSE.txt": "09a1b9e19573045b0784a181cc4bef677039d4f2111631c747bf72b7f19017d4",
+      "locks/node/licenses/torch/licenses/LICENSE": "bd018feef8825e88181c84eb7e3aa4eafb8f08a20d9fd6ef948569610c4a3e43",
+      "locks/node/licenses/torch/licenses/third_party/FP16/LICENSE": "17e4f539024be2749ee729d1e2f01d24cef12ece8c9bf18e91a4349be29c80bf",
+      "locks/node/licenses/torch/licenses/third_party/FXdiv/LICENSE": "7cac00006125b1486a27e4801ed66357236e984c540bd323945ab7b66b078ec3",
+      "locks/node/licenses/torch/licenses/third_party/NNPACK/LICENSE": "ab09e33621f513ebdd1ef685b324f39c1f6bee9221d15600bafd958322df1231",
+      "locks/node/licenses/torch/licenses/third_party/NVTX/LICENSE.txt": "abdfd8a6738b27cd1504e091f77b682dbae928339f040b8a6f59a548245991a0",
+      "locks/node/licenses/torch/licenses/third_party/NVTX/docs/LICENSE.txt": "abdfd8a6738b27cd1504e091f77b682dbae928339f040b8a6f59a548245991a0",
+      "locks/node/licenses/torch/licenses/third_party/NVTX/python/LICENSE.txt": "abdfd8a6738b27cd1504e091f77b682dbae928339f040b8a6f59a548245991a0",
+      "locks/node/licenses/torch/licenses/third_party/NVTX/rust/LICENSE": "e165ed77854f47fb208850d23d935a9f0ab8bb4527381466beeb16025e2f6e9e",
+      "locks/node/licenses/torch/licenses/third_party/VulkanMemoryAllocator/LICENSE.txt": "8d70e4cf2a9941f6454da71cd60e38484dd3e34810c824760d550e982af6d97a",
+      "locks/node/licenses/torch/licenses/third_party/XNNPACK/LICENSE": "63f519e15726f4c4f830bd958f694c84fecb4e0a4cacc527d2696bb71ef95ada",
+      "locks/node/licenses/torch/licenses/third_party/aiter/3rdparty/composable_kernel/LICENSE": "20f3b83dfda01bd18d285e0edbb9d044be6dde04cdf76a1ec18d9fc7127936bf",
+      "locks/node/licenses/torch/licenses/third_party/aiter/LICENSE": "0baca809927cad448401b252ce3bae12687c2987597ad7088cf3423f872d5bcd",
+      "locks/node/licenses/torch/licenses/third_party/benchmark/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "locks/node/licenses/torch/licenses/third_party/composable_kernel/LICENSE": "20f3b83dfda01bd18d285e0edbb9d044be6dde04cdf76a1ec18d9fc7127936bf",
+      "locks/node/licenses/torch/licenses/third_party/cpp-httplib/LICENSE": "4b45cbe16d7b71b89ae6127e26e0d90a029198ca5e958ad8e3d0b8bbed364d8b",
+      "locks/node/licenses/torch/licenses/third_party/cpuinfo/LICENSE": "8e7e60636c3aa0cb03571a1a841ce5697f9551ff92b3c426c2561613d15ade70",
+      "locks/node/licenses/torch/licenses/third_party/cpuinfo/deps/clog/LICENSE": "68a14c3e79add023eecd83d611e73f05b8bf1d16852efeb7eb4033a96736da9e",
+      "locks/node/licenses/torch/licenses/third_party/cudnn_frontend/LICENSE.txt": "3fc4b473a2c08768a8066bf7e4a58a1185060f3ad674f2ca9e2011bca4adf2ce",
+      "locks/node/licenses/torch/licenses/third_party/cutlass/LICENSE.txt": "ad1513ca983da737a6843364ad19e8424a56d860736c2da773b8c5be527e1475",
+      "locks/node/licenses/torch/licenses/third_party/cutlass/python/LICENSE.txt": "00bf1806f664ac1afe4221f5f04b384fb6f1ca6eb33efcb6dccf599eb06d08b9",
+      "locks/node/licenses/torch/licenses/third_party/fbgemm/LICENSE": "12c2370ec32e78115dcd71ba22cdcb1297320fdc4ade81f798136d42357c58b8",
+      "locks/node/licenses/torch/licenses/third_party/fbgemm/external/composable_kernel/LICENSE": "20f3b83dfda01bd18d285e0edbb9d044be6dde04cdf76a1ec18d9fc7127936bf",
+      "locks/node/licenses/torch/licenses/third_party/fbgemm/external/cpuinfo/LICENSE": "8e7e60636c3aa0cb03571a1a841ce5697f9551ff92b3c426c2561613d15ade70",
+      "locks/node/licenses/torch/licenses/third_party/fbgemm/external/cpuinfo/deps/clog/LICENSE": "68a14c3e79add023eecd83d611e73f05b8bf1d16852efeb7eb4033a96736da9e",
+      "locks/node/licenses/torch/licenses/third_party/fbgemm/external/cutlass/LICENSE.txt": "80a7a18b73d41f64dd9ca881af35938f8de88b18c728703251f4c94d1299884d",
+      "locks/node/licenses/torch/licenses/third_party/fbgemm/external/cutlass/python/LICENSE.txt": "42fec630f410aa308f70a51a89fadcd19586fa620f9831a32bee528a9a10000e",
+      "locks/node/licenses/torch/licenses/third_party/fbgemm/external/googletest/LICENSE": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+      "locks/node/licenses/torch/licenses/third_party/fbgemm/external/hipify_torch/LICENSE.txt": "ecf819d55b17c2f091b3ba0934d044368aa0680d8a81374860306aa2b91aa1eb",
+      "locks/node/licenses/torch/licenses/third_party/fbgemm/fbgemm_gpu/experimental/hstu/LICENSE": "8c9ccb96c065e706135b6cbad279b721da6156e51f3a5f27c6b3329af9416d73",
+      "locks/node/licenses/torch/licenses/third_party/fbgemm/fbgemm_gpu/src/quantize_ops/mx/LICENSE": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "locks/node/licenses/torch/licenses/third_party/fbgemm/fbgemm_gpu/test/quantize/mx/LICENSE": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "locks/node/licenses/torch/licenses/third_party/flash-attention/LICENSE": "8c9ccb96c065e706135b6cbad279b721da6156e51f3a5f27c6b3329af9416d73",
+      "locks/node/licenses/torch/licenses/third_party/flash-attention/csrc/composable_kernel/LICENSE": "20f3b83dfda01bd18d285e0edbb9d044be6dde04cdf76a1ec18d9fc7127936bf",
+      "locks/node/licenses/torch/licenses/third_party/flash-attention/csrc/cutlass/LICENSE.txt": "80a7a18b73d41f64dd9ca881af35938f8de88b18c728703251f4c94d1299884d",
+      "locks/node/licenses/torch/licenses/third_party/flash-attention/csrc/cutlass/python/LICENSE.txt": "42fec630f410aa308f70a51a89fadcd19586fa620f9831a32bee528a9a10000e",
+      "locks/node/licenses/torch/licenses/third_party/flash-attention/flash_attn/cute/LICENSE": "8c9ccb96c065e706135b6cbad279b721da6156e51f3a5f27c6b3329af9416d73",
+      "locks/node/licenses/torch/licenses/third_party/flash-attention/third_party/aiter/3rdparty/composable_kernel/LICENSE": "20f3b83dfda01bd18d285e0edbb9d044be6dde04cdf76a1ec18d9fc7127936bf",
+      "locks/node/licenses/torch/licenses/third_party/flash-attention/third_party/aiter/LICENSE": "0baca809927cad448401b252ce3bae12687c2987597ad7088cf3423f872d5bcd",
+      "locks/node/licenses/torch/licenses/third_party/flatbuffers/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "locks/node/licenses/torch/licenses/third_party/flatbuffers/dart/LICENSE": "edd9b3459bee4c79b549a5ef66d06d12bd144ddb8d08e0b448fb421267f43dd5",
+      "locks/node/licenses/torch/licenses/third_party/flatbuffers/swift/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "locks/node/licenses/torch/licenses/third_party/fmt/LICENSE": "a65fcc5a1095fc33cc37e4fff69366e49d7e92f613558a2b95ed1b70e33758b4",
+      "locks/node/licenses/torch/licenses/third_party/gemmlowp/gemmlowp/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "locks/node/licenses/torch/licenses/third_party/gloo/LICENSE": "2afbc572cf7f60888159bc2ca48ba58f8adec06682ae5de820d61449d1eeea81",
+      "locks/node/licenses/torch/licenses/third_party/googletest/LICENSE": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+      "locks/node/licenses/torch/licenses/third_party/ideep/LICENSE": "a26add03107a53a605a89711b9b7dbd4f5dd668ae193a912e01a879366a23b0e",
+      "locks/node/licenses/torch/licenses/third_party/ideep/mkl-dnn/LICENSE": "e9fc874fc09801b9acf3411ba72394098473704d832d713404b6c4861a086318",
+      "locks/node/licenses/torch/licenses/third_party/ideep/mkl-dnn/third_party/gtest/LICENSE": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+      "locks/node/licenses/torch/licenses/third_party/ideep/mkl-dnn/third_party/opencl/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "locks/node/licenses/torch/licenses/third_party/kineto/LICENSE": "6f3d59b9103e72e5c977eecf61b261c2e1546a9be2995847e3ee2d31021fd39b",
+      "locks/node/licenses/torch/licenses/third_party/kineto/libkineto/third_party/dynolog_headers/LICENSE": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85",
+      "locks/node/licenses/torch/licenses/third_party/kineto/libkineto/third_party/fmt/LICENSE": "07580f2a3b35709ce703d523f447b242f6dfec7582a8c0df102c7fa2849375f8",
+      "locks/node/licenses/torch/licenses/third_party/kineto/libkineto/third_party/googletest/LICENSE": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+      "locks/node/licenses/torch/licenses/third_party/llvm-openmp/LICENSE.txt": "68395143f21a9aa29b8232168c71892af5ec4f1ae2529571cd250a71c9e37a03",
+      "locks/node/licenses/torch/licenses/third_party/mimalloc/LICENSE": "82ade5d7d9b029044b5fbbc326207fc47c2d44ee4dd71e8a559c36d728217de9",
+      "locks/node/licenses/torch/licenses/third_party/miniz-3.0.2/LICENSE": "0115478d567121238cf6cc1c0c361926cf07a49d9e4c9e66da97fac6a01646b3",
+      "locks/node/licenses/torch/licenses/third_party/mslk/LICENSE": "44519cbe722d7bf092cd7e0fa26558b9e3905b88fca4c0c278e2733a9f6b4cf9",
+      "locks/node/licenses/torch/licenses/third_party/mslk/external/composable_kernel/LICENSE": "20f3b83dfda01bd18d285e0edbb9d044be6dde04cdf76a1ec18d9fc7127936bf",
+      "locks/node/licenses/torch/licenses/third_party/mslk/external/cutlass/LICENSE.txt": "80a7a18b73d41f64dd9ca881af35938f8de88b18c728703251f4c94d1299884d",
+      "locks/node/licenses/torch/licenses/third_party/mslk/external/cutlass/python/LICENSE.txt": "42fec630f410aa308f70a51a89fadcd19586fa620f9831a32bee528a9a10000e",
+      "locks/node/licenses/torch/licenses/third_party/mslk/external/googletest/LICENSE": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+      "locks/node/licenses/torch/licenses/third_party/mslk/external/hipify_torch/LICENSE.txt": "ecf819d55b17c2f091b3ba0934d044368aa0680d8a81374860306aa2b91aa1eb",
+      "locks/node/licenses/torch/licenses/third_party/mslk/mslk/attention/flash_attn/LICENSE": "8c9ccb96c065e706135b6cbad279b721da6156e51f3a5f27c6b3329af9416d73",
+      "locks/node/licenses/torch/licenses/third_party/nccl/LICENSE.txt": "c1f53beabe4dbf05bd87c00f7ca6084c0cb541c3f7bf8edab7913f266018b7be",
+      "locks/node/licenses/torch/licenses/third_party/nccl/bindings/nccl4py/LICENSE.txt": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "locks/node/licenses/torch/licenses/third_party/nccl/contrib/nccl_checkpoint/python/LICENSE.txt": "89374f8cc48236dccfcd0cea43974f7ee4f4bf77c8649da71c7c4cfef515f0d7",
+      "locks/node/licenses/torch/licenses/third_party/nccl/contrib/nccl_ep/LICENSE.txt": "89374f8cc48236dccfcd0cea43974f7ee4f4bf77c8649da71c7c4cfef515f0d7",
+      "locks/node/licenses/torch/licenses/third_party/nccl/contrib/nccl_ubx/LICENSE.txt": "89374f8cc48236dccfcd0cea43974f7ee4f4bf77c8649da71c7c4cfef515f0d7",
+      "locks/node/licenses/torch/licenses/third_party/onnx/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "locks/node/licenses/torch/licenses/third_party/onnx/third_party/pybind11/LICENSE": "83965b843b98f670d3a85bd041ed4b372c8ec50d7b4a5995a83ac697ba675dcb",
+      "locks/node/licenses/torch/licenses/third_party/perfetto/LICENSE": "9a682a56cffc9524dfa9b0b1c0dca9cb81a19e96d5bd0793aaf02c08a95ee7ca",
+      "locks/node/licenses/torch/licenses/third_party/protobuf/LICENSE": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d",
+      "locks/node/licenses/torch/licenses/third_party/protobuf/third_party/benchmark/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "locks/node/licenses/torch/licenses/third_party/protobuf/third_party/googletest/LICENSE": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+      "locks/node/licenses/torch/licenses/third_party/protobuf/third_party/googletest/googlemock/LICENSE": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+      "locks/node/licenses/torch/licenses/third_party/protobuf/third_party/googletest/googlemock/scripts/generator/LICENSE": "5e0df8c845c742e76f2f64d2d9ce1b7e74a2422fddbc577ae6a56319083de0bf",
+      "locks/node/licenses/torch/licenses/third_party/protobuf/third_party/googletest/googletest/LICENSE": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+      "locks/node/licenses/torch/licenses/third_party/protobuf/third_party/utf8_range/LICENSE": "5a629d2b868081d8af08bbce5d038116f3a0e2e0d4ce9adf4d53f14e76b6b2e0",
+      "locks/node/licenses/torch/licenses/third_party/psimd/LICENSE": "984ce1e0b8ee89d234e28b960381f240e03a07a8031f35012f9c3256f56964e2",
+      "locks/node/licenses/torch/licenses/third_party/pthreadpool/LICENSE": "57814a606b4d0fb087d9a534919084b6c11b58a4174cb5a4aef200187780dc3a",
+      "locks/node/licenses/torch/licenses/third_party/pybind11/LICENSE": "83965b843b98f670d3a85bd041ed4b372c8ec50d7b4a5995a83ac697ba675dcb",
+      "locks/node/licenses/torch/licenses/third_party/python-peachpy/LICENSE.rst": "e6d6fdbfc09c9cc1bfc55946ca9690dd9276deeaed2b72ac7fc5c79bde80ff32",
+      "locks/node/licenses/torch/licenses/third_party/sleef/LICENSE.txt": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+      "locks/node/licenses/torch/licenses/third_party/tensorpipe/LICENSE.txt": "f4dcef0d1f0520b414d5bfaeed8df02f188e4ec05c0a17bf1c18f25f6cc66245",
+      "locks/node/licenses/torch/licenses/third_party/tensorpipe/third_party/googletest/LICENSE": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+      "locks/node/licenses/torch/licenses/third_party/tensorpipe/third_party/googletest/googlemock/LICENSE": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+      "locks/node/licenses/torch/licenses/third_party/tensorpipe/third_party/googletest/googlemock/scripts/generator/LICENSE": "5e0df8c845c742e76f2f64d2d9ce1b7e74a2422fddbc577ae6a56319083de0bf",
+      "locks/node/licenses/torch/licenses/third_party/tensorpipe/third_party/googletest/googletest/LICENSE": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+      "locks/node/licenses/torch/licenses/third_party/tensorpipe/third_party/libnop/LICENSE": "876e8f7432440974ee5543a2aa1344370ef1f2f7949ad98a1f3899cf722d5631",
+      "locks/node/licenses/torch/licenses/third_party/tensorpipe/third_party/libuv/LICENSE": "16de0c32b265cb7d46a6d3bd614f259dd4d693a5e26b3407b04aae8d73041f0c",
+      "locks/node/licenses/torch/licenses/third_party/tensorpipe/third_party/pybind11/LICENSE": "9a37ea54aa3cf12c7f3292799f20822ffd4b9b7142b36a7a9997b28c39264dc9",
+      "locks/node/licenses/urllib3/licenses/LICENSE.txt": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686",
+      "locks/node/qhoptim-wheel.json": "ef2b319a70881d18a2778dca080382b090b3be44640353f91370dad7d3347033",
+      "locks/node/reference-distributions.json": "a4b9c866a4beccff85481b1f323809a2f2348b5efe5d38b3b1afa1e9e9ee53d2",
+      "locks/node/reference-requirements.txt": "bdae24b0dd5efb3363c8a73829370accf3c599191519832f12f37b885fa9e5eb",
+      "locks/search/README.md": "588d8e08d355287d472b66fce018dba89d3fdcf7e59732e72791fd09c9034c9e",
+      "locks/search/dependency-licenses.json": "95b60fc814f1b4e470598f8dd5273ea7e6458a153c51131bbbffbff85e7b0ad9",
+      "locks/search/environment.json": "d1d3bfc697c5393ec7f4e4a6a2c33a4cd1310d3a3d69540464fe97b89af48b59",
+      "locks/search/licenses/Mako/mako-1.4.3.dist-info/licenses/LICENSE": "8c1d171bc5d341ad9cd33d5e2c39b96a82c7bd49b3ae89a470c37e5822232054",
+      "locks/search/licenses/MarkupSafe/markupsafe-3.0.4.dist-info/licenses/LICENSE.txt": "489a8e1108509ed98a37bb983e11e0f7e1d31f0bd8f99a79c8448e7ff37d07ea",
+      "locks/search/licenses/PyYAML/pyyaml-6.0.3.dist-info/licenses/LICENSE": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4",
+      "locks/search/licenses/SQLAlchemy/sqlalchemy-2.1.4.dist-info/licenses/LICENSE": "e862bb5b904fb5513c3e14288d7a25a12eb0ecc7847a0a965d310e9a955e7cb9",
+      "locks/search/licenses/alembic/alembic-1.20.0.dist-info/licenses/LICENSE": "6e68d94a03a0e3e327ddf3e86d1ebedc14eece3922022618fc246a36296fd0cc",
+      "locks/search/licenses/colorlog/colorlog-6.12.0.dist-info/licenses/LICENSE": "b1d9082bc483623fd59fc7279b457f0e40d942a76426cde257239e04dfe4125a",
+      "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/LICENSE.txt": "649a589ab31076e79e9ce62ba24eae9959598124176640dbc95f87bd10f34fcf",
+      "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+      "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING": "3f2c1ffa76383a55ae0aac01c9737cd70050dff63e1f026694fbe9d662573c98",
+      "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE": "e340270d4f64384569a91d546acb5b094d69ce47f0c015db77abb74dc6f815af",
+      "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md": "211e7d737d6179a08f791ebb0a99897ce7cd2457410c542876d125576edfe910",
+      "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE": "c17011467b4fe6e20fbfbeda4df09e58c2bca5480a063e55735a4000a379aad9",
+      "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md": "a85ca13fdf90160b64a0698215868c13b74d835ad0a4e2ba44713b8c5058a056",
+      "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt": "a14cc25e10d40a3aa705b7de2fb764a6535d8ee9b2db4e1724900585457dfd55",
+      "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+      "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+      "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/random/src/distributions/LICENSE.md": "469778be8f33d54e1bcaab28c281cc472916d2d273f835e55bc487d30503face",
+      "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md": "0e111337b25494a773106695f0e799f642b8567aaacca4f116a74a8177179156",
+      "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md": "e7d4f4fb20358f314210a892ae17351e04993813646f697ec387385ca2a36918",
+      "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/random/src/philox/LICENSE.md": "6f5828a57223d4cc7f8ea505a2623e7b978b242752c1515e355f46ba2cec1800",
+      "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md": "9d4098846018319cd68e228ee6220361787f73bccbf00237a85e4fc9621b998f",
+      "locks/search/licenses/numpy/numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md": "268b0ca06759d31ea3ca68dd35f20e877916e927b1c2a835e4592a3c4354b1f9",
+      "locks/search/licenses/numpy/numpy/_core/include/numpy/random/LICENSE.txt": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+      "locks/search/licenses/numpy/numpy/ma/LICENSE": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+      "locks/search/licenses/numpy/numpy/random/LICENSE.md": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+      "locks/search/licenses/optuna/optuna-4.5.0.dist-info/licenses/LICENSE": "c3df8e8523cf46be4b366ee7dd11578454b10ea5ec5159e57df849513aafe059",
+      "locks/search/licenses/optuna/optuna-4.5.0.dist-info/licenses/LICENSE_THIRD_PARTY": "dbff6df3cb59b7fb11de7e234630e139318ee8cada55e2f14a24d184c48954a8",
+      "locks/search/licenses/packaging/packaging-26.3.dist-info/licenses/LICENSE": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+      "locks/search/licenses/packaging/packaging-26.3.dist-info/licenses/LICENSE.APACHE": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "locks/search/licenses/packaging/packaging-26.3.dist-info/licenses/LICENSE.BSD": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+      "locks/search/licenses/tqdm/tqdm-4.67.1.dist-info/LICENCE": "dc33252e829015e3b150086fb9b3a40f6ad6fb32c2f4610ce812fa677d35986a",
+      "locks/search/licenses/typing_extensions/typing_extensions-4.16.0.dist-info/licenses/LICENSE": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "locks/search/requirements.in": "516fa97b23433a99b2f15f9e5904cda6555ae9560671d9442c0765acdd14f740",
+      "locks/search/requirements.txt": "3f393e8a17d390eedc9d9f07d6f8fc044953a542fb71aeb19fc326e594dc0092",
+      "pyproject.toml": "9db6a7de6550ac1745f3e1e8b5018e72c75de246b147b76d031c7939bc4c62ee",
+      "src/treeneuron/__init__.py": "42187d0f94666d3f66c45955c637feb99792a76216ea849e27d8f4cb61194b69",
+      "src/treeneuron/analysis/audit.py": "ddbfd3f5453169e425335394e0ab3493216db54bf50936e6b308ad001a516d29",
+      "src/treeneuron/analysis/exploratory.py": "59bc0b81f4d342462b04f6475a0c4fe397afbe58025011a70a534b974d5d5867",
+      "src/treeneuron/analysis/primary.py": "78ed345b2aa67984b6b0fde365537de1fd9b162e7c0ac2150ae2b3717143469d",
+      "src/treeneuron/analysis/report.py": "6978c61910ab98df827106104d9b43e952c5e16255eb0c00229c2e8001eec779",
+      "src/treeneuron/archive_binding.py": "189e3f502641122c6f9eaf8b463d4304da64cff99107d7e9669929460d21f6fe",
+      "src/treeneuron/artifacts.py": "f98992545edef47249a74efde46a65ea8464b369cce35668ff576352c30101c0",
+      "src/treeneuron/backend.py": "87d3e0ad8feca8bba6a4c0f2c83c930f991bd87950e8ba6128d4dcabe01c7120",
+      "src/treeneuron/baselines/__init__.py": "ecbfd42ce0da47f7604fc2f5a493faee2af45101031201dd9734440dbc54f6c7",
+      "src/treeneuron/baselines/_node_vendor/LICENSE-ENTMAX": "4ea5d4b77b0f1c3469f73f2e346336041f5a7b77266349ee9dfe7db16bd5cb57",
+      "src/treeneuron/baselines/_node_vendor/LICENSE-NODE.md": "60b6519a046458e6901cf233eb0d403ae56f499aa6fc008e95fceb75eea4edd4",
+      "src/treeneuron/baselines/_node_vendor/LICENSE-QHOPTIM": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85",
+      "src/treeneuron/baselines/_node_vendor/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/treeneuron/baselines/_node_vendor/arch.py": "02f9d08cfadc96b3d77c04dbe6720be7a5e165892949944c366439c018e50541",
+      "src/treeneuron/baselines/_node_vendor/nn_utils.py": "91fcac1db376552fef6ec9555cbfefbe468036d8a7d1e1d836d8d5aca8d52a4a",
+      "src/treeneuron/baselines/_node_vendor/odst.py": "878fa48cbf3c319dc9909400efe0ed601dae180754ae30997aaf14c94e59b81b",
+      "src/treeneuron/baselines/_node_vendor/param_conv.py": "520925a24cdf861fbf9129eda0892e5f2294cd111c968bc0c4d67a04c96efaf4",
+      "src/treeneuron/baselines/_node_vendor/qhadam.py": "10acd3bd21c5ae7cae70138f981e1e8485ed40c34275354ee1a4dbacb123047d",
+      "src/treeneuron/baselines/_node_vendor/utils.py": "d4f70f6ce070ed1eb26c0bfb90f73d1ef472bd08972bbf0c6b5962af5faef1fa",
+      "src/treeneuron/baselines/api.py": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+      "src/treeneuron/baselines/causal.py": "48aeb29e469eba8940eb5e8120b398006468147780573c78473a6e084c9991f6",
+      "src/treeneuron/baselines/causal_checks.py": "68ef90bc4ed32fbd2b86d4855dad0ac4817704639092d12ef6469eec806a7a32",
+      "src/treeneuron/baselines/causal_evidence.py": "1d773e861bf229720187b7067c3d8d8fcc0e2083b39c4691df9666b04b30065a",
+      "src/treeneuron/baselines/greedy.py": "74dea9fe74714c0105e0c6f9a5141b8d9264baa34e3bd29bc2521ee84959458f",
+      "src/treeneuron/baselines/node.py": "08eeb3ee024443b4ad9a3e7807f960b85bd9a844155e6c57e52898f0f23735c5",
+      "src/treeneuron/baselines/node_checks.py": "9654c778dd5d2138baddd926c7d23b98bc00f07d9ccebe090ba8dacfbf2ddae8",
+      "src/treeneuron/baselines/node_worker.py": "23992e8036506ca9813bf192d77776485388b4ef34b9dccc410c4c1b26d93875",
+      "src/treeneuron/baselines/registry.py": "078c55d9ebc3211568706e566ec8323f1d49c3f87611cb5109242d89ace79b8a",
+      "src/treeneuron/baselines/simple.py": "98301d76ed141c6d8685ef4152796c8f159f1233eee082f9666997c8e1f7393d",
+      "src/treeneuron/checkpoint.py": "7a2061b48245efb9158274edf0be68e77d418e3394fc2751f173c6253e633606",
+      "src/treeneuron/cli.py": "27d4c9a06af6bb3371ff0b27c32542407adc8df1fc438897e3b1d3264bab5592",
+      "src/treeneuron/config.py": "11b45cdb70442232686218dbf49eacd20b5ff521b67b72b2bb1ec657424d1a3a",
+      "src/treeneuron/cpu_envelope.py": "0579de57a6600e23c84d747d3e23729cc55345a651ed96bb4a7fbc3887d33845",
+      "src/treeneuron/data/controls.py": "1af8cfc407264c94c6f1e96c074ac1ea7b85733c55f61dc745f7481947f2f5a2",
+      "src/treeneuron/data/synthetic.py": "980b91841713263117ae6a90a28617682a4f7e69d61e42e28bc071f9973084e3",
+      "src/treeneuron/data/transforms.py": "aa18154ffc816741f5386dc176a39526d719820f95929b10c9a111d63d694e93",
+      "src/treeneuron/data/types.py": "0e37b3aa2f5a35f6efe54a4cdb54adcf2e43b5216333fd96df1287362054c148",
+      "src/treeneuron/doctor.py": "88d810ac8ee99ed8c46e5531066fa2b5df15218b3d3b0a423bb728919f4e63a7",
+      "src/treeneuron/evaluation/__init__.py": "7c3c6e552a13f52260f5e4e578fbda545adf10bf2f2ff38d0b1f03b867dd9d94",
+      "src/treeneuron/evaluation/confirm.py": "020828b970acc0ce289d0b4ecb5ac031a365d050cddcc562f34d7196165af24a",
+      "src/treeneuron/evaluation/metrics.py": "de7c1869d80ea4117af1531d3ea9b90d14fcb06b01e9a363d8d658bd90555b5c",
+      "src/treeneuron/evaluation/protected.py": "793ecf7b7e98b8f8b501cf92eec1661b942f45a8344015a41059deac3de5135d",
+      "src/treeneuron/evaluation/search.py": "afe4516b56d19731b0b2cadc20f9a02343b6a0c3705e08cf4ae322fc1d410677",
+      "src/treeneuron/evaluation/search_worker.py": "fad1105a6482ab47dd9c6a6803d207d88ae3cb0557b74ac584de7bd2cb91644f",
+      "src/treeneuron/evaluation/timing.py": "e9eee1b69156c95de21898ef6fe480c1ccdc4ee726977cc54454846764023120",
+      "src/treeneuron/evaluation/timing_worker.py": "6b305fc54126b1ddde273c253f7da9746e2f1ac9cf5d869e161a5a73a0eda8a1",
+      "src/treeneuron/experiments/paired.py": "3d5ffe24d89db5b8ee81e209b37b22a10dc6243c8c02d92515078bbe6556adac",
+      "src/treeneuron/growth/__init__.py": "803388d6ccc22fd4b337c7ae4f8e6eca474b32f26fe94457db423aca062df5a3",
+      "src/treeneuron/growth/allocate.py": "6b5e4456ea5d23dd3175a4bd9b102b3718e0f6e42efae383a6131e05c61c2a85",
+      "src/treeneuron/growth/insert.py": "f1cf3813515669a7e9f996096b5f100e3b7c092ab14d256476e3d9292adae7cf",
+      "src/treeneuron/growth/score.py": "096ec384a63aad0bc4c48718e37cffe89f666ddc779b305a9acb5ec33891b22a",
+      "src/treeneuron/growth/types.py": "9d0305c4fbe42d36366424a52c3ed67316d3d0727daa3a2c28a10f1113f2cb50",
+      "src/treeneuron/layer_checks.py": "c342d27db7c007ecd9d6e5533eb0437494a8c10ba94af6627a3eb652809c049a",
+      "src/treeneuron/locators.py": "185b67071c460f3bc75a8ee786c08187168b432a76dc43193d85adb84ae4893c",
+      "src/treeneuron/models/__init__.py": "b08a9f1de4a2ffb68e0c654080a2095c737a1e93fccc6c39d9ad926d404c36e3",
+      "src/treeneuron/models/static.py": "83e8b2b7b5405b8b9285b91e8ad9b8c63134dda077ac7096ffbe5095bed8b428",
+      "src/treeneuron/models/units.py": "15a97c20c5dec6856e2918c8a2bd4832e3bd9d17448b7cbdec255468733765e3",
+      "src/treeneuron/models/widened.py": "c75e86da320a1ab9d7daca8c827f5d55e5471896a4e82fc5a24aedd0469d98ba",
+      "src/treeneuron/pilot/__init__.py": "d19d0a8a98a66b70ef8bee4a82dfc6bd68a5a5f2b6011ca0c425261549a2de07",
+      "src/treeneuron/pilot/calibrate.py": "1d614579f2893b28e9414b4b3f59da9fe42278b502e9dd471b79e1267b327a84",
+      "src/treeneuron/pilot/design.py": "0c61e83d1e986433953270225833843ce236061582d4cfc6dd329d3580eb842e",
+      "src/treeneuron/protocol.py": "84688c1806176f52a9fad1eab82adf356e661b4fdcd2dd2d2f31eaa9ab0f2b9b",
+      "src/treeneuron/score_checks.py": "65df787589e59cc1d093832afa8a2a43becb85fa5f9397ff5c744cad69c3c913",
+      "src/treeneuron/train.py": "b17a6f836cc53822a5f6d9713e6525389ba95dc9af2bf7e4fadbd582fa4abc68",
+      "src/treeneuron/verification.py": "2e4362859516cc531ca3ca6091ff8c3228a3b862cc606636bee8fe08da11f0c5",
+      "tests/fixtures/causal_seed42_probe.md": "8726dd90cd94e1803fd644bcbf75bad1935b2fbb6452bbcf0820e0231e3fbab0",
+      "tests/fixtures/causal_seed42_probe.pt": "34e2d6653f14764df60ada5cdd5f4730b5c6123268d1174470df209c191b92a1",
+      "tests/fixtures/h1_widened_relu_rounding.pt": "437121d680aeb561772c8630776340b699201886c4b0a7a7119493f7667dfaf2",
+      "tests/node_reference.py": "af0aa14657ecdb9bde09faa24cee6501e35848f6a88c1f65ac1cebe805f7ad04",
+      "tests/reference_math_checks.py": "e14dc49d6654223033a511ad1605df0c2b7ff5f70715b3f2d9be31f8e772fb22",
+      "tests/reference_score_checks.py": "f75f7308970aeace6ab614ffc8bf0736db4e698a7bc784b9f5557701fb3810e2",
+      "tests/test_access.py": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "tests/test_adam_history.py": "7b10b3fbcb6081627572c1a36a9a484dfe749f78d56534df9ee904de491799ee",
+      "tests/test_adapters.py": "29512ba3a38738e21ed98959e87b9f202e395c837ea80a98377b792bc8f666f9",
+      "tests/test_algebra.py": "d7e9aeb6e36b829b3b5db6012e24f633bd98860a916eebe8fc2daacbeb3876ce",
+      "tests/test_allocation.py": "9824c504b6e6d211a2641e2a01a908d976bc41add7b1d2ec9636eec55baf84ef",
+      "tests/test_artifacts.py": "2da2a1b8ed8a967de71d05178106cc98285c587f0d120c6dc881ed54d1ef4b48",
+      "tests/test_audit.py": "49e2163b8b370d23f3ff1067a952cfe924cbcbaca35e14162a787f677cdd1234",
+      "tests/test_audit_fix1.py": "bc8c98aa0838a4a25c5ecfeca68624d2d1d9fa3e0530b61b4512b5622052b41f",
+      "tests/test_backend.py": "b14b99382e8ffb35a230223ae7b0fa87c063fb4f6c5266511c4b3e4defad5c2b",
+      "tests/test_causal_baselines.py": "fa7ab594473415fac672fb4804d78c13ef979190c468bf1e910e007be269acee",
+      "tests/test_causal_precision.py": "59a1fe06111bf9d614a6bc4f685290109280a577236b8042e0fcb256d20b7d01",
+      "tests/test_checkpoint.py": "4764e3971b622f2c627476e09ce0c06b7b0ed1e85153e18ea57e89b0d48d27c9",
+      "tests/test_checkpoint_cadence.py": "61e6d2e92a20f3d918f85a5fabbb1557f8fdd5edf09e185a735bca7780075f6e",
+      "tests/test_config.py": "bc1f3d8880863d2d45734f760e58d5ae4e351bd90ba47042ffcc66a5a8d62b4a",
+      "tests/test_confirmation.py": "580b4936f1eafc7c0bfe4db4d15c9116083ddb0579213afddf9e2b56735b6fe8",
+      "tests/test_cpu_envelope.py": "4754d16b7c77763bc659498a9b8d77673145ae32e6cb8e000c18cf9f2ace269a",
+      "tests/test_design.py": "df6374f14659334fc46c042e5f1b891b3a6b2078aa923a0a47f505edfa812c39",
+      "tests/test_doctor.py": "67d6b37c2d6f55aa66d7c945e2f36793172ed5292bba0b1c54738731dfe7dd63",
+      "tests/test_greedy.py": "1426acf0965a088de164f9792f7ce47624125eff870e1b6605bec0857021b19f",
+      "tests/test_growth.py": "8de3b54f7b361cd3708e3edbd8649fcd6e99a160bfc7f3dc474ff18e62dcb23c",
+      "tests/test_history_storage.py": "7bcdecb1ed478f27ed65f9d7b8846a73618d78bac76a69c4d5bf0e4f83323179",
+      "tests/test_metrics.py": "b2215f5f7202a05210aa315adb4ee5ce117e6275b63ecd82b075196bf553ebab",
+      "tests/test_node.py": "6cd5ec4732a70aea2104741b2bad6608f3b7309c129ec2d1af9beaa80766bebf",
+      "tests/test_optimizer_growth.py": "a2c7dabf50b6b2b0bacdbdecc61ff6f6774f88f153951cd907fb7499eae2ef09",
+      "tests/test_paired.py": "8fa39cf7d49ef39f8ce97f62c78072e5315ec5bcac8f208aa3feb21c3390b886",
+      "tests/test_paired_diagnostics.py": "3b9994162abe211ec0c56a06c958436366b5a223333c8cca299196a9a0f7c466",
+      "tests/test_pilot_calibrate.py": "dd28f22798eeeb3fedc0b09cd0beac305a0fa3105db40d0b0ecd313bf56c9ddc",
+      "tests/test_primary.py": "c328782eb62301f6a6dc9eaa40871a9d75f15994905904fdce997088dc2a9710",
+      "tests/test_protected.py": "8a8f98401d2216077729fa88a55969623b2309121d75f994fa7701dd28c20987",
+      "tests/test_protocol.py": "d87aca2c4e75dd8b3c933655710e242d879be8e21b30b24da9158df42770eb9e",
+      "tests/test_reference_checks.py": "10bdc9580b859a89f71648689e1316ad193558be9473694910e99a5ed533c166",
+      "tests/test_score.py": "46949c5fc2966b939fa8e1913a909656eb1bc4d45621dbfb14681322e05182d0",
+      "tests/test_search.py": "c2a12eb04d8d2e118159d42cff43735f1c5cb79ea294c4270bfcd07c85e6b682",
+      "tests/test_simple_baselines.py": "e3b1122025b2df8c9cf9fedaf6684cdca15a27a6d04818c45a123471aab3a119",
+      "tests/test_synthetic.py": "d54cd8e4b2888e38ad01bb4b53397523bd7c833bb7cd86de7c47f5ec4326f061",
+      "tests/test_timing.py": "742db9f01a7daba19851cd44e58ea02a3960d12ca8794202e47b097313f3ae96",
+      "tests/test_train.py": "19033d0738bc41a1bc5ac4fef1390ccff5e073849365fc5398e30cb247f3683c",
+      "tests/test_transforms.py": "e27b19d3a04e6348a0236facbbee3def6d792f490350b56f891681b9672aa85b",
+      "uv.lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5"
+    },
+    "pinned_commit": "6cf06399736a94c281408a51e2cb6f10f79cea67"
+  },
+  "status": "failed",
+  "teachers": [
+    {
+      "E_rows": 262144,
+      "index": 0,
+      "seeds": {
+        "allocation": 261022103,
+        "contrast": 261022104,
+        "data": 2612668560671126085,
+        "namespace": "exploratory",
+        "optimizer": 261022102,
+        "reference": 6096181584433892362,
+        "teacher": 445671081451312386
+      },
+      "setup_seconds": 0.226437667,
+      "split_sha256": "6a93c94980fb3209772d857bfac5189b00d2f110905d2f968ac987467f9486ae",
+      "teacher_id": "656c983586d601c21ed62c7361fd199496570959ade9d2a4c58fa1a97306e20f"
+    },
+    {
+      "E_rows": 262144,
+      "index": 1,
+      "seeds": {
+        "allocation": 261022103,
+        "contrast": 261022104,
+        "data": 955478130099535958,
+        "namespace": "exploratory",
+        "optimizer": 261022102,
+        "reference": 1623116800641406203,
+        "teacher": 3566209242549738474
+      },
+      "setup_seconds": 0.225344125,
+      "split_sha256": "64900bb32b23beb7bceee9a7f48f9cf28bde720728f34030de98a69ce7f2bb37",
+      "teacher_id": "bc184c8add6951447858b0ddda3e06f74510ed8845bf8f9059a53dd91fecf866"
+    },
+    {
+      "E_rows": 262144,
+      "index": 2,
+      "seeds": {
+        "allocation": 261022103,
+        "contrast": 261022104,
+        "data": 8246530987913838131,
+        "namespace": "exploratory",
+        "optimizer": 261022102,
+        "reference": 4834831739890232898,
+        "teacher": 916723362435298273
+      },
+      "setup_seconds": 0.247752,
+      "split_sha256": "f70f1111f05274698e415f527bb872d8183d9d1fc60f2b7ad710daaab9cc8a6a",
+      "teacher_id": "167888d80f20d0571a9f3cb876076c00eccc4cf0dd2e2c46b3df01c52c302224"
+    },
+    {
+      "E_rows": 262144,
+      "index": 3,
+      "seeds": {
+        "allocation": 261022103,
+        "contrast": 261022104,
+        "data": 7164704056387676339,
+        "namespace": "exploratory",
+        "optimizer": 261022102,
+        "reference": 2782121132666925034,
+        "teacher": 3222744136415563510
+      },
+      "setup_seconds": 0.207534917,
+      "split_sha256": "5d74ce8b0ed6f0f95d149731451a49ee7b2ce1352611bb1cf0fcb31c536d2451",
+      "teacher_id": "afc288e40fc6d968fbbcb9ab09a5fd30088b9e45bb4ec6970fce6ff831227920"
+    },
+    {
+      "E_rows": 262144,
+      "index": 4,
+      "seeds": {
+        "allocation": 261022103,
+        "contrast": 261022104,
+        "data": 7958140900320580633,
+        "namespace": "exploratory",
+        "optimizer": 261022102,
+        "reference": 1790899309910073523,
+        "teacher": 4866588361098022271
+      },
+      "setup_seconds": 0.216461208,
+      "split_sha256": "a9581da0e7a499f17339d482af296231aa0bd86df2efe6d411a5a6aef1dfbee4",
+      "teacher_id": "f9f14813407ebdb0198479827cb2eb01683c977e3442c63c3494641df474c60b"
+    },
+    {
+      "E_rows": 262144,
+      "index": 5,
+      "seeds": {
+        "allocation": 261022103,
+        "contrast": 261022104,
+        "data": 2714498198021405466,
+        "namespace": "exploratory",
+        "optimizer": 261022102,
+        "reference": 710741367342012764,
+        "teacher": 5846600887953310796
+      },
+      "setup_seconds": 0.240165625,
+      "split_sha256": "10ea8941a2c9e3d3bb15f54b3e107ed1ee23d83333db1add975a9c2cba48e771",
+      "teacher_id": "76b967f7afc4c6b7881a38eeef6326add44d90f7b0b65bb078fb82d4a5b340e5"
+    },
+    {
+      "E_rows": 262144,
+      "index": 6,
+      "seeds": {
+        "allocation": 261022103,
+        "contrast": 261022104,
+        "data": 5303958789388981491,
+        "namespace": "exploratory",
+        "optimizer": 261022102,
+        "reference": 2694726355710126891,
+        "teacher": 8986766600846465994
+      },
+      "setup_seconds": 0.218199042,
+      "split_sha256": "83c1d6a8c3b50f9b1ef69d087f82e6d5b0c7608bb3cc06e808f57011ed9a0a09",
+      "teacher_id": "66730c322aa3e38713884100a9fa689aa0f2595af32a1755d7e044938ea4bc65"
+    },
+    {
+      "E_rows": 262144,
+      "index": 7,
+      "seeds": {
+        "allocation": 261022103,
+        "contrast": 261022104,
+        "data": 5888745825691213174,
+        "namespace": "exploratory",
+        "optimizer": 261022102,
+        "reference": 1531228692618128126,
+        "teacher": 6537422513832047762
+      },
+      "setup_seconds": 0.21593275,
+      "split_sha256": "8b1e2578a75ff09c40b8c6718d33585d0b4160a29a49d7243f0176618b5e4ea5",
+      "teacher_id": "2c965a50bf0f7a2e4d71a0c49540fedb2cc056bc381d8e91db6816ba1fcb112a"
+    },
+    {
+      "E_rows": 262144,
+      "index": 8,
+      "seeds": {
+        "allocation": 261022103,
+        "contrast": 261022104,
+        "data": 4220081558964756556,
+        "namespace": "exploratory",
+        "optimizer": 261022102,
+        "reference": 5573083123977979090,
+        "teacher": 6649515626637865718
+      },
+      "setup_seconds": 0.213483167,
+      "split_sha256": "b42e9fa0d5b3c15823793673f96599cffc192d6ffcb4bd96e1898bd2de130fc0",
+      "teacher_id": "d3c5d7453076d1bf2933bcdc45ebe2cc37fee01473cd63b4bd87c45be8229fd6"
+    },
+    {
+      "E_rows": 262144,
+      "index": 9,
+      "seeds": {
+        "allocation": 261022103,
+        "contrast": 261022104,
+        "data": 3891928965110971770,
+        "namespace": "exploratory",
+        "optimizer": 261022102,
+        "reference": 5194243171078438193,
+        "teacher": 1238411199157380764
+      },
+      "setup_seconds": 0.220179709,
+      "split_sha256": "715f9d138bb027a4928bc8678767b8d49fb6709029ad3b32f8371c62086adf2e",
+      "teacher_id": "725e437265b89f2a2959f09f8eaa4856e13266b50bc06e17abceb228018355bb"
+    },
+    {
+      "E_rows": 262144,
+      "index": 10,
+      "seeds": {
+        "allocation": 261022103,
+        "contrast": 261022104,
+        "data": 4960742453591752552,
+        "namespace": "exploratory",
+        "optimizer": 261022102,
+        "reference": 8719653719574628979,
+        "teacher": 8713333272194150924
+      },
+      "setup_seconds": 0.231305958,
+      "split_sha256": "78c343ef5da5c1f206b8ef26bdde966e066ab4cd8de4a4ccf93bfea4e35e3359",
+      "teacher_id": "566298cacbf0cea534db79c687c4c9fcd6a852ed18ca080a263d3ddeadc7f665"
+    },
+    {
+      "E_rows": 262144,
+      "index": 11,
+      "seeds": {
+        "allocation": 261022103,
+        "contrast": 261022104,
+        "data": 2024476819978866112,
+        "namespace": "exploratory",
+        "optimizer": 261022102,
+        "reference": 4525647045653057718,
+        "teacher": 8128425705902637634
+      },
+      "setup_seconds": 0.232209083,
+      "split_sha256": "60697092bf097ac30e4abd31ac68f9d64b4b062f28f265f1b858a742771d061b",
+      "teacher_id": "3a4d7ee9449c834a9ee0734123e47c32ed788a80fe9e2f3b4e1c28669c4e6776"
+    },
+    {
+      "E_rows": 262144,
+      "index": 12,
+      "seeds": {
+        "allocation": 261022103,
+        "contrast": 261022104,
+        "data": 6039216626491693832,
+        "namespace": "exploratory",
+        "optimizer": 261022102,
+        "reference": 3447440346559464849,
+        "teacher": 7333054334769752278
+      },
+      "setup_seconds": 0.216823375,
+      "split_sha256": "29d866dace577ffc24f11570c182015bcc1b95eddf2e91fa2ba0c72bf9501933",
+      "teacher_id": "6814ba6b796b8be7c8ebaa9522e35b226770042456eae58fc3446bbbfc984a1f"
+    },
+    {
+      "E_rows": 262144,
+      "index": 13,
+      "seeds": {
+        "allocation": 261022103,
+        "contrast": 261022104,
+        "data": 4678865394284186398,
+        "namespace": "exploratory",
+        "optimizer": 261022102,
+        "reference": 8656391933687150750,
+        "teacher": 8154594763455805311
+      },
+      "setup_seconds": 0.219865375,
+      "split_sha256": "f501cc67750ea131ed0bac02cd1e94894475e47ee45bb81623d145cf8777e2c0",
+      "teacher_id": "18425eca1be602241ac5301d7be67ac33f28943592a737341f6a4bff581a0ec5"
+    },
+    {
+      "E_rows": 262144,
+      "index": 14,
+      "seeds": {
+        "allocation": 261022103,
+        "contrast": 261022104,
+        "data": 1952259364244455702,
+        "namespace": "exploratory",
+        "optimizer": 261022102,
+        "reference": 7713868257486213547,
+        "teacher": 969261752653875727
+      },
+      "setup_seconds": 0.224201791,
+      "split_sha256": "72427d09370fd7e5929a351bdc9f17a72c077bbe7f2bc5bb8cd3fa9f2b2478f0",
+      "teacher_id": "a795a28bf27d9fb4f572a2b2ba01b72757eb5611f5c3108337d7f25fa67af445"
+    },
+    {
+      "E_rows": 262144,
+      "index": 15,
+      "seeds": {
+        "allocation": 261022103,
+        "contrast": 261022104,
+        "data": 5809410917247361526,
+        "namespace": "exploratory",
+        "optimizer": 261022102,
+        "reference": 4363054345495823725,
+        "teacher": 3126920825792121154
+      },
+      "setup_seconds": 0.256963625,
+      "split_sha256": "8354204ae8fcb8679a9ecc13bca21ce9a23b71954aa04c7eb2fc633610b605c8",
+      "teacher_id": "2d8dc49dc2817d19406d1809b1f5501234deb8dee63bab7d8e2a7a7ab20a4510"
+    }
+  ],
+  "validation_sha256": "de5a041cd2e9bfd04eeff658237386594aa596449f1435a300287b38efe52b95",
+  "wrapper_enclosing_seconds": 47056.387807791,
+  "wrapper_sha256": "e587de047189e40bb5555bb7b1146aecfac5de37565892f33e70bbe86ba6867a"
+}

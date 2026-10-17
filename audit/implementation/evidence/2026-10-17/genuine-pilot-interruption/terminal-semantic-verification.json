@@ -1,0 +1,265 @@
+{
+  "accepted_records": 16,
+  "checked_at_utc": "2026-10-17T21:25:56.582705+00:00",
+  "completed_attempts": 30,
+  "completed_teacher_count": 15,
+  "elapsed_seconds": 6.979097292,
+  "errors": [],
+  "failed_pairs": 0,
+  "failure": "TimeoutError: Engineering pilot time cap reached between paired repetitions",
+  "missing": [
+    [
+      15,
+      0
+    ],
+    [
+      15,
+      1
+    ]
+  ],
+  "original_status": "failed",
+  "pairs": [
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-0/repetition-0/pair.json",
+      "pair_sha256": "8a5647ab02890b3d4ca3cc05fcb7408c2c5dffa4c5a730be095721e5d87b52d2",
+      "repetition": 0,
+      "teacher": 0,
+      "teacher_id": "656c983586d601c21ed62c7361fd199496570959ade9d2a4c58fa1a97306e20f"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-0/repetition-1/pair.json",
+      "pair_sha256": "09a50fc8a4ea17e75e869ea8970be6755b3ecc296618ebb8bbc5474041be5166",
+      "repetition": 1,
+      "teacher": 0,
+      "teacher_id": "656c983586d601c21ed62c7361fd199496570959ade9d2a4c58fa1a97306e20f"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-1/repetition-0/pair.json",
+      "pair_sha256": "ff60993451afcb98ea746ba72a4dd5287d09638e1855b2ed892fa22fd97837c5",
+      "repetition": 0,
+      "teacher": 1,
+      "teacher_id": "bc184c8add6951447858b0ddda3e06f74510ed8845bf8f9059a53dd91fecf866"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-1/repetition-1/pair.json",
+      "pair_sha256": "772daf752ff66a72c72ebe6130f6ee40bf4db36dc80449455f20c82c9c041055",
+      "repetition": 1,
+      "teacher": 1,
+      "teacher_id": "bc184c8add6951447858b0ddda3e06f74510ed8845bf8f9059a53dd91fecf866"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-2/repetition-0/pair.json",
+      "pair_sha256": "31c1e70d95e3e72177fc8499be98bff4e201d8b57588d474882e683466eb6193",
+      "repetition": 0,
+      "teacher": 2,
+      "teacher_id": "167888d80f20d0571a9f3cb876076c00eccc4cf0dd2e2c46b3df01c52c302224"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-2/repetition-1/pair.json",
+      "pair_sha256": "a1cf18e8c9b781a29134c5ea72727cd1101fd7936005fd84b05a2204d2f422ce",
+      "repetition": 1,
+      "teacher": 2,
+      "teacher_id": "167888d80f20d0571a9f3cb876076c00eccc4cf0dd2e2c46b3df01c52c302224"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-3/repetition-0/pair.json",
+      "pair_sha256": "74d3ed81b2cafc4c9314e93c1ccb8a1fa1271f06180189cf1d8498abd8805be1",
+      "repetition": 0,
+      "teacher": 3,
+      "teacher_id": "afc288e40fc6d968fbbcb9ab09a5fd30088b9e45bb4ec6970fce6ff831227920"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-3/repetition-1/pair.json",
+      "pair_sha256": "8e538fd651efcb8c1e4907768cbf19409f4688eb4f866122cfda2432e98f0f12",
+      "repetition": 1,
+      "teacher": 3,
+      "teacher_id": "afc288e40fc6d968fbbcb9ab09a5fd30088b9e45bb4ec6970fce6ff831227920"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-4/repetition-0/pair.json",
+      "pair_sha256": "03a0317fb034d1c5a2991c9173e5ca8dd637717b01d826e7105c3b39edb46684",
+      "repetition": 0,
+      "teacher": 4,
+      "teacher_id": "f9f14813407ebdb0198479827cb2eb01683c977e3442c63c3494641df474c60b"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-4/repetition-1/pair.json",
+      "pair_sha256": "65d65c2899cc8bdaac4e595bb288cbc7fa1874df2afaec122aa28084a8a56e9b",
+      "repetition": 1,
+      "teacher": 4,
+      "teacher_id": "f9f14813407ebdb0198479827cb2eb01683c977e3442c63c3494641df474c60b"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-5/repetition-0/pair.json",
+      "pair_sha256": "214e5719c98a074b5f5f1b968dc67a77c0c9f3083fe71f1d41d80cb2d17e53cc",
+      "repetition": 0,
+      "teacher": 5,
+      "teacher_id": "76b967f7afc4c6b7881a38eeef6326add44d90f7b0b65bb078fb82d4a5b340e5"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-5/repetition-1/pair.json",
+      "pair_sha256": "732e771f7b5a6c231035ee666b24be5a5016b58569fce368657f8833b69788c3",
+      "repetition": 1,
+      "teacher": 5,
+      "teacher_id": "76b967f7afc4c6b7881a38eeef6326add44d90f7b0b65bb078fb82d4a5b340e5"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-6/repetition-0/pair.json",
+      "pair_sha256": "ec580b7390974f0351282fcbc136ac037f1b617b6d9274ed4f237534bdb0fceb",
+      "repetition": 0,
+      "teacher": 6,
+      "teacher_id": "66730c322aa3e38713884100a9fa689aa0f2595af32a1755d7e044938ea4bc65"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-6/repetition-1/pair.json",
+      "pair_sha256": "b827994680e5ec3aec6e5e73a003f992ec382b3d316152c0459a7951197071ef",
+      "repetition": 1,
+      "teacher": 6,
+      "teacher_id": "66730c322aa3e38713884100a9fa689aa0f2595af32a1755d7e044938ea4bc65"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-7/repetition-0/pair.json",
+      "pair_sha256": "3d5c2ff903933ecf0dd6e603fdce52369ea331f7751bd9998ef86c5e520576fa",
+      "repetition": 0,
+      "teacher": 7,
+      "teacher_id": "2c965a50bf0f7a2e4d71a0c49540fedb2cc056bc381d8e91db6816ba1fcb112a"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-7/repetition-1/pair.json",
+      "pair_sha256": "b4f3d555f8a84439761e2654858574819f1192da2955baebadcc6a4c4cc8c5e5",
+      "repetition": 1,
+      "teacher": 7,
+      "teacher_id": "2c965a50bf0f7a2e4d71a0c49540fedb2cc056bc381d8e91db6816ba1fcb112a"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-8/repetition-0/pair.json",
+      "pair_sha256": "36cca7ea92f36b931a1347c87ef7770cc493622a75cb92aeebf7b1d0b5485d65",
+      "repetition": 0,
+      "teacher": 8,
+      "teacher_id": "d3c5d7453076d1bf2933bcdc45ebe2cc37fee01473cd63b4bd87c45be8229fd6"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-8/repetition-1/pair.json",
+      "pair_sha256": "eac8de36e9215344e60ad2cb4cca3f51792a107c8dac2ec1cad1f460c835d042",
+      "repetition": 1,
+      "teacher": 8,
+      "teacher_id": "d3c5d7453076d1bf2933bcdc45ebe2cc37fee01473cd63b4bd87c45be8229fd6"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-9/repetition-0/pair.json",
+      "pair_sha256": "ef680a513b8e51511b27e0ad4ae2ede0b57b736ffeb76819130580ae391feec6",
+      "repetition": 0,
+      "teacher": 9,
+      "teacher_id": "725e437265b89f2a2959f09f8eaa4856e13266b50bc06e17abceb228018355bb"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-9/repetition-1/pair.json",
+      "pair_sha256": "74c4aef24b0c0000209f8fedd87afcde5a77f6781e03435a825dda88230a342c",
+      "repetition": 1,
+      "teacher": 9,
+      "teacher_id": "725e437265b89f2a2959f09f8eaa4856e13266b50bc06e17abceb228018355bb"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-10/repetition-0/pair.json",
+      "pair_sha256": "e7c04d96251ad70604148a23714151ed6f75e4a32019b146a8c6019a4ee72906",
+      "repetition": 0,
+      "teacher": 10,
+      "teacher_id": "566298cacbf0cea534db79c687c4c9fcd6a852ed18ca080a263d3ddeadc7f665"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-10/repetition-1/pair.json",
+      "pair_sha256": "6e1fe7b9bd7ab47f460eb177a0d70f809b0e94fe7fb1c970dd40d18a4af07281",
+      "repetition": 1,
+      "teacher": 10,
+      "teacher_id": "566298cacbf0cea534db79c687c4c9fcd6a852ed18ca080a263d3ddeadc7f665"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-11/repetition-0/pair.json",
+      "pair_sha256": "f7210451c1e56543eb2327a1b6e28241129cbdb7db8c582698a4f8cd1f0f7967",
+      "repetition": 0,
+      "teacher": 11,
+      "teacher_id": "3a4d7ee9449c834a9ee0734123e47c32ed788a80fe9e2f3b4e1c28669c4e6776"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-11/repetition-1/pair.json",
+      "pair_sha256": "228f885e268f37b8c2cd447d15c0e07e71371ac2907b94e526fe0007476114df",
+      "repetition": 1,
+      "teacher": 11,
+      "teacher_id": "3a4d7ee9449c834a9ee0734123e47c32ed788a80fe9e2f3b4e1c28669c4e6776"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-12/repetition-0/pair.json",
+      "pair_sha256": "70caea03165d86b423e77ac90c5e1c83b62259718fe2cd46a007dc34fe8f0122",
+      "repetition": 0,
+      "teacher": 12,
+      "teacher_id": "6814ba6b796b8be7c8ebaa9522e35b226770042456eae58fc3446bbbfc984a1f"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-12/repetition-1/pair.json",
+      "pair_sha256": "a69182b95baa80c645fe1e64e999ca606bf0ed567ed2fc143e1a5ba3c9c67e87",
+      "repetition": 1,
+      "teacher": 12,
+      "teacher_id": "6814ba6b796b8be7c8ebaa9522e35b226770042456eae58fc3446bbbfc984a1f"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-13/repetition-0/pair.json",
+      "pair_sha256": "c85e0f8e3a0a296877027efe5dee507e934b2f594d402b43a6b68cc79084353f",
+      "repetition": 0,
+      "teacher": 13,
+      "teacher_id": "18425eca1be602241ac5301d7be67ac33f28943592a737341f6a4bff581a0ec5"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-13/repetition-1/pair.json",
+      "pair_sha256": "cc5e7b65491aa5fb126fe9c377d5551b0ba8c4e6a31e653f59469ddd0e2027ea",
+      "repetition": 1,
+      "teacher": 13,
+      "teacher_id": "18425eca1be602241ac5301d7be67ac33f28943592a737341f6a4bff581a0ec5"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-14/repetition-0/pair.json",
+      "pair_sha256": "bbd23361c593c1f5447bd30cd64f82e96c657f756decdddde15c6ea04dc564d5",
+      "repetition": 0,
+      "teacher": 14,
+      "teacher_id": "a795a28bf27d9fb4f572a2b2ba01b72757eb5611f5c3108337d7f25fa67af445"
+    },
+    {
+      "E_rows": 262144,
+      "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-14/repetition-1/pair.json",
+      "pair_sha256": "5bc69f8bb1a368d3b5bf743b2e823153c96779f1ec403952e924fa93bfad7e90",
+      "repetition": 1,
+      "teacher": 14,
+      "teacher_id": "a795a28bf27d9fb4f572a2b2ba01b72757eb5611f5c3108337d7f25fa67af445"
+    }
+  ],
+  "scope": "Root exact dictionary comparison of all completed sealed pair records with raw attempt ledger; no prediction/statistical recomputation",
+  "source_enclosing_seconds": 46992.108694375
+}

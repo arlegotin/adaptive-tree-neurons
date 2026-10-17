@@ -545,3 +545,35 @@ survey. Frame any result as empirical characterization of a specified procedure
 in established model families. Root verified all six indexed source files;
 no code, weights or agreements were acquired through this comparison. The
 revisit used no pilot outcomes and changed no experiment or scientific gate.
+
+
+## D025 — 17 October 2026: preserve the pause timeout; complete the exact missing cohort members
+
+The original genuine pilot stopped at its unchanged elapsed-time guard after
+the user explicitly paused and resumed the live process. Root read the complete
+terminal report, independently verified all 29,003 files / 12,219,004,537 bytes
+and compared every completed pair against the sealed raw attempt ledger:
+30 completed pairs, 15 R2 teachers, zero model-pair failures, exact missing set
+index15/R0 and R1. Only the first eight-teacher batch reached canonical summary;
+no terminal design or protected test exists.
+
+The [retained evidence and descriptive outcomes](docs/research/2026-10-17-genuine-pilot-interruption.md)
+include unfavorable guided-versus-random and static-versus-ordinary averages.
+The interruption occurred during a between-pair publication. Original enclosing
+clocks include the documented suspension; the next pair's clock excludes it.
+No original clock, config, source, budget, raw ledger or seal was changed.
+
+Ruling: Complete only the two never-started members of the already prescribed
+16-teacher/R2 cohort in a separately identified continuation, with identical
+inputs/functions/recipe and every control/probe, retaining the failed original
+and withholding canonical freeze eligibility — explicit user continuation and
+verified unchanged scientific work make a full restart unnecessary — what it
+costs if wrong: the joined bundle needs reviewed provenance/resumption support
+or a fresh valid cohort before protected confirmation, with added time/storage.
+This is chronological [Ruling18](audit/implementation/evidence/2026-10-17/ruling-18-user-pause-continuation.md).
+
+The [prospective amendment](protocol/amendments/2026-10-17-user-pause-continuation.md)
+charges new enclosing work against the original four-hour allowance outside
+the documented suspension, checks actual resources and grants no additional
+teachers, retuning, MC change, freeze or T access. Complete the linked exploratory
+record and then actual WP09. Preserve all eighteen rulings in the final handoff.

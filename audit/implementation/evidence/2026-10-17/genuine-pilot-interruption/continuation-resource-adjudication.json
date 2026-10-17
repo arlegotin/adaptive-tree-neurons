@@ -1,0 +1,23 @@
+{
+  "derived_elapsed_outside_documented_pause_seconds": 7036.143731624004,
+  "disk": {
+    "free": 41742557184,
+    "total": 930662584320,
+    "used": 888920027136
+  },
+  "disk_reserve_bytes": 10737418240,
+  "documented_user_pause_perf_seconds": 40020.992005584,
+  "memory_policy": "Retain original6,448,447,488B process peak cap and <=10% coarse availability with new swapout guard; fresh single-teacherR2 measured projection1,042,415,616B. Coarse percentage and free pages are separate observations, no claim all reclaimable pages are available.",
+  "memory_pressure": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 250606 \nPages purgeable: 22738 \nPages purged: 46652937 \n\nSwap I/O:\nSwapins: 2864277 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 457619 \nPages inactive: 470037 \nPages speculative: 16257 \nPages throttled: 0 \nPages wired down: 269504 \n\nCompressor Stats:\nPages used by compressor: 836254 \nPages decompressed: 159813516 \nPages compressed: 209207634 \n\nFile I/O:\nPageins: 153380298 \nPageouts: 691600 \n\nSystem-wide memory free percentage: 51%\n",
+  "observed_at_utc": "2026-10-17T21:26:21.331399+00:00",
+  "original_elapsed_execution_allowance_seconds": 14400,
+  "original_external_perf_seconds": 47057.135737208,
+  "original_max_storage_bytes": 30871367120,
+  "original_verified_retained_bytes": 12207295459,
+  "pause_clock_evidence": "original raw publication attempts30/completed29/accepted16 took40033.38580325perf seconds and spans controller suspension; subtract perf pause only from enclosing spans containing it, never from R1pair371.8566",
+  "projected_new_bytes": 908098595,
+  "projection_scope": "two maximum observed non-pause-spanning pair times plus120s setup/validation/publication; conditional admission forecast, not tail guarantee",
+  "projection_seconds": 863.713251168,
+  "remaining_allowance_before_continuation_seconds": 7363.856268375996,
+  "timing_scope": "Elapsed execution outside documented suspension, including I/O/waits/overhead; not CPU-utilization time. Original clocks/budget remain immutable."
+}

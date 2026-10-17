@@ -1,0 +1,121 @@
+{
+  "batch_runtimes": [
+    406.949557520875
+  ],
+  "between_teacher_variance_lower": 0.0,
+  "controls": [
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6"
+  ],
+  "diagnostics": {
+    "bootstrap_iterations": 8000,
+    "bootstrap_seed": 261022106,
+    "bootstrap_unit": "whole teacher; all inner repetitions remain together",
+    "coverage_limit": "Empirical bootstrap and t sensitivity do not establish nominal coverage",
+    "effective_independent_count": 8,
+    "endpoint_mc_method": "maximum endpoint SE over 10 disjoint bootstrap chunks; absolute mean/SD/variance endpoint values",
+    "future_namespaces": "confirmatory teacher/data/observation namespaces reserved; pilot never reuses them",
+    "intrinsic_variance": {
+      "assumptions": "Conditional on teacher/development data: iid optimizer draws, iid E rows independent of optimizers, finite second moments; independent teachers",
+      "bound": "max(0, observed teacher-mean variance 2.5% lower - mean nuisance allowance 97.5% upper)",
+      "decomposition": "D = teacher mean + optimizer main effect + E-row main effect + centered optimizer-by-E interaction",
+      "evaluation_rows_per_teacher": [
+        262144,
+        262144,
+        262144,
+        262144,
+        262144,
+        262144,
+        262144,
+        262144
+      ],
+      "interaction_policy": "conservative double counting; no residual subtraction",
+      "limitation": "Conservative decomposition in expectation; empirical whole-teacher bootstrap bounds are conditional approximations, not finite-sample coverage guarantees",
+      "mean_nuisance_allowance": 1.5043321003620343e-06,
+      "nuisance_allowance": "rep-mean sample variance/R + row-mean sample variance/N; expectation A/R + B/N + 2*C/(R*N)",
+      "nuisance_allowance_per_teacher": [
+        7.847518377215632e-06,
+        3.278999978158148e-07,
+        0.0,
+        2.523048887302863e-08,
+        0.0,
+        6.98655033545059e-07,
+        3.13535290544674e-06,
+        0.0
+      ],
+      "nuisance_mean_upper": 3.5041793052772682e-06,
+      "observed_teacher_variance_lower": 1.0340446153896665e-07,
+      "status": "unresolved",
+      "tail_policy": "Two 2.5% one-sided bootstrap tails; union bound needs no independence between endpoints",
+      "true_mean_noise": "A/R + B/N + C/(R*N)"
+    },
+    "median": 0.0,
+    "observed_teacher_variance": 2.426427441934325e-06,
+    "optimizer_repetitions": 2,
+    "paired_row_variances": [
+      0.0015362181445512115,
+      0.00037818410143890095,
+      0.0,
+      0.0003757444405370485,
+      0.0,
+      0.004217578735490054,
+      0.008500863029054017,
+      0.0
+    ],
+    "row_variance": "variance across E rows after per-row repetition averaging; shared E correlations retained",
+    "student_t_df": 7,
+    "student_t_interval": [
+      -0.0012160271650527824,
+      0.0013885114223314305
+    ],
+    "variance_component_method": "crossed optimizer/E nuisance upper bound subtracted from observed teacher variance lower bound",
+    "within_teacher_variances": [
+      1.5683316340120418e-05,
+      6.52914679916306e-07,
+      0.0,
+      4.7594275166276314e-08,
+      0.0,
+      1.365132494950454e-06,
+      6.205849372988709e-06,
+      0.0
+    ]
+  },
+  "endpoint_mc_error": 0.00020226813323862236,
+  "evidence_hashes": {
+    "raw_records": "a5ea14505008e511c3fd8bf0d36619275663b67ac1240a753576d9943516fe9b"
+  },
+  "failed_pairs": 0,
+  "h1_interval": [
+    -0.0009565124221546363,
+    0.0010983438107030493
+  ],
+  "h1_mean": 8.624212863932401e-05,
+  "independent_teachers": 8,
+  "paired_row_variance_upper": 0.00400159427126014,
+  "purpose": "scientific",
+  "repetition_variance": 2.9943508953927704e-06,
+  "repetitions": 2,
+  "sd_interval": [
+    0.00032156564110452884,
+    0.002177627807291007
+  ],
+  "static_interval": [
+    -0.046113362475687064,
+    -0.02139664152717296
+  ],
+  "static_mean": -0.034218960520976935,
+  "teacher_means": [
+    -0.002800296086141644,
+    -0.00013234732552138337,
+    0.0,
+    -0.00015426320878011762,
+    0.0,
+    0.0008811362067092243,
+    0.002895707442848513,
+    0.0
+  ]
+}

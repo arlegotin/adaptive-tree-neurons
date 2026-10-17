@@ -1,0 +1,178 @@
+{
+  "claim_scope": "exploratory retained evidence; no canonical complete16/design/freeze/confirmation claim",
+  "completed_pairs": 30,
+  "exact_missing_pairs": [
+    [
+      15,
+      0
+    ],
+    [
+      15,
+      1
+    ]
+  ],
+  "files": [
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/report.md",
+      "bytes": 11442,
+      "original_path": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/scientific-genuine-pilot-report.md",
+      "sha256": "dc96f84508e358820c0a92d218e3558b8be49b2ef599b016f438a06267f6cedf"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/continuation-advice.md",
+      "bytes": 18932,
+      "original_path": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/pilot-conditional-design-advice-report.md",
+      "sha256": "ac71859cbf6d2d55f9a96e14d42cace9dd343e993292f921b9778fc482689b20"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/invocation.json",
+      "bytes": 825,
+      "original_path": "environment/h1-v2/genuine-pilot/invocation.json",
+      "sha256": "d06420d09f761d2d2e07604d35edbf183bd5421561e28bc4cbf295f5002c1053"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/readout.json",
+      "bytes": 194698,
+      "original_path": "environment/h1-v2/genuine-pilot/readout.json",
+      "sha256": "fea94b6577a6be3a5dda9165ef55aa845ac875f0bbf770486d174cf481eedd29"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/retained-scalars-and-clocks.json",
+      "bytes": 23502,
+      "original_path": "environment/h1-v2/genuine-pilot/retained-scalars-and-clocks.json",
+      "sha256": "ced8171b204edc5560aa290365e5a2a2a8520054f391885ceab872b89fd8a51c"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/summary-8-call1.json",
+      "bytes": 4070,
+      "original_path": "environment/h1-v2/genuine-pilot/summary-8-call1.json",
+      "sha256": "d8b9ada05b7ba8f6f21f7f5480fe8cfe38d6bb30356f64ce5f3a0ce97b2e15f3"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/run.stderr",
+      "bytes": 873,
+      "original_path": "environment/h1-v2/genuine-pilot/run.stderr",
+      "sha256": "35978310b2cfa2a4a2996ca75a5bcc6febe63e0f306d99749e1ba2271b9b4d52"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/run.stdout",
+      "bytes": 40839,
+      "original_path": "environment/h1-v2/genuine-pilot/run.stdout",
+      "sha256": "d169dafe25eed43ba1cc66b5b9c1e3d62a4e183bdb19a0b010bd920d4b726d24"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/user-pause.json",
+      "bytes": 1113,
+      "original_path": "environment/h1-v2/genuine-pilot/user-pause.json",
+      "sha256": "445382844be0b235b5b6767d426e1834d69e794eb5d21b45b2ee1dc294aa193d"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/user-resume.json",
+      "bytes": 1217,
+      "original_path": "environment/h1-v2/genuine-pilot/user-resume.json",
+      "sha256": "7c57a8191ee1a298e39adbf56a37a62100f6543c95aacf3c9e4b39da6185c59b"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/run.py",
+      "bytes": 9474,
+      "original_path": "environment/h1-v2/genuine-pilot/run.py",
+      "sha256": "e587de047189e40bb5555bb7b1146aecfac5de37565892f33e70bbe86ba6867a"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/launch.py",
+      "bytes": 1348,
+      "original_path": "environment/h1-v2/genuine-pilot/launch.py",
+      "sha256": "a727d957fc38a8504ecca22675bac32a443fc61b0e56f276244d470f8bc60e17"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/curate-final.py",
+      "bytes": 11442,
+      "original_path": "environment/h1-v2/genuine-pilot/curate-final.py",
+      "sha256": "83e2a630b0a2e1583a70763472870d9c024f7eeb9c5fa34c03e5e74a2e9aea27"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/curate-scalars-and-clocks.py",
+      "bytes": 5832,
+      "original_path": "environment/h1-v2/genuine-pilot/curate-scalars-and-clocks.py",
+      "sha256": "5535132ad53372ed242278071d6cd3e1ae03c15570abc4fbb4aad0f7b7a64e96"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/index.py",
+      "bytes": 1793,
+      "original_path": "environment/h1-v2/genuine-pilot/index.py",
+      "sha256": "afe3b906c2c09451702d36660ca138b2a5b33ef06c210c80c3852f757e97bca2"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/original-seal-verification.json",
+      "bytes": 599,
+      "original_path": "environment/h1-v2/user-resume-root/original-seal-verification.json",
+      "sha256": "6d7461f86dccc508a5da99a8736b7358d1a8ac36aa0f15e5fbf7c2d8799f64c8"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/terminal-semantic-verification.json",
+      "bytes": 12144,
+      "original_path": "environment/h1-v2/user-resume-root/terminal-semantic-verification.json",
+      "sha256": "242b882e83ef335d4fd1631e23b087c76058e3504a216d466de50f01d8937246"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/inventory-verification.json",
+      "bytes": 473,
+      "original_path": "environment/h1-v2/user-resume-root/inventory-verification.json",
+      "sha256": "be331fac6972aeb05e508d1b277635ee1cc809d53d80500e01c1daa0fddf3f91"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/continuation-resource-adjudication.json",
+      "bytes": 2118,
+      "original_path": "environment/h1-v2/user-resume-root/continuation-resource-adjudication.json",
+      "sha256": "28b1c134d9d3b240767d8d9bfcd86f440b3d86f30e5134d55f08bb170086aec7"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/sleep-observation.json",
+      "bytes": 1330,
+      "original_path": "environment/h1-v2/sleep-observation/observation.json",
+      "sha256": "0f3f5e46fc814428f726788fc50d1e031780f8813a62a32149f455e6c611be8f"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/sleep-events.txt",
+      "bytes": 89636,
+      "original_path": "environment/h1-v2/sleep-observation/sleep-events.txt",
+      "sha256": "45a21591cb1d929b67e90ee54a04cd96d5d2076e8185397d7b9f4638c3984895"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/assertion-verification.txt",
+      "bytes": 208,
+      "original_path": "environment/h1-v2/sleep-observation/assertion-verification.txt",
+      "sha256": "d6d5e76fca6f5a6198d41a4784d3bd15418691c0e60aac094d046c159b52cc5a"
+    }
+  ],
+  "model_pair_failures": 0,
+  "note": "Archive snapshots preserve original statements at their capture; prospective continuation is separately declared before execution.",
+  "original_large_references": [
+    {
+      "bytes": 9622197,
+      "path": "environment/h1-v2/genuine-pilot/inventory.json",
+      "retention": "Original retained outsideGit; all bytes independently verified by root and original complete inventory",
+      "sha256": "c0a46776b126cd4a30c1f586b25ea3c786155736b362322fccfb428f3c06f4ea"
+    },
+    {
+      "bytes": 5563210,
+      "path": "environment/h1-v2/genuine-pilot/terminal-summary.json",
+      "retention": "Original retained outsideGit; all bytes independently verified by root and original complete inventory",
+      "sha256": "53545632b9cb4d8cf40a26d093b525f5b422891432b963e859379aa675c502a5"
+    },
+    {
+      "bytes": 5630755,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw-seal.json",
+      "retention": "Original retained outsideGit; all bytes independently verified by root and original complete inventory",
+      "sha256": "48fbb78a29c4caa1ffb776f929326481d4a911554e64bf6c83ae8304a78f9842"
+    }
+  ],
+  "original_status": "failed",
+  "root_verified_complete_inventory": {
+    "bytes": 12219004537,
+    "errors": [],
+    "files": 29003,
+    "sha256": "c0a46776b126cd4a30c1f586b25ea3c786155736b362322fccfb428f3c06f4ea"
+  },
+  "status": "original_producer_failed_user_pause_timeout_with_15_complete_R2_teachers"
+}

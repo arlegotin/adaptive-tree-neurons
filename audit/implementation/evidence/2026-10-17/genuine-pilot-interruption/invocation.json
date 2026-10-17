@@ -1,0 +1,24 @@
+{
+  "command": [
+    "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+    "environment/h1-v2/genuine-pilot/run.py"
+  ],
+  "existing_cli_arguments": [
+    "calibrate",
+    "--config",
+    "environment/h1-v2/scientific-ready/scientific-config.yaml"
+  ],
+  "exit_code": 1,
+  "external_seconds": 47057.135737208,
+  "wrapper_sha256": "e587de047189e40bb5555bb7b1146aecfac5de37565892f33e70bbe86ba6867a",
+  "launcher_sha256": "a727d957fc38a8504ecca22675bac32a443fc61b0e56f276244d470f8bc60e17",
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+    "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src"
+  }
+}

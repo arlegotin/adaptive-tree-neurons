@@ -2,13 +2,15 @@
 
 A research proof of concept where selected neurons grow two specialists and a switch that blends them for each input. The question is whether a cheap score can choose where to grow better than random placement, using the same added capacity.
 
-The first complete exploratory comparison gives a negative result for the score: on one 16-dimensional synthetic teacher, top-scored growth had validation MSE **0.14753**, versus **0.14384** for random placement at the same 1,697 parameters. Both improved on continuing the 1,153-parameter parent (**0.16066**). Ordinary warm widening to 1,693/1,711 parameters gave **0.15644/0.15881**. This keeps conditional growth interesting on this problem, but supplies no evidence that the score chooses better locations.
+The genuine exploratory pilot has retained **15 independent problems, trained twice**, with no model-pair failures. Guided growth averages normalized E MSE **0.0593955**, random placement **0.0590092**, and the upper ordinary parameter bracket **0.0586740**. These descriptive results establish no guided-placement advantage. The original run timed out after a user-requested suspension; the [prospective continuation](docs/research/2026-10-17-genuine-pilot-interruption.md) will complete only the final predeclared problem while preserving the original failed record. There is no independent confirmatory result.
 
-Two further [common-recipe calibration problems](docs/research/2026-10-17-common-recipe-exploratory.md) give mixed outcomes: selected growth has a tiny lead over random on one, while both match the parent on the other and an ordinary wider network does better. These remain exploratory, with one repetition per problem. [Finite development controls](docs/research/2026-10-17-finite-development-controls.md) also give mixed results: guided growth wins on one sparse-data draw, while random placement wins on several other conditions. The primary recipe stays unchanged; the independent study is still pending.
+An earlier single-teacher exploratory comparison gave a negative result for the score: on one 16-dimensional synthetic teacher, top-scored growth had validation MSE **0.14753**, versus **0.14384** for random placement at the same 1,697 parameters. Both improved on continuing the 1,153-parameter parent (**0.16066**). Ordinary warm widening to 1,693/1,711 parameters gave **0.15644/0.15881**. This keeps conditional growth interesting on this problem, but supplies no evidence that the score chooses better locations.
+
+Two further [common-recipe calibration problems](docs/research/2026-10-17-common-recipe-exploratory.md) give mixed outcomes: selected growth has a tiny lead over random on one, while both match the parent on the other and an ordinary wider network does better. These remain exploratory, with one repetition per problem. [Finite development controls](docs/research/2026-10-17-finite-development-controls.md) also give mixed results: guided growth wins on one sparse-data draw, while random placement wins on several other conditions. These calibration cases are separate from the genuine pilot, whose primary recipe stays unchanged.
 
 These are descriptive G/V results from one teacher and optimizer seed, with provisional update limits. Top was still improving at its limit. The separate noiseless 2-D control learns the intended opposite slopes; keep, top and random all give validation MSE about **0.001338**, with no useful extra-growth gain. It is a different diagnostic population, not another primary replicate. The [curated evidence](docs/research/2026-10-16-exploratory-paired-evidence.json) records all controls, costs, hashes and limitations; [DECISIONS.md](DECISIONS.md#d008--16-october-2026-exploratory-checkpoint-cost-and-first-paired-study) records the bounded conclusion and next gates.
 
-The [plain-language interpretation](docs/research/2026-10-17-exploratory-interpretation.md) explains what these early results support and what remains unresolved. Protocol protection, the independent-cohort runner and audit/report code have passed implementation review. The final calibration fixes have also passed scoped review. Measured calibration exposed duplicated checkpoint logs. The reviewed storage correction reproduces all 4,000 updates exactly while reducing checkpoint metadata from 20.6 MB to 2.6 MB; recipe and complete-study resource calibration continue. The genuine variance pilot and independent test cohort are still pending; no independent accuracy result exists yet. The complete two-repetition engineering workload took about eight minutes, and [strict readiness for the new independent-problem pilot](docs/research/2026-10-17-scientific-pilot-readiness.md) now passes.
+The [plain-language interpretation](docs/research/2026-10-17-exploratory-interpretation.md) explains the earlier results. Protocol protection, the independent-cohort runner and audit/report code passed implementation review and scoped fixes. The reviewed storage correction reproduces all 4,000 updates exactly while reducing checkpoint metadata from 20.6 MB to 2.6 MB. The complete two-repetition engineering workload took about eight minutes, and [strict scientific readiness](docs/research/2026-10-17-scientific-pilot-readiness.md) preceded the genuine pilot. Completing that pilot record, a supported numeric design, independent confirmation and actual scientific reproduction remain distinct gates.
 
 The repository implements the compact selective affine layer, CPU64 moment score, deterministic CPU training, complete checkpoint recovery, state-preserving growth, F-only preprocessing and serial paired controls. Algebra, native CPU/MPS kernel checks and the CPU causal path have been tested. The soft affine-stump model belongs to an established gated family; the research target is the allocation procedure and its measured limits.
 
@@ -92,8 +94,8 @@ symmetric 4,000 + 4,000 next-run allowance. They are **unexecuted and calibratio
 pending**. They change no batch, scoring, checkpoint-selection or patience rule.
 Definitive H1 calibration follows the required spline/B6/B7 and search/timing
 gates, plus all pre-freeze H1 implementation. Grouped/temporal raw data and
-practical adapters gate the separate transfer study. No repeated inventory run
-or variance pilot is claimed here. The [confirmation-cohort amendment](protocol/amendments/2026-10-16-minimum-confirmation-cohort.md)
+practical adapters gate the separate transfer study. These historical starter configs do not describe the current 8,000-update
+common-recipe pilot linked above. The [confirmation-cohort amendment](protocol/amendments/2026-10-16-minimum-confirmation-cohort.md)
 prevents a one-teacher design from producing a falsely precise population claim;
 its study-specific floor still requires finite-sample uncertainty checks.
 
@@ -129,12 +131,14 @@ preserves full raw sample logs while replacing redundant checkpoint row lists
 with versioned counts and ordered hashes. The actual 4,000-update replay matches
 all selected model/optimizer/sampler/RNG state, predictions and ordered update
 records exactly. Its fitting boundary fell from 47.6 to 14.1 seconds in one run.
-This is an engineering observation; independent allocation evidence remains pending.
+This is an engineering observation. The current exploratory pilot record is
+linked above; protected independent confirmation remains pending.
 
 ### Auditing and portable saved evidence (pre-freeze implementation)
 
-Task 13 supplies audit/report tooling; the genuine pilot, numeric design, full
-independent cohort and scientific reproduction remain pending. `reports/final.md`
+Task 13 supplies audit/report tooling. The genuine pilot has retained the
+partial record above; a supported numeric design, full independent cohort and
+actual scientific reproduction remain pending. `reports/final.md`
 is a blocked pre-study status, not a completed research result. After a reviewed
 freeze and complete execution, use:
 

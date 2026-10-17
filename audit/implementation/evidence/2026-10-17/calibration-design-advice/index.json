@@ -1,0 +1,29 @@
+{
+  "created_at_utc": "2026-10-17T09:26:58.389125+00:00",
+  "execution_authorized": false,
+  "files": {
+    "pilot-conditional-design-advice-brief.md": {
+      "bytes": 3157,
+      "sha256": "812b4a5425bd87b0f0f1f694ee1afc438e1747c6275fbd92d2918209b377ec96",
+      "source": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/pilot-conditional-design-advice-brief.md"
+    },
+    "pilot-conditional-design-advice-report.md": {
+      "bytes": 10464,
+      "sha256": "8e635645a770dc86dbe6f8e43bf9d4a50e6bd00a86c3bfe7f42cbf9bd2325e1d",
+      "source": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/pilot-conditional-design-advice-report.md"
+    },
+    "pilot-saved-mc-supplement-predeclaration.json": {
+      "bytes": 452,
+      "sha256": "1c94bb8df70f773fb3cf3009fc7eac91e27b72e4c513fe345c79b46c150d398c",
+      "source": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/pilot-saved-mc-supplement-predeclaration.json"
+    },
+    "pilot-saved-mc-supplement-predeclaration.md": {
+      "bytes": 2656,
+      "sha256": "20f7d30d536ba1b33e939973e4ef9db0db639ebe197e353980312e7dc54e71fd",
+      "source": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/pilot-saved-mc-supplement-predeclaration.md"
+    }
+  },
+  "kind": "conditional_advice_and_prospective_supplement_scope",
+  "note": "Original16/R2 pilot remains active; these do not modify its source, recipe, canonical decision or eligibility.",
+  "pilot_terminal_adjudication": false
+}

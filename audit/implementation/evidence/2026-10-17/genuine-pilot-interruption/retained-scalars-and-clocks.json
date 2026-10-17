@@ -1,0 +1,552 @@
+{
+  "accepted_records": 16,
+  "canonical_design_published": false,
+  "canonical_summary_published": false,
+  "clock_pause_evidence": {
+    "controller_UTC_pause_seconds": 41833.008834,
+    "controller_pause_receipt_sha256": "445382844be0b235b5b6767d426e1834d69e794eb5d21b45b2ee1dc294aa193d",
+    "controller_perf_pause_seconds": 40020.992005584,
+    "controller_resume_receipt_sha256": "7c57a8191ee1a298e39adbf56a37a62100f6543c95aacf3c9e4b39da6185c59b",
+    "interpretation": "The producer measured a 40033.386s raw publication spanning the controller pause and between these producer boundaries. Controller and producer values remain separate; no pause-subtracted cap or cost is asserted.",
+    "producer_after_R0": {
+      "boundary": "after artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-14/repetition-0",
+      "elapsed_seconds": 6575.070315833,
+      "utc": "2026-10-17T09:38:45Z"
+    },
+    "producer_before_R1": {
+      "boundary": "before artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-14/repetition-1",
+      "elapsed_seconds": 46620.855981875,
+      "utc": "2026-10-17T21:16:22Z"
+    },
+    "producer_between_pair_perf_seconds": 40045.785666042
+  },
+  "completed_pairs": 30,
+  "descriptive_means_only": {
+    "h1": -0.00038626548429051487,
+    "independent_teachers": 15,
+    "static": -0.028331268588973627
+  },
+  "distinct_full_stage_count": 360,
+  "failed_pairs": 0,
+  "final_nonimprovement_counts": [
+    20
+  ],
+  "generated_unstarted_teacher": {
+    "E_rows": 262144,
+    "index": 15,
+    "seeds": {
+      "allocation": 261022103,
+      "contrast": 261022104,
+      "data": 5809410917247361526,
+      "namespace": "exploratory",
+      "optimizer": 261022102,
+      "reference": 4363054345495823725,
+      "teacher": 3126920825792121154
+    },
+    "setup_seconds": 0.256963625,
+    "split_sha256": "8354204ae8fcb8679a9ecc13bca21ce9a23b71954aa04c7eb2fc633610b605c8",
+    "teacher_id": "2d8dc49dc2817d19406d1809b1f5501234deb8dee63bab7d8e2a7a7ab20a4510"
+  },
+  "hit_ceiling_stages": [],
+  "missing_pairs": [
+    {
+      "repetition": 0,
+      "teacher_index": 15
+    },
+    {
+      "repetition": 1,
+      "teacher_index": 15
+    }
+  ],
+  "numerical_STOP": true,
+  "original_failure": "TimeoutError: Engineering pilot time cap reached between paired repetitions",
+  "original_raw_sha256": "7478e09a4369292642bf4de55c9fe8634558067e89b8ab87f7b5ea354123d716",
+  "original_status": "failed",
+  "raw_publication_accounting": {
+    "count": 62,
+    "limitation": "Original max publication includes the stopped-process interval; it is not serialization throughput.",
+    "max_publication": {
+      "accepted_records": 16,
+      "attempts": 30,
+      "bytes": 503827311,
+      "completed_attempts": 29,
+      "nanoseconds": 40033385803250,
+      "path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/raw.json",
+      "peak_rss_bytes": 3308093440,
+      "status": "running"
+    },
+    "original_total_perf_seconds": 40385.98143446,
+    "total_written_bytes": 15619917648
+  },
+  "raw_seal_sha256": "48fbb78a29c4caa1ffb776f929326481d4a911554e64bf6c83ae8304a78f9842",
+  "recipe_sha256": "4579ba87ffc6be1678b935c5297e849e0a6a53adb0e055ecedea84596ab29c6a",
+  "scope": "Descriptive retained original records only; 15 complete teachers are not the completed fixed16 pilot. No new bootstrap/design or clock-policy adjustment.",
+  "source_execution_sha256": "07366c506b309cce841f08d54f25d718e246f75daea5696d6542c300cfadaf6c",
+  "teachers": [
+    {
+      "evaluation_rows": 262144,
+      "exact_pair_means": [
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": 0.0,
+          "optimizer_seed": 345717272,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-0/repetition-0/pair.json",
+          "pair_sha256": "8a5647ab02890b3d4ca3cc05fcb7408c2c5dffa4c5a730be095721e5d87b52d2",
+          "repetition": 0,
+          "static_mean": -0.013689274701131302
+        },
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": -0.005600592172283288,
+          "optimizer_seed": 2203189091,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-0/repetition-1/pair.json",
+          "pair_sha256": "09a50fc8a4ea17e75e869ea8970be6755b3ecc296618ebb8bbc5474041be5166",
+          "repetition": 1,
+          "static_mean": -0.019001884903660806
+        }
+      ],
+      "h1_mean": -0.002800296086141644,
+      "paired_row_H1_variance": 0.0015362181445512115,
+      "repetitions": 2,
+      "static_mean": -0.016345579802396055,
+      "teacher_id": "656c983586d601c21ed62c7361fd199496570959ade9d2a4c58fa1a97306e20f",
+      "teacher_index": 0,
+      "within_teacher_H1_variance": 1.5683316340120418e-05,
+      "within_teacher_static_mean_variance": 1.411191358201029e-05
+    },
+    {
+      "evaluation_rows": 262144,
+      "exact_pair_means": [
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": 0.0004390171290591873,
+          "optimizer_seed": 1554093488,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-1/repetition-0/pair.json",
+          "pair_sha256": "ff60993451afcb98ea746ba72a4dd5287d09638e1855b2ed892fa22fd97837c5",
+          "repetition": 0,
+          "static_mean": -0.0004535827709313759
+        },
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": -0.000703711780101954,
+          "optimizer_seed": 3690316534,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-1/repetition-1/pair.json",
+          "pair_sha256": "772daf752ff66a72c72ebe6130f6ee40bf4db36dc80449455f20c82c9c041055",
+          "repetition": 1,
+          "static_mean": -0.002388361794490008
+        }
+      ],
+      "h1_mean": -0.00013234732552138337,
+      "paired_row_H1_variance": 0.00037818410143890095,
+      "repetitions": 2,
+      "static_mean": -0.0014209722827106918,
+      "teacher_id": "bc184c8add6951447858b0ddda3e06f74510ed8845bf8f9059a53dd91fecf866",
+      "teacher_index": 1,
+      "within_teacher_H1_variance": 6.529146799163061e-07,
+      "within_teacher_static_mean_variance": 1.871684935001247e-06
+    },
+    {
+      "evaluation_rows": 262144,
+      "exact_pair_means": [
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": 0.0,
+          "optimizer_seed": 3064846202,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-2/repetition-0/pair.json",
+          "pair_sha256": "31c1e70d95e3e72177fc8499be98bff4e201d8b57588d474882e683466eb6193",
+          "repetition": 0,
+          "static_mean": -0.07285511795315991
+        },
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": 0.0,
+          "optimizer_seed": 2942833038,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-2/repetition-1/pair.json",
+          "pair_sha256": "a1cf18e8c9b781a29134c5ea72727cd1101fd7936005fd84b05a2204d2f422ce",
+          "repetition": 1,
+          "static_mean": -0.04546850085917221
+        }
+      ],
+      "h1_mean": 0.0,
+      "paired_row_H1_variance": 0.0,
+      "repetitions": 2,
+      "static_mean": -0.059161809406166055,
+      "teacher_id": "167888d80f20d0571a9f3cb876076c00eccc4cf0dd2e2c46b3df01c52c302224",
+      "teacher_index": 2,
+      "within_teacher_H1_variance": 0.0,
+      "within_teacher_static_mean_variance": 0.0003750133979263497
+    },
+    {
+      "evaluation_rows": 262144,
+      "exact_pair_means": [
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": -0.00030852641756023524,
+          "optimizer_seed": 1715124891,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-3/repetition-0/pair.json",
+          "pair_sha256": "74d3ed81b2cafc4c9314e93c1ccb8a1fa1271f06180189cf1d8498abd8805be1",
+          "repetition": 0,
+          "static_mean": -0.017724225770068058
+        },
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": 0.0,
+          "optimizer_seed": 3385582395,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-3/repetition-1/pair.json",
+          "pair_sha256": "8e538fd651efcb8c1e4907768cbf19409f4688eb4f866122cfda2432e98f0f12",
+          "repetition": 1,
+          "static_mean": -0.03531377568784759
+        }
+      ],
+      "h1_mean": -0.00015426320878011762,
+      "paired_row_H1_variance": 0.00037574444053704853,
+      "repetitions": 2,
+      "static_mean": -0.026519000728957826,
+      "teacher_id": "afc288e40fc6d968fbbcb9ab09a5fd30088b9e45bb4ec6970fce6ff831227920",
+      "teacher_index": 3,
+      "within_teacher_H1_variance": 4.7594275166276314e-08,
+      "within_teacher_static_mean_variance": 0.00015469613315502898
+    },
+    {
+      "evaluation_rows": 262144,
+      "exact_pair_means": [
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": 0.0,
+          "optimizer_seed": 1775342924,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-4/repetition-0/pair.json",
+          "pair_sha256": "03a0317fb034d1c5a2991c9173e5ca8dd637717b01d826e7105c3b39edb46684",
+          "repetition": 0,
+          "static_mean": -0.054233140255534974
+        },
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": 0.0,
+          "optimizer_seed": 1008131100,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-4/repetition-1/pair.json",
+          "pair_sha256": "65d65c2899cc8bdaac4e595bb288cbc7fa1874df2afaec122aa28084a8a56e9b",
+          "repetition": 1,
+          "static_mean": -0.034955629448707934
+        }
+      ],
+      "h1_mean": 0.0,
+      "paired_row_H1_variance": 0.0,
+      "repetitions": 2,
+      "static_mean": -0.04459438485212146,
+      "teacher_id": "f9f14813407ebdb0198479827cb2eb01683c977e3442c63c3494641df474c60b",
+      "teacher_index": 4,
+      "within_teacher_H1_variance": 0.0,
+      "within_teacher_static_mean_variance": 0.00018581121145366667
+    },
+    {
+      "evaluation_rows": 262144,
+      "exact_pair_means": [
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": 5.496053079324401e-05,
+          "optimizer_seed": 4220705933,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-5/repetition-0/pair.json",
+          "pair_sha256": "214e5719c98a074b5f5f1b968dc67a77c0c9f3083fe71f1d41d80cb2d17e53cc",
+          "repetition": 0,
+          "static_mean": -0.03666438203670269
+        },
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": 0.001707311882625205,
+          "optimizer_seed": 713247048,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-5/repetition-1/pair.json",
+          "pair_sha256": "732e771f7b5a6c231035ee666b24be5a5016b58569fce368657f8833b69788c3",
+          "repetition": 1,
+          "static_mean": -0.06055348295474542
+        }
+      ],
+      "h1_mean": 0.0008811362067092244,
+      "paired_row_H1_variance": 0.004217578735490054,
+      "repetitions": 2,
+      "static_mean": -0.04860893249572405,
+      "teacher_id": "76b967f7afc4c6b7881a38eeef6326add44d90f7b0b65bb078fb82d4a5b340e5",
+      "teacher_index": 5,
+      "within_teacher_H1_variance": 1.3651324949504544e-06,
+      "within_teacher_static_mean_variance": 0.000285344571336215
+    },
+    {
+      "evaluation_rows": 262144,
+      "exact_pair_means": [
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": 0.004657219488363489,
+          "optimizer_seed": 4143327650,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-6/repetition-0/pair.json",
+          "pair_sha256": "ec580b7390974f0351282fcbc136ac037f1b617b6d9274ed4f237534bdb0fceb",
+          "repetition": 0,
+          "static_mean": -0.05140082169004206
+        },
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": 0.0011341953973335376,
+          "optimizer_seed": 96223050,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-6/repetition-1/pair.json",
+          "pair_sha256": "b827994680e5ec3aec6e5e73a003f992ec382b3d316152c0459a7951197071ef",
+          "repetition": 1,
+          "static_mean": -0.04137462582577422
+        }
+      ],
+      "h1_mean": 0.0028957074428485135,
+      "paired_row_H1_variance": 0.008500863029054017,
+      "repetitions": 2,
+      "static_mean": -0.04638772375790814,
+      "teacher_id": "66730c322aa3e38713884100a9fa689aa0f2595af32a1755d7e044938ea4bc65",
+      "teacher_index": 6,
+      "within_teacher_H1_variance": 6.205849372988708e-06,
+      "within_teacher_static_mean_variance": 5.0262301754330766e-05
+    },
+    {
+      "evaluation_rows": 262144,
+      "exact_pair_means": [
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": 0.0,
+          "optimizer_seed": 4150659514,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-7/repetition-0/pair.json",
+          "pair_sha256": "3d5c2ff903933ecf0dd6e603fdce52369ea331f7751bd9998ef86c5e520576fa",
+          "repetition": 0,
+          "static_mean": -0.027523560530748725
+        },
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": 0.0,
+          "optimizer_seed": 3887736740,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-7/repetition-1/pair.json",
+          "pair_sha256": "b4f3d555f8a84439761e2654858574819f1192da2955baebadcc6a4c4cc8c5e5",
+          "repetition": 1,
+          "static_mean": -0.03390300115291359
+        }
+      ],
+      "h1_mean": 0.0,
+      "paired_row_H1_variance": 0.0,
+      "repetitions": 2,
+      "static_mean": -0.030713280841831156,
+      "teacher_id": "2c965a50bf0f7a2e4d71a0c49540fedb2cc056bc381d8e91db6816ba1fcb112a",
+      "teacher_index": 7,
+      "within_teacher_H1_variance": 0.0,
+      "within_teacher_static_mean_variance": 2.03486313258636e-05
+    },
+    {
+      "evaluation_rows": 262144,
+      "exact_pair_means": [
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": -0.0023525793593718565,
+          "optimizer_seed": 540777114,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-8/repetition-0/pair.json",
+          "pair_sha256": "36cca7ea92f36b931a1347c87ef7770cc493622a75cb92aeebf7b1d0b5485d65",
+          "repetition": 0,
+          "static_mean": -0.014725126192601114
+        },
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": -0.0008211819302626201,
+          "optimizer_seed": 1184817659,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-8/repetition-1/pair.json",
+          "pair_sha256": "eac8de36e9215344e60ad2cb4cca3f51792a107c8dac2ec1cad1f460c835d042",
+          "repetition": 1,
+          "static_mean": -0.015416762271227135
+        }
+      ],
+      "h1_mean": -0.0015868806448172384,
+      "paired_row_H1_variance": 0.0027686562772887193,
+      "repetitions": 2,
+      "static_mean": -0.015070944231914124,
+      "teacher_id": "d3c5d7453076d1bf2933bcdc45ebe2cc37fee01473cd63b4bd87c45be8229fd6",
+      "teacher_index": 8,
+      "within_teacher_H1_variance": 1.1725890429411894e-06,
+      "within_teacher_static_mean_variance": 2.3918023262859e-07
+    },
+    {
+      "evaluation_rows": 262144,
+      "exact_pair_means": [
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": 0.0,
+          "optimizer_seed": 1944034237,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-9/repetition-0/pair.json",
+          "pair_sha256": "ef680a513b8e51511b27e0ad4ae2ede0b57b736ffeb76819130580ae391feec6",
+          "repetition": 0,
+          "static_mean": -0.027283319528761257
+        },
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": 0.0,
+          "optimizer_seed": 327406040,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-9/repetition-1/pair.json",
+          "pair_sha256": "74c4aef24b0c0000209f8fedd87afcde5a77f6781e03435a825dda88230a342c",
+          "repetition": 1,
+          "static_mean": -0.03338160087022809
+        }
+      ],
+      "h1_mean": 0.0,
+      "paired_row_H1_variance": 0.0,
+      "repetitions": 2,
+      "static_mean": -0.030332460199494673,
+      "teacher_id": "725e437265b89f2a2959f09f8eaa4856e13266b50bc06e17abceb228018355bb",
+      "teacher_index": 9,
+      "within_teacher_H1_variance": 0.0,
+      "within_teacher_static_mean_variance": 1.8594517659841247e-05
+    },
+    {
+      "evaluation_rows": 262144,
+      "exact_pair_means": [
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": -0.002137829772467044,
+          "optimizer_seed": 3737937441,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-10/repetition-0/pair.json",
+          "pair_sha256": "e7c04d96251ad70604148a23714151ed6f75e4a32019b146a8c6019a4ee72906",
+          "repetition": 0,
+          "static_mean": -0.02301690113589321
+        },
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": 0.0,
+          "optimizer_seed": 3347517102,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-10/repetition-1/pair.json",
+          "pair_sha256": "6e1fe7b9bd7ab47f460eb177a0d70f809b0e94fe7fb1c970dd40d18a4af07281",
+          "repetition": 1,
+          "static_mean": -0.025490665170269263
+        }
+      ],
+      "h1_mean": -0.001068914886233522,
+      "paired_row_H1_variance": 0.0005035547110330567,
+      "repetitions": 2,
+      "static_mean": -0.024253783153081236,
+      "teacher_id": "566298cacbf0cea534db79c687c4c9fcd6a852ed18ca080a263d3ddeadc7f665",
+      "teacher_index": 10,
+      "within_teacher_H1_variance": 2.285158068023246e-06,
+      "within_teacher_static_mean_variance": 3.059754248886245e-06
+    },
+    {
+      "evaluation_rows": 262144,
+      "exact_pair_means": [
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": -0.0004530766086812725,
+          "optimizer_seed": 2492312182,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-11/repetition-0/pair.json",
+          "pair_sha256": "f7210451c1e56543eb2327a1b6e28241129cbdb7db8c582698a4f8cd1f0f7967",
+          "repetition": 0,
+          "static_mean": -0.015507484268019671
+        },
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": -0.0010175311012773462,
+          "optimizer_seed": 2263832510,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-11/repetition-1/pair.json",
+          "pair_sha256": "228f885e268f37b8c2cd447d15c0e07e71371ac2907b94e526fe0007476114df",
+          "repetition": 1,
+          "static_mean": -0.008448501519562288
+        }
+      ],
+      "h1_mean": -0.0007353038549793093,
+      "paired_row_H1_variance": 0.00040361593424651627,
+      "repetitions": 2,
+      "static_mean": -0.011977992893790979,
+      "teacher_id": "3a4d7ee9449c834a9ee0734123e47c32ed788a80fe9e2f3b4e1c28669c4e6776",
+      "teacher_index": 11,
+      "within_teacher_H1_variance": 1.5930443710594554e-07,
+      "within_teacher_static_mean_variance": 2.4914618721509474e-05
+    },
+    {
+      "evaluation_rows": 262144,
+      "exact_pair_means": [
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": -0.001402404593726694,
+          "optimizer_seed": 1207170027,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-12/repetition-0/pair.json",
+          "pair_sha256": "70caea03165d86b423e77ac90c5e1c83b62259718fe2cd46a007dc34fe8f0122",
+          "repetition": 0,
+          "static_mean": -0.02366150886602221
+        },
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": -0.0034294266454117928,
+          "optimizer_seed": 1471435652,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-12/repetition-1/pair.json",
+          "pair_sha256": "a69182b95baa80c645fe1e64e999ca606bf0ed567ed2fc143e1a5ba3c9c67e87",
+          "repetition": 1,
+          "static_mean": -0.023639126417540613
+        }
+      ],
+      "h1_mean": -0.0024159156195692434,
+      "paired_row_H1_variance": 0.001867919450020729,
+      "repetitions": 2,
+      "static_mean": -0.02365031764178141,
+      "teacher_id": "6814ba6b796b8be7c8ebaa9522e35b226770042456eae58fc3446bbbfc984a1f",
+      "teacher_index": 12,
+      "within_teacher_H1_variance": 2.0544091990088335e-06,
+      "within_teacher_static_mean_variance": 2.5048700001567094e-10
+    },
+    {
+      "evaluation_rows": 262144,
+      "exact_pair_means": [
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": 0.0,
+          "optimizer_seed": 3238673077,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-13/repetition-0/pair.json",
+          "pair_sha256": "c85e0f8e3a0a296877027efe5dee507e934b2f594d402b43a6b68cc79084353f",
+          "repetition": 0,
+          "static_mean": -0.021134852802547614
+        },
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": 0.0,
+          "optimizer_seed": 252708443,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-13/repetition-1/pair.json",
+          "pair_sha256": "cc5e7b65491aa5fb126fe9c377d5551b0ba8c4e6a31e653f59469ddd0e2027ea",
+          "repetition": 1,
+          "static_mean": -0.055910886325959586
+        }
+      ],
+      "h1_mean": 0.0,
+      "paired_row_H1_variance": 0.0,
+      "repetitions": 2,
+      "static_mean": -0.0385228695642536,
+      "teacher_id": "18425eca1be602241ac5301d7be67ac33f28943592a737341f6a4bff581a0ec5",
+      "teacher_index": 13,
+      "within_teacher_H1_variance": 0.0,
+      "within_teacher_static_mean_variance": 0.0006046862538107366
+    },
+    {
+      "evaluation_rows": 262144,
+      "exact_pair_means": [
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": 0.0,
+          "optimizer_seed": 1370149318,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-14/repetition-0/pair.json",
+          "pair_sha256": "bbd23361c593c1f5447bd30cd64f82e96c657f756decdddde15c6ea04dc564d5",
+          "repetition": 0,
+          "static_mean": -0.0010510308426867664
+        },
+        {
+          "evaluation_rows": 262144,
+          "h1_mean": -0.0013538085757460047,
+          "optimizer_seed": 832857678,
+          "pair_path": "artifacts/h1-v2/scientific-pilot/pilot-fe9efe02afc2444f94bd4aa6511cb76d/teacher-14/repetition-1/pair.json",
+          "pair_sha256": "5bc69f8bb1a368d3b5bf743b2e823153c96779f1ec403952e924fa93bfad7e90",
+          "repetition": 1,
+          "static_mean": -0.013766923122259092
+        }
+      ],
+      "h1_mean": -0.0006769042878730023,
+      "paired_row_H1_variance": 0.00022572934307739105,
+      "repetitions": 2,
+      "static_mean": -0.007408976982472929,
+      "teacher_id": "a795a28bf27d9fb4f572a2b2ba01b72757eb5611f5c3108337d7f25fa67af445",
+      "teacher_index": 14,
+      "within_teacher_H1_variance": 9.163988298817128e-07,
+      "within_teacher_static_mean_variance": 8.084695823284354e-05
+    }
+  ]
+}

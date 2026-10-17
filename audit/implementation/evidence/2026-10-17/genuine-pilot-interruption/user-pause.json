@@ -1,0 +1,15 @@
+{
+  "reason": "Explicit user request: pause for a moment",
+  "paused_at_utc": "2026-10-17T09:39:07.814645+00:00",
+  "controller_perf_counter_ns": 473664628634791,
+  "signals": {
+    "6994": "SIGSTOP",
+    "6993": "SIGSTOP",
+    "15866": "SIGTERM scoped idle-sleep assertion only"
+  },
+  "before": " 6993 53534 Ss   .venv/bin/python environment/h1-v2/genuine-pilot/launch.py\n 6994  6993 R    /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python environment/h1-v2/genuine-pilot/run.py\n15866     1 Ss   /usr/bin/caffeinate -i -w 6994\n",
+  "after": " 6993 53534 Ts   .venv/bin/python environment/h1-v2/genuine-pilot/launch.py\n 6994  6993 T    /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python environment/h1-v2/genuine-pilot/run.py\n",
+  "resume_requires_explicit_user_instruction": true,
+  "state_preservation": "Live worker and launcher suspended in memory; no checkpoint/source/config changes",
+  "timing_note": "Record user-paused interval separately on resume; existing perf-counter clocks may include it. No budget or clock policy silently changed."
+}
