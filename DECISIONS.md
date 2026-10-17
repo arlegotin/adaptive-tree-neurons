@@ -653,3 +653,26 @@ The [current design decision](pilot/design_decision.md) and
 while preserving all original bulk records. Work remains on the requested main
 branch. No further numerical work is running. All eighteen chronological
 rulings and their costs remain part of the final human handoff.
+
+
+## D028 — 18 October 2026: execute a separate longer-probe allocation diagnostic
+
+The user approved the next focused experiment: test whether longer validation
+trials reveal placement gains missed by the cheap score and the short reference.
+The [design](docs/superpowers/specs/2026-10-18-long-probe-allocation-diagnostic-design.md)
+and [plan](docs/superpowers/plans/2026-10-18-long-probe-allocation-diagnostic.md)
+specify one measured cost comparison, then eight fresh problems/R2 with both
+short and long exhaustive searches, matched final capacity/continuation and all
+nine final roles. Long trials use normal8000 ceiling/patience20; short320 retains
+its fixed default. Source changes require fresh parents and a narrow current
+CPU128 receipt. A fresh independent builder check found no unresolved question.
+
+The [planning evidence](audit/diagnostics/2026-10-18-long-probes/planning/index.json)
+records the smallest backward-compatible API change and resource boundary.
+Cost and cohort use separate fresh seeds; full search cost, failures, source,
+raw predictions and all unfavorable/zero outcomes remain retained. Counts and
+policies do not depend on E outcomes. This is an exploratory diagnostic with
+descriptive paired uncertainty, not the original missing frozen confirmation
+or proof of practical superiority. Old results and eighteen rulings stay intact.
+Implementation/review, one full cost measurement and the fixed cohort/audit
+will now execute on current main without another permission checkpoint.

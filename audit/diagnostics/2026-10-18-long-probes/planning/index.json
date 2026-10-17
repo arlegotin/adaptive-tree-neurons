@@ -1,0 +1,17 @@
+{
+  "scope": "Read-only feasibility and independent builder check; no numerical work",
+  "files": [
+    {
+      "original_path": ".superpowers/long-probe-feasibility.md",
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/planning/feasibility.md",
+      "bytes": 8597,
+      "sha256": "0e2bf80aeb458e2e3056a014b360174d590c227c575cf7ccd8bfe098b652e7c9"
+    },
+    {
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/builder-check.md",
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/planning/builder-check.md",
+      "bytes": 775,
+      "sha256": "fcbed0d35a32308d5acd67e85196eed8ca8eabeb01d4924fa69106712afcf0e7"
+    }
+  ]
+}
