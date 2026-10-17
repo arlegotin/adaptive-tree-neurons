@@ -1,0 +1,67 @@
+{
+  "scope": "development-only conditional row/error/block/algorithm-Monte-Carlo cost and precision; not population coverage or pilot power",
+  "evaluation_rows": [
+    4096,
+    16384,
+    65536,
+    262144
+  ],
+  "prediction_repetitions": 3,
+  "models": [
+    "keep",
+    "top",
+    "random",
+    "ordinary_upper",
+    "static_partial"
+  ],
+  "E_streams": {
+    "a": 261018100,
+    "b": 261018200
+  },
+  "E_candidate_rule": "smallest measured rows with conditional H1 and static mean SE <=10% of absolute A/B development mean separation at maximum rows; engineering scale only, two problems do not estimate population variance; if unresolved retain largest measured rows with limitation",
+  "block_rows": 4096,
+  "bootstrap_iterations": [
+    2000,
+    8000,
+    32000,
+    128000,
+    512000
+  ],
+  "bootstrap_seeds": [
+    261020006,
+    261020007,
+    261020008
+  ],
+  "bootstrap_shape_inputs": [
+    8,
+    16
+  ],
+  "bootstrap_declared_relative_endpoint_mcse_target": 0.02,
+  "bootstrap_absolute_gate_rule": "twice maximum observed absolute endpoint MCSE at selected iteration count; measured finite calibration margin, not a guarantee for unseen teacher distributions",
+  "power_iterations": [
+    1024,
+    4096,
+    16384
+  ],
+  "power_seeds": [
+    261020016,
+    261020017,
+    261020018
+  ],
+  "power_declared_mc_half_width_target": 0.01,
+  "power_diagnostic_shift_sd_ratios": [
+    0.0,
+    0.5
+  ],
+  "power_scope": "existing _power numeric algorithm on observed disjoint E-block mean inputs; declared dimensionless shifts only to exercise Monte Carlo precision, never a study planning effect or prospective teacher power",
+  "timing": {
+    "rows": 4096,
+    "batch": 128,
+    "min_repetitions": 40,
+    "max_repetitions": 200,
+    "relative_precision": 0.05,
+    "warmup_relative_spread": 0.1,
+    "seed": 261020026
+  },
+  "resident_rule": "requested and every actual chunk supported and <=min(128,F) before preparation/measurement"
+}

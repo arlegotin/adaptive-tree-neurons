@@ -1,0 +1,15 @@
+{"candidate": "keep", "horizon": 20, "normalized_selected_G": 0.06766088674889302, "selected_stage_update": 0, "enclosing_ns": 564273709}
+{"candidate": 0, "horizon": 20, "normalized_selected_G": 0.06766088674889302, "selected_stage_update": 0, "enclosing_ns": 568532792}
+{"candidate": 16, "horizon": 20, "normalized_selected_G": 0.06766088674889302, "selected_stage_update": 0, "enclosing_ns": 566905875}
+{"candidate": 32, "horizon": 20, "normalized_selected_G": 0.06766088674889302, "selected_stage_update": 0, "enclosing_ns": 573410916}
+{"candidate": 48, "horizon": 20, "normalized_selected_G": 0.06766088674889302, "selected_stage_update": 0, "enclosing_ns": 511561583}
+{"candidate": "keep", "horizon": 80, "normalized_selected_G": 0.06766088674889302, "selected_stage_update": 0, "enclosing_ns": 992961333}
+{"candidate": 0, "horizon": 80, "normalized_selected_G": 0.06766088674889302, "selected_stage_update": 0, "enclosing_ns": 970882917}
+{"candidate": 16, "horizon": 80, "normalized_selected_G": 0.06766088674889302, "selected_stage_update": 0, "enclosing_ns": 1031599458}
+{"candidate": 32, "horizon": 80, "normalized_selected_G": 0.06766088674889302, "selected_stage_update": 0, "enclosing_ns": 967920292}
+{"candidate": 48, "horizon": 80, "normalized_selected_G": 0.06766088674889302, "selected_stage_update": 0, "enclosing_ns": 968368750}
+{"candidate": "keep", "horizon": 320, "normalized_selected_G": 0.06766088674889302, "selected_stage_update": 0, "enclosing_ns": 2247803750}
+{"candidate": 0, "horizon": 320, "normalized_selected_G": 0.06718767810300762, "selected_stage_update": 225, "enclosing_ns": 2363306584}
+{"candidate": 16, "horizon": 320, "normalized_selected_G": 0.06766088674889302, "selected_stage_update": 0, "enclosing_ns": 2333360584}
+{"candidate": 32, "horizon": 320, "normalized_selected_G": 0.06753588677912084, "selected_stage_update": 225, "enclosing_ns": 2454042709}
+{"candidate": 48, "horizon": 320, "normalized_selected_G": 0.06682803366647727, "selected_stage_update": 225, "enclosing_ns": 2427768042}

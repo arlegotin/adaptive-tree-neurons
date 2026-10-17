@@ -1,0 +1,264 @@
+{
+  "scope": "13 finite one-factor development coordinates, no crossproduct; same8000 recipe, no sign-based choices",
+  "coordinates": [
+    {
+      "name": "density-low",
+      "config": "environment/h1-v2/sensitivities/density-low.json",
+      "axes_changed": {
+        "data": {
+          "n_fit": 577,
+          "n_growth": 145,
+          "n_validation": 145,
+          "sample_density": 0.5
+        },
+        "growth": {}
+      },
+      "seeds": {
+        "allocation": 261017303,
+        "contrast": 261017304,
+        "data": 261017301,
+        "namespace": "exploratory",
+        "optimizer": 261017302,
+        "reference": 261017305,
+        "teacher": 261017300
+      }
+    },
+    {
+      "name": "density-high",
+      "config": "environment/h1-v2/sensitivities/density-high.json",
+      "axes_changed": {
+        "data": {
+          "n_fit": 9224,
+          "n_growth": 2306,
+          "n_validation": 2306,
+          "sample_density": 8.0
+        },
+        "growth": {}
+      },
+      "seeds": {
+        "allocation": 261017303,
+        "contrast": 261017304,
+        "data": 261017301,
+        "namespace": "exploratory",
+        "optimizer": 261017302,
+        "reference": 261017305,
+        "teacher": 261017300
+      }
+    },
+    {
+      "name": "epsilon-low",
+      "config": "environment/h1-v2/sensitivities/epsilon-low.json",
+      "axes_changed": {
+        "data": {},
+        "growth": {
+          "epsilon": 0.01
+        }
+      },
+      "seeds": {
+        "allocation": 261017103,
+        "contrast": 261017104,
+        "data": 261017101,
+        "namespace": "exploratory",
+        "optimizer": 261017102,
+        "reference": 261017105,
+        "teacher": 261017100
+      }
+    },
+    {
+      "name": "epsilon-high",
+      "config": "environment/h1-v2/sensitivities/epsilon-high.json",
+      "axes_changed": {
+        "data": {},
+        "growth": {
+          "epsilon": 0.2
+        }
+      },
+      "seeds": {
+        "allocation": 261017103,
+        "contrast": 261017104,
+        "data": 261017101,
+        "namespace": "exploratory",
+        "optimizer": 261017102,
+        "reference": 261017105,
+        "teacher": 261017100
+      }
+    },
+    {
+      "name": "affine",
+      "config": "environment/h1-v2/sensitivities/affine.json",
+      "axes_changed": {
+        "data": {
+          "population": "globally_affine"
+        },
+        "growth": {}
+      },
+      "seeds": {
+        "allocation": 261017503,
+        "contrast": 261017504,
+        "data": 261017501,
+        "namespace": "exploratory",
+        "optimizer": 261017502,
+        "reference": 261017505,
+        "teacher": 261017500
+      }
+    },
+    {
+      "name": "additive",
+      "config": "environment/h1-v2/sensitivities/additive.json",
+      "axes_changed": {
+        "data": {
+          "population": "additive_sine_quadratic"
+        },
+        "growth": {}
+      },
+      "seeds": {
+        "allocation": 261017603,
+        "contrast": 261017604,
+        "data": 261017601,
+        "namespace": "exploratory",
+        "optimizer": 261017602,
+        "reference": 261017605,
+        "teacher": 261017600
+      }
+    },
+    {
+      "name": "noise",
+      "config": "environment/h1-v2/sensitivities/noise.json",
+      "axes_changed": {
+        "data": {
+          "population": "pure_noise"
+        },
+        "growth": {}
+      },
+      "seeds": {
+        "allocation": 261017703,
+        "contrast": 261017704,
+        "data": 261017701,
+        "namespace": "exploratory",
+        "optimizer": 261017702,
+        "reference": 261017705,
+        "teacher": 261017700
+      }
+    },
+    {
+      "name": "shuffle",
+      "config": "environment/h1-v2/sensitivities/shuffle.json",
+      "axes_changed": {
+        "data": {
+          "population": "random_label_permutation"
+        },
+        "growth": {}
+      },
+      "seeds": {
+        "allocation": 261017803,
+        "contrast": 261017804,
+        "data": 261017801,
+        "namespace": "exploratory",
+        "optimizer": 261017802,
+        "reference": 261017805,
+        "teacher": 261017800
+      }
+    },
+    {
+      "name": "homogeneous",
+      "config": "environment/h1-v2/sensitivities/homogeneous.json",
+      "axes_changed": {
+        "data": {
+          "population": "homogeneous_smooth"
+        },
+        "growth": {}
+      },
+      "seeds": {
+        "allocation": 261017903,
+        "contrast": 261017904,
+        "data": 261017901,
+        "namespace": "exploratory",
+        "optimizer": 261017902,
+        "reference": 261017905,
+        "teacher": 261017900
+      }
+    },
+    {
+      "name": "axis",
+      "config": "environment/h1-v2/sensitivities/axis.json",
+      "axes_changed": {
+        "data": {
+          "regime": "axis_aligned"
+        },
+        "growth": {}
+      },
+      "seeds": {
+        "allocation": 261017403,
+        "contrast": 261017404,
+        "data": 261017401,
+        "namespace": "exploratory",
+        "optimizer": 261017402,
+        "reference": 261017405,
+        "teacher": 261017400
+      }
+    },
+    {
+      "name": "rotated",
+      "config": "environment/h1-v2/sensitivities/rotated.json",
+      "axes_changed": {
+        "data": {
+          "regime": "rotated"
+        },
+        "growth": {}
+      },
+      "seeds": {
+        "allocation": 261017403,
+        "contrast": 261017404,
+        "data": 261017401,
+        "namespace": "exploratory",
+        "optimizer": 261017402,
+        "reference": 261017405,
+        "teacher": 261017400
+      }
+    },
+    {
+      "name": "nuisance4",
+      "config": "environment/h1-v2/sensitivities/nuisance4.json",
+      "axes_changed": {
+        "data": {
+          "nuisance_dimensions": 4
+        },
+        "growth": {}
+      },
+      "seeds": {
+        "allocation": 261018003,
+        "contrast": 261018004,
+        "data": 261018001,
+        "namespace": "exploratory",
+        "optimizer": 261018002,
+        "reference": 261018005,
+        "teacher": 261018000
+      }
+    },
+    {
+      "name": "rare",
+      "config": "environment/h1-v2/sensitivities/rare.json",
+      "axes_changed": {
+        "data": {
+          "regime": "rare",
+          "gate_prevalences": [
+            0.01
+          ]
+        },
+        "growth": {}
+      },
+      "seeds": {
+        "allocation": 261018103,
+        "contrast": 261018104,
+        "data": 261018101,
+        "namespace": "exploratory",
+        "optimizer": 261018102,
+        "reference": 261018105,
+        "teacher": 261018100
+      }
+    }
+  ],
+  "historical_only": [
+    "conditional_slope_2d old-source diagnostic; no fresh d2 path launched"
+  ]
+}

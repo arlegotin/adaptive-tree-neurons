@@ -1,0 +1,20 @@
+{
+  "label": "rows",
+  "command": [
+    "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+    "environment/h1-v2/precision/loss-timing.py"
+  ],
+  "exit_code": 0,
+  "outer_ns": 20693508334,
+  "script_sha256": "1c186fc2852b5ce7512c1c1227541ea54a64f9a77f29e53ee047a6e04bc80502",
+  "launcher_sha256": "8d698e4f19649b0557a140547eb9dec95b5e974cfa5414f6226a42f432232ddf",
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+    "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src"
+  }
+}

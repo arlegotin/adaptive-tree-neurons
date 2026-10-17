@@ -1,0 +1,1 @@
+completed numeric MC calibration {'iterations': 8000, 'relative_target_reached': True, 'absolute_endpoint_tolerance': 5.102856799298169e-05, 'limitation': 'Empirical numerical calibration margin on these block arrays. It neither supplies teacher variance nor validates population coverage/unseen tails; future genuinepilot endpoint error must pass its own declared gate.'} 16384

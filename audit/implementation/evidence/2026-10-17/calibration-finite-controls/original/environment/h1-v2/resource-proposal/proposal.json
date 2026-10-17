@@ -1,0 +1,75 @@
+{
+  "current_head": "fc63de6884ba5d7a911e0228d2c6707c3ce90a11",
+  "execution_sha256": "07366c506b309cce841f08d54f25d718e246f75daea5696d6542c300cfadaf6c",
+  "graph": {
+    "B6": {
+      "all_eligible_ids": true,
+      "expected_eligible_ids": 64,
+      "expected_probe_count_per_repetition": 65,
+      "keep_probe": true,
+      "probe_updates": 320,
+      "ranking": "existing G-only ranking; full selected joint allocation receives unchanged continuation allowance",
+      "retain_every_loser": true
+    },
+    "engineering_teachers": 1,
+    "fixed_teacher_FGV_E_across_repetitions": true,
+    "fresh_ordinary_static_allowance": "two stages, base8000 plus continuation8000, common G/cp25 and patience20",
+    "fresh_parent_per_repetition": true,
+    "inner_seeds": "existing teacher_inputs/repetition_config derivation from independent2610211xx root namespace",
+    "repetitions": 2,
+    "roles": [
+      "keep",
+      "top",
+      "random",
+      "greedy",
+      "widen_upper",
+      "ordinary_lower",
+      "ordinary_upper",
+      "static_partial"
+    ],
+    "runtime": "fresh CPU float32 train / float64 score, intra1/inter1/allBLAS1/fallback0; serialize all fits"
+  },
+  "hash_method": "exact stdlib transcription of protocol.recipe_hash canonical JSON; existing API must verify this before the authorized run",
+  "numerical_policies": {
+    "E_precision_target_reached": false,
+    "E_scope": "bounded resource/variance-pilot E workload, not final protected T sizing; no expansion inferred from two teacher means",
+    "bootstrap_iterations": 8000,
+    "bootstrap_scope": "conditional block-array numeric target met only; actual whole-teacher pilot endpoint diagnostics must pass separately",
+    "endpoint_tolerance": 5.102856799298169e-05,
+    "evaluation_rows": 262144,
+    "power_iterations": 16384,
+    "power_mc_tolerance": 0.01,
+    "timing": {
+      "batch": 128,
+      "max_repetitions": 200,
+      "min_repetitions": 40,
+      "relative_precision": 0.05,
+      "rows": 4096,
+      "warmup_relative_spread": 0.1
+    },
+    "timing_scope": "existing paired timing outside pilot fitting graph; report distinct added cost and no kernel/host conflation"
+  },
+  "package_sha256": "d8e5c0c6549f3b1948ee86b39a2d3234ebe5230e7bb09c13ebfc4351c2cf891c",
+  "recipe_sha256": "4579ba87ffc6be1678b935c5297e849e0a6a53adb0e055ecedea84596ab29c6a",
+  "required_measurements": [
+    "external process elapsed including imports and final publication",
+    "disjoint setup, fit-graph, E prediction/loss/serialization, aggregation, final-IO regions",
+    "fit_repetition nested parent/scoring/B6 and all method clocks, never added to enclosing again",
+    "complete raw fit clock copied before run_repetition replaces enclosing_ns; call existing functions exactly once",
+    "all stages selected/executed/examples from raw events, hit_ceiling/improving_at_ceiling/final nonimprovements",
+    "every65 B6 candidate status/curve/retained files in each repetition, including keep and losers",
+    "peak RSS and separate raw_events/checkpoint_metadata/tensor_payloads/predictions/other final bytes",
+    "native hardware/current memory pressure/disk headroom and resource/failure policy",
+    "strict raw sample binding recipe/runtime/execution SHA, exact final bytes and enclosing seconds",
+    "one engineering teacher skips real whole-teacher bootstrap; retain separately labeled measured conditional-block workload at8/16input shapes as cost diagnostic"
+  ],
+  "runtime_sha256": "4cfb4983fbe8d152decf7e621dc79b2e77b7f4e3825cb379534ce6a4e05e9e42",
+  "status": "proposed_not_authorized_or_measured",
+  "stop": "Await root adjudication/authorization before any all8 R2 engineering execution; no further numerical work now",
+  "unresolved": [
+    "E conditional H1 SE engineering target was not reached at262144; no adequacy claim",
+    "probe320 is largest tested finite horizon and only four sampled IDs; not plateau/rank convergence",
+    "bootstrap numerical margin on E-block inputs is not evidence about true between-teacher endpoints or coverage",
+    "no full R2 resource sample, readiness, genuine pilot, fixed cohort or T exists"
+  ]
+}

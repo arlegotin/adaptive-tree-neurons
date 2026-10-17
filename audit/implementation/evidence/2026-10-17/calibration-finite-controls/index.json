@@ -1,0 +1,499 @@
+{
+  "status": "finite_exploratory_controls_and_numerical_precision_not_genuine_pilot",
+  "complete_ignored_inventory": {
+    "path": "environment/h1-v2/precision/finite-inventory.json",
+    "sha256": "b3b95b44907e337b9639aecea0a1e23eb95a9ae8ecc5aa86f74e2dfc9e66c95f",
+    "files": 1169,
+    "bytes": 663296577,
+    "root_rehash_errors": []
+  },
+  "files": [
+    {
+      "original_path": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/scientific-calibration-phase-b-sensitivity-precision-report.md",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/measurement-report.md",
+      "bytes": 14934,
+      "sha256": "ccc9acb09c1f3ac6e73dc5c8967fdaa380a65bc8e8dd0d08404b8585b27b8bae"
+    },
+    {
+      "original_path": "artifacts/h1-v2/probe-calibration/be74ba1486eb40e796c00062401e9ad6/probe-calibration.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/artifacts/h1-v2/probe-calibration/be74ba1486eb40e796c00062401e9ad6/probe-calibration.json",
+      "bytes": 297154,
+      "sha256": "20ceb3fe43122cf608126d9168bbee12c80a7c7074ba3160f6ed5f4238835178"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/curate-finite.py",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/curate-finite.py",
+      "bytes": 7395,
+      "sha256": "02246afeb0c07f187bd9e4af85f59dde80a27a059fff0ec169aea02f838c59e1"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/finite-inventory.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/finite-inventory.json",
+      "bytes": 280481,
+      "sha256": "b3b95b44907e337b9639aecea0a1e23eb95a9ae8ecc5aa86f74e2dfc9e66c95f"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/finite-summary.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/finite-summary.json",
+      "bytes": 719610,
+      "sha256": "a722059ac759ef8c1f7520e53335255087ea6438b849db2c9dc7987f84daa301"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/index-finite.py",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/index-finite.py",
+      "bytes": 1776,
+      "sha256": "c21140c94093c427ddad333c125981aac600768fe441a00c42f3842ff87cfa92"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/launch.py",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/launch.py",
+      "bytes": 1421,
+      "sha256": "8d698e4f19649b0557a140547eb9dec95b5e974cfa5414f6226a42f432232ddf"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/loss-timing.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/loss-timing.json",
+      "bytes": 30131,
+      "sha256": "983cd6e00545385104ded965ef8545cf39f8c5441c7c32264141e51aeb1814f2"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/loss-timing.py",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/loss-timing.py",
+      "bytes": 7695,
+      "sha256": "1c186fc2852b5ce7512c1c1227541ea54a64f9a77f29e53ee047a6e04bc80502"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/mc-invocation.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/mc-invocation.json",
+      "bytes": 700,
+      "sha256": "8b2a363f32fd884b4fb97ce8a7798313f34661aebecafb9b58c887daa014e89f"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/mc-launcher.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/mc-launcher.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/mc-launcher.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/mc-launcher.stdout",
+      "bytes": 641,
+      "sha256": "49ed3817b7316844fa7804043750ac8a149669ef772bc8a271f410bd0946b9f1"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/mc.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/mc.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/mc.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/mc.stdout",
+      "bytes": 379,
+      "sha256": "6093be09d39e0302bdd3de5c471966a9fbeb586362eedc4edbda8fcb75446ef7"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/monte-carlo.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/monte-carlo.json",
+      "bytes": 62300,
+      "sha256": "2bec5cf05213f615af9d4bdb42f74206547b1ed968926db44b520fb34067bd58"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/monte-carlo.py",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/monte-carlo.py",
+      "bytes": 5382,
+      "sha256": "e7ff8f34300dceaafb52300bb585e270aaf322a0eb45aa9ab52b0b7efc5d5e94"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/paired-timing.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/paired-timing.json",
+      "bytes": 67621,
+      "sha256": "cb050d569c5d73cdfb7b85371b2de1d7c403a5a1c52f0061e8a26ab9cf7c00af"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/propose-resource.py",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/propose-resource.py",
+      "bytes": 5724,
+      "sha256": "292e603363d90ef17839471e49f4cc7597632445d6dc67e86fb10968d996443b"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/rows-invocation.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/rows-invocation.json",
+      "bytes": 703,
+      "sha256": "aa5064e804a05a78b6ec776467e0e5ec0801ffcc461dbc179b7ce3eb66fb69a4"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/rows-launcher.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/rows-launcher.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/rows-launcher.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/rows-launcher.stdout",
+      "bytes": 644,
+      "sha256": "166062a0f13fa915d33ad233e4a5d0826e0f0d5526be7b39114408f70a373008"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/rows.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/rows.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/rows.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/rows.stdout",
+      "bytes": 86,
+      "sha256": "027b18e3a8bfeba58c292ce46e907c256783e13e8f28c038acf0d1373ab59b25"
+    },
+    {
+      "original_path": "environment/h1-v2/precision/workload.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/precision/workload.json",
+      "bytes": 1951,
+      "sha256": "a608fb845e7731db8683a0210943f71b0393d08b91e8b7596dd8e2eb2a7d1f08"
+    },
+    {
+      "original_path": "environment/h1-v2/probe-calibration/launcher.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/probe-calibration/launcher.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/probe-calibration/launcher.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/probe-calibration/launcher.stdout",
+      "bytes": 650,
+      "sha256": "1f7b2ef965a804a8cab34a44870e9ebf18b39e293763ad3c3a5ed520a973ce9c"
+    },
+    {
+      "original_path": "environment/h1-v2/probe-calibration/measure.py",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/probe-calibration/measure.py",
+      "bytes": 7253,
+      "sha256": "c40c591155d84c2e7550150086cc83caebfd173ecd30c8a00533130cac4203f5"
+    },
+    {
+      "original_path": "environment/h1-v2/probe-calibration/probes-invocation.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/probe-calibration/probes-invocation.json",
+      "bytes": 709,
+      "sha256": "a8292582a502697ac307b1e8016385a85c8b78a216d4e5022a741ba07785ddee"
+    },
+    {
+      "original_path": "environment/h1-v2/probe-calibration/probes.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/probe-calibration/probes.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/probe-calibration/probes.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/probe-calibration/probes.stdout",
+      "bytes": 2036,
+      "sha256": "56b6190b9c262d0793d8d72080cb35e5695203e91886c5bb53e2ac5526e7f4e4"
+    },
+    {
+      "original_path": "environment/h1-v2/probe-calibration/result-locator.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/probe-calibration/result-locator.json",
+      "bytes": 177,
+      "sha256": "882cd0eea9211b767a945b24fbdceb8b4f7025e24b16cc04fdaf168174e24a25"
+    },
+    {
+      "original_path": "environment/h1-v2/probe-calibration/workload.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/probe-calibration/workload.json",
+      "bytes": 512,
+      "sha256": "007b39421fadbd5e0aa21e378bade9608bb54a5c02e26f9c6d77f3a816d51d41"
+    },
+    {
+      "original_path": "environment/h1-v2/resource-proposal/candidate.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/resource-proposal/candidate.json",
+      "bytes": 2553,
+      "sha256": "64ede3d68b7eb86e11c32e9793af4de3a8058915e4ab36584ff748f3e50847ef"
+    },
+    {
+      "original_path": "environment/h1-v2/resource-proposal/host-observations.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/resource-proposal/host-observations.json",
+      "bytes": 1782,
+      "sha256": "db0c1bf7f71b58fea179fa2d4d9e51e2503d4e3d4b2fbeacd947df9e7befa928"
+    },
+    {
+      "original_path": "environment/h1-v2/resource-proposal/proposal.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/resource-proposal/proposal.json",
+      "bytes": 4133,
+      "sha256": "4ddc7f34d0120620de3ae35a252b4c5021e5012378d9a1f60d9f58a8b1d9ec61"
+    },
+    {
+      "original_path": "environment/h1-v2/resource-proposal/recipe.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/resource-proposal/recipe.json",
+      "bytes": 1891,
+      "sha256": "0d1029b9667e0a88c77b6ac60a7f1226d2017c32e393da4edbecf9b435cbd059"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/additive.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/additive.json",
+      "bytes": 2498,
+      "sha256": "2540027e9311ab22abf61f74b89c25824836fcfbc18f96ceb718f56db9767880"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/additive.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/additive.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/additive.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/additive.stdout",
+      "bytes": 213,
+      "sha256": "4ab6cb0effd85e37c34b7413edea2735b2c9f7bb3f111d5b36ccaafc77c66e97"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/affine.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/affine.json",
+      "bytes": 2488,
+      "sha256": "ffa74f4ae0829db5766a430979fba675fd49bb6f2ea729500ee13c6e9c81bee9"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/affine.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/affine.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/affine.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/affine.stdout",
+      "bytes": 222,
+      "sha256": "26e292af4c0b96b9183cf3e45b50c321febf5b82975202b8d72a235107cdc332"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/axis.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/axis.json",
+      "bytes": 2481,
+      "sha256": "20734bf95691767d6af014e2b4a3b9ecc185c68fbb206978e36f7e899fcbdad1"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/axis.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/axis.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/axis.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/axis.stdout",
+      "bytes": 215,
+      "sha256": "1fafa81e3aeea634abbd6d148cf21ff50dc8196565b1e006a00c2ac04ba34c83"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/coordinates.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/coordinates.json",
+      "bytes": 6563,
+      "sha256": "5cc0c301fcd77c1b61ec9a7f39bb9c2983872afa598995ff152de2c916eb6150"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/density-high.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/density-high.json",
+      "bytes": 2488,
+      "sha256": "a2a4fd0da6e21ff6d415b36907060f1fd9a257d713a990e8651af549d764b012"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/density-high.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/density-high.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/density-high.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/density-high.stdout",
+      "bytes": 218,
+      "sha256": "30c2c5dd702689eb69136ada53b5901de288b078155164534bcec8b5eb0569fd"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/density-low.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/density-low.json",
+      "bytes": 2484,
+      "sha256": "de7203a1e0da0cb5b5eae1c35fb19879f775667e4c724cceb7cccf7b216331f9"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/density-low.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/density-low.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/density-low.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/density-low.stdout",
+      "bytes": 212,
+      "sha256": "045f8656db3f9414241d0f7bf11dd3670faf10ed77f59737d89c65964d9d5c04"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/epsilon-high.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/epsilon-high.json",
+      "bytes": 2485,
+      "sha256": "44cad8b28c3ed38735cca0613f63122450af5cd7ab3a5ad6ca0f320baf6026ec"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/epsilon-high.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/epsilon-high.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/epsilon-high.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/epsilon-high.stdout",
+      "bytes": 215,
+      "sha256": "4c446acf13dc1059ab624b81de625df66290fb866e6fd906ab3152290e83ccb4"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/epsilon-low.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/epsilon-low.json",
+      "bytes": 2485,
+      "sha256": "f559466c7110bc05e25a98d1c29ddc88520000ca11915049dda285ae6bf81a65"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/epsilon-low.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/epsilon-low.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/epsilon-low.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/epsilon-low.stdout",
+      "bytes": 215,
+      "sha256": "be93253e31243b224a29d4c47b2f3bdf4f00b5998e4fe0bd96fe64915a15f3c0"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/homogeneous.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/homogeneous.json",
+      "bytes": 2496,
+      "sha256": "061bd99e3890c8df4e6cdf77b5301deac28cc74434f9f686a2f74d9628a40e41"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/homogeneous.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/homogeneous.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/homogeneous.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/homogeneous.stdout",
+      "bytes": 219,
+      "sha256": "577700a10f41d94df834854af1a0ba7c3df6ac20121cb827e62d850cc4fc85b4"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/invocations.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/invocations.json",
+      "bytes": 6351,
+      "sha256": "1d2128fae0be0673d66d8e221ce47cc765e4aed484b06a19571d24dbf98f21a6"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/launch.py",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/launch.py",
+      "bytes": 1239,
+      "sha256": "ac407d66bab2c01ee5939242e964e040ea4e5fc4d279201ec3c091f9488573ed"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/launcher.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/launcher.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/launcher.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/launcher.stdout",
+      "bytes": 5634,
+      "sha256": "84ee8050ff5693e2e043e0e6aa3b9b9f488e9c08527f4acaa0fb734ad8020f07"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/noise.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/noise.json",
+      "bytes": 2482,
+      "sha256": "20f7a0aedd2b25d26d4b89091d044180f7fe5c31c18eb5a23aa2b3c4d11f9a38"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/noise.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/noise.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/noise.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/noise.stdout",
+      "bytes": 265,
+      "sha256": "444ce60082f650f3964ee3a27daddedcd3493b0f9e7db3c6bc227377d83bff4d"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/nuisance4.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/nuisance4.json",
+      "bytes": 2483,
+      "sha256": "46180007a926f89e15230218b33f6c3bef3c296cbc0312329b89ad0254b4c622"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/nuisance4.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/nuisance4.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/nuisance4.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/nuisance4.stdout",
+      "bytes": 215,
+      "sha256": "23952c14fc11f60aa824a1da0efc4e8e30f88922797a6410b7857ad71d5f9bf9"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/rare.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/rare.json",
+      "bytes": 2463,
+      "sha256": "cffc43c604a98f77d474338da1e5191fcfc620fec76914155f7f5d2bba985b7c"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/rare.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/rare.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/rare.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/rare.stdout",
+      "bytes": 209,
+      "sha256": "3c0aee98bc2fc623880fbfc4cbeb78a12185ddf25d9a23c16c37632cc3342052"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/rotated.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/rotated.json",
+      "bytes": 2479,
+      "sha256": "3e48aaa72752c7093521cadbaf7b86691396a7a22e0885ee88cb97446c818ba8"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/rotated.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/rotated.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/rotated.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/rotated.stdout",
+      "bytes": 215,
+      "sha256": "00f635c06c7d5cd7dd09296110c53a55cad5f0e49e3ed27ca78b91aff2b68b5e"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/sensitivity.py",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/sensitivity.py",
+      "bytes": 11578,
+      "sha256": "261b9bce2c92a074edfc41c832d735f9b5aa22d9e89a75f418c2ca0511c4f9e7"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/shuffle.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/shuffle.json",
+      "bytes": 2498,
+      "sha256": "20c87a77531632bdd4a0dbabbf5c5bbfa0c32ad833ad929805b129be5bfb5bc5"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/shuffle.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/shuffle.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/sensitivities/shuffle.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-finite-controls/original/environment/h1-v2/sensitivities/shuffle.stdout",
+      "bytes": 208,
+      "sha256": "bb8e7ef03b82019e6b64375876582cd287f46cd700d4c42512faed35cbb8abf6"
+    }
+  ],
+  "limits": "13 coordinates are not13 independent efficacy units; conditional E-block bootstrap and artificial-shift power are computational calibration only. E262144 fails its engineering precision yardstick. Probe320 has opportunity, not plateau/ranking-convergence certification. Historical d2 remains historical."
+}

@@ -1,0 +1,158 @@
+[
+  {
+    "coordinate": "density-low",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v2/sensitivities/sensitivity.py",
+      "environment/h1-v2/sensitivities/density-low.json"
+    ],
+    "exit_code": 0,
+    "outer_ns": 23515190375,
+    "config_sha256": "de7203a1e0da0cb5b5eae1c35fb19879f775667e4c724cceb7cccf7b216331f9",
+    "wrapper_sha256": "261b9bce2c92a074edfc41c832d735f9b5aa22d9e89a75f418c2ca0511c4f9e7"
+  },
+  {
+    "coordinate": "density-high",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v2/sensitivities/sensitivity.py",
+      "environment/h1-v2/sensitivities/density-high.json"
+    ],
+    "exit_code": 0,
+    "outer_ns": 66442147875,
+    "config_sha256": "a2a4fd0da6e21ff6d415b36907060f1fd9a257d713a990e8651af549d764b012",
+    "wrapper_sha256": "261b9bce2c92a074edfc41c832d735f9b5aa22d9e89a75f418c2ca0511c4f9e7"
+  },
+  {
+    "coordinate": "epsilon-low",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v2/sensitivities/sensitivity.py",
+      "environment/h1-v2/sensitivities/epsilon-low.json"
+    ],
+    "exit_code": 0,
+    "outer_ns": 51132775709,
+    "config_sha256": "f559466c7110bc05e25a98d1c29ddc88520000ca11915049dda285ae6bf81a65",
+    "wrapper_sha256": "261b9bce2c92a074edfc41c832d735f9b5aa22d9e89a75f418c2ca0511c4f9e7"
+  },
+  {
+    "coordinate": "epsilon-high",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v2/sensitivities/sensitivity.py",
+      "environment/h1-v2/sensitivities/epsilon-high.json"
+    ],
+    "exit_code": 0,
+    "outer_ns": 35297858334,
+    "config_sha256": "44cad8b28c3ed38735cca0613f63122450af5cd7ab3a5ad6ca0f320baf6026ec",
+    "wrapper_sha256": "261b9bce2c92a074edfc41c832d735f9b5aa22d9e89a75f418c2ca0511c4f9e7"
+  },
+  {
+    "coordinate": "affine",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v2/sensitivities/sensitivity.py",
+      "environment/h1-v2/sensitivities/affine.json"
+    ],
+    "exit_code": 0,
+    "outer_ns": 12561861708,
+    "config_sha256": "ffa74f4ae0829db5766a430979fba675fd49bb6f2ea729500ee13c6e9c81bee9",
+    "wrapper_sha256": "261b9bce2c92a074edfc41c832d735f9b5aa22d9e89a75f418c2ca0511c4f9e7"
+  },
+  {
+    "coordinate": "additive",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v2/sensitivities/sensitivity.py",
+      "environment/h1-v2/sensitivities/additive.json"
+    ],
+    "exit_code": 0,
+    "outer_ns": 13420661834,
+    "config_sha256": "2540027e9311ab22abf61f74b89c25824836fcfbc18f96ceb718f56db9767880",
+    "wrapper_sha256": "261b9bce2c92a074edfc41c832d735f9b5aa22d9e89a75f418c2ca0511c4f9e7"
+  },
+  {
+    "coordinate": "noise",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v2/sensitivities/sensitivity.py",
+      "environment/h1-v2/sensitivities/noise.json"
+    ],
+    "exit_code": 0,
+    "outer_ns": 10635899542,
+    "config_sha256": "20f7a0aedd2b25d26d4b89091d044180f7fe5c31c18eb5a23aa2b3c4d11f9a38",
+    "wrapper_sha256": "261b9bce2c92a074edfc41c832d735f9b5aa22d9e89a75f418c2ca0511c4f9e7"
+  },
+  {
+    "coordinate": "shuffle",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v2/sensitivities/sensitivity.py",
+      "environment/h1-v2/sensitivities/shuffle.json"
+    ],
+    "exit_code": 0,
+    "outer_ns": 9383272208,
+    "config_sha256": "20c87a77531632bdd4a0dbabbf5c5bbfa0c32ad833ad929805b129be5bfb5bc5",
+    "wrapper_sha256": "261b9bce2c92a074edfc41c832d735f9b5aa22d9e89a75f418c2ca0511c4f9e7"
+  },
+  {
+    "coordinate": "homogeneous",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v2/sensitivities/sensitivity.py",
+      "environment/h1-v2/sensitivities/homogeneous.json"
+    ],
+    "exit_code": 0,
+    "outer_ns": 26409341458,
+    "config_sha256": "061bd99e3890c8df4e6cdf77b5301deac28cc74434f9f686a2f74d9628a40e41",
+    "wrapper_sha256": "261b9bce2c92a074edfc41c832d735f9b5aa22d9e89a75f418c2ca0511c4f9e7"
+  },
+  {
+    "coordinate": "axis",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v2/sensitivities/sensitivity.py",
+      "environment/h1-v2/sensitivities/axis.json"
+    ],
+    "exit_code": 0,
+    "outer_ns": 32029840500,
+    "config_sha256": "20734bf95691767d6af014e2b4a3b9ecc185c68fbb206978e36f7e899fcbdad1",
+    "wrapper_sha256": "261b9bce2c92a074edfc41c832d735f9b5aa22d9e89a75f418c2ca0511c4f9e7"
+  },
+  {
+    "coordinate": "rotated",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v2/sensitivities/sensitivity.py",
+      "environment/h1-v2/sensitivities/rotated.json"
+    ],
+    "exit_code": 0,
+    "outer_ns": 45347640417,
+    "config_sha256": "3e48aaa72752c7093521cadbaf7b86691396a7a22e0885ee88cb97446c818ba8",
+    "wrapper_sha256": "261b9bce2c92a074edfc41c832d735f9b5aa22d9e89a75f418c2ca0511c4f9e7"
+  },
+  {
+    "coordinate": "nuisance4",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v2/sensitivities/sensitivity.py",
+      "environment/h1-v2/sensitivities/nuisance4.json"
+    ],
+    "exit_code": 0,
+    "outer_ns": 38986354708,
+    "config_sha256": "46180007a926f89e15230218b33f6c3bef3c296cbc0312329b89ad0254b4c622",
+    "wrapper_sha256": "261b9bce2c92a074edfc41c832d735f9b5aa22d9e89a75f418c2ca0511c4f9e7"
+  },
+  {
+    "coordinate": "rare",
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v2/sensitivities/sensitivity.py",
+      "environment/h1-v2/sensitivities/rare.json"
+    ],
+    "exit_code": 0,
+    "outer_ns": 14567635042,
+    "config_sha256": "cffc43c604a98f77d474338da1e5191fcfc620fec76914155f7f5d2bba985b7c",
+    "wrapper_sha256": "261b9bce2c92a074edfc41c832d735f9b5aa22d9e89a75f418c2ca0511c4f9e7"
+  }
+]

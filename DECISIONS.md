@@ -469,3 +469,32 @@ precision/probe calibration. The primary recipe stays fixed during those checks;
 no growth-sign-driven tuning is allowed. Complete matching all-eight-role,
 R>=2 resource evidence and strict readiness still precede the genuine pilot,
 numeric design, full independent cohort and actual reproduction/audit.
+
+
+## D022 — 17 October 2026: finite controls complete; no placement advantage established
+
+Completed the predeclared 13 finite development coordinates, 15 restricted
+probe trials, prediction timing and conditional numerical precision checks.
+Root read the full report and rehashed all 1,169 retained files / 663,296,577
+bytes with no mismatch. The [plain results](docs/research/2026-10-17-finite-development-controls.md)
+and [original evidence](audit/implementation/evidence/2026-10-17/calibration-finite-controls/index.json)
+retain favorable and unfavorable outcomes. All 53 fitting stages stopped by
+patience before their ceilings. These reused/single-repetition development
+coordinates are not independent confirmatory units.
+
+Keep the shared primary recipe unchanged: outcomes are mixed, with random
+placement ahead on several controls. Use the measured 320-update finite B6
+probe opportunity, charging every candidate and loser; convergence and a stable
+all-unit ranking are unestablished. Use E=262,144 only as the bounded pilot
+workload: it fails the two-teacher engineering H1 standard-error yardstick.
+Independent-teacher variance must determine final nT or an honest limited
+estimation/resource branch. Conditional block bootstrap and artificial-shift
+power calibrate numerical work, not population inference. No precision waiver
+or new hypothesis is adopted.
+
+Run exactly one complete engineering teacher with two repetitions, all eight
+comparison methods and every greedy probe under recipe hash
+4579ba87ffc6be1678b935c5297e849e0a6a53adb0e055ecedea84596ab29c6a.
+Measure actual complete costs before choosing resource constraints and strict
+scientific readiness. Genuine independent-teacher calibration, a numeric frozen
+design, the complete independent cohort and reproduction/audit remain pending.

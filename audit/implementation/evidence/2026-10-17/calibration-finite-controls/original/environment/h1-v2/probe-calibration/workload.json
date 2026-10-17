@@ -1,0 +1,18 @@
+{
+  "scope": "15 finite horizon/candidate trials, not full B6 ranking or genuinepilot",
+  "parent_measurement": "artifacts/h1-v2/development-8000/h1-v2-primary-a-8000/measurements.json",
+  "parent_config": "environment/h1-v2/development-8000/primary-a.json",
+  "candidates": [
+    "keep",
+    0,
+    16,
+    32,
+    48
+  ],
+  "horizons": [
+    20,
+    80,
+    320
+  ],
+  "policy": "identical selected parent/full config and initial sampler/RNG; no candidate substitution or source changes; all trials retained"
+}
