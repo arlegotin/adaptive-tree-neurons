@@ -1,0 +1,12 @@
+{
+  "cause": "YAML1.1 resolves JSON exponent 1e-12 as string; known format boundary",
+  "error": "experiment.growth.projection_rms_floor: expected a finite number",
+  "failed_call": "load_experiment(scientific-config.json)",
+  "fits_or_test_access": 0,
+  "json_type": "float",
+  "json_value": 1e-12,
+  "resolution": "render actual CLI YAML with safe_dump, compare resolved configs exactly; no source/numeric policy change",
+  "status": "pre_execution_config_format_error_retained",
+  "yaml_type": "str",
+  "yaml_value": "1e-12"
+}

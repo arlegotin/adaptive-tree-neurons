@@ -1,0 +1,19 @@
+{
+  "failure_policy": "retain_and_block",
+  "free_disk_bytes": 56173207552,
+  "machine_memory_bytes": 38654705664,
+  "max_seconds": 14400.0,
+  "max_storage_bytes": 45435789312,
+  "measured_bytes_per_teacher": 908098595,
+  "measured_seconds_per_teacher": 485.014395,
+  "peak_memory_bytes": 1042415616,
+  "reserved_memory_bytes": 31936643072,
+  "retries": 0,
+  "samples": [
+    {
+      "path": "environment/h1-v2/complete-resource/proposed-readiness/sample.json",
+      "sha256": "3dd235a4f3875dc02a16be3902a810c096745e1dd916a52a8c851d818742530b"
+    }
+  ],
+  "source_sha256": "07366c506b309cce841f08d54f25d718e246f75daea5696d6542c300cfadaf6c"
+}

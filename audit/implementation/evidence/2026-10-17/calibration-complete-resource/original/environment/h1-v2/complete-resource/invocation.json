@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+    "environment/h1-v2/complete-resource/measure.py"
+  ],
+  "exit_code": 0,
+  "outer_ns": 485014395000,
+  "wrapper_sha256": "6568c37d6f2efa5a17239514821f29fb425a591e5b1929ae14bf8c3262a802b5",
+  "launcher_sha256": "500dc2570c7ed3e311c79060373ad2b6bd0a2b4e62727021ba2110dc5a1c2e6b",
+  "config_sha256": "0e4b24c59ed28c90eb72d9731592dd8571dfd1d0708c183e18b2c5000891d0c3",
+  "policy_sha256": "deb93f4a75342458bd85f981c8e231a89b2615268a55bb4437997f9b72762384",
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+    "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src"
+  }
+}

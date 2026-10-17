@@ -1,0 +1,21 @@
+{
+  "E_precision": "bounded workload; two-teacher engineering SE yardstick unresolved; finalnT deferred to genuine variance/feasibility",
+  "authorization": "root after finalized finite companion/index; exactly one engineering teacher R2, all8 roles/all eligible probes, no genuinepilot/T",
+  "bootstrap_gate": "5.102856799298169e-5 empirical absolute numerical gate, not population-relative guarantee",
+  "cap_scope": "generous engineering execution bound, not measured forecast; existing driver checks only between atomic repetitions",
+  "cap_seconds": 7200,
+  "config_file_sha256": "0e4b24c59ed28c90eb72d9731592dd8571dfd1d0708c183e18b2c5000891d0c3",
+  "config_path": "environment/h1-v2/complete-resource/candidate.json",
+  "recipe_sha256": "4579ba87ffc6be1678b935c5297e849e0a6a53adb0e055ecedea84596ab29c6a",
+  "separate_MC_postwork": "retained existing finite measured conditional-block workload; not actual n1 teacher bootstrap",
+  "stop_after": "full resource sample + proposed measurement/constraints/readiness; root validates before any scientific pilot/freeze/T",
+  "timing": {
+    "batch": 128,
+    "max_repetitions": 200,
+    "min_repetitions": 54,
+    "relative_precision": 0.05,
+    "rows": 4096,
+    "seed": 261021126,
+    "warmup_relative_spread": 0.1
+  }
+}

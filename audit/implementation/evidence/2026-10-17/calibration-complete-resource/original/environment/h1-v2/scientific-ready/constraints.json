@@ -1,0 +1,48 @@
+{
+  "alpha": 0.05,
+  "available_memory_bytes": 6448447488,
+  "bootstrap_seed": 261022106,
+  "bytes_per_evaluation_row": 247.71112060546875,
+  "endpoint_tolerance": 5.102856799298169e-05,
+  "estimation_rows": 262144,
+  "evidence_hashes": {
+    "complete_summary": "139881cf4c210fb95f75defca6f2d8e250538dba0e65957f253532aba893639c",
+    "finite_precision": "2bec5cf05213f615af9d4bdb42f74206547b1ed968926db44b520fb34067bd58",
+    "resource_sample": "3dd235a4f3875dc02a16be3902a810c096745e1dd916a52a8c851d818742530b"
+  },
+  "families": 1,
+  "inference_supported": false,
+  "max_seconds": 28800.0,
+  "max_storage_bytes": 30871367120,
+  "peak_memory_bytes": 1042415616,
+  "policies": {
+    "bootstrap_iterations": 8000,
+    "continuation_updates": 8000,
+    "hpo_seconds": 0.0,
+    "hpo_trials": 0,
+    "logical_batch": 128,
+    "parent_updates": 8000,
+    "patience": 20,
+    "physical_batch": 128,
+    "probe_updates": 320,
+    "timing_blocks": 27,
+    "timing_relative_precision": 0.05,
+    "validation_interval": 25
+  },
+  "power_iterations": 16384,
+  "power_mc_tolerance": 0.01,
+  "required_controls": [
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6"
+  ],
+  "retries": 0,
+  "seconds_per_evaluation_row": 8.897889533996582e-06,
+  "seconds_per_repetition": 273.818177125,
+  "setup_seconds_per_teacher": 14.525447417000018,
+  "storage_bytes_per_repetition": 438880766,
+  "storage_bytes_per_teacher": 9520761
+}

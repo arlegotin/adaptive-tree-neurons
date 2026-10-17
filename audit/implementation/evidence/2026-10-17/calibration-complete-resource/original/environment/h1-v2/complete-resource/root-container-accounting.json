@@ -1,0 +1,10 @@
+{
+  "float_objects": 2180749,
+  "illustrative_16x_loaded_container_bytes": 1504935712,
+  "illustrative_two_serialized_copies_at_16_bytes": 1409285440,
+  "limitation": "root supplied these observations by collaboration after the completed run; these extrapolations exclude tensors/allocator/native/runtime/background memory and are not measured larger-cohort RSS",
+  "raw_file_bytes": 44040170,
+  "reported_runtime": "system Python3.14",
+  "scope": "root-supplied independent stdlib accounting of actual finalized raw.json; not a synthetic cohort or measured n16 peak",
+  "unique_loaded_container_bytes": 94058482
+}

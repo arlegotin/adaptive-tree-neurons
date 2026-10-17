@@ -1,0 +1,51 @@
+{
+  "complete_resource_inventory": {
+    "errors": [],
+    "path": "environment/h1-v2/complete-resource/inventory.json",
+    "root_verified_bytes": 916297448,
+    "root_verified_files": 1966,
+    "sha256": "7ee2158ef053873bd4a9fd136462a389712aa73920d8496b8a9d73ea96e8ecba"
+  },
+  "forecast": {
+    "bytes": 14529577520,
+    "kind": "direct observed sample multiplication; not a guarantee",
+    "seconds": 7760.23032,
+    "teachers": 16
+  },
+  "observations": {
+    "free_disk_bytes": 56138362880,
+    "free_page_bytes": 8595931136,
+    "free_pages": 524654,
+    "memory_pressure_stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 524654 \nPages purgeable: 2458 \nPages purged: 43013695 \n\nSwap I/O:\nSwapins: 2853770 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 567345 \nPages inactive: 687345 \nPages speculative: 59918 \nPages throttled: 0 \nPages wired down: 206867 \n\nCompressor Stats:\nPages used by compressor: 254655 \nPages decompressed: 156624005 \nPages compressed: 203739544 \n\nFile I/O:\nPageins: 148036316 \nPageouts: 652137 \n\nSystem-wide memory free percentage: 79%\n",
+    "page_size": 16384,
+    "physical_ram_bytes": 38654705664,
+    "power_stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+  },
+  "policies": {
+    "additional_memory_reserve_bytes": 2147483648,
+    "additional_pilot_storage_reservation_bytes": 14529577520,
+    "confirmation_max_seconds": 28800,
+    "explicit_disk_reserve_bytes": 10737418240,
+    "inference_supported": false,
+    "initial_teachers": 8,
+    "max_pilot_teachers": 16,
+    "pilot_max_seconds": 14400,
+    "repetitions": 2,
+    "retries": 0,
+    "shared_pilot_and_confirmation_storage_cap_bytes": 30871367120
+  },
+  "reasons": [
+    "16 teachers satisfy the direct measured time and storage forecast; 32 exceed the chosen 4-hour pilot allowance even before nonlinear overhead",
+    "reserve the 16-teacher measured storage forecast in addition to 10GiB free disk so confirmation cannot spend space already allocated to pilot",
+    "free-page memory minus2GiB, capped by resource observation; do not equate installed RAM with current headroom",
+    "one measured teacher does not prove a tail bound or nonlinear publication/memory cost; monitor actual resource growth between completed units and retain-and-block if unsafe",
+    "no finite-sample population coverage/power claim has been established by conditional numerical calibration; inference_supported remains false",
+    "E262144 is bounded pilot workload, not finalnT; failed engineering SE yardstick remains recorded; independent-teacher variance or explicit estimation/resource branch governs final design",
+    "if calibration remains unresolved at16, retain the achieved diagnostics and resource limits; do not describe it as accepted confirmation, equivalence, or evidence of no effect"
+  ],
+  "recipe_change": false,
+  "source_change": false,
+  "status": "root chosen pre-pilot constraints; existing validator still required",
+  "test_access": false,
+  "utc": "2026-10-17T05:39:25.578171+00:00"
+}

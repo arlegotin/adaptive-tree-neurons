@@ -1,0 +1,46 @@
+{
+  "config_sha256": "b58e1fa3ea55e3dc1614b3c07b4ae84c96412e4513ce8f06e79fd59ac7257b91",
+  "constraints": {
+    "path": "environment/h1-v2/complete-resource/proposed-readiness/constraints.json",
+    "sha256": "be5a5b6fd145c67a325077ab9910cf866a6e9e46f1924511e90bfa5d6f36a105"
+  },
+  "execution_sha256": "07366c506b309cce841f08d54f25d718e246f75daea5696d6542c300cfadaf6c",
+  "measurement": {
+    "path": "environment/h1-v2/complete-resource/proposed-readiness/measurement.json",
+    "sha256": "73fb8fa0e8ada1f44c311ddf048a06e59a7f66a226c87e22dd7daa02d56bc118"
+  },
+  "pinned_commit": "fc63de6884ba5d7a911e0228d2c6707c3ce90a11",
+  "reviews": {
+    "10": {
+      "path": "audit/implementation/evidence/2026-10-17/task-10-acceptance-v4.json",
+      "sha256": "d04b90458a88b197233aa4573e4b76b01154f9c763850958a7ed729ca0138083"
+    },
+    "13": {
+      "path": "audit/implementation/evidence/2026-10-17/task-13-acceptance-v3.json",
+      "sha256": "23668637877017392acaa440c22985ed02ea6e115e7041becc7cb3c8540d868b"
+    },
+    "9": {
+      "path": "audit/implementation/evidence/2026-10-17/task-9-acceptance-v5.json",
+      "sha256": "a291f26a880f80b762a046128db43d20467ea38147f6d957b9e5b481c50fbd6e"
+    }
+  },
+  "runtime": {
+    "path": "environment/h1-v2/backend.json",
+    "sha256": "4cfb4983fbe8d152decf7e621dc79b2e77b7f4e3825cb379534ce6a4e05e9e42"
+  },
+  "schema_version": 1,
+  "seed_plan": {
+    "max_teachers": 16,
+    "namespace": "exploratory/pilot",
+    "repetitions": 2,
+    "seeds": {
+      "allocation": 261022103,
+      "contrast": 261022104,
+      "data": 261022101,
+      "namespace": "exploratory",
+      "optimizer": 261022102,
+      "reference": 261022105,
+      "teacher": 261022100
+    }
+  }
+}

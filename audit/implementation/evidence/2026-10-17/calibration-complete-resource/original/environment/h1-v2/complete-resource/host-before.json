@@ -1,0 +1,39 @@
+{
+  "utc": "2026-10-17T05:26:58Z",
+  "boundary": "read-only host snapshot at start of authorized resource process",
+  "disk": {
+    "total": 930662584320,
+    "used": 873383673856,
+    "free": 57278910464
+  },
+  "commands": [
+    {
+      "command": [
+        "memory_pressure"
+      ],
+      "exit_code": 0,
+      "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\n\nStats: \nPages free: 587204 \nPages purgeable: 2319 \nPages purged: 43008603 \n\nSwap I/O:\nSwapins: 2853328 \nSwapouts: 4786629 \n\nPage Q counts:\nPages active: 573441 \nPages inactive: 630619 \nPages speculative: 50104 \nPages throttled: 0 \nPages wired down: 204706 \n\nCompressor Stats:\nPages used by compressor: 254549 \nPages decompressed: 156622955 \nPages compressed: 203739544 \n\nFile I/O:\nPageins: 147923334 \nPageouts: 652137 \n\nSystem-wide memory free percentage: 79%\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "pmset",
+        "-g",
+        "batt"
+      ],
+      "exit_code": 0,
+      "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "df",
+        "-k",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  iused     ifree %iused  Mounted on\n/dev/disk3s5   908850180 827361508  55936436    94% 11585843 559364360    2%   /System/Volumes/Data\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "chosen": {
+    "confirmation_max_seconds": 28800.0,
+    "disk_reserve_bytes": 10737418240,
+    "extra_memory_reserve_bytes": 2147483648,
+    "inference_supported": false,
+    "pilot_max_seconds": 14400.0,
+    "retries": 0
+  },
+  "cost_decomposition": {
+    "E_plus_ledgers_bytes": 129871968,
+    "E_seconds": 4.665056708,
+    "fit_bytes": [
+      438880766,
+      329825100
+    ],
+    "fit_seconds": [
+      273.818177125,
+      192.00571375
+    ],
+    "raw_ledger_publication_seconds": 2.085282749,
+    "teacher_fixed_residual_bytes": 9520761,
+    "teacher_fixed_residual_seconds": 14.525447417000018
+  },
+  "forecast16": {
+    "bytes": 14529577520,
+    "seconds": 7760.23032
+  },
+  "forecast32": {
+    "bytes": 29059155040,
+    "seconds": 15520.46064
+  },
+  "limitations": [
+    "single engineering teacher not a teacher-tail/resource guarantee",
+    "raw.json cumulative rewrites grow faster than linear across an expanded cohort; one-teacher factor not guaranteed at16/32teachers",
+    "JSON/Python row-ledger resident memory grows with teachers; peak RSS from n1 does not establish n16peak",
+    "all raw-ledger publication time is assigned fixed teacher overhead at the measured E; its nonlinear larger-cohort/row scaling is not guaranteed by this one-point cost model",
+    "E262144 is bounded variance-pilot workload; unresolved engineering row-SE target, final nT derived from genuine independentteacher variance",
+    "all above caps/support/reserves are explicit proposed choices for root adjudication, not measured outputs",
+    "no scientificpilot/readiness-validation/freeze/T run by this script"
+  ],
+  "observed": {
+    "free_disk_bytes": 56173207552,
+    "free_page_bytes": 8865546240,
+    "free_pages": 541110,
+    "page_bytes": 16384,
+    "physical_memory_bytes": 38654705664
+  },
+  "status": "strict proposed receipts only; not readiness validation or execution authorization",
+  "support_scope": "false pending independent-teacher inference assessment; conditional E-block MC does not establish population coverage"
+}

@@ -1,0 +1,239 @@
+{
+  "external_seconds": 485.014395,
+  "final_attempt_bytes": {
+    "categories": {
+      "E_predictions": 40458019,
+      "checkpoint_metadata": 526399713,
+      "other": 2814758,
+      "other_arrays": 36906890,
+      "pair_ledgers": 22018361,
+      "raw_events": 204971600,
+      "raw_ledger": 44040170,
+      "tensor_payloads": 30277732
+    },
+    "total": 907887243
+  },
+  "original_complete_summary": {
+    "bytes": 7508981,
+    "path": "environment/h1-v2/complete-resource/complete-summary.json",
+    "sha256": "139881cf4c210fb95f75defca6f2d8e250538dba0e65957f253532aba893639c"
+  },
+  "peak_rss_bytes": 1042415616,
+  "raw_calibration_status": {
+    "accepted": false,
+    "reasons": [
+      "Initial pilot requires at least 8 independent teachers",
+      "Two completed runtime batches required"
+    ]
+  },
+  "raw_ledger_duplication": {
+    "accepted_record_copies": 2,
+    "completed_attempt_record_copies": 2,
+    "duplicated_numeric_E_values": 2097152,
+    "h1_plus_static_rows_per_completed_record": 524288,
+    "limitation": "raw.json retains both completed attempt and accepted record copies; cumulative ledger rewrites and independent pair.json copies also charged; larger cohorts not measured by fake ledgers",
+    "raw_file_bytes": 44040170
+  },
+  "recipe_sha256": "4579ba87ffc6be1678b935c5297e849e0a6a53adb0e055ecedea84596ab29c6a",
+  "repetitions": [
+    {
+      "enclosing_seconds": 276.016148416,
+      "fit_only_readout": {
+        "costs": {
+          "aggregation": "enclosing only; all component clocks are nested",
+          "boundary": "fresh parent, shared scoring, B6 keep/loser probes, all controls, selected model saves and IO; excludes final pair ledger write",
+          "parent_ns": 24478215750,
+          "probe_ns": 170674180375,
+          "score_ns": 49874625
+        },
+        "enclosing_ns": 273818177125,
+        "greedy_report": "artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0/runs/c820dd0dbcf2483081d4b294123db741/greedy.json",
+        "parent_run_id": "6fa808850bbb430a9c6f11e2be6161ae",
+        "peak_rss_bytes": 610566144,
+        "retained_bytes_before_final_pair": 438779818,
+        "root": "artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-0",
+        "status": "completed"
+      },
+      "greedy_probes": 65,
+      "h1_mean": 0.00011114268807608905,
+      "normalized_E_risks": {
+        "greedy": 0.061983944807370614,
+        "keep": 0.061983944807370614,
+        "ordinary_lower": 0.09085285516094595,
+        "ordinary_upper": 0.07865950968765621,
+        "random": 0.061983944807370614,
+        "static_partial": 0.14000609315600948,
+        "top": 0.06187280211929452,
+        "widen_upper": 0.061983944807370614
+      },
+      "optimizer_seed": 3890724770,
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 5
+      },
+      "repetition": 0,
+      "static_mean": -0.06134658346835327,
+      "teacher_id": "677b0bce5302109ec16ef7eaa52d73ab1f99e0522be658aca833194a7f8a57f6"
+    },
+    {
+      "enclosing_seconds": 194.028992458,
+      "fit_only_readout": {
+        "costs": {
+          "aggregation": "enclosing only; all component clocks are nested",
+          "boundary": "fresh parent, shared scoring, B6 keep/loser probes, all controls, selected model saves and IO; excludes final pair ledger write",
+          "parent_ns": 12453492917,
+          "probe_ns": 125781834542,
+          "score_ns": 38403292
+        },
+        "enclosing_ns": 192005713750,
+        "greedy_report": "artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-1/runs/0aa11e6e8f4d467ca34cefacf089e23a/greedy.json",
+        "parent_run_id": "f72bab1b74a74780ab13aeb0be7ed5f1",
+        "peak_rss_bytes": 756613120,
+        "retained_bytes_before_final_pair": 329724110,
+        "root": "artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/teacher-0/repetition-1",
+        "status": "completed"
+      },
+      "greedy_probes": 65,
+      "h1_mean": 0.0,
+      "normalized_E_risks": {
+        "greedy": 0.07554231557224358,
+        "keep": 0.07554231557224358,
+        "ordinary_lower": 0.07148052771880982,
+        "ordinary_upper": 0.11946639007424359,
+        "random": 0.07554231557224358,
+        "static_partial": 0.13761646779784628,
+        "top": 0.07554231557224358,
+        "widen_upper": 0.07554231557224358
+      },
+      "optimizer_seed": 2824226898,
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 5
+      },
+      "repetition": 1,
+      "static_mean": -0.018150077723602675,
+      "teacher_id": "677b0bce5302109ec16ef7eaa52d73ab1f99e0522be658aca833194a7f8a57f6"
+    }
+  ],
+  "runtime_sha256": "4cfb4983fbe8d152decf7e621dc79b2e77b7f4e3825cb379534ce6a4e05e9e42",
+  "scope": "one actual complete engineering teacher R2, never genuine variance pilot/coverage",
+  "source_sha256": "07366c506b309cce841f08d54f25d718e246f75daea5696d6542c300cfadaf6c",
+  "status": "completed",
+  "tagged_clocks": {
+    "graph/E_loss_and_wrapper_residual": {
+      "calls": 2,
+      "exclusive_ns": 704428667,
+      "failed_calls": 0,
+      "inclusive_ns": 470601807958
+    },
+    "graph/E_prediction": {
+      "calls": 16,
+      "exclusive_ns": 1591723793,
+      "failed_calls": 0,
+      "inclusive_ns": 1591723793
+    },
+    "graph/attempt_orchestration_aggregation": {
+      "calls": 1,
+      "exclusive_ns": 2513718668,
+      "failed_calls": 0,
+      "inclusive_ns": 476852069917
+    },
+    "graph/base_fit": {
+      "calls": 8,
+      "exclusive_ns": 57581406684,
+      "failed_calls": 0,
+      "inclusive_ns": 114893849625
+    },
+    "graph/checkpoint_publication": {
+      "calls": 4166,
+      "exclusive_ns": 162317576165,
+      "failed_calls": 0,
+      "inclusive_ns": 162317576165
+    },
+    "graph/compressed_array_publication": {
+      "calls": 3,
+      "exclusive_ns": 1883776500,
+      "failed_calls": 0,
+      "inclusive_ns": 1883776500
+    },
+    "graph/continuation_fit": {
+      "calls": 16,
+      "exclusive_ns": 29930946545,
+      "failed_calls": 0,
+      "inclusive_ns": 51520825208
+    },
+    "graph/fit_graph_orchestration": {
+      "calls": 2,
+      "exclusive_ns": 1265544170,
+      "failed_calls": 0,
+      "inclusive_ns": 465936751250
+    },
+    "graph/ledger_publication": {
+      "calls": 4883,
+      "exclusive_ns": 6354194565,
+      "failed_calls": 0,
+      "inclusive_ns": 6354194565
+    },
+    "graph/load": {
+      "calls": 26,
+      "exclusive_ns": 1458467832,
+      "failed_calls": 0,
+      "inclusive_ns": 1458467832
+    },
+    "graph/probe_fit": {
+      "calls": 130,
+      "exclusive_ns": 180952286987,
+      "failed_calls": 0,
+      "inclusive_ns": 290907018040
+    },
+    "graph/probe_setup_ranking": {
+      "calls": 2,
+      "exclusive_ns": 4882907383,
+      "failed_calls": 0,
+      "inclusive_ns": 296447038499
+    },
+    "graph/raw_event_publication": {
+      "calls": 86868,
+      "exclusive_ns": 25117506542,
+      "failed_calls": 0,
+      "inclusive_ns": 25181272753
+    },
+    "graph/score": {
+      "calls": 2,
+      "exclusive_ns": 77393000,
+      "failed_calls": 0,
+      "inclusive_ns": 77393000
+    },
+    "graph/score_array_publication": {
+      "calls": 2,
+      "exclusive_ns": 794916,
+      "failed_calls": 0,
+      "inclusive_ns": 794916
+    },
+    "graph/setup": {
+      "calls": 1,
+      "exclusive_ns": 219397500,
+      "failed_calls": 0,
+      "inclusive_ns": 219397500
+    },
+    "timing/E_prediction": {
+      "calls": 3968,
+      "exclusive_ns": 1093450714,
+      "failed_calls": 0,
+      "inclusive_ns": 1093450714
+    },
+    "timing/load": {
+      "calls": 2,
+      "exclusive_ns": 134830750,
+      "failed_calls": 0,
+      "inclusive_ns": 134830750
+    }
+  },
+  "teacher_count": 1
+}

@@ -498,3 +498,33 @@ comparison methods and every greedy probe under recipe hash
 Measure actual complete costs before choosing resource constraints and strict
 scientific readiness. Genuine independent-teacher calibration, a numeric frozen
 design, the complete independent cohort and reproduction/audit remain pending.
+
+
+## D023 — 17 October 2026: complete resource sample accepted; strict pilot readiness passes
+
+The measured full engineering teacher completed R2/all eight roles/all 130
+probes without failure: 485.014 seconds, 907,887,243 producer bytes and peak RSS
+1,042,415,616 bytes. Root rehashed all 1,966 retained files / 916,297,448 bytes,
+read the complete report and accepted the actual sample. The existing strict
+readiness validator passed at the unchanged 315-file execution map, runtime
+receipt and committed Task9v5/10v4/13v3 reviews. This is permission to run the
+genuine exploratory variance pilot, not a scientific result or freeze.
+
+[Numeric policies, uncertainty and original evidence](docs/research/2026-10-17-scientific-pilot-readiness.md)
+record the fresh independent seed namespace, fixed recipe, 8-to-16 teachers,
+two repetitions, complete greedy costs and four-hour pilot allowance. Root
+reserves 10 GiB disk plus the forecast pilot footprint before setting the
+shared storage cap, uses observed free-page headroom with an additional 2 GiB
+reserve, and retains failures with zero automatic retries. Nonlinear cumulative
+ledger costs and one-teacher resource uncertainty remain explicit. Population
+inference support is not inferred from conditional numerical calibration.
+The bounded E workload has unresolved precision; genuine variance governs final
+nT or the honest estimation/resource branch. Do not call an unresolved capped
+pilot accepted confirmation or evidence of no effect.
+
+One pre-fit validation call failed because the YAML reader resolved JSON's
+exponent as a string. Retained failure evidence and an actual YAML rendering
+show exactly equal resolved config values; readiness then passed without source
+or policy changes. Launch the scientific pilot only after committing this
+record, hold execution source fixed, and continue through the resulting design,
+full eligible independent cohort and reproduction/audit.

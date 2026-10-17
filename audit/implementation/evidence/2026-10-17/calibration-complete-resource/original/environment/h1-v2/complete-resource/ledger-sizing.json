@@ -1,0 +1,72 @@
+{
+  "limitation": "producer aliases accepted records to completed attempts in memory; loading serialized raw independently duplicates objects. getsizeof excludes other graph dictionaries, tensors, raw JSON strings/bytes/encoding temporaries and allocator overhead. Multiplication by16 is a diagnostic extrapolation only.",
+  "loaded_two_unique_record_list_float_bytes": 34415712,
+  "raw_file_bytes": 44040170,
+  "raw_file_row_array_bytes_twice_unique": 35377186,
+  "raw_publications": [
+    {
+      "bytes": 2662,
+      "elapsed_ns": 619667,
+      "path": "artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/raw.json",
+      "status": "completed"
+    },
+    {
+      "bytes": 2957,
+      "elapsed_ns": 489916,
+      "path": "artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/raw.json",
+      "status": "completed"
+    },
+    {
+      "bytes": 13518585,
+      "elapsed_ns": 290621875,
+      "path": "artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/raw.json",
+      "status": "completed"
+    },
+    {
+      "bytes": 13518639,
+      "elapsed_ns": 292722166,
+      "path": "artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/raw.json",
+      "status": "completed"
+    },
+    {
+      "bytes": 22021450,
+      "elapsed_ns": 498295625,
+      "path": "artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/raw.json",
+      "status": "completed"
+    },
+    {
+      "bytes": 44040170,
+      "elapsed_ns": 1002533500,
+      "path": "artifacts/h1-v2/complete-resource/pilot-5f6c0cc620bd441db53ed126157fbedf/raw.json",
+      "status": "completed"
+    }
+  ],
+  "records": [
+    {
+      "loaded_list_plus_float_bytes": {
+        "h1_rows": 8603928,
+        "static_rows": 8603928
+      },
+      "repetition": 0,
+      "serialized_array_bytes": {
+        "h1_rows": 5668806,
+        "static_rows": 5502081
+      }
+    },
+    {
+      "loaded_list_plus_float_bytes": {
+        "h1_rows": 8603928,
+        "static_rows": 8603928
+      },
+      "repetition": 1,
+      "serialized_array_bytes": {
+        "h1_rows": 1048577,
+        "static_rows": 5469129
+      }
+    }
+  ],
+  "scope": "stdlib sizes of actual completed row lists, not a synthetic large cohort or n16 memory measurement",
+  "sum_publication_ns": 2085282749,
+  "sum_published_bytes": 93104463,
+  "unique_selected_record_row_bytes": 17688593
+}

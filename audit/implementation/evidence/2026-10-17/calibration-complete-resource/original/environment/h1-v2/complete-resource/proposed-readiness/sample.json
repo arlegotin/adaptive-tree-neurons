@@ -1,0 +1,10 @@
+{
+  "enclosing_seconds": 485.014395,
+  "peak_memory_bytes": 1042415616,
+  "recipe_sha256": "4579ba87ffc6be1678b935c5297e849e0a6a53adb0e055ecedea84596ab29c6a",
+  "retained_bytes": 908098595,
+  "runtime_sha256": "4cfb4983fbe8d152decf7e621dc79b2e77b7f4e3825cb379534ce6a4e05e9e42",
+  "source_sha256": "07366c506b309cce841f08d54f25d718e246f75daea5696d6542c300cfadaf6c",
+  "status": "completed",
+  "teacher_count": 1
+}

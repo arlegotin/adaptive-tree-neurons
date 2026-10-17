@@ -1,0 +1,252 @@
+{
+  "complete_ignored_inventory": {
+    "bytes": 916297448,
+    "files": 1966,
+    "path": "environment/h1-v2/complete-resource/inventory.json",
+    "root_rehash_errors": [],
+    "sha256": "7ee2158ef053873bd4a9fd136462a389712aa73920d8496b8a9d73ea96e8ecba"
+  },
+  "files": [
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/candidate.json",
+      "bytes": 2552,
+      "original_path": "environment/h1-v2/complete-resource/candidate.json",
+      "sha256": "0e4b24c59ed28c90eb72d9731592dd8571dfd1d0708c183e18b2c5000891d0c3"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/curate.py",
+      "bytes": 7243,
+      "original_path": "environment/h1-v2/complete-resource/curate.py",
+      "sha256": "bd3ed76b5dd322afab84a729a70d80e30c29c10696e86431ed63f6737f215a10"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/curation.stderr",
+      "bytes": 0,
+      "original_path": "environment/h1-v2/complete-resource/curation.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/curation.stdout",
+      "bytes": 101,
+      "original_path": "environment/h1-v2/complete-resource/curation.stdout",
+      "sha256": "fa4db700562f96e824f3873f45a29c72acda73936627d2ba3b83714182e489f2"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/host-after.json",
+      "bytes": 1525,
+      "original_path": "environment/h1-v2/complete-resource/host-after.json",
+      "sha256": "8324e442a1972178bab92c1d9cd563de18847c8c3729d5dea0e39fbb06b8ab1f"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/host-before.json",
+      "bytes": 1509,
+      "original_path": "environment/h1-v2/complete-resource/host-before.json",
+      "sha256": "570d344929d036f745f197936d5155912661a7e64d24428bf10c0dd74940892b"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/index.py",
+      "bytes": 1493,
+      "original_path": "environment/h1-v2/complete-resource/index.py",
+      "sha256": "e29418f63e0f9aeb6dc285b53ba6337b9576e83a25fa0418b32f68e858f83cab"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/inventory.json",
+      "bytes": 649468,
+      "original_path": "environment/h1-v2/complete-resource/inventory.json",
+      "sha256": "7ee2158ef053873bd4a9fd136462a389712aa73920d8496b8a9d73ea96e8ecba"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/invocation.json",
+      "bytes": 864,
+      "original_path": "environment/h1-v2/complete-resource/invocation.json",
+      "sha256": "68059781fc8ab9310c4d23653146a2fb8402dcb5b489ae81ee0d15fa794c3607"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/launch.py",
+      "bytes": 1401,
+      "original_path": "environment/h1-v2/complete-resource/launch.py",
+      "sha256": "500dc2570c7ed3e311c79060373ad2b6bd0a2b4e62727021ba2110dc5a1c2e6b"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/launcher.stderr",
+      "bytes": 0,
+      "original_path": "environment/h1-v2/complete-resource/launcher.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/launcher.stdout",
+      "bytes": 803,
+      "original_path": "environment/h1-v2/complete-resource/launcher.stdout",
+      "sha256": "d715d64035fcb52bae01fe29da018e197523822b7d8a79360730c9b2ae445d7e"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/ledger-sizing.json",
+      "bytes": 2396,
+      "original_path": "environment/h1-v2/complete-resource/ledger-sizing.json",
+      "sha256": "cc94e14bdd6c99347a313107a6ab8bc8df611276262ded22f517594b64641233"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/measure.py",
+      "bytes": 11703,
+      "original_path": "environment/h1-v2/complete-resource/measure.py",
+      "sha256": "6568c37d6f2efa5a17239514821f29fb425a591e5b1929ae14bf8c3262a802b5"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/measurement.json",
+      "bytes": 110228,
+      "original_path": "environment/h1-v2/complete-resource/measurement.json",
+      "sha256": "538a71081cdb3671a1808857037c017b9cafa684dcf95d54abedfe805dc31d1f"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/paired-timing.json",
+      "bytes": 68702,
+      "original_path": "environment/h1-v2/complete-resource/paired-timing.json",
+      "sha256": "ce982a52cca04f68c0329fd3ed9b315f58e74d7bbad6e064c7c8605a8539863b"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/policy.json",
+      "bytes": 1272,
+      "original_path": "environment/h1-v2/complete-resource/policy.json",
+      "sha256": "deb93f4a75342458bd85f981c8e231a89b2615268a55bb4437997f9b72762384"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/propose-readiness.py",
+      "bytes": 10004,
+      "original_path": "environment/h1-v2/complete-resource/propose-readiness.py",
+      "sha256": "7a60f6d9a68ae9663c2f05319987ec30bd441ed6bcbcbc3f8e6ef5783c5c96a9"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/proposed-readiness/constraints.json",
+      "bytes": 1418,
+      "original_path": "environment/h1-v2/complete-resource/proposed-readiness/constraints.json",
+      "sha256": "be5a5b6fd145c67a325077ab9910cf866a6e9e46f1924511e90bfa5d6f36a105"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/proposed-readiness/measurement.json",
+      "bytes": 644,
+      "original_path": "environment/h1-v2/complete-resource/proposed-readiness/measurement.json",
+      "sha256": "73fb8fa0e8ada1f44c311ddf048a06e59a7f66a226c87e22dd7daa02d56bc118"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/proposed-readiness/proposal-not-approval.json",
+      "bytes": 2044,
+      "original_path": "environment/h1-v2/complete-resource/proposed-readiness/proposal-not-approval.json",
+      "sha256": "7b5c7fe210247afe39397ccc2eb99db924b42bf434fac609147c442a0f1279fc"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/proposed-readiness/readiness.json",
+      "bytes": 1708,
+      "original_path": "environment/h1-v2/complete-resource/proposed-readiness/readiness.json",
+      "sha256": "28cf5d544beaeb574ff1d70f87c07712e77ca090bee4f8a8a65f26fefb9c6620"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/proposed-readiness/sample-files.json",
+      "bytes": 645790,
+      "original_path": "environment/h1-v2/complete-resource/proposed-readiness/sample-files.json",
+      "sha256": "ef883ba6f0872632069e60f15a5e634425be42a53b4c4cbb2d64c4d90e71a133"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/proposed-readiness/sample.json",
+      "bytes": 413,
+      "original_path": "environment/h1-v2/complete-resource/proposed-readiness/sample.json",
+      "sha256": "3dd235a4f3875dc02a16be3902a810c096745e1dd916a52a8c851d818742530b"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/proposed-readiness/scientific-config.json",
+      "bytes": 2674,
+      "original_path": "environment/h1-v2/complete-resource/proposed-readiness/scientific-config.json",
+      "sha256": "9914e755b04126997d0248f26d5bfa644e6ee8d968d0e2f1594b6dca4417ce47"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/readiness-proposal.stderr",
+      "bytes": 0,
+      "original_path": "environment/h1-v2/complete-resource/readiness-proposal.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/readiness-proposal.stdout",
+      "bytes": 118,
+      "original_path": "environment/h1-v2/complete-resource/readiness-proposal.stdout",
+      "sha256": "0229362188025045a9db6a4357490ca7d17fbd83efda9f4f52aabbb197905c5b"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/root-container-accounting.json",
+      "bytes": 615,
+      "original_path": "environment/h1-v2/complete-resource/root-container-accounting.json",
+      "sha256": "ca038592a0ae6c5fcc18550bde98c88e3f862f69095998ae72cb6d9a5ad616b2"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/run.stderr",
+      "bytes": 0,
+      "original_path": "environment/h1-v2/complete-resource/run.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/run.stdout",
+      "bytes": 10793,
+      "original_path": "environment/h1-v2/complete-resource/run.stdout",
+      "sha256": "d22c699ed07b38de93c7f21f36f63a47d3142248df4e5f8aafdb9fa75842bac7"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/constraints.json",
+      "bytes": 1418,
+      "original_path": "environment/h1-v2/scientific-ready/constraints.json",
+      "sha256": "85eb857af43d4867b73788b31ee7b30eadee7a2edf44c2e864199702a15e2ae0"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/format-failure.json",
+      "bytes": 530,
+      "original_path": "environment/h1-v2/scientific-ready/format-failure.json",
+      "sha256": "90b2ccf98bc512d56d7bb0670011cca561692c313ef02c69983c2008a16dc1b3"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/measurement.json",
+      "bytes": 644,
+      "original_path": "environment/h1-v2/scientific-ready/measurement.json",
+      "sha256": "d20a39a5303a5304f6beed896f80201b9321ec3c769025f23d0efb61b5777cd9"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/readiness.json",
+      "bytes": 1668,
+      "original_path": "environment/h1-v2/scientific-ready/readiness.json",
+      "sha256": "8c422f6d278a8132f00b594e16d7a4c73a22e9f4fdaead3660b25fbc0694c6b1"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/resource-adjudication.json",
+      "bytes": 3149,
+      "original_path": "environment/h1-v2/scientific-ready/resource-adjudication.json",
+      "sha256": "8385e559e0bba9b80a081c289400bf053bef38006f2687866579f632bda9c157"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/scientific-config.json",
+      "bytes": 2634,
+      "original_path": "environment/h1-v2/scientific-ready/scientific-config.json",
+      "sha256": "8eae7b4eee60514dab5240450fea6edc503960629af3ac360f530ae2bf389794"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/scientific-config.yaml",
+      "bytes": 2060,
+      "original_path": "environment/h1-v2/scientific-ready/scientific-config.yaml",
+      "sha256": "25a8f33949ef7c13ba6e38676efa77b8964c28ffacf035976a7f364de6fdea75"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/validation.json",
+      "bytes": 42188,
+      "original_path": "environment/h1-v2/scientific-ready/validation.json",
+      "sha256": "de5a041cd2e9bfd04eeff658237386594aa596449f1435a300287b38efe52b95"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/measurement-report.md",
+      "bytes": 13211,
+      "original_path": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/scientific-calibration-phase-b-complete-resource-report.md",
+      "sha256": "4912c67089d6d6870d07f6ad8f0473468a290742c7d24adc828c213c70c763ca"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/resource-summary.json",
+      "bytes": 8293,
+      "sha256": "85317929a994b17fcf29b2e536d4bd8e5c5e6792756706d7d125f0bb7bc4b153"
+    }
+  ],
+  "limits": "One engineering teacher, two repetitions; no independent accuracy claim. E precision unresolved; n16 resource forecasts extrapolated. Root chosen resource caps are policies, not measurements. Scientific execution has not started at this archive publication.",
+  "status": "completed_engineering_resource_and_validated_pre_pilot_readiness_not_scientific_result"
+}
