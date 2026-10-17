@@ -577,3 +577,32 @@ charges new enclosing work against the original four-hour allowance outside
 the documented suspension, checks actual resources and grants no additional
 teachers, retuning, MC change, freeze or T access. Complete the linked exploratory
 record and then actual WP09. Preserve all eighteen rulings in the final handoff.
+
+
+## D026 — 17 October 2026: complete the linked pilot; retain an unresolved allocation result
+
+All 16 prescribed independent teachers now have two complete repetitions, eight
+roles and all 2,080 finite greedy probes, with zero scientific-pair failures.
+Root independently rehashed all 1,995 continuation files / 741,223,772 bytes,
+all 32 member bindings and saved-row means; original raw, seal and inventory
+remain unchanged. Two pre-fit/saved-wrapper setup mistakes are retained and
+charged separately. No original completed pair was retried.
+
+The [complete exploratory results](docs/research/2026-10-17-complete-exploratory-pilot.md)
+give random-minus-guided normalized E MSE −0.000536435. The original 8k bootstrap
+spans zero. The prospectively declared fixed 512k saved-scalar calculation first
+reproduced 8k to 2.17e−19, then gave [−0.001205030, +0.000156050]. Root read
+the full script/report and verified all 20 files / 75,962 bytes and original
+input bindings. Its computational precision passes, while SD ratio 2.367 and
+intrinsic variance remain unresolved. More bootstrap draws supply no independent
+teachers or coverage guarantee. Original `calibrate`, failed producer and missing
+canonical runtime batch remain binding; no freeze/T is authorized.
+
+Narrow the claim to the completed diagnostic rather than infer beneficial
+placement, equivalence, architecture novelty or practical competitiveness.
+The finite pilot cap is a chosen workload, not proof of physical impossibility.
+Any future expansion needs a prospective design; no deeper growth or transfer
+study is triggered by these outcomes. Execute actual WP09 now: independent raw
+prediction/F-variance recomputation, fresh frozen-lock full representative replay,
+durable interrupted-growth recovery and deterministic report regeneration. This
+is evidence validation, not another efficacy teacher or a new source review.

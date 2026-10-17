@@ -1,0 +1,24 @@
+{
+  "command": [
+    "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+    "environment/h1-v2/user-pause-continuation/attempt-2/run.py"
+  ],
+  "exit_code": 0,
+  "external_seconds": 446.85582,
+  "worker_pid": 60753,
+  "aggregate_enclosing_seconds": 513.037246041,
+  "artifact_root": "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63",
+  "caffeinate_pid": 60754,
+  "caffeinate_exit_code": 0,
+  "wrapper_sha256": "21d04006fcc91626d6defbf4d234df6f6f07b337855cd4c9de3c3d531c383ac1",
+  "launcher_sha256": "b36a5db35ee38bae74f284dbb5e694c6b091c445ea5af6a7956149e1082045c1",
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+    "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src"
+  }
+}

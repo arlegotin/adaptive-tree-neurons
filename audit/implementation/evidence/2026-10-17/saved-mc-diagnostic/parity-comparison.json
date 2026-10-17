@@ -1,0 +1,23 @@
+{
+  "absolute_tolerance": 1e-12,
+  "field_max_abs_errors": {
+    "between_teacher_variance_lower": 0.0,
+    "endpoint_mc_error": 0.0,
+    "h1_interval": 2.168404344971009e-19,
+    "h1_mean": 0.0,
+    "mean_nuisance_allowance": 0.0,
+    "nuisance_allowance_per_teacher": 0.0,
+    "nuisance_mean_upper": 0.0,
+    "observed_teacher_variance": 0.0,
+    "observed_teacher_variance_lower": 0.0,
+    "paired_row_variance_upper": 0.0,
+    "repetition_variance": 0.0,
+    "sd_interval": 1.0842021724855044e-19,
+    "static_interval": 0.0,
+    "static_mean": 0.0,
+    "student_t_interval": 0.0
+  },
+  "max_abs_error": 2.168404344971009e-19,
+  "passed": true,
+  "target_summary_sha256": "351c2578bde77e225a06478e212ac4a0b2bf60313a7f1daa535b6df5ea578fa1"
+}

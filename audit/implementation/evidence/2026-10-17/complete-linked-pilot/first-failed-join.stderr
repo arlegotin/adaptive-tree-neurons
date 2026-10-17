@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v2/user-pause-continuation/join.py", line 16, in <module>
+    config=load_experiment('environment/h1-v2/scientific-ready/scientific-config.yaml')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/config.py", line 362, in load_experiment
+    value = yaml.load(path.read_text(encoding="utf-8"), Loader=_UniqueLoader)
+                      ^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'read_text'

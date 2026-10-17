@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v2/user-pause-continuation/run.py", line 94, in <module>
+    assert teacher.to_dict()==json.loads((original/'teacher-15/teacher.json').read_text())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

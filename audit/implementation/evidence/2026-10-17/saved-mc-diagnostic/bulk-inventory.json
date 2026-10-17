@@ -1,0 +1,119 @@
+{
+  "bindings": {
+    ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/pilot-saved-mc-supplement-predeclaration.md": "20f7d30d536ba1b33e939973e4ef9db0db639ebe197e353980312e7dc54e71fd",
+    "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/joined-diagnostics/joined-design-diagnostic.json": "fd6844d27846b871259f5b54f5785fe57a6d99adac885e12e1df5be0eae55c2a",
+    "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/joined-diagnostics/joined-scalars-and-risks.json": "7324942c0ee22b18b3fe76e22ba96c14be2b19d602e096c480ef5bda2a9bbff4",
+    "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/joined-diagnostics/joined-summary-diagnostic.json": "351c2578bde77e225a06478e212ac4a0b2bf60313a7f1daa535b6df5ea578fa1",
+    "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/joined-input-members.json": "7f42ae967496a7e6a36095175617567454b7384bd74a81121d9be23681f7ab92",
+    "environment/h1-v2/backend.json": "4cfb4983fbe8d152decf7e621dc79b2e77b7f4e3825cb379534ce6a4e05e9e42",
+    "environment/h1-v2/genuine-pilot/inventory.json": "c0a46776b126cd4a30c1f586b25ea3c786155736b362322fccfb428f3c06f4ea",
+    "environment/h1-v2/user-pause-continuation/inventory.json": "d984d8961a59dc5d996862a5361af30f28f5cc9b7c1a45e7be0c8a2fd33ff627",
+    "environment/h1-v2/user-resume-root/continuation-verification.json": "0ae42ef7cf933ffad118ecc872e929d3f1b03ff7f6321c1e259ee398d39dc086",
+    "src/treeneuron/pilot/design.py": "0c61e83d1e986433953270225833843ce236061582d4cfc6dd329d3580eb842e"
+  },
+  "bytes": 75962,
+  "count": 20,
+  "files": [
+    {
+      "bytes": 8392,
+      "path": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/scientific-saved-mc-supplement-report.md",
+      "sha256": "e5f0e147862f249240635cc9ffe9505979f5c71dfa5beb89b77c1da627adc9dc"
+    },
+    {
+      "bytes": 6223,
+      "path": "artifacts/h1-v2/pilot-saved-mc-supplement/892290e2c5914ef0815b9edd6cca6c3d/analysis-manifest.json",
+      "sha256": "40bb95395c00454e31a2b48b4e19d62667d19bf3639ef586dce5a5c877679b4a"
+    },
+    {
+      "bytes": 5601,
+      "path": "artifacts/h1-v2/pilot-saved-mc-supplement/892290e2c5914ef0815b9edd6cca6c3d/parity-8000.json",
+      "sha256": "a84b229b3f2d0cb0b2d33b54fddfadc79e2bf461afce5189a4e2f080efd60ad2"
+    },
+    {
+      "bytes": 745,
+      "path": "artifacts/h1-v2/pilot-saved-mc-supplement/892290e2c5914ef0815b9edd6cca6c3d/parity-comparison.json",
+      "sha256": "3a44165caeb663e796457f46336b60f34af788d79f82927f91570ec3bb32680f"
+    },
+    {
+      "bytes": 5601,
+      "path": "artifacts/h1-v2/pilot-saved-mc-supplement/892290e2c5914ef0815b9edd6cca6c3d/supplement-512000.json",
+      "sha256": "dd5781c2b2538dfe80362c02bc771abcda1a1a14f94931b72e4ac92c1f7cbbbd"
+    },
+    {
+      "bytes": 4008,
+      "path": "environment/h1-v2/pilot-saved-mc-supplement/__pycache__/launch.cpython-312.pyc",
+      "sha256": "3e1d0f311bdd2fe2a6f5d1c05ef4dadc5bfe59934daf99cd6def8919c707ab66"
+    },
+    {
+      "bytes": 21055,
+      "path": "environment/h1-v2/pilot-saved-mc-supplement/__pycache__/run.cpython-312.pyc",
+      "sha256": "10fc32ac0c7df1efd6c1c007314613b53451baa12d61bbf390802bfa642d0201"
+    },
+    {
+      "bytes": 747,
+      "path": "environment/h1-v2/pilot-saved-mc-supplement/analysis-config.json",
+      "sha256": "2d0b85242011c0adf087fa5a3ba13a499f6e67877af5f3b0f2e7ed44e16d58d0"
+    },
+    {
+      "bytes": 0,
+      "path": "environment/h1-v2/pilot-saved-mc-supplement/caffeinate.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "environment/h1-v2/pilot-saved-mc-supplement/caffeinate.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1477,
+      "path": "environment/h1-v2/pilot-saved-mc-supplement/index.py",
+      "sha256": "c212b2b3b92666b0335f4c9ac98af8e3b64ef5ea7a5500140b407b735744fe45"
+    },
+    {
+      "bytes": 613,
+      "path": "environment/h1-v2/pilot-saved-mc-supplement/invocation.json",
+      "sha256": "ac7dd10ca8ce4cc82e589047b4c8cbf579f58158b885384f2467fce5d88240ba"
+    },
+    {
+      "bytes": 207,
+      "path": "environment/h1-v2/pilot-saved-mc-supplement/launch-state.json",
+      "sha256": "9b4526b067218ebb8803aa7c0bb9c31da2ee0f75ebad6a8b1f12870028624c54"
+    },
+    {
+      "bytes": 1781,
+      "path": "environment/h1-v2/pilot-saved-mc-supplement/launch.py",
+      "sha256": "33f343a702abd5faff30d0eadf8c3723cd98dac032100f471a06e6cd672888bb"
+    },
+    {
+      "bytes": 0,
+      "path": "environment/h1-v2/pilot-saved-mc-supplement/launcher.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 560,
+      "path": "environment/h1-v2/pilot-saved-mc-supplement/launcher.stdout",
+      "sha256": "d4ff224327f62d35fe842079d7d6dad6168246561bd90e99bfc091d9d141f0c5"
+    },
+    {
+      "bytes": 6223,
+      "path": "environment/h1-v2/pilot-saved-mc-supplement/readout.json",
+      "sha256": "40bb95395c00454e31a2b48b4e19d62667d19bf3639ef586dce5a5c877679b4a"
+    },
+    {
+      "bytes": 11680,
+      "path": "environment/h1-v2/pilot-saved-mc-supplement/run.py",
+      "sha256": "893c99ec57908470c970d22706ef5923587191abaa45593b8109dd2d6bb12fe7"
+    },
+    {
+      "bytes": 0,
+      "path": "environment/h1-v2/pilot-saved-mc-supplement/run.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1049,
+      "path": "environment/h1-v2/pilot-saved-mc-supplement/run.stdout",
+      "sha256": "f9e4bd5379264e569459069e3cab05f00326b0b6db5cb46b51f85c3f07bbd5c1"
+    }
+  ],
+  "scope": "New-only prespecified saved MC supplement with parity; original source/raw/design untouched"
+}

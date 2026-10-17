@@ -1,0 +1,152 @@
+{
+  "B6_probes": 2080,
+  "bytes": 1522725,
+  "canonical_freeze_eligible": false,
+  "files": [
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/report.md",
+      "bytes": 13143,
+      "original_path": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/scientific-user-pause-continuation-report.md",
+      "sha256": "cf2cba9601c339eb122e2bbe2f8454ffe023f74e8e251ce8453397f89e431381"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/bulk-inventory.json",
+      "bytes": 636482,
+      "original_path": "environment/h1-v2/user-pause-continuation/inventory.json",
+      "sha256": "d984d8961a59dc5d996862a5361af30f28f5cc9b7c1a45e7be0c8a2fd33ff627"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/continuation-manifest.json",
+      "bytes": 62189,
+      "original_path": "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/continuation-manifest.json",
+      "sha256": "0a8e24a05b7d96ea0fafd13f7fd53bf60158b509b658b11331ea313d59034169"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/joined-input-members.json",
+      "bytes": 7559,
+      "original_path": "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/joined-input-members.json",
+      "sha256": "7f42ae967496a7e6a36095175617567454b7384bd74a81121d9be23681f7ab92"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/joined-analysis-manifest.json",
+      "bytes": 3993,
+      "original_path": "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/joined-diagnostics/analysis-manifest.json",
+      "sha256": "6c47da8917e3c58753de7e06226d39a05595288f4f4fb6a601b1c3cc9a0109d2"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/joined-summary-diagnostic.json",
+      "bytes": 4462,
+      "original_path": "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/joined-diagnostics/joined-summary-diagnostic.json",
+      "sha256": "351c2578bde77e225a06478e212ac4a0b2bf60313a7f1daa535b6df5ea578fa1"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/joined-design-diagnostic.json",
+      "bytes": 2184,
+      "original_path": "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/joined-diagnostics/joined-design-diagnostic.json",
+      "sha256": "fd6844d27846b871259f5b54f5785fe57a6d99adac885e12e1df5be0eae55c2a"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/joined-scalars-and-risks.json",
+      "bytes": 29733,
+      "original_path": "artifacts/h1-v2/user-pause-continuation/a6b986ed496b4f22be3a43c65943dc63/joined-diagnostics/joined-scalars-and-risks.json",
+      "sha256": "7324942c0ee22b18b3fe76e22ba96c14be2b19d602e096c480ef5bda2a9bbff4"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/terminal-summary.json",
+      "bytes": 648454,
+      "original_path": "environment/h1-v2/user-pause-continuation/terminal-summary.json",
+      "sha256": "f30971707b49185540ab2f6bc68450c638319ccb9f45babb15b407fba17b2a13"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/first-failed-fit-invocation.json",
+      "bytes": 874,
+      "original_path": "environment/h1-v2/user-pause-continuation/invocation.json",
+      "sha256": "21d1b578ce52b7a54ca2c5b1b44b148c6813282736027ae651018b3adeb00632"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/first-failed-fit-wrapper.py",
+      "bytes": 11096,
+      "original_path": "environment/h1-v2/user-pause-continuation/run.py",
+      "sha256": "87dd628715129444ed93e20d631b4360cfc5714b7b17cc5f7a9e658ddf9d482a"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/first-failed-fit.stderr",
+      "bytes": 374,
+      "original_path": "environment/h1-v2/user-pause-continuation/run.stderr",
+      "sha256": "1e29bd6d4ecd836be6e53561547cc0a1050155d45877f425692cf17235f9bfec"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/successful-fit-wrapper.py",
+      "bytes": 11186,
+      "original_path": "environment/h1-v2/user-pause-continuation/attempt-2/run.py",
+      "sha256": "21d04006fcc91626d6defbf4d234df6f6f07b337855cd4c9de3c3d531c383ac1"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/successful-fit-invocation.json",
+      "bytes": 929,
+      "original_path": "environment/h1-v2/user-pause-continuation/attempt-2/invocation.json",
+      "sha256": "bec6d8483ffe3ab7320c55574e6380c8ebe658ce8e19dbf0f9e94574c4519ade"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/successful-fit-readout.json",
+      "bytes": 62189,
+      "original_path": "environment/h1-v2/user-pause-continuation/attempt-2/readout.json",
+      "sha256": "0a8e24a05b7d96ea0fafd13f7fd53bf60158b509b658b11331ea313d59034169"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/first-failed-join.py",
+      "bytes": 8639,
+      "original_path": "environment/h1-v2/user-pause-continuation/join.py",
+      "sha256": "bdd07a9e598087e94f0fe2752b862143fac697e63734ef761436452214c1ba92"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/first-failed-join.stderr",
+      "bytes": 653,
+      "original_path": "environment/h1-v2/user-pause-continuation/join.stderr",
+      "sha256": "23c00543df16e6780a41a6898567ece626d66be85931911620cae1bdea21f5cf"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/first-failed-join-invocation.json",
+      "bytes": 778,
+      "original_path": "environment/h1-v2/user-pause-continuation/join-invocation.json",
+      "sha256": "feb67be708db279ec962d8b86896a72240f27d1bff0d5c9e36f845695a14b65e"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/successful-join.py",
+      "bytes": 8645,
+      "original_path": "environment/h1-v2/user-pause-continuation/join-v2.py",
+      "sha256": "a3bde7ffba2f0d6759cd9cc9046e904eb80fe4ad486d8b046f83a8487058a585"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/successful-join-invocation.json",
+      "bytes": 782,
+      "original_path": "environment/h1-v2/user-pause-continuation/join-v2-invocation.json",
+      "sha256": "2323c64daedc5cf1170df682b67c2d1f32349e4118ddee28a51ccd62eb7826c8"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/root-verification.json",
+      "bytes": 360,
+      "original_path": "environment/h1-v2/user-resume-root/continuation-verification.json",
+      "sha256": "0ae42ef7cf933ffad118ecc872e929d3f1b03ff7f6321c1e259ee398d39dc086"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/root-verification.py",
+      "bytes": 4788,
+      "original_path": "environment/h1-v2/user-resume-root/continuation_verification.py",
+      "sha256": "4600c0d44430c4b387690b8f308401b1d979c7d96c53e487472cb57c4be62aa4"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/curate.py",
+      "bytes": 3233,
+      "original_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/h1-v2/user-resume-root/curate-continuation.py",
+      "sha256": "b64c41b745652f0d1c9d8a13546a70c3093848af761138c02f01ab87adb7ee78"
+    }
+  ],
+  "new_inventory_sha256": "d984d8961a59dc5d996862a5361af30f28f5cc9b7c1a45e7be0c8a2fd33ff627",
+  "original_inventory_sha256": "c0a46776b126cd4a30c1f586b25ea3c786155736b362322fccfb428f3c06f4ea",
+  "pairs": 32,
+  "repetitions": 2,
+  "roles": 256,
+  "scope": "Complete linked exploratory E pilot; original timeout preserved; no canonical freeze or confirmation",
+  "teachers": 16
+}

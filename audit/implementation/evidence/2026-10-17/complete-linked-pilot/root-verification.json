@@ -1,0 +1,10 @@
+{
+  "scope": "Independent root rehash and source/membership/saved-row-mean check; not raw prediction audit",
+  "new_inventory_count": 1995,
+  "new_inventory_bytes": 741223772,
+  "original_raw_seal_inventory_unchanged": true,
+  "exact_pairs": 32,
+  "max_saved_row_mean_abs_error": 6.938893903907228e-18,
+  "errors": [],
+  "elapsed_seconds": 4.033221582998522
+}

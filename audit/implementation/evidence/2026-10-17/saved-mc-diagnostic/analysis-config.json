@@ -1,0 +1,25 @@
+{
+  "scope": "Prospectively declared saved scalar supplement only, no source/policy changes",
+  "counts": [
+    8000,
+    512000
+  ],
+  "seed": 261022106,
+  "endpoint_gate": 5.102856799298169e-05,
+  "parity_absolute_tolerance": 1e-12,
+  "source_max_endpoint_count": 8,
+  "chunks": 10,
+  "percentiles": [
+    0.025,
+    0.975
+  ],
+  "component_tails": [
+    0.025,
+    0.975
+  ],
+  "original_source_branch": "calibrate",
+  "missing_canonical_second_runtime_batch": true,
+  "full_config_key": "9152a59bb3180da35f780b44a78d9eee59f7efa3e1af9677e4acf307a1bbb073",
+  "scientific_recipe_sha256": "4579ba87ffc6be1678b935c5297e849e0a6a53adb0e055ecedea84596ab29c6a",
+  "execution_sha256": "07366c506b309cce841f08d54f25d718e246f75daea5696d6542c300cfadaf6c"
+}

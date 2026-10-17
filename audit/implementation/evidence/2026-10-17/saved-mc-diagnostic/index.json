@@ -1,0 +1,91 @@
+{
+  "bytes": 54722,
+  "canonical_freeze_eligible": false,
+  "files": [
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/saved-mc-diagnostic/report.md",
+      "bytes": 8392,
+      "original_path": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/scientific-saved-mc-supplement-report.md",
+      "sha256": "e5f0e147862f249240635cc9ffe9505979f5c71dfa5beb89b77c1da627adc9dc"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/saved-mc-diagnostic/bulk-inventory.json",
+      "bytes": 5794,
+      "original_path": "environment/h1-v2/pilot-saved-mc-supplement/inventory.json",
+      "sha256": "ccd2c87a1ac996862c5a39b7216ac22032248b84ced7d89e9651f1269f9fcb80"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/saved-mc-diagnostic/root-verification.json",
+      "bytes": 273,
+      "original_path": "environment/h1-v2/user-resume-root/saved-mc-verification.json",
+      "sha256": "196e69316fb664d3a3a1a9eeb6e028027137068b4faefd62b62f26179ab17e69"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/saved-mc-diagnostic/run.py",
+      "bytes": 11680,
+      "original_path": "environment/h1-v2/pilot-saved-mc-supplement/run.py",
+      "sha256": "893c99ec57908470c970d22706ef5923587191abaa45593b8109dd2d6bb12fe7"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/saved-mc-diagnostic/launch.py",
+      "bytes": 1781,
+      "original_path": "environment/h1-v2/pilot-saved-mc-supplement/launch.py",
+      "sha256": "33f343a702abd5faff30d0eadf8c3723cd98dac032100f471a06e6cd672888bb"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/saved-mc-diagnostic/analysis-config.json",
+      "bytes": 747,
+      "original_path": "environment/h1-v2/pilot-saved-mc-supplement/analysis-config.json",
+      "sha256": "2d0b85242011c0adf087fa5a3ba13a499f6e67877af5f3b0f2e7ed44e16d58d0"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/saved-mc-diagnostic/invocation.json",
+      "bytes": 613,
+      "original_path": "environment/h1-v2/pilot-saved-mc-supplement/invocation.json",
+      "sha256": "ac7dd10ca8ce4cc82e589047b4c8cbf579f58158b885384f2467fce5d88240ba"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/saved-mc-diagnostic/readout.json",
+      "bytes": 6223,
+      "original_path": "environment/h1-v2/pilot-saved-mc-supplement/readout.json",
+      "sha256": "40bb95395c00454e31a2b48b4e19d62667d19bf3639ef586dce5a5c877679b4a"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/saved-mc-diagnostic/run.stdout",
+      "bytes": 1049,
+      "original_path": "environment/h1-v2/pilot-saved-mc-supplement/run.stdout",
+      "sha256": "f9e4bd5379264e569459069e3cab05f00326b0b6db5cb46b51f85c3f07bbd5c1"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/saved-mc-diagnostic/run.stderr",
+      "bytes": 0,
+      "original_path": "environment/h1-v2/pilot-saved-mc-supplement/run.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/saved-mc-diagnostic/analysis-manifest.json",
+      "bytes": 6223,
+      "original_path": "artifacts/h1-v2/pilot-saved-mc-supplement/892290e2c5914ef0815b9edd6cca6c3d/analysis-manifest.json",
+      "sha256": "40bb95395c00454e31a2b48b4e19d62667d19bf3639ef586dce5a5c877679b4a"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/saved-mc-diagnostic/parity-8000.json",
+      "bytes": 5601,
+      "original_path": "artifacts/h1-v2/pilot-saved-mc-supplement/892290e2c5914ef0815b9edd6cca6c3d/parity-8000.json",
+      "sha256": "a84b229b3f2d0cb0b2d33b54fddfadc79e2bf461afce5189a4e2f080efd60ad2"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/saved-mc-diagnostic/parity-comparison.json",
+      "bytes": 745,
+      "original_path": "artifacts/h1-v2/pilot-saved-mc-supplement/892290e2c5914ef0815b9edd6cca6c3d/parity-comparison.json",
+      "sha256": "3a44165caeb663e796457f46336b60f34af788d79f82927f91570ec3bb32680f"
+    },
+    {
+      "archive_path": "audit/implementation/evidence/2026-10-17/saved-mc-diagnostic/supplement-512000.json",
+      "bytes": 5601,
+      "original_path": "artifacts/h1-v2/pilot-saved-mc-supplement/892290e2c5914ef0815b9edd6cca6c3d/supplement-512000.json",
+      "sha256": "dd5781c2b2538dfe80362c02bc771abcda1a1a14f94931b72e4ac92c1f7cbbbd"
+    }
+  ],
+  "scope": "Predeclared saved-scalar 8k parity and single fixed512k diagnostic; unchanged calibrate branch, no freeze eligibility"
+}
