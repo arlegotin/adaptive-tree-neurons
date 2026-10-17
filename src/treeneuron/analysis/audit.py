@@ -546,7 +546,8 @@ def _finish_audit_work(study, result, work_id, started, previous_analysis):
     nested=sorted(set((study/'analysis-work').glob('*.json'))-previous_analysis)
     references=[dict(path=str(p.relative_to(study)),sha256=_hash(p)) for p in nested]
     outer=0.; linked=set(r['path'] for r in references); completed=set()
-    unknown=False; outer_values=[]
+    unknown=False; outer_values=[]; total=None
+    base=(result.get('accounting') or {}).get('costs',{}).get('combined_seconds')
     try:
         for path in work.glob('*.json'):
             receipt=_read(path); completed.add(path.stem)
@@ -575,19 +576,21 @@ def _finish_audit_work(study, result, work_id, started, previous_analysis):
             if str(path.relative_to(study)) not in linked: standalone_values.append(seconds)
         standalone=math.fsum(standalone_values)
         unknown=any(p.stem not in completed|{work_id} for p in (study/'audit-starts').glob('*.json'))
+        elapsed=(time.perf_counter_ns()-started)/1e9
+        if base is not None and not unknown:
+            total=_number(math.fsum((base,outer,standalone,elapsed)),'total study work seconds')
     except _ERRORS as error:
         result['reasons'].append(f'Work receipt integrity: {error}')
         result['conclusion']=conclude(result['primary'],result['reasons'],(result.get('accounting') or {}).get('retention'))
         result['valid']=False; result['status']='blocked'
         result.pop('audit_sha256'); result['audit_sha256']=canonical_hash(result)
-        unknown=True; standalone=0.
-    base=(result.get('accounting') or {}).get('costs',{}).get('combined_seconds')
-    elapsed=(time.perf_counter_ns()-started)/1e9
+        unknown=True; total=None
+        elapsed=(time.perf_counter_ns()-started)/1e9
     destination=study/f'audit-{result["audit_sha256"]}.json'
     if not destination.exists(): _atomic_json(destination,result)
     _atomic_json(work/f'{work_id}.json',dict(schema_version=1,protocol_hash=result['protocol_hash'],
         audit_sha256=result['audit_sha256'],seconds=elapsed,nested_analysis_receipts=references,
-        total_study_work_seconds=base+outer+standalone+elapsed if base is not None and not unknown else None,
-        total_reason=None if base is not None and not unknown else 'Missing preparation/execution or interrupted/invalid audit work',
+        total_study_work_seconds=total,
+        total_reason=None if total is not None else 'Missing preparation/execution or interrupted/invalid audit work',
         boundary='entire audit including nested primary reconstruction; excludes final deterministic snapshot and work receipt',
         aggregation='preparation/execution plus outer audits plus standalone analyses; nested analysis excluded'))

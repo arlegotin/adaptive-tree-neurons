@@ -294,3 +294,36 @@ def test_analysis_clock_writer_is_independent_of_filesystem_order(tmp_path):
         def __init__(self,paths):self.paths=paths
         def glob(self,pattern):return iter(self.paths)
     assert _previous_analysis_seconds(Receipts(paths))==_previous_analysis_seconds(Receipts(paths[::-1]))==math.fsum(durations)
+
+
+@pytest.mark.parametrize('base,outer,standalone,overflow',[
+    (0.,1e308,1e308,True),
+    (1e308,1e308,0.,True),
+    (2.,3.,5.,False),
+])
+def test_final_work_total_cross_category_overflow_is_blocked(tmp_path,base,outer,standalone,overflow):
+    import math,time
+    from treeneuron.analysis.audit import _finish_audit_work,conclude
+    from treeneuron.config import canonical_hash
+    analysis=tmp_path/'analysis-work';analysis.mkdir()
+    audits=tmp_path/'audit-work';audits.mkdir()
+    report={};digest=canonical_hash(report);report['report_sha256']=digest
+    (tmp_path/f'primary-{digest}.json').write_text(json.dumps(report))
+    prior=analysis/'standalone.json'
+    prior.write_text(json.dumps(dict(schema_version=1,protocol_hash='toy',report_sha256=digest,
+                                    previous_analysis_seconds=0.,seconds=standalone)))
+    (audits/'prior.json').write_text(json.dumps(dict(schema_version=1,protocol_hash='toy',seconds=outer,
+                                                  nested_analysis_receipts=[])))
+    result=dict(protocol_hash='toy',primary=None,reasons=[],accounting={'costs':{'combined_seconds':base}},
+                conclusion=conclude(None,[]),status='incomplete',valid=False)
+    result['audit_sha256']=canonical_hash(result)
+    _finish_audit_work(tmp_path,result,'current',time.perf_counter_ns(),{prior})
+    receipt=json.loads((audits/'current.json').read_text())
+    snapshot=json.loads((tmp_path/f'audit-{result["audit_sha256"]}.json').read_text())
+    assert snapshot==result and receipt['audit_sha256']==result['audit_sha256']
+    if overflow:
+        assert result['status']=='blocked' and 'overflow' in ' '.join(result['reasons']).lower()
+        assert receipt['total_study_work_seconds'] is None and receipt['total_reason']
+    else:
+        assert not result['reasons'] and receipt['total_reason'] is None
+        assert receipt['total_study_work_seconds']==math.fsum((base,outer,standalone,receipt['seconds']))
