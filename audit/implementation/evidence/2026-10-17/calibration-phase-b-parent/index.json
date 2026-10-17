@@ -1,0 +1,97 @@
+{
+  "status": "parent_only_resource_and_recipe_calibration",
+  "root_verified_complete_inventory": {
+    "path": "environment/h1-v2/calibration/inventory.json",
+    "sha256": "c9286038b56d36a722c7557d7ab9806d4d7294d028d8677582f52dbcf0b3a57f",
+    "files": 30,
+    "bytes": 159084344,
+    "errors": []
+  },
+  "files": [
+    {
+      "original_path": "environment/h1-v2/calibration/resources-after.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-b-parent/original/environment/h1-v2/calibration/resources-after.json",
+      "bytes": 64909,
+      "sha256": "f5215bb2f4f08f31a85a6c055add348886c42026ffc86143e1427541d2168826"
+    },
+    {
+      "original_path": "environment/h1-v2/calibration/invocations.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-b-parent/original/environment/h1-v2/calibration/invocations.json",
+      "bytes": 1274,
+      "sha256": "85b8f462b8404bcd15490bfa787daa53598fdd911e352825505c7d54a2bdfc5c"
+    },
+    {
+      "original_path": "environment/h1-v2/calibration/parent-resource-checkpoint.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-b-parent/original/environment/h1-v2/calibration/parent-resource-checkpoint.json",
+      "bytes": 7011,
+      "sha256": "596e1de73954e6b75411df6d3282721b48c462f62cbd1dc3d6f8b53e18ad1460"
+    },
+    {
+      "original_path": "environment/h1-v2/calibration/resources-before.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-b-parent/original/environment/h1-v2/calibration/resources-before.json",
+      "bytes": 65996,
+      "sha256": "c77408624d417bd525a71c492d98bc0ece66033d38e90a2329422aabf91e3c8e"
+    },
+    {
+      "original_path": "environment/h1-v2/calibration/parent-b4096-lr0p005.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-b-parent/original/environment/h1-v2/calibration/parent-b4096-lr0p005.json",
+      "bytes": 2493,
+      "sha256": "ced22c7f52c13e1ae62cd3f5a1360fb39663abd2a231eaa6cecf4835e8e2091a"
+    },
+    {
+      "original_path": "environment/h1-v2/calibration/launch-parent-first.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-b-parent/original/environment/h1-v2/calibration/launch-parent-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/calibration/parent-first.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-b-parent/original/environment/h1-v2/calibration/parent-first.stdout",
+      "bytes": 247,
+      "sha256": "7c216eb207585f42fee27282de47ce3d2cd3ed91f23c3afeda3963d2fa9d326c"
+    },
+    {
+      "original_path": "environment/h1-v2/calibration/launch-parent-first.py",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-b-parent/original/environment/h1-v2/calibration/launch-parent-first.py",
+      "bytes": 1424,
+      "sha256": "53e7a7b1ba3f3974fb054db4c82260f034f40bc7b7d9890b88e3807e8316442d"
+    },
+    {
+      "original_path": "environment/h1-v2/calibration/parent-first.py",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-b-parent/original/environment/h1-v2/calibration/parent-first.py",
+      "bytes": 4921,
+      "sha256": "fb72272fcfe3f46bd34573a4d16d90415bb5db0425b229514be4ed3ea8edd18d"
+    },
+    {
+      "original_path": "environment/h1-v2/calibration/inventory.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-b-parent/original/environment/h1-v2/calibration/inventory.json",
+      "bytes": 7003,
+      "sha256": "c9286038b56d36a722c7557d7ab9806d4d7294d028d8677582f52dbcf0b3a57f"
+    },
+    {
+      "original_path": "environment/h1-v2/calibration/parent-first.stderr",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-b-parent/original/environment/h1-v2/calibration/parent-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "environment/h1-v2/calibration/launch-parent-first.stdout",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-b-parent/original/environment/h1-v2/calibration/launch-parent-first.stdout",
+      "bytes": 1073,
+      "sha256": "7c10537ccf3f32439071d7aa12dfeaf77d015f9c925f663ba38bd6640ab77462"
+    },
+    {
+      "original_path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/measurement.json",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-b-parent/original/artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/measurement.json",
+      "bytes": 434438,
+      "sha256": "18a6f5a9cf3d20c64f2fd53bcd2dbee35abd5c2655fa7a6ed08e2a4ecdcd12be"
+    },
+    {
+      "original_path": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/scientific-calibration-phase-b-report.md",
+      "archive_path": "audit/implementation/evidence/2026-10-17/calibration-phase-b-parent/measurement-report.md",
+      "bytes": 7883,
+      "sha256": "6676b4a2913a62b6f3f3562729d8ed054b9378076059ee7bc96499c34acfa412"
+    }
+  ],
+  "scientific_limit": "No allocation fork, full R2 resource teacher, genuine pilot, freeze or protected test access. Conditional graph scenarios are not observed study costs."
+}

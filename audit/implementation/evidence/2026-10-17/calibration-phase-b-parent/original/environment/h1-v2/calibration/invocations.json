@@ -1,0 +1,35 @@
+[
+  {
+    "command": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+      "environment/h1-v2/calibration/parent-first.py",
+      "environment/h1-v2/calibration/parent-b4096-lr0p005.json"
+    ],
+    "outer_ns": 19597572583,
+    "exit_code": 0,
+    "boundary": "fresh child interpreter,imports,strictsourcevalidation,data,parent,G/checkpoints,measurement publication,exit",
+    "env": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src"
+    },
+    "files": [
+      {
+        "path": "environment/h1-v2/calibration/parent-first.py",
+        "sha256": "fb72272fcfe3f46bd34573a4d16d90415bb5db0425b229514be4ed3ea8edd18d"
+      },
+      {
+        "path": "environment/h1-v2/calibration/launch-parent-first.py",
+        "sha256": "53e7a7b1ba3f3974fb054db4c82260f034f40bc7b7d9890b88e3807e8316442d"
+      },
+      {
+        "path": "environment/h1-v2/calibration/parent-b4096-lr0p005.json",
+        "sha256": "ced22c7f52c13e1ae62cd3f5a1360fb39663abd2a231eaa6cecf4835e8e2091a"
+      }
+    ]
+  }
+]

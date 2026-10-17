@@ -1,0 +1,163 @@
+{
+  "status": "parent_only_not_readiness",
+  "source_sha256": "d8e5c0c6549f3b1948ee86b39a2d3234ebe5230e7bb09c13ebfc4351c2cf891c",
+  "execution_sha256": "07366c506b309cce841f08d54f25d718e246f75daea5696d6542c300cfadaf6c",
+  "runtime_receipt_sha256": "4cfb4983fbe8d152decf7e621dc79b2e77b7f4e3825cb379534ce6a4e05e9e42",
+  "config_sha256": "c148af22ee7e5957fa92bfc2342863ce6569eed1c5d4b767adee7ff5fdcaaa1e",
+  "selected_update": 2875,
+  "executed_updates": 3375,
+  "examples": 7782750,
+  "actual_row_counts": {
+    "2306": 3375
+  },
+  "final_consecutive_nonimprovements": 20,
+  "raw_update_event_bytes": 155108227,
+  "raw_update_bytes_per_example": 19.929745526966688,
+  "raw_update_bytes_per_update": 45957.99318518519,
+  "file_buckets": {
+    "other": 629432,
+    "data_arrays": 510201,
+    "raw_events": 155181441,
+    "checkpoint_metadata": 2188849,
+    "tensor_payloads": 172873
+  },
+  "final_retained_bytes": 158682796,
+  "files": [
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/teacher.json",
+      "bucket": "other",
+      "bytes": 4863,
+      "sha256": "d9c4924df3f2fe717ceddd84ba2a05c39d0c6e47fbce8f8fae5c167b340f988c"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/observations.npz",
+      "bucket": "data_arrays",
+      "bytes": 510201,
+      "sha256": "250c096cc7c1b8ab3532740de7a0f904453c3d50e1e422fffd26023e4b72542c"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/splits.json",
+      "bucket": "other",
+      "bytes": 152355,
+      "sha256": "c69037f06b8522b4405f95d1f0351fe0e44b19dfe51b6bbe7bc1410988e74c15"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/measurement.json",
+      "bucket": "other",
+      "bytes": 434438,
+      "sha256": "18a6f5a9cf3d20c64f2fd53bcd2dbee35abd5c2655fa7a6ed08e2a4ecdcd12be"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/metrics.json",
+      "bucket": "other",
+      "bytes": 3,
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/.ledger.lock",
+      "bucket": "other",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/config.resolved.json",
+      "bucket": "other",
+      "bytes": 1910,
+      "sha256": "2f6044a514defe9bce6cd835bb5f27cf71c2a9308df5b18715101d22d6a08ebe"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/events.jsonl",
+      "bucket": "raw_events",
+      "bytes": 155181441,
+      "sha256": "c2b320f18f7e6f8295757722bd388d79857c0f60461fc6990bf86b42a3d930fc"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/manifest.json",
+      "bucket": "other",
+      "bytes": 8015,
+      "sha256": "218f455ab2e990335141c73a6a08d0cbcc39047c655791f2541178a43cd5bc22"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/checkpoints/checkpoint-c9d2449706bf4dc7b2998a80494f7a45.meta.json",
+      "bucket": "checkpoint_metadata",
+      "bytes": 1090424,
+      "sha256": "1e8213b3debb098f68d948f737d84113199fa02b6c46798adf5fb9d174491d32"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/checkpoints/best.json",
+      "bucket": "other",
+      "bytes": 164,
+      "sha256": "9ab3d7204f810301fc8b63a874f3cee482d30df51706c6e3f27fedce1ed9a190"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/checkpoints/checkpoint-b3465fc9bf1148faa1264c4932615f89.pt",
+      "bucket": "tensor_payloads",
+      "bytes": 114853,
+      "sha256": "f436df713ce169dfa025e14d6124cebeb197df47de9340b31ba9631601ae9bd0"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/checkpoints/checkpoint-b3465fc9bf1148faa1264c4932615f89.meta.json",
+      "bucket": "checkpoint_metadata",
+      "bytes": 1098425,
+      "sha256": "91f54b09b9ff2b3d1a54a7427be3dc26d0319ee6fece5f285fdd75a5eb8c86a7"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/checkpoints/checkpoint-c9d2449706bf4dc7b2998a80494f7a45.pt",
+      "bucket": "tensor_payloads",
+      "bytes": 58020,
+      "sha256": "acf5cae04a5421f91709e16af4a97e34fa05cacd946fc23c6b7c741e027e5430"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/checkpoints/published.jsonl",
+      "bucket": "other",
+      "bytes": 27520,
+      "sha256": "02308e248ab4fdf65dfb9285a230aab0afdfc60b0153fe639adcf0ca23779b53"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/checkpoints/last.json",
+      "bucket": "other",
+      "bytes": 164,
+      "sha256": "3931ffd8a08be63dce570af9f5dfefb4f82767f502ba862b977056074018b7d4"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "all_declared_ceilings",
+      "base_updates_assumption": 4000,
+      "continuation_updates_assumption": 4000,
+      "probe_count_assumption": 65,
+      "probe_updates": 20,
+      "repetitions": 2,
+      "raw_update_count": 98600,
+      "raw_update_bytes_per_teacher": 4531458128.059259,
+      "raw_update_bytes_pilot16": 72503330048.94815,
+      "raw_update_bytes_pilot16_plus_min_confirmation16": 145006660097.8963
+    },
+    {
+      "name": "all_stages_parent_like",
+      "base_updates_assumption": 3375,
+      "continuation_updates_assumption": 3375,
+      "probe_count_assumption": 65,
+      "probe_updates": 20,
+      "repetitions": 2,
+      "raw_update_count": 83600,
+      "raw_update_bytes_per_teacher": 3842088230.2814817,
+      "raw_update_bytes_pilot16": 61473411684.50371,
+      "raw_update_bytes_pilot16_plus_min_confirmation16": 122946823369.00742
+    },
+    {
+      "name": "parent_like_base_and_500_continuation",
+      "base_updates_assumption": 3375,
+      "continuation_updates_assumption": 500,
+      "probe_count_assumption": 65,
+      "probe_updates": 20,
+      "repetitions": 2,
+      "raw_update_count": 37600,
+      "raw_update_bytes_per_teacher": 1728020543.762963,
+      "raw_update_bytes_pilot16": 27648328700.20741,
+      "raw_update_bytes_pilot16_plus_min_confirmation16": 55296657400.41482
+    }
+  ],
+  "scope": "conditional old/new raw-event rate projections, not complete R2 teachers; assumes same source-sized events across all graph roles, B/C values as named, max65 B6 trials; excludes other retained costs and future teacher variability",
+  "observed_current_free_disk_bytes": 59379552256
+}

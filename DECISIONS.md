@@ -409,3 +409,33 @@ test result exists. The throughput-only batch choice still needs reconciliation
 with complete-study feasibility; neither a batch-rule waiver nor a new scientific
 claim is implied. After this accepted storage correction, resume measured recipe/resource
 calibration and the independent study. All prior artifacts stay unchanged.
+
+
+## D020 — 17 October 2026: pre-freeze batch selection accounts for the whole study
+
+The [fresh 4096/0.005 parent](audit/implementation/evidence/2026-10-17/calibration-phase-b-parent/index.json)
+exhausted patience at 3,375 updates and selected 2,875, with normalized G MSE
+0.0730621. Its 14.885-second fit retained 155.2 MB of raw events. The matched
+128/0.005 development parent gave descriptive G MSE 0.0709911, a 14.144-second
+fit and 10.3 MB of raw events. These single-problem observations do not establish
+statistical equivalence or a population quality ranking. Root independently
+rehashed all 30 source-bound files / 159,084,344 bytes, with no mismatch.
+
+[Ruling 17](audit/implementation/evidence/2026-10-17/ruling-17-complete-study-batch-policy.md)
+and the [pre-freeze amendment](protocol/amendments/2026-10-17-development-batch-policy.md)
+replace the initial throughput-only 95% batch heuristic with complete-pipeline
+learning, time and retention. Use common batch 128 for the next finite
+calibration, while preserving the measured 4096 throughput result. All causal
+forks and fresh controls receive the same batch and allowance. No raw history,
+failure or losing probe is removed. A conditional ceiling exceeding disk is
+not used as proof that the realized graph is impossible.
+
+Next test symmetric 8,000 parent/continuation ceilings, unchanged learning rate
+0.005, G/checkpoint interval 25 and patience 20, on the predeclared development
+teachers and representative controls. Ceilings remain candidates until learning
+curves are checked. No choice may use top-minus-random sign. Complete matching
+resource evidence and actual pilot-derived sample sizes remain required before
+protected access. If the batch decision is wrong, claims remain limited to the
+chosen recipe; another batch needs separately budgeted calibration and fresh
+independent confirmation, with more time and storage. No batch-independent
+allocation advantage is claimed.

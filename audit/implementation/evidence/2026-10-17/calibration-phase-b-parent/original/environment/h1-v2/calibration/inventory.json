@@ -1,0 +1,159 @@
+{
+  "status": "completed_single_parent_resource_checkpoint_numericalSTOP",
+  "utc": "2026-10-17T04:18:16.762536+00:00",
+  "source_sha256": "d8e5c0c6549f3b1948ee86b39a2d3234ebe5230e7bb09c13ebfc4351c2cf891c",
+  "execution_sha256": "07366c506b309cce841f08d54f25d718e246f75daea5696d6542c300cfadaf6c",
+  "files": [
+    {
+      "path": "environment/h1-v2/calibration/invocations.json",
+      "bytes": 1274,
+      "sha256": "85b8f462b8404bcd15490bfa787daa53598fdd911e352825505c7d54a2bdfc5c"
+    },
+    {
+      "path": "environment/h1-v2/calibration/launch-parent-first.py",
+      "bytes": 1424,
+      "sha256": "53e7a7b1ba3f3974fb054db4c82260f034f40bc7b7d9890b88e3807e8316442d"
+    },
+    {
+      "path": "environment/h1-v2/calibration/launch-parent-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "environment/h1-v2/calibration/launch-parent-first.stdout",
+      "bytes": 1073,
+      "sha256": "7c10537ccf3f32439071d7aa12dfeaf77d015f9c925f663ba38bd6640ab77462"
+    },
+    {
+      "path": "environment/h1-v2/calibration/parent-b4096-lr0p005.json",
+      "bytes": 2493,
+      "sha256": "ced22c7f52c13e1ae62cd3f5a1360fb39663abd2a231eaa6cecf4835e8e2091a"
+    },
+    {
+      "path": "environment/h1-v2/calibration/parent-first.py",
+      "bytes": 4921,
+      "sha256": "fb72272fcfe3f46bd34573a4d16d90415bb5db0425b229514be4ed3ea8edd18d"
+    },
+    {
+      "path": "environment/h1-v2/calibration/parent-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "environment/h1-v2/calibration/parent-first.stdout",
+      "bytes": 247,
+      "sha256": "7c216eb207585f42fee27282de47ce3d2cd3ed91f23c3afeda3963d2fa9d326c"
+    },
+    {
+      "path": "environment/h1-v2/calibration/parent-resource-checkpoint.json",
+      "bytes": 7011,
+      "sha256": "596e1de73954e6b75411df6d3282721b48c462f62cbd1dc3d6f8b53e18ad1460"
+    },
+    {
+      "path": "environment/h1-v2/calibration/resources-after.json",
+      "bytes": 64909,
+      "sha256": "f5215bb2f4f08f31a85a6c055add348886c42026ffc86143e1427541d2168826"
+    },
+    {
+      "path": "environment/h1-v2/calibration/resources-before.json",
+      "bytes": 65996,
+      "sha256": "c77408624d417bd525a71c492d98bc0ece66033d38e90a2329422aabf91e3c8e"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/measurement.json",
+      "bytes": 434438,
+      "sha256": "18a6f5a9cf3d20c64f2fd53bcd2dbee35abd5c2655fa7a6ed08e2a4ecdcd12be"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/observations.npz",
+      "bytes": 510201,
+      "sha256": "250c096cc7c1b8ab3532740de7a0f904453c3d50e1e422fffd26023e4b72542c"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/.ledger.lock",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/checkpoints/best.json",
+      "bytes": 164,
+      "sha256": "9ab3d7204f810301fc8b63a874f3cee482d30df51706c6e3f27fedce1ed9a190"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/checkpoints/checkpoint-b3465fc9bf1148faa1264c4932615f89.meta.json",
+      "bytes": 1098425,
+      "sha256": "91f54b09b9ff2b3d1a54a7427be3dc26d0319ee6fece5f285fdd75a5eb8c86a7"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/checkpoints/checkpoint-b3465fc9bf1148faa1264c4932615f89.pt",
+      "bytes": 114853,
+      "sha256": "f436df713ce169dfa025e14d6124cebeb197df47de9340b31ba9631601ae9bd0"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/checkpoints/checkpoint-c9d2449706bf4dc7b2998a80494f7a45.meta.json",
+      "bytes": 1090424,
+      "sha256": "1e8213b3debb098f68d948f737d84113199fa02b6c46798adf5fb9d174491d32"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/checkpoints/checkpoint-c9d2449706bf4dc7b2998a80494f7a45.pt",
+      "bytes": 58020,
+      "sha256": "acf5cae04a5421f91709e16af4a97e34fa05cacd946fc23c6b7c741e027e5430"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/checkpoints/last.json",
+      "bytes": 164,
+      "sha256": "3931ffd8a08be63dce570af9f5dfefb4f82767f502ba862b977056074018b7d4"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/checkpoints/published.jsonl",
+      "bytes": 27520,
+      "sha256": "02308e248ab4fdf65dfb9285a230aab0afdfc60b0153fe639adcf0ca23779b53"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/config.resolved.json",
+      "bytes": 1910,
+      "sha256": "2f6044a514defe9bce6cd835bb5f27cf71c2a9308df5b18715101d22d6a08ebe"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/events.jsonl",
+      "bytes": 155181441,
+      "sha256": "c2b320f18f7e6f8295757722bd388d79857c0f60461fc6990bf86b42a3d930fc"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/manifest.json",
+      "bytes": 8015,
+      "sha256": "218f455ab2e990335141c73a6a08d0cbcc39047c655791f2541178a43cd5bc22"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/runs/f93a98a4d1e34c7fa4fca6e137d94c04/metrics.json",
+      "bytes": 3,
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/splits.json",
+      "bytes": 152355,
+      "sha256": "c69037f06b8522b4405f95d1f0351fe0e44b19dfe51b6bbe7bc1410988e74c15"
+    },
+    {
+      "path": "artifacts/h1-v2/development/h1-v2-parent-b4096-lr0p005/teacher.json",
+      "bytes": 4863,
+      "sha256": "d9c4924df3f2fe717ceddd84ba2a05c39d0c6e47fbce8f8fae5c167b340f988c"
+    },
+    {
+      "path": "environment/h1-v2/accepted-source-current.json",
+      "bytes": 41337,
+      "sha256": "f0e0b01c661657e7e8284266798eb97ccded732bbb9bd8093ab100662867fe4a"
+    },
+    {
+      "path": "environment/h1-v2/backend.json",
+      "bytes": 202980,
+      "sha256": "4cfb4983fbe8d152decf7e621dc79b2e77b7f4e3825cb379534ce6a4e05e9e42"
+    },
+    {
+      "path": ".superpowers/sdd/2026-10-16-selective-tree-neurons-evidence/scientific-calibration-phase-b-report.md",
+      "bytes": 7883,
+      "sha256": "6676b4a2913a62b6f3f3562729d8ed054b9378076059ee7bc96499c34acfa412"
+    }
+  ],
+  "next_action": "Root explicit batch-policy/finite recipe ruling before any forks or another coordinate"
+}
