@@ -21,7 +21,8 @@ import torch
 from treeneuron.artifacts import (RunPaths, create_run, append_event, update_run_observations,
                                  finish_run, _atomic_json, TERMINAL_STATUSES)
 from treeneuron.baselines.causal import _selected_parent, _validate_context
-from treeneuron.checkpoint import save_checkpoint
+from treeneuron.checkpoint import save_checkpoint, prune_checkpoints
+from treeneuron.experiments.paired import _json_tree
 from treeneuron.config import canonical_hash
 from treeneuron.data.types import DevelopmentData
 from treeneuron.growth.allocate import Allocation, allocate
@@ -56,7 +57,8 @@ def _rank_allocation(table, requested, seed, *, keep_mse, unit_mse):
 
 
 def run_greedy_probes(parent: TrainingState, table: ScoreTable, data: DevelopmentData, *,
-                      probe_updates: int, seed: int, paths: RunPaths) -> Allocation:
+                      probe_updates: int, seed: int, paths: RunPaths,
+                      stopping_mode: str = 'fixed_updates', resource_guard=None) -> Allocation:
     """Return a fixed-count allocation, retaining trials/costs in paths/greedy.json.
 
     Failures abort selection; unattempted candidates remain explicitly listed.
@@ -71,9 +73,11 @@ def run_greedy_probes(parent: TrainingState, table: ScoreTable, data: Developmen
     report = dict(schema_version=1, method='B6', recipe='ANT-inspired restricted allocation',
         complete=False, allocation=None, trials=[], not_attempted=[],
         requested_count=parent.config.growth.m_requested, score_hash=table.table_hash,
-        probe_updates=probe_updates, selection_split='G', V_accessed=False, T_accessed=False,
+        probe_updates=probe_updates, stopping_mode=stopping_mode, selection_split='G', V_accessed=False, T_accessed=False,
         cost_boundary='whole call including validation, cloning, keep, losers, failed attempts, checkpoint IO and ranking until final report publication; excludes prior parent fit/shared scoring and final report publication; nested durations are not additive')
     try:
+        if stopping_mode not in ('fixed_updates', 'patience'):
+            raise ValueError('Unknown probe stopping mode')
         snapshot = _selected_parent(parent)
         _validate_context(data)
         if parent.data_hashes != _fg_hashes(data):
@@ -104,6 +108,7 @@ def run_greedy_probes(parent: TrainingState, table: ScoreTable, data: Developmen
 
         report['policy'] = asdict(policy)
         report['parent_identity_hashes'] = copy.deepcopy(parent.identity_hashes)
+        report['parent_state_sha256'] = canonical_hash(_json_tree(snapshot))
         report['parent_checkpoint_sha256'] = save_checkpoint(parent, paths.directory/'parent.json')
         update_run_observations(paths, {'method':{'scope':'coordinator'},
             'identity':{'score_hash':table.table_hash,'code_revision':parent.identity_hashes['code'],
@@ -112,6 +117,7 @@ def run_greedy_probes(parent: TrainingState, table: ScoreTable, data: Developmen
                             'parent_checkpoint_sha256':report['parent_checkpoint_sha256'], 'policy':asdict(policy)})
         unit_mse = {}
         for name,row in candidates:
+            if resource_guard is not None: resource_guard()
             tick = time.perf_counter_ns()
             child = create_run(paths.directory/'probes',parent.config.to_dict())
             trial = dict(candidate=name, unit_id=None if row is None else int(table.ids[row]),
@@ -120,7 +126,9 @@ def run_greedy_probes(parent: TrainingState, table: ScoreTable, data: Developmen
                 parent_identity_hashes=copy.deepcopy(parent.identity_hashes),
                 requested_count=report['requested_count'],effective_count=report['effective_count'],
                 selection_split='G',V_role='not_accessed',normalization='F target variance',counts=counts,
-                outcome='running', selected_update=None, executed_updates=None,
+                outcome='running', stopping_mode=stopping_mode, allowance=probe_updates,
+                selected_update=None, selected_stage_updates=None, executed_updates=None,
+                stopping_reason=None, hit_ceiling=None,
                 unavailable_reason='training has not returned a completed selection', nanoseconds=None)
             report['trials'].append(trial)
             report['not_attempted'].remove(name)
@@ -139,16 +147,41 @@ def run_greedy_probes(parent: TrainingState, table: ScoreTable, data: Developmen
                     insert_growth(state,_allocation(table,[row],1,seed))
                 state.growth_metadata['greedy_probe'] = dict(candidate=name,coordinator_run_id=paths.run_id,
                     parent_checkpoint_sha256=report['parent_checkpoint_sha256'],score_hash=table.table_hash,
-                    requested_count=report['requested_count'],policy=asdict(policy),selection_split='G')
-                update_run_observations(child, {'identity':{'growth_hash':canonical_hash(state.growth_metadata)}})
+                    requested_count=report['requested_count'],policy=asdict(policy),selection_split='G',
+                    stopping_mode=stopping_mode,allowance=probe_updates)
+                append_event(child, {'type':'probe_initialized','growth_hash':canonical_hash(state.growth_metadata)})
                 append_event(child, {'type':'probe_started','candidate':name,
                     'selected_update':None,'executed_updates':None,'unavailable_reason':trial['unavailable_reason'],
                     'parent_update':parent.update,'parent_cursor':parent.cursor,'policy':asdict(policy)})
                 selected = continue_fit(state,data,policy,child)
                 trial.update(selected_update=selected.update,executed_updates=selected.stage['updates_completed'],
                     g_mse=selected.stage['best_mse'],unavailable_reason=None)
-                if trial['executed_updates'] != probe_updates:
+                if stopping_mode == 'fixed_updates' and trial['executed_updates'] != probe_updates:
                     raise ValueError('Incomplete probe allowance: patience stopped before the fixed F allowance')
+                stage = selected.stage
+                executed = trial['executed_updates']
+                if (stage.get('complete') is not True or stage.get('policy') != asdict(policy)
+                        or type(executed) is not int or not 0 <= executed <= probe_updates
+                        or not np.isfinite(trial['g_mse'])):
+                    raise ValueError('Probe must return a finite completed stage under its declared policy')
+                ceiling = executed == probe_updates
+                patience = stage['bad_evaluations'] >= policy.patience
+                if not ceiling and not patience:
+                    raise ValueError('Probe has unexplained shortened return')
+                selected_updates = selected.update-stage['start_update']
+                if not 0 <= selected_updates <= executed:
+                    raise ValueError('Probe selected update is outside executed stage')
+                trial.update(selected_stage_updates=selected_updates, hit_ceiling=ceiling,
+                    stopping_reason='ceiling' if ceiling else 'patience')
+                selected.growth_metadata['greedy_probe'].update({key:trial[key] for key in
+                    ('executed_updates','selected_stage_updates','stopping_reason','hit_ceiling')})
+                append_event(child, {'type':'probe_stopping_evidence', **{key:trial[key] for key in
+                    ('stopping_mode','allowance','executed_updates','selected_stage_updates','stopping_reason','hit_ceiling')}})
+                digest = save_checkpoint(selected, child.directory/'checkpoints'/'best.json')
+                retention = prune_checkpoints(child.directory/'checkpoints')
+                update_run_observations(child, {'identity':{'growth_hash':canonical_hash(selected.growth_metadata)},
+                    'method':{'weight_hash':digest,
+                    'serialized_bytes':retention['referenced_bytes'],'checkpoint_retention':retention}})
                 trial['outcome'] = 'completed'
                 if row is not None: unit_mse[int(table.ids[row])] = trial['g_mse']
             except BaseException as error:

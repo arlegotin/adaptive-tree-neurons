@@ -13,11 +13,12 @@ from treeneuron.growth.score import score_units
 
 
 @pytest.fixture
-def probe_case(training_case):
+def probe_case(training_case, request):
     data, config, original = training_case
     cfg = config.to_dict()
     cfg['model']['h'] = 2
     cfg['growth']['m_requested'] = 1
+    cfg['training']['patience'] = getattr(request, 'param', 20)
     config = resolve_experiment(cfg)
     parent = fit_parent(data, config, create_run(original.directory, cfg))
     class Forbidden:
@@ -247,3 +248,81 @@ def test_b5_cannot_mislabel_greedy_as_its_score_variant(probe_case):
     allocation=_rank_allocation(table,1,7,keep_mse=1.,unit_mse={0:2.,1:3.})
     with pytest.raises(ValueError,match='policy'):
         build_causal('B5',{'variant':'greedy'},parent=parent,allocation=allocation)
+
+
+@pytest.mark.parametrize('mode', ['unknown', None, True])
+def test_probe_rejects_unknown_stopping_mode_before_trials(probe_case, mode):
+    from treeneuron.baselines.greedy import run_greedy_probes
+    data,parent,table,paths=probe_case
+    with pytest.raises(ValueError,match='stopping mode'):
+        run_greedy_probes(parent,table,data,probe_updates=2,seed=7,paths=paths,stopping_mode=mode)
+    report=json.loads((paths.directory/'greedy.json').read_text())
+    assert report['trials']==[] and report['nanoseconds']>0
+
+
+@pytest.mark.parametrize('probe_case',[1],indirect=True)
+def test_patience_mode_accepts_genuine_completed_early_stop(probe_case,monkeypatch):
+    from treeneuron.baselines import greedy
+    from treeneuron import train
+    data,parent,table,paths=probe_case
+    monkeypatch.setattr(train,'regression_metrics',lambda *a,**k: {'mse':1.})
+    before=copy.deepcopy(parent)
+    greedy.run_greedy_probes(parent,table,data,probe_updates=6,seed=7,paths=paths,stopping_mode='patience')
+    report=json.loads((paths.directory/'greedy.json').read_text())
+    assert report['complete'] and report['stopping_mode']=='patience'
+    for trial in report['trials']:
+        assert trial['executed_updates']==2 and trial['selected_stage_updates']==0
+        assert trial['stopping_reason']=='patience' and not trial['hit_ceiling']
+        assert trial['allowance']==6
+        from treeneuron.checkpoint import load_checkpoint
+        from treeneuron.config import canonical_hash
+        child=paths.directory/trial['path']
+        restored=load_checkpoint(child/'checkpoints'/'best.json',expected_hashes=parent.identity_hashes,device='cpu')
+        manifest=json.loads((child/'manifest.json').read_text())
+        assert manifest['identity']['growth_hash']==canonical_hash(restored.growth_metadata)
+        assert restored.growth_metadata['greedy_probe']['stopping_reason']=='patience'
+    assert_state_equal(parent,before)
+
+
+@pytest.mark.parametrize('mutation',['unfinished','unexplained'])
+def test_patience_mode_rejects_unfinished_or_unexplained_return(probe_case,monkeypatch,mutation):
+    from treeneuron.baselines import greedy
+    data,parent,table,paths=probe_case
+    real=greedy.continue_fit
+    def corrupt(*a,**kw):
+        state=real(*a,**kw)
+        if mutation=='unfinished': state.stage['complete']=False
+        else: state.stage['updates_completed']=1
+        return state
+    monkeypatch.setattr(greedy,'continue_fit',corrupt)
+    with pytest.raises(ValueError,match='completed|unexplained'):
+        greedy.run_greedy_probes(parent,table,data,probe_updates=2,seed=7,paths=paths,stopping_mode='patience')
+    report=json.loads((paths.directory/'greedy.json').read_text())
+    assert not report['complete'] and report['allocation'] is None
+    assert report['trials'][0]['outcome']=='failed' and report['trials'][0]['nanoseconds']>0
+
+
+def test_short_and_long_have_independent_identical_parent_starts(probe_case,monkeypatch):
+    from treeneuron.baselines import greedy
+    data,parent,table,short=probe_case
+    long=create_run(short.directory/'long',parent.config.to_dict())
+    starts=[]
+    real=greedy.continue_fit
+    def observe(state,*a,**kw):
+        starts.append(copy.deepcopy(state))
+        return real(state,*a,**kw)
+    monkeypatch.setattr(greedy,'continue_fit',observe)
+    before=copy.copy(parent); before.rng_states=capture_rng()
+    greedy.run_greedy_probes(parent,table,data,probe_updates=2,seed=7,paths=short)
+    greedy.run_greedy_probes(parent,table,data,probe_updates=6,seed=7,paths=long,stopping_mode='patience')
+    for a,b in zip(starts[:3],starts[3:]): assert_state_equal(a,b)
+    after=copy.copy(parent); after.rng_states=capture_rng()
+    assert_state_equal(before,after)
+    reports=[json.loads((p.directory/'greedy.json').read_text()) for p in (short,long)]
+    assert reports[0]['parent_state_sha256']==reports[1]['parent_state_sha256']
+    for a,b in zip(reports[0]['trials'],reports[1]['trials']):
+        streams=[]
+        for p,t in ((short,a),(long,b)):
+            records=[json.loads(v) for v in (p.directory/t['path']/'events.jsonl').read_text().splitlines()]
+            streams.append([e['row_ids'] for e in records if e['type']=='update'])
+        assert streams[0]==streams[1][:2]

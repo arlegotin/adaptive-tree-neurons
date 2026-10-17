@@ -205,3 +205,45 @@ def test_authentic_coordinator_publishes_equal_pair_attempt_and_accepted_ledgers
         pair=json.loads((directory/f"teacher-{attempt['teacher_index']}"/
             f"repetition-{attempt['repetition']}"/'pair.json').read_text())
         assert pair==attempt['record']==accepted
+
+
+@pytest.mark.parametrize('growth_count',[0,1])
+def test_long_probe_opt_in_nine_roles_same_parent_score_and_contrasts(tmp_path,cpu_training_evidence,growth_count):
+    import torch
+    from treeneuron.pilot.calibrate import teacher_inputs,repetition_config,run_repetition
+    raw=config(tmp_path).to_dict()
+    raw['execution']['backend_report']=str(cpu_training_evidence)
+    raw['backend']['interop_threads']=torch.get_num_interop_threads()
+    raw['growth']['m_requested']=growth_count
+    c=resolve_experiment(raw)
+    _,data,e,tc=teacher_inputs(c,0)
+    result=run_repetition(repetition_config(tc,0),data,e,tmp_path/'long-pair','diagnostic',reference_probe_updates=1)
+    assert set(result['methods'])=={'keep','top','random','greedy','greedy_long','widen_upper','ordinary_lower','ordinary_upper','static_partial'}
+    assert result['pairing_audit']['passed'] and result['pairing_audit']['warm_forks']==6
+    assert result['long_probe_audit']['passed']
+    assert result['methods']['greedy_long']['original_parent_audit']['passed']
+    assert 'h1_rows' not in result and 'static_rows' not in result
+    short,long=[json.loads(Path(result[key]).read_text()) for key in ('greedy_report','greedy_long_report')]
+    assert short['complete'] and long['complete']
+    assert short['parent_state_sha256']==long['parent_state_sha256']
+    assert short['score_hash']==long['score_hash']
+    assert short['stopping_mode']=='fixed_updates' and long['stopping_mode']=='patience'
+    assert short['effective_count']==long['effective_count']==growth_count
+    for name in ('greedy','greedy_long'):
+        record=result['methods'][name]
+        assert record['parent_checkpoint_sha256']==result['parent_checkpoint_sha256']
+        assert record['initial_pairing']==result['parent_pairing']
+        assert record['allocation']['table_hash']==short['score_hash']
+    with np.load(tmp_path/'long-pair'/'E-predictions.npz',allow_pickle=False) as stored:
+        assert set(stored.files)==set(result['methods'])|{'y','row_id'}
+        assert all(np.isfinite((stored[name]-e.y)**2).all() for name in result['methods'])
+
+
+@pytest.mark.parametrize('allowance',[0,-1,True,2])
+def test_long_probe_allowance_validated_before_parent_fit(tmp_path,allowance):
+    from treeneuron.pilot.calibrate import teacher_inputs,fit_repetition
+    c=config(tmp_path)
+    _,data,_,_=teacher_inputs(c,0)
+    with pytest.raises(ValueError,match='reference probe'):
+        fit_repetition(c,data,tmp_path/'invalid','recipe',reference_probe_updates=allowance)
+    assert not (tmp_path/'invalid').exists()

@@ -33,7 +33,7 @@ from treeneuron.config import ExperimentConfig, canonical_hash, resolve_experime
 from treeneuron.data.synthetic import derive_seed, make_from_config, sample_teacher
 from treeneuron.data.types import array_hash
 from treeneuron.experiments.paired import (pairing_snapshot, audit_pairing, _allocation_record,
-    _score_record, _stage_record, file_hash, write_json)
+    _score_record, _stage_record, file_hash, write_json, _json_tree)
 from treeneuron.growth.allocate import allocate
 from treeneuron.growth.score import score_units
 from .design import PilotSummary, summarize_pilot, calibration_status, choose_design
@@ -83,13 +83,17 @@ def _runtime_preflight(config):
         receipt_path=str(receipt.resolve()),receipt_sha256=file_hash(receipt))
 
 
-def fit_repetition(config, data, root: Path, recipe_hash: str) -> dict:
+def fit_repetition(config, data, root: Path, recipe_hash: str, *,
+                   reference_probe_updates: int | None = None, resource_guard=None) -> dict:
     """Fresh complete parent, paired forks, B2/B3 attribution, B6 G ranking.
 
     No evaluation observations are accepted. All child runs are registered
     before training and failures retain terminal records and the enclosing cost.
     No cross-source or cross-attempt checkpoint reuse is supported.
     """
+    if reference_probe_updates is not None and (type(reference_probe_updates) is not int
+            or not 0 < reference_probe_updates <= config.training.continuation_updates):
+        raise ValueError('Invalid reference probe allowance')
     started=time.perf_counter_ns()
     root=Path(root); root.mkdir(parents=True,exist_ok=False)
     report=dict(status='running',teacher_id=data.teacher_id,optimizer_seed=config.seeds.optimizer,
@@ -105,6 +109,7 @@ def fit_repetition(config, data, root: Path, recipe_hash: str) -> dict:
         report.setdefault('child_runs',[]).append(dict(run_id=paths.run_id,path=str(paths.directory),
             growth_metadata=metadata))
         _atomic_json(root/'pair.json',report,replace=True)
+        if resource_guard is not None: resource_guard()
     def finish(paths,metrics):
         nonlocal open_child
         finish_run(paths,metrics,'completed'); open_child=None
@@ -124,6 +129,7 @@ def fit_repetition(config, data, root: Path, recipe_hash: str) -> dict:
         identities=dict(parent.identity_hashes)
         report.update(parent_pairing=pairing_snapshot(parent),parent_checkpoint_sha256=file_hash(checkpoint),
             parent_identity_hashes=identities,parent_run_id=parent_paths.run_id)
+        if resource_guard is not None: resource_guard()
         tick=time.perf_counter_ns()
         x=torch.tensor(parent.preprocessing.transform_X(data.F.X),dtype=torch.float64)
         y=torch.tensor(parent.preprocessing.transform_y(data.F.y),dtype=torch.float64)
@@ -137,10 +143,25 @@ def fit_repetition(config, data, root: Path, recipe_hash: str) -> dict:
         tick=time.perf_counter_ns()
         probes=create_run(root/'runs',config.to_dict()); register(probes,{})
         allocations['greedy']=run_greedy_probes(parent,table,data,
-            probe_updates=config.pilot.probe_updates,seed=config.seeds.allocation,paths=probes)
+            probe_updates=config.pilot.probe_updates,seed=config.seeds.allocation,paths=probes,resource_guard=resource_guard)
         report['greedy_report']=str(probes.directory/'greedy.json')
         finish(probes,{'complete':True})
         report['costs']['probe_ns']=time.perf_counter_ns()-tick
+        if reference_probe_updates is not None:
+            report['reference_probe_updates']=reference_probe_updates
+            tick=time.perf_counter_ns()
+            long_probes=create_run(root/'runs',config.to_dict()); register(long_probes,{})
+            allocations['greedy_long']=run_greedy_probes(parent,table,data,
+                probe_updates=reference_probe_updates,seed=config.seeds.allocation,paths=long_probes,
+                stopping_mode='patience',resource_guard=resource_guard)
+            report['greedy_long_report']=str(long_probes.directory/'greedy.json')
+            finish(long_probes,{'complete':True})
+            report['costs']['long_probe_ns']=time.perf_counter_ns()-tick
+            short_report=json.loads(Path(report['greedy_report']).read_text())
+            long_report=json.loads(Path(report['greedy_long_report']).read_text())
+            for key in ('parent_state_sha256','score_hash','eligible_ids','requested_count','effective_count'):
+                if short_report[key]!=long_report[key]:
+                    raise ValueError('Short/long original-parent or score binding mismatch')
         target=(config.model.d+2)*config.model.h+1+2*allocations['top'].effective_count*(config.model.d+1)
         lower,upper=ordinary_width_brackets(config.model.d,target)
         report['capacity']=dict(effective_count=allocations['top'].effective_count,
@@ -156,6 +177,8 @@ def fit_repetition(config, data, root: Path, recipe_hash: str) -> dict:
             ('ordinary_upper','B2',dict(variant='upper',target_parameters=target,experiment=config.to_dict()),False),
             ('static_partial','B3',dict(variant='partial',coordinates='centered',
                 count=allocations['top'].effective_count,experiment=config.to_dict()),False)]
+        if reference_probe_updates is not None:
+            recipes.insert(4,('greedy_long','B6',{},True))
         fitted={}
         for name,method,recipe,warm in recipes:
             tick=time.perf_counter_ns()
@@ -165,6 +188,19 @@ def fit_repetition(config, data, root: Path, recipe_hash: str) -> dict:
             if warm:
                 parent=load_parent()
                 adapter=build_causal(method,recipe,parent=parent,allocation=allocation)
+                if name=='greedy_long':
+                    original=dict(parent.model.named_parameters())
+                    actual=dict(adapter.state.model.named_parameters())
+                    for key,p in original.items():
+                        q=actual[key]
+                        if not torch.equal(p,q) or _json_tree(parent.optimizer.state.get(p,{}))!=_json_tree(adapter.state.optimizer.state.get(q,{})):
+                            raise ValueError('Long warm fork changes original parameters or Adam state')
+                    record['original_parent_audit']=dict(passed=True,
+                        complete_state_sha256=canonical_hash(_json_tree(train.pack_state(parent))),
+                        parameter_sha256=canonical_hash(_json_tree(parent.model.state_dict())),
+                        old_optimizer_sha256=canonical_hash(_json_tree({key:parent.optimizer.state.get(p,{}) for key,p in original.items()})))
+                    if record['original_parent_audit']['complete_state_sha256']!=short_report['parent_state_sha256']:
+                        raise ValueError('Long joint fork does not reload the original probe parent')
                 del parent
                 record.update(parent_run_id=parent_paths.run_id,
                     parent_checkpoint_sha256=report['parent_checkpoint_sha256'],
@@ -187,6 +223,21 @@ def fit_repetition(config, data, root: Path, recipe_hash: str) -> dict:
                 enclosing_ns=time.perf_counter_ns()-tick)
             fitted[name]=adapter
         report['pairing_audit']=audit_pairing(report)
+        if reference_probe_updates is not None:
+            expected=allocations['top']
+            contrasts={int(unit):table.contrasts[row].tolist() for row,unit in enumerate(table.ids.tolist())}
+            for name in ('top','random','greedy','greedy_long'):
+                value=allocations[name]
+                if (value.requested_count!=expected.requested_count
+                        or value.effective_count!=expected.effective_count
+                        or value.table_hash!=table.table_hash or value.seed!=config.seeds.allocation):
+                    raise ValueError('Long probe allocation count/table/seed mismatch')
+                if any(q!=contrasts[unit] for unit,q in zip(value.ids.tolist(),value.contrasts.tolist())):
+                    raise ValueError('Long probe per-ID original contrast mismatch')
+            report['long_probe_audit']=dict(passed=True, original_parent=True,
+                parent_state_sha256=short_report['parent_state_sha256'],score_hash=table.table_hash,
+                allocation_seed=config.seeds.allocation, effective_count=expected.effective_count,
+                warm_row_prefix=report['pairing_audit']['common_prefix_updates'])
         report['greedy_keep_decision']=('greedy' if report['methods']['greedy']['selected_g_mse']<
             report['methods']['keep']['selected_g_mse'] else 'keep')
         report['models']={}
@@ -218,25 +269,41 @@ def fit_repetition(config, data, root: Path, recipe_hash: str) -> dict:
             train.BACKEND_REPORT_PATH=original_backend
 
 
-def run_repetition(config, data, evaluation, root: Path, recipe_hash: str) -> dict:
+def run_repetition(config, data, evaluation, root: Path, recipe_hash: str, *,
+                   reference_probe_updates: int | None = None, resource_guard=None) -> dict:
     """Exploratory E wrapper around the common label-free fitting graph."""
     started=time.perf_counter_ns()
-    report=fit_repetition(config,data,root,recipe_hash)
+    report=fit_repetition(config,data,root,recipe_hash,reference_probe_updates=reference_probe_updates,resource_guard=resource_guard)
     root=Path(root)
     from treeneuron.evaluation.confirm import load_predictors
     try:
-        predictors=load_predictors(root,report['models'])
+        if reference_probe_updates is None:
+            predictors=load_predictors(root,report['models'])
+        else:
+            from treeneuron.baselines.causal import CausalPredictor
+            from treeneuron.checkpoint import _descriptor
+            predictors=load_predictors(root,{key:value for key,value in report['models'].items() if key!='greedy_long'})
+            reference=report['models']['greedy_long']; path=Path(reference['path'])
+            if not path.resolve().is_relative_to(root.resolve()) or file_hash(path)!=reference['sha256']:
+                raise ValueError('Long selected model hash drift or escaped root')
+            _,descriptor,_=_descriptor(path)
+            predictor=CausalPredictor.load(path,expected_hashes=descriptor['state']['identity_hashes'])
+            predictors['greedy_long']=predictor.predict
         predictions={name:predict(evaluation.X) for name,predict in predictors.items()}
         np.savez_compressed(root/'E-predictions.npz',**predictions,y=evaluation.y,row_id=evaluation.row_id)
         scale=float(np.var(data.F.y))
         if scale<=0: raise ValueError('Undefined F target variance for paired normalized loss')
-        losses={name:(prediction-evaluation.y)**2/scale for name,prediction in predictions.items()}
         report.update(evaluation_hash=canonical_hash({'X':array_hash(evaluation.X),
             'y':array_hash(evaluation.y),'rows':array_hash(evaluation.row_id)}),
-            h1_rows=(losses['random']-losses['top']).tolist(),
-            static_rows=(losses['ordinary_upper']-losses['static_partial']).tolist(),
             metric='paired squared error / F target variance (ddof=0); positive favors top/static',
             E_predictions_sha256=file_hash(root/'E-predictions.npz'))
+        if reference_probe_updates is None:
+            losses={name:(prediction-evaluation.y)**2/scale for name,prediction in predictions.items()}
+            report.update(h1_rows=(losses['random']-losses['top']).tolist(),
+                static_rows=(losses['ordinary_upper']-losses['static_partial']).tolist())
+        else:
+            report.update(fit_target_variance=scale,
+                metric='original-unit E predictions; F variance ddof=0; analysis averages within teacher then equally across teachers')
         return report
     except BaseException as error:
         report['status']='interrupted' if isinstance(error,KeyboardInterrupt) else 'failed'

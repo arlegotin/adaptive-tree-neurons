@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "base_config": "../../configs/diagnostics/long-probes-base.json",
+  "teachers": 8,
+  "repetitions": 2,
+  "short_probe_updates": 320,
+  "long_probe_updates": 8000,
+  "evaluation_rows": 262144,
+  "cost_seeds": {
+    "teacher": 261030100,
+    "data": 261030101,
+    "optimizer": 261030102,
+    "allocation": 261030103,
+    "contrast": 261030104,
+    "reference": 261030105
+  },
+  "study_seeds": {
+    "teacher": 261031100,
+    "data": 261031101,
+    "optimizer": 261031102,
+    "allocation": 261031103,
+    "contrast": 261031104,
+    "reference": 261031105
+  },
+  "bootstrap": {
+    "iterations": 512000,
+    "seed": 261031106,
+    "confidence": 0.95
+  },
+  "resources": {
+    "safety_factor": 1.5,
+    "disk_reserve_bytes": 10737418240,
+    "rss_cap_bytes": 6442450944,
+    "severe_available_percent": 10,
+    "automatic_retries": 0
+  }
+}
