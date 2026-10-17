@@ -249,3 +249,53 @@ Continue pre-freeze Task10 confirmation preparation/orchestration/analysis, then
 The three CannotVerify items are resolved as phase obligations: genuine study execution stays at WP05/WP06, portable live/archival lookup stays in the next Task13 code gate, and the controller-owned acceptance records now bind actual review artifacts/current reviewed files. Ruling11 fixes descriptive gate-half slices before any real test access; [its exact line and cost](audit/implementation/evidence/2026-10-17/rulings-for-final.md) extend the ten original rulings. The bounded real fixture fits one teacher/two repetitions/all eight roles and retains other missing units, so its analysis is correctly incomplete. No predictive benchmark result, genuine pilot, frozen scientific protocol or independent confirmation was added.
 
 Next: implement/review Task13 audit/report and portable archive/reproduction paths, then complete the broad H1 implementation review and known-Minor triage before definitive calibration/source freeze. Run the entire fixed cohort and actual scientific audit afterward. The first exploratory scored-growth loss to random placement remains unchanged.
+
+## D017 — 17 October 2026: pre-freeze audit and portable evidence implementation
+
+**Status:** Task 13 implementation, bounded fixtures and review preparation. WP09
+scientific execution is pending the definitive pilot/design, source freeze, full
+fixed cohort and actual clean reproduction. No completed scientific result or
+external publication is authorized by this entry.
+
+**Decision:** Audit the frozen inventory and all attempts before interpreting the
+sign of an effect. Reconstruct F population variance and original-unit regression
+metrics from authorized saved rows; retain unfavorable, failed and zero-growth
+units. Check full selected/last/probe checkpoint evidence, parameter terms,
+original access/resume lifecycle, cost boundaries and exact declared analyses.
+A complete negative result can be valid; incomplete or corrupt evidence cannot
+support completed-cohort superiority. Deterministic report content is separate
+from per-invocation work metadata. H1 remains a placement component claim.
+
+**Portability:** Translate historical absolute and producer-relative locators to
+byte-identical restored paths while preserving frozen config and receipt hashes.
+Record original and current checkout identities separately. Execution, lock,
+source, checkpoint and protected-access guards remain binding. No ignore-source
+flag or archived training capability is added.
+
+**Archive boundary:** [Root Ruling 12](audit/implementation/evidence/2026-10-17/ruling-12-archive-sealing.md)
+approves prospective sealing while live evidence is valid, before amendment or
+source drift. The immutable copy preserves the original access-ledger prefix;
+later evidence-read appends do not invalidate it. Reanalysis verifies every copied
+byte and reconstructs only sealed original rows under a separately recorded clean
+analysis source. Every affected claim is exploratory; new T/fit/predict/resume is
+unavailable. There are no genuine legacy protected studies requiring retroactive
+sealing. A missing pre-amendment seal cannot be repaired by silently restoring live
+eligibility. If this boundary proves insufficient, recovery needs the retained
+original evidence plus a reviewed migration, or a fresh independent confirmation,
+with corresponding engineering, time and storage cost.
+
+**Next:** Root-owned scoped spec/quality review and renewed shared-file acceptance,
+then the final broad H1 implementation review/known-Minor triage before definitive
+calibration. Actual scientific reproduction/audit/report and closest-prior-art
+revisit follow the entire fixed cohort. The R12 access obstacle is resolved;
+bounded inspection still does not prove novelty. No optional practical or new
+claim family is implied by the H1 tooling.
+
+**Pre-freeze numerical check:** The unchanged seed42 toy recipe exposed B6's
+near-zero gate-gradient sensitivity in the independent float32 leaf reference.
+The exact failure was reconstructed and preserved; float64 agreed to 4.1e-15.
+The probe now checks each first AdamW update against its own gradient formula and
+a derived componentwise conditioning/rounding allowance. Forward/gradient
+criteria, measured discrepancy, receipt ceiling and exact replay stay binding.
+Actual training, seeds and model equations are unchanged. The preserved toy
+regression and derivation are in `tests/fixtures/causal_seed42_probe.md`.

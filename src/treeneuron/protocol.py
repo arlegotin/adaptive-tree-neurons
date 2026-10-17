@@ -14,6 +14,7 @@ import subprocess
 from typing import Any
 
 from .artifacts import _atomic_json, _utc
+from .locators import locate, relocated
 from .config import canonical_hash, canonical_json, resolve_experiment
 from .pilot.design import DesignDecision, summarize_pilot, choose_design
 
@@ -55,6 +56,7 @@ def _git(root, *args):
 def _relative(root, name):
     if type(name) is not str or not name or Path(name).is_absolute() or '..' in Path(name).parts:
         raise ValueError('Evidence paths must be repository-relative without traversal')
+    root = locate(root)
     path = root / name
     if path.is_symlink() or not path.resolve().is_relative_to(root.resolve()):
         raise ValueError('Evidence path escapes repository or is a symlink')
@@ -303,7 +305,7 @@ def _validate_pilot_graph(record, directory, config):
         for child in record['child_runs']:
             # Top-level child locators are emitted relative to the producer CWD;
             # stage/trial locators below are relative to their enclosing run.
-            path=contained(directory,Path(child['path']).resolve()); run_id=child['run_id']
+            path=contained(directory,locate(child['path'], producer=True).resolve()); run_id=child['run_id']
             if run_id in children or path in [entry[0] for entry in children.values()]:
                 raise ValueError('Duplicate pilot control registration')
             children[run_id]=(path,completed(path,run_id),child['growth_metadata'])
@@ -361,7 +363,7 @@ def _validate_pilot_graph(record, directory, config):
                     or method['executed_row_ids']!=stages[-1]['row_hashes']):
                 raise ValueError('Pilot control selected result differs')
         audit_pairing(record)
-        greedy_path=contained(directory,Path(record['greedy_report']).resolve()); coordinator_path=greedy_path.parent
+        greedy_path=contained(directory,locate(record['greedy_report'], producer=True).resolve()); coordinator_path=greedy_path.parent
         coordinator_ids=[key for key,value in children.items() if value[0]==coordinator_path]
         if len(coordinator_ids)!=1: raise ValueError('Pilot probe coordinator missing')
         coordinator_id=coordinator_ids[0]
@@ -416,7 +418,7 @@ def eligible_design(sources: Mapping[str, Any]) -> DesignDecision:
     from .data.types import array_hash
     import numpy as np
     _keys(sources, ('root','pinned_commit','readiness','raw','raw_seal','scientific','cohort'), 'sources')
-    root = Path(sources['root']).resolve()
+    root = locate(sources['root']).resolve()
     raw_path = _reference(root, sources['raw']); raw = _read(raw_path)
     seal_path=_reference(root,sources['raw_seal'])
     if seal_path!=raw_path.with_name('raw-seal.json'):
@@ -601,7 +603,7 @@ def preparation_receipt(root,cohort):
 
 def _scientific_sources(sources, design):
     from .data.synthetic import TeacherSpec
-    root=Path(sources['root']).resolve()
+    root=locate(sources['root']).resolve()
     scientific=sources['scientific']
     expected=dict(hypothesis='H1-A',contrast=['B4','B5'],population='primary',coordinate='selective',
         independent_unit='teacher',exclusions=[],metric='squared_error_over_F_variance',
@@ -710,7 +712,7 @@ def freeze(design: DesignDecision, sources: Mapping[str, Any], output: Path) -> 
     if canonical_hash(design.to_dict())!=canonical_hash(actual.to_dict()):
         raise ValueError('Design is draft, incomplete or differs from sealed pilot')
     identity=_scientific_sources(sources,design)
-    root=Path(sources['root']).resolve()
+    root=locate(sources['root']).resolve()
     snapshot=execution_snapshot(root,sources['pinned_commit'])
     output=Path(output).resolve()
     if output.parent != root/'protocol': raise ValueError('Frozen protocols must use repository protocol directory')
@@ -740,27 +742,43 @@ def validate_frozen(path: Path, current: Mapping[str, Any]) -> FrozenProtocol:
     payload=value['payload']; digest=canonical_hash(payload)
     if digest!=value['protocol_hash'] or _read(_archive(path)/f'{digest}.json')!=value:
         raise ValueError('Frozen protocol/history hash drift')
-    if Path(current['root']).resolve()!=Path(payload['sources']['root']).resolve():
-        raise ValueError('Frozen checkout root differs')
+    root = Path(current['root']).resolve()
+    if path.parent != root/'protocol':
+        raise ValueError('Frozen protocol must belong to current checkout protocol directory')
+    with relocated(payload['sources']['root'], root):
+        return _validate_frozen_at(path, value, root)
+
+
+def _validate_frozen_at(path, value, root):
+    payload=value['payload']; digest=value['protocol_hash']
     for amendment in (path.parent/'amendments').glob('*.json'):
         if _read(amendment).get('protocol_hash')==digest: raise ValueError('Scientific amendment requires fresh confirmation')
     design=eligible_design(payload['sources'])
     if canonical_hash(design.to_dict())!=canonical_hash(payload['design']): raise ValueError('Frozen design drift')
     _scientific_sources(payload['sources'],design)
-    snapshot=execution_snapshot(Path(current['root']),payload['snapshot']['pinned_commit'])
+    snapshot=execution_snapshot(root,payload['snapshot']['pinned_commit'])
     if snapshot['execution_sha256']!=payload['snapshot']['execution_sha256']:
         raise ValueError('Frozen execution digest drift')
     return FrozenProtocol(path,digest,snapshot['pinned_commit'],snapshot['checkout_commit'])
 
 
-def amend(protocol: FrozenProtocol, *, reason: str, replacement_study_id: str) -> Path:
+def amend(protocol: FrozenProtocol, *, reason: str, replacement_study_id: str,
+          archive: Path | None = None) -> Path:
     """Append a dated scientific amendment; revoke old access without rewriting results."""
     value=_read(protocol.path)
     if canonical_hash(value['payload'])!=protocol.protocol_hash: raise ValueError('Protocol hash drift')
     if not reason.strip() or not replacement_study_id.strip() or replacement_study_id==value['payload']['study']['study_id']:
         raise ValueError('Amendment requires reason and a fresh study identity')
+    archive_record=dict(eligibility='unavailable_no_archive_supplied',archive_sha256=None)
+    if archive is not None:
+        from .analysis.audit import _read_archive
+        _,manifest,digest,_,payload=_read_archive(archive)
+        if manifest['protocol_hash']!=protocol.protocol_hash or payload!=value['payload']:
+            raise ValueError('Archive belongs to a different original protocol')
+        archive_record=dict(eligibility='sealed_saved_evidence_only',archive_sha256=digest)
     directory=protocol.path.parent/'amendments'; directory.mkdir(exist_ok=True)
     record=dict(protocol_hash=protocol.protocol_hash,utc=_utc(),reason=reason,
-        replacement_study_id=replacement_study_id,old_results='exploratory',fresh_confirmation_required=True)
+        replacement_study_id=replacement_study_id,old_results='exploratory',fresh_confirmation_required=True,
+        archive=archive_record)
     path=directory/f'{canonical_hash(record)}.json'; _atomic_json(path,record)
     return path

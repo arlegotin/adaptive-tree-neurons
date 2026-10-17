@@ -8,6 +8,7 @@ from __future__ import annotations
 import copy
 from pathlib import Path
 import resource
+from ..locators import located, locate, producer_directory
 import sys
 import time
 import numpy as np
@@ -149,10 +150,11 @@ def load_predictors(root: Path, models: dict) -> dict:
 
 
 def _fit_run(protocol,payload,unit,repetition,directory):
-    root=Path(payload['sources']['root'])
+    root=locate(payload['sources']['root'])
     config=resolve_experiment(_read(_reference(root,payload['sources']['raw']))['config'])
     config=repetition_config(config,unit['seeds'],repetition)
-    report=fit_repetition(config,load_development(root,unit),directory,canonical_hash(config.to_dict()))
+    with producer_directory(root):
+        report=fit_repetition(config,load_development(root,unit),directory,canonical_hash(config.to_dict()))
     _validate_pilot_graph(report,directory,config)
     audit_models(root,report,directory)
     report['models']={role:_ref(root,Path(ref['path'])) for role,ref in report['models'].items()}
@@ -165,11 +167,12 @@ def _fit_run(protocol,payload,unit,repetition,directory):
 
 def _payload(protocol):
     value=_read(protocol.path); payload=value['payload']
-    checked=validate_frozen(protocol.path,{'root':payload['sources']['root']})
+    checked=validate_frozen(protocol.path,{'root':str(protocol.path.resolve().parent.parent)})
     if checked.protocol_hash!=protocol.protocol_hash: raise ValueError('Frozen identity differs')
     return payload
 
 
+@located
 def run_confirmation(protocol: FrozenProtocol, study: str) -> Path:
     """Run every frozen unit serially, with finite same-unit attempts and resume.
 
@@ -179,9 +182,10 @@ def run_confirmation(protocol: FrozenProtocol, study: str) -> Path:
     """
     if study!='synthetic': raise ValueError('Only frozen synthetic H1 is supported')
     invocation_started=time.perf_counter_ns()
-    payload=_payload(protocol); root=Path(payload['sources']['root'])
+    payload=_payload(protocol); root=locate(payload['sources']['root'])
     config=resolve_experiment(_read(_reference(root,payload['sources']['raw']))['config'])
-    _runtime_preflight(config)
+    with producer_directory(root):
+        _runtime_preflight(config)
     directory=protocol.path.parent/'confirmation'/protocol.protocol_hash
     directory.mkdir(parents=True,exist_ok=True)
     with protected._locked(directory):

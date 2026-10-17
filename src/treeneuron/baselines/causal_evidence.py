@@ -44,6 +44,45 @@ def _reference(model, x):
     return (torch.relu(z)*p['head.weight']).sum(-1)+p['head.bias'][0]
 
 
+def _first_adam_rounding(initial, gradient, *, lr, weight_decay, eps):
+    """Independent bias-corrected first AdamW step and float32 rounding bound.
+
+    With zero moments, bias correction gives m_hat=g, v_hat=g**2.
+    Thus p1=p0*(1-lr*decay)-lr*g/(abs(g)+eps). Evaluation here is
+    float64 from the exact float32 operands. gamma_20 bounds the at-most
+    twenty elementary roundings (moments, bias correction, sqrt, division,
+    decay and addition); summing both term magnitudes covers cancellation.
+    The tiny term covers underflow. This is an error bound, not a flat atol.
+    """
+    p,g=initial.double(),gradient.double()
+    decayed=p*(1-lr*weight_decay); step=lr*g/(g.abs()+eps)
+    unit=torch.finfo(torch.float32).eps/2
+    gamma=20*unit/(1-20*unit)
+    rounding=gamma*(decayed.abs()+step.abs())+20*torch.finfo(torch.float32).tiny
+    return decayed-step,rounding
+
+
+def _check_first_adam(a, b, initial, gradients_a, gradients_b, opts):
+    """Separate own-gradient correctness from cross-reference conditioning."""
+    for (name,p),(_,q) in zip(a.named_parameters(),b.named_parameters()):
+        ga,gb=gradients_a[name],gradients_b[name]
+        expected_a,round_a=_first_adam_rounding(initial[name],ga,**opts)
+        expected_b,round_b=_first_adam_rounding(initial[name],gb,**opts)
+        if (torch.any((p.double()-expected_a).abs()>round_a)
+                or torch.any((q.double()-expected_b).abs()>round_b)):
+            raise AssertionError(f'Incorrect first AdamW formula: {name}')
+        ga,gb=ga.double(),gb.double(); eps=opts['eps']
+        # Same sign: |f(g)-f(h)| = eps*|g-h|/((|g|+eps)(|h|+eps)).
+        # Opposite signs: |f(g)-f(h)| = |g|/(|g|+eps)+|h|/(|h|+eps).
+        # Forward/gradient equivalence was checked independently before step().
+        conditioning=torch.where(ga*gb>=0,
+            eps*(ga-gb).abs()/((ga.abs()+eps)*(gb.abs()+eps)),
+            ga.abs()/(ga.abs()+eps)+gb.abs()/(gb.abs()+eps))
+        allowance=opts['lr']*conditioning+round_a+round_b
+        if torch.any((p.double()-q.double()).abs()>allowance):
+            raise AssertionError(f'First AdamW conditioning bound exceeded: {name}')
+
+
 def probe_causal_cpu(model, *, batch_size=128):
     from treeneuron.train import capture_rng, restore_rng, source_hash
     if (type(batch_size) is not int or not 0 < batch_size <= 128
@@ -57,20 +96,23 @@ def probe_causal_cpu(model, *, batch_size=128):
         g=torch.Generator().manual_seed(1602041)
         x=torch.randn(batch_size,model.layer.d,generator=g,dtype=torch.float32)
         y=torch.randn(batch_size,generator=g,dtype=torch.float32)
-        opts=dict(lr=.001,weight_decay=.01,foreach=False)
-        oa,ob=torch.optim.AdamW(a.parameters(),**opts),torch.optim.AdamW(b.parameters(),**opts)
+        opts=dict(lr=.001,weight_decay=.01,eps=1e-8)
+        oa,ob=torch.optim.AdamW(a.parameters(),foreach=False,**opts),torch.optim.AdamW(b.parameters(),foreach=False,**opts)
         out,ref=a(x),_reference(b,x)
         torch.testing.assert_close(out,ref,rtol=2e-5,atol=2e-6)
         ((out-y)**2).mean().backward(); ((ref-y)**2).mean().backward()
         grad_error=max(float((p.grad-q.grad).abs().max()) for p,q in zip(a.parameters(),b.parameters()))
         for p,q in zip(a.parameters(),b.parameters()): torch.testing.assert_close(p.grad,q.grad,rtol=2e-4,atol=2e-6)
+        initial={name:p.detach().clone() for name,p in a.named_parameters()}
+        gradients_a={name:p.grad.clone() for name,p in a.named_parameters()}
+        gradients_b={name:p.grad.clone() for name,p in b.named_parameters()}
         oa.step(); ob.step()
         optimizer_error=max(float((p-q).abs().max().detach()) for p,q in zip(a.parameters(),b.parameters()))
-        for p,q in zip(a.parameters(),b.parameters()): torch.testing.assert_close(p,q,rtol=2e-5,atol=2e-6)
+        _check_first_adam(a,b,initial,gradients_a,gradients_b,opts)
         payload=io.BytesIO(); torch.save({'model':a.state_dict(),'optimizer':oa.state_dict()},payload)
         payload.seek(0); saved=torch.load(payload,weights_only=True)
         c=type(a).from_config(a.export_config()).to(dtype=torch.float32); c.load_state_dict(saved['model'],strict=True)
-        oc=torch.optim.AdamW(c.parameters(),**opts); oc.load_state_dict(saved['optimizer'])
+        oc=torch.optim.AdamW(c.parameters(),foreach=False,**opts); oc.load_state_dict(saved['optimizer'])
         for candidate,optimizer in ((a,oa),(c,oc)):
             optimizer.zero_grad(); ((candidate(x)-y)**2).mean().backward(); optimizer.step()
         for p,q in zip(a.parameters(),c.parameters()):
@@ -82,7 +124,7 @@ def probe_causal_cpu(model, *, batch_size=128):
             total_parameters=sum(p.numel() for p in model.parameters()),batch_size=batch_size,
             device='cpu',dtype='float32',execution='eager',seed=1602041,
             forward_max_abs=float((out-ref).abs().max().detach()),gradient_max_abs=grad_error,
-            optimizer_max_abs=optimizer_error,reload_next_update_max_abs=0.,scope='forward/backward/AdamW/serialization correctness only; no throughput measurement')
+            optimizer_max_abs=optimizer_error,reload_next_update_max_abs=0.,scope='float32 forward/gradient equivalence; own-gradient first AdamW formula and componentwise conditioning; exact serialization replay; no throughput measurement')
     finally:
         torch.set_num_threads(threads); restore_rng(before)
 

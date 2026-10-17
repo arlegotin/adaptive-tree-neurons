@@ -131,3 +131,66 @@ remains below its timing-precision requirement. Pilot-design, protected evaluati
 and audit code must be finished before the definitive pilot chooses the study
 size and budgets. Independent confirmation and scientific audit remain pending;
 the early prediction results above are unchanged.
+
+### Auditing and portable saved evidence (pre-freeze implementation)
+
+Task 13 supplies audit/report tooling; the genuine pilot, numeric design, full
+independent cohort and scientific reproduction remain pending. `reports/final.md`
+is a blocked pre-study status, not a completed research result. After a reviewed
+freeze and complete execution, use:
+
+```sh
+.venv/bin/python -m treeneuron.cli audit --protocol protocol/frozen.yaml --study-dir protocol/confirmation/PROTOCOL_HASH --output audit/study.json
+.venv/bin/python -m treeneuron.cli report --mode audited --protocol protocol/frozen.yaml --study-dir protocol/confirmation/PROTOCOL_HASH --output reports/final.md
+```
+
+The report validates the frozen cohort, every attempt and selected graph (including
+B6 losers), checkpoint topology/optimizer/resume state, original protected access,
+raw predictions, F variance, original-unit metrics and declared statistical policy.
+Incomplete or corrupt evidence cannot produce a success table. Whole teachers,
+including unfavorable and zero-growth cases, remain the independent units.
+Unknown execution costs remain null with a reason; nested child clocks are shown
+separately from the enclosing preparation/execution cost.
+
+Restore allowed artifacts at the same repository-relative locations in a clean
+checkout of the pinned execution source. Retain Git history, locks, accepted review
+artifacts, numerical receipts, prepared F/G/V files, frozen protocol/history,
+confirmation runs and access ledger. The original absolute root remains in the
+frozen identity; locator translation resolves the restored bytes and records the
+current checkout separately. It does not rewrite config strings or hashes. Run
+from a locked environment installed for that checkout, with the declared CPU/BLAS
+thread settings and fallback disabled. Redundant editable-install `src/*.egg-info`
+is an untracked executable-input failure: preserve generated metadata outside
+`src` as documented by the Task 9 install-metadata relocation record; never relax
+the source guard. Ordinary fit/predict/resume and protected access remain strict.
+
+Before any amendment or execution-source change, preserve a prospective archive:
+
+```sh
+.venv/bin/python -m treeneuron.cli seal-archive --protocol protocol/frozen.yaml --study-dir protocol/confirmation/PROTOCOL_HASH --output audit/archives/STUDY
+.venv/bin/python -m treeneuron.cli audit --archive audit/archives/STUDY --output audit/reanalysis.json
+.venv/bin/python -m treeneuron.cli report --mode archived --archive audit/archives/STUDY --output reports/reanalysis.md
+```
+
+The v1 archive copies a hashed inventory and the original access-ledger prefix.
+Later ordinary evidence reads do not change those copied bytes. Archived analysis
+uses only originally authorized sealed rows, preserves original source/model
+identities, records its current clean analysis source and labels claims
+exploratory. It supplies no `FrozenProtocol`, new T access, refit, prediction,
+label generation or old-source training resume. Missing a seal before amendment
+means archive eligibility is unavailable; restoring source does not undo an
+amendment. This prospective-only boundary is [Ruling 12](audit/implementation/evidence/2026-10-17/ruling-12-archive-sealing.md).
+
+R12's full text was retrieved in WP00; the former access obstacle is historical.
+The bounded mechanism comparison remains provisional. Actual final claims still
+require the closest-prior-art revisit, locked clean reproduction and post-cohort
+scientific audit. H1 component evidence does not establish H3 practical advantage;
+unavailable strongest models remain explicit, Energy stays separate as simulation,
+and Track C references stay outside local measured tables.
+
+Audit-start markers and immutable audit-work receipts retain interrupted or completed audit work. Nested primary-analysis receipts are linked and excluded from the outer total. Archive copying/reanalysis and Markdown rendering have separate copy-work, archive-work and report-work receipts; these variable measurements are outside deterministic report content.
+
+Pass `--archive audit/archives/STUDY` to `amend` to bind the verified prospective
+archive digest to the amendment. Without it the amendment explicitly records
+`unavailable_no_archive_supplied`. A mismatched or damaged supplied archive
+rejects before writing the amendment; original protocol bytes remain unchanged.

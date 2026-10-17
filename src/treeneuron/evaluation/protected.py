@@ -17,6 +17,7 @@ from pathlib import Path
 import numpy as np
 
 from ..artifacts import _atomic_json, _utc
+from ..locators import located
 from ..config import canonical_hash, canonical_json
 from ..data.types import SplitManifest
 from ..protocol import (FrozenProtocol, validate_frozen, _read, _reference, _keys,
@@ -85,7 +86,7 @@ def access_events(protocol: FrozenProtocol) -> list[dict]:
 
 def _validate(protocol,manifest,run_id):
     if not isinstance(protocol,FrozenProtocol): raise ValueError('Validated frozen protocol required')
-    value=_read(protocol.path); root=Path(value['payload']['sources']['root'])
+    value=_read(protocol.path); root=protocol.path.resolve().parent.parent
     checked=validate_frozen(protocol.path,{'root':str(root)})
     if checked.protocol_hash!=protocol.protocol_hash: raise ValueError('Protocol capability identity differs')
     units=value['payload']['sources']['cohort']['units']
@@ -95,6 +96,7 @@ def _validate(protocol,manifest,run_id):
     return root,value['payload'],found[0],checked
 
 
+@located
 def register_run(protocol: FrozenProtocol, manifest: SplitManifest, *, run_id: str,
                  models: Mapping[str,dict], f_target_variance: float,
                  operational: Mapping | None=None) -> Path:
@@ -137,6 +139,7 @@ def _link(protocol,root,run_id):
     return value
 
 
+@located
 def open_test(protocol: FrozenProtocol, manifest: SplitManifest, *, run_id: str) -> ProtectedEvaluation:
     """Validate identity before issuing an evaluator; no T labels are read here."""
     root,payload,unit,checked=_validate(protocol,manifest,run_id)
@@ -228,6 +231,7 @@ class ProtectedEvaluation:
                 raise
 
 
+@located
 def load_evaluation(protocol: FrozenProtocol, *, run_id: str) -> dict:
     """Read sealed authorized rows for analysis; never predict or generate T again.
 
@@ -243,16 +247,55 @@ def load_evaluation(protocol: FrozenProtocol, *, run_id: str) -> dict:
     root,payload,unit,checked=_validate(protocol,manifest,run_id)
     directory=_directory(protocol)
     with _locked(directory):
-        _link(protocol,root,run_id)
-        events=_events(directory)
-        accessed=[e for e in events if e['event']=='labels_access' and e['run_id']==run_id]
-        completed=[e for e in events if e['event']=='evaluation_completed' and e['run_id']==run_id]
+        result=_read_sealed_rows(directory,root,payload,protocol.protocol_hash,run_id)
         output=directory/'runs'/run_id/'predictions.json'
-        if len(accessed)!=1 or len(completed)!=1 or not output.is_file() or _hash(output)!=completed[0]['predictions_sha256']:
-            raise ValueError('Authorized prediction evidence missing or drift')
-        result=_read(output)
-        if result['protocol_hash']!=protocol.protocol_hash or result['run_id']!=run_id:
-            raise ValueError('Prediction evidence identity drift')
         _event(directory,'evidence_read',run_id=run_id,predictions_sha256=_hash(output),
                checkout_commit=checked.checkout_commit)
         return result
+
+
+def _read_sealed_rows(directory, root, payload, protocol_hash, run_id):
+    """Verify original authorization and immutable rows; no grants or generation.
+
+    Live callers validate the current frozen protocol first. Archive callers must
+    separately verify their prospective copied inventory before using this reader.
+    """
+    units=[u for u in payload['sources']['cohort']['units'] if run_id in u['run_ids']]
+    if len(units)!=1: raise ValueError('Unknown frozen run')
+    unit=units[0]; manifest=_manifest(unit['manifest'])
+    events=_events(directory)
+    bykind={kind:[(i,e) for i,e in enumerate(events) if e['event']==kind and e.get('run_id')==run_id]
+            for kind in ('run_registered','access_granted','labels_access','evaluation_completed')}
+    if any(len(bykind[k])!=1 for k in ('run_registered','labels_access','evaluation_completed')) or not bykind['access_granted']:
+        raise ValueError('Authorized prediction evidence missing or repeated access')
+    registered=bykind['run_registered'][0]; accessed=bykind['labels_access'][0]; completed=bykind['evaluation_completed'][0]
+    grants=[i for i,e in bykind['access_granted'] if registered[0]<i<accessed[0]]
+    if not grants or not registered[0]<accessed[0]<completed[0]:
+        raise ValueError('Invalid original protected lifecycle order')
+    link_path=directory/'runs'/run_id/'link.json'; link=_read(link_path)
+    if _hash(link_path)!=registered[1]['link_sha256']:
+        raise ValueError('Unlogged or changed run linkage')
+    expected=dict(protocol_hash=protocol_hash,study_id=payload['study']['study_id'],unit_id=unit['unit_id'],
+                  run_id=run_id,manifest_sha256=canonical_hash(manifest.to_dict()),
+                  f_target_variance=fit_variance(root,unit))
+    if any(link.get(k)!=v for k,v in expected.items()) or set(link['models'])!=set(payload['sources']['scientific']['evaluation_methods']):
+        raise ValueError('Original run/model/manifest/variance linkage differs')
+    for reference in link['models'].values(): _reference(root,reference)
+    if accessed[1].get('protocol_hash')!=protocol_hash or accessed[1].get('manifest_sha256')!=expected['manifest_sha256']:
+        raise ValueError('Original label authorization identity differs')
+    for _,event in bykind['access_granted']:
+        if any(event.get(k)!=expected[k] for k in ('protocol_hash','study_id','unit_id')):
+            raise ValueError('Original access grant identity differs')
+    for event in events:
+        if event.get('run_id')==run_id and event['event']=='operational_resume':
+            operational=event['operational']
+            if (operational.get('resume_run_id')!=run_id or set(operational)-{'resume_run_id','verbosity'}
+                    or operational.get('verbosity','normal') not in ('quiet','normal')):
+                raise ValueError('Invalid operational resume evidence')
+    output=directory/'runs'/run_id/'predictions.json'
+    if not output.is_file() or _hash(output)!=completed[1]['predictions_sha256']:
+        raise ValueError('Authorized prediction evidence missing or drift')
+    result=_read(output)
+    if result['protocol_hash']!=protocol_hash or result['run_id']!=run_id:
+        raise ValueError('Prediction evidence identity drift')
+    return result

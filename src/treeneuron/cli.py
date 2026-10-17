@@ -26,9 +26,20 @@ def main(argv: list[str] | None = None) -> int:
     run = commands.add_parser('run', help='Execute a complete exploratory paired study (G/V only)')
     run.add_argument('--config', type=Path, required=True)
     report_parser = commands.add_parser('report', help='Rebuild exploratory metrics from retained artifacts')
-    report_parser.add_argument('--mode', choices=['exploratory'], required=True)
-    report_parser.add_argument('--study-dir', type=Path, required=True)
+    report_parser.add_argument('--mode', choices=['exploratory','audited','archived'], required=True)
+    report_parser.add_argument('--study-dir', type=Path)
     report_parser.add_argument('--output', type=Path)
+    report_parser.add_argument('--protocol', type=Path)
+    report_parser.add_argument('--archive', type=Path)
+    audit_parser=commands.add_parser('audit',help='Audit complete frozen evidence or a sealed saved-evidence archive')
+    audit_parser.add_argument('--protocol',type=Path)
+    audit_parser.add_argument('--study-dir',type=Path)
+    audit_parser.add_argument('--archive',type=Path)
+    audit_parser.add_argument('--output',type=Path)
+    sealing=commands.add_parser('seal-archive',help='Copy validated live evidence before amendment/source drift')
+    sealing.add_argument('--protocol',type=Path,required=True)
+    sealing.add_argument('--study-dir',type=Path,required=True)
+    sealing.add_argument('--output',type=Path,required=True)
     calibration = commands.add_parser('calibrate', help='Run bounded exploratory pilots; scientific purpose requires verified readiness')
     calibration.add_argument('--config', type=Path, required=True)
     freeze_parser = commands.add_parser('freeze', help='Freeze a verified canonical scientific design')
@@ -50,7 +61,36 @@ def main(argv: list[str] | None = None) -> int:
     amendment.add_argument('--protocol', type=Path, required=True)
     amendment.add_argument('--reason', required=True)
     amendment.add_argument('--replacement-study-id', required=True)
+    amendment.add_argument('--archive', type=Path)
     args = parser.parse_args(argv)
+    if args.command in ('audit','seal-archive') or (args.command=='report' and args.mode!='exploratory'):
+        from treeneuron.analysis.audit import audit, audit_archive, seal_archive
+        from treeneuron.analysis.report import render_report
+        from treeneuron.protocol import FrozenProtocol, _read
+        archive=getattr(args,'archive',None)
+        if archive is not None:
+            if args.protocol is not None: parser.error('Choose protocol or archive, not both')
+            result=audit_archive(archive)
+        else:
+            if args.protocol is None or args.study_dir is None: parser.error('Live audit requires --protocol and --study-dir')
+            try:
+                value=_read(args.protocol); snapshot=value['payload']['snapshot']
+                protocol=FrozenProtocol(args.protocol.resolve(),value['protocol_hash'],snapshot['pinned_commit'],snapshot['checkout_commit'])
+            except (OSError,ValueError,KeyError):
+                # Missing protocol produces a blocked report, never a fabricated freeze.
+                protocol=FrozenProtocol(args.protocol.resolve(),'unavailable','unavailable','unavailable')
+            if args.command=='seal-archive':
+                print(seal_archive(args.study_dir,protocol,args.output)); return 0
+            result=audit(args.study_dir,protocol)
+        if args.command=='report':
+            if args.mode=='archived' and archive is None: parser.error('Archived report requires --archive')
+            if args.mode=='audited' and archive is not None: parser.error('Audited live report requires --protocol')
+            if args.output is None: parser.error('Audited report requires --output')
+            render_report(result,args.output)
+        elif args.output is not None:
+            write_report(result,args.output)
+        print(json.dumps(result,indent=2,sort_keys=True,allow_nan=False))
+        return 0 if result['valid'] else 1
     if args.command == 'prepare-cohort':
         from treeneuron.protocol import load_design, publish_design
         from treeneuron.evaluation.confirm import prepare_cohort
@@ -62,7 +102,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.command in ('confirm', 'analyze-primary'):
         from treeneuron.protocol import _read, validate_frozen
         payload = _read(args.protocol)['payload']
-        protocol = validate_frozen(args.protocol, {'root': payload['sources']['root']})
+        protocol = validate_frozen(args.protocol, {'root': str(args.protocol.resolve().parent.parent)})
         if args.command == 'confirm':
             from treeneuron.evaluation.confirm import run_confirmation
             print(run_confirmation(protocol, args.study))
@@ -80,7 +120,7 @@ def main(argv: list[str] | None = None) -> int:
         value = _read(args.protocol)
         snapshot = value['payload']['snapshot']
         protocol = FrozenProtocol(args.protocol, value['protocol_hash'], snapshot['pinned_commit'], snapshot['checkout_commit'])
-        print(amend(protocol, reason=args.reason, replacement_study_id=args.replacement_study_id))
+        print(amend(protocol, reason=args.reason, replacement_study_id=args.replacement_study_id, archive=args.archive))
         return 0
     if args.command == 'calibrate':
         from dataclasses import asdict
@@ -94,6 +134,7 @@ def main(argv: list[str] | None = None) -> int:
         print(run_paired(load_experiment(args.config)))
         return 0
     if args.command == 'report':
+        if args.study_dir is None: parser.error('Exploratory report requires --study-dir')
         from treeneuron.analysis.exploratory import summarize_exploratory
         report = summarize_exploratory(args.study_dir)
         if args.output is not None: write_report(report, args.output)

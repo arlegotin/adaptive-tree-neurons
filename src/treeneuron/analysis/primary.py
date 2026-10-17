@@ -15,6 +15,7 @@ import uuid
 import numpy as np
 from scipy.stats import t
 
+from ..locators import locate, relocated
 from ..artifacts import _atomic_json
 from ..config import canonical_hash, resolve_experiment
 from ..evaluation.metrics import regression_metrics
@@ -142,8 +143,15 @@ def holm_adjust(pvalues,families):
 
 def analyze_primary(study_dir: Path, protocol: FrozenProtocol) -> dict[str, Any]:
     """Rebuild from original protected rows and declared identities, never scores."""
+    from ..protocol import _read
+    value = _read(protocol.path)
+    with relocated(value["payload"]["sources"]["root"], protocol.path.resolve().parent.parent):
+        return _analyze_primary(study_dir, protocol)
+
+
+def _analyze_primary(study_dir, protocol):
     started=time.perf_counter_ns()
-    payload=_payload(protocol); root=Path(payload['sources']['root']); study_dir=Path(study_dir)
+    payload=_payload(protocol); root=locate(payload['sources']['root']); study_dir=Path(study_dir)
     expected=protocol.path.parent/'confirmation'/protocol.protocol_hash
     if study_dir.resolve()!=expected.resolve(): raise ValueError('Study directory differs from frozen protocol')
     ledger=_read(study_dir/'confirmation.json')
@@ -174,7 +182,7 @@ def analyze_primary(study_dir: Path, protocol: FrozenProtocol) -> dict[str, Any]
             _validate_pilot_graph(pair,pair_path.parent,expected_config)
             from ..checkpoint import _descriptor
             parent=[child for child in pair['child_runs'] if child['run_id']==pair['parent_run_id']][0]
-            _,parent_descriptor,_=_descriptor(Path(parent['path'])/'checkpoints/best.json')
+            _,parent_descriptor,_=_descriptor(locate(parent['path'], producer=True)/'checkpoints/best.json')
             for key in ('seeds','model','training','growth','data'):
                 if parent_descriptor['state']['config'][key]!=expected_config.to_dict()[key]:
                     raise ValueError('Parent recipe differs from frozen configuration')
@@ -189,8 +197,30 @@ def analyze_primary(study_dir: Path, protocol: FrozenProtocol) -> dict[str, Any]
             run['reason']=str(error)
             if entry['status']=='completed': run['status']='invalid'
         runs.append(run)
+    report=summarize_cohort(payload, ledger, runs, predictions, protocol.protocol_hash)
+    # Content-addressed reports preserve earlier incomplete/reanalysis snapshots.
+    report['report_sha256']=canonical_hash(report)
+    path=study_dir/f'primary-{report["report_sha256"]}.json'
+    if not path.exists(): _atomic_json(path,report)
+    # Variable work measurements are separate from deterministic scientific output.
+    work=study_dir/'analysis-work'; work.mkdir(exist_ok=True)
+    previous=sum(_read(p)['seconds'] for p in work.glob('*.json'))
+    elapsed=(time.perf_counter_ns()-started)/1e9
+    base=ledger['costs'].get('combined_seconds')
+    _atomic_json(work/f'{uuid.uuid4().hex}.json',dict(schema_version=1,protocol_hash=protocol.protocol_hash,
+        report_sha256=report['report_sha256'],seconds=elapsed,previous_analysis_seconds=previous,
+        total_study_work_seconds=base+previous+elapsed if base is not None else None,
+        total_reason=None if base is not None else 'preparation or interrupted execution work unmeasured',
+        boundary='source/model/graph and saved-row audit, aggregation/inference and report IO; excludes final work receipt',
+        aggregation='disjoint completed analysis invocations plus preparation/confirmation total; no nested child timers'))
+    return report
+
+
+def summarize_cohort(payload, ledger, runs, predictions, protocol_hash):
+    """Pure saved-row analysis after the caller has verified evidence authority."""
     teachers=aggregate_teachers(predictions,runs)
-    complete=len(teachers)==payload['design']['K'] and all(r['status']=='completed' for r in teachers)
+    complete=(ledger['status']=='completed' and len(teachers)==payload['design']['K']
+              and all(r['status']=='completed' for r in teachers))
     statistical=payload['design']['statistical_policy']
     summary=summarize_effects([r['D'] for r in teachers if r['D'] is not None],statistical)
     summary['superiority']=bool(summary['superiority'] and complete)
@@ -215,28 +245,13 @@ def analyze_primary(study_dir: Path, protocol: FrozenProtocol) -> dict[str, Any]
     adjusted=holm_adjust(family_p,families) if complete and family_complete else {}
     if any('random:top' in family for family in families):
         summary['superiority']=bool(summary['superiority'] and adjusted.get('random:top',1.)<=statistical['alpha'])
-    report=dict(schema_version=1,protocol_hash=protocol.protocol_hash,
+    report=dict(schema_version=1,protocol_hash=protocol_hash,
         status='completed' if complete else 'resource_limited' if ledger['status']=='resource_limited' else 'incomplete',
         declared_teachers=payload['design']['K'],observed_teachers=len(teachers),valid_teachers=summary['independent_count'],
-        declared_runs=len(declared),valid_runs=sum(r['status']=='completed' for r in runs),
+        declared_runs=len(runs),valid_runs=sum(r['status']=='completed' for r in runs),
         teachers=teachers,runs=runs,primary=summary,controls=controls,holm_adjusted=adjusted,
         holm_basis='Student-t sensitivity p-values; only explicit frozen families; not bootstrap p-values',
         costs=ledger['costs'],claim='placement-only' if summary['superiority'] else 'no completed-cohort superiority',
         practical_advantage='not established by the H1 placement contrast',
         policy=policy,planning=payload['design']['branch'])
-    # Content-addressed reports preserve earlier incomplete/reanalysis snapshots.
-    report['report_sha256']=canonical_hash(report)
-    path=study_dir/f'primary-{report["report_sha256"]}.json'
-    if not path.exists(): _atomic_json(path,report)
-    # Variable work measurements are separate from deterministic scientific output.
-    work=study_dir/'analysis-work'; work.mkdir(exist_ok=True)
-    previous=sum(_read(p)['seconds'] for p in work.glob('*.json'))
-    elapsed=(time.perf_counter_ns()-started)/1e9
-    base=ledger['costs'].get('combined_seconds')
-    _atomic_json(work/f'{uuid.uuid4().hex}.json',dict(schema_version=1,protocol_hash=protocol.protocol_hash,
-        report_sha256=report['report_sha256'],seconds=elapsed,previous_analysis_seconds=previous,
-        total_study_work_seconds=base+previous+elapsed if base is not None else None,
-        total_reason=None if base is not None else 'preparation or interrupted execution work unmeasured',
-        boundary='source/model/graph and saved-row audit, aggregation/inference and report IO; excludes final work receipt',
-        aggregation='disjoint completed analysis invocations plus preparation/confirmation total; no nested child timers'))
     return report
