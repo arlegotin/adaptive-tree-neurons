@@ -1,0 +1,7 @@
+{
+  "cost_directory_exists": false,
+  "decision": "Retain successful receipt; explicitly run the first cost comparison with Python outer clocks, no /usr/bin/time -l.",
+  "receipt_sha256": "e506511d50107138c0e94b1341687c5d9ff97e2fecac5b500a0d1946d1a93f43",
+  "root_validation": "validate_backend_report succeeded;15 actual required operations and batch128",
+  "source": "089b03d13e1950b8e0c1ff54a147a121cf78db66acaaa2dcedd9ebf29afc3543"
+}

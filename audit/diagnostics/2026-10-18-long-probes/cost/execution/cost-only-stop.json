@@ -1,0 +1,12 @@
+{
+  "automatic_retries": 0,
+  "caffeinate_process_scoped": true,
+  "changed_prior_evidence": [],
+  "changed_tracked": [],
+  "cohort_run": false,
+  "prior_evidence_unchanged": true,
+  "receipt_producer_rerun": false,
+  "returncode": 0,
+  "tracked_unchanged": true,
+  "utc": "2026-10-17T23:16:55.331190+00:00"
+}

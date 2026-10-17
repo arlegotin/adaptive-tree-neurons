@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File cost-only-postcheck.py, line 80, in <module>
+    assert raw_searches[short][key]==raw_searches[long][key]
+AssertionError
+
+Read-only checker incorrectly required equal UUID-dependent parent checkpoint descriptor hashes. Canonical parent state, identities, eligible IDs and score hash are equal. No numerical rerun occurred.

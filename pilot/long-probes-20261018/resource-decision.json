@@ -1,0 +1,51 @@
+{
+  "allowed": true,
+  "forecast": {
+    "comparisons": 16,
+    "disk_basis_bytes_per_comparison": 890195968,
+    "disk_boundary": "Conservative maximum of final logical bytes, stat allocated blocks, and positive before/after free-space delta; delta may include background activity. 16 comparisons x1.5, plus separate10GiB reserve.",
+    "elapsed_boundary": "perf_counter_ns immediately around subprocess.run launch through process exit; all final measure publication included; pre/post native counters excluded",
+    "logical_retained_bytes": 17879699952,
+    "observed_file_allocated_bytes": 802304000,
+    "observed_logical_bytes": 744987498,
+    "observed_positive_free_space_delta_bytes": 890195968,
+    "retained_bytes": 21364703232,
+    "safety_factor": 1.5,
+    "seconds": 12102.655542,
+    "uncertainty": "One full engineering comparison only; runtime, eligibility, stopping and retained size vary across problems. This is not a time kill or a precision guarantee."
+  },
+  "measurement_lock_sha256": "57e369bc8f671573c30f0a88b7e12a2af755b800c2f4f606be3b05c4f4e867af",
+  "measurement_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/long-probes-20261018/cost",
+  "measurement_sha256": "5058467d21b8f06681b7161bc08054d5a53d68e55459fbba571ad7345687f5dc",
+  "provenance": {
+    "commit": "839590310619a1836c47cc606a16f055abb18cab",
+    "execution": "a4514538e32df3012b07c8c9963d81a873bb901d9c5d8b2593dd82da5015b265",
+    "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+    "receipt": "e506511d50107138c0e94b1341687c5d9ff97e2fecac5b500a0d1946d1a93f43",
+    "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+    "source": "089b03d13e1950b8e0c1ff54a147a121cf78db66acaaa2dcedd9ebf29afc3543"
+  },
+  "resources": {
+    "available_percent": 64,
+    "counter_reason": null,
+    "free_disk_bytes": 38716370944,
+    "observed_at_utc": "2026-10-17T23:20:04.235727+00:00",
+    "peak_rss_bytes": 733855744,
+    "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n",
+    "swapouts": 4786629
+  },
+  "root_review": {
+    "all1791_hashes_verified": true,
+    "all_execution_bytes_unchanged": true,
+    "cost_inventory_sha256": "7fa40d085658dadd9d25904e6fcf911f5979209f5cf09b096094d4bc44cff2e8",
+    "disk_reserve_bytes": 10737418240,
+    "headroom_after_budget_and_reserve_bytes": 6614249472,
+    "model_accuracy_used": false,
+    "original_internal_decision_sha256": "618bec4462c12e030d25db6f18b690fb80390071827559ad1845ebf29e9269ba",
+    "outer_measurement_sha256": "c502f484cc5f5a48fd85127d5c142b70dc0b091687d95fba06afc493b7e2d3d1",
+    "total_required_disk_bytes": 32102121472
+  },
+  "schema_version": 1,
+  "selection_basis": "Measured resources only; no E accuracy, effect signs or G ranking changes select budgets/cohort",
+  "spec_sha256": "a4514538e32df3012b07c8c9963d81a873bb901d9c5d8b2593dd82da5015b265"
+}

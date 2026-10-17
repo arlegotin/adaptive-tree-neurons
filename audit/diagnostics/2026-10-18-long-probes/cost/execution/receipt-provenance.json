@@ -1,0 +1,35 @@
+{
+  "arguments": {
+    "batch_sizes": [
+      128
+    ],
+    "device": "cpu",
+    "seed": 1602030
+  },
+  "commit": "839590310619a1836c47cc606a16f055abb18cab",
+  "environment": {
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "implementation_sha256": "6f702a34dda4b260fbef75d800ef183fcfeb1f716f266b8895bef50d07189401",
+  "lock_sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+  "raw_sha256": "62c1e83808d41ef7f2056a7d112518f02a89e0da0d765fc26b35964439b2fbc5",
+  "receipt_sha256": "e506511d50107138c0e94b1341687c5d9ff97e2fecac5b500a0d1946d1a93f43",
+  "runtime": {
+    "architecture": "arm64",
+    "platform": "macOS-26.7.1-arm64-arm-64bit",
+    "python": "3.12.13",
+    "torch": "2.14.1"
+  },
+  "runtime_sha256": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+  "source_sha256": "089b03d13e1950b8e0c1ff54a147a121cf78db66acaaa2dcedd9ebf29afc3543",
+  "threads": {
+    "cpu": 1,
+    "interop": 1
+  },
+  "validated": true
+}

@@ -1,0 +1,15 @@
+{
+  "all_hashes_sizes_seals_match": true,
+  "bytes": 745280545,
+  "canonical_parent_and_score_equal": true,
+  "cost_files": 1779,
+  "files": 1791,
+  "inventory_sha256": "7fa40d085658dadd9d25904e6fcf911f5979209f5cf09b096094d4bc44cff2e8",
+  "nine_roles_completed": true,
+  "root_verification_ns": 386053667,
+  "source_freeze_matches": true,
+  "trials": [
+    65,
+    65
+  ]
+}

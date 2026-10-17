@@ -1,0 +1,57 @@
+{
+  "automatic_retries": 0,
+  "caffeinate_process_scoped": true,
+  "changed_tracked": [],
+  "cohort_run": false,
+  "native": {
+    "disk": {
+      "argv": [
+        "df",
+        "-k",
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  iused     ifree %iused  Mounted on\n/dev/disk3s5   908850180 844588108  38709780    96% 11607281 387097800    3%   /System/Volumes/Data\n"
+    },
+    "memory_pressure": {
+      "argv": [
+        "memory_pressure",
+        "-Q"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 64%\n"
+    },
+    "power": {
+      "argv": [
+        "pmset",
+        "-g",
+        "batt"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; finishing charge; 0:04 remaining present: true\n"
+    },
+    "swap": {
+      "argv": [
+        "sysctl",
+        "vm.swapusage"
+      ],
+      "returncode": 1,
+      "stderr": "sysctl: sysctl fmt -1 1024 1: Operation not permitted\n",
+      "stdout": ""
+    },
+    "vm_stat": {
+      "argv": [
+        "vm_stat"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   477863.\nPages active:                                 480471.\nPages inactive:                               448020.\nPages speculative:                             80578.\nPages throttled:                                   0.\nPages wired down:                             254935.\nPages purgeable:                               23574.\n\"Translation faults\":                     6091823079.\nPages copy-on-write:                       495895391.\nPages zero filled:                        5670853344.\nPages reactivated:                         149747771.\nPages purged:                               46677874.\nFile-backed pages:                            506808.\nAnonymous pages:                              502261.\nPages stored in compressor:                  1189971.\nPages occupied by compressor:                 559044.\nDecompressions:                            159972445.\nCompressions:                              209207687.\nPageins:                                   154193719.\nPageouts:                                     692524.\nSwapins:                                     2864580.\nSwapouts:                                    4786629.\n"
+    }
+  },
+  "returncode": 1,
+  "tracked_unchanged": true,
+  "utc": "2026-10-17T23:06:54.269185+00:00"
+}

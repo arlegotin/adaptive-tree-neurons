@@ -1,0 +1,243 @@
+{
+  "bulk_artifacts": "Remain outside Git; full1779-file cost inventory archived. No third-party weights or prediction arrays copied into Git.",
+  "bytes": 4071486,
+  "count": 39,
+  "files": [
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/cost-only-inventory.json",
+      "bytes": 533843,
+      "original_path": "environment/long-probes-20261018/cost-only-inventory.json",
+      "sha256": "7fa40d085658dadd9d25904e6fcf911f5979209f5cf09b096094d4bc44cff2e8"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/cost-only-invocation.json",
+      "bytes": 1446,
+      "original_path": "environment/long-probes-20261018/cost-only-invocation.json",
+      "sha256": "dc76761b60fdb077d6727f6a08fe9aa8e9dbc30f736946da3d8edb90b95cda10"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/cost-only-outer-measurement.json",
+      "bytes": 5691,
+      "original_path": "environment/long-probes-20261018/cost-only-outer-measurement.json",
+      "sha256": "c502f484cc5f5a48fd85127d5c142b70dc0b091687d95fba06afc493b7e2d3d1"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/cost-only-postcheck-v1-failed.py",
+      "bytes": 7799,
+      "original_path": "environment/long-probes-20261018/cost-only-postcheck-v1-failed.py",
+      "sha256": "aee0e502a31179b69fff873af136d3d96e371d0738b389ee0aef4f565ebb0d8f"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/cost-only-postcheck-v1-stderr.txt",
+      "bytes": 365,
+      "original_path": "environment/long-probes-20261018/cost-only-postcheck-v1-stderr.txt",
+      "sha256": "532d51f5c6f826fac699871aae14f0892b660f62b17d2e8fc092aae136f2160b"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/cost-only-postcheck.py",
+      "bytes": 8032,
+      "original_path": "environment/long-probes-20261018/cost-only-postcheck.py",
+      "sha256": "5f603dd390a1ea2606427656e362f00ede1ccccc225bce56f058861616a37cb7"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/cost-only-preflight.json",
+      "bytes": 192706,
+      "original_path": "environment/long-probes-20261018/cost-only-preflight.json",
+      "sha256": "890dd6be5ffb54c55504a3727b7b41f4d742baec20a9121ae6f39ce00ddd775d"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/cost-only-stderr.txt",
+      "bytes": 0,
+      "original_path": "environment/long-probes-20261018/cost-only-stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/cost-only-stdout.txt",
+      "bytes": 73,
+      "original_path": "environment/long-probes-20261018/cost-only-stdout.txt",
+      "sha256": "1e8aec4ea7ae1890dea2e334f7b1ef8a371ac417f70ccb65b61e42dde2da31c0"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/cost-only-stop.json",
+      "bytes": 310,
+      "original_path": "environment/long-probes-20261018/cost-only-stop.json",
+      "sha256": "12135cbd62107e9754f07bdb7d06ad4aeb996e710c437e2344141c29e3f0d881"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/cost-only-verification.json",
+      "bytes": 62369,
+      "original_path": "environment/long-probes-20261018/cost-only-verification.json",
+      "sha256": "bd0e3f1597009a43a6cedde0ad0e3f770a842aee71f939c983e3bb4ded141237"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/cost-only.py",
+      "bytes": 6112,
+      "original_path": "environment/long-probes-20261018/cost-only.py",
+      "sha256": "37b6f8e0a0944343244a2d3d6e45d05576e234d95ec23577a981b5983a1bb212"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/cpu128-raw.json",
+      "bytes": 67991,
+      "original_path": "environment/long-probes-20261018/cpu128-raw.json",
+      "sha256": "62c1e83808d41ef7f2056a7d112518f02a89e0da0d765fc26b35964439b2fbc5"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/cpu128-receipt.json",
+      "bytes": 80570,
+      "original_path": "environment/long-probes-20261018/cpu128-receipt.json",
+      "sha256": "e506511d50107138c0e94b1341687c5d9ff97e2fecac5b500a0d1946d1a93f43"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/phase-a-inventory.json",
+      "bytes": 2544,
+      "original_path": "environment/long-probes-20261018/phase-a-inventory.json",
+      "sha256": "052ee7469752e27c3d3b7c18a3d2454c9fa1c58dc0a550df4277d25fda3b4ab2"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/phase-a-stop.json",
+      "bytes": 2774,
+      "original_path": "environment/long-probes-20261018/phase-a-stop.json",
+      "sha256": "cb5e28bab181f97da87a404383d51211164dac622a8b0d6d32f889200fcca3ed"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/phase-a.py",
+      "bytes": 4673,
+      "original_path": "environment/long-probes-20261018/phase-a.py",
+      "sha256": "901a43b4a1c52898e0710b36f36151d047e1c030a52df3a150d7d02c92f18af7"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/preflight.json",
+      "bytes": 191986,
+      "original_path": "environment/long-probes-20261018/preflight.json",
+      "sha256": "849aea33ab24b1dc60b152f800f32a6b4dc764ee61a5a697104a99e53674b3df"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/receipt-invocation.json",
+      "bytes": 704,
+      "original_path": "environment/long-probes-20261018/receipt-invocation.json",
+      "sha256": "e079ad9e80d7145033bd93710f12b01a88d6ca5661638628dcd35f02b2815246"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/receipt-outer-measurement.json",
+      "bytes": 5445,
+      "original_path": "environment/long-probes-20261018/receipt-outer-measurement.json",
+      "sha256": "cdf171a66e61560ba6360897183bf128e4707d68d7b7a04b35946ad2d59eb1b9"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/receipt-producer.py",
+      "bytes": 1831,
+      "original_path": "environment/long-probes-20261018/receipt-producer.py",
+      "sha256": "40b257c44086baf01cd15ffd84e6f3f135ea0c3da8f6b06773246459537b96da"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/receipt-provenance.json",
+      "bytes": 1122,
+      "original_path": "environment/long-probes-20261018/receipt-provenance.json",
+      "sha256": "4961c7a43b353ab47d192e9bc89328e113158e28f97adedbfc9d90fcfd936a05"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/receipt-stderr.txt",
+      "bytes": 106,
+      "original_path": "environment/long-probes-20261018/receipt-stderr.txt",
+      "sha256": "1324000f07583a19d3325cc0b7113d0c5613ef442580ca30047f4f988ec8ec9c"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/execution/receipt-stdout.txt",
+      "bytes": 126,
+      "original_path": "environment/long-probes-20261018/receipt-stdout.txt",
+      "sha256": "7754e7f24968086064cdba3fa835ef905d39b36b1e2fbf442cf6972a594b659f"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/controller/task-2-report.md",
+      "bytes": 5225,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-2-report.md",
+      "sha256": "b6cdc80c28ef7e279ef4fcced3470cdc029c31258300ba7fba7ae88bc123fef7"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/controller/task-2-cost-report.md",
+      "bytes": 8144,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-2-cost-report.md",
+      "sha256": "483f050ba0813ba2d060b5d21a8bba8a1016a64c129e53636cd3cd63f1aa071f"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/controller/source-freeze.json",
+      "bytes": 10633,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/source-freeze.json",
+      "sha256": "6cd19744c46a5a4cc802475f53e2c41aca567d5fabb1b9321123a5d8380e9ecf"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/controller/receipt-root-validation.json",
+      "bytes": 438,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/receipt-root-validation.json",
+      "sha256": "9a2b26fcae4706cf5af0bbad83d29123345ed9b80f13804cba9f2a897639f43b"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/controller/phase-a-root-inventory-check.json",
+      "bytes": 165,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/phase-a-root-inventory-check.json",
+      "sha256": "f68724c56f418e1f235508a62d00a243f41a4c1ef8aca547780ac66118be7f3a"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/controller/cost-root-verification.json",
+      "bytes": 374,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/cost-root-verification.json",
+      "sha256": "1baa47028a4c3cd6df69c8e28d3373f8ef80566c76e6158234f6789c7cec3f2a"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/cost-record/members.json",
+      "bytes": 27749,
+      "original_path": "artifacts/long-probes-20261018/cost/members.json",
+      "sha256": "5058467d21b8f06681b7161bc08054d5a53d68e55459fbba571ad7345687f5dc"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/cost-record/members-seal.json",
+      "bytes": 78,
+      "original_path": "artifacts/long-probes-20261018/cost/members-seal.json",
+      "sha256": "3d7b76a16d91376228d476945b69b081623b0685d84edd05c93ea23660e62110"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/cost-record/study-lock.json",
+      "bytes": 3819,
+      "original_path": "artifacts/long-probes-20261018/cost/study-lock.json",
+      "sha256": "57e369bc8f671573c30f0a88b7e12a2af755b800c2f4f606be3b05c4f4e867af"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/cost-record/study-lock-seal.json",
+      "bytes": 78,
+      "original_path": "artifacts/long-probes-20261018/cost/study-lock-seal.json",
+      "sha256": "be6e998fe05e6e4500b6c2bd6b1148ead3ee7c085a6a32619f59c1707377fcd3"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/cost-record/resource-decision.json",
+      "bytes": 1398,
+      "original_path": "artifacts/long-probes-20261018/cost/resource-decision.json",
+      "sha256": "618bec4462c12e030d25db6f18b690fb80390071827559ad1845ebf29e9269ba"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/cost-record/resource-decision-seal.json",
+      "bytes": 78,
+      "original_path": "artifacts/long-probes-20261018/cost/resource-decision-seal.json",
+      "sha256": "7a3e998bb4eec9b41bfd75680fc59a6e39fc0bc90d6de389e4a92cc2049ce97d"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/cost-record/pair.json",
+      "bytes": 2657187,
+      "original_path": "artifacts/long-probes-20261018/cost/teacher-0/repetition-0/pair.json",
+      "sha256": "51fed2d344086fff56a632e35320133906eabfd3599269f3230e2929efcdf22c"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/cost-record/greedy_report.json",
+      "bytes": 88742,
+      "original_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/long-probes-20261018/cost/teacher-0/repetition-0/runs/31dfd6a64271474bbbea9b3b696ff645/greedy.json",
+      "sha256": "3962e1a0777c79520505b4cdd0aaecfb91cf93e6c062f3bc1b37bd57b49eb525"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cost/cost-record/greedy_long_report.json",
+      "bytes": 88760,
+      "original_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/long-probes-20261018/cost/teacher-0/repetition-0/runs/b8f17ccf23c64931914399ec591f72c0/greedy.json",
+      "sha256": "57fd8aa70c0ab670b78bf0a48feee2e8689749caa272f1b89f654efb9453b7ee"
+    }
+  ],
+  "full_cost_verified_files": 1791,
+  "source_sha256": "089b03d13e1950b8e0c1ff54a147a121cf78db66acaaa2dcedd9ebf29afc3543"
+}

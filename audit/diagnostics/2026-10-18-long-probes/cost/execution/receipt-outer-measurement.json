@@ -1,0 +1,104 @@
+{
+  "after": {
+    "disk": {
+      "argv": [
+        "df",
+        "-k",
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  iused     ifree %iused  Mounted on\n/dev/disk3s5   908850180 844588100  38709788    96% 11607280 387097880    3%   /System/Volumes/Data\n"
+    },
+    "memory_pressure": {
+      "argv": [
+        "memory_pressure",
+        "-Q"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 64%\n"
+    },
+    "power": {
+      "argv": [
+        "pmset",
+        "-g",
+        "batt"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; finishing charge; 0:04 remaining present: true\n"
+    },
+    "swap": {
+      "argv": [
+        "sysctl",
+        "vm.swapusage"
+      ],
+      "returncode": 1,
+      "stderr": "sysctl: sysctl fmt -1 1024 1: Operation not permitted\n",
+      "stdout": ""
+    },
+    "vm_stat": {
+      "argv": [
+        "vm_stat"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   477649.\nPages active:                                 480459.\nPages inactive:                               446046.\nPages speculative:                             82551.\nPages throttled:                                   0.\nPages wired down:                             254946.\nPages purgeable:                               23564.\n\"Translation faults\":                     6091819156.\nPages copy-on-write:                       495894573.\nPages zero filled:                        5670852826.\nPages reactivated:                         149747771.\nPages purged:                               46677874.\nFile-backed pages:                            506808.\nAnonymous pages:                              502248.\nPages stored in compressor:                  1189971.\nPages occupied by compressor:                 559044.\nDecompressions:                            159972445.\nCompressions:                              209207687.\nPageins:                                   154193706.\nPageouts:                                     692524.\nSwapins:                                     2864580.\nSwapouts:                                    4786629.\n"
+    }
+  },
+  "automatic_retries": 0,
+  "before": {
+    "disk": {
+      "argv": [
+        "df",
+        "-k",
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Filesystem   1024-blocks      Used Available Capacity  iused     ifree %iused  Mounted on\n/dev/disk3s5   908850180 844587800  38710088    96% 11607275 387100880    3%   /System/Volumes/Data\n"
+    },
+    "memory_pressure": {
+      "argv": [
+        "memory_pressure",
+        "-Q"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 64%\n"
+    },
+    "power": {
+      "argv": [
+        "pmset",
+        "-g",
+        "batt"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; finishing charge; 0:04 remaining present: true\n"
+    },
+    "swap": {
+      "argv": [
+        "sysctl",
+        "vm.swapusage"
+      ],
+      "returncode": 1,
+      "stderr": "sysctl: sysctl fmt -1 1024 1: Operation not permitted\n",
+      "stdout": ""
+    },
+    "vm_stat": {
+      "argv": [
+        "vm_stat"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   477965.\nPages active:                                 479674.\nPages inactive:                               446036.\nPages speculative:                             82528.\nPages throttled:                                   0.\nPages wired down:                             254937.\nPages purgeable:                               23554.\n\"Translation faults\":                     6091701994.\nPages copy-on-write:                       495881982.\nPages zero filled:                        5670817626.\nPages reactivated:                         149747771.\nPages purged:                               46677874.\nFile-backed pages:                            506764.\nAnonymous pages:                              501474.\nPages stored in compressor:                  1189973.\nPages occupied by compressor:                 559044.\nDecompressions:                            159972443.\nCompressions:                              209207687.\nPageins:                                   154193629.\nPageouts:                                     692524.\nSwapins:                                     2864580.\nSwapouts:                                    4786629.\n"
+    }
+  },
+  "boundary": "subprocess /usr/bin/time -l plus fresh interpreter from launch through exit; all final publication inside",
+  "finished_utc": "2026-10-17T23:06:54.198218+00:00",
+  "outer_elapsed_ns": 2630338166,
+  "returncode": 1,
+  "started_utc": "2026-10-17T23:06:51.567055+00:00"
+}

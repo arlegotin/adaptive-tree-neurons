@@ -1,0 +1,1998 @@
+{
+  "backend_probes": {
+    "comparison_blocks": [],
+    "decision": {
+      "block_medians_ns": {},
+      "comparison_order": [],
+      "excluded": {},
+      "logical_batch_size": 128,
+      "scope": "bounded d16/h64 F2306 calibration; remeasure for other workloads",
+      "scoring_backend": "cpu_float64",
+      "selected_backend": "cpu",
+      "selected_batches": {
+        "base_epoch": 128,
+        "grown_epoch": 128,
+        "score": 128
+      },
+      "selection_basis": "minimum median directly timed complete path; balanced ABBA when both backends pass",
+      "tolerance": {
+        "atol": 7.62939453125e-06,
+        "rtol": 3.0517578125e-05
+      },
+      "whole_method_ns": {
+        "cpu": 32849458
+      }
+    },
+    "probes": {
+      "cpu": {
+        "batch_sizes": [
+          128
+        ],
+        "calibration": {
+          "accumulation_max_abs": 0.0,
+          "base_epoch": [
+            {
+              "batch_size": 128,
+              "discarded_warmup_ns": [
+                3602250,
+                2525709,
+                2638458,
+                2500458
+              ],
+              "median_ns": 2500583,
+              "resources_before": {
+                "initial_reservation_bytes": 9663676416,
+                "mps_memory_bytes": {
+                  "current_allocated_memory": {
+                    "reason": "RuntimeError: MPS unavailable or not observable",
+                    "value": null
+                  },
+                  "driver_allocated_memory": {
+                    "reason": "RuntimeError: MPS unavailable or not observable",
+                    "value": null
+                  },
+                  "recommended_max_memory": {
+                    "reason": "RuntimeError: MPS unavailable or not observable",
+                    "value": null
+                  }
+                },
+                "observations": {
+                  "physical": {
+                    "command": [
+                      "sysctl",
+                      "-n",
+                      "hw.memsize"
+                    ],
+                    "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+                    "returncode": 1,
+                    "value": null
+                  },
+                  "power": {
+                    "command": [
+                      "pmset",
+                      "-g",
+                      "batt"
+                    ],
+                    "reason": null,
+                    "returncode": 0,
+                    "value": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=redacted)\t100%; finishing charge; 0:04 remaining present: true"
+                  },
+                  "pressure": {
+                    "command": [
+                      "memory_pressure",
+                      "-Q"
+                    ],
+                    "reason": null,
+                    "returncode": 0,
+                    "value": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 64%"
+                  },
+                  "pressure_level": {
+                    "command": [
+                      "sysctl",
+                      "-n",
+                      "kern.memorystatus_vm_pressure_level"
+                    ],
+                    "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+                    "returncode": 1,
+                    "value": null
+                  },
+                  "rss": {
+                    "command": [
+                      "ps",
+                      "-o",
+                      "rss=",
+                      "-p",
+                      "74906"
+                    ],
+                    "reason": "[Errno 1] Operation not permitted: 'ps'",
+                    "returncode": null,
+                    "value": null
+                  },
+                  "swap": {
+                    "command": [
+                      "sysctl",
+                      "-n",
+                      "vm.swapusage"
+                    ],
+                    "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+                    "returncode": 1,
+                    "value": null
+                  },
+                  "vm_stat": {
+                    "command": [
+                      "vm_stat"
+                    ],
+                    "reason": null,
+                    "returncode": 0,
+                    "value": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   451992.\nPages active:                                 506527.\nPages inactive:                               446046.\nPages speculative:                             82539.\nPages throttled:                                   0.\nPages wired down:                             253990.\nPages purgeable:                               24076.\n\"Translation faults\":                     6091764387.\nPages copy-on-write:                       495887029.\nPages zero filled:                        5670850353.\nPages reactivated:                         149747771.\nPages purged:                               46677874.\nFile-backed pages:                            506797.\nAnonymous pages:                              528315.\nPages stored in compressor:                  1189972.\nPages occupied by compressor:                 559044.\nDecompressions:                            159972444.\nCompressions:                              209207687.\nPageins:                                   154193668.\nPageouts:                                     692524.\nSwapins:                                     2864580.\nSwapouts:                                    4786629."
+                  }
+                },
+                "peak_rss_bytes": 289619968,
+                "pressure_headroom_bytes": {
+                  "interpretation": "coarse memory_pressure free percentage times physical; not free VM pages",
+                  "reason": "Native pressure/physical counters unavailable",
+                  "value": null
+                },
+                "rss_bytes": {
+                  "reason": "[Errno 1] Operation not permitted: 'ps'",
+                  "value": null
+                },
+                "swap_used_bytes": {
+                  "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+                  "value": null
+                },
+                "unified_memory_counters_overlap": true,
+                "utc": "2026-10-17T23:06:53.152418+00:00"
+              },
+              "rows_per_second": 922184.9464704831,
+              "samples_ns": [
+                2516083,
+                2461208,
+                2531292,
+                2500583,
+                2466750
+              ],
+              "timing_stable": true,
+              "warmup_stable": true
+            }
+          ],
+          "d": 16,
+          "grown_epoch": [
+            {
+              "batch_size": 128,
+              "discarded_warmup_ns": [
+                5743959,
+                4673375,
+                4667125,
+                4616708
+              ],
+              "median_ns": 4605917,
+              "resources_before": {
+                "initial_reservation_bytes": 9663676416,
+                "mps_memory_bytes": {
+                  "current_allocated_memory": {
+                    "reason": "RuntimeError: MPS unavailable or not observable",
+                    "value": null
+                  },
+                  "driver_allocated_memory": {
+                    "reason": "RuntimeError: MPS unavailable or not observable",
+                    "value": null
+                  },
+                  "recommended_max_memory": {
+                    "reason": "RuntimeError: MPS unavailable or not observable",
+                    "value": null
+                  }
+                },
+                "observations": {
+                  "physical": {
+                    "command": [
+                      "sysctl",
+                      "-n",
+                      "hw.memsize"
+                    ],
+                    "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+                    "returncode": 1,
+                    "value": null
+                  },
+                  "power": {
+                    "command": [
+                      "pmset",
+                      "-g",
+                      "batt"
+                    ],
+                    "reason": null,
+                    "returncode": 0,
+                    "value": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=redacted)\t100%; finishing charge; 0:04 remaining present: true"
+                  },
+                  "pressure": {
+                    "command": [
+                      "memory_pressure",
+                      "-Q"
+                    ],
+                    "reason": null,
+                    "returncode": 0,
+                    "value": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 64%"
+                  },
+                  "pressure_level": {
+                    "command": [
+                      "sysctl",
+                      "-n",
+                      "kern.memorystatus_vm_pressure_level"
+                    ],
+                    "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+                    "returncode": 1,
+                    "value": null
+                  },
+                  "rss": {
+                    "command": [
+                      "ps",
+                      "-o",
+                      "rss=",
+                      "-p",
+                      "74906"
+                    ],
+                    "reason": "[Errno 1] Operation not permitted: 'ps'",
+                    "returncode": null,
+                    "value": null
+                  },
+                  "swap": {
+                    "command": [
+                      "sysctl",
+                      "-n",
+                      "vm.swapusage"
+                    ],
+                    "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+                    "returncode": 1,
+                    "value": null
+                  },
+                  "vm_stat": {
+                    "command": [
+                      "vm_stat"
+                    ],
+                    "reason": null,
+                    "returncode": 0,
+                    "value": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   452324.\nPages active:                                 506530.\nPages inactive:                               446046.\nPages speculative:                             82539.\nPages throttled:                                   0.\nPages wired down:                             253990.\nPages purgeable:                               24076.\n\"Translation faults\":                     6091770355.\nPages copy-on-write:                       495888510.\nPages zero filled:                        5670850762.\nPages reactivated:                         149747771.\nPages purged:                               46677874.\nFile-backed pages:                            506797.\nAnonymous pages:                              528318.\nPages stored in compressor:                  1189972.\nPages occupied by compressor:                 559044.\nDecompressions:                            159972444.\nCompressions:                              209207687.\nPageins:                                   154193674.\nPageouts:                                     692524.\nSwapins:                                     2864580.\nSwapouts:                                    4786629."
+                  }
+                },
+                "peak_rss_bytes": 289652736,
+                "pressure_headroom_bytes": {
+                  "interpretation": "coarse memory_pressure free percentage times physical; not free VM pages",
+                  "reason": "Native pressure/physical counters unavailable",
+                  "value": null
+                },
+                "rss_bytes": {
+                  "reason": "[Errno 1] Operation not permitted: 'ps'",
+                  "value": null
+                },
+                "swap_used_bytes": {
+                  "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+                  "value": null
+                },
+                "unified_memory_counters_overlap": true,
+                "utc": "2026-10-17T23:06:53.211921+00:00"
+              },
+              "rows_per_second": 500660.3462459267,
+              "samples_ns": [
+                4597208,
+                4696708,
+                4605917,
+                4625459,
+                4577459
+              ],
+              "timing_stable": true,
+              "warmup_stable": true
+            }
+          ],
+          "h": 64,
+          "logical_batch_size": 128,
+          "memory_guard": "bounded physical<=128;512MiB allowance above9GiB current pressure headroom; normal pressure if observable; missing counters explicitly uncertified",
+          "n_rows": 2306,
+          "order": "base epoch, grown epoch, score; sizes ascending; isolated single process; no concurrent trials",
+          "precision_rule": "3..9 warmups until last3 range/median<=20%; 5..11 samples until last5 range/median<=20%; capped instability retained",
+          "rows_per_epoch": 2306,
+          "score": [
+            {
+              "batch_size": 128,
+              "discarded_warmup_ns": [
+                26913958,
+                25047500,
+                25292584
+              ],
+              "median_ns": 25746833,
+              "resources_before": {
+                "initial_reservation_bytes": 9663676416,
+                "mps_memory_bytes": {
+                  "current_allocated_memory": {
+                    "reason": "RuntimeError: MPS unavailable or not observable",
+                    "value": null
+                  },
+                  "driver_allocated_memory": {
+                    "reason": "RuntimeError: MPS unavailable or not observable",
+                    "value": null
+                  },
+                  "recommended_max_memory": {
+                    "reason": "RuntimeError: MPS unavailable or not observable",
+                    "value": null
+                  }
+                },
+                "observations": {
+                  "physical": {
+                    "command": [
+                      "sysctl",
+                      "-n",
+                      "hw.memsize"
+                    ],
+                    "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+                    "returncode": 1,
+                    "value": null
+                  },
+                  "power": {
+                    "command": [
+                      "pmset",
+                      "-g",
+                      "batt"
+                    ],
+                    "reason": null,
+                    "returncode": 0,
+                    "value": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=redacted)\t100%; finishing charge; 0:04 remaining present: true"
+                  },
+                  "pressure": {
+                    "command": [
+                      "memory_pressure",
+                      "-Q"
+                    ],
+                    "reason": null,
+                    "returncode": 0,
+                    "value": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 64%"
+                  },
+                  "pressure_level": {
+                    "command": [
+                      "sysctl",
+                      "-n",
+                      "kern.memorystatus_vm_pressure_level"
+                    ],
+                    "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+                    "returncode": 1,
+                    "value": null
+                  },
+                  "rss": {
+                    "command": [
+                      "ps",
+                      "-o",
+                      "rss=",
+                      "-p",
+                      "74906"
+                    ],
+                    "reason": "[Errno 1] Operation not permitted: 'ps'",
+                    "returncode": null,
+                    "value": null
+                  },
+                  "swap": {
+                    "command": [
+                      "sysctl",
+                      "-n",
+                      "vm.swapusage"
+                    ],
+                    "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+                    "returncode": 1,
+                    "value": null
+                  },
+                  "vm_stat": {
+                    "command": [
+                      "vm_stat"
+                    ],
+                    "reason": null,
+                    "returncode": 0,
+                    "value": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   452397.\nPages active:                                 506528.\nPages inactive:                               446046.\nPages speculative:                             82539.\nPages throttled:                                   0.\nPages wired down:                             253990.\nPages purgeable:                               24076.\n\"Translation faults\":                     6091776203.\nPages copy-on-write:                       495889984.\nPages zero filled:                        5670851168.\nPages reactivated:                         149747771.\nPages purged:                               46677874.\nFile-backed pages:                            506797.\nAnonymous pages:                              528316.\nPages stored in compressor:                  1189972.\nPages occupied by compressor:                 559044.\nDecompressions:                            159972444.\nCompressions:                              209207687.\nPageins:                                   154193680.\nPageouts:                                     692524.\nSwapins:                                     2864580.\nSwapouts:                                    4786629."
+                  }
+                },
+                "peak_rss_bytes": 289685504,
+                "pressure_headroom_bytes": {
+                  "interpretation": "coarse memory_pressure free percentage times physical; not free VM pages",
+                  "reason": "Native pressure/physical counters unavailable",
+                  "value": null
+                },
+                "rss_bytes": {
+                  "reason": "[Errno 1] Operation not permitted: 'ps'",
+                  "value": null
+                },
+                "swap_used_bytes": {
+                  "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+                  "value": null
+                },
+                "unified_memory_counters_overlap": true,
+                "utc": "2026-10-17T23:06:53.290775+00:00"
+              },
+              "rows_per_second": 89564.41361156924,
+              "samples_ns": [
+                24993958,
+                24824416,
+                26161167,
+                26797167,
+                25746833
+              ],
+              "timing_stable": true,
+              "warmup_stable": true
+            }
+          ],
+          "score_boundary": {
+            "device": "cpu",
+            "dtype": "torch.float64",
+            "includes": "synchronized trained-backend model copy to CPU, cast64, actual score_units; inputs already CPU64",
+            "transfer_samples_ns": [
+              448209,
+              207084,
+              176375,
+              216333,
+              188416,
+              184167,
+              222042,
+              224709,
+              198833,
+              164333,
+              166583,
+              172000,
+              174416,
+              162334,
+              183792,
+              209708
+            ],
+            "unit_block_size": 16
+          },
+          "selected_batches": {
+            "base_epoch": 128,
+            "grown_epoch": 128,
+            "score": 128
+          },
+          "stage_medians_sum_ns": 32853333,
+          "timing": "perf_counter_ns with MPS synchronize before/after whole region; includes reconstruction and AdamW creation",
+          "updates_per_epoch": 19,
+          "weighting": "sum squared losses / actual logical rows, then one AdamW step; tail logical2",
+          "whole_method": {
+            "batch_size": null,
+            "discarded_warmup_ns": [
+              35389334,
+              32935542,
+              32860041
+            ],
+            "logical_batch_size": 128,
+            "median_ns": 32849458,
+            "physical_batches": {
+              "base_epoch": 128,
+              "grown_epoch": 128,
+              "score": 128
+            },
+            "resources_before": {
+              "initial_reservation_bytes": 9663676416,
+              "mps_memory_bytes": {
+                "current_allocated_memory": {
+                  "reason": "RuntimeError: MPS unavailable or not observable",
+                  "value": null
+                },
+                "driver_allocated_memory": {
+                  "reason": "RuntimeError: MPS unavailable or not observable",
+                  "value": null
+                },
+                "recommended_max_memory": {
+                  "reason": "RuntimeError: MPS unavailable or not observable",
+                  "value": null
+                }
+              },
+              "observations": {
+                "physical": {
+                  "command": [
+                    "sysctl",
+                    "-n",
+                    "hw.memsize"
+                  ],
+                  "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+                  "returncode": 1,
+                  "value": null
+                },
+                "power": {
+                  "command": [
+                    "pmset",
+                    "-g",
+                    "batt"
+                  ],
+                  "reason": null,
+                  "returncode": 0,
+                  "value": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=redacted)\t100%; finishing charge; 0:04 remaining present: true"
+                },
+                "pressure": {
+                  "command": [
+                    "memory_pressure",
+                    "-Q"
+                  ],
+                  "reason": null,
+                  "returncode": 0,
+                  "value": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 64%"
+                },
+                "pressure_level": {
+                  "command": [
+                    "sysctl",
+                    "-n",
+                    "kern.memorystatus_vm_pressure_level"
+                  ],
+                  "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+                  "returncode": 1,
+                  "value": null
+                },
+                "rss": {
+                  "command": [
+                    "ps",
+                    "-o",
+                    "rss=",
+                    "-p",
+                    "74906"
+                  ],
+                  "reason": "[Errno 1] Operation not permitted: 'ps'",
+                  "returncode": null,
+                  "value": null
+                },
+                "swap": {
+                  "command": [
+                    "sysctl",
+                    "-n",
+                    "vm.swapusage"
+                  ],
+                  "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+                  "returncode": 1,
+                  "value": null
+                },
+                "vm_stat": {
+                  "command": [
+                    "vm_stat"
+                  ],
+                  "reason": null,
+                  "returncode": 0,
+                  "value": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   452573.\nPages active:                                 506569.\nPages inactive:                               446046.\nPages speculative:                             82540.\nPages throttled:                                   0.\nPages wired down:                             253990.\nPages purgeable:                               24077.\n\"Translation faults\":                     6091782533.\nPages copy-on-write:                       495891517.\nPages zero filled:                        5670851642.\nPages reactivated:                         149747771.\nPages purged:                               46677874.\nFile-backed pages:                            506798.\nAnonymous pages:                              528357.\nPages stored in compressor:                  1189972.\nPages occupied by compressor:                 559044.\nDecompressions:                            159972444.\nCompressions:                              209207687.\nPageins:                                   154193686.\nPageouts:                                     692524.\nSwapins:                                     2864580.\nSwapouts:                                    4786629."
+                }
+              },
+              "peak_rss_bytes": 291405824,
+              "pressure_headroom_bytes": {
+                "interpretation": "coarse memory_pressure free percentage times physical; not free VM pages",
+                "reason": "Native pressure/physical counters unavailable",
+                "value": null
+              },
+              "rss_bytes": {
+                "reason": "[Errno 1] Operation not permitted: 'ps'",
+                "value": null
+              },
+              "swap_used_bytes": {
+                "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+                "value": null
+              },
+              "unified_memory_counters_overlap": true,
+              "utc": "2026-10-17T23:06:53.536359+00:00"
+            },
+            "rows_per_second": 70199.02733250576,
+            "samples_ns": [
+              33891833,
+              32746417,
+              32872042,
+              32166292,
+              32849458
+            ],
+            "timing_stable": true,
+            "warmup_stable": true
+          },
+          "whole_method_boundary": "base epoch -> CPU64 copy/score -> matched growth -> grown epoch; fresh optimizer per phase",
+          "whole_method_ns": 32849458
+        },
+        "check": "actual_backend_kernels_and_batches",
+        "device": "cpu",
+        "environment": {
+          "architecture": "arm64",
+          "dtype": "torch.float32",
+          "fallback_env": "0",
+          "interop_threads": 1,
+          "mps_available": false,
+          "platform": "macOS-26.7.1-arm64-arm-64bit",
+          "python": "3.12.13",
+          "threads": 1,
+          "torch": "2.14.1"
+        },
+        "environment_sha256": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "exclusions": [
+          "float64 MPS forbidden; signed eigendecomposition CPU64 only",
+          "No implicit fallback; unsupported indispensable training op excludes whole backend"
+        ],
+        "fallback_disabled_before_import": true,
+        "implementation_sha256": "6f702a34dda4b260fbef75d800ef183fcfeb1f716f266b8895bef50d07189401",
+        "latest_resource_observation": {
+          "initial_reservation_bytes": 9663676416,
+          "mps_memory_bytes": {
+            "current_allocated_memory": {
+              "reason": "RuntimeError: MPS unavailable or not observable",
+              "value": null
+            },
+            "driver_allocated_memory": {
+              "reason": "RuntimeError: MPS unavailable or not observable",
+              "value": null
+            },
+            "recommended_max_memory": {
+              "reason": "RuntimeError: MPS unavailable or not observable",
+              "value": null
+            }
+          },
+          "observations": {
+            "physical": {
+              "command": [
+                "sysctl",
+                "-n",
+                "hw.memsize"
+              ],
+              "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+              "returncode": 1,
+              "value": null
+            },
+            "power": {
+              "command": [
+                "pmset",
+                "-g",
+                "batt"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=redacted)\t100%; finishing charge; 0:04 remaining present: true"
+            },
+            "pressure": {
+              "command": [
+                "memory_pressure",
+                "-Q"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 64%"
+            },
+            "pressure_level": {
+              "command": [
+                "sysctl",
+                "-n",
+                "kern.memorystatus_vm_pressure_level"
+              ],
+              "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+              "returncode": 1,
+              "value": null
+            },
+            "rss": {
+              "command": [
+                "ps",
+                "-o",
+                "rss=",
+                "-p",
+                "74906"
+              ],
+              "reason": "[Errno 1] Operation not permitted: 'ps'",
+              "returncode": null,
+              "value": null
+            },
+            "swap": {
+              "command": [
+                "sysctl",
+                "-n",
+                "vm.swapusage"
+              ],
+              "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+              "returncode": 1,
+              "value": null
+            },
+            "vm_stat": {
+              "command": [
+                "vm_stat"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   452573.\nPages active:                                 506569.\nPages inactive:                               446046.\nPages speculative:                             82540.\nPages throttled:                                   0.\nPages wired down:                             253990.\nPages purgeable:                               24077.\n\"Translation faults\":                     6091782533.\nPages copy-on-write:                       495891517.\nPages zero filled:                        5670851642.\nPages reactivated:                         149747771.\nPages purged:                               46677874.\nFile-backed pages:                            506798.\nAnonymous pages:                              528357.\nPages stored in compressor:                  1189972.\nPages occupied by compressor:                 559044.\nDecompressions:                            159972444.\nCompressions:                              209207687.\nPageins:                                   154193686.\nPageouts:                                     692524.\nSwapins:                                     2864580.\nSwapouts:                                    4786629."
+            }
+          },
+          "peak_rss_bytes": 291405824,
+          "pressure_headroom_bytes": {
+            "interpretation": "coarse memory_pressure free percentage times physical; not free VM pages",
+            "reason": "Native pressure/physical counters unavailable",
+            "value": null
+          },
+          "rss_bytes": {
+            "reason": "[Errno 1] Operation not permitted: 'ps'",
+            "value": null
+          },
+          "swap_used_bytes": {
+            "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+            "value": null
+          },
+          "unified_memory_counters_overlap": true,
+          "utc": "2026-10-17T23:06:53.536359+00:00"
+        },
+        "lock_sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "magnitudes": [
+          0.1,
+          1.0,
+          10.0
+        ],
+        "operations": {
+          "adamw_resumed_step": {
+            "max_abs": 1.1602222088624714e-07,
+            "max_relative": 7.058365492744299e-06,
+            "status": "passed",
+            "trials": [
+              {
+                "magnitude": 0.1,
+                "max_abs": 2.5855672797225893e-08,
+                "max_normalized_error": 0.0017956302463371656,
+                "max_relative": 4.743452556447475e-06,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 1.1602222088624714e-07,
+                "max_normalized_error": 0.011141588774015169,
+                "max_relative": 7.058365492744299e-06,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 3.171246948374673e-08,
+                "max_normalized_error": 0.002340187383481381,
+                "max_relative": 1.753522729276371e-06,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 2.711817506662051e-08,
+                "max_normalized_error": 0.0020506753348155833,
+                "max_relative": 1.8555572703859204e-06,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 2.6482389642312754e-08,
+                "max_normalized_error": 0.0018368971590044844,
+                "max_relative": 6.0687310786759944e-06,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 2.812641122784676e-08,
+                "max_normalized_error": 0.002125027017775918,
+                "max_relative": 2.6510144004828717e-06,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 2.5100600681282614e-08,
+                "max_normalized_error": 0.001922133767067295,
+                "max_relative": 8.907229611410148e-07,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 2.6607649250554033e-08,
+                "max_normalized_error": 0.0020908728661700893,
+                "max_relative": 1.5038374603080973e-06,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 2.4508248264165644e-08,
+                "max_normalized_error": 0.001734513574715087,
+                "max_relative": 1.6699137577675274e-06,
+                "seed": 1602032
+              }
+            ]
+          },
+          "adamw_step": {
+            "max_abs": 1.1152257362034845e-07,
+            "max_relative": 1.225776674638616e-05,
+            "status": "passed",
+            "trials": [
+              {
+                "magnitude": 0.1,
+                "max_abs": 1.670913060691781e-08,
+                "max_normalized_error": 0.0012667179359029009,
+                "max_relative": 1.0403232396989222e-06,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 1.1152257362034845e-07,
+                "max_normalized_error": 0.010732854435778994,
+                "max_relative": 1.2325033064878761e-06,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 2.199428539295667e-08,
+                "max_normalized_error": 0.0014401973454019762,
+                "max_relative": 5.543750906945212e-07,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 1.7478585689900683e-08,
+                "max_normalized_error": 0.0013003066928441243,
+                "max_relative": 1.1947826024486839e-05,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 1.620264555857176e-08,
+                "max_normalized_error": 0.001221979848039218,
+                "max_relative": 4.391109042953526e-06,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 1.6365847621546692e-08,
+                "max_normalized_error": 0.0010704541502651796,
+                "max_relative": 1.592645467467598e-06,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 1.6359558985268308e-08,
+                "max_normalized_error": 0.0012420614896620314,
+                "max_relative": 1.225776674638616e-05,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 1.634603338795948e-08,
+                "max_normalized_error": 0.001352099314185424,
+                "max_relative": 1.2597657641303591e-06,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 1.4737965764455296e-08,
+                "max_normalized_error": 0.0010855834354562468,
+                "max_relative": 2.2070526491187014e-07,
+                "seed": 1602032
+              }
+            ]
+          },
+          "gemm": {
+            "max_abs": 1.4542418114160682e-06,
+            "max_relative": 0.00011045132337755488,
+            "status": "passed",
+            "trials": [
+              {
+                "magnitude": 0.1,
+                "max_abs": 1.3922989872128255e-08,
+                "max_normalized_error": 0.0011895778883325905,
+                "max_relative": 4.8353082884203e-05,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 1.4619089339085178e-07,
+                "max_normalized_error": 0.013875430194554284,
+                "max_relative": 2.5063640137898747e-05,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 1.4542418114160682e-06,
+                "max_normalized_error": 0.05229777003997921,
+                "max_relative": 2.3931770944627946e-05,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 1.5283872487059647e-08,
+                "max_normalized_error": 0.0015490289884715924,
+                "max_relative": 2.6874922740152825e-05,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 1.210385485173049e-07,
+                "max_normalized_error": 0.005538701914450212,
+                "max_relative": 4.824233930886009e-05,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 1.393724083698089e-06,
+                "max_normalized_error": 0.04258546258856541,
+                "max_relative": 1.8840164441165186e-05,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 1.5998293106944672e-08,
+                "max_normalized_error": 0.0015729277474896687,
+                "max_relative": 1.1950666025839844e-05,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 1.1869221183680168e-07,
+                "max_normalized_error": 0.005360115865245679,
+                "max_relative": 2.6246887653893225e-05,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 1.3909845257842335e-06,
+                "max_normalized_error": 0.032044579859377684,
+                "max_relative": 0.00011045132337755488,
+                "seed": 1602032
+              }
+            ]
+          },
+          "index_copy": {
+            "max_abs": 4.76837158203125e-07,
+            "max_relative": 2.0668327156134245e-07,
+            "status": "passed",
+            "trials": [
+              {
+                "magnitude": 0.1,
+                "max_abs": 4.470348355378739e-09,
+                "max_normalized_error": 0.0004503519086161873,
+                "max_relative": 1.8931564705254248e-07,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 5.960464477539063e-08,
+                "max_normalized_error": 0.0019479343680228692,
+                "max_relative": 1.9995033927903462e-07,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 4.76837158203125e-07,
+                "max_normalized_error": 0.0024123846740542023,
+                "max_relative": 1.7725585039580396e-07,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 3.725290298461914e-09,
+                "max_normalized_error": 0.0004077474808701626,
+                "max_relative": 1.9141714760996296e-07,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 4.768371586472142e-08,
+                "max_normalized_error": 0.0019898241958940612,
+                "max_relative": 2.0668327156134245e-07,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 3.8146972691777137e-07,
+                "max_normalized_error": 0.0022866531299414353,
+                "max_relative": 1.7624009760581165e-07,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 5.960464483090178e-09,
+                "max_normalized_error": 0.0006196265817707701,
+                "max_relative": 1.817389285877197e-07,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 2.9802322387695312e-08,
+                "max_normalized_error": 0.0015624916941019862,
+                "max_relative": 1.8189875238655043e-07,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 4.76837158203125e-07,
+                "max_normalized_error": 0.002464344172987032,
+                "max_relative": 1.8852969586131862e-07,
+                "seed": 1602032
+              }
+            ]
+          },
+          "index_select": {
+            "max_abs": 3.973642981325298e-08,
+            "max_relative": 7.472251038299621e-08,
+            "status": "passed",
+            "trials": [
+              {
+                "magnitude": 0.1,
+                "max_abs": 3.3068700121957617e-10,
+                "max_normalized_error": 4.211863900379728e-05,
+                "max_relative": 6.685339525330037e-08,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 4.319177154821219e-09,
+                "max_normalized_error": 0.0004367637526231642,
+                "max_relative": 7.164213578354297e-08,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 3.973642981325298e-08,
+                "max_normalized_error": 0.0013324467692021659,
+                "max_relative": 5.766416762328266e-08,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 3.1718957235055134e-10,
+                "max_normalized_error": 4.0717679331605336e-05,
+                "max_relative": 7.472251038299621e-08,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 2.8074651492460134e-09,
+                "max_normalized_error": 0.00030134979409970165,
+                "max_relative": 6.892208073105853e-08,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 3.1961911006739285e-08,
+                "max_normalized_error": 0.0013652277574384235,
+                "max_relative": 6.406720329944603e-08,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 2.4970242974015067e-10,
+                "max_normalized_error": 3.2182299940003144e-05,
+                "max_relative": 5.8796733879203905e-08,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 4.643115447677815e-09,
+                "max_normalized_error": 0.00048608068602152383,
+                "max_relative": 7.36945844657203e-08,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 2.073205035424408e-08,
+                "max_normalized_error": 0.001127490367616132,
+                "max_relative": 7.02385457391486e-08,
+                "seed": 1602032
+              }
+            ]
+          },
+          "input_gradient": {
+            "max_abs": 1.4869735401323858e-08,
+            "max_relative": 0.00013869745173659783,
+            "status": "passed",
+            "trials": [
+              {
+                "magnitude": 0.1,
+                "max_abs": 3.246640253515287e-09,
+                "max_normalized_error": 0.0004066604761492955,
+                "max_relative": 1.0238691174511221e-05,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 3.0744448202557617e-09,
+                "max_normalized_error": 0.00038254458039592844,
+                "max_relative": 6.283408892571431e-06,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 8.12575679659533e-09,
+                "max_normalized_error": 0.0009405900015093453,
+                "max_relative": 1.0294412233369844e-05,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 2.821007372144635e-09,
+                "max_normalized_error": 0.00035682255794158347,
+                "max_relative": 8.31492230589261e-06,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 3.070746410621661e-09,
+                "max_normalized_error": 0.00038620540362118447,
+                "max_relative": 0.00013869745173659783,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 6.5518404313014145e-09,
+                "max_normalized_error": 0.0007187978726919017,
+                "max_relative": 9.864438025220335e-05,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 3.5184384780673206e-09,
+                "max_normalized_error": 0.00043133811865165347,
+                "max_relative": 1.0085680761212422e-05,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 3.1994951202318767e-09,
+                "max_normalized_error": 0.0003979936439029237,
+                "max_relative": 2.9382997048598046e-06,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 1.4869735401323858e-08,
+                "max_normalized_error": 0.0016927227416340372,
+                "max_relative": 1.1282075066591684e-05,
+                "seed": 1602032
+              }
+            ]
+          },
+          "layer_output": {
+            "max_abs": 3.0208872452419655e-06,
+            "max_relative": 0.0003649837904594627,
+            "status": "passed",
+            "trials": [
+              {
+                "magnitude": 0.1,
+                "max_abs": 7.471251023405401e-08,
+                "max_normalized_error": 0.00454428785531795,
+                "max_relative": 7.599069551334358e-05,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 2.7493674248368905e-07,
+                "max_normalized_error": 0.01179161542312357,
+                "max_relative": 6.145104848636224e-05,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 2.8812881538442525e-06,
+                "max_normalized_error": 0.06985844077687295,
+                "max_relative": 0.00013180740131873238,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 6.957170750609976e-08,
+                "max_normalized_error": 0.004394446944690387,
+                "max_relative": 2.1622168255713236e-05,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 4.161127846735724e-07,
+                "max_normalized_error": 0.013855092166362755,
+                "max_relative": 7.965119299144116e-05,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 3.0208872452419655e-06,
+                "max_normalized_error": 0.05448443423839779,
+                "max_relative": 1.5563840489462513e-05,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 9.246380539007504e-08,
+                "max_normalized_error": 0.005930468005845113,
+                "max_relative": 0.0003649837904594627,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 3.327249040729896e-07,
+                "max_normalized_error": 0.01054461114704445,
+                "max_relative": 0.0003438619726960017,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 2.2789682567747604e-06,
+                "max_normalized_error": 0.06365987021742459,
+                "max_relative": 2.306902959929842e-05,
+                "seed": 1602032
+              }
+            ]
+          },
+          "loss": {
+            "max_abs": 3.981022880239493e-07,
+            "max_relative": 1.0864084181010042e-07,
+            "status": "passed",
+            "trials": [
+              {
+                "magnitude": 0.1,
+                "max_abs": 3.30004967796782e-09,
+                "max_normalized_error": 9.820191676833992e-05,
+                "max_relative": 3.877120016793816e-09,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 1.3327549064356958e-08,
+                "max_normalized_error": 0.0003911899760604648,
+                "max_relative": 1.5383008479377518e-08,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 2.3106161073371823e-07,
+                "max_normalized_error": 0.0016245449337494052,
+                "max_relative": 5.238726363485151e-08,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 1.618773692868558e-08,
+                "max_normalized_error": 0.00040644588747376485,
+                "max_relative": 1.534282888470292e-08,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 6.180315392789737e-08,
+                "max_normalized_error": 0.0016486842970688882,
+                "max_relative": 6.317062979518762e-08,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 3.981022880239493e-07,
+                "max_normalized_error": 0.0024718225466497557,
+                "max_relative": 7.918511703796673e-08,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 1.982273816203417e-07,
+                "max_normalized_error": 0.0031309540770153624,
+                "max_relative": 1.0864084181010042e-07,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 2.0172096881765356e-08,
+                "max_normalized_error": 0.0003316434250779403,
+                "max_relative": 1.1572526165170358e-08,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 2.1171633335370643e-07,
+                "max_normalized_error": 0.0008980615981353341,
+                "max_relative": 2.8323276538516744e-08,
+                "seed": 1602032
+              }
+            ]
+          },
+          "parameter_gradients": {
+            "max_abs": 3.488564289000351e-06,
+            "max_relative": 0.0018721588288195482,
+            "status": "passed",
+            "trials": [
+              {
+                "magnitude": 0.1,
+                "max_abs": 1.5855961085775583e-08,
+                "max_normalized_error": 0.0015809655956718913,
+                "max_relative": 8.650689007217136e-06,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 6.251262726908458e-08,
+                "max_normalized_error": 0.004684027716377645,
+                "max_relative": 0.0010068034569567811,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 1.5374982478277843e-06,
+                "max_normalized_error": 0.03936810749612266,
+                "max_relative": 0.0018721588288195482,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 5.003649306001279e-08,
+                "max_normalized_error": 0.002190755186083981,
+                "max_relative": 4.5953365639545834e-05,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 7.379933852913467e-08,
+                "max_normalized_error": 0.00391493683659655,
+                "max_relative": 7.37842227604357e-05,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 2.67155858857393e-06,
+                "max_normalized_error": 0.030908183711284357,
+                "max_relative": 0.00011034968523959937,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 3.854606740738564e-08,
+                "max_normalized_error": 0.004375662880476739,
+                "max_relative": 1.7233075342349675e-05,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 6.788074907726482e-08,
+                "max_normalized_error": 0.00568090121123524,
+                "max_relative": 0.0005875706292087216,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 3.488564289000351e-06,
+                "max_normalized_error": 0.06686235618425163,
+                "max_relative": 0.0001990438396072688,
+                "seed": 1602032
+              }
+            ]
+          },
+          "prediction": {
+            "max_abs": 1.043610749817958e-06,
+            "max_relative": 1.0998465055358622e-05,
+            "status": "passed",
+            "trials": [
+              {
+                "magnitude": 0.1,
+                "max_abs": 1.2932476381455338e-08,
+                "max_normalized_error": 0.0014591064918191476,
+                "max_relative": 4.934328508523823e-06,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 5.8266798663719754e-08,
+                "max_normalized_error": 0.005544529198388266,
+                "max_relative": 6.999051984122374e-06,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 5.714519974997501e-07,
+                "max_normalized_error": 0.016834323666178416,
+                "max_relative": 1.366670066120872e-06,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 1.0883642043157948e-08,
+                "max_normalized_error": 0.0009564848750673178,
+                "max_relative": 1.3883135056724243e-07,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 5.905190791910542e-08,
+                "max_normalized_error": 0.0033715327870792356,
+                "max_relative": 1.7201324310554024e-06,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 6.262242093768577e-07,
+                "max_normalized_error": 0.015296703526030204,
+                "max_relative": 1.5188095255378173e-06,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 1.938966363856931e-08,
+                "max_normalized_error": 0.0022872742116667095,
+                "max_relative": 6.9795593256408e-07,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 7.214445657544033e-08,
+                "max_normalized_error": 0.0045147909940386295,
+                "max_relative": 1.0998465055358622e-05,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 1.043610749817958e-06,
+                "max_normalized_error": 0.009889747106715424,
+                "max_relative": 1.8371909515949175e-06,
+                "seed": 1602032
+              }
+            ]
+          },
+          "relu": {
+            "max_abs": 9.718148619164424e-09,
+            "max_relative": 7.768317704696074e-08,
+            "status": "passed",
+            "trials": [
+              {
+                "magnitude": 0.1,
+                "max_abs": 8.098457169626594e-11,
+                "max_normalized_error": 1.0562745945599196e-05,
+                "max_relative": 6.711712589196755e-08,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 6.478765735701275e-10,
+                "max_normalized_error": 8.137997226014163e-05,
+                "max_relative": 7.568301815940223e-08,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 5.830889160396424e-09,
+                "max_normalized_error": 0.0004928272668335219,
+                "max_relative": 6.970477520192722e-08,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 7.086150026133775e-11,
+                "max_normalized_error": 9.249086719744931e-06,
+                "max_relative": 7.053564772746885e-08,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 5.66892002090702e-10,
+                "max_normalized_error": 6.960885467658367e-05,
+                "max_relative": 7.368377215303463e-08,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 7.126642304067232e-09,
+                "max_normalized_error": 0.0005578546363972048,
+                "max_relative": 7.47234694738076e-08,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 7.086150026133775e-11,
+                "max_normalized_error": 9.246860381821993e-06,
+                "max_relative": 6.779957659775461e-08,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 8.90830288008404e-10,
+                "max_normalized_error": 0.00010922329905438947,
+                "max_relative": 7.768317704696074e-08,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 9.718148619164424e-09,
+                "max_normalized_error": 0.0008093495481573353,
+                "max_relative": 6.855420822027091e-08,
+                "seed": 1602032
+              }
+            ]
+          },
+          "resumed_update": {
+            "max_abs": 0.0,
+            "max_relative": 0.0,
+            "status": "passed",
+            "trials": [
+              {
+                "magnitude": 0.1,
+                "max_abs": 0.0,
+                "max_normalized_error": 0.0,
+                "max_relative": 0.0,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 0.0,
+                "max_normalized_error": 0.0,
+                "max_relative": 0.0,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 0.0,
+                "max_normalized_error": 0.0,
+                "max_relative": 0.0,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 0.0,
+                "max_normalized_error": 0.0,
+                "max_relative": 0.0,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 0.0,
+                "max_normalized_error": 0.0,
+                "max_relative": 0.0,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 0.0,
+                "max_normalized_error": 0.0,
+                "max_relative": 0.0,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 0.0,
+                "max_normalized_error": 0.0,
+                "max_relative": 0.0,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 0.0,
+                "max_normalized_error": 0.0,
+                "max_relative": 0.0,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 0.0,
+                "max_normalized_error": 0.0,
+                "max_relative": 0.0,
+                "seed": 1602032
+              }
+            ]
+          },
+          "serialization": {
+            "max_abs": 0.0,
+            "max_relative": 0.0,
+            "status": "passed",
+            "trials": [
+              {
+                "magnitude": 0.1,
+                "max_abs": 0.0,
+                "max_normalized_error": 0.0,
+                "max_relative": 0.0,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 0.0,
+                "max_normalized_error": 0.0,
+                "max_relative": 0.0,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 0.0,
+                "max_normalized_error": 0.0,
+                "max_relative": 0.0,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 0.0,
+                "max_normalized_error": 0.0,
+                "max_relative": 0.0,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 0.0,
+                "max_normalized_error": 0.0,
+                "max_relative": 0.0,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 0.0,
+                "max_normalized_error": 0.0,
+                "max_relative": 0.0,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 0.0,
+                "max_normalized_error": 0.0,
+                "max_relative": 0.0,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 0.0,
+                "max_normalized_error": 0.0,
+                "max_relative": 0.0,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 0.0,
+                "max_normalized_error": 0.0,
+                "max_relative": 0.0,
+                "seed": 1602032
+              }
+            ]
+          },
+          "sigmoid": {
+            "max_abs": 8.41003809926022e-08,
+            "max_relative": 1.0,
+            "status": "passed",
+            "trials": [
+              {
+                "magnitude": 0.1,
+                "max_abs": 5.3995905857640025e-08,
+                "max_normalized_error": 0.0023795423954744745,
+                "max_relative": 2.6002256520824804e-07,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 7.573330529364597e-08,
+                "max_normalized_error": 0.002242438538649835,
+                "max_relative": 4.5833864313474533e-07,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 7.310554772654854e-08,
+                "max_normalized_error": 0.0019216661801834834,
+                "max_relative": 1.0,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 5.0098527548669836e-08,
+                "max_normalized_error": 0.0022713182630882526,
+                "max_relative": 2.570784006324403e-07,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 6.64657420212933e-08,
+                "max_normalized_error": 0.0023300298781991193,
+                "max_relative": 8.556304993928459e-07,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 8.41003809926022e-08,
+                "max_normalized_error": 0.0022783041799115497,
+                "max_relative": 1.0,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 5.197466074191581e-08,
+                "max_normalized_error": 0.002371329751192736,
+                "max_relative": 2.52405987687653e-07,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 7.085320052890864e-08,
+                "max_normalized_error": 0.002134206653532459,
+                "max_relative": 1.6906793604599872e-06,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 7.90866864219808e-08,
+                "max_normalized_error": 0.00226476607464525,
+                "max_relative": 1.0,
+                "seed": 1602032
+              }
+            ]
+          },
+          "tanh": {
+            "max_abs": 5.8180577799937794e-08,
+            "max_relative": 1.0,
+            "status": "passed",
+            "trials": [
+              {
+                "magnitude": 0.1,
+                "max_abs": 1.001193161709324e-08,
+                "max_normalized_error": 0.0006560927808556421,
+                "max_relative": 1.5075321031366376e-07,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 2.9778390642221098e-08,
+                "max_normalized_error": 0.001262248314895346,
+                "max_relative": 1.6955942182752898e-05,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 4.193860225765178e-08,
+                "max_normalized_error": 0.0010993953319086698,
+                "max_relative": 1.0,
+                "seed": 1602030
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 1.1472810201862416e-08,
+                "max_normalized_error": 0.0006827043746391477,
+                "max_relative": 1.4450258496341282e-07,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 2.9732756368083813e-08,
+                "max_normalized_error": 0.001245287146711836,
+                "max_relative": 7.597072567420895e-06,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 5.8180577799937794e-08,
+                "max_normalized_error": 0.0015251690096668605,
+                "max_relative": 1.0,
+                "seed": 1602031
+              },
+              {
+                "magnitude": 0.1,
+                "max_abs": 1.1809334898860158e-08,
+                "max_normalized_error": 0.0007617536469513937,
+                "max_relative": 1.4863008966382955e-07,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 1.0,
+                "max_abs": 2.9789644306887908e-08,
+                "max_normalized_error": 0.0012762480212137777,
+                "max_relative": 6.56502568960269e-06,
+                "seed": 1602032
+              },
+              {
+                "magnitude": 10.0,
+                "max_abs": 5.123744795110241e-08,
+                "max_normalized_error": 0.0013431590106254112,
+                "max_relative": 1.0,
+                "seed": 1602032
+              }
+            ]
+          }
+        },
+        "reason": null,
+        "reference": {
+          "device": "cpu",
+          "dtype": "torch.float64"
+        },
+        "resource_deltas": {
+          "reason": "Swap counter unavailable",
+          "swap_used_bytes": null
+        },
+        "resources_after": {
+          "initial_reservation_bytes": 9663676416,
+          "mps_memory_bytes": {
+            "current_allocated_memory": {
+              "reason": "RuntimeError: MPS unavailable or not observable",
+              "value": null
+            },
+            "driver_allocated_memory": {
+              "reason": "RuntimeError: MPS unavailable or not observable",
+              "value": null
+            },
+            "recommended_max_memory": {
+              "reason": "RuntimeError: MPS unavailable or not observable",
+              "value": null
+            }
+          },
+          "observations": {
+            "physical": {
+              "command": [
+                "sysctl",
+                "-n",
+                "hw.memsize"
+              ],
+              "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+              "returncode": 1,
+              "value": null
+            },
+            "power": {
+              "command": [
+                "pmset",
+                "-g",
+                "batt"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=redacted)\t100%; finishing charge; 0:04 remaining present: true"
+            },
+            "pressure": {
+              "command": [
+                "memory_pressure",
+                "-Q"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 64%"
+            },
+            "pressure_level": {
+              "command": [
+                "sysctl",
+                "-n",
+                "kern.memorystatus_vm_pressure_level"
+              ],
+              "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+              "returncode": 1,
+              "value": null
+            },
+            "rss": {
+              "command": [
+                "ps",
+                "-o",
+                "rss=",
+                "-p",
+                "74906"
+              ],
+              "reason": "[Errno 1] Operation not permitted: 'ps'",
+              "returncode": null,
+              "value": null
+            },
+            "swap": {
+              "command": [
+                "sysctl",
+                "-n",
+                "vm.swapusage"
+              ],
+              "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+              "returncode": 1,
+              "value": null
+            },
+            "vm_stat": {
+              "command": [
+                "vm_stat"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   452275.\nPages active:                                 506578.\nPages inactive:                               446046.\nPages speculative:                             82540.\nPages throttled:                                   0.\nPages wired down:                             253990.\nPages purgeable:                               24077.\n\"Translation faults\":                     6091789066.\nPages copy-on-write:                       495893077.\nPages zero filled:                        5670852086.\nPages reactivated:                         149747771.\nPages purged:                               46677874.\nFile-backed pages:                            506798.\nAnonymous pages:                              528366.\nPages stored in compressor:                  1189972.\nPages occupied by compressor:                 559044.\nDecompressions:                            159972444.\nCompressions:                              209207687.\nPageins:                                   154193692.\nPageouts:                                     692524.\nSwapins:                                     2864580.\nSwapouts:                                    4786629."
+            }
+          },
+          "peak_rss_bytes": 291880960,
+          "pressure_headroom_bytes": {
+            "interpretation": "coarse memory_pressure free percentage times physical; not free VM pages",
+            "reason": "Native pressure/physical counters unavailable",
+            "value": null
+          },
+          "rss_bytes": {
+            "reason": "[Errno 1] Operation not permitted: 'ps'",
+            "value": null
+          },
+          "swap_used_bytes": {
+            "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+            "value": null
+          },
+          "unified_memory_counters_overlap": true,
+          "utc": "2026-10-17T23:06:53.839330+00:00"
+        },
+        "resources_before": {
+          "initial_reservation_bytes": 9663676416,
+          "mps_memory_bytes": {
+            "current_allocated_memory": {
+              "reason": "RuntimeError: MPS unavailable or not observable",
+              "value": null
+            },
+            "driver_allocated_memory": {
+              "reason": "RuntimeError: MPS unavailable or not observable",
+              "value": null
+            },
+            "recommended_max_memory": {
+              "reason": "RuntimeError: MPS unavailable or not observable",
+              "value": null
+            }
+          },
+          "observations": {
+            "physical": {
+              "command": [
+                "sysctl",
+                "-n",
+                "hw.memsize"
+              ],
+              "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+              "returncode": 1,
+              "value": null
+            },
+            "power": {
+              "command": [
+                "pmset",
+                "-g",
+                "batt"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=redacted)\t100%; finishing charge; 0:04 remaining present: true"
+            },
+            "pressure": {
+              "command": [
+                "memory_pressure",
+                "-Q"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 64%"
+            },
+            "pressure_level": {
+              "command": [
+                "sysctl",
+                "-n",
+                "kern.memorystatus_vm_pressure_level"
+              ],
+              "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+              "returncode": 1,
+              "value": null
+            },
+            "rss": {
+              "command": [
+                "ps",
+                "-o",
+                "rss=",
+                "-p",
+                "74906"
+              ],
+              "reason": "[Errno 1] Operation not permitted: 'ps'",
+              "returncode": null,
+              "value": null
+            },
+            "swap": {
+              "command": [
+                "sysctl",
+                "-n",
+                "vm.swapusage"
+              ],
+              "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+              "returncode": 1,
+              "value": null
+            },
+            "vm_stat": {
+              "command": [
+                "vm_stat"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   457567.\nPages active:                                 500155.\nPages inactive:                               446041.\nPages speculative:                             82542.\nPages throttled:                                   0.\nPages wired down:                             254981.\nPages purgeable:                               23575.\n\"Translation faults\":                     6091744959.\nPages copy-on-write:                       495885327.\nPages zero filled:                        5670842139.\nPages reactivated:                         149747771.\nPages purged:                               46677874.\nFile-backed pages:                            506787.\nAnonymous pages:                              521951.\nPages stored in compressor:                  1189973.\nPages occupied by compressor:                 559044.\nDecompressions:                            159972443.\nCompressions:                              209207687.\nPageins:                                   154193650.\nPageouts:                                     692524.\nSwapins:                                     2864580.\nSwapouts:                                    4786629."
+            }
+          },
+          "peak_rss_bytes": 204996608,
+          "pressure_headroom_bytes": {
+            "interpretation": "coarse memory_pressure free percentage times physical; not free VM pages",
+            "reason": "Native pressure/physical counters unavailable",
+            "value": null
+          },
+          "rss_bytes": {
+            "reason": "[Errno 1] Operation not permitted: 'ps'",
+            "value": null
+          },
+          "swap_used_bytes": {
+            "reason": "sysctl: sysctl fmt -1 1024 1: Operation not permitted",
+            "value": null
+          },
+          "unified_memory_counters_overlap": true,
+          "utc": "2026-10-17T23:06:52.652985+00:00"
+        },
+        "schema_version": 1,
+        "seeds": [
+          1602030,
+          1602031,
+          1602032
+        ],
+        "status": "passed",
+        "tolerance": {
+          "atol": 7.62939453125e-06,
+          "rtol": 3.0517578125e-05
+        },
+        "tolerance_basis": "64 eps absolute +256 eps relative, binary32 eps; short d<=16,h<=64 reductions. Fixed before native results; all errors recorded including CPU32 baseline, no MPS allowance.",
+        "utc": "2026-10-17T23:06:52.613530+00:00"
+      }
+    }
+  }
+}

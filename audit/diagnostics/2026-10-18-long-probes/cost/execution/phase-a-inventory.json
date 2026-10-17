@@ -1,0 +1,69 @@
+{
+  "artifacts": [
+    {
+      "bytes": 5225,
+      "path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-2-report.md",
+      "sha256": "b6cdc80c28ef7e279ef4fcced3470cdc029c31258300ba7fba7ae88bc123fef7"
+    },
+    {
+      "bytes": 67991,
+      "path": "environment/long-probes-20261018/cpu128-raw.json",
+      "sha256": "62c1e83808d41ef7f2056a7d112518f02a89e0da0d765fc26b35964439b2fbc5"
+    },
+    {
+      "bytes": 80570,
+      "path": "environment/long-probes-20261018/cpu128-receipt.json",
+      "sha256": "e506511d50107138c0e94b1341687c5d9ff97e2fecac5b500a0d1946d1a93f43"
+    },
+    {
+      "bytes": 2774,
+      "path": "environment/long-probes-20261018/phase-a-stop.json",
+      "sha256": "cb5e28bab181f97da87a404383d51211164dac622a8b0d6d32f889200fcca3ed"
+    },
+    {
+      "bytes": 4673,
+      "path": "environment/long-probes-20261018/phase-a.py",
+      "sha256": "901a43b4a1c52898e0710b36f36151d047e1c030a52df3a150d7d02c92f18af7"
+    },
+    {
+      "bytes": 191986,
+      "path": "environment/long-probes-20261018/preflight.json",
+      "sha256": "849aea33ab24b1dc60b152f800f32a6b4dc764ee61a5a697104a99e53674b3df"
+    },
+    {
+      "bytes": 704,
+      "path": "environment/long-probes-20261018/receipt-invocation.json",
+      "sha256": "e079ad9e80d7145033bd93710f12b01a88d6ca5661638628dcd35f02b2815246"
+    },
+    {
+      "bytes": 5445,
+      "path": "environment/long-probes-20261018/receipt-outer-measurement.json",
+      "sha256": "cdf171a66e61560ba6360897183bf128e4707d68d7b7a04b35946ad2d59eb1b9"
+    },
+    {
+      "bytes": 1831,
+      "path": "environment/long-probes-20261018/receipt-producer.py",
+      "sha256": "40b257c44086baf01cd15ffd84e6f3f135ea0c3da8f6b06773246459537b96da"
+    },
+    {
+      "bytes": 1122,
+      "path": "environment/long-probes-20261018/receipt-provenance.json",
+      "sha256": "4961c7a43b353ab47d192e9bc89328e113158e28f97adedbfc9d90fcfd936a05"
+    },
+    {
+      "bytes": 106,
+      "path": "environment/long-probes-20261018/receipt-stderr.txt",
+      "sha256": "1324000f07583a19d3325cc0b7113d0c5613ef442580ca30047f4f988ec8ec9c"
+    },
+    {
+      "bytes": 126,
+      "path": "environment/long-probes-20261018/receipt-stdout.txt",
+      "sha256": "7754e7f24968086064cdba3fa835ef905d39b36b1e2fbf442cf6972a594b659f"
+    }
+  ],
+  "cohort_run": false,
+  "cost_directory_exists": false,
+  "self_hash_excluded": "Self-referential inventory cannot contain its own SHA256.",
+  "self_path": "environment/long-probes-20261018/phase-a-inventory.json",
+  "total_inventoried_bytes": 362553
+}

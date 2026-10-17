@@ -1,0 +1,1 @@
+{"status": "passed", "validated": true, "receipt_sha256": "e506511d50107138c0e94b1341687c5d9ff97e2fecac5b500a0d1946d1a93f43"}

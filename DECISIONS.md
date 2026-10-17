@@ -694,3 +694,38 @@ complete outer command and post-publication bytes; its broader forecast will
 inform the prospective resource decision. No predictive conclusion, completed
 production receipt, cost comparison or cohort is claimed by these tests.
 Source is now held fixed for the fresh CPU receipt and engineering cost run.
+
+## D030 — 18 October 2026: measured longer-probe cost; lock the fixed exploratory cohort
+
+The first complete cost comparison passed both65-trial searches and all nine
+final roles, with no model failure/retry. It took504.277314250 seconds through
+process exit, retained744,987,498 bytes and peaked at733,855,744 bytes RSS.
+Root independently verified1,791 new files/745,280,545 bytes, all seals and
+unchanged execution bytes. [Cost evidence](audit/diagnostics/2026-10-18-long-probes/cost/index.json)
+includes exact raw receipts, commands, stopping counts, original records and
+root checks. No cost-problem accuracy determined the design.
+
+The [resource decision](pilot/long-probes-20261018/resource-decision.json) uses
+16 comparisons ×1.5:12,102.655542 seconds, with one-sample uncertainty and no
+automatic time kill. Logical storage projects17,879,699,952 bytes. A conservative
+physical-disk budget uses the larger measured positive free-space delta,
+projecting21,364,703,232 bytes plus10GiB reserve. Actual free space38,716,370,944
+bytes leaves6,614,249,472 bytes beyond that budget and reserve. Native memory
+availability stayed64%, swapouts did not increase, and RSS stayed below6GiB.
+The [hashed diagnostic declaration](protocol/diagnostics/2026-10-18-long-probes-lock.json)
+fixes eight fresh teachers/R2, seeds, all nine roles, analysis, failure policy and
+execution identities before cohort fitting. It is not a FrozenProtocol or
+confirmation. The original unresolved pilot/strong-baseline gates stay intact.
+
+Operational ruling: retain the successfully validated CPU receipt despite the
+OS timing wrapper's later exit1, then measure the first cost comparison with
+Python elapsed/RSS counters. The sandbox denied `sysctl kern.clockrate` inside
+`/usr/bin/time -l`; no model fit had started. Root separately validated all15
+CPU operations. Supplementary OS timing counters are unavailable; full Python
+outer elapsed, child RSS, native pressure/swap observations and post-publication
+bytes are retained. The earlier failure and read-only checker corrections stay
+visible; no numerical retry or old-artifact rewrite occurred.
+
+Proceed serially with the complete fixed cohort under the committed source,
+then independently audit raw predictions and replay/restoration. Do not choose
+continuation, counts or exclusions from intermediate results.

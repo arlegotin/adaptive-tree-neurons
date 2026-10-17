@@ -1,0 +1,111 @@
+{
+  "after": {
+    "free_disk_bytes": 38744489984,
+    "memory_pressure": {
+      "argv": [
+        "memory_pressure",
+        "-Q"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 64%\n"
+    },
+    "power": {
+      "argv": [
+        "pmset",
+        "-g",
+        "batt"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+    },
+    "vm_stat": {
+      "argv": [
+        "vm_stat"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   391096.\nPages active:                                 518309.\nPages inactive:                               499755.\nPages speculative:                             77000.\nPages throttled:                                   0.\nPages wired down:                             255829.\nPages purgeable:                               23553.\n\"Translation faults\":                     6094871716.\nPages copy-on-write:                       496023943.\nPages zero filled:                        5671719491.\nPages reactivated:                         149748340.\nPages purged:                               46677987.\nFile-backed pages:                            553369.\nAnonymous pages:                              541695.\nPages stored in compressor:                  1188963.\nPages occupied by compressor:                 558532.\nDecompressions:                            159973448.\nCompressions:                              209207687.\nPageins:                                   154197387.\nPageouts:                                     692524.\nSwapins:                                     2864618.\nSwapouts:                                    4786629.\n"
+    }
+  },
+  "automatic_retries": 0,
+  "before": {
+    "free_disk_bytes": 39634685952,
+    "memory_pressure": {
+      "argv": [
+        "memory_pressure",
+        "-Q"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 64%\n"
+    },
+    "power": {
+      "argv": [
+        "pmset",
+        "-g",
+        "batt"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; finishing charge; 0:02 remaining present: true\n"
+    },
+    "vm_stat": {
+      "argv": [
+        "vm_stat"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   469532.\nPages active:                                 491764.\nPages inactive:                               446119.\nPages speculative:                             81021.\nPages throttled:                                   0.\nPages wired down:                             253419.\nPages purgeable:                               23529.\n\"Translation faults\":                     6091996133.\nPages copy-on-write:                       495908810.\nPages zero filled:                        5670911455.\nPages reactivated:                         149747837.\nPages purged:                               46677918.\nFile-backed pages:                            505305.\nAnonymous pages:                              513599.\nPages stored in compressor:                  1189717.\nPages occupied by compressor:                 558917.\nDecompressions:                            159972699.\nCompressions:                              209207687.\nPageins:                                   154194651.\nPageouts:                                     692524.\nSwapins:                                     2864584.\nSwapouts:                                    4786629.\n"
+    }
+  },
+  "bytes_boundary": "All regular files below cost output after measure process exit; environment execution evidence excluded",
+  "child_peak_rss_boundary": "RUSAGE_CHILDREN maximum over completed children of this fresh wrapper; before baseline retained; final observation taken before post-native subprocesses or caffeinate termination",
+  "child_peak_rss_bytes": 733855744,
+  "child_system_seconds": 37.101361000000004,
+  "child_user_seconds": 463.13484,
+  "children_usage_after": {
+    "ru_idrss": 0,
+    "ru_inblock": 0,
+    "ru_isrss": 0,
+    "ru_ixrss": 0,
+    "ru_majflt": 352,
+    "ru_maxrss": 733855744,
+    "ru_minflt": 1671399,
+    "ru_msgrcv": 0,
+    "ru_msgsnd": 0,
+    "ru_nivcsw": 36149,
+    "ru_nsignals": 0,
+    "ru_nswap": 0,
+    "ru_nvcsw": 129140,
+    "ru_oublock": 0,
+    "ru_stime": 37.125883,
+    "ru_utime": 463.150539
+  },
+  "children_usage_before": {
+    "ru_idrss": 0,
+    "ru_inblock": 0,
+    "ru_isrss": 0,
+    "ru_ixrss": 0,
+    "ru_majflt": 30,
+    "ru_maxrss": 9158656,
+    "ru_minflt": 4226,
+    "ru_msgrcv": 0,
+    "ru_msgsnd": 0,
+    "ru_nivcsw": 101,
+    "ru_nsignals": 0,
+    "ru_nswap": 0,
+    "ru_nvcsw": 1,
+    "ru_oublock": 0,
+    "ru_stime": 0.024522,
+    "ru_utime": 0.015698999999999998
+  },
+  "elapsed_boundary": "perf_counter_ns immediately around subprocess.run launch through process exit; all final measure publication included; pre/post native counters excluded",
+  "final_post_publication_file_count": 1779,
+  "final_post_publication_retained_bytes": 744987498,
+  "finished_utc": "2026-10-17T23:16:55.223671+00:00",
+  "outer_elapsed_ns": 504277314250,
+  "returncode": 0,
+  "started_utc": "2026-10-17T23:08:30.942323+00:00"
+}

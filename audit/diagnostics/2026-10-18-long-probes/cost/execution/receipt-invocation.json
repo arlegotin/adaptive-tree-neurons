@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+    "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/long-probes-20261018/receipt-producer.py"
+  ],
+  "automatic_retries": 0,
+  "bootstrap": "Fresh Python sets torch CPU1/inter-op1 before runpy module entry; BLAS/fallback exported before interpreter startup.",
+  "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+  "environment": {
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "logical_cli": null
+}
