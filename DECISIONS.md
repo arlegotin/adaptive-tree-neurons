@@ -780,3 +780,47 @@ eighteen historical rulings remain unchanged. The only new controller ruling is
 D030's Python timing-wrapper recovery and its missing supplementary OS counters.
 The focused plan is complete after publication verification and its local commit;
 the larger original evidence program is not complete. Work stays on main.
+
+## D032 — 18 October 2026: public research release
+
+The owner explicitly requested public preparation and publication. The release
+keeps the scientific source, tests, configurations, core lock and original
+reports unchanged from research handoff `7af00e8`. Preparation commits `a7e692c`
+and `b1f04bc` add a human README using the requested write-like-me skill, concrete
+results and limits, runnable layer example, reproduction guidance, citation,
+contribution notes and retained licensing/provenance.
+
+Original software uses AGPL-3.0-only; original prose and result presentation use
+CC BY 4.0, matching the owner's recent research repositories. Vendored
+NODE/entmax/QHOptim retain MIT. The distribution expression includes all three
+terms after independent review; all eight legal/notice files and canonical
+license bytes were checked. CITATION.cff validates against official CFF 1.2.0,
+identifies Artem Legotin/software 0.1.0 and invents no DOI or paper.
+
+The clean-clone quick start passed 89 tests/1skip, both standalone references,
+the actual layer example and CLI help. A first core-only full attempt retained
+928 passes / 48 skips / 74 failures in 1920.73s. All failures were setup-related:49
+interop-thread mismatches and 25 optional reference/search dependency cases.
+Existing hash-pinned overlays plus explicit Torch thread initialization resolved
+all 74; an expanded affected/core/train/checkpoint run passed 228 / 1 skip in 82.27s.
+The two results remain distinct; no second full-suite pass is claimed. The
+[publication record](provenance/publication/2026-10-18/index.json) preserves both
+outputs and the corrected setup without changing experiment code or outcomes.
+
+The complete reachable history was scanned. All 71 initial candidates were
+contextually inspected SHA-256 experiment identities, with 68 independently
+recomputed. Exactly 59 immutable historical fingerprints are dispositioned; no
+whole-rule/path/hex-pattern suppression exists. Staged and final committed scans
+reported no new findings. The bounded review found no credential blocker.
+Selected synthetic fixtures, owner identity and historical local paths remain
+disclosed; full research archives and environments remain external.
+
+Prepared main was pushed while private, then
+[arlegotin/adaptive-tree-neurons](https://github.com/arlegotin/adaptive-tree-neurons)
+was made public. Anonymous API/raw requests verified public visibility, main
+commit `b1f04bc`, exact README bytes, citation and recognized AGPL license. The
+[publication receipt](provenance/publication/2026-10-18/public-verification.json)
+records that initial public source commit; subsequent receipt-only changes do
+not alter it. Public presentation emphasizes the working primitive and reusable
+matched experiment while retaining the inconclusive placement result. Original
+confirmation and practical-baseline gates remain unmet.

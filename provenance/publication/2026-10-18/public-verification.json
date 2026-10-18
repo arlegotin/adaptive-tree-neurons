@@ -1,0 +1,26 @@
+{
+  "verified_at_utc": "2026-10-18T09:39:49.416250+00:00",
+  "repository": "https://github.com/arlegotin/adaptive-tree-neurons",
+  "visibility": "public",
+  "anonymous_requests": true,
+  "authorization_header_used": false,
+  "published_commit": "b1f04bcd079d830ee94a20f3503da4e2136861f6",
+  "remote_main_equals_local": true,
+  "anonymous_readme_equals_local": true,
+  "readme_sha256": "8a0dd5291243646371a96d0986837de3ec40520b6f831580372a7fb578fa6466",
+  "citation_blob_sha": "bf57531783b7bfcb5d0d27a2eed841d650b8ef4b",
+  "license_blob_sha": "be3f7b28e564e7dd05eaf59d64adba1a4065ac0e",
+  "github_license_spdx": "AGPL-3.0",
+  "topics": [
+    "capacity-allocation",
+    "conditional-computation",
+    "neural-network-growth",
+    "neural-networks",
+    "pytorch",
+    "regression",
+    "reproducible-research"
+  ],
+  "description": "Function-preserving neuron growth in PyTorch. Matched capacity-allocation experiments, exact training replay, and fully costed selection.",
+  "source_release": "0.1.0",
+  "scientific_result_claims_unchanged": true
+}

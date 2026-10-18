@@ -88,3 +88,13 @@ Historical source-specific test counts are not reused as a new pass.
 
 The [reproduction guide](../REPRODUCE.md) separates checking the software,
 authenticating a historical result and running a fresh experiment.
+
+## Published repository
+
+[arlegotin/adaptive-tree-neurons](https://github.com/arlegotin/adaptive-tree-neurons)
+became public on 18 October 2026 after preparation commit `b1f04bc` was pushed.
+Anonymous API/raw-content requests confirmed public visibility, main's commit,
+the exact README, citation file and recognized AGPL license. The
+[publication receipt](../provenance/publication/2026-10-18/public-verification.json)
+records that initial public source commit. Later receipt-only commits preserve
+the scientific implementation, results and README bytes.

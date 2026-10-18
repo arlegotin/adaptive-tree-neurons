@@ -116,6 +116,16 @@
       "sha256": "d2c1ca4e5306d0cf9c679d13457733fe75cb330815a53b5d7d3b5ea27a4306e3"
     },
     {
+      "path": "provenance/publication/2026-10-18/final-history-scan.log",
+      "bytes": 115,
+      "sha256": "9d4688db3783513f73e6b4e2a8ecf5870d4a7519a31dca3704eabb75f7a71b92"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/final-history-secrets.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
       "path": "provenance/publication/2026-10-18/history-after-review-check.json",
       "bytes": 769,
       "sha256": "085d7c26c91bcde272e04c3fa9058847dcc641d13fbbec51bec7e170a49a504f"
@@ -181,6 +191,16 @@
       "sha256": "15e8abb1a83917a17c79fc8c59e7d7e28785f1a6b7929105237855d1b780d26f"
     },
     {
+      "path": "provenance/publication/2026-10-18/public-verification.json",
+      "bytes": 1047,
+      "sha256": "d8a88f4cc5b88881f2d680a1e615a38cda8cd3517270ea07051234d95a3ce4ce"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/publication-ledger.md",
+      "bytes": 6344,
+      "sha256": "e88092b3b1a2b370dcfc0538e7657b9f399185b987d11aee94d53cb080d428a0"
+    },
+    {
       "path": "provenance/publication/2026-10-18/readme-checks.log",
       "bytes": 191,
       "sha256": "1b71c06b085858ccdf57bd294f6e2b48850ead49e10a81c8f18b0bd677074bdc"
@@ -211,13 +231,23 @@
       "sha256": "8b9f6280cd79b4db0ca00c89e0340bddc94e712bbc092ae7d2da63155c51b803"
     },
     {
+      "path": "provenance/publication/2026-10-18/staged-scan.log",
+      "bytes": 113,
+      "sha256": "d563e4a84e6849b7ad508d32095fd3bbf239a918f42117df5d99a78568108d12"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/staged-secrets.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
       "path": "provenance/publication/2026-10-18/writing-skill.json",
       "bytes": 654,
       "sha256": "1bccd64d2d0f5b02698fe60b994eac321e98ca79bd319c8e3ebaec3e3b0cf8b7"
     }
   ],
-  "count": 43,
-  "bytes": 551216,
+  "count": 49,
+  "bytes": 558841,
   "self_hash_excluded": true,
-  "bulk_assets": "Environments, full research archives, scanner binary and package builds remain ignored."
+  "bulk_assets": "Full research archives, environments, scanner binary and built distributions remain ignored."
 }
