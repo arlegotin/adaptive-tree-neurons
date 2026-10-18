@@ -884,3 +884,10 @@ retry-reserve contradiction was reproduced RED→GREEN. These tests use software
 profiles; no native profile, actual forecast or production admission is claimed.
 See [M2-resource-preparation.md](M2-resource-preparation.md). Next is native
 profile collection/authentication and production dispatch; no Gate A yet.
+
+M1 final development-table helper is prepared, not executed on the live cohort.
+It validates all256slots and audited risks, averages R2 within each of four base
+instances, labels privileged oracles, and preserves incomplete cells/undefined
+log effects. Analytic28checks passed in0.24s after8missing-API RED failures. See
+[M1-final-analysis.md](M1-final-analysis.md). The live worker's lease still blocks
+raw audit; no full-cohort result or Gate A is being claimed.

@@ -1,0 +1,30 @@
+{
+  "base_commit": "f3be06c",
+  "component": "Full M1 development tables from audited risks",
+  "schema": "research/v2-implementation-receipt",
+  "scope": {
+    "Gate_A_decided": false,
+    "confirmation": false,
+    "full_M1_complete": false,
+    "full_cohort_audit_executed": false,
+    "full_repo_suite_run": false,
+    "independent_new_code_review": false,
+    "new_scientific_fits": 0,
+    "protected_data_accessed": false
+  },
+  "tests": {
+    "final": "28 passed in0.24s",
+    "initial": "8 expected missing-API RED",
+    "logs": [
+      {
+        "path": "artifacts/research-v2/WP02/control-summary-tests/atn-control-summary-red.log",
+        "sha256": "dd84b43a0392649d3be282efbd4d7591b8b0f87db5c9fc857a7b7bb51d97f321"
+      },
+      {
+        "path": "artifacts/research-v2/WP02/control-summary-tests/atn-control-summary-green.log",
+        "sha256": "a2166d498e116fbe1410d8c7aec80378e6b0858da58dc1a66e54200475b6f654"
+      }
+    ]
+  },
+  "verification": "Analytic fixtures verify exact256-slot inventory, R2-before-teacher averaging, placement log benefit, failure retention and undefined zero-risk effects"
+}
