@@ -1,0 +1,1099 @@
+{
+  "activated_extras": {
+    "fsspec": [
+      "http"
+    ]
+  },
+  "active_dependency_edges": [
+    {
+      "dependency": "aiohappyeyeballs",
+      "parent": "aiohttp",
+      "requirement": "aiohappyeyeballs>=2.5.0",
+      "version": "2.7.1"
+    },
+    {
+      "dependency": "aiosignal",
+      "parent": "aiohttp",
+      "requirement": "aiosignal>=1.4.0",
+      "version": "1.4.0"
+    },
+    {
+      "dependency": "attrs",
+      "parent": "aiohttp",
+      "requirement": "attrs>=17.3.0",
+      "version": "26.1.0"
+    },
+    {
+      "dependency": "frozenlist",
+      "parent": "aiohttp",
+      "requirement": "frozenlist>=1.1.1",
+      "version": "1.8.0"
+    },
+    {
+      "dependency": "multidict",
+      "parent": "aiohttp",
+      "requirement": "multidict<8.0,>=4.5",
+      "version": "7.1.0"
+    },
+    {
+      "dependency": "propcache",
+      "parent": "aiohttp",
+      "requirement": "propcache>=0.2.0",
+      "version": "0.5.4"
+    },
+    {
+      "dependency": "typing-extensions",
+      "parent": "aiohttp",
+      "requirement": "typing_extensions>=4.4; python_version < \"3.13\"",
+      "version": "4.16.0"
+    },
+    {
+      "dependency": "yarl",
+      "parent": "aiohttp",
+      "requirement": "yarl<2.0,>=1.25.1",
+      "version": "1.25.1"
+    },
+    {
+      "dependency": "frozenlist",
+      "parent": "aiosignal",
+      "requirement": "frozenlist>=1.1.0",
+      "version": "1.8.0"
+    },
+    {
+      "dependency": "typing-extensions",
+      "parent": "aiosignal",
+      "requirement": "typing-extensions>=4.2; python_version < \"3.13\"",
+      "version": "4.16.0"
+    },
+    {
+      "dependency": "aiohttp",
+      "parent": "fsspec",
+      "requirement": "aiohttp!=4.0.0a0,!=4.0.0a1; extra == \"http\"",
+      "version": "3.14.5"
+    },
+    {
+      "dependency": "markupsafe",
+      "parent": "jinja2",
+      "requirement": "MarkupSafe>=2.0",
+      "version": "3.0.4"
+    },
+    {
+      "dependency": "cloudpickle",
+      "parent": "joblib",
+      "requirement": "cloudpickle>=3.0",
+      "version": "3.1.2"
+    },
+    {
+      "dependency": "packaging",
+      "parent": "lightning-utilities",
+      "requirement": "packaging>=22",
+      "version": "26.3"
+    },
+    {
+      "dependency": "typing-extensions",
+      "parent": "lightning-utilities",
+      "requirement": "typing_extensions",
+      "version": "4.16.0"
+    },
+    {
+      "dependency": "numpy",
+      "parent": "pandas",
+      "requirement": "numpy>=1.26.0; python_version < \"3.14\"",
+      "version": "2.5.4"
+    },
+    {
+      "dependency": "python-dateutil",
+      "parent": "pandas",
+      "requirement": "python-dateutil>=2.8.2",
+      "version": "2.9.0.post0"
+    },
+    {
+      "dependency": "numpy",
+      "parent": "pytabkit",
+      "requirement": "numpy>=1.25",
+      "version": "2.5.4"
+    },
+    {
+      "dependency": "pandas",
+      "parent": "pytabkit",
+      "requirement": "pandas>=2.0",
+      "version": "3.0.6"
+    },
+    {
+      "dependency": "psutil",
+      "parent": "pytabkit",
+      "requirement": "psutil>=5.0",
+      "version": "7.2.2"
+    },
+    {
+      "dependency": "pytorch-lightning",
+      "parent": "pytabkit",
+      "requirement": "pytorch-lightning>=2.0",
+      "version": "2.6.6"
+    },
+    {
+      "dependency": "scikit-learn",
+      "parent": "pytabkit",
+      "requirement": "scikit-learn>=1.3",
+      "version": "1.9.1"
+    },
+    {
+      "dependency": "torch",
+      "parent": "pytabkit",
+      "requirement": "torch>=2.0",
+      "version": "2.14.1"
+    },
+    {
+      "dependency": "torchmetrics",
+      "parent": "pytabkit",
+      "requirement": "torchmetrics>=1.2.1",
+      "version": "1.9.0"
+    },
+    {
+      "dependency": "six",
+      "parent": "python-dateutil",
+      "requirement": "six>=1.5",
+      "version": "1.17.0"
+    },
+    {
+      "dependency": "pyyaml",
+      "parent": "pytorch-lightning",
+      "requirement": "PyYAML>5.4",
+      "version": "6.0.3"
+    },
+    {
+      "dependency": "fsspec",
+      "parent": "pytorch-lightning",
+      "requirement": "fsspec[http]>=2022.5.0",
+      "version": "2026.9.0"
+    },
+    {
+      "dependency": "lightning-utilities",
+      "parent": "pytorch-lightning",
+      "requirement": "lightning-utilities>=0.10.0",
+      "version": "0.15.3"
+    },
+    {
+      "dependency": "packaging",
+      "parent": "pytorch-lightning",
+      "requirement": "packaging>=23.0",
+      "version": "26.3"
+    },
+    {
+      "dependency": "torch",
+      "parent": "pytorch-lightning",
+      "requirement": "torch>=2.1.0",
+      "version": "2.14.1"
+    },
+    {
+      "dependency": "torchmetrics",
+      "parent": "pytorch-lightning",
+      "requirement": "torchmetrics>0.7.0",
+      "version": "1.9.0"
+    },
+    {
+      "dependency": "tqdm",
+      "parent": "pytorch-lightning",
+      "requirement": "tqdm>=4.57.0",
+      "version": "4.70.1"
+    },
+    {
+      "dependency": "typing-extensions",
+      "parent": "pytorch-lightning",
+      "requirement": "typing-extensions>4.5.0",
+      "version": "4.16.0"
+    },
+    {
+      "dependency": "joblib",
+      "parent": "scikit-learn",
+      "requirement": "joblib>=1.4.0",
+      "version": "1.6.0"
+    },
+    {
+      "dependency": "narwhals",
+      "parent": "scikit-learn",
+      "requirement": "narwhals>=2.0.1",
+      "version": "2.27.1"
+    },
+    {
+      "dependency": "numpy",
+      "parent": "scikit-learn",
+      "requirement": "numpy>=1.24.1",
+      "version": "2.5.4"
+    },
+    {
+      "dependency": "scipy",
+      "parent": "scikit-learn",
+      "requirement": "scipy>=1.10.0",
+      "version": "1.18.1"
+    },
+    {
+      "dependency": "threadpoolctl",
+      "parent": "scikit-learn",
+      "requirement": "threadpoolctl>=3.5.0",
+      "version": "3.7.0"
+    },
+    {
+      "dependency": "numpy",
+      "parent": "scipy",
+      "requirement": "numpy<2.8,>=2.0.0",
+      "version": "2.5.4"
+    },
+    {
+      "dependency": "mpmath",
+      "parent": "sympy",
+      "requirement": "mpmath<1.4,>=1.1.0",
+      "version": "1.3.0"
+    },
+    {
+      "dependency": "filelock",
+      "parent": "torch",
+      "requirement": "filelock",
+      "version": "4.2.0"
+    },
+    {
+      "dependency": "fsspec",
+      "parent": "torch",
+      "requirement": "fsspec>=0.8.5",
+      "version": "2026.9.0"
+    },
+    {
+      "dependency": "jinja2",
+      "parent": "torch",
+      "requirement": "jinja2",
+      "version": "3.1.6"
+    },
+    {
+      "dependency": "networkx",
+      "parent": "torch",
+      "requirement": "networkx>=2.5.1",
+      "version": "3.7"
+    },
+    {
+      "dependency": "setuptools",
+      "parent": "torch",
+      "requirement": "setuptools>=77.0.3",
+      "version": "84.0.0"
+    },
+    {
+      "dependency": "sympy",
+      "parent": "torch",
+      "requirement": "sympy>=1.13.3",
+      "version": "1.14.0"
+    },
+    {
+      "dependency": "typing-extensions",
+      "parent": "torch",
+      "requirement": "typing-extensions>=4.10.0",
+      "version": "4.16.0"
+    },
+    {
+      "dependency": "lightning-utilities",
+      "parent": "torchmetrics",
+      "requirement": "lightning-utilities>=0.15.3",
+      "version": "0.15.3"
+    },
+    {
+      "dependency": "numpy",
+      "parent": "torchmetrics",
+      "requirement": "numpy>1.20.0",
+      "version": "2.5.4"
+    },
+    {
+      "dependency": "packaging",
+      "parent": "torchmetrics",
+      "requirement": "packaging>17.1",
+      "version": "26.3"
+    },
+    {
+      "dependency": "torch",
+      "parent": "torchmetrics",
+      "requirement": "torch>=2.0.0",
+      "version": "2.14.1"
+    },
+    {
+      "dependency": "idna",
+      "parent": "yarl",
+      "requirement": "idna>=2.0",
+      "version": "3.20"
+    },
+    {
+      "dependency": "multidict",
+      "parent": "yarl",
+      "requirement": "multidict>=4.0",
+      "version": "7.1.0"
+    },
+    {
+      "dependency": "propcache",
+      "parent": "yarl",
+      "requirement": "propcache>=0.2.1",
+      "version": "0.5.4"
+    }
+  ],
+  "already_satisfied_in_resolution": [
+    {
+      "package": "cloudpickle",
+      "version": "3.1.2"
+    },
+    {
+      "package": "filelock",
+      "version": "4.2.0"
+    },
+    {
+      "package": "fsspec",
+      "version": "2026.9.0"
+    },
+    {
+      "package": "jinja2",
+      "version": "3.1.6"
+    },
+    {
+      "package": "joblib",
+      "version": "1.6.0"
+    },
+    {
+      "package": "markupsafe",
+      "version": "3.0.4"
+    },
+    {
+      "package": "mpmath",
+      "version": "1.3.0"
+    },
+    {
+      "package": "narwhals",
+      "version": "2.27.1"
+    },
+    {
+      "package": "networkx",
+      "version": "3.7"
+    },
+    {
+      "package": "numpy",
+      "version": "2.5.4"
+    },
+    {
+      "package": "packaging",
+      "version": "26.3"
+    },
+    {
+      "package": "pandas",
+      "version": "3.0.6"
+    },
+    {
+      "package": "python-dateutil",
+      "version": "2.9.0.post0"
+    },
+    {
+      "package": "pyyaml",
+      "version": "6.0.3"
+    },
+    {
+      "package": "scikit-learn",
+      "version": "1.9.1"
+    },
+    {
+      "package": "scipy",
+      "version": "1.18.1"
+    },
+    {
+      "package": "setuptools",
+      "version": "84.0.0"
+    },
+    {
+      "package": "six",
+      "version": "1.17.0"
+    },
+    {
+      "package": "sympy",
+      "version": "1.14.0"
+    },
+    {
+      "package": "threadpoolctl",
+      "version": "3.7.0"
+    },
+    {
+      "package": "torch",
+      "version": "2.14.1"
+    },
+    {
+      "package": "typing-extensions",
+      "version": "4.16.0"
+    }
+  ],
+  "complete_active_metadata_closure_verified": true,
+  "complete_resolution_packages": 37,
+  "core_constraints_sha256": "06ce1bea6898e4c6788b6726835e5145475eea8642bdea08dab5c3fa668efb7d",
+  "core_distributions_unchanged": 27,
+  "download_bytes": 3455651,
+  "new_overlay_packages": 15,
+  "resolution_sha256": "85022621f72d01986a01bb15ae8c006490b234ae9433598c791aa41b335d8702",
+  "schema": "research/v2-realmlp-static-dependency-availability",
+  "status": "not_installed_not_imported_not_fit",
+  "uncompressed_bytes": 12809269,
+  "wheels": [
+    {
+      "bytes": 15038,
+      "declared_license": "PSF-2.0",
+      "license_files": [
+        {
+          "path": "aiohappyeyeballs-2.7.1.dist-info/licenses/LICENSE",
+          "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf"
+        }
+      ],
+      "metadata_sha256": "e68d1bf48aec9dcc2767343dedec25e12860085cba180e10bc3d3bdd031602ba",
+      "package": "aiohappyeyeballs",
+      "requires_dist": null,
+      "uncompressed_bytes": 40006,
+      "url": "https://files.pythonhosted.org/packages/71/43/1947f06babed6b3f1d7f38b0c767f52df66bfb2bc10b468c4a7de9eceff2/aiohappyeyeballs-2.7.1-py3-none-any.whl",
+      "verified_RECORD_entries": 9,
+      "version": "2.7.1",
+      "wheel": "aiohappyeyeballs-2.7.1-py3-none-any.whl",
+      "wheel_sha256": "9243213661e29250eb41368e5daa826fc017156c3b8a11440826b2e3ed376472"
+    },
+    {
+      "bytes": 548067,
+      "declared_license": "Apache-2.0 AND MIT",
+      "license_files": [
+        {
+          "path": "aiohttp-3.14.5.dist-info/licenses/LICENSE.txt",
+          "sha256": "2e4be5fc6c4c72a466fcb665d726e049a6891981fe536c4f04b6366749461d23"
+        },
+        {
+          "path": "aiohttp-3.14.5.dist-info/licenses/vendor/llhttp/LICENSE",
+          "sha256": "628168d68bb5a8a17e0bbefb3bd74e326e1edc20583d76f52f457c82c921867d"
+        }
+      ],
+      "metadata_sha256": "50b29a2268649f7ce5b22c0a41b60896d246fee58e2a74b468f66848e469834c",
+      "package": "aiohttp",
+      "requires_dist": [
+        "aiohappyeyeballs>=2.5.0",
+        "aiosignal>=1.4.0",
+        "async-timeout<6.0,>=4.0; python_version < \"3.11\"",
+        "attrs>=17.3.0",
+        "frozenlist>=1.1.1",
+        "multidict<8.0,>=4.5",
+        "propcache>=0.2.0",
+        "typing_extensions>=4.4; python_version < \"3.13\"",
+        "yarl<2.0,>=1.25.1",
+        "aiodns>=3.3.0; (sys_platform != \"android\" and sys_platform != \"ios\") and extra == \"speedups\"",
+        "Brotli>=1.2; (platform_python_implementation == \"CPython\" and sys_platform != \"android\" and sys_platform != \"ios\") and extra == \"speedups\"",
+        "brotlicffi>=1.2; platform_python_implementation != \"CPython\" and extra == \"speedups\"",
+        "backports.zstd; (platform_python_implementation == \"CPython\" and python_version < \"3.14\" and sys_platform != \"android\" and sys_platform != \"ios\") and extra == \"speedups\""
+      ],
+      "uncompressed_bytes": 2064741,
+      "url": "https://files.pythonhosted.org/packages/64/91/11b89f45ca486252dd67dd5f3231fec04bf5518da39a95cb3997619f17fb/aiohttp-3.14.5-cp312-cp312-macosx_11_0_arm64.whl",
+      "verified_RECORD_entries": 72,
+      "version": "3.14.5",
+      "wheel": "aiohttp-3.14.5-cp312-cp312-macosx_11_0_arm64.whl",
+      "wheel_sha256": "d079c0a0135c36e7beb6f1c88087c8f108dc5891cdd0b5eafa778421bda70ed2"
+    },
+    {
+      "bytes": 7490,
+      "declared_license": "Apache 2.0",
+      "license_files": [
+        {
+          "path": "aiosignal-1.4.0.dist-info/licenses/LICENSE",
+          "sha256": "6fd5243e92dd7f98ec69c7ac377728e74905709ff527a5bf98d6d0263c04f5b6"
+        }
+      ],
+      "metadata_sha256": "09247ef1da8bc696728d47130e702e4307f6f7d101d6c485bff9f3a71ce7008d",
+      "package": "aiosignal",
+      "requires_dist": [
+        "frozenlist>=1.1.0",
+        "typing-extensions>=4.2; python_version < \"3.13\""
+      ],
+      "uncompressed_bytes": 17188,
+      "url": "https://files.pythonhosted.org/packages/fb/76/641ae371508676492379f16e2fa48f4e2c11741bd63c48be4b12a6b09cba/aiosignal-1.4.0-py3-none-any.whl",
+      "verified_RECORD_entries": 6,
+      "version": "1.4.0",
+      "wheel": "aiosignal-1.4.0-py3-none-any.whl",
+      "wheel_sha256": "053243f8b92b990551949e63930a839ff0cf0b0ebbe0597b0f3fb19e1a0fe82e"
+    },
+    {
+      "bytes": 67548,
+      "declared_license": "MIT",
+      "license_files": [
+        {
+          "path": "attrs-26.1.0.dist-info/licenses/LICENSE",
+          "sha256": "882115c95dfc2af1eeb6714f8ec6d5cbcabf667caff8729f42420da63f714e9f"
+        }
+      ],
+      "metadata_sha256": "4cd40e690f23bf37cbcad34efd6758e062df1df07c86833f7e3ce95bf1fa38cc",
+      "package": "attrs",
+      "requires_dist": null,
+      "uncompressed_bytes": 233691,
+      "url": "https://files.pythonhosted.org/packages/64/b4/17d4b0b2a2dc85a6df63d1157e028ed19f90d4cd97c36717afef2bc2f395/attrs-26.1.0-py3-none-any.whl",
+      "verified_RECORD_entries": 34,
+      "version": "26.1.0",
+      "wheel": "attrs-26.1.0-py3-none-any.whl",
+      "wheel_sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309"
+    },
+    {
+      "bytes": 50448,
+      "declared_license": "Apache-2.0",
+      "license_files": [
+        {
+          "path": "frozenlist-1.8.0.dist-info/licenses/LICENSE",
+          "sha256": "6fd5243e92dd7f98ec69c7ac377728e74905709ff527a5bf98d6d0263c04f5b6"
+        }
+      ],
+      "metadata_sha256": "946c22dc9f7e2c76f2d698f00a4306dbe49a820e2b3f1a0e22fe5286cbec35f1",
+      "package": "frozenlist",
+      "requires_dist": null,
+      "uncompressed_bytes": 184810,
+      "url": "https://files.pythonhosted.org/packages/2b/94/5c8a2b50a496b11dd519f4a24cb5496cf125681dd99e94c604ccdea9419a/frozenlist-1.8.0-cp312-cp312-macosx_11_0_arm64.whl",
+      "verified_RECORD_entries": 9,
+      "version": "1.8.0",
+      "wheel": "frozenlist-1.8.0-cp312-cp312-macosx_11_0_arm64.whl",
+      "wheel_sha256": "f833670942247a14eafbb675458b4e61c82e002a148f49e68257b79296e865c4"
+    },
+    {
+      "bytes": 69583,
+      "declared_license": "BSD-3-Clause",
+      "license_files": [
+        {
+          "path": "idna-3.20.dist-info/licenses/LICENSE.md",
+          "sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04"
+        }
+      ],
+      "metadata_sha256": "dbd8c14c1e4ca1e0c9824a6dbc7cbbf78884f38eb52d91148cd3025f671e4b85",
+      "package": "idna",
+      "requires_dist": [
+        "ruff>=0.16.0; extra == \"all\"",
+        "mypy>=1.11.2; extra == \"all\"",
+        "ty>=0.0.37; extra == \"all\"",
+        "pytest>=8.3.2; extra == \"all\"",
+        "hypothesis>=6.141.1; extra == \"all\"",
+        "coverage>=7.10.0; extra == \"all\""
+      ],
+      "uncompressed_bytes": 342091,
+      "url": "https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl",
+      "verified_RECORD_entries": 15,
+      "version": "3.20",
+      "wheel": "idna-3.20-py3-none-any.whl",
+      "wheel_sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c"
+    },
+    {
+      "bytes": 31906,
+      "declared_license": "Apache-2.0",
+      "license_files": [
+        {
+          "path": "lightning_utilities-0.15.3.dist-info/licenses/LICENSE",
+          "sha256": "a41e2fae9915ae56028f8dbd0bf27995f1907613cbcd2d81a61b010ad34e9fe9"
+        }
+      ],
+      "metadata_sha256": "ac702eed93d1de9bc66702a71930d833bfe44b59d6a318025e752e28bbaf1e26",
+      "package": "lightning-utilities",
+      "requires_dist": [
+        "packaging>=22",
+        "typing_extensions",
+        "mypy>=1.0.0; extra == \"typing\"",
+        "types-setuptools; extra == \"typing\"",
+        "requests>=2.0.0; extra == \"docs\"",
+        "jsonargparse[signatures]>=4.38.0; extra == \"cli\"",
+        "tomlkit; extra == \"cli\""
+      ],
+      "uncompressed_bytes": 85363,
+      "url": "https://files.pythonhosted.org/packages/25/f4/ead6e0e37209b07c9baa3e984ccdb0348ca370b77cea3aaea8ddbb097e00/lightning_utilities-0.15.3-py3-none-any.whl",
+      "verified_RECORD_entries": 24,
+      "version": "0.15.3",
+      "wheel": "lightning_utilities-0.15.3-py3-none-any.whl",
+      "wheel_sha256": "6c55f1bee70084a1cbeaa41ada96e4b3a0fea5909e844dd335bd80f5a73c5f91"
+    },
+    {
+      "bytes": 98294,
+      "declared_license": "Apache-2.0",
+      "license_files": [
+        {
+          "path": "multidict-7.1.0.dist-info/licenses/LICENSE",
+          "sha256": "2e4be5fc6c4c72a466fcb665d726e049a6891981fe536c4f04b6366749461d23"
+        }
+      ],
+      "metadata_sha256": "fe2db435bc86c7e62a42cc1f5b0c0650ba4fd1b05a420413f14085f8a3730e62",
+      "package": "multidict",
+      "requires_dist": [
+        "typing-extensions>=4.1.0; python_version < \"3.11\""
+      ],
+      "uncompressed_bytes": 365862,
+      "url": "https://files.pythonhosted.org/packages/c9/84/31444ef07ec13a33c42c2772d986129e137e69c4beb89ca64f2138988145/multidict-7.1.0-cp312-cp312-macosx_11_0_arm64.whl",
+      "verified_RECORD_entries": 14,
+      "version": "7.1.0",
+      "wheel": "multidict-7.1.0-cp312-cp312-macosx_11_0_arm64.whl",
+      "wheel_sha256": "f8e95c95039eab6a2dad8c83c38ab87fc5431d28849e0c8a7e2a4e70ba38710d"
+    },
+    {
+      "bytes": 52460,
+      "declared_license": "Apache-2.0",
+      "license_files": [
+        {
+          "path": "propcache-0.5.4.dist-info/licenses/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "propcache-0.5.4.dist-info/licenses/NOTICE",
+          "sha256": "56d6ac6c8105c0a51304c21db060e361af9a8ea0af9a75c239c28b5d13693838"
+        }
+      ],
+      "metadata_sha256": "6ed3bac0ad43050ceaf8bd09878ba3d673c94c4da0d4498f903f86c36cc6fb57",
+      "package": "propcache",
+      "requires_dist": null,
+      "uncompressed_bytes": 186735,
+      "url": "https://files.pythonhosted.org/packages/25/88/1d7df7201750b37765ef2b23bc1c526c028dadde80afa0f57a118fc01182/propcache-0.5.4-cp312-cp312-macosx_11_0_arm64.whl",
+      "verified_RECORD_entries": 12,
+      "version": "0.5.4",
+      "wheel": "propcache-0.5.4-cp312-cp312-macosx_11_0_arm64.whl",
+      "wheel_sha256": "87a3caecf8095e48dc72f84bfa42e23a848cf410cc9cc13031fba4869b706a21"
+    },
+    {
+      "bytes": 129859,
+      "declared_license": "BSD-3-Clause",
+      "license_files": [
+        {
+          "path": "psutil-7.2.2.dist-info/LICENSE",
+          "sha256": "b89c063b3786e28e0c0a38f1931db61fed35e69dd2a2966fbecffee0f46c8d10"
+        }
+      ],
+      "metadata_sha256": "525f8ba78523cf7bc3759d62a105e7c57fd679ea702402b9449fb0746aa0217f",
+      "package": "psutil",
+      "requires_dist": [
+        "psleak; extra == \"dev\"",
+        "pytest; extra == \"dev\"",
+        "pytest-instafail; extra == \"dev\"",
+        "pytest-xdist; extra == \"dev\"",
+        "setuptools; extra == \"dev\"",
+        "pywin32; (os_name == \"nt\" and implementation_name != \"pypy\") and extra == \"dev\"",
+        "wheel; (os_name == \"nt\" and implementation_name != \"pypy\") and extra == \"dev\"",
+        "wmi; (os_name == \"nt\" and implementation_name != \"pypy\") and extra == \"dev\"",
+        "abi3audit; extra == \"dev\"",
+        "black; extra == \"dev\"",
+        "check-manifest; extra == \"dev\"",
+        "coverage; extra == \"dev\"",
+        "packaging; extra == \"dev\"",
+        "pylint; extra == \"dev\"",
+        "pyperf; extra == \"dev\"",
+        "pypinfo; extra == \"dev\"",
+        "pytest-cov; extra == \"dev\"",
+        "requests; extra == \"dev\"",
+        "rstcheck; extra == \"dev\"",
+        "ruff; extra == \"dev\"",
+        "sphinx; extra == \"dev\"",
+        "sphinx_rtd_theme; extra == \"dev\"",
+        "toml-sort; extra == \"dev\"",
+        "twine; extra == \"dev\"",
+        "validate-pyproject[all]; extra == \"dev\"",
+        "virtualenv; extra == \"dev\"",
+        "vulture; extra == \"dev\"",
+        "wheel; extra == \"dev\"",
+        "colorama; os_name == \"nt\" and extra == \"dev\"",
+        "pyreadline3; os_name == \"nt\" and extra == \"dev\"",
+        "psleak; extra == \"test\"",
+        "pytest; extra == \"test\"",
+        "pytest-instafail; extra == \"test\"",
+        "pytest-xdist; extra == \"test\"",
+        "setuptools; extra == \"test\"",
+        "pywin32; (os_name == \"nt\" and implementation_name != \"pypy\") and extra == \"test\"",
+        "wheel; (os_name == \"nt\" and implementation_name != \"pypy\") and extra == \"test\"",
+        "wmi; (os_name == \"nt\" and implementation_name != \"pypy\") and extra == \"test\""
+      ],
+      "uncompressed_bytes": 475567,
+      "url": "https://files.pythonhosted.org/packages/80/c4/f5af4c1ca8c1eeb2e92ccca14ce8effdeec651d5ab6053c589b074eda6e1/psutil-7.2.2-cp36-abi3-macosx_11_0_arm64.whl",
+      "verified_RECORD_entries": 15,
+      "version": "7.2.2",
+      "wheel": "psutil-7.2.2-cp36-abi3-macosx_11_0_arm64.whl",
+      "wheel_sha256": "1a7b04c10f32cc88ab39cbf606e117fd74721c831c98a27dc04578deb0c16979"
+    },
+    {
+      "Git_python_files_compared": 89,
+      "Git_python_files_matching": 89,
+      "Git_python_mismatches": [],
+      "bytes": 364005,
+      "declared_license": "Apache-2.0",
+      "license_files": [
+        {
+          "path": "pytabkit-1.7.3.dist-info/licenses/LICENSE.txt",
+          "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+        }
+      ],
+      "metadata_sha256": "175dc7f0d16d18b50687bb3908fd7adbcfcd4b1bf4c11da04a252913948842c4",
+      "package": "pytabkit",
+      "pinned_commit": "c126ea51187c5080b91f28d352481dbd3b2194b0",
+      "requires_dist": [
+        "numpy>=1.25",
+        "pandas>=2.0",
+        "psutil>=5.0",
+        "pytorch-lightning>=2.0",
+        "scikit-learn>=1.3",
+        "torch>=2.0",
+        "torchmetrics>=1.2.1",
+        "autogluon-multimodal>=1.0; extra == \"autogluon\"",
+        "autogluon-tabular[all]>=1.0; extra == \"autogluon\"",
+        "adjusttext>=1.0; extra == \"bench\"",
+        "autorank>=1.0; extra == \"bench\"",
+        "fire; extra == \"bench\"",
+        "matplotlib>=3.0; extra == \"bench\"",
+        "openml>=0.14; extra == \"bench\"",
+        "openpyxl>=3.0; extra == \"bench\"",
+        "patool>=1.0; extra == \"bench\"",
+        "ray>=2.8; extra == \"bench\"",
+        "requests>=2.0; extra == \"bench\"",
+        "seaborn>=0.0.13; extra == \"bench\"",
+        "tueplots>=0.0.12; extra == \"bench\"",
+        "xlrd>=2.0; extra == \"bench\"",
+        "myst-parser>=3.0; extra == \"dev\"",
+        "pytest-cov>=4.0; extra == \"dev\"",
+        "pytest>=7.0; extra == \"dev\"",
+        "sphinx-rtd-theme>=2.0; extra == \"dev\"",
+        "sphinx>=7.0; extra == \"dev\"",
+        "kditransform>=0.2; extra == \"extra\"",
+        "configspace>=0.7; extra == \"hpo\"",
+        "hyperopt>=0.2; extra == \"hpo\"",
+        "smac>=2.0; extra == \"hpo\"",
+        "catboost>=1.2; extra == \"models\"",
+        "dask[dataframe]>=2023; extra == \"models\"",
+        "dill; extra == \"models\"",
+        "lightgbm>=4.1; extra == \"models\"",
+        "msgpack>=1.0; extra == \"models\"",
+        "numba>=0.59.0; extra == \"models\"",
+        "probmetrics>=0.0.1; extra == \"models\"",
+        "pyyaml>=5.0; extra == \"models\"",
+        "skorch>=0.15; extra == \"models\"",
+        "torch>=2.0; extra == \"models\"",
+        "tqdm; extra == \"models\"",
+        "xgboost>=2.0; extra == \"models\"",
+        "xrfm>=0.4.3; extra == \"models\""
+      ],
+      "uncompressed_bytes": 1700305,
+      "url": "https://files.pythonhosted.org/packages/0d/48/75c0c38ea2b086cd967b7241f394773437a1a7c09dc9b178b49f04399207/pytabkit-1.7.3-py3-none-any.whl",
+      "verified_RECORD_entries": 92,
+      "version": "1.7.3",
+      "wheel": "pytabkit-1.7.3-py3-none-any.whl",
+      "wheel_sha256": "1589f281e99d4a6965a83f954d9f78b038fc633a4246d450a1a3599952d4d841"
+    },
+    {
+      "bytes": 853045,
+      "declared_license": "Apache-2.0",
+      "license_files": [
+        {
+          "path": "pytorch_lightning-2.6.6.dist-info/licenses/LICENSE",
+          "sha256": "a41e2fae9915ae56028f8dbd0bf27995f1907613cbcd2d81a61b010ad34e9fe9"
+        }
+      ],
+      "metadata_sha256": "6ebe69d0b709f28457d31216e61a6dbd5c65bcbd287159af2034a072313b1723",
+      "package": "pytorch-lightning",
+      "requires_dist": [
+        "torch>=2.1.0",
+        "tqdm>=4.57.0",
+        "PyYAML>5.4",
+        "fsspec[http]>=2022.5.0",
+        "torchmetrics>0.7.0",
+        "packaging>=23.0",
+        "typing-extensions>4.5.0",
+        "lightning-utilities>=0.10.0",
+        "deepspeed<0.17.0,>=0.15.0; (platform_system != \"Windows\" and platform_system != \"Darwin\") and extra == \"strategies\"",
+        "coverage==7.13.4; python_version >= \"3.10\" and extra == \"test\"",
+        "coverage==7.10.7; python_version < \"3.10\" and extra == \"test\"",
+        "pytest==9.0.2; extra == \"test\"",
+        "pytest-cov==7.0.0; extra == \"test\"",
+        "pytest-timeout==2.4.0; extra == \"test\"",
+        "pytest-rerunfailures==16.0.1; python_version < \"3.10\" and extra == \"test\"",
+        "pytest-rerunfailures==16.1; python_version >= \"3.10\" and extra == \"test\"",
+        "pytest-random-order==1.2.0; extra == \"test\"",
+        "cloudpickle>=1.3; extra == \"test\"",
+        "scikit-learn>0.22.1; extra == \"test\"",
+        "numpy>1.21.0; python_version < \"3.12\" and extra == \"test\"",
+        "numpy>2.1.0; python_version >= \"3.12\" and extra == \"test\"",
+        "onnx>1.12.0; extra == \"test\"",
+        "onnxruntime>=1.12.0; extra == \"test\"",
+        "onnxscript>=0.1.0; extra == \"test\"",
+        "onnx-ir<0.1.16; extra == \"test\"",
+        "psutil<7.3.0; extra == \"test\"",
+        "pandas>2.0; extra == \"test\"",
+        "fastapi; extra == \"test\"",
+        "uvicorn; extra == \"test\"",
+        "tensorboard>=2.11; extra == \"test\"",
+        "huggingface-hub; extra == \"test\"",
+        "matplotlib>3.1; extra == \"extra\"",
+        "omegaconf>=2.2.3; extra == \"extra\"",
+        "hydra-core>=1.2.0; extra == \"extra\"",
+        "jsonargparse[jsonnet,signatures]>=4.39.0; extra == \"extra\"",
+        "rich>=12.3.0; extra == \"extra\"",
+        "tensorboardX>=2.2; extra == \"extra\"",
+        "bitsandbytes>=0.45.2; platform_system != \"Darwin\" and extra == \"extra\"",
+        "torch-tensorrt; (platform_system != \"Darwin\" and python_version >= \"3.12\") and extra == \"test-gpu\"",
+        "tensorrt<10.13.1; (platform_system != \"Darwin\" and python_version >= \"3.12\") and extra == \"test-gpu\"",
+        "requests<2.33.0; extra == \"examples\"",
+        "torchvision>=0.16.0; extra == \"examples\"",
+        "ipython[all]>=8.0.0; extra == \"examples\"",
+        "torchmetrics>=0.10.0; extra == \"examples\"",
+        "deepspeed<0.17.0,>=0.15.0; (platform_system != \"Windows\" and platform_system != \"Darwin\") and extra == \"deepspeed\"",
+        "matplotlib>3.1; extra == \"all\"",
+        "omegaconf>=2.2.3; extra == \"all\"",
+        "hydra-core>=1.2.0; extra == \"all\"",
+        "jsonargparse[jsonnet,signatures]>=4.39.0; extra == \"all\"",
+        "rich>=12.3.0; extra == \"all\"",
+        "tensorboardX>=2.2; extra == \"all\"",
+        "bitsandbytes>=0.45.2; platform_system != \"Darwin\" and extra == \"all\"",
+        "deepspeed<0.17.0,>=0.15.0; (platform_system != \"Windows\" and platform_system != \"Darwin\") and extra == \"all\"",
+        "requests<2.33.0; extra == \"all\"",
+        "torchvision>=0.16.0; extra == \"all\"",
+        "ipython[all]>=8.0.0; extra == \"all\"",
+        "torchmetrics>=0.10.0; extra == \"all\"",
+        "matplotlib>3.1; extra == \"dev\"",
+        "omegaconf>=2.2.3; extra == \"dev\"",
+        "hydra-core>=1.2.0; extra == \"dev\"",
+        "jsonargparse[jsonnet,signatures]>=4.39.0; extra == \"dev\"",
+        "rich>=12.3.0; extra == \"dev\"",
+        "tensorboardX>=2.2; extra == \"dev\"",
+        "bitsandbytes>=0.45.2; platform_system != \"Darwin\" and extra == \"dev\"",
+        "deepspeed<0.17.0,>=0.15.0; (platform_system != \"Windows\" and platform_system != \"Darwin\") and extra == \"dev\"",
+        "requests<2.33.0; extra == \"dev\"",
+        "torchvision>=0.16.0; extra == \"dev\"",
+        "ipython[all]>=8.0.0; extra == \"dev\"",
+        "torchmetrics>=0.10.0; extra == \"dev\"",
+        "coverage==7.13.4; python_version >= \"3.10\" and extra == \"dev\"",
+        "coverage==7.10.7; python_version < \"3.10\" and extra == \"dev\"",
+        "pytest==9.0.2; extra == \"dev\"",
+        "pytest-cov==7.0.0; extra == \"dev\"",
+        "pytest-timeout==2.4.0; extra == \"dev\"",
+        "pytest-rerunfailures==16.0.1; python_version < \"3.10\" and extra == \"dev\"",
+        "pytest-rerunfailures==16.1; python_version >= \"3.10\" and extra == \"dev\"",
+        "pytest-random-order==1.2.0; extra == \"dev\"",
+        "cloudpickle>=1.3; extra == \"dev\"",
+        "scikit-learn>0.22.1; extra == \"dev\"",
+        "numpy>1.21.0; python_version < \"3.12\" and extra == \"dev\"",
+        "numpy>2.1.0; python_version >= \"3.12\" and extra == \"dev\"",
+        "onnx>1.12.0; extra == \"dev\"",
+        "onnxruntime>=1.12.0; extra == \"dev\"",
+        "onnxscript>=0.1.0; extra == \"dev\"",
+        "onnx-ir<0.1.16; extra == \"dev\"",
+        "psutil<7.3.0; extra == \"dev\"",
+        "pandas>2.0; extra == \"dev\"",
+        "fastapi; extra == \"dev\"",
+        "uvicorn; extra == \"dev\"",
+        "tensorboard>=2.11; extra == \"dev\"",
+        "huggingface-hub; extra == \"dev\""
+      ],
+      "uncompressed_bytes": 2931363,
+      "url": "https://files.pythonhosted.org/packages/4f/cf/ba8e4cc1b982ff6dc6f9fdef0e4074605438b82640f6270888a10e7e42c3/pytorch_lightning-2.6.6-py3-none-any.whl",
+      "verified_RECORD_entries": 279,
+      "version": "2.6.6",
+      "wheel": "pytorch_lightning-2.6.6-py3-none-any.whl",
+      "wheel_sha256": "71f95c7b22f25c4f91cc659e1734bcdc6c69c8b66543f2ed2d78dbe29ce2f167"
+    },
+    {
+      "bytes": 983384,
+      "declared_license": "Apache-2.0",
+      "license_files": [
+        {
+          "path": "torchmetrics-1.9.0.dist-info/licenses/LICENSE",
+          "sha256": "fa31f433f5b4bc1fb730fb9c678f90182d93bf76b6d98ba4d00f40454ac8b832"
+        }
+      ],
+      "metadata_sha256": "e9a6b10f6e5cabee5150afc30ed70fdd14e556b1b856979a3341d2cba21baadd",
+      "package": "torchmetrics",
+      "requires_dist": [
+        "numpy>1.20.0",
+        "packaging>17.1",
+        "torch>=2.0.0",
+        "lightning-utilities>=0.15.3",
+        "requests>=2.22.0; extra == \"audio\"",
+        "onnxruntime>=1.12.0; extra == \"audio\"",
+        "gammatone>=1.0.0; extra == \"audio\"",
+        "pesq>=0.0.4; extra == \"audio\"",
+        "pystoi>=0.4.0; extra == \"audio\"",
+        "librosa>=0.10.0; extra == \"audio\"",
+        "torchaudio>=2.0.1; extra == \"audio\"",
+        "torch_linear_assignment>=0.0.2; extra == \"clustering\"",
+        "pycocotools>2.0.0; extra == \"detection\"",
+        "torchvision>=0.15.1; extra == \"detection\"",
+        "torch-fidelity<=0.4.0; extra == \"image\"",
+        "torchvision>=0.15.1; extra == \"image\"",
+        "scipy>1.0.0; extra == \"image\"",
+        "timm>=0.9.0; extra == \"multimodal\"",
+        "transformers>=4.43.0; extra == \"multimodal\"",
+        "einops>=0.7.0; extra == \"multimodal\"",
+        "piq<=0.8.0; extra == \"multimodal\"",
+        "tqdm<4.68.0; extra == \"text\"",
+        "nltk>3.8.1; extra == \"text\"",
+        "ipadic>=1.0.0; extra == \"text\"",
+        "mecab-python3>=1.0.6; extra == \"text\"",
+        "transformers>=4.43.0; extra == \"text\"",
+        "regex>=2021.9.24; extra == \"text\"",
+        "sentencepiece>=0.2.0; extra == \"text\"",
+        "types-six; extra == \"typing\"",
+        "mypy==1.17.1; extra == \"typing\"",
+        "types-requests; extra == \"typing\"",
+        "types-tabulate; extra == \"typing\"",
+        "types-setuptools; extra == \"typing\"",
+        "types-emoji; extra == \"typing\"",
+        "torch==2.8.0; extra == \"typing\"",
+        "types-PyYAML; extra == \"typing\"",
+        "types-protobuf; extra == \"typing\"",
+        "vmaf-torch>=1.1.0; extra == \"video\"",
+        "einops>=0.7.0; extra == \"video\"",
+        "matplotlib>=3.6.0; extra == \"visual\"",
+        "SciencePlots>=2.0.0; extra == \"visual\"",
+        "requests>=2.22.0; extra == \"all\"",
+        "onnxruntime>=1.12.0; extra == \"all\"",
+        "gammatone>=1.0.0; extra == \"all\"",
+        "pesq>=0.0.4; extra == \"all\"",
+        "pystoi>=0.4.0; extra == \"all\"",
+        "librosa>=0.10.0; extra == \"all\"",
+        "torchaudio>=2.0.1; extra == \"all\"",
+        "torch_linear_assignment>=0.0.2; extra == \"all\"",
+        "pycocotools>2.0.0; extra == \"all\"",
+        "torchvision>=0.15.1; extra == \"all\"",
+        "torch-fidelity<=0.4.0; extra == \"all\"",
+        "torchvision>=0.15.1; extra == \"all\"",
+        "scipy>1.0.0; extra == \"all\"",
+        "timm>=0.9.0; extra == \"all\"",
+        "transformers>=4.43.0; extra == \"all\"",
+        "einops>=0.7.0; extra == \"all\"",
+        "piq<=0.8.0; extra == \"all\"",
+        "tqdm<4.68.0; extra == \"all\"",
+        "nltk>3.8.1; extra == \"all\"",
+        "ipadic>=1.0.0; extra == \"all\"",
+        "mecab-python3>=1.0.6; extra == \"all\"",
+        "transformers>=4.43.0; extra == \"all\"",
+        "regex>=2021.9.24; extra == \"all\"",
+        "sentencepiece>=0.2.0; extra == \"all\"",
+        "types-six; extra == \"all\"",
+        "mypy==1.17.1; extra == \"all\"",
+        "types-requests; extra == \"all\"",
+        "types-tabulate; extra == \"all\"",
+        "types-setuptools; extra == \"all\"",
+        "types-emoji; extra == \"all\"",
+        "torch==2.8.0; extra == \"all\"",
+        "types-PyYAML; extra == \"all\"",
+        "types-protobuf; extra == \"all\"",
+        "vmaf-torch>=1.1.0; extra == \"all\"",
+        "einops>=0.7.0; extra == \"all\"",
+        "matplotlib>=3.6.0; extra == \"all\"",
+        "SciencePlots>=2.0.0; extra == \"all\"",
+        "requests>=2.22.0; extra == \"dev\"",
+        "onnxruntime>=1.12.0; extra == \"dev\"",
+        "gammatone>=1.0.0; extra == \"dev\"",
+        "pesq>=0.0.4; extra == \"dev\"",
+        "pystoi>=0.4.0; extra == \"dev\"",
+        "librosa>=0.10.0; extra == \"dev\"",
+        "torchaudio>=2.0.1; extra == \"dev\"",
+        "torch_linear_assignment>=0.0.2; extra == \"dev\"",
+        "pycocotools>2.0.0; extra == \"dev\"",
+        "torchvision>=0.15.1; extra == \"dev\"",
+        "torch-fidelity<=0.4.0; extra == \"dev\"",
+        "torchvision>=0.15.1; extra == \"dev\"",
+        "scipy>1.0.0; extra == \"dev\"",
+        "timm>=0.9.0; extra == \"dev\"",
+        "transformers>=4.43.0; extra == \"dev\"",
+        "einops>=0.7.0; extra == \"dev\"",
+        "piq<=0.8.0; extra == \"dev\"",
+        "tqdm<4.68.0; extra == \"dev\"",
+        "nltk>3.8.1; extra == \"dev\"",
+        "ipadic>=1.0.0; extra == \"dev\"",
+        "mecab-python3>=1.0.6; extra == \"dev\"",
+        "transformers>=4.43.0; extra == \"dev\"",
+        "regex>=2021.9.24; extra == \"dev\"",
+        "sentencepiece>=0.2.0; extra == \"dev\"",
+        "types-six; extra == \"dev\"",
+        "mypy==1.17.1; extra == \"dev\"",
+        "types-requests; extra == \"dev\"",
+        "types-tabulate; extra == \"dev\"",
+        "types-setuptools; extra == \"dev\"",
+        "types-emoji; extra == \"dev\"",
+        "torch==2.8.0; extra == \"dev\"",
+        "types-PyYAML; extra == \"dev\"",
+        "types-protobuf; extra == \"dev\"",
+        "vmaf-torch>=1.1.0; extra == \"dev\"",
+        "einops>=0.7.0; extra == \"dev\"",
+        "matplotlib>=3.6.0; extra == \"dev\"",
+        "SciencePlots>=2.0.0; extra == \"dev\"",
+        "pytorch-msssim==1.0.0; extra == \"dev\"",
+        "sewar>=0.4.4; extra == \"dev\"",
+        "setuptools<82.0.0; extra == \"dev\"",
+        "scikit-image>=0.19.0; extra == \"dev\"",
+        "dists-pytorch==0.1; extra == \"dev\"",
+        "rouge-score>0.1.0; extra == \"dev\"",
+        "netcal>1.0.0; extra == \"dev\"",
+        "pandas>1.4.0; extra == \"dev\"",
+        "numpy<2.4.0; extra == \"dev\"",
+        "torch_complex<0.5.0; extra == \"dev\"",
+        "permetrics==2.0.0; extra == \"dev\"",
+        "jiwer>=2.3.0; extra == \"dev\"",
+        "aeon>=1.0.0; python_version > \"3.10\" and extra == \"dev\"",
+        "mir-eval>=0.6; extra == \"dev\"",
+        "huggingface-hub<0.35; extra == \"dev\"",
+        "faster-coco-eval>=1.6.3; extra == \"dev\"",
+        "mecab-ko-dic>=1.0.0; python_version < \"3.12\" and extra == \"dev\"",
+        "monai==1.4.0; extra == \"dev\"",
+        "mecab-ko<1.1.0,>=1.0.0; python_version < \"3.12\" and extra == \"dev\"",
+        "bert_score==0.3.13; extra == \"dev\"",
+        "sacrebleu>=2.3.0; extra == \"dev\"",
+        "scipy>1.0.0; extra == \"dev\"",
+        "lpips<=0.1.4; extra == \"dev\"",
+        "dython==0.7.9; extra == \"dev\"",
+        "properscoring==0.1; extra == \"dev\"",
+        "fast-bss-eval>=0.1.0; extra == \"dev\"",
+        "PyTDC==0.4.1; (platform_system == \"Windows\" and python_version < \"3.12\") and extra == \"dev\"",
+        "fairlearn; extra == \"dev\"",
+        "kornia>=0.6.7; extra == \"dev\"",
+        "statsmodels>0.13.5; extra == \"dev\""
+      ],
+      "uncompressed_bytes": 3580708,
+      "url": "https://files.pythonhosted.org/packages/c3/a2/c7f6ebf546f8f644edf0f999aa98ece106986a77a7b922316bf6414ff825/torchmetrics-1.9.0-py3-none-any.whl",
+      "verified_RECORD_entries": 358,
+      "version": "1.9.0",
+      "wheel": "torchmetrics-1.9.0-py3-none-any.whl",
+      "wheel_sha256": "bfdcbff3dd1d96b3374bb2496eb39f23c4b28b8a845b6a18c313688e0d2d9ca1"
+    },
+    {
+      "bytes": 80199,
+      "declared_license": "MPL-2.0 AND MIT",
+      "license_files": [],
+      "metadata_sha256": "a5da70b966afea3a759716041bad7187f2ece02c22348cf9e7c0a512bbf15f57",
+      "package": "tqdm",
+      "requires_dist": [
+        "colorama; platform_system == \"Windows\"",
+        "requests; extra == \"discord\"",
+        "envwrap; extra == \"discord\"",
+        "slack-sdk; extra == \"slack\"",
+        "envwrap; extra == \"slack\"",
+        "requests; extra == \"telegram\"",
+        "envwrap; extra == \"telegram\"",
+        "ipywidgets>=6; extra == \"notebook\""
+      ],
+      "uncompressed_bytes": 233479,
+      "url": "https://files.pythonhosted.org/packages/a7/03/921a3d3c75785aca9ebfbfcabfbc3a1be12e2ab5265deb026d55a5a3f83e/tqdm-4.70.1-py3-none-any.whl",
+      "verified_RECORD_entries": 38,
+      "version": "4.70.1",
+      "wheel": "tqdm-4.70.1-py3-none-any.whl",
+      "wheel_sha256": "c293e525e6fef9c20e8728fd4612df02a0aa31bb5fe91ecd93e123b1b7bffa73"
+    },
+    {
+      "bytes": 104325,
+      "declared_license": "Apache-2.0",
+      "license_files": [
+        {
+          "path": "yarl-1.25.1.dist-info/licenses/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "yarl-1.25.1.dist-info/licenses/NOTICE",
+          "sha256": "56d6ac6c8105c0a51304c21db060e361af9a8ea0af9a75c239c28b5d13693838"
+        }
+      ],
+      "metadata_sha256": "fd6baa258a11c4d7e7008272a69180d4d34aa04a6a5afda36ac5e55aa0aa4f41",
+      "package": "yarl",
+      "requires_dist": [
+        "idna>=2.0",
+        "multidict>=4.0",
+        "propcache>=0.2.1"
+      ],
+      "uncompressed_bytes": 367360,
+      "url": "https://files.pythonhosted.org/packages/be/dd/ee38aec8e09fdf957e50d4085453fbe202f56c6c3b4cf07b81cdb4f09ee9/yarl-1.25.1-cp312-cp312-macosx_11_0_arm64.whl",
+      "verified_RECORD_entries": 16,
+      "version": "1.25.1",
+      "wheel": "yarl-1.25.1-cp312-cp312-macosx_11_0_arm64.whl",
+      "wheel_sha256": "e029648f9c951db30e98a7d7ec90835db88ec4b32820efe2a9bdc2287e032eb6"
+    }
+  ]
+}

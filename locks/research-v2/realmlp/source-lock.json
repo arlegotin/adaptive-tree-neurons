@@ -1,0 +1,313 @@
+{
+  "commit": "c126ea51187c5080b91f28d352481dbd3b2194b0",
+  "repository": "dholzmueller/pytabkit",
+  "schema": "research/v2-realmlp-source-lock",
+  "sources": [
+    {
+      "bytes": 11357,
+      "git_blob_sha1": "8dada3edaf50dbc082c9a125058f25def75e625a",
+      "local": "sources/LICENSE.txt.txt",
+      "path": "LICENSE.txt",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/LICENSE.txt"
+    },
+    {
+      "bytes": 18726,
+      "git_blob_sha1": "002069c337f2055262b6d7568e12ab93dda4e658",
+      "local": "sources/README.md.txt",
+      "path": "README.md",
+      "sha256": "7c158115ba9ac1e60e249b9f19e7df61d796fe9f1d1e01027b07f05603258912",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/README.md"
+    },
+    {
+      "bytes": 4326,
+      "git_blob_sha1": "76ad1d0b2914eb54c3b16b920ba64ffd7d9a3699",
+      "local": "sources/docs/source/models/03_training_implementation.md.txt",
+      "path": "docs/source/models/03_training_implementation.md",
+      "sha256": "b39421e57d3df0e249f31c09eb37ba91514c60b54413b10a67127f6b81444ef9",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/docs/source/models/03_training_implementation.md"
+    },
+    {
+      "bytes": 5618,
+      "git_blob_sha1": "fd5d184a95a8f7ff80ee1a4dccf2d0ca93e239be",
+      "local": "sources/pyproject.toml.txt",
+      "path": "pyproject.toml",
+      "sha256": "7445ba3c09bab665e8954add4e54d1f6ae99011224afe74b6aad2e5a642af190",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pyproject.toml"
+    },
+    {
+      "bytes": 120,
+      "git_blob_sha1": "df057b162220b4018b3fd84c6716b9c042471075",
+      "local": "sources/pytabkit/__about__.py.txt",
+      "path": "pytabkit/__about__.py",
+      "sha256": "e85645d7d9c95a14e6bca6fa151091f63de0db1642e53d77ae019871e994e5fc",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/__about__.py"
+    },
+    {
+      "bytes": 49,
+      "git_blob_sha1": "6806ac95bd1eb20e10755fde762d93d5e63118a8",
+      "local": "sources/pytabkit/__init__.py.txt",
+      "path": "pytabkit/__init__.py",
+      "sha256": "2aad25f6efd7f8f5e9e628443e970b221624dee17c032f60f53a90a5e1d7e7a8",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/__init__.py"
+    },
+    {
+      "bytes": 28484,
+      "git_blob_sha1": "a397ea635d13fcebda38378e80fc7de5f23e52d5",
+      "local": "sources/pytabkit/models/alg_interfaces/alg_interfaces.py.txt",
+      "path": "pytabkit/models/alg_interfaces/alg_interfaces.py",
+      "sha256": "75fc316ea51a29c401b2e56af40e437cf5d25e44070b4f5c23c51a85aec36570",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/alg_interfaces/alg_interfaces.py"
+    },
+    {
+      "bytes": 5462,
+      "git_blob_sha1": "a4ba1e5f0ffa97d1ed39c12463b4950d660a62df",
+      "local": "sources/pytabkit/models/alg_interfaces/base.py.txt",
+      "path": "pytabkit/models/alg_interfaces/base.py",
+      "sha256": "d579a9376c5df1124151002e9b31e4e8f4b72b6e059ad88b0b191ca8cefa0eb9",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/alg_interfaces/base.py"
+    },
+    {
+      "bytes": 16187,
+      "git_blob_sha1": "a979a3e894f94bbea668bf918b5d577a51c03e44",
+      "local": "sources/pytabkit/models/alg_interfaces/ensemble_interfaces.py.txt",
+      "path": "pytabkit/models/alg_interfaces/ensemble_interfaces.py",
+      "sha256": "a24a85b8198db3b1fde511c152b198e072389aeb0b02602d2fcadee870c2fe32",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/alg_interfaces/ensemble_interfaces.py"
+    },
+    {
+      "bytes": 59875,
+      "git_blob_sha1": "015b3e2723496dd55a8158b82533217c093657e7",
+      "local": "sources/pytabkit/models/alg_interfaces/nn_interfaces.py.txt",
+      "path": "pytabkit/models/alg_interfaces/nn_interfaces.py",
+      "sha256": "4a61cfc268cb5a2b1b9dd058cb1d36558a85564142a8d1b828efab064c8313a9",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/alg_interfaces/nn_interfaces.py"
+    },
+    {
+      "bytes": 19208,
+      "git_blob_sha1": "c1670aaa714331c58cc98d09515880bb2d814116",
+      "local": "sources/pytabkit/models/alg_interfaces/sub_split_interfaces.py.txt",
+      "path": "pytabkit/models/alg_interfaces/sub_split_interfaces.py",
+      "sha256": "ba842b0add6327184c0ab3f48db91d1acba8fcc679efee76a48be1b68db41fd3",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/alg_interfaces/sub_split_interfaces.py"
+    },
+    {
+      "bytes": 5574,
+      "git_blob_sha1": "8bacb626c15e269130b47560a0998d4cfb25aae9",
+      "local": "sources/pytabkit/models/data/conversion.py.txt",
+      "path": "pytabkit/models/data/conversion.py",
+      "sha256": "c9fa3ae7537779db419e7b16db43c8021ff97a44428e36a6a449b274a9372048",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/data/conversion.py"
+    },
+    {
+      "bytes": 9984,
+      "git_blob_sha1": "8201dd7afe9f279cdb56104335502a76d0e871f8",
+      "local": "sources/pytabkit/models/data/data.py.txt",
+      "path": "pytabkit/models/data/data.py",
+      "sha256": "fd51928eb7df3f883fbe70d5d1907c8fa86563bbd6c2babbbfd8527ebd6e8e18",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/data/data.py"
+    },
+    {
+      "bytes": 2384,
+      "git_blob_sha1": "b35dbc5541e34126e5ee713f44990dd3064508f7",
+      "local": "sources/pytabkit/models/data/nested_dict.py.txt",
+      "path": "pytabkit/models/data/nested_dict.py",
+      "sha256": "0a08b06913b307ca81fe2fdd87da3de29a26833671a86fe481d414b13c6e379a",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/data/nested_dict.py"
+    },
+    {
+      "bytes": 6126,
+      "git_blob_sha1": "84cfd8738d1e1765eb02f09874225cb7c0662992",
+      "local": "sources/pytabkit/models/data/splits.py.txt",
+      "path": "pytabkit/models/data/splits.py",
+      "sha256": "2afd21f0e8bfc53f74d7806cfd98d24998baac68e2ff01dfd5c34d7535ef6976",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/data/splits.py"
+    },
+    {
+      "bytes": 9637,
+      "git_blob_sha1": "932e414c04dd6ac756e6626433cce58dc9dc39ca",
+      "local": "sources/pytabkit/models/hyper_opt/hyper_optimizers.py.txt",
+      "path": "pytabkit/models/hyper_opt/hyper_optimizers.py",
+      "sha256": "b5e07f2b6780e3cecc96a9c07b42e859bd07fd5fcc392a0c375e3dd1fe2a9e0f",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/hyper_opt/hyper_optimizers.py"
+    },
+    {
+      "bytes": 4357,
+      "git_blob_sha1": "219ed407ff15908ac27c84cd62f23796a160a3b3",
+      "local": "sources/pytabkit/models/nn_models/activations.py.txt",
+      "path": "pytabkit/models/nn_models/activations.py",
+      "sha256": "e5b0f797dd055068856dc90b5072c281fc3beaab025c08a072b933a23d135cfd",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/nn_models/activations.py"
+    },
+    {
+      "bytes": 44144,
+      "git_blob_sha1": "8a56a1eb3c77e8c9dee3e2f61d12f4142338e13d",
+      "local": "sources/pytabkit/models/nn_models/base.py.txt",
+      "path": "pytabkit/models/nn_models/base.py",
+      "sha256": "930311ee369f30643cda37a5a2ac73cd606ed0dc6ecf5a7ff7c04d2b67a4135d",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/nn_models/base.py"
+    },
+    {
+      "bytes": 22693,
+      "git_blob_sha1": "a60e6ec1bc44d45c5b2eda6ca67c674cc701f277",
+      "local": "sources/pytabkit/models/nn_models/categorical.py.txt",
+      "path": "pytabkit/models/nn_models/categorical.py",
+      "sha256": "b2978ad033fa23db8c76933579f81cef07f90d241e6e28c46b5bf038f8326301",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/nn_models/categorical.py"
+    },
+    {
+      "bytes": 15968,
+      "git_blob_sha1": "6118cd1c447a90a9519fedff782d8ad8498a5c3e",
+      "local": "sources/pytabkit/models/nn_models/models.py.txt",
+      "path": "pytabkit/models/nn_models/models.py",
+      "sha256": "73fae0a13d019d677c7e40dc96f4c594019ddecf4894fb53109da6eb4e7e29d0",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/nn_models/models.py"
+    },
+    {
+      "bytes": 48672,
+      "git_blob_sha1": "78f3606132ae948773750cf415c2b98caade1195",
+      "local": "sources/pytabkit/models/nn_models/nn.py.txt",
+      "path": "pytabkit/models/nn_models/nn.py",
+      "sha256": "ed3e78bb87a0efa8d18de8bf5a22de41b4748ab0fdef8d57c618e51c77cba6f9",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/nn_models/nn.py"
+    },
+    {
+      "bytes": 12576,
+      "git_blob_sha1": "a41dbf4af144b372aaf829054ca48037fbaa2e22",
+      "local": "sources/pytabkit/models/nn_models/pipeline.py.txt",
+      "path": "pytabkit/models/nn_models/pipeline.py",
+      "sha256": "0e5d905d43c8410270a87215bcad18c367efdaa0d3266eb2abdce1d90e88d866",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/nn_models/pipeline.py"
+    },
+    {
+      "bytes": 18446,
+      "git_blob_sha1": "7c0b1cb346eeb52fbcaf556b7116b9d0d577d457",
+      "local": "sources/pytabkit/models/optim/adopt.py.txt",
+      "path": "pytabkit/models/optim/adopt.py",
+      "sha256": "77b2c5e962621fb6dddc18637cad23529d9c45b19f7e7bc443fa0568f64f72c4",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/optim/adopt.py"
+    },
+    {
+      "bytes": 7834,
+      "git_blob_sha1": "87fab3f1aacb2e5e71d6422cef8c321ea14a9f46",
+      "local": "sources/pytabkit/models/optim/optimizers.py.txt",
+      "path": "pytabkit/models/optim/optimizers.py",
+      "sha256": "5d7b7dedd36e615d4e5901304e1283b26158fbafe554b20e2c0e15be11335328",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/optim/optimizers.py"
+    },
+    {
+      "bytes": 6250,
+      "git_blob_sha1": "8830733c2cb32a8b2446416b5bb3812e9e0d92a5",
+      "local": "sources/pytabkit/models/optim/scheduling_adam.py.txt",
+      "path": "pytabkit/models/optim/scheduling_adam.py",
+      "sha256": "402045898c567d9a0547273997f937b36deb71b458c36305317c645a64cf6716",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/optim/scheduling_adam.py"
+    },
+    {
+      "bytes": 14995,
+      "git_blob_sha1": "47e6e4b92660c8cdb29b737b61a01c6764baa066",
+      "local": "sources/pytabkit/models/sklearn/default_params.py.txt",
+      "path": "pytabkit/models/sklearn/default_params.py",
+      "sha256": "2ef2e46ac5909121e506c0cefbbbb7f711cc83e89676515605d8d7105b43a8bf",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/sklearn/default_params.py"
+    },
+    {
+      "bytes": 25371,
+      "git_blob_sha1": "62ec2f50056def71382165ab0f98d7a91543f764",
+      "local": "sources/pytabkit/models/sklearn/sklearn_base.py.txt",
+      "path": "pytabkit/models/sklearn/sklearn_base.py",
+      "sha256": "4450207f94676ed6861caf8139e078d9a0eefc6db14fd28c9c1b56384d94754f",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/sklearn/sklearn_base.py"
+    },
+    {
+      "bytes": 139895,
+      "git_blob_sha1": "9d3d9c7f65fb649da6bf462e68f25e46481f6a1c",
+      "local": "sources/pytabkit/models/sklearn/sklearn_interfaces.py.txt",
+      "path": "pytabkit/models/sklearn/sklearn_interfaces.py",
+      "sha256": "0ed8fc37e505739a4751d91fa43fc36d5e661cb0d6e3e206122e6b165f39b6a7",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/sklearn/sklearn_interfaces.py"
+    },
+    {
+      "bytes": 7322,
+      "git_blob_sha1": "df044a5903752d9aff7989b99a89b598ddc8b649",
+      "local": "sources/pytabkit/models/torch_utils.py.txt",
+      "path": "pytabkit/models/torch_utils.py",
+      "sha256": "9e90f59c472e4c5642a9ad1c7055e347b9b8b5ceea5257a63421377c2e980426",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/torch_utils.py"
+    },
+    {
+      "bytes": 5287,
+      "git_blob_sha1": "e25c44ac8e8ddbb228ae60f8fffaaaf8cd27c44b",
+      "local": "sources/pytabkit/models/training/auc_mu.py.txt",
+      "path": "pytabkit/models/training/auc_mu.py",
+      "sha256": "9fa6139e38b1fbcb6f1b34baa1ce356365d6f697d32094d07c66aa81c88ff0c5",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/training/auc_mu.py"
+    },
+    {
+      "bytes": 3937,
+      "git_blob_sha1": "7e2fede7515c417503c577bb23a0e0f177c3a855",
+      "local": "sources/pytabkit/models/training/coord.py.txt",
+      "path": "pytabkit/models/training/coord.py",
+      "sha256": "69c9446fa737b36ecd2890116921a59a16842de27cb5abaff197616ff89e25d7",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/training/coord.py"
+    },
+    {
+      "bytes": 8851,
+      "git_blob_sha1": "7cb9c7e86ff91fd3df531196ee095a7003ad5d1a",
+      "local": "sources/pytabkit/models/training/lightning_callbacks.py.txt",
+      "path": "pytabkit/models/training/lightning_callbacks.py",
+      "sha256": "29b04100fcb3df9c8f999e2a26cd0475ca458e4b9e5ad34575c9db6f59f91fbf",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/training/lightning_callbacks.py"
+    },
+    {
+      "bytes": 16199,
+      "git_blob_sha1": "efb89e438e04a93baf2ab9a987790a5f9a193fc7",
+      "local": "sources/pytabkit/models/training/lightning_modules.py.txt",
+      "path": "pytabkit/models/training/lightning_modules.py",
+      "sha256": "8e91bb61f3ea4e92326f978f14edaf6205fb060add9558dfab6a805446e80048",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/training/lightning_modules.py"
+    },
+    {
+      "bytes": 624,
+      "git_blob_sha1": "ecde34e610bdc5b10b53a174941dcc17949b192b",
+      "local": "sources/pytabkit/models/training/logging.py.txt",
+      "path": "pytabkit/models/training/logging.py",
+      "sha256": "b9f56319fac0da7b73d4c7b97accf2237781c85993f2fb6d2e5a217136333a50",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/training/logging.py"
+    },
+    {
+      "bytes": 27846,
+      "git_blob_sha1": "38f7f4d1abe1d46984848cd09308e57f1d99990c",
+      "local": "sources/pytabkit/models/training/metrics.py.txt",
+      "path": "pytabkit/models/training/metrics.py",
+      "sha256": "f8cb7f8ee89d7722b754dcae5fdc3310a4a3f13e641f45b80274baf4807f33f0",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/training/metrics.py"
+    },
+    {
+      "bytes": 12780,
+      "git_blob_sha1": "7b37c4565c3c64d2f0bb70af5f5526300b654260",
+      "local": "sources/pytabkit/models/training/nn_creator.py.txt",
+      "path": "pytabkit/models/training/nn_creator.py",
+      "sha256": "1916809520f7dc475e304de06c88aa6ec94b4721154f1b7c8cca5e4f280e1d7e",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/training/nn_creator.py"
+    },
+    {
+      "bytes": 19523,
+      "git_blob_sha1": "3d4d6fb8e2429b0a82641b13eafb5da7a7a7785d",
+      "local": "sources/pytabkit/models/training/scheduling.py.txt",
+      "path": "pytabkit/models/training/scheduling.py",
+      "sha256": "610483b913945c8ac7e2613b48edd2ef135198da9d826628ebed8d84ff54867e",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/training/scheduling.py"
+    },
+    {
+      "bytes": 18095,
+      "git_blob_sha1": "0c6ba3d8111e3e98a7097e68c841fd67e2bba7ae",
+      "local": "sources/pytabkit/models/utils.py.txt",
+      "path": "pytabkit/models/utils.py",
+      "sha256": "df67584aac1f4db99a1ac1176c2b2a8c86cd6cf07e50c3510d198ab2cf3889a3",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/utils.py"
+    }
+  ],
+  "status": "static_source_and_dependency_preparation_only_no_import_install_fit",
+  "version": "1.7.3"
+}
