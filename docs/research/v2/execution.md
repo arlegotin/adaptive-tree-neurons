@@ -935,3 +935,11 @@ in23.95s. Nine original RED/GREEN logs are tracked, identities kept distinct in
 [P13-integration-receipt.json](P13-integration-receipt.json). No core/legacy/lock
 mutation, full transformed workload, Gate D, practical fit or HPO. Deferred
 hex-digest validation/allocation reporting remain visible in the review disposition.
+
+WP03 profile collection implemented with full queue/attempt/raw/observation
+commitments and native counter checks, explicit missing classes and separate
+invocation clocks. Four missing-API REDs became16affected GREEN in17.22s.
+Only a first full-shape data worker is new native engineering evidence; no parent
+or fit starts in that fixture. The53scientific profiles, complete qualification
+queue, live admission and public M2 dispatch remain pending. See
+[WP03-profile-collection-receipt.json](WP03-profile-collection-receipt.json).

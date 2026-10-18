@@ -1,0 +1,27 @@
+{
+  "T_accessed": false,
+  "actual_scientific_profiles": false,
+  "artifacts": {
+    "artifacts/research-v2/WP03/profile-collection/green.log": "65fd5dd832789406198cf7f342d2000406df33b79d7ce5c653b42e2a20307942",
+    "artifacts/research-v2/WP03/profile-collection/red.log": "45c511e54cc7004b1340ae7288255aa61a5e1fb1508a5b2f28ab1f96ad469a93"
+  },
+  "base_commit": "59f7a54",
+  "complete_native_workload_qualification": false,
+  "limitations": [
+    "Authenticated producer observations, not independent clock/RSS/model replay",
+    "Missing or zero-update training classes cannot qualify",
+    "Job clocks include paid failures; invocation clocks exclude process startup/imports/publication",
+    "Full53-class native qualification list and live production dispatcher still pending"
+  ],
+  "native_fixture_scope": "Only first full-shape M2 data worker; declared interruption before any parent/fit. Plain/observed six-update d2 fixtures are engineering checks.",
+  "production_admission": false,
+  "schema": "research/v2-profile-collection-implementation",
+  "source_files": {
+    "src/treeneuron/research/queue_profiles.py": "5eed5109316a169e9e39ae68d5392eb361500cfbd8a4471c1c321c216af91d75",
+    "tests/test_queue_profiles.py": "796ae590a2336231f6520251b6a3db9f01d9abf6ad8a7504ae031e9fb26cf483"
+  },
+  "tests": {
+    "green": "16affected checks passed in17.22s",
+    "red": "4missingAPI ImportErrors in4.03s"
+  }
+}

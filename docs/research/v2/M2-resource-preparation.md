@@ -69,3 +69,20 @@ These are six-update/d2 engineering fixtures, not the53scientific workload
 profiles. The source-bound profile collector, whole-pipeline overhead accounting,
 qualification attempt list, live admission and production dispatcher remain
 pending; [observation receipt](WP03-observation-receipt.json) records the scope.
+
+Source-bound observation collection is now implemented. Under the read-only
+queue lease it authenticates the external plan hash, all retained attempts,
+raw inventories, observation references, source/runtime/job identity and native
+update counters. Profile times include dependency preparation, publication and
+any earlier paid failures; enclosing invocation receipts stay separate. Missing
+observations or zero-update training leave their workload classes unqualified.
+It does not infer missing measurements or grant production admission.
+
+Four missing-API REDs became16affected GREEN in17.22s. The new native fixture
+executes only the first full-shape data worker, then interrupts before parent or
+fit; the observer's earlier six-update/d2 numerical parity checks remain tiny
+engineering evidence. These tests are not53scientific profiles. The complete
+qualification attempt list, live admission and production dispatcher are still
+pending; [receipt](WP03-profile-collection-receipt.json). Pure control-decision
+resource fixtures and any completed-ineligible branch measurements need explicit
+qualification semantics before being used to complete the53-class inventory.
