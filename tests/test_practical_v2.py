@@ -111,3 +111,74 @@ def test_exact_five_percent_degradation_is_not_labeled_more_than_five_percent():
     assert api().practical_benefit(data)['task_degradation_over_5_percent']==[]
     data['bike']['selected']=[1.05001,1.05001]
     assert api().practical_benefit(data)['task_degradation_over_5_percent']==['bike']
+
+
+def bootstrap_fixture():
+    result={}
+    for dataset in ('airfoil','concrete','ccpp','parkinsons','bike','energy'):
+        n=10 if dataset=='bike' else 3
+        baseline=np.repeat(np.arange(1,n+1,dtype=float)[:,None],2,axis=1)
+        result[dataset]=dict(group_ids=[str(i) for i in range(n)],selected=baseline/2,baseline=baseline)
+        if dataset=='bike':result[dataset]['day_ordinals']=np.arange(100,110)
+    return result
+
+
+def test_paired_conditional_bootstrap_keeps_constant_risk_ratio_and_energy_descriptive():
+    result=api().paired_group_bootstrap(bootstrap_fixture(),seed=7,iterations=64,chunk_size=9)
+    assert result['aggregate_interval']==pytest.approx([math.log(2),math.log(2)])
+    assert result['aggregate_point_log_benefit']==pytest.approx(math.log(2))
+    assert result['energy']['bootstrap_interval'] is None
+    assert result['energy']['descriptive_group_effect_range']==pytest.approx([math.log(2),math.log(2)])
+    assert result['resampling_units']['parkinsons']==3
+    assert result['population_superiority_confirmed'] is False
+    assert 'unverified_exchangeability' in result['dataset_assumptions']['ccpp']
+
+
+def test_bootstrap_pairing_is_chunk_invariant_and_exactly_equal_models_have_zero_interval():
+    data=bootstrap_fixture()
+    for value in data.values():value['selected']=value['baseline'].copy()
+    a=api().paired_group_bootstrap(data,seed=31,iterations=63,chunk_size=1)
+    b=api().paired_group_bootstrap(data,seed=31,iterations=63,chunk_size=17)
+    assert a['aggregate_interval']==[0.,0.] and a['pairing_index_sha256']==b['pairing_index_sha256']
+    np.testing.assert_array_equal(a['aggregate_bootstrap_log_benefits'],b['aggregate_bootstrap_log_benefits'])
+    assert a['dataset_intervals']==b['dataset_intervals']
+
+
+def test_bootstrap_uses_actual_days_and_does_not_fill_calendar_gaps():
+    data=bootstrap_fixture();data['bike']['day_ordinals'][5:]+=1
+    with pytest.raises(ValueError,match='consecutive'):
+        api().paired_group_bootstrap(data,seed=1,iterations=32)
+    data=bootstrap_fixture()
+    with pytest.raises(ValueError,match='block'):
+        api().paired_group_bootstrap(data,seed=1,iterations=32,bike_block_days=14)
+
+
+def test_bootstrap_averages_repeats_before_log_and_never_discards_undefined_resamples():
+    data=bootstrap_fixture()
+    for value in data.values():
+        n=len(value['group_ids']);value['selected']=np.tile([1.,3.],(n,1));value['baseline']=np.tile([2.,8.],(n,1))
+    result=api().paired_group_bootstrap(data,seed=2,iterations=32)
+    assert result['aggregate_interval']==pytest.approx([math.log(2.5),math.log(2.5)])
+    data=bootstrap_fixture();data['airfoil']['selected'][:]=0.
+    result=api().paired_group_bootstrap(data,seed=2,iterations=32)
+    assert result['status']=='undefined_log_risk' and result['aggregate_interval'] is None
+    assert result['undefined_aggregate_resamples']==32 and result['discarded_resamples']==0
+
+
+def test_calendar_blocks_are_contiguous_and_leave_one_group_sensitivity_is_reported():
+    data=bootstrap_fixture()
+    data['airfoil']['selected']=np.repeat(np.array([1.,3.,9.])[:,None],2,axis=1)
+    data['airfoil']['baseline']=np.repeat(np.array([2.,3.,9.])[:,None],2,axis=1)
+    result=api().paired_group_bootstrap(data,seed=19,iterations=32)
+    indices=result['first_resampled_group_indices']['bike']
+    assert len(indices)==10 and np.array_equal(np.diff(indices[:7]),np.ones(6))
+    assert np.array_equal(np.diff(indices[7:]),np.ones(2))
+    assert indices[0]<=3 and indices[7]<=3
+    assert result['leave_one_group_out']['airfoil']['effect_range']==pytest.approx([0.,math.log(1.25)])
+    assert result['leave_one_group_out']['airfoil']['undefined_count']==0
+
+
+def test_declared_default_bootstrap_retains_twenty_thousand_artificial_draws():
+    result=api().paired_group_bootstrap(bootstrap_fixture(),seed=11)
+    assert result['iterations']==20000 and len(result['aggregate_bootstrap_log_benefits'])==20000
+    assert result['discarded_resamples']==0 and not result['protected_access_authorized']

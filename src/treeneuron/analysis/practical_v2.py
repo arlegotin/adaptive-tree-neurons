@@ -128,3 +128,100 @@ def practical_benefit(dataset_risks):
         task_degradation_over_5_percent=[n for n in OBSERVATIONAL if over_margin[n]],
         task_relative_degradation={n:degradations[n] for n in OBSERVATIONAL},confirmed_useful_win=False,
         scope='Finite five-task point arithmetic; no uncertainty interval, dependence qualification or population claim')
+
+
+def _log_ratio(selected,baseline):
+    selected=np.asarray(selected,dtype=np.float64);baseline=np.asarray(baseline,dtype=np.float64)
+    result=np.full(selected.shape,np.nan,dtype=np.float64)
+    valid=(selected>0)&(baseline>0)&np.isfinite(selected)&np.isfinite(baseline)
+    result[valid]=np.log(baseline[valid])-np.log(selected[valid])
+    return result
+
+
+def _conditional_interval(values):
+    if not np.isfinite(values).all():return None
+    return np.quantile(values,[.025,.975],method='linear').tolist()
+
+
+def paired_group_bootstrap(losses,*,seed,iterations=20000,chunk_size=256,bike_block_days=7):
+    """Paired conditional test-sampling uncertainty on fixed fitted models.
+
+    Every packet contains normalized per-group/day MSE arrays shaped(G,2).
+    Baseline choice must already be frozen from V. One set of indices is reused
+    for both methods and both repetitions. Bike uses overlapping noncircular
+    calendar blocks and truncates the final block to keep exactly G days.
+    """
+    import hashlib
+    from treeneuron.config import canonical_hash
+    from treeneuron.research.seeds import seed64
+    if (not isinstance(losses,dict) or not set(OBSERVATIONAL)<=set(losses)
+            or set(losses)-set(OBSERVATIONAL)-{'energy'}):raise ValueError('All five fixed observational tasks required')
+    if (type(iterations) is not int or iterations<2 or type(chunk_size) is not int or chunk_size<1
+            or type(bike_block_days) is not int or bike_block_days not in (3,7,14)):
+        raise ValueError('Invalid conditional bootstrap iterations/chunk/block')
+    packets={};input_hashes={}
+    for name,packet in losses.items():
+        required={'group_ids','selected','baseline'}|({'day_ordinals'} if name=='bike' else set())
+        if not isinstance(packet,dict) or set(packet)!=required:raise ValueError('Invalid conditional loss packet fields')
+        ids=packet['group_ids'];a=np.asarray(packet['selected'],dtype=np.float64);b=np.asarray(packet['baseline'],dtype=np.float64)
+        if (not isinstance(ids,list) or len(ids)<2 or any(type(x) not in (int,str) for x in ids)
+                or len({(type(x),x) for x in ids})!=len(ids)
+                or a.shape!=(len(ids),2) or b.shape!=a.shape or not np.isfinite(a).all()
+                or not np.isfinite(b).all() or np.any(a<0) or np.any(b<0)):
+            raise ValueError('Complete paired nonnegative group losses/identities required')
+        identity=dict(group_ids=ids,selected_sha256=hashlib.sha256(a.astype('<f8').tobytes()).hexdigest(),
+            baseline_sha256=hashlib.sha256(b.astype('<f8').tobytes()).hexdigest())
+        if name=='bike':
+            days=np.asarray(packet['day_ordinals'])
+            if days.shape!=(len(ids),) or days.dtype.kind not in 'iu' or np.any(np.diff(days)!=1):
+                raise ValueError('Bike requires actual consecutive held-out day ordinals; do not fabricate gaps')
+            if len(ids)<bike_block_days:raise ValueError('Bike block exceeds held-out day count')
+            identity['day_ordinals']=days.tolist()
+        packets[name]=(a,b);input_hashes[name]=canonical_hash(identity)
+    draws={};points={};hashes={};first={};leave_out={};units={};assumptions={}
+    for name in OBSERVATIONAL:
+        a,b=packets[name];n=len(a);units[name]=n
+        rng=np.random.default_rng(seed64(seed,'conditional-group-bootstrap',name))
+        values=np.empty(iterations,dtype=np.float64);digest=hashlib.sha256()
+        points[name]=float(_log_ratio(np.mean(a),np.mean(b)))
+        for offset in range(0,iterations,chunk_size):
+            count=min(chunk_size,iterations-offset)
+            if name=='bike':
+                starts=rng.integers(0,n-bike_block_days+1,size=(count,math.ceil(n/bike_block_days)),dtype=np.int64)
+                indices=(starts[:,:,None]+np.arange(bike_block_days)).reshape(count,-1)[:,:n]
+            else:indices=rng.integers(0,n,size=(count,n),dtype=np.int64)
+            if offset==0:first[name]=indices[0].tolist()
+            digest.update(indices.astype('<i8',copy=False).tobytes())
+            selected=np.mean(np.mean(a[indices],axis=1),axis=1)
+            baseline=np.mean(np.mean(b[indices],axis=1),axis=1)
+            values[offset:offset+count]=_log_ratio(selected,baseline)
+        draws[name]=values;hashes[name]=digest.hexdigest()
+        deleted=_log_ratio((np.sum(a)-np.sum(a,axis=1))/(2*(n-1)),
+            (np.sum(b)-np.sum(b,axis=1))/(2*(n-1)))
+        leave_out[name]=dict(effect_range=[float(np.min(deleted)),float(np.max(deleted))]
+            if np.isfinite(deleted).all() else None,undefined_count=int(np.sum(~np.isfinite(deleted))))
+        assumptions[name]=(['fixed_fitted_models','local_dependence_covered_by_declared_calendar_block'] if name=='bike'
+            else ['fixed_fitted_models','held_out_groups_exchangeable'])
+        if name=='ccpp':assumptions[name].append('unverified_exchangeability')
+        if name=='parkinsons':assumptions[name].append('few_subject_clusters; resample_count_does_not_increase_units')
+    aggregate=np.mean(np.stack([draws[n] for n in OBSERVATIONAL]),axis=0)
+    finite_point=all(math.isfinite(points[n]) for n in OBSERVATIONAL)
+    energy=None
+    if 'energy' in packets:
+        a,b=packets['energy'];effects=_log_ratio(np.mean(a,axis=1),np.mean(b,axis=1))
+        energy=dict(bootstrap_interval=None,groups=len(a),
+            descriptive_group_effect_range=[float(np.min(effects)),float(np.max(effects))] if np.isfinite(effects).all() else None,
+            scope='Simulation transfer; descriptive ranges only, not independent buildings')
+    undefined=int(np.sum(~np.isfinite(aggregate)))
+    return dict(status='completed' if undefined==0 and finite_point else 'undefined_log_risk',
+        aggregate_interval=_conditional_interval(aggregate),
+        aggregate_point_log_benefit=math.fsum(points.values())/5 if finite_point else None,
+        dataset_intervals={n:_conditional_interval(draws[n]) for n in OBSERVATIONAL},
+        aggregate_bootstrap_log_benefits=aggregate,dataset_bootstrap_log_benefits=draws,
+        undefined_aggregate_resamples=undefined,discarded_resamples=0,energy=energy,
+        resampling_units=units,dataset_assumptions=assumptions,leave_one_group_out=leave_out,
+        pairing_index_sha256=hashes,first_resampled_group_indices=first,input_packet_sha256=input_hashes,
+        iterations=iterations,seed=seed,bike_block_days=bike_block_days,
+        bike_resampling_law='overlapping noncircular calendar-day blocks, uniform starts, final truncation to G days',
+        interval_scope='Conditional test sampling for fitted models on five named tasks; not retraining or dataset-population uncertainty',
+        population_superiority_confirmed=False,protected_access_authorized=False)
