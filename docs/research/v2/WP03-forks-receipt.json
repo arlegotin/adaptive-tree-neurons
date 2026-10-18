@@ -1,0 +1,74 @@
+{
+  "schema": "research/v2-software-verification",
+  "scope": "immutable diagnostic fork and F-score artifact primitives; M2 controller not implemented",
+  "tests": {
+    "initial_native_forks": "4 passed in5.11s",
+    "input_forks": "8 passed in8.14s",
+    "affected_integration": "28 passed in18.32s",
+    "sampled_pool_test": "4 input tests passed in2.99s"
+  },
+  "review": {
+    "resolved": [
+      "actual fork policy versus configured ceiling",
+      "copy returned parent identities",
+      "unknown unscored eligibility",
+      "preserve active failure if result publication also fails"
+    ],
+    "final": "no remaining material finding; sampled-pool test gap addressed"
+  },
+  "failures_retained": [
+    "initial missing module RED",
+    "first new input-test invocation missing imported cpu fixture",
+    "one review invocation missing Torch interop setup",
+    "wrong affected test filenames; no tests ran",
+    "intended reporting and result-publication RED"
+  ],
+  "logs": [
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/fork-tests/atn-diagnostic-forks-red.log",
+      "sha256": "c860de2452505d2525e383ec5a389ac59b3f8241138669218ca9336ee245e815"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/fork-tests/atn-diagnostic-forks-green.log",
+      "sha256": "b5a0491126cb8bbadb9235bb0cf9d54917c1c45b0dbf43e9190716a312b51a6f"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/fork-tests/atn-opportunity-inputs-red.log",
+      "sha256": "64b5fea4ee60ef083b249e27bd36209c81ed03a348a0d0462533ed14d0227139"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/fork-tests/atn-opportunity-inputs-red-1.log",
+      "sha256": "0d70578b6623cf9fb09eff6368e8f0fabaf117875b2c9cd3206a959a18a725b1"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/fork-tests/atn-diagnostic-forks-review-red.log",
+      "sha256": "ba349de63fdf1db5b44957e7a618ab40479f552c785c3d0f732cab7e06081ac6"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/fork-tests/atn-diagnostic-forks-review-red-1.log",
+      "sha256": "480af1c46f4ed2eced764e583fe37f062646da92b0997aff6d4094698f46ea8e"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/fork-tests/atn-diagnostic-inputs-green.log",
+      "sha256": "5b2602027a4689f0e5b0afb864e5135ad8dbd6d6749135c0800e1a5702441b4e"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/fork-tests/atn-diagnostic-failure-red.log",
+      "sha256": "5a0122a1385539ea9b8af4070bd7d8fe3583c6bf5a986902e043e2da0fa9dfdb"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/fork-tests/atn-diagnostic-integration.log",
+      "sha256": "3a4ed6bf7a927c68739adbca29f4821918250cbc20f7d328c2090fdecff4e639"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/fork-tests/atn-diagnostic-integration-1.log",
+      "sha256": "88cdea9837092018570d85cd9d217fa620785a2f13de69ad69d968e2882356f5"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/fork-tests/atn-opportunity-inputs-final.log",
+      "sha256": "433c835bcecdc8315d32aee6b6691c3a08dd341d6efdcc06e802d2982e9f69c1"
+    }
+  ],
+  "scientific_result": false,
+  "T_accessed": false
+}

@@ -49,6 +49,14 @@ agreed within6.94e-18. This case took93.55minutes of contended wall time and ret
 about485MB; those are resource observations, not an efficiency claim. The full
 four-teacher/two-repeat M0 cohort and positive-control sensitivity remain pending.
 
+The same case was rerun after checkpoint bookkeeping changes. An independent
+raw-artifact audit found exact agreement for every prediction, score, allocation
+and selection, all40,375 updates and1,705 G evaluations, and all162 authenticated
+checkpoint/export tensor payloads. Wall time was16.35minutes in the rerun versus
+93.55minutes originally; both observations were subject to machine contention.
+Retained bytes remained approximately485MB. This verifies engineering
+compatibility, not an additional teacher or a predictive improvement.
+
 The next scientific gate asks whether the controls expose useful, learnable
 capacity on multiple independent problems. Matched timing, minibatch-stream,
 ordinary-capacity and recipe controls separate training gains from placement

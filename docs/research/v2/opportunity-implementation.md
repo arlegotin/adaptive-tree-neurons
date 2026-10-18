@@ -74,3 +74,24 @@ Keep all initially declared teachers. The four-to-eight extension and Gate A
 screening follow the operational rules already recorded in the main spec and
 ledger. No selector implementation or population confirmation is admitted by
 these engineering changes alone.
+# Diagnostic fork and F-score artifacts
+
+`research/diagnostics.py` now supplies a source-bound worker for keep, current
+cheap/random growth, exact nominal singleton/pair subsets, and lower/upper warm
+ordinary brackets. It accepts F/G-only worker data and an immutable parent/full
+snapshot fingerprint. F-only scores are bound by every table field and tensor
+byte. Insertion precedes any immediate minibatch-stream regeneration; the caller's
+parent and RNG are preserved. Fixed-budget prefixes and deployable patience
+training carry their actual resolved policies. Nominal ineligible subsets remain
+explicit records. Unscored keep reports common eligibility as unknown.
+
+`research/opportunity_inputs.py` saves all ScoreTable arrays/spectra without
+pickle, verifies raw file/table/parent commitments on read, binds the nine M2c
+nominal slots from cheap top-four and a seeded sample of up to four remaining
+eligible IDs, and selects the small pair oracle on G with the declared stable
+tie rule. Missing candidate slots remain ineligible records.
+
+The outer M2 controller, conditional admission, immutable prerequisite queue,
+recovery orchestration, V/E coordinator, complete standalone costs and source-bound
+resource admission are still pending. A worker's standalone cost remains null
+until those prerequisites are accounted for. Public M2 run remains disabled.

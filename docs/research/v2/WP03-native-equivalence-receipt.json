@@ -1,0 +1,70 @@
+{
+  "allowed_metadata": "All4025 observed allowed metadata differences are retained with exact old/new values. Source/config/backend identities, output paths, probe coordinator links, authenticated growth hashes, schema1 inline versus schema2 journal histories, and newly explicit default/capture policy fields are bookkeeping. All raw numerical/event/tensor semantics remain exact.",
+  "artifact_sha256": {
+    "allowed-metadata-differences.json": "dca07702c485830c487ddf8ae4b9fd4ba7d95f5ffe80df05f60eba67e4a41994",
+    "array-comparisons.json": "03d5d1e94fb4420e3bee42b163d10b5f3dcf5b8c45483a3aa165d2ec5dbba0fa",
+    "audit.log": "373641f3f94779e0b2609af5c5487df2dbde5e89930ff2c8faa5ee442348b7a0",
+    "audit.py": "f833dfa0d592b6da3cccdcf162ae4f51427b1bc335bdb4f5edb1db0466955471",
+    "failures.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "input-hashes.json": "9ad0906b65aa4c4d67898c13ace0dc39839c8228cace89f4cad00f2e78cb26ca",
+    "mismatches.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "replay-audit.py": "cd72b96b6ddf3975c1a2da3f8cd53bb3ba6a2caf37712084cafa9aa3ab8d6a32",
+    "replay-result.json": "1cf29c17e209ed6e32933e0210f4d77352d20b9b262780daa9198d5679d0ccb1",
+    "result.json": "4beeda33b62bf7e04107d986b7d81916699336f927a26b403e3edc578b6bef5a",
+    "stage-comparisons.json": "fed84454c55e5e2b078b05af119c921e19f0035185829156fdffb0550b641719",
+    "tensor-comparisons.json": "61919965cfff49992a9d220abe81ced9df4936bd2132dcc99ed79a8afcf8277e"
+  },
+  "conclusion": "The retained old and journal native same-case runs are numerically and tensor-byte equivalent for every audited observation, V/E prediction, allocation, raw update/evaluation/selection and selected/current checkpoint state.",
+  "coverage": {
+    "authenticated_checkpoint_pairs": 162,
+    "byte_identical_tensor_payload_files": 162,
+    "native_stages": 77,
+    "observations_arrays": 20,
+    "predictions_arrays": 20,
+    "probe_trials": 65,
+    "raw_G_evaluation_pairs": 1705,
+    "raw_update_pairs": 40375,
+    "score_table_arrays": 18,
+    "tensor_leaves": 8488
+  },
+  "durable_recipe_note": "Tracked scripts are byte-identical copies. Copy both into a fresh sibling of native-storage-equivalence at the same artifacts depth, under names audit.py and replay-audit.py, then execute there; do not execute tracked copies in place because they resolve input/output from their location.",
+  "harness_recovery": "attempt-0 preserves the initial script/log/failures and all reported differences. Its terminal-event assumption, absent-field comparison and incomplete bookkeeping allowlist were corrected in the final audit script; no training artifact or source was changed.",
+  "limitations": [
+    "Single predeclared exploratory teacher/repetition, rerun for storage engineering. No new independent teacher, efficacy result, formal efficiency ratio, full M0/M1 completion or Gate-A decision.",
+    "Both run wall/resource numbers are contended observations with uncalibrated variance. Retained storage is approximately equal, not reduced.",
+    "Audit performed no fitting or training-state/model restoration. Tensor inspection used authenticated torch.load(weights_only=True); no protected T or transfer labels accessed."
+  ],
+  "replay": "Both native raw streams independently satisfy verified_patience_tail_replay:500 updates and21 G evaluations; execution evidence only.",
+  "reproduce": [
+    "PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv-research-v2/bin/python artifacts/research-v2/WP03/native-storage-equivalence/audit.py",
+    "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src .venv-research-v2/bin/python artifacts/research-v2/WP03/native-storage-equivalence/replay-audit.py"
+  ],
+  "reproduction_note": "Create a fresh sibling audit directory at the same depth and copy only audit.py and replay-audit.py into it. Scripts resolve MAIN from that depth, read the same fixed input roots, and use exclusive output creation. Preserve all current outputs.",
+  "resource_observations": [
+    {
+      "containing_wall_seconds": 5613.234290042,
+      "max_checkpoint_transaction_bytes": 2606368,
+      "pair_sha256": "2ecf2e91b0e88c7a2a1211bdb7be9f8c471237b6c3ee718e10b18f8e2292f591",
+      "peak_rss_bytes": 562511872,
+      "result_sha256": "dd47d6031c1235b0f2ab2eea69eea90665939f10e8563ef1de817e32b0da1507",
+      "retained_bytes": 484895492,
+      "root": "artifacts/research-v2/WP02/M0-native-qualification",
+      "source_commit": "5c55fa99d63f9b79e64cc9cd0b3333ce56e419f6",
+      "source_sha256": "7671b9e952992805fc890b8891cad15075258277b73682fa9d290a1b3cee4ed0"
+    },
+    {
+      "containing_wall_seconds": 981.287996666,
+      "max_checkpoint_transaction_bytes": 193266,
+      "pair_sha256": "f1a6221740fd8e00bccde386690758a0d39f305f393e80390b5b7676df037044",
+      "peak_rss_bytes": 538722304,
+      "result_sha256": "9b2e75c856d356321da9aa72046463aaee7fa183a6e4cf7703c62fa8de4408bd",
+      "retained_bytes": 484993527,
+      "root": "artifacts/research-v2/WP02/M0-journal-qualification",
+      "source_commit": "c61f18bb58b662e23c457ea6236ed124fee67565",
+      "source_sha256": "f36bc2a49d6d866da39fafbef582c2472161334c6d9f5ef23bfa4155402ed191"
+    }
+  ],
+  "retained_audit_result_sha256": "4beeda33b62bf7e04107d986b7d81916699336f927a26b403e3edc578b6bef5a",
+  "schema": "research/v2-storage-equivalence-disposition",
+  "status": "passed"
+}

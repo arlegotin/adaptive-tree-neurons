@@ -372,3 +372,64 @@ Public run explicitly rejects before creating an output until the controller and
 source-bound resource admission are implemented; plan support does not claim run
 capability. Further code stays in isolated worktree while main's same-case native
 qualification runs as session49572 under unchanged sourcef36bc2a4.
+
+### Same-case native storage equivalence completed
+
+Session49572 completed normally in981.287996666s, with484993527 retained bytes and
+538722304 peak RSS bytes. The old case took5613.234290042s, retained484895492
+bytes, and recorded562511872 peak RSS bytes. These are contended single-case
+observations; retained storage is approximately equal. Maximum checkpoint
+transaction bytes fell from2606368 to193266.
+
+Independent raw readers verified20 observation arrays,16 V/E prediction vectors
+plus4 reference arrays,18 ScoreTable arrays,77 native stages,40375 ordered
+updates,1705 G evaluations, all allocations/selections, and162 byte-identical
+authenticated tensor payload pairs covering8488 leaves. Both pure replay checks
+verified500 updates and21 G evaluations. Final audit has zero failures/mismatches.
+The first audit harness's terminal-event/metadata assumptions failed; attempt-0
+is retained. Its correction changed only the audit reader, never training data
+or source. Result SHA256:
+4beeda33b62bf7e04107d986b7d81916699336f927a26b403e3edc578b6bef5a.
+
+WP03-native-equivalence-receipt.json retains the disposition and hashes. The two
+tracked scripts/audit_native_storage.py and scripts/audit_native_replay.py are
+byte-identical copies of the executed readers; follow the receipt's fresh
+sibling-directory copy instructions rather than executing these copies in place.
+No additional independent teacher, protected access, Gate A result or predictive
+benefit follows. Main source need no longer be held for the audit; implementation
+continues in the isolated worktree before source-bound qualification/integration.
+
+### WP07 optional tree dependency and import qualification
+
+The isolated tree overlay installed all12 hash-pinned wheels offline while
+preserving27 core distribution identities. Independent audits verified2921
+overlay RECORD entries before/after. Fresh one-thread CatBoost1.2.10,
+XGBoost3.4.1 and LightGBM4.7.0 imports passed without importing Torch. XGBoost and
+LightGBM load both sklearn's bundled and Homebrew's LLVM OpenMP copies; imports
+showed no crash/warning, and both threadpool limits were1. This observation
+requires bounded fitting fixtures, not an invented incompatibility verdict.
+
+tree-lock-resolution.md and tree-import-qualification.md retain versions, source
+pins, wheel/native-library hashes, acquisition/auditor failures, offline install
+command and actual import receipts under artifacts/research-v2/WP07/tree-imports/.
+Native API/category/stopping/save-load fixtures are next on synthetic F/G-only
+data. No transfer fitting/search or quality anchor is qualified; Gate D remains
+pending for every mandatory family.
+
+### WP03 immutable diagnostic forks and candidate artifacts
+
+Implemented diagnostics.py and opportunity_inputs.py worker primitives described
+in opportunity-implementation.md. Four first native fork tests passed in5.11s.
+Review found incorrect configured-ceiling provenance, an aliased parent identity
+record, unscored eligibility presented as empty, and result-publication errors
+masking training/interruption failures. Reporting/failure cases reproduced RED
+and were fixed. The combined boundary/prefix/head/fork/input integration passed
+28 in18.32s. A final synthetic sampled-pool test exercises the more-than-eight
+eligible-candidate branch without extra fitting. WP03-forks-receipt.json retains
+the scope, initial invocation errors, RED cases and immutable log hashes.
+
+This does not implement the outer M2 queue, admission/recovery, local-to-finite
+diagnostics, full cost accounting or Gate A analysis. M2 public run remains
+disabled. Continue with those controller pieces; do not infer a scientific result
+from worker acceptance. Main's former source-hold and raw comparison are finished;
+new package code needs its own source/runtime qualification before production.
