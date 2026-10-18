@@ -327,3 +327,25 @@ nominal/conditional counts, paired ablation reuse and bounded fallback/extension
 rules before any M2 fitting. M2 config exists, but dispatcher/run remain pending.
 native-tree-qualification.md records official package/source/wheel candidates and
 API traps; no native tree adapter or quality anchor is qualified yet.
+
+### Integrated source and same-case journal requalification
+
+Main research-v2-continuation fast-forwarded to8f4e163 after the old run finished;
+packageSHA remainsf36bc2a49d6d866da39fafbef582c2472161334c6d9f5ef23bfa4155402ed191.
+New edits continue in isolated /private/tmp/atn-research-v2-next; do not change main
+package source while the following run is active. The M0-journal-reference config
+retains M0-reference's study/seed labels and every numerical setting, changing
+only the actual backend receipt to research-v2-journal-qualified-cpu.json. Thus it
+reruns the same first teacher/repetition, not a new independent teacher.
+
+Run command from main, with all numerical thread variables1 and MPS fallback0:
+qualified Python docs/research/v2/scripts/measure_reference.py --config
+configs/research/v2/M0-journal-reference.json --output
+artifacts/research-v2/WP02/M0-journal-qualification. Retain its result/status and
+compare every original-unit V/E prediction and selected/executed update against
+M0-native-qualification before calling it a compatible storage change. Full M0/M1
+and all M2 efficacy work remain pending; this is an engineering replay. The old
+qualification recipe/run was session54673, source5c55fa9, log
+artifacts/research-v2/WP02/M0-native-qualification.log, actual CPU receipt
+environment/research-v2-WP02-cpu.json; it completed normally, and its source lives
+in the detached measured-reference worktree. Do not relaunch either output root.
