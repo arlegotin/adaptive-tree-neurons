@@ -1,0 +1,177 @@
+{
+  "Gate_D": "pending",
+  "accessed_roles": [
+    "synthetic_F",
+    "synthetic_G"
+  ],
+  "base_commit": "419855e1ee88b98a4736ef01d903df582f9b7b31",
+  "branch": "research-v2-native-adapters",
+  "core_distributions": 27,
+  "core_or_overlay_packages_modified": false,
+  "created_utc_ns": 1792342493702906000,
+  "families": [
+    "P08",
+    "P09",
+    "P10",
+    "P11"
+  ],
+  "final_source_package_sha256": "c2ed50988d17dd3f7cfa92db1ad489b200dd5bb24742e2dd377a3039307851e1",
+  "full_project_test_suite_executed": false,
+  "immutable_evidence": {
+    "final_source_snapshots": "attempt-4/source-*",
+    "retained_audit_sha256": "85cc0d33d109c933a3fb1373a13e5130fad7f0ae62579e1b54e1cbe6205ea2a9",
+    "root": "/private/tmp/atn-native-adapters-next/artifacts/research-v2/WP07/native-adapters",
+    "source_attempts": [
+      {
+        "attempt": "attempt-0",
+        "manifest_sha256": "6eda02029235393ae52785c98f7d197fba00416a5d33f60c63049cf4dadc17e8",
+        "source_sha256": "7bcd315e6805fec584bc500abed86a3bf9b2ced030e4ea92d16154eec38be932"
+      },
+      {
+        "attempt": "attempt-1",
+        "manifest_sha256": "d54ed122f558116fb5865ad0b7e386d8a5e1b123871f76294bd44a289d5bbe2a",
+        "source_sha256": "669051be090c71b77ce412f7552fbf453eae19dc7f3b0c02807b00315cf1a915"
+      },
+      {
+        "attempt": "attempt-2",
+        "manifest_sha256": "c8e1150b202cac384e2acd4f5ab7f7df6d78db6a69a3c6cfc328a5ee804d6c9c",
+        "source_sha256": "91b3aa8eb636c3b997cf448b127a60222dc19dfa463da7048daa142a9807270b"
+      },
+      {
+        "attempt": "attempt-3",
+        "manifest_sha256": "a865473f249f18777c15f9f914c9c1c45b6d41e2de4a166c6af277b314c623aa",
+        "source_sha256": "0169f047ed514b32ac906e16619f63266a5d6e6791c6115f818a1cdadc974972"
+      },
+      {
+        "attempt": "attempt-4",
+        "manifest_sha256": "c662780988c95deb807a44e3997d46b0bf0eae379a6231b14b6d719302356c0c",
+        "source_sha256": "c2ed50988d17dd3f7cfa92db1ad489b200dd5bb24742e2dd377a3039307851e1"
+      }
+    ],
+    "test_suites": {
+      "final-scoped-regression.xml": {
+        "errors": 0,
+        "failures": 0,
+        "sha256": "37ebadcd75edcb7e17edfa94f847d2e09399fe56762da611bdf35d62f90b9fee",
+        "skipped": 0,
+        "tests": 73,
+        "wall_seconds": 4.39
+      },
+      "parity-attempt-3.xml": {
+        "errors": 0,
+        "failures": 0,
+        "sha256": "0d573274653e10d17307cf6aa8017cb2680ab37197872bc504a7ed45174fe7c0",
+        "skipped": 0,
+        "tests": 8,
+        "wall_seconds": 22.392
+      },
+      "parity-attempt-4.xml": {
+        "errors": 0,
+        "failures": 0,
+        "sha256": "7ef0ce423c00c7141807d033323d80a2beaedd44b0d74acc00ed62337fd568a3",
+        "skipped": 0,
+        "tests": 8,
+        "wall_seconds": 22.768
+      },
+      "review-green.xml": {
+        "errors": 0,
+        "failures": 0,
+        "sha256": "78edbf78c7dbde4dea0ba24a0602a1a2772c19effc862c009f7d1a12bc6d4c98",
+        "skipped": 0,
+        "tests": 36,
+        "wall_seconds": 3.784
+      },
+      "review-red.xml": {
+        "errors": 0,
+        "failures": 8,
+        "sha256": "4e0085c58641fd31deb4c24f75628e9391a17545f30d0f1c00e95a118e1fb36c",
+        "skipped": 0,
+        "tests": 36,
+        "wall_seconds": 5.461
+      }
+    }
+  },
+  "implementation_files": {
+    "src/treeneuron/research/native_trees.py": "7798bf9db36ebb4a4c36b29141efb4aff964a2f04026588281c6c12bd1d18455",
+    "tests/test_native_tree_contract.py": "116c0937d57af45f6fd920ce1010fca3566b98bf9a33983f501c8367cf1d815b",
+    "tests/test_native_tree_parity.py": "03fd378e00e28430f2a5350bebbfaf6cdfdf751d01c03db8154374ca6a4a91bf",
+    "tests/test_native_tree_review_guards.py": "a131ac9caa6406dc88b585fad8836d68c1a3a416bb1e2d874e2e72a47c54185d"
+  },
+  "installed_records_verified_at_native_boundaries": true,
+  "legacy_registry_modified": false,
+  "native_fixture_GREEN": {
+    "adapter_fit_process_peak_rss_max_bytes": 174866432,
+    "cells": 8,
+    "exact_direct_predictions": true,
+    "exact_save_load_predictions": true,
+    "failures": 0,
+    "fits": 20,
+    "native_metric_max_absolute_error": 8.69075389431373e-09,
+    "printed_wall_seconds": 22.8,
+    "skips": 0,
+    "source_before_and_after_review_predictions_identical": true,
+    "timed_scope": "Outer worker covers imports, qualification, fits, snapshot/tests and I/O; adapter fit peak is a process-lifetime prefix peak"
+  },
+  "native_full_anchor_qualified": false,
+  "openmp": {
+    "CatBoost_after_native_import": null,
+    "XGBoost_LightGBM_after_native_import": "True",
+    "after_threadpoolctl_inspection": "True",
+    "caller_does_not_set_or_patch_flag": true,
+    "caller_flag": null,
+    "library_preloading": false,
+    "qualification": "No-warning observations under upstream sklearn/threadpoolctl setdefault policy do not assure unsuppressed compatibility",
+    "sklearn_init_sha256": "66a78bb27706626c4cc8ef424a5479f6301204baacd85986e8002c16b751fef1",
+    "threadpoolctl_sha256": "e5f119e394193e206655bec4b993ef0bb40b0fbb2f22c92bd5b2d70a622bb518"
+  },
+  "original_shared_source_modified": false,
+  "overlay_distributions": 12,
+  "predictive_result": "No new evidence for informed neuron placement or practical predictive superiority",
+  "prepared_data_accessed": false,
+  "qualified_interpreter": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+  "read_only_overlay": "/private/tmp/atn-research-v2-next/environment/research-v2-tree-site",
+  "remaining": [
+    "production search/qualifier integration",
+    "full native anchors and wider workload qualification",
+    "hard resource worker admission/termination",
+    "native interruption recovery or declared paid deterministic rerun",
+    "practical HPO and independent protected evaluation"
+  ],
+  "retained_fits": {
+    "final_passing_run": 20,
+    "initial_failed_engineering_runs": 6,
+    "pre_review_passing_run": 20,
+    "total": 46
+  },
+  "review": {
+    "disposition": "All material findings fixed in one TDD pass; no second independent review claimed",
+    "final_scoped_GREEN": {
+      "errors": 0,
+      "failures": 0,
+      "skips": 0,
+      "tests": 73,
+      "wall_seconds": 4.39
+    },
+    "findings": 3,
+    "independent_reviewer": "/root/diagnostic_review",
+    "no_fit_RED": {
+      "failures": 8,
+      "passes": 28,
+      "tests": 36
+    },
+    "reviewed_defects": [
+      "rehashed recipe/eligibility edits accepted",
+      "selected module/native origin not checked against audited installed package",
+      "post-start infrastructure/API errors mislabeled numerical"
+    ],
+    "targeted_GREEN": {
+      "failures": 0,
+      "tests": 36
+    }
+  },
+  "schema": "research/v2-native-tree-adapter-implementation-receipt",
+  "scope_reason": "Explicitly authorized tiny fixtures and related core regression tests only",
+  "snapshot_load_contract": "expected_state_sha256 is mandatory and must come from the externally retained immutable selected-model record",
+  "source_lock": "Source digest covers all treeneuron Python files and the explicit core/tree lock inputs; merging changed scientific source creates a new identity",
+  "worktree": "/private/tmp/atn-native-adapters-next"
+}

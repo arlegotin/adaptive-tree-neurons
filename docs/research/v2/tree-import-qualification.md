@@ -14,7 +14,13 @@ This finding requires explicit disposition during the forthcoming bounded native
 fixtures, interruption/recovery and resource checks. It is not a demonstrated
 fitting defect or an automatic permanent blocker. No library was hidden, patched,
 preloaded, replaced or uninstalled, and `KMP_DUPLICATE_LIB_OK` was removed from
-child environments rather than used to suppress conflicts.
+caller-supplied child environments. Later adapter checks established that this
+does not mean the flag remains absent: pinned `sklearn/__init__.py:56` and
+`threadpoolctl.py:48` both use `os.environ.setdefault` to set it to `True`.
+XGBoost/LightGBM import sklearn before inspection; CatBoost leaves it unset until
+the threadpoolctl inspector imports. Thus no-warning/no-crash observations here
+were made under upstream import behavior, and do not assure compatibility without
+that suppression. No library or environment is patched to remove or hide it.
 
 ## Immutable receipts
 
@@ -133,6 +139,15 @@ the native training API later does not by itself prevent this import path.
 The exact source line locations and file hashes are retained in the audit. See
 the pinned official [XGBoost compatibility source](https://github.com/dmlc/xgboost/blob/6fe8c547bdd21c73e4555d85b087d9260595d30d/python-package/xgboost/compat.py)
 and [LightGBM compatibility source](https://github.com/lightgbm-org/LightGBM/blob/8f7036f03627054d5a54a6f965b13f4b9ff2cb63/python-package/lightgbm/compat.py).
+
+The later [adapter transition checks](native-tree-adapters.md) retain actual
+caller/native-import/runtime-inspection values and verify both source files
+against their locked installed RECORDs. The unchanged core source SHA256 values
+are `66a78bb27706626c4cc8ef424a5479f6301204baacd85986e8002c16b751fef1`
+for sklearn initialization and
+`e5f119e394193e206655bec4b993ef0bb40b0fbb2f22c92bd5b2d70a622bb518`
+for threadpoolctl. Earlier raw import records are preserved; this is an explicit
+qualification of their environment wording.
 
 All dyld image paths are retained, with byte hashes for readable non-system
 images. Apple shared-cache/system image paths are explicitly marked when their

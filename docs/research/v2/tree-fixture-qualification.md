@@ -59,8 +59,12 @@ proxy from `vm_stat`. Workers run sequentially, with a two-GiB RSS guard and
 90-second cell ceiling. One identical seed/config infrastructure retry is
 allowed; numerical/assertion/API failures are retained without automatic retry
 or changed seeds. All failures and costs remain visible. Matplotlib/cache writes
-go to artifact-local directories, bytecode writes are disabled, and OpenMP
-conflict suppression/preloading is not used.
+go to artifact-local directories and bytecode writes are disabled. The caller
+does not set OpenMP conflict suppression or preload libraries. Later adapter
+checks established that pinned sklearn and the threadpoolctl inspector themselves
+set `KMP_DUPLICATE_LIB_OK=True` using `setdefault`; see the explicit
+[import-environment correction](tree-import-qualification.md). The earlier
+absence of warnings therefore does not assure unsuppressed compatibility.
 
 The executable is [qualify_native_trees.py](scripts/qualify_native_trees.py). It
 reuses the read-only import auditor to record method-specific versions/origins,
@@ -117,6 +121,8 @@ loaded no dynamic OpenMP image, and no worker imported Torch. These observations
 support this bounded engineering qualification; they do not establish arbitrary
 long-run, multi-thread, interruption or large-workload compatibility. The full
 native anchors and recovery/resource qualification remain required.
+In particular, those no-warning observations include the upstream flag behavior
+above; the caller-unset flag was not proof of its absence after import.
 
 The largest recorded worker peak RSS was **187,039,744 bytes**, below the two-GiB
 guard. The successful coordinator launch took 10.158275 seconds; including the
