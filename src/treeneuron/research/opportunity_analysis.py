@@ -109,6 +109,49 @@ def _summarize(cases, outcomes, contract, teachers):
         contrasts.append(dict(**contrast,teachers=records,mean_relative_benefit=math.fsum(effects)/len(effects),
             qualifying_teachers=sum(r['arm_V_NMSE'] <= (1-contract['minimum_relative_reduction'])*r['reference_V_NMSE']
                 for r in records)))
+    return _finish(contrasts,contract,teachers)
+
+
+def rebuild_opportunity_summary(summary, contract):
+    """Recompute every derived decision from the retained per-teacher risks.
+
+    The coordinator still authenticates those risks and the frozen contract.
+    This checks their internal arithmetic rather than trusting summary flags.
+    """
+    teachers = summary.get('teacher_ids')
+    if teachers not in (list(range(4)),list(range(8))):
+        raise ValueError('The fixed four or eight teacher inventory is required')
+    stored = summary.get('contrasts',[])
+    if len(stored) != len(contract['contrasts']):
+        raise ValueError('The frozen contrast inventory is required')
+    contrasts = []
+    for saved,contrast in zip(stored,contract['contrasts']):
+        if any(saved.get(k) != v for k,v in contrast.items()):
+            raise ValueError('Contrast identity differs from the frozen registry')
+        records = saved.get('teachers',[])
+        if [r.get('teacher_index') for r in records] != teachers:
+            raise ValueError('A fixed contrast must retain every teacher in order')
+        rebuilt = []
+        for row in records:
+            arm,reference = row.get('arm_V_NMSE'),row.get('reference_V_NMSE')
+            if (type(arm) not in (int,float) or not math.isfinite(arm) or arm < 0
+                    or type(reference) not in (int,float) or not math.isfinite(reference) or reference <= 0
+                    or row.get('reference') not in ('matched_keep',*contrast['ordinary_recipes'])
+                    or not isinstance(row.get('origins'),list) or len(row['origins']) != 2
+                    or any(v not in ('original','fixed_parent_budget_fallback') for v in row['origins'])):
+                raise ValueError('Invalid retained teacher risk, reference or acquisition')
+            rebuilt.append(dict(teacher_index=row['teacher_index'],arm_V_NMSE=arm,
+                reference_V_NMSE=reference,reference=row['reference'],relative_benefit=1-arm/reference,
+                origins=row['origins']))
+        effects = [r['relative_benefit'] for r in rebuilt]
+        contrasts.append(dict(**contrast,teachers=rebuilt,mean_relative_benefit=math.fsum(effects)/len(effects),
+            qualifying_teachers=sum(r['arm_V_NMSE'] <= (1-contract['minimum_relative_reduction'])*r['reference_V_NMSE']
+                for r in rebuilt)))
+    return _finish(contrasts,contract,teachers)
+
+
+def _finish(contrasts, contract, teachers):
+    tolerance = contract['tie_relative_tolerance']
     if not contrasts:
         raise _Missing('Fixed contrast registry is empty')
     best = contrasts[0]

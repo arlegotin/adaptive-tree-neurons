@@ -849,3 +849,10 @@ M1 gamma2/sigma.1 sensitivity rule or M2/Gate A. The same four base instances re
 across coordinates; nothing is counted as8 independent teachers. No seed, method,
 capacity, schedule, budget or remaining attempt changed after inspection. The
 full pinned604cffb cohort continues; no T access or practical baseline result.
+
+Gate A pure decision partial implementation (baseae2d298): independent material
+review reproduced three contradictions RED→GREEN. The final affected suite passed
+54 tests in6.75s. Both control and opportunity summaries are reconstructed from
+retained risks; the frozen extension node must agree. No actual M2 gate decision
+or admission exists. Production authenticated collection/resources remain next;
+[receipt](WP03-gate-A-receipt.json) retains failures and the exact scope.

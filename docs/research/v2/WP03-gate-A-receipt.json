@@ -1,0 +1,63 @@
+{
+  "base_commit": "ae2d298",
+  "component": "Gate A decision arithmetic",
+  "review": {
+    "fixes": "All three observed RED then GREEN; shared exact risk reconstruction and frozen-node agreement",
+    "material_findings": [
+      "Unbound extension argument could override frozen queue node",
+      "Derived opportunity summary could hide required extension",
+      "Control summary needed recomputation from retained per-repeat risks"
+    ],
+    "reviewer": "opportunity_state_review",
+    "scope_ruling": "Warm-only opportunity permits bounded selector study with ordinary controls; no gated efficacy claim"
+  },
+  "schema": "research/v2-implementation-receipt",
+  "scope": {
+    "M2_scientific_fits": 0,
+    "full_repo_suite_run": false,
+    "production_Gate_A_decision": false,
+    "protected_data_accessed": false,
+    "public_M2_run_enabled": false,
+    "resource_admission_pending": true,
+    "source_bound_collection_pending": true
+  },
+  "tests": {
+    "doc_binding": "8 passed in4.10s",
+    "final": "54 passed in6.75s",
+    "fixture_recoveries": [
+      "Initial hand-written summaries replaced by genuine fixed-contract risk-derived producer summaries",
+      "Nonfinite canonical input rejects before hash binding; finite invalid risks produce blocked decision"
+    ],
+    "initial": "4 missing-API RED, then19 GREEN; review3 RED/4 passed",
+    "logs": [
+      {
+        "path": "artifacts/research-v2/WP03/gate-A-tests/atn-gate-a-final.log",
+        "sha256": "ab0c83bfd1b75516a3915c6f2bed22c571d2790e7728e8a493c1641593628712"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/gate-A-tests/atn-gate-a-green-recovery.log",
+        "sha256": "8492cf416dfd069ef2e41931b87f9d41aa38ee690407170776edb2a9328f1117"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/gate-A-tests/atn-gate-a-green.log",
+        "sha256": "236255625b0b88d76d341085eb13321fc63c6464073eefa3585b4ee1cc45ab2c"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/gate-A-tests/atn-gate-a-red.log",
+        "sha256": "004553afa67a2535ce645a56e0365ddaf7b6b9fdee15794f0bd55e8a756bca29"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/gate-A-tests/atn-gate-a-review-green.log",
+        "sha256": "c80fed4a8281ac2352a9a733475295a1c0fff42cb0a2db23aa93256dd5ba502d"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/gate-A-tests/atn-gate-a-review-red.log",
+        "sha256": "5e8eed11297270b6b035ba33aaa6e257a7417ceaf24e478eca1c39042a0d50cd"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/gate-A-tests/atn-gate-a-doc-binding.log",
+        "sha256": "b598116be69f86ed0dc4e1203246cc2a75218fa278b2de1e79165a0cfb398920"
+      }
+    ]
+  }
+}

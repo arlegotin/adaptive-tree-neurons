@@ -86,7 +86,7 @@ The one primary-extension decision has448 explicit terminal evaluator inputs:
 M2b/c/d diagnostics are separate inputs to final Gate A, not silently assumed
 successful because serial scheduling happened to finish them. Unexpected failure
 or missing primary evidence blocks the extension decision. The extension node's V-only worker is now implemented. Complete resource
-admission, production dispatch and final Gate A analysis remain pending;
+admission, production dispatch and authenticated final Gate A collection remain pending;
 compiling this graph does not enable public M2 execution.
 
 Before any M2 outcomes, these builder details resolve the existing screening
@@ -136,3 +136,19 @@ arithmetic this is the same interval comparison; finite precision retains the
 intended risk boundary without adding a tolerance or changing the utility margin.
 Both centered intervals and the original descriptive interval remain in evidence.
 This arithmetic was fixed on analytic sentinel cases before any M2 fitting.
+
+The pure final Gate A decision is now implemented and fixture-tested, without a
+scientific gate decision. It requires the entire bounded DAG terminal inventory,
+including M2b/c/d, and binds the extension status to its frozen queue node. It
+recomputes the M1 sensitivity summary from its retained R2 risks and every M2
+qualification count, fixed-arm interval and extension flag from the retained
+per-teacher contrast risks under the frozen contract. Hash agreement alone does
+not replace internal arithmetic consistency. The production collector still must
+authenticate those risk records, producer files, source and complete queue.
+
+An insensitive control pauses efficacy interpretation. After the required single
+extension, absent fixed-arm opportunity retires the regime; a warm-only screen
+permits a bounded selector investigation with competent ordinary controls and is
+labeled ordinary_capacity_only. These are development routing decisions, never
+confirmation. Public execution remains disabled pending measured admission and
+complete orchestration. See [WP03-gate-A-receipt.json](WP03-gate-A-receipt.json).
