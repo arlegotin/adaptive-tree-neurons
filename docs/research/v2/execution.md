@@ -810,3 +810,27 @@ HPO and Gate D remain pending. No transfer predictive fitting, protected labels
 or shared dependency mutation occurred. The parallel native work now begins
 TabM recipe/API contract qualification in another isolated worktree before any
 implementation. M1 remains pinned to its separate604cffb source throughout.
+
+### Independent M1 raw-prediction arithmetic helper ready
+
+control_audit.audit_control_study now reads an externally committed M1 plan and
+authenticated event ledger under a read-only shared lease; an active worker
+blocks the audit. It checks the selected native transaction/pointer FILE hash,
+row/target alignment and original F variance, then independently recomputes seven
+V/E scalars with stdlib accumulation. All missing/ineligible/failed roles remain
+explicit. Standalone sums are not reported as physical cohort cost. The helper
+does not regenerate teachers or rerun/validate model tensor predictions or the
+checkpoint metadata chain; its evidence level is retained raw prediction
+arithmetic. Invoking run receipts must separately bind the auditor source.
+The active604cffb cohort has not been audited or interpreted with this helper.
+
+Independent review reproduced a material row-identity defect: equal but short,
+duplicate, matrix or float ID arrays passed alignment. All four cases went RED
+before per-side shape/length/type/uniqueness and exact dtype/equality checks.
+Final affected suite passed42 in12.83s with explicit intra/interop1. An initial
+integration command omitted interop setup and correctly failed one backend guard
+(41 passed); the unchanged correctly configured harness passed. All logs retained
+in WP02-control-audit-receipt.json. Two minor scope notes are deferred: extreme
+finite-mean accumulation overflow outside bounded M1 and helper-level auditor
+identity/explicit metadata-chain flag (the invoking manifest and stated evidence
+level carry that scope). No production result or full-suite pass is claimed.

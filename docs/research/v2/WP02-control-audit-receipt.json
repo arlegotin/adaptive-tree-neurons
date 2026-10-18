@@ -1,0 +1,51 @@
+{
+  "base_commit": "8fb3c81",
+  "component": "independent retained control-prediction arithmetic",
+  "review": {
+    "deferred_minors": [
+      "fsum(squared)/n may overflow for extreme1e154 predictions despite finite mean; bounded M1 not affected",
+      "Helper result carries producer identity; invoking audit receipt must separately bind auditor code; explicit checkpoint_metadata_revalidated flag remains absent, with scope stated in evidence_level/docs"
+    ],
+    "fix": "All four malformed symmetric ID cases RED, then validate each side independently for shape/count/type/uniqueness before exact dtype/equality",
+    "material": "Equal row IDs could be wrong-length/duplicate/matrix/float vectors",
+    "reviewer": "diagnostic_review"
+  },
+  "schema": "research/v2-implementation-receipt",
+  "scope": {
+    "checkpoint_metadata_revalidated": false,
+    "evidence_level": "retained_raw_prediction_arithmetic",
+    "full_repo_suite_run": false,
+    "model_predictions_reexecuted": false,
+    "production_cohort_audited": false,
+    "protected_data_accessed": false,
+    "teacher_data_regenerated": false
+  },
+  "tests": {
+    "final": "42 passed in12.83s under Torch intra/interop1",
+    "first_integration": "41 passed/1 failed in13.07s: command omitted explicit Torch interop1 before native snapshot fixture; backend guard rejected; unchanged corrected harness rerun",
+    "initial": "3 RED before helper;3 GREEN after",
+    "logs": [
+      {
+        "path": "artifacts/research-v2/WP02/control-audit-tests/atn-control-audit-red.log",
+        "sha256": "ac44f129e05b9fd032c8f2af0bd505bec95fb90122508d4e5c341df604c746b0"
+      },
+      {
+        "path": "artifacts/research-v2/WP02/control-audit-tests/atn-control-audit-green.log",
+        "sha256": "f21802e5e24571b06b077e416af1539fdce6ad55b407e03af6af45b03968cb3b"
+      },
+      {
+        "path": "artifacts/research-v2/WP02/control-audit-tests/atn-control-audit-review-red.log",
+        "sha256": "c64c7dbe3fb784cb78ae36af6091ecc1ffb78639108e540bb94b5dcf514540ab"
+      },
+      {
+        "path": "artifacts/research-v2/WP02/control-audit-tests/atn-control-audit-review-green.log",
+        "sha256": "0ae4df5697f8a91406fdaffbca8759d2aeea4f88bb8962351805ca8629c25a8c"
+      },
+      {
+        "path": "artifacts/research-v2/WP02/control-audit-tests/atn-control-audit-final.log",
+        "sha256": "075dfce0bc0d9b213417a3716b7c3605bb89f677045382a45437feb0ed0b0c81"
+      }
+    ],
+    "review": "4 failed/3 passed before row validation"
+  }
+}

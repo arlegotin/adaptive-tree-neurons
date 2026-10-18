@@ -170,3 +170,23 @@ and the explicitly tiny `tests/test_ordinary_neural_native.py` fixtures. The
 builder receipt and integration receipt document exact tested source identities,
 pinned upstream source/license assets and F-only target-scaling adaptation.
 Engineering fixtures are quality-ineligible and do not qualify a full anchor.
+
+After the full M1 worker has stopped, the retained prediction audit can run under
+a current qualified core without loading old-source model states:
+
+```python
+from pathlib import Path
+from treeneuron.research.control_audit import audit_control_study
+result = audit_control_study(
+    Path('artifacts/research-v2/M1-controls-604cffb'),
+    expected_plan_hash='cfe48a305c3c721eae7afe058ffe9af8f27c00dd7321be63359a3999abd6859d',
+)
+```
+
+An active study lease rejects this call. Save its result only to a fresh artifact
+and bind the invoking auditor source/module/runtime/command in a separate receipt.
+This recomputes original-unit metrics from retained arrays and row identities;
+it does not reexecute models, validate the checkpoint metadata/tensor chain or
+regenerate teacher/data bytes. It retains missing statuses and blocks complete
+sensitivity when any of the required four-instance/R2 observations is absent.
+The full cohort is still running at this implementation checkpoint.
