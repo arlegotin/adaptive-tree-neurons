@@ -724,3 +724,30 @@ looked for an execution-history heading in the shorter status file and stopped;
 no scientific files changed. Corrected explicit append completed. Full M1/Gate A
 and efficacy remain pending. Root continues independent M2 implementation; no T
 creation/access.
+
+### Bounded M2 conditional graph and reviewed fallback gates
+
+The bounded graph now precommits3,853 jobs/1,784 nominal procedures, including all
+initial slots,16 fallback parents,320 fallback fork slots, and the single288-fit
+primary extension. Initial graph remains available unchanged. Conditional
+extension worker, measured production dispatch/resources and final Gate A are
+still unimplemented; public M2 run stays disabled. No M2 fitting occurred.
+
+Missing-snapshot gates now execute through the frozen queue worker. Available
+originals suppress fallback coordinates; original numerical/dependency failures
+remain missing. Independent review found that an internally contradictory report
+could authorize fallback despite reaching its claimed missing update. A concrete
+8000-executed/missing1000 case reproduced RED. The correction verifies the raw
+committed capture, requested/captured/unavailable partition and actual execution
+count before admitting training. Changed commitments and inconsistent partitions
+also reject. Final affected tests passed40 in13.61s under one-thread treatment;
+initial graph/gate RED, worker integration RED, and review RED are retained.
+
+Review also resolved primary-only extension dependencies and capacity-arm scope.
+M2-execution.md now hash-binds the pre-outcome contrast/reference/bootstrap and
+original/fallback acquisition policy. Early/new-stream controls have limited
+legacy recipe scope; warm-only opportunity supports ordinary capacity. M1
+true-contrast sensitivity cannot be replaced by the M2d G-selected pair oracle.
+The machine-readable WP03-bounded-graph-receipt.json retains test/review details.
+Full M1 continues independently in detached604cffb; root source edits do not
+modify that scientific run.

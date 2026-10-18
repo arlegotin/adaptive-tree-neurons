@@ -41,7 +41,8 @@ class OpportunityWorkers:
 
     def __call__(self,job,directory,dependencies,attempt):
         kind=job['kind']
-        if kind not in ('data','parent','score','horizon_binding','local_diagnostic','fit','head','pair_oracle','evaluate'):
+        if kind not in ('data','parent','score','horizon_binding','local_diagnostic','fit','head','pair_oracle','evaluate',
+                        'fallback_gate','snapshot_gate'):
             raise NotImplementedError(f'M2 {kind} worker is not implemented; no production admission')
         if job.get('job_id') not in self.jobs or canonical_hash(job)!=canonical_hash(self.jobs[job['job_id']]):
             raise ValueError('Worker job differs from its frozen queue plan')
@@ -52,6 +53,18 @@ class OpportunityWorkers:
         except (np.linalg.LinAlgError,InvalidScoreRun) as error:
             raise FloatingPointError(f'{type(error).__name__}: {error}') from error
         finally:train.restore_rng(before)
+
+    def _fallback_gate(self,job,directory,dependencies):
+        from .opportunity_gates import fallback_gate
+        result=fallback_gate(job,dependencies)
+        write_new_json(directory/'decision.json',result)
+        return result
+
+    def _snapshot_gate(self,job,directory,dependencies):
+        from .opportunity_gates import snapshot_gate
+        result=snapshot_gate(job,dependencies)
+        write_new_json(directory/'decision.json',result)
+        return result
 
     def _data(self,job,directory,dependencies):
         path=directory/'artifact'

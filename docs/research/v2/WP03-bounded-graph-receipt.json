@@ -1,0 +1,74 @@
+{
+  "base_commit": "d3af3b0",
+  "component": "bounded M2 graph and missing-snapshot admission",
+  "counts": {
+    "extension_procedures": 288,
+    "fallback_parents": 16,
+    "fallback_procedures": 320,
+    "jobs": 3853,
+    "nominal_procedures": 1784
+  },
+  "review": {
+    "fixed": "committed capture partition and record checks, exact execution-count comparison; RED then GREEN",
+    "material_finding": "contradictory reached/unreached report admitted without raw capture/executed agreement",
+    "reviewer": "opportunity_state_review",
+    "rulings": [
+      "Extension gate has448 primary-only evaluator dependencies; M2b/c/d remain final Gate A inputs",
+      "Retain fixed warm capacity arms in opportunity registry and report ordinary-only benefit separately",
+      "Hash-bind finite bootstrap/reference/acquisition details before any M2 fitting"
+    ]
+  },
+  "schema": "research/v2-implementation-receipt",
+  "scope": {
+    "Gate_A_complete": false,
+    "extension_decision_worker_implemented": false,
+    "protected_data_accessed": false,
+    "public_M2_run_enabled": false,
+    "scientific_M2_fits": 0
+  },
+  "tests": {
+    "after_governing_doc_binding": "12 passed in4.11s",
+    "final": "40 passed in13.61s",
+    "initial": "3 failed/2 passed before new gates/graph;5 passed afterward",
+    "logs": [
+      {
+        "path": "artifacts/research-v2/WP03/bounded-graph-tests/atn-opportunity-gates-red.log",
+        "sha256": "2d0076533a1db36cbb20b3c490439365cb670270f7602fca5b040ebb761a1303"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/bounded-graph-tests/atn-opportunity-gates-green.log",
+        "sha256": "268f26289bfdaf8cc2acf4b3dbdbed69dcf35b0a858557ae4c11949557405bf8"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/bounded-graph-tests/atn-opportunity-gate-worker-red.log",
+        "sha256": "bd65f52a1262936a57b136f2a3ca03e24a3ee72db50d934498c8da4fec100cec"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/bounded-graph-tests/atn-opportunity-gates-integration.log",
+        "sha256": "3934fd0fd36570b7b43ca8eecdadbc009806ac3d4625dd4afd2194ef0e6ad443"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/bounded-graph-tests/atn-opportunity-bounded-final.log",
+        "sha256": "ae7bd754b47cffc014cf61de98648cfdfd042b7739f7783c9fffc14355d63667"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/bounded-graph-tests/atn-opportunity-gates-review-red.log",
+        "sha256": "62ae8d47a7a5de5d6e0266ba1a7b5c5f91c4b92db866d062babbac404c57df94"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/bounded-graph-tests/atn-opportunity-gates-review-green.log",
+        "sha256": "ca3bc939e5ab70b14ab977548ae0e0576560d31e07665eb0d6c9ac2c7ee2a172"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/bounded-graph-tests/atn-opportunity-bounded-review-final.log",
+        "sha256": "217462d4341740ead267fe7c2c847045d23db1a9321ea65d740bda4e26a6b1c4"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/bounded-graph-tests/atn-opportunity-bounded-doc-binding.log",
+        "sha256": "95fe8ef3ed6e79db52c254230e2b66bbc0d43d8ae06cf6846fffb50e6a709317"
+      }
+    ],
+    "review": "1 failed/3 passed before semantic capture fix;4 passed afterward",
+    "worker": "1 failed/2 passed before dispatch;22 scoped passed after dispatch"
+  }
+}

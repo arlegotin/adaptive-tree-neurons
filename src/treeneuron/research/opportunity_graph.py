@@ -79,3 +79,93 @@ def compile_initial_graph(study):
         pending=['production dispatcher and resource admission',
                  'conditional fallback/extension admission','Gate A analysis'])
     return make_queue_plan(identity,jobs)
+
+
+def compile_bounded_graph(study):
+    """Precommit conditional slots in the same DAG; admission workers stay explicit.
+
+    A skipped condition remains a terminal ineligible job. No prior queue is
+    rewritten, and the unique-ancestor accounting includes fallback training.
+    """
+    initial = compile_initial_graph(study)
+    jobs = [{k:v for k,v in row.items() if k != 'attempt_id'} for row in initial['attempts']]
+
+    def add(name, kind, payload, dependencies=(), *, all_terminal=False):
+        jobs.append(dict(job_id=name, kind=kind, payload=payload, depends_on=list(dependencies),
+                         dependency_policy='all_terminal' if all_terminal else 'all_eligible'))
+        return name
+
+    def data_name(p):
+        return f"data:{p['population']}/teacher-{p['teacher_index']}"
+
+    def procedure(case):
+        key = case['parent_key']
+        dependencies = [data_name(case), 'parent:'+key]
+        if case['matrix'] == 'M2a':
+            dependencies.append(f"score:{key}/{case['snapshot']}")
+        name = add('procedure:'+case['attempt_id'],
+                   'head' if case['matrix'] == 'M2e_head' else 'fit', case, dependencies)
+        return add('evaluate:'+case['attempt_id'], 'evaluate',
+                   dict(attempt_id=case['attempt_id'], matrix=case['matrix']),
+                   (data_name(case), name))
+
+    def fallbacks(admission):
+        evaluations = []
+        for parent in study['prerequisites']:
+            if parent['admission'] != admission:
+                continue
+            key = parent['prerequisite_id']
+            original = key.rsplit('/', 1)[0]+'/legacy_005'
+            gate = add('fallback_gate:'+key, 'fallback_gate',
+                       dict(original_parent='parent:'+original, snapshot_updates=[250,1000]),
+                       ('parent:'+original,), all_terminal=True)
+            added = add('parent:'+key, 'parent', parent, (data_name(parent), gate))
+            for snapshot in ('actual_250', 'actual_1000'):
+                original_score = f'score:{original}/{snapshot}'
+                snapshot_admission = add(f'snapshot_gate:{key}/{snapshot}', 'snapshot_gate',
+                    dict(original_parent='parent:'+original, original_score=original_score,
+                         fallback_gate=gate, snapshot=snapshot),
+                    ('parent:'+original, original_score, gate), all_terminal=True)
+                add(f'score:{key}/{snapshot}', 'score', dict(parent_key=key, snapshot=snapshot),
+                    (data_name(parent), added, snapshot_admission))
+        for case in study['conditional_attempts']:
+            if case['admission'] == admission:
+                evaluations.append(procedure(case))
+        return evaluations
+
+    fallback_evaluations = fallbacks('missing_snapshot_fallback')
+    primary_evaluations = [j['job_id'] for j in initial['attempts']
+        if j['kind'] == 'evaluate' and j['payload']['matrix'] in ('M2a','M2e_neural','M2e_head')]
+    extension = add('extension_decision:primary', 'extension_decision',
+                    dict(policy=study['extension_policy'], selection_contract=study['selection_contract']),
+                    (*primary_evaluations, *fallback_evaluations), all_terminal=True)
+    datasets = set()
+    for parent in study['prerequisites']:
+        if parent['admission'] != 'primary_extension':
+            continue
+        dataset = data_name(parent)
+        if dataset not in datasets:
+            values = {k:parent[k] for k in ('population','teacher_index','teacher_seed','data_seed',
+                                          'reference_seed','evaluation_seed')}
+            values['evaluation_rows'] = study['config']['evaluation_rows']
+            add(dataset, 'data', values, (extension,))
+            datasets.add(dataset)
+        key = parent['prerequisite_id']
+        added = add('parent:'+key, 'parent', parent, (dataset,))
+        if parent['parent_recipe'] == 'legacy_005':
+            for snapshot in ('late_G_best','actual_250','actual_1000'):
+                add(f'score:{key}/{snapshot}', 'score', dict(parent_key=key, snapshot=snapshot),
+                    (dataset, added))
+    for case in study['conditional_attempts']:
+        if case['admission'] == 'primary_extension':
+            procedure(case)
+    fallbacks('extension_missing_snapshot_fallback')
+    counts = dict(Counter(j['kind'] for j in jobs))
+    expected = dict(data=12,parent=104,score=88,horizon_binding=8,fit=1768,head=16,
+                    evaluate=1792,local_diagnostic=8,pair_oracle=8,
+                    fallback_gate=16,snapshot_gate=32,extension_decision=1)
+    if counts != expected:
+        raise ValueError('Bounded M2 job arithmetic differs from its finite inventory')
+    identity = dict(initial['identity'], admission='initial_and_bounded_conditions', job_counts=counts,
+                    pending=['production dispatcher, decision workers and resource admission', 'Gate A analysis'])
+    return make_queue_plan(identity, jobs)

@@ -40,3 +40,32 @@ def test_graph_rejects_changed_study_bytes_before_expansion():
     study['attempts'][0]['requested_count']=1
     with pytest.raises(ValueError,match='digest'):
         compile_initial_graph(study)
+
+
+def test_bounded_graph_precommits_all_fallback_and_single_extension_work():
+    from treeneuron.research.config import expand,load_research_config
+    from treeneuron.research.opportunity_graph import compile_bounded_graph
+    study=expand(load_research_config(Path('configs/research/v2/M2-opportunity.json'))).to_dict()
+    graph=compile_bounded_graph(study);rows=graph['attempts'];byid={r['job_id']:r for r in rows}
+    assert len(rows)==3853
+    assert Counter(r['kind'] for r in rows)==dict(data=12,parent=104,score=88,horizon_binding=8,
+        fit=1768,head=16,evaluate=1792,local_diagnostic=8,pair_oracle=8,
+        fallback_gate=16,snapshot_gate=32,extension_decision=1)
+    assert {r['payload']['attempt_id'] for r in rows if r['kind'] in ('fit','head')}=={
+        c['attempt_id'] for c in study['attempts']+study['conditional_attempts']}
+    for row in rows:
+        if row['kind'] in ('fallback_gate','snapshot_gate','extension_decision'):
+            assert row['dependency_policy']=='all_terminal'
+        if row['kind']=='parent' and 'fixed_parent_budget_fallback' in row['job_id']:
+            assert row['payload']['stop_by_patience'] is False
+            assert any(byid[d]['kind']=='fallback_gate' for d in row['depends_on'])
+        if row['kind']=='score' and 'fixed_parent_budget_fallback' in row['job_id']:
+            assert any(byid[d]['kind']=='snapshot_gate' for d in row['depends_on'])
+        if row['kind']=='data' and row['payload']['teacher_index']>=4:
+            assert row['depends_on']==['extension_decision:primary']
+    decision=byid['extension_decision:primary']
+    assert len(decision['depends_on'])==448  #288 initial M2a/e evaluations +160 fallback slots
+    assert all(byid[d]['kind']=='evaluate' for d in decision['depends_on'])
+    assert all(byid[d]['payload']['matrix'] in ('M2a','M2e_neural','M2e_head') for d in decision['depends_on'])
+    assert not any(r['payload'].get('teacher_index',0)>=8 for r in rows)
+    assert graph['identity']['execution_implemented'] is False

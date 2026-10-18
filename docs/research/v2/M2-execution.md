@@ -69,3 +69,54 @@ favorable cells or count candidate fits as independent teachers. Persist all
 scores, eigenvalues, ranks, learning curves, stage-zero flags, failures, checkpoints,
 actual/standalone cost hierarchy and original-unit predictions. Resource admission
 must use measured source-bound workload classes, including fallback contingencies.
+
+## Bounded conditional DAG and pre-outcome decision details
+
+The complete bounded DAG has3,853 jobs, including1,784 nominal initial/conditional
+procedures. All slots are fixed before fitting. Sixteen parent fallback gates
+and32 per-snapshot gates distinguish unreached actual updates from failed or
+corrupt artifacts. A parent can run its fixed8000 fallback only if an original
+committed capture and execution counter agree that250 or1000 was never reached.
+Only missing snapshot coordinates receive fallback forks; available originals
+remain the source for their coordinate. The provenance of each acquisition is
+retained. Expected ineligible conditional slots do not become completed fits.
+
+The one primary-extension decision has448 explicit terminal evaluator inputs:
+288 initial M2a/e and160 initial fallback slots. It is a primary-only decision;
+M2b/c/d diagnostics are separate inputs to final Gate A, not silently assumed
+successful because serial scheduling happened to finish them. Unexpected failure
+or missing primary evidence blocks the extension decision. The extension node's
+worker, complete resource admission and final Gate A analysis remain pending;
+compiling this graph does not enable public M2 execution.
+
+Before any M2 outcomes, these builder details resolve the existing screening
+contract. Use a fixed registry of M2a top/random/warm_lower/warm_upper arms at each
+snapshot/stream coordinate. Each identity fixes the acquisition policy: original
+actual snapshot if available, otherwise its required fixed-budget fallback;
+never choose an origin from predictive outcomes. Report gated-growth opportunity
+and ordinary-capacity opportunity separately. A warm-only benefit belongs to
+ordinary capacity and does not establish placement or gated superiority. One
+fixed arm must qualify on at least two independent teachers; do not union wins
+from different arms on different teachers.
+
+Every coordinate's reference includes its matched M2a keep. Only late_G_best /
+continued_stream additionally includes the five M2e ordinary neural recipes.
+Average both repeats within teacher first, then select the minimum V_NMSE within
+that declared reference family, with the existing numerical tolerance and plan
+order ties. Early/new-stream comparisons have only the legacy keep reference;
+report this limited recipe scope. The ridge-head remains a separately named
+diagnostic rather than an ordinary keep. Warm brackets remain capacity arms.
+
+Choose the best fixed contrast once by equal-teacher mean relative benefit,
+using plan order for numerical ties. Its descriptive interval is a95% whole-teacher
+percentile bootstrap with20,000 draws and seed
+seed64(2026101801,'M2-opportunity','M2-extension-interval/bootstrap'). Do not reselect
+the arm within bootstrap draws. The declared uncertainty trigger is inclusive:
+lower<=0 and upper>=.02; the separate fewer-than-two-qualified-teachers trigger
+also remains. This is a bounded development extension, not confirmed efficacy.
+
+M1 sensitivity remains gamma2/sigma.1 true-contrast oracle versus random, using
+R2 means and at least2 of4 instances reaching2% V relative improvement. M2d's
+G-selected F-derived-contrast pair oracle is distinct evidence and cannot replace
+that information-advantaged control. Full final Gate A must retain failed and
+ineligible diagnostics rather than manufacturing a successful complete study.

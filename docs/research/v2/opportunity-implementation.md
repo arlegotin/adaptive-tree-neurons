@@ -156,3 +156,11 @@ row index, gate gradient, signed predicted full-F decrease, rank correlation and
 undefined count. These are diagnostic samples, not the actual continuation row
 stream. No G/V/E labels select the step or direction. Queue timers pay the work;
 no production matrix is admitted by the passing fixtures.
+
+The complete bounded graph now adds explicit fallback-parent/per-snapshot gates,
+a primary-only extension decision barrier, all conditional extension prerequisites
+and exact fixed fallback slots in one immutable DAG. Gate workers verify committed
+capture partitions against executed updates before treating a snapshot as unreached.
+Existing actual states never get replaced by fallback states. Compilation still
+reports execution_implemented=False: extension decision analysis, final Gate A,
+source-bound resource qualification and production dispatch remain pending.
