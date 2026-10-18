@@ -1,0 +1,21 @@
+{
+  "T_accessed": false,
+  "base_commit": "e1b1018",
+  "bootstrap_implemented": false,
+  "confidence_claim": false,
+  "logs": {
+    "affected-final.log": "86e43960904e50d3edc1fc2877c8572e6c267d7d48f338426232365266a553fd",
+    "boundary-red.log": "511826cb2c163a150f3458010211a656d63543ca073ebf4023ee38b14300dbe7",
+    "five-percent-red.log": "ec2937ceb45d42017b99505be0b13a1e46c3462b4ff283a72688731edf3163e8",
+    "initial-green.log": "a40ab2bc493585bdbf2ead0371f95dbacd6940bea25dd43121857e045048a9a2",
+    "missing-api-red.log": "c503c28685b272127078875bbb982c0da1dfd8252e00a58f7a71335ec6650c7b"
+  },
+  "protected_access_implemented": false,
+  "red": "10missingAPI;3typed-group/paid-history/overflow boundary REDs;1exact5%-margin RED",
+  "schema": "research/v2-practical-metric-preparation",
+  "scientific_datasets_fit": 0,
+  "search_implemented": false,
+  "source_sha256": "6e57812ce9070ba929e57f92e1cdcf9a1e0b3640abaea2d4da61c8af52bd0694",
+  "tests_sha256": "32f966b17f16f37f8ec342b36aaa60a60b637271d159b4445a99ba52c30cfa9a",
+  "verification": "44affected passed1.80s"
+}

@@ -1022,3 +1022,21 @@ include report100; only16/32-tree fixtures ran. Full2048-tree eligible anchors,
 training recovery, resources, HPO and GateD remain pending. Terminal RNG
 structural-validation minor remains explicitly deferred.
 [Integration receipt](NODE-v2-integration-receipt.json).
+
+M2 native engineering qualification launched on immutable e1b1018, package
+e322da64..., at/private/tmp/atn-research-v2-M2-run. Fresh CPU and finite-envelope
+checks passed in1.90s/15.79s; exact combined receipt SHA7b7a7e4f... retained.
+The530-job engineering queue contains448explicit synthetic inputs and82other
+work items, not530independent experiments. Source stays held while native
+parents/forks run. No complete profile admission or GateA yet.
+[Start manifest](WP03-native-qualification-start.json) records the exact target/
+qualification hashes and progress snapshot. Further implementation proceeds in
+a separate checkout and cannot change that source.
+
+Task8 metric/V-selection preparation:14new checks plus unchanged design/transfer
+checks gave44GREEN1.80s. Group/day-equal MSE, row metrics, R2-before-log five-task
+aggregate/Energy separation, prefix eligibility, stable V ties, missing12-family
+portfolio and charged failures are implemented on analytic fixtures. Typed group
+IDs, complete paid history, overflow and exact5%-degradation boundary reproduced
+RED→GREEN. No confidence interval, protected evaluator, search or practical result
+is implied. [Receipt](WP08-metric-preparation-receipt.json).

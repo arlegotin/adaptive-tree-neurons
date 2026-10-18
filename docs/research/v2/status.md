@@ -58,7 +58,9 @@ ordinary training has exhausted useful headroom. Changing timing or minibatch
 streams therefore needs matched controls rather than assuming earlier growth helps.
 
 Next comes M2: matched timing/stream, ordinary-capacity/recipe and small pair-oracle
-diagnostics, after native resource qualification. Gate A remains pending. The
+diagnostics. Native resource qualification is now running in an isolated source
+checkout with live disk/memory pauses; it is not an efficacy study. Gate A remains
+pending. The
 proposed complementary-group selector has not been trained or confirmed. At a
 fixed growth count, unrestricted model families can be relabeled; the placement
 question concerns learning from the current parent within finite training/cost.

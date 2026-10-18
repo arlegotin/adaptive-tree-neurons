@@ -1,0 +1,25 @@
+{
+  "T_accessed": false,
+  "jobs": 530,
+  "launcher_evidence": "/private/tmp/atn-research-v2-M2-run/artifacts/research-v2/WP03/native-qualification-e1b1018-launch",
+  "maximum_nominal_updates": 424600,
+  "observed_utc_ns": 1792357737470321000,
+  "output": "/private/tmp/atn-research-v2-M2-run/artifacts/research-v2/WP03/native-qualification-e1b1018",
+  "qualification_plan_hash": "4f31a9be549284f230e581d642b3caf66baa872f4f0e6f16170677472a64ce72",
+  "running_at_snapshot": [
+    "parent:primary/teacher-0/repeat-0/wd_1e3"
+  ],
+  "schema": "research/v2-opportunity-engineering-start",
+  "scientific_admission": false,
+  "snapshot_scope": "Append-only progress snapshot, not final qualification or scientific efficacy",
+  "source_commit": "e1b1018",
+  "source_held": true,
+  "source_sha256": "e322da64b518f29a14bde3385bfcf6d683993b717ed4c1fc13a7a5440a1f9a47",
+  "statuses_at_snapshot": {
+    "completed_eligible": 458,
+    "running": 1
+  },
+  "synthetic_input_jobs": 448,
+  "target_plan_hash": "d0537c5c7caee7c6e4c6d09e3e2f68b2c819f8e38853ab1cad67850718d6381a",
+  "worktree": "/private/tmp/atn-research-v2-M2-run"
+}
