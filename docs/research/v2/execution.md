@@ -229,3 +229,17 @@ model/Adam/prediction/update arrays are exactly equal, with identical NPZ SHA256
 WP03-state-receipt.json binds the source, actual receipt, review disposition,
 ten retained RED/failure/recovery logs and precise verification levels. Default
 training behavior is preserved on this reference; no new efficacy result follows.
+
+### WP03 frozen-head algebra, 18 October14:30 UTC
+
+Implemented the six-alpha F-hidden-feature ridge helper and original-unit
+predictor. Independent read-only review found no material algebra, role-access or
+parent/RNG defect. Its requested positive-alpha fixture selects alpha1,
+intercept7/coefficient1; duplicating F rows preserves every solution/G score,
+checking the mean-loss penalty convention. A separate RED test exposed silent
+overflow in finite-but-extreme F geometry; the helper now rejects nonfinite
+intermediates before selection. Final headroom/boundary verification passed11
+in8.04s; initial3 missing-module failures, first9-test pass and overflow RED are
+retained under the main checkout's artifacts/research-v2/WP03/headroom-tests/.
+No diagnostic fits or Gate A evidence were produced. Controller persistence,
+full enclosing cost accounting and the M2 dispatcher remain pending.

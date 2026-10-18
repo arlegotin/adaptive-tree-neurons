@@ -37,6 +37,18 @@ coordinator predicts V/E for each prefix-selected snapshot after fitting;
 workers never receive V/E labels. No additional G evaluation point is introduced.
 An interruption must restore the original fixed-budget policy and snapshot plan.
 
+The frozen-head helper now implements the M2e six-alpha diagnostic. Hidden
+features retain the native parent's float32 computation; F-only feature centering,
+RMS, intercept and all ridge solves use float64. Positive-alpha solves minimize
+mean squared error plus alpha times squared coefficients. G chooses alpha, with
+smallest-alpha ties; only the selected predictor returns original-unit outputs.
+Recorded G solve scores use the supplied target coordinates (F-standardized in
+the native wrapper). The coordinator must recompute original-unit V/E metrics.
+Per-alpha timers cover solve/G scoring; the enclosing procedure must additionally
+pay feature extraction, preparation, parent fitting and final prediction costs.
+The helper never consumes V/E labels or changes parent state/RNG. Its controller,
+durable serialization and full cost/failure integration remain pending.
+
 M2d enumerates the common eligible singleton/pair pool; every nominal h8 singleton
 or pair remains visible, including ineligible dead-unit subsets. G chooses the
 trained pair oracle, and its complete candidate cost is separate from each
