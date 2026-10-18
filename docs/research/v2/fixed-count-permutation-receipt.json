@@ -1,0 +1,22 @@
+{
+  "fixtures": 32,
+  "maximum_gradient_error": 8.881784197001252e-16,
+  "maximum_prediction_error": 8.881784197001252e-16,
+  "parameters": 1697,
+  "result": {
+    "path": "artifacts/research-v2/WP03/fixed-count-permutation/result.json",
+    "sha256": "511bfb57e155742706ea25fc7dc13bb6344de54cc2b06b0ff56cee7589ab728c"
+  },
+  "schema": "research/v2-math-diagnostic-receipt",
+  "scope": {
+    "Gate_A_decided": false,
+    "T_accessed": false,
+    "allocation_on_fixed_parent_equated": false,
+    "independent_scientific_teachers": 0,
+    "optimizer_trajectories_checked": false,
+    "training_updates": 0
+  },
+  "script_sha256": "67a48c4475606d5ff75ad68717b9e5c1f8eefe58f082e293711710a465aca45e",
+  "source_commit": "4cc937d07c43cf4a4f8a09505a9a1e05738d8682",
+  "source_sha256": "e763dfe41657494477171d8c3c1002f16959083d122704bad45802701c0526c4"
+}

@@ -891,3 +891,10 @@ instances, labels privileged oracles, and preserves incomplete cells/undefined
 log effects. Analytic28checks passed in0.24s after8missing-API RED failures. See
 [M1-final-analysis.md](M1-final-analysis.md). The live worker's lease still blocks
 raw audit; no full-cohort result or Gate A is being claimed.
+
+Math/software scope note:32fixed-count nonzero-gate relabeling fixtures passed
+forward and all mapped gradient checks (max8.88e-16,1,697parameters each). Zero
+training updates/independent teachers; no fixed-parent allocation equivalence or
+optimizer trajectory claim. [fixed-count-capacity.md](fixed-count-capacity.md)
+explains why finite learning/regularization/cost, rather than a different
+unrestricted family at the same count, is the placement estimand. No gate changed.

@@ -143,3 +143,12 @@ has not been decided. Both settings reuse the same four base instances, and the
 fixed remaining cohort continues unchanged. See
 [M1-interim-cells-receipt.json](M1-interim-cells-receipt.json) for frozen inputs and
 V/E numbers. No modern-baseline or confirmation claim follows.
+
+A mathematical scope clarification helps frame the placement goal. With the same
+number of grown neurons and every weight free to change, different unit subsets
+can represent the same function family by relabeling the whole network. A good
+chooser therefore aims to improve learning from the current parent under finite
+training and cost. It does not need to create a unique unrestricted function
+family. This does not equate different allocations on that fixed parent. An
+actual-model32-fixture forward/gradient check supported the relabeling to8.88e-16,
+with zero training/teachers; see [fixed-count-capacity.md](fixed-count-capacity.md).
