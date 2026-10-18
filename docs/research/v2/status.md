@@ -95,3 +95,24 @@ more tuning until a favorable seed appears.
 Current execution state and commands live in [execution.md](execution.md),
 [reproduce.md](reproduce.md), the [binding spec](../../superpowers/specs/2026-10-18-research-v2-design.md)
 and [implementation plan](../../superpowers/plans/2026-10-18-research-v2.md).
+
+The first globally affine negative control also completed. Keep, cheap growth
+and random growth each selected their unchanged starting predictions after 500
+continuation updates: E NMSE .01228926 in all three arms. This is one case, not
+population evidence of calibrated no-op behavior.
+
+The full fixed M1 control cohort is now admitted and running under unchanged
+scientific source604cffb: 64 transactions, 160 planted-positive and 96 negative
+final fits. The positive coordinates share four base instances across magnitudes
+and noise; paired repeats do not create independent problems. A final-source
+qualification repeated the inspected positive case with all 52 raw arrays and
+five role counters exactly unchanged, adding zero independent teachers.
+
+One numerical training worker runs at a time. Measured speed projections at all
+update ceilings are 14.01/18.94 worker-hours, with 14.698GiB forecast storage
+including a rolling retry reserve plus a 0.5GiB free-space floor. Those are
+uncalibrated projections from two measured cases, not promised completion times
+or efficiency evidence. The actual live capacity check passed. Full M1, M2,
+Gate A, trained joint selection and modern practical comparison remain pending.
+No protected T has been created or evaluated. The tracked
+[run receipt](WP02-M1-source-604cffb-receipt.json) binds the measurements and launch.

@@ -150,3 +150,16 @@ Data dependencies were verified against the official
 [openpyxl](https://pypi.org/project/openpyxl/3.1.5/),
 [xlrd](https://pypi.org/project/xlrd/2.0.2/) and
 [et-xmlfile](https://pypi.org/project/et-xmlfile/2.0.0/) release records.
+
+### Full M1 measured admission and current run
+
+The forecast recipe now exists at scripts/admit_control_matrix.py. It consumes a
+resolved M1 config and completed positive/negative qualification directories,
+verifies their source/runtime/training/profile commitments, and writes a fresh
+plan, forecast and proposed admission. Publication is separate. See
+WP02-M1-source-604cffb-receipt.json for the admitted current run and exact paths.
+Its scientific checkout remains detached604cffb even as implementation advances.
+Never replace its config/source/lock/receipt on resume; use the retained exact
+command with --resume only after confirming its previous process has stopped.
+The full cohort is running, not complete. M2 dispatch and later protocol commands
+remain unimplemented; no confirmation or practical result is implied.

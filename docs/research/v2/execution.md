@@ -689,3 +689,38 @@ contract and all evidence. Training algebra/optimizer/stopping are unchanged.
 No production admission had been issued. The132b250 qualifications remain under
 their actual source; final-source backend/resource qualification is required
 before full M1. No protected data or production matrix have been accessed.
+
+### Full fixed M1 admitted and launched under604cffb
+
+Final-source positive/negative qualification completed in209.299543875s and
+74.719578625s. Positive raw52-array/five-role counter comparison with132b250 is
+exact; no new independent teacher. Source package SHA256 is
+5095a5d3bfc8d58bc863e0334550f122378664663fe265533e0441713c7216c4.
+The fixed plan is cfe48a305c3c721eae7afe058ffe9af8f27c00dd7321be63359a3999abd6859d.
+Independent admission review verified64 transactions/256 roles, source/runtime,
+three profile hashes and complete arithmetic. Actual live admission passed with
+16,940,695,552 free bytes versus15,782,326,102 additional forecast bytes and
+536,870,912 free floor. Forecast time14.01/18.94h is an uncalibrated stage-speed
+projection, assuming all update ceilings; storage includes a rolling retry.
+
+The reviewed proposal was copied byte-exact, exclusively, to
+artifacts/research-v2/WP02/M1-604cffb-admission.json. One worker is active via
+session10775, cwd /private/tmp/atn-research-v2-M1-run, detached604cffb. Its config is
+configs/research/v2/M1-source-604cffb.json in that worktree, with qualified receipt
+environment/research-v2-control-604cffb-cpu.json. Source/locks must stay unchanged.
+Full argv/environment/pid/log/terminal status live under
+artifacts/research-v2/WP02/M1-604cffb-launch. Scientific output is
+artifacts/research-v2/M1-controls-604cffb; read its immutable ledger for progress.
+If the process stops, inspect failure and lease before the same CLI with --resume;
+do not create a different seed/config or overwrite admission. Both source config
+and full plan are bound in the retained qualification/forecast assets. The
+tracked WP02-M1-source-604cffb-receipt.json summarizes their hashes and tests.
+
+The new forecast recipe had2 RED tests before implementation and4 GREEN checks
+including the existing negative measurement recipe. Final invocation initially
+named a nonexistent negative test module; no tests ran. Corrected unchanged test
+selection passed4 in0.05s; all logs retained. A documentation updater initially
+looked for an execution-history heading in the shorter status file and stopped;
+no scientific files changed. Corrected explicit append completed. Full M1/Gate A
+and efficacy remain pending. Root continues independent M2 implementation; no T
+creation/access.

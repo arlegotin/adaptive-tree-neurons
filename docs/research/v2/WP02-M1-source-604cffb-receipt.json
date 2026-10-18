@@ -1,0 +1,136 @@
+{
+  "execution": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-m",
+      "treeneuron.research.cli",
+      "run",
+      "--config",
+      "configs/research/v2/M1-source-604cffb.json",
+      "--output",
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/M1-controls-604cffb"
+    ],
+    "cwd": "/private/tmp/atn-research-v2-M1-run",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONPATH": "/private/tmp/atn-research-v2-M1-run/src",
+      "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "launcher": "artifacts/research-v2/WP02/M1-604cffb-launch",
+    "output": "artifacts/research-v2/M1-controls-604cffb",
+    "protected_labels_accessed": false,
+    "session_id": 10775,
+    "status_at_receipt": "running"
+  },
+  "forecast": {
+    "final_fits": 256,
+    "forecast_worker_hours_p50": 14.01271303465595,
+    "forecast_worker_hours_p90": 18.940995459870184,
+    "free_floor_bytes": 536870912,
+    "future_quantiles_validated": false,
+    "negative_fits": 96,
+    "positive_fits": 160,
+    "retained_bytes_with_retry": 15782326102,
+    "transactions": 64
+  },
+  "independent_review": {
+    "result": "No material blocker; independently re-expanded exact plan, verified source/runtime/three measurements/arithmetic; read-only admission passed; actual CLI separately rechecked",
+    "reviewer": "opportunity_state_review"
+  },
+  "plan_hash": "cfe48a305c3c721eae7afe058ffe9af8f27c00dd7321be63359a3999abd6859d",
+  "qualification": {
+    "negative": {
+      "elapsed_ns": 74719578625,
+      "measurements": [
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP02/M1-source-604cffb-negative/parent-measurement.json",
+          "sha256": "9b0d274cd2ce35b4b0428836d04cadfde42d40efd9da3ce3b2f26385950d72de"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP02/M1-source-604cffb-negative/continuation-measurement.json",
+          "sha256": "b9a02e6091fa6579b0b50ad6746ae3757101bdc6ec2e6f11d2fc332d3fdd5c8f"
+        }
+      ],
+      "new_independent_teachers": 0,
+      "peak_rss_bytes": 435552256,
+      "result": {
+        "path": "artifacts/research-v2/WP02/M1-source-604cffb-negative/result.json",
+        "sha256": "ef1db126eab80b1c8d7bb5e68fe46dc677550dd67f47acb09aa8cf3f9275f65c"
+      },
+      "retained_bytes": 28720864
+    },
+    "positive": {
+      "elapsed_ns": 209299543875,
+      "measurements": [
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP02/M1-source-604cffb-positive/measurement.json",
+          "sha256": "0f3f97dec5adb1d293d89d9026e25c38907ebd22a51b695f154c83ba1ea8e78c"
+        }
+      ],
+      "new_independent_teachers": 0,
+      "peak_rss_bytes": 411844608,
+      "result": {
+        "path": "artifacts/research-v2/WP02/M1-source-604cffb-positive/result.json",
+        "sha256": "b0aa9a0940e2deb6166b4994093e8a35e446aeaceefe05ae558e22839652dd0e"
+      },
+      "retained_bytes": 26364605
+    }
+  },
+  "references": [
+    {
+      "path": "artifacts/research-v2/WP02/M1-604cffb-forecast/plan.json",
+      "sha256": "1f5378e519b37585d0623c7505a34883e9ed0c67145c9997fa55a590218e88af"
+    },
+    {
+      "path": "artifacts/research-v2/WP02/M1-604cffb-forecast/forecast.json",
+      "sha256": "0acce3e5b9527a2c6b19a5ecfca999d7d85e485686fdc0b09041107fab32b23e"
+    },
+    {
+      "path": "artifacts/research-v2/WP02/M1-604cffb-forecast/proposed-admission.json",
+      "sha256": "e4f5a19755853e59536a4563915516158d9bfe83e37b2c5d52c1c7dff769140f"
+    },
+    {
+      "path": "artifacts/research-v2/WP02/M1-604cffb-admission.json",
+      "sha256": "e4f5a19755853e59536a4563915516158d9bfe83e37b2c5d52c1c7dff769140f"
+    },
+    {
+      "path": "artifacts/research-v2/WP02/M1-604cffb-launch/started.json",
+      "sha256": "c720236ee55dc0770f39c169bf8c86669e20faed6654f0124df26d9c30e3b2ad"
+    },
+    {
+      "path": "artifacts/research-v2/WP02/M1-source-604cffb-positive/same-case-numerical-comparison.json",
+      "sha256": "50443bfd22fac18a4aa4568a3b715efcafc61f2931724cc0186a155c0f739b4c"
+    }
+  ],
+  "schema": "research/v2-implementation-and-execution-receipt",
+  "scientific_commit": "604cffb967d6bb90b96dbae72d1a069b48d0ec09",
+  "scientific_worktree": "/private/tmp/atn-research-v2-M1-run",
+  "source_sha256": "5095a5d3bfc8d58bc863e0334550f122378664663fe265533e0441713c7216c4",
+  "tests": {
+    "final": "4 passed in0.05s",
+    "harness_recovery": "Final command initially named a nonexistent negative test module, so no tests ran; corrected to test_control_measurement_recipe.py and reran unchanged code",
+    "initial": "2 RED before forecast recipe existed;4 GREEN including negative recipe",
+    "logs": [
+      {
+        "path": "artifacts/research-v2/WP02/control-forecast-tests/atn-control-forecast-final-recovery.log",
+        "sha256": "651660ff45a517b93320a7926cbcdfb6876945d52ae47af2cf59fadd66ba8bc0"
+      },
+      {
+        "path": "artifacts/research-v2/WP02/control-forecast-tests/atn-control-forecast-final.log",
+        "sha256": "a4d87d3402b6c339617cfc9e227295be652f588b30709166fc6748dc3faa80c6"
+      },
+      {
+        "path": "artifacts/research-v2/WP02/control-forecast-tests/atn-control-forecast-green.log",
+        "sha256": "a120868bd3fc09d509fffc59557d83c4a1b7c4ac7ff8bd6cf4e1a6bd1c89bd3b"
+      },
+      {
+        "path": "artifacts/research-v2/WP02/control-forecast-tests/atn-control-forecast-red.log",
+        "sha256": "4157e78c987cb5872dc45ba47a20693116d60571c2da67356cf613948e6344a5"
+      }
+    ]
+  }
+}
