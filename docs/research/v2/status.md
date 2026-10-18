@@ -116,3 +116,11 @@ or efficiency evidence. The actual live capacity check passed. Full M1, M2,
 Gate A, trained joint selection and modern practical comparison remain pending.
 No protected T has been created or evaluated. The tracked
 [run receipt](WP02-M1-source-604cffb-receipt.json) binds the measurements and launch.
+
+Ordinary MLP/ResNet and boosted-tree baseline wrappers have now passed their small
+implementation/reference checks. These checks establish faithful computation and
+saved prediction behavior under the declared adapters; full native training,
+workload qualification and practical quality comparison remain pending. The
+[ordinary-neural integration receipt](ordinary-neural-integration-receipt.json)
+keeps builder and integrated source identities distinct. They add no independent
+scientific teacher and no modern-baseline quality result.

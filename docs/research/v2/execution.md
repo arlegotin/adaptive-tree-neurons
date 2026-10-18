@@ -780,3 +780,33 @@ validation/tolerances or changing production arithmetic. All original RED/GREEN
 logs are retained by WP03-opportunity-analysis-receipt.json. Production M2 dispatch,
 measured resources and final Gate A still remain; no M2 scientific fit, trained
 selector, modern quality comparison or protected-data access is claimed.
+
+### Reviewed MLP-D/ResNet-D wrappers integrated
+
+Builder a56ae089 integrated as c9d7a7d. The ordinary-neural adapter pins the named
+MLP-D/ResNet-D anchors, exact author quantile/layout arithmetic, categorical
+unknown handling and distinct strict-G-best versus relative-patience semantics.
+F-only target scaling is explicitly a protocol adaptation from the original
+wrapper. All three material review findings (exceptional anchor/search support,
+actual native-image reload authentication, negative-risk/fallback-state binding)
+and the exact source-defined Skorch subtraction boundary reproduced RED and
+were corrected. Builder scoped verification passed115 in88.71s, including four
+fresh tiny native-reference/reload parity cases and all15 mutation checks per
+case. These three-epoch cases are quality-ineligible.
+
+Root integration passed47 contract/training checks in2.31s. All652 regular raw
+builder evidence files (70,190,929 bytes including final inventory) copied
+byte-exact, zero mismatches. The first copy attempt stopped before writing on
+pytest's62 internal absolute navigation aliases. Recovery copied regular files
+and retained an explicit alias map without following them; no scientific payload
+was omitted. The failed initial test redirection consequently ran no test, then
+the scoped command ran normally. Original builder package identity remains
+44f94a1243b8901c2700a93a6cc590dc6098638e73430ecff4ea5596be13f194;
+integrated package is f20c7b393f90aa83d06456022e7c772b1ea9c3698341d35f8c1e43632405236b.
+See ordinary-neural-integration-receipt.json for raw copy/test hashes.
+
+Full native anchors, hard worker time/memory enforcement, exact training recovery,
+HPO and Gate D remain pending. No transfer predictive fitting, protected labels
+or shared dependency mutation occurred. The parallel native work now begins
+TabM recipe/API contract qualification in another isolated worktree before any
+implementation. M1 remains pinned to its separate604cffb source throughout.

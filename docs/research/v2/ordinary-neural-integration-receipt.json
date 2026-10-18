@@ -1,0 +1,27 @@
+{
+  "Gate_D_complete": false,
+  "builder_commit": "a56ae0897d62adb04eabbf11bc09dae24ca18e2f",
+  "builder_tests": "115 passed in88.71s;52 new neural and63 related checks; four tiny native-reference parity cases exact",
+  "copied_bytes": 70190929,
+  "copied_regular_files": 652,
+  "copy_mismatches": [],
+  "copy_receipt": {
+    "path": "artifacts/research-v2/WP07/ordinary-neural-integration/copy.json",
+    "sha256": "36192a1ab4647f89296de7e0d537f55085b5ca192f71817946ef6c1b4973da01"
+  },
+  "core_dependency_changes": false,
+  "harness_recovery": "Initial copy stopped before writing because pytest created62 intra-source absolute navigation symlinks; recovery copied all652 ordinary evidence files exactly and retained a complete alias map without following aliases. Initial test redirection did not run because its directory had not been created.",
+  "integrated_scientific_package_sha256": "f20c7b393f90aa83d06456022e7c772b1ea9c3698341d35f8c1e43632405236b",
+  "integration_commit": "c9d7a7d",
+  "integration_tests": "47 passed in2.31s; contract/training tests; no new full native anchor",
+  "original_scientific_package_sha256": "44f94a1243b8901c2700a93a6cc590dc6098638e73430ecff4ea5596be13f194",
+  "prepared_transfer_data_used": false,
+  "protected_labels_accessed": false,
+  "pytest_navigation_aliases_excluded": 62,
+  "qualified_quality_anchor": false,
+  "schema": "research/v2-integration-receipt",
+  "test_log": {
+    "path": "artifacts/research-v2/WP07/ordinary-neural-integration/contracts.log",
+    "sha256": "3c682cd0ffffb9be9bc5c3f7f40522237514931321aebbc3d910c1168410b7c8"
+  }
+}

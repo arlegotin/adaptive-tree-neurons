@@ -163,3 +163,10 @@ Never replace its config/source/lock/receipt on resume; use the retained exact
 command with --resume only after confirming its previous process has stopped.
 The full cohort is running, not complete. M2 dispatch and later protocol commands
 remain unimplemented; no confirmation or practical result is implied.
+
+Ordinary-neural adapter engineering can be checked with
+`tests/test_ordinary_neural_contract.py`, `tests/test_ordinary_neural_training.py`
+and the explicitly tiny `tests/test_ordinary_neural_native.py` fixtures. The
+builder receipt and integration receipt document exact tested source identities,
+pinned upstream source/license assets and F-only target-scaling adaptation.
+Engineering fixtures are quality-ineligible and do not qualify a full anchor.
