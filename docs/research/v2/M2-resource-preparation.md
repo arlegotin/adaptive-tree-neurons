@@ -41,3 +41,17 @@ own previously admitted source and resource contract.
 
 [Implementation receipt](WP03-resource-preparation-receipt.json) retains all
 RED/GREEN checks and the material bookkeeping correction.
+
+Before native resource qualification, the queue's per-job timer was expanded to
+include identity checks, dependency file authentication, running-record
+publication and result publication. The current attempt's preparation_ns is
+retained alongside cumulative elapsed_ns; prior failed preparation stays paid.
+An injected50ms dependency read was absent in the RED test and included after the
+change. The39affected checks passed in12.98s. This changes the new queue's cost
+boundary, with no M2 scientific run yet; it does not relabel old timer receipts.
+
+Initial/resume inventory authentication, final ledger publication and process
+startup/imports still need the separate enclosing invocation/process timers.
+Class forecasts from job observations alone are not a whole-procedure cost claim.
+Source-bound native profile/admission work must retain that overhead explicitly;
+see [WP03-queue-cost-receipt.json](WP03-queue-cost-receipt.json).

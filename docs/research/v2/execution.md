@@ -898,3 +898,10 @@ training updates/independent teachers; no fixed-parent allocation equivalence or
 optimizer trajectory claim. [fixed-count-capacity.md](fixed-count-capacity.md)
 explains why finite learning/regularization/cost, rather than a different
 unrestricted family at the same count, is the placement estimand. No gate changed.
+
+WP03 cost boundary preparation: current queue job timers now include identity
+checks and authenticated dependency reads, with current-attempt preparation_ns
+and cumulative paid elapsed_ns. An injected50ms read reproduced RED→GREEN;
+39affected checks passed in12.98s. Initial/resume inventory reads, final ledger
+publication and startup/imports remain enclosing overhead. No M2 execution or
+whole-procedure efficiency claim exists. [Receipt](WP03-queue-cost-receipt.json).

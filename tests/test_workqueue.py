@@ -178,3 +178,21 @@ def test_terminal_record_aggregation_can_read_ineligible_candidates(tmp_path):
     result=run_queue(plan,tmp_path/'queue',handler,check_identity=lambda identity:None)
     assert seen==['good_pair','dead_pair','oracle']
     assert result['statuses']['oracle']=='completed_eligible'
+
+
+def test_job_cost_includes_identity_checks_and_authenticated_dependency_reads(tmp_path,monkeypatch):
+    from treeneuron.research import workqueue as queue
+    from treeneuron.research.ledger import AttemptLedger
+    ticks=[0]
+    def now():ticks[0]+=1000;return ticks[0]
+    monkeypatch.setattr(queue.time,'perf_counter_ns',now)
+    original=queue._read
+    def read(reference,root,job):
+        if job['job_id']=='parent':ticks[0]+=50_000_000
+        return original(reference,root,job)
+    monkeypatch.setattr(queue,'_read',read)
+    plan=queue.make_queue_plan({},[job('parent'),job('child',('parent',))]);root=tmp_path/'queue'
+    queue.run_queue(plan,root,lambda *_:dict(status='completed_eligible'),check_identity=lambda _:None)
+    latest={e['attempt_id']:e for e in AttemptLedger.resume(root,plan).events}
+    assert latest['child']['elapsed_ns']>=50_000_000
+    assert latest['child']['preparation_ns']>=50_000_000

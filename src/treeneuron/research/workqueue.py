@@ -143,6 +143,7 @@ def _loop(plan,root,ledger,handler,check_identity):
     for job in plan['attempts']:
         name=job['job_id']
         if name in results:continue
+        started=time.perf_counter_ns()
         check_identity(copy.deepcopy(plan['identity']))
         previous=_latest(ledger).get(name);paid=0 if previous is None else previous['elapsed_ns']
         attempt=0 if previous is None else 1
@@ -151,7 +152,7 @@ def _loop(plan,root,ledger,handler,check_identity):
             if previous.get('recovery_attempt')==1:
                 directory=_control_directory(root,'second-orphan-closure',name)
                 result=_publish(directory,job,1,dict(status='irrecoverable_missing',reason='Second worker loss'))
-                ledger.record(name,'irrecoverable_missing',elapsed_ns=paid,result=result,
+                ledger.record(name,'irrecoverable_missing',elapsed_ns=paid+time.perf_counter_ns()-started,result=result,
                     cost_precision='wall_time_upper_bound_after_worker_loss')
                 results[name]=_read(result,root,job);continue
             ledger.record(name,'interrupted_recoverable',elapsed_ns=paid,
@@ -160,8 +161,10 @@ def _loop(plan,root,ledger,handler,check_identity):
         latest=_latest(ledger)
         dependencies={dep:_read(latest[dep]['result'],root,jobs[dep]) for dep in job['depends_on']}
         directory=root/'jobs'/canonical_hash({'job_id':name})/f'attempt-{attempt}'
-        ledger.record(name,'running',elapsed_ns=paid,recovery_attempt=attempt,started_utc_ns=time.time_ns())
-        started=time.perf_counter_ns();directory.mkdir(parents=True,exist_ok=False)
+        preparation_ns=time.perf_counter_ns()-started
+        ledger.record(name,'running',elapsed_ns=paid+preparation_ns,recovery_attempt=attempt,
+            preparation_ns=preparation_ns,started_utc_ns=time.time_ns())
+        directory.mkdir(parents=True,exist_ok=False)
         try:
             statuses=[result['value']['status'] for result in dependencies.values()]
             if job['dependency_policy']=='all_eligible' and any(
@@ -191,7 +194,7 @@ def _loop(plan,root,ledger,handler,check_identity):
                 failure_directory=_control_directory(root,'failure-results',name)
                 result=_publish(failure_directory,job,attempt,value)
                 ledger.record(name,status,elapsed_ns=paid+time.perf_counter_ns()-started,result=result,
-                    recovery_attempt=attempt,attempt_terminal_status=(
+                    recovery_attempt=attempt,preparation_ns=preparation_ns,attempt_terminal_status=(
                         'resource_exhausted' if isinstance(error,(MemoryError,OSError)) else status))
             except BaseException as publication_error:
                 error.add_note(f'Queue failure publication also failed: {publication_error}')
@@ -199,7 +202,7 @@ def _loop(plan,root,ledger,handler,check_identity):
             if retry or not isinstance(error,Exception):raise
         else:
             ledger.record(name,value['status'],elapsed_ns=paid+time.perf_counter_ns()-started,result=result,
-                recovery_attempt=attempt)
+                recovery_attempt=attempt,preparation_ns=preparation_ns)
         results[name]=_read(result,root,job)
     return results
 
@@ -230,7 +233,7 @@ def run_queue(plan,output,handler,*,check_identity,resume=False):
                 e.get('cost_precision')=='wall_time_upper_bound_after_worker_loss' for e in ledger.events)
                 else 'measured_job_elapsed')
             result['invocation_ns']=time.perf_counter_ns()-started
-            result['cost_boundary']='run_queue call; job timers nest; startup/imports external; no standalone procedure claim'
+            result['cost_boundary']='run_queue call; job timers include identity/dependency preparation and result publication; initial/resume inventory authentication, final ledger publication, startup/imports remain external; no standalone procedure claim'
             index=len(list(root.glob('invocation-*.json')))
             try:write_new_json(root/f'invocation-{index}.json',result)
             except BaseException as error:

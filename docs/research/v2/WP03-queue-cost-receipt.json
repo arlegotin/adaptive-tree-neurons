@@ -1,0 +1,32 @@
+{
+  "base_commit": "9d49ae8",
+  "component": "Per-job identity/dependency preparation costs",
+  "limitations": [
+    "Initial/resume full inventory authentication and final ledger fsync remain in invocation time",
+    "Startup/import time remains external and must join whole-procedure cost before a quality-cost claim",
+    "preparation_ns is current attempt only; elapsed_ns remains cumulative including paid prior attempts"
+  ],
+  "schema": "research/v2-implementation-receipt",
+  "scope": {
+    "T_accessed": false,
+    "full_repo_suite_run": false,
+    "measured_physical_cost_claim": false,
+    "resource_admission_complete": false,
+    "scientific_M2_fits": 0,
+    "scientific_predictions_changed": false
+  },
+  "tests": {
+    "final": "39 passed in12.98s",
+    "logs": [
+      {
+        "path": "artifacts/research-v2/WP03/queue-preparation-cost-tests/atn-queue-preparation-cost-red.log",
+        "sha256": "d8750dcd7806f2c857165a5ada4bffaa411622bb9fc8207f0fbc84103ce74d63"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/queue-preparation-cost-tests/atn-queue-preparation-cost-green.log",
+        "sha256": "7d89de9b0062fc3f14790738c5f2c4bd48e42ce522328ad7ed8b52e99d35deba"
+      }
+    ],
+    "red": "Injected50ms dependency read was omitted from child job timer"
+  }
+}
