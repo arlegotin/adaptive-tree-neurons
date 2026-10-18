@@ -834,3 +834,18 @@ in WP02-control-audit-receipt.json. Two minor scope notes are deferred: extreme
 finite-mean accumulation overflow outside bounded M1 and helper-level auditor
 identity/explicit metadata-chain flag (the invoking manifest and stated evidence
 level carry that scope). No production result or full-suite pass is claimed.
+
+### Interim completed M1 cells; no change to the attempt list
+
+A frozen165-event prefix reaggregated the first two fully completed40-fit cells:
+gamma.5/sigma0 and gamma.5/sigma.1, each4base instances/R2/five roles. Its canonical
+hash chain verified. Mean V/E values and exact prefix/raw record hashes are in
+M1-interim-cells-receipt.json. No production raw audit ran while the worker lease
+was active; these are descriptive event arithmetic only. The noiseless setting
+shows much lower error from growth and especially privileged generating IDs with
+current contrasts; adding noise narrows the gap. Automatic cheap selection remains
+unresolved versus random. These coordinates do not substitute for the frozen
+M1 gamma2/sigma.1 sensitivity rule or M2/Gate A. The same four base instances recur
+across coordinates; nothing is counted as8 independent teachers. No seed, method,
+capacity, schedule, budget or remaining attempt changed after inspection. The
+full pinned604cffb cohort continues; no T access or practical baseline result.

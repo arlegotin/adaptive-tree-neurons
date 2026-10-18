@@ -124,3 +124,22 @@ workload qualification and practical quality comparison remain pending. The
 [ordinary-neural integration receipt](ordinary-neural-integration-receipt.json)
 keeps builder and integrated source identities distinct. They add no independent
 scientific teacher and no modern-baseline quality result.
+
+Two complete planted settings now provide interim development information across
+the same four base instances and R2. For gamma.5/noise0, mean E NMSE was .00212917
+for ordinary continuation, .0000174730 for cheap growth, .0000131730 for random,
+and .000000164739 for known generating IDs with the current F-derived contrasts.
+The information-advantaged true-contrast oracle reached .0000000825200. This
+shows useful capacity and a location-sensitive constructed regime; it does not
+show that an implementable selector recovers those locations. All errors after
+growth are already small in this noiseless setting.
+
+With noise.1 at gamma.5, mean E NMSE was .04354531 keep, .04172836 cheap,
+.04163478 random, .04139507 generating IDs/current contrasts and .04127422 true
+oracle. Noise greatly reduces the practical separation, and cheap placement
+remains unresolved versus random. These figures are interim event arithmetic;
+full raw-prediction audit is pending. The declared gamma2/noise.1 sensitivity rule
+has not been decided. Both settings reuse the same four base instances, and the
+fixed remaining cohort continues unchanged. See
+[M1-interim-cells-receipt.json](M1-interim-cells-receipt.json) for frozen inputs and
+V/E numbers. No modern-baseline or confirmation claim follows.

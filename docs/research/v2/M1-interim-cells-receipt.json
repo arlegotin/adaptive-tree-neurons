@@ -1,0 +1,81 @@
+{
+  "T_accessed": false,
+  "arithmetic": "validate complete canonical event hash chain; keep only cells with all40 eligible roles; each role mean of8 paired-repeat NMSE values (equal R2 before equal4-instance mean)",
+  "completed_cells": [
+    {
+      "base_instances": 4,
+      "cell": "positive-gamma-0.5-sigma-0.0",
+      "means": {
+        "keep": {
+          "E": 0.0021291745588769397,
+          "V": 0.00198436777862395
+        },
+        "oracle_current": {
+          "E": 1.6473913719555206e-07,
+          "V": 1.4909012661010044e-07
+        },
+        "oracle_true": {
+          "E": 8.252004224996732e-08,
+          "V": 6.629646505054289e-08
+        },
+        "random": {
+          "E": 1.317296935202301e-05,
+          "V": 1.2725635984430963e-05
+        },
+        "top": {
+          "E": 1.747298033189198e-05,
+          "V": 1.7199591987149845e-05
+        }
+      },
+      "repeats": 2
+    },
+    {
+      "base_instances": 4,
+      "cell": "positive-gamma-0.5-sigma-0.1",
+      "means": {
+        "keep": {
+          "E": 0.04354530917601167,
+          "V": 0.039105324690718195
+        },
+        "oracle_current": {
+          "E": 0.041395074004293896,
+          "V": 0.03784715234935329
+        },
+        "oracle_true": {
+          "E": 0.041274218005095786,
+          "V": 0.037600266056895294
+        },
+        "random": {
+          "E": 0.04163477808062367,
+          "V": 0.03825248139174261
+        },
+        "top": {
+          "E": 0.041728362269823176,
+          "V": 0.03816954319528145
+        }
+      },
+      "repeats": 2
+    }
+  ],
+  "event_prefix": {
+    "events": 165,
+    "last_event_hash": "46734605b1b8e7b3926fbfcfa68f1998a78bfecaf66d3546ba0354b2784d9cb2",
+    "path": "artifacts/research-v2/WP02/M1-progress/event-prefix-165.jsonl",
+    "sha256": "87d606c86743e86f6586ca52e270ba968812c7f322236c58826eeee489ac9403"
+  },
+  "limitations": [
+    "progress arithmetic conditional on saved event metrics; full raw-prediction audit deferred until inactive",
+    "same4 base instances cross gamma/noise; not8 independent teachers",
+    "two oracle roles use known generating IDs; true oracle additionally privileged contrasts",
+    "no test of automatic placement superiority or practical/native-baseline performance",
+    "gamma2/sigma.1 declared sensitivity coordinate still pending; no Gate A decision",
+    "fixed attempt list, directions, treatments and resource policy unchanged"
+  ],
+  "plan_hash": "cfe48a305c3c721eae7afe058ffe9af8f27c00dd7321be63359a3999abd6859d",
+  "record": {
+    "path": "artifacts/research-v2/WP02/M1-progress/closed-cells-165.json",
+    "sha256": "0bc38613c02f03f284dac30b4796a294bda0ab3b46d64cc4a1ef6d481bc30c41"
+  },
+  "schema": "research/v2-interim-result-receipt",
+  "source_sha256": "5095a5d3bfc8d58bc863e0334550f122378664663fe265533e0441713c7216c4"
+}
