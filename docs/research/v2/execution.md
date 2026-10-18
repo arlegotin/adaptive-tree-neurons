@@ -127,3 +127,23 @@ resource forecasts/admission and full M0/M1 execution. These remain required;
 foundation tests do not make WP02 complete. The fixed first M0 pair resource
 recipe is stored in `scripts/measure_reference.py`; it retains all8 final roles,
 the parent and all65 nominal short trials, separately from a full cohort.
+
+WP02 diagnostic completion is being integrated from isolated checkout
+`/private/tmp/atn-research-v2-next`, branch `research-v2-next`, to preserve the
+running native qualification's unchanged source in the original checkout.
+Added replay classification with ordered raw-event verification, custom
+prevalence/covariance constructors under a separate identity, and explicit
+32-bit collision/current-scorer zero/tie tests. Review reproduced a certificate
+bug accepting contradictory streams; all seven structural counterexamples and
+the independent G-match-count regression first failed, then passed after repair.
+The latest combined runner/diagnostic suite passed35 tests in14.04s. Native tiny
+patience replay is covered; no new stress fit or placement efficacy is claimed.
+The eligible-zero-joint-gain cases remain Task5 tests, not a relaxation of the
+current scorer's eligibility. Full M0/M1, measured admission and Gate A remain
+pending. Original foundation and failed fixture-setup attempts remain retained.
+
+The user confirmed best-effort execution on the shared computer, with resource
+contention expected. Use one numerical worker; recheck memory/disk before
+admission and preserve/retry operational interruptions under the finite recovery
+rules. Timing with competing workloads is qualification evidence, not a formal
+efficiency comparison. The full practical program is still an unexecuted ceiling.

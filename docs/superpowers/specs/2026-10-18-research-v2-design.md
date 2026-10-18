@@ -612,3 +612,31 @@ art. Defensible prospective novelty is the exact estimator/constraint/cost and
 finite evidence for this parameterization, not first adaptive/residual-aware growth.
 Future literature/API assertions require primary-source verification. The release
 may validly be a useful component, a scoped win, a null result, or inconclusive.
+
+## WP02 implementation resolutions before stress fitting
+
+The separately named `research/v2-stress-teacher` wraps the unchanged native
+teacher. Custom prevalence fixes all four component probabilities at .05 or .2;
+it does not change the legacy `rare` constructor. For covariance condition1 or10,
+draw latent inputs z using the native sampler and publish x=z@L. Targets/noise
+and the base teacher's separate reference normalization remain in z coordinates.
+For condition10, draw a signal-subspace QR basis from
+`seed64(seed,'stress-v2','covariance')`, fix QR signs by nonnegative R diagonal,
+and set L_signal=diag(sqrt(geomspace(1,10,active)))@Q.T. Nuisance coordinates
+retain an identity block and never mix into signal. Condition1 uses L=I. Store L
+and the complete base teacher; observed population covariance is L.T@L. These
+are descriptive stress populations; no fitted stress outcome informed this rule.
+
+A replay certificate requires ordered raw native events from stage start to
+terminal selection: unique contiguous updates, complete minibatch IDs/loss/LR,
+G cadence, matching executed count, and earliest strict G-best. Missing or
+contradictory evidence is incomplete, not a proof. Compare update fields and G
+metrics independently. Cap stopping alone never establishes the patience replay
+premise; even verified replay never establishes exhausted training headroom.
+
+User resource direction (18 October): use best judgment on this shared computer;
+other processes may change disk/RAM/CPU availability. Default to one training
+worker, recheck resources before admitted batches, retain interruptions and paid
+work, and use the declared same-state/same-seed infrastructure recovery. Do not
+interpret contended timing as a dedicated-worker efficiency result or relax
+scientific budgets, seed pairing, or success gates to accommodate contention.

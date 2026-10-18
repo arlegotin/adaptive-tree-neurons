@@ -195,6 +195,8 @@ def _run_locked(value, output, ledger, admission, resume):
                         resource_guard=lambda: _guard(output), parent_snapshot_updates=(250, 1000),
                         on_parent_snapshot=sink)
                     sink.finalize()
+                    from .replay import reference_replay
+                    write_new_json(pair_root/'replay.json', reference_replay(pair_root, report, config.training))
                 else:
                     from .control_runner import fit_control_pair
                     report = fit_control_pair(config, fitting_view(data), pair_root, [a['role'] for a in attempts],
