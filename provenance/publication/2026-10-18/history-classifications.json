@@ -1,0 +1,2051 @@
+{
+  "summary": {
+    "audited_head": "7af00e80ab33b6f26a9edc8aaefcf350c9d1101d",
+    "reachable_commits": 76,
+    "reachable_unique_blobs": 1355,
+    "reachable_blob_bytes": 57504202,
+    "finding_count": 71,
+    "false_positive_count": 71,
+    "true_credential_count": 0,
+    "categories": {
+      "configuration_sha256": 16,
+      "file_content_sha256": 55
+    },
+    "recomputed_hash_verification_counts": {
+      "configuration_sha256": 16,
+      "file_content_sha256": 52
+    },
+    "unique_fingerprints": 59,
+    "binary_current_files": 26,
+    "binary_current_bytes": 6424413,
+    "binary_historical_path_versions": 26,
+    "binary_unique_blobs": 23,
+    "binary_unique_blob_bytes": 5276601,
+    "publication_blockers_found": []
+  },
+  "findings": [
+    {
+      "finding_index": 0,
+      "fingerprint": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0:audit/implementation/evidence/2026-10-17/complete-linked-pilot/joined-analysis-manifest.json:generic-api-key:1",
+      "commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0",
+      "file": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/joined-analysis-manifest.json",
+      "start_line": 1,
+      "start_column": 226,
+      "end_column": 308,
+      "source_property": "full_config_key",
+      "category": "configuration_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Experiment configuration identity; canonical_hash(config.to_dict()) is SHA-256 of canonical JSON, with no authentication use. Wrapper assertions explicitly derive fullkey from load_experiment and canonical_hash. Recomputed canonical JSON hash matches a versioned configuration object.",
+      "recomputed_from": {
+        "path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/scientific-config.json",
+        "property_path": []
+      }
+    },
+    {
+      "finding_index": 1,
+      "fingerprint": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0:audit/implementation/evidence/2026-10-17/complete-linked-pilot/first-failed-fit-wrapper.py:generic-api-key:64",
+      "commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0",
+      "file": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/first-failed-fit-wrapper.py",
+      "start_line": 64,
+      "start_column": 13,
+      "end_column": 87,
+      "source_property": "fullkey",
+      "category": "configuration_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Experiment configuration identity; canonical_hash(config.to_dict()) is SHA-256 of canonical JSON, with no authentication use. Wrapper assertions explicitly derive fullkey from load_experiment and canonical_hash. Recomputed canonical JSON hash matches a versioned configuration object.",
+      "recomputed_from": {
+        "path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/scientific-config.json",
+        "property_path": []
+      }
+    },
+    {
+      "finding_index": 2,
+      "fingerprint": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0:audit/implementation/evidence/2026-10-17/complete-linked-pilot/continuation-manifest.json:generic-api-key:1",
+      "commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0",
+      "file": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/continuation-manifest.json",
+      "start_line": 1,
+      "start_column": 390,
+      "end_column": 472,
+      "source_property": "full_config_key",
+      "category": "configuration_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Experiment configuration identity; canonical_hash(config.to_dict()) is SHA-256 of canonical JSON, with no authentication use. Wrapper assertions explicitly derive fullkey from load_experiment and canonical_hash. Recomputed canonical JSON hash matches a versioned configuration object.",
+      "recomputed_from": {
+        "path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/scientific-config.json",
+        "property_path": []
+      }
+    },
+    {
+      "finding_index": 3,
+      "fingerprint": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0:audit/implementation/evidence/2026-10-17/complete-linked-pilot/continuation-manifest.json:generic-api-key:1",
+      "commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0",
+      "file": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/continuation-manifest.json",
+      "start_line": 1,
+      "start_column": 11274,
+      "end_column": 11356,
+      "source_property": "full_config_key",
+      "category": "configuration_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Experiment configuration identity; canonical_hash(config.to_dict()) is SHA-256 of canonical JSON, with no authentication use. Wrapper assertions explicitly derive fullkey from load_experiment and canonical_hash. Recomputed canonical JSON hash matches a versioned configuration object.",
+      "recomputed_from": {
+        "path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/scientific-config.json",
+        "property_path": []
+      }
+    },
+    {
+      "finding_index": 4,
+      "fingerprint": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0:audit/implementation/evidence/2026-10-17/complete-linked-pilot/continuation-manifest.json:generic-api-key:1",
+      "commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0",
+      "file": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/continuation-manifest.json",
+      "start_line": 1,
+      "start_column": 12236,
+      "end_column": 12318,
+      "source_property": "full_config_key",
+      "category": "configuration_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Experiment configuration identity; canonical_hash(config.to_dict()) is SHA-256 of canonical JSON, with no authentication use. Wrapper assertions explicitly derive fullkey from load_experiment and canonical_hash. Recomputed canonical JSON hash matches a versioned configuration object.",
+      "recomputed_from": {
+        "path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/scientific-config.json",
+        "property_path": []
+      }
+    },
+    {
+      "finding_index": 5,
+      "fingerprint": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0:audit/implementation/evidence/2026-10-17/complete-linked-pilot/continuation-manifest.json:generic-api-key:1",
+      "commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0",
+      "file": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/continuation-manifest.json",
+      "start_line": 1,
+      "start_column": 50793,
+      "end_column": 50866,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 6,
+      "fingerprint": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0:audit/implementation/evidence/2026-10-17/complete-linked-pilot/continuation-manifest.json:generic-api-key:1",
+      "commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0",
+      "file": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/continuation-manifest.json",
+      "start_line": 1,
+      "start_column": 56108,
+      "end_column": 56189,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 7,
+      "fingerprint": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0:audit/implementation/evidence/2026-10-17/complete-linked-pilot/successful-fit-wrapper.py:generic-api-key:64",
+      "commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0",
+      "file": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/successful-fit-wrapper.py",
+      "start_line": 64,
+      "start_column": 13,
+      "end_column": 87,
+      "source_property": "fullkey",
+      "category": "configuration_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Experiment configuration identity; canonical_hash(config.to_dict()) is SHA-256 of canonical JSON, with no authentication use. Wrapper assertions explicitly derive fullkey from load_experiment and canonical_hash. Recomputed canonical JSON hash matches a versioned configuration object.",
+      "recomputed_from": {
+        "path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/scientific-config.json",
+        "property_path": []
+      }
+    },
+    {
+      "finding_index": 8,
+      "fingerprint": "5e46ce1230256c37339714c38adfa9324167f6dd:audit/diagnostics/2026-10-18-long-probes/cost/execution/preflight.json:generic-api-key:1139",
+      "commit": "5e46ce1230256c37339714c38adfa9324167f6dd",
+      "file": "audit/diagnostics/2026-10-18-long-probes/cost/execution/preflight.json",
+      "start_line": 1139,
+      "start_column": 32,
+      "end_column": 106,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 9,
+      "fingerprint": "5e46ce1230256c37339714c38adfa9324167f6dd:audit/diagnostics/2026-10-18-long-probes/cost/execution/preflight.json:generic-api-key:1192",
+      "commit": "5e46ce1230256c37339714c38adfa9324167f6dd",
+      "file": "audit/diagnostics/2026-10-18-long-probes/cost/execution/preflight.json",
+      "start_line": 1192,
+      "start_column": 13,
+      "end_column": 95,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 10,
+      "fingerprint": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0:audit/implementation/evidence/2026-10-17/saved-mc-diagnostic/analysis-config.json:generic-api-key:22",
+      "commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0",
+      "file": "audit/implementation/evidence/2026-10-17/saved-mc-diagnostic/analysis-config.json",
+      "start_line": 22,
+      "start_column": 5,
+      "end_column": 88,
+      "source_property": "full_config_key",
+      "category": "configuration_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Experiment configuration identity; canonical_hash(config.to_dict()) is SHA-256 of canonical JSON, with no authentication use. Wrapper assertions explicitly derive fullkey from load_experiment and canonical_hash. Recomputed canonical JSON hash matches a versioned configuration object.",
+      "recomputed_from": {
+        "path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/scientific-config.json",
+        "property_path": []
+      }
+    },
+    {
+      "finding_index": 11,
+      "fingerprint": "754399ac1e58197f77425cce394274b2c68f0f56:audit/implementation/evidence/2026-10-18/wp09/report-inputs/clean-readout.json:generic-api-key:771",
+      "commit": "754399ac1e58197f77425cce394274b2c68f0f56",
+      "file": "audit/implementation/evidence/2026-10-18/wp09/report-inputs/clean-readout.json",
+      "start_line": 771,
+      "start_column": 34,
+      "end_column": 108,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 12,
+      "fingerprint": "754399ac1e58197f77425cce394274b2c68f0f56:audit/implementation/evidence/2026-10-18/wp09/report-inputs/clean-readout.json:generic-api-key:823",
+      "commit": "754399ac1e58197f77425cce394274b2c68f0f56",
+      "file": "audit/implementation/evidence/2026-10-18/wp09/report-inputs/clean-readout.json",
+      "start_line": 823,
+      "start_column": 15,
+      "end_column": 97,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 13,
+      "fingerprint": "754399ac1e58197f77425cce394274b2c68f0f56:audit/implementation/evidence/2026-10-18/wp09/report-inputs/clean-readout.json:generic-api-key:865",
+      "commit": "754399ac1e58197f77425cce394274b2c68f0f56",
+      "file": "audit/implementation/evidence/2026-10-18/wp09/report-inputs/clean-readout.json",
+      "start_line": 865,
+      "start_column": 5,
+      "end_column": 83,
+      "source_property": "config_key",
+      "category": "configuration_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Experiment configuration identity; canonical_hash(config.to_dict()) is SHA-256 of canonical JSON, with no authentication use. Wrapper assertions explicitly derive fullkey from load_experiment and canonical_hash. Recomputed canonical JSON hash matches a versioned configuration object.",
+      "recomputed_from": {
+        "path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/measurement.json",
+        "property_path": [
+          "config"
+        ]
+      }
+    },
+    {
+      "finding_index": 14,
+      "fingerprint": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0:audit/implementation/evidence/2026-10-17/complete-linked-pilot/successful-fit-readout.json:generic-api-key:1",
+      "commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0",
+      "file": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/successful-fit-readout.json",
+      "start_line": 1,
+      "start_column": 390,
+      "end_column": 472,
+      "source_property": "full_config_key",
+      "category": "configuration_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Experiment configuration identity; canonical_hash(config.to_dict()) is SHA-256 of canonical JSON, with no authentication use. Wrapper assertions explicitly derive fullkey from load_experiment and canonical_hash. Recomputed canonical JSON hash matches a versioned configuration object.",
+      "recomputed_from": {
+        "path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/scientific-config.json",
+        "property_path": []
+      }
+    },
+    {
+      "finding_index": 15,
+      "fingerprint": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0:audit/implementation/evidence/2026-10-17/complete-linked-pilot/successful-fit-readout.json:generic-api-key:1",
+      "commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0",
+      "file": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/successful-fit-readout.json",
+      "start_line": 1,
+      "start_column": 11274,
+      "end_column": 11356,
+      "source_property": "full_config_key",
+      "category": "configuration_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Experiment configuration identity; canonical_hash(config.to_dict()) is SHA-256 of canonical JSON, with no authentication use. Wrapper assertions explicitly derive fullkey from load_experiment and canonical_hash. Recomputed canonical JSON hash matches a versioned configuration object.",
+      "recomputed_from": {
+        "path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/scientific-config.json",
+        "property_path": []
+      }
+    },
+    {
+      "finding_index": 16,
+      "fingerprint": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0:audit/implementation/evidence/2026-10-17/complete-linked-pilot/successful-fit-readout.json:generic-api-key:1",
+      "commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0",
+      "file": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/successful-fit-readout.json",
+      "start_line": 1,
+      "start_column": 12236,
+      "end_column": 12318,
+      "source_property": "full_config_key",
+      "category": "configuration_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Experiment configuration identity; canonical_hash(config.to_dict()) is SHA-256 of canonical JSON, with no authentication use. Wrapper assertions explicitly derive fullkey from load_experiment and canonical_hash. Recomputed canonical JSON hash matches a versioned configuration object.",
+      "recomputed_from": {
+        "path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/scientific-config.json",
+        "property_path": []
+      }
+    },
+    {
+      "finding_index": 17,
+      "fingerprint": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0:audit/implementation/evidence/2026-10-17/complete-linked-pilot/successful-fit-readout.json:generic-api-key:1",
+      "commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0",
+      "file": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/successful-fit-readout.json",
+      "start_line": 1,
+      "start_column": 50793,
+      "end_column": 50866,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 18,
+      "fingerprint": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0:audit/implementation/evidence/2026-10-17/complete-linked-pilot/successful-fit-readout.json:generic-api-key:1",
+      "commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0",
+      "file": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/successful-fit-readout.json",
+      "start_line": 1,
+      "start_column": 56108,
+      "end_column": 56189,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 19,
+      "fingerprint": "5e46ce1230256c37339714c38adfa9324167f6dd:audit/diagnostics/2026-10-18-long-probes/cost/execution/cost-only-preflight.json:generic-api-key:1125",
+      "commit": "5e46ce1230256c37339714c38adfa9324167f6dd",
+      "file": "audit/diagnostics/2026-10-18-long-probes/cost/execution/cost-only-preflight.json",
+      "start_line": 1125,
+      "start_column": 32,
+      "end_column": 106,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 20,
+      "fingerprint": "5e46ce1230256c37339714c38adfa9324167f6dd:audit/diagnostics/2026-10-18-long-probes/cost/execution/cost-only-preflight.json:generic-api-key:1178",
+      "commit": "5e46ce1230256c37339714c38adfa9324167f6dd",
+      "file": "audit/diagnostics/2026-10-18-long-probes/cost/execution/cost-only-preflight.json",
+      "start_line": 1178,
+      "start_column": 13,
+      "end_column": 95,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 21,
+      "fingerprint": "02d0b8ccef0b3193e2ff296694da8a1b78370887:audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/validation.json:generic-api-key:236",
+      "commit": "02d0b8ccef0b3193e2ff296694da8a1b78370887",
+      "file": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/validation.json",
+      "start_line": 236,
+      "start_column": 34,
+      "end_column": 108,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 22,
+      "fingerprint": "02d0b8ccef0b3193e2ff296694da8a1b78370887:audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/validation.json:generic-api-key:288",
+      "commit": "02d0b8ccef0b3193e2ff296694da8a1b78370887",
+      "file": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/validation.json",
+      "start_line": 288,
+      "start_column": 15,
+      "end_column": 97,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 23,
+      "fingerprint": "02d0b8ccef0b3193e2ff296694da8a1b78370887:audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/measurement.json:generic-api-key:1",
+      "commit": "02d0b8ccef0b3193e2ff296694da8a1b78370887",
+      "file": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/measurement.json",
+      "start_line": 1,
+      "start_column": 45087,
+      "end_column": 45160,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 24,
+      "fingerprint": "02d0b8ccef0b3193e2ff296694da8a1b78370887:audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/measurement.json:generic-api-key:1",
+      "commit": "02d0b8ccef0b3193e2ff296694da8a1b78370887",
+      "file": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/complete-resource/measurement.json",
+      "start_line": 1,
+      "start_column": 50402,
+      "end_column": 50483,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 25,
+      "fingerprint": "ed248b328a7c4c374348e87d8dee24042c6c0ed4:audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/readout.json:generic-api-key:3787",
+      "commit": "ed248b328a7c4c374348e87d8dee24042c6c0ed4",
+      "file": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/readout.json",
+      "start_line": 3787,
+      "start_column": 34,
+      "end_column": 108,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 26,
+      "fingerprint": "ed248b328a7c4c374348e87d8dee24042c6c0ed4:audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/readout.json:generic-api-key:3839",
+      "commit": "ed248b328a7c4c374348e87d8dee24042c6c0ed4",
+      "file": "audit/implementation/evidence/2026-10-17/genuine-pilot-interruption/readout.json",
+      "start_line": 3839,
+      "start_column": 15,
+      "end_column": 97,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 27,
+      "fingerprint": "7af00e80ab33b6f26a9edc8aaefcf350c9d1101d:audit/diagnostics/2026-10-18-long-probes/cohort/execution/cohort-preflight.json:generic-api-key:2963",
+      "commit": "7af00e80ab33b6f26a9edc8aaefcf350c9d1101d",
+      "file": "audit/diagnostics/2026-10-18-long-probes/cohort/execution/cohort-preflight.json",
+      "start_line": 2963,
+      "start_column": 32,
+      "end_column": 106,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 28,
+      "fingerprint": "7af00e80ab33b6f26a9edc8aaefcf350c9d1101d:audit/diagnostics/2026-10-18-long-probes/cohort/execution/cohort-preflight.json:generic-api-key:3016",
+      "commit": "7af00e80ab33b6f26a9edc8aaefcf350c9d1101d",
+      "file": "audit/diagnostics/2026-10-18-long-probes/cohort/execution/cohort-preflight.json",
+      "start_line": 3016,
+      "start_column": 13,
+      "end_column": 95,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 29,
+      "fingerprint": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0:audit/implementation/evidence/2026-10-17/complete-linked-pilot/bulk-inventory.json:generic-api-key:9981",
+      "commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0",
+      "file": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/bulk-inventory.json",
+      "start_line": 9981,
+      "start_column": 5,
+      "end_column": 88,
+      "source_property": "full_config_key",
+      "category": "configuration_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Experiment configuration identity; canonical_hash(config.to_dict()) is SHA-256 of canonical JSON, with no authentication use. Wrapper assertions explicitly derive fullkey from load_experiment and canonical_hash. Recomputed canonical JSON hash matches a versioned configuration object.",
+      "recomputed_from": {
+        "path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/scientific-config.json",
+        "property_path": []
+      }
+    },
+    {
+      "finding_index": 30,
+      "fingerprint": "067f3913912b35ca5a4703f09b493659c007b5ea:audit/implementation/evidence/2026-10-17/h1-history-storage-fix/strict-snapshot.json:generic-api-key:1",
+      "commit": "067f3913912b35ca5a4703f09b493659c007b5ea",
+      "file": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/strict-snapshot.json",
+      "start_line": 1,
+      "start_column": 30424,
+      "end_column": 30497,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 31,
+      "fingerprint": "067f3913912b35ca5a4703f09b493659c007b5ea:audit/implementation/evidence/2026-10-17/h1-history-storage-fix/strict-snapshot.json:generic-api-key:1",
+      "commit": "067f3913912b35ca5a4703f09b493659c007b5ea",
+      "file": "audit/implementation/evidence/2026-10-17/h1-history-storage-fix/strict-snapshot.json",
+      "start_line": 1,
+      "start_column": 35739,
+      "end_column": 35820,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 32,
+      "fingerprint": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0:audit/implementation/evidence/2026-10-17/complete-linked-pilot/terminal-summary.json:generic-api-key:70",
+      "commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0",
+      "file": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/terminal-summary.json",
+      "start_line": 70,
+      "start_column": 5,
+      "end_column": 88,
+      "source_property": "full_config_key",
+      "category": "configuration_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Experiment configuration identity; canonical_hash(config.to_dict()) is SHA-256 of canonical JSON, with no authentication use. Wrapper assertions explicitly derive fullkey from load_experiment and canonical_hash. Recomputed canonical JSON hash matches a versioned configuration object.",
+      "recomputed_from": {
+        "path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/scientific-config.json",
+        "property_path": []
+      }
+    },
+    {
+      "finding_index": 33,
+      "fingerprint": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0:audit/implementation/evidence/2026-10-17/complete-linked-pilot/terminal-summary.json:generic-api-key:462",
+      "commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0",
+      "file": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/terminal-summary.json",
+      "start_line": 462,
+      "start_column": 9,
+      "end_column": 92,
+      "source_property": "full_config_key",
+      "category": "configuration_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Experiment configuration identity; canonical_hash(config.to_dict()) is SHA-256 of canonical JSON, with no authentication use. Wrapper assertions explicitly derive fullkey from load_experiment and canonical_hash. Recomputed canonical JSON hash matches a versioned configuration object.",
+      "recomputed_from": {
+        "path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/scientific-config.json",
+        "property_path": []
+      }
+    },
+    {
+      "finding_index": 34,
+      "fingerprint": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0:audit/implementation/evidence/2026-10-17/complete-linked-pilot/terminal-summary.json:generic-api-key:9098",
+      "commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0",
+      "file": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/terminal-summary.json",
+      "start_line": 9098,
+      "start_column": 9,
+      "end_column": 92,
+      "source_property": "full_config_key",
+      "category": "configuration_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Experiment configuration identity; canonical_hash(config.to_dict()) is SHA-256 of canonical JSON, with no authentication use. Wrapper assertions explicitly derive fullkey from load_experiment and canonical_hash. Recomputed canonical JSON hash matches a versioned configuration object.",
+      "recomputed_from": {
+        "path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/scientific-config.json",
+        "property_path": []
+      }
+    },
+    {
+      "finding_index": 35,
+      "fingerprint": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0:audit/implementation/evidence/2026-10-17/complete-linked-pilot/terminal-summary.json:generic-api-key:16905",
+      "commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0",
+      "file": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/terminal-summary.json",
+      "start_line": 16905,
+      "start_column": 7,
+      "end_column": 90,
+      "source_property": "full_config_key",
+      "category": "configuration_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Experiment configuration identity; canonical_hash(config.to_dict()) is SHA-256 of canonical JSON, with no authentication use. Wrapper assertions explicitly derive fullkey from load_experiment and canonical_hash. Recomputed canonical JSON hash matches a versioned configuration object.",
+      "recomputed_from": {
+        "path": "audit/implementation/evidence/2026-10-17/calibration-complete-resource/original/environment/h1-v2/scientific-ready/scientific-config.json",
+        "property_path": []
+      }
+    },
+    {
+      "finding_index": 36,
+      "fingerprint": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0:audit/implementation/evidence/2026-10-17/complete-linked-pilot/terminal-summary.json:generic-api-key:17209",
+      "commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0",
+      "file": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/terminal-summary.json",
+      "start_line": 17209,
+      "start_column": 34,
+      "end_column": 108,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 37,
+      "fingerprint": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0:audit/implementation/evidence/2026-10-17/complete-linked-pilot/terminal-summary.json:generic-api-key:17261",
+      "commit": "7a63114972e0b1230b2e33c3e881a6c55b4e92a0",
+      "file": "audit/implementation/evidence/2026-10-17/complete-linked-pilot/terminal-summary.json",
+      "start_line": 17261,
+      "start_column": 15,
+      "end_column": 97,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 38,
+      "fingerprint": "680429908735a8077fbfab972468b9d420b7a9f1:audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/affected-final-launch-manifest.json:generic-api-key:235",
+      "commit": "680429908735a8077fbfab972468b9d420b7a9f1",
+      "file": "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/affected-final-launch-manifest.json",
+      "start_line": 235,
+      "start_column": 32,
+      "end_column": 106,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 39,
+      "fingerprint": "680429908735a8077fbfab972468b9d420b7a9f1:audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/affected-final-launch-manifest.json:generic-api-key:287",
+      "commit": "680429908735a8077fbfab972468b9d420b7a9f1",
+      "file": "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/affected-final-launch-manifest.json",
+      "start_line": 287,
+      "start_column": 13,
+      "end_column": 95,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 40,
+      "fingerprint": "680429908735a8077fbfab972468b9d420b7a9f1:audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/final-execution-snapshot.json:generic-api-key:229",
+      "commit": "680429908735a8077fbfab972468b9d420b7a9f1",
+      "file": "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/final-execution-snapshot.json",
+      "start_line": 229,
+      "start_column": 32,
+      "end_column": 106,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 41,
+      "fingerprint": "680429908735a8077fbfab972468b9d420b7a9f1:audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/final-execution-snapshot.json:generic-api-key:281",
+      "commit": "680429908735a8077fbfab972468b9d420b7a9f1",
+      "file": "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/final-execution-snapshot.json",
+      "start_line": 281,
+      "start_column": 13,
+      "end_column": 95,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 42,
+      "fingerprint": "680429908735a8077fbfab972468b9d420b7a9f1:audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/suite-launch-manifest.json:generic-api-key:230",
+      "commit": "680429908735a8077fbfab972468b9d420b7a9f1",
+      "file": "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/suite-launch-manifest.json",
+      "start_line": 230,
+      "start_column": 32,
+      "end_column": 106,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 43,
+      "fingerprint": "680429908735a8077fbfab972468b9d420b7a9f1:audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/suite-launch-manifest.json:generic-api-key:282",
+      "commit": "680429908735a8077fbfab972468b9d420b7a9f1",
+      "file": "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/suite-launch-manifest.json",
+      "start_line": 282,
+      "start_column": 13,
+      "end_column": 95,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 44,
+      "fingerprint": "b26931fda9a60ead929850e4589183e690de7e1d:audit/implementation/evidence/2026-10-17/task-13/original/23-task13-committed-source.json:generic-api-key:231",
+      "commit": "b26931fda9a60ead929850e4589183e690de7e1d",
+      "file": "audit/implementation/evidence/2026-10-17/task-13/original/23-task13-committed-source.json",
+      "start_line": 231,
+      "start_column": 34,
+      "end_column": 108,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 45,
+      "fingerprint": "b26931fda9a60ead929850e4589183e690de7e1d:audit/implementation/evidence/2026-10-17/task-13/original/23-task13-committed-source.json:generic-api-key:281",
+      "commit": "b26931fda9a60ead929850e4589183e690de7e1d",
+      "file": "audit/implementation/evidence/2026-10-17/task-13/original/23-task13-committed-source.json",
+      "start_line": 281,
+      "start_column": 15,
+      "end_column": 97,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 46,
+      "fingerprint": "b26931fda9a60ead929850e4589183e690de7e1d:audit/implementation/evidence/2026-10-17/task-13/original/22-task13-stable-source.json:generic-api-key:232",
+      "commit": "b26931fda9a60ead929850e4589183e690de7e1d",
+      "file": "audit/implementation/evidence/2026-10-17/task-13/original/22-task13-stable-source.json",
+      "start_line": 232,
+      "start_column": 32,
+      "end_column": 106,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 47,
+      "fingerprint": "b26931fda9a60ead929850e4589183e690de7e1d:audit/implementation/evidence/2026-10-17/task-13/original/22-task13-stable-source.json:generic-api-key:281",
+      "commit": "b26931fda9a60ead929850e4589183e690de7e1d",
+      "file": "audit/implementation/evidence/2026-10-17/task-13/original/22-task13-stable-source.json",
+      "start_line": 281,
+      "start_column": 13,
+      "end_column": 95,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 48,
+      "fingerprint": "b26931fda9a60ead929850e4589183e690de7e1d:audit/implementation/evidence/2026-10-17/task-13/execution-snapshot.json:generic-api-key:229",
+      "commit": "b26931fda9a60ead929850e4589183e690de7e1d",
+      "file": "audit/implementation/evidence/2026-10-17/task-13/execution-snapshot.json",
+      "start_line": 229,
+      "start_column": 32,
+      "end_column": 106,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 49,
+      "fingerprint": "b26931fda9a60ead929850e4589183e690de7e1d:audit/implementation/evidence/2026-10-17/task-13/execution-snapshot.json:generic-api-key:279",
+      "commit": "b26931fda9a60ead929850e4589183e690de7e1d",
+      "file": "audit/implementation/evidence/2026-10-17/task-13/execution-snapshot.json",
+      "start_line": 279,
+      "start_column": 13,
+      "end_column": 95,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 50,
+      "fingerprint": "b26931fda9a60ead929850e4589183e690de7e1d:audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/covering-source.json:generic-api-key:227",
+      "commit": "b26931fda9a60ead929850e4589183e690de7e1d",
+      "file": "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/covering-source.json",
+      "start_line": 227,
+      "start_column": 32,
+      "end_column": 106,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 51,
+      "fingerprint": "b26931fda9a60ead929850e4589183e690de7e1d:audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/covering-source.json:generic-api-key:277",
+      "commit": "b26931fda9a60ead929850e4589183e690de7e1d",
+      "file": "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/covering-source.json",
+      "start_line": 277,
+      "start_column": 13,
+      "end_column": 95,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 52,
+      "fingerprint": "b26931fda9a60ead929850e4589183e690de7e1d:audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/tested-execution-snapshot.json:generic-api-key:229",
+      "commit": "b26931fda9a60ead929850e4589183e690de7e1d",
+      "file": "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/tested-execution-snapshot.json",
+      "start_line": 229,
+      "start_column": 32,
+      "end_column": 106,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 53,
+      "fingerprint": "b26931fda9a60ead929850e4589183e690de7e1d:audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/tested-execution-snapshot.json:generic-api-key:279",
+      "commit": "b26931fda9a60ead929850e4589183e690de7e1d",
+      "file": "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/tested-execution-snapshot.json",
+      "start_line": 279,
+      "start_column": 13,
+      "end_column": 95,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 54,
+      "fingerprint": "b26931fda9a60ead929850e4589183e690de7e1d:audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-affected-source.json:generic-api-key:227",
+      "commit": "b26931fda9a60ead929850e4589183e690de7e1d",
+      "file": "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-affected-source.json",
+      "start_line": 227,
+      "start_column": 32,
+      "end_column": 106,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 55,
+      "fingerprint": "b26931fda9a60ead929850e4589183e690de7e1d:audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-affected-source.json:generic-api-key:277",
+      "commit": "b26931fda9a60ead929850e4589183e690de7e1d",
+      "file": "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/task13-fix1-affected-source.json",
+      "start_line": 277,
+      "start_column": 13,
+      "end_column": 95,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 56,
+      "fingerprint": "110a33f3a6412e7f07237fde76580fe0b9018a54:audit/implementation/evidence/2026-10-17/task-10/task-10-execution-snapshot.json:generic-api-key:226",
+      "commit": "110a33f3a6412e7f07237fde76580fe0b9018a54",
+      "file": "audit/implementation/evidence/2026-10-17/task-10/task-10-execution-snapshot.json",
+      "start_line": 226,
+      "start_column": 32,
+      "end_column": 106,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 57,
+      "fingerprint": "110a33f3a6412e7f07237fde76580fe0b9018a54:audit/implementation/evidence/2026-10-17/task-10/task-10-execution-snapshot.json:generic-api-key:273",
+      "commit": "110a33f3a6412e7f07237fde76580fe0b9018a54",
+      "file": "audit/implementation/evidence/2026-10-17/task-10/task-10-execution-snapshot.json",
+      "start_line": 273,
+      "start_column": 13,
+      "end_column": 95,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 58,
+      "fingerprint": "b26931fda9a60ead929850e4589183e690de7e1d:audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-evidence/tested-execution-snapshot.json:generic-api-key:229",
+      "commit": "b26931fda9a60ead929850e4589183e690de7e1d",
+      "file": "audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-evidence/tested-execution-snapshot.json",
+      "start_line": 229,
+      "start_column": 32,
+      "end_column": 106,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 59,
+      "fingerprint": "b26931fda9a60ead929850e4589183e690de7e1d:audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-evidence/tested-execution-snapshot.json:generic-api-key:279",
+      "commit": "b26931fda9a60ead929850e4589183e690de7e1d",
+      "file": "audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-evidence/tested-execution-snapshot.json",
+      "start_line": 279,
+      "start_column": 13,
+      "end_column": 95,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 60,
+      "fingerprint": "9fb5be61d094eb3c7b21a4200cfe4fc8186b735c:audit/implementation/evidence/2026-10-17/task-9-final-source-snapshot.json:generic-api-key:227",
+      "commit": "9fb5be61d094eb3c7b21a4200cfe4fc8186b735c",
+      "file": "audit/implementation/evidence/2026-10-17/task-9-final-source-snapshot.json",
+      "start_line": 227,
+      "start_column": 34,
+      "end_column": 108,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 61,
+      "fingerprint": "9fb5be61d094eb3c7b21a4200cfe4fc8186b735c:audit/implementation/evidence/2026-10-17/task-9-final-source-snapshot.json:generic-api-key:273",
+      "commit": "9fb5be61d094eb3c7b21a4200cfe4fc8186b735c",
+      "file": "audit/implementation/evidence/2026-10-17/task-9-final-source-snapshot.json",
+      "start_line": 273,
+      "start_column": 15,
+      "end_column": 97,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 62,
+      "fingerprint": "b26931fda9a60ead929850e4589183e690de7e1d:audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-evidence/test-launch-source.json:generic-api-key:228",
+      "commit": "b26931fda9a60ead929850e4589183e690de7e1d",
+      "file": "audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-evidence/test-launch-source.json",
+      "start_line": 228,
+      "start_column": 32,
+      "end_column": 106,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 63,
+      "fingerprint": "b26931fda9a60ead929850e4589183e690de7e1d:audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-evidence/test-launch-source.json:generic-api-key:278",
+      "commit": "b26931fda9a60ead929850e4589183e690de7e1d",
+      "file": "audit/implementation/evidence/2026-10-17/task-13/task-13-fix2-evidence/test-launch-source.json",
+      "start_line": 278,
+      "start_column": 13,
+      "end_column": 95,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 64,
+      "fingerprint": "b26931fda9a60ead929850e4589183e690de7e1d:audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/external-archive-manifest.json:generic-api-key:1",
+      "commit": "b26931fda9a60ead929850e4589183e690de7e1d",
+      "file": "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/external-archive-manifest.json",
+      "start_line": 1,
+      "start_column": 878423,
+      "end_column": 878502,
+      "source_property": "protocol/access/e2ee54d73651a605cd13b4cb1c67c5ec178c19ce1ca82cc102faca22e11944e2/access.jsonl",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": false,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. Snapshot hashes a retained access-ledger prefix; exact payload is not versioned as a standalone reachable blob. Its inventory context and hash-producing code establish the digest role; content equality was not independently verified.",
+      "matching_content_paths": []
+    },
+    {
+      "finding_index": 65,
+      "fingerprint": "b26931fda9a60ead929850e4589183e690de7e1d:audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/local-archive-manifest.json:generic-api-key:1",
+      "commit": "b26931fda9a60ead929850e4589183e690de7e1d",
+      "file": "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/local-archive-manifest.json",
+      "start_line": 1,
+      "start_column": 878423,
+      "end_column": 878502,
+      "source_property": "protocol/access/e2ee54d73651a605cd13b4cb1c67c5ec178c19ce1ca82cc102faca22e11944e2/access.jsonl",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": false,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. Snapshot hashes a retained access-ledger prefix; exact payload is not versioned as a standalone reachable blob. Its inventory context and hash-producing code establish the digest role; content equality was not independently verified.",
+      "matching_content_paths": []
+    },
+    {
+      "finding_index": 66,
+      "fingerprint": "b26931fda9a60ead929850e4589183e690de7e1d:audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/unknown-retention-archive-manifest.json:generic-api-key:1",
+      "commit": "b26931fda9a60ead929850e4589183e690de7e1d",
+      "file": "audit/implementation/evidence/2026-10-17/task-13/task-13-fix1-evidence/unknown-retention-archive-manifest.json",
+      "start_line": 1,
+      "start_column": 878423,
+      "end_column": 878502,
+      "source_property": "protocol/access/e2ee54d73651a605cd13b4cb1c67c5ec178c19ce1ca82cc102faca22e11944e2/access.jsonl",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": false,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. Snapshot hashes a retained access-ledger prefix; exact payload is not versioned as a standalone reachable blob. Its inventory context and hash-producing code establish the digest role; content equality was not independently verified.",
+      "matching_content_paths": []
+    },
+    {
+      "finding_index": 67,
+      "fingerprint": "fc63de6884ba5d7a911e0228d2c6707c3ce90a11:audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/artifacts/h1-v2/development-8000/h1-v2-primary-a-8000/measurements.json:generic-api-key:1",
+      "commit": "fc63de6884ba5d7a911e0228d2c6707c3ce90a11",
+      "file": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/artifacts/h1-v2/development-8000/h1-v2-primary-a-8000/measurements.json",
+      "start_line": 1,
+      "start_column": 2204823,
+      "end_column": 2204896,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 68,
+      "fingerprint": "fc63de6884ba5d7a911e0228d2c6707c3ce90a11:audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/artifacts/h1-v2/development-8000/h1-v2-primary-a-8000/measurements.json:generic-api-key:1",
+      "commit": "fc63de6884ba5d7a911e0228d2c6707c3ce90a11",
+      "file": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/artifacts/h1-v2/development-8000/h1-v2-primary-a-8000/measurements.json",
+      "start_line": 1,
+      "start_column": 2210138,
+      "end_column": 2210219,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "finding_index": 69,
+      "fingerprint": "fc63de6884ba5d7a911e0228d2c6707c3ce90a11:audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/artifacts/h1-v2/development-8000/h1-v2-primary-b-8000/measurements.json:generic-api-key:1",
+      "commit": "fc63de6884ba5d7a911e0228d2c6707c3ce90a11",
+      "file": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/artifacts/h1-v2/development-8000/h1-v2-primary-b-8000/measurements.json",
+      "start_line": 1,
+      "start_column": 2225171,
+      "end_column": 2225244,
+      "source_property": "src/treeneuron/baselines/api.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "src/treeneuron/baselines/api.py"
+      ]
+    },
+    {
+      "finding_index": 70,
+      "fingerprint": "fc63de6884ba5d7a911e0228d2c6707c3ce90a11:audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/artifacts/h1-v2/development-8000/h1-v2-primary-b-8000/measurements.json:generic-api-key:1",
+      "commit": "fc63de6884ba5d7a911e0228d2c6707c3ce90a11",
+      "file": "audit/implementation/evidence/2026-10-17/calibration-common-recipe/original/artifacts/h1-v2/development-8000/h1-v2-primary-b-8000/measurements.json",
+      "start_line": 1,
+      "start_column": 2230486,
+      "end_column": 2230567,
+      "source_property": "tests/test_access.py",
+      "category": "file_content_sha256",
+      "classification": "false_positive",
+      "is_64_hex": true,
+      "hash_recomputed_verified": true,
+      "rationale": "Source/ledger file path is the property inside a file-digest inventory. SHA-256 recomputation matches reachable Git blob content.",
+      "matching_content_paths": [
+        "tests/test_access.py"
+      ]
+    }
+  ],
+  "binary_artifacts": [
+    {
+      "blob": "0018f6b085f7cf7278174603cf3367a47d7b6ef6",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/native-final/batch-8192/8b20cf9f9e61415d996565b15585a41f/checkpoints/checkpoint-0bcbce5da24c490fa57854c50a6ec700.pt"
+      ],
+      "bytes": 113633,
+      "members": 28,
+      "uncompressed_bytes": 108741,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "pickle_global_references": [
+        "torch._utils _rebuild_tensor_v2",
+        "torch LongStorage",
+        "collections OrderedDict",
+        "torch FloatStorage",
+        "torch ByteStorage"
+      ],
+      "model_or_state_keys": [
+        "state",
+        "model",
+        "optimizer",
+        "rng_states",
+        "best_state"
+      ],
+      "max_pickle_string_length": 22
+    },
+    {
+      "blob": "033836523ce0b1a749658c2c5a81b7dc9579f16f",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/native-final/batch-4096/2eff3e9c1e654ccc807dc66888c38d45/checkpoints/checkpoint-2e7141b28f7d43e3ac56e512f1cae092.pt"
+      ],
+      "bytes": 113633,
+      "members": 28,
+      "uncompressed_bytes": 108741,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "pickle_global_references": [
+        "torch._utils _rebuild_tensor_v2",
+        "torch LongStorage",
+        "collections OrderedDict",
+        "torch FloatStorage",
+        "torch ByteStorage"
+      ],
+      "model_or_state_keys": [
+        "state",
+        "model",
+        "optimizer",
+        "rng_states",
+        "best_state"
+      ],
+      "max_pickle_string_length": 22
+    },
+    {
+      "blob": "1eafa7e93b84bdf35227d1335994aac71ba0a9a0",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/native-final/batch-256/a390eea6f07c4bf1a00f810795cca68f/checkpoints/checkpoint-cbbcf03cffc54ff08f32c67d70aa5f72.pt"
+      ],
+      "bytes": 226079,
+      "members": 50,
+      "uncompressed_bytes": 217158,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "pickle_global_references": [
+        "torch._utils _rebuild_tensor_v2",
+        "torch LongStorage",
+        "collections OrderedDict",
+        "torch FloatStorage",
+        "torch ByteStorage"
+      ],
+      "model_or_state_keys": [
+        "state",
+        "model",
+        "optimizer",
+        "rng_states",
+        "best_state"
+      ],
+      "max_pickle_string_length": 22
+    },
+    {
+      "blob": "22128749059f26aef86fe683c39360e49f19fd19",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/native-final/batch-16384/5f9010cd256d405b81e68d7993ca8894/checkpoints/checkpoint-f9e29eb9e3954b2b96dcd26324f5a9e5.pt"
+      ],
+      "bytes": 113633,
+      "members": 28,
+      "uncompressed_bytes": 108741,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "pickle_global_references": [
+        "torch._utils _rebuild_tensor_v2",
+        "torch LongStorage",
+        "collections OrderedDict",
+        "torch FloatStorage",
+        "torch ByteStorage"
+      ],
+      "model_or_state_keys": [
+        "state",
+        "model",
+        "optimizer",
+        "rng_states",
+        "best_state"
+      ],
+      "max_pickle_string_length": 22
+    },
+    {
+      "blob": "32f08763824198cb8ca9678073456725eae1a252",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/native-final/batch-1024/077843c173e845f89a46b6654488e799/checkpoints/checkpoint-324af497fd2b4da69e6abe97dada0f5b.pt"
+      ],
+      "bytes": 226079,
+      "members": 50,
+      "uncompressed_bytes": 217158,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "pickle_global_references": [
+        "torch._utils _rebuild_tensor_v2",
+        "torch LongStorage",
+        "collections OrderedDict",
+        "torch FloatStorage",
+        "torch ByteStorage"
+      ],
+      "model_or_state_keys": [
+        "state",
+        "model",
+        "optimizer",
+        "rng_states",
+        "best_state"
+      ],
+      "max_pickle_string_length": 22
+    },
+    {
+      "blob": "37ce78cf02e11c5ecfe33d6a49944709b5e662b0",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/native-final/batch-4096/2eff3e9c1e654ccc807dc66888c38d45/checkpoints/checkpoint-c2d305bd2f6449b28057e9b4868ed1e7.pt"
+      ],
+      "bytes": 226079,
+      "members": 50,
+      "uncompressed_bytes": 217158,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "pickle_global_references": [
+        "torch._utils _rebuild_tensor_v2",
+        "torch LongStorage",
+        "collections OrderedDict",
+        "torch FloatStorage",
+        "torch ByteStorage"
+      ],
+      "model_or_state_keys": [
+        "state",
+        "model",
+        "optimizer",
+        "rng_states",
+        "best_state"
+      ],
+      "max_pickle_string_length": 22
+    },
+    {
+      "blob": "43409d46e699c4bd7feee794561de0075196779e",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/native-final/batch-512/0e161ffe470741c394c823a8e7a8c767/checkpoints/checkpoint-5a6d3ae8921040ed8a23f262f18838ca.pt"
+      ],
+      "bytes": 113633,
+      "members": 28,
+      "uncompressed_bytes": 108741,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "pickle_global_references": [
+        "torch._utils _rebuild_tensor_v2",
+        "torch LongStorage",
+        "collections OrderedDict",
+        "torch FloatStorage",
+        "torch ByteStorage"
+      ],
+      "model_or_state_keys": [
+        "state",
+        "model",
+        "optimizer",
+        "rng_states",
+        "best_state"
+      ],
+      "max_pickle_string_length": 22
+    },
+    {
+      "blob": "528cede527b385855c3ec33c0600bb0821a5f276",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/native-final/batch-512/0e161ffe470741c394c823a8e7a8c767/checkpoints/checkpoint-be9b5b2fc29a4c2298634099ba51f844.pt"
+      ],
+      "bytes": 226079,
+      "members": 50,
+      "uncompressed_bytes": 217158,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "pickle_global_references": [
+        "torch._utils _rebuild_tensor_v2",
+        "torch LongStorage",
+        "collections OrderedDict",
+        "torch FloatStorage",
+        "torch ByteStorage"
+      ],
+      "model_or_state_keys": [
+        "state",
+        "model",
+        "optimizer",
+        "rng_states",
+        "best_state"
+      ],
+      "max_pickle_string_length": 22
+    },
+    {
+      "blob": "55640d610a6b2d6ea5e0a7a4b390ba95d5484665",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/native-final/batch-16384/5f9010cd256d405b81e68d7993ca8894/checkpoints/checkpoint-c6a2af37333d4398a21b3c3766f7211c.pt"
+      ],
+      "bytes": 226079,
+      "members": 50,
+      "uncompressed_bytes": 217158,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "pickle_global_references": [
+        "torch._utils _rebuild_tensor_v2",
+        "torch LongStorage",
+        "collections OrderedDict",
+        "torch FloatStorage",
+        "torch ByteStorage"
+      ],
+      "model_or_state_keys": [
+        "state",
+        "model",
+        "optimizer",
+        "rng_states",
+        "best_state"
+      ],
+      "max_pickle_string_length": 22
+    },
+    {
+      "blob": "58237607e43f0584a89fc5e4ac90e734c7c7e890",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/native-final/batch-2048/0fbfa69649604a5d9069df30a7ea84d5/checkpoints/checkpoint-80108c953d0c43ce846cc447b84d1300.pt"
+      ],
+      "bytes": 113633,
+      "members": 28,
+      "uncompressed_bytes": 108741,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "pickle_global_references": [
+        "torch._utils _rebuild_tensor_v2",
+        "torch LongStorage",
+        "collections OrderedDict",
+        "torch FloatStorage",
+        "torch ByteStorage"
+      ],
+      "model_or_state_keys": [
+        "state",
+        "model",
+        "optimizer",
+        "rng_states",
+        "best_state"
+      ],
+      "max_pickle_string_length": 22
+    },
+    {
+      "blob": "6168164df93f467dd408b979ada2053521f66e91",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/old-source-reference/predictions.npz"
+      ],
+      "bytes": 54311,
+      "members": 3,
+      "uncompressed_bytes": 56216,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "array_headers": [
+        {
+          "name": "F.npy",
+          "shape": [
+            2306
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "G.npy",
+          "shape": [
+            577
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "E.npy",
+          "shape": [
+            4096
+          ],
+          "dtype": "<f8"
+        }
+      ]
+    },
+    {
+      "blob": "88d7f887ac00b0e3ff2a0f6d9d957ed5412eb45a",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/native-final/batch-2048/0fbfa69649604a5d9069df30a7ea84d5/checkpoints/checkpoint-6490c5146e864bc5b12f665a8c9ecdde.pt"
+      ],
+      "bytes": 226079,
+      "members": 50,
+      "uncompressed_bytes": 217158,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "pickle_global_references": [
+        "torch._utils _rebuild_tensor_v2",
+        "torch LongStorage",
+        "collections OrderedDict",
+        "torch FloatStorage",
+        "torch ByteStorage"
+      ],
+      "model_or_state_keys": [
+        "state",
+        "model",
+        "optimizer",
+        "rng_states",
+        "best_state"
+      ],
+      "max_pickle_string_length": 22
+    },
+    {
+      "blob": "8aa567afd6f46aac447f2c3fb833bcf66974d19b",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/native-final/batch-128/7e6aefa06c8f4ed2b5ca7412dca33815/checkpoints/checkpoint-1dfff634e7a4447fa696166ce36e3481.pt"
+      ],
+      "bytes": 113633,
+      "members": 28,
+      "uncompressed_bytes": 108741,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "pickle_global_references": [
+        "torch._utils _rebuild_tensor_v2",
+        "torch LongStorage",
+        "collections OrderedDict",
+        "torch FloatStorage",
+        "torch ByteStorage"
+      ],
+      "model_or_state_keys": [
+        "state",
+        "model",
+        "optimizer",
+        "rng_states",
+        "best_state"
+      ],
+      "max_pickle_string_length": 22
+    },
+    {
+      "blob": "8c05b0610381fcabc638a22fab0d86b6423b165c",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/native-final/batch-256/a390eea6f07c4bf1a00f810795cca68f/checkpoints/checkpoint-50f15b86f9e94f9baf6caec2ebb68c8b.pt"
+      ],
+      "bytes": 113633,
+      "members": 28,
+      "uncompressed_bytes": 108741,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "pickle_global_references": [
+        "torch._utils _rebuild_tensor_v2",
+        "torch LongStorage",
+        "collections OrderedDict",
+        "torch FloatStorage",
+        "torch ByteStorage"
+      ],
+      "model_or_state_keys": [
+        "state",
+        "model",
+        "optimizer",
+        "rng_states",
+        "best_state"
+      ],
+      "max_pickle_string_length": 22
+    },
+    {
+      "blob": "8d76f486c71bfd605391270954aa9ba306fbc484",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/native-final/batch-128/7e6aefa06c8f4ed2b5ca7412dca33815/checkpoints/checkpoint-8711fabc1b1d423c80f9b6b51d56dff8.pt"
+      ],
+      "bytes": 226079,
+      "members": 50,
+      "uncompressed_bytes": 217158,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "pickle_global_references": [
+        "torch._utils _rebuild_tensor_v2",
+        "torch LongStorage",
+        "collections OrderedDict",
+        "torch FloatStorage",
+        "torch ByteStorage"
+      ],
+      "model_or_state_keys": [
+        "state",
+        "model",
+        "optimizer",
+        "rng_states",
+        "best_state"
+      ],
+      "max_pickle_string_length": 22
+    },
+    {
+      "blob": "95e021d2cc3c86f6a9ea2db66c4c70cf47a9b1a6",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/failed-widened-operation.pt",
+        "tests/fixtures/h1_widened_relu_rounding.pt"
+      ],
+      "bytes": 1125320,
+      "members": 15,
+      "uncompressed_bytes": 1122132,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "pickle_global_references": [
+        "collections OrderedDict",
+        "torch._utils _rebuild_tensor_v2",
+        "torch FloatStorage"
+      ],
+      "model_or_state_keys": [
+        "model",
+        "topology",
+        "x",
+        "y"
+      ],
+      "max_pickle_string_length": 19
+    },
+    {
+      "blob": "a7fc632ae6d542ece2617f174a9ff158e7bd465f",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/native-final/batch-1024/077843c173e845f89a46b6654488e799/checkpoints/checkpoint-36fd6a3459524746a28badd99fe1ae32.pt"
+      ],
+      "bytes": 113633,
+      "members": 28,
+      "uncompressed_bytes": 108741,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "pickle_global_references": [
+        "torch._utils _rebuild_tensor_v2",
+        "torch LongStorage",
+        "collections OrderedDict",
+        "torch FloatStorage",
+        "torch ByteStorage"
+      ],
+      "model_or_state_keys": [
+        "state",
+        "model",
+        "optimizer",
+        "rng_states",
+        "best_state"
+      ],
+      "max_pickle_string_length": 22
+    },
+    {
+      "blob": "a9dd37e3cba0e8a88cfd397f9116ad09ab994274",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/h1-final/whole-h1-fix-evidence/native-final/batch-8192/8b20cf9f9e61415d996565b15585a41f/checkpoints/checkpoint-4967adc314ed4f5d84eaf8c6320c2cf4.pt"
+      ],
+      "bytes": 226079,
+      "members": 50,
+      "uncompressed_bytes": 217158,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "pickle_global_references": [
+        "torch._utils _rebuild_tensor_v2",
+        "torch LongStorage",
+        "collections OrderedDict",
+        "torch FloatStorage",
+        "torch ByteStorage"
+      ],
+      "model_or_state_keys": [
+        "state",
+        "model",
+        "optimizer",
+        "rng_states",
+        "best_state"
+      ],
+      "max_pickle_string_length": 22
+    },
+    {
+      "blob": "c0a8a90a090bca94e867816cc1bf894b3765bf6a",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/task-13/original/33-operands-torch.float64.pt"
+      ],
+      "bytes": 82485,
+      "members": 48,
+      "uncompressed_bytes": 72642,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "pickle_global_references": [
+        "torch._utils _rebuild_tensor_v2",
+        "torch DoubleStorage",
+        "collections OrderedDict"
+      ],
+      "model_or_state_keys": [
+        "initial",
+        "grad_actual",
+        "grad_reference",
+        "updated_actual",
+        "updated_reference",
+        "x",
+        "y"
+      ],
+      "max_pickle_string_length": 21
+    },
+    {
+      "blob": "d18a5b490f0c1420bcb41514d9f6f4eb91b0a8f2",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/old-source-reference/observations.npz"
+      ],
+      "bytes": 1170880,
+      "members": 20,
+      "uncompressed_bytes": 1211520,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "array_headers": [
+        {
+          "name": "F_X.npy",
+          "shape": [
+            2306,
+            16
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "F_y.npy",
+          "shape": [
+            2306
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "F_row_id.npy",
+          "shape": [
+            2306
+          ],
+          "dtype": "<i8"
+        },
+        {
+          "name": "F_group_id.npy",
+          "shape": [
+            2306
+          ],
+          "dtype": "<i8"
+        },
+        {
+          "name": "F_noise_free_target.npy",
+          "shape": [
+            2306
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "G_X.npy",
+          "shape": [
+            577,
+            16
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "G_y.npy",
+          "shape": [
+            577
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "G_row_id.npy",
+          "shape": [
+            577
+          ],
+          "dtype": "<i8"
+        },
+        {
+          "name": "G_group_id.npy",
+          "shape": [
+            577
+          ],
+          "dtype": "<i8"
+        },
+        {
+          "name": "G_noise_free_target.npy",
+          "shape": [
+            577
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "V_X.npy",
+          "shape": [
+            577,
+            16
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "V_y.npy",
+          "shape": [
+            577
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "V_row_id.npy",
+          "shape": [
+            577
+          ],
+          "dtype": "<i8"
+        },
+        {
+          "name": "V_group_id.npy",
+          "shape": [
+            577
+          ],
+          "dtype": "<i8"
+        },
+        {
+          "name": "V_noise_free_target.npy",
+          "shape": [
+            577
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "E_X.npy",
+          "shape": [
+            4096,
+            16
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "E_y.npy",
+          "shape": [
+            4096
+          ],
+          "dtype": "<f8"
+        },
+        {
+          "name": "E_row_id.npy",
+          "shape": [
+            4096
+          ],
+          "dtype": "<i8"
+        },
+        {
+          "name": "E_group_id.npy",
+          "shape": [
+            4096
+          ],
+          "dtype": "<i8"
+        },
+        {
+          "name": "E_noise_free_target.npy",
+          "shape": [
+            4096
+          ],
+          "dtype": "<f8"
+        }
+      ]
+    },
+    {
+      "blob": "e0aad28e634d3a3596ce2141aeb5f940342c93d5",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/calibration-phase-a/original/environment/h1-v1/calibration/old-source-reference/selected-snapshot.pt"
+      ],
+      "bytes": 66674,
+      "members": 27,
+      "uncompressed_bytes": 61365,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "pickle_global_references": [
+        "torch._utils _rebuild_tensor_v2",
+        "torch LongStorage",
+        "collections OrderedDict",
+        "torch FloatStorage",
+        "torch ByteStorage"
+      ],
+      "model_or_state_keys": [
+        "data",
+        "model",
+        "optimizer",
+        "model",
+        "optimizer",
+        "state",
+        "rng_states",
+        "state"
+      ],
+      "max_pickle_string_length": 64
+    },
+    {
+      "blob": "f6a9fee32f1715aa6fa4f1c7be08a0e526bc6cb3",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/task-13/original/32-operands-torch.float32.pt"
+      ],
+      "bytes": 47989,
+      "members": 48,
+      "uncompressed_bytes": 38157,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "pickle_global_references": [
+        "torch._utils _rebuild_tensor_v2",
+        "torch FloatStorage",
+        "collections OrderedDict"
+      ],
+      "model_or_state_keys": [
+        "initial",
+        "grad_actual",
+        "grad_reference",
+        "updated_actual",
+        "updated_reference",
+        "x",
+        "y"
+      ],
+      "max_pickle_string_length": 21
+    },
+    {
+      "blob": "fd035ad6ff7f3c9eeb16e35e41bdd8ee424ae5e9",
+      "paths": [
+        "audit/implementation/evidence/2026-10-17/task-13/original/31-failed-probe-model.pt",
+        "audit/implementation/evidence/2026-10-17/task-13/original/36-causal_seed42_probe.pt",
+        "tests/fixtures/causal_seed42_probe.pt"
+      ],
+      "bytes": 11246,
+      "members": 15,
+      "uncompressed_bytes": 8190,
+      "inspection": "ZIP metadata and NPY headers / pickle opcode disassembly only; no unpickling",
+      "pickle_global_references": [
+        "collections OrderedDict",
+        "torch._utils _rebuild_tensor_v2",
+        "torch LongStorage",
+        "torch FloatStorage"
+      ],
+      "model_or_state_keys": [
+        "topology",
+        "state"
+      ],
+      "max_pickle_string_length": 21
+    }
+  ],
+  "supplementary_review": {
+    "credential_filenames_found": [],
+    "private_key_headers_found": [],
+    "operational_url_userinfo_found": [],
+    "nonpublic_operational_url_or_client_data_found": false,
+    "url_query_parameter_names_reviewed": [
+      "id",
+      "dl",
+      "lang",
+      "recursive",
+      "p"
+    ],
+    "hardware_identifiers": "Real system profiler records contain model/chip/memory/firmware information without serial or hardware UUID. Fake serial/UUID literals occur in doctor/backend redaction tests; historical versions reviewed.",
+    "identity": "Owner author/committer Gmail and /Users/artemlegotin paths are authorized public identity/provenance; retained. Other real emails are upstream dependency license attribution.",
+    "uuid_review": "Only deliberately fake test UUID in two historical test_doctor.py blobs. General UUID shape checked including non-RFC placeholders.",
+    "binary_origin": "Widened rounding fixture is generated by torch.manual_seed(1602042) and torch.randn in retained diagnose.py; causal seed42 fixture is toy synthetic recipe per companion Markdown; native-final checkpoint configs declare data.dataset synthetic; NPZ provenance documents synthetic teacher/splits and independent exploratory E stream.",
+    "binary_limitations": "No torch.load or pickle.loads used. Archive metadata, pickletools opcode parsing, NPY header parsing and producer/provenance code support synthetic origin; numeric payloads were not regenerated or exhaustively analyzed for covert data."
+  }
+}

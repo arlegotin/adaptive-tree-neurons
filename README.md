@@ -1,225 +1,108 @@
-# Selectively growing tree-neurons
+# Adaptive tree-neurons
 
-A research proof of concept where selected neurons grow two specialists and a switch that blends them for each input. The question is whether a cheap score can choose where to grow better than random placement, using the same added capacity.
+Give a neuron two specialists and a learned switch between them. Keep the network's predictions unchanged when they arrive, then let training decide whether the extra flexibility helps.
 
-The new [longer-search diagnostic](docs/research/2026-10-18-long-probe-diagnostic.md) tests whether expensive validation trials can find placements the cheap score misses. Across **8 fresh problems, trained twice**, longer selection has normalized evaluation MSE **0.0633780**, random placement **0.0638495**, and shorter selection **0.0631249**. Its benefit over random is **+0.0004715**, with a descriptive teacher-bootstrap 95% interval **[−0.0010366, +0.0022852]**. There is no clear placement advantage; the shorter search has a slightly better mean. The full cohort took **2 hours 10 minutes**, including about **70 minutes of extra long-search work**. Independent risk calculations, both complete ranking replays and checkpoint restoration agree exactly. The [generated report](reports/long-probe-diagnostic.md) and [audit](audit/diagnostics/2026-10-18-long-probes/reproduction/index.json) preserve all outcomes. This supports narrowing the current allocation claim; the broader confirmation and practical benchmark gates remain unfinished.
+This project implements that growth mechanism and tests a harder question: **can we choose which neurons deserve the extra capacity better than choosing at random?** It includes a compact PyTorch layer, a gradient-derived allocation score, matched ordinary and gated controls, and experiments that retain the cost of finding a model as well as training it.
 
-The [complete exploratory pilot](docs/research/2026-10-17-complete-exploratory-pilot.md) contains **16 independent problems, trained twice**, with no model-pair failures. Guided growth averages normalized E MSE **0.0611880**, random placement **0.0606515**, and the upper ordinary parameter bracket **0.0604880**. The guided-placement benefit is **−0.0005364**, with a saved-data 95% bootstrap interval **[−0.0012050, +0.0001561]**. The score has no clear advantage in this recipe. This is an exploratory, inconclusive allocation result; protected confirmation and practical competitiveness remain unestablished.
+**The mechanism works. A reliable placement advantage hasn't emerged.** The useful result is a working implementation and a reproducible account of what the proposed selector achieves, where it loses, and how much the search costs.
 
-The original producer timed out after a user-requested suspension. The two never-started pairs were completed under a prospective amendment with identical inputs and recipe. Both lineages and the original failed record remain intact; the linked diagnostic is not freeze eligible. A larger prespecified saved-data bootstrap resolves numerical endpoint precision, while population-variance calibration remains unresolved. Independent prediction audit, clean locked replay and actual interrupted-growth recovery now pass. The [research report](reports/final.md) records the inconclusive result and reproduction evidence.
+[Results](#results) · [Try the layer](#try-the-layer) · [Reproduction](REPRODUCE.md) · [Research design](docs/superpowers/specs/2026-10-16-selective-tree-neurons-design.md) · [Citation](CITATION.cff)
 
-An earlier single-teacher exploratory comparison gave a negative result for the score: on one 16-dimensional synthetic teacher, top-scored growth had validation MSE **0.14753**, versus **0.14384** for random placement at the same 1,697 parameters. Both improved on continuing the 1,153-parameter parent (**0.16066**). Ordinary warm widening to 1,693/1,711 parameters gave **0.15644/0.15881**. This keeps conditional growth interesting on this problem, but supplies no evidence that the score chooses better locations.
+## The idea
 
-Two further [common-recipe calibration problems](docs/research/2026-10-17-common-recipe-exploratory.md) give mixed outcomes: selected growth has a tiny lead over random on one, while both match the parent on the other and an ordinary wider network does better. These remain exploratory, with one repetition per problem. [Finite development controls](docs/research/2026-10-17-finite-development-controls.md) also give mixed results: guided growth wins on one sparse-data draw, while random placement wins on several other conditions. These calibration cases are separate from the genuine pilot, whose primary recipe stays unchanged.
+An ordinary hidden neuron applies ReLU to one affine response. A grown neuron adds a gated contrast before that same ReLU:
 
-These are descriptive G/V results from one teacher and optimizer seed, with provisional update limits. Top was still improving at its limit. The separate noiseless 2-D control learns the intended opposite slopes; keep, top and random all give validation MSE about **0.001338**, with no useful extra-growth gain. It is a different diagnostic population, not another primary replicate. The [curated evidence](docs/research/2026-10-16-exploratory-paired-evidence.json) records all controls, costs, hashes and limitations; [DECISIONS.md](DECISIONS.md#d008--16-october-2026-exploratory-checkpoint-cost-and-first-paired-study) records the bounded conclusion and next gates.
+```text
+ordinary:  ReLU(base(x))
+grown:     ReLU(base(x) + tanh(gate(x) / 2τ) × contrast(x))
+```
 
-The [plain-language interpretation](docs/research/2026-10-17-exploratory-interpretation.md) explains the earlier results. Protocol protection, the independent-cohort runner and audit/report code passed implementation review and scoped fixes. The reviewed storage correction reproduces all 4,000 updates exactly while reducing checkpoint metadata from 20.6 MB to 2.6 MB. The complete two-repetition engineering workload took about eight minutes, and [strict scientific readiness](docs/research/2026-10-17-scientific-pilot-readiness.md) preceded the genuine pilot. WP09 now validates the completed exploratory evidence. A supported numeric design and independent confirmation remain distinct, unmet gates.
+Its two affine specialists are `base − contrast` and `base + contrast`. The gate starts at zero, so insertion preserves the old function exactly. The contrast starts nonzero, allowing the gate to learn immediately. Only selected neurons allocate the new parameters.
 
-The repository implements the compact selective affine layer, CPU64 moment score, deterministic CPU training, complete checkpoint recovery, state-preserving growth, F-only preprocessing and serial paired controls. Algebra, native CPU/MPS kernel checks and the CPU causal path have been tested. The soft affine-stump model belongs to an established gated family; the research target is the allocation procedure and its measured limits.
+For the main one-hidden-layer experiment, growing 16 of 64 neurons changes the complete model from **1,153 to 1,697 parameters**. Random placement receives the same added capacity, inherited parent, contrast construction and continuation opportunity. Ordinary widening and static gated networks test whether simpler ways of spending those parameters explain the result.
 
-Start with the [specification](docs/superpowers/specs/2026-10-16-selective-tree-neurons-design.md), then follow the plans in gate order:
+Soft affine trees and gated units are established model families. The research target here is **capacity allocation during training**. Soft routing evaluates both specialists; it supplies no automatic inference saving. The [prior-art review](docs/research/2026-10-17-prior-art-revisit.md) records that boundary.
 
-1. [Core plan: WP00–WP04](docs/superpowers/plans/2026-10-16-selective-tree-neurons-core.md) — environment verification, algebra, compact layer, score, data/metrics, paired training, optimizer recovery and the first complete exploratory experiment.
-2. [Evidence plan: remaining WP02/WP03 scope and WP05–WP09](docs/superpowers/plans/2026-10-16-selective-tree-neurons-evidence.md) — faithful baselines, grouped/temporal data, pilot-derived design, protocol freeze, independent confirmation, justified transfer and reproduction.
+## Results
 
-The plans contain file/API boundaries, tests, verification commands and acceptance gates. `doctor` and `verify-math` are available. Core environment, reference/layer/score algebra and native CPU/MPS operation gates pass. Parent/continuation training and complete CPU checkpoint recovery are implemented and reviewed. One-event growth preserves old optimizer/schedule/RNG state on CPU. Causal ordinary/widening and static-gated controls are implemented and reviewed; the complete serial exploratory study runner and artifact-only report command are available.
+The latest diagnostic tested **8 fresh independently generated regression problems, with 2 paired training repetitions per problem**. Each problem had 262,144 held-out evaluation observations. Short search tried every single-neuron insertion for 320 updates; long search allowed up to 8,000 updates with the normal validation stopping rule. Both then restarted the joint grown model from the original parent.
 
-Install the locked core locally with `uv` (Python first tries 3.12):
+Lower normalized evaluation MSE is better. Repetitions are averaged within each problem, then all 8 problems receive equal weight.
+
+| Method | Parameters | Mean normalized MSE |
+| --- | ---: | ---: |
+| Continue the original network | 1,153 | 0.064867 |
+| Our cheap allocation score | 1,697 | 0.064205 |
+| Random placement | 1,697 | 0.063850 |
+| Short validation search | 1,697 | **0.063125** |
+| Long validation search | 1,697 | 0.063378 |
+| Widen the existing ordinary network | 1,711 | 0.064071 |
+| Fresh ordinary network, lower bracket | 1,693 | 0.067278 |
+| Fresh ordinary network, upper bracket | 1,711 | 0.069375 |
+| Static partially gated network | 1,697 | 0.100520 |
+
+Long search's mean benefit over random was **+0.000471**, with a descriptive whole-problem bootstrap 95% interval of **[−0.001037, +0.002285]**. It won on 3 problem means and lost on 5. Short search had the best average error, but the comparisons do not establish a clear placement advantage. Long search beat the fresh upper-bracket ordinary model in this recipe; ordinary warm widening was much closer. That distinction matters.
+
+The complete cohort took **2 hours 10 minutes** on one M3 Max, including **about 70 minutes of additional long-search work**. All 144 final model instances completed without numerical failures. An independent calculation from saved predictions agreed exactly with the reported metrics; both representative rankings replayed exactly across 130 trials, 53,300 updates and 133 complete saved-state comparisons. A long-probe checkpoint restore also matched.
+
+An earlier, separate **16-problem × 2-repeat pilot** reached the same unresolved allocation question: cheap-score MSE **0.061188**, random **0.060652**, paired benefit **−0.000536**, interval **[−0.001205, +0.000156]**. These studies use different fresh problems; their error levels aren't a before/after comparison.
+
+Read the [latest findings](docs/research/2026-10-18-long-probe-diagnostic.md), [complete diagnostic tables](reports/long-probe-diagnostic.md) and [earlier pilot report](reports/final.md). These are exploratory synthetic results. Independent confirmation, real-data transfer and competitiveness against strong tabular baselines remain unestablished.
+
+## What you can use
+
+- **Grow selected units without a prediction jump.** Compact active tensors, explicit topology export and an optimizer migration manifest.
+- **Test an allocation rule against matched controls.** Shared parents, paired minibatches, fixed capacity, separate placement and contrast-direction comparisons, and exhaustive validation probes with their losing candidates retained.
+- **Recover the actual training state.** Model, Adam moments, scheduler, RNGs, sampler and growth state survive checkpoints; raw predictions and source identities support later auditing.
+- **Measure the complete procedure.** Charge scoring, candidate search and continuation, keep failures, and separate fitting, checkpoint selection and evaluation data.
+
+The [source](src/treeneuron), [tests](tests) and [research decisions](DECISIONS.md) are included. Small synthetic engineering fixtures and extensive selected audit metadata are versioned. Full experiment archives and environments remain external; [publication scope](docs/PUBLICATION.md) explains what a clone can verify.
+
+## Try the layer
+
+The measured environment is **native macOS ARM64, Python 3.12 and PyTorch 2.14.1**. The supplied `uv.lock` records that environment; other platforms need separate verification. With [uv](https://docs.astral.sh/uv/) installed:
 
 ```sh
-export UV_CACHE_DIR="$PWD/.uv-cache"
-export UV_PYTHON_INSTALL_DIR="$PWD/.uv-python"
+git clone https://github.com/arlegotin/adaptive-tree-neurons.git
+cd adaptive-tree-neurons
 uv sync --frozen --python 3.12
-.venv/bin/python -m pytest -q
-env PYTORCH_ENABLE_MPS_FALLBACK=0 .venv/bin/python -m treeneuron.cli doctor --output environment/current-report.json
-.venv/bin/python -m treeneuron.cli verify-math --backend-report environment/current-report.json --output environment/reference-math.json
 ```
 
-The core lock resolves Torch 2.14.1, NumPy 2.5.4, SciPy 1.18.1, pandas 3.0.6, scikit-learn 1.9.1, PyYAML 6.0.3 and development pytest 9.1.1. It is scoped to Python 3.12. Bulk runs and acquired data/model assets stay outside Git; selected verification logs, provenance and hash manifests are versioned. Doctor records denied probes as null with reasons, strips serial/UUID fields and returns nonzero for indispensable package import failures. Sandboxed observations can differ from native process observations; Doctor runs actual isolated kernel probes; a saved report is revalidated against execution source, lock and runtime. Sandboxed MPS unavailability remains separate from the executed native MPS evidence.
+Run this Python example in that environment. The layer returns preactivations; its caller applies ReLU.
 
-For the measured resident-data d16/h64/F2306 calibration, CPU was faster: about 36.1 ms versus 66.9 ms for MPS across base epoch, CPU64 scoring and grown epoch. The initial recipe uses one CPU thread and physical/logical batch 128. This is a bounded kernel calibration. The complete primary exploratory study subsequently took 611.7 seconds on CPU, including data generation, setup, training, shared scoring and artifact work; calibrated search and practical comparisons remain pending. Two isolated stage timing caps are retained in the [gate evidence](docs/research/2026-10-16-core-gate-evidence.json); all four complete-path blocks met their stability rule.
+```python
+import torch
+from treeneuron.models.units import SelectiveAffineLayer
 
-[Source provenance](provenance/sources.json) records exact installed wheel terms and license hashes. The [focused prior-art revisit](docs/research/2026-10-17-prior-art-revisit.md) narrows the claim: informed-versus-random neuron allocation already has precedent, and R12's full text is accessible. The exact combined rule was not located in the three inspected sources; priority remains unproved.
+torch.manual_seed(42)
+layer = SelectiveAffineLayer(d=16, h=64)
+x = torch.randn(32, 16)
+before = layer(x).detach()
 
-[Evidence and machine record](docs/research/2026-10-16-evidence-and-machine-record.md) distinguishes the supplied Linux checks/reference ledger from local discovery. The observed target is an M3 Max with 36 GiB memory, macOS 26.7.1 and about 21 GiB free disk; default native Python 3.14.6 has no Torch; this project uses a separate managed Python 3.12.13. Recheck mutable resource observations before execution.
+# Contrast rows contain 16 weights and a bias. New gates start at zero.
+manifest = layer.grow(torch.arange(16), 0.05 * torch.randn(16, 17))
+after = layer(x)
 
-[DECISIONS.md](DECISIONS.md) records project state and the next step. The [planning review](docs/superpowers/reviews/2026-10-16-selective-tree-neurons-review.md) records the fresh builder check and plan self-review. Work remains on the current branch, `main`.
+torch.testing.assert_close(after, before, rtol=0, atol=0)
+print(manifest.added_parameter_count)  # 544
+print(after.relu().shape)             # torch.Size([32, 64])
+```
 
-Generate a current CPU-only receipt before running causal checks. The historical Task11/Task12 receipts retain their original source identities and do not authorize the changed backend:
+Run the standalone algebra/gradient references and focused CPU checks:
 
 ```sh
-env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTORCH_ENABLE_MPS_FALLBACK=0 .venv/bin/python -m treeneuron.evaluation.search_worker --backend-receipt environment/current-cpu.json
-env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTORCH_ENABLE_MPS_FALLBACK=0 .venv/bin/python -m treeneuron.cli verify-baselines --track causal --backend-report environment/current-cpu.json --output environment/causal-capabilities.json
+uv run --frozen python tests/reference_math_checks.py
+uv run --frozen python tests/reference_score_checks.py
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 \
+VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTORCH_ENABLE_MPS_FALLBACK=0 \
+uv run --frozen python -m pytest -q \
+  tests/test_algebra.py tests/test_growth.py tests/test_score.py tests/test_probe_diagnostic.py
 ```
 
-That local receipt is an ignored runtime artifact. Use a new output filename if it already exists. The [finite CPU envelope](docs/research/2026-10-17-h1-cpu-envelope.md) documents the additional measured receipt needed for high-density or larger-batch H1 execution. The [original control evidence](docs/research/2026-10-16-causal-control-evidence.json), [costed probe and spline checks](docs/research/2026-10-16-evidence2-capabilities.json) and [NODE checks](docs/research/2026-10-16-evidence3-node.json) retain their source-specific correctness results. NODE's full-size three-update check ends before official checkpoint selection and is ineligible as a quality result. Long NODE instrumentation and warning handling remain conditional work under [Ruling14](audit/implementation/evidence/2026-10-17/ruling-14-conditional-node-instrumentation.md).
+These checks need no retained research archive or external dataset. For training receipts, fresh experiments, full-suite status and authenticating historical results, follow [REPRODUCE.md](REPRODUCE.md).
 
-The first paired study is explicitly exploratory. Its builder-chosen starting
-allowances are 2,000 parent and 2,000 continuation updates, evaluated on G every
-25 updates with patience 20. Fresh static/wider controls receive both stages.
-All methods use the same logical batch 128 and durable snapshot interval 25;
-every G evaluation, stage boundary and safe complete-update interruption is also
-snapshotted. Every update event is retained. Legacy callers default to interval 1.
-V metrics are descriptive. There is
-no protected T access or confirmatory claim.
+## License and citation
 
-The executed starter configs and raw receipt bytes remain historical inputs.
-For a new exploratory study, create a versioned config with the fresh receipt
-path and a new artifact namespace, then use `python -m treeneuron.cli run
---config PATH`. Preserve the original config rather than changing its recorded
-source or receipt identity. `report --mode exploratory --study-dir PATH
---output PATH` rebuilds its development metrics from saved artifacts.
+Copyright © 2026 Artem Legotin. Original software is **AGPL-3.0-only**; original writing and result presentation are **CC BY 4.0**. [Licensing](LICENSING.md) defines the split and [third-party notices](THIRD_PARTY_NOTICES.md) retain the NODE, entmax and QHOptim exceptions.
 
-`execution.backend_report` and `execution.artifacts_root` are explicit config
-fields. The referenced local receipt is ignored evidence, not a shipped hidden
-input. On a fresh checkout, run `doctor --output environment/current-report.json`
-and put that path in the config; the selected device/batches must match the
-config, and strict source/lock/runtime guards still apply. Historical
-`environment/report.json` does not match the current producer digest. The existing
-CPU-only receipt remains applicable while its bound package, producer, lock and
-runtime are unchanged; it does not establish current native MPS recovery or comparisons.
-
-Each new invocation preserves an independent UUID directory, including failures.
-`study.json` binds config/source/checkout, receipt and hardware reports, every
-fork's parent, score table, float64 contrasts and actual float32 insertion, raw
-row streams, G/V predictions, selected states and enclosing costs. The reporter
-checks hashes and rebuilds metrics from these artifacts. Shared scoring is timed
-once. A standalone sampled random scorer is explicitly unmeasured; required work
-counts are not timings. Validation is nested inside training, and process peak
-RSS is not incremental per-method memory. Bulk datasets, predictions and
-checkpoints stay outside Git; curated scalar evidence and hashes belong in
-`docs/research/`.
-
-The executed starter YAMLs remain at 2,000 + 2,000 updates. Because improving
-curves reached those limits, `configs/explore-next-allowance.yaml` and
-`configs/explore-positive-control-next-allowance.yaml` separately declare a
-symmetric 4,000 + 4,000 next-run allowance. They are **unexecuted and calibration
-pending**. They change no batch, scoring, checkpoint-selection or patience rule.
-Definitive H1 calibration follows the required spline/B6/B7 and search/timing
-gates, plus all pre-freeze H1 implementation. Grouped/temporal raw data and
-practical adapters gate the separate transfer study. These historical starter configs do not describe the current 8,000-update
-common-recipe pilot linked above. The [confirmation-cohort amendment](protocol/amendments/2026-10-16-minimum-confirmation-cohort.md)
-prevents a one-teacher design from producing a falsely precise population claim;
-its study-specific floor still requires finite-sample uncertainty checks.
-
-The [Task 12 review fixes](docs/research/2026-10-16-exploratory-fix1-evidence.json)
-close an interruption-bookkeeping gap and populate coordinator/child manifests
-before terminal publication. A small complete CPU study checks that behavior.
-The original predictive studies remain pinned to their original source; the
-[historical manifest correction sidecar](docs/research/2026-10-16-exploratory-manifest-corrections-fix1.json)
-supplies hash-linked metadata overlays without changing their results or files.
-
-The core has now passed its whole-implementation review and scoped fix review.
-The [reviewed handoff](docs/research/2026-10-16-reviewed-core-handoff.md) records
-629 passing tests, 48 sandbox MPS skips, the final engineering checks and all
-review decisions. The exhaustive probe control now exists and charges every attempted neuron.
-Search and timing machinery has also passed its [implementation review and fix
-review](audit/implementation/evidence/2026-10-16/task-7-fix1-review.md): model
-timings share balanced blocks, precision uses complete blocks, and resumed
-searches retain cumulative costs. The [bounded fix evidence](docs/research/2026-10-16-evidence7-fix1.json)
-remains below its timing-precision requirement. Pilot-design, protected evaluation
-and audit code are now implemented and reviewed. The final H1 review and its
-scoped fixes close the ledger handoff, CPU density/batch coverage and advisory
-cost issues. The full-suite stage retained 958 passes, 2 failures and 9 setup
-errors; the final affected checks passed 190 tests after those paths were fixed.
-Native checks cover 40 numerical cells, 162 timing cells, 24 scoring comparisons
-and 8 high-density parent reloads. The [final review evidence](audit/implementation/evidence/2026-10-17/h1-final-index.json)
-preserves each source identity. These are implementation checks. Independent
-confirmation remains unexecuted; the actual diagnostic reproduction and raw
-prediction audit are now complete. Resident timing stays within the explicit smaller
-[Ruling15 scope](audit/implementation/evidence/2026-10-17/ruling-15-resident-timing-scope.md).
-
-A later [narrow storage correction](audit/implementation/evidence/2026-10-17/h1-history-storage-index.json)
-preserves full raw sample logs while replacing redundant checkpoint row lists
-with versioned counts and ordered hashes. The actual 4,000-update replay matches
-all selected model/optimizer/sampler/RNG state, predictions and ordered update
-records exactly. Its fitting boundary fell from 47.6 to 14.1 seconds in one run.
-This is an engineering observation. The current exploratory pilot record is
-linked above; protected independent confirmation remains pending.
-
-### Auditing and portable saved evidence (pre-freeze implementation)
-
-The [WP09 evidence](audit/implementation/evidence/2026-10-18/wp09/index.json)
-records a new frozen-lock environment, both reference scripts, all eight methods
-and all 65 probes in a representative replay, plus a real interruption and exact
-checkpoint recovery. Independently recomputed risks cover all 32 pilot pairs.
-The [final diagnostic report](reports/final.md) was rebuilt twice from saved
-records, byte-identically. Rebuild it from the shipped compact inputs using only
-Python's standard library:
-
-```sh
-python3 audit/implementation/evidence/2026-10-18/wp09/render_report.py /tmp/tree-neuron-diagnostic.md
-```
-
-This saved report command performs no fitting or protected evaluation. The
-complete raw-prediction audit requires the separately restored, hash-bound bulk
-artifacts named in the evidence inventory. The original failed producer and
-linked continuation remain separate; no frozen protocol or confirmation exists.
-
-The protected workflow below applies only after a future accepted numeric design,
-reviewed freeze and complete independent execution:
-
-```sh
-.venv/bin/python -m treeneuron.cli audit --protocol protocol/frozen.yaml --study-dir protocol/confirmation/PROTOCOL_HASH --output audit/study.json
-.venv/bin/python -m treeneuron.cli report --mode audited --protocol protocol/frozen.yaml --study-dir protocol/confirmation/PROTOCOL_HASH --output reports/confirmation.md
-```
-
-That protected report validates the frozen cohort, every attempt and selected graph (including
-B6 losers), checkpoint topology/optimizer/resume state, original protected access,
-raw predictions, F variance, original-unit metrics and declared statistical policy.
-Incomplete or corrupt evidence cannot produce a success table. Whole teachers,
-including unfavorable and zero-growth cases, remain the independent units.
-Unknown execution costs remain null with a reason; nested child clocks are shown
-separately from the enclosing preparation/execution cost.
-
-Restore allowed artifacts at the same repository-relative locations in a clean
-checkout of the pinned execution source. Retain Git history, locks, accepted review
-artifacts, numerical receipts, prepared F/G/V files, frozen protocol/history,
-confirmation runs and access ledger. The original absolute root remains in the
-frozen identity; locator translation resolves the restored bytes and records the
-current checkout separately. It does not rewrite config strings or hashes. Run
-from a locked environment installed for that checkout, with the declared CPU/BLAS
-thread settings and fallback disabled. Redundant editable-install `src/*.egg-info`
-is an untracked executable-input failure: preserve generated metadata outside
-`src` as documented by the Task 9 install-metadata relocation record; never relax
-the source guard. Ordinary fit/predict/resume and protected access remain strict.
-
-Before any amendment or execution-source change, preserve a prospective archive:
-
-```sh
-.venv/bin/python -m treeneuron.cli seal-archive --protocol protocol/frozen.yaml --study-dir protocol/confirmation/PROTOCOL_HASH --output audit/archives/STUDY
-.venv/bin/python -m treeneuron.cli audit --archive audit/archives/STUDY --output audit/reanalysis.json
-.venv/bin/python -m treeneuron.cli report --mode archived --archive audit/archives/STUDY --output reports/reanalysis.md
-```
-
-The v1 archive copies a hashed inventory and the original access-ledger prefix.
-Later ordinary evidence reads do not change those copied bytes. Archived analysis
-uses only originally authorized sealed rows, preserves original source/model
-identities, records its current clean analysis source and labels claims
-exploratory. It supplies no `FrozenProtocol`, new T access, refit, prediction,
-label generation or old-source training resume. Missing a seal before amendment
-means archive eligibility is unavailable; restoring source does not undo an
-amendment. This prospective-only boundary is [Ruling 12](audit/implementation/evidence/2026-10-17/ruling-12-archive-sealing.md).
-
-R12's full text was retrieved in WP00; the former access obstacle is historical.
-The bounded mechanism comparison remains provisional. The closest-prior-art
-revisit, locked clean replay and independent audit of the exploratory diagnostic
-are complete. H1 component evidence does not establish H3 practical advantage;
-unavailable strongest models remain explicit, Energy stays separate as simulation,
-and Track C references stay outside local measured tables.
-
-Audit-start markers and immutable audit-work receipts retain interrupted or completed audit work. Nested primary-analysis receipts are linked and excluded from the outer total. Archive copying/reanalysis and Markdown rendering have separate copy-work, archive-work and report-work receipts; these variable measurements are outside deterministic report content.
-
-The [implementation review and fixes](audit/implementation/evidence/2026-10-17/task-13-index.json)
-are accepted. Failed attempts retain the partial artifacts they actually wrote;
-an unknown hard-stop history stays explicitly incomplete. Terminal confirmation
-records unsealed archive eligibility until a verified seal exists. Repository-local
-seals create a portable binding; external bundles remain available by explicit
-saved-evidence path, as recorded in [Ruling 13](audit/implementation/evidence/2026-10-17/ruling-13-live-archive-bindings.md).
-The final implementation review and measured scientific calibration are next.
-
-Pass `--archive audit/archives/STUDY` to `amend` to bind the verified prospective
-archive digest to the amendment. Without it the amendment explicitly records
-`unavailable_no_archive_supplied`. A mismatched or damaged supplied archive
-rejects before writing the amendment; original protocol bytes remain unchanged.
+Please cite [CITATION.cff](CITATION.cff) and record the commit you used. Implementation, experiments and documentation used AI assistance under the project owner's direction. README editing used [write-like-me](https://github.com/arlegotin/write-like-me).

@@ -1,0 +1,26 @@
+usage: treeneuron [-h]
+                  {doctor,verify-math,verify-baselines,run,report,audit,seal-archive,calibrate,freeze,prepare-cohort,confirm,analyze-primary,amend}
+                  ...
+
+positional arguments:
+  {doctor,verify-math,verify-baselines,run,report,audit,seal-archive,calibrate,freeze,prepare-cohort,confirm,analyze-primary,amend}
+    doctor              Record local prerequisite observations
+    verify-math         Validate CPU references, package math and actual
+                        backend kernels/batching
+    verify-baselines    Execute bounded causal control correctness recipes
+    run                 Execute a complete exploratory paired study (G/V only)
+    report              Rebuild exploratory metrics from retained artifacts
+    audit               Audit complete frozen evidence or a sealed saved-
+                        evidence archive
+    seal-archive        Copy validated live evidence before amendment/source
+                        drift
+    calibrate           Run bounded exploratory pilots; scientific purpose
+                        requires verified readiness
+    freeze              Freeze a verified canonical scientific design
+    prepare-cohort      Prepare new F/G/V and T row commitments before freeze
+    confirm             Execute the complete validated frozen synthetic cohort
+    analyze-primary     Rebuild teacher-level analysis from sealed rows
+    amend               Preserve old identity and require fresh confirmation
+
+options:
+  -h, --help            show this help message and exit

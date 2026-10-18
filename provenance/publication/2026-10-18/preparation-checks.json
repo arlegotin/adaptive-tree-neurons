@@ -1,0 +1,90 @@
+{
+  "checks": [
+    {
+      "name": "sync",
+      "argv": [
+        "uv",
+        "sync",
+        "--frozen",
+        "--offline",
+        "--python",
+        "3.12"
+      ],
+      "returncode": 0,
+      "seconds": 2.9854405419901013
+    },
+    {
+      "name": "readme-example",
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+        "environment/publication-20261018/readme-example.py"
+      ],
+      "returncode": 0,
+      "seconds": 1.5153302500257269
+    },
+    {
+      "name": "appendix-a",
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+        "tests/reference_math_checks.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.6175202500307932
+    },
+    {
+      "name": "appendix-b",
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+        "tests/reference_score_checks.py"
+      ],
+      "returncode": 0,
+      "seconds": 1.2152249579085037
+    },
+    {
+      "name": "cli-help",
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+        "-m",
+        "treeneuron.cli",
+        "--help"
+      ],
+      "returncode": 0,
+      "seconds": 0.042320167063735425
+    },
+    {
+      "name": "readme-checks",
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_algebra.py",
+        "tests/test_growth.py",
+        "tests/test_score.py",
+        "tests/test_probe_diagnostic.py"
+      ],
+      "returncode": 0,
+      "seconds": 11.96939162502531
+    },
+    {
+      "name": "build",
+      "argv": [
+        "uv",
+        "build",
+        "--offline",
+        "--out-dir",
+        "environment/publication-20261018/dist-verified"
+      ],
+      "returncode": 0,
+      "seconds": 1.0909866250585765
+    }
+  ],
+  "thread_environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "0"
+  }
+}

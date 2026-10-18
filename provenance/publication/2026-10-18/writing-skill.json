@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/arlegotin/write-like-me",
+  "path": "skills/write-like-me",
+  "remote_and_installed_bytes_equal": true,
+  "files": {
+    "SKILL.md": "31b9076c50b491dc62e859ea52bf39277a2e977949b10a2af737eead6d47dcbd",
+    "references/voice.md": "4c87f03746a041c69feb3df058652afff6aa1e4411b2a668b075e3527e8d7a49",
+    "references/revision.md": "e7135f506eedefd4469542fe6802e92426e75b8f69863716f46a2713a2b7afed",
+    "references/anti-slop.md": "5bd87d19c02f1f41aca07a5057ce7f6df44c75fae906c9d8b3ea2d5301378e19"
+  },
+  "scope": "Reader-facing README prose only; commands, metadata and technical docs remain normal technical writing."
+}

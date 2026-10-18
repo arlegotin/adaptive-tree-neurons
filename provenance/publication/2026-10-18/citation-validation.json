@@ -1,0 +1,9 @@
+{
+  "schema": "https://github.com/citation-file-format/citation-file-format/blob/1.2.0/schema.json",
+  "schema_sha256": "0b8d22140da702d766df318dcff3a91af2f39521298dcf36d76315fd99cc169b",
+  "schema_version": "1.2.0",
+  "validation": "passed with jsonschema",
+  "author": "Artem Legotin",
+  "version": "0.1.0",
+  "doi": null
+}
