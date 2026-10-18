@@ -1,0 +1,128 @@
+{
+  "core_manifest_sha256": "91b0287d1b640a2c761bc33b829363df566d37ad37403612f98997df17ff751f",
+  "core_runtime_satisfied": {
+    "torch": "2.14.1",
+    "typing_extensions": "4.16.0"
+  },
+  "no_install_or_import_performed": true,
+  "schema": "research/v2-tabm-source-lock",
+  "sources": [
+    {
+      "bytes": 60545,
+      "commit": "28e47ae301c92ec37787dde1ce923a0793f405b4",
+      "git_blob_sha1": "7f7ce3961440eb258a0f7fac730950a3e79d8955",
+      "local": "sources/tabm.py.txt",
+      "path": "tabm.py",
+      "repository": "yandex-research/tabm",
+      "sha256": "fc654af6a16bac53d893a8265c79d7af4ebddcb95ad0d600cc6b6bc6b7317ade",
+      "url": "https://raw.githubusercontent.com/yandex-research/tabm/28e47ae301c92ec37787dde1ce923a0793f405b4/tabm.py"
+    },
+    {
+      "bytes": 30478,
+      "commit": "28e47ae301c92ec37787dde1ce923a0793f405b4",
+      "git_blob_sha1": "2349caedbb18cf24048f32ae42bf595b45fbfd1b",
+      "local": "sources/README.md.txt",
+      "path": "README.md",
+      "repository": "yandex-research/tabm",
+      "sha256": "302b2d36c3bf226cc98121923ea1881617287a161e25cf9a765b82b26b9d4969",
+      "url": "https://raw.githubusercontent.com/yandex-research/tabm/28e47ae301c92ec37787dde1ce923a0793f405b4/README.md"
+    },
+    {
+      "bytes": 22477,
+      "commit": "28e47ae301c92ec37787dde1ce923a0793f405b4",
+      "git_blob_sha1": "04c50e7cd97151c4df29ac34867d4ae0326c1cae",
+      "local": "sources/example.ipynb",
+      "path": "example.ipynb",
+      "repository": "yandex-research/tabm",
+      "sha256": "be6dcd68bb8b21fed858d0e57d3a4bf3e54c875b522776e06d7796b0c5b28d67",
+      "url": "https://raw.githubusercontent.com/yandex-research/tabm/28e47ae301c92ec37787dde1ce923a0793f405b4/example.ipynb"
+    },
+    {
+      "bytes": 2213,
+      "commit": "28e47ae301c92ec37787dde1ce923a0793f405b4",
+      "git_blob_sha1": "8f69444955b99ceeccd1a8fd9e3f1b6c5ba562d4",
+      "local": "sources/pyproject.toml.txt",
+      "path": "pyproject.toml",
+      "repository": "yandex-research/tabm",
+      "sha256": "943277cecbdb2cbf87e685316170432afc0520e3e0b5d3f717b42b353fb808bb",
+      "url": "https://raw.githubusercontent.com/yandex-research/tabm/28e47ae301c92ec37787dde1ce923a0793f405b4/pyproject.toml"
+    },
+    {
+      "bytes": 11340,
+      "commit": "28e47ae301c92ec37787dde1ce923a0793f405b4",
+      "git_blob_sha1": "9c774d54b19e92cf62d166aa1bb09ea796337043",
+      "local": "sources/LICENSE-tabm.txt",
+      "path": "LICENSE",
+      "repository": "yandex-research/tabm",
+      "sha256": "24330ebf083bc17c1db833b0109ef6ffc9019449330e9e4ec9797c061185c7a6",
+      "url": "https://raw.githubusercontent.com/yandex-research/tabm/28e47ae301c92ec37787dde1ce923a0793f405b4/LICENSE"
+    },
+    {
+      "bytes": 29948,
+      "commit": "7381c5a4ed01253fbef9ea8cfed137f907265552",
+      "git_blob_sha1": "6a598bdb7db634bb7f52df7acf0aadbb59533b2b",
+      "local": "sources/rtdl_num_embeddings.py.txt",
+      "path": "package/rtdl_num_embeddings.py",
+      "repository": "yandex-research/rtdl-num-embeddings",
+      "sha256": "48dfc019d447e0cd225deb8b8145b3efa8b42cde9aa314772d6e234753e1cee1",
+      "url": "https://raw.githubusercontent.com/yandex-research/rtdl-num-embeddings/7381c5a4ed01253fbef9ea8cfed137f907265552/package/rtdl_num_embeddings.py"
+    },
+    {
+      "bytes": 2172,
+      "commit": "7381c5a4ed01253fbef9ea8cfed137f907265552",
+      "git_blob_sha1": "c9c69ebfc55907825e5dd0285d619954fd0af51b",
+      "local": "sources/numemb-pyproject.toml.txt",
+      "path": "package/pyproject.toml",
+      "repository": "yandex-research/rtdl-num-embeddings",
+      "sha256": "f736b9244c024fbec98821fa97328dd4a69172813cf922fca45e3d92236dbd24",
+      "url": "https://raw.githubusercontent.com/yandex-research/rtdl-num-embeddings/7381c5a4ed01253fbef9ea8cfed137f907265552/package/pyproject.toml"
+    },
+    {
+      "bytes": 11339,
+      "commit": "7381c5a4ed01253fbef9ea8cfed137f907265552",
+      "git_blob_sha1": "af612bca42c9a5a3b2f254f9de53e3074ed277ea",
+      "local": "sources/LICENSE-numemb.txt",
+      "path": "package/LICENSE",
+      "repository": "yandex-research/rtdl-num-embeddings",
+      "sha256": "35381b68041ebc3408e1b76ab24ce5eed1f7ea93afd62d109ffdabf1b0daa324",
+      "url": "https://raw.githubusercontent.com/yandex-research/rtdl-num-embeddings/7381c5a4ed01253fbef9ea8cfed137f907265552/package/LICENSE"
+    }
+  ],
+  "status": "static_primary_source_and_wheel_qualification_only",
+  "wheels": [
+    {
+      "licenses": [
+        {
+          "path": "tabm-0.0.3.dist-info/licenses/LICENSE",
+          "sha256": "24330ebf083bc17c1db833b0109ef6ffc9019449330e9e4ec9797c061185c7a6"
+        }
+      ],
+      "metadata_sha256": "8ba47470a46f218abf2e23aa77d469285ee5b35849c29fb213850d44a4b3d556",
+      "module_bytes": 60545,
+      "module_git_blob_sha1": "7f7ce3961440eb258a0f7fac730950a3e79d8955",
+      "module_sha256": "fc654af6a16bac53d893a8265c79d7af4ebddcb95ad0d600cc6b6bc6b7317ade",
+      "package": "tabm",
+      "uncompressed_bytes": 73259,
+      "version": "0.0.3",
+      "wheel": "tabm-0.0.3-py3-none-any.whl",
+      "wheel_sha256": "6cabed3cb436fef5e8a45f46097fd745f51b3e16be16d555b9af16cffda7f944"
+    },
+    {
+      "licenses": [
+        {
+          "path": "rtdl_num_embeddings-0.0.12.dist-info/licenses/LICENSE",
+          "sha256": "35381b68041ebc3408e1b76ab24ce5eed1f7ea93afd62d109ffdabf1b0daa324"
+        }
+      ],
+      "metadata_sha256": "cca1a6c04d45237caba7f677cc76645b971eea89058494db97b4f87d90ad2ddb",
+      "module_bytes": 29948,
+      "module_git_blob_sha1": "6a598bdb7db634bb7f52df7acf0aadbb59533b2b",
+      "module_sha256": "48dfc019d447e0cd225deb8b8145b3efa8b42cde9aa314772d6e234753e1cee1",
+      "package": "rtdl-num-embeddings",
+      "uncompressed_bytes": 42707,
+      "version": "0.0.12",
+      "wheel": "rtdl_num_embeddings-0.0.12-py3-none-any.whl",
+      "wheel_sha256": "87fd61270118915cf40888f2164f3a1f0353edf702f15fd91e71a147d23c930d"
+    }
+  ]
+}

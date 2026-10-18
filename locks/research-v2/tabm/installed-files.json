@@ -1,0 +1,100 @@
+{
+  "distributions": {
+    "rtdl_num_embeddings-0.0.12.dist-info": {
+      "files": [
+        {
+          "bytes": 2,
+          "path": "rtdl_num_embeddings-0.0.12.dist-info/INSTALLER",
+          "sha256": "e6184ce10e266134fdcfa401e8f1a95005bcd4f18d16b62b757323e2833fe9a9"
+        },
+        {
+          "bytes": 903,
+          "path": "rtdl_num_embeddings-0.0.12.dist-info/METADATA",
+          "sha256": "cca1a6c04d45237caba7f677cc76645b971eea89058494db97b4f87d90ad2ddb"
+        },
+        {
+          "bytes": 741,
+          "path": "rtdl_num_embeddings-0.0.12.dist-info/RECORD",
+          "sha256": "d41a7afa02af31a65dedddc8042aac495c9c902badfa8efeba40a4a9976077b0"
+        },
+        {
+          "bytes": 0,
+          "path": "rtdl_num_embeddings-0.0.12.dist-info/REQUESTED",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 82,
+          "path": "rtdl_num_embeddings-0.0.12.dist-info/WHEEL",
+          "sha256": "1b68144734c4b66791f27add5d425f3620775585718a03d0f9b110ba3a4d88db"
+        },
+        {
+          "bytes": 11339,
+          "path": "rtdl_num_embeddings-0.0.12.dist-info/licenses/LICENSE",
+          "sha256": "35381b68041ebc3408e1b76ab24ce5eed1f7ea93afd62d109ffdabf1b0daa324"
+        },
+        {
+          "bytes": 127,
+          "path": "rtdl_num_embeddings-0.0.12.dist-info/uv_cache.json",
+          "sha256": "3216758fb268b7e09407c37ae560c481f1f21e87c144c355138f1c5e40287e77"
+        },
+        {
+          "bytes": 29948,
+          "path": "rtdl_num_embeddings.py",
+          "sha256": "48dfc019d447e0cd225deb8b8145b3efa8b42cde9aa314772d6e234753e1cee1"
+        }
+      ],
+      "record_sha256": "d41a7afa02af31a65dedddc8042aac495c9c902badfa8efeba40a4a9976077b0"
+    },
+    "tabm-0.0.3.dist-info": {
+      "files": [
+        {
+          "bytes": 2,
+          "path": "tabm-0.0.3.dist-info/INSTALLER",
+          "sha256": "e6184ce10e266134fdcfa401e8f1a95005bcd4f18d16b62b757323e2833fe9a9"
+        },
+        {
+          "bytes": 936,
+          "path": "tabm-0.0.3.dist-info/METADATA",
+          "sha256": "8ba47470a46f218abf2e23aa77d469285ee5b35849c29fb213850d44a4b3d556"
+        },
+        {
+          "bytes": 614,
+          "path": "tabm-0.0.3.dist-info/RECORD",
+          "sha256": "56ed953714e06f89f6bdec216b8bdc4d60ab3ba45dcc33f915d7767ab38c837a"
+        },
+        {
+          "bytes": 0,
+          "path": "tabm-0.0.3.dist-info/REQUESTED",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 82,
+          "path": "tabm-0.0.3.dist-info/WHEEL",
+          "sha256": "1b68144734c4b66791f27add5d425f3620775585718a03d0f9b110ba3a4d88db"
+        },
+        {
+          "bytes": 11340,
+          "path": "tabm-0.0.3.dist-info/licenses/LICENSE",
+          "sha256": "24330ebf083bc17c1db833b0109ef6ffc9019449330e9e4ec9797c061185c7a6"
+        },
+        {
+          "bytes": 127,
+          "path": "tabm-0.0.3.dist-info/uv_cache.json",
+          "sha256": "ef6472cf81c10931608e89f893b8929e02d7904948e742c7e07ee1353bc3172b"
+        },
+        {
+          "bytes": 60545,
+          "path": "tabm.py",
+          "sha256": "fc654af6a16bac53d893a8265c79d7af4ebddcb95ad0d600cc6b6bc6b7317ade"
+        }
+      ],
+      "record_sha256": "56ed953714e06f89f6bdec216b8bdc4d60ab3ba45dcc33f915d7767ab38c837a"
+    }
+  },
+  "ignored_installer_files": [
+    ".lock"
+  ],
+  "installation": "offline_no_deps_require_hashes",
+  "installer": "uv",
+  "schema": "research/v2-tabm-overlay-files"
+}
