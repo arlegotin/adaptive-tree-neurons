@@ -1,0 +1,25 @@
+{
+  "artificial_proof_draws_sha256": "ba15a77b109aa81f59018f478c2e9bc6961b79cda49977270740d312ba518d80",
+  "artificial_proof_result_sha256": "f48305c6533fd4e32e0963cb133a3d813ab11845b1215807b4ab0398428abf13",
+  "chunk_invariant": true,
+  "discarded_undefined_resamples": 0,
+  "energy_bootstrap": false,
+  "independent_scientific_teachers": 0,
+  "iterations": 20000,
+  "logs": {
+    "affected-final.log": "81134350f3727d0507cd4191673748282198f928e4cf710fc760f435d602af35",
+    "initial-green.log": "2ff158e0598d4e92245e9df28474438ab9988395c696e6ab3d61327663a2cf7b",
+    "missing-api-red.log": "46ca99b06d34baea7f062044b8a99bd808490bff0060e31a06bde87b0221f692",
+    "proof-command.log": "723d3efcefea84a736fa2224b185ba19c5c08abdf8f96dfa3703e9cbb7df82af"
+  },
+  "module_sha256": "d8b5ced9810f8278d9bba5ac67cccee2eaa360918a7a20da608c0f97bb2a6b40",
+  "paired_indices_across_methods_and_repeats": true,
+  "population_superiority_confirmed": false,
+  "producer_commit": "4e6fcae",
+  "protected_access_authorized": false,
+  "red": "4missing-bootstrap API failures;14existing passed",
+  "schema": "research/v2-practical-bootstrap-preparation",
+  "scientific_datasets_fit": 0,
+  "tests_sha256": "2a7da2af3c1fed9881f424a1c4c576f521887b17d2261f2810138d709fb54f43",
+  "verification": "50affected passed1.82s"
+}

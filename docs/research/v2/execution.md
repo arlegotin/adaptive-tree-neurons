@@ -1040,3 +1040,14 @@ portfolio and charged failures are implemented on analytic fixtures. Typed group
 IDs, complete paid history, overflow and exact5%-degradation boundary reproduced
 RED→GREEN. No confidence interval, protected evaluator, search or practical result
 is implied. [Receipt](WP08-metric-preparation-receipt.json).
+
+Task8 paired conditional bootstrap preparation4e6fcae:4missing-interface REDs
+became50affected GREEN1.82s. Default20,000paired group draws, noncircular
+calendar-block Bike resampling, R2-before-log effects, Energy descriptive-only,
+chunk-invariant index hashes and leave-one-group-out ranges are implemented.
+Undefined log draws remain counted; no favorable deletion. Artificial constant-
+ratio proof retains inputs and all20,000draws, interval[.6931471805599452,
+.6931471805599454],0scientificteachers/models/T. CCPP unverified exchangeability
+and few Parkinsons subjects remain explicitly labeled. Full sensitivity/multiplicity/
+protected-protocol/search/cost integration remains pending.
+[Receipt](WP08-bootstrap-preparation-receipt.json). Frozen M2 source unchanged.
