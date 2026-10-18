@@ -991,3 +991,21 @@ decisions can qualify resource usage with their procedure status retained.
 47affected checks passed23.40s. No complete native profile cohort, forecast or
 production admission exists yet. See [contract](M2-qualification.md) and
 [receipt](WP03-qualification-preparation-receipt.json).
+
+M2 production dispatcher/resource admission now implemented;75affected checks
+passed41.91s after4missing-interface REDs and1memory-probe failure RED. It
+reconstructs all53class observations/forecast before admission, then checks live
+full-job/retry/transaction/disk/RAM margins before a running marker. Unknown
+memory pauses; raw failures/costs remain. Actual complete native qualification,
+admission and scientific M2 are still pending. Qualification launcher/bootstrap
+capacity and new command are recorded in[M2-qualification.md](M2-qualification.md).
+[Execution receipt](WP03-execution-preparation-receipt.json).
+
+Final dispatcher/source/contract binding check:86affected checks passed43.73s.
+The public bounded plan now reports implementation present but measured
+admission pending; the initial-only graph remains nonproduction. Missing
+admission still rejects before output. CLI prints the M2 disposition and returns
+3for a resource pause/incomplete queue,4for terminal failures,0only for completion.
+Two plan-flag REDs and three CLI-disposition REDs are retained, as is the earlier
+obsolete controller-message assertion. A real invalid-config launcher fixture
+retained start/log/terminal receipts and exit1, creating no queue or model.

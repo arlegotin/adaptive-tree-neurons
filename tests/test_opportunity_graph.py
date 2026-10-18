@@ -68,4 +68,4 @@ def test_bounded_graph_precommits_all_fallback_and_single_extension_work():
     assert all(byid[d]['kind']=='evaluate' for d in decision['depends_on'])
     assert all(byid[d]['payload']['matrix'] in ('M2a','M2e_neural','M2e_head') for d in decision['depends_on'])
     assert not any(r['payload'].get('teacher_index',0)>=8 for r in rows)
-    assert graph['identity']['execution_implemented'] is False
+    assert graph['identity']['execution_implemented'] is True

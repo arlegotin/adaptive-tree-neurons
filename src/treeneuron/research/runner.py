@@ -97,6 +97,9 @@ def physical_cost_summary(previous, invocation_ns):
 
 def run(plan, output, *, resume=False):
     value = plan.to_dict()
+    if value['config']['kind']=='m2_opportunity':
+        from .opportunity_execution import run_opportunity
+        return run_opportunity(value,output,resume=resume)
     if value['config']['kind'] not in ('m0_reference','m1_controls'):
         raise NotImplementedError('M2 plan is implemented; WP03 diagnostic controller/resource qualification remains required before run')
     if value['source_sha256'] != train.source_hash():

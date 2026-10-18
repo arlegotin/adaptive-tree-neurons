@@ -26,7 +26,11 @@ def main(argv=None):
                 write_new_json(args.output, plan.to_dict())
             else:
                 from .runner import run
-                run(plan, args.output, resume=args.resume)
+                result=run(plan, args.output, resume=args.resume)
+                if config.to_dict()['kind']=='m2_opportunity':
+                    print(json.dumps(dict(status=result['status'],statuses=result['statuses'],
+                        charged_job_ns=result['charged_job_ns']),sort_keys=True))
+                    return 0 if result['status']=='completed' else 4 if result['status']=='completed_with_failures' else 3
         elif args.command == 'prepare-data':
             from .transfer import prepare_data
             prepare_data(args.config, args.output)

@@ -145,7 +145,7 @@ def expand_opportunity(config):
         (('binding_spec_sha256','docs/superpowers/specs/2026-10-18-research-v2-design.md'),
          ('M2_execution_sha256','docs/research/v2/M2-execution.md'))}
     return dict(attempts=attempts,conditional_attempts=conditional,prerequisites=parents,probe_trials=0,
-        matrix_counts=counts,execution_implemented=False,
+        matrix_counts=counts,execution_implemented=True,
         opportunity_decision_contract=opportunity_decision_contract(c),
         design_bindings=bindings,ordinary_recipes=recipes,
         selection_contract=dict(primary_count='min(requested_count,common_current_eligible_count)',

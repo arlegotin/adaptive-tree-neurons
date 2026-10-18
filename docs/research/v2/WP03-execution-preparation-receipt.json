@@ -1,0 +1,45 @@
+{
+  "Gate_A_passed": false,
+  "M2_scientific_execution": false,
+  "T_accessed": false,
+  "admission_created": false,
+  "base_commit": "a77b7a7",
+  "full_queue_jobs": 3853,
+  "launcher_invalid_config_fixture": {
+    "complete_process_wall_ns": 1100220583,
+    "result": "exit1; retained start/log/terminal; no queue or fits",
+    "terminal_sha256": "a0094a589369a4fb5ab584bc48737fcc06205615bf4fe3c2b6f1e2278d88cc3f"
+  },
+  "launcher_sha256": "093c05e4dd8816e75d97a546808c30d4dd872eb71142a167d244e8f00c54e458",
+  "logs": {
+    "cli-disposition-red.log": "08347792c280be303bdca9d4f912cbfdf4fa1ef3c7020d46cf5800601173934e",
+    "dispatch-final.log": "68fc022511792c0a43c0743082503ce1873b444febd78751c70e969fff61c249",
+    "dispatch-flags-red.log": "46700382fd08ad287ca56ecb26784a14e52a60cec64afc5a99a7a4b2a57851ae",
+    "execution-affected.log": "f2ec704c9e181895ac3b5cb60ddb533e1eaf0881ad2abc5c02a05cd6477aae8c",
+    "execution-binding.log": "52fea8b68b6094369f91d017a6e6eef346d9a10c7cbbbcc28632fdb48ecc3b3c",
+    "execution-final.log": "a1c78cb810e9ce021e33005b064976373f7003c9a06edc1f34ca8e276dd78586",
+    "execution-green.log": "6190c11fbef02068acd8b7d53e0427138c5b2c6eb3492e94064aa21294ecdf97",
+    "execution-red.log": "e81f34aa9414b2e38972545182560dd92a199e45400021b5d72f331e48abf4c5",
+    "launcher-help.log": "04346be985f830f7e80c55e7421b2d204edf43f797780ac27c20fc5c014d4ec1",
+    "memory-red.log": "9867657faf530875a064ff81e6a6414475a647d3b30f598008a5661112e0640d"
+  },
+  "native_profiles_complete": false,
+  "post_binding_recovery": "One old controller-message assertion failed after qualified dispatch implementation. Public plan flags now correctly identify the bounded dispatcher as implemented; initial-only graph remains nonproduction.2flag REDs and3CLI disposition REDs became GREEN; missing admission still rejects before output.",
+  "red": "4missing execution/admission interfaces; unavailable native memory probe1RED",
+  "schema": "research/v2-opportunity-execution-preparation",
+  "source_files": {
+    "src/treeneuron/research/cli.py": "6fcbb9a2b8f46be2601424a365c1603aa60975b7e1979b850058407db599f789",
+    "src/treeneuron/research/opportunity_execution.py": "740b19b621d268bd2a26aacc86f7bf698503875487298b36e925eadf126c685f",
+    "src/treeneuron/research/opportunity_graph.py": "8fb34b0b152a47ccebf66b04527b4c657240eb0e081c6a5d9a095c6c9568e322",
+    "src/treeneuron/research/opportunity_plan.py": "8c5daa65fbf8e07571ffdda98bbe6598342527878bcb2e5e890aee8e7de5577e",
+    "src/treeneuron/research/runner.py": "17c0e18db16087b220b1063c6f4f5e81adb37cb855fcff5ba059bc08adc16455"
+  },
+  "test_files": {
+    "tests/test_opportunity_execution.py": "6f48bd0ed852b7625ec31fe842aae6db958abb8b3733b559a85be4e9114b4bbf",
+    "tests/test_opportunity_graph.py": "1a19a101810383e72ba34a707034f137f13bc7192f2fcbfe06de0e295a2ffedb",
+    "tests/test_opportunity_plan.py": "afe7d547b8e9205c79c9acd6789d30bd45dc743d10d99c42877731c0b4a5be63",
+    "tests/test_opportunity_qualification.py": "d66e27af9e43404d8b3452079023d6e93eb25e75675ac82a0a0ab63224aa3152"
+  },
+  "verification": "75affected passed41.91s",
+  "verification_after_plan_binding_and_CLI": "86affected passed43.73s"
+}

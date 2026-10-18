@@ -131,6 +131,9 @@ def test_partial_native_qualification_is_authenticated_and_never_admitted(tmp_pa
     assert report['profiles'][0]['provenance']['target_job_id']==name
     assert report['profiles'][0]['procedure_status']=='completed_eligible'
     assert report['profiles'][0]['provenance']['evidence_kind']=='native_engineering_resource_workload'
+    from treeneuron.research.opportunity_execution import make_opportunity_admission
+    with pytest.raises(ValueError,match='all53'):
+        make_opportunity_admission(p,tmp_path/'queue',available_worker_seconds=604800)
     with pytest.raises(ValueError,match='commitment|qualification'):
         module.collect_qualification_profiles(tmp_path/'queue',p,expected_plan_hash='0'*64)
 

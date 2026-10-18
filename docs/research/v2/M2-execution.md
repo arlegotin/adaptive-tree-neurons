@@ -168,3 +168,34 @@ elapsed. M2 metrics remain authenticated producer outputs; independent raw
 prediction reconstruction is still required. Production dispatch and measured
 resource admission are still pending. The
 [collection receipt](WP03-collection-receipt.json) records tests and review fixes.
+
+## Measured production dispatcher boundary
+
+The production dispatcher is now implemented prospectively. Earlier statements
+that dispatch was unimplemented describe their original preparation stages.
+Running M2 still requires a source/target/qualification-queue matched admission
+that is independently reconstructed from every authenticated native/control
+resource class. Missing classes, changed raw bytes, changed runtime/source or
+a handwritten admission cannot start a scientific queue. No such complete
+qualification or admission has yet been generated.
+
+The admission commits the entire3,853-job forecast. Under the lease, each next
+job requires its full-ceiling allocation, the rolling untouched-job retry reserve,
+checkpoint transaction space and a free-disk floor. It also requires measured
+peak RSS with25% headroom plus512MiB available-memory margin. Mac availability
+is explicitly the heuristic sum of free/inactive/speculative vm_stat pages,
+without an allocation guarantee. Unknown memory pauses rather than guessing.
+All live observations/decisions remain in invocation receipts.
+
+The runtime guard enforces16GiB own peak RSS and checkpoint/disk margin. A
+resource interruption retains paid state/evidence and the original bounded retry
+policy. No low-risk result or unstarted job disappears to make the queue fit.
+The full remaining forecast stays visible even when deterministic tranches run.
+Final GateA collection remains separate and requires the complete terminal
+inventory plus the independently audited M1 control input.
+
+The fixed engineering qualification procedure is specified in
+[M2-qualification.md](M2-qualification.md). Its launcher retains exact argv,
+environment overrides, source/config hashes, child logs and an enclosing process
+clock. Bootstrap engineering capacity limits are explicit operator allowances,
+not scientific speed/disk forecasts. No protected T is used.

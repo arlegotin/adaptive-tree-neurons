@@ -40,3 +40,30 @@ storage at once. The full forecast remains visible. If retained evidence fills
 the disk, pause before the next running marker; do not delete evidence or change
 seeds, methods, counts or ceilings. This cannot promise eventual completion on
 the present volume. No protected T is created or read during qualification.
+
+## Launcher and bootstrap capacity
+
+After all package code is held and a fresh CPU/backend/envelope receipt exists,
+run the retained script with the qualified interpreter and a fresh output:
+
+```sh
+"$ATN_PY" -B docs/research/v2/scripts/qualify_opportunity.py \
+  --config configs/research/v2/M2-opportunity.json \
+  --output artifacts/research-v2/WP03/native-qualification \
+  --admission-output artifacts/research-v2/WP03/M2-admission.json
+```
+
+A live4GiB disk/2GiB memory minimum admits the next engineering job; own peak
+RSS is capped at2GiB, with512MiB free disk plus256MiB transaction allowance
+checked inside native work. These are chosen capacity limits for the engineering
+run. They are not measured completion forecasts. A limit failure is retained
+and may leave a class unqualified. The fixed singleton representatives are
+unit0; if ineligible, their nominal trained workload remains unqualified. No
+replacement teacher or favorable-prediction selection is permitted.
+
+The default prospective production worker allowance is604,800seconds (seven
+days of charged worker time), not a duration forecast or permission to ignore
+measured resource gates. Only a complete53-class collection can generate the
+admission; the final scientific config must already name that future admission
+path before its plan/qualification identities are created. Resume uses--resume
+and preserves the source/config/queue. It never overwrites earlier receipts.

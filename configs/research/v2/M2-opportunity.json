@@ -52,5 +52,6 @@
       "evaluation_rows": 65536,
       "probe_updates": 320
     }
-  }
+  },
+  "resource_admission": "artifacts/research-v2/WP03/M2-admission.json"
 }

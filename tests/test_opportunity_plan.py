@@ -109,9 +109,9 @@ def test_public_M2_plan_succeeds_and_run_rejects_before_creating_output(tmp_path
                'configs/research/v2/M2-opportunity.json','--output',str(output)]
     result = subprocess.run(command,capture_output=True,text=True)
     assert result.returncode == 0, result.stderr
-    assert json.loads(output.read_text())['execution_implemented'] is False
+    assert json.loads(output.read_text())['execution_implemented'] is True
     command[3] = 'run'
     command[-1] = str(tmp_path/'unimplemented')
     result = subprocess.run(command,capture_output=True,text=True)
-    assert result.returncode == 2 and 'controller' in result.stderr
+    assert result.returncode == 2 and 'admission' in result.stderr
     assert not (tmp_path/'unimplemented').exists()

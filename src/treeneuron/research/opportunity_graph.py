@@ -169,5 +169,6 @@ def compile_bounded_graph(study):
     if counts != expected:
         raise ValueError('Bounded M2 job arithmetic differs from its finite inventory')
     identity = dict(initial['identity'], admission='initial_and_bounded_conditions', job_counts=counts,
-                    pending=['production dispatcher and resource admission', 'final Gate A analysis'])
+                    execution_implemented=True,
+                    pending=['measured53-class resource qualification/admission', 'scientific execution and final Gate A analysis'])
     return make_queue_plan(identity, jobs)
