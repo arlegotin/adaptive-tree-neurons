@@ -659,3 +659,33 @@ WP02/M1-source-132b250-negative; root implementation remains separate. The exact
 argv/cwd/environment, receipt hashes and pending resource-admission state are
 in WP02-M1-source-132b250-receipt.json. Full M1 has not been admitted, Gate A is
 still pending, and no protected data have been accessed.
+
+### Full-size negative qualification completed
+
+The132b250 globally-affine case completed in68.645324625s,436,633,600-byte
+peak RSS and28,720,835 retained bytes; its transaction bound is983,263 bytes.
+The parent selected update1250 after1750 executed. Keep/top/random each executed
+500 continuation updates and selected stage0, with identical E NMSE
+0.012289263582213952 (V0.013025476424453803). This is one exploratory negative
+control, not proof of calibrated no-op behavior across populations. It produced
+both full-size parent and continuation workload measurements. Full M1 admission
+is still pending a complete forecast and audit of remaining-space behavior on
+resume; no production matrix has started. Current raw results/measurement hashes
+are included in WP02-M1-source-132b250-receipt.json.
+
+### Remaining-capacity recovery defect fixed before full M1
+
+Review confirmed that the old research validator re-required its whole original
+storage forecast before reading the resume ledger. New immutable per-transaction
+allocations now credit only whole terminal groups under the authenticated lease,
+with full unfinished/rerun allocations and a rolling reserve only for untouched
+pending groups. The initial admission is pinned by content/raw SHA; separate
+source/plan/admission/event-hash readiness records retain success and insufficient
+space without changing paid attempts. Additional review found admission
+replacement and double-reserved retries; all defects reproduced RED before fixes.
+Seven focused checks and the45-test affected integration passed (15.01s for the
+latter). resource-recovery.md and WP02-resource-recovery-receipt.json specify the
+contract and all evidence. Training algebra/optimizer/stopping are unchanged.
+No production admission had been issued. The132b250 qualifications remain under
+their actual source; final-source backend/resource qualification is required
+before full M1. No protected data or production matrix have been accessed.

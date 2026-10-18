@@ -101,8 +101,8 @@ def run(plan, output, *, resume=False):
         raise NotImplementedError('M2 plan is implemented; WP03 diagnostic controller/resource qualification remains required before run')
     if value['source_sha256'] != train.source_hash():
         raise ValueError('Research plan source differs from current implementation')
-    from .resources import validate_resource_admission
-    admission = validate_resource_admission(value, output)
+    from .resources import validate_resource_admission,publish_availability,ResourceAvailabilityError
+    admission = None if resume else validate_resource_admission(value, output)
     from .identity import execution_identity
     if execution_identity(value['config']) != value['execution_identity']:
         raise ValueError('Research runtime/lock/backend receipt identity changed; create a new plan')
@@ -113,6 +113,13 @@ def run(plan, output, *, resume=False):
     with StudyLease(output):
         if resume:
             ledger = AttemptLedger.resume(output, value)
+            try:admission=validate_resource_admission(value,output,ledger=ledger)
+            except ResourceAvailabilityError as error:
+                try:publish_availability(output,error.decision,ledger)
+                except BaseException as publication_error:
+                    error.add_note(f'Resource decision publication also failed: {publication_error}')
+                raise
+        if 'availability' in admission:publish_availability(output,admission['availability'],ledger)
         return _run_locked(value, output, ledger, admission, resume)
 
 

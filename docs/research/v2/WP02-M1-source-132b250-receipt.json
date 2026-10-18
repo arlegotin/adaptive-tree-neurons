@@ -25,11 +25,36 @@
     }
   },
   "negative": {
-    "status": "running",
+    "status": "completed",
     "output": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP02/M1-source-132b250-negative",
     "log": "/private/tmp/atn-M1-source-132b250-negative.log",
     "session": 77008,
-    "recipe_sha256": "7b03f126e3cba3b27e1c524197e899f298524045e15abe3ce5e0b2bbc787860b"
+    "recipe_sha256": "7b03f126e3cba3b27e1c524197e899f298524045e15abe3ce5e0b2bbc787860b",
+    "elapsed_ns": 68645324625,
+    "peak_rss_bytes": 436633600,
+    "retained_bytes": 28720835,
+    "max_checkpoint_transaction_bytes": 983263,
+    "result_sha256": "4a0371c4f2b4325437abe14e95fdc39e32185eecaf7b0807a6a5d9f5215420cc",
+    "measurement_references": [
+      {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP02/M1-source-132b250-negative/parent-measurement.json",
+        "sha256": "06b7752a0a56492a85f4429bd1921c572152006d2a21b7b1807f4db2c52a71ef"
+      },
+      {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP02/M1-source-132b250-negative/continuation-measurement.json",
+        "sha256": "7228669c69aee2293651c4985661b530109b3d0e7c9fe76c1ec808a2e45496a5"
+      }
+    ],
+    "stage_zero_roles": [
+      "keep",
+      "top",
+      "random"
+    ],
+    "E_NMSE": {
+      "keep": 0.012289263582213952,
+      "random": 0.012289263582213952,
+      "top": 0.012289263582213952
+    }
   },
   "commands": [
     {
@@ -75,5 +100,6 @@
   ],
   "full_M1_admitted": false,
   "Gate_A": "pending",
-  "protected_data_accessed": false
+  "protected_data_accessed": false,
+  "next": "immutable measured forecast plus recovery/resource admission audit"
 }

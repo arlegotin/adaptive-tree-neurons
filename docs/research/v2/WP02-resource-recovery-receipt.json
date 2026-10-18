@@ -1,0 +1,48 @@
+{
+  "schema": "research/v2-implementation-receipt",
+  "component": "group-level immutable resource continuation",
+  "base_commit": "ab7eeab",
+  "review": {
+    "independent_reviewer": "opportunity_state_review",
+    "reproduced_defects": [
+      "original full forecast reapplied before locked ledger recovery",
+      "same-path admission content replacement accepted",
+      "interrupted group reserved an unauthorized additional retry"
+    ],
+    "fixes": "Each material defect reproduced RED before correction; source/plan/admission/event-bound decisions; full-group credit; exact remaining retry policy"
+  },
+  "tests": {
+    "initial": "4 RED; then4 GREEN",
+    "review": "4 failed/3 passed before pin/retry corrections; then7 passed in1.17s",
+    "affected_integration": "45 passed in15.01s",
+    "logs": [
+      {
+        "path": "artifacts/research-v2/WP02/resource-recovery-tests/atn-resource-recovery-red.log",
+        "sha256": "5ee9e40e6639911afd0413802a793681f33229994089a85839c06125683a25c1"
+      },
+      {
+        "path": "artifacts/research-v2/WP02/resource-recovery-tests/atn-resource-recovery-green-0.log",
+        "sha256": "988344a7589dd35ded61b8e784dcd5bc43cb64ba0f19a2bda1a7ec44b380abcb"
+      },
+      {
+        "path": "artifacts/research-v2/WP02/resource-recovery-tests/atn-resource-recovery-review-red.log",
+        "sha256": "bf6566c132da296b3a0853f1058846b30dc287c533b30f8efef1fd44e6db030d"
+      },
+      {
+        "path": "artifacts/research-v2/WP02/resource-recovery-tests/atn-resource-recovery-review-green.log",
+        "sha256": "f7f62e0fc1d67a4e17c9422a7136fdda37dc36e3c4277fe2df87f98ad2ba9f89"
+      },
+      {
+        "path": "artifacts/research-v2/WP02/resource-recovery-tests/atn-resource-recovery-integration.log",
+        "sha256": "b890ee09b81a73062d2b0eace8f3bb0a3da94564731cd2f3b41fe0b7b744e8f7"
+      }
+    ]
+  },
+  "scope": {
+    "numerical_training_treatment_changed": false,
+    "production_matrix_executed": false,
+    "protected_data_accessed": false,
+    "old_receipts_relabelled": false,
+    "new_source_qualification_required": true
+  }
+}
