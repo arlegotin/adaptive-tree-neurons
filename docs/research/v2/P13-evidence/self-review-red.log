@@ -1,0 +1,106 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+__ test_prediction_allocates_rows_by_categories_not_category_squared_identity __
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4571/test_prediction_allocates_rows0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1077ce2d0>
+
+    def test_prediction_allocates_rows_by_categories_not_category_squared_identity(tmp_path,monkeypatch):
+        X=pd.DataFrame({'kind':['a','b','c','d']})
+        model=fit(request(tmp_path/'run',config(schema=dict(columns=['kind'],categorical=['kind'])),X))
+        def no_identity(*args,**kwargs):raise AssertionError('prediction must not allocate a category-squared identity')
+        monkeypatch.setattr(np,'eye',no_identity)
+>       assert model.predict(pd.DataFrame({'kind':['unknown']})).shape==(1,)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_p13_simple.py:253: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/research/p13_simple.py:281: in predict
+    features,count=_features(X,state['config']['feature_schema'],state['preprocessing'])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/treeneuron/research/p13_simple.py:200: in _features
+    categorical.extend(np.eye(len(codes)+1,dtype=np.float64)[indices].T)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (5,), kwargs = {'dtype': <class 'numpy.float64'>}
+
+>   def no_identity(*args,**kwargs):raise AssertionError('prediction must not allocate a category-squared identity')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: prediction must not allocate a category-squared identity
+
+tests/test_p13_simple.py:251: AssertionError
+________ test_saved_constant_numeric_column_cannot_have_interior_knots _________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4571/test_saved_constant_numeric_co0')
+
+    def test_saved_constant_numeric_column_cannot_have_interior_knots(tmp_path):
+        from treeneuron.research.p13_simple import P13Predictor
+        model=fit(request(tmp_path/'run',config('spline'),np.ones((4,2)),np.arange(4,dtype=float)))
+        path=tmp_path/'model';state=manifest(model,path)
+        with np.load(path/'arrays.npz',allow_pickle=False) as values:arrays={k:values[k].copy() for k in values.files}
+        state['basis']['knots']=[[1.],[]];state['basis_width']+=1
+        arrays.update(coefficients=np.r_[arrays['coefficients'],0.],knots=np.array([1.]),knot_offsets=np.array([0,1,1],dtype=np.int64))
+        np.savez(path/'arrays.npz',**arrays)
+        state['arrays']={k:dict(dtype=str(v.dtype),shape=list(v.shape),sha256=hashlib.sha256(v.tobytes()).hexdigest()) for k,v in arrays.items()}
+        state['array_file']['sha256']=hashlib.sha256((path/'arrays.npz').read_bytes()).hexdigest()
+        (path/'manifest.json').write_text(json.dumps(state));digest=hashlib.sha256((path/'manifest.json').read_bytes()).hexdigest()
+>       with pytest.raises(ValueError,match='knot'):P13Predictor.load(path,expected_manifest_sha256=digest)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_p13_simple.py:267: Failed
+____ test_invalid_F_identity_container_rejects_as_snapshot_validation_error ____
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4571/test_invalid_F_identity_contai0')
+
+    def test_invalid_F_identity_container_rejects_as_snapshot_validation_error(tmp_path):
+        from treeneuron.research.p13_simple import P13Predictor
+        model=fit(request(tmp_path/'run'));path=tmp_path/'model';state=manifest(model,path)
+        state['F_identity']=[];(path/'manifest.json').write_text(json.dumps(state))
+        digest=hashlib.sha256((path/'manifest.json').read_bytes()).hexdigest()
+>       with pytest.raises(ValueError):P13Predictor.load(path,expected_manifest_sha256=digest)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_p13_simple.py:275: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.research.p13_simple.P13Predictor'>
+directory = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4571/test_invalid_F_identity_contai0/model')
+expected_manifest_sha256 = 'f5ae21e1836e45bd2c39ddb0367c36e2bfc5a03b70d60db67e6a492da71b1750'
+
+    @classmethod
+    def load(cls,directory,*,expected_manifest_sha256):
+        root=Path(directory);manifest_path=root/'manifest.json'
+        if (root.is_symlink() or manifest_path.is_symlink() or not manifest_path.is_file()
+                or type(expected_manifest_sha256) is not str or _sha(manifest_path)!=expected_manifest_sha256):
+            raise ValueError('External P13 snapshot commitment differs')
+        state=_read(manifest_path)
+        fields={'schema','config','preprocessing','basis','encoded_width','basis_width','seed','F_identity','source_identity','runtime_identity','arrays','array_file'}
+        if type(state) is not dict or set(state)!=fields or state['schema']!='research/v2-p13-snapshot':raise ValueError('Invalid snapshot schema')
+        cfg=_config(state['config']);_validate_preprocessing(state['preprocessing'],cfg['feature_schema'])
+        if state['source_identity']!=_source() or state['runtime_identity']!=_runtime():raise ValueError('Snapshot source/runtime identity differs')
+        if type(state['seed']) is not int or not 0<=state['seed']<2**63:raise ValueError('Invalid saved seed')
+        for key in ('encoded_width','basis_width'):
+            if type(state[key]) is not int or state[key]<0:raise ValueError('Invalid design width')
+        basis=state['basis'];method=cfg['estimator']
+        if (type(basis) is not dict or set(basis)!={'kind','knots','objective'} or basis['kind']!=method
+                or basis['objective']!='sum_squared_error_plus_alpha_l2_unpenalized_intercept'
+                or type(basis['knots']) is not list):raise ValueError('Invalid basis declaration')
+        numeric=[c for c in state['preprocessing']['columns'] if c['kind']=='numeric'];count=len(numeric)
+        encoded=count+sum(c['indicator'] for c in numeric)+sum(len(c['categories'])+1 for c in state['preprocessing']['columns'] if c['kind']=='categorical')
+        if (len(basis['knots'])!=(count if method=='spline' else 0)
+                or any(type(k) is not list or len(k)>cfg['parameters']['n_knots'] or any(not _finite(v) for v in k)
+                    or any(a>=b for a,b in zip(k,k[1:])) for k in basis['knots'])):raise ValueError('Invalid saved knot geometry')
+        width=1 if method=='mean' else 1+encoded if method=='ridge' else 1+sum(3+len(k) for k in basis['knots'])+encoded-count
+        if state['encoded_width']!=encoded or state['basis_width']!=width:raise ValueError('Saved design geometry differs')
+>       for label,identity in state['F_identity'].items():
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'list' object has no attribute 'items'
+
+src/treeneuron/research/p13_simple.py:325: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_p13_simple.py::test_prediction_allocates_rows_by_categories_not_category_squared_identity
+FAILED tests/test_p13_simple.py::test_saved_constant_numeric_column_cannot_have_interior_knots
+FAILED tests/test_p13_simple.py::test_invalid_F_identity_container_rejects_as_snapshot_validation_error
+3 failed, 41 deselected in 0.65s

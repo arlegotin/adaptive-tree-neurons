@@ -1,0 +1,594 @@
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF                                           [100%]
+=================================== FAILURES ===================================
+________________ test_exact_29_configs_and_no_duplicate_filler _________________
+
+    def test_exact_29_configs_and_no_duplicate_filler():
+>       from treeneuron.research.p13_simple import p13_configurations
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:48: ModuleNotFoundError
+_________________ test_alpha_outside_exact_support_fails[0.0] __________________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_alpha_outside_exact_suppo0')
+bad = 0.0
+
+    @pytest.mark.parametrize('bad',[0.,-1.,True,'1',float('nan'),float('inf'),.3])
+    def test_alpha_outside_exact_support_fails(tmp_path,bad):
+>       with pytest.raises(ValueError):fit(request(tmp_path/'run',config(alpha=bad)))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_p13_simple.py:58: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+req = FitRequest(X_fit=array([[ 0.56614348,  0.77500967],
+       [-0.7190191 ,  0.5013647 ],
+       [ 1.23053904,  0.0447789...r/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_alpha_outside_exact_suppo0/run'))
+
+    def fit(req):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:38: ModuleNotFoundError
+_________________ test_alpha_outside_exact_support_fails[-1.0] _________________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_alpha_outside_exact_suppo1')
+bad = -1.0
+
+    @pytest.mark.parametrize('bad',[0.,-1.,True,'1',float('nan'),float('inf'),.3])
+    def test_alpha_outside_exact_support_fails(tmp_path,bad):
+>       with pytest.raises(ValueError):fit(request(tmp_path/'run',config(alpha=bad)))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_p13_simple.py:58: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+req = FitRequest(X_fit=array([[ 0.56614348,  0.77500967],
+       [-0.7190191 ,  0.5013647 ],
+       [ 1.23053904,  0.0447789...r/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_alpha_outside_exact_suppo1/run'))
+
+    def fit(req):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:38: ModuleNotFoundError
+_________________ test_alpha_outside_exact_support_fails[True] _________________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_alpha_outside_exact_suppo2')
+bad = True
+
+    @pytest.mark.parametrize('bad',[0.,-1.,True,'1',float('nan'),float('inf'),.3])
+    def test_alpha_outside_exact_support_fails(tmp_path,bad):
+>       with pytest.raises(ValueError):fit(request(tmp_path/'run',config(alpha=bad)))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_p13_simple.py:58: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+req = FitRequest(X_fit=array([[ 0.56614348,  0.77500967],
+       [-0.7190191 ,  0.5013647 ],
+       [ 1.23053904,  0.0447789...r/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_alpha_outside_exact_suppo2/run'))
+
+    def fit(req):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:38: ModuleNotFoundError
+__________________ test_alpha_outside_exact_support_fails[1] ___________________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_alpha_outside_exact_suppo3')
+bad = '1'
+
+    @pytest.mark.parametrize('bad',[0.,-1.,True,'1',float('nan'),float('inf'),.3])
+    def test_alpha_outside_exact_support_fails(tmp_path,bad):
+>       with pytest.raises(ValueError):fit(request(tmp_path/'run',config(alpha=bad)))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_p13_simple.py:58: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+req = FitRequest(X_fit=array([[ 0.56614348,  0.77500967],
+       [-0.7190191 ,  0.5013647 ],
+       [ 1.23053904,  0.0447789...r/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_alpha_outside_exact_suppo3/run'))
+
+    def fit(req):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:38: ModuleNotFoundError
+_________________ test_alpha_outside_exact_support_fails[nan] __________________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_alpha_outside_exact_suppo4')
+bad = nan
+
+    @pytest.mark.parametrize('bad',[0.,-1.,True,'1',float('nan'),float('inf'),.3])
+    def test_alpha_outside_exact_support_fails(tmp_path,bad):
+>       with pytest.raises(ValueError):fit(request(tmp_path/'run',config(alpha=bad)))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_p13_simple.py:58: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+req = FitRequest(X_fit=array([[ 0.56614348,  0.77500967],
+       [-0.7190191 ,  0.5013647 ],
+       [ 1.23053904,  0.0447789...r/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_alpha_outside_exact_suppo4/run'))
+
+    def fit(req):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:38: ModuleNotFoundError
+_________________ test_alpha_outside_exact_support_fails[inf] __________________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_alpha_outside_exact_suppo5')
+bad = inf
+
+    @pytest.mark.parametrize('bad',[0.,-1.,True,'1',float('nan'),float('inf'),.3])
+    def test_alpha_outside_exact_support_fails(tmp_path,bad):
+>       with pytest.raises(ValueError):fit(request(tmp_path/'run',config(alpha=bad)))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_p13_simple.py:58: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+req = FitRequest(X_fit=array([[ 0.56614348,  0.77500967],
+       [-0.7190191 ,  0.5013647 ],
+       [ 1.23053904,  0.0447789...r/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_alpha_outside_exact_suppo5/run'))
+
+    def fit(req):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:38: ModuleNotFoundError
+_________________ test_alpha_outside_exact_support_fails[0.3] __________________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_alpha_outside_exact_suppo6')
+bad = 0.3
+
+    @pytest.mark.parametrize('bad',[0.,-1.,True,'1',float('nan'),float('inf'),.3])
+    def test_alpha_outside_exact_support_fails(tmp_path,bad):
+>       with pytest.raises(ValueError):fit(request(tmp_path/'run',config(alpha=bad)))
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_p13_simple.py:58: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+req = FitRequest(X_fit=array([[ 0.56614348,  0.77500967],
+       [-0.7190191 ,  0.5013647 ],
+       [ 1.23053904,  0.0447789...r/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_alpha_outside_exact_suppo6/run'))
+
+    def fit(req):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:38: ModuleNotFoundError
+_____________ test_schema_is_explicit_not_a_feature_name_blacklist _____________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_schema_is_explicit_not_a_0')
+
+    def test_schema_is_explicit_not_a_feature_name_blacklist(tmp_path):
+        X=pd.DataFrame({'target':[1.,2.,3.],'row_id':[3.,2.,4.]})
+>       cfg=config(schema=dict(columns=list(X),categorical=[]));model=fit(request(tmp_path/'run',cfg,X))
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_p13_simple.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+req = FitRequest(X_fit=   target  row_id
+0     1.0     3.0
+1     2.0     2.0
+2     3.0     4.0, y_fit=array([11. , 11.2, 11....r/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_schema_is_explicit_not_a_0/run'))
+
+    def fit(req):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:38: ModuleNotFoundError
+__________ test_original_units_batch_invariance_and_no_G_access[mean] __________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_original_units_batch_inva0')
+method = 'mean'
+
+    @pytest.mark.parametrize('method',['mean','ridge','spline'])
+    def test_original_units_batch_invariance_and_no_G_access(tmp_path,method):
+>       req=request(tmp_path/'run',config(method));before=req.X_fit.copy();model=fit(req)
+                                                                                 ^^^^^^^^
+
+tests/test_p13_simple.py:71: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+req = FitRequest(X_fit=array([[ 0.56614348,  0.77500967],
+       [-0.7190191 ,  0.5013647 ],
+       [ 1.23053904,  0.0447789...r/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_original_units_batch_inva0/run'))
+
+    def fit(req):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:38: ModuleNotFoundError
+_________ test_original_units_batch_invariance_and_no_G_access[ridge] __________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_original_units_batch_inva1')
+method = 'ridge'
+
+    @pytest.mark.parametrize('method',['mean','ridge','spline'])
+    def test_original_units_batch_invariance_and_no_G_access(tmp_path,method):
+>       req=request(tmp_path/'run',config(method));before=req.X_fit.copy();model=fit(req)
+                                                                                 ^^^^^^^^
+
+tests/test_p13_simple.py:71: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+req = FitRequest(X_fit=array([[ 0.56614348,  0.77500967],
+       [-0.7190191 ,  0.5013647 ],
+       [ 1.23053904,  0.0447789...r/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_original_units_batch_inva1/run'))
+
+    def fit(req):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:38: ModuleNotFoundError
+_________ test_original_units_batch_invariance_and_no_G_access[spline] _________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_original_units_batch_inva2')
+method = 'spline'
+
+    @pytest.mark.parametrize('method',['mean','ridge','spline'])
+    def test_original_units_batch_invariance_and_no_G_access(tmp_path,method):
+>       req=request(tmp_path/'run',config(method));before=req.X_fit.copy();model=fit(req)
+                                                                                 ^^^^^^^^
+
+tests/test_p13_simple.py:71: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+req = FitRequest(X_fit=array([[ 0.56614348,  0.77500967],
+       [-0.7190191 ,  0.5013647 ],
+       [ 1.23053904,  0.0447789...r/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_original_units_batch_inva2/run'))
+
+    def fit(req):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:38: ModuleNotFoundError
+______________ test_typed_categories_unknown_and_F_only_geometry _______________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_typed_categories_unknown_0')
+
+    def test_typed_categories_unknown_and_F_only_geometry(tmp_path):
+        X=pd.DataFrame({'x':[1.,np.nan,3.,5.,7.], 'kind':pd.Series([1,'1',True,1.,None],dtype=object)})
+        schema=dict(columns=['x','kind'],categorical=['kind'])
+        req=request(tmp_path/'run',config(schema=schema),X,np.array([8.,10.,12.,14.,16.]));before=X.copy(deep=True)
+>       model=fit(req);state=manifest(model,tmp_path/'model');cols=state['preprocessing']['columns']
+              ^^^^^^^^
+
+tests/test_p13_simple.py:88: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+req = FitRequest(X_fit=     x  kind
+0  1.0     1
+1  NaN     1
+2  3.0  True
+3  5.0   1.0
+4  7.0  None, y_fit=array([ 8., 10.,...r/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_typed_categories_unknown_0/run'))
+
+    def fit(req):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:38: ModuleNotFoundError
+_________ test_constants_missing_and_all_categorical_are_finite[mean] __________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_constants_missing_and_all0')
+method = 'mean'
+
+    @pytest.mark.parametrize('method',['mean','ridge','spline'])
+    def test_constants_missing_and_all_categorical_are_finite(tmp_path,method):
+        X=pd.DataFrame({'kind':['a','b','a',None]})
+        cfg=config(method,schema=dict(columns=['kind'],categorical=['kind']))
+>       model=fit(request(tmp_path/'run',cfg,X,np.full(4,7.)))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_p13_simple.py:101: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+req = FitRequest(X_fit=  kind
+0    a
+1    b
+2    a
+3  NaN, y_fit=array([7., 7., 7., 7.]), X_select=<test_p13_simple.Forbidde...r/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_constants_missing_and_all0/run'))
+
+    def fit(req):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:38: ModuleNotFoundError
+_________ test_constants_missing_and_all_categorical_are_finite[ridge] _________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_constants_missing_and_all1')
+method = 'ridge'
+
+    @pytest.mark.parametrize('method',['mean','ridge','spline'])
+    def test_constants_missing_and_all_categorical_are_finite(tmp_path,method):
+        X=pd.DataFrame({'kind':['a','b','a',None]})
+        cfg=config(method,schema=dict(columns=['kind'],categorical=['kind']))
+>       model=fit(request(tmp_path/'run',cfg,X,np.full(4,7.)))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_p13_simple.py:101: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+req = FitRequest(X_fit=  kind
+0    a
+1    b
+2    a
+3  NaN, y_fit=array([7., 7., 7., 7.]), X_select=<test_p13_simple.Forbidde...r/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_constants_missing_and_all1/run'))
+
+    def fit(req):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:38: ModuleNotFoundError
+________ test_constants_missing_and_all_categorical_are_finite[spline] _________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_constants_missing_and_all2')
+method = 'spline'
+
+    @pytest.mark.parametrize('method',['mean','ridge','spline'])
+    def test_constants_missing_and_all_categorical_are_finite(tmp_path,method):
+        X=pd.DataFrame({'kind':['a','b','a',None]})
+        cfg=config(method,schema=dict(columns=['kind'],categorical=['kind']))
+>       model=fit(request(tmp_path/'run',cfg,X,np.full(4,7.)))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_p13_simple.py:101: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+req = FitRequest(X_fit=  kind
+0    a
+1    b
+2    a
+3  NaN, y_fit=array([7., 7., 7., 7.]), X_select=<test_p13_simple.Forbidde...r/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_constants_missing_and_all2/run'))
+
+    def fit(req):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:38: ModuleNotFoundError
+_______________ test_splines_never_expand_categorical_indicators _______________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_splines_never_expand_cate0')
+
+    def test_splines_never_expand_categorical_indicators(tmp_path):
+        X=pd.DataFrame({'x':[0.,1.,2.,3.,4.,5.],'kind':['a','b','a','b','a','b']})
+>       model=fit(request(tmp_path/'run',config('spline',schema=dict(columns=list(X),categorical=['kind'])),X))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_p13_simple.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+req = FitRequest(X_fit=     x kind
+0  0.0    a
+1  1.0    b
+2  2.0    a
+3  3.0    b
+4  4.0    a
+5  5.0    b, y_fit=array([11....r/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_splines_never_expand_cate0/run'))
+
+    def fit(req):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:38: ModuleNotFoundError
+______ test_failed_refit_preserves_previous_predictions_and_paid_failure _______
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_failed_refit_preserves_pr0')
+
+    def test_failed_refit_preserves_previous_predictions_and_paid_failure(tmp_path):
+>       req=request(tmp_path/'run');model=fit(req);expected=model.predict(req.X_fit)
+                                          ^^^^^^^^
+
+tests/test_p13_simple.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+req = FitRequest(X_fit=array([[ 0.56614348,  0.77500967],
+       [-0.7190191 ,  0.5013647 ],
+       [ 1.23053904,  0.0447789...r/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_failed_refit_preserves_pr0/run'))
+
+    def fit(req):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:38: ModuleNotFoundError
+________ test_strict_snapshot_round_trip_requires_external_digest[mean] ________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_strict_snapshot_round_tri0')
+method = 'mean'
+
+    @pytest.mark.parametrize('method',['mean','ridge','spline'])
+    def test_strict_snapshot_round_trip_requires_external_digest(tmp_path,method):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:126: ModuleNotFoundError
+_______ test_strict_snapshot_round_trip_requires_external_digest[ridge] ________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_strict_snapshot_round_tri1')
+method = 'ridge'
+
+    @pytest.mark.parametrize('method',['mean','ridge','spline'])
+    def test_strict_snapshot_round_trip_requires_external_digest(tmp_path,method):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:126: ModuleNotFoundError
+_______ test_strict_snapshot_round_trip_requires_external_digest[spline] _______
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_strict_snapshot_round_tri2')
+method = 'spline'
+
+    @pytest.mark.parametrize('method',['mean','ridge','spline'])
+    def test_strict_snapshot_round_trip_requires_external_digest(tmp_path,method):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:126: ModuleNotFoundError
+___________ test_rehashed_structured_corruption_is_rejected[unknown] ___________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_rehashed_structured_corru0')
+mutation = 'unknown'
+
+    @pytest.mark.parametrize('mutation',['unknown','dtype','width','basis','source','runtime','config'])
+    def test_rehashed_structured_corruption_is_rejected(tmp_path,mutation):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:138: ModuleNotFoundError
+____________ test_rehashed_structured_corruption_is_rejected[dtype] ____________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_rehashed_structured_corru1')
+mutation = 'dtype'
+
+    @pytest.mark.parametrize('mutation',['unknown','dtype','width','basis','source','runtime','config'])
+    def test_rehashed_structured_corruption_is_rejected(tmp_path,mutation):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:138: ModuleNotFoundError
+____________ test_rehashed_structured_corruption_is_rejected[width] ____________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_rehashed_structured_corru2')
+mutation = 'width'
+
+    @pytest.mark.parametrize('mutation',['unknown','dtype','width','basis','source','runtime','config'])
+    def test_rehashed_structured_corruption_is_rejected(tmp_path,mutation):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:138: ModuleNotFoundError
+____________ test_rehashed_structured_corruption_is_rejected[basis] ____________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_rehashed_structured_corru3')
+mutation = 'basis'
+
+    @pytest.mark.parametrize('mutation',['unknown','dtype','width','basis','source','runtime','config'])
+    def test_rehashed_structured_corruption_is_rejected(tmp_path,mutation):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:138: ModuleNotFoundError
+___________ test_rehashed_structured_corruption_is_rejected[source] ____________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_rehashed_structured_corru4')
+mutation = 'source'
+
+    @pytest.mark.parametrize('mutation',['unknown','dtype','width','basis','source','runtime','config'])
+    def test_rehashed_structured_corruption_is_rejected(tmp_path,mutation):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:138: ModuleNotFoundError
+___________ test_rehashed_structured_corruption_is_rejected[runtime] ___________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_rehashed_structured_corru5')
+mutation = 'runtime'
+
+    @pytest.mark.parametrize('mutation',['unknown','dtype','width','basis','source','runtime','config'])
+    def test_rehashed_structured_corruption_is_rejected(tmp_path,mutation):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:138: ModuleNotFoundError
+___________ test_rehashed_structured_corruption_is_rejected[config] ____________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_rehashed_structured_corru6')
+mutation = 'config'
+
+    @pytest.mark.parametrize('mutation',['unknown','dtype','width','basis','source','runtime','config'])
+    def test_rehashed_structured_corruption_is_rejected(tmp_path,mutation):
+>       from treeneuron.research.p13_simple import P13Predictor
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:138: ModuleNotFoundError
+_________ test_all29_numeric_configs_match_unchanged_legacy_reference __________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_all29_numeric_configs_mat0')
+
+    def test_all29_numeric_configs_match_unchanged_legacy_reference(tmp_path):
+>       from treeneuron.research.p13_simple import p13_configurations
+E       ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+
+tests/test_p13_simple.py:153: ModuleNotFoundError
+___ test_fresh_process_deployment_never_imports_torch_node_or_other_methods ____
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-4564/test_fresh_process_deployment_0')
+
+    def test_fresh_process_deployment_never_imports_torch_node_or_other_methods(tmp_path):
+        script=r"""
+    import importlib.abc,sys
+    class Block(importlib.abc.MetaPathFinder):
+     def find_spec(self,fullname,*args):
+      if fullname.split('.')[0] in {'torch','node','qhoptim','entmax','sklearn','catboost','xgboost','lightgbm'}:raise AssertionError(fullname)
+    sys.meta_path.insert(0,Block())
+    import hashlib,numpy as np
+    from pathlib import Path
+    from treeneuron.baselines.api import FitRequest
+    from treeneuron.research.p13_simple import P13Predictor,p13_configurations
+    root=Path(sys.argv[1]);X=np.arange(12,dtype=float).reshape(6,2)
+    cfg=p13_configurations({'columns':['x','z'],'categorical':[]})[1]
+    p=P13Predictor().fit(FitRequest(X,np.arange(6,dtype=float),None,None,1,cfg,{},root/'fit'))
+    p.save(root/'model');digest=hashlib.sha256((root/'model/manifest.json').read_bytes()).hexdigest()
+    q=P13Predictor.load(root/'model',expected_manifest_sha256=digest)
+    np.testing.assert_array_equal(p.predict(X),q.predict(X))
+    assert not any(n.split('.')[0] in {'torch','node'} for n in sys.modules)
+    """
+        completed=subprocess.run([sys.executable,'-c',script,str(tmp_path)],capture_output=True,text=True)
+>       assert completed.returncode==0,completed.stdout+completed.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "<string>", line 10, in <module>
+E         ModuleNotFoundError: No module named 'treeneuron.research.p13_simple'
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python', '...:\n  File "<string>", line 10, in <module>\nModuleNotFoundError: No module named \'treeneuron.research.p13_simple\'\n').returncode
+
+tests/test_p13_simple.py:183: AssertionError
+=============================== warnings summary ===============================
+../../../../Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/_pytest/cacheprovider.py:469
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/_pytest/cacheprovider.py:469: PytestCacheWarning: could not create cache path /Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/.pytest_cache/v/cache/nodeids: [Errno 1] Operation not permitted: '/Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/pytest-cache-files-ei7d7toa'
+    config.cache.set("cache/nodeids", sorted(self.cached_nodeids))
+
+../../../../Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/_pytest/cacheprovider.py:423
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/_pytest/cacheprovider.py:423: PytestCacheWarning: could not create cache path /Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/.pytest_cache/v/cache/lastfailed: [Errno 1] Operation not permitted: '/Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/pytest-cache-files-x9la6exv'
+    config.cache.set("cache/lastfailed", self.lastfailed)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_p13_simple.py::test_exact_29_configs_and_no_duplicate_filler
+FAILED tests/test_p13_simple.py::test_alpha_outside_exact_support_fails[0.0]
+FAILED tests/test_p13_simple.py::test_alpha_outside_exact_support_fails[-1.0]
+FAILED tests/test_p13_simple.py::test_alpha_outside_exact_support_fails[True]
+FAILED tests/test_p13_simple.py::test_alpha_outside_exact_support_fails[1] - ...
+FAILED tests/test_p13_simple.py::test_alpha_outside_exact_support_fails[nan]
+FAILED tests/test_p13_simple.py::test_alpha_outside_exact_support_fails[inf]
+FAILED tests/test_p13_simple.py::test_alpha_outside_exact_support_fails[0.3]
+FAILED tests/test_p13_simple.py::test_schema_is_explicit_not_a_feature_name_blacklist
+FAILED tests/test_p13_simple.py::test_original_units_batch_invariance_and_no_G_access[mean]
+FAILED tests/test_p13_simple.py::test_original_units_batch_invariance_and_no_G_access[ridge]
+FAILED tests/test_p13_simple.py::test_original_units_batch_invariance_and_no_G_access[spline]
+FAILED tests/test_p13_simple.py::test_typed_categories_unknown_and_F_only_geometry
+FAILED tests/test_p13_simple.py::test_constants_missing_and_all_categorical_are_finite[mean]
+FAILED tests/test_p13_simple.py::test_constants_missing_and_all_categorical_are_finite[ridge]
+FAILED tests/test_p13_simple.py::test_constants_missing_and_all_categorical_are_finite[spline]
+FAILED tests/test_p13_simple.py::test_splines_never_expand_categorical_indicators
+FAILED tests/test_p13_simple.py::test_failed_refit_preserves_previous_predictions_and_paid_failure
+FAILED tests/test_p13_simple.py::test_strict_snapshot_round_trip_requires_external_digest[mean]
+FAILED tests/test_p13_simple.py::test_strict_snapshot_round_trip_requires_external_digest[ridge]
+FAILED tests/test_p13_simple.py::test_strict_snapshot_round_trip_requires_external_digest[spline]
+FAILED tests/test_p13_simple.py::test_rehashed_structured_corruption_is_rejected[unknown]
+FAILED tests/test_p13_simple.py::test_rehashed_structured_corruption_is_rejected[dtype]
+FAILED tests/test_p13_simple.py::test_rehashed_structured_corruption_is_rejected[width]
+FAILED tests/test_p13_simple.py::test_rehashed_structured_corruption_is_rejected[basis]
+FAILED tests/test_p13_simple.py::test_rehashed_structured_corruption_is_rejected[source]
+FAILED tests/test_p13_simple.py::test_rehashed_structured_corruption_is_rejected[runtime]
+FAILED tests/test_p13_simple.py::test_rehashed_structured_corruption_is_rejected[config]
+FAILED tests/test_p13_simple.py::test_all29_numeric_configs_match_unchanged_legacy_reference
+FAILED tests/test_p13_simple.py::test_fresh_process_deployment_never_imports_torch_node_or_other_methods
+30 failed, 2 warnings in 0.37s

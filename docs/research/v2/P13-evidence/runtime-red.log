@@ -1,0 +1,44 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_ test_numerical_runtime_rejects_changed_pinned_record_or_python_source[RECORD] _
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x109469ac0>
+changed = 'RECORD'
+
+    @pytest.mark.parametrize('changed',['RECORD','_linalg.py'])
+    def test_numerical_runtime_rejects_changed_pinned_record_or_python_source(monkeypatch,changed):
+        from treeneuron.research import p13_simple
+        original=p13_simple._sha
+        def changed_bytes(path):
+            path=Path(path)
+            if path.name==changed:return '0'*64
+            return original(path)
+        monkeypatch.setattr(p13_simple,'_sha',changed_bytes)
+>       with pytest.raises(ValueError):p13_simple._runtime()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_p13_simple.py:287: Failed
+_ test_numerical_runtime_rejects_changed_pinned_record_or_python_source[_linalg.py] _
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10bfc1df0>
+changed = '_linalg.py'
+
+    @pytest.mark.parametrize('changed',['RECORD','_linalg.py'])
+    def test_numerical_runtime_rejects_changed_pinned_record_or_python_source(monkeypatch,changed):
+        from treeneuron.research import p13_simple
+        original=p13_simple._sha
+        def changed_bytes(path):
+            path=Path(path)
+            if path.name==changed:return '0'*64
+            return original(path)
+        monkeypatch.setattr(p13_simple,'_sha',changed_bytes)
+>       with pytest.raises(ValueError):p13_simple._runtime()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_p13_simple.py:287: Failed
+=========================== short test summary info ============================
+FAILED tests/test_p13_simple.py::test_numerical_runtime_rejects_changed_pinned_record_or_python_source[RECORD]
+FAILED tests/test_p13_simple.py::test_numerical_runtime_rejects_changed_pinned_record_or_python_source[_linalg.py]
+2 failed, 44 deselected in 0.31s

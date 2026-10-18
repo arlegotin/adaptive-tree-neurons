@@ -20,8 +20,9 @@ configs), `P13Predictor().fit(FitRequest)`, feature-only `predict(X, batch_size=
 `resource_summary()`. `request.config` carries a strict
 `research/v2-p13-config` with `family='P13'`, estimator `mean`/`ridge`/`spline`, an
 explicit ordered `{columns, categorical}` feature schema, and `parameters`.
-Unknown fields, protected feature names, unsupported values and coercive types
-fail. Mean parameters are empty; ridge parameters contain alpha only; spline
+Unknown fields, unsupported values and coercive types fail. Dataset semantic
+schemas and reserved role fields own target/proxy exclusions; the generic adapter
+preserves every explicitly declared feature name and never infers/drops columns. Mean parameters are empty; ridge parameters contain alpha only; spline
 parameters contain alpha and n_knots only.
 
 The fixed enumeration is mean first, ridge by ascending alpha, then spline by
@@ -112,5 +113,7 @@ fit/predict/save/load proving Torch/NODE are never imported. Any legacy referenc
 is read or invoked unchanged. No prepared transfer rows, searches, full workload
 qualification or practical-performance claims follow from these fixtures.
 
-Implementation waits for root's contract review. The semantic choices above are
-builder proposals, not additional historical preregistration.
+Root approved contract commit `2900a65` before implementation, with the explicit
+feature-name clarification above. The semantic choices are declared adapter
+choices, not additional historical preregistration. Implementation evidence and
+the independent review disposition are retained in [the implementation ledger](P13-implementation.md).

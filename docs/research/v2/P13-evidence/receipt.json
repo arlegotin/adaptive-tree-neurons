@@ -1,0 +1,57 @@
+{
+  "approved_contract_commit": "2900a65",
+  "base_commit": "4cc937d07c43cf4a4f8a09505a9a1e05738d8682",
+  "command": "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python -m pytest -p no:cacheprovider tests/test_p13_simple.py tests/test_simple_baselines.py tests/test_transforms.py -q",
+  "final_before_review": {
+    "elapsed_seconds": 14.77,
+    "log": "final-before-review.log",
+    "result": "passed",
+    "tests": 92
+  },
+  "logs": {
+    "combined-green.log": {
+      "bytes": 179,
+      "sha256": "a33b6501f31d24b3743e435575fa41482c4964ecfde5c015706b8573f640e84d"
+    },
+    "final-before-review.log": {
+      "bytes": 180,
+      "sha256": "9d26451bb0216119cc51ea0a2153285c82796eda3e0d632f65fb370e6490adef"
+    },
+    "first-implementation.log": {
+      "bytes": 99,
+      "sha256": "2a85acd3294354b8c9512dbbef6d468f864d9344aacc5e4e12aa27f697286cdd"
+    },
+    "first-red.log": {
+      "bytes": 33013,
+      "sha256": "201c48b29a699db070a797511a5815427fc232e1f95c16bc28d2937a1a453e17"
+    },
+    "runtime-red.log": {
+      "bytes": 2117,
+      "sha256": "c83db499cc09d74017430a255ef441aef26421fe70eb74f5e67e83f4372fb32d"
+    },
+    "self-review-red.log": {
+      "bytes": 7960,
+      "sha256": "1a0ec03ce6eaa0a9656c3d55938ec4fc5251c407ca519dbdd3aa5d3d9f83e004"
+    }
+  },
+  "owned_code_sha256": {
+    "src/treeneuron/research/p13_simple.py": "b622bb55a297326ad0c92800ae20c2f10ee027f81468aaad3ba87dedb5761bbb",
+    "tests/test_p13_simple.py": "c8d1046baea2990c0cc9e122ee0b00b60581e6ce9071f2d01e1c4aa336220471"
+  },
+  "review": "pending one root-approved independent read-only review",
+  "schema": "research/v2-p13-engineering-evidence",
+  "scope": {
+    "HPO": false,
+    "engineering_fixtures_only": true,
+    "full_workload_qualified": false,
+    "hard_resource_or_recovery_harness": false,
+    "native_unchanged_reference_parity_all_29": true,
+    "practical_comparison_or_Gate_D": false,
+    "prepared_transfer_data": false
+  },
+  "source_identity_sha256": "514e368400e71e0945f4231fef3d1ad7f9b286589d7c2e5554a9953007a58a25",
+  "unchanged_locks": {
+    "locks/research-v2/core.json": "91b0287d1b640a2c761bc33b829363df566d37ad37403612f98997df17ff751f",
+    "uv.lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5"
+  }
+}
