@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/long-probes-20261018/audit/replay.py", line 77, in <module>
+    compare(load(original_path.parent/'parent.json'),load(p.directory/'parent.json'),mode+'/parent',data)
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/long-probes-20261018/audit/replay.py", line 54, in compare
+    report['comparisons'].append({'name':label,'exact':True,'maximum_numeric_difference':0,'update':a.update,'epoch':a.epoch,'cursor':a.cursor,'next_row_ids_sha256':array_hash(a.next_row_ids(data.F)),'G_predictions_sha256':array_hash(a.predict(data.G.X)),'tensor_groups':list(x['tensors']),'metadata_fields':list(x['metadata']),'history_original_sha256':canonical_hash(a.history),'history_replay_sha256':canonical_hash(b.history),'history_normalization':'Only checkpoint.sha256 run-dependent descriptor locator; complete ordered update IDs commitments/losses/evaluations unchanged.'});save()
+                                                                                                                                                                                                                                                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/config.py", line 186, in canonical_hash
+    return hashlib.sha256(canonical_json(value).encode("utf-8")).hexdigest()
+                          ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/config.py", line 180, in canonical_json
+    raise ValueError("Expected a mapping")
+ValueError: Expected a mapping

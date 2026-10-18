@@ -1,0 +1,12 @@
+{
+  "all4_historical_files_unchanged": true,
+  "all_hashes_sizes_seals_match": true,
+  "all_held_execution_files_unchanged": true,
+  "analysis_not_inspected": true,
+  "bytes": 11498051579,
+  "files": 28359,
+  "inventory_sha256": "900b5cfeaa6d3d67cc12a7b895506fea6951c83bed76e79b195921a5cf79a5fd",
+  "ordered_8_teachers_R2_completed": true,
+  "raw_cohort_files": 28348,
+  "root_verification_ns": 18467238125
+}

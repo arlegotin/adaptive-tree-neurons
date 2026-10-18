@@ -1,0 +1,21 @@
+{
+  "created_utc": "2026-10-17T22:51:30.531724+00:00",
+  "historical_files": {
+    "reports/final.md": {
+      "bytes": 19000,
+      "sha256": "4b26c13d7d171f466d2305a471ac7c8781e2dd7eadcdad918fb72473cbd11d38"
+    },
+    "docs/research/2026-10-17-complete-exploratory-pilot.md": {
+      "bytes": 4636,
+      "sha256": "52b90e04715cee2be2c8d5f836af3f4cbbf7c056225ab2dbb8ad239cd5b4572c"
+    },
+    "pilot/design_decision.md": {
+      "bytes": 3145,
+      "sha256": "228dd3d0e61d01bda22f504e883d3b89c3130dafcae42813d6551efd9dbd93e3"
+    },
+    "pilot/resource_forecast.json": {
+      "bytes": 2299,
+      "sha256": "cf779ca8791c86eee845a9e295d619432327e80c3326f7b2be1cef494814e1df"
+    }
+  }
+}

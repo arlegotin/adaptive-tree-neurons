@@ -1,0 +1,2 @@
+ranking exact fixed_updates {'updates': 20800, 'evaluations': 910, 'checkpoint_events': 910}
+ranking exact patience {'updates': 32500, 'evaluations': 1365, 'checkpoint_events': 1365}

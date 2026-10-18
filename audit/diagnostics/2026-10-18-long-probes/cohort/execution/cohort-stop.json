@@ -1,0 +1,17 @@
+{
+  "analysis_run": false,
+  "automatic_retries": 0,
+  "caffeinate_process_scoped": true,
+  "changed_prior_evidence": [],
+  "changed_tracked": [],
+  "effect_inspection": false,
+  "elapsed_time_kill": false,
+  "next_step": "Independent audit; no further fitting or analysis by cohort executor",
+  "numerical_stop": true,
+  "prior_evidence_files": 1804,
+  "prior_evidence_unchanged": true,
+  "receipt_producer_rerun": false,
+  "returncode": 0,
+  "tracked_unchanged": true,
+  "utc": "2026-10-18T01:32:32.916568+00:00"
+}

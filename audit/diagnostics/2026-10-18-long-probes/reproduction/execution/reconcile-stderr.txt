@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/long-probes-20261018/audit/reconcile.py", line 56, in <module>
+    first=next(v for v in ev if v['type']=='update');assert first['row_ids']==F_rows[batch_indices.numpy()].tolist();assert first['loss_standardized_mse']==expected_first_loss,(role,first['loss_standardized_mse'],expected_first_loss);first_losses[role]=first['loss_standardized_mse']
+                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

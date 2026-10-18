@@ -1,0 +1,25 @@
+{
+  "branch": "main",
+  "curated_archives": [
+    {
+      "archive": "cohort",
+      "bytes": 9996114,
+      "count": 18,
+      "index_sha256": "a7c295bd1afa2f67a6b15595fe634474eb4ea056c58e423db8e414ad76844193"
+    },
+    {
+      "archive": "reproduction",
+      "bytes": 2028345,
+      "count": 48,
+      "index_sha256": "626910ddc8708bc995d623d8125191b219fcd266932f9f3283cdb8aa54664870"
+    }
+  ],
+  "four_historical_files_unchanged": true,
+  "local_document_links_exist": true,
+  "publication_report_sha256": "9baa18c96a55a0023adf469984b8f5bebf948d1985a73675fbde115dc5e5335b",
+  "source_tests_config_lock_unchanged": true,
+  "status": "passed",
+  "unchanged_generated_report": true,
+  "verification_scope": "Publication and provenance; no repeated numerical run, bootstrap or broad tests.",
+  "whitespace_check": "git diff --check exit0 after trimming DECISIONS trailing blank line"
+}

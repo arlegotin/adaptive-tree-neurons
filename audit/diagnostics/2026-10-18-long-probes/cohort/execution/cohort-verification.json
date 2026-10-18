@@ -1,0 +1,2824 @@
+{
+  "T_accessed": false,
+  "V_accessed": false,
+  "automatic_retries": 0,
+  "bootstrap": false,
+  "completed_members": 16,
+  "costs": {
+    "after": {
+      "free_disk_bytes": 25459949568,
+      "memory_pressure": {
+        "argv": [
+          "memory_pressure",
+          "-Q"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 67%\n"
+      },
+      "power": {
+        "argv": [
+          "pmset",
+          "-g",
+          "batt"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+      },
+      "vm_stat": {
+        "argv": [
+          "vm_stat"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   335036.\nPages active:                                 597268.\nPages inactive:                               557376.\nPages speculative:                             65261.\nPages throttled:                                   0.\nPages wired down:                             201718.\nPages purgeable:                               35735.\n\"Translation faults\":                     6159294400.\nPages copy-on-write:                       499436469.\nPages zero filled:                        5690498136.\nPages reactivated:                         149759441.\nPages purged:                               46727299.\nFile-backed pages:                            540434.\nAnonymous pages:                              679471.\nPages stored in compressor:                  1159788.\nPages occupied by compressor:                 543432.\nDecompressions:                            159990972.\nCompressions:                              209207687.\nPageins:                                   154890418.\nPageouts:                                     692524.\nSwapins:                                     2864893.\nSwapouts:                                    4786629.\n"
+      }
+    },
+    "automatic_retries": 0,
+    "before": {
+      "free_disk_bytes": 38682353664,
+      "memory_pressure": {
+        "argv": [
+          "memory_pressure",
+          "-Q"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 64%\n"
+      },
+      "power": {
+        "argv": [
+          "pmset",
+          "-g",
+          "batt"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=36634723)\t100%; charged; 0:00 remaining present: true\n"
+      },
+      "vm_stat": {
+        "argv": [
+          "vm_stat"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   390647.\nPages active:                                 515816.\nPages inactive:                               507440.\nPages speculative:                             73550.\nPages throttled:                                   0.\nPages wired down:                             254624.\nPages purgeable:                               24053.\n\"Translation faults\":                     6095475457.\nPages copy-on-write:                       496058822.\nPages zero filled:                        5672035864.\nPages reactivated:                         149748552.\nPages purged:                               46678215.\nFile-backed pages:                            557659.\nAnonymous pages:                              539147.\nPages stored in compressor:                  1188702.\nPages occupied by compressor:                 558327.\nDecompressions:                            159973709.\nCompressions:                              209207687.\nPageins:                                   154199567.\nPageouts:                                     692524.\nSwapins:                                     2864626.\nSwapouts:                                    4786629.\n"
+      }
+    },
+    "bytes_boundary": "All regular files below new cohort output after child exit; environment execution evidence excluded",
+    "child_peak_rss_boundary": "RUSAGE_CHILDREN maximum over completed children of this fresh wrapper; prior baseline retained; includes lightweight monitor native subprocesses; actual numerical process peak independently retained by internal resource observations",
+    "child_peak_rss_bytes": 947650560,
+    "child_system_seconds": 612.303224,
+    "child_user_seconds": 7128.489739,
+    "children_usage_after": {
+      "ru_idrss": 0,
+      "ru_inblock": 0,
+      "ru_isrss": 0,
+      "ru_ixrss": 0,
+      "ru_majflt": 5355,
+      "ru_maxrss": 947650560,
+      "ru_minflt": 27002128,
+      "ru_msgrcv": 0,
+      "ru_msgsnd": 0,
+      "ru_nivcsw": 142632,
+      "ru_nsignals": 0,
+      "ru_nswap": 0,
+      "ru_nvcsw": 2116634,
+      "ru_oublock": 0,
+      "ru_stime": 612.332,
+      "ru_utime": 7128.506495
+    },
+    "children_usage_before": {
+      "ru_idrss": 0,
+      "ru_inblock": 0,
+      "ru_isrss": 0,
+      "ru_ixrss": 0,
+      "ru_majflt": 30,
+      "ru_maxrss": 9175040,
+      "ru_minflt": 4259,
+      "ru_msgrcv": 0,
+      "ru_msgsnd": 0,
+      "ru_nivcsw": 86,
+      "ru_nsignals": 0,
+      "ru_nswap": 0,
+      "ru_nvcsw": 0,
+      "ru_oublock": 0,
+      "ru_stime": 0.028776,
+      "ru_utime": 0.016756
+    },
+    "elapsed_boundary": "perf_counter_ns immediately before Popen child launch through wait completion; all final run publication included; 55-second waits interrupt on exit; operational monitor overhead overlaps execution; initial/final native counters excluded",
+    "elapsed_time_kill": false,
+    "final_post_publication_allocated_bytes": 11647078400,
+    "final_post_publication_file_count": 28348,
+    "final_post_publication_retained_bytes": 11496978848,
+    "finished_utc": "2026-10-18T01:32:30.719205+00:00",
+    "monitor_errors": [],
+    "operational_observations": 141,
+    "outer_elapsed_ns": 7804403474250,
+    "returncode": 0,
+    "started_utc": "2026-10-17T23:22:26.311647+00:00"
+  },
+  "declaration_sha256": "cc0e7fbba4f6cd43585def2aae1522ba56c2ca558bbef1b2495a666d75ecce43",
+  "effect_inspection": false,
+  "expected_members": [
+    {
+      "repetition": 0,
+      "teacher_index": 0
+    },
+    {
+      "repetition": 1,
+      "teacher_index": 0
+    },
+    {
+      "repetition": 0,
+      "teacher_index": 1
+    },
+    {
+      "repetition": 1,
+      "teacher_index": 1
+    },
+    {
+      "repetition": 0,
+      "teacher_index": 2
+    },
+    {
+      "repetition": 1,
+      "teacher_index": 2
+    },
+    {
+      "repetition": 0,
+      "teacher_index": 3
+    },
+    {
+      "repetition": 1,
+      "teacher_index": 3
+    },
+    {
+      "repetition": 0,
+      "teacher_index": 4
+    },
+    {
+      "repetition": 1,
+      "teacher_index": 4
+    },
+    {
+      "repetition": 0,
+      "teacher_index": 5
+    },
+    {
+      "repetition": 1,
+      "teacher_index": 5
+    },
+    {
+      "repetition": 0,
+      "teacher_index": 6
+    },
+    {
+      "repetition": 1,
+      "teacher_index": 6
+    },
+    {
+      "repetition": 0,
+      "teacher_index": 7
+    },
+    {
+      "repetition": 1,
+      "teacher_index": 7
+    }
+  ],
+  "failures": [],
+  "independent_teachers": 8,
+  "internal_enclosing_ns": 7802112551083,
+  "internal_peak_rss_bytes": 947650560,
+  "internal_retained_bytes": 11496978362,
+  "ledger_sha256": "5cdf111183aa4e617c5c571528adbde6507b97e622aa657a18a12acd5c12699d",
+  "members": [
+    {
+      "capacity": {
+        "effective_count": 16,
+        "ordinary_parameters": [
+          1693,
+          1711
+        ],
+        "ordinary_widths": [
+          94,
+          95
+        ],
+        "target_parameters": 1697
+      },
+      "costs": {
+        "aggregation": "enclosing only; all component clocks are nested",
+        "boundary": "fresh parent, shared scoring, B6 keep/loser probes, all controls, predictions and IO; excludes final pair ledger write",
+        "long_probe_ns": 282716927083,
+        "parent_ns": 28634769458,
+        "probe_ns": 196299240709,
+        "score_ns": 40351917
+      },
+      "enclosing_ns": 610933240708,
+      "long_probe_audit": {
+        "allocation_seed": 3569209357052647289,
+        "effective_count": 16,
+        "original_parent": true,
+        "parent_state_sha256": "8e03a04245e80cea72836dd02a42ea7917fbe8ec9bcfb7905b40e74605bf96de",
+        "passed": true,
+        "score_hash": "b3f404422e2b38fda475ea0171fb12cd1659e3bfd4db84d3bf96e00509197898",
+        "warm_row_prefix": 500
+      },
+      "original_parent_audit": {
+        "complete_state_sha256": "8e03a04245e80cea72836dd02a42ea7917fbe8ec9bcfb7905b40e74605bf96de",
+        "old_optimizer_sha256": "e82bd4f159fb17b689a6572dc4c983ed4a8f5c52bc206d234bf1391087fb4d89",
+        "parameter_sha256": "9910643f4aea0c9b97059d91d6e0bc8b2f2452ce025a4571a1826e1360a20f8f",
+        "passed": true
+      },
+      "pair_artifact_hashes_verified": 1769,
+      "pair_enclosing_ns": 610321573250,
+      "pair_path": "teacher-0/repetition-0",
+      "pair_sha256": "f9a83d671b1836d0b0ba0bdfdd688c1fca6d3cbea02b709071f0aa934deedba4",
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 6
+      },
+      "parent_checkpoint_sha256": "8fa9f4627eadb1e13c5cd82f5f1f3062e5b3be32ee63db65bfdc04ffd8646570",
+      "parent_run_id": "faf451c1d3e34871b5804dc8313f2fb3",
+      "repetition": 0,
+      "roles": {
+        "greedy": {
+          "enclosing_ns": 4467263125,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "greedy_long": {
+          "enclosing_ns": 4531573000,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "keep": {
+          "enclosing_ns": 4129516833,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1153
+        },
+        "ordinary_lower": {
+          "enclosing_ns": 33996859375,
+          "executed_updates": 6825,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1693
+        },
+        "ordinary_upper": {
+          "enclosing_ns": 15122459875,
+          "executed_updates": 4075,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1711
+        },
+        "random": {
+          "enclosing_ns": 4524961916,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "static_partial": {
+          "enclosing_ns": 23629670666,
+          "executed_updates": 4925,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "top": {
+          "enclosing_ns": 4528206292,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "widen_upper": {
+          "enclosing_ns": 4569507959,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1711
+        }
+      },
+      "searches": {
+        "long": {
+          "allowance": 8000,
+          "ceiling_hits": 0,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 500,
+          "executed_updates_min": 500,
+          "executed_updates_total": 32500,
+          "mode": "patience",
+          "nanoseconds": 282691818458,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-0/repetition-0/runs/838ef2bd69914bef957670c7c3137866/greedy.json",
+          "sha256": "1f12fabd8bfecda9f0081629f64bf9fd20173720e8114dd1db0b9c374c0c3f40",
+          "stopping_reasons": {
+            "patience": 65
+          },
+          "trial_count": 65
+        },
+        "short": {
+          "allowance": 320,
+          "ceiling_hits": 65,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 320,
+          "executed_updates_min": 320,
+          "executed_updates_total": 20800,
+          "mode": "fixed_updates",
+          "nanoseconds": 196276708666,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-0/repetition-0/runs/9d5e71b973854cf29b2d7c9692711a80/greedy.json",
+          "sha256": "fe1e4b314f1ce7b04faedf6233eedaadb7fc50f73f1d8b0bb2b473da433439e8",
+          "stopping_reasons": {
+            "ceiling": 65
+          },
+          "trial_count": 65
+        }
+      },
+      "teacher_index": 0
+    },
+    {
+      "capacity": {
+        "effective_count": 16,
+        "ordinary_parameters": [
+          1693,
+          1711
+        ],
+        "ordinary_widths": [
+          94,
+          95
+        ],
+        "target_parameters": 1697
+      },
+      "costs": {
+        "aggregation": "enclosing only; all component clocks are nested",
+        "boundary": "fresh parent, shared scoring, B6 keep/loser probes, all controls, predictions and IO; excludes final pair ledger write",
+        "long_probe_ns": 317787747875,
+        "parent_ns": 18647053667,
+        "probe_ns": 159890493292,
+        "score_ns": 41856292
+      },
+      "enclosing_ns": 583951257834,
+      "long_probe_audit": {
+        "allocation_seed": 6290547238168231066,
+        "effective_count": 16,
+        "original_parent": true,
+        "parent_state_sha256": "377f90558a1051a4a1bfe8529468dc2bf86292f10bbde97bfd1602e2fc49bf92",
+        "passed": true,
+        "score_hash": "8d6c111b880f2b24eb0c17e52ec89569affe78721a425286ecd99a44cca9f784",
+        "warm_row_prefix": 500
+      },
+      "original_parent_audit": {
+        "complete_state_sha256": "377f90558a1051a4a1bfe8529468dc2bf86292f10bbde97bfd1602e2fc49bf92",
+        "old_optimizer_sha256": "29579ae619fcae91933e8896c14340097401a58672a2c8f04e2707cc3fd5e820",
+        "parameter_sha256": "4850a0680012cbc371282643d39e5f4348861294b24e27023f0a64a83a52928c",
+        "passed": true
+      },
+      "pair_artifact_hashes_verified": 1769,
+      "pair_enclosing_ns": 583392406917,
+      "pair_path": "teacher-0/repetition-1",
+      "pair_sha256": "31ff422335b52fa26db014d03e394de297044f8d5e5d0c064fead1f11616a1f4",
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 6
+      },
+      "parent_checkpoint_sha256": "a1cbbd1b6f7d91a88aeffb5df57256133b24657d97ad9f2c196c925d984dc2f8",
+      "parent_run_id": "fe0aa3cbe6d24474918b645cfdd4356c",
+      "repetition": 1,
+      "roles": {
+        "greedy": {
+          "enclosing_ns": 3634067417,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "greedy_long": {
+          "enclosing_ns": 9757166666,
+          "executed_updates": 1375,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "keep": {
+          "enclosing_ns": 3236085875,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1153
+        },
+        "ordinary_lower": {
+          "enclosing_ns": 12656347958,
+          "executed_updates": 3650,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1693
+        },
+        "ordinary_upper": {
+          "enclosing_ns": 26343508208,
+          "executed_updates": 5900,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1711
+        },
+        "random": {
+          "enclosing_ns": 3688217500,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "static_partial": {
+          "enclosing_ns": 17500563292,
+          "executed_updates": 4100,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "top": {
+          "enclosing_ns": 3612997500,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "widen_upper": {
+          "enclosing_ns": 3662891500,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1711
+        }
+      },
+      "searches": {
+        "long": {
+          "allowance": 8000,
+          "ceiling_hits": 0,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 1125,
+          "executed_updates_min": 500,
+          "executed_updates_total": 46650,
+          "mode": "patience",
+          "nanoseconds": 317762421834,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-0/repetition-1/runs/72d7095eb89a473ba84147ac5d9a8285/greedy.json",
+          "sha256": "c8b0df5aab394a938e99eb85c58cb070e2e96923bf5829bbfe54f446251e339c",
+          "stopping_reasons": {
+            "patience": 65
+          },
+          "trial_count": 65
+        },
+        "short": {
+          "allowance": 320,
+          "ceiling_hits": 65,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 320,
+          "executed_updates_min": 320,
+          "executed_updates_total": 20800,
+          "mode": "fixed_updates",
+          "nanoseconds": 159865516291,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-0/repetition-1/runs/ef9281f1ca49488aa6eebe2414166e54/greedy.json",
+          "sha256": "57a6a0db26cbc4afa082216aaf6717d231f6984f291d9456ee1f99ee4f29cb8d",
+          "stopping_reasons": {
+            "ceiling": 65
+          },
+          "trial_count": 65
+        }
+      },
+      "teacher_index": 0
+    },
+    {
+      "capacity": {
+        "effective_count": 16,
+        "ordinary_parameters": [
+          1693,
+          1711
+        ],
+        "ordinary_widths": [
+          94,
+          95
+        ],
+        "target_parameters": 1697
+      },
+      "costs": {
+        "aggregation": "enclosing only; all component clocks are nested",
+        "boundary": "fresh parent, shared scoring, B6 keep/loser probes, all controls, predictions and IO; excludes final pair ledger write",
+        "long_probe_ns": 314875442542,
+        "parent_ns": 8287149750,
+        "probe_ns": 109135190625,
+        "score_ns": 38643750
+      },
+      "enclosing_ns": 504766500334,
+      "long_probe_audit": {
+        "allocation_seed": 747664283905169023,
+        "effective_count": 16,
+        "original_parent": true,
+        "parent_state_sha256": "2bd202d64c4509b79459c0ba929902f607065839766668a0585ace2d76b524ed",
+        "passed": true,
+        "score_hash": "389d4892b9299c2fe6d9648896a68608f2e13b98efb0a268501f32dc319d2031",
+        "warm_row_prefix": 500
+      },
+      "original_parent_audit": {
+        "complete_state_sha256": "2bd202d64c4509b79459c0ba929902f607065839766668a0585ace2d76b524ed",
+        "old_optimizer_sha256": "b6c1f0263cd0c44458c02c845c6cabee530b4556b3d8a9009b7ac7e2e6925050",
+        "parameter_sha256": "372583ef451d5d79653598b62a1d8fc606cd16e0947064963fbc0521084e285b",
+        "passed": true
+      },
+      "pair_artifact_hashes_verified": 1769,
+      "pair_enclosing_ns": 504275657333,
+      "pair_path": "teacher-1/repetition-0",
+      "pair_sha256": "4e197eb9c2ea3804ad5942b8f1396d1e9df7ef6ab18baad9e746d7ad6ff6d321",
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 6
+      },
+      "parent_checkpoint_sha256": "8ba3fb2d06f2b2bfa0227ff998248c85e84ce1eb2a9979ba9fef33b65578bf28",
+      "parent_run_id": "0c4c243521f349088b59615e99f69bbc",
+      "repetition": 0,
+      "roles": {
+        "greedy": {
+          "enclosing_ns": 2621354917,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "greedy_long": {
+          "enclosing_ns": 2619168167,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "keep": {
+          "enclosing_ns": 2282723750,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1153
+        },
+        "ordinary_lower": {
+          "enclosing_ns": 11728054041,
+          "executed_updates": 3525,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1693
+        },
+        "ordinary_upper": {
+          "enclosing_ns": 11463797083,
+          "executed_updates": 3450,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1711
+        },
+        "random": {
+          "enclosing_ns": 2607255834,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "static_partial": {
+          "enclosing_ns": 17569981542,
+          "executed_updates": 4200,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "top": {
+          "enclosing_ns": 5261617667,
+          "executed_updates": 1025,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "widen_upper": {
+          "enclosing_ns": 13204596958,
+          "executed_updates": 2325,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1711
+        }
+      },
+      "searches": {
+        "long": {
+          "allowance": 8000,
+          "ceiling_hits": 0,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 3325,
+          "executed_updates_min": 500,
+          "executed_updates_total": 62075,
+          "mode": "patience",
+          "nanoseconds": 314850676625,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-1/repetition-0/runs/1429201cd15a4d1c9ff216d3f3ce2669/greedy.json",
+          "sha256": "5c036604866c42950890c467d28245679016a9e82e1efda018a960b684a8d1cc",
+          "stopping_reasons": {
+            "patience": 65
+          },
+          "trial_count": 65
+        },
+        "short": {
+          "allowance": 320,
+          "ceiling_hits": 65,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 320,
+          "executed_updates_min": 320,
+          "executed_updates_total": 20800,
+          "mode": "fixed_updates",
+          "nanoseconds": 109112940500,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-1/repetition-0/runs/ac372e20997a473db12b7c174b480424/greedy.json",
+          "sha256": "51ed387320c009b60ce956293852666a0588addbb90e65d24090733566cabf07",
+          "stopping_reasons": {
+            "ceiling": 65
+          },
+          "trial_count": 65
+        }
+      },
+      "teacher_index": 1
+    },
+    {
+      "capacity": {
+        "effective_count": 16,
+        "ordinary_parameters": [
+          1693,
+          1711
+        ],
+        "ordinary_widths": [
+          94,
+          95
+        ],
+        "target_parameters": 1697
+      },
+      "costs": {
+        "aggregation": "enclosing only; all component clocks are nested",
+        "boundary": "fresh parent, shared scoring, B6 keep/loser probes, all controls, predictions and IO; excludes final pair ledger write",
+        "long_probe_ns": 373892858042,
+        "parent_ns": 11880449667,
+        "probe_ns": 128919244833,
+        "score_ns": 38914666
+      },
+      "enclosing_ns": 598804596417,
+      "long_probe_audit": {
+        "allocation_seed": 1889109184270294492,
+        "effective_count": 16,
+        "original_parent": true,
+        "parent_state_sha256": "de612f05678e2a77d53a9a0dc617827868da361ce011c3d91791b54fe8afb306",
+        "passed": true,
+        "score_hash": "f0921fe006b10cde58f3cb861053149d9795d9cdb62b53d2350c9bf857ae7f3a",
+        "warm_row_prefix": 500
+      },
+      "original_parent_audit": {
+        "complete_state_sha256": "de612f05678e2a77d53a9a0dc617827868da361ce011c3d91791b54fe8afb306",
+        "old_optimizer_sha256": "09dcd97c92e19eea187467cb33e83f63b0a8ca93da71cc8029e5d496e0fae348",
+        "parameter_sha256": "b2fd125fcf42edb2779a41f4eb0ab1376753cea642592882ea7ca2dba8a2a899",
+        "passed": true
+      },
+      "pair_artifact_hashes_verified": 1769,
+      "pair_enclosing_ns": 598264683500,
+      "pair_path": "teacher-1/repetition-1",
+      "pair_sha256": "3eb924ecb863b98f4f5eed7b62c18756222360d35605f068bf54b10005abeeb9",
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 6
+      },
+      "parent_checkpoint_sha256": "b6038c3252a7d0d4254364ae86cde9b7196a036af33e51be9e1130717bd0158e",
+      "parent_run_id": "17a8f080562c4826a0047e9306a6a3fc",
+      "repetition": 1,
+      "roles": {
+        "greedy": {
+          "enclosing_ns": 6466118458,
+          "executed_updates": 1075,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "greedy_long": {
+          "enclosing_ns": 7462774042,
+          "executed_updates": 1225,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "keep": {
+          "enclosing_ns": 2668452542,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1153
+        },
+        "ordinary_lower": {
+          "enclosing_ns": 20026508958,
+          "executed_updates": 5000,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1693
+        },
+        "ordinary_upper": {
+          "enclosing_ns": 12152774250,
+          "executed_updates": 3600,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1711
+        },
+        "random": {
+          "enclosing_ns": 6517059875,
+          "executed_updates": 1075,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "static_partial": {
+          "enclosing_ns": 19287351166,
+          "executed_updates": 4475,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "top": {
+          "enclosing_ns": 3027400958,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "widen_upper": {
+          "enclosing_ns": 3145373042,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1711
+        }
+      },
+      "searches": {
+        "long": {
+          "allowance": 8000,
+          "ceiling_hits": 0,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 3125,
+          "executed_updates_min": 500,
+          "executed_updates_total": 64125,
+          "mode": "patience",
+          "nanoseconds": 373868900666,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-1/repetition-1/runs/e40fe6989f5048028d7a9b8b35028eca/greedy.json",
+          "sha256": "58d1996cf1c553566d97f608eff715d64184b10aa7662926359585e49af39a35",
+          "stopping_reasons": {
+            "patience": 65
+          },
+          "trial_count": 65
+        },
+        "short": {
+          "allowance": 320,
+          "ceiling_hits": 65,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 320,
+          "executed_updates_min": 320,
+          "executed_updates_total": 20800,
+          "mode": "fixed_updates",
+          "nanoseconds": 128897227375,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-1/repetition-1/runs/891b64db57314ccf8d7a6c51a742ec10/greedy.json",
+          "sha256": "cf149af4ea351eb49bf2fa9adeb62ef21b73e701c07217b53950bd4114af4e49",
+          "stopping_reasons": {
+            "ceiling": 65
+          },
+          "trial_count": 65
+        }
+      },
+      "teacher_index": 1
+    },
+    {
+      "capacity": {
+        "effective_count": 16,
+        "ordinary_parameters": [
+          1693,
+          1711
+        ],
+        "ordinary_widths": [
+          94,
+          95
+        ],
+        "target_parameters": 1697
+      },
+      "costs": {
+        "aggregation": "enclosing only; all component clocks are nested",
+        "boundary": "fresh parent, shared scoring, B6 keep/loser probes, all controls, predictions and IO; excludes final pair ledger write",
+        "long_probe_ns": 203850911250,
+        "parent_ns": 13567182125,
+        "probe_ns": 136971898750,
+        "score_ns": 38804750
+      },
+      "enclosing_ns": 417554466792,
+      "long_probe_audit": {
+        "allocation_seed": 983277149569780239,
+        "effective_count": 16,
+        "original_parent": true,
+        "parent_state_sha256": "20585592c2b39048a3a1b4b2d1faa8beddd323bca8a212cd2da35ad42ffd67d2",
+        "passed": true,
+        "score_hash": "96470a937de63bb4b949320025a65c0777ebe762fd27f34519c6f0b43dc016a9",
+        "warm_row_prefix": 500
+      },
+      "original_parent_audit": {
+        "complete_state_sha256": "20585592c2b39048a3a1b4b2d1faa8beddd323bca8a212cd2da35ad42ffd67d2",
+        "old_optimizer_sha256": "de1a3fa83da4b12d9c38758b4d3a18cf609e3b90742e33389b5e0dc8e422a88d",
+        "parameter_sha256": "c75a8844a807d64df06ed129ac6fa82c5aa489afd12ddec2a76a0b5e6b20c0f6",
+        "passed": true
+      },
+      "pair_artifact_hashes_verified": 1769,
+      "pair_enclosing_ns": 416985366541,
+      "pair_path": "teacher-2/repetition-0",
+      "pair_sha256": "64ad8df931553bd7eeed57f0cc457256d571320ae925a6ccdf3a8a84435cffb0",
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 6
+      },
+      "parent_checkpoint_sha256": "1f1133dc83550c255433dac5c6c63aacc29f085c24b86dbf0a0196fc3b47817d",
+      "parent_run_id": "721d8f42216b46259bdf127571633a0b",
+      "repetition": 0,
+      "roles": {
+        "greedy": {
+          "enclosing_ns": 3700956958,
+          "executed_updates": 575,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "greedy_long": {
+          "enclosing_ns": 3777922625,
+          "executed_updates": 575,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "keep": {
+          "enclosing_ns": 2884332250,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1153
+        },
+        "ordinary_lower": {
+          "enclosing_ns": 18696866750,
+          "executed_updates": 4675,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1693
+        },
+        "ordinary_upper": {
+          "enclosing_ns": 12763985041,
+          "executed_updates": 3600,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1711
+        },
+        "random": {
+          "enclosing_ns": 3244256333,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "static_partial": {
+          "enclosing_ns": 8181209333,
+          "executed_updates": 2325,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "top": {
+          "enclosing_ns": 3302772458,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "widen_upper": {
+          "enclosing_ns": 3327732125,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1711
+        }
+      },
+      "searches": {
+        "long": {
+          "allowance": 8000,
+          "ceiling_hits": 0,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 575,
+          "executed_updates_min": 500,
+          "executed_updates_total": 33250,
+          "mode": "patience",
+          "nanoseconds": 203825466708,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-2/repetition-0/runs/5254ab5343f846538cbc059cf2c8edbc/greedy.json",
+          "sha256": "08bffcac2ded58eb2f4f54a29366430987278bfc5bd70727ee65d4cc5f2cd0c6",
+          "stopping_reasons": {
+            "patience": 65
+          },
+          "trial_count": 65
+        },
+        "short": {
+          "allowance": 320,
+          "ceiling_hits": 65,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 320,
+          "executed_updates_min": 320,
+          "executed_updates_total": 20800,
+          "mode": "fixed_updates",
+          "nanoseconds": 136948906625,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-2/repetition-0/runs/573d176a18364942aeeb2fd2eab83609/greedy.json",
+          "sha256": "7d8ac7284a8d5c304b2bb8483423bcc24a6304067fe1ca28612d149cdcb09a2f",
+          "stopping_reasons": {
+            "ceiling": 65
+          },
+          "trial_count": 65
+        }
+      },
+      "teacher_index": 2
+    },
+    {
+      "capacity": {
+        "effective_count": 16,
+        "ordinary_parameters": [
+          1693,
+          1711
+        ],
+        "ordinary_widths": [
+          94,
+          95
+        ],
+        "target_parameters": 1697
+      },
+      "costs": {
+        "aggregation": "enclosing only; all component clocks are nested",
+        "boundary": "fresh parent, shared scoring, B6 keep/loser probes, all controls, predictions and IO; excludes final pair ledger write",
+        "long_probe_ns": 191196585458,
+        "parent_ns": 10087017875,
+        "probe_ns": 120412570333,
+        "score_ns": 40281792
+      },
+      "enclosing_ns": 401148166750,
+      "long_probe_audit": {
+        "allocation_seed": 4045986358774715373,
+        "effective_count": 16,
+        "original_parent": true,
+        "parent_state_sha256": "602da58d7b30ac0bca6085a4d13153a4bae17e5a6033111477124feaa9cc823e",
+        "passed": true,
+        "score_hash": "2167bb7883ce210adffd53986f31d71ecb0fd75f81c8acac92175ab8480633c7",
+        "warm_row_prefix": 500
+      },
+      "original_parent_audit": {
+        "complete_state_sha256": "602da58d7b30ac0bca6085a4d13153a4bae17e5a6033111477124feaa9cc823e",
+        "old_optimizer_sha256": "3a460f77cbd851ddccc19fdef0e48e80df13887eea920a7acd811b6e48ccca66",
+        "parameter_sha256": "13bbb6d8aaeea4253bfab9cbd23ed75437c138c4c8a5619627b54246b7cc81e1",
+        "passed": true
+      },
+      "pair_artifact_hashes_verified": 1769,
+      "pair_enclosing_ns": 400643344750,
+      "pair_path": "teacher-2/repetition-1",
+      "pair_sha256": "3fe560ad56c55c59f23e50be35e90027465e6bdd14dd92032359056f3199342e",
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 6
+      },
+      "parent_checkpoint_sha256": "19fe5af6cca4d5b8e0654db4c53a3b9aaa663232563fdafafca4589ef0747b4f",
+      "parent_run_id": "fde3efc2880c47fe8667ba368ab7f23a",
+      "repetition": 1,
+      "roles": {
+        "greedy": {
+          "enclosing_ns": 9694613333,
+          "executed_updates": 1650,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "greedy_long": {
+          "enclosing_ns": 9790828834,
+          "executed_updates": 1650,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "keep": {
+          "enclosing_ns": 2482616500,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1153
+        },
+        "ordinary_lower": {
+          "enclosing_ns": 19677287958,
+          "executed_updates": 4850,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1693
+        },
+        "ordinary_upper": {
+          "enclosing_ns": 13038002291,
+          "executed_updates": 3675,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1711
+        },
+        "random": {
+          "enclosing_ns": 2880696375,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "static_partial": {
+          "enclosing_ns": 12768789000,
+          "executed_updates": 3275,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "top": {
+          "enclosing_ns": 2921824791,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "widen_upper": {
+          "enclosing_ns": 2982263875,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1711
+        }
+      },
+      "searches": {
+        "long": {
+          "allowance": 8000,
+          "ceiling_hits": 0,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 1850,
+          "executed_updates_min": 500,
+          "executed_updates_total": 35200,
+          "mode": "patience",
+          "nanoseconds": 191171037750,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-2/repetition-1/runs/84216424ffdd4cf48bd0bd4374a729e7/greedy.json",
+          "sha256": "90962151053f4692584ff9eae8ceb504578c56f9e72ba72547624ac26d3af890",
+          "stopping_reasons": {
+            "patience": 65
+          },
+          "trial_count": 65
+        },
+        "short": {
+          "allowance": 320,
+          "ceiling_hits": 65,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 320,
+          "executed_updates_min": 320,
+          "executed_updates_total": 20800,
+          "mode": "fixed_updates",
+          "nanoseconds": 120389472667,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-2/repetition-1/runs/f2af483d54b04f8db53f4cf360e4a52c/greedy.json",
+          "sha256": "c017008c374a19d782b5a83e9921ea2617ad3e7a0b780ce7fa35bb7e6769e035",
+          "stopping_reasons": {
+            "ceiling": 65
+          },
+          "trial_count": 65
+        }
+      },
+      "teacher_index": 2
+    },
+    {
+      "capacity": {
+        "effective_count": 16,
+        "ordinary_parameters": [
+          1693,
+          1711
+        ],
+        "ordinary_widths": [
+          94,
+          95
+        ],
+        "target_parameters": 1697
+      },
+      "costs": {
+        "aggregation": "enclosing only; all component clocks are nested",
+        "boundary": "fresh parent, shared scoring, B6 keep/loser probes, all controls, predictions and IO; excludes final pair ledger write",
+        "long_probe_ns": 173683542959,
+        "parent_ns": 7149696792,
+        "probe_ns": 106075544375,
+        "score_ns": 39588541
+      },
+      "enclosing_ns": 361189551875,
+      "long_probe_audit": {
+        "allocation_seed": 1376588346235743891,
+        "effective_count": 16,
+        "original_parent": true,
+        "parent_state_sha256": "50fc0d4dd57f553bceb4e7b89430cc350072730b2afffe77053bb9a900f074df",
+        "passed": true,
+        "score_hash": "d1008196f6c7f2e7ff5e550b6e7f2f25ee092c424a9a8863e7482334768d6619",
+        "warm_row_prefix": 500
+      },
+      "original_parent_audit": {
+        "complete_state_sha256": "50fc0d4dd57f553bceb4e7b89430cc350072730b2afffe77053bb9a900f074df",
+        "old_optimizer_sha256": "e91087dbdb7e52b1869748598b9f19d55f01c82b733e598966d8e1e5e45d082f",
+        "parameter_sha256": "0b27e140483edbf8035d838ea222c284db346850223f18d95f0260095ab89689",
+        "passed": true
+      },
+      "pair_artifact_hashes_verified": 1769,
+      "pair_enclosing_ns": 360705788375,
+      "pair_path": "teacher-3/repetition-0",
+      "pair_sha256": "2109beb60266db4be4275e080231378da08201cfc06717ff921e40b0a3185746",
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 6
+      },
+      "parent_checkpoint_sha256": "6af2bb9ff8d5f79a846b61f896ca7d6d6d90b8f6ebaa88e73c6059fa2b6140d4",
+      "parent_run_id": "e9a44d0397444a6693efabd562ea2c12",
+      "repetition": 0,
+      "roles": {
+        "greedy": {
+          "enclosing_ns": 6421495917,
+          "executed_updates": 1225,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "greedy_long": {
+          "enclosing_ns": 6266728458,
+          "executed_updates": 1200,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "keep": {
+          "enclosing_ns": 2143647959,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1153
+        },
+        "ordinary_lower": {
+          "enclosing_ns": 10787304292,
+          "executed_updates": 3200,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1693
+        },
+        "ordinary_upper": {
+          "enclosing_ns": 16969511167,
+          "executed_updates": 4450,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1711
+        },
+        "random": {
+          "enclosing_ns": 6312079541,
+          "executed_updates": 1225,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "static_partial": {
+          "enclosing_ns": 17050385500,
+          "executed_updates": 4000,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "top": {
+          "enclosing_ns": 2597852541,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "widen_upper": {
+          "enclosing_ns": 2625258042,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1711
+        }
+      },
+      "searches": {
+        "long": {
+          "allowance": 8000,
+          "ceiling_hits": 0,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 1375,
+          "executed_updates_min": 500,
+          "executed_updates_total": 36700,
+          "mode": "patience",
+          "nanoseconds": 173657582542,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-3/repetition-0/runs/4b0a889ec25040fbb379fcaee2bb5642/greedy.json",
+          "sha256": "6f0d9f83b7f4f9f0d8a7d2cc99712dbde5335b667909e4fb0b8b481522befc0e",
+          "stopping_reasons": {
+            "patience": 65
+          },
+          "trial_count": 65
+        },
+        "short": {
+          "allowance": 320,
+          "ceiling_hits": 65,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 320,
+          "executed_updates_min": 320,
+          "executed_updates_total": 20800,
+          "mode": "fixed_updates",
+          "nanoseconds": 106052345625,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-3/repetition-0/runs/060d9cfd722a494e811d08926649a7e1/greedy.json",
+          "sha256": "7c5348ea9d1e7a9275ab9eb6ef76ac12eb8544ab47efc02aa53c02669aa08f9d",
+          "stopping_reasons": {
+            "ceiling": 65
+          },
+          "trial_count": 65
+        }
+      },
+      "teacher_index": 3
+    },
+    {
+      "capacity": {
+        "effective_count": 16,
+        "ordinary_parameters": [
+          1693,
+          1711
+        ],
+        "ordinary_widths": [
+          94,
+          95
+        ],
+        "target_parameters": 1697
+      },
+      "costs": {
+        "aggregation": "enclosing only; all component clocks are nested",
+        "boundary": "fresh parent, shared scoring, B6 keep/loser probes, all controls, predictions and IO; excludes final pair ledger write",
+        "long_probe_ns": 168596214500,
+        "parent_ns": 9860606416,
+        "probe_ns": 120203928791,
+        "score_ns": 39871208
+      },
+      "enclosing_ns": 371081343291,
+      "long_probe_audit": {
+        "allocation_seed": 4897701717320110413,
+        "effective_count": 16,
+        "original_parent": true,
+        "parent_state_sha256": "98609c5ee567ed59759ca813241ce171cd1f50e5d0ac55838baac2e13f428458",
+        "passed": true,
+        "score_hash": "45f1e6a30eb62ddbca970e32c64674d7e5f5eb6c9251f8e8881af966ec6d031f",
+        "warm_row_prefix": 500
+      },
+      "original_parent_audit": {
+        "complete_state_sha256": "98609c5ee567ed59759ca813241ce171cd1f50e5d0ac55838baac2e13f428458",
+        "old_optimizer_sha256": "81d774015af23d0214ac7ab6ab727c87c866feabdbed3cc8dc4a3b3f3377a18c",
+        "parameter_sha256": "7bd24691cf0322c18c1f2c66ad220cf0229c56665d1461a55f6023d0d5001940",
+        "passed": true
+      },
+      "pair_artifact_hashes_verified": 1769,
+      "pair_enclosing_ns": 370616044208,
+      "pair_path": "teacher-3/repetition-1",
+      "pair_sha256": "9e11967b0fe24ac71cc70b6d75f5acf21a1296fea6d5ef09cac4c1c44e5f1c54",
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 6
+      },
+      "parent_checkpoint_sha256": "0464ab2bb836e7a79b384004785f177c78348e60716af2d2e43646fc57c6461b",
+      "parent_run_id": "d185eab9b52b48abaaf96704afed6f87",
+      "repetition": 1,
+      "roles": {
+        "greedy": {
+          "enclosing_ns": 2806950791,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "greedy_long": {
+          "enclosing_ns": 2844643500,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "keep": {
+          "enclosing_ns": 2403476875,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1153
+        },
+        "ordinary_lower": {
+          "enclosing_ns": 20175920625,
+          "executed_updates": 5050,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1693
+        },
+        "ordinary_upper": {
+          "enclosing_ns": 14960885625,
+          "executed_updates": 4150,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1711
+        },
+        "random": {
+          "enclosing_ns": 8621086750,
+          "executed_updates": 1525,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "static_partial": {
+          "enclosing_ns": 11861767917,
+          "executed_updates": 3125,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "top": {
+          "enclosing_ns": 2786177666,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "widen_upper": {
+          "enclosing_ns": 2852861833,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1711
+        }
+      },
+      "searches": {
+        "long": {
+          "allowance": 8000,
+          "ceiling_hits": 0,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 500,
+          "executed_updates_min": 500,
+          "executed_updates_total": 32500,
+          "mode": "patience",
+          "nanoseconds": 168571773875,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-3/repetition-1/runs/837c17f123304292808a5ca04e898ecc/greedy.json",
+          "sha256": "01701ac52ec2343bf0443bd9d0b4eb16eb8bfdd257b6c3d9837133265b6de9f6",
+          "stopping_reasons": {
+            "patience": 65
+          },
+          "trial_count": 65
+        },
+        "short": {
+          "allowance": 320,
+          "ceiling_hits": 65,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 320,
+          "executed_updates_min": 320,
+          "executed_updates_total": 20800,
+          "mode": "fixed_updates",
+          "nanoseconds": 120180493875,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-3/repetition-1/runs/7dad2d3fad2e486a9c3a754d15fb124f/greedy.json",
+          "sha256": "84992c7a1c55a9553d0126ca7e0ccc64f1f9c87e69821f2b060349d9b09ee7bd",
+          "stopping_reasons": {
+            "ceiling": 65
+          },
+          "trial_count": 65
+        }
+      },
+      "teacher_index": 3
+    },
+    {
+      "capacity": {
+        "effective_count": 16,
+        "ordinary_parameters": [
+          1693,
+          1711
+        ],
+        "ordinary_widths": [
+          94,
+          95
+        ],
+        "target_parameters": 1697
+      },
+      "costs": {
+        "aggregation": "enclosing only; all component clocks are nested",
+        "boundary": "fresh parent, shared scoring, B6 keep/loser probes, all controls, predictions and IO; excludes final pair ledger write",
+        "long_probe_ns": 217796781917,
+        "parent_ns": 7246773292,
+        "probe_ns": 103122359583,
+        "score_ns": 39281708
+      },
+      "enclosing_ns": 405280682208,
+      "long_probe_audit": {
+        "allocation_seed": 206449592454456571,
+        "effective_count": 16,
+        "original_parent": true,
+        "parent_state_sha256": "d5e94e52c4b4e40cd77b3476d2e27d33af5417548922ceedc7c3355dea0645c4",
+        "passed": true,
+        "score_hash": "93ef038f34a8b474c5f7f5398c2d685edac72b40b69a09b558a12f5ecdbcf7f9",
+        "warm_row_prefix": 500
+      },
+      "original_parent_audit": {
+        "complete_state_sha256": "d5e94e52c4b4e40cd77b3476d2e27d33af5417548922ceedc7c3355dea0645c4",
+        "old_optimizer_sha256": "f7c2c11b30ff6bcffef381e95b693837884da14690307e85b20f4161d957114e",
+        "parameter_sha256": "ed6136f823f1e2525e6500ec17200fd76c19c1f556f5e380baf4050065cbfb3f",
+        "passed": true
+      },
+      "pair_artifact_hashes_verified": 1769,
+      "pair_enclosing_ns": 404774083833,
+      "pair_path": "teacher-4/repetition-0",
+      "pair_sha256": "9a093dc1ba7ed32ac70ad4da2bb847d8adc425c7d418d800073423c7f6fd2c3b",
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 6
+      },
+      "parent_checkpoint_sha256": "efb9e12c77145bd27030d4893a726a9512c6530072233ffedbe174bc75f3a196",
+      "parent_run_id": "4a1995851e8c46bd98d7dd6c7899a95f",
+      "repetition": 0,
+      "roles": {
+        "greedy": {
+          "enclosing_ns": 4553525000,
+          "executed_updates": 900,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "greedy_long": {
+          "enclosing_ns": 4638891541,
+          "executed_updates": 900,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "keep": {
+          "enclosing_ns": 2205850833,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1153
+        },
+        "ordinary_lower": {
+          "enclosing_ns": 7932623500,
+          "executed_updates": 2575,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1693
+        },
+        "ordinary_upper": {
+          "enclosing_ns": 11215269666,
+          "executed_updates": 3350,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1711
+        },
+        "random": {
+          "enclosing_ns": 4566840667,
+          "executed_updates": 900,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "static_partial": {
+          "enclosing_ns": 26322315458,
+          "executed_updates": 5400,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "top": {
+          "enclosing_ns": 4682281166,
+          "executed_updates": 925,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "widen_upper": {
+          "enclosing_ns": 7850982084,
+          "executed_updates": 1475,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1711
+        }
+      },
+      "searches": {
+        "long": {
+          "allowance": 8000,
+          "ceiling_hits": 0,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 3675,
+          "executed_updates_min": 500,
+          "executed_updates_total": 45425,
+          "mode": "patience",
+          "nanoseconds": 217771645375,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-4/repetition-0/runs/b4cb9b1480e0413db68a6747c63c26aa/greedy.json",
+          "sha256": "0d04bd45a9869aef8a3c4816cb0823ababe982fe97b4074c567422e49c796df0",
+          "stopping_reasons": {
+            "patience": 65
+          },
+          "trial_count": 65
+        },
+        "short": {
+          "allowance": 320,
+          "ceiling_hits": 65,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 320,
+          "executed_updates_min": 320,
+          "executed_updates_total": 20800,
+          "mode": "fixed_updates",
+          "nanoseconds": 103098818542,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-4/repetition-0/runs/2131cf13fe5844b28d7aabcfb2dbdb7c/greedy.json",
+          "sha256": "edcde0b1c8b9e10e485fe5a4d075133d4fb955adf21126a37d61d2c76bfcacf6",
+          "stopping_reasons": {
+            "ceiling": 65
+          },
+          "trial_count": 65
+        }
+      },
+      "teacher_index": 4
+    },
+    {
+      "capacity": {
+        "effective_count": 16,
+        "ordinary_parameters": [
+          1693,
+          1711
+        ],
+        "ordinary_widths": [
+          94,
+          95
+        ],
+        "target_parameters": 1697
+      },
+      "costs": {
+        "aggregation": "enclosing only; all component clocks are nested",
+        "boundary": "fresh parent, shared scoring, B6 keep/loser probes, all controls, predictions and IO; excludes final pair ledger write",
+        "long_probe_ns": 226753743583,
+        "parent_ns": 10418085166,
+        "probe_ns": 124279893042,
+        "score_ns": 40379666
+      },
+      "enclosing_ns": 437591015625,
+      "long_probe_audit": {
+        "allocation_seed": 2413002329670745769,
+        "effective_count": 16,
+        "original_parent": true,
+        "parent_state_sha256": "5e4671f54087dd048b7d2dca0524b79ca690e8a3b47787a1fdb70377f4f36ff3",
+        "passed": true,
+        "score_hash": "7db27a707e7782ce0ad083c6a5dd4623f64ba32696a45f587f8020c33cd3c0ad",
+        "warm_row_prefix": 500
+      },
+      "original_parent_audit": {
+        "complete_state_sha256": "5e4671f54087dd048b7d2dca0524b79ca690e8a3b47787a1fdb70377f4f36ff3",
+        "old_optimizer_sha256": "ab1e798bcf98e31d29594f3479004d8081f9e6e50a7d2bde248503729edc6929",
+        "parameter_sha256": "2ee6281fed79fbcf56d8bc0d9eba0a8b5d1caaa07c9a31d20066843ee3cf1b38",
+        "passed": true
+      },
+      "pair_artifact_hashes_verified": 1769,
+      "pair_enclosing_ns": 437100795667,
+      "pair_path": "teacher-4/repetition-1",
+      "pair_sha256": "d6507d810de934ab3cb19451921c9c94a9e209e7d0a6cf5c407dc730e706efa5",
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 6
+      },
+      "parent_checkpoint_sha256": "caf0d384051df064bac97b3069148ace46b45926a77514f656b16ffaaa9d7131",
+      "parent_run_id": "ad54c804d7f4470ab2205834daeaa6eb",
+      "repetition": 1,
+      "roles": {
+        "greedy": {
+          "enclosing_ns": 7140057500,
+          "executed_updates": 1250,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "greedy_long": {
+          "enclosing_ns": 9976671625,
+          "executed_updates": 1725,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "keep": {
+          "enclosing_ns": 2464322500,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1153
+        },
+        "ordinary_lower": {
+          "enclosing_ns": 14192822208,
+          "executed_updates": 4000,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1693
+        },
+        "ordinary_upper": {
+          "enclosing_ns": 9952283125,
+          "executed_updates": 3100,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1711
+        },
+        "random": {
+          "enclosing_ns": 6982327708,
+          "executed_updates": 1250,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "static_partial": {
+          "enclosing_ns": 16465159542,
+          "executed_updates": 3975,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "top": {
+          "enclosing_ns": 2863014375,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "widen_upper": {
+          "enclosing_ns": 2965643667,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1711
+        }
+      },
+      "searches": {
+        "long": {
+          "allowance": 8000,
+          "ceiling_hits": 0,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 1725,
+          "executed_updates_min": 500,
+          "executed_updates_total": 41825,
+          "mode": "patience",
+          "nanoseconds": 226725441834,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-4/repetition-1/runs/a313fc77cc7d450b8d160ddf0b084081/greedy.json",
+          "sha256": "96ac8aa892e86d9e083d157821133b41e78e30057b8507c37941a9edf9b249f2",
+          "stopping_reasons": {
+            "patience": 65
+          },
+          "trial_count": 65
+        },
+        "short": {
+          "allowance": 320,
+          "ceiling_hits": 65,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 320,
+          "executed_updates_min": 320,
+          "executed_updates_total": 20800,
+          "mode": "fixed_updates",
+          "nanoseconds": 124255138667,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-4/repetition-1/runs/0ef8affbbf0342b58e8c6977152d1768/greedy.json",
+          "sha256": "1666ac2467c97fab039b6da629d5d6652876ed830b6c115af14634f0faee7f25",
+          "stopping_reasons": {
+            "ceiling": 65
+          },
+          "trial_count": 65
+        }
+      },
+      "teacher_index": 4
+    },
+    {
+      "capacity": {
+        "effective_count": 16,
+        "ordinary_parameters": [
+          1693,
+          1711
+        ],
+        "ordinary_widths": [
+          94,
+          95
+        ],
+        "target_parameters": 1697
+      },
+      "costs": {
+        "aggregation": "enclosing only; all component clocks are nested",
+        "boundary": "fresh parent, shared scoring, B6 keep/loser probes, all controls, predictions and IO; excludes final pair ledger write",
+        "long_probe_ns": 205954688792,
+        "parent_ns": 14466611208,
+        "probe_ns": 141818867125,
+        "score_ns": 38462625
+      },
+      "enclosing_ns": 432383611375,
+      "long_probe_audit": {
+        "allocation_seed": 6615687185375989396,
+        "effective_count": 16,
+        "original_parent": true,
+        "parent_state_sha256": "8de7833b394ba0cb97378818cc3c6dcd8a8b91e7d31c59d178ad838d880ccac4",
+        "passed": true,
+        "score_hash": "05e32c24be3cddd3516257d75b026a7d5519bf004830ffb748a38de6822314a9",
+        "warm_row_prefix": 500
+      },
+      "original_parent_audit": {
+        "complete_state_sha256": "8de7833b394ba0cb97378818cc3c6dcd8a8b91e7d31c59d178ad838d880ccac4",
+        "old_optimizer_sha256": "2aa81b8dbf9060dd68880cfc14ef2435a6eb5a8a9a319ac77c0a42dc90bafbba",
+        "parameter_sha256": "d07c7c3eed756bad7951d32d16790480419c0ee819b086c84db78e74715a5a33",
+        "passed": true
+      },
+      "pair_artifact_hashes_verified": 1769,
+      "pair_enclosing_ns": 431877736209,
+      "pair_path": "teacher-5/repetition-0",
+      "pair_sha256": "5c39359751f1a17efe1ec1882e0b9a09f5fcf8515cac3c7a868398a1efc4d228",
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 6
+      },
+      "parent_checkpoint_sha256": "c34692ee98c0f23dc3651dc3b9cc6a595b7ef13a2ecf32f0c83193f9517e0bac",
+      "parent_run_id": "e061e19c35264c35afeca1d25542c392",
+      "repetition": 0,
+      "roles": {
+        "greedy": {
+          "enclosing_ns": 3289750250,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "greedy_long": {
+          "enclosing_ns": 3330668875,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "keep": {
+          "enclosing_ns": 2942177333,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1153
+        },
+        "ordinary_lower": {
+          "enclosing_ns": 11107513000,
+          "executed_updates": 3375,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1693
+        },
+        "ordinary_upper": {
+          "enclosing_ns": 11338127042,
+          "executed_updates": 3425,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1711
+        },
+        "random": {
+          "enclosing_ns": 3308939750,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "static_partial": {
+          "enclosing_ns": 24933772083,
+          "executed_updates": 5300,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "top": {
+          "enclosing_ns": 3267961875,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "widen_upper": {
+          "enclosing_ns": 3353518458,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1711
+        }
+      },
+      "searches": {
+        "long": {
+          "allowance": 8000,
+          "ceiling_hits": 0,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 1050,
+          "executed_updates_min": 500,
+          "executed_updates_total": 33050,
+          "mode": "patience",
+          "nanoseconds": 205930404125,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-5/repetition-0/runs/bb72b246387944b18dfb39adb770d7b9/greedy.json",
+          "sha256": "9b4487ce8350ee79afd620014ae223a387e9fe07693c3303264f8d634161819c",
+          "stopping_reasons": {
+            "patience": 65
+          },
+          "trial_count": 65
+        },
+        "short": {
+          "allowance": 320,
+          "ceiling_hits": 65,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 320,
+          "executed_updates_min": 320,
+          "executed_updates_total": 20800,
+          "mode": "fixed_updates",
+          "nanoseconds": 141796416125,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-5/repetition-0/runs/cca1521ec9ac4a5b91d0830fe438d8d7/greedy.json",
+          "sha256": "131537d2a7894eb302063a28190b436a63ba023c5b1a51939f0278a4fd16122d",
+          "stopping_reasons": {
+            "ceiling": 65
+          },
+          "trial_count": 65
+        }
+      },
+      "teacher_index": 5
+    },
+    {
+      "capacity": {
+        "effective_count": 16,
+        "ordinary_parameters": [
+          1693,
+          1711
+        ],
+        "ordinary_widths": [
+          94,
+          95
+        ],
+        "target_parameters": 1697
+      },
+      "costs": {
+        "aggregation": "enclosing only; all component clocks are nested",
+        "boundary": "fresh parent, shared scoring, B6 keep/loser probes, all controls, predictions and IO; excludes final pair ledger write",
+        "long_probe_ns": 188146537666,
+        "parent_ns": 11093140458,
+        "probe_ns": 126638116750,
+        "score_ns": 38009459
+      },
+      "enclosing_ns": 394758702417,
+      "long_probe_audit": {
+        "allocation_seed": 2040001960497652704,
+        "effective_count": 16,
+        "original_parent": true,
+        "parent_state_sha256": "4507f59e84933478a32a82e54f2110606c4df98b2e34826f76a29c03d085f9c4",
+        "passed": true,
+        "score_hash": "6b58bda5413e34d9e5655bc2c942b478c313b7bba644807d5fc2f09bdbae56a3",
+        "warm_row_prefix": 500
+      },
+      "original_parent_audit": {
+        "complete_state_sha256": "4507f59e84933478a32a82e54f2110606c4df98b2e34826f76a29c03d085f9c4",
+        "old_optimizer_sha256": "1f95394794e2258377461e42e0083ace4abda7865bd54c1f659f01a41e12d007",
+        "parameter_sha256": "793a3eccd7b4fb5a8852b172dd18a4db0aba0d9b9b73df3485ee46be179d1cbb",
+        "passed": true
+      },
+      "pair_artifact_hashes_verified": 1769,
+      "pair_enclosing_ns": 394281293125,
+      "pair_path": "teacher-5/repetition-1",
+      "pair_sha256": "cfaf8bd7043bbeaa50945d2d677b971c46fa102f989cf5172093132e1e5f5417",
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 6
+      },
+      "parent_checkpoint_sha256": "8babd919871e75a59845a37f9aa1f2a6f2de855d1b300057d034851ef0f15d00",
+      "parent_run_id": "799766d941e84ed1a34ce65ec723b381",
+      "repetition": 1,
+      "roles": {
+        "greedy": {
+          "enclosing_ns": 4035537250,
+          "executed_updates": 675,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "greedy_long": {
+          "enclosing_ns": 3991432584,
+          "executed_updates": 675,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "keep": {
+          "enclosing_ns": 2572312375,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1153
+        },
+        "ordinary_lower": {
+          "enclosing_ns": 9772530583,
+          "executed_updates": 3100,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1693
+        },
+        "ordinary_upper": {
+          "enclosing_ns": 15493884042,
+          "executed_updates": 4275,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1711
+        },
+        "random": {
+          "enclosing_ns": 3001857084,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "static_partial": {
+          "enclosing_ns": 19998864041,
+          "executed_updates": 4625,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "top": {
+          "enclosing_ns": 2944439583,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "widen_upper": {
+          "enclosing_ns": 3883518042,
+          "executed_updates": 650,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1711
+        }
+      },
+      "searches": {
+        "long": {
+          "allowance": 8000,
+          "ceiling_hits": 0,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 1450,
+          "executed_updates_min": 500,
+          "executed_updates_total": 33800,
+          "mode": "patience",
+          "nanoseconds": 188122118583,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-5/repetition-1/runs/6486708eff60493b99db260c468d7d2d/greedy.json",
+          "sha256": "bffde1ce2ecc42f331bfe1a2973817a563b2bfee65654ffa0abab137be93fbb5",
+          "stopping_reasons": {
+            "patience": 65
+          },
+          "trial_count": 65
+        },
+        "short": {
+          "allowance": 320,
+          "ceiling_hits": 65,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 320,
+          "executed_updates_min": 320,
+          "executed_updates_total": 20800,
+          "mode": "fixed_updates",
+          "nanoseconds": 126616425459,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-5/repetition-1/runs/d1a849d47fec49ca82c0a2d3fbca0385/greedy.json",
+          "sha256": "a136900ee481f5599ca101bfd3716812c4afff0665ffae938d9a5b48222deef9",
+          "stopping_reasons": {
+            "ceiling": 65
+          },
+          "trial_count": 65
+        }
+      },
+      "teacher_index": 5
+    },
+    {
+      "capacity": {
+        "effective_count": 16,
+        "ordinary_parameters": [
+          1693,
+          1711
+        ],
+        "ordinary_widths": [
+          94,
+          95
+        ],
+        "target_parameters": 1697
+      },
+      "costs": {
+        "aggregation": "enclosing only; all component clocks are nested",
+        "boundary": "fresh parent, shared scoring, B6 keep/loser probes, all controls, predictions and IO; excludes final pair ledger write",
+        "long_probe_ns": 241738783292,
+        "parent_ns": 9306775709,
+        "probe_ns": 117062730959,
+        "score_ns": 38663583
+      },
+      "enclosing_ns": 438374400084,
+      "long_probe_audit": {
+        "allocation_seed": 678288391693741146,
+        "effective_count": 16,
+        "original_parent": true,
+        "parent_state_sha256": "e00d54467fdf8a410748951246c99aa86406d71493af76f6d238ddd858971e69",
+        "passed": true,
+        "score_hash": "d8e3048f1161de2e49ab4e32deb939b7ed86bf34d687725237e2da384783ee5c",
+        "warm_row_prefix": 500
+      },
+      "original_parent_audit": {
+        "complete_state_sha256": "e00d54467fdf8a410748951246c99aa86406d71493af76f6d238ddd858971e69",
+        "old_optimizer_sha256": "0de08fa9e1a61e716f1ef3ef7d1863a0bcffd5be583b371a98b50bf6e206cec9",
+        "parameter_sha256": "a3da14d0afe37e18ee0ae8b081051f13854b18f33701de635493166940a9ed92",
+        "passed": true
+      },
+      "pair_artifact_hashes_verified": 1769,
+      "pair_enclosing_ns": 437884506709,
+      "pair_path": "teacher-6/repetition-0",
+      "pair_sha256": "150138903f98864788a710c132ce6d98e2815ac4574647b79f69f885bdb49051",
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 6
+      },
+      "parent_checkpoint_sha256": "1be7fee874f986696e70f71e4473dca3879c755b06098a70442d0f02e4444a39",
+      "parent_run_id": "1c3c836468ac416db5e261c9308b0046",
+      "repetition": 0,
+      "roles": {
+        "greedy": {
+          "enclosing_ns": 4317752042,
+          "executed_updates": 775,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "greedy_long": {
+          "enclosing_ns": 4283579500,
+          "executed_updates": 775,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "keep": {
+          "enclosing_ns": 2378274417,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1153
+        },
+        "ordinary_lower": {
+          "enclosing_ns": 20045370667,
+          "executed_updates": 5025,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1693
+        },
+        "ordinary_upper": {
+          "enclosing_ns": 14938298834,
+          "executed_updates": 4150,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1711
+        },
+        "random": {
+          "enclosing_ns": 2747317625,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "static_partial": {
+          "enclosing_ns": 11340349583,
+          "executed_updates": 3025,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "top": {
+          "enclosing_ns": 4268539250,
+          "executed_updates": 775,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "widen_upper": {
+          "enclosing_ns": 2788856959,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1711
+        }
+      },
+      "searches": {
+        "long": {
+          "allowance": 8000,
+          "ceiling_hits": 0,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 2300,
+          "executed_updates_min": 500,
+          "executed_updates_total": 47375,
+          "mode": "patience",
+          "nanoseconds": 241714639792,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-6/repetition-0/runs/84890d57081149709ba76b15bbbb4c2c/greedy.json",
+          "sha256": "5acfc69bc5a0b26df5dc3cdb6f4c1a679dd0995e5bafae9eef46f50d8c39d642",
+          "stopping_reasons": {
+            "patience": 65
+          },
+          "trial_count": 65
+        },
+        "short": {
+          "allowance": 320,
+          "ceiling_hits": 65,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 320,
+          "executed_updates_min": 320,
+          "executed_updates_total": 20800,
+          "mode": "fixed_updates",
+          "nanoseconds": 117040336291,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-6/repetition-0/runs/d985a57cdcbf4ed0a502f6e196f08ac5/greedy.json",
+          "sha256": "76a3561f997007aa5182abddfad35760700bf823cac51aef07f2cac34e22214e",
+          "stopping_reasons": {
+            "ceiling": 65
+          },
+          "trial_count": 65
+        }
+      },
+      "teacher_index": 6
+    },
+    {
+      "capacity": {
+        "effective_count": 16,
+        "ordinary_parameters": [
+          1693,
+          1711
+        ],
+        "ordinary_widths": [
+          94,
+          95
+        ],
+        "target_parameters": 1697
+      },
+      "costs": {
+        "aggregation": "enclosing only; all component clocks are nested",
+        "boundary": "fresh parent, shared scoring, B6 keep/loser probes, all controls, predictions and IO; excludes final pair ledger write",
+        "long_probe_ns": 174377058833,
+        "parent_ns": 10031403500,
+        "probe_ns": 118766394834,
+        "score_ns": 38757708
+      },
+      "enclosing_ns": 373857839875,
+      "long_probe_audit": {
+        "allocation_seed": 3128308577442517480,
+        "effective_count": 16,
+        "original_parent": true,
+        "parent_state_sha256": "d90d52d2af61fa595a6a4390b6c017a952e92b3539b573960686b3c8e33874c6",
+        "passed": true,
+        "score_hash": "e8d8ae7d7235e0af51a9d55bac8bf67ebd869bc4ac8aa5cb3d4643592caed5db",
+        "warm_row_prefix": 500
+      },
+      "original_parent_audit": {
+        "complete_state_sha256": "d90d52d2af61fa595a6a4390b6c017a952e92b3539b573960686b3c8e33874c6",
+        "old_optimizer_sha256": "dbe6618f3433389326f07aaa19fd2f6b6e737a817c8e429b81a6ffdbb7f24531",
+        "parameter_sha256": "4ad85590c66d61b5996338f18663c62c68b3da29cc3742102a3f678f266aa0e9",
+        "passed": true
+      },
+      "pair_artifact_hashes_verified": 1769,
+      "pair_enclosing_ns": 372829190792,
+      "pair_path": "teacher-6/repetition-1",
+      "pair_sha256": "cb04f1d31d7c928cc4ac2757d0187cf95c679b956c828fa45b17125973689ed6",
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 6
+      },
+      "parent_checkpoint_sha256": "567d2ffe1a30cbd2f27d92a71263ec77fed79a614ee520f8be18ad1020ee1fd9",
+      "parent_run_id": "301760f612b444079f756065d83cbb7f",
+      "repetition": 1,
+      "roles": {
+        "greedy": {
+          "enclosing_ns": 2837937709,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "greedy_long": {
+          "enclosing_ns": 2885825208,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "keep": {
+          "enclosing_ns": 2452851708,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1153
+        },
+        "ordinary_lower": {
+          "enclosing_ns": 24863591541,
+          "executed_updates": 5750,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1693
+        },
+        "ordinary_upper": {
+          "enclosing_ns": 14687047083,
+          "executed_updates": 4075,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1711
+        },
+        "random": {
+          "enclosing_ns": 2835062750,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "static_partial": {
+          "enclosing_ns": 10666904792,
+          "executed_updates": 2875,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "top": {
+          "enclosing_ns": 2857602167,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "widen_upper": {
+          "enclosing_ns": 2895821334,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1711
+        }
+      },
+      "searches": {
+        "long": {
+          "allowance": 8000,
+          "ceiling_hits": 0,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 500,
+          "executed_updates_min": 500,
+          "executed_updates_total": 32500,
+          "mode": "patience",
+          "nanoseconds": 174351368875,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-6/repetition-1/runs/287e177b2c1346c0b0cf3c5b6723e97d/greedy.json",
+          "sha256": "ec99117ae837a49b1ade567172fa8d6da5a15ec2c81ae86bfda597439286be83",
+          "stopping_reasons": {
+            "patience": 65
+          },
+          "trial_count": 65
+        },
+        "short": {
+          "allowance": 320,
+          "ceiling_hits": 65,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 320,
+          "executed_updates_min": 320,
+          "executed_updates_total": 20800,
+          "mode": "fixed_updates",
+          "nanoseconds": 118743644584,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-6/repetition-1/runs/08f29a84b18742e388a4f80d6b0e7805/greedy.json",
+          "sha256": "3f3d5786521415d26b63d49fc9a74d1f5825cdb1a760c5e890b3d78d882546cc",
+          "stopping_reasons": {
+            "ceiling": 65
+          },
+          "trial_count": 65
+        }
+      },
+      "teacher_index": 6
+    },
+    {
+      "capacity": {
+        "effective_count": 16,
+        "ordinary_parameters": [
+          1693,
+          1711
+        ],
+        "ordinary_widths": [
+          94,
+          95
+        ],
+        "target_parameters": 1697
+      },
+      "costs": {
+        "aggregation": "enclosing only; all component clocks are nested",
+        "boundary": "fresh parent, shared scoring, B6 keep/loser probes, all controls, predictions and IO; excludes final pair ledger write",
+        "long_probe_ns": 525388603708,
+        "parent_ns": 29431286959,
+        "probe_ns": 197892988750,
+        "score_ns": 38370958
+      },
+      "enclosing_ns": 848461622458,
+      "long_probe_audit": {
+        "allocation_seed": 4798053905549046577,
+        "effective_count": 16,
+        "original_parent": true,
+        "parent_state_sha256": "31da794b2cb0ee488d7f95ab3f629e6ebd0b09704328e7a9eed933544ced76ce",
+        "passed": true,
+        "score_hash": "e964305d323e384b95392ad3e99185da540f7074f2cdeb36edb9745c2a5f2d4e",
+        "warm_row_prefix": 500
+      },
+      "original_parent_audit": {
+        "complete_state_sha256": "31da794b2cb0ee488d7f95ab3f629e6ebd0b09704328e7a9eed933544ced76ce",
+        "old_optimizer_sha256": "fba81a0ab7e9ed8cd4298b1a2239c457c91306c7e89383ebc06538e46042a2af",
+        "parameter_sha256": "7e23e19483b6183ce1a90da9a185581e76b8fea280eabfd8ecd4e989403204c0",
+        "passed": true
+      },
+      "pair_artifact_hashes_verified": 1769,
+      "pair_enclosing_ns": 847784759167,
+      "pair_path": "teacher-7/repetition-0",
+      "pair_sha256": "35f15efa197acc8206bda87811c3ae26f2d9df508f1927ae10e645cdb3e3ea63",
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 6
+      },
+      "parent_checkpoint_sha256": "74d828225a4ae844ffabe1c04ddf048f9ae9ad0b9ca380d0fa189c7bfdde7895",
+      "parent_run_id": "69685569f39b4fcab920b4c611fed070",
+      "repetition": 0,
+      "roles": {
+        "greedy": {
+          "enclosing_ns": 4499410959,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "greedy_long": {
+          "enclosing_ns": 7942491458,
+          "executed_updates": 900,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "keep": {
+          "enclosing_ns": 4092883708,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1153
+        },
+        "ordinary_lower": {
+          "enclosing_ns": 25217268792,
+          "executed_updates": 5775,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1693
+        },
+        "ordinary_upper": {
+          "enclosing_ns": 21353500041,
+          "executed_updates": 5200,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1711
+        },
+        "random": {
+          "enclosing_ns": 4487175833,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "static_partial": {
+          "enclosing_ns": 15284521709,
+          "executed_updates": 3775,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "top": {
+          "enclosing_ns": 4512826083,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "widen_upper": {
+          "enclosing_ns": 4568090833,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1711
+        }
+      },
+      "searches": {
+        "long": {
+          "allowance": 8000,
+          "ceiling_hits": 0,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 2400,
+          "executed_updates_min": 500,
+          "executed_updates_total": 60325,
+          "mode": "patience",
+          "nanoseconds": 525363106208,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-7/repetition-0/runs/c0ce179a60a4479aa8d3eb4c17390d41/greedy.json",
+          "sha256": "0b68f8302f8b423f60f4382331ae5062ccd0e49c4be1cd5881747826bd4d0a60",
+          "stopping_reasons": {
+            "patience": 65
+          },
+          "trial_count": 65
+        },
+        "short": {
+          "allowance": 320,
+          "ceiling_hits": 65,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 320,
+          "executed_updates_min": 320,
+          "executed_updates_total": 20800,
+          "mode": "fixed_updates",
+          "nanoseconds": 197869615583,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-7/repetition-0/runs/2f1a902dae8443bf91e46378ef78f8a3/greedy.json",
+          "sha256": "8737b9fd2835a2e809e61dfc3fd7d78159651622bf33cbd52be4ee4afd69dada",
+          "stopping_reasons": {
+            "ceiling": 65
+          },
+          "trial_count": 65
+        }
+      },
+      "teacher_index": 7
+    },
+    {
+      "capacity": {
+        "effective_count": 16,
+        "ordinary_parameters": [
+          1693,
+          1711
+        ],
+        "ordinary_widths": [
+          94,
+          95
+        ],
+        "target_parameters": 1697
+      },
+      "costs": {
+        "aggregation": "enclosing only; all component clocks are nested",
+        "boundary": "fresh parent, shared scoring, B6 keep/loser probes, all controls, predictions and IO; excludes final pair ledger write",
+        "long_probe_ns": 363005257958,
+        "parent_ns": 12909273917,
+        "probe_ns": 132972262583,
+        "score_ns": 38415875
+      },
+      "enclosing_ns": 612362733250,
+      "long_probe_audit": {
+        "allocation_seed": 5898189316291900612,
+        "effective_count": 16,
+        "original_parent": true,
+        "parent_state_sha256": "47e856047a098068975a6757c86b4504a40eb97d89b23907c8e73bf026d0fb57",
+        "passed": true,
+        "score_hash": "c966e0a775879b4a69cad863604357367c4b9cd59bd5f9c30ea6e689c4512755",
+        "warm_row_prefix": 500
+      },
+      "original_parent_audit": {
+        "complete_state_sha256": "47e856047a098068975a6757c86b4504a40eb97d89b23907c8e73bf026d0fb57",
+        "old_optimizer_sha256": "041b260bb665d97bdbc0f8d978f47b36c13e9485f1fd3ae7e6933fc292f5ac34",
+        "parameter_sha256": "c62996aaf9ee625b5081de67f94e91146299de95188aa8c23d10c34c0710093e",
+        "passed": true
+      },
+      "pair_artifact_hashes_verified": 1769,
+      "pair_enclosing_ns": 611815358542,
+      "pair_path": "teacher-7/repetition-1",
+      "pair_sha256": "40fa2bb10a713bd7b4a0a077ed55bc6db666b4629e7544dcb5d6fee6435ff05f",
+      "pairing_audit": {
+        "common_prefix_updates": 500,
+        "early_stopping": "G strict improvement, earliest tie; common executed prefix, no unused-budget reassignment",
+        "passed": true,
+        "row_stream_representation": "SHA256 per ordered int64 row-ID minibatch; full IDs in stage events",
+        "warm_forks": 6
+      },
+      "parent_checkpoint_sha256": "9480e6ac7c24548dd9a06e8007bbcd4c091bdc80cc4f496479c2e155d1412344",
+      "parent_run_id": "3acb22cbb019426abfe4fe7720e74976",
+      "repetition": 1,
+      "roles": {
+        "greedy": {
+          "enclosing_ns": 3150252458,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "greedy_long": {
+          "enclosing_ns": 6782002666,
+          "executed_updates": 1075,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "keep": {
+          "enclosing_ns": 2779689084,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1153
+        },
+        "ordinary_lower": {
+          "enclosing_ns": 29442322917,
+          "executed_updates": 6375,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1693
+        },
+        "ordinary_upper": {
+          "enclosing_ns": 35570371292,
+          "executed_updates": 7150,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1711
+        },
+        "random": {
+          "enclosing_ns": 5643427958,
+          "executed_updates": 925,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "static_partial": {
+          "enclosing_ns": 10273449708,
+          "executed_updates": 2825,
+          "stage_count": 2,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "top": {
+          "enclosing_ns": 3135305834,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1697
+        },
+        "widen_upper": {
+          "enclosing_ns": 3217807500,
+          "executed_updates": 500,
+          "stage_count": 1,
+          "status": "completed",
+          "total_parameters": 1711
+        }
+      },
+      "searches": {
+        "long": {
+          "allowance": 8000,
+          "ceiling_hits": 0,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 3850,
+          "executed_updates_min": 500,
+          "executed_updates_total": 59725,
+          "mode": "patience",
+          "nanoseconds": 362980555417,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-7/repetition-1/runs/d4377f02298d404d8f47a86e917c2e66/greedy.json",
+          "sha256": "e955a553878f2690150d7647b884f2bc94020378f646741f2a16050f4442f16c",
+          "stopping_reasons": {
+            "patience": 65
+          },
+          "trial_count": 65
+        },
+        "short": {
+          "allowance": 320,
+          "ceiling_hits": 65,
+          "effective_count": 16,
+          "eligible_count": 64,
+          "executed_updates_max": 320,
+          "executed_updates_min": 320,
+          "executed_updates_total": 20800,
+          "mode": "fixed_updates",
+          "nanoseconds": 132950305375,
+          "outcomes": {
+            "completed": 65
+          },
+          "path": "artifacts/long-probes-20261018/cohort/teacher-7/repetition-1/runs/3fc64e059cd749c9b5f803e5ae1fef68/greedy.json",
+          "sha256": "3ba527ec27cc2b0e60e4da8ae3ea1818632d184933bf7927f5629ac53739c41f",
+          "stopping_reasons": {
+            "ceiling": 65
+          },
+          "trial_count": 65
+        }
+      },
+      "teacher_index": 7
+    }
+  ],
+  "model_load": false,
+  "pair_artifact_hashes_verified": 28304,
+  "phase": "cohort execution only; STOP before independent audit",
+  "prediction_analysis": false,
+  "provenance": {
+    "commit": "5e46ce1230256c37339714c38adfa9324167f6dd",
+    "execution": "a4514538e32df3012b07c8c9963d81a873bb901d9c5d8b2593dd82da5015b265",
+    "lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+    "receipt": "e506511d50107138c0e94b1341687c5d9ff97e2fecac5b500a0d1946d1a93f43",
+    "runtime": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+    "source": "089b03d13e1950b8e0c1ff54a147a121cf78db66acaaa2dcedd9ebf29afc3543"
+  },
+  "replay": false,
+  "resource_decision_sha256": "678183c36a2fafd6ef48be7335576d7ab559e5cde6c92920c3915f0fe6f9cbfd",
+  "resources": {
+    "available_percent_min": 64,
+    "counter_failures": [],
+    "free_disk_bytes_min": 25407696896,
+    "observation_count": 2377,
+    "peak_rss_bytes": 947650560,
+    "swapouts_max": 4786629,
+    "swapouts_min": 4786629
+  },
+  "role_counts": {
+    "greedy": 16,
+    "greedy_long": 16,
+    "keep": 16,
+    "ordinary_lower": 16,
+    "ordinary_upper": 16,
+    "random": 16,
+    "static_partial": 16,
+    "top": 16,
+    "widen_upper": 16
+  },
+  "seals_verified": 4,
+  "searches": {
+    "long": {
+      "ceiling_hits": 0,
+      "eligible_count": 1024,
+      "executed_updates": 697025,
+      "nanoseconds": 4169358958667,
+      "outcomes": {
+        "completed": 1040
+      },
+      "stopping_reasons": {
+        "patience": 1040
+      },
+      "trial_count": 1040
+    },
+    "short": {
+      "ceiling_hits": 1040,
+      "eligible_count": 1024,
+      "executed_updates": 332800,
+      "nanoseconds": 2140094312250,
+      "outcomes": {
+        "completed": 1040
+      },
+      "stopping_reasons": {
+        "ceiling": 1040
+      },
+      "trial_count": 1040
+    }
+  },
+  "source_sha256": "089b03d13e1950b8e0c1ff54a147a121cf78db66acaaa2dcedd9ebf29afc3543",
+  "status": "passed",
+  "study_lock_sha256": "35e2608e78ae56dc5c6673772729b45dd42ddba9472eb09ef43e5a2506b58c8d"
+}

@@ -1,0 +1,444 @@
+{
+  "status": "completed",
+  "failures": [],
+  "pairing": [
+    {
+      "teacher_index": 0,
+      "repetition": 0,
+      "parent_state_sha256": "8e03a04245e80cea72836dd02a42ea7917fbe8ec9bcfb7905b40e74605bf96de",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-0/repetition-0/runs/faf451c1d3e34871b5804dc8313f2fb3/checkpoints/best.json",
+      "parent_checkpoint_sha256": "8fa9f4627eadb1e13c5cd82f5f1f3062e5b3be32ee63db65bfdc04ffd8646570",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 500,
+        "greedy_long": 500,
+        "keep": 500,
+        "random": 500,
+        "top": 500,
+        "widen_upper": 500
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.03399370610713959,
+      "actual_first_losses": {
+        "greedy": 0.03399370610713959,
+        "greedy_long": 0.03399370610713959,
+        "keep": 0.03399370610713959,
+        "random": 0.03399370610713959,
+        "top": 0.03399370610713959
+      }
+    },
+    {
+      "teacher_index": 0,
+      "repetition": 1,
+      "parent_state_sha256": "377f90558a1051a4a1bfe8529468dc2bf86292f10bbde97bfd1602e2fc49bf92",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-0/repetition-1/runs/fe0aa3cbe6d24474918b645cfdd4356c/checkpoints/best.json",
+      "parent_checkpoint_sha256": "a1cbbd1b6f7d91a88aeffb5df57256133b24657d97ad9f2c196c925d984dc2f8",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 500,
+        "greedy_long": 1375,
+        "keep": 500,
+        "random": 500,
+        "top": 500,
+        "widen_upper": 500
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.029086997732520103,
+      "actual_first_losses": {
+        "greedy": 0.029086997732520103,
+        "greedy_long": 0.029086997732520103,
+        "keep": 0.029086997732520103,
+        "random": 0.029086997732520103,
+        "top": 0.029086997732520103
+      }
+    },
+    {
+      "teacher_index": 1,
+      "repetition": 0,
+      "parent_state_sha256": "2bd202d64c4509b79459c0ba929902f607065839766668a0585ace2d76b524ed",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-1/repetition-0/runs/0c4c243521f349088b59615e99f69bbc/checkpoints/best.json",
+      "parent_checkpoint_sha256": "8ba3fb2d06f2b2bfa0227ff998248c85e84ce1eb2a9979ba9fef33b65578bf28",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 500,
+        "greedy_long": 500,
+        "keep": 500,
+        "random": 500,
+        "top": 1025,
+        "widen_upper": 2325
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.021632656455039978,
+      "actual_first_losses": {
+        "greedy": 0.021632656455039978,
+        "greedy_long": 0.021632656455039978,
+        "keep": 0.021632656455039978,
+        "random": 0.021632656455039978,
+        "top": 0.021632656455039978
+      }
+    },
+    {
+      "teacher_index": 1,
+      "repetition": 1,
+      "parent_state_sha256": "de612f05678e2a77d53a9a0dc617827868da361ce011c3d91791b54fe8afb306",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-1/repetition-1/runs/17a8f080562c4826a0047e9306a6a3fc/checkpoints/best.json",
+      "parent_checkpoint_sha256": "b6038c3252a7d0d4254364ae86cde9b7196a036af33e51be9e1130717bd0158e",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 1075,
+        "greedy_long": 1225,
+        "keep": 500,
+        "random": 1075,
+        "top": 500,
+        "widen_upper": 500
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.021901089698076248,
+      "actual_first_losses": {
+        "greedy": 0.021901089698076248,
+        "greedy_long": 0.021901089698076248,
+        "keep": 0.021901089698076248,
+        "random": 0.021901089698076248,
+        "top": 0.021901089698076248
+      }
+    },
+    {
+      "teacher_index": 2,
+      "repetition": 0,
+      "parent_state_sha256": "20585592c2b39048a3a1b4b2d1faa8beddd323bca8a212cd2da35ad42ffd67d2",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-2/repetition-0/runs/721d8f42216b46259bdf127571633a0b/checkpoints/best.json",
+      "parent_checkpoint_sha256": "1f1133dc83550c255433dac5c6c63aacc29f085c24b86dbf0a0196fc3b47817d",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 575,
+        "greedy_long": 575,
+        "keep": 500,
+        "random": 500,
+        "top": 500,
+        "widen_upper": 500
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.02174028940498829,
+      "actual_first_losses": {
+        "greedy": 0.02174028940498829,
+        "greedy_long": 0.02174028940498829,
+        "keep": 0.02174028940498829,
+        "random": 0.02174028940498829,
+        "top": 0.02174028940498829
+      }
+    },
+    {
+      "teacher_index": 2,
+      "repetition": 1,
+      "parent_state_sha256": "602da58d7b30ac0bca6085a4d13153a4bae17e5a6033111477124feaa9cc823e",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-2/repetition-1/runs/fde3efc2880c47fe8667ba368ab7f23a/checkpoints/best.json",
+      "parent_checkpoint_sha256": "19fe5af6cca4d5b8e0654db4c53a3b9aaa663232563fdafafca4589ef0747b4f",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 1650,
+        "greedy_long": 1650,
+        "keep": 500,
+        "random": 500,
+        "top": 500,
+        "widen_upper": 500
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.03213638812303543,
+      "actual_first_losses": {
+        "greedy": 0.03213638812303543,
+        "greedy_long": 0.03213638812303543,
+        "keep": 0.03213638812303543,
+        "random": 0.03213638812303543,
+        "top": 0.03213638812303543
+      }
+    },
+    {
+      "teacher_index": 3,
+      "repetition": 0,
+      "parent_state_sha256": "50fc0d4dd57f553bceb4e7b89430cc350072730b2afffe77053bb9a900f074df",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-3/repetition-0/runs/e9a44d0397444a6693efabd562ea2c12/checkpoints/best.json",
+      "parent_checkpoint_sha256": "6af2bb9ff8d5f79a846b61f896ca7d6d6d90b8f6ebaa88e73c6059fa2b6140d4",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 1225,
+        "greedy_long": 1200,
+        "keep": 500,
+        "random": 1225,
+        "top": 500,
+        "widen_upper": 500
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.027138937264680862,
+      "actual_first_losses": {
+        "greedy": 0.027138937264680862,
+        "greedy_long": 0.027138937264680862,
+        "keep": 0.027138937264680862,
+        "random": 0.027138937264680862,
+        "top": 0.027138937264680862
+      }
+    },
+    {
+      "teacher_index": 3,
+      "repetition": 1,
+      "parent_state_sha256": "98609c5ee567ed59759ca813241ce171cd1f50e5d0ac55838baac2e13f428458",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-3/repetition-1/runs/d185eab9b52b48abaaf96704afed6f87/checkpoints/best.json",
+      "parent_checkpoint_sha256": "0464ab2bb836e7a79b384004785f177c78348e60716af2d2e43646fc57c6461b",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 500,
+        "greedy_long": 500,
+        "keep": 500,
+        "random": 1525,
+        "top": 500,
+        "widen_upper": 500
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.027149271219968796,
+      "actual_first_losses": {
+        "greedy": 0.027149271219968796,
+        "greedy_long": 0.027149271219968796,
+        "keep": 0.027149271219968796,
+        "random": 0.027149271219968796,
+        "top": 0.027149271219968796
+      }
+    },
+    {
+      "teacher_index": 4,
+      "repetition": 0,
+      "parent_state_sha256": "d5e94e52c4b4e40cd77b3476d2e27d33af5417548922ceedc7c3355dea0645c4",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-4/repetition-0/runs/4a1995851e8c46bd98d7dd6c7899a95f/checkpoints/best.json",
+      "parent_checkpoint_sha256": "efb9e12c77145bd27030d4893a726a9512c6530072233ffedbe174bc75f3a196",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 900,
+        "greedy_long": 900,
+        "keep": 500,
+        "random": 900,
+        "top": 925,
+        "widen_upper": 1475
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.03135138750076294,
+      "actual_first_losses": {
+        "greedy": 0.03135138750076294,
+        "greedy_long": 0.03135138750076294,
+        "keep": 0.03135138750076294,
+        "random": 0.03135138750076294,
+        "top": 0.03135138750076294
+      }
+    },
+    {
+      "teacher_index": 4,
+      "repetition": 1,
+      "parent_state_sha256": "5e4671f54087dd048b7d2dca0524b79ca690e8a3b47787a1fdb70377f4f36ff3",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-4/repetition-1/runs/ad54c804d7f4470ab2205834daeaa6eb/checkpoints/best.json",
+      "parent_checkpoint_sha256": "caf0d384051df064bac97b3069148ace46b45926a77514f656b16ffaaa9d7131",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 1250,
+        "greedy_long": 1725,
+        "keep": 500,
+        "random": 1250,
+        "top": 500,
+        "widen_upper": 500
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.028537947684526443,
+      "actual_first_losses": {
+        "greedy": 0.028537947684526443,
+        "greedy_long": 0.028537947684526443,
+        "keep": 0.028537947684526443,
+        "random": 0.028537947684526443,
+        "top": 0.028537947684526443
+      }
+    },
+    {
+      "teacher_index": 5,
+      "repetition": 0,
+      "parent_state_sha256": "8de7833b394ba0cb97378818cc3c6dcd8a8b91e7d31c59d178ad838d880ccac4",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-5/repetition-0/runs/e061e19c35264c35afeca1d25542c392/checkpoints/best.json",
+      "parent_checkpoint_sha256": "c34692ee98c0f23dc3651dc3b9cc6a595b7ef13a2ecf32f0c83193f9517e0bac",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 500,
+        "greedy_long": 500,
+        "keep": 500,
+        "random": 500,
+        "top": 500,
+        "widen_upper": 500
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.026397017762064934,
+      "actual_first_losses": {
+        "greedy": 0.026397017762064934,
+        "greedy_long": 0.026397017762064934,
+        "keep": 0.026397017762064934,
+        "random": 0.026397017762064934,
+        "top": 0.026397017762064934
+      }
+    },
+    {
+      "teacher_index": 5,
+      "repetition": 1,
+      "parent_state_sha256": "4507f59e84933478a32a82e54f2110606c4df98b2e34826f76a29c03d085f9c4",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-5/repetition-1/runs/799766d941e84ed1a34ce65ec723b381/checkpoints/best.json",
+      "parent_checkpoint_sha256": "8babd919871e75a59845a37f9aa1f2a6f2de855d1b300057d034851ef0f15d00",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 675,
+        "greedy_long": 675,
+        "keep": 500,
+        "random": 500,
+        "top": 500,
+        "widen_upper": 650
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.015329928137362003,
+      "actual_first_losses": {
+        "greedy": 0.015329928137362003,
+        "greedy_long": 0.015329928137362003,
+        "keep": 0.015329928137362003,
+        "random": 0.015329928137362003,
+        "top": 0.015329928137362003
+      }
+    },
+    {
+      "teacher_index": 6,
+      "repetition": 0,
+      "parent_state_sha256": "e00d54467fdf8a410748951246c99aa86406d71493af76f6d238ddd858971e69",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-6/repetition-0/runs/1c3c836468ac416db5e261c9308b0046/checkpoints/best.json",
+      "parent_checkpoint_sha256": "1be7fee874f986696e70f71e4473dca3879c755b06098a70442d0f02e4444a39",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 775,
+        "greedy_long": 775,
+        "keep": 500,
+        "random": 500,
+        "top": 775,
+        "widen_upper": 500
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.04446350038051605,
+      "actual_first_losses": {
+        "greedy": 0.04446350038051605,
+        "greedy_long": 0.04446350038051605,
+        "keep": 0.04446350038051605,
+        "random": 0.04446350038051605,
+        "top": 0.04446350038051605
+      }
+    },
+    {
+      "teacher_index": 6,
+      "repetition": 1,
+      "parent_state_sha256": "d90d52d2af61fa595a6a4390b6c017a952e92b3539b573960686b3c8e33874c6",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-6/repetition-1/runs/301760f612b444079f756065d83cbb7f/checkpoints/best.json",
+      "parent_checkpoint_sha256": "567d2ffe1a30cbd2f27d92a71263ec77fed79a614ee520f8be18ad1020ee1fd9",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 500,
+        "greedy_long": 500,
+        "keep": 500,
+        "random": 500,
+        "top": 500,
+        "widen_upper": 500
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.0646480917930603,
+      "actual_first_losses": {
+        "greedy": 0.0646480917930603,
+        "greedy_long": 0.0646480917930603,
+        "keep": 0.0646480917930603,
+        "random": 0.0646480917930603,
+        "top": 0.0646480917930603
+      }
+    },
+    {
+      "teacher_index": 7,
+      "repetition": 0,
+      "parent_state_sha256": "31da794b2cb0ee488d7f95ab3f629e6ebd0b09704328e7a9eed933544ced76ce",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-7/repetition-0/runs/69685569f39b4fcab920b4c611fed070/checkpoints/best.json",
+      "parent_checkpoint_sha256": "74d828225a4ae844ffabe1c04ddf048f9ae9ad0b9ca380d0fa189c7bfdde7895",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 500,
+        "greedy_long": 900,
+        "keep": 500,
+        "random": 500,
+        "top": 500,
+        "widen_upper": 500
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.002419769298285246,
+      "actual_first_losses": {
+        "greedy": 0.002419769298285246,
+        "greedy_long": 0.002419769298285246,
+        "keep": 0.002419769298285246,
+        "random": 0.002419769298285246,
+        "top": 0.002419769298285246
+      }
+    },
+    {
+      "teacher_index": 7,
+      "repetition": 1,
+      "parent_state_sha256": "47e856047a098068975a6757c86b4504a40eb97d89b23907c8e73bf026d0fb57",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-7/repetition-1/runs/3acb22cbb019426abfe4fe7720e74976/checkpoints/best.json",
+      "parent_checkpoint_sha256": "9480e6ac7c24548dd9a06e8007bbcd4c091bdc80cc4f496479c2e155d1412344",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 500,
+        "greedy_long": 1075,
+        "keep": 500,
+        "random": 925,
+        "top": 500,
+        "widen_upper": 500
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.015603577718138695,
+      "actual_first_losses": {
+        "greedy": 0.015603577718138695,
+        "greedy_long": 0.015603577718138695,
+        "keep": 0.015603577718138695,
+        "random": 0.015603577718138695,
+        "top": 0.015603577718138695
+      }
+    }
+  ],
+  "maximum_numeric_difference": 0.0,
+  "comparison_values": 760,
+  "renderings": [
+    {
+      "path": "artifacts/long-probes-20261018/audit/report-1.md",
+      "sha256": "9baa18c96a55a0023adf469984b8f5bebf948d1985a73675fbde115dc5e5335b",
+      "bytes": 246328,
+      "elapsed_ns": 40020782042
+    },
+    {
+      "path": "artifacts/long-probes-20261018/audit/report-2.md",
+      "sha256": "9baa18c96a55a0023adf469984b8f5bebf948d1985a73675fbde115dc5e5335b",
+      "bytes": 246328,
+      "elapsed_ns": 40144099292
+    }
+  ],
+  "analyze_ns": 40053034958,
+  "report_bytes_identical": true,
+  "analysis_sha256": "c78b287708a3e3226dee3a6b8f556b111202f6a1dc36d776b30d5dbeb64b49c0",
+  "elapsed_ns": 124495500875,
+  "peak_rss_bytes": 1293041664,
+  "script_sha256": "d83c32a543cefc1603407369b26c7fce4e260b1f438038b99b894b20e172507c"
+}

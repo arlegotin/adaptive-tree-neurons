@@ -729,3 +729,54 @@ visible; no numerical retry or old-artifact rewrite occurred.
 Proceed serially with the complete fixed cohort under the committed source,
 then independently audit raw predictions and replay/restoration. Do not choose
 continuation, counts or exclusions from intermediate results.
+## D031 — 18 October 2026: audited longer-search diagnostic; narrow allocation claim
+
+The fixed fresh cohort completed all eight independent teachers/R2, all 144
+final role instances and both exhaustive searches per pair, with zero numerical
+failures or retries. All 1,040 short trials reached320; all 1,040 long trials
+ended by normal patience with no8000 ceiling hits. The complete outer workload
+took7804.403474250s, retained11496978848 logical bytes and peaked at947650560B
+RSS. Nested short/extra-long search clocks are2140.461725334s/4169.761685458s;
+they are not added to enclosing time. The prospectively committed cost/resource
+gate was respected. [Cohort evidence](audit/diagnostics/2026-10-18-long-probes/cohort/index.json)
+retains the entire file-hash inventory and original invocation/observations.
+
+Independent prediction arithmetic agrees exactly with760 reviewed-analysis
+values. Original F/G/E identities, F population variance and all144 model risks
+were verified; repetitions are averaged within teacher. The prospectively fixed
+first pair replays both rankings exactly:130 trials/53300 raw updates/2275 G
+evaluations/133 complete states, including an actual long-last restore. All96
+warm forks bind the original parent and raw shared minibatch prefix. The
+[independent audit](audit/diagnostics/2026-10-18-long-probes/reproduction/index.json)
+preserves two checker failures/corrections and their overhead; completed fits
+were retained, with no numerical retry. Root independently rehashed the full
+cost/cohort/audit inventories, held execution source and four historical files.
+
+The [unchanged generated report](reports/long-probe-diagnostic.md) matches both
+independent renders, SHA256
+`9baa18c96a55a0023adf469984b8f5bebf948d1985a73675fbde115dc5e5335b`.
+Its internal retained-byte count precedes the final486-byte publication tail;
+the external inventory/timer retains the complete boundary. No source/config
+changes occurred during cost, cohort or audit execution.
+
+Long selection averages normalized E MSE0.0633780485 versus random0.0638495407
+and short selection0.0631248538. Random minus long is+0.0004714922, descriptive
+whole-teacher bootstrap95% interval[−0.0010365806,+0.0022851931], with3 positive
+and5 negative teacher means. Short minus long is−0.0002531947. Cheap-score
+placement again has no clear advantage. Long selection compares favorably with
+the fresh ordinary upper bracket, but warm ordinary widening remains close;
+this does not establish general or practical architectural superiority.
+
+Decision: **narrow the current allocation claim**. Longer search did not reveal
+a clear placement advantage worth its extra cost in this fixed recipe. This is
+an exploratory inconclusive result, not equivalence, a powered negative result,
+nominal-coverage assurance or priority claim. The
+[plain-language result](docs/research/2026-10-18-long-probe-diagnostic.md) explains
+the next possible timing question without authorizing another study. No depth,
+new score, transfer or automatic cohort is triggered. Canonical variance/runtime
+calibration, accepted confirmation counts, true freeze, independent confirmation
+and strong practical comparisons remain unmet. Old pilot/report bytes and all
+eighteen historical rulings remain unchanged. The only new controller ruling is
+D030's Python timing-wrapper recovery and its missing supplementary OS counters.
+The focused plan is complete after publication verification and its local commit;
+the larger original evidence program is not complete. Work stays on main.

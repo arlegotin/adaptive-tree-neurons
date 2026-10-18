@@ -1,0 +1,275 @@
+{
+  "accepted_at_commit": "839590310619a1836c47cc606a16f055abb18cab",
+  "files": {
+    "configs/diagnostics/long-probes-base.json": {
+      "bytes": 1248,
+      "sha256": "363eeb3ddf22481c6ef2582999f110f903488297062b64db5452cac62d7ec9fa"
+    },
+    "protocol/diagnostics/2026-10-18-long-probes.json": {
+      "bytes": 864,
+      "sha256": "5599ce337e61c0866ef2401a6f247856c6f66b601b485c8fd3b0fdbf1c5a7822"
+    },
+    "pyproject.toml": {
+      "bytes": 475,
+      "sha256": "9db6a7de6550ac1745f3e1e8b5018e72c75de246b147b76d031c7939bc4c62ee"
+    },
+    "src/treeneuron/__init__.py": {
+      "bytes": 44,
+      "sha256": "42187d0f94666d3f66c45955c637feb99792a76216ea849e27d8f4cb61194b69"
+    },
+    "src/treeneuron/analysis/audit.py": {
+      "bytes": 38807,
+      "sha256": "ddbfd3f5453169e425335394e0ab3493216db54bf50936e6b308ad001a516d29"
+    },
+    "src/treeneuron/analysis/exploratory.py": {
+      "bytes": 5493,
+      "sha256": "59bc0b81f4d342462b04f6475a0c4fe397afbe58025011a70a534b974d5d5867"
+    },
+    "src/treeneuron/analysis/primary.py": {
+      "bytes": 16784,
+      "sha256": "78ed345b2aa67984b6b0fde365537de1fd9b162e7c0ac2150ae2b3717143469d"
+    },
+    "src/treeneuron/analysis/report.py": {
+      "bytes": 3456,
+      "sha256": "6978c61910ab98df827106104d9b43e952c5e16255eb0c00229c2e8001eec779"
+    },
+    "src/treeneuron/archive_binding.py": {
+      "bytes": 5231,
+      "sha256": "189e3f502641122c6f9eaf8b463d4304da64cff99107d7e9669929460d21f6fe"
+    },
+    "src/treeneuron/artifacts.py": {
+      "bytes": 19471,
+      "sha256": "f98992545edef47249a74efde46a65ea8464b369cce35668ff576352c30101c0"
+    },
+    "src/treeneuron/backend.py": {
+      "bytes": 32457,
+      "sha256": "87d3e0ad8feca8bba6a4c0f2c83c930f991bd87950e8ba6128d4dcabe01c7120"
+    },
+    "src/treeneuron/baselines/__init__.py": {
+      "bytes": 33,
+      "sha256": "ecbfd42ce0da47f7604fc2f5a493faee2af45101031201dd9734440dbc54f6c7"
+    },
+    "src/treeneuron/baselines/_node_vendor/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/treeneuron/baselines/_node_vendor/arch.py": {
+      "bytes": 1642,
+      "sha256": "02f9d08cfadc96b3d77c04dbe6720be7a5e165892949944c366439c018e50541"
+    },
+    "src/treeneuron/baselines/_node_vendor/nn_utils.py": {
+      "bytes": 7443,
+      "sha256": "91fcac1db376552fef6ec9555cbfefbe468036d8a7d1e1d836d8d5aca8d52a4a"
+    },
+    "src/treeneuron/baselines/_node_vendor/odst.py": {
+      "bytes": 8041,
+      "sha256": "878fa48cbf3c319dc9909400efe0ed601dae180754ae30997aaf14c94e59b81b"
+    },
+    "src/treeneuron/baselines/_node_vendor/param_conv.py": {
+      "bytes": 2082,
+      "sha256": "520925a24cdf861fbf9129eda0892e5f2294cd111c968bc0c4d67a04c96efaf4"
+    },
+    "src/treeneuron/baselines/_node_vendor/qhadam.py": {
+      "bytes": 7509,
+      "sha256": "10acd3bd21c5ae7cae70138f981e1e8485ed40c34275354ee1a4dbacb123047d"
+    },
+    "src/treeneuron/baselines/_node_vendor/utils.py": {
+      "bytes": 242,
+      "sha256": "d4f70f6ce070ed1eb26c0bfb90f73d1ef472bd08972bbf0c6b5962af5faef1fa"
+    },
+    "src/treeneuron/baselines/api.py": {
+      "bytes": 664,
+      "sha256": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1"
+    },
+    "src/treeneuron/baselines/causal.py": {
+      "bytes": 20862,
+      "sha256": "48aeb29e469eba8940eb5e8120b398006468147780573c78473a6e084c9991f6"
+    },
+    "src/treeneuron/baselines/causal_checks.py": {
+      "bytes": 11066,
+      "sha256": "68ef90bc4ed32fbd2b86d4855dad0ac4817704639092d12ef6469eec806a7a32"
+    },
+    "src/treeneuron/baselines/causal_evidence.py": {
+      "bytes": 19235,
+      "sha256": "1d773e861bf229720187b7067c3d8d8fcc0e2083b39c4691df9666b04b30065a"
+    },
+    "src/treeneuron/baselines/greedy.py": {
+      "bytes": 17006,
+      "sha256": "f957ef85474e66660f3dad15d1a18d2a89a04a5ba1d276e283a03150298d6190"
+    },
+    "src/treeneuron/baselines/node.py": {
+      "bytes": 17510,
+      "sha256": "08eeb3ee024443b4ad9a3e7807f960b85bd9a844155e6c57e52898f0f23735c5"
+    },
+    "src/treeneuron/baselines/node_checks.py": {
+      "bytes": 4345,
+      "sha256": "9654c778dd5d2138baddd926c7d23b98bc00f07d9ccebe090ba8dacfbf2ddae8"
+    },
+    "src/treeneuron/baselines/node_worker.py": {
+      "bytes": 2836,
+      "sha256": "23992e8036506ca9813bf192d77776485388b4ef34b9dccc410c4c1b26d93875"
+    },
+    "src/treeneuron/baselines/registry.py": {
+      "bytes": 5094,
+      "sha256": "078c55d9ebc3211568706e566ec8323f1d49c3f87611cb5109242d89ace79b8a"
+    },
+    "src/treeneuron/baselines/simple.py": {
+      "bytes": 11686,
+      "sha256": "98301d76ed141c6d8685ef4152796c8f159f1233eee082f9666997c8e1f7393d"
+    },
+    "src/treeneuron/checkpoint.py": {
+      "bytes": 9789,
+      "sha256": "7a2061b48245efb9158274edf0be68e77d418e3394fc2751f173c6253e633606"
+    },
+    "src/treeneuron/cli.py": {
+      "bytes": 11181,
+      "sha256": "27d4c9a06af6bb3371ff0b27c32542407adc8df1fc438897e3b1d3264bab5592"
+    },
+    "src/treeneuron/config.py": {
+      "bytes": 16000,
+      "sha256": "11b45cdb70442232686218dbf49eacd20b5ff521b67b72b2bb1ec657424d1a3a"
+    },
+    "src/treeneuron/cpu_envelope.py": {
+      "bytes": 15940,
+      "sha256": "0579de57a6600e23c84d747d3e23729cc55345a651ed96bb4a7fbc3887d33845"
+    },
+    "src/treeneuron/data/controls.py": {
+      "bytes": 18324,
+      "sha256": "1af8cfc407264c94c6f1e96c074ac1ea7b85733c55f61dc745f7481947f2f5a2"
+    },
+    "src/treeneuron/data/synthetic.py": {
+      "bytes": 17804,
+      "sha256": "980b91841713263117ae6a90a28617682a4f7e69d61e42e28bc071f9973084e3"
+    },
+    "src/treeneuron/data/transforms.py": {
+      "bytes": 11634,
+      "sha256": "aa18154ffc816741f5386dc176a39526d719820f95929b10c9a111d63d694e93"
+    },
+    "src/treeneuron/data/types.py": {
+      "bytes": 8257,
+      "sha256": "0e37b3aa2f5a35f6efe54a4cdb54adcf2e43b5216333fd96df1287362054c148"
+    },
+    "src/treeneuron/doctor.py": {
+      "bytes": 7882,
+      "sha256": "88d810ac8ee99ed8c46e5531066fa2b5df15218b3d3b0a423bb728919f4e63a7"
+    },
+    "src/treeneuron/evaluation/__init__.py": {
+      "bytes": 40,
+      "sha256": "7c3c6e552a13f52260f5e4e578fbda545adf10bf2f2ff38d0b1f03b867dd9d94"
+    },
+    "src/treeneuron/evaluation/confirm.py": {
+      "bytes": 21425,
+      "sha256": "020828b970acc0ce289d0b4ecb5ac031a365d050cddcc562f34d7196165af24a"
+    },
+    "src/treeneuron/evaluation/metrics.py": {
+      "bytes": 3417,
+      "sha256": "de7c1869d80ea4117af1531d3ea9b90d14fcb06b01e9a363d8d658bd90555b5c"
+    },
+    "src/treeneuron/evaluation/protected.py": {
+      "bytes": 17397,
+      "sha256": "793ecf7b7e98b8f8b501cf92eec1661b942f45a8344015a41059deac3de5135d"
+    },
+    "src/treeneuron/evaluation/search.py": {
+      "bytes": 27537,
+      "sha256": "afe4516b56d19731b0b2cadc20f9a02343b6a0c3705e08cf4ae322fc1d410677"
+    },
+    "src/treeneuron/evaluation/search_worker.py": {
+      "bytes": 11319,
+      "sha256": "fad1105a6482ab47dd9c6a6803d207d88ae3cb0557b74ac584de7bd2cb91644f"
+    },
+    "src/treeneuron/evaluation/timing.py": {
+      "bytes": 30545,
+      "sha256": "e9eee1b69156c95de21898ef6fe480c1ccdc4ee726977cc54454846764023120"
+    },
+    "src/treeneuron/evaluation/timing_worker.py": {
+      "bytes": 2700,
+      "sha256": "6b305fc54126b1ddde273c253f7da9746e2f1ac9cf5d869e161a5a73a0eda8a1"
+    },
+    "src/treeneuron/experiments/paired.py": {
+      "bytes": 37460,
+      "sha256": "3d5ffe24d89db5b8ee81e209b37b22a10dc6243c8c02d92515078bbe6556adac"
+    },
+    "src/treeneuron/growth/__init__.py": {
+      "bytes": 54,
+      "sha256": "803388d6ccc22fd4b337c7ae4f8e6eca474b32f26fe94457db423aca062df5a3"
+    },
+    "src/treeneuron/growth/allocate.py": {
+      "bytes": 3747,
+      "sha256": "6b5e4456ea5d23dd3175a4bd9b102b3718e0f6e42efae383a6131e05c61c2a85"
+    },
+    "src/treeneuron/growth/insert.py": {
+      "bytes": 13940,
+      "sha256": "f1cf3813515669a7e9f996096b5f100e3b7c092ab14d256476e3d9292adae7cf"
+    },
+    "src/treeneuron/growth/score.py": {
+      "bytes": 12444,
+      "sha256": "096ec384a63aad0bc4c48718e37cffe89f666ddc779b305a9acb5ec33891b22a"
+    },
+    "src/treeneuron/growth/types.py": {
+      "bytes": 2635,
+      "sha256": "9d0305c4fbe42d36366424a52c3ed67316d3d0727daa3a2c28a10f1113f2cb50"
+    },
+    "src/treeneuron/layer_checks.py": {
+      "bytes": 5707,
+      "sha256": "c342d27db7c007ecd9d6e5533eb0437494a8c10ba94af6627a3eb652809c049a"
+    },
+    "src/treeneuron/locators.py": {
+      "bytes": 1923,
+      "sha256": "185b67071c460f3bc75a8ee786c08187168b432a76dc43193d85adb84ae4893c"
+    },
+    "src/treeneuron/models/__init__.py": {
+      "bytes": 31,
+      "sha256": "b08a9f1de4a2ffb68e0c654080a2095c737a1e93fccc6c39d9ad926d404c36e3"
+    },
+    "src/treeneuron/models/static.py": {
+      "bytes": 2717,
+      "sha256": "83e8b2b7b5405b8b9285b91e8ad9b8c63134dda077ac7096ffbe5095bed8b428"
+    },
+    "src/treeneuron/models/units.py": {
+      "bytes": 6122,
+      "sha256": "15a97c20c5dec6856e2918c8a2bd4832e3bd9d17448b7cbdec255468733765e3"
+    },
+    "src/treeneuron/models/widened.py": {
+      "bytes": 2291,
+      "sha256": "c75e86da320a1ab9d7daca8c827f5d55e5471896a4e82fc5a24aedd0469d98ba"
+    },
+    "src/treeneuron/pilot/__init__.py": {
+      "bytes": 81,
+      "sha256": "d19d0a8a98a66b70ef8bee4a82dfc6bd68a5a5f2b6011ca0c425261549a2de07"
+    },
+    "src/treeneuron/pilot/calibrate.py": {
+      "bytes": 29348,
+      "sha256": "02a8ad25a93b42eea20e4c541d66fbe4b873d4e256fe0dd581978783798e487c"
+    },
+    "src/treeneuron/pilot/design.py": {
+      "bytes": 26303,
+      "sha256": "0c61e83d1e986433953270225833843ce236061582d4cfc6dd329d3580eb842e"
+    },
+    "src/treeneuron/pilot/probe_diagnostic.py": {
+      "bytes": 37018,
+      "sha256": "2d8b3203b57c89fa7fe2f4d43f15f8d4a45dd60e38062ff6f06e77b7d8cf932e"
+    },
+    "src/treeneuron/protocol.py": {
+      "bytes": 49192,
+      "sha256": "84688c1806176f52a9fad1eab82adf356e661b4fdcd2dd2d2f31eaa9ab0f2b9b"
+    },
+    "src/treeneuron/score_checks.py": {
+      "bytes": 4636,
+      "sha256": "65df787589e59cc1d093832afa8a2a43becb85fa5f9397ff5c744cad69c3c913"
+    },
+    "src/treeneuron/train.py": {
+      "bytes": 54348,
+      "sha256": "b17a6f836cc53822a5f6d9713e6525389ba95dc9af2bf7e4fadbd582fa4abc68"
+    },
+    "src/treeneuron/verification.py": {
+      "bytes": 10565,
+      "sha256": "2e4362859516cc531ca3ca6091ff8c3228a3b862cc606636bee8fe08da11f0c5"
+    },
+    "uv.lock": {
+      "bytes": 57066,
+      "sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5"
+    }
+  },
+  "implementation_commit": "b2a993721b85aa559fd5b3d89fa80a33a93892a0",
+  "package_source_sha256": "089b03d13e1950b8e0c1ff54a147a121cf78db66acaaa2dcedd9ebf29afc3543"
+}

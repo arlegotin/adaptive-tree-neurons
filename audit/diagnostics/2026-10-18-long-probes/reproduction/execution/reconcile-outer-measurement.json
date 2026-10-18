@@ -1,0 +1,32 @@
+{
+  "returncode": 1,
+  "started_utc": "2026-10-18T02:55:40.901663+00:00",
+  "outer_elapsed_ns": 3103304709,
+  "usage_before": {
+    "ru_utime": 0.0,
+    "ru_stime": 0.0,
+    "ru_maxrss": 0,
+    "ru_minflt": 0,
+    "ru_majflt": 0,
+    "ru_inblock": 0,
+    "ru_oublock": 0,
+    "ru_nvcsw": 0,
+    "ru_nivcsw": 0
+  },
+  "usage_after": {
+    "ru_utime": 2.686532,
+    "ru_stime": 0.310326,
+    "ru_maxrss": 469303296,
+    "ru_minflt": 65629,
+    "ru_majflt": 37,
+    "ru_inblock": 0,
+    "ru_oublock": 0,
+    "ru_nvcsw": 298,
+    "ru_nivcsw": 209
+  },
+  "peak_child_rss_bytes": 469303296,
+  "free_disk_before": 24737918976,
+  "free_disk_after": 24737894400,
+  "boundary": "perf_counter_ns before fresh interpreter Popen through wait completion; analysis and two report publications included",
+  "automatic_retries": 0
+}

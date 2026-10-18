@@ -1,0 +1,37 @@
+{
+  "automatic_numerical_retries": 0,
+  "exact_complete_states": 133,
+  "exact_replayed_rankings": 2,
+  "exact_replayed_trials": 130,
+  "independent_and_production_results_reconciled": true,
+  "inventory_checks": [
+    {
+      "bytes": 745280545,
+      "files": 1791,
+      "path": "environment/long-probes-20261018/cost-only-inventory.json",
+      "sha256": "7fa40d085658dadd9d25904e6fcf911f5979209f5cf09b096094d4bc44cff2e8"
+    },
+    {
+      "bytes": 11498051579,
+      "files": 28359,
+      "path": "environment/long-probes-20261018/cohort-inventory.json",
+      "sha256": "900b5cfeaa6d3d67cc12a7b895506fea6951c83bed76e79b195921a5cf79a5fd"
+    },
+    {
+      "bytes": 737913084,
+      "files": 1621,
+      "path": "environment/long-probes-20261018/audit/inventory.json",
+      "sha256": "01a1120864a0fd2fb4ceae26cd41a1918719d58b8e2c39b807c06941c114e916"
+    },
+    {
+      "held_source_and_historical_files": true
+    }
+  ],
+  "new_efficacy_units": 0,
+  "original_and_audit_hashes_sizes_seals_exact": true,
+  "read_only_verification_ns": 21633608125,
+  "renderings_identical": true,
+  "report_sha256": "9baa18c96a55a0023adf469984b8f5bebf948d1985a73675fbde115dc5e5335b",
+  "source_and_history_unchanged": true,
+  "status": "passed"
+}

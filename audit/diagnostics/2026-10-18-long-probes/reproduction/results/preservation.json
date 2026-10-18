@@ -1,0 +1,27 @@
+{
+  "elapsed_ns": 21090844500,
+  "failures": [],
+  "final_resources": {
+    "free_disk_bytes": 24732803072,
+    "memory_pressure": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 68%\n"
+    },
+    "vm_stat": {
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5758.\nPages active:                                 595255.\nPages inactive:                               908494.\nPages speculative:                             59471.\nPages throttled:                                   0.\nPages wired down:                             196428.\nPages purgeable:                                9235.\n\"Translation faults\":                     6163057887.\nPages copy-on-write:                       499576549.\nPages zero filled:                        5693052925.\nPages reactivated:                         149761112.\nPages purged:                               46779143.\nFile-backed pages:                            901938.\nAnonymous pages:                              661282.\nPages stored in compressor:                  1150414.\nPages occupied by compressor:                 534784.\nDecompressions:                            159993961.\nCompressions:                              209207687.\nPageins:                                   159062508.\nPageouts:                                     693259.\nSwapins:                                     2864913.\nSwapouts:                                    4786629.\n"
+    }
+  },
+  "held_HEAD": "5e46ce1230256c37339714c38adfa9324167f6dd",
+  "only_derived_analysis_added": true,
+  "original_cohort_bytes_verified": 11498051579,
+  "original_cohort_inventory_files_verified": 28359,
+  "peak_rss_bytes": 61308928,
+  "prior_cost_evidence_unchanged": 1804,
+  "script_sha256": "cfa1dfcc9ff6eb3df8e220a2396b3244ad2408bdc6b142274e2fe8a10b735832",
+  "source_sha256": "089b03d13e1950b8e0c1ff54a147a121cf78db66acaaa2dcedd9ebf29afc3543",
+  "status": "completed",
+  "tracked_files_unchanged": 1212
+}

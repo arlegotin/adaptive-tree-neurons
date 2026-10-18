@@ -1,0 +1,80 @@
+{
+  "status": "failed",
+  "failures": [
+    "Traceback (most recent call last):\n  File \"/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/long-probes-20261018/audit/replay.py\", line 77, in <module>\n    compare(load(original_path.parent/'parent.json'),load(p.directory/'parent.json'),mode+'/parent',data)\n  File \"/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/long-probes-20261018/audit/replay.py\", line 54, in compare\n    report['comparisons'].append({'name':label,'exact':True,'maximum_numeric_difference':0,'update':a.update,'epoch':a.epoch,'cursor':a.cursor,'next_row_ids_sha256':array_hash(a.next_row_ids(data.F)),'G_predictions_sha256':array_hash(a.predict(data.G.X)),'tensor_groups':list(x['tensors']),'metadata_fields':list(x['metadata']),'history_original_sha256':canonical_hash(a.history),'history_replay_sha256':canonical_hash(b.history),'history_normalization':'Only checkpoint.sha256 run-dependent descriptor locator; complete ordered update IDs commitments/losses/evaluations unchanged.'});save()\n                                                                                                                                                                                                                                                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/config.py\", line 186, in canonical_hash\n    return hashlib.sha256(canonical_json(value).encode(\"utf-8\")).hexdigest()\n                          ^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/config.py\", line 180, in canonical_json\n    raise ValueError(\"Expected a mapping\")\nValueError: Expected a mapping\n"
+  ],
+  "comparisons": [],
+  "checkpoint_inputs": [
+    {
+      "path": "artifacts/long-probes-20261018/cohort/teacher-0/repetition-0/runs/faf451c1d3e34871b5804dc8313f2fb3/checkpoints/best.json",
+      "sha256": "8fa9f4627eadb1e13c5cd82f5f1f3062e5b3be32ee63db65bfdc04ffd8646570",
+      "bytes": 164
+    },
+    {
+      "path": "artifacts/long-probes-20261018/cohort/teacher-0/repetition-0/runs/faf451c1d3e34871b5804dc8313f2fb3/checkpoints/checkpoint-09182a8df330412fb08e29acec9d0091.meta.json",
+      "sha256": "e0d2133886d33414c0c5433fdc612d5f76b40680cde95bb67887565892020a2f",
+      "bytes": 2043816
+    },
+    {
+      "path": "artifacts/long-probes-20261018/cohort/teacher-0/repetition-0/runs/faf451c1d3e34871b5804dc8313f2fb3/checkpoints/checkpoint-09182a8df330412fb08e29acec9d0091.pt",
+      "sha256": "8d3f6be6eb3d901654c15fddea58c807525efdfe8ce1f67a1e55507b7e68b8b2",
+      "bytes": 58020
+    },
+    {
+      "path": "artifacts/long-probes-20261018/cohort/teacher-0/repetition-0/runs/faf451c1d3e34871b5804dc8313f2fb3/checkpoints/best.json",
+      "sha256": "8fa9f4627eadb1e13c5cd82f5f1f3062e5b3be32ee63db65bfdc04ffd8646570",
+      "bytes": 164
+    },
+    {
+      "path": "artifacts/long-probes-20261018/cohort/teacher-0/repetition-0/runs/faf451c1d3e34871b5804dc8313f2fb3/checkpoints/checkpoint-09182a8df330412fb08e29acec9d0091.meta.json",
+      "sha256": "e0d2133886d33414c0c5433fdc612d5f76b40680cde95bb67887565892020a2f",
+      "bytes": 2043816
+    },
+    {
+      "path": "artifacts/long-probes-20261018/cohort/teacher-0/repetition-0/runs/faf451c1d3e34871b5804dc8313f2fb3/checkpoints/checkpoint-09182a8df330412fb08e29acec9d0091.pt",
+      "sha256": "8d3f6be6eb3d901654c15fddea58c807525efdfe8ce1f67a1e55507b7e68b8b2",
+      "bytes": 58020
+    },
+    {
+      "path": "artifacts/long-probes-20261018/cohort/teacher-0/repetition-0/runs/9d5e71b973854cf29b2d7c9692711a80/parent.json",
+      "sha256": "1e8f1e49c85f043113bf595cdbf7519f71d12f6c508b3f0d3ac949c56fb77f30",
+      "bytes": 164
+    },
+    {
+      "path": "artifacts/long-probes-20261018/cohort/teacher-0/repetition-0/runs/9d5e71b973854cf29b2d7c9692711a80/checkpoint-b7923e21f5f94247b48ebf29c1a7560f.meta.json",
+      "sha256": "58e9c5c5b63d68441231244a231cfd0a8af0e7c420afa334a5cde789ff367fcd",
+      "bytes": 2043816
+    },
+    {
+      "path": "artifacts/long-probes-20261018/cohort/teacher-0/repetition-0/runs/9d5e71b973854cf29b2d7c9692711a80/checkpoint-b7923e21f5f94247b48ebf29c1a7560f.pt",
+      "sha256": "8d3f6be6eb3d901654c15fddea58c807525efdfe8ce1f67a1e55507b7e68b8b2",
+      "bytes": 58020
+    },
+    {
+      "path": "artifacts/long-probes-20261018/audit/ranking-replays/38b5ceacf970458687c1fe51761cb027/parent.json",
+      "sha256": "a8a6530bc49b9c241baea38e611459310c41a56ce29486855ac66568aafd3932",
+      "bytes": 164
+    },
+    {
+      "path": "artifacts/long-probes-20261018/audit/ranking-replays/38b5ceacf970458687c1fe51761cb027/checkpoint-f7878b7a004d4865aa4258666462aa48.meta.json",
+      "sha256": "cd4b3ff4f707c5e064bc839582b190f4cbf38722aa909296a246ca9a2a723100",
+      "bytes": 2043816
+    },
+    {
+      "path": "artifacts/long-probes-20261018/audit/ranking-replays/38b5ceacf970458687c1fe51761cb027/checkpoint-f7878b7a004d4865aa4258666462aa48.pt",
+      "sha256": "c747744621ec06256cfd8606f18f578f58e4c8f6c86d0efa10b0e2adc1a34030",
+      "bytes": 58084
+    }
+  ],
+  "locator_normalization": [],
+  "replayed_rankings": [],
+  "original_parent": {
+    "path": "artifacts/long-probes-20261018/cohort/teacher-0/repetition-0/runs/faf451c1d3e34871b5804dc8313f2fb3/checkpoints/best.json",
+    "sha256": "8fa9f4627eadb1e13c5cd82f5f1f3062e5b3be32ee63db65bfdc04ffd8646570",
+    "complete_state_sha256": "8e03a04245e80cea72836dd02a42ea7917fbe8ec9bcfb7905b40e74605bf96de",
+    "update": 5900
+  },
+  "elapsed_ns": 179029360917,
+  "peak_rss_bytes": 735379456,
+  "script_sha256": "7f4465d4ef417723d69570d3df0d362cbb9d93113aae38dfe8f844852ef5192f"
+}

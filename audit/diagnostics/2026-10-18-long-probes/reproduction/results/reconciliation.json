@@ -1,0 +1,196 @@
+{
+  "status": "failed",
+  "failures": [
+    "Traceback (most recent call last):\n  File \"/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/long-probes-20261018/audit/reconcile.py\", line 56, in <module>\n    first=next(v for v in ev if v['type']=='update');assert first['row_ids']==F_rows[batch_indices.numpy()].tolist();assert first['loss_standardized_mse']==expected_first_loss,(role,first['loss_standardized_mse'],expected_first_loss);first_losses[role]=first['loss_standardized_mse']\n                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  ],
+  "pairing": [
+    {
+      "teacher_index": 0,
+      "repetition": 0,
+      "parent_state_sha256": "8e03a04245e80cea72836dd02a42ea7917fbe8ec9bcfb7905b40e74605bf96de",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-0/repetition-0/runs/faf451c1d3e34871b5804dc8313f2fb3/checkpoints/best.json",
+      "parent_checkpoint_sha256": "8fa9f4627eadb1e13c5cd82f5f1f3062e5b3be32ee63db65bfdc04ffd8646570",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 500,
+        "greedy_long": 500,
+        "keep": 500,
+        "random": 500,
+        "top": 500,
+        "widen_upper": 500
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.03399370610713959,
+      "actual_first_losses": {
+        "greedy": 0.03399370610713959,
+        "greedy_long": 0.03399370610713959,
+        "keep": 0.03399370610713959,
+        "random": 0.03399370610713959,
+        "top": 0.03399370610713959
+      }
+    },
+    {
+      "teacher_index": 0,
+      "repetition": 1,
+      "parent_state_sha256": "377f90558a1051a4a1bfe8529468dc2bf86292f10bbde97bfd1602e2fc49bf92",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-0/repetition-1/runs/fe0aa3cbe6d24474918b645cfdd4356c/checkpoints/best.json",
+      "parent_checkpoint_sha256": "a1cbbd1b6f7d91a88aeffb5df57256133b24657d97ad9f2c196c925d984dc2f8",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 500,
+        "greedy_long": 1375,
+        "keep": 500,
+        "random": 500,
+        "top": 500,
+        "widen_upper": 500
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.029086997732520103,
+      "actual_first_losses": {
+        "greedy": 0.029086997732520103,
+        "greedy_long": 0.029086997732520103,
+        "keep": 0.029086997732520103,
+        "random": 0.029086997732520103,
+        "top": 0.029086997732520103
+      }
+    },
+    {
+      "teacher_index": 1,
+      "repetition": 0,
+      "parent_state_sha256": "2bd202d64c4509b79459c0ba929902f607065839766668a0585ace2d76b524ed",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-1/repetition-0/runs/0c4c243521f349088b59615e99f69bbc/checkpoints/best.json",
+      "parent_checkpoint_sha256": "8ba3fb2d06f2b2bfa0227ff998248c85e84ce1eb2a9979ba9fef33b65578bf28",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 500,
+        "greedy_long": 500,
+        "keep": 500,
+        "random": 500,
+        "top": 1025,
+        "widen_upper": 2325
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.021632656455039978,
+      "actual_first_losses": {
+        "greedy": 0.021632656455039978,
+        "greedy_long": 0.021632656455039978,
+        "keep": 0.021632656455039978,
+        "random": 0.021632656455039978,
+        "top": 0.021632656455039978
+      }
+    },
+    {
+      "teacher_index": 1,
+      "repetition": 1,
+      "parent_state_sha256": "de612f05678e2a77d53a9a0dc617827868da361ce011c3d91791b54fe8afb306",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-1/repetition-1/runs/17a8f080562c4826a0047e9306a6a3fc/checkpoints/best.json",
+      "parent_checkpoint_sha256": "b6038c3252a7d0d4254364ae86cde9b7196a036af33e51be9e1130717bd0158e",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 1075,
+        "greedy_long": 1225,
+        "keep": 500,
+        "random": 1075,
+        "top": 500,
+        "widen_upper": 500
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.021901089698076248,
+      "actual_first_losses": {
+        "greedy": 0.021901089698076248,
+        "greedy_long": 0.021901089698076248,
+        "keep": 0.021901089698076248,
+        "random": 0.021901089698076248,
+        "top": 0.021901089698076248
+      }
+    },
+    {
+      "teacher_index": 2,
+      "repetition": 0,
+      "parent_state_sha256": "20585592c2b39048a3a1b4b2d1faa8beddd323bca8a212cd2da35ad42ffd67d2",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-2/repetition-0/runs/721d8f42216b46259bdf127571633a0b/checkpoints/best.json",
+      "parent_checkpoint_sha256": "1f1133dc83550c255433dac5c6c63aacc29f085c24b86dbf0a0196fc3b47817d",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 575,
+        "greedy_long": 575,
+        "keep": 500,
+        "random": 500,
+        "top": 500,
+        "widen_upper": 500
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.02174028940498829,
+      "actual_first_losses": {
+        "greedy": 0.02174028940498829,
+        "greedy_long": 0.02174028940498829,
+        "keep": 0.02174028940498829,
+        "random": 0.02174028940498829,
+        "top": 0.02174028940498829
+      }
+    },
+    {
+      "teacher_index": 2,
+      "repetition": 1,
+      "parent_state_sha256": "602da58d7b30ac0bca6085a4d13153a4bae17e5a6033111477124feaa9cc823e",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-2/repetition-1/runs/fde3efc2880c47fe8667ba368ab7f23a/checkpoints/best.json",
+      "parent_checkpoint_sha256": "19fe5af6cca4d5b8e0654db4c53a3b9aaa663232563fdafafca4589ef0747b4f",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 1650,
+        "greedy_long": 1650,
+        "keep": 500,
+        "random": 500,
+        "top": 500,
+        "widen_upper": 500
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.03213638812303543,
+      "actual_first_losses": {
+        "greedy": 0.03213638812303543,
+        "greedy_long": 0.03213638812303543,
+        "keep": 0.03213638812303543,
+        "random": 0.03213638812303543,
+        "top": 0.03213638812303543
+      }
+    },
+    {
+      "teacher_index": 3,
+      "repetition": 0,
+      "parent_state_sha256": "50fc0d4dd57f553bceb4e7b89430cc350072730b2afffe77053bb9a900f074df",
+      "parent_checkpoint_path": "artifacts/long-probes-20261018/cohort/teacher-3/repetition-0/runs/e9a44d0397444a6693efabd562ea2c12/checkpoints/best.json",
+      "parent_checkpoint_sha256": "6af2bb9ff8d5f79a846b61f896ca7d6d6d90b8f6ebaa88e73c6059fa2b6140d4",
+      "warm_forks": 6,
+      "raw_update_rows": {
+        "greedy": 1225,
+        "greedy_long": 1200,
+        "keep": 500,
+        "random": 1225,
+        "top": 500,
+        "widen_upper": 500
+      },
+      "exact_original_parent_stream": true,
+      "same_score_and_original_contrasts": true,
+      "parent_expected_first_training_loss": 0.027138937264680862,
+      "actual_first_losses": {
+        "greedy": 0.027138937264680862,
+        "greedy_long": 0.027138937264680862,
+        "keep": 0.027138937264680862,
+        "random": 0.027138937264680862,
+        "top": 0.027138937264680862
+      }
+    }
+  ],
+  "maximum_numeric_difference": 0.0,
+  "comparison_values": 0,
+  "renderings": [],
+  "elapsed_ns": 2851459209,
+  "peak_rss_bytes": 469303296,
+  "script_sha256": "b6f959ab2b36838cd1c6921c92f40e1abfda64bb5101f9effc6d4b9a751a39dd"
+}

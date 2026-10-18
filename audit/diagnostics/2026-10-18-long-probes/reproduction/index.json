@@ -1,0 +1,297 @@
+{
+  "bulk_artifacts": "Original predictions, observations, checkpoints and raw training/replay events remain outside Git. Full inventories bind their bytes; this archive retains scripts, compact results, failures and provenance. Original .superpowers paths are historical coordination locators; the archive_path is the durable copy.",
+  "bytes": 2028345,
+  "count": 48,
+  "execution_commit": "5e46ce1230256c37339714c38adfa9324167f6dd",
+  "files": [
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/checker-hash-reproduction.json",
+      "bytes": 137,
+      "original_path": "environment/long-probes-20261018/audit/checker-hash-reproduction.json",
+      "sha256": "37031b3e08b6c3bf062db892259e111b296c26ca17420f6c064e441e00e51b15"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/checker-rollover-reproduction.json",
+      "bytes": 20355,
+      "original_path": "environment/long-probes-20261018/audit/checker-rollover-reproduction.json",
+      "sha256": "063b87e8e0644b529780e55e650005dc2ce58e4615e1379778377dc8c89bfbbd"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/independent-stderr.txt",
+      "bytes": 0,
+      "original_path": "environment/long-probes-20261018/audit/independent-stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/independent-stdout.txt",
+      "bytes": 176,
+      "original_path": "environment/long-probes-20261018/audit/independent-stdout.txt",
+      "sha256": "745c307e5aaf8f044936e0c6c72867d6d8fe003faff5ca4557440fb7759d77fe"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/independent.py",
+      "bytes": 5830,
+      "original_path": "environment/long-probes-20261018/audit/independent.py",
+      "sha256": "497c7f98a31a52b8b8c71185ca81c1c1016a63adb5b51194d1c0457ee4721cdd"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/inventory-seal.json",
+      "bytes": 83,
+      "original_path": "environment/long-probes-20261018/audit/inventory-seal.json",
+      "sha256": "558b06aa915e0db5c10f54c7cf7bdaf1ae6099e4850ed61ee2f5a361a0aa2616"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/inventory.json",
+      "bytes": 471168,
+      "original_path": "environment/long-probes-20261018/audit/inventory.json",
+      "sha256": "01a1120864a0fd2fb4ceae26cd41a1918719d58b8e2c39b807c06941c114e916"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/inventory.py",
+      "bytes": 1630,
+      "original_path": "environment/long-probes-20261018/audit/inventory.py",
+      "sha256": "cfedbede833e6bce90f3a26946c9979cc84b51b6bd6b5cd533591c3c6a642323"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/postcheck-stderr.txt",
+      "bytes": 0,
+      "original_path": "environment/long-probes-20261018/audit/postcheck-stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/postcheck-stdout.txt",
+      "bytes": 115,
+      "original_path": "environment/long-probes-20261018/audit/postcheck-stdout.txt",
+      "sha256": "32a6bd90db0042060c594f3530c25f86f3743816d0c3f755828a763757801c1d"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/postcheck.py",
+      "bytes": 2883,
+      "original_path": "environment/long-probes-20261018/audit/postcheck.py",
+      "sha256": "cfa1dfcc9ff6eb3df8e220a2396b3244ad2408bdc6b142274e2fe8a10b735832"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/reconcile-invocation.json",
+      "bytes": 439,
+      "original_path": "environment/long-probes-20261018/audit/reconcile-invocation.json",
+      "sha256": "81163e31dc6874611043ab14672aa22642ca08e35f90d0743c1e49c63562d4c4"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/reconcile-outer-measurement.json",
+      "bytes": 816,
+      "original_path": "environment/long-probes-20261018/audit/reconcile-outer-measurement.json",
+      "sha256": "5c53a1c7ce1e0dd287d52c5036c021530b168bb437163aedf5899715ad0fdce9"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/reconcile-outer.py",
+      "bytes": 1728,
+      "original_path": "environment/long-probes-20261018/audit/reconcile-outer.py",
+      "sha256": "2e0319fe8913e93d86b6490671d848ae2549cdb91af52308af2186bf33931d96"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/reconcile-stderr.txt",
+      "bytes": 596,
+      "original_path": "environment/long-probes-20261018/audit/reconcile-stderr.txt",
+      "sha256": "102e1a8099751196b2b02a7fd71a40d11b415d4f531585d058795bc3d7e45f9d"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/reconcile-stdout.txt",
+      "bytes": 0,
+      "original_path": "environment/long-probes-20261018/audit/reconcile-stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/reconcile-v2-invocation.json",
+      "bytes": 442,
+      "original_path": "environment/long-probes-20261018/audit/reconcile-v2-invocation.json",
+      "sha256": "c23c74046faa905c09271f2b0945cb1a0cbe8d3938fd584a9c4fd5fee36f4d18"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/reconcile-v2-outer-measurement.json",
+      "bytes": 829,
+      "original_path": "environment/long-probes-20261018/audit/reconcile-v2-outer-measurement.json",
+      "sha256": "d545d564d84e8f711277eaa031d8c56099ccdc89f7d6ed3faa2dddbb57f287a7"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/reconcile-v2-outer.py",
+      "bytes": 1743,
+      "original_path": "environment/long-probes-20261018/audit/reconcile-v2-outer.py",
+      "sha256": "2cb4f7e63867906451f5703e55efe11b92a48d5481b6c361e73fcc08ef467f21"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/reconcile-v2-stderr.txt",
+      "bytes": 0,
+      "original_path": "environment/long-probes-20261018/audit/reconcile-v2-stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/reconcile-v2-stdout.txt",
+      "bytes": 81,
+      "original_path": "environment/long-probes-20261018/audit/reconcile-v2-stdout.txt",
+      "sha256": "fa4a7c9ca2e3d2b5ecb44a948c41fe84ccb7d519c0888dfba455c8ed44564269"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/reconcile-v2.py",
+      "bytes": 8096,
+      "original_path": "environment/long-probes-20261018/audit/reconcile-v2.py",
+      "sha256": "d83c32a543cefc1603407369b26c7fce4e260b1f438038b99b894b20e172507c"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/reconcile.py",
+      "bytes": 7913,
+      "original_path": "environment/long-probes-20261018/audit/reconcile.py",
+      "sha256": "b6f959ab2b36838cd1c6921c92f40e1abfda64bb5101f9effc6d4b9a751a39dd"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/replay-stderr.txt",
+      "bytes": 1845,
+      "original_path": "environment/long-probes-20261018/audit/replay-stderr.txt",
+      "sha256": "f76c91f2123740b749e624196c4058336d794c13f7bacb8d248f83e62798c380"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/replay-stdout.txt",
+      "bytes": 0,
+      "original_path": "environment/long-probes-20261018/audit/replay-stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/replay-v2-stderr.txt",
+      "bytes": 0,
+      "original_path": "environment/long-probes-20261018/audit/replay-v2-stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/replay-v2-stdout.txt",
+      "bytes": 183,
+      "original_path": "environment/long-probes-20261018/audit/replay-v2-stdout.txt",
+      "sha256": "625541036b07f50c86f6bab5dcec77a207d95bfc7d1dd389eb8ac10f0dac386e"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/replay-v2.py",
+      "bytes": 10310,
+      "original_path": "environment/long-probes-20261018/audit/replay-v2.py",
+      "sha256": "986d2fb0fb68a948fc346ddf80c34ee63f64955cffa887af357465d97dc547a6"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/replay.py",
+      "bytes": 9317,
+      "original_path": "environment/long-probes-20261018/audit/replay.py",
+      "sha256": "7f4465d4ef417723d69570d3df0d362cbb9d93113aae38dfe8f844852ef5192f"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/resources.jsonl",
+      "bytes": 3144,
+      "original_path": "environment/long-probes-20261018/audit/resources.jsonl",
+      "sha256": "e2c97b2bda9b6cdbdfd5a60ca120bf25b0a831c5b339df9bbf7a794ceb3a8d38"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/execution/write-audit-report.py",
+      "bytes": 12135,
+      "original_path": "environment/long-probes-20261018/audit/write-audit-report.py",
+      "sha256": "3273d4b3a0db1c20a7267397d33c2dfeea6d8c63f37d6242a12c30833ce0ca23"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/results/independent.json",
+      "bytes": 64934,
+      "original_path": "artifacts/long-probes-20261018/audit/independent.json",
+      "sha256": "1cd17c128ed786fe0013b5a2468ec138797c4fdad644f3e9a38666766b6adb2e"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/results/preservation.json",
+      "bytes": 2182,
+      "original_path": "artifacts/long-probes-20261018/audit/preservation.json",
+      "sha256": "3b5682c15ef72ed14e4bb3d4abe85a02c4d47cf1be58c8a49b0ad0c8529fc1ba"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/results/reconciliation-v2.json",
+      "bytes": 17120,
+      "original_path": "artifacts/long-probes-20261018/audit/reconciliation-v2.json",
+      "sha256": "30c54094f86e54abc924c220289055c03f5c49b7fcf39f31fc576a83a6e9aab6"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/results/reconciliation.json",
+      "bytes": 8009,
+      "original_path": "artifacts/long-probes-20261018/audit/reconciliation.json",
+      "sha256": "b9311853ef255080d8537a13ab68cc1d1e413ae83c52e64cd8805348235281de"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/results/replay-v2.json",
+      "bytes": 430686,
+      "original_path": "artifacts/long-probes-20261018/audit/replay-v2.json",
+      "sha256": "b79aa161d5c62db6395780641b03aee7b3dfe75533711217835c1b40b33f3cc0"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/results/replay.json",
+      "bytes": 5829,
+      "original_path": "artifacts/long-probes-20261018/audit/replay.json",
+      "sha256": "1640de6212b7505f807669ba56ab96ddd3e5894570a1941a3918fd856cf813a1"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/results/report-1.md",
+      "bytes": 246328,
+      "original_path": "artifacts/long-probes-20261018/audit/report-1.md",
+      "sha256": "9baa18c96a55a0023adf469984b8f5bebf948d1985a73675fbde115dc5e5335b"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/results/report-2.md",
+      "bytes": 246328,
+      "original_path": "artifacts/long-probes-20261018/audit/report-2.md",
+      "sha256": "9baa18c96a55a0023adf469984b8f5bebf948d1985a73675fbde115dc5e5335b"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/results/analysis.json",
+      "bytes": 393368,
+      "original_path": "artifacts/long-probes-20261018/cohort/analysis.json",
+      "sha256": "c78b287708a3e3226dee3a6b8f556b111202f6a1dc36d776b30d5dbeb64b49c0"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/coordination/task-3-brief.md",
+      "bytes": 1774,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-3-brief.md",
+      "sha256": "ded49aaf00a91e2f04ec8ab49d492044bec8feb56e5b76d22594a52f517dadc5"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/coordination/task-3-context.md",
+      "bytes": 3282,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-3-context.md",
+      "sha256": "5fbc3f4a2ef534dfa6672a6cca996b02f2ac4191bd694350d1b09d1c9548bcc5"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/coordination/task-3-report.md",
+      "bytes": 15395,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-3-report.md",
+      "sha256": "fe3ee5e77b7d25d058267963f9ecedaa112c5326c17466dca81529561db65e31"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/coordination/root-final-verify.py",
+      "bytes": 4054,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/root-final-verify.py",
+      "sha256": "070a3d751b5a98e6c13cd559f8f4430c451c00b6929dd8097b160c125c67578e"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/coordination/root-final-verification.json",
+      "bytes": 1237,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/root-final-verification.json",
+      "sha256": "de6352bee68dc0e90e3ce6bb47840e2cdf6634849dcf92b84baef90c53150fc2"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/coordination/historical-preservation.json",
+      "bytes": 691,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/historical-preservation.json",
+      "sha256": "e3e381359a27fdd311e8948e831bcb7513f1a756d72cfb52f5f66251886c2ef8"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/coordination/source-freeze.json",
+      "bytes": 10633,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/source-freeze.json",
+      "sha256": "6cd19744c46a5a4cc802475f53e2c41aca567d5fabb1b9321123a5d8380e9ecf"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/reproduction/coordination/progress.md",
+      "bytes": 14501,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/progress.md",
+      "sha256": "ec02e960d0bc105b5ece513b97d5a65fc047d740ffda2a23ecd4f3ca12e1f791"
+    }
+  ],
+  "source_sha256": "089b03d13e1950b8e0c1ff54a147a121cf78db66acaaa2dcedd9ebf29afc3543"
+}

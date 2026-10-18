@@ -1,0 +1,117 @@
+{
+  "bulk_artifacts": "Original predictions, observations, checkpoints and raw training/replay events remain outside Git. Full inventories bind their bytes; this archive retains scripts, compact results, failures and provenance. Original .superpowers paths are historical coordination locators; the archive_path is the durable copy.",
+  "bytes": 9996114,
+  "count": 18,
+  "execution_commit": "5e46ce1230256c37339714c38adfa9324167f6dd",
+  "files": [
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cohort/execution/cohort-inventory-seal.json",
+      "bytes": 83,
+      "original_path": "environment/long-probes-20261018/cohort-inventory-seal.json",
+      "sha256": "66a1c4acb852a4e5d7496ed692366ff76ce5fceef39102c9f87bc587ecef2ef6"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cohort/execution/cohort-inventory.json",
+      "bytes": 8535067,
+      "original_path": "environment/long-probes-20261018/cohort-inventory.json",
+      "sha256": "900b5cfeaa6d3d67cc12a7b895506fea6951c83bed76e79b195921a5cf79a5fd"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cohort/execution/cohort-invocation.json",
+      "bytes": 1920,
+      "original_path": "environment/long-probes-20261018/cohort-invocation.json",
+      "sha256": "7c12e4dffc2f92f3fc8d42f5908042b3891a8f111956497a0e2550ab55be8cc3"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cohort/execution/cohort-outer-measurement.json",
+      "bytes": 5951,
+      "original_path": "environment/long-probes-20261018/cohort-outer-measurement.json",
+      "sha256": "b64679729b503687951e6ff1dee59920bb337aa6c84646494c67de58adffe8ec"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cohort/execution/cohort-postcheck.py",
+      "bytes": 24398,
+      "original_path": "environment/long-probes-20261018/cohort-postcheck.py",
+      "sha256": "91085ce698a34337ee03947bcc0c24ad8af7e1ff68d135d6ee06691b3792335c"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cohort/execution/cohort-preflight.json",
+      "bytes": 626455,
+      "original_path": "environment/long-probes-20261018/cohort-preflight.json",
+      "sha256": "8268867b468fdaa72b9c6db6f39ae85450e9a026d20efd5a0439aefe31d910a5"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cohort/execution/cohort-progress.jsonl",
+      "bytes": 299093,
+      "original_path": "environment/long-probes-20261018/cohort-progress.jsonl",
+      "sha256": "6572f7351873fad0313f3e1aa6b0b2928817b475764dc922947e3a4e92d29d31"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cohort/execution/cohort-run.py",
+      "bytes": 10991,
+      "original_path": "environment/long-probes-20261018/cohort-run.py",
+      "sha256": "1ea3c678f819f206a73a02a770b46248eca0c74178cdad5917f65e8255a657b8"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cohort/execution/cohort-stderr.txt",
+      "bytes": 0,
+      "original_path": "environment/long-probes-20261018/cohort-stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cohort/execution/cohort-stdout.txt",
+      "bytes": 75,
+      "original_path": "environment/long-probes-20261018/cohort-stdout.txt",
+      "sha256": "8aabf43703bfe0aabee6b3d09f04cfcbbc183fdb1e16ae4f556c8aa6894d60c1"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cohort/execution/cohort-stop.json",
+      "bytes": 517,
+      "original_path": "environment/long-probes-20261018/cohort-stop.json",
+      "sha256": "e2c2bcda654198336ca937f223c3d8b8c2ef516f581482bf846b710f5d3dd378"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cohort/execution/cohort-verification.json",
+      "bytes": 98447,
+      "original_path": "environment/long-probes-20261018/cohort-verification.json",
+      "sha256": "05e78a787b93282547e7396cf4c24dd0dc652289a659422176130e75be259103"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cohort/ledgers/study-lock.json",
+      "bytes": 6763,
+      "original_path": "artifacts/long-probes-20261018/cohort/study-lock.json",
+      "sha256": "35e2608e78ae56dc5c6673772729b45dd42ddba9472eb09ef43e5a2506b58c8d"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cohort/ledgers/study-lock-seal.json",
+      "bytes": 78,
+      "original_path": "artifacts/long-probes-20261018/cohort/study-lock-seal.json",
+      "sha256": "4bcaae9aad4ab7ace7fede1c686792d06e1ca9f559c1c16898080967a78eee77"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cohort/ledgers/members.json",
+      "bytes": 380905,
+      "original_path": "artifacts/long-probes-20261018/cohort/members.json",
+      "sha256": "5cdf111183aa4e617c5c571528adbde6507b97e622aa657a18a12acd5c12699d"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cohort/ledgers/members-seal.json",
+      "bytes": 78,
+      "original_path": "artifacts/long-probes-20261018/cohort/members-seal.json",
+      "sha256": "dc62dac518fc4c99a2058bf68a37bc2a76f6bb3bb61beea9476e13e159e6d7d3"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cohort/coordination/task-2-cohort-report.md",
+      "bytes": 4884,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/task-2-cohort-report.md",
+      "sha256": "96090292aa4dce1e32f6cdd55980342eda01fe5662ca8d86fda711b7a8716eaf"
+    },
+    {
+      "archive_path": "audit/diagnostics/2026-10-18-long-probes/cohort/coordination/cohort-root-verification.json",
+      "bytes": 409,
+      "original_path": ".superpowers/sdd/2026-10-18-long-probe-allocation-diagnostic/cohort-root-verification.json",
+      "sha256": "81c924f858840b0daab508e02b5172619b8e9a0a19cbd1d81ea5150b3251e3f5"
+    }
+  ],
+  "source_sha256": "089b03d13e1950b8e0c1ff54a147a121cf78db66acaaa2dcedd9ebf29afc3543"
+}

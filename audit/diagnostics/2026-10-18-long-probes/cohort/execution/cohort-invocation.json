@@ -1,0 +1,47 @@
+{
+  "analysis_run": false,
+  "argv": [
+    "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+    "-c",
+    "import runpy,torch; torch.set_num_threads(1); torch.set_num_interop_threads(1); from treeneuron import train; assert train.source_hash()=='089b03d13e1950b8e0c1ff54a147a121cf78db66acaaa2dcedd9ebf29afc3543'; runpy.run_module('treeneuron.pilot.probe_diagnostic',run_name='__main__')",
+    "run",
+    "--spec",
+    "protocol/diagnostics/2026-10-18-long-probes.json",
+    "--resource-decision",
+    "pilot/long-probes-20261018/resource-decision.json",
+    "--output",
+    "artifacts/long-probes-20261018/cohort"
+  ],
+  "automatic_retries": 0,
+  "bootstrap": "Fresh interpreter CPU1/inter-op1 before module entry; all five BLAS1/fallback0 before imports.",
+  "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+  "declaration_sha256": "cc0e7fbba4f6cd43585def2aae1522ba56c2ca558bbef1b2495a666d75ecce43",
+  "effect_inspection": false,
+  "elapsed_time_kill": false,
+  "environment": {
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "expected_source": "089b03d13e1950b8e0c1ff54a147a121cf78db66acaaa2dcedd9ebf29afc3543",
+  "fixed_repetitions": 2,
+  "fixed_teachers": 8,
+  "logical_cli": [
+    "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+    "-m",
+    "treeneuron.pilot.probe_diagnostic",
+    "run",
+    "--spec",
+    "protocol/diagnostics/2026-10-18-long-probes.json",
+    "--resource-decision",
+    "pilot/long-probes-20261018/resource-decision.json",
+    "--output",
+    "artifacts/long-probes-20261018/cohort"
+  ],
+  "receipt_producer_rerun": false,
+  "receipt_reused": true,
+  "resource_decision_sha256": "678183c36a2fafd6ef48be7335576d7ab559e5cde6c92920c3915f0fe6f9cbfd"
+}
