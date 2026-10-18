@@ -966,3 +966,16 @@ No full-cohort peak RSS measurement or efficiency claim. Full report
 [WP02-M1-full-receipt.json](WP02-M1-full-receipt.json). This supplies the M1
 sensitivity input, not Gate A: M2 resources/dispatch/primary opportunity still
 pending. No joint selector, modern benchmark, calibration, freeze or T.
+
+RealMLP-TD engineering adapter integrated from a828fc7 into e0cc172. Builder
+52affected checks passed425.66s;15tiny exact official/fresh-load completions and
+1native initialization failure retained, without changing support or seeds.
+Root scoped contract/import/design checks passed56in15.66s after copying the
+private overlay; initial missing-overlay failure/55passes remains retained.
+All1,035inventory files verified; copy also contains the249,579-byte inventory,
+for1,036regular files/154,339,953bytes. Forty-eight contained pytest convenience
+aliases are mapped separately. All1,056overlay files/12,816,019bytes copied; core
+unchanged. Integrated package11e3b5d9... is distinct from builder97460de9...; no
+old receipt rewritten. Full256-epoch anchors, workload/resource admission,
+training recovery, HPO and GateD remain pending.
+[Integration receipt](realmlp-integration-receipt.json).
