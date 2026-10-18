@@ -285,3 +285,23 @@ def test_numerical_runtime_rejects_changed_pinned_record_or_python_source(monkey
         return original(path)
     monkeypatch.setattr(p13_simple,'_sha',changed_bytes)
     with pytest.raises(ValueError):p13_simple._runtime()
+
+
+@pytest.mark.parametrize('identity',['source','runtime'])
+def test_identity_drift_during_solve_rejects_and_preserves_prior_model(tmp_path,monkeypatch,identity):
+    from treeneuron.research import p13_simple
+    model=fit(request(tmp_path/'first'));before=model.predict(np.array([[1.,2.],[3.,4.]]))
+    retained=copy.deepcopy(model._state);changed=[False]
+    def identity_now():return {'identity':'after' if changed[0] else 'before'}
+    monkeypatch.setattr(p13_simple,'_'+identity,identity_now)
+    monkeypatch.setattr(p13_simple,'_'+('runtime' if identity=='source' else 'source'),lambda:{'identity':'fixed'})
+    def interrupted_solve(design,target,rcond):
+        changed[0]=True
+        return np.zeros(design.shape[1]),np.empty(0),design.shape[1],np.ones(design.shape[1])
+    monkeypatch.setattr(p13_simple.np.linalg,'lstsq',interrupted_solve)
+    with pytest.raises(ValueError,match='[Ii]dentity|[Ss]ource|[Rr]untime'):
+        model.fit(request(tmp_path/'changed'))
+    assert model._state==retained
+    np.testing.assert_array_equal(model.predict(np.array([[1.,2.],[3.,4.]])),before)
+    receipt=json.loads((tmp_path/'changed/fit-receipt.json').read_text())
+    assert receipt['status']=='failed' and receipt['elapsed_ns']>0 and receipt['error_type']=='ValueError'

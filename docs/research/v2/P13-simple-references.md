@@ -73,7 +73,8 @@ all coefficients except the intercept, including linear categorical/missingness
 coefficients, receive the same ridge penalty. Mean returns the F target mean.
 Predictions always invert the F target transform to original units. Nonfinite
 statistics, basis overflow, solves or predictions fail rather than changing basis,
-precision, training rows, alpha, or model. Failed refits preserve prior fitted state.
+precision, training rows, alpha, or model. Failed refits preserve prior fitted state. Capture source/runtime before
+computation and reject any detected change before success publication.
 
 ## Portable deployment and evidence
 

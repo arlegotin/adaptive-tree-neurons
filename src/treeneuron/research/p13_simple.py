@@ -242,6 +242,7 @@ class P13Predictor:
         try:
             cfg=_config(request.config)
             if type(request.seed) is not int or not 0<=request.seed<2**63:raise ValueError('Invalid P13 seed')
+            source_identity=_source();runtime_identity=_runtime()
             raw=np.asarray(request.y_fit)
             if raw.ndim!=1 or raw.dtype.kind not in 'iuf' or not len(raw):raise ValueError('F target must be a real vector')
             y=raw.astype(np.float64)
@@ -262,11 +263,13 @@ class P13Predictor:
                 augmented=np.vstack((design,np.column_stack((np.zeros(width),np.sqrt(cfg['parameters']['alpha'])*np.eye(width)))))
                 coefficients,_,rank,_=np.linalg.lstsq(augmented,np.r_[target,np.zeros(width)],rcond=None)
             if not np.isfinite(coefficients).all():raise FloatingPointError('Nonfinite fit coefficients')
+            if source_identity!=_source() or runtime_identity!=_runtime():
+                raise ValueError('P13 source/runtime identity changed during fitting')
             candidate=dict(schema='research/v2-p13-snapshot',config=cfg,preprocessing=state,
                 basis=dict(kind=method,knots=knots,objective='sum_squared_error_plus_alpha_l2_unpenalized_intercept'),
                 encoded_width=features.shape[1],basis_width=basis_width,seed=request.seed,
                 F_identity=dict(features=_array_identity(features),target=_array_identity(y)),
-                source_identity=_source(),runtime_identity=_runtime())
+                source_identity=source_identity,runtime_identity=runtime_identity)
             receipt=dict(status='completed',elapsed_ns=time.perf_counter_ns()-started,seed=request.seed,
                 config=cfg,encoded_width=features.shape[1],basis_width=basis_width,rank=int(rank),
                 selection_labels_used=False,scope='closed-form adapter; whole-worker cost and workload qualification external')
