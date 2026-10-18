@@ -243,3 +243,26 @@ in8.04s; initial3 missing-module failures, first9-test pass and overflow RED are
 retained under the main checkout's artifacts/research-v2/WP03/headroom-tests/.
 No diagnostic fits or Gate A evidence were produced. Controller persistence,
 full enclosing cost accounting and the M2 dispatcher remain pending.
+
+### WP03 nested-prefix observer and checkpoint profile
+
+Implemented capture-schema2, fixed-budget G-best prefix callbacks and a durable
+prefix sink. All three initial prefix tests were RED. Independent review exposed
+two artifact-level defects: accepting a later state under an earlier prefix and
+same-object replay after interrupted record publication. Both reproduced RED,
+then were fixed with semantic trajectory binding, atomic immutable records and
+disk-first replay. The reviewer found no remaining material process-recovery
+issue; its directory-fsync hardening was also applied. Final integration passed51
+in27.83s; the final durability-only rerun result is recorded in the retained log.
+Six logs remain under artifacts/research-v2/WP03/prefix-tests/ in the main checkout.
+No M2 trajectory or Gate A outcome has been produced yet.
+
+A checkpoint-only profile under the live MAIN5c55fa9 source compared ten
+save/prune publications of the same selected parent with its8571 history events
+versus an empty-history bookkeeping control. Elapsed was1.91556s versus.214942s;
+canonical JSON recursion/encoding of history dominated this bounded profile.
+The profiler never fitted a model or evaluated target labels. This is contended
+diagnostic timing, not a formal efficiency result or proof of an achieved fix.
+Input pointer/hash, source identity, pstats and outputs are retained under
+artifacts/research-v2/WP03/checkpoint-profile/. Before larger matrices, implement
+and verify append-only committed history references as specified next.

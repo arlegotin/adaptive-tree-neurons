@@ -79,8 +79,9 @@ class TrainingPolicy:
     evaluate_at_update_zero: bool = True
     checkpoint_interval: int = 1
     stop_by_patience: bool = True
-    capture_schema: int = 1
+    capture_schema: int = 2
     snapshot_updates: tuple[int, ...] = ()
+    selection_prefixes: tuple[int, ...] = ()
 
     def __post_init__(self):
         for name in ('logical_batch_size', 'physical_batch_size', 'max_updates', 'validation_interval', 'patience', 'checkpoint_interval'):
@@ -94,12 +95,20 @@ class TrainingPolicy:
             raise ValueError('Require strict improvement, earliest ties, and update-zero evaluation')
         if type(self.stop_by_patience) is not bool:
             raise ValueError('stop_by_patience must be an explicit boolean')
-        if (type(self.capture_schema) is not int or self.capture_schema != 1
+        if (type(self.capture_schema) is not int or self.capture_schema != 2
                 or not isinstance(self.snapshot_updates, (tuple, list))
                 or any(type(update) is not int or update < 0 for update in self.snapshot_updates)
                 or len(set(self.snapshot_updates)) != len(self.snapshot_updates)):
             raise ValueError('Invalid versioned capture policy')
         object.__setattr__(self, 'snapshot_updates', tuple(self.snapshot_updates))
+        prefixes = self.selection_prefixes
+        if (not isinstance(prefixes, (tuple, list))
+                or any(type(p) is not int or not 0 <= p <= self.max_updates
+                       or p % self.validation_interval for p in prefixes)
+                or list(prefixes) != sorted(set(prefixes))
+                or (prefixes and self.stop_by_patience)):
+            raise ValueError('Selection prefixes require a sorted unique G-grid fixed-budget capture policy')
+        object.__setattr__(self, 'selection_prefixes', tuple(prefixes))
 
     @classmethod
     def from_config(cls, config: ExperimentConfig, *, continuation: bool = False):
@@ -713,12 +722,13 @@ def _observe_initial(state, data, paths, preprocess_ns=None):
 
 def fit_parent(data: DevelopmentData, config: ExperimentConfig, paths: RunPaths, *,
                growth_metadata: dict | None = None, snapshot_updates: tuple[int, ...] = (),
-               on_snapshot=None, stop_by_patience: bool = True) -> TrainingState:
+               on_snapshot=None, stop_by_patience: bool = True,
+               selection_prefixes: tuple[int, ...] = (), on_prefix=None) -> TrainingState:
     """Train on F; return earliest strict G-best complete state, leaving run open."""
     try:
         config = _validate_inputs(data, config, paths)
         policy = replace(TrainingPolicy.from_config(config), stop_by_patience=stop_by_patience,
-                         snapshot_updates=snapshot_updates)
+                         snapshot_updates=snapshot_updates, selection_prefixes=selection_prefixes)
         start = time.perf_counter_ns()
         preprocessing = FittedTransform.fit(data.F.X, data.F.y)
         preprocess_ns = time.perf_counter_ns() - start
@@ -751,14 +761,16 @@ def fit_parent(data: DevelopmentData, config: ExperimentConfig, paths: RunPaths,
     except BaseException as error:
         _record_failure(paths, error, update=0)
         raise
-    return _run(state, data, policy, paths, snapshot_updates=snapshot_updates, on_snapshot=on_snapshot)
+    return _run(state, data, policy, paths, snapshot_updates=snapshot_updates, on_snapshot=on_snapshot,
+                selection_prefixes=selection_prefixes, on_prefix=on_prefix)
 
 
 def continue_fit(state: TrainingState, data: DevelopmentData, policy: TrainingPolicy, paths: RunPaths, *,
-                 snapshot_updates: tuple[int, ...] = (), on_snapshot=None) -> TrainingState:
+                 snapshot_updates: tuple[int, ...] = (), on_snapshot=None,
+                 selection_prefixes: tuple[int, ...] = (), on_prefix=None) -> TrainingState:
     """Resume an active stage exactly, or start a continuation with update 0 eligible."""
     try:
-        policy = replace(policy, snapshot_updates=snapshot_updates)
+        policy = replace(policy, snapshot_updates=snapshot_updates, selection_prefixes=selection_prefixes)
         _validate_inputs(data, state.config, paths)
         if state.identity_hashes != _identities(data, state.config, state.preprocessing) or state.data_hashes != _fg_hashes(data):
             raise ValueError('Continuation data/code/config identity mismatch')
@@ -788,7 +800,8 @@ def continue_fit(state: TrainingState, data: DevelopmentData, policy: TrainingPo
     except BaseException as error:
         _record_failure(paths, error, update=state.update)
         raise
-    return _run(state, data, policy, paths, snapshot_updates=snapshot_updates, on_snapshot=on_snapshot)
+    return _run(state, data, policy, paths, snapshot_updates=snapshot_updates, on_snapshot=on_snapshot,
+                selection_prefixes=selection_prefixes, on_prefix=on_prefix)
 
 
 def _record_failure(paths, error, *, update):
@@ -805,7 +818,8 @@ def _record_failure(paths, error, *, update):
         error.add_note(f'Failure ledger publication also failed: {logging_error}')
 
 
-def _run(state, data, policy, paths, *, snapshot_updates=(), on_snapshot=None):
+def _run(state, data, policy, paths, *, snapshot_updates=(), on_snapshot=None,
+         selection_prefixes=(), on_prefix=None):
     from .checkpoint import save_checkpoint, save_best_checkpoint, prune_checkpoints
     checkpoint_dir = paths.directory / 'checkpoints'
     previous_threads = torch.get_num_threads()
@@ -820,6 +834,10 @@ def _run(state, data, policy, paths, *, snapshot_updates=(), on_snapshot=None):
             raise ValueError('Snapshot policy requires unique nonnegative updates and a callback')
         if tuple(snapshot_updates) != policy.snapshot_updates:
             raise ValueError('Runtime snapshot capture differs from its persisted policy')
+        if (tuple(selection_prefixes) != policy.selection_prefixes
+                or (selection_prefixes and not callable(on_prefix))
+                or (on_prefix is not None and not callable(on_prefix))):
+            raise ValueError('Runtime prefix capture differs from its persisted policy or callback')
 
         def notify(label, current):
             if on_snapshot is None:
@@ -828,6 +846,16 @@ def _run(state, data, policy, paths, *, snapshot_updates=(), on_snapshot=None):
             current.rng_states = rng
             try:
                 on_snapshot(label, pack_state(current))
+            finally:
+                restore_rng(rng)
+
+        def notify_prefix():
+            prefix = state.stage['updates_completed']
+            if prefix not in selection_prefixes:
+                return
+            rng = capture_rng()
+            try:
+                on_prefix(prefix, copy.deepcopy(state.best_snapshot))
             finally:
                 restore_rng(rng)
 
@@ -888,6 +916,7 @@ def _run(state, data, policy, paths, *, snapshot_updates=(), on_snapshot=None):
             publish()
         if state.update in snapshot_updates:
             notify('current', state)
+        notify_prefix()
         while (state.stage['updates_completed'] < policy.max_updates
                 and (not policy.stop_by_patience or state.stage['bad_evaluations'] < policy.patience)):
             # An asynchronous interruption during an update or G selection must
@@ -946,6 +975,7 @@ def _run(state, data, policy, paths, *, snapshot_updates=(), on_snapshot=None):
                 publish()
             if state.update in snapshot_updates:
                 notify('current', state)
+            notify_prefix()
         state.stage['complete'] = True
         executed_updates = state.stage['updates_completed']
         record({'type': 'selection', 'selected_update': state.best_snapshot['metadata']['update'],

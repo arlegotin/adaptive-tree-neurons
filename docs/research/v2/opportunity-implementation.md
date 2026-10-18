@@ -37,6 +37,17 @@ coordinator predicts V/E for each prefix-selected snapshot after fitting;
 workers never receive V/E labels. No additional G evaluation point is introduced.
 An interruption must restore the original fixed-budget policy and snapshot plan.
 
+This observer is now implemented with capture-schema2. A distinct on_prefix
+callback receives an isolated copy of the G-best complete-update payload and
+restores the actual trajectory RNG afterward. PrefixSnapshotSink validates
+source/model/Adam state, selected offset<=prefix, exact persisted prefix policy,
+and common source/data/config/topology/intervention/stage-start lineage. Its
+atomic immutable plan, binding and per-prefix records permit same-boundary replay
+with either a new or the same sink object. A previously published pointer is
+verified and reused after interruption. Existing-record paths fsync the directory
+before training may advance. Final reports explicitly retain unavailable prefixes.
+These changes create a new source identity; they do not migrate older checkpoints.
+
 The frozen-head helper now implements the M2e six-alpha diagnostic. Hidden
 features retain the native parent's float32 computation; F-only feature centering,
 RMS, intercept and all ridge solves use float64. Positive-alpha solves minimize
