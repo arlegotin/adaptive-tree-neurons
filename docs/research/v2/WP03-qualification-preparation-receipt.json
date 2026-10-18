@@ -1,0 +1,31 @@
+{
+  "Gate_A_passed": false,
+  "T_accessed": false,
+  "base_commit": "9dbd930",
+  "contract_sha256": "43906016e77e01b8144721259e88d3f37678ce48974920bd0c264671a581cc6b",
+  "full_scientific_profiles_complete": false,
+  "logs": {
+    "affected.log": "c63cf55a4d0cb10877ee56001afa815311d3ce9c703d8aa6d65ba75e24141d8f",
+    "plan-green.log": "03ef2cb294b3d0c8232e1a60dbb67067ac9cd9a845bd462b59bf48f744dd1b3b",
+    "plan-green2.log": "fa4c2c7b33fb511939bd5c51cd7367fe897248d995c5e444d554b115fc46bca9",
+    "plan-red.log": "51e7d9a1b794fd67bb9c58719b0b9bace99b0c3802453d72d9d37c77de25abe9",
+    "profiles-green.log": "a5f5c29cd5550a3ff70565c7c23900da4575631f43983977795398688cf701bf",
+    "profiles-red.log": "a4f25ca3c77418ace09f702dff9fb1c4353e285353e07f81f66600a1b146b03d",
+    "workers-green.log": "b379d8c22ca23b4eaea9f377af4531c051a9d8f9b2fb0da149cb2f39995a1e5f",
+    "workers-red.log": "5327c7a1ee873d5dd40d20ed496f3afe4ff6465de36aa982693c1f0eb074e561"
+  },
+  "maximum_qualification_updates": 424600,
+  "nominal_native_continuations": 49,
+  "observed_scope": "software fixture first full-shaped data only; tiny separate6-update saved topology check; real decision/bootstrap on synthetic unit risks",
+  "production_admission": false,
+  "schema": "research/v2-opportunity-qualification-preparation",
+  "source_files": {
+    "src/treeneuron/research/opportunity_qualification.py": "516c481690fdf9cdb84b9b42f6cf2c95cd00fc2e463f433558a8da26cce595ec",
+    "src/treeneuron/research/queue_profiles.py": "20354fc483eb8071d08dfb3d6a63311776bdd75b975d6f29f2e57c24d82a73ed"
+  },
+  "synthetic_extension_dependencies": 448,
+  "target_jobs": 3853,
+  "target_workload_classes": 53,
+  "tests_sha256": "4c28510fc2600a73cb067fc3f85319ab64ab4b908cbaefbc23b15504e284ce2e",
+  "verification": "47affected passed23.40s"
+}

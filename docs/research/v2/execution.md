@@ -979,3 +979,15 @@ unchanged. Integrated package11e3b5d9... is distinct from builder97460de9...; no
 old receipt rewritten. Full256-epoch anchors, workload/resource admission,
 training recovery, HPO and GateD remain pending.
 [Integration receipt](realmlp-integration-receipt.json).
+
+M2 engineering qualification harness prepared: fixed primary0/R0 and small0/R0,
+53target classes,49nominal native continuations after all28pair ancestors,
+424,600maximum native updates. Only two named engineering departures: eager
+fixed8000 fallback and448explicitly synthetic extension inputs. The real
+extension/bootstrap code executes on these fixture records; they cannot enter
+scientific M2 or GateA. Actual validated checkpoint topology is required for
+optimized profiles; native skips remain unqualified. Completed false pure
+decisions can qualify resource usage with their procedure status retained.
+47affected checks passed23.40s. No complete native profile cohort, forecast or
+production admission exists yet. See [contract](M2-qualification.md) and
+[receipt](WP03-qualification-preparation-receipt.json).
