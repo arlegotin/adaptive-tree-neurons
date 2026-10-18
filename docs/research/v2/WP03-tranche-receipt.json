@@ -1,0 +1,22 @@
+{
+  "M2_scientific_execution": false,
+  "T_accessed": false,
+  "base_commit": "f3270e2",
+  "denied_check_consumes_scientific_retry": false,
+  "full_queue_immutable": true,
+  "green": "41affected passed17.68s",
+  "intermediate": "2failed/11passed; old internal return incorrectly labeled completed iterations paused",
+  "logs": {
+    "affected.log": "52f3dc125e5b5d04c696b03c58768e2ec1a7396676770e08fee6a9ad83245a58",
+    "final.log": "50dff092dbeebf1a2d69aaeb0d308b967049498d1ebd0fd73ca63847a9d28fb5",
+    "green.log": "c5c4569de15d48be7e0f97f488e367fe458b2c268f870f0bd8c6064db3f3663e",
+    "red.log": "0abe43bea5d4d7daabbf3c0b0c9e35b2654bcf4b3010d19d9c4c2d05aeae96bc"
+  },
+  "preflight_before_running_marker": true,
+  "production_admission": false,
+  "red": "13missing-keyword failures in0.12s",
+  "schema": "research/v2-queue-tranche-preparation",
+  "source_bound_native_profiles_created": false,
+  "source_file_sha256": "59d9b6dc5bdc45063946b30d754eb8c0b4b40adfcff72279d41dc5e7256158ed",
+  "test_file_sha256": "13e830364772caf19e80a77e7a0f89b99106be88a1303024d896bfec38d74e5a"
+}

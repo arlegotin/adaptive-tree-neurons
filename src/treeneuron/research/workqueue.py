@@ -134,7 +134,7 @@ def _retryable(error):
         isinstance(error,OSError) and not isinstance(error,FileNotFoundError))
 
 
-def _loop(plan,root,ledger,handler,check_identity):
+def _loop(plan,root,ledger,handler,check_identity,admitted,before_start,preflight_checks):
     results={};latest=_latest(ledger);jobs={job['job_id']:job for job in plan['attempts']}
     for job in plan['attempts']:
         event=latest.get(job['job_id'])
@@ -142,7 +142,15 @@ def _loop(plan,root,ledger,handler,check_identity):
             results[job['job_id']]=_read(event['result'],root,job)
     for job in plan['attempts']:
         name=job['job_id']
-        if name in results:continue
+        if name in results or name not in admitted:continue
+        if before_start is not None:
+            decision=before_start(copy.deepcopy(job),copy.deepcopy(ledger.events))
+            if not isinstance(decision,dict) or type(decision.get('admitted')) is not bool:
+                raise ValueError('Invalid queue preflight decision')
+            try:decision=json.loads(canonical_json(decision))
+            except (TypeError,ValueError) as error:raise ValueError('Invalid queue preflight JSON') from error
+            preflight_checks.append(dict(job_id=name,decision=decision))
+            if not decision['admitted']:return name
         started=time.perf_counter_ns()
         check_identity(copy.deepcopy(plan['identity']))
         previous=_latest(ledger).get(name);paid=0 if previous is None else previous['elapsed_ns']
@@ -204,24 +212,38 @@ def _loop(plan,root,ledger,handler,check_identity):
             ledger.record(name,value['status'],elapsed_ns=paid+time.perf_counter_ns()-started,result=result,
                 recovery_attempt=attempt,preparation_ns=preparation_ns)
         results[name]=_read(result,root,job)
-    return results
+    return None
 
 
-def run_queue(plan,output,handler,*,check_identity,resume=False):
+def run_queue(plan,output,handler,*,check_identity,resume=False,admitted_job_ids=None,before_start=None):
     """Callers supply identity/resource policy and model-specific handlers."""
     started=time.perf_counter_ns();plan=json.loads(canonical_json(plan));root=Path(output).resolve()
     if plan.get('plan_hash')!=canonical_hash({k:v for k,v in plan.items() if k!='plan_hash'}):
         raise ValueError('Queue plan digest differs')
+    jobs={job['job_id']:job for job in plan['attempts']}
+    if admitted_job_ids is None:admitted=set(jobs)
+    else:
+        if (type(admitted_job_ids) is not list or not admitted_job_ids
+                or any(type(name) is not str for name in admitted_job_ids)
+                or len(set(admitted_job_ids))!=len(admitted_job_ids)
+                or not set(admitted_job_ids)<=set(jobs)):
+            raise ValueError('Invalid queue tranche job IDs')
+        admitted=set(admitted_job_ids)
+        if any(not set(jobs[name]['depends_on'])<=admitted for name in admitted):
+            raise ValueError('Queue tranche must include every prerequisite')
+    if before_start is not None and not callable(before_start):raise ValueError('Invalid queue preflight policy')
+    preflight_checks=[]
     check_identity(copy.deepcopy(plan['identity']))
     if not resume:ledger=AttemptLedger.create(root,plan)
     with StudyLease(root):
         if resume:ledger=AttemptLedger.resume(root,plan)
         try:
-            _loop(plan,root,ledger,handler,check_identity)
+            paused=_loop(plan,root,ledger,handler,check_identity,admitted,before_start,preflight_checks)
             statuses={name:e['status'] for name,e in _latest(ledger).items()}
             result=dict(status='incomplete' if ledger.pending_ids else 'completed'
                 if all(s in ('completed_eligible','completed_ineligible') for s in statuses.values())
                 else 'completed_with_failures',statuses=statuses,charged_job_ns=ledger.charged_ns)
+            if paused is not None:result.update(status='paused_before_job',paused_job_id=paused)
             return result
         except BaseException as error:
             result=dict(status='interrupted_or_failed',error_type=type(error).__name__,reason=str(error),
@@ -229,6 +251,8 @@ def run_queue(plan,output,handler,*,check_identity,resume=False):
             raise
         finally:
             active=sys.exc_info()[1]
+            result['admitted_job_ids']=[job['job_id'] for job in plan['attempts'] if job['job_id'] in admitted]
+            result['preflight_checks']=preflight_checks
             result['cost_precision']=('contains_worker_loss_upper_bound' if any(
                 e.get('cost_precision')=='wall_time_upper_bound_after_worker_loss' for e in ledger.events)
                 else 'measured_job_elapsed')

@@ -86,3 +86,24 @@ qualification attempt list, live admission and production dispatcher are still
 pending; [receipt](WP03-profile-collection-receipt.json). Pure control-decision
 resource fixtures and any completed-ineligible branch measurements need explicit
 qualification semantics before being used to complete the53-class inventory.
+
+## Deterministic tranches and live pauses
+
+The generic queue now accepts an explicit dependency-closed admitted job list,
+while retaining the complete immutable plan and every unstarted job. IDs must
+be unique and known; all prerequisites must be included. Execution order stays
+the full plan order. A pre-start resource callback runs under the worker lease
+before any running marker or output directory is created. A denied check writes
+a paused invocation, consumes no attempt/retry, and leaves the next job untouched.
+Resuming with sufficient resources executes the same pending job at attempt0.
+Every admitted list and resource decision remains in its invocation record.
+Preflight costs belong to the enclosing invocation, not an unstarted fit.
+
+This implements a safe pause mechanism, not an admission policy. Production
+must still authenticate real class profiles, forecast the complete bounded queue,
+and reserve each admitted tranche plus retry/transaction/publication margins.
+If total retained storage eventually cannot fit, the queue stays paused; tranches
+do not justify deleting evidence, shrinking comparisons or promising completion.
+Thirteen missing-interface REDs became41affected GREEN in17.68s. One internal
+return-value mismatch in the first implementation is retained in the intermediate
+log. [Receipt](WP03-tranche-receipt.json). No scientific M2 worker ran.
