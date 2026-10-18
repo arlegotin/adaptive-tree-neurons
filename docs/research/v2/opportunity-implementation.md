@@ -127,3 +127,14 @@ array shapes, row/group/split hashes and the native raw dataset identity are
 validated before reuse; V labels are unnecessary for verifying their opaque
 identity commitment. A tiny retained-data→parent→fork→coordinator integration
 passes. This primitive does not execute or admit the scientific M2 matrix.
+
+`research/opportunity_workers.py` now composes the data, parent, F-score, horizon
+binding, native fork, frozen head, G-only pair oracle and V/E evaluator jobs.
+A native tiny queue retains dead-pair ineligibility, prefix-selected predictions,
+head predictions and exact completed-job reuse without refitting. Evaluators
+check native/frozen-head raw/split identity against their actual data, plus native
+F/G hashes. Standalone accounting authenticates the exact graph/event ledger and
+charges unique prerequisite ancestry once per procedure, including all oracle
+candidates. Queue startup/import and shared physical cost stay separate. The
+local-diagnostic handler, measured admission, conditional orchestration and Gate A
+still precede any public M2 run; no scientific M2 fitting has begun.

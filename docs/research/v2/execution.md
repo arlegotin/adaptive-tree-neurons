@@ -577,3 +577,27 @@ four malformed-artifact cases reproduced RED and were fixed; final affected
 integration passed22 in12.96s. Earlier fixture-import failure and recovery are
 retained in WP03-data-artifact-receipt.json. Outer handlers, resource admission,
 conditional execution and Gate A remain pending.
+
+### Native M2 worker composition verified on tiny fixtures
+
+Individual data/parent/score/binding/fork/head/oracle/evaluator handlers now work
+through the immutable queue. This verifies state/data/prefix/model reuse and
+separate G selection versus V/E evaluation; it adds no scientific teacher. A
+final affected suite passed28 in9.25s. Independent review found final model/data
+binding and unauthenticated altered-plan cost accounting gaps; both reproduced
+RED and were fixed, alongside explicit frozen-job and numerical-domain checks.
+WP03-worker-receipt.json retains every test result. Local calibration, conditional
+admission, measured resource forecasts and Gate A remain pending.
+
+### WP07 native tree wrappers integrated
+
+Reviewed P08–P11 wrappers landed from84e1030 (main integration831536e). The builder
+retained46 tiny engineering fits across failed/initial/final attempts; the final
+eight-cell parity run used20 fits and matched direct official/save-load
+predictions exactly. Its scoped73 checks passed, with all material review fixes
+proved RED→GREEN. Main integration's import-isolated contract checks passed32
+in0.43s. All403 raw builder evidence files were copied byte-for-byte into the
+main artifact namespace with zero mismatch; original source identities remain
+unchanged. Full native anchors, hard resource harness/recovery, remaining families
+and Gate D are still pending. No prepared transfer data or protected labels were
+used, and this does not establish practical superiority.
