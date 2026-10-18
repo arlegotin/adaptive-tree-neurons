@@ -78,6 +78,9 @@ def horizon_slots(table,seed):
 def pair_oracle(records):
     """G-selected pair only; all nominal failed/ineligible pairs stay counted."""
     pairs=[r for r in records if len(r['unit_ids'])==2]
+    if any(r['status'] not in ('completed_eligible','completed_ineligible') for r in pairs):
+        return dict(status='irrecoverable_missing',unit_ids=None,attempted_pair_count=len(pairs),
+            reason='A nominal current-eligible pair failed; no complete subset oracle is available')
     eligible=[r for r in pairs if r['status']=='completed_eligible']
     for row in eligible:
         score=row['selected_g_mse']

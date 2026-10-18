@@ -1,0 +1,58 @@
+{
+  "schema": "research/v2-implementation-receipt",
+  "component": "finite prerequisite queue and initial M2 graph",
+  "base_commit": "419855e",
+  "tests": {
+    "final_command": "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTORCH_ENABLE_MPS_FALLBACK=0 <qualified-python> -c 'import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"tests/test_workqueue.py\",\"tests/test_opportunity_graph.py\",\"tests/test_opportunity_inputs.py\",\"tests/test_opportunity_plan.py\"]))'",
+    "result": "22 passed in5.97s",
+    "logs": [
+      {
+        "path": "artifacts/research-v2/WP03/queue-tests/atn-queue-review-red-1.log",
+        "sha256": "c3e36ffb2a3a4387a53ad3676d417aac551f137c4fc142badd29b0d7fe91e3f9"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/queue-tests/atn-queue-review-red.log",
+        "sha256": "2fd4a24f75c231050ce0f51582a03b54da8a2888b5bc78036d7b4dc58131a6c3"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/queue-tests/atn-queue-orphan-closure-red.log",
+        "sha256": "76180fe93f862bd9a077b053b6f74fe680af410c9fde3d95bfa0a47fefd28981"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/queue-tests/atn-queue-review-green.log",
+        "sha256": "a837324a2f5c0d804ee26513e45c3e17425242b25aba8e53fe57a7379e8a79a5"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/queue-tests/atn-queue-aggregation-red.log",
+        "sha256": "e0cac3e60b5c4055a4f4ca3f5e0458660845e486be05a2c2b82c617870459270"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/queue-tests/atn-queue-graph-integration.log",
+        "sha256": "c4907101210843793772ec954a23eb34020911f628974bd271e0725b20c3cf02"
+      }
+    ]
+  },
+  "review": {
+    "independent_reviewer": "opportunity_state_review",
+    "fixed": [
+      "exact output inventory including newly added files/directories",
+      "second-orphan closure publication recovery",
+      "unsafe output failure publication and unrelated-job progress",
+      "explicit all-terminal pair-oracle aggregation with strict failed-candidate missingness"
+    ],
+    "final": "No remaining material findings within queue/compiler scope; read-only review, no new fits"
+  },
+  "scope": {
+    "initial_jobs": 2472,
+    "nominal_procedures": 1176,
+    "new_scientific_fits": 0,
+    "protected_labels_accessed": false,
+    "execution_implemented": false,
+    "pending": [
+      "model/data/local-diagnostic/evaluation handlers",
+      "measured resource admission",
+      "conditional fallback/extension admission",
+      "Gate A analysis"
+    ]
+  }
+}

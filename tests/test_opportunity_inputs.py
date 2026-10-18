@@ -62,6 +62,8 @@ def test_pair_oracle_selects_only_eligible_pairs_with_declared_ties():
     assert pair_oracle(rows[2:])['status']=='completed_ineligible'
     with pytest.raises(ValueError,match='finite'):
         pair_oracle([dict(unit_ids=[0,1],status='completed_eligible',selected_g_mse=float('nan'))])
+    failed=pair_oracle([rows[0],dict(unit_ids=[0,2],status='numerical_failure')])
+    assert failed['status']=='irrecoverable_missing' and failed['unit_ids'] is None
 
 
 def test_horizon_slots_sample_four_from_the_remaining_pool():

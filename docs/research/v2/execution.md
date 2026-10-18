@@ -548,3 +548,18 @@ loader now verifies the full finite solve population, declared G tie rule and
 winning parameters. Final artifact+head tests passed6 in4.86s. All logs are bound
 in WP03-head-artifact-receipt.json. Outer M2 controller/cost/admission/recovery and
 Gate A remain pending; this is software acceptance only.
+
+### Initial M2 queue graph and recoverable prerequisite ledger
+
+The initial M2 inventory now compiles to2,472 immutable prerequisite/fit/evaluator
+jobs representing exactly1,176 nominal procedures and8 G-only pair-oracle
+evaluations. No fitting or public M2 execution is enabled by this implementation.
+Independent review reproduced and helped close exact-inventory reuse, second
+orphan-closure, unsafe-output publication and pair-oracle aggregation defects.
+Every fix had a failing temporary-handler test before the correction. The final
+queue/graph/input/plan integration passed22 in5.97s; all failures/recoveries remain
+in WP03-queue-receipt.json. Ineligible nominal pairs stay visible; any eligible
+pair failure makes the oracle missing. Source/runtime checks, one same-seed retry,
+append-only paid failures and unknown worker-loss timing bounds remain explicit.
+Actual handlers, conditional admissions, resource qualification and Gate A are
+still pending. This is software evidence, not a placement result.
