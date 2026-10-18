@@ -195,12 +195,21 @@ def insert_growth(state: TrainingState, allocation: Allocation) -> GrowthManifes
     load the completed best checkpoint first. Old state, identities, training and
     process RNGs, sampler and stage stay unchanged. No checkpoint IO is performed.
     """
+    if state.stage.get('kind') == 'research_boundary' or 'research_boundary' in state.growth_metadata:
+        raise ValueError('A current research boundary requires its explicit research insertion interface')
+    return _insert_at_completed_boundary(state, allocation)
+
+
+def _insert_at_completed_boundary(state, allocation, *, allow_current_boundary=False):
+    """Shared transaction; research callers separately validate current selection."""
     layer = state.model.layer
     if layer.growth_applied:
         raise ValueError('Only one growth insertion is allowed')
     if not state.stage.get('complete') or state.best_snapshot is not None:
         raise ValueError('Growth requires a completed selected parent; load completed best checkpoint')
-    if state.growth_metadata:
+    if state.growth_metadata and not (allow_current_boundary
+            and state.stage.get('kind') == 'research_boundary'
+            and set(state.growth_metadata) == {'research_boundary'}):
         raise ValueError('Parent already carries growth metadata')
     _validate_optimizer(state, _OLD)
     snapshot = pack_state(state)

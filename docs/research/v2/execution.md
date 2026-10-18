@@ -22,12 +22,12 @@ Unchecked work is not completed, and prior investigation findings are not new ru
 |---|---|---|
 |WP00|qualified|97228c6; references passed;89 passed/1 skipped; arithmetic error1.39e-17; tracked WP00 receipt|
 |WP01|verified|220 targeted passed;19 reference arrays byte-identical; WP01-receipt.json; broad integration still pending|
-|WP02|in progress|87 integration checks passed; native resource qualification, replay/stress controls and full M0/M1 still pending|
-|WP03|pending|complete admitted M1/M2 evidence; Gate A|
+|WP02|in progress|replay/stress/collision/tie foundations reviewed;35 focused passed; first native resource case running; full M0/M1/admission pending|
+|WP03|state primitives in progress|actual-current boundary/fixed-budget control; recovery-plan review fix; M2 dispatcher/prefix/headroom and Gate A pending|
 |WP04|pending Gate A|joint selector numerical and trained evidence; Gate B|
 |WP05|not admitted|measured geometry/newborn trigger|
 |WP06|not admitted|measured retention/family ceiling; at most one redesign|
-|WP07|pending WP00|official assets, sealed splits/native qualifications; Gate D|
+|WP07|data prepared|six raw pins and30 splits audited;41 affected passed; all native qualification/Gate D still pending|
 |WP08|pending|all production evaluation code tested;168 primary searches; Gate E|
 |WP09|pending|variance-only calibration/simulation; Gate F|
 |WP10|pending Gate F|frozen complete execution; Gate G|
@@ -194,3 +194,30 @@ The latest affected suite passed41 tests in14.35s; initial RED/review failures
 and recovery logs remain under WP07/data-contract-tests. This completes data
 acquisition/preparation only. Native adapters, qualification and Gate D remain
 pending; secondary F/G/V and all T labels remain blocked through the store API.
+
+WP03 state primitives now distinguish actual-current intervention from G-best
+selection. A named research_boundary records its active parent snapshot, exact
+requested update/current G risk and source/data lineage. Legacy insertion and
+widening reject this boundary; explicit research wrappers reuse the same atomic
+migrations. Tensor/Adam/sampler-generator/RNG equality and rollback through both
+wrappers are tested. A fixed-budget policy disables patience explicitly while
+retaining update0/strict G selection and the absolute schedule.
+
+Review reproduced capture-plan drift on interrupted fixed-budget runs. Versioned
+capture requirements now persist in TrainingPolicy; omitted/altered plans reject
+on active resume. Canonical policy comparison also fixes tuple/list differences
+after JSON roundtrip. The first affected integration run passed215 with one
+missing optional NODE requests-overlay failure; the pinned overlay was restored.
+The next integration passed257 with three probe-policy representation failures.
+After the canonical comparison repair, all44 focused recovery/probe/runner checks
+passed in57.71s. Final boundary/semantic checks passed24 in12.06s. This is not a
+monolithic full-suite pass. All initial failures remain retained.
+
+M2 dispatcher/finite matrices, prefix G-best capture, ridge-head diagnostics,
+resource admission and Gate A still remain. The plain-language research state
+is in status.md. In the first old-source M0 qualification case, all65 short
+probes were stage-zero; keep selected its parent; top/random joint growth
+improved G. Longer joint budgets confound interaction with horizon, and V/E
+results are not yet available. This development observation changes no declared
+seed, gate or matrix. The original checkout remains at source5c55fa9 while its
+native eight-role case finishes; do not merge package edits into it mid-run.

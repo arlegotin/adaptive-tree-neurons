@@ -160,7 +160,7 @@ def run_greedy_probes(parent: TrainingState, table: ScoreTable, data: Developmen
                     raise ValueError('Incomplete probe allowance: patience stopped before the fixed F allowance')
                 stage = selected.stage
                 executed = trial['executed_updates']
-                if (stage.get('complete') is not True or stage.get('policy') != asdict(policy)
+                if (stage.get('complete') is not True or canonical_hash(stage.get('policy', {})) != canonical_hash(asdict(policy))
                         or type(executed) is not int or not 0 <= executed <= probe_updates
                         or not np.isfinite(trial['g_mse'])):
                     raise ValueError('Probe must return a finite completed stage under its declared policy')

@@ -39,11 +39,15 @@ def ordinary_width_brackets(d: int, target_parameters: int) -> tuple[int, int]:
     return lower, lower+bool(remainder)
 
 
-def _selected_parent(state):
+def _selected_parent(state, *, allow_current_boundary=False):
+    boundary = isinstance(state, TrainingState) and state.stage.get('kind') == 'research_boundary'
+    if boundary and not allow_current_boundary:
+        raise ValueError('A current research boundary requires its explicit research widening interface')
     if (not isinstance(state, TrainingState) or type(state.model) is not SelectiveRegressor
             or state.config.model.coordinates != 'selective' or state.model.layer.growth_applied
             or not state.stage.get('complete') or state.best_snapshot is not None
-            or state.growth_metadata):
+            or (state.growth_metadata and not (allow_current_boundary and boundary
+                    and set(state.growth_metadata) == {'research_boundary'}))):
         raise ValueError('Require canonical completed selected ordinary parent without previous event')
     _validate_optimizer(state, _OLD)
     snapshot=pack_state(state)
@@ -60,7 +64,11 @@ def widen_parent(state: TrainingState, added_units: int, seed: int) -> GrowthMan
     absolute schedule do not restart. The event seed only initializes incoming
     rows. New head entries are zero. No duplication control is implemented.
     """
-    _selected_parent(state)
+    return _widen_at_completed_boundary(state, added_units, seed)
+
+
+def _widen_at_completed_boundary(state, added_units, seed, *, allow_current_boundary=False):
+    _selected_parent(state, allow_current_boundary=allow_current_boundary)
     h,d=state.model.layer.h,state.model.layer.d
     if (type(added_units) is not int or added_units < 0 or h+added_units >95
             or type(seed) is not int or not 0 <= seed < 2**63):
@@ -112,6 +120,8 @@ def widen_parent(state: TrainingState, added_units: int, seed: int) -> GrowthMan
             parent_model=state.model.export_config(),widening_manifest=json.loads(canonical_json(manifest.to_dict())),
             widening_seed=seed,insertion_update=state.update,
             adam_step_policy='old steps retained; separate added tensors have step zero and zero moments')
+        if 'research_boundary' in state.growth_metadata:
+            metadata['research_boundary'] = copy.deepcopy(state.growth_metadata['research_boundary'])
         candidate=copy.copy(state)
         candidate.model,candidate.optimizer,candidate.scheduler=model,optimizer,schedule
         candidate.config,candidate.identity_hashes,candidate.backend=config,identity,backend

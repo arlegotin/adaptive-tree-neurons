@@ -14,7 +14,7 @@ a nested subcost. The study runner owns enclosing end-to-end fit/study totals.
 from __future__ import annotations
 
 from collections.abc import Mapping
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass, field, replace
 import copy
 import hashlib
 import json
@@ -78,6 +78,9 @@ class TrainingPolicy:
     checkpoint_selection: str = 'strict_improvement_earliest'
     evaluate_at_update_zero: bool = True
     checkpoint_interval: int = 1
+    stop_by_patience: bool = True
+    capture_schema: int = 1
+    snapshot_updates: tuple[int, ...] = ()
 
     def __post_init__(self):
         for name in ('logical_batch_size', 'physical_batch_size', 'max_updates', 'validation_interval', 'patience', 'checkpoint_interval'):
@@ -89,6 +92,14 @@ class TrainingPolicy:
             raise ValueError('Batch outside bounded backend evidence; extended CPU batches require a measured envelope')
         if self.checkpoint_selection != 'strict_improvement_earliest' or self.evaluate_at_update_zero is not True:
             raise ValueError('Require strict improvement, earliest ties, and update-zero evaluation')
+        if type(self.stop_by_patience) is not bool:
+            raise ValueError('stop_by_patience must be an explicit boolean')
+        if (type(self.capture_schema) is not int or self.capture_schema != 1
+                or not isinstance(self.snapshot_updates, (tuple, list))
+                or any(type(update) is not int or update < 0 for update in self.snapshot_updates)
+                or len(set(self.snapshot_updates)) != len(self.snapshot_updates)):
+            raise ValueError('Invalid versioned capture policy')
+        object.__setattr__(self, 'snapshot_updates', tuple(self.snapshot_updates))
 
     @classmethod
     def from_config(cls, config: ExperimentConfig, *, continuation: bool = False):
@@ -317,11 +328,16 @@ def _validate_inputs(data, config, paths):
     return config
 
 
+def _policy_record(policy):
+    # Checkpoint JSON roundtrips tuples as lists; compare the canonical form.
+    return json.loads(canonical_json(asdict(policy)))
+
+
 def _new_stage(state, policy, kind):
     if state.update + policy.max_updates > state.scheduler.horizon:
         raise ValueError('Stage allowance exceeds original base+continuation schedule horizon')
     state.stage = {'kind': kind, 'start_update': state.update, 'updates_completed': 0,
-                   'bad_evaluations': 0, 'best_mse': None, 'policy': asdict(policy), 'complete': False}
+                   'bad_evaluations': 0, 'best_mse': None, 'policy': _policy_record(policy), 'complete': False}
     state.best_snapshot = None
 
 
@@ -519,7 +535,7 @@ def validate_metadata(meta, expected_hashes, device):
         raise ValueError('Invalid F target variance')
     stage = meta['stage']
     if (set(stage) != {'kind', 'start_update', 'updates_completed', 'bad_evaluations', 'best_mse', 'policy', 'complete'}
-            or stage['kind'] not in ('base', 'continuation') or type(stage['complete']) is not bool):
+            or stage['kind'] not in ('base', 'continuation', 'research_boundary') or type(stage['complete']) is not bool):
         raise ValueError('Invalid stage metadata')
     policy = TrainingPolicy(**stage['policy'])
     if policy.logical_batch_size != config.training.batch_size:
@@ -532,6 +548,11 @@ def validate_metadata(meta, expected_hashes, device):
         raise ValueError('Stage update/counter mismatch')
     if stage['best_mse'] is not None and (type(stage['best_mse']) not in (int, float) or stage['best_mse'] < 0):
         raise ValueError('Invalid best risk')
+    if not isinstance(meta['growth_metadata'], dict):
+        raise ValueError('Invalid growth/intervention metadata')
+    if stage['kind'] == 'research_boundary' or 'research_boundary' in meta['growth_metadata']:
+        from .research.boundaries import validate_boundary_record
+        validate_boundary_record(meta)
     schedule = meta['scheduler']
     if (set(schedule) != {'kind', 'horizon', 'min_lr', 'base_lrs', 'position'}
             or schedule['position'] != meta['update']
@@ -692,11 +713,12 @@ def _observe_initial(state, data, paths, preprocess_ns=None):
 
 def fit_parent(data: DevelopmentData, config: ExperimentConfig, paths: RunPaths, *,
                growth_metadata: dict | None = None, snapshot_updates: tuple[int, ...] = (),
-               on_snapshot=None) -> TrainingState:
+               on_snapshot=None, stop_by_patience: bool = True) -> TrainingState:
     """Train on F; return earliest strict G-best complete state, leaving run open."""
     try:
         config = _validate_inputs(data, config, paths)
-        policy = TrainingPolicy.from_config(config)
+        policy = replace(TrainingPolicy.from_config(config), stop_by_patience=stop_by_patience,
+                         snapshot_updates=snapshot_updates)
         start = time.perf_counter_ns()
         preprocessing = FittedTransform.fit(data.F.X, data.F.y)
         preprocess_ns = time.perf_counter_ns() - start
@@ -736,6 +758,7 @@ def continue_fit(state: TrainingState, data: DevelopmentData, policy: TrainingPo
                  snapshot_updates: tuple[int, ...] = (), on_snapshot=None) -> TrainingState:
     """Resume an active stage exactly, or start a continuation with update 0 eligible."""
     try:
+        policy = replace(policy, snapshot_updates=snapshot_updates)
         _validate_inputs(data, state.config, paths)
         if state.identity_hashes != _identities(data, state.config, state.preprocessing) or state.data_hashes != _fg_hashes(data):
             raise ValueError('Continuation data/code/config identity mismatch')
@@ -759,7 +782,7 @@ def continue_fit(state: TrainingState, data: DevelopmentData, policy: TrainingPo
             if policy.max_updates > state.config.training.continuation_updates:
                 raise ValueError('Continuation allowance exceeds config')
             _new_stage(state, policy, 'continuation')
-        elif state.stage['policy'] != asdict(policy):
+        elif state.stage['policy'] != _policy_record(policy):
             raise ValueError('Resume must use the original unfinished-stage policy')
         _observe_initial(state, data, paths)
     except BaseException as error:
@@ -795,6 +818,8 @@ def _run(state, data, policy, paths, *, snapshot_updates=(), on_snapshot=None):
                 or (snapshot_updates and not callable(on_snapshot))
                 or (on_snapshot is not None and not callable(on_snapshot))):
             raise ValueError('Snapshot policy requires unique nonnegative updates and a callback')
+        if tuple(snapshot_updates) != policy.snapshot_updates:
+            raise ValueError('Runtime snapshot capture differs from its persisted policy')
 
         def notify(label, current):
             if on_snapshot is None:
@@ -863,7 +888,8 @@ def _run(state, data, policy, paths, *, snapshot_updates=(), on_snapshot=None):
             publish()
         if state.update in snapshot_updates:
             notify('current', state)
-        while state.stage['updates_completed'] < policy.max_updates and state.stage['bad_evaluations'] < policy.patience:
+        while (state.stage['updates_completed'] < policy.max_updates
+                and (not policy.stop_by_patience or state.stage['bad_evaluations'] < policy.patience)):
             # An asynchronous interruption during an update or G selection must
             # retain the previous durable state, never a partially applied Adam step.
             checkpoint_safe = False
