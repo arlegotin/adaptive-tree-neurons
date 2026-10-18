@@ -1,0 +1,597 @@
+{
+  "audit_path": "artifacts/research-v2/WP07/preparation-audit.json",
+  "audit_sha256": "06c76aaf87be1f09967ca3c3b2b342bdc0d3b6f28126cf5b5e97b94bd1bc33c4",
+  "data_root": "artifacts/research-v2/WP07/prepared",
+  "datasets": [
+    {
+      "dataset": "airfoil",
+      "folds": [
+        {
+          "fold": 0,
+          "groups": {
+            "F": 56,
+            "G": 14,
+            "T": 21,
+            "V": 15
+          },
+          "primary": true,
+          "rows": {
+            "F": 842,
+            "G": 177,
+            "T": 299,
+            "V": 185
+          }
+        },
+        {
+          "fold": 1,
+          "groups": {
+            "F": 56,
+            "G": 14,
+            "T": 22,
+            "V": 14
+          },
+          "primary": false,
+          "rows": {
+            "F": 842,
+            "G": 178,
+            "T": 306,
+            "V": 177
+          }
+        },
+        {
+          "fold": 2,
+          "groups": {
+            "F": 56,
+            "G": 15,
+            "T": 21,
+            "V": 14
+          },
+          "primary": false,
+          "rows": {
+            "F": 841,
+            "G": 185,
+            "T": 299,
+            "V": 178
+          }
+        },
+        {
+          "fold": 3,
+          "groups": {
+            "F": 56,
+            "G": 14,
+            "T": 21,
+            "V": 15
+          },
+          "primary": false,
+          "rows": {
+            "F": 840,
+            "G": 178,
+            "T": 300,
+            "V": 185
+          }
+        },
+        {
+          "fold": 4,
+          "groups": {
+            "F": 57,
+            "G": 14,
+            "T": 21,
+            "V": 14
+          },
+          "primary": false,
+          "rows": {
+            "F": 848,
+            "G": 178,
+            "T": 299,
+            "V": 178
+          }
+        }
+      ],
+      "groups": 106,
+      "manifest_sha256": "faba96df4da23855b07c066eb29565243ccfe2d521d59db57bf105d9c24d8d64",
+      "rows": 1503
+    },
+    {
+      "dataset": "bike",
+      "folds": [
+        {
+          "fold": 0,
+          "groups": {
+            "F": 255,
+            "G": 54,
+            "T": 72,
+            "V": 54
+          },
+          "primary": false,
+          "rows": {
+            "F": 6010,
+            "G": 1295,
+            "T": 1720,
+            "V": 1292,
+            "embargo": 72,
+            "unused_future": 6990
+          }
+        },
+        {
+          "fold": 1,
+          "groups": {
+            "F": 306,
+            "G": 65,
+            "T": 72,
+            "V": 65
+          },
+          "primary": false,
+          "rows": {
+            "F": 7233,
+            "G": 1555,
+            "T": 1726,
+            "V": 1553,
+            "embargo": 72,
+            "unused_future": 5240
+          }
+        },
+        {
+          "fold": 2,
+          "groups": {
+            "F": 357,
+            "G": 76,
+            "T": 72,
+            "V": 76
+          },
+          "primary": false,
+          "rows": {
+            "F": 8456,
+            "G": 1814,
+            "T": 1728,
+            "V": 1821,
+            "embargo": 72,
+            "unused_future": 3488
+          }
+        },
+        {
+          "fold": 3,
+          "groups": {
+            "F": 408,
+            "G": 87,
+            "T": 72,
+            "V": 87
+          },
+          "primary": false,
+          "rows": {
+            "F": 9673,
+            "G": 2082,
+            "T": 1728,
+            "V": 2088,
+            "embargo": 72,
+            "unused_future": 1736
+          }
+        },
+        {
+          "fold": 4,
+          "groups": {
+            "F": 459,
+            "G": 98,
+            "T": 73,
+            "V": 98
+          },
+          "primary": true,
+          "rows": {
+            "F": 10892,
+            "G": 2351,
+            "T": 1712,
+            "V": 2352,
+            "embargo": 72,
+            "unused_future": 0
+          }
+        }
+      ],
+      "groups": 731,
+      "manifest_sha256": "7370d34ba83567b70c3bfdccd3ce8881b94425bdce4b4875109b2411120f0adc",
+      "rows": 17379
+    },
+    {
+      "dataset": "ccpp",
+      "folds": [
+        {
+          "fold": 0,
+          "groups": {
+            "F": 5326,
+            "G": 1148,
+            "T": 1905,
+            "V": 1148
+          },
+          "primary": true,
+          "rows": {
+            "F": 5359,
+            "G": 1148,
+            "T": 1913,
+            "V": 1148
+          }
+        },
+        {
+          "fold": 1,
+          "groups": {
+            "F": 5325,
+            "G": 1148,
+            "T": 1906,
+            "V": 1148
+          },
+          "primary": false,
+          "rows": {
+            "F": 5358,
+            "G": 1148,
+            "T": 1914,
+            "V": 1148
+          }
+        },
+        {
+          "fold": 2,
+          "groups": {
+            "F": 5326,
+            "G": 1148,
+            "T": 1905,
+            "V": 1148
+          },
+          "primary": false,
+          "rows": {
+            "F": 5358,
+            "G": 1148,
+            "T": 1914,
+            "V": 1148
+          }
+        },
+        {
+          "fold": 3,
+          "groups": {
+            "F": 5325,
+            "G": 1148,
+            "T": 1906,
+            "V": 1148
+          },
+          "primary": false,
+          "rows": {
+            "F": 5358,
+            "G": 1148,
+            "T": 1914,
+            "V": 1148
+          }
+        },
+        {
+          "fold": 4,
+          "groups": {
+            "F": 5326,
+            "G": 1148,
+            "T": 1905,
+            "V": 1148
+          },
+          "primary": false,
+          "rows": {
+            "F": 5359,
+            "G": 1148,
+            "T": 1913,
+            "V": 1148
+          }
+        }
+      ],
+      "groups": 9527,
+      "manifest_sha256": "91837a0b97013189b8723efd454176aa23b2e4f4806dac5e82fbd594f601e909",
+      "rows": 9568
+    },
+    {
+      "dataset": "concrete",
+      "folds": [
+        {
+          "fold": 0,
+          "groups": {
+            "F": 170,
+            "G": 86,
+            "T": 86,
+            "V": 86
+          },
+          "primary": true,
+          "rows": {
+            "F": 577,
+            "G": 124,
+            "T": 206,
+            "V": 123
+          }
+        },
+        {
+          "fold": 1,
+          "groups": {
+            "F": 171,
+            "G": 86,
+            "T": 85,
+            "V": 86
+          },
+          "primary": false,
+          "rows": {
+            "F": 577,
+            "G": 124,
+            "T": 206,
+            "V": 123
+          }
+        },
+        {
+          "fold": 2,
+          "groups": {
+            "F": 172,
+            "G": 86,
+            "T": 84,
+            "V": 86
+          },
+          "primary": false,
+          "rows": {
+            "F": 577,
+            "G": 124,
+            "T": 206,
+            "V": 123
+          }
+        },
+        {
+          "fold": 3,
+          "groups": {
+            "F": 169,
+            "G": 86,
+            "T": 87,
+            "V": 86
+          },
+          "primary": false,
+          "rows": {
+            "F": 577,
+            "G": 124,
+            "T": 206,
+            "V": 123
+          }
+        },
+        {
+          "fold": 4,
+          "groups": {
+            "F": 170,
+            "G": 86,
+            "T": 86,
+            "V": 86
+          },
+          "primary": false,
+          "rows": {
+            "F": 577,
+            "G": 124,
+            "T": 206,
+            "V": 123
+          }
+        }
+      ],
+      "groups": 428,
+      "manifest_sha256": "401ab700fb22c65b78fbd88f1faf0f1a647e6a0d727ca3bf8e0123692669e821",
+      "rows": 1030
+    },
+    {
+      "dataset": "energy",
+      "folds": [
+        {
+          "fold": 0,
+          "groups": {
+            "F": 5,
+            "G": 2,
+            "T": 3,
+            "V": 2
+          },
+          "primary": true,
+          "rows": {
+            "F": 320,
+            "G": 128,
+            "T": 192,
+            "V": 128
+          }
+        },
+        {
+          "fold": 1,
+          "groups": {
+            "F": 6,
+            "G": 2,
+            "T": 2,
+            "V": 2
+          },
+          "primary": false,
+          "rows": {
+            "F": 384,
+            "G": 128,
+            "T": 128,
+            "V": 128
+          }
+        },
+        {
+          "fold": 2,
+          "groups": {
+            "F": 5,
+            "G": 2,
+            "T": 3,
+            "V": 2
+          },
+          "primary": false,
+          "rows": {
+            "F": 320,
+            "G": 128,
+            "T": 192,
+            "V": 128
+          }
+        },
+        {
+          "fold": 3,
+          "groups": {
+            "F": 6,
+            "G": 2,
+            "T": 2,
+            "V": 2
+          },
+          "primary": false,
+          "rows": {
+            "F": 384,
+            "G": 128,
+            "T": 128,
+            "V": 128
+          }
+        },
+        {
+          "fold": 4,
+          "groups": {
+            "F": 6,
+            "G": 2,
+            "T": 2,
+            "V": 2
+          },
+          "primary": false,
+          "rows": {
+            "F": 384,
+            "G": 128,
+            "T": 128,
+            "V": 128
+          }
+        }
+      ],
+      "groups": 12,
+      "manifest_sha256": "3668c5e191c98cab87703d446a42ad395a458139fcc8ac2c9c2bd9e1f582b8e3",
+      "rows": 768
+    },
+    {
+      "dataset": "parkinsons",
+      "folds": [
+        {
+          "fold": 0,
+          "groups": {
+            "F": 23,
+            "G": 5,
+            "T": 8,
+            "V": 6
+          },
+          "primary": true,
+          "rows": {
+            "F": 3352,
+            "G": 644,
+            "T": 1137,
+            "V": 742
+          }
+        },
+        {
+          "fold": 1,
+          "groups": {
+            "F": 23,
+            "G": 6,
+            "T": 8,
+            "V": 5
+          },
+          "primary": false,
+          "rows": {
+            "F": 3351,
+            "G": 742,
+            "T": 1139,
+            "V": 643
+          }
+        },
+        {
+          "fold": 2,
+          "groups": {
+            "F": 22,
+            "G": 6,
+            "T": 9,
+            "V": 5
+          },
+          "primary": false,
+          "rows": {
+            "F": 3221,
+            "G": 767,
+            "T": 1227,
+            "V": 660
+          }
+        },
+        {
+          "fold": 3,
+          "groups": {
+            "F": 23,
+            "G": 6,
+            "T": 8,
+            "V": 5
+          },
+          "primary": false,
+          "rows": {
+            "F": 3351,
+            "G": 742,
+            "T": 1139,
+            "V": 643
+          }
+        },
+        {
+          "fold": 4,
+          "groups": {
+            "F": 22,
+            "G": 6,
+            "T": 9,
+            "V": 5
+          },
+          "primary": false,
+          "rows": {
+            "F": 3221,
+            "G": 761,
+            "T": 1233,
+            "V": 660
+          }
+        }
+      ],
+      "groups": 42,
+      "manifest_sha256": "405a238f49ba78c5e6c830e93b2d66db109924887bd009dc9dd99565dcfb13e5",
+      "rows": 5875
+    }
+  ],
+  "dependencies": {
+    "et-xmlfile": {
+      "distribution_path": "/private/tmp/atn-research-v2-next/environment/research-v2-data-site",
+      "import_path": "/private/tmp/atn-research-v2-next/environment/research-v2-data-site/et_xmlfile/__init__.py",
+      "record_sha256": "0f0861905c07d20c301567320c32950ef93b01084295cc11d54ba9705eb269bb",
+      "version": "2.0.0"
+    },
+    "numpy": {
+      "distribution_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages",
+      "import_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/numpy/__init__.py",
+      "record_sha256": "26eab5291581f4d816ddb8ca046f8e217e218c074f264e423875691d2be305a9",
+      "version": "2.5.4"
+    },
+    "openpyxl": {
+      "distribution_path": "/private/tmp/atn-research-v2-next/environment/research-v2-data-site",
+      "import_path": "/private/tmp/atn-research-v2-next/environment/research-v2-data-site/openpyxl/__init__.py",
+      "record_sha256": "89fb27b7b9ef96f6871e5f400b8aedf1f569856ac2594f0cf48ff0fbcd04ece0",
+      "version": "3.1.5"
+    },
+    "pandas": {
+      "distribution_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages",
+      "import_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/pandas/__init__.py",
+      "record_sha256": "daeee3e7f48ab290d9508b7d3f6038fe2fe591d76d4e40345a85ba7b92ba04d7",
+      "version": "3.0.6"
+    },
+    "xlrd": {
+      "distribution_path": "/private/tmp/atn-research-v2-next/environment/research-v2-data-site",
+      "import_path": "/private/tmp/atn-research-v2-next/environment/research-v2-data-site/xlrd/__init__.py",
+      "record_sha256": "07a620c90259b30a85ba6da2ce19e217d4b7abc00d0e20d9e700d649371383e5",
+      "version": "2.0.2"
+    }
+  },
+  "schema": "research/v2-preparation-receipt",
+  "scope": {
+    "all_five_splits_sealed": true,
+    "native_adapter_qualification_completed": false,
+    "protected_labels_read_for_modeling": false,
+    "protected_targets_opened_by_independent_auditor": false,
+    "secondary_development_released": false,
+    "synthetic_protected_T_created": false,
+    "transfer_models_fit": false
+  },
+  "source_commit": "12d8086",
+  "source_sha256": "9f43940702c95240ce41cbcb1d18b18a5d89441ae01165f28c3bbdde739fde71",
+  "status": "completed",
+  "suite_sha256": "cec155231b82e2f79112e807a427a22f3a57bbf9f872b86715eaed2358955933",
+  "verification": {
+    "affected_tests_passed": 41,
+    "elapsed_seconds": 14.35,
+    "log_path": "artifacts/research-v2/WP07/data-contract-tests/atn-transfer-integration.log",
+    "log_sha256": "4b9cd3fc3561fe93da21cf2171069b9f4042c81d9b61266e903f39c82ea6ec01"
+  }
+}

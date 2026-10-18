@@ -67,8 +67,9 @@ prevent concurrent execution. Recovery cost bounds and unrecorded process-loss
 time explicitly block formal efficiency claims; they are never reported as exact
 standalone savings. Source/lock/runtime/backend receipt identity cannot change on
 resume. Measured full resource forecasts remain pending.
-Read the live ledger before executing production matrices. Protected T has not
-been created or accessed by the continuation.
+Read the live ledger before executing production matrices. Synthetic protected T
+has not been created. Transfer T roles are sealed by the preparation below;
+their labels have not been accessed for fitting, selection or predictive evaluation.
 
 One predeclared first M0 pair can be measured independently for resource
 qualification after creating the source/runtime-matching CPU receipt:

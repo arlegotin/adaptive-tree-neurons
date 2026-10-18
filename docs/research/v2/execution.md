@@ -174,3 +174,23 @@ without exposing them to workers. Duplicate configuration keys reject before
 output creation; exact reader versions/import locations and duplicate distribution
 checks precede preparation. No material review finding remains unaddressed;
 actual six-table preparation and all native-adapter qualification remain pending.
+
+Actual preparation completed under commit12d8086, using the isolated checkout's
+source/data overlay from the original repository cwd. Output:
+`artifacts/research-v2/WP07/prepared`; immutable suite/30 split manifests and
+all role arrays are retained. Rows/groups matched the exact contract:
+Airfoil1503/106, Concrete1030/428, CCPP9568/9527, Parkinsons5875/42,
+Bike17379/731, Energy768/12. Original raw targets were parsed solely for
+partition serialization; no transfer fit, selection or protected prediction ran.
+
+An independent array auditor opened only feature/identity packs, rehashed every
+retained file, and checked row/group disjointness, two-group F/G/V minima and
+Bike chronology/24-hour embargo across all30 splits. It did not open protected
+target packs. Audit SHA256:
+`06c76aaf87be1f09967ca3c3b2b342bdc0d3b6f28126cf5b5e97b94bd1bc33c4`.
+Prepared allocation8488KiB. The compact tracked WP07-preparation-receipt.json
+binds source, suite, all realized row/group counts and dependency import identities.
+The latest affected suite passed41 tests in14.35s; initial RED/review failures
+and recovery logs remain under WP07/data-contract-tests. This completes data
+acquisition/preparation only. Native adapters, qualification and Gate D remain
+pending; secondary F/G/V and all T labels remain blocked through the store API.

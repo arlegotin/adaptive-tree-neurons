@@ -11,8 +11,9 @@ This project implements that growth mechanism and tests a harder question: **can
 The [research v2 continuation](docs/research/v2/execution.md) is in progress.
 Its [spec](docs/superpowers/specs/2026-10-18-research-v2-design.md) and
 [implementation plan](docs/superpowers/plans/2026-10-18-research-v2.md) preserve
-the finite experiments and claim gates. Checkpoint semantic hardening is verified;
-the diagnostic runner is being implemented. The new selector, strong-baseline
+the finite experiments and claim gates. Checkpoint semantic hardening, diagnostic
+foundations and transfer-data split preparation are verified. Native diagnostic
+cohorts are in progress. The new selector, strong-baseline
 benchmark and confirmation have not been completed.
 
 ## The idea
