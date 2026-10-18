@@ -7,7 +7,7 @@ name = "treeneuron"
 version = "0.1.0"
 description = "Selective affine-stump allocation research proof of concept"
 readme = "README.md"
-license = "AGPL-3.0-only AND CC-BY-4.0"
+license = "AGPL-3.0-only AND CC-BY-4.0 AND MIT"
 license-files = ["LICENSE", "NOTICE", "LICENSING.md", "THIRD_PARTY_NOTICES.md", "licenses/CC-BY-4.0.txt", "src/treeneuron/baselines/_node_vendor/LICENSE*"]
 authors = [{name = "Artem Legotin"}]
 requires-python = ">=3.12,<3.13"

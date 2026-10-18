@@ -38,8 +38,12 @@ The project grants rights only in original material it owns. Vendored code,
 license documents, upstream snapshots, dependencies, cited research and external
 datasets or models retain their own terms. See
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). The package expression
-`AGPL-3.0-only AND CC-BY-4.0` describes software and README prose under different
-terms, not a choice of either license for each file. Original synthetic numerical
+`AGPL-3.0-only AND CC-BY-4.0 AND MIT` describes original software, README prose
+and bundled MIT runtime components under their respective terms. It is not a
+choice among those licenses for each file. The MIT term records the retained
+NODE/entmax/QHOptim material, following the Python Packaging User Guide's
+[vendored-code guidance](https://packaging.python.org/en/latest/guides/licensing-examples-and-user-scenarios/).
+Original synthetic numerical
 fixtures use the software license; their published presentation uses CC BY 4.0.
 
 ## License text provenance

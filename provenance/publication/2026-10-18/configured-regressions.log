@@ -1,0 +1,31 @@
+........................................................................ [ 31%]
+........................................s............................... [ 62%]
+........................................................................ [ 94%]
+.............                                                            [100%]
+=============================== warnings summary ===============================
+tests/test_node.py::test_sparse_choice_independent_cpu_backward[shape0-0]
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+tests/test_node.py::test_model_vendor_head_axis_init_and_backward
+tests/test_node.py::test_training_snapshots_match_independent_unaveraged_vendor_updates
+  /private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/treeneuron-public-ld_3_uvh/repo/src/treeneuron/baselines/_node_vendor/odst.py:113: UserWarning: Data-aware initialization is performed on less than 1000 data points. This may cause instability.To avoid potential problems, run this model on a data batch with at least 1000 data samples.You can do so manually before training. Use with torch.no_grad() for memory efficiency.
+    warn("Data-aware initialization is performed on less than 1000 data points. This may cause instability."
+
+tests/test_node.py::test_model_vendor_head_axis_init_and_backward
+  /private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/treeneuron-public-ld_3_uvh/repo/configs/vendor/node/upstream/lib/odst.py:113: UserWarning: Data-aware initialization is performed on less than 1000 data points. This may cause instability.To avoid potential problems, run this model on a data batch with at least 1000 data samples.You can do so manually before training. Use with torch.no_grad() for memory efficiency.
+    warn("Data-aware initialization is performed on less than 1000 data points. This may cause instability."
+
+tests/test_node.py::test_qhadam_multistep_and_state_reload
+  /private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/treeneuron-public-ld_3_uvh/repo/src/treeneuron/baselines/_node_vendor/qhadam.py:133: UserWarning: This overload of add_ is deprecated:
+  	add_(Number alpha, Tensor other)
+  Consider using one of the following signatures instead:
+  	add_(Tensor other, *, Number alpha = 1) (Triggered internally at /Users/runner/work/pytorch/pytorch/torch/csrc/utils/python_arg_parser.cpp:1841.)
+    exp_avg.mul_(beta1_adj).add_(1.0 - beta1_adj, d_p)
+
+tests/test_node.py::test_training_snapshots_match_independent_unaveraged_vendor_updates
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/lib/python3.12/site-packages/sklearn/preprocessing/_data.py:2912: UserWarning: n_quantiles (1000) is greater than the total number of samples (37). n_quantiles is set to n_samples.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+228 passed, 1 skipped, 6 warnings in 82.27s (0:01:22)

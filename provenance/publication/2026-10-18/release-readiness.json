@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "base_research_commit": "7af00e8",
+  "clean_clone_source_commit": "a7e692c",
+  "readme_example_and_math_references": "passed",
+  "focused_clone_tests": {
+    "passed": 89,
+    "skipped": 1
+  },
+  "first_full_core_attempt": {
+    "passed": 928,
+    "skipped": 48,
+    "failed": 74
+  },
+  "configured_all_failed_nodes_and_regressions": {
+    "passed": 228,
+    "skipped": 1,
+    "failed": 0
+  },
+  "second_monolithic_full_suite_run": false,
+  "all_known_setup_failures_resolved": true,
+  "scientific_source_tests_configs_lock_results_unchanged": true,
+  "core_lock_sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+  "current_citation_official_schema_valid": true,
+  "current_license_texts_and_package_notices_valid": true,
+  "local_links_resolve": true,
+  "readme_code_unchanged_from_executed_example": true,
+  "release_scope": "Current software/presentation release; no new scientific cohort or upgraded claim."
+}

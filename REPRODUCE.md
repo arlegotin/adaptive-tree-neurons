@@ -43,14 +43,34 @@ insertion, score derivatives and the diagnostic's bookkeeping. Checkpoint,
 training and optimizer tests additionally build temporary synthetic cases and
 fresh backend receipts.
 
-The complete suite can be attempted with the same thread settings and
-`uv run --frozen python -m pytest -q`. It includes native MPS and optional
-environment paths that can skip when unavailable. Historical whole-suite output
-was not all green: it recorded 958 passes, 2 failures and 9 setup errors, followed
-by 190 passing affected checks after scoped fixes. The latest longer-probe
-implementation passed its 55 affected tests. Those are source-specific records,
-not a claim that every later checkout's whole suite passes. Publication checks
-and their actual outputs are recorded in [publication scope](docs/PUBLICATION.md).
+### Full test setup
+
+The complete suite also checks the upstream NODE reference and Optuna search.
+Install their separate, hash-pinned overlays after the core setup; this leaves
+the core lock and packages unchanged:
+
+```sh
+uv pip install --python .venv/bin/python --require-hashes \
+  --target environment/node-reference-site -r locks/node/reference-requirements.txt
+uv pip install --python .venv/bin/python --require-hashes \
+  --target environment/search-site -r locks/search/requirements.txt
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 \
+VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTORCH_ENABLE_MPS_FALLBACK=0 \
+uv run --frozen python -c 'import torch, pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main(["-q"]))'
+```
+
+Set both Torch thread counts before numerical work. The CPU receipt is produced
+with one interop thread; a plain pytest process with a different live setting
+correctly fails receipt validation. The NODE reference imports requests/tqdm,
+and search requires the pinned Optuna environment. The tests use synthetic data;
+installing these overlays does not download a benchmark or pretrained model.
+
+The complete suite includes end-to-end fitting and audit cases and can take
+tens of minutes. For a quick implementation check, use the focused command above.
+Native MPS checks may skip when unavailable. Publication checks and their actual
+outputs, including the first run with incomplete setup, are retained in
+[publication scope](docs/PUBLICATION.md). Historical test counts remain
+source-specific records; they are not a new whole-suite pass.
 
 ## Inspect and authenticate recorded results
 

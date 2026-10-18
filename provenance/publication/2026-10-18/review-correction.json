@@ -1,0 +1,12 @@
+{
+  "review_range": "7af00e8..a7e692c",
+  "finding": "Bundled MIT runtime files missing from aggregate distribution license expression",
+  "source": "https://packaging.python.org/en/latest/guides/licensing-examples-and-user-scenarios/",
+  "before": "AGPL-3.0-only AND CC-BY-4.0",
+  "after": "AGPL-3.0-only AND CC-BY-4.0 AND MIT",
+  "metadata_check_red_exit": 1,
+  "metadata_check_green_exit": 0,
+  "rebuilt_distribution_verified": true,
+  "all8_legal_notices_retained": true,
+  "scientific_source_or_results_changed": false
+}

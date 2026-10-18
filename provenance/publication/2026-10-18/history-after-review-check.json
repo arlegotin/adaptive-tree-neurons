@@ -1,0 +1,25 @@
+{
+  "scanner": "Gitleaks8.30.1",
+  "argv": [
+    "environment/publication-20261018/scanner/gitleaks",
+    "git",
+    ".",
+    "--log-opts=--all --full-history",
+    "--redact",
+    "--ignore-gitleaks-allow",
+    "--no-banner",
+    "--no-color",
+    "--report-format",
+    "json",
+    "--report-path",
+    "environment/publication-20261018/history-after-review.json"
+  ],
+  "returncode": 0,
+  "findings_after_exact_historical_dispositions": 0,
+  "manually_reviewed_initial_findings": 71,
+  "historical_fingerprints": 59,
+  "new_findings_ignored": 0,
+  "seconds": 2.6882554590702057,
+  "commit": "a7e692cba91404376b5a524a4582ea51caccbff3",
+  "scope": "All locally reachable committed history; final changed files receive separate staged/final scan before publication."
+}

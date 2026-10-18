@@ -10,6 +10,8 @@ receipts, or strengthen the predictive claim.
 The public repository includes source, tests, configurations, the core lock,
 original reports, decisions, prior-art notes and selected detailed audit records.
 Full Git history is retained so recorded source commits remain meaningful.
+Selected historical logs under `environment/` are versioned too; they are not
+the installed runtime or the full retained experiment archive.
 
 Small synthetic engineering arrays and saved numerical states are already
 versioned in `tests/fixtures/` and selected historical audit directories. They
@@ -47,11 +49,42 @@ hard-routing acceleration is claimed.
 ## Publication verification
 
 Verification records are stored under `provenance/publication/2026-10-18/`.
-They distinguish the actual preparation/verification commits, clean-clone software
-checks, package/license inspection and bounded history scan. Publication files
-and visibility are finalized only after those checks and independent review.
-The exact commands, outcomes and remaining full-suite limitations belong to that
-record; historical source-specific test counts are not reused as a new pass.
+The tested clean clone was at preparation commit `a7e692c`, with imports verified
+to come from its own `src/` tree. It reused the existing locked Python/dependency
+environment; the original scientific archive was absent. This was an artifact-free
+source check, not a fresh dependency installation on a second machine.
+
+- The README example, both standalone math/gradient references and CLI help pass.
+  The focused clone command passed **89 tests, with 1 MPS skip**, in 11.14s.
+- A first complete suite attempt with core-only dependencies and default Torch
+  interop settings produced **928 passes, 48 skips and 74 failures** in 1920.73s.
+  The failures comprise 49 receipt/thread-setting mismatches, 18 missing-Optuna
+  cases, 6 missing NODE-reference dependency cases and 1 dependent causal-CLI case.
+  That run is retained; it is not presented as green.
+- Installing the existing hash-pinned NODE/reference and search overlays into
+  the disposable clone and explicitly initializing both Torch thread counts to1
+  resolved every one of those 74 failures. Their exact nodes plus algebra,
+  growth, score, diagnostic, training and checkpoint regressions passed
+  **228 tests, with 1 skip**, in 82.27s. The corrected full setup is documented in
+  [REPRODUCE.md](../REPRODUCE.md#full-test-setup). No test, scientific source,
+  configuration or core lock was changed to obtain this result. There was no
+  second monolithic full-suite run; these are distinct measured checks.
+- Independent release review verified the claims, figures, API, attribution and
+  privacy boundaries. Its one package-metadata correction, naming MIT alongside
+  AGPL/CC BY for bundled vendor code, was checked before and after correction and
+  verified in the rebuilt distribution. All eight legal/notice documents remain.
+- Gitleaks8.30.1 initially flagged71 strings in76 reachable commits. Each was
+  inspected in its actual historical blob: all were research SHA-256 identities,
+  68 independently recomputed and3 identified from retained-ledger inventory
+  context. The exact59 immutable historical fingerprints are dispositioned;
+  new commits, paths, values and other rules remain scanned. The subsequent
+  history scan reported0 new findings. This bounded review found no credential
+  blocker; it is not a guarantee about every possible secret encoding.
+
+The full initial output, configured regression output, invocation records,
+classification detail and independent review remain in the publication record.
+Final presentation/licensing changes do not alter the tested scientific source.
+Historical source-specific test counts are not reused as a new pass.
 
 The [reproduction guide](../REPRODUCE.md) separates checking the software,
 authenticating a historical result and running a fresh experiment.

@@ -1,0 +1,7 @@
+{
+  "stage": "pre-test clone membership assertion",
+  "error": "Checker assumed environment directory was entirely untracked; selected historical environment logs are already versioned.",
+  "selected_environment_files": 53,
+  "no_tests_or_fits_had_started": true,
+  "corrected_check": "actual scientific archive/environment/long-probes-20261018 and artifacts/runs/.venv/cache absent; existing clone reused"
+}

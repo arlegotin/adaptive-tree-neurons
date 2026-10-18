@@ -1,0 +1,82 @@
+{
+  "clone": "/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/treeneuron-public-ld_3_uvh/repo",
+  "tested_commit": "a7e692cba91404376b5a524a4582ea51caccbff3",
+  "source_import_from_clone": true,
+  "external_research_archive_absent": true,
+  "dependencies_reused_from_locked_environment": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv",
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+    "PYTHONPATH": "/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/treeneuron-public-ld_3_uvh/repo/src"
+  },
+  "checks": [
+    {
+      "name": "clone-import",
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+        "-c",
+        "import treeneuron,pathlib; p=pathlib.Path(treeneuron.__file__).resolve(); print(p); assert p.is_relative_to(pathlib.Path.cwd())"
+      ],
+      "returncode": 0,
+      "seconds": 0.0565048340940848
+    },
+    {
+      "name": "clone-example",
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+        "-c",
+        "import torch\nfrom treeneuron.models.units import SelectiveAffineLayer\n\ntorch.manual_seed(42)\nlayer = SelectiveAffineLayer(d=16, h=64)\nx = torch.randn(32, 16)\nbefore = layer(x).detach()\n\n# Contrast rows contain 16 weights and a bias. New gates start at zero.\nmanifest = layer.grow(torch.arange(16), 0.05 * torch.randn(16, 17))\nafter = layer(x)\n\ntorch.testing.assert_close(after, before, rtol=0, atol=0)\nprint(manifest.added_parameter_count)  # 544\nprint(after.relu().shape)             # torch.Size([32, 64])"
+      ],
+      "returncode": 0,
+      "seconds": 1.3361103750066832
+    },
+    {
+      "name": "clone-math",
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+        "tests/reference_math_checks.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.6402477499796078
+    },
+    {
+      "name": "clone-score",
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+        "tests/reference_score_checks.py"
+      ],
+      "returncode": 0,
+      "seconds": 1.1891450829571113
+    },
+    {
+      "name": "clone-readme-tests",
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_algebra.py",
+        "tests/test_growth.py",
+        "tests/test_score.py",
+        "tests/test_probe_diagnostic.py"
+      ],
+      "returncode": 0,
+      "seconds": 11.590850459062494
+    },
+    {
+      "name": "clone-full-suite",
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "returncode": 1,
+      "seconds": 1921.2455867499812
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+Using CPython 3.12.13 interpreter at: /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv/bin/python
+Resolved 6 packages in 201ms
+Prepared 5 packages in 67ms
+Installed 6 packages in 6ms
+ + certifi==2026.7.22
+ + charset-normalizer==3.5.2
+ + idna==3.20
+ + requests==2.32.5
+ + tqdm==4.67.1
+ + urllib3==2.8.0

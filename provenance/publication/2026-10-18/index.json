@@ -1,0 +1,223 @@
+{
+  "files": [
+    {
+      "path": "provenance/publication/2026-10-18/appendix-a.log",
+      "bytes": 1044,
+      "sha256": "2bfbdbc3fb4e4ae70e24c2320917d080857707a5aadc111d1ab74c0a395e561b"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/appendix-b.log",
+      "bytes": 2932,
+      "sha256": "20f06dc44a4626dcd230a9bd844838c19e165914bf34105d940d600306997faa"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/check-full-setup-online.py",
+      "bytes": 2251,
+      "sha256": "b9668e77266482d6e0f80ef4a5740d23d5c69ea731acaa12fb375a2c12b38213"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/check-preparation.py",
+      "bytes": 1812,
+      "sha256": "0ad0927364d4956f67cc827dfc51ceaa81addbdbfde45d1cc26ee65f1dcdc758"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/citation-validation.json",
+      "bytes": 326,
+      "sha256": "c7733845ec966cf10ec966cc6a842932c7dace1f7121f88a642be429963e149b"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/clean-clone-v1.py",
+      "bytes": 2596,
+      "sha256": "39e16551d4479aded9bb2d74a64672596a4cf17c1a556017056670ee6c43237c"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/clean-clone-v2.json",
+      "bytes": 3023,
+      "sha256": "64771d52f250074d180550d631320efc0885800eb4f86d25f999eaad8d3dae33"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/clean-clone-v2.py",
+      "bytes": 2468,
+      "sha256": "d7b14070bcdb7eb67d74d6a30becaff91f2a378321b6e55dc0ab7d9a02838497"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/cli-help.log",
+      "bytes": 1554,
+      "sha256": "a8ae396f313e6a911626e087890308eaae5bfecc814f7197ba2de8b16ad496dc"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/clone-create.log",
+      "bytes": 105,
+      "sha256": "5ca3da714b009c12293d25980a850a75404b6d517e93b329c1560caade26943e"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/clone-example.log",
+      "bytes": 25,
+      "sha256": "532d3e676a64c05bdb9d4c6759e7d9c292bf4cccbb7f6cce6e4f1ef0c9a447e8"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/clone-full-suite.log",
+      "bytes": 317884,
+      "sha256": "8431c65a8c7c731968ec5bfd1df2d9e89693ad19954e2eda2e2c5dd23301dc83"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/clone-import.log",
+      "bytes": 116,
+      "sha256": "e57cb70a8d32e04cd8e7e731f9569b7dd5dce5ce9a6587ba65a6263b001247a0"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/clone-math.log",
+      "bytes": 1044,
+      "sha256": "2bfbdbc3fb4e4ae70e24c2320917d080857707a5aadc111d1ab74c0a395e561b"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/clone-node-overlay-offline-failed.log",
+      "bytes": 476,
+      "sha256": "d8a45ae9e00cd31631b79f93b2e70f319026334b11c4f1179cd8d0326e2a2e70"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/clone-node-overlay-online.log",
+      "bytes": 321,
+      "sha256": "83c4ac2c243538a173c1b58e0750bd96b2ea7bd66509a2a93d27ecd69e88fdd1"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/clone-readme-tests.log",
+      "bytes": 191,
+      "sha256": "c2145508d09c9d5a8d093c517542334646f536bdfa5878799aa1ea7d8050b614"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/clone-score.log",
+      "bytes": 2932,
+      "sha256": "20f06dc44a4626dcd230a9bd844838c19e165914bf34105d940d600306997faa"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/clone-search-overlay-online.log",
+      "bytes": 387,
+      "sha256": "d8c96af684727b0c3a5cea9ac71f755256d6e2334fe846d18eaebf1cc611aaba"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/clone-v1-checker-failure.json",
+      "bytes": 409,
+      "sha256": "0f057d9bf45cb65002a97bfebef15c6510558ec79ea2a98e087627b473470993"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/configured-checks.json",
+      "bytes": 8815,
+      "sha256": "fd29a1260c1c96f39c847826674456c79f6dcbfe73bf18c8e7bbb511f786ed2a"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/configured-ids-path-checker-failed.log",
+      "bytes": 787,
+      "sha256": "ab6f5c57536bb974b3a31daa68b9a9a7e012da7d6d5ecbe63ec0d24c1dddf9d1"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/configured-regressions.log",
+      "bytes": 3058,
+      "sha256": "d2c1ca4e5306d0cf9c679d13457733fe75cb330815a53b5d7d3b5ea27a4306e3"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/history-after-review-check.json",
+      "bytes": 769,
+      "sha256": "085d7c26c91bcde272e04c3fa9058847dcc641d13fbbec51bec7e170a49a504f"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/history-after-review.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/history-after-review.log",
+      "bytes": 115,
+      "sha256": "a1ee31e00fde3a541e1bec7ee68dc5f76499d22b5b16f224ca4c23259d95ba3d"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/history-audit.md",
+      "bytes": 6549,
+      "sha256": "f66e03b4429c25207d3831beaf65791fb044646238193cee7869e49b87559d3f"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/history-classifications.json",
+      "bytes": 93111,
+      "sha256": "78f9b1a01dc553bee3d59650718d11ca8788b1a85f38a3fd4ad180e78f327fa9"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/history-scan.log",
+      "bytes": 116,
+      "sha256": "c85f6875c7ae4d6b2b4a7a14ca46978d87fa7158ef762a4dcc86b97189b20a9e"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/history-secrets.json",
+      "bytes": 77104,
+      "sha256": "da859c7a8fbccccc4d04dc21cbf9417d1111eb5d8e24cd715688436a5dd027f0"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/independent-review.md",
+      "bytes": 7064,
+      "sha256": "bc13463f72e6174d54b76c6388603e53a0aed9b3252a2fe0e6feb13089280bd2"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/license-source.json",
+      "bytes": 121,
+      "sha256": "5163bd46d374e6e90366efbdc18f87e939e2fe705893fe44589ef41533634d22"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/metadata-mit-green.log",
+      "bytes": 97,
+      "sha256": "155d833ef907839846ba95a686aede0e9c1cb64b5f63a6092c046cf33466ceb1"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/metadata-mit-red.log",
+      "bytes": 517,
+      "sha256": "a3e40f3631997fe381f7fb1e813d28b46014c29badd0923f1dd5b50df0e12182"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/package-verification.json",
+      "bytes": 4060,
+      "sha256": "0c0b9bad4f40bba647094734a417e9cc48af8be5644bffc56b6ab535e6460689"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/preparation-checks.json",
+      "bytes": 2187,
+      "sha256": "15e8abb1a83917a17c79fc8c59e7d7e28785f1a6b7929105237855d1b780d26f"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/readme-checks.log",
+      "bytes": 191,
+      "sha256": "1b71c06b085858ccdf57bd294f6e2b48850ead49e10a81c8f18b0bd677074bdc"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/readme-example.log",
+      "bytes": 25,
+      "sha256": "532d3e676a64c05bdb9d4c6759e7d9c292bf4cccbb7f6cce6e4f1ef0c9a447e8"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/readme-example.py",
+      "bytes": 508,
+      "sha256": "402a172a3e192588de0e6416f6a8116ed55177eace64e09c8124150c5c9c6480"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/release-readiness.json",
+      "bytes": 967,
+      "sha256": "417542cb58010d1688b6dbd368e3cc684ca82bf4c3c5bdaf5c6d3fd8cf7a2769"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/review-correction.json",
+      "bytes": 526,
+      "sha256": "b8ab8b3c1ea87b60549507acd5dd91823c2a36f2ec6a8758b252f9c4645d213e"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/run-configured-regressions.py",
+      "bytes": 1976,
+      "sha256": "8b9f6280cd79b4db0ca00c89e0340bddc94e712bbc092ae7d2da63155c51b803"
+    },
+    {
+      "path": "provenance/publication/2026-10-18/writing-skill.json",
+      "bytes": 654,
+      "sha256": "1bccd64d2d0f5b02698fe60b994eac321e98ca79bd319c8e3ebaec3e3b0cf8b7"
+    }
+  ],
+  "count": 43,
+  "bytes": 551216,
+  "self_hash_excluded": true,
+  "bulk_assets": "Environments, full research archives, scanner binary and package builds remain ignored."
+}

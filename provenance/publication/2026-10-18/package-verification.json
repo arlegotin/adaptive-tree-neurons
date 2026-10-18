@@ -1,5 +1,5 @@
 {
-  "wheel_sha256": "dbb455da24044c549cf1f0fc659ef572db5d8b08d08542665e0b8b7c6293d5b4",
+  "wheel_sha256": "d905c1341158e6ec52930bb92339b25fca4317b2f3acd0742f5d4dc0f959ae10",
   "wheel_members": [
     "treeneuron/__init__.py",
     "treeneuron/archive_binding.py",
@@ -80,7 +80,7 @@
     "treeneuron-0.1.0.dist-info/top_level.txt",
     "treeneuron-0.1.0.dist-info/RECORD"
   ],
-  "license_expression": "AGPL-3.0-only AND CC-BY-4.0",
+  "license_expression": "AGPL-3.0-only AND CC-BY-4.0 AND MIT",
   "license_files": [
     "LICENSE",
     "NOTICE",
@@ -91,7 +91,9 @@
     "src/treeneuron/baselines/_node_vendor/LICENSE-NODE.md",
     "src/treeneuron/baselines/_node_vendor/LICENSE-QHOPTIM"
   ],
-  "sdist_sha256": "219845926e209d329875c4c469317b3d78029341e1c37da0c7587b321a9495ec",
+  "all8_legal_notices_equal_repository": true,
+  "embedded_readme_equals_current_source": true,
+  "sdist_sha256": "92d6cceb1b2eb761dd958991f59622b90045d6a2187daa3c5198f9a71e51514e",
   "sdist_file_count": 134,
   "ignored_assets_excluded": true
 }

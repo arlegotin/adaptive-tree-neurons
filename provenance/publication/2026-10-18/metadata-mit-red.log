@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import tomllib; from pathlib import Path; assert "MIT" in tomllib.loads(Path("pyproject.toml").read_text())["project"]["license"].split(" AND "), "Bundled MIT runtime files missing from distribution expression"
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Bundled MIT runtime files missing from distribution expression

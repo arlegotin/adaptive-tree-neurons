@@ -27,7 +27,7 @@ Soft affine trees and gated units are established model families. The research t
 
 The latest diagnostic tested **8 fresh independently generated regression problems, with 2 paired training repetitions per problem**. Each problem had 262,144 held-out evaluation observations. Short search tried every single-neuron insertion for 320 updates; long search allowed up to 8,000 updates with the normal validation stopping rule. Both then restarted the joint grown model from the original parent.
 
-Lower normalized evaluation MSE is better. Repetitions are averaged within each problem, then all 8 problems receive equal weight.
+Lower normalized evaluation MSE is better: each problem's squared prediction error is divided by its fitting-target variance. Repetitions are averaged within each problem, then all 8 problems receive equal weight.
 
 | Method | Parameters | Mean normalized MSE |
 | --- | ---: | ---: |
@@ -68,7 +68,7 @@ cd adaptive-tree-neurons
 uv sync --frozen --python 3.12
 ```
 
-Run this Python example in that environment. The layer returns preactivations; its caller applies ReLU.
+Run `uv run --frozen python`, then paste this example. The layer returns preactivations; its caller applies ReLU.
 
 ```python
 import torch
