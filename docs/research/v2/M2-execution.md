@@ -3,7 +3,11 @@
 Builder-reviewed implementation interpretation,18 October2026, before any M2
 fitting. No outcome threshold, direction, count or search support changes. The
 first completed M0 qualification case is prior development evidence, not M2.
-The proposed config exists; M2 plan/run are not yet implemented.
+The config and finite plan expansion are implemented; execution remains pending.
+Plans embed resolved ordinary recipes, structured selection/admission rules and
+SHA256 bindings to this contract and the full binding spec. A document change
+therefore changes the plan identity; do not revise the governing contract during
+an active queue and call it the same study.
 
 Explicit paired-ablation exception: M2a/b/c/e share the same four primary teachers,
 F/G/V/E arrays and R2 parent initializations. Teacher seeds never include arm or

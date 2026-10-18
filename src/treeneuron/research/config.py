@@ -78,6 +78,17 @@ class StudyPlan:
 def expand(config: ResearchConfig) -> StudyPlan:
     from treeneuron.train import source_hash
     c = config.to_dict()
+    if c['kind'] == 'm2_opportunity':
+        from .opportunity_plan import expand_opportunity
+        from .identity import execution_identity
+        value = dict(schema='research/v2-plan',config=c,source_sha256=source_hash(),
+            **expand_opportunity(c),protected_labels_accessed=False,
+            fit_worker_roles=['F','G'],coordinator_roles=['V','E'],
+            recovery_policy={'infrastructure_same_seed_pair_reruns':1,
+                             'numerical_failure_reruns':0,'retain_all_costs':True},
+            execution_identity=execution_identity(c))
+        value['plan_hash'] = canonical_hash(value)
+        return StudyPlan(canonical_json(value))
     if c['kind'] not in ('m0_reference', 'm1_controls'):
         raise NotImplementedError(f"{c['kind']} requires its owning WP03–WP09 implementation")
     attempts, used32 = [], set()

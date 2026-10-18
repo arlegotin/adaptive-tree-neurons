@@ -97,6 +97,8 @@ def physical_cost_summary(previous, invocation_ns):
 
 def run(plan, output, *, resume=False):
     value = plan.to_dict()
+    if value['config']['kind'] not in ('m0_reference','m1_controls'):
+        raise NotImplementedError('M2 plan is implemented; WP03 diagnostic controller/resource qualification remains required before run')
     if value['source_sha256'] != train.source_hash():
         raise ValueError('Research plan source differs from current implementation')
     from .resources import validate_resource_admission

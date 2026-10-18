@@ -23,7 +23,7 @@ Unchecked work is not completed, and prior investigation findings are not new ru
 |WP00|qualified|97228c6; references passed;89 passed/1 skipped; arithmetic error1.39e-17; tracked WP00 receipt|
 |WP01|verified|220 targeted passed;19 reference arrays byte-identical; WP01-receipt.json; broad integration still pending|
 |WP02|in progress|first native resource case completed8 roles/65 probes; independent arithmetic/replay verified; full M0/M1/admission pending|
-|WP03|diagnostics in progress|actual-current boundary, prefix observer, frozen-head helper verified; history optimization underway; M2 dispatcher and Gate A pending|
+|WP03|diagnostics in progress|boundary/prefix/head helper and history verified; finite M2 plan reviewed; controller/resource admission and Gate A pending|
 |WP04|pending Gate A|joint selector numerical and trained evidence; Gate B|
 |WP05|not admitted|measured geometry/newborn trigger|
 |WP06|not admitted|measured retention/family ceiling; at most one redesign|
@@ -349,3 +349,26 @@ qualification recipe/run was session54673, source5c55fa9, log
 artifacts/research-v2/WP02/M0-native-qualification.log, actual CPU receipt
 environment/research-v2-WP02-cpu.json; it completed normally, and its source lives
 in the detached measured-reference worktree. Do not relaunch either output root.
+
+### WP03 finite M2 planning
+
+Implemented plan expansion only:1176 initial nominal procedures across M2a–e,
+288 conditional extension procedures,320 conditional fallback cells and104 total
+prerequisite records including conditional parents. Exact counts, paired seed
+namespaces, nominal small subsets and F-bound candidate slots are retained.
+Five recipes are fully resolved, late/current snapshot policies explicit, and
+spec/M2 contract hashes plus structured gate/selection rules bind the plan.
+
+Independent builder review found five material omissions in the first artifact:
+incomplete anchor validation, unresolved ordinary recipe names, missing admission
+bindings, incomplete machine-readable selection settings and a premature paid-cost
+assertion. The three corresponding failing tests reproduced these omissions;
+all were fixed, and final static review found no remaining material planning issue.
+Five final plan/public CLI tests passed in3.41s. The combined plan/native-runner
+integration then passed25 in15.33s. Logs are under artifacts/research-v2/WP03/plan-tests/;
+M2-plan-candidate.json is a development plan artifact with execution_implemented
+false and no qualified M2 backend receipt. No M2 fitting or Gate A result exists.
+Public run explicitly rejects before creating an output until the controller and
+source-bound resource admission are implemented; plan support does not claim run
+capability. Further code stays in isolated worktree while main's same-case native
+qualification runs as session49572 under unchanged sourcef36bc2a4.
