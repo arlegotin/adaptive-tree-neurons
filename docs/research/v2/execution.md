@@ -221,3 +221,11 @@ improved G. Longer joint budgets confound interaction with horizon, and V/E
 results are not yet available. This development observation changes no declared
 seed, gate or matrix. The original checkout remains at source5c55fa9 while its
 native eight-role case finishes; do not merge package edits into it mid-run.
+
+WP03 state source committed as2db543b. A fresh real CPU receipt was generated for
+that package, then the pre-hardening normal-path reference was rerun: all19
+model/Adam/prediction/update arrays are exactly equal, with identical NPZ SHA256
+`8c072d32850a63e1512e0fa6858363fe3ab5d7df3300914db1e469799ff6bb77`.
+WP03-state-receipt.json binds the source, actual receipt, review disposition,
+ten retained RED/failure/recovery logs and precise verification levels. Default
+training behavior is preserved on this reference; no new efficacy result follows.

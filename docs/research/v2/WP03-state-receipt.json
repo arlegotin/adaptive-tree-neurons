@@ -1,0 +1,96 @@
+{
+  "normal_path_reference": {
+    "arrays": 19,
+    "new_sha256": "8c072d32850a63e1512e0fa6858363fe3ab5d7df3300914db1e469799ff6bb77",
+    "old_sha256": "8c072d32850a63e1512e0fa6858363fe3ab5d7df3300914db1e469799ff6bb77",
+    "unequal": []
+  },
+  "remaining": [
+    "prefix G-best observer",
+    "M2 finite dispatcher and headroom",
+    "resource admission and M2 execution",
+    "Gate A"
+  ],
+  "review": {
+    "disposition": "reproduced RED, persisted/versioned policy and checked JSON-normalized recovery; rollback and complete state comparison added",
+    "material_findings": [
+      "capture plan omitted or altered on active-stage recovery"
+    ]
+  },
+  "runtime_receipt": {
+    "path": "environment/research-v2-opportunity-cpu.json",
+    "sha256": "19b7edd20709839bc5d88b8cfb5111c7d20853f436d775ca7a18c6202f67584a"
+  },
+  "schema": "research/v2-opportunity-state-receipt",
+  "scope": "engineering state primitives; no placement or predictive claim",
+  "source_commit": "2db543b2e04bc6311205d828bce9c5c711971dc6",
+  "source_sha256": "e280ce34c3b0055d9d7f9a6844546e50e0ada504359ccab495f175a8cf75cd39",
+  "test_logs": [
+    {
+      "path": "artifacts/research-v2/WP03/state-tests/atn-opportunity-state-red.log",
+      "sha256": "72d7a0e969462a3046a345379d8461a12a9377af6515529a720fbcf7c1c978d4"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/state-tests/atn-opportunity-state-first.log",
+      "sha256": "6e126a793126c1ea73a9b4e04e7917db0d7d348e093189d17a258f8209cfe3cb"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/state-tests/atn-opportunity-widen-red.log",
+      "sha256": "17bb41980dafb5474baa8bcb2c53575bd4aa6ba9345dd2ab66b1128db8e49fb7"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/state-tests/atn-opportunity-state-integration.log",
+      "sha256": "2b41fcd393484a1f21d1e62e548e88a9dcdb1d607bc9d5de30bcc7e422d73b33"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/state-tests/atn-node-overlay-install.log",
+      "sha256": "70028049c5bd4e369f5edd4767cd2ff8168b0bbed6ae2377b153105174435ab5"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/state-tests/atn-opportunity-capture-red.log",
+      "sha256": "7478272dd24644b4ee6e643c4144f5746592526fe9d874c5e2c75a831da467fe"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/state-tests/atn-opportunity-capture-green.log",
+      "sha256": "d56966159f69d63d842be97beb85e1803ee67e3ef1849e615987cd248eb14d9a"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/state-tests/atn-opportunity-state-final.log",
+      "sha256": "94a1c1b626f1539ff7f81815609bcaf4e170519916ab79c20287f1379d6132a0"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/state-tests/atn-opportunity-policy-recovery.log",
+      "sha256": "05a195c5ae98df3ad5dea2186c3c06655e0a116a29dd9b6f11cc77e98b1e17b8"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/state-tests/atn-opportunity-state-semantic-final.log",
+      "sha256": "c9beac8a3d56be8afd4656b575ec18c3c454a2f3d245c8d1f069b0b6e7318735"
+    }
+  ],
+  "verification": [
+    {
+      "failed": 1,
+      "passed": 215,
+      "phase": "initial affected core integration",
+      "reason": "isolated checkout lacked optional NODE requests dependency"
+    },
+    {
+      "failed": 3,
+      "passed": 257,
+      "phase": "expanded integration before canonical probe-policy correction",
+      "reason": "JSON tuple/list representation in strict greedy policy equality"
+    },
+    {
+      "failed": 0,
+      "passed": 44,
+      "phase": "targeted policy/probe/runner recovery",
+      "seconds": 57.71
+    },
+    {
+      "failed": 0,
+      "passed": 24,
+      "phase": "final current-boundary and semantic validation",
+      "seconds": 12.06
+    }
+  ]
+}
