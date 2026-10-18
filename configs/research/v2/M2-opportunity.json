@@ -1,0 +1,56 @@
+{
+  "schema": "research/v2",
+  "study_id": "M2-opportunity",
+  "kind": "m2_opportunity",
+  "seed_root": 2026101801,
+  "teachers": 4,
+  "repetitions": 2,
+  "evaluation_rows": 65536,
+  "base_experiment": {
+    "study_id": "M2-opportunity",
+    "model": {
+      "d": 16,
+      "h": 64,
+      "tau": 1.0
+    },
+    "growth": {
+      "m_requested": 16,
+      "epsilon": 0.05
+    },
+    "data": {
+      "n_fit": 2306,
+      "n_growth": 577,
+      "n_validation": 577,
+      "noise_sigma": 0.1
+    },
+    "training": {
+      "optimizer": "adamw",
+      "learning_rate": 0.005,
+      "weight_decay": 0.0,
+      "batch_size": 128,
+      "scheduler": "constant",
+      "base_updates": 8000,
+      "continuation_updates": 8000,
+      "validation_interval": 25,
+      "patience": 20,
+      "checkpoint_interval": 1
+    },
+    "backend": {
+      "device": "cpu",
+      "cpu_threads": 1,
+      "interop_threads": 1
+    },
+    "execution": {
+      "backend_report": "environment/research-v2-M2-cpu.json",
+      "artifacts_root": "artifacts/research-v2/M2-opportunity"
+    },
+    "pilot": {
+      "purpose": "engineering",
+      "initial_teachers": 4,
+      "max_teachers": 4,
+      "repetitions": 2,
+      "evaluation_rows": 65536,
+      "probe_updates": 320
+    }
+  }
+}

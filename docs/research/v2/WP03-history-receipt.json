@@ -1,0 +1,128 @@
+{
+  "profiling": {
+    "empty_history_10_publications_ns": 185132583,
+    "equivalent_inline_10_publications_ns": 979943292,
+    "expired_publication_count": 4000,
+    "journal_10_publications_ns": 204270792,
+    "limitations": "contended bounded fixtures; not whole-training or deployment efficiency",
+    "new_10_prunes_ns": 27374125,
+    "old_10_prunes_ns": 1382051167,
+    "synthetic_marker_count": 8571
+  },
+  "reference": {
+    "arrays": 19,
+    "new_sha256": "8c072d32850a63e1512e0fa6858363fe3ab5d7df3300914db1e469799ff6bb77",
+    "old_sha256": "8c072d32850a63e1512e0fa6858363fe3ab5d7df3300914db1e469799ff6bb77",
+    "unequal": []
+  },
+  "remaining": [
+    "same fixed M0 pair under new source, exact cross-source outcome comparison",
+    "source-bound full resource admission",
+    "M2 execution and Gate A"
+  ],
+  "review": {
+    "assumptions": "local reliable file stamps, single writer; full SHA validation on load",
+    "disposition": "each reproduced RED and repaired; independent static review plus root final hardening",
+    "material_findings": [
+      "interrupted append left partially mutated cached history",
+      "full prefix reread on every publication",
+      "retention rescanned expired publication names",
+      "unterminated final publication record could hide torn append"
+    ]
+  },
+  "runtime_receipt": {
+    "path": "environment/research-v2-journal-qualified-cpu.json",
+    "sha256": "200f65521945e7658894a21648b2dbbaba88c6a6c3339efbbb1e506f4cf698a8"
+  },
+  "schema": "research/v2-checkpoint-history-receipt",
+  "scope": "checkpoint storage/performance engineering; no predictive improvement claim",
+  "source_commit": "bb08732",
+  "source_sha256": "f36bc2a49d6d866da39fafbef582c2472161334c6d9f5ef23bfa4155402ed191",
+  "test_logs": [
+    {
+      "path": "artifacts/research-v2/WP03/history-tests/atn-history-append-red.log",
+      "sha256": "6aeee864289250a45731d1b072386c4673cbf5fa2f87d45639f694f120a8bdcc"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/history-tests/atn-history-cache-red.log",
+      "sha256": "2798511a39c0d63b4272238ef67fbb4ff46a36284960977b2dc5bc36baefca09"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/history-tests/atn-history-journal-green.log",
+      "sha256": "ec585f015f66233927106e20c6003fbc1500398519603b64591598d1a6688948"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/history-tests/atn-history-journal-integration.log",
+      "sha256": "8e4caa08db0acced7ba8075ddb4abcb2f13e5907a9a61e4aed0cda28d2ea0ecb"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/history-tests/atn-history-journal-red.log",
+      "sha256": "d89a084d2d5f283b9f7e5a949c6076b0a7a2d0b11f3b6ceebb31da2f9f251845"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/history-tests/atn-history-journal-review-green.log",
+      "sha256": "5c053803ccf6921dff19cc170c49a45722d022f31e3256c5d9a9881ac69c092f"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/history-tests/atn-history-journal-validation.log",
+      "sha256": "551c21a9742bbac9dae44c7123ba89fde0ed9656d424fb5ccaae27d43087a665"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/history-tests/atn-journal-affected-integration.log",
+      "sha256": "5a46f9f792430583b4ca7610d9f42f2688e1d50b846313c07926dbedaed41918"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/history-tests/atn-journal-affected-recovery.log",
+      "sha256": "7c6e3f6a03a154b242e0c3a80d2c75ce7bafa3762fe4b73d27851a73b9af45ed"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/history-tests/atn-retention-final.log",
+      "sha256": "b0ba16f056db2c2d435bdbb6a022f16d7511f1e5aadb9f3dd2715691f492db54"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/history-tests/atn-retention-green.log",
+      "sha256": "c97356355b5d2ecb5df0a5fdc0a5dffcb38f29be3e488bc05a0d3cce626e60e5"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/history-tests/atn-retention-red.log",
+      "sha256": "7173417cf7fa7baaf05b70ea674371526ba109021df57e5ec7a718789330bc8e"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/history-tests/atn-retention-tail-red.log",
+      "sha256": "89591bb1c4f8c21c90b450688d57bc5bbfc9bc290dbd58660658337d11472ce5"
+    }
+  ],
+  "verification": [
+    {
+      "passed": 72,
+      "scope": "first history/checkpoint/train"
+    },
+    {
+      "passed": 158,
+      "scope": "state/history/recovery integration"
+    },
+    {
+      "passed": 75,
+      "scope": "post-review history/checkpoint/train"
+    },
+    {
+      "passed": 11,
+      "scope": "journal malformed inputs"
+    },
+    {
+      "failed": 1,
+      "not_monolithic_green": true,
+      "passed": 319,
+      "reason": "invocation omitted PYTORCH_ENABLE_MPS_FALLBACK=0; targeted unchanged test passed with correct environment",
+      "scope": "broad affected integration"
+    },
+    {
+      "passed": 106,
+      "scope": "retention/history/semantic integration"
+    },
+    {
+      "passed": 78,
+      "scope": "final LF/cache history/checkpoint/cadence"
+    }
+  ]
+}

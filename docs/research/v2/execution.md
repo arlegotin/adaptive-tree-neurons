@@ -22,8 +22,8 @@ Unchecked work is not completed, and prior investigation findings are not new ru
 |---|---|---|
 |WP00|qualified|97228c6; references passed;89 passed/1 skipped; arithmetic error1.39e-17; tracked WP00 receipt|
 |WP01|verified|220 targeted passed;19 reference arrays byte-identical; WP01-receipt.json; broad integration still pending|
-|WP02|in progress|replay/stress/collision/tie foundations reviewed;35 focused passed; first native resource case running; full M0/M1/admission pending|
-|WP03|state primitives in progress|actual-current boundary/fixed-budget control; recovery-plan review fix; M2 dispatcher/prefix/headroom and Gate A pending|
+|WP02|in progress|first native resource case completed8 roles/65 probes; independent arithmetic/replay verified; full M0/M1/admission pending|
+|WP03|diagnostics in progress|actual-current boundary, prefix observer, frozen-head helper verified; history optimization underway; M2 dispatcher and Gate A pending|
 |WP04|pending Gate A|joint selector numerical and trained evidence; Gate B|
 |WP05|not admitted|measured geometry/newborn trigger|
 |WP06|not admitted|measured retention/family ceiling; at most one redesign|
@@ -266,3 +266,64 @@ diagnostic timing, not a formal efficiency result or proof of an achieved fix.
 Input pointer/hash, source identity, pstats and outputs are retained under
 artifacts/research-v2/WP03/checkpoint-profile/. Before larger matrices, implement
 and verify append-only committed history references as specified next.
+
+### First native qualification case completed
+
+The MAIN5c55fa9 case completed successfully in5613.23429s (93.55minutes),
+484895492 retained bytes and562511872 peak RSS bytes. Eight final roles and65
+short probes completed. Every short probe selected stage0. Raw replay audit
+verified500 matching unchanged keep updates and21 G evaluations. Initial manual
+audit invocation passed a plain training dict and raised AttributeError; the
+corrected SimpleNamespace call completed without changing the run or its inputs.
+Independent NumPy reconstruction of all16 V/E MSEs from saved original-unit
+predictions agreed within6.94e-18. Independent-arithmetic SHA256 is
+f099d31789b4a5061cc905ca2a3e744e282dc923e134f2bb33f15572ffd075f8.
+
+E NMSE: keep.0491281399, cheap.0489107267, random.0503192884,
+short-selected.0501154130, warm upper.0491281399, fresh lower.0453586104,
+fresh upper.0531436149, static partial.1015898980. The fresh lower ordinary
+network also had the best V risk; cheap placement was worse than random on V.
+This is exactly one teacher/repeat, exploratory development, not completed M0,
+Gate A, strong-baseline evidence or a placement/generalization verdict. All raw
+arrays/predictions/curves/models/measurements remain under
+artifacts/research-v2/WP02/M0-native-qualification/. The old-source live-run
+restriction is lifted; preserve its exact source for authentication/replay before
+integrating newer source. Full measured source/run receipts are still required
+before admitting larger matrices under changed code.
+
+### Checkpoint journal implementation verified
+
+Committed asbb08732, packageSHA256
+f36bc2a49d6d866da39fafbef582c2472161334c6d9f5ef23bfa4155402ed191.
+Native history now stores immutable canonical records behind an atomic persistent
+tail and publishes committed JSONL prefix/count/SHA references. Full history checks
+precede model reconstruction. Interrupted append tails remain retained; recovery
+uses a new journal rather than truncating them. Retention checks only existing
+versions against a validated, bounded32-directory publication-name cache, while
+keeping protected/failed/unpublished files and all publication records.
+
+Review findings each reproduced RED: partial append mutation, repeated full
+prefix reads, expired-name rescans, unterminated publication tails. Repairs and
+tests are detailed in history-storage.md and WP03-history-receipt.json. Broad
+affected integration passed319 with one invocation-environment failure (missing
+PYTORCH_ENABLE_MPS_FALLBACK=0); that unchanged diagnostic passed in10.37s under
+the correct environment. Final retention/history/semantic integration passed106,
+and final LF/cache history/checkpoint/cadence verification passed78 in24.39s.
+This is not a monolithic green full-suite claim.
+
+A fresh actual CPU receipt and the original numerical reference under final code
+again produced exactly the same19 arrays and NPZ SHA8c072d32850a63e1512e0fa6858363fe3ab5d7df3300914db1e469799ff6bb77.
+Equivalent8589-record history publication fixtures took.20427s journal versus
+.97994s inline for ten saves/prunes. Ten retention checks with4000 synthetic
+expired entries took.02737s including cold validation, previously1.38205s.
+These are bounded, contended infrastructure diagnostics, not predictive/efficiency
+claims. Full same-case native requalification remains next.
+
+The exact old measured source is preserved in detached worktree
+/private/tmp/atn-research-v2-measured-reference at5c55fa9. New implementation stays
+in /private/tmp/atn-research-v2-next until integration; main's old live-run source
+need no longer be held. M2-execution.md records the builder-reviewed finite DAG,
+nominal/conditional counts, paired ablation reuse and bounded fallback/extension
+rules before any M2 fitting. M2 config exists, but dispatcher/run remain pending.
+native-tree-qualification.md records official package/source/wheel candidates and
+API traps; no native tree adapter or quality anchor is qualified yet.

@@ -25,8 +25,29 @@ The main findings guiding this continuation are:
 The fresh first M0 qualification case is development evidence. Its parent
 selected update3700 after executing4200. All65 short320-update singleton/keep
 probes selected their starting checkpoint. The longer unchanged keep arm also
-selected the parent. Joint grown/ordinary final arms are still running; this
-single case is neither a cohort result nor a placement verdict.
+selected the parent, with500 identical updates and21 identical G evaluations
+verified from the retained raw event streams. All eight final roles completed.
+
+On the independent exploratory E rows, normalized MSE was:
+
+| Procedure | Error; lower is better |
+|---|---:|
+| Unchanged parent/keep | .04912814 |
+| Cheap-score growth | .04891073 |
+| Matched random growth | .05031929 |
+| Short singleton-selected growth | .05011541 |
+| Warm ordinary widening | .04912814 |
+| Fresh ordinary lower bracket | .04535861 |
+| Fresh ordinary upper bracket | .05314361 |
+| Static partial gated | .10158990 |
+
+The cheap-score result was close to keep; a fresh ordinary lower-bracket network
+performed best. V also favored that ordinary network and did not favor cheap
+placement over random. One teacher/repeat cannot establish a population effect,
+and E is now development information. Independent raw-prediction arithmetic
+agreed within6.94e-18. This case took93.55minutes of contended wall time and retained
+about485MB; those are resource observations, not an efficiency claim. The full
+four-teacher/two-repeat M0 cohort and positive-control sensitivity remain pending.
 
 The next scientific gate asks whether the controls expose useful, learnable
 capacity on multiple independent problems. Matched timing, minibatch-stream,
