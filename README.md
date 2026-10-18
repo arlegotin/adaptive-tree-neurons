@@ -8,6 +8,13 @@ This project implements that growth mechanism and tests a harder question: **can
 
 [Results](#results) · [Try the layer](#try-the-layer) · [Reproduction](REPRODUCE.md) · [Research design](docs/superpowers/specs/2026-10-16-selective-tree-neurons-design.md) · [Citation](CITATION.cff)
 
+The [research v2 continuation](docs/research/v2/execution.md) is in progress.
+Its [spec](docs/superpowers/specs/2026-10-18-research-v2-design.md) and
+[implementation plan](docs/superpowers/plans/2026-10-18-research-v2.md) preserve
+the finite experiments and claim gates. Checkpoint semantic hardening is verified;
+the diagnostic runner is being implemented. The new selector, strong-baseline
+benchmark and confirmation have not been completed.
+
 ## The idea
 
 An ordinary hidden neuron applies ReLU to one affine response. A grown neuron adds a gated contrast before that same ReLU:

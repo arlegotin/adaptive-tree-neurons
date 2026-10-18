@@ -691,7 +691,8 @@ def _observe_initial(state, data, paths, preprocess_ns=None):
 
 
 def fit_parent(data: DevelopmentData, config: ExperimentConfig, paths: RunPaths, *,
-               growth_metadata: dict | None = None) -> TrainingState:
+               growth_metadata: dict | None = None, snapshot_updates: tuple[int, ...] = (),
+               on_snapshot=None) -> TrainingState:
     """Train on F; return earliest strict G-best complete state, leaving run open."""
     try:
         config = _validate_inputs(data, config, paths)
@@ -728,10 +729,11 @@ def fit_parent(data: DevelopmentData, config: ExperimentConfig, paths: RunPaths,
     except BaseException as error:
         _record_failure(paths, error, update=0)
         raise
-    return _run(state, data, policy, paths)
+    return _run(state, data, policy, paths, snapshot_updates=snapshot_updates, on_snapshot=on_snapshot)
 
 
-def continue_fit(state: TrainingState, data: DevelopmentData, policy: TrainingPolicy, paths: RunPaths) -> TrainingState:
+def continue_fit(state: TrainingState, data: DevelopmentData, policy: TrainingPolicy, paths: RunPaths, *,
+                 snapshot_updates: tuple[int, ...] = (), on_snapshot=None) -> TrainingState:
     """Resume an active stage exactly, or start a continuation with update 0 eligible."""
     try:
         _validate_inputs(data, state.config, paths)
@@ -763,7 +765,7 @@ def continue_fit(state: TrainingState, data: DevelopmentData, policy: TrainingPo
     except BaseException as error:
         _record_failure(paths, error, update=state.update)
         raise
-    return _run(state, data, policy, paths)
+    return _run(state, data, policy, paths, snapshot_updates=snapshot_updates, on_snapshot=on_snapshot)
 
 
 def _record_failure(paths, error, *, update):
@@ -780,7 +782,7 @@ def _record_failure(paths, error, *, update):
         error.add_note(f'Failure ledger publication also failed: {logging_error}')
 
 
-def _run(state, data, policy, paths):
+def _run(state, data, policy, paths, *, snapshot_updates=(), on_snapshot=None):
     from .checkpoint import save_checkpoint, save_best_checkpoint, prune_checkpoints
     checkpoint_dir = paths.directory / 'checkpoints'
     previous_threads = torch.get_num_threads()
@@ -788,6 +790,22 @@ def _run(state, data, policy, paths):
     validation_ns = 0
     checkpoint_safe = False
     try:
+        if (len(set(snapshot_updates)) != len(snapshot_updates)
+                or any(type(u) is not int or u < 0 for u in snapshot_updates)
+                or (snapshot_updates and not callable(on_snapshot))
+                or (on_snapshot is not None and not callable(on_snapshot))):
+            raise ValueError('Snapshot policy requires unique nonnegative updates and a callback')
+
+        def notify(label, current):
+            if on_snapshot is None:
+                return
+            rng = capture_rng()
+            current.rng_states = rng
+            try:
+                on_snapshot(label, pack_state(current))
+            finally:
+                restore_rng(rng)
+
         checkpoint_dir.mkdir(exist_ok=True)
         torch.set_num_threads(state.backend['cpu_threads'])
         restore_rng(state.rng_states)
@@ -843,6 +861,8 @@ def _run(state, data, policy, paths):
             evaluate()
             checkpoint_safe = True
             publish()
+        if state.update in snapshot_updates:
+            notify('current', state)
         while state.stage['updates_completed'] < policy.max_updates and state.stage['bad_evaluations'] < policy.patience:
             # An asynchronous interruption during an update or G selection must
             # retain the previous durable state, never a partially applied Adam step.
@@ -898,6 +918,8 @@ def _run(state, data, policy, paths):
             checkpoint_safe = True
             if evaluation_due or state.stage['updates_completed'] % policy.checkpoint_interval == 0:
                 publish()
+            if state.update in snapshot_updates:
+                notify('current', state)
         state.stage['complete'] = True
         executed_updates = state.stage['updates_completed']
         record({'type': 'selection', 'selected_update': state.best_snapshot['metadata']['update'],
@@ -920,6 +942,7 @@ def _run(state, data, policy, paths):
                        'serialized_bytes': retention['referenced_bytes'], 'checkpoint_retention': retention},
             'costs': _attempt_costs(state, duration, validation_ns),
             'resources': resources})
+        notify('selected', selected)
         return selected
     except BaseException as error:
         if isinstance(error, KeyboardInterrupt) and checkpoint_safe:

@@ -84,7 +84,8 @@ def _runtime_preflight(config):
 
 
 def fit_repetition(config, data, root: Path, recipe_hash: str, *,
-                   reference_probe_updates: int | None = None, resource_guard=None) -> dict:
+                   reference_probe_updates: int | None = None, resource_guard=None,
+                   parent_snapshot_updates=(), on_parent_snapshot=None) -> dict:
     """Fresh complete parent, paired forks, B2/B3 attribution, B6 G ranking.
 
     No evaluation observations are accepted. All child runs are registered
@@ -122,7 +123,8 @@ def fit_repetition(config, data, root: Path, recipe_hash: str, *,
         parent_paths=create_run(root/'runs',config.to_dict())
         register(parent_paths,{})
         tick=time.perf_counter_ns()
-        parent=train.fit_parent(data,config,parent_paths)
+        parent=train.fit_parent(data,config,parent_paths,
+            snapshot_updates=parent_snapshot_updates,on_snapshot=on_parent_snapshot)
         finish(parent_paths,{'selected_g_mse':parent.stage['best_mse']})
         report['costs']['parent_ns']=time.perf_counter_ns()-tick
         checkpoint=parent_paths.directory/'checkpoints'/'best.json'

@@ -824,3 +824,26 @@ records that initial public source commit; subsequent receipt-only changes do
 not alter it. Public presentation emphasizes the working primitive and reusable
 matched experiment while retaining the inconclusive placement result. Original
 confirmation and practical-baseline gates remain unmet.
+
+## 2026-10-18 — Authorized research v2 continuation
+
+The user supplied a complete finite research handoff and authorized specification,
+planning and execution. Its versioned spec and plan are under `docs/superpowers/`,
+with durable progress/gate/recovery records in `docs/research/v2/execution.md`.
+Historical STOP decisions and reported outcomes remain unchanged in their scope.
+
+WP00 used a fresh frozen-core Python3.12.13 environment: both standalone numerical
+references passed, focused software checks89 passed/1 skipped, and independent
+public long-cohort scalar means agreed within1.39e-17. No missing historical raw
+archive was authenticated. WP01 introduced training metadata2, explicit parameter
+birth maps and prepublication/load shape/dtype/nonnegative-moment/age validation.
+Two material review findings were fixed with failing regressions first;220 targeted
+checks passed and19 valid-run arrays remained byte-identical. The interrupted
+broad suite is retained separately and is not a whole-suite pass.
+
+WP02 is in progress: strict finite M0/M1 plans, role-safe views, planted controls,
+snapshot callbacks, native tiny fixtures and resource-admission guards exist.
+Full diagnostic matrices, Gate A, the proposed joint selector, native practical
+suite and confirmation remain unexecuted. Full-matrix resource measurements and
+remaining runner recovery qualification precede scientific admission. This is
+software progress and a research contract, not a new positive allocation result.

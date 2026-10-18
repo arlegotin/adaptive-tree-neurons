@@ -22,7 +22,7 @@ Unchecked work is not completed, and prior investigation findings are not new ru
 |---|---|---|
 |WP00|qualified|97228c6; references passed;89 passed/1 skipped; arithmetic error1.39e-17; tracked WP00 receipt|
 |WP01|verified|220 targeted passed;19 reference arrays byte-identical; WP01-receipt.json; broad integration still pending|
-|WP02|pending|strict research CLI/queue/role/snapshot/control tests|
+|WP02|in progress|87 integration checks passed; native resource qualification, replay/stress controls and full M0/M1 still pending|
 |WP03|pending|complete admitted M1/M2 evidence; Gate A|
 |WP04|pending Gate A|joint selector numerical and trained evidence; Gate B|
 |WP05|not admitted|measured geometry/newborn trigger|
@@ -93,3 +93,37 @@ new corruption tests do not directly assert optimizer-load call count/RNG preser
 existing coverage and preconstruction ordering cover that boundary. Schema1 loading
 is deliberately restricted to its original source; Task6 freezing and arbitrary
 moment-history authentication remain separate. No additional reviewer was dispatched.
+
+WP02 implementation in progress (not Gate A evidence): strict M0/M1 plan expansion,
+v2 namespace/32-bit collision handling, F/G-only views removing noiseless metadata,
+actual-update snapshot callbacks with isolated tensors/RNG, exact raw planted-control
+transport and unfitted parent, native reference/control workers and raw score/prediction
+artifacts are implemented. Tiny native paths and combined state/training checks passed
+(46 tests before latest stream/recovery additions). Plans expanded to64 M0 final roles
+plus520 nominal probes and256 M1 roles; initial plan artifacts bind their earlier
+source revision and must not be silently overwritten after code changes.
+
+Production resource admission is enforced before creating a matrix output. The
+checkout had about19GiB free when checked; no full-budget scientific matrix has been
+started. An asynchronous question asks the available compute/storage envelope for
+the full practical program; independent implementation continues meanwhile.
+
+Native legacy pair recovery uses the spec-permitted one deterministic same-seed
+infrastructure rerun with original artifacts retained. Exact per-stage trainer
+recovery remains tested; the outer legacy multi-role graph does not pretend to
+support an unimplemented checkpoint-stage resume. Cumulative cost precision,
+second-retry limits and concurrent locking received material review fixes. Actual
+250/1000 snapshots are integrated with M0, using atomic checked checkpoint pointers.
+Control fitting now receives an F/G-only view and observation-free parameters,
+rather than full development/E objects. Execution identity also binds core lock,
+actual dependency versions/runtime and backend receipt bytes. Native measurements
+must match source, execution, training and workload hashes; asserted measurements
+cannot admit a matrix. Post-review affected integration:87 passed in49.77s.
+Full production qualification remains pending. No source freeze or T access occurred.
+
+The runner reviewer also noted incomplete WP02 work: native replay classification,
+custom prevalence/covariance constructors, additional collision/zero/tie coverage,
+resource forecasts/admission and full M0/M1 execution. These remain required;
+foundation tests do not make WP02 complete. The fixed first M0 pair resource
+recipe is stored in `scripts/measure_reference.py`; it retains all8 final roles,
+the parent and all65 nominal short trials, separately from a full cohort.

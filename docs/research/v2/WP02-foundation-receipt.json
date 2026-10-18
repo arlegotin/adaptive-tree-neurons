@@ -1,0 +1,51 @@
+{
+  "schema": "research/v2-runner-foundation-verification",
+  "status": "WP02_in_progress",
+  "software_fixture_only": true,
+  "new_scientific_cohort_completed": false,
+  "protected_T_accessed": false,
+  "latest_combined_result": "87 passed in 49.77s",
+  "fixed_plan_counts": {
+    "M0_final_fits": 64,
+    "M0_nominal_probe_trials": 520,
+    "M1_positive_fits": 160,
+    "M1_negative_fits": 96
+  },
+  "pending": [
+    "native resource measurement/admission",
+    "full M0/M1 matrices",
+    "replay proof integration",
+    "custom prevalence/covariance controls",
+    "broader integration suite"
+  ],
+  "logs": {
+    "native-red.log": "bd836413d42c2ab6a6b0a3ac1b8beeefc438b2ee07fe6606697cf86a8a5d1c5a",
+    "backend.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "review-green.log": "a531ac71fd654d8021dfb101090820f980eb8b18fe43a1150f570eb5edacd508",
+    "red.log": "ec5d1d6e0d42936f5b1eca051e8eaa3218bc0715cb24928d65463a78634ff5a8",
+    "green-stream-recovery.log": "0057bb10f18f04fd1d86ba075e04a712a98d6be993980febb63f847488e1c6ad",
+    "green-combined.log": "c2fe2003b0f377c018660d235df3c8a0b39d1a7d57cdd185896a25a333060742",
+    "control-red.log": "bb8989abd6e5ac65dc8c497d71bbff4e57ac5993bc451faa41b89875cb46a01a",
+    "review-boundary-red.log": "6c47e424416008418d41e4e3eb75ead553ef4e4211d8426409444303709dbff7",
+    "integration.log": "28eb34f4ba49a1ea48648f1a67eda622bf5832356ddcd758e33e9817e73a5352",
+    "resource-red.log": "bde9f80c5554e47d54f590f323adfe9ebe97fb14fde7191a63550ce6d7e828c9",
+    "stream-red.log": "78cce607625a4420d35944cde06639e683d74b4859951cf584f722f3640a9fad",
+    "green-native.log": "dc533db45446fbdc0d244a36894048df83586b4cf4e43418813d7ca3681e7517",
+    "recovery-red.log": "7a364f31ae11c4f1b05a0a05768e0616825870e78e2b51ad25c7fa81e212bc62",
+    "green-first.log": "8933318fd909fcc6f808b9d785062442f68710ecd77752530efec8ebecf2bd87",
+    "final-foundation.log": "b5d2b3be89145ae3511b5e8aa7964509497a7293492846ebd1e316a750312b8d",
+    "review-red.log": "4d318526780f7800c53f9d11f0faa66f5a0f1f3fbe9a20db28e1ed2a707c3672",
+    "green-resource.log": "65b3401c6e3fffb098cc0a13112378a46e1e8a6bf02f0e318013681ce510c5f2",
+    "green-controls.log": "48e07647eb11e03407453ea04d3b5e8b18eae70c771257f5dcfbe5cd99d4bbb6"
+  },
+  "post_review_runner_result": "20 passed in 11.35s",
+  "review_material_fixes": [
+    "transaction identity independent of native directory",
+    "OS study lease",
+    "one retry enforced in ledger",
+    "measured invocation/cumulative costs with explicit recovery bounds",
+    "runtime/lock/receipt identity binding",
+    "hash-checked workload/training/resource measurement admission",
+    "F/G-only worker and observation-free control parameters"
+  ]
+}

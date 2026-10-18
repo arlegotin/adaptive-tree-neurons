@@ -4,6 +4,13 @@ There are three distinct tasks: check the implementation, authenticate the saved
 research, or run a new experiment. A successful software check does not establish
 the allocation hypothesis.
 
+The active [research v2 continuation](docs/research/v2/reproduce.md) has its own
+strict schemas, seeds, output namespace and [execution ledger](docs/research/v2/execution.md).
+New training metadata is version2 with explicit parameter births and stricter
+tensor/Adam validation. Historical schema1 checkpoints load under their original
+source; this branch does not silently migrate their source identities. New native
+runner fixtures are software checks, not completed research cohorts.
+
 ## Install the measured core
 
 The measured platform was a native M3 Max with 36 GiB RAM, macOS 26.7.1,
