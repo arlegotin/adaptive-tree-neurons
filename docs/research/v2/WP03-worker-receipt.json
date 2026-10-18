@@ -1,0 +1,77 @@
+{
+  "schema": "research/v2-implementation-receipt",
+  "component": "M2 native workers and prerequisite cost composition",
+  "base_commit": "33f830c",
+  "tests": {
+    "initial_RED": "2 missing-module failures",
+    "initial_GREEN": "2 passed in3.73s",
+    "final_GREEN": "28 passed in9.25s",
+    "logs": [
+      {
+        "path": "artifacts/research-v2/WP03/worker-tests/atn-opportunity-workers-red.log",
+        "sha256": "be86c7352925c965fb6dfb2dd28d2366923137b018edd81605de71332b77fc24"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/worker-tests/atn-opportunity-workers-green-0.log",
+        "sha256": "1a9a72410ada566b0985f0ce23bc826745f65e7a4218271172d5bafb32a7bec5"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/worker-tests/atn-opportunity-workers-domains-red.log",
+        "sha256": "586e5d7d3a6eceba44aef646d123817c50b8c1da80ed1c91369c6d812c130ef1"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/worker-tests/atn-opportunity-workers-integration.log",
+        "sha256": "86d7c1d11263e947ec71731b872d969bd793333722fdd6cc726c72d078ad875a"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/worker-tests/atn-opportunity-workers-data-red.log",
+        "sha256": "92beab9b4d5f13f2e729f05e0a2a61f8ff68859d6cab7f8efc6f76085b117232"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/worker-tests/atn-opportunity-workers-reviewed-green.log",
+        "sha256": "5df23a2b8822fc2d03beccd7c2dca5b021ab9ce12d6d2a86017a02d346414716"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/worker-tests/atn-opportunity-workers-cost-red.log",
+        "sha256": "c37132afbea8368974931cab366b31897c1ad1a6f302f69ff8c331e344af212d"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/worker-tests/atn-opportunity-workers-final-green.log",
+        "sha256": "41b6513eb481ccf5034dcc5c7e4590c5a90040321477ec82db7c7fe6614a75b6"
+      }
+    ]
+  },
+  "review": {
+    "independent_reviewer": "opportunity_state_review",
+    "material_findings_fixed_RED_GREEN": [
+      "final evaluator rejects authenticated models/data from different teachers for native and frozen-head loaders",
+      "standalone cost calculation binds exact plan digest, stored plan and reauthenticated event ledger"
+    ],
+    "additional_covered_checks": [
+      "frozen handler job identity",
+      "numerical score failures preserve numerical domain"
+    ]
+  },
+  "scope": {
+    "new_scientific_fits": 0,
+    "tiny_fixture_only": true,
+    "workers": [
+      "data",
+      "parent",
+      "F-score",
+      "F-only horizon binding",
+      "fit",
+      "head",
+      "G pair oracle",
+      "V/E evaluation"
+    ],
+    "costs": "unique prerequisite ancestry per logical procedure; physical queue and enclosing startup remain separate",
+    "pending": [
+      "local first-step diagnostic worker",
+      "production resource admission",
+      "conditional fallback/extension orchestration",
+      "Gate A analysis",
+      "public M2 execution"
+    ]
+  }
+}
