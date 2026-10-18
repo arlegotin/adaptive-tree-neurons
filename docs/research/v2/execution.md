@@ -943,3 +943,14 @@ Only a first full-shape data worker is new native engineering evidence; no paren
 or fit starts in that fixture. The53scientific profiles, complete qualification
 queue, live admission and public M2 dispatch remain pending. See
 [WP03-profile-collection-receipt.json](WP03-profile-collection-receipt.json).
+
+Task9 independent implementation slice prepared while unchanged M1 runs: pure
+R2/teacher aggregation, variance-only16->32 calibration,2%/5% size distinction,
+fixed K grid and100,000-cohort empirical/normal/t5 validation. Single review's
+centering and missing-extension-lineage P2s reproduced RED then corrected; exact
+initial16 effect commitments and stable reference centering now apply. Final
+86affected checks passed in1.87s, including62unchanged legacy checks. Zero real
+calibration/teachers/T, no Gate F or freeze permission. Protocol/resource/source/
+protected/Holm implementation remains pending. See
+[design-v2-preparation.md](design-v2-preparation.md). This is independent fixture
+work required before later primary searches; it does not advance Gate A or WP04.

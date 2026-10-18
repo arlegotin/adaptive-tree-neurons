@@ -1,0 +1,48 @@
+{
+  "T_accessed": false,
+  "actual_calibration": false,
+  "artifacts": {
+    "artifacts/research-v2/WP09/design-verification/design-v2-final-green.log": "2dbb6dba45c29cb542924138d252c666f704f2357541e441c81c56a5af28f775",
+    "artifacts/research-v2/WP09/design-verification/design-v2-final.log": "0f9a61c3a1f446502d44e7a9b5a68ad7040ef420137f6f2094f02ff31cf1990d",
+    "artifacts/research-v2/WP09/design-verification/design-v2-green.log": "0c452197dbcc3debe177dbed915d90b663321f8ef13569ed381c416d61d378d8",
+    "artifacts/research-v2/WP09/design-verification/design-v2-order-red.log": "9408d21d93bec1c6d23bc4667f62fd6b5003946bbd998e5b57447761e491578d",
+    "artifacts/research-v2/WP09/design-verification/design-v2-power-green.log": "bfdaa2e66f31a513f4151e1562b460e718735e305a6b4c4140a82e17a269c9e6",
+    "artifacts/research-v2/WP09/design-verification/design-v2-power-red.log": "6513b8919cf8078faf0d8f64821d96741b06a296dabd5be8f57ca7b9ed5f7e84",
+    "artifacts/research-v2/WP09/design-verification/design-v2-red.log": "7f006c267a656cfed5758086288f4a40b4c74e2934b336fc64c979803d048fb2",
+    "artifacts/research-v2/WP09/design-verification/design-v2-review-green.log": "0f9a61c3a1f446502d44e7a9b5a68ad7040ef420137f6f2094f02ff31cf1990d",
+    "artifacts/research-v2/WP09/design-verification/design-v2-review-red.log": "152d8feb37f3e4755a728cf3b452d648094e478658c79e1ca2d1ec8649842ee5",
+    "artifacts/research-v2/WP09/design-verification/design-v2-size-red.log": "843501860e165a24f9a262934d1a12db833d620dfeb8bcecbfeca50443137a30",
+    "artifacts/research-v2/WP09/design-verification/design-v2-verified.log": "9fad0db24844da80666b6e03eb837ebf83473b29d630e8409dc0f6dfe45e1342",
+    "artifacts/research-v2/WP09/design-verification/design-v2-zero-label-red.log": "3e42e5e8324f0920a750e41265e5c3287b1d799709a01c27e7540cf7695cbc45"
+  },
+  "base_commit": "5f0b537",
+  "freeze_eligible": false,
+  "independent_scientific_teachers": 0,
+  "owned_files": {
+    "docs/research/v2/scripts/check_design_v2.py": "cf760082f3ce8673508a7ea14501445d87dad34ea5c38e7e892b40c896c27f4d",
+    "src/treeneuron/analysis/design_v2.py": "f413a983f86ef9e7de82a794ec14a12b2977f53ca98a670c7350808ef8537e48",
+    "tests/test_design_v2.py": "ec8281593c886dc8b4658ac41cf1eda0ec5c06fae3e72cf0e42f165eacc90a1a"
+  },
+  "review": {
+    "correction_pass": "one combined RED\u2192GREEN pass; no second review",
+    "deferred_minor": "Direct failed-first-K advancement and complete-grid exhaustion selector regressions",
+    "material_findings": 2,
+    "mode": "single read-only review, no reviewer tests/simulations/edits",
+    "reviewer": "/root/diagnostic_review"
+  },
+  "schema": "research/v2-prospective-design-implementation",
+  "scope": "Pure aggregation/variance/size/power arithmetic; protocol/source/resource/protected validation and Holm pending",
+  "toy_runs": {
+    "artifacts/research-v2/WP09/design-fixtures-v1/result.json": "f47109311e83a901629015a7471fde2c2875797278254d00fc4b30a00cf092d8",
+    "artifacts/research-v2/WP09/design-fixtures-v2/result.json": "76683c75a47eb32fd4e0a5ed4a7aac705df20494322e71442dd875b2b0250f10"
+  },
+  "verification": {
+    "final": "86passed in1.87s, including62 unchanged legacy design checks",
+    "grid": "2RED",
+    "independent_review": "2P2s,3regressionsRED; stable centering and exact initial16 extension commitment corrected",
+    "initial": "12missingAPI failures",
+    "power": "6missingAPI failures",
+    "prefix_order": "1RED before preservation of declared order",
+    "zero_label": "1RED before raw-effect zero flag fix"
+  }
+}
