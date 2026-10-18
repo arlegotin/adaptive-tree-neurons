@@ -261,7 +261,7 @@ def _runtime():
         module=importlib.import_module(package)
         if Path(module.__file__).resolve()!=Path(path).resolve():raise ValueError('NODE imported native module origin differs')
         files.append(_record_file(distribution,path))
-    for name,distribution in (('torch._C','torch'),('torch.optim.optimizer','torch'),
+    for name,distribution in (('torch._C','torch'),('torch.optim.optimizer','torch'),('torch.overrides','torch'),('torch.utils._device','torch'),
             ('numpy._core._multiarray_umath','numpy'),('sklearn.preprocessing._data','scikit-learn'),
             ('scipy.stats._distn_infrastructure','scipy'),('scipy.stats._continuous_distns','scipy'),('scipy.special._ufuncs','scipy')):
         files.append(_record_file(distribution,importlib.import_module(name).__file__))
@@ -282,10 +282,23 @@ def _runtime():
         native=observed,coverage='All27 versions/locations/RECORD digests; listed executed Python/native sources and observed native images/threadpools, not all core installed bytes')
 
 
+def _require_native_defaults(torch):
+    from torch.overrides import _get_current_function_mode_stack
+    from torch.utils._device import DeviceContext
+    # Match pinned get_default_device metadata lookup without its off-device
+    # tensor allocation to resolve an unspecified device index.
+    context=next((mode for mode in reversed(_get_current_function_mode_stack()) if isinstance(mode,DeviceContext)),None)
+    if context is None:context=getattr(torch._GLOBAL_DEVICE_CONTEXT,'device_context',None)
+    device=context.device if context is not None else torch.device('cpu')
+    if device.type!='cpu' or torch.get_default_dtype()!=torch.float32:
+        raise ValueError('NODE requires caller CPU device and float32 default dtype before native draws')
+
+
 def _build_model(width,resolved):
-    torch,arch,nn,_=_native()
-    return torch.nn.Sequential(arch.DenseBlock(width,resolved['trees'],num_layers=1,depth=resolved['depth'],tree_dim=3,
-        flatten_output=False,choice_function=nn.entmax15,bin_function=nn.entmoid15),nn.Lambda(lambda x:x[...,0].mean(-1))).cpu().float()
+    torch,arch,nn,_=_native();_require_native_defaults(torch)
+    with torch.device('cpu'):
+        return torch.nn.Sequential(arch.DenseBlock(width,resolved['trees'],num_layers=1,depth=resolved['depth'],tree_dim=3,
+            flatten_output=False,choice_function=nn.entmax15,bin_function=nn.entmoid15),nn.Lambda(lambda x:x[...,0].mean(-1))).cpu().float()
 
 
 def _optimizer(model,resolved):return _native()[3].QHAdam(model.parameters(),**resolved['optimizer'])
@@ -388,6 +401,7 @@ class NodeV2Predictor:
                     or cfg.state['mode']=='engineering_fixture' and cap>128):raise ValueError('Invalid NODE explicit update ceiling')
             enter_phase('source_validation');source=source_identity();enter_phase('dependencies');torch=_native()[0]
             before=_rng(torch);before['numpy']=caller_numpy;before['python']=caller_python
+            _require_native_defaults(torch)
             runtime=_runtime();np.random.seed(seed);random.seed(seed);torch.random.default_generator.manual_seed(seed)
             enter_phase('preprocessing');transform=NodeTransform.fit(request.X_fit,request.y_fit,cfg.state['feature_schema'],seed)
             F=transform.transform(request.X_fit);G=transform.transform(request.X_select);y=transform.target(request.y_fit);gy=transform.target(request.y_select)
@@ -559,6 +573,12 @@ def _same_model(first,second):
     return set(first)==set(second) and all(first[k].dtype==second[k].dtype and torch.equal(first[k],second[k]) for k in first)
 
 
+def _same_optimizer(first,second):
+    left={};right={}
+    if _canonical(_pack(first,left))!=_canonical(_pack(second,right)):return False
+    return set(left)==set(right) and all(_array_identity(left[k])==_array_identity(right[k]) for k in left)
+
+
 def _validate_optimizer(value,model,resolved,age):
     torch=_native()[0];expected=_optimizer(model,resolved).state_dict();parameters=list(model.parameters())
     if (type(value) is not dict or set(value)!={'state','param_groups'} or type(value['state']) is not dict
@@ -670,7 +690,10 @@ def _validate_endpoint(state,cfg):
         if not _same_model(state['selected_model'],_average(state['selected_window'])):raise ValueError('NODE selected state differs from native rolling average')
         _validate_optimizer(state['selected_optimizer'],model,resolved,winner['step'])
     if reports and executed==reports[-1]['step'] and not _same_model(state['raw_model'],state['rolling_window'][-1]['model']):raise ValueError('NODE final raw report state differs')
-    _validate_optimizer(state['raw_optimizer'],model,resolved,executed);_validate_rng_state(state['rng'])
+    _validate_optimizer(state['raw_optimizer'],model,resolved,executed)
+    if winner is not None and winner['step']==executed and not _same_optimizer(state['selected_optimizer'],state['raw_optimizer']):
+        raise ValueError('NODE same-step selected/raw optimizer bytes differ')
+    _validate_rng_state(state['rng'])
     if not _digest_string(state['prediction_binding']) or state['prediction_binding']!=_prediction_binding(state,cfg):
         raise ValueError('NODE retained prediction/transform/role binding differs')
     model.load_state_dict(state['selected_model'] if winner is not None else state['raw_model'])

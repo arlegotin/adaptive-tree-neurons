@@ -14,7 +14,7 @@ Python, all five declared numerical thread environment variables equal1,
 retained base directory. The exact command is in
 [NODE-v2-evidence/receipt.json](NODE-v2-evidence/receipt.json).
 
-Final held tree: **137 passed,44 warnings in154.76s**, including43 NODE cases.
+Pre-review held tree: **137 passed,44 warnings in154.76s**, including43 NODE cases.
 Native runs are sequential CPU engineering fixtures16/32trees, depth2/4,
 maximum128updates. One real101-update fit has its only G report at100 and selects
 update100; update101 adds no G point. The actual paid receipt is copied to
@@ -23,15 +23,15 @@ Fixture artifacts remain explicitly ineligible for native/practical quality.
 
 All19 raw logs are copied byte-exact into NODE-v2-evidence, including missing-API
 REDs, numerical/error-path regressions, intermediate implementation errors and a
-TorchDynamo test-mock aliasing error. The raw root
-`/private/tmp/atn-node-v2-evidence-20261018` retains821 regular files,44,107,588bytes
+TorchDynamo test-mock aliasing error. At the pre-review hold, the raw root
+`/private/tmp/atn-node-v2-evidence-20261018` retained821 regular files,44,107,588bytes
 and195 pytest symlink aliases. The committed
 [raw inventory](NODE-v2-evidence/raw-inventory.json) binds every regular file and
 lists aliases without following them. No failed numerical attempt, raw checkpoint,
 structured mutation or original exception was removed. The inventory is a retained
 engineering evidence commitment, not a claim of a production result ledger.
 
-Held source identity is
+Pre-review source identity is
 `2fd8f2a71634438ee173b1e9b3d32e9d20069de429e0b987b37c3f6db32e56d2`.
 Owned code/test/helper/lock hashes and unchanged core/legacy/vendor commitments
 are in the receipt and complete source identity. Documentation/evidence changes
@@ -102,6 +102,21 @@ or automatic numerical rescue is implemented. Native2048 feasibility, full sourc
 bound resource profiles, interruption/retry policy, registry integration, all
 search cases and GateD remain pending.
 
-The root-owned single independent review is pending on this held implementation.
-Material findings receive one demonstrated RED→GREEN correction pass; optional
-hardening is recorded without a second review.
+## Final reviewed correction
+
+The root-owned single independent review found two material issues, both corrected
+in one demonstrated RED→GREEN pass. See [the review disposition](NODE-v2-review.md).
+Caller defaults must be CPU/float32 before native draws; unsupported defaults fail
+without changing caller policy/RNG or the previous predictor. Native construction
+also has an explicit scoped CPU device. Selected/raw QHAdam metadata and slot bytes
+must agree whenever their retained step is identical. Vendor kernels remain unchanged.
+
+Final affected tree: **141 passed,44 warnings in175.15s**, including47 NODE cases.
+Final package identity is `f7d08c7848eaa4279440dd7bae7cd6265df7daca4844efaf78a2440896e01a3b`. The original reviewed
+receipt/source/log inventory remains unchanged; the
+[final receipt](NODE-v2-evidence/final-receipt.json) binds the corrected source,
+actual100-report receipt, all22 logs and an expanded raw inventory of
+1061 regular files/57,316,940bytes/249 aliases.
+No second review was requested. The Python MT index type and native structural
+validation of retained Torch RNG bytes remain deferred metadata hardening;
+prediction restoration never installs those retained terminal RNG states.

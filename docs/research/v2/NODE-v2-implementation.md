@@ -31,7 +31,7 @@
 - [x] T1: Write config/lazy-import/F-geometry/role/target tests; observe missing API RED; implement strict config, encoder/quantile/target and pinned identity lock. Run focused GREEN.
 - [x] T2: Write model/initialization/full-row/report/rolling/patience/error tests and independent archived native reference. Observe RED; implement bounded native fit with trace and caller restoration. Run tiny sequential native GREEN including actual100 report.
 - [x] T3: Write portable endpoint/external hash/structured corruption/dtype/source/runtime/RNG tests; observe RED; implement JSON+NPZ state with exact model/optimizer/window/trace validation. Run affected suite and hold source for one independent review.
-- [ ] T4: Record final review; material findings get one RED→GREEN correction pass, minors ledgered. Final affected verification, source/lock/evidence hash inventory, commit; preserve isolated branch for root.
+- [x] T4: Record final review; material findings get one RED→GREEN correction pass, minors ledgered. Final affected verification, source/lock/evidence hash inventory, commit; preserve isolated branch for root.
 
 Each task cycle retains raw logs and run directories under /private/tmp/atn-node-v2-evidence-20261018 with unique paths; no hidden retries. Package files are edited only between completed native runs.
 
@@ -50,3 +50,5 @@ Each task cycle retains raw logs and run directories under /private/tmp/atn-node
 - Ruling: caller RNG means this CPU adapter must not seed other device generators. CPU default_generator.manual_seed has the same native CPU seed effect; direct official reference remains CPU numerical-path parity. Cost if wrong is a direct parity failure, checked by the combined suite.
 
 - T3 final hold: combined137GREEN154.76s on final package/test tree. Source identity and all owned source/test/lock hashes are committed in NODE-v2-evidence/receipt.json; every raw log is copied byte-exact and all raw artifacts/symlink aliases are inventoried without following aliases. T4 awaits root-owned single read-only review.
+
+- T4 complete: root-owned single static review found two P2s (caller-controlled construction defaults; missing equality of same-step optimizer copies). Four focused regressions first failed20.90s, then passed16.13s after one combined correction. Final affected141GREEN/44warnings175.15s. No second review; exact Python MT index type/Torch RNG structural validation is deferred, with prediction-only restoration unchanged. Final source/raw commitments are separate from the preserved pre-review receipts in NODE-v2-evidence/final-receipt.json.

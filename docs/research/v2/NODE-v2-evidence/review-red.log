@@ -1,0 +1,183 @@
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+___ test_non_native_caller_defaults_reject_before_constructor_draws[float64] ___
+
+tmp_path = PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-020-review-red/test_non_native_caller_default0')
+portable_case = (<treeneuron.research.node_v2.NodeV2Predictor object at 0x10d5580b0>, FitRequest(X_fit=array([[ 1.1085547e-03, -2.8954...table-case0/fit')), PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-020-review-red/portable-case0/pristine'))
+native_policy = <module 'torch' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/__init__.py'>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x11436e5a0>
+policy = 'float64'
+
+    @pytest.mark.parametrize('policy',['float64','meta'])
+    def test_non_native_caller_defaults_reject_before_constructor_draws(tmp_path,portable_case,native_policy,monkeypatch,policy):
+        import contextlib,random
+        from treeneuron.research import node_v2
+        from treeneuron.baselines._node_vendor import arch
+        torch=native_policy;model=copy.deepcopy(portable_case[0]);query=portable_case[1].X_select
+        prediction=model.predict(query);calls=[];original_dtype=torch.get_default_dtype()
+        before=(np.random.get_state(),random.getstate(),torch.get_rng_state().clone())
+        def forbidden(*args,**kwargs):
+            calls.append(True)
+            raise AssertionError('NODE constructor reached under unsupported caller defaults')
+        monkeypatch.setattr(arch,'DenseBlock',forbidden)
+        try:
+            if policy=='float64':torch.set_default_dtype(torch.float64)
+            with torch.device('meta') if policy=='meta' else contextlib.nullcontext():
+                expected_device=torch.get_default_device();expected_dtype=torch.get_default_dtype()
+                with pytest.raises(ValueError,match='CPU.*float32'):
+>                   model.fit(request(tmp_path/'rejected',2))
+
+tests/test_node_v2.py:458: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/research/node_v2.py:397: in fit
+    enter_phase('initialization');model=_build_model(width,resolved)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/treeneuron/research/node_v2.py:287: in _build_model
+    return torch.nn.Sequential(arch.DenseBlock(width,resolved['trees'],num_layers=1,depth=resolved['depth'],tree_dim=3,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (2, 16)
+kwargs = {'num_layers': 1, 'depth': 2, 'tree_dim': 3, 'flatten_output': False, ...}
+
+    def forbidden(*args,**kwargs):
+        calls.append(True)
+>       raise AssertionError('NODE constructor reached under unsupported caller defaults')
+E       AssertionError: NODE constructor reached under unsupported caller defaults
+
+tests/test_node_v2.py:451: AssertionError
+____ test_non_native_caller_defaults_reject_before_constructor_draws[meta] _____
+
+tmp_path = PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-020-review-red/test_non_native_caller_default1')
+portable_case = (<treeneuron.research.node_v2.NodeV2Predictor object at 0x10d5580b0>, FitRequest(X_fit=array([[ 1.1085547e-03, -2.8954...table-case0/fit')), PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-020-review-red/portable-case0/pristine'))
+native_policy = <module 'torch' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/__init__.py'>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x114554ef0>
+policy = 'meta'
+
+    @pytest.mark.parametrize('policy',['float64','meta'])
+    def test_non_native_caller_defaults_reject_before_constructor_draws(tmp_path,portable_case,native_policy,monkeypatch,policy):
+        import contextlib,random
+        from treeneuron.research import node_v2
+        from treeneuron.baselines._node_vendor import arch
+        torch=native_policy;model=copy.deepcopy(portable_case[0]);query=portable_case[1].X_select
+        prediction=model.predict(query);calls=[];original_dtype=torch.get_default_dtype()
+        before=(np.random.get_state(),random.getstate(),torch.get_rng_state().clone())
+        def forbidden(*args,**kwargs):
+            calls.append(True)
+            raise AssertionError('NODE constructor reached under unsupported caller defaults')
+        monkeypatch.setattr(arch,'DenseBlock',forbidden)
+        try:
+            if policy=='float64':torch.set_default_dtype(torch.float64)
+            with torch.device('meta') if policy=='meta' else contextlib.nullcontext():
+                expected_device=torch.get_default_device();expected_dtype=torch.get_default_dtype()
+                with pytest.raises(ValueError,match='CPU.*float32'):
+>                   model.fit(request(tmp_path/'rejected',2))
+
+tests/test_node_v2.py:458: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/research/node_v2.py:397: in fit
+    enter_phase('initialization');model=_build_model(width,resolved)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/treeneuron/research/node_v2.py:287: in _build_model
+    return torch.nn.Sequential(arch.DenseBlock(width,resolved['trees'],num_layers=1,depth=resolved['depth'],tree_dim=3,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (2, 16)
+kwargs = {'num_layers': 1, 'depth': 2, 'tree_dim': 3, 'flatten_output': False, ...}
+
+    def forbidden(*args,**kwargs):
+        calls.append(True)
+>       raise AssertionError('NODE constructor reached under unsupported caller defaults')
+E       AssertionError: NODE constructor reached under unsupported caller defaults
+
+tests/test_node_v2.py:451: AssertionError
+_ test_same_step_selected_and_raw_optimizer_moments_must_be_byte_identical[exp_avg] _
+
+tmp_path = PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-020-review-red/test_same_step_selected_and_ra0')
+portable_case = (<treeneuron.research.node_v2.NodeV2Predictor object at 0x10d5580b0>, FitRequest(X_fit=array([[ 1.1085547e-03, -2.8954...table-case0/fit')), PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-020-review-red/portable-case0/pristine'))
+native_policy = <module 'torch' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/__init__.py'>
+moment = 'exp_avg'
+
+    @pytest.mark.parametrize('moment',['exp_avg','exp_avg_sq'])
+    def test_same_step_selected_and_raw_optimizer_moments_must_be_byte_identical(tmp_path,portable_case,native_policy,moment):
+        from treeneuron.research.node_v2 import NodeV2Predictor
+        path=tmp_path/'snapshot';state=snapshot(portable_case,path);payload=state['payload']
+        summary=dict(tree(payload,'summary')['mapping'])
+        assert summary['selected_step']==summary['executed_updates']==12
+        selected_slot=tree(payload,'selected_optimizer','state')['mapping'][0][1]
+        raw_slot=tree(payload,'raw_optimizer','state')['mapping'][0][1]
+        selected_key=tree(selected_slot,moment)['array'];raw_key=tree(raw_slot,moment)['array']
+        with np.load(path/'arrays.npz',allow_pickle=False) as values:arrays={k:values[k].copy() for k in values.files}
+        assert selected_key!=raw_key and np.array_equal(arrays[selected_key],arrays[raw_key])
+        arrays[selected_key].flat[0]+=np.float32(1.)
+        assert not np.array_equal(arrays[selected_key],arrays[raw_key]) and np.isfinite(arrays[selected_key]).all()
+        np.savez(path/'arrays.npz',**arrays)
+        state['arrays']={k:dict(dtype=str(v.dtype),shape=list(v.shape),sha256=hashlib.sha256(v.tobytes()).hexdigest()) for k,v in arrays.items()}
+        state['array_file']['sha256']=hashlib.sha256((path/'arrays.npz').read_bytes()).hexdigest()
+        (path/'manifest.json').write_text(json.dumps(state))
+>       with pytest.raises(ValueError,match='same.step.*optimizer|optimizer.*same.step'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_node_v2.py:488: Failed
+_ test_same_step_selected_and_raw_optimizer_moments_must_be_byte_identical[exp_avg_sq] _
+
+tmp_path = PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-020-review-red/test_same_step_selected_and_ra1')
+portable_case = (<treeneuron.research.node_v2.NodeV2Predictor object at 0x10d5580b0>, FitRequest(X_fit=array([[ 1.1085547e-03, -2.8954...table-case0/fit')), PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-020-review-red/portable-case0/pristine'))
+native_policy = <module 'torch' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/__init__.py'>
+moment = 'exp_avg_sq'
+
+    @pytest.mark.parametrize('moment',['exp_avg','exp_avg_sq'])
+    def test_same_step_selected_and_raw_optimizer_moments_must_be_byte_identical(tmp_path,portable_case,native_policy,moment):
+        from treeneuron.research.node_v2 import NodeV2Predictor
+        path=tmp_path/'snapshot';state=snapshot(portable_case,path);payload=state['payload']
+        summary=dict(tree(payload,'summary')['mapping'])
+        assert summary['selected_step']==summary['executed_updates']==12
+        selected_slot=tree(payload,'selected_optimizer','state')['mapping'][0][1]
+        raw_slot=tree(payload,'raw_optimizer','state')['mapping'][0][1]
+        selected_key=tree(selected_slot,moment)['array'];raw_key=tree(raw_slot,moment)['array']
+        with np.load(path/'arrays.npz',allow_pickle=False) as values:arrays={k:values[k].copy() for k in values.files}
+        assert selected_key!=raw_key and np.array_equal(arrays[selected_key],arrays[raw_key])
+        arrays[selected_key].flat[0]+=np.float32(1.)
+        assert not np.array_equal(arrays[selected_key],arrays[raw_key]) and np.isfinite(arrays[selected_key]).all()
+        np.savez(path/'arrays.npz',**arrays)
+        state['arrays']={k:dict(dtype=str(v.dtype),shape=list(v.shape),sha256=hashlib.sha256(v.tobytes()).hexdigest()) for k,v in arrays.items()}
+        state['array_file']['sha256']=hashlib.sha256((path/'arrays.npz').read_bytes()).hexdigest()
+        (path/'manifest.json').write_text(json.dumps(state))
+>       with pytest.raises(ValueError,match='same.step.*optimizer|optimizer.*same.step'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_node_v2.py:488: Failed
+=============================== warnings summary ===============================
+tests/test_node_v2.py::test_non_native_caller_defaults_reject_before_constructor_draws[float64]
+  /Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/src/treeneuron/baselines/_node_vendor/odst.py:38: SyntaxWarning: invalid escape sequence '\i'
+    :param threshold_init_cutoff: threshold log-temperatures initializer, \in (0, inf)
+
+tests/test_node_v2.py::test_non_native_caller_defaults_reject_before_constructor_draws[float64]
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+tests/test_node_v2.py::test_non_native_caller_defaults_reject_before_constructor_draws[float64]
+tests/test_node_v2.py::test_non_native_caller_defaults_reject_before_constructor_draws[float64]
+tests/test_node_v2.py::test_non_native_caller_defaults_reject_before_constructor_draws[meta]
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/sklearn/preprocessing/_data.py:2912: UserWarning: n_quantiles (1000) is greater than the total number of samples (37). n_quantiles is set to n_samples.
+    warnings.warn(
+
+tests/test_node_v2.py::test_non_native_caller_defaults_reject_before_constructor_draws[float64]
+  /Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/src/treeneuron/baselines/_node_vendor/odst.py:113: UserWarning: Data-aware initialization is performed on less than 1000 data points. This may cause instability.To avoid potential problems, run this model on a data batch with at least 1000 data samples.You can do so manually before training. Use with torch.no_grad() for memory efficiency.
+    warn("Data-aware initialization is performed on less than 1000 data points. This may cause instability."
+
+tests/test_node_v2.py::test_non_native_caller_defaults_reject_before_constructor_draws[float64]
+  /Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/src/treeneuron/baselines/_node_vendor/qhadam.py:133: UserWarning: This overload of add_ is deprecated:
+  	add_(Number alpha, Tensor other)
+  Consider using one of the following signatures instead:
+  	add_(Tensor other, *, Number alpha = 1) (Triggered internally at /Users/runner/work/pytorch/pytorch/torch/csrc/utils/python_arg_parser.cpp:1841.)
+    exp_avg.mul_(beta1_adj).add_(1.0 - beta1_adj, d_p)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_node_v2.py::test_non_native_caller_defaults_reject_before_constructor_draws[float64]
+FAILED tests/test_node_v2.py::test_non_native_caller_defaults_reject_before_constructor_draws[meta]
+FAILED tests/test_node_v2.py::test_same_step_selected_and_raw_optimizer_moments_must_be_byte_identical[exp_avg]
+FAILED tests/test_node_v2.py::test_same_step_selected_and_raw_optimizer_moments_must_be_byte_identical[exp_avg_sq]
+4 failed, 43 deselected, 7 warnings in 20.90s

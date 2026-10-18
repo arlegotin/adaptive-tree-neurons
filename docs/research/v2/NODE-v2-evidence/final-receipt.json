@@ -1,0 +1,194 @@
+{
+  "actual_100_report": {
+    "executed_updates": 101,
+    "receipt": "final-actual-100-report-receipt.json",
+    "sha256": "13cfbfac36420d21a2f75cafe1d0b4dbb3a2510a48bfcaff3815dda0d333c9c4",
+    "summary": {
+      "checkpoint_available": true,
+      "executed_updates": 101,
+      "native_full_anchor_qualified": false,
+      "quality_eligible": false,
+      "selected_step": 100,
+      "selection_status": "G_selected",
+      "stop_reason": "max_updates"
+    }
+  },
+  "approved_contract_commit": "2f5a93f6121ebcc3d97492ca805875a104f99f8d",
+  "base_commit": "7f781cc7787707000f368be4917d851df359a052",
+  "final_after_review": {
+    "command": "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python -m pytest -p no:cacheprovider tests/test_node_v2.py tests/test_p13_simple.py tests/test_simple_baselines.py tests/test_transforms.py -q --basetemp=/private/tmp/atn-node-v2-evidence-20261018/run-022-final-after-review",
+    "elapsed_seconds": 175.15,
+    "exit_code": 0,
+    "log": "final-after-review.log",
+    "node_tests": 47,
+    "sequential_cpu_threads": 1,
+    "source_held_immutable": true,
+    "tests": 141,
+    "warnings": 44
+  },
+  "limits": [
+    "Native runtime authenticates all27 distribution metadata/RECORD identities plus explicitly listed executed files and observed images; not every core installed file byte.",
+    "Disjoint internal phase costs exclude own receipt publication and final caller-state restoration; enclosing worker must charge startup/publication/validation/inference and failed attempts.",
+    "Static row/encoded-width/parameter guards are unmeasured input rejection boundaries, not full-workload resource admission.",
+    "Raw binary/reference artifacts remain at raw_artifact_root; committed byte inventory and all raw logs preserve exact available evidence, including failures and structured mutations."
+  ],
+  "logs": {
+    "boundary-green.log": {
+      "bytes": 4523,
+      "sha256": "807c592133b43a790b83ffc564c2acd373808ba51c534dc95c8c8bde9145e02e"
+    },
+    "cpu-seed-green.log": {
+      "bytes": 7216,
+      "sha256": "e53f31f06383303ff5802dbbbcf2ab3e01779e2448bff39e18cf20a2f963c132"
+    },
+    "cpu-seed-isolated-final.log": {
+      "bytes": 2429,
+      "sha256": "ff8b880652079ab240fa925bfcb2a283d9bec2f38b817e86e62a439d0f310011"
+    },
+    "cpu-seed-red.log": {
+      "bytes": 3362,
+      "sha256": "2ec5a67c3a8b645ed7d8b1e0f26494738821f149ce721de9185d3dd372e9ac4b"
+    },
+    "final-after-review.log": {
+      "bytes": 4748,
+      "sha256": "bdc619484efb7e18c5336b1dc6b96a659a4ddd2f6df1d8818549090cad67d551"
+    },
+    "final-before-review.log": {
+      "bytes": 4748,
+      "sha256": "7d87926173bab56460288c3e26ca302c417651019db4e3579679477882df1b4b"
+    },
+    "final-source-before-review.log": {
+      "bytes": 4748,
+      "sha256": "7745de6e802b9c9a2a4ad63c59035740180e2159c8aacdd5e9265122893bacfc"
+    },
+    "held-final.log": {
+      "bytes": 4748,
+      "sha256": "b42cdbc87b277500d3fe470b27f3eab4726a329d235420676c4358c1a7e4fb3b"
+    },
+    "origin-red.log": {
+      "bytes": 2010,
+      "sha256": "b6baba00e56c1c9160763720f51daf6bb5fcabbb26e73b9e43062c83c15b4c86"
+    },
+    "phase-red.log": {
+      "bytes": 4686,
+      "sha256": "d1bcc4f6ec18940de95f70a83721352bcbf7a47efdf8e34e3b4bcba907195c9f"
+    },
+    "review-red.log": {
+      "bytes": 13802,
+      "sha256": "b44c9f4f86854f0ba586958a4b7cae194416e9a5cbb0c87033a1b2e64f357b90"
+    },
+    "review-targeted-green.log": {
+      "bytes": 2540,
+      "sha256": "3678484036df969baff56b9753a280b8c36ecd3b6c6a54b7ce0ac7bf76ce7b34"
+    },
+    "scalar-red.log": {
+      "bytes": 4061,
+      "sha256": "eb62640ee8dfce182fcce60f5ed1592d6f0fb31c734224bddc5d483c8da09eea"
+    },
+    "self-green-final.log": {
+      "bytes": 2869,
+      "sha256": "229f5473b91351720d22e6594f85609126e85ca63cab7652b06fca4b940bdf3d"
+    },
+    "self-green.log": {
+      "bytes": 13336,
+      "sha256": "aed09903eba18a588a02a963297144d5aa10e6c8b58e2f60e0014150241be7bd"
+    },
+    "self-red.log": {
+      "bytes": 11907,
+      "sha256": "4092062919d4a2cc42c72b1fe6a59718c1f9ff20d6d62d025bcfcc0655942e34"
+    },
+    "t1-green-attempt.log": {
+      "bytes": 1110,
+      "sha256": "b10fdba092435496e0f7d88ee3062000f7b8aab4202c6e971967cbedb287c934"
+    },
+    "t1-red.log": {
+      "bytes": 3740,
+      "sha256": "872b1985dba760ff1b731db238620183050d489235d66e6da35ae30ae93ef357"
+    },
+    "t2-green-attempt.log": {
+      "bytes": 5801,
+      "sha256": "b1bbf74f275e05185c3a50c9cb3aa134dc2893563ffc0f896ab371dbce60fec4"
+    },
+    "t2-red.log": {
+      "bytes": 5593,
+      "sha256": "1997bbaf522333c6db6eac85dceb593c6bd9c782de5a8b79f719281db04aa7f8"
+    },
+    "t3-green-attempt.log": {
+      "bytes": 4387,
+      "sha256": "42fe6168988328932321f31f8a71e58b06ad0a7fc6d5830738e5426cc936f097"
+    },
+    "t3-red.log": {
+      "bytes": 47172,
+      "sha256": "45248c6cf97fe4eb72f40ac9e7f3978e0e7dc3a39d4e7b45838ee40a3d6f0e29"
+    }
+  },
+  "owned_code_sha256": {
+    "locks/research-v2/node-v2/source-lock.json": "7c50663fd6866100daa92083808627260f7d46c4f950aa0f0ef553317e6c29b3",
+    "src/treeneuron/research/node_v2.py": "2b0015500ae3e705598bef75df44da8572eef297437f260bdb702c470b53f12f",
+    "tests/node_v2_reference.py": "13687e23f184dda39dd029e9438ebead596b510b7c97f48f478af2c3b217d801",
+    "tests/test_node_v2.py": "ba6268217925c40a777eefb45f62e91417fc3855ac5bdd42137e98e5e8ca55f9"
+  },
+  "preserved_pre_review_receipt_sha256": "3acd2421f07ab5f1bd56d20754cde23dedf90e9644f93be167e85500980fb668",
+  "raw_artifact_root": "/private/tmp/atn-node-v2-evidence-20261018",
+  "raw_inventory_sha256": "8c8c741cee25451e8da4305da55881f98005397916146cf4746cceaf7c2485b6",
+  "raw_regular_bytes": 57316940,
+  "raw_regular_files": 1061,
+  "raw_symlink_aliases": 249,
+  "review": {
+    "correction_passes": 1,
+    "corrections": [
+      "Reject non-CPU/default-float64 caller policy before seeding/native construction with no-allocation pinned metadata lookup; scope native constructor to CPU, preserve caller defaults/RNG/prior model.",
+      "Require same-step selected/raw QHAdam typed metadata and exact array-byte identity."
+    ],
+    "deferred_minor": [
+      "Exact integer type of Python MT index",
+      "Native structural validation of retained Torch generator bytes"
+    ],
+    "disposition": "Both reviewed P2s reproduced RED, corrected and verified by executor",
+    "material_findings": 2,
+    "mode": "Single read-only static review; no reviewer fits/import probes/tests/edits",
+    "red": {
+      "deselected": 43,
+      "elapsed_seconds": 20.9,
+      "failed": 4,
+      "log": "review-red.log"
+    },
+    "reviewer": "/root/diagnostic_review",
+    "second_review": false,
+    "targeted_green": {
+      "deselected": 43,
+      "elapsed_seconds": 16.13,
+      "log": "review-targeted-green.log",
+      "passed": 4
+    }
+  },
+  "reviewed_commit": "6c518a6ca77ea61b364af11496583f90cefb38c7",
+  "schema": "research/v2-node-engineering-final-evidence",
+  "scope": {
+    "HPO": false,
+    "engineering_fixtures_only": true,
+    "full_native_2048_anchor_qualified": false,
+    "hard_resource_or_recovery_harness": false,
+    "interruption_resume": false,
+    "maximum_updates": 128,
+    "practical_comparison_or_Gate_D": false,
+    "prediction_restoration": true,
+    "prepared_transfer_data": false,
+    "quality_eligible": false,
+    "trees": [
+      16,
+      32
+    ]
+  },
+  "source_identity_file_sha256": "e274cd4a50c254a2dc9b2cf6c6b61cb9b20250d1e5c6ab262a702c26454f00f6",
+  "source_identity_sha256": "f7d08c7848eaa4279440dd7bae7cd6265df7daca4844efaf78a2440896e01a3b",
+  "unchanged_files": {
+    "configs/vendor/node/compatibility.patch": "8e9e829815409224f2a308fdda06cec7c3500827f8bc735781937fd91a342c4a",
+    "configs/vendor/node/runtime-files.json": "7b39516ddcd4d141c17a5ac80f561e76679ce7e7d2ad53bf333c5adafa67e68e",
+    "configs/vendor/node/sources.json": "75e27a438d1c632284a02472508a5011ad1fc8b39e7da683bad2128cc230fe50",
+    "locks/node/environment.json": "89ce6a4b559114eb759d31092d88287ff5e0cd04672bdcabd9143c3a4e56b561",
+    "locks/research-v2/core.json": "91b0287d1b640a2c761bc33b829363df566d37ad37403612f98997df17ff751f",
+    "src/treeneuron/baselines/node.py": "08eeb3ee024443b4ad9a3e7807f960b85bd9a844155e6c57e52898f0f23735c5",
+    "uv.lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5"
+  }
+}

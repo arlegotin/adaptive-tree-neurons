@@ -436,3 +436,54 @@ def test_cpu_node_fit_does_not_touch_other_device_rngs(tmp_path,native_policy,mo
         monkeypatch.setattr(module,name,forbidden_backend(module.__name__))
     model=NodeV2Predictor().fit(request(tmp_path/'fit',2))
     assert model.resource_summary()['executed_updates']==2
+
+
+@pytest.mark.parametrize('policy',['float64','meta'])
+def test_non_native_caller_defaults_reject_before_constructor_draws(tmp_path,portable_case,native_policy,monkeypatch,policy):
+    import contextlib,random
+    from treeneuron.research import node_v2
+    from treeneuron.baselines._node_vendor import arch
+    torch=native_policy;model=copy.deepcopy(portable_case[0]);query=portable_case[1].X_select
+    prediction=model.predict(query);calls=[];original_dtype=torch.get_default_dtype()
+    before=(np.random.get_state(),random.getstate(),torch.get_rng_state().clone())
+    def forbidden(*args,**kwargs):
+        calls.append(True)
+        raise AssertionError('NODE constructor reached under unsupported caller defaults')
+    monkeypatch.setattr(arch,'DenseBlock',forbidden)
+    try:
+        if policy=='float64':torch.set_default_dtype(torch.float64)
+        with torch.device('meta') if policy=='meta' else contextlib.nullcontext():
+            expected_device=torch.get_default_device();expected_dtype=torch.get_default_dtype()
+            with pytest.raises(ValueError,match='CPU.*float32'):
+                model.fit(request(tmp_path/'rejected',2))
+            assert calls==[]
+            assert torch.get_default_device()==expected_device and torch.get_default_dtype()==expected_dtype
+            assert torch.equal(before[2],torch.get_rng_state())
+    finally:torch.set_default_dtype(original_dtype)
+    np.testing.assert_array_equal(before[0][1],np.random.get_state()[1]);assert before[0][2:]==np.random.get_state()[2:]
+    assert before[1]==random.getstate()
+    np.testing.assert_array_equal(model.predict(query),prediction)
+    receipt=json.loads((tmp_path/'rejected/fit-receipt.json').read_text())
+    assert receipt['status']=='failed' and receipt['executed_updates']==0 and receipt['trace']==[]
+    assert receipt['error_type']=='ValueError' and receipt['elapsed_ns']>0
+
+
+@pytest.mark.parametrize('moment',['exp_avg','exp_avg_sq'])
+def test_same_step_selected_and_raw_optimizer_moments_must_be_byte_identical(tmp_path,portable_case,native_policy,moment):
+    from treeneuron.research.node_v2 import NodeV2Predictor
+    path=tmp_path/'snapshot';state=snapshot(portable_case,path);payload=state['payload']
+    summary=dict(tree(payload,'summary')['mapping'])
+    assert summary['selected_step']==summary['executed_updates']==12
+    selected_slot=tree(payload,'selected_optimizer','state')['mapping'][0][1]
+    raw_slot=tree(payload,'raw_optimizer','state')['mapping'][0][1]
+    selected_key=tree(selected_slot,moment)['array'];raw_key=tree(raw_slot,moment)['array']
+    with np.load(path/'arrays.npz',allow_pickle=False) as values:arrays={k:values[k].copy() for k in values.files}
+    assert selected_key!=raw_key and np.array_equal(arrays[selected_key],arrays[raw_key])
+    arrays[selected_key].flat[0]+=np.float32(1.)
+    assert not np.array_equal(arrays[selected_key],arrays[raw_key]) and np.isfinite(arrays[selected_key]).all()
+    np.savez(path/'arrays.npz',**arrays)
+    state['arrays']={k:dict(dtype=str(v.dtype),shape=list(v.shape),sha256=hashlib.sha256(v.tobytes()).hexdigest()) for k,v in arrays.items()}
+    state['array_file']['sha256']=hashlib.sha256((path/'arrays.npz').read_bytes()).hexdigest()
+    (path/'manifest.json').write_text(json.dumps(state))
+    with pytest.raises(ValueError,match='same.step.*optimizer|optimizer.*same.step'):
+        NodeV2Predictor.load(path,expected_manifest_sha256=trusted(path))
