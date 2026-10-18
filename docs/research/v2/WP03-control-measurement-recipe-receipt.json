@@ -1,0 +1,26 @@
+{
+  "schema": "research/v2-implementation-receipt",
+  "component": "fixed negative-control resource measurement recipe",
+  "tests": {
+    "RED": "2 missing-file failures",
+    "GREEN": "2 passed",
+    "logs": [
+      {
+        "path": "artifacts/research-v2/WP03/control-measurement-recipe-tests/atn-negative-recipe-red.log",
+        "sha256": "9dd304f2c907340499bfb6d05152946bb0f011c918517842432a8264e62be08f"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/control-measurement-recipe-tests/atn-negative-recipe-green.log",
+        "sha256": "cdf8d13a3f141b449c7d92c9b86d6fd681de17445a1d661236b92f93860eafac"
+      }
+    ]
+  },
+  "scope": {
+    "case": "M1 globally_affine teacher0/repeat0 keep/top/random",
+    "purpose": "measure full-size parent and continuation before admitting complete M1",
+    "parent_and_continuation_timers": "separate nested measurements; never sum into enclosing physical time",
+    "checkpoint_bound": "largest payload + metadata + complete journal +4096 bytes; conservative estimator",
+    "scientific_case_not_yet_executed": true,
+    "protected_data_accessed": false
+  }
+}

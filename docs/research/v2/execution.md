@@ -628,3 +628,16 @@ The active output is WP02/M1-source-132b250-positive. One heavy numerical worker
 uses one thread; root continues implementation in a different checkout. Larger
 control workload measurement and a full resource forecast still precede any
 full M1 matrix. No protected data have been created or opened.
+
+### Full-size negative-control resource recipe prepared
+
+The next qualification is fixed before outcomes: M1 globally_affine teacher0,
+repeat0, keep/top/random. scripts/measure_negative_control.py resolves that exact
+case, retains raw arrays/state/predictions and produces separate parent and
+continuation measurements with complete-journal transaction bounds. Selection
+and nested-timer arithmetic had2 RED cases before the recipe existed and2 GREEN
+checks afterward. No negative-control fit has run yet. It will use the same
+isolated132b250 source/runtime as the positive qualification; its independently
+recorded script hash identifies the new measurement recipe. One heavy worker
+means it starts only after the positive case finishes. Full M1 admission remains
+dependent on both workloads' actual resource evidence and a free-space forecast.
