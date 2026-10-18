@@ -1051,3 +1051,24 @@ ratio proof retains inputs and all20,000draws, interval[.6931471805599452,
 and few Parkinsons subjects remain explicitly labeled. Full sensitivity/multiplicity/
 protected-protocol/search/cost integration remains pending.
 [Receipt](WP08-bootstrap-preparation-receipt.json). Frozen M2 source unchanged.
+
+M2 engineering qualification completed under immutable e1b1018/e322da64.
+All53classes covered by75authenticated resource profiles,121,850applied updates.
+The530jobs include448synthetic inputs;520eligible/10ineligible mean7dead-unit
+pairs and3executed false decisions, with no failure/retry. Enclosing process
+2,616.83s, lifetime own peak RSS630.45MiB. Raw2,886files/652,351,816logical bytes
+archived with APFS clone copy; every byte hash verified and original retained.
+
+Full-ceiling projection85.91h typical/129.70h slow and227.14GiB logical storage
+far exceeds current12GiB free disk. These are uncalibrated conservative projections,
+not promised quantiles. The previously declared deterministic-tranche policy
+reserves each next job/retry/transaction/free floor and live RAM; the full3853-job
+queue is unchanged. Actual storage may force a pause before completion.
+
+Scientific M2 launched under that same source in the separate checkout,
+output artifacts/research-v2/M2-opportunity-e1b1018, childpid87462, toolsession69903.
+The retained operational launcher authenticates the completed qualification outer
+clock and source/admission before calling the standard CLI. It is now fitting
+primary parents in fixed order; no GateA, new selector or protected test result.
+[Measured admission](WP03-M2-measured-admission.json). Later implementation code
+remains isolated and cannot relabel these checkpoints.
