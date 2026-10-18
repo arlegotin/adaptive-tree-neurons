@@ -1,0 +1,496 @@
+{
+  "base_commit": "5ab3ae2f37f99ebbbdf1620599e18b293002b78d",
+  "branch": "research-v2-ordinary-neural",
+  "core_dependency_mutations": false,
+  "evidence_inventory": {
+    "bytes": 70031415,
+    "files": 651,
+    "path": "artifacts/research-v2/WP07/ordinary-neural/evidence-inventory-final.json",
+    "sha256": "1430fa1e4bfe0bff80310e19404fa0b7a8eb54d405283e2dc30146033c855492"
+  },
+  "evidence_portability": "Ignored raw receipts and executed source snapshots retained locally; exact file hashes in this receipt. Git-integrated code/source locks reproduce fixtures with the qualified core; prior snapshots retain their original source identity.",
+  "evidence_root": "/Users/artemlegotin/.codex-s/worktrees/75a0/adaptive-tree-neurons/artifacts/research-v2/WP07/ordinary-neural",
+  "final_verification": {
+    "command_argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_ordinary_neural_contract.py",
+      "tests/test_ordinary_neural_training.py",
+      "tests/test_ordinary_neural_native.py",
+      "tests/test_simple_baselines.py",
+      "tests/test_config.py",
+      "--basetemp=artifacts/research-v2/WP07/ordinary-neural/16-cases",
+      "--junitxml=artifacts/research-v2/WP07/ordinary-neural/16-correction.xml"
+    ],
+    "cwd": "/Users/artemlegotin/.codex-s/worktrees/75a0/adaptive-tree-neurons",
+    "elapsed_seconds": 88.71,
+    "full_repository_suite_run": false,
+    "new_neural_checks": 52,
+    "passed": 115,
+    "related_legacy_checks": 63,
+    "scope_reason": "Root explicitly requested only tiny/scoped engineering fixtures and no heavy/full-quality runs"
+  },
+  "full_native_anchor_qualified": false,
+  "full_quality_anchor_executed": false,
+  "interpreter": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+  "logs": [
+    {
+      "path": "artifacts/research-v2/WP07/ordinary-neural/01-contract-red.log",
+      "sha256": "be70b5c04ae66c6208f6e52ee4377d25e374e2ada7d372fba3dab3129c809009",
+      "tail": [
+        "22 failed in 0.21s"
+      ]
+    },
+    {
+      "path": "artifacts/research-v2/WP07/ordinary-neural/02-contract-green.log",
+      "sha256": "b00d59eb278f657f0a1f1ab7670f3c9c8d306d350ed99cd749841dffd359ab93",
+      "tail": [
+        "22 passed in 0.88s"
+      ]
+    },
+    {
+      "path": "artifacts/research-v2/WP07/ordinary-neural/03-native-red.log",
+      "sha256": "e8b09f1633d110d642378237aa54284db016a84116443bf11a3cb5d81cab945b",
+      "tail": [
+        "8 failed in 1.12s"
+      ]
+    },
+    {
+      "path": "artifacts/research-v2/WP07/ordinary-neural/04-native-green.log",
+      "sha256": "3ca0ae1f9b17305f2a76267cfb794f50a71ec39c81634829c2c1c43867119f3c",
+      "tail": [
+        "30 passed in 1.76s"
+      ]
+    },
+    {
+      "path": "artifacts/research-v2/WP07/ordinary-neural/05-fit-red.log",
+      "sha256": "6eda1f8ea537bfe230ef97e6e6bae048ff9ebfff34f7588d1dc00a064e96a143",
+      "tail": [
+        "5 failed in 0.27s"
+      ]
+    },
+    {
+      "path": "artifacts/research-v2/WP07/ordinary-neural/06-fit-green.log",
+      "sha256": "9bcb10709c36912e641a6fcafdb490ae2bb0e2e47179ed24637a277d3fed1cba",
+      "tail": [
+        "35 passed in 47.96s"
+      ]
+    },
+    {
+      "path": "artifacts/research-v2/WP07/ordinary-neural/07-binding-red.log",
+      "sha256": "c392aff7a77c794288eb5eccbfb553cfbd2a03ad853da574ca0e7732f9507019",
+      "tail": [
+        "1 failed, 4 deselected in 12.09s"
+      ]
+    },
+    {
+      "path": "artifacts/research-v2/WP07/ordinary-neural/09-green.log",
+      "sha256": "361fcec1be7d93b4961858329d0671bf2cd0d728b78d9b2318e855f82c6cdf92",
+      "tail": [
+        "42 passed in 64.13s (0:01:04)"
+      ]
+    },
+    {
+      "path": "artifacts/research-v2/WP07/ordinary-neural/10-guards-red.log",
+      "sha256": "4280cbf06ecadb0d84f852234cce51c546cf5178eba6802ff2000b0b8bd15af1",
+      "tail": [
+        "3 failed, 15 deselected in 1.15s"
+      ]
+    },
+    {
+      "path": "artifacts/research-v2/WP07/ordinary-neural/11-guards-green.log",
+      "sha256": "171f4805d0a1d68e9b62723c390e4f7ca8dfed5765832b875f28321431d2ec40",
+      "tail": [
+        "40 passed in 1.84s"
+      ]
+    },
+    {
+      "path": "artifacts/research-v2/WP07/ordinary-neural/12-final.log",
+      "sha256": "aa682b02c2e27dde64ec5f9b08076fb35d0f59fae8d086db03489d1d87c17d19",
+      "tail": [
+        "108 passed in 65.86s (0:01:05)"
+      ]
+    },
+    {
+      "path": "artifacts/research-v2/WP07/ordinary-neural/13-review-red.log",
+      "sha256": "a1f9d103a1142e2b77efd7ebb473179dae9b2b4b3e3efadd31a647393b1b8aef",
+      "tail": [
+        "7 failed, 40 deselected in 0.22s"
+      ]
+    },
+    {
+      "path": "artifacts/research-v2/WP07/ordinary-neural/15-review-green.log",
+      "sha256": "0ec428ee6e598fa9ff49f6f37f1f11b823677aeb9faa8dec6fc9e63d726ae0cc",
+      "tail": [
+        "7 passed, 40 deselected in 0.19s"
+      ]
+    },
+    {
+      "path": "artifacts/research-v2/WP07/ordinary-neural/16-correction.log",
+      "sha256": "21095f1d1bc950e97930952ba751ecaf43fb51975962fd6aa10e07f495998df7",
+      "tail": [
+        "115 passed in 88.71s (0:01:28)"
+      ]
+    }
+  ],
+  "native_cases": [
+    {
+      "case": "artifacts/research-v2/WP07/ordinary-neural/16-cases/test_complete_tiny_fit_save_lo0/worker/parity.json",
+      "categorical": false,
+      "checkpoint_eligible": false,
+      "executed_epochs": 3,
+      "family": "P03",
+      "fit_wall_ns": 3064122042,
+      "native_images": [
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/lib/libtorch_python.dylib",
+          "sha256": "50f79f7f37dd26a7e6438d349538ece1244bc5478dd65bef2ea5c6c63aa86709"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/lib/libtorch_cpu.dylib",
+          "sha256": "886a21732227bea91a64dcc355bdea98808fab5014a84891de2fe3a081744079"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+          "sha256": "6256bee09e93c28d71c65711cc69224d69994c6965648b628b70a22772fe98d4"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+          "sha256": "7fe04d06d824817d39e4c99ec44e837fd6b5f0f75f2cc3e77a384c298f3f1709"
+        }
+      ],
+      "prediction_max_abs_error": 0.0,
+      "process_peak_rss_bytes": 417857536,
+      "quality_eligible": false,
+      "receipt_sha256": "1a3c5d8236b5a6c302d6089345f08c717696a821d92562dc5d3edbc952146598",
+      "reload_max_abs_error": 0.0,
+      "snapshot_manifest_sha256": "502bfb42befb5b7d4a9f94db08fb9704c8d9ccbe051e2f23624ac1ac12245989",
+      "snapshot_rejection_cases": [
+        "wrong_trusted_hash",
+        "learning_rate_edit",
+        "fixture_promotion",
+        "tensor_dtype_edit",
+        "source_lock_edit",
+        "target_transform_edit",
+        "feature_transform_edit",
+        "same_dtype_weight_edit",
+        "optimizer_defaults_edit",
+        "actual_runtime_authentication",
+        "retained_runtime_image_edit",
+        "negative_G_risk",
+        "negative_mean_risk",
+        "finite_fallback_edit",
+        "nonfinite_fallback_edit"
+      ],
+      "source_package_sha256": "44f94a1243b8901c2700a93a6cc590dc6098638e73430ecff4ea5596be13f194"
+    },
+    {
+      "case": "artifacts/research-v2/WP07/ordinary-neural/16-cases/test_complete_tiny_fit_save_lo1/worker/parity.json",
+      "categorical": false,
+      "checkpoint_eligible": false,
+      "executed_epochs": 3,
+      "family": "P04",
+      "fit_wall_ns": 3449369584,
+      "native_images": [
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/lib/libtorch_python.dylib",
+          "sha256": "50f79f7f37dd26a7e6438d349538ece1244bc5478dd65bef2ea5c6c63aa86709"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/lib/libtorch_cpu.dylib",
+          "sha256": "886a21732227bea91a64dcc355bdea98808fab5014a84891de2fe3a081744079"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+          "sha256": "6256bee09e93c28d71c65711cc69224d69994c6965648b628b70a22772fe98d4"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+          "sha256": "7fe04d06d824817d39e4c99ec44e837fd6b5f0f75f2cc3e77a384c298f3f1709"
+        }
+      ],
+      "prediction_max_abs_error": 0.0,
+      "process_peak_rss_bytes": 423837696,
+      "quality_eligible": false,
+      "receipt_sha256": "a6d2499476b56cb70fd06c4c222316d117d230e55123b842b637c25c1fa8f781",
+      "reload_max_abs_error": 0.0,
+      "snapshot_manifest_sha256": "db217c271ca5b32a9068ed6314dac1ae0596e674fdc0e9040a455e6ba9846912",
+      "snapshot_rejection_cases": [
+        "wrong_trusted_hash",
+        "learning_rate_edit",
+        "fixture_promotion",
+        "tensor_dtype_edit",
+        "source_lock_edit",
+        "target_transform_edit",
+        "feature_transform_edit",
+        "same_dtype_weight_edit",
+        "optimizer_defaults_edit",
+        "actual_runtime_authentication",
+        "retained_runtime_image_edit",
+        "negative_G_risk",
+        "negative_mean_risk",
+        "finite_fallback_edit",
+        "nonfinite_fallback_edit"
+      ],
+      "source_package_sha256": "44f94a1243b8901c2700a93a6cc590dc6098638e73430ecff4ea5596be13f194"
+    },
+    {
+      "case": "artifacts/research-v2/WP07/ordinary-neural/16-cases/test_complete_tiny_fit_save_lo2/worker/parity.json",
+      "categorical": true,
+      "checkpoint_eligible": false,
+      "executed_epochs": 3,
+      "family": "P03",
+      "fit_wall_ns": 3054857875,
+      "native_images": [
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/lib/libtorch_python.dylib",
+          "sha256": "50f79f7f37dd26a7e6438d349538ece1244bc5478dd65bef2ea5c6c63aa86709"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/lib/libtorch_cpu.dylib",
+          "sha256": "886a21732227bea91a64dcc355bdea98808fab5014a84891de2fe3a081744079"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+          "sha256": "6256bee09e93c28d71c65711cc69224d69994c6965648b628b70a22772fe98d4"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+          "sha256": "7fe04d06d824817d39e4c99ec44e837fd6b5f0f75f2cc3e77a384c298f3f1709"
+        }
+      ],
+      "prediction_max_abs_error": 0.0,
+      "process_peak_rss_bytes": 421904384,
+      "quality_eligible": false,
+      "receipt_sha256": "1e48bedf18af307e099dbadb63f28f464e8525c36df05d6bd2e603642b5d859e",
+      "reload_max_abs_error": 0.0,
+      "snapshot_manifest_sha256": "7351cc41cb986dc6c6ec1af03551632671b31a03095161f00d7613670143664f",
+      "snapshot_rejection_cases": [
+        "wrong_trusted_hash",
+        "learning_rate_edit",
+        "fixture_promotion",
+        "tensor_dtype_edit",
+        "source_lock_edit",
+        "target_transform_edit",
+        "feature_transform_edit",
+        "same_dtype_weight_edit",
+        "optimizer_defaults_edit",
+        "actual_runtime_authentication",
+        "retained_runtime_image_edit",
+        "negative_G_risk",
+        "negative_mean_risk",
+        "finite_fallback_edit",
+        "nonfinite_fallback_edit"
+      ],
+      "source_package_sha256": "44f94a1243b8901c2700a93a6cc590dc6098638e73430ecff4ea5596be13f194"
+    },
+    {
+      "case": "artifacts/research-v2/WP07/ordinary-neural/16-cases/test_complete_tiny_fit_save_lo3/worker/parity.json",
+      "categorical": true,
+      "checkpoint_eligible": false,
+      "executed_epochs": 3,
+      "family": "P04",
+      "fit_wall_ns": 2893814041,
+      "native_images": [
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/lib/libtorch_python.dylib",
+          "sha256": "50f79f7f37dd26a7e6438d349538ece1244bc5478dd65bef2ea5c6c63aa86709"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/lib/libtorch_cpu.dylib",
+          "sha256": "886a21732227bea91a64dcc355bdea98808fab5014a84891de2fe3a081744079"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+          "sha256": "6256bee09e93c28d71c65711cc69224d69994c6965648b628b70a22772fe98d4"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+          "sha256": "7fe04d06d824817d39e4c99ec44e837fd6b5f0f75f2cc3e77a384c298f3f1709"
+        }
+      ],
+      "prediction_max_abs_error": 0.0,
+      "process_peak_rss_bytes": 422232064,
+      "quality_eligible": false,
+      "receipt_sha256": "271fc79bc910dd54f9180e4938823f7934d8823cb220ada1d932abe9b4219615",
+      "reload_max_abs_error": 0.0,
+      "snapshot_manifest_sha256": "f70fff8647f8065fb907d2222213fe4f04858dd081251415476a23707b73753a",
+      "snapshot_rejection_cases": [
+        "wrong_trusted_hash",
+        "learning_rate_edit",
+        "fixture_promotion",
+        "tensor_dtype_edit",
+        "source_lock_edit",
+        "target_transform_edit",
+        "feature_transform_edit",
+        "same_dtype_weight_edit",
+        "optimizer_defaults_edit",
+        "actual_runtime_authentication",
+        "retained_runtime_image_edit",
+        "negative_G_risk",
+        "negative_mean_risk",
+        "finite_fallback_edit",
+        "nonfinite_fallback_edit"
+      ],
+      "source_package_sha256": "44f94a1243b8901c2700a93a6cc590dc6098638e73430ecff4ea5596be13f194"
+    }
+  ],
+  "prepared_data_access": false,
+  "protected_label_access": false,
+  "publication_checks": {
+    "raw_source_whitespace": {
+      "disposition": "Preserve exact upstream Git blob; seven known whitespace warnings, no authored whitespace failures",
+      "path": "locks/research-v2/ordinary-neural/pytabkit-rtdl_resnet.py.txt",
+      "upstream_lines": [
+        297,
+        328,
+        777,
+        817,
+        833,
+        867,
+        878
+      ]
+    },
+    "receipt_source_integrity": "passed for all19 source/lock/test file hashes and four exact final case receipts",
+    "schema": "research/v2-publication-checks",
+    "scoped_authored_whitespace_check": "passed",
+    "staging": {
+      "first_attempt": "automatic approval review timed out before process creation; one retry explicitly permitted",
+      "same_action_retry": "succeeded",
+      "source_or_dependency_change": false
+    }
+  },
+  "remaining": [
+    "Full-size native eligible anchor and measured workload/resource qualification",
+    "Worker hard deadline/RSS/concurrency harness and method-specific cold-start accounting",
+    "Exact interrupted-training recovery or explicit paid rerun policy",
+    "Production registry/search integration and frozen HPO support admission",
+    "Prepared transfer fitting and any protected evaluation remain entirely unrun"
+  ],
+  "retained_engineering_trajectories": {
+    "adapter_fit_attempts": 17,
+    "direct_author_reference_fits": 17,
+    "scope": "Four complete native passes of four cases, plus one failed post-fit snapshot test. Tiny Linear safeguard tests and one-step gradient checks are separate unit checks; no full quality anchors"
+  },
+  "review": [
+    {
+      "assessment": "request_changes",
+      "disposition": "All reproduced RED and corrected in one pass; final affected115-check suite green, no second review required by root",
+      "material_findings": [
+        "exceptional-anchor coordinates expand generic support",
+        "reload omits actual native-image authentication",
+        "negative squared risks/fallback scalar permit internally inconsistent prediction state"
+      ],
+      "reproduction": "Five no-fit copied-checkpoint/runtime probes in14-review-red-copies/results.json plus support probes; recomputed copied trusted digests explicitly supplied, original external digest not bypassed",
+      "reviewed_module_sha256": "b6986d9191fa6b9ecdd76134d3b9f7379323942f018275e96c482f6c27276e98",
+      "reviewer": "/root/diagnostic_review"
+    },
+    {
+      "disposition": "Literal boundary RED\u2192GREEN; direct source-extracted Skorch threshold reference retained; strict checkpoint rule unchanged",
+      "finding": "Exact native Skorch subtraction versus multiplication changes one ULP at declared boundary",
+      "reviewer": "implementation_self_check"
+    }
+  ],
+  "schema": "research/v2-ordinary-neural-qualification",
+  "source_files": [
+    {
+      "bytes": 47785,
+      "path": "src/treeneuron/research/ordinary_neural.py",
+      "sha256": "0bce82e5bb14e6391f4a40a3329847e51da979ee2741287315d140fccc88037c"
+    },
+    {
+      "bytes": 3179,
+      "path": "tests/ordinary_neural_reference.py",
+      "sha256": "f70a3cbbbaa599092d25bdea01729f682e85d84a36a09aecdb2d8eb24b7a3ba3"
+    },
+    {
+      "bytes": 7015,
+      "path": "tests/test_ordinary_neural_contract.py",
+      "sha256": "f3839e90ec3c0a92f19f4851240001ba1bc2c3f2ec2b7b86522935de5d3aa71d"
+    },
+    {
+      "bytes": 13458,
+      "path": "tests/test_ordinary_neural_native.py",
+      "sha256": "c1526090d5da1cdc1230584e50ece3f162548e8d7c46ec65a21f857134e5a1e4"
+    },
+    {
+      "bytes": 9542,
+      "path": "tests/test_ordinary_neural_training.py",
+      "sha256": "642aefc9021f06dc0e629e2ba18e19373abb3b63b5c0ed71c511c6910f58323c"
+    },
+    {
+      "bytes": 11357,
+      "path": "locks/research-v2/ordinary-neural/pytabkit-LICENSE.txt",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    {
+      "bytes": 5194,
+      "path": "locks/research-v2/ordinary-neural/pytabkit-conda_env_2025_01_15.yml.txt",
+      "sha256": "fd1fd6849174931ba3a47da74b8fa2c10fafafbc5e6d1854587de4fbabefebe2"
+    },
+    {
+      "bytes": 14995,
+      "path": "locks/research-v2/ordinary-neural/pytabkit-default_params.py.txt",
+      "sha256": "2ef2e46ac5909121e506c0cefbbbb7f711cc83e89676515605d8d7105b43a8bf"
+    },
+    {
+      "bytes": 15968,
+      "path": "locks/research-v2/ordinary-neural/pytabkit-models.py.txt",
+      "sha256": "73fae0a13d019d677c7e40dc96f4c594019ddecf4894fb53109da6eb4e7e29d0"
+    },
+    {
+      "bytes": 29942,
+      "path": "locks/research-v2/ordinary-neural/pytabkit-rtdl_interfaces.py.txt",
+      "sha256": "7f4c59e5cb8189001e5635f7cc45bb62d16f75461fd84a639e046ac3622ca8aa"
+    },
+    {
+      "bytes": 41592,
+      "path": "locks/research-v2/ordinary-neural/pytabkit-rtdl_resnet.py.txt",
+      "sha256": "01f7e2fcb7df550e3cf897c82c4977e8448423e3cd94d3eac15568c1e97457b1"
+    },
+    {
+      "bytes": 18095,
+      "path": "locks/research-v2/ordinary-neural/pytabkit-utils.py.txt",
+      "sha256": "df67584aac1f4db99a1ac1176c2b2a8c86cd6cf07e50c3510d198ab2cf3889a3"
+    },
+    {
+      "bytes": 11339,
+      "path": "locks/research-v2/ordinary-neural/rtdl-LICENSE.txt",
+      "sha256": "bd39fcc730a79d256b14fcdccbfc8ac9f0c7fad4a2e8d01fc513def67980fe35"
+    },
+    {
+      "bytes": 9448,
+      "path": "locks/research-v2/ordinary-neural/rtdl-data.py.txt",
+      "sha256": "cabfcf8b5e86af243dd4b6a90eca1015a97e27e3a8013bb57b27db70058e297f"
+    },
+    {
+      "bytes": 7971,
+      "path": "locks/research-v2/ordinary-neural/rtdl-mlp.py.txt",
+      "sha256": "b76ebd3bd719a4e3ee0457c22bd45cfc8e409211b5a6b1d9d6405ff39e9075de"
+    },
+    {
+      "bytes": 9823,
+      "path": "locks/research-v2/ordinary-neural/rtdl-resnet.py.txt",
+      "sha256": "5090926b82bec8927e47092e84e513338dd17fc32d571acbcb84d78d25a2db8b"
+    },
+    {
+      "bytes": 1543,
+      "path": "locks/research-v2/ordinary-neural/skorch-LICENSE.txt",
+      "sha256": "8fe73db3a10f76f5c1732057bbfea1368df7cba7af17c409e5de0d9f19165afb"
+    },
+    {
+      "bytes": 33212,
+      "path": "locks/research-v2/ordinary-neural/skorch-training.py.txt",
+      "sha256": "95d1914c39ee65ff50d7ade526957c193b4850522c896c344c33379d75b61960"
+    },
+    {
+      "bytes": 7080,
+      "path": "locks/research-v2/ordinary-neural/sources.json",
+      "sha256": "7215f86c36534922797522c76060a78f9c1ff240bb839b616ecb63fc0bfbfccd"
+    }
+  ],
+  "status": "scoped_implementation_reviewed_and_verified_full_qualification_pending",
+  "worktree": "/Users/artemlegotin/.codex-s/worktrees/75a0/adaptive-tree-neurons"
+}

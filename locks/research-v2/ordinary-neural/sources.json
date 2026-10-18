@@ -1,0 +1,136 @@
+{
+  "schema": "research/v2-ordinary-native-sources",
+  "scope": "Pinned author architecture/preprocessor extraction reference, not installed PyTabKit/Skorch packages; native training wrapper boundary adaptations are explicit in docs/research/v2/ordinary-neural-adapters.md",
+  "sources": [
+    {
+      "bytes": 41592,
+      "commit": "c126ea51187c5080b91f28d352481dbd3b2194b0",
+      "git_blob_sha1": "8db7aaea4851f07ef079df793fb736777ff3dda0",
+      "local": "pytabkit-rtdl_resnet.py.txt",
+      "path": "pytabkit/models/nn_models/rtdl_resnet.py",
+      "repository": "dholzmueller/pytabkit",
+      "sha256": "01f7e2fcb7df550e3cf897c82c4977e8448423e3cd94d3eac15568c1e97457b1",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/nn_models/rtdl_resnet.py"
+    },
+    {
+      "bytes": 18095,
+      "commit": "c126ea51187c5080b91f28d352481dbd3b2194b0",
+      "git_blob_sha1": "0c6ba3d8111e3e98a7097e68c841fd67e2bba7ae",
+      "local": "pytabkit-utils.py.txt",
+      "path": "pytabkit/models/utils.py",
+      "repository": "dholzmueller/pytabkit",
+      "sha256": "df67584aac1f4db99a1ac1176c2b2a8c86cd6cf07e50c3510d198ab2cf3889a3",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/utils.py"
+    },
+    {
+      "bytes": 14995,
+      "commit": "c126ea51187c5080b91f28d352481dbd3b2194b0",
+      "git_blob_sha1": "47e6e4b92660c8cdb29b737b61a01c6764baa066",
+      "local": "pytabkit-default_params.py.txt",
+      "path": "pytabkit/models/sklearn/default_params.py",
+      "repository": "dholzmueller/pytabkit",
+      "sha256": "2ef2e46ac5909121e506c0cefbbbb7f711cc83e89676515605d8d7105b43a8bf",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/sklearn/default_params.py"
+    },
+    {
+      "bytes": 29942,
+      "commit": "c126ea51187c5080b91f28d352481dbd3b2194b0",
+      "git_blob_sha1": "43ad408316f059b0b820e70b51043573cbc7d69b",
+      "local": "pytabkit-rtdl_interfaces.py.txt",
+      "path": "pytabkit/models/alg_interfaces/rtdl_interfaces.py",
+      "repository": "dholzmueller/pytabkit",
+      "sha256": "7f4c59e5cb8189001e5635f7cc45bb62d16f75461fd84a639e046ac3622ca8aa",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/alg_interfaces/rtdl_interfaces.py"
+    },
+    {
+      "bytes": 15968,
+      "commit": "c126ea51187c5080b91f28d352481dbd3b2194b0",
+      "git_blob_sha1": "6118cd1c447a90a9519fedff782d8ad8498a5c3e",
+      "local": "pytabkit-models.py.txt",
+      "path": "pytabkit/models/nn_models/models.py",
+      "repository": "dholzmueller/pytabkit",
+      "sha256": "73fae0a13d019d677c7e40dc96f4c594019ddecf4894fb53109da6eb4e7e29d0",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/pytabkit/models/nn_models/models.py"
+    },
+    {
+      "bytes": 11357,
+      "commit": "c126ea51187c5080b91f28d352481dbd3b2194b0",
+      "git_blob_sha1": "8dada3edaf50dbc082c9a125058f25def75e625a",
+      "local": "pytabkit-LICENSE.txt",
+      "path": "LICENSE.txt",
+      "repository": "dholzmueller/pytabkit",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/LICENSE.txt"
+    },
+    {
+      "bytes": 5194,
+      "commit": "c126ea51187c5080b91f28d352481dbd3b2194b0",
+      "git_blob_sha1": "9e6daebfc604159ff917cc4f42f086961d5d7ef5",
+      "local": "pytabkit-conda_env_2025_01_15.yml.txt",
+      "path": "original_requirements/conda_env_2025_01_15.yml",
+      "repository": "dholzmueller/pytabkit",
+      "sha256": "fd1fd6849174931ba3a47da74b8fa2c10fafafbc5e6d1854587de4fbabefebe2",
+      "url": "https://raw.githubusercontent.com/dholzmueller/pytabkit/c126ea51187c5080b91f28d352481dbd3b2194b0/original_requirements/conda_env_2025_01_15.yml"
+    },
+    {
+      "bytes": 7971,
+      "commit": "e3ed46cac38568785289d8fa16b8cfa585bde27e",
+      "git_blob_sha1": "17ca34e352787f93868b80a6c46259f8dec535e3",
+      "local": "rtdl-mlp.py.txt",
+      "path": "bin/mlp.py",
+      "repository": "yandex-research/rtdl-revisiting-models",
+      "sha256": "b76ebd3bd719a4e3ee0457c22bd45cfc8e409211b5a6b1d9d6405ff39e9075de",
+      "url": "https://raw.githubusercontent.com/yandex-research/rtdl-revisiting-models/e3ed46cac38568785289d8fa16b8cfa585bde27e/bin/mlp.py"
+    },
+    {
+      "bytes": 9823,
+      "commit": "e3ed46cac38568785289d8fa16b8cfa585bde27e",
+      "git_blob_sha1": "a922a195461f9ae71dc56a3a057e8bb3ff60a620",
+      "local": "rtdl-resnet.py.txt",
+      "path": "bin/resnet.py",
+      "repository": "yandex-research/rtdl-revisiting-models",
+      "sha256": "5090926b82bec8927e47092e84e513338dd17fc32d571acbcb84d78d25a2db8b",
+      "url": "https://raw.githubusercontent.com/yandex-research/rtdl-revisiting-models/e3ed46cac38568785289d8fa16b8cfa585bde27e/bin/resnet.py"
+    },
+    {
+      "bytes": 9448,
+      "commit": "e3ed46cac38568785289d8fa16b8cfa585bde27e",
+      "git_blob_sha1": "9f304f24840d431225e4118d7c63877ed6188e6d",
+      "local": "rtdl-data.py.txt",
+      "path": "lib/data.py",
+      "repository": "yandex-research/rtdl-revisiting-models",
+      "sha256": "cabfcf8b5e86af243dd4b6a90eca1015a97e27e3a8013bb57b27db70058e297f",
+      "url": "https://raw.githubusercontent.com/yandex-research/rtdl-revisiting-models/e3ed46cac38568785289d8fa16b8cfa585bde27e/lib/data.py"
+    },
+    {
+      "bytes": 11339,
+      "commit": "e3ed46cac38568785289d8fa16b8cfa585bde27e",
+      "git_blob_sha1": "5a3473857cb905bdae0259d896e924744f250940",
+      "local": "rtdl-LICENSE.txt",
+      "path": "LICENSE",
+      "repository": "yandex-research/rtdl-revisiting-models",
+      "sha256": "bd39fcc730a79d256b14fcdccbfc8ac9f0c7fad4a2e8d01fc513def67980fe35",
+      "url": "https://raw.githubusercontent.com/yandex-research/rtdl-revisiting-models/e3ed46cac38568785289d8fa16b8cfa585bde27e/LICENSE"
+    },
+    {
+      "bytes": 33212,
+      "commit": "6008085ce0a8118828b7559c40c51189b70cb28f",
+      "git_blob_sha1": "8918da7e6a1b18f9ca74bcd7384d12d0a3f2085a",
+      "local": "skorch-training.py.txt",
+      "path": "skorch/callbacks/training.py",
+      "repository": "skorch-dev/skorch",
+      "sha256": "95d1914c39ee65ff50d7ade526957c193b4850522c896c344c33379d75b61960",
+      "url": "https://raw.githubusercontent.com/skorch-dev/skorch/6008085ce0a8118828b7559c40c51189b70cb28f/skorch/callbacks/training.py"
+    },
+    {
+      "bytes": 1543,
+      "commit": "6008085ce0a8118828b7559c40c51189b70cb28f",
+      "git_blob_sha1": "1155b8df9568869bd4fe09c9d7f1ecec76a829aa",
+      "local": "skorch-LICENSE.txt",
+      "path": "LICENSE",
+      "repository": "skorch-dev/skorch",
+      "sha256": "8fe73db3a10f76f5c1732057bbfea1368df7cba7af17c409e5de0d9f19165afb",
+      "url": "https://raw.githubusercontent.com/skorch-dev/skorch/6008085ce0a8118828b7559c40c51189b70cb28f/LICENSE"
+    }
+  ]
+}
