@@ -152,3 +152,19 @@ permits a bounded selector investigation with competent ordinary controls and is
 labeled ordinary_capacity_only. These are development routing decisions, never
 confirmation. Public execution remains disabled pending measured admission and
 complete orchestration. See [WP03-gate-A-receipt.json](WP03-gate-A-receipt.json).
+
+Authenticated final collection now has an implemented read-only boundary. An
+external study/queue commitment must match the recompiled bounded graph and an
+external M1 audit hash/producer-plan identity. A shared lease excludes active
+workers. The collector verifies every event result and every safe committed raw
+failure inventory, including paid attempts before a successful retry. It retains
+history references by event, then uses latest results for metrics. Failed or
+missing diagnostics remain in the full status inventory and block Gate A.
+
+The stored extension decision must equal the summary reconstructed from its
+producer V inputs. E is not an extension input. Cumulative charged job time
+retains worker-loss downtime-bound precision and is not called measured physical
+elapsed. M2 metrics remain authenticated producer outputs; independent raw
+prediction reconstruction is still required. Production dispatch and measured
+resource admission are still pending. The
+[collection receipt](WP03-collection-receipt.json) records tests and review fixes.

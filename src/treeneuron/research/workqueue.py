@@ -1,5 +1,6 @@
 """Finite immutable prerequisite execution, paid failures and one exact retry."""
 import copy
+from contextlib import contextmanager
 import hashlib
 import heapq
 import json
@@ -80,6 +81,42 @@ def _read(reference,root,job):
     if inventory!={key:result[key] for key in ('files','directories')}:
         raise ValueError('Queue output inventory commitment mismatch')
     return result
+
+
+@contextmanager
+def authenticated_queue(directory, *, expected_plan_hash):
+    """Hold a read-only shared lease while authenticating saved queue results."""
+    import fcntl
+    root=Path(directory)
+    if root.is_symlink() or not root.is_dir():raise ValueError('Unsafe queue collection root')
+    root=root.resolve();lease=root/'worker-lease.json'
+    if lease.is_symlink():raise ValueError('Unsafe queue lease')
+    with lease.open('r') as stream:
+        try:fcntl.flock(stream.fileno(),fcntl.LOCK_SH|fcntl.LOCK_NB)
+        except BlockingIOError as error:raise PermissionError('Cannot collect an active queue') from error
+        try:
+            path=root/'plan.json'
+            if path.is_symlink():raise ValueError('Unsafe queue plan')
+            plan=json.loads(path.read_text())
+            if (plan.get('schema')!='research/v2-workqueue' or plan.get('plan_hash')!=expected_plan_hash
+                    or plan['plan_hash']!=canonical_hash({k:v for k,v in plan.items() if k!='plan_hash'})):
+                raise ValueError('Queue collection plan commitment differs')
+            ledger=AttemptLedger.resume(root,plan);latest=_latest(ledger);results={}
+            jobs={j['job_id']:j for j in plan['attempts']}
+            for event in ledger.events:
+                if 'result' not in event:continue
+                result=_read(event['result'],root,jobs[event['attempt_id']])
+                if result['value'].get('status')!=event['status']:
+                    raise ValueError('Queue result and terminal ledger status differ')
+                raw=result['value'].get('raw_attempt_evidence')
+                if raw is not None and raw.get('status')=='inventory_committed_at_failure':
+                    attempt_root=Path(raw['path'])
+                    if (not attempt_root.resolve().is_relative_to(root)
+                            or _inventory(attempt_root)!=raw['inventory']):
+                        raise ValueError('Retained paid failure inventory commitment differs')
+                if event is latest[event['attempt_id']]:results[event['attempt_id']]=result
+            yield plan,ledger,results
+        finally:fcntl.flock(stream.fileno(),fcntl.LOCK_UN)
 
 
 def _control_directory(root,category,name):

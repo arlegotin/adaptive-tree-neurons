@@ -1,0 +1,56 @@
+{
+  "base_commit": "b394127",
+  "component": "Read-only complete-DAG opportunity collection",
+  "review": {
+    "fixes": "All facets reproduced RED then GREEN; all event result/inventory commitments retained; charged cumulative time precision explicit",
+    "material_findings": [
+      "Latest-only collection lost earlier paid failure result and raw inventory authentication",
+      "Top-level job cost mislabeled downtime upper bounds as physical elapsed"
+    ],
+    "reviewer": "opportunity_state_review"
+  },
+  "schema": "research/v2-implementation-receipt",
+  "scope": {
+    "M2_metrics_independent_raw_audit": false,
+    "actual_Gate_A_decision": false,
+    "full3853_job_empty_graph_fixture": true,
+    "full_repo_suite_run": false,
+    "protected_data_accessed": false,
+    "public_M2_run_enabled": false,
+    "scientific_M2_fits": 0,
+    "source_bound_resource_admission_pending": true
+  },
+  "tests": {
+    "final": "55 passed in7.86s",
+    "first_green": "46 passed in2.27s",
+    "initial": "8 missing-API RED",
+    "integration": "52 passed in8.57s",
+    "logs": [
+      {
+        "path": "artifacts/research-v2/WP03/opportunity-collection-tests/atn-opportunity-collection-cost-review-red.log",
+        "sha256": "6e0c018007e2760ef89a23ee6f7294ebbf2b0581619d211d762d643bb758187e"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/opportunity-collection-tests/atn-opportunity-collection-final.log",
+        "sha256": "28c24bd70f64eacca770749ea8d995a65ad1eb93538a58478c5cdd3c85b2e342"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/opportunity-collection-tests/atn-opportunity-collection-green.log",
+        "sha256": "53ee746246503a44a9b49a251a5231d8c0b664d844c97403f7667f8e8fe764ca"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/opportunity-collection-tests/atn-opportunity-collection-integration.log",
+        "sha256": "80d5cd27e5799e708d1bfb5442424aeb717dff1e104ed67508fd0e3474c7693f"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/opportunity-collection-tests/atn-opportunity-collection-red.log",
+        "sha256": "a05359786d1f0079dad3763af8ad2c63079d254de9f315ea80a847bd94c9764f"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/opportunity-collection-tests/atn-opportunity-collection-review-red.log",
+        "sha256": "8daba52bdd5187474888e5612f81ddedb06924eeab6cab6611911ee0585ae21f"
+      }
+    ],
+    "review": "paid failure history2 RED; worker-loss cost qualifier1 RED"
+  }
+}

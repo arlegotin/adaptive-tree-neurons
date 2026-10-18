@@ -856,3 +856,12 @@ review reproduced three contradictions RED→GREEN. The final affected suite pas
 retained risks; the frozen extension node must agree. No actual M2 gate decision
 or admission exists. Production authenticated collection/resources remain next;
 [receipt](WP03-gate-A-receipt.json) retains failures and the exact scope.
+
+WP03 authenticated collection partial implementation: full frozen3853-job graph
+binding and read-only raw file/status collection are fixture-tested. Paid failure
+histories survive successful retries, including their safe raw inventories.
+Worker-loss upper bounds stay explicit in cumulative charged time. Review
+findings reproduced RED→GREEN; final affected suite55passed in7.86s. M2 producer
+metrics are not an independent arithmetic audit. Public M2 dispatch, measured
+admission and actual Gate A remain pending; see
+[WP03-collection-receipt.json](WP03-collection-receipt.json).
