@@ -641,3 +641,21 @@ isolated132b250 source/runtime as the positive qualification; its independently
 recorded script hash identifies the new measurement recipe. One heavy worker
 means it starts only after the positive case finishes. Full M1 admission remains
 dependent on both workloads' actual resource evidence and a free-space forecast.
+
+### Fixed-source positive qualification completed; full-size negative case active
+
+The132b250 positive case completed in203.405494333s with410,632,192-byte peak
+RSS,26,364,620 retained bytes and a complete-journal checkpoint bound recorded
+in its measurement. Independent raw comparison found52 arrays byte-identical to
+the prior b11bbff case (observations, predictions and full score table), with
+identical selected/executed counters for all five roles. This repeats the same
+teacher and adds zero independent scientific problems. The first comparison
+invoked system Python without NumPy; the unchanged raw comparison passed under
+the qualified interpreter and retains that harness error in its receipt.
+
+The fixed globally-affine teacher0/repeat0 keep/top/random qualification then
+started under the same isolated source/runtime. Active session77008 writes
+WP02/M1-source-132b250-negative; root implementation remains separate. The exact
+argv/cwd/environment, receipt hashes and pending resource-admission state are
+in WP02-M1-source-132b250-receipt.json. Full M1 has not been admitted, Gate A is
+still pending, and no protected data have been accessed.

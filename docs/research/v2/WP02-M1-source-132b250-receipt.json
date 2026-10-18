@@ -1,0 +1,79 @@
+{
+  "schema": "research/v2-pinned-control-qualification-receipt",
+  "source_commit": "132b250",
+  "source_sha256": "7ca4e694ddff84635731297cf641ca8d6f37e4fa9aba319bfe736c03b8417e01",
+  "qualified_interpreter": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+  "scientific_worktree": "/private/tmp/atn-research-v2-M1-scientific",
+  "backend_receipt": {
+    "path": "/private/tmp/atn-research-v2-M1-scientific/environment/research-v2-control-132b250-cpu.json",
+    "sha256": "f487ac5a08a88f77af440f2d44b48bd0ce86a445fb648910865fdd9ea7aab876"
+  },
+  "positive": {
+    "status": "completed",
+    "result_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP02/M1-source-132b250-positive/result.json",
+    "result_sha256": "402a3747f1512a15bae7fe3469396e3eb333f16107b7cc1da72319d1838c195e",
+    "elapsed_ns": 203405494333,
+    "peak_rss_bytes": 410632192,
+    "retained_bytes": 26364620,
+    "max_checkpoint_transaction_bytes": 2071179,
+    "same_case_comparison": {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP02/M1-source-132b250-positive/same-case-numerical-comparison.json",
+      "sha256": "5c430831781e9d51c8ad40140c266fbdbb5c073c71cee6e6c039b792b41ef287",
+      "exact_arrays": 52,
+      "identical_role_counters": 5,
+      "new_independent_teachers": 0
+    }
+  },
+  "negative": {
+    "status": "running",
+    "output": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP02/M1-source-132b250-negative",
+    "log": "/private/tmp/atn-M1-source-132b250-negative.log",
+    "session": 77008,
+    "recipe_sha256": "7b03f126e3cba3b27e1c524197e899f298524045e15abe3ce5e0b2bbc787860b"
+  },
+  "commands": [
+    {
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+        "docs/research/v2/scripts/measure_positive_control.py",
+        "--config",
+        "configs/research/v2/M1-source-132b250-qualification.json",
+        "--output",
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP02/M1-source-132b250-positive"
+      ],
+      "cwd": "/private/tmp/atn-research-v2-M1-scientific",
+      "environment_overrides": {
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+        "PYTHONPATH": "/private/tmp/atn-research-v2-M1-scientific/src"
+      }
+    },
+    {
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+        "docs/research/v2/scripts/measure_negative_control.py",
+        "--config",
+        "configs/research/v2/M1-source-132b250-qualification.json",
+        "--output",
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP02/M1-source-132b250-negative"
+      ],
+      "cwd": "/private/tmp/atn-research-v2-M1-scientific",
+      "environment_overrides": {
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+        "PYTHONPATH": "/private/tmp/atn-research-v2-M1-scientific/src"
+      }
+    }
+  ],
+  "full_M1_admitted": false,
+  "Gate_A": "pending",
+  "protected_data_accessed": false
+}
