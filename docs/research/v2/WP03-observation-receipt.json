@@ -1,0 +1,29 @@
+{
+  "base_commit": "840273b",
+  "component": "Source-bound native job resource observations",
+  "schema": "research/v2-implementation-receipt",
+  "scope": {
+    "T_accessed": false,
+    "full_repo_suite_run": false,
+    "native_scientific_workload_profiles": 0,
+    "production_admission": false,
+    "resource_profile_authentication_pending": true,
+    "scientific_M2_fits": 0,
+    "whole_procedure_overhead_pending": true
+  },
+  "tests": {
+    "final": "19 passed in10.77s",
+    "initial": "2 expected missing-API RED",
+    "logs": [
+      {
+        "path": "artifacts/research-v2/WP03/queue-observation-tests/atn-queue-observation-red.log",
+        "sha256": "bb7bd17e08b9268bdf8f36e79f9871a25d511c4669f7d0f779b035bf96db7123"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/queue-observation-tests/atn-queue-observation-green.log",
+        "sha256": "931eb956a9c5b45288fe17195f0d1629b36f74b021f338ebba85151ad910b79d"
+      }
+    ],
+    "native_fixture": "Plain and observed tiny native queues have exact prediction arrays; six-update keep and explicit ineligible dead subset"
+  }
+}

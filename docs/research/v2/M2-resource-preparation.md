@@ -55,3 +55,17 @@ startup/imports still need the separate enclosing invocation/process timers.
 Class forecasts from job observations alone are not a whole-procedure cost claim.
 Source-bound native profile/admission work must retain that overhead explicitly;
 see [WP03-queue-cost-receipt.json](WP03-queue-cost-receipt.json).
+
+The real worker wrapper now records source/runtime/receipt identity, exact job
+hash, executed update count, pre-publication raw file inventory/bytes, conservative
+checkpoint-transaction estimate, handler/observation time and lifetime own-process
+peak RSS. Expected ineligible procedures remain ineligible. It checks one-thread
+and source/runtime consistency before/after the native handler. It never creates
+an admission or promotes a short fixture to a scientific workload qualification.
+
+A plain-versus-observed tiny native queue produced identical retained prediction
+arrays. Nineteen affected checks passed in10.77s after two missing-API RED checks.
+These are six-update/d2 engineering fixtures, not the53scientific workload
+profiles. The source-bound profile collector, whole-pipeline overhead accounting,
+qualification attempt list, live admission and production dispatcher remain
+pending; [observation receipt](WP03-observation-receipt.json) records the scope.

@@ -905,3 +905,10 @@ and cumulative paid elapsed_ns. An injected50ms read reproduced RED→GREEN;
 39affected checks passed in12.98s. Initial/resume inventory reads, final ledger
 publication and startup/imports remain enclosing overhead. No M2 execution or
 whole-procedure efficiency claim exists. [Receipt](WP03-queue-cost-receipt.json).
+
+WP03 native worker observation wrapper implemented: source/runtime/one-thread
+checks, raw file/byte inventories, actual update counters, handler clock and
+lifetime own RSS. Plain/observed tiny native queue prediction arrays match exactly;
+19affected checks passed in10.77s. No scientific profile, admission or M2 run is
+claimed. Whole-pipeline overhead, authenticated profile collection and production
+dispatch remain pending. [Receipt](WP03-observation-receipt.json).
