@@ -22,14 +22,14 @@ Unchecked work is not completed, and prior investigation findings are not new ru
 |---|---|---|
 |WP00|qualified|97228c6; references passed;89 passed/1 skipped; arithmetic error1.39e-17; tracked WP00 receipt|
 |WP01|verified|220 targeted passed;19 reference arrays byte-identical; WP01-receipt.json; broad integration still pending|
-|WP02|in progress|first native resource case completed8 roles/65 probes; independent arithmetic/replay verified; full M0/M1/admission pending|
+|WP02|M1 complete; M0 partial|256M1 fits and independent512-vector arithmetic; M1 sensitivity passes; full M0 remains pending|
 |WP03|diagnostics in progress|boundary/prefix/head helper and history verified; finite M2 plan reviewed; controller/resource admission and Gate A pending|
 |WP04|pending Gate A|joint selector numerical and trained evidence; Gate B|
 |WP05|not admitted|measured geometry/newborn trigger|
 |WP06|not admitted|measured retention/family ceiling; at most one redesign|
-|WP07|data prepared|six raw pins and30 splits audited;41 affected passed; all native qualification/Gate D still pending|
+|WP07|data and adapter engineering|six raw pins/30 splits audited; tiny native adapters checked; full native workload/quality qualification and Gate D pending|
 |WP08|pending|all production evaluation code tested;168 primary searches; Gate E|
-|WP09|pending|variance-only calibration/simulation; Gate F|
+|WP09|pure implementation partial|variance/grid/power fixtures verified; protocol/provenance/resource validation, actual calibration and Gate F pending|
 |WP10|pending Gate F|frozen complete execution; Gate G|
 |WP11|pending|independent audit and faithful final report|
 
@@ -954,3 +954,15 @@ calibration/teachers/T, no Gate F or freeze permission. Protocol/resource/source
 protected/Holm implementation remains pending. See
 [design-v2-preparation.md](design-v2-preparation.md). This is independent fixture
 work required before later primary searches; it does not advance Gate A or WP04.
+
+M1 complete and independently audited:256eligible fits/64transactions,512 V/E
+prediction vectors/3,584scalar comparisons, max disagreement2.22e-16. Producer
+604cffb/plan cfe48a30... unchanged. V-only sensitivity2of4 qualifies; random
+mean E lower than cheap in all4positive coordinates. Noise/shuffled arrays
+match keep exactly and all8runs each select stage zero. Raw inventory6,353files/
+1,667,843,206bytes; launcher8,609.93s, coordinator8,608.26s nested, no failure/retry.
+No full-cohort peak RSS measurement or efficiency claim. Full report
+[research-v2-M1.md](../../../reports/research-v2-M1.md), receipt
+[WP02-M1-full-receipt.json](WP02-M1-full-receipt.json). This supplies the M1
+sensitivity input, not Gate A: M2 resources/dispatch/primary opportunity still
+pending. No joint selector, modern benchmark, calibration, freeze or T.

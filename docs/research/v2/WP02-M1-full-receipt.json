@@ -1,0 +1,102 @@
+{
+  "Gate_A_decided": false,
+  "T_accessed": false,
+  "artifacts": {
+    "artifacts/research-v2/WP02/M1-604cffb-launch/terminal.json": "79459ab3d85ac9ebab08eadee3a38e37a48624e12931d85efd30b3fd624a94de",
+    "artifacts/research-v2/WP02/M1-execution-c3b6cb6-command.log": "07530a5dccd28d079ba87bc759e443bb4ec9faba7e9f97b971f643038200a3f9",
+    "artifacts/research-v2/WP02/M1-execution-c3b6cb6/execution-checks.json": "e4c399e2536e9df2451e48195b49fda63a10d424fce04e9d4db0af121b517860",
+    "artifacts/research-v2/WP02/M1-execution-c3b6cb6/invocation.json": "8c2878b82e93130219f7268fa869baee57d7f7256c5984be516e3303e11bf602",
+    "artifacts/research-v2/WP02/M1-execution-c3b6cb6/producer-inventory.json": "dab85c9e6b04493b0823243150ec77e580112c4479a688d52524be8932c0efc7",
+    "artifacts/research-v2/WP02/M1-full-audit-c3b6cb6-command.log": "add0d0183839c1101d8a6c0c7e7aca7b1e55b9305819d31dc36ae59d1906f41d",
+    "artifacts/research-v2/WP02/M1-full-audit-c3b6cb6/audit.json": "d720dbdde24096fa0e61428eb26d0889899a86ed0533938286f257ff95805c4c",
+    "artifacts/research-v2/WP02/M1-full-audit-c3b6cb6/invocation.json": "fedf7ac588d9efeaa0fa76b0aae99011b2b5ef84cfd2b69c5796bc5ebfc781fa",
+    "artifacts/research-v2/WP02/M1-full-audit-c3b6cb6/summary.json": "46cdb6dcd2a87c86fe1d5abba31c3be057c2925d4494dd7d8888f4091d068819",
+    "artifacts/research-v2/WP02/M1-initial-execution-inspection/execution-checks.json": "1d6027a1b2e3a85ee7d20cd323ba6959e2fc3eeb6a2db3cb03b614368b4d5edb",
+    "artifacts/research-v2/WP02/M1-initial-execution-inspection/producer-inventory.json": "8d6e5ec3a62dd3ecbfa941d29de1b83572c4fd0ff54efa54cd06535fdade4648"
+  },
+  "audited_predictions": 512,
+  "auditor_commit": "c3b6cb6ada37fac282f5246777ce66d6f5089461",
+  "auditor_source_sha256": "c8a228121a47508685ecbe38a6b647cf85b58ec5e4204e9a3140e0e8995e33da",
+  "confirmation": false,
+  "costs": {
+    "accounting": "containing clocks nest, not additive; standalone prerequisites charged per role; contended observations; no efficiency claim",
+    "charged_standalone_ns": 9790847713848,
+    "cohort_peak_RSS_measured": false,
+    "coordinator_elapsed_ns": 8608260781458,
+    "launcher_elapsed_ns": 8609926623000
+  },
+  "initial_stdin_execution_inspection": "Both derived objects reproduced exactly by the retained argv-recording script; original bytes retained separately",
+  "maximum_absolute_metric_difference": 2.220446049250313e-16,
+  "metric_comparisons": 3584,
+  "modern_predictive_benchmark": false,
+  "new_selector_trained": false,
+  "positive_sensitivity": {
+    "coordinate": {
+      "gamma": 2.0,
+      "sigma": 0.1
+    },
+    "efficacy_claim": false,
+    "information_advantaged": true,
+    "instances": [
+      {
+        "instance_index": 0,
+        "oracle_V_NMSE": 0.03894963942254405,
+        "qualifies": false,
+        "random_V_NMSE": 0.039558994477157494,
+        "relative_benefit": 0.015403704332406676
+      },
+      {
+        "instance_index": 1,
+        "oracle_V_NMSE": 0.03337172933565,
+        "qualifies": true,
+        "random_V_NMSE": 0.03443278054631419,
+        "relative_benefit": 0.030815147479507643
+      },
+      {
+        "instance_index": 2,
+        "oracle_V_NMSE": 0.04163356592774257,
+        "qualifies": true,
+        "random_V_NMSE": 0.04623589393992361,
+        "relative_benefit": 0.09954015419624107
+      },
+      {
+        "instance_index": 3,
+        "oracle_V_NMSE": 0.03544192699601364,
+        "qualifies": false,
+        "random_V_NMSE": 0.035111420732077445,
+        "relative_benefit": -0.009413070079338892
+      }
+    ],
+    "metric": "V_NMSE; mean R2 first",
+    "minimum_qualifying_instances": 2,
+    "minimum_relative_reduction": 0.02,
+    "qualifying_instances": 2,
+    "required_instances": 4,
+    "sensitive": true,
+    "status": "completed_eligible"
+  },
+  "producer_commit": "604cffb967d6bb90b96dbae72d1a069b48d0ec09",
+  "producer_plan_hash": "cfe48a305c3c721eae7afe058ffe9af8f27c00dd7321be63359a3999abd6859d",
+  "producer_source_sha256": "5095a5d3bfc8d58bc863e0334550f122378664663fe265533e0441713c7216c4",
+  "raw_inventory": {
+    "bytes": 1667843206,
+    "files": 6353,
+    "path": "artifacts/research-v2/WP02/M1-execution-c3b6cb6/producer-inventory.json"
+  },
+  "report": {
+    "path": "reports/research-v2-M1.md",
+    "rebuilt_byte_equal": true,
+    "sha256": "c4683b982fe4dc9391a029742028984010dcf1d2f15fbe8b346f8359d57f4cdf"
+  },
+  "retained_scripts": {
+    "docs/research/v2/scripts/audit_full_controls.py": "231d2347c574cb0f301e49177bfdc53571bc37e31256433e09c1f7effca7c95c",
+    "docs/research/v2/scripts/record_m1_execution.py": "0462d9f1aa4bf0ff1492a0c04b5c8ea6bf5a5752f5ce58e3420eb0e5af5e772e",
+    "docs/research/v2/scripts/report_m1_controls.py": "aa8c6a492415093e60569e2822ef847a1fa9f37eb8072006cbe9eedc72b5c86d"
+  },
+  "schema": "research/v2-complete-M1-evidence",
+  "status": "completed_development",
+  "status_counts": {
+    "completed_eligible": 256
+  },
+  "verification_level": "Independent retained prediction arithmetic and exact saved-vector comparisons; no model/teacher replay or checkpoint tensor-chain authentication"
+}

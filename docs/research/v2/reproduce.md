@@ -190,3 +190,34 @@ it does not reexecute models, validate the checkpoint metadata/tensor chain or
 regenerate teacher/data bytes. It retains missing statuses and blocks complete
 sensitivity when any of the required four-instance/R2 observations is absent.
 The full cohort is still running at this implementation checkpoint.
+
+## Completed M1 development study
+
+All256 fits of the pinned604cffb cohort completed. The complete raw arithmetic,
+no-op checks, inventory and report are recorded in
+[WP02-M1-full-receipt.json](WP02-M1-full-receipt.json). With the original local
+raw archive available, rebuild to fresh destinations:
+
+```sh
+PYTHONPATH=src "$ATN_PY" docs/research/v2/scripts/audit_full_controls.py \
+  --study artifacts/research-v2/M1-controls-604cffb \
+  --expected-plan-hash cfe48a305c3c721eae7afe058ffe9af8f27c00dd7321be63359a3999abd6859d \
+  --output artifacts/research-v2/WP02/M1-audit-fresh
+PYTHONPATH=src "$ATN_PY" docs/research/v2/scripts/record_m1_execution.py \
+  --study artifacts/research-v2/M1-controls-604cffb \
+  --expected-plan-hash cfe48a305c3c721eae7afe058ffe9af8f27c00dd7321be63359a3999abd6859d \
+  --output artifacts/research-v2/WP02/M1-execution-fresh
+PYTHONPATH=src "$ATN_PY" docs/research/v2/scripts/report_m1_controls.py \
+  --audit-dir artifacts/research-v2/WP02/M1-audit-fresh \
+  --execution-dir artifacts/research-v2/WP02/M1-execution-fresh \
+  --output reports/research-v2-M1-rebuilt.md
+```
+
+The retained report rebuilt byte-for-byte. The report helper deliberately binds
+the original producer plan; a new source/runtime run is a new identity and is
+not silently substituted. The raw archive is local, not publicly uploaded.
+Its6353-file inventory supplies relative paths and exact hashes; existing producer
+records also contain original absolute locators. Relocation requires an explicit
+locator mapping before using these audit helpers, rather than editing raw bytes.
+No protected access, model/teacher replay or checkpoint tensor-chain authentication
+is implied by the arithmetic report.

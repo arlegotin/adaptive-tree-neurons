@@ -13,7 +13,10 @@ Its [spec](docs/superpowers/specs/2026-10-18-research-v2-design.md) and
 [implementation plan](docs/superpowers/plans/2026-10-18-research-v2.md) preserve
 the finite experiments and claim gates. Checkpoint semantic hardening, diagnostic
 foundations and transfer-data split preparation are verified. Native diagnostic
-cohorts are in progress. The new selector, strong-baseline
+controls now include a complete256-fit study with independent raw-prediction
+arithmetic. Growth helps the planted tasks, while the present chooser has not
+established an advantage over random; see the [plain status](docs/research/v2/status.md)
+and [M1 results](reports/research-v2-M1.md). The new selector, strong-baseline
 benchmark and confirmation have not been completed.
 
 ## The idea

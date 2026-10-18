@@ -1,8 +1,10 @@
 # Full M1 development analysis contract
 
-Prepared while the fixed604cffb cohort is still running. The complete cohort has
-not been audited or summarized yet. The interim165-event snapshot remains
-interim evidence. No protected T or final Gate A decision exists.
+Originally prepared before the fixed604cffb cohort finished. Execution is now
+complete: all256fits independently audited and summarized under auditor c3b6cb6;
+see [full receipt](WP02-M1-full-receipt.json) and [report](../../../reports/research-v2-M1.md).
+The earlier165/320-event snapshots remain interim records. No protected T or
+final Gate A decision exists. The prospective instructions below are preserved.
 
 After the worker releases its lease, run control_audit.audit_control_study using
 the external frozen plan hash
@@ -45,8 +47,8 @@ execution, without relabeling this prospective preparation as an executed result
 
 Executed interim update: the positive160fit subset has closed. Its earliest
 320-event prefix was frozen and summarized without touching live raw files.
-The predeclared sensitivity screen provisionally qualifies2of4instances. Full
-independent raw audit and all256-slot summary still wait for the negative cohort
-and worker lease release. This interim result is recorded separately in
+The predeclared sensitivity screen provisionally qualifies2of4instances. At that checkpoint, the full
+independent raw audit and all256-slot summary still awaited the negative cohort
+and worker lease release. That interim result is recorded separately in
 [M1-positive-prefix-receipt.json](M1-positive-prefix-receipt.json); it is not an
 input advertised as independently audited Gate A evidence.
