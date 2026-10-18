@@ -25,6 +25,15 @@
     }
   },
   "measured_forecast": null,
+  "metadata_proof": {
+    "labels_read": false,
+    "path": "artifacts/research-v2/WP08/workload-proof-079a595",
+    "plan_hash": "dce391ae56c8afab79669a54a042640d123e97eb261a6c5d299906ea37df14be",
+    "producer_commit": "079a595",
+    "proof_sha256": "aec8654a335da86ae9d57c4eb1b1485bba53bb3f13f4417d6724086a659c9fd8",
+    "qualified_supports": false,
+    "source_sha256": "f7cf704ba84e54a3ebdcc4d5b55ecafeaa5c95d006961631c42866a0d690e010"
+  },
   "pending": [
     "native supports/anchors",
     "measured resources",
@@ -40,12 +49,22 @@
   "verification": {
     "affected_passed": 67,
     "command": [
-      "python",
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
       "-B",
       "-c",
       "import torch,pytest;torch.set_num_threads(1);torch.set_num_interop_threads(1);raise SystemExit(pytest.main([\"-q\",\"tests/test_practical_workload.py\",\"tests/test_practical_v2.py\",\"tests/test_design_v2.py\",\"tests/test_transfer_contract.py\"]))"
     ],
+    "cwd": "/private/tmp/atn-research-v2-next",
     "elapsed_seconds": 2.07,
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
     "red_failures": 17
   }
 }

@@ -1,0 +1,61 @@
+{
+  "T_accessed": false,
+  "base_commit": "c648ed9",
+  "cost_claim_authorized": false,
+  "evidence_level": "Artificial timer/paired-block arithmetic only",
+  "logs": {
+    "artifacts/research-v2/WP08/cost-preparation/01-red.log": {
+      "bytes": 21391,
+      "sha256": "a806e790ff3f0d60553d72aaa083bef3dbd04c45469ee2400a995d22a78d4f1e"
+    },
+    "artifacts/research-v2/WP08/cost-preparation/02-green.log": {
+      "bytes": 99,
+      "sha256": "55edd56c0eccfcf8072c4acb116f54fe16913c3f9a3632fd2e04010dac72002b"
+    },
+    "artifacts/research-v2/WP08/cost-preparation/03-nested-prerequisite-red.log": {
+      "bytes": 895,
+      "sha256": "89d3576037065a6aa089514449052c6a037847caf288f428c0212fda35a7039e"
+    },
+    "artifacts/research-v2/WP08/cost-preparation/04-affected-green.log": {
+      "bytes": 180,
+      "sha256": "643dffdfd7acf96b1054b299689c4d9458d0cf05a27128addd587836e86cee51"
+    }
+  },
+  "measured_native_deployment_blocks": 0,
+  "models_timed": 0,
+  "pending": [
+    "native whole-pipeline clocks",
+    "dedicated deployment workers/fresh processes",
+    "frozen quality bound provenance",
+    "CPU32/batch1/preprocessing qualification",
+    "protocol/claims/report integration"
+  ],
+  "schema": "research/v2-cost-analysis-preparation",
+  "source_files": {
+    "docs/research/v2/scripts/check_cost_analysis.py": "0874654e1a762711271cb3504be61b488c4aed7fe7a9d7ba07535bd55f151a88",
+    "src/treeneuron/analysis/cost_v2.py": "d7290de5c3c07b08f0325fb8eda215a8d114508539e52f0f801c6ffc37b33b22",
+    "tests/test_cost_v2.py": "e7c45480aeb75d92b03664706dedaa57d039b7f61f38815c406655a12f0a2004"
+  },
+  "verification": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-B",
+      "-c",
+      "import torch,pytest;torch.set_num_threads(1);torch.set_num_interop_threads(1);raise SystemExit(pytest.main([\"-q\",\"tests/test_cost_v2.py\",\"tests/test_primary_v2.py\",\"tests/test_practical_v2.py\",\"tests/test_practical_workload.py\",\"tests/test_design_v2.py\"]))"
+    ],
+    "cwd": "/private/tmp/atn-research-v2-next",
+    "elapsed_seconds": 1.66,
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "final_passed": 105,
+    "missing_interface_red": 17,
+    "nested_prerequisite_red": 1
+  }
+}
