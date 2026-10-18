@@ -1,0 +1,92 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________ test_cpu_node_fit_does_not_touch_other_device_rngs ______________
+
+tmp_path = PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-016-cpu-seed-green/test_cpu_node_fit_does_not_tou0')
+native_policy = <module 'torch' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/__init__.py'>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10bbc7d10>
+
+    def test_cpu_node_fit_does_not_touch_other_device_rngs(tmp_path,native_policy,monkeypatch):
+        from treeneuron.research.node_v2 import NodeV2Predictor
+        def forbidden(*args,**kwargs):raise AssertionError('CPU NODE touched an off-device RNG')
+        for module,name in ((native_policy.cuda,'manual_seed_all'),(native_policy.mps,'manual_seed'),
+                (native_policy.xpu,'manual_seed_all'),(native_policy.mtia,'manual_seed_all')):
+            monkeypatch.setattr(module,name,forbidden)
+>       model=NodeV2Predictor().fit(request(tmp_path/'fit',2))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_node_v2.py:435: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/research/node_v2.py:401: in fit
+    initial=_model_state(model);optimizer=_optimizer(model,resolved);enter_phase('training')
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/treeneuron/research/node_v2.py:291: in _optimizer
+    def _optimizer(model,resolved):return _native()[3].QHAdam(model.parameters(),**resolved['optimizer'])
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/treeneuron/baselines/_node_vendor/qhadam.py:78: in __init__
+    super(QHAdam, self).__init__(params, defaults)
+../../../../Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/optim/optimizer.py:424: in __init__
+    self.add_param_group(cast(dict[str, Any], param_group))
+../../../../Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/_compile.py:47: in inner
+    import torch._dynamo
+../../../../Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/_dynamo/__init__.py:80: in <module>
+    from .polyfills import loader as _  # usort: skip
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/_dynamo/polyfills/loader.py:36: in <module>
+    POLYFILLED_MODULES: tuple["ModuleType", ...] = tuple(
+../../../../Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/_dynamo/polyfills/loader.py:37: in <genexpr>
+    importlib.import_module(f".{submodule}", package=polyfills.__name__)
+../../../../Documents/git_alter/adaptive-tree-neurons/.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/_dynamo/polyfills/_collections.py:20: in <module>
+    @substitute_in_graph(_collections._count_elements)
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/_dynamo/decorators.py:980: in wrapper
+    rule_map: dict[Any, type[VariableTracker]] = get_torch_obj_rule_map()
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    @functools.cache
+    def get_torch_obj_rule_map() -> dict[Any, type["VariableTracker"]]:
+        d: dict[Any, type[VariableTracker]] = {}
+        for m in torch_name_rule_map:
+            for k, v in m.items():  # type: ignore[attr-defined]
+                if ".py#" not in k:
+                    obj = load_object(k)
+                else:
+                    torch_dir = _module_dir(torch)
+                    if torch_dir is None:
+                        continue
+                    obj = torch_dir + k[len("torch/") :]
+                if obj is not None:
+                    if is_lru_cache_wrapped_function(obj):
+                        obj = obj.__wrapped__
+                    if obj in d and d[obj] != v:
+>                       raise AssertionError(
+                            f"Duplicate torch object {obj} with different rules: {v}, {d[obj]}"
+                        )
+E                       AssertionError: Duplicate torch object <function test_cpu_node_fit_does_not_touch_other_device_rngs.<locals>.forbidden at 0x10bbc3100> with different rules: <class 'torch._dynamo.variables.torch.TorchInGraphFunctionVariable'>, <class 'torch._dynamo.variables.functions.SkipFunctionVariable'>
+
+../../../../Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/_dynamo/trace_rules.py:3081: AssertionError
+=============================== warnings summary ===============================
+tests/test_node_v2.py::test_cpu_node_fit_does_not_touch_other_device_rngs
+  /Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/src/treeneuron/baselines/_node_vendor/odst.py:38: SyntaxWarning: invalid escape sequence '\i'
+    :param threshold_init_cutoff: threshold log-temperatures initializer, \in (0, inf)
+
+tests/test_node_v2.py::test_cpu_node_fit_does_not_touch_other_device_rngs
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+tests/test_node_v2.py::test_cpu_node_fit_does_not_touch_other_device_rngs
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/sklearn/preprocessing/_data.py:2912: UserWarning: n_quantiles (1000) is greater than the total number of samples (37). n_quantiles is set to n_samples.
+    warnings.warn(
+
+tests/test_node_v2.py::test_cpu_node_fit_does_not_touch_other_device_rngs
+  /Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/src/treeneuron/baselines/_node_vendor/odst.py:113: UserWarning: Data-aware initialization is performed on less than 1000 data points. This may cause instability.To avoid potential problems, run this model on a data batch with at least 1000 data samples.You can do so manually before training. Use with torch.no_grad() for memory efficiency.
+    warn("Data-aware initialization is performed on less than 1000 data points. This may cause instability."
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_node_v2.py::test_cpu_node_fit_does_not_touch_other_device_rngs
+1 failed, 42 deselected, 4 warnings in 3.59s

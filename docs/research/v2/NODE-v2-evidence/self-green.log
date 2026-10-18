@@ -1,0 +1,152 @@
+FFF.F.                                                                   [100%]
+=================================== FAILURES ===================================
+_ test_retained_prediction_binding_rejects_valid_geometry_transform_or_role_substitution[target_mean] _
+
+tmp_path = PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-009-self-green/test_retained_prediction_bindi0')
+portable_case = (<treeneuron.research.node_v2.NodeV2Predictor object at 0x10fe241d0>, FitRequest(X_fit=array([[ 1.1085547e-03, -2.8954...table-case0/fit')), PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-009-self-green/portable-case0/pristine'))
+native_policy = <module 'torch' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/__init__.py'>
+change = 'target_mean'
+
+    @pytest.mark.parametrize('change',['target_mean','quantile_values','G_role_identity'])
+    def test_retained_prediction_binding_rejects_valid_geometry_transform_or_role_substitution(tmp_path,portable_case,native_policy,change):
+        from treeneuron.research.node_v2 import NodeV2Predictor
+        path=tmp_path/'snapshot';state=snapshot(portable_case,path);payload=state['payload']
+        with np.load(path/'arrays.npz',allow_pickle=False) as values:arrays={k:values[k].copy() for k in values.files}
+        if change=='target_mean':
+            p=tree(payload,'transform','preprocessing');set_tree(p,'target_mean',dict(p['mapping'])['target_mean']+1.)
+        elif change=='quantile_values':arrays[tree(payload,'transform','quantiles')['array']]+=1.
+        else:set_tree(tree(payload,'G_identity','target'),'sha256','a'*64)
+        np.savez(path/'arrays.npz',**arrays)
+        state['arrays']={k:dict(dtype=str(v.dtype),shape=list(v.shape),sha256=hashlib.sha256(v.tobytes()).hexdigest()) for k,v in arrays.items()}
+        state['array_file']['sha256']=hashlib.sha256((path/'arrays.npz').read_bytes()).hexdigest()
+        (path/'manifest.json').write_text(json.dumps(state))
+>       with pytest.raises(ValueError,match='binding'):NodeV2Predictor.load(path,expected_manifest_sha256=trusted(path))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'binding'
+E         Actual message: 'NODE array dtype/finiteness/commitment differs'
+
+tests/test_node_v2.py:341: AssertionError
+_ test_retained_prediction_binding_rejects_valid_geometry_transform_or_role_substitution[quantile_values] _
+
+tmp_path = PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-009-self-green/test_retained_prediction_bindi1')
+portable_case = (<treeneuron.research.node_v2.NodeV2Predictor object at 0x10fe241d0>, FitRequest(X_fit=array([[ 1.1085547e-03, -2.8954...table-case0/fit')), PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-009-self-green/portable-case0/pristine'))
+native_policy = <module 'torch' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/__init__.py'>
+change = 'quantile_values'
+
+    @pytest.mark.parametrize('change',['target_mean','quantile_values','G_role_identity'])
+    def test_retained_prediction_binding_rejects_valid_geometry_transform_or_role_substitution(tmp_path,portable_case,native_policy,change):
+        from treeneuron.research.node_v2 import NodeV2Predictor
+        path=tmp_path/'snapshot';state=snapshot(portable_case,path);payload=state['payload']
+        with np.load(path/'arrays.npz',allow_pickle=False) as values:arrays={k:values[k].copy() for k in values.files}
+        if change=='target_mean':
+            p=tree(payload,'transform','preprocessing');set_tree(p,'target_mean',dict(p['mapping'])['target_mean']+1.)
+        elif change=='quantile_values':arrays[tree(payload,'transform','quantiles')['array']]+=1.
+        else:set_tree(tree(payload,'G_identity','target'),'sha256','a'*64)
+        np.savez(path/'arrays.npz',**arrays)
+        state['arrays']={k:dict(dtype=str(v.dtype),shape=list(v.shape),sha256=hashlib.sha256(v.tobytes()).hexdigest()) for k,v in arrays.items()}
+        state['array_file']['sha256']=hashlib.sha256((path/'arrays.npz').read_bytes()).hexdigest()
+        (path/'manifest.json').write_text(json.dumps(state))
+>       with pytest.raises(ValueError,match='binding'):NodeV2Predictor.load(path,expected_manifest_sha256=trusted(path))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'binding'
+E         Actual message: 'NODE array dtype/finiteness/commitment differs'
+
+tests/test_node_v2.py:341: AssertionError
+_ test_retained_prediction_binding_rejects_valid_geometry_transform_or_role_substitution[G_role_identity] _
+
+tmp_path = PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-009-self-green/test_retained_prediction_bindi2')
+portable_case = (<treeneuron.research.node_v2.NodeV2Predictor object at 0x10fe241d0>, FitRequest(X_fit=array([[ 1.1085547e-03, -2.8954...table-case0/fit')), PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-009-self-green/portable-case0/pristine'))
+native_policy = <module 'torch' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/__init__.py'>
+change = 'G_role_identity'
+
+    @pytest.mark.parametrize('change',['target_mean','quantile_values','G_role_identity'])
+    def test_retained_prediction_binding_rejects_valid_geometry_transform_or_role_substitution(tmp_path,portable_case,native_policy,change):
+        from treeneuron.research.node_v2 import NodeV2Predictor
+        path=tmp_path/'snapshot';state=snapshot(portable_case,path);payload=state['payload']
+        with np.load(path/'arrays.npz',allow_pickle=False) as values:arrays={k:values[k].copy() for k in values.files}
+        if change=='target_mean':
+            p=tree(payload,'transform','preprocessing');set_tree(p,'target_mean',dict(p['mapping'])['target_mean']+1.)
+        elif change=='quantile_values':arrays[tree(payload,'transform','quantiles')['array']]+=1.
+        else:set_tree(tree(payload,'G_identity','target'),'sha256','a'*64)
+        np.savez(path/'arrays.npz',**arrays)
+        state['arrays']={k:dict(dtype=str(v.dtype),shape=list(v.shape),sha256=hashlib.sha256(v.tobytes()).hexdigest()) for k,v in arrays.items()}
+        state['array_file']['sha256']=hashlib.sha256((path/'arrays.npz').read_bytes()).hexdigest()
+        (path/'manifest.json').write_text(json.dumps(state))
+>       with pytest.raises(ValueError,match='binding'):NodeV2Predictor.load(path,expected_manifest_sha256=trusted(path))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'binding'
+E         Actual message: 'NODE array dtype/finiteness/commitment differs'
+
+tests/test_node_v2.py:341: AssertionError
+___________ test_portable_snapshot_loads_in_fresh_one_thread_process ___________
+
+tmp_path = PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-009-self-green/test_portable_snapshot_loads_i0')
+portable_case = (<treeneuron.research.node_v2.NodeV2Predictor object at 0x10fe241d0>, FitRequest(X_fit=array([[ 1.1085547e-03, -2.8954...table-case0/fit')), PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-009-self-green/portable-case0/pristine'))
+
+    def test_portable_snapshot_loads_in_fresh_one_thread_process(tmp_path,portable_case):
+        path=tmp_path/'snapshot';snapshot(portable_case,path);model,req,_=portable_case
+        np.save(tmp_path/'query.npy',req.X_select);np.save(tmp_path/'expected.npy',model.predict(req.X_select))
+        script="""
+    from pathlib import Path
+    import sys,numpy as np,torch
+    from treeneuron.research.node_v2 import NodeV2Predictor
+    torch.set_num_threads(1);torch.set_num_interop_threads(1)
+    root=Path(sys.argv[1]);model=NodeV2Predictor.load(root/'snapshot',expected_manifest_sha256=sys.argv[2])
+    np.testing.assert_array_equal(model.predict(np.load(root/'query.npy',allow_pickle=False)),np.load(root/'expected.npy',allow_pickle=False))
+    """
+        run=subprocess.run([sys.executable,'-c',script,str(tmp_path),trusted(path)],capture_output=True,text=True)
+        (tmp_path/'consumer.stdout.txt').write_text(run.stdout);(tmp_path/'consumer.stderr.txt').write_text(run.stderr)
+>       assert run.returncode==0,run.stdout+run.stderr
+E       AssertionError: /Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/src/treeneuron/baselines/_node_vendor/odst.py:38: SyntaxWarning: invalid escape sequence '\i'
+E           :param threshold_init_cutoff: threshold log-temperatures initializer, \in (0, inf)
+E         /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+E           warnings.warn(
+E         Traceback (most recent call last):
+E           File "<string>", line 6, in <module>
+E           File "/Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/src/treeneuron/research/node_v2.py", line 464, in load
+E             model,transform=_validate_endpoint(state,cfg)
+E                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/src/treeneuron/research/node_v2.py", line 659, in _validate_endpoint
+E             raise ValueError('NODE retained prediction/transform/role binding differs')
+E         ValueError: NODE retained prediction/transform/role binding differs
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python', '...d prediction/transform/role binding differs\')\nValueError: NODE retained prediction/transform/role binding differs\n').returncode
+
+tests/test_node_v2.py:371: AssertionError
+=============================== warnings summary ===============================
+tests/test_node_v2.py::test_retained_prediction_binding_rejects_valid_geometry_transform_or_role_substitution[target_mean]
+  /Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/src/treeneuron/baselines/_node_vendor/odst.py:38: SyntaxWarning: invalid escape sequence '\i'
+    :param threshold_init_cutoff: threshold log-temperatures initializer, \in (0, inf)
+
+tests/test_node_v2.py::test_retained_prediction_binding_rejects_valid_geometry_transform_or_role_substitution[target_mean]
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+tests/test_node_v2.py::test_retained_prediction_binding_rejects_valid_geometry_transform_or_role_substitution[target_mean]
+tests/test_node_v2.py::test_failure_after_partial_parameter_mutation_is_explicitly_indeterminate
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/sklearn/preprocessing/_data.py:2912: UserWarning: n_quantiles (1000) is greater than the total number of samples (37). n_quantiles is set to n_samples.
+    warnings.warn(
+
+tests/test_node_v2.py::test_retained_prediction_binding_rejects_valid_geometry_transform_or_role_substitution[target_mean]
+tests/test_node_v2.py::test_failure_after_partial_parameter_mutation_is_explicitly_indeterminate
+  /Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/src/treeneuron/baselines/_node_vendor/odst.py:113: UserWarning: Data-aware initialization is performed on less than 1000 data points. This may cause instability.To avoid potential problems, run this model on a data batch with at least 1000 data samples.You can do so manually before training. Use with torch.no_grad() for memory efficiency.
+    warn("Data-aware initialization is performed on less than 1000 data points. This may cause instability."
+
+tests/test_node_v2.py::test_retained_prediction_binding_rejects_valid_geometry_transform_or_role_substitution[target_mean]
+  /Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/src/treeneuron/baselines/_node_vendor/qhadam.py:133: UserWarning: This overload of add_ is deprecated:
+  	add_(Number alpha, Tensor other)
+  Consider using one of the following signatures instead:
+  	add_(Tensor other, *, Number alpha = 1) (Triggered internally at /Users/runner/work/pytorch/pytorch/torch/csrc/utils/python_arg_parser.cpp:1841.)
+    exp_avg.mul_(beta1_adj).add_(1.0 - beta1_adj, d_p)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_node_v2.py::test_retained_prediction_binding_rejects_valid_geometry_transform_or_role_substitution[target_mean]
+FAILED tests/test_node_v2.py::test_retained_prediction_binding_rejects_valid_geometry_transform_or_role_substitution[quantile_values]
+FAILED tests/test_node_v2.py::test_retained_prediction_binding_rejects_valid_geometry_transform_or_role_substitution[G_role_identity]
+FAILED tests/test_node_v2.py::test_portable_snapshot_loads_in_fresh_one_thread_process
+4 failed, 2 passed, 34 deselected, 7 warnings in 23.14s

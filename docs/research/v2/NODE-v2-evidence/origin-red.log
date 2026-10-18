@@ -1,0 +1,29 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________ test_source_identity_rejects_wrong_loaded_vendor_origin ____________
+
+native_policy = <module 'torch' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/__init__.py'>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10970aea0>
+
+    def test_source_identity_rejects_wrong_loaded_vendor_origin(native_policy,monkeypatch):
+        from treeneuron.research import node_v2
+        from treeneuron.baselines._node_vendor import arch
+        monkeypatch.setattr(arch,'__file__','/private/tmp/wrong-native-origin/arch.py')
+>       with pytest.raises(ValueError,match='origin'):node_v2.source_identity()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_node_v2.py:378: Failed
+=============================== warnings summary ===============================
+tests/test_node_v2.py::test_source_identity_rejects_wrong_loaded_vendor_origin
+  /Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/src/treeneuron/baselines/_node_vendor/odst.py:38: SyntaxWarning: invalid escape sequence '\i'
+    :param threshold_init_cutoff: threshold log-temperatures initializer, \in (0, inf)
+
+tests/test_node_v2.py::test_source_identity_rejects_wrong_loaded_vendor_origin
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_node_v2.py::test_source_identity_rejects_wrong_loaded_vendor_origin
+1 failed, 39 deselected, 2 warnings in 0.72s

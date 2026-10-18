@@ -1,0 +1,2772 @@
+{
+  "config": {
+    "family": "P12",
+    "feature_schema": {
+      "categorical": [],
+      "columns": [
+        "x",
+        "z"
+      ]
+    },
+    "mode": "engineering_fixture",
+    "parameters": {
+      "report_frequency": 100
+    },
+    "schema": "research/v2-node-config"
+  },
+  "elapsed_ns": 4543939542,
+  "executed_updates": 101,
+  "identity": {
+    "runtime": {
+      "core_sha256": "91b0287d1b640a2c761bc33b829363df566d37ad37403612f98997df17ff751f",
+      "coverage": "All27 versions/locations/RECORD digests; listed executed Python/native sources and observed native images/threadpools, not all core installed bytes",
+      "executable": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "executable_sha256": "7b05d803bbc1bbfc81644af4faf2b88f0a37b8de96b9f42c1e08033e2cd0848a",
+      "files": [
+        {
+          "distribution": "numpy",
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/numpy/__init__.py",
+          "sha256": "09295a80660f17925ae23765ce8cbd7ff7ceae968d5f2f89349f1cb74c0b9e11"
+        },
+        {
+          "distribution": "numpy",
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/numpy/_core/_multiarray_umath.cpython-312-darwin.so",
+          "sha256": "af36cbbb39b27651a8b9f7dfa491775016f331a58e8d116eb6b4cfd5e22efb77"
+        },
+        {
+          "distribution": "pandas",
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/pandas/__init__.py",
+          "sha256": "742f85c135ee654bff1203efcee7664bf82fc7305ac3912ff304a063f5f7ea3c"
+        },
+        {
+          "distribution": "scikit-learn",
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+          "sha256": "7fe04d06d824817d39e4c99ec44e837fd6b5f0f75f2cc3e77a384c298f3f1709"
+        },
+        {
+          "distribution": "scikit-learn",
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/sklearn/__init__.py",
+          "sha256": "66a78bb27706626c4cc8ef424a5479f6301204baacd85986e8002c16b751fef1"
+        },
+        {
+          "distribution": "scikit-learn",
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/sklearn/preprocessing/_data.py",
+          "sha256": "4e4588e51cf26364c0b28c1ee7694a9029798a6c6e34b1098bcbac1149da0325"
+        },
+        {
+          "distribution": "scipy",
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/scipy/__init__.py",
+          "sha256": "39ccae300a4739cc53719bd3b39ce3f8f66e736c6eb672006e338a4c5cc3dc76"
+        },
+        {
+          "distribution": "scipy",
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/scipy/special/_ufuncs.cpython-312-darwin.so",
+          "sha256": "a0889d5c82454d79d4cd4cc8a589a62a382d667da8e2b030e637f58708bd340c"
+        },
+        {
+          "distribution": "scipy",
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/scipy/stats/_continuous_distns.py",
+          "sha256": "d401e2c8b627ce88c8d627b15fc6103bcea58784d4ce9150588f54d491cb1a89"
+        },
+        {
+          "distribution": "scipy",
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/scipy/stats/_distn_infrastructure.py",
+          "sha256": "7e77b0a64d61b925a762acc4824f277abdd544d80ca3a16dd142175cc9a4f92d"
+        },
+        {
+          "distribution": "threadpoolctl",
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/threadpoolctl.py",
+          "sha256": "e5f119e394193e206655bec4b993ef0bb40b0fbb2f22c92bd5b2d70a622bb518"
+        },
+        {
+          "distribution": "torch",
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/_C.cpython-312-darwin.so",
+          "sha256": "b5b5b86566d6e00ee22b73c51e6c243bd894ffbf06f12c58d0bab0549b1840ac"
+        },
+        {
+          "distribution": "torch",
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/__init__.py",
+          "sha256": "bd4a10ff16357ed78f45aaf4b46ce5b771fdc0e8549402206e324d0eb792c672"
+        },
+        {
+          "distribution": "torch",
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+          "sha256": "6256bee09e93c28d71c65711cc69224d69994c6965648b628b70a22772fe98d4"
+        },
+        {
+          "distribution": "torch",
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/optim/optimizer.py",
+          "sha256": "ebc2511e0a07b18bbfba44f61667ddaeee47f23cdc856a43234d89007010fe86"
+        }
+      ],
+      "machine": "arm64",
+      "native": {
+        "native_images": [
+          {
+            "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+            "sha256": "7fe04d06d824817d39e4c99ec44e837fd6b5f0f75f2cc3e77a384c298f3f1709"
+          },
+          {
+            "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+            "sha256": "6256bee09e93c28d71c65711cc69224d69994c6965648b628b70a22772fe98d4"
+          },
+          {
+            "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/lib/libtorch_cpu.dylib",
+            "sha256": "886a21732227bea91a64dcc355bdea98808fab5014a84891de2fe3a081744079"
+          },
+          {
+            "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/lib/libtorch_python.dylib",
+            "sha256": "50f79f7f37dd26a7e6438d349538ece1244bc5478dd65bef2ea5c6c63aa86709"
+          }
+        ],
+        "post_inspection_KMP_DUPLICATE_LIB_OK": "True",
+        "threadpools": [
+          {
+            "filepath": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+            "internal_api": "openmp",
+            "num_threads": 1,
+            "prefix": "libomp",
+            "user_api": "openmp",
+            "version": null
+          },
+          {
+            "filepath": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+            "internal_api": "openmp",
+            "num_threads": 1,
+            "prefix": "libomp",
+            "user_api": "openmp",
+            "version": null
+          }
+        ],
+        "threads": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "VECLIB_MAXIMUM_THREADS": "1"
+        },
+        "torch_interop_threads": 1,
+        "torch_intra_threads": 1,
+        "verified_native_files": [
+          {
+            "distribution": "scikit-learn",
+            "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/sklearn/.dylibs/libomp.dylib",
+            "sha256": "7fe04d06d824817d39e4c99ec44e837fd6b5f0f75f2cc3e77a384c298f3f1709"
+          },
+          {
+            "distribution": "threadpoolctl",
+            "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/threadpoolctl.py",
+            "sha256": "e5f119e394193e206655bec4b993ef0bb40b0fbb2f22c92bd5b2d70a622bb518"
+          },
+          {
+            "distribution": "torch",
+            "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/lib/libomp.dylib",
+            "sha256": "6256bee09e93c28d71c65711cc69224d69994c6965648b628b70a22772fe98d4"
+          },
+          {
+            "distribution": "torch",
+            "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/lib/libtorch_cpu.dylib",
+            "sha256": "886a21732227bea91a64dcc355bdea98808fab5014a84891de2fe3a081744079"
+          },
+          {
+            "distribution": "torch",
+            "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/lib/libtorch_python.dylib",
+            "sha256": "50f79f7f37dd26a7e6438d349538ece1244bc5478dd65bef2ea5c6c63aa86709"
+          }
+        ]
+      },
+      "platform": "macOS-26.7.1-arm64-arm-64bit",
+      "python": "3.12.13 (main, Jun 23 2026, 15:44:24) [Clang 22.1.3 ]",
+      "versions": {
+        "cloudpickle": "3.1.2",
+        "filelock": "4.2.0",
+        "fsspec": "2026.9.0",
+        "iniconfig": "2.3.1",
+        "jinja2": "3.1.6",
+        "joblib": "1.6.0",
+        "markupsafe": "3.0.4",
+        "mpmath": "1.3.0",
+        "narwhals": "2.27.1",
+        "networkx": "3.7",
+        "numpy": "2.5.4",
+        "packaging": "26.3",
+        "pandas": "3.0.6",
+        "pluggy": "1.7.0",
+        "pygments": "2.21.0",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "pyyaml": "6.0.3",
+        "scikit-learn": "1.9.1",
+        "scipy": "1.18.1",
+        "setuptools": "84.0.0",
+        "six": "1.17.0",
+        "sympy": "1.14.0",
+        "threadpoolctl": "3.7.0",
+        "torch": "2.14.1",
+        "treeneuron": "0.1.0",
+        "typing-extensions": "4.16.0"
+      }
+    },
+    "source": {
+      "files": {
+        "configs/vendor/node/compatibility.patch": "8e9e829815409224f2a308fdda06cec7c3500827f8bc735781937fd91a342c4a",
+        "configs/vendor/node/runtime-files.json": "7b39516ddcd4d141c17a5ac80f561e76679ce7e7d2ad53bf333c5adafa67e68e",
+        "configs/vendor/node/sources.json": "75e27a438d1c632284a02472508a5011ad1fc8b39e7da683bad2128cc230fe50",
+        "configs/vendor/node/upstream/LICENSE.md": "60b6519a046458e6901cf233eb0d403ae56f499aa6fc008e95fceb75eea4edd4",
+        "configs/vendor/node/upstream/README.md": "d4bf222d99d3fb42cb26fbc37fb23490fd60c9a4465b0636ae3dcfd43da3e011",
+        "configs/vendor/node/upstream/lib/__init__.py": "16cd879e8b3a6354615dc32fe3335cd4597ab4ad206975f9483fd50a2aa98753",
+        "configs/vendor/node/upstream/lib/arch.py": "02f9d08cfadc96b3d77c04dbe6720be7a5e165892949944c366439c018e50541",
+        "configs/vendor/node/upstream/lib/data.py": "cbe0accfd0ce06bf640af27e7f3112338801383f1f92083449853b16c2d21808",
+        "configs/vendor/node/upstream/lib/nn_utils.py": "91fcac1db376552fef6ec9555cbfefbe468036d8a7d1e1d836d8d5aca8d52a4a",
+        "configs/vendor/node/upstream/lib/odst.py": "878fa48cbf3c319dc9909400efe0ed601dae180754ae30997aaf14c94e59b81b",
+        "configs/vendor/node/upstream/lib/trainer.py": "68db1c8af0f4a71619ba41aca580eea75329b0d231802a1a1c8f469f515549e7",
+        "configs/vendor/node/upstream/lib/utils.py": "fac08661980a8097f8e4e7e6fd3745be19bd91db17def866b6023c9d6127354c",
+        "configs/vendor/node/upstream/notebooks/year_node_8layers.ipynb": "a781e8d4642a593d68b1a74d695f10acaf49c693d820248f7dcb8d5269a3d0a1",
+        "configs/vendor/node/upstream/notebooks/year_node_shallow.ipynb": "28e2dd2fbd4122b282d6cd072772d42f67e4fa40caac9e85c707293e4d16ab0b",
+        "configs/vendor/node/upstream/qhoptim-wheel/qhoptim/common/param_conv.py": "520925a24cdf861fbf9129eda0892e5f2294cd111c968bc0c4d67a04c96efaf4",
+        "configs/vendor/node/upstream/qhoptim/LICENSE": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85",
+        "configs/vendor/node/upstream/qhoptim/qhoptim/pyt/qhadam.py": "ab29409cfa20fcd576ba239440ee3a651dbe734d68743cd3f768727bbc3aeb2e",
+        "configs/vendor/node/upstream/requirements.txt": "e40f34e2ec7ce8f2bf68bb203d1c82d31ed2ee794f7860753f88c1988ca1293f",
+        "configs/vendor/node/year_node_shallow.json": "c0b43aa1fd7c64d6dd2cd0a57a8272de6d62a47e6c63b9d4c2158d166eb557ea",
+        "locks/node/entmax-attribution.json": "4d97c8df8569744ff98ab843e8aa9805cc00e4a14f22c67d3bf9293fd85357c1",
+        "locks/node/environment.json": "89ce6a4b559114eb759d31092d88287ff5e0cd04672bdcabd9143c3a4e56b561",
+        "locks/node/qhoptim-wheel.json": "ef2b319a70881d18a2778dca080382b090b3be44640353f91370dad7d3347033",
+        "locks/research-v2/core.json": "91b0287d1b640a2c761bc33b829363df566d37ad37403612f98997df17ff751f",
+        "locks/research-v2/node-v2/source-lock.json": "7c50663fd6866100daa92083808627260f7d46c4f950aa0f0ef553317e6c29b3",
+        "src/treeneuron/__init__.py": "42187d0f94666d3f66c45955c637feb99792a76216ea849e27d8f4cb61194b69",
+        "src/treeneuron/analysis/audit.py": "ddbfd3f5453169e425335394e0ab3493216db54bf50936e6b308ad001a516d29",
+        "src/treeneuron/analysis/exploratory.py": "59bc0b81f4d342462b04f6475a0c4fe397afbe58025011a70a534b974d5d5867",
+        "src/treeneuron/analysis/primary.py": "78ed345b2aa67984b6b0fde365537de1fd9b162e7c0ac2150ae2b3717143469d",
+        "src/treeneuron/analysis/report.py": "6978c61910ab98df827106104d9b43e952c5e16255eb0c00229c2e8001eec779",
+        "src/treeneuron/archive_binding.py": "189e3f502641122c6f9eaf8b463d4304da64cff99107d7e9669929460d21f6fe",
+        "src/treeneuron/artifacts.py": "f98992545edef47249a74efde46a65ea8464b369cce35668ff576352c30101c0",
+        "src/treeneuron/backend.py": "87d3e0ad8feca8bba6a4c0f2c83c930f991bd87950e8ba6128d4dcabe01c7120",
+        "src/treeneuron/baselines/__init__.py": "ecbfd42ce0da47f7604fc2f5a493faee2af45101031201dd9734440dbc54f6c7",
+        "src/treeneuron/baselines/_node_vendor/LICENSE-ENTMAX": "4ea5d4b77b0f1c3469f73f2e346336041f5a7b77266349ee9dfe7db16bd5cb57",
+        "src/treeneuron/baselines/_node_vendor/LICENSE-NODE.md": "60b6519a046458e6901cf233eb0d403ae56f499aa6fc008e95fceb75eea4edd4",
+        "src/treeneuron/baselines/_node_vendor/LICENSE-QHOPTIM": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85",
+        "src/treeneuron/baselines/_node_vendor/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/treeneuron/baselines/_node_vendor/arch.py": "02f9d08cfadc96b3d77c04dbe6720be7a5e165892949944c366439c018e50541",
+        "src/treeneuron/baselines/_node_vendor/nn_utils.py": "91fcac1db376552fef6ec9555cbfefbe468036d8a7d1e1d836d8d5aca8d52a4a",
+        "src/treeneuron/baselines/_node_vendor/odst.py": "878fa48cbf3c319dc9909400efe0ed601dae180754ae30997aaf14c94e59b81b",
+        "src/treeneuron/baselines/_node_vendor/param_conv.py": "520925a24cdf861fbf9129eda0892e5f2294cd111c968bc0c4d67a04c96efaf4",
+        "src/treeneuron/baselines/_node_vendor/qhadam.py": "10acd3bd21c5ae7cae70138f981e1e8485ed40c34275354ee1a4dbacb123047d",
+        "src/treeneuron/baselines/_node_vendor/utils.py": "d4f70f6ce070ed1eb26c0bfb90f73d1ef472bd08972bbf0c6b5962af5faef1fa",
+        "src/treeneuron/baselines/api.py": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+        "src/treeneuron/baselines/causal.py": "c803f6861337e9d0cb3e60d58fbc76a24834832421f231aa50835f84ffba5f4e",
+        "src/treeneuron/baselines/causal_checks.py": "68ef90bc4ed32fbd2b86d4855dad0ac4817704639092d12ef6469eec806a7a32",
+        "src/treeneuron/baselines/causal_evidence.py": "1d773e861bf229720187b7067c3d8d8fcc0e2083b39c4691df9666b04b30065a",
+        "src/treeneuron/baselines/greedy.py": "b08244c53fe16653572f7f07465d083a180316361f6cc46aec6c710116ade5de",
+        "src/treeneuron/baselines/node.py": "08eeb3ee024443b4ad9a3e7807f960b85bd9a844155e6c57e52898f0f23735c5",
+        "src/treeneuron/baselines/node_checks.py": "9654c778dd5d2138baddd926c7d23b98bc00f07d9ccebe090ba8dacfbf2ddae8",
+        "src/treeneuron/baselines/node_worker.py": "23992e8036506ca9813bf192d77776485388b4ef34b9dccc410c4c1b26d93875",
+        "src/treeneuron/baselines/registry.py": "078c55d9ebc3211568706e566ec8323f1d49c3f87611cb5109242d89ace79b8a",
+        "src/treeneuron/baselines/simple.py": "98301d76ed141c6d8685ef4152796c8f159f1233eee082f9666997c8e1f7393d",
+        "src/treeneuron/checkpoint.py": "3cf8d20a270e478dfcb59ac63f18b6a911fc6eef5dfd488b39cbf1758ead7b95",
+        "src/treeneuron/cli.py": "27d4c9a06af6bb3371ff0b27c32542407adc8df1fc438897e3b1d3264bab5592",
+        "src/treeneuron/config.py": "11b45cdb70442232686218dbf49eacd20b5ff521b67b72b2bb1ec657424d1a3a",
+        "src/treeneuron/cpu_envelope.py": "0579de57a6600e23c84d747d3e23729cc55345a651ed96bb4a7fbc3887d33845",
+        "src/treeneuron/data/controls.py": "1af8cfc407264c94c6f1e96c074ac1ea7b85733c55f61dc745f7481947f2f5a2",
+        "src/treeneuron/data/synthetic.py": "980b91841713263117ae6a90a28617682a4f7e69d61e42e28bc071f9973084e3",
+        "src/treeneuron/data/tabular.py": "7ac9cde01e23af149e1b965b974793aec8bddddcf41e6be03d9d61024260cd4a",
+        "src/treeneuron/data/transforms.py": "aa18154ffc816741f5386dc176a39526d719820f95929b10c9a111d63d694e93",
+        "src/treeneuron/data/types.py": "0e37b3aa2f5a35f6efe54a4cdb54adcf2e43b5216333fd96df1287362054c148",
+        "src/treeneuron/doctor.py": "88d810ac8ee99ed8c46e5531066fa2b5df15218b3d3b0a423bb728919f4e63a7",
+        "src/treeneuron/evaluation/__init__.py": "7c3c6e552a13f52260f5e4e578fbda545adf10bf2f2ff38d0b1f03b867dd9d94",
+        "src/treeneuron/evaluation/confirm.py": "020828b970acc0ce289d0b4ecb5ac031a365d050cddcc562f34d7196165af24a",
+        "src/treeneuron/evaluation/metrics.py": "de7c1869d80ea4117af1531d3ea9b90d14fcb06b01e9a363d8d658bd90555b5c",
+        "src/treeneuron/evaluation/protected.py": "793ecf7b7e98b8f8b501cf92eec1661b942f45a8344015a41059deac3de5135d",
+        "src/treeneuron/evaluation/search.py": "afe4516b56d19731b0b2cadc20f9a02343b6a0c3705e08cf4ae322fc1d410677",
+        "src/treeneuron/evaluation/search_worker.py": "fad1105a6482ab47dd9c6a6803d207d88ae3cb0557b74ac584de7bd2cb91644f",
+        "src/treeneuron/evaluation/timing.py": "e9eee1b69156c95de21898ef6fe480c1ccdc4ee726977cc54454846764023120",
+        "src/treeneuron/evaluation/timing_worker.py": "6b305fc54126b1ddde273c253f7da9746e2f1ac9cf5d869e161a5a73a0eda8a1",
+        "src/treeneuron/experiments/paired.py": "3d5ffe24d89db5b8ee81e209b37b22a10dc6243c8c02d92515078bbe6556adac",
+        "src/treeneuron/growth/__init__.py": "803388d6ccc22fd4b337c7ae4f8e6eca474b32f26fe94457db423aca062df5a3",
+        "src/treeneuron/growth/allocate.py": "6b5e4456ea5d23dd3175a4bd9b102b3718e0f6e42efae383a6131e05c61c2a85",
+        "src/treeneuron/growth/insert.py": "ca15f59d0ff860897894ff1a917a15ffad6074f80f199b27532c87d13cb6eae9",
+        "src/treeneuron/growth/score.py": "096ec384a63aad0bc4c48718e37cffe89f666ddc779b305a9acb5ec33891b22a",
+        "src/treeneuron/growth/types.py": "9d0305c4fbe42d36366424a52c3ed67316d3d0727daa3a2c28a10f1113f2cb50",
+        "src/treeneuron/history.py": "e2fbb40021f9610f4114715047bb90d36a809b7a6ad0c1d010b8ca4dac2b57d2",
+        "src/treeneuron/layer_checks.py": "c342d27db7c007ecd9d6e5533eb0437494a8c10ba94af6627a3eb652809c049a",
+        "src/treeneuron/locators.py": "185b67071c460f3bc75a8ee786c08187168b432a76dc43193d85adb84ae4893c",
+        "src/treeneuron/models/__init__.py": "b08a9f1de4a2ffb68e0c654080a2095c737a1e93fccc6c39d9ad926d404c36e3",
+        "src/treeneuron/models/static.py": "83e8b2b7b5405b8b9285b91e8ad9b8c63134dda077ac7096ffbe5095bed8b428",
+        "src/treeneuron/models/units.py": "15a97c20c5dec6856e2918c8a2bd4832e3bd9d17448b7cbdec255468733765e3",
+        "src/treeneuron/models/widened.py": "c75e86da320a1ab9d7daca8c827f5d55e5471896a4e82fc5a24aedd0469d98ba",
+        "src/treeneuron/pilot/__init__.py": "d19d0a8a98a66b70ef8bee4a82dfc6bd68a5a5f2b6011ca0c425261549a2de07",
+        "src/treeneuron/pilot/calibrate.py": "3c0b84b17cfd226f2a5fd0265cb6ce224dd4992233ec88f2e4158fb5c89332ff",
+        "src/treeneuron/pilot/design.py": "0c61e83d1e986433953270225833843ce236061582d4cfc6dd329d3580eb842e",
+        "src/treeneuron/pilot/probe_diagnostic.py": "2d8b3203b57c89fa7fe2f4d43f15f8d4a45dd60e38062ff6f06e77b7d8cf932e",
+        "src/treeneuron/protocol.py": "84688c1806176f52a9fad1eab82adf356e661b4fdcd2dd2d2f31eaa9ab0f2b9b",
+        "src/treeneuron/research/__init__.py": "4aae94151996828395d2260559adf05158bdf5ee0414f3b95895575b5b6422be",
+        "src/treeneuron/research/boundaries.py": "46a4df2f29fa77500970e2d34b370c4f53c13fee05e45ce0f6b796343607afa9",
+        "src/treeneuron/research/cli.py": "f01db1a7d5b216f6946f0601b5a56da6d1d8874337afed735a8ea282ab389f2a",
+        "src/treeneuron/research/config.py": "a8469036647f39aff7289d72f8d7c1225954f8b86b38be882eb5529c50a8b9c0",
+        "src/treeneuron/research/control_analysis.py": "1e0cb1f9849fa73d5d0d00535949d6153f2764969c135b35fdd16e881f724ab3",
+        "src/treeneuron/research/control_audit.py": "09864e6684c7d7e9018a8a7b2e32653f1734c9929f5c959222b1795613cf5101",
+        "src/treeneuron/research/control_runner.py": "1c9269a05130e9f7bc50f4b15f45327cdebf3b8413d0d3e8e5cda545e844d4f9",
+        "src/treeneuron/research/control_summary.py": "a2d8a78d0cfbb7484fddf9648c05c956e4cc2f91fe03836b3444ba90174db647",
+        "src/treeneuron/research/controls.py": "80918f12df9beee94f64316957e9f6235503832f926418a6a3ce780991dac065",
+        "src/treeneuron/research/diagnostics.py": "c69861a221b845f5f7c42e607e166f4751efc783be3df9005002be007a3658e7",
+        "src/treeneuron/research/gate_a.py": "357090f2b2ab60daaa39a13977e9f1f8dff275e5b3fc81cb8d94c1a29a55dff9",
+        "src/treeneuron/research/head_artifacts.py": "d8fb784be32dfba98f58a590268e1fc346c3df32288c0a1595fd38e7bdc356df",
+        "src/treeneuron/research/headroom.py": "79a0542235dd3c898940600dd304a3ba8d63b43664c7f0064cb46cf27a1d692c",
+        "src/treeneuron/research/identity.py": "af5167af6912c71fb7c0935adf26db0e04564f6460b0d428bf03e6c73b375c67",
+        "src/treeneuron/research/ledger.py": "8b10ecf20b1ae837aa16222b3046e0a0472443c00a7b33a049a5275b2e5d2431",
+        "src/treeneuron/research/local_calibration.py": "a3a7ddb242f148be7edfde89d3fc23239960dc772d8c31ebed5dc9b8bc0e0a5c",
+        "src/treeneuron/research/native_trees.py": "7798bf9db36ebb4a4c36b29141efb4aff964a2f04026588281c6c12bd1d18455",
+        "src/treeneuron/research/node_v2.py": "38c8f17a386f03167b92d62c89793590716caa8e4cf19dfad1f1b1078a3c066b",
+        "src/treeneuron/research/opportunity_analysis.py": "8d9a8db91f6b3c40aef6e962821a0b273ed9fa627c2d1109f9ae7434d691e6c8",
+        "src/treeneuron/research/opportunity_collection.py": "6c95b064ef18aa7e1545f2115ab0fe5761dbd3c38eab837f53f242f1fa6a86ff",
+        "src/treeneuron/research/opportunity_data.py": "575bccccf4f48b703809291729fc39504e493992073655e330f9250abb6cbcdd",
+        "src/treeneuron/research/opportunity_gates.py": "5306313c35bf1025508b78becdb33d531ac2e942173a7afc2c7130b0180db0b8",
+        "src/treeneuron/research/opportunity_graph.py": "14ab25f9dc09707e83f23546a667f2c7630f9416ee9405dfd5f817978b2441f0",
+        "src/treeneuron/research/opportunity_inputs.py": "52d3ab590a34fef7b24bdbee7a1e83c614c0d305ac40c1a05fa2e33648b2e744",
+        "src/treeneuron/research/opportunity_plan.py": "a83dc9e929c9cf3030022bb647b6057e69b0581f132a3be4eefcab50f92c9108",
+        "src/treeneuron/research/opportunity_resources.py": "8296b5533224fa4c3b7183c30510c719a3fce709093e57016985303b94ddc174",
+        "src/treeneuron/research/opportunity_workers.py": "4c60b1402b7d536981b82df2031fcea9b818abfe8ff07a41fb439d1d129f265f",
+        "src/treeneuron/research/ordinary_neural.py": "0bce82e5bb14e6391f4a40a3329847e51da979ee2741287315d140fccc88037c",
+        "src/treeneuron/research/p13_simple.py": "ae1d9a0dd57dd43a87f9dfd332868ce37126b4e56828ca70865e118994896434",
+        "src/treeneuron/research/parent_artifacts.py": "a264d0700cddc2ec20c08d604490873bfd08fd742e25cc5170ebde8ca6979012",
+        "src/treeneuron/research/queue_observation.py": "a52f116f1c883c5bbf89c7459fcf74f22a5840a654580507596fe63454dc9e50",
+        "src/treeneuron/research/replay.py": "715b078da507930910efc40a15a6ba161a85b0fd347f7cea89af0f242dad05f5",
+        "src/treeneuron/research/resources.py": "c6302c45ca19d90186fda19e369f933063c70979b7de0c2030f98c016873c06b",
+        "src/treeneuron/research/roles.py": "40f150211c39c0fb9a431b5e8189907ec6e684ed40a484061fde2fdc0ef41920",
+        "src/treeneuron/research/runner.py": "1e5f60fd4f8ebff4873126e734794037c7a7dbbcb63b83af8ef8780bc8800e5a",
+        "src/treeneuron/research/seeds.py": "6f1e07864d106750f2ef616bc9dc522f254beec22909354875da5e2856f8fb26",
+        "src/treeneuron/research/snapshots.py": "3ba1b512db391c050f9e9e0dfda6d41b9fd2b1bd090f104bb9a6437135ca4770",
+        "src/treeneuron/research/splits.py": "846092835672f5e18caf3d3fdbacfcfd8d2539754df8935731c1fe8aca7c707e",
+        "src/treeneuron/research/stress.py": "48bba8fe96de55afe93d74286acfe63ac54eb1a4844b6d351591b8e57328afcd",
+        "src/treeneuron/research/tabm_native.py": "450476815517e2d483c24c2986a1ee660765d3e838f4117917494ec57e8da2f0",
+        "src/treeneuron/research/transfer.py": "156910b4bf51a2d584868448d6dffb8257012030918cde8a5a088b99e07f4eaf",
+        "src/treeneuron/research/treatments.py": "d16a89d284a647c8b70877571a6ff75c605f661a1e6b3e1b43dac8e1fd33b0ce",
+        "src/treeneuron/research/workqueue.py": "4d1cc7254c8f61a0885a83b05b5ca03087863d5b890c16da38bd7f43b6c2f72f",
+        "src/treeneuron/score_checks.py": "65df787589e59cc1d093832afa8a2a43becb85fa5f9397ff5c744cad69c3c913",
+        "src/treeneuron/state_validation.py": "c411c98d34b83facb7ef4da939a4de8cd5a16ba16907ab2bdb0d0c194a5d9e5f",
+        "src/treeneuron/train.py": "14f9455ccb329b6f5b1ad4e3795fdb268dfe71402f295aa8c4dcdf7ad3352cc8",
+        "src/treeneuron/verification.py": "2e4362859516cc531ca3ca6091ff8c3228a3b862cc606636bee8fe08da11f0c5",
+        "uv.lock": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5"
+      },
+      "package_sha256": "2fd8f2a71634438ee173b1e9b3d32e9d20069de429e0b987b37c3f6db32e56d2"
+    }
+  },
+  "phase": "complete",
+  "phase_costs_ns": {
+    "configuration": 58917,
+    "dependencies": 2253468333,
+    "identity_recheck": 2236454375,
+    "initialization": 1527917,
+    "preprocessing": 1906417,
+    "source_validation": 6719958,
+    "training": 43803625
+  },
+  "resolved": {
+    "batch_size": 8,
+    "bin": "entmoid15",
+    "choice": "entmax15",
+    "depth": 2,
+    "device": "cpu",
+    "dtype": "float32",
+    "head": "channel0_mean_over_trees",
+    "initialization_rows": 1000,
+    "latest_checkpoints": 5,
+    "layers": 1,
+    "optimizer": {
+      "betas": [
+        0.95,
+        0.998
+      ],
+      "decouple_weight_decay": false,
+      "eps": 1e-08,
+      "lr": 0.001,
+      "nus": [
+        0.7,
+        1.0
+      ],
+      "weight_decay": 0.0
+    },
+    "patience": 5000,
+    "report_frequency": 100,
+    "tree_dim": 3,
+    "trees": 16,
+    "validation_chunk": 1024
+  },
+  "seed": 1337,
+  "status": "completed_ineligible",
+  "summary": {
+    "checkpoint_available": true,
+    "executed_updates": 101,
+    "native_full_anchor_qualified": false,
+    "quality_eligible": false,
+    "selected_step": 100,
+    "selection_status": "G_selected",
+    "stop_reason": "max_updates"
+  },
+  "timing_scope": "Through phase capture; successful receipt publication/final caller-state restoration require enclosing worker time",
+  "trace": [
+    {
+      "applied": true,
+      "elapsed_ns": 657750,
+      "epoch": 0,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.04662209004163742,
+        "0.0.feature_thresholds": 0.020776590332388878,
+        "0.0.log_temperatures": 0.06281062215566635,
+        "0.0.response": 0.0714096873998642
+      },
+      "loss": 1.2426799535751343,
+      "optimizer_entered": true,
+      "rows": [
+        16,
+        21,
+        18,
+        35,
+        6,
+        36,
+        8,
+        9
+      ],
+      "step": 1
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 464709,
+      "epoch": 0,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.0406959094107151,
+        "0.0.feature_thresholds": 0.008596361614763737,
+        "0.0.log_temperatures": 0.051982901990413666,
+        "0.0.response": 0.04265718162059784
+      },
+      "loss": 0.6485148072242737,
+      "optimizer_entered": true,
+      "rows": [
+        22,
+        29,
+        23,
+        14,
+        2,
+        10,
+        25,
+        1
+      ],
+      "step": 2
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 437042,
+      "epoch": 0,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.05648176372051239,
+        "0.0.feature_thresholds": 0.008701915852725506,
+        "0.0.log_temperatures": 0.032191623002290726,
+        "0.0.response": 0.03173311799764633
+      },
+      "loss": 1.0871201753616333,
+      "optimizer_entered": true,
+      "rows": [
+        34,
+        15,
+        30,
+        13,
+        19,
+        27,
+        20,
+        17
+      ],
+      "step": 3
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 422958,
+      "epoch": 0,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.04832172766327858,
+        "0.0.feature_thresholds": 0.04628358408808708,
+        "0.0.log_temperatures": 0.08699393272399902,
+        "0.0.response": 0.1447068154811859
+      },
+      "loss": 0.9795054197311401,
+      "optimizer_entered": true,
+      "rows": [
+        12,
+        5,
+        26,
+        24,
+        33,
+        31,
+        3,
+        4
+      ],
+      "step": 4
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 416584,
+      "epoch": 0,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.01807747595012188,
+        "0.0.feature_thresholds": 0.03810270130634308,
+        "0.0.log_temperatures": 0.056108493357896805,
+        "0.0.response": 0.11573616415262222
+      },
+      "loss": 0.6346285343170166,
+      "optimizer_entered": true,
+      "rows": [
+        11,
+        28,
+        7,
+        32,
+        0
+      ],
+      "step": 5
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 434417,
+      "epoch": 1,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.05284382402896881,
+        "0.0.feature_thresholds": 0.03352399170398712,
+        "0.0.log_temperatures": 0.026118259876966476,
+        "0.0.response": 0.09636479616165161
+      },
+      "loss": 0.6270123720169067,
+      "optimizer_entered": true,
+      "rows": [
+        8,
+        20,
+        12,
+        2,
+        30,
+        34,
+        36,
+        10
+      ],
+      "step": 6
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 616250,
+      "epoch": 1,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.021911675110459328,
+        "0.0.feature_thresholds": 0.03824522718787193,
+        "0.0.log_temperatures": 0.07695095986127853,
+        "0.0.response": 0.11971035599708557
+      },
+      "loss": 1.0203123092651367,
+      "optimizer_entered": true,
+      "rows": [
+        13,
+        16,
+        15,
+        4,
+        25,
+        3,
+        18,
+        32
+      ],
+      "step": 7
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 510958,
+      "epoch": 1,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.02562703564763069,
+        "0.0.feature_thresholds": 0.03410721570253372,
+        "0.0.log_temperatures": 0.0603279247879982,
+        "0.0.response": 0.10173634439706802
+      },
+      "loss": 0.9518306255340576,
+      "optimizer_entered": true,
+      "rows": [
+        27,
+        24,
+        17,
+        9,
+        1,
+        19,
+        5,
+        26
+      ],
+      "step": 8
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 450667,
+      "epoch": 1,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.07249300181865692,
+        "0.0.feature_thresholds": 0.02827776037156582,
+        "0.0.log_temperatures": 0.0880892425775528,
+        "0.0.response": 0.0996844694018364
+      },
+      "loss": 1.3245304822921753,
+      "optimizer_entered": true,
+      "rows": [
+        31,
+        35,
+        6,
+        29,
+        21,
+        14,
+        33,
+        7
+      ],
+      "step": 9
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 433667,
+      "epoch": 1,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.04818446934223175,
+        "0.0.feature_thresholds": 0.0295749232172966,
+        "0.0.log_temperatures": 0.06453277915716171,
+        "0.0.response": 0.09822472184896469
+      },
+      "loss": 0.6621006727218628,
+      "optimizer_entered": true,
+      "rows": [
+        28,
+        23,
+        22,
+        0,
+        11
+      ],
+      "step": 10
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 424000,
+      "epoch": 2,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.02957259677350521,
+        "0.0.feature_thresholds": 0.03569292649626732,
+        "0.0.log_temperatures": 0.10361813753843307,
+        "0.0.response": 0.11973223090171814
+      },
+      "loss": 1.4087457656860352,
+      "optimizer_entered": true,
+      "rows": [
+        35,
+        2,
+        3,
+        19,
+        18,
+        16,
+        11,
+        26
+      ],
+      "step": 11
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 437292,
+      "epoch": 2,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.10690710693597794,
+        "0.0.feature_thresholds": 0.024394681677222252,
+        "0.0.log_temperatures": 0.1024291068315506,
+        "0.0.response": 0.09671491384506226
+      },
+      "loss": 1.999922752380371,
+      "optimizer_entered": true,
+      "rows": [
+        25,
+        4,
+        13,
+        7,
+        30,
+        29,
+        31,
+        27
+      ],
+      "step": 12
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 433250,
+      "epoch": 2,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.01285962201654911,
+        "0.0.feature_thresholds": 0.016307638958096504,
+        "0.0.log_temperatures": 0.01258118450641632,
+        "0.0.response": 0.047694336622953415
+      },
+      "loss": 0.09434771537780762,
+      "optimizer_entered": true,
+      "rows": [
+        34,
+        9,
+        24,
+        36,
+        20,
+        14,
+        15,
+        6
+      ],
+      "step": 13
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 442167,
+      "epoch": 2,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.05237007513642311,
+        "0.0.feature_thresholds": 0.0375952310860157,
+        "0.0.log_temperatures": 0.05491068959236145,
+        "0.0.response": 0.11513691395521164
+      },
+      "loss": 0.7721195816993713,
+      "optimizer_entered": true,
+      "rows": [
+        32,
+        8,
+        1,
+        28,
+        5,
+        23,
+        10,
+        12
+      ],
+      "step": 14
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 494125,
+      "epoch": 2,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.0029075820930302143,
+        "0.0.feature_thresholds": 0.021199703216552734,
+        "0.0.log_temperatures": 0.017005963250994682,
+        "0.0.response": 0.0598800890147686
+      },
+      "loss": 0.0786668211221695,
+      "optimizer_entered": true,
+      "rows": [
+        0,
+        33,
+        17,
+        21,
+        22
+      ],
+      "step": 15
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 592875,
+      "epoch": 3,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.012282198294997215,
+        "0.0.feature_thresholds": 0.01568876951932907,
+        "0.0.log_temperatures": 0.038684286177158356,
+        "0.0.response": 0.051836658269166946
+      },
+      "loss": 0.4832210838794708,
+      "optimizer_entered": true,
+      "rows": [
+        20,
+        2,
+        19,
+        18,
+        1,
+        5,
+        29,
+        4
+      ],
+      "step": 16
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 469916,
+      "epoch": 3,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.12788063287734985,
+        "0.0.feature_thresholds": 0.04256512224674225,
+        "0.0.log_temperatures": 0.1199856847524643,
+        "0.0.response": 0.1421399861574173
+      },
+      "loss": 2.15533709526062,
+      "optimizer_entered": true,
+      "rows": [
+        24,
+        23,
+        27,
+        31,
+        10,
+        35,
+        33,
+        8
+      ],
+      "step": 17
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 437916,
+      "epoch": 3,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.0031879208981990814,
+        "0.0.feature_thresholds": 0.014558938331902027,
+        "0.0.log_temperatures": 0.026082336902618408,
+        "0.0.response": 0.044158101081848145
+      },
+      "loss": 0.23994500935077667,
+      "optimizer_entered": true,
+      "rows": [
+        9,
+        13,
+        6,
+        26,
+        34,
+        3,
+        0,
+        32
+      ],
+      "step": 18
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 435208,
+      "epoch": 3,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.04812625050544739,
+        "0.0.feature_thresholds": 0.014598372392356396,
+        "0.0.log_temperatures": 0.0737786740064621,
+        "0.0.response": 0.06315117329359055
+      },
+      "loss": 1.2906945943832397,
+      "optimizer_entered": true,
+      "rows": [
+        16,
+        21,
+        22,
+        36,
+        14,
+        7,
+        25,
+        30
+      ],
+      "step": 19
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 408375,
+      "epoch": 3,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.017329677939414978,
+        "0.0.feature_thresholds": 0.006829459685832262,
+        "0.0.log_temperatures": 0.009771476499736309,
+        "0.0.response": 0.01888374797999859
+      },
+      "loss": 0.22276239097118378,
+      "optimizer_entered": true,
+      "rows": [
+        28,
+        11,
+        12,
+        15,
+        17
+      ],
+      "step": 20
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 410125,
+      "epoch": 4,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.04083302244544029,
+        "0.0.feature_thresholds": 0.0067816246300935745,
+        "0.0.log_temperatures": 0.03981758654117584,
+        "0.0.response": 0.03257661312818527
+      },
+      "loss": 0.9224008917808533,
+      "optimizer_entered": true,
+      "rows": [
+        34,
+        16,
+        21,
+        10,
+        15,
+        32,
+        8,
+        12
+      ],
+      "step": 21
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 405500,
+      "epoch": 4,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.036412134766578674,
+        "0.0.feature_thresholds": 0.058073002845048904,
+        "0.0.log_temperatures": 0.06969529390335083,
+        "0.0.response": 0.16684836149215698
+      },
+      "loss": 1.0622367858886719,
+      "optimizer_entered": true,
+      "rows": [
+        1,
+        5,
+        26,
+        36,
+        33,
+        17,
+        27,
+        35
+      ],
+      "step": 22
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 403167,
+      "epoch": 4,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.09123236685991287,
+        "0.0.feature_thresholds": 0.028329972177743912,
+        "0.0.log_temperatures": 0.12076298892498016,
+        "0.0.response": 0.11123239994049072
+      },
+      "loss": 1.560590147972107,
+      "optimizer_entered": true,
+      "rows": [
+        13,
+        7,
+        31,
+        24,
+        25,
+        4,
+        3,
+        23
+      ],
+      "step": 23
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 398833,
+      "epoch": 4,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.031403329223394394,
+        "0.0.feature_thresholds": 0.02326284907758236,
+        "0.0.log_temperatures": 0.027222197502851486,
+        "0.0.response": 0.06724587827920914
+      },
+      "loss": 0.5263099074363708,
+      "optimizer_entered": true,
+      "rows": [
+        29,
+        28,
+        30,
+        22,
+        20,
+        18,
+        14,
+        6
+      ],
+      "step": 24
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 391583,
+      "epoch": 4,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.004173524212092161,
+        "0.0.feature_thresholds": 0.02646072581410408,
+        "0.0.log_temperatures": 0.0351945161819458,
+        "0.0.response": 0.07848353683948517
+      },
+      "loss": 0.3571828007698059,
+      "optimizer_entered": true,
+      "rows": [
+        0,
+        2,
+        19,
+        9,
+        11
+      ],
+      "step": 25
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 478458,
+      "epoch": 5,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.01201733946800232,
+        "0.0.feature_thresholds": 0.012849844992160797,
+        "0.0.log_temperatures": 0.04547637701034546,
+        "0.0.response": 0.04680069908499718
+      },
+      "loss": 0.5423983335494995,
+      "optimizer_entered": true,
+      "rows": [
+        5,
+        14,
+        9,
+        0,
+        4,
+        3,
+        7,
+        10
+      ],
+      "step": 26
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 413458,
+      "epoch": 5,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.06316419690847397,
+        "0.0.feature_thresholds": 0.0538167878985405,
+        "0.0.log_temperatures": 0.08052121847867966,
+        "0.0.response": 0.16104497015476227
+      },
+      "loss": 1.0241533517837524,
+      "optimizer_entered": true,
+      "rows": [
+        17,
+        33,
+        20,
+        31,
+        28,
+        12,
+        36,
+        35
+      ],
+      "step": 27
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 428583,
+      "epoch": 5,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.03136652335524559,
+        "0.0.feature_thresholds": 0.0074857743456959724,
+        "0.0.log_temperatures": 0.0260647963732481,
+        "0.0.response": 0.02673349902033806
+      },
+      "loss": 0.543705403804779,
+      "optimizer_entered": true,
+      "rows": [
+        21,
+        26,
+        25,
+        24,
+        8,
+        2,
+        18,
+        15
+      ],
+      "step": 28
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 437125,
+      "epoch": 5,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.08670509606599808,
+        "0.0.feature_thresholds": 0.010810219682753086,
+        "0.0.log_temperatures": 0.0580202117562294,
+        "0.0.response": 0.05023861303925514
+      },
+      "loss": 1.3672823905944824,
+      "optimizer_entered": true,
+      "rows": [
+        22,
+        27,
+        34,
+        30,
+        29,
+        1,
+        32,
+        23
+      ],
+      "step": 29
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 422125,
+      "epoch": 5,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.018443994224071503,
+        "0.0.feature_thresholds": 0.015024421736598015,
+        "0.0.log_temperatures": 0.09473371505737305,
+        "0.0.response": 0.07304636389017105
+      },
+      "loss": 1.282575249671936,
+      "optimizer_entered": true,
+      "rows": [
+        6,
+        19,
+        16,
+        11,
+        13
+      ],
+      "step": 30
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 411500,
+      "epoch": 6,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.07915500551462173,
+        "0.0.feature_thresholds": 0.027516968548297882,
+        "0.0.log_temperatures": 0.06762734800577164,
+        "0.0.response": 0.0911949872970581
+      },
+      "loss": 1.1638855934143066,
+      "optimizer_entered": true,
+      "rows": [
+        3,
+        9,
+        0,
+        33,
+        12,
+        31,
+        30,
+        21
+      ],
+      "step": 31
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 403541,
+      "epoch": 6,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.06605582684278488,
+        "0.0.feature_thresholds": 0.03744656592607498,
+        "0.0.log_temperatures": 0.10208463668823242,
+        "0.0.response": 0.12128512561321259
+      },
+      "loss": 1.6198132038116455,
+      "optimizer_entered": true,
+      "rows": [
+        34,
+        24,
+        16,
+        27,
+        10,
+        20,
+        5,
+        23
+      ],
+      "step": 32
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 395834,
+      "epoch": 6,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.02612471953034401,
+        "0.0.feature_thresholds": 0.014084119349718094,
+        "0.0.log_temperatures": 0.01684027910232544,
+        "0.0.response": 0.03940649703145027
+      },
+      "loss": 0.3761662542819977,
+      "optimizer_entered": true,
+      "rows": [
+        28,
+        26,
+        8,
+        2,
+        6,
+        29,
+        32,
+        15
+      ],
+      "step": 33
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 407333,
+      "epoch": 6,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.02593362331390381,
+        "0.0.feature_thresholds": 0.012945876456797123,
+        "0.0.log_temperatures": 0.05383434519171715,
+        "0.0.response": 0.04878891259431839
+      },
+      "loss": 0.7560213804244995,
+      "optimizer_entered": true,
+      "rows": [
+        17,
+        14,
+        4,
+        7,
+        35,
+        22,
+        11,
+        25
+      ],
+      "step": 34
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 395292,
+      "epoch": 6,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.010966961272060871,
+        "0.0.feature_thresholds": 0.024832583963871002,
+        "0.0.log_temperatures": 0.04775650426745415,
+        "0.0.response": 0.07707329839468002
+      },
+      "loss": 0.5601400136947632,
+      "optimizer_entered": true,
+      "rows": [
+        18,
+        13,
+        1,
+        19,
+        36
+      ],
+      "step": 35
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 392834,
+      "epoch": 7,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.02597682923078537,
+        "0.0.feature_thresholds": 0.012552541680634022,
+        "0.0.log_temperatures": 0.053179703652858734,
+        "0.0.response": 0.04874742403626442
+      },
+      "loss": 0.7552950382232666,
+      "optimizer_entered": true,
+      "rows": [
+        13,
+        14,
+        1,
+        10,
+        15,
+        3,
+        19,
+        7
+      ],
+      "step": 36
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 398834,
+      "epoch": 7,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.07117387652397156,
+        "0.0.feature_thresholds": 0.04307147115468979,
+        "0.0.log_temperatures": 0.10012529045343399,
+        "0.0.response": 0.1376369297504425
+      },
+      "loss": 1.5133376121520996,
+      "optimizer_entered": true,
+      "rows": [
+        33,
+        27,
+        24,
+        18,
+        11,
+        28,
+        12,
+        31
+      ],
+      "step": 37
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 414958,
+      "epoch": 7,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.018434274941682816,
+        "0.0.feature_thresholds": 0.03458227962255478,
+        "0.0.log_temperatures": 0.031603701412677765,
+        "0.0.response": 0.09727641940116882
+      },
+      "loss": 0.34630292654037476,
+      "optimizer_entered": true,
+      "rows": [
+        4,
+        20,
+        26,
+        9,
+        36,
+        17,
+        35,
+        34
+      ],
+      "step": 38
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 446542,
+      "epoch": 7,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.03484697267413139,
+        "0.0.feature_thresholds": 0.01333300955593586,
+        "0.0.log_temperatures": 0.06203487887978554,
+        "0.0.response": 0.05477876216173172
+      },
+      "loss": 1.0408695936203003,
+      "optimizer_entered": true,
+      "rows": [
+        22,
+        5,
+        32,
+        21,
+        25,
+        29,
+        16,
+        8
+      ],
+      "step": 39
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 400333,
+      "epoch": 7,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.08891073614358902,
+        "0.0.feature_thresholds": 0.05518823117017746,
+        "0.0.log_temperatures": 0.06039239093661308,
+        "0.0.response": 0.16309687495231628
+      },
+      "loss": 0.9517458081245422,
+      "optimizer_entered": true,
+      "rows": [
+        6,
+        2,
+        0,
+        23,
+        30
+      ],
+      "step": 40
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 397708,
+      "epoch": 8,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.03208283707499504,
+        "0.0.feature_thresholds": 0.033499184995889664,
+        "0.0.log_temperatures": 0.04778812825679779,
+        "0.0.response": 0.09702024608850479
+      },
+      "loss": 0.8422806262969971,
+      "optimizer_entered": true,
+      "rows": [
+        1,
+        27,
+        36,
+        14,
+        29,
+        20,
+        21,
+        5
+      ],
+      "step": 41
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 406833,
+      "epoch": 8,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.037420567125082016,
+        "0.0.feature_thresholds": 0.0105713726952672,
+        "0.0.log_temperatures": 0.025886638090014458,
+        "0.0.response": 0.03327314928174019
+      },
+      "loss": 0.6178956031799316,
+      "optimizer_entered": true,
+      "rows": [
+        32,
+        0,
+        30,
+        22,
+        33,
+        35,
+        17,
+        26
+      ],
+      "step": 42
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 398709,
+      "epoch": 8,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.07700912654399872,
+        "0.0.feature_thresholds": 0.045976974070072174,
+        "0.0.log_temperatures": 0.11946255713701248,
+        "0.0.response": 0.15224303305149078
+      },
+      "loss": 1.6651816368103027,
+      "optimizer_entered": true,
+      "rows": [
+        12,
+        31,
+        15,
+        24,
+        7,
+        16,
+        6,
+        25
+      ],
+      "step": 43
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 403125,
+      "epoch": 8,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.02403591200709343,
+        "0.0.feature_thresholds": 0.034943580627441406,
+        "0.0.log_temperatures": 0.03301704674959183,
+        "0.0.response": 0.09936238825321198
+      },
+      "loss": 0.49759167432785034,
+      "optimizer_entered": true,
+      "rows": [
+        8,
+        19,
+        10,
+        34,
+        2,
+        9,
+        11,
+        4
+      ],
+      "step": 44
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 409750,
+      "epoch": 8,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.05542164295911789,
+        "0.0.feature_thresholds": 0.021393319591879845,
+        "0.0.log_temperatures": 0.08962443470954895,
+        "0.0.response": 0.08628565818071365
+      },
+      "loss": 0.9803757667541504,
+      "optimizer_entered": true,
+      "rows": [
+        28,
+        18,
+        23,
+        3,
+        13
+      ],
+      "step": 45
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 424541,
+      "epoch": 9,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.009664023295044899,
+        "0.0.feature_thresholds": 0.00648463424295187,
+        "0.0.log_temperatures": 0.032848257571458817,
+        "0.0.response": 0.027494236826896667
+      },
+      "loss": 0.4032672941684723,
+      "optimizer_entered": true,
+      "rows": [
+        19,
+        6,
+        3,
+        34,
+        20,
+        12,
+        32,
+        13
+      ],
+      "step": 46
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 420042,
+      "epoch": 9,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.07858755439519882,
+        "0.0.feature_thresholds": 0.055126432329416275,
+        "0.0.log_temperatures": 0.054313965141773224,
+        "0.0.response": 0.15963326394557953
+      },
+      "loss": 0.9331291317939758,
+      "optimizer_entered": true,
+      "rows": [
+        18,
+        21,
+        0,
+        36,
+        8,
+        17,
+        23,
+        30
+      ],
+      "step": 47
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 399625,
+      "epoch": 9,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.061786334961652756,
+        "0.0.feature_thresholds": 0.05923118814826012,
+        "0.0.log_temperatures": 0.09790603071451187,
+        "0.0.response": 0.1789741963148117
+      },
+      "loss": 1.1415388584136963,
+      "optimizer_entered": true,
+      "rows": [
+        35,
+        26,
+        31,
+        28,
+        11,
+        14,
+        25,
+        15
+      ],
+      "step": 48
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 416375,
+      "epoch": 9,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.03449983149766922,
+        "0.0.feature_thresholds": 0.038678109645843506,
+        "0.0.log_temperatures": 0.08091837167739868,
+        "0.0.response": 0.11916953325271606
+      },
+      "loss": 1.3211725950241089,
+      "optimizer_entered": true,
+      "rows": [
+        4,
+        29,
+        22,
+        33,
+        5,
+        16,
+        27,
+        10
+      ],
+      "step": 49
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 383458,
+      "epoch": 9,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.03421035781502724,
+        "0.0.feature_thresholds": 0.009289275854825974,
+        "0.0.log_temperatures": 0.04289628937840462,
+        "0.0.response": 0.035937659442424774
+      },
+      "loss": 0.6749659776687622,
+      "optimizer_entered": true,
+      "rows": [
+        7,
+        2,
+        24,
+        1,
+        9
+      ],
+      "step": 50
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 389125,
+      "epoch": 10,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.10052908211946487,
+        "0.0.feature_thresholds": 0.03040993958711624,
+        "0.0.log_temperatures": 0.11470405012369156,
+        "0.0.response": 0.11539725214242935
+      },
+      "loss": 1.9367616176605225,
+      "optimizer_entered": true,
+      "rows": [
+        16,
+        32,
+        3,
+        31,
+        8,
+        30,
+        5,
+        21
+      ],
+      "step": 51
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 393208,
+      "epoch": 10,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.044219281524419785,
+        "0.0.feature_thresholds": 0.028026040643453598,
+        "0.0.log_temperatures": 0.05731465294957161,
+        "0.0.response": 0.08967258036136627
+      },
+      "loss": 0.6568295359611511,
+      "optimizer_entered": true,
+      "rows": [
+        17,
+        9,
+        10,
+        23,
+        28,
+        22,
+        7,
+        34
+      ],
+      "step": 52
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 395708,
+      "epoch": 10,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.018221527338027954,
+        "0.0.feature_thresholds": 0.023097969591617584,
+        "0.0.log_temperatures": 0.039404187351465225,
+        "0.0.response": 0.06829115748405457
+      },
+      "loss": 0.4329620897769928,
+      "optimizer_entered": true,
+      "rows": [
+        1,
+        25,
+        20,
+        24,
+        11,
+        14,
+        26,
+        29
+      ],
+      "step": 53
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 391209,
+      "epoch": 10,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.038213636726140976,
+        "0.0.feature_thresholds": 0.024677757173776627,
+        "0.0.log_temperatures": 0.05078776180744171,
+        "0.0.response": 0.07385147362947464
+      },
+      "loss": 1.0177979469299316,
+      "optimizer_entered": true,
+      "rows": [
+        13,
+        2,
+        35,
+        27,
+        12,
+        6,
+        36,
+        18
+      ],
+      "step": 54
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 395125,
+      "epoch": 10,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.009971559047698975,
+        "0.0.feature_thresholds": 0.0073243421502411366,
+        "0.0.log_temperatures": 0.016827384009957314,
+        "0.0.response": 0.02227739617228508
+      },
+      "loss": 0.26101717352867126,
+      "optimizer_entered": true,
+      "rows": [
+        4,
+        19,
+        15,
+        0,
+        33
+      ],
+      "step": 55
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 390333,
+      "epoch": 11,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.017994895577430725,
+        "0.0.feature_thresholds": 0.025988144800066948,
+        "0.0.log_temperatures": 0.03609353303909302,
+        "0.0.response": 0.07498171925544739
+      },
+      "loss": 0.4948641061782837,
+      "optimizer_entered": true,
+      "rows": [
+        11,
+        34,
+        8,
+        19,
+        33,
+        22,
+        6,
+        26
+      ],
+      "step": 56
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 393167,
+      "epoch": 11,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.05056317150592804,
+        "0.0.feature_thresholds": 0.00624449085444212,
+        "0.0.log_temperatures": 0.03941616788506508,
+        "0.0.response": 0.03139398619532585
+      },
+      "loss": 0.5801333785057068,
+      "optimizer_entered": true,
+      "rows": [
+        29,
+        15,
+        1,
+        0,
+        13,
+        23,
+        25,
+        2
+      ],
+      "step": 57
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 386917,
+      "epoch": 11,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.09509541094303131,
+        "0.0.feature_thresholds": 0.04022464156150818,
+        "0.0.log_temperatures": 0.09500014036893845,
+        "0.0.response": 0.12910065054893494
+      },
+      "loss": 1.706038475036621,
+      "optimizer_entered": true,
+      "rows": [
+        36,
+        27,
+        30,
+        32,
+        31,
+        4,
+        12,
+        3
+      ],
+      "step": 58
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 389875,
+      "epoch": 11,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.024762943387031555,
+        "0.0.feature_thresholds": 0.02399907261133194,
+        "0.0.log_temperatures": 0.07381869107484818,
+        "0.0.response": 0.08101004362106323
+      },
+      "loss": 0.9638139009475708,
+      "optimizer_entered": true,
+      "rows": [
+        14,
+        5,
+        21,
+        16,
+        7,
+        20,
+        24,
+        17
+      ],
+      "step": 59
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 431125,
+      "epoch": 11,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.029770534485578537,
+        "0.0.feature_thresholds": 0.012756818905472755,
+        "0.0.log_temperatures": 0.04460363835096359,
+        "0.0.response": 0.04366511106491089
+      },
+      "loss": 0.7139002084732056,
+      "optimizer_entered": true,
+      "rows": [
+        28,
+        10,
+        9,
+        35,
+        18
+      ],
+      "step": 60
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 414166,
+      "epoch": 12,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.048603083938360214,
+        "0.0.feature_thresholds": 0.025308892130851746,
+        "0.0.log_temperatures": 0.03552081808447838,
+        "0.0.response": 0.0732400193810463
+      },
+      "loss": 0.9363173842430115,
+      "optimizer_entered": true,
+      "rows": [
+        9,
+        27,
+        15,
+        25,
+        0,
+        36,
+        8,
+        17
+      ],
+      "step": 61
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 395000,
+      "epoch": 12,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.08193586021661758,
+        "0.0.feature_thresholds": 0.05239592120051384,
+        "0.0.log_temperatures": 0.09574562311172485,
+        "0.0.response": 0.15674379467964172
+      },
+      "loss": 1.330267071723938,
+      "optimizer_entered": true,
+      "rows": [
+        20,
+        35,
+        31,
+        1,
+        4,
+        34,
+        24,
+        7
+      ],
+      "step": 62
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 409750,
+      "epoch": 12,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.018618222326040268,
+        "0.0.feature_thresholds": 0.02919129841029644,
+        "0.0.log_temperatures": 0.08121978491544724,
+        "0.0.response": 0.09575410932302475
+      },
+      "loss": 0.9945937395095825,
+      "optimizer_entered": true,
+      "rows": [
+        33,
+        2,
+        19,
+        16,
+        26,
+        29,
+        3,
+        6
+      ],
+      "step": 63
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 472959,
+      "epoch": 12,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.028682446107268333,
+        "0.0.feature_thresholds": 0.033170636743307114,
+        "0.0.log_temperatures": 0.05429965630173683,
+        "0.0.response": 0.10002794116735458
+      },
+      "loss": 0.4868949055671692,
+      "optimizer_entered": true,
+      "rows": [
+        14,
+        22,
+        12,
+        18,
+        13,
+        23,
+        21,
+        5
+      ],
+      "step": 64
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 468625,
+      "epoch": 12,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.04780737683176994,
+        "0.0.feature_thresholds": 0.05047696828842163,
+        "0.0.log_temperatures": 0.04255139082670212,
+        "0.0.response": 0.13974104821681976
+      },
+      "loss": 0.6884571313858032,
+      "optimizer_entered": true,
+      "rows": [
+        28,
+        10,
+        11,
+        30,
+        32
+      ],
+      "step": 65
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 423459,
+      "epoch": 13,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.06173481419682503,
+        "0.0.feature_thresholds": 0.012772084213793278,
+        "0.0.log_temperatures": 0.06764011085033417,
+        "0.0.response": 0.0556572750210762
+      },
+      "loss": 1.0120949745178223,
+      "optimizer_entered": true,
+      "rows": [
+        36,
+        0,
+        22,
+        4,
+        8,
+        31,
+        12,
+        19
+      ],
+      "step": 66
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 415209,
+      "epoch": 13,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.08018667250871658,
+        "0.0.feature_thresholds": 0.013183754868805408,
+        "0.0.log_temperatures": 0.05618300288915634,
+        "0.0.response": 0.052857063710689545
+      },
+      "loss": 1.0758699178695679,
+      "optimizer_entered": true,
+      "rows": [
+        10,
+        32,
+        15,
+        14,
+        3,
+        35,
+        23,
+        30
+      ],
+      "step": 67
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 411375,
+      "epoch": 13,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.015345057472586632,
+        "0.0.feature_thresholds": 0.052084945142269135,
+        "0.0.log_temperatures": 0.06558623164892197,
+        "0.0.response": 0.14880414307117462
+      },
+      "loss": 0.6789000034332275,
+      "optimizer_entered": true,
+      "rows": [
+        2,
+        16,
+        28,
+        26,
+        24,
+        17,
+        21,
+        9
+      ],
+      "step": 68
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 409500,
+      "epoch": 13,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.012144136242568493,
+        "0.0.feature_thresholds": 0.016082515940070152,
+        "0.0.log_temperatures": 0.037367790937423706,
+        "0.0.response": 0.04989272728562355
+      },
+      "loss": 0.42501604557037354,
+      "optimizer_entered": true,
+      "rows": [
+        5,
+        33,
+        20,
+        13,
+        11,
+        29,
+        18,
+        25
+      ],
+      "step": 69
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 400208,
+      "epoch": 13,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.06075750291347504,
+        "0.0.feature_thresholds": 0.031320445239543915,
+        "0.0.log_temperatures": 0.08258956670761108,
+        "0.0.response": 0.09735792875289917
+      },
+      "loss": 1.5526784658432007,
+      "optimizer_entered": true,
+      "rows": [
+        6,
+        34,
+        27,
+        1,
+        7
+      ],
+      "step": 70
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 401125,
+      "epoch": 14,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.02238149382174015,
+        "0.0.feature_thresholds": 0.008221848867833614,
+        "0.0.log_temperatures": 0.05013405904173851,
+        "0.0.response": 0.03808072209358215
+      },
+      "loss": 0.8379039168357849,
+      "optimizer_entered": true,
+      "rows": [
+        11,
+        5,
+        6,
+        17,
+        27,
+        18,
+        13,
+        20
+      ],
+      "step": 71
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 417625,
+      "epoch": 14,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.09367521852254868,
+        "0.0.feature_thresholds": 0.02932639792561531,
+        "0.0.log_temperatures": 0.15118761360645294,
+        "0.0.response": 0.12726813554763794
+      },
+      "loss": 1.8816478252410889,
+      "optimizer_entered": true,
+      "rows": [
+        4,
+        32,
+        31,
+        23,
+        16,
+        25,
+        7,
+        12
+      ],
+      "step": 72
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 430708,
+      "epoch": 14,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.01749023236334324,
+        "0.0.feature_thresholds": 0.027955936267971992,
+        "0.0.log_temperatures": 0.04146905243396759,
+        "0.0.response": 0.07968327403068542
+      },
+      "loss": 0.47333720326423645,
+      "optimizer_entered": true,
+      "rows": [
+        3,
+        26,
+        19,
+        15,
+        21,
+        33,
+        36,
+        1
+      ],
+      "step": 73
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 403375,
+      "epoch": 14,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.03441973403096199,
+        "0.0.feature_thresholds": 0.013431685976684093,
+        "0.0.log_temperatures": 0.012869622558355331,
+        "0.0.response": 0.03660759702324867
+      },
+      "loss": 0.3813243508338928,
+      "optimizer_entered": true,
+      "rows": [
+        29,
+        28,
+        0,
+        2,
+        14,
+        9,
+        34,
+        30
+      ],
+      "step": 74
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 405042,
+      "epoch": 14,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.06218171864748001,
+        "0.0.feature_thresholds": 0.007388069294393063,
+        "0.0.log_temperatures": 0.03127717226743698,
+        "0.0.response": 0.028080018237233162
+      },
+      "loss": 0.9174678921699524,
+      "optimizer_entered": true,
+      "rows": [
+        10,
+        35,
+        8,
+        22,
+        24
+      ],
+      "step": 75
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 394084,
+      "epoch": 15,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.05381602793931961,
+        "0.0.feature_thresholds": 0.015300656668841839,
+        "0.0.log_temperatures": 0.043574780225753784,
+        "0.0.response": 0.05101180076599121
+      },
+      "loss": 0.8912631273269653,
+      "optimizer_entered": true,
+      "rows": [
+        20,
+        29,
+        13,
+        35,
+        8,
+        4,
+        28,
+        7
+      ],
+      "step": 76
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 392459,
+      "epoch": 15,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.06276306509971619,
+        "0.0.feature_thresholds": 0.03848186880350113,
+        "0.0.log_temperatures": 0.04123972728848457,
+        "0.0.response": 0.11048206686973572
+      },
+      "loss": 0.637347936630249,
+      "optimizer_entered": true,
+      "rows": [
+        9,
+        32,
+        23,
+        6,
+        30,
+        21,
+        12,
+        34
+      ],
+      "step": 77
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 397834,
+      "epoch": 15,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.01643749512732029,
+        "0.0.feature_thresholds": 0.020113034173846245,
+        "0.0.log_temperatures": 0.028150273486971855,
+        "0.0.response": 0.057115647941827774
+      },
+      "loss": 0.36568108201026917,
+      "optimizer_entered": true,
+      "rows": [
+        33,
+        3,
+        10,
+        15,
+        17,
+        0,
+        1,
+        5
+      ],
+      "step": 78
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 432625,
+      "epoch": 15,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.037933290004730225,
+        "0.0.feature_thresholds": 0.015188773162662983,
+        "0.0.log_temperatures": 0.09330061823129654,
+        "0.0.response": 0.07356239855289459
+      },
+      "loss": 0.9570415019989014,
+      "optimizer_entered": true,
+      "rows": [
+        14,
+        22,
+        19,
+        11,
+        31,
+        2,
+        26,
+        18
+      ],
+      "step": 79
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 388708,
+      "epoch": 15,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.06097264587879181,
+        "0.0.feature_thresholds": 0.10638371109962463,
+        "0.0.log_temperatures": 0.14183823764324188,
+        "0.0.response": 0.30213773250579834
+      },
+      "loss": 2.047959327697754,
+      "optimizer_entered": true,
+      "rows": [
+        36,
+        16,
+        24,
+        25,
+        27
+      ],
+      "step": 80
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 396500,
+      "epoch": 16,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.07682384550571442,
+        "0.0.feature_thresholds": 0.016030285507440567,
+        "0.0.log_temperatures": 0.08727731555700302,
+        "0.0.response": 0.07256483286619186
+      },
+      "loss": 1.0608375072479248,
+      "optimizer_entered": true,
+      "rows": [
+        22,
+        31,
+        17,
+        33,
+        23,
+        34,
+        19,
+        15
+      ],
+      "step": 81
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 389792,
+      "epoch": 16,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.03316508233547211,
+        "0.0.feature_thresholds": 0.026432914659380913,
+        "0.0.log_temperatures": 0.04299275204539299,
+        "0.0.response": 0.07605394721031189
+      },
+      "loss": 0.8301944732666016,
+      "optimizer_entered": true,
+      "rows": [
+        3,
+        13,
+        9,
+        27,
+        36,
+        0,
+        29,
+        6
+      ],
+      "step": 82
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 386625,
+      "epoch": 16,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.042786434292793274,
+        "0.0.feature_thresholds": 0.02641020156443119,
+        "0.0.log_temperatures": 0.061745937913656235,
+        "0.0.response": 0.08349857479333878
+      },
+      "loss": 1.0078465938568115,
+      "optimizer_entered": true,
+      "rows": [
+        14,
+        30,
+        1,
+        16,
+        2,
+        21,
+        12,
+        26
+      ],
+      "step": 83
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 386916,
+      "epoch": 16,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.044895440340042114,
+        "0.0.feature_thresholds": 0.028155820444226265,
+        "0.0.log_temperatures": 0.05545886233448982,
+        "0.0.response": 0.08490969985723495
+      },
+      "loss": 0.9100642800331116,
+      "optimizer_entered": true,
+      "rows": [
+        35,
+        7,
+        4,
+        20,
+        8,
+        32,
+        5,
+        11
+      ],
+      "step": 84
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 388292,
+      "epoch": 16,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.015293789096176624,
+        "0.0.feature_thresholds": 0.009928039275109768,
+        "0.0.log_temperatures": 0.04507225379347801,
+        "0.0.response": 0.03813993185758591
+      },
+      "loss": 0.49300527572631836,
+      "optimizer_entered": true,
+      "rows": [
+        10,
+        24,
+        28,
+        18,
+        25
+      ],
+      "step": 85
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 388500,
+      "epoch": 17,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.032916150987148285,
+        "0.0.feature_thresholds": 0.017559761181473732,
+        "0.0.log_temperatures": 0.06475070118904114,
+        "0.0.response": 0.06300940364599228
+      },
+      "loss": 1.0546013116836548,
+      "optimizer_entered": true,
+      "rows": [
+        18,
+        7,
+        27,
+        4,
+        0,
+        5,
+        29,
+        14
+      ],
+      "step": 86
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 397167,
+      "epoch": 17,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.04658965766429901,
+        "0.0.feature_thresholds": 0.022411083802580833,
+        "0.0.log_temperatures": 0.0918811708688736,
+        "0.0.response": 0.0838344395160675
+      },
+      "loss": 1.067006230354309,
+      "optimizer_entered": true,
+      "rows": [
+        25,
+        26,
+        10,
+        9,
+        12,
+        16,
+        23,
+        20
+      ],
+      "step": 87
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 404417,
+      "epoch": 17,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.07363839447498322,
+        "0.0.feature_thresholds": 0.01734294556081295,
+        "0.0.log_temperatures": 0.07278871536254883,
+        "0.0.response": 0.06502941250801086
+      },
+      "loss": 1.1223653554916382,
+      "optimizer_entered": true,
+      "rows": [
+        30,
+        11,
+        2,
+        6,
+        21,
+        19,
+        31,
+        13
+      ],
+      "step": 88
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 404625,
+      "epoch": 17,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.0501503124833107,
+        "0.0.feature_thresholds": 0.03843260556459427,
+        "0.0.log_temperatures": 0.0470755361020565,
+        "0.0.response": 0.10593616962432861
+      },
+      "loss": 0.8153598308563232,
+      "optimizer_entered": true,
+      "rows": [
+        24,
+        28,
+        35,
+        36,
+        8,
+        3,
+        1,
+        17
+      ],
+      "step": 89
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 392625,
+      "epoch": 17,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.009606321342289448,
+        "0.0.feature_thresholds": 0.012210413813591003,
+        "0.0.log_temperatures": 0.009099433198571205,
+        "0.0.response": 0.0342235267162323
+      },
+      "loss": 0.06747999787330627,
+      "optimizer_entered": true,
+      "rows": [
+        34,
+        22,
+        33,
+        15,
+        32
+      ],
+      "step": 90
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 388917,
+      "epoch": 18,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.053556300699710846,
+        "0.0.feature_thresholds": 0.027790825814008713,
+        "0.0.log_temperatures": 0.05610527843236923,
+        "0.0.response": 0.08193637430667877
+      },
+      "loss": 1.1651241779327393,
+      "optimizer_entered": true,
+      "rows": [
+        27,
+        12,
+        34,
+        8,
+        5,
+        26,
+        35,
+        33
+      ],
+      "step": 91
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 391875,
+      "epoch": 18,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.0010237428359687328,
+        "0.0.feature_thresholds": 0.012161127291619778,
+        "0.0.log_temperatures": 0.020617829635739326,
+        "0.0.response": 0.03557845205068588
+      },
+      "loss": 0.18274720013141632,
+      "optimizer_entered": true,
+      "rows": [
+        19,
+        9,
+        0,
+        32,
+        36,
+        21,
+        22,
+        6
+      ],
+      "step": 92
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 397666,
+      "epoch": 18,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.08024505525827408,
+        "0.0.feature_thresholds": 0.0325259193778038,
+        "0.0.log_temperatures": 0.10759260505437851,
+        "0.0.response": 0.11265935748815536
+      },
+      "loss": 1.1907448768615723,
+      "optimizer_entered": true,
+      "rows": [
+        31,
+        3,
+        2,
+        11,
+        20,
+        24,
+        14,
+        23
+      ],
+      "step": 93
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 386542,
+      "epoch": 18,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.028100239112973213,
+        "0.0.feature_thresholds": 0.00997196789830923,
+        "0.0.log_temperatures": 0.045463014394044876,
+        "0.0.response": 0.03955494239926338
+      },
+      "loss": 0.6041852235794067,
+      "optimizer_entered": true,
+      "rows": [
+        25,
+        4,
+        28,
+        10,
+        29,
+        13,
+        7,
+        1
+      ],
+      "step": 94
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 378875,
+      "epoch": 18,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.07228594273328781,
+        "0.0.feature_thresholds": 0.011344230733811855,
+        "0.0.log_temperatures": 0.07137272506952286,
+        "0.0.response": 0.05490657314658165
+      },
+      "loss": 1.5086371898651123,
+      "optimizer_entered": true,
+      "rows": [
+        18,
+        16,
+        15,
+        17,
+        30
+      ],
+      "step": 95
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 400208,
+      "epoch": 19,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.05279874801635742,
+        "0.0.feature_thresholds": 0.009242774918675423,
+        "0.0.log_temperatures": 0.0501522496342659,
+        "0.0.response": 0.04069055616855621
+      },
+      "loss": 0.9272103309631348,
+      "optimizer_entered": true,
+      "rows": [
+        2,
+        28,
+        7,
+        1,
+        0,
+        35,
+        10,
+        8
+      ],
+      "step": 96
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 402875,
+      "epoch": 19,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.059151966124773026,
+        "0.0.feature_thresholds": 0.014105531387031078,
+        "0.0.log_temperatures": 0.03269732743501663,
+        "0.0.response": 0.0433008037507534
+      },
+      "loss": 0.9777523279190063,
+      "optimizer_entered": true,
+      "rows": [
+        15,
+        12,
+        5,
+        33,
+        30,
+        27,
+        21,
+        20
+      ],
+      "step": 97
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 457333,
+      "epoch": 19,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.04611540958285332,
+        "0.0.feature_thresholds": 0.012429574504494667,
+        "0.0.log_temperatures": 0.07474591583013535,
+        "0.0.response": 0.05980703979730606
+      },
+      "loss": 0.846576988697052,
+      "optimizer_entered": true,
+      "rows": [
+        13,
+        24,
+        14,
+        36,
+        19,
+        11,
+        6,
+        31
+      ],
+      "step": 98
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 417500,
+      "epoch": 19,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.03734063729643822,
+        "0.0.feature_thresholds": 0.009177972562611103,
+        "0.0.log_temperatures": 0.05381125584244728,
+        "0.0.response": 0.043701816350221634
+      },
+      "loss": 0.5566393136978149,
+      "optimizer_entered": true,
+      "rows": [
+        3,
+        26,
+        9,
+        32,
+        23,
+        22,
+        29,
+        17
+      ],
+      "step": 99
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 411334,
+      "epoch": 19,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.024279970675706863,
+        "0.0.feature_thresholds": 0.04656924679875374,
+        "0.0.log_temperatures": 0.10171747952699661,
+        "0.0.response": 0.14139686524868011
+      },
+      "loss": 1.2189794778823853,
+      "optimizer_entered": true,
+      "rows": [
+        25,
+        4,
+        34,
+        16,
+        18
+      ],
+      "step": 100
+    },
+    {
+      "applied": true,
+      "elapsed_ns": 423209,
+      "epoch": 20,
+      "gradient_norms": {
+        "0.0.feature_selection_logits": 0.037105992436409,
+        "0.0.feature_thresholds": 0.035068806260824203,
+        "0.0.log_temperatures": 0.10483495146036148,
+        "0.0.response": 0.1152714192867279
+      },
+      "loss": 1.4750041961669922,
+      "optimizer_entered": true,
+      "rows": [
+        26,
+        6,
+        27,
+        2,
+        10,
+        14,
+        7,
+        16
+      ],
+      "step": 101
+    }
+  ]
+}

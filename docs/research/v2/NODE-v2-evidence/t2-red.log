@@ -1,0 +1,73 @@
+FFFFFF                                                                   [100%]
+=================================== FAILURES ===================================
+______ test_direct_official_init_training_rolling_selection_and_full_rows ______
+
+tmp_path = PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-003-t2-red/test_direct_official_init_trai0')
+native_policy = <module 'torch' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/__init__.py'>
+
+    def test_direct_official_init_training_rolling_selection_and_full_rows(tmp_path,native_policy):
+>       from treeneuron.research.node_v2 import NodeV2Predictor,NodeV2Config
+E       ImportError: cannot import name 'NodeV2Predictor' from 'treeneuron.research.node_v2' (/Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/src/treeneuron/research/node_v2.py)
+
+tests/test_node_v2.py:118: ImportError
+____________ test_actual_native_100_report_has_no_added_cap_report _____________
+
+tmp_path = PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-003-t2-red/test_actual_native_100_report_0')
+native_policy = <module 'torch' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/__init__.py'>
+
+    def test_actual_native_100_report_has_no_added_cap_report(tmp_path,native_policy):
+>       from treeneuron.research.node_v2 import NodeV2Predictor
+E       ImportError: cannot import name 'NodeV2Predictor' from 'treeneuron.research.node_v2' (/Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/src/treeneuron/research/node_v2.py)
+
+tests/test_node_v2.py:141: ImportError
+___ test_short_cap_is_raw_unselected_and_native_patience_boundary_is_strict ____
+
+tmp_path = PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-003-t2-red/test_short_cap_is_raw_unselect0')
+native_policy = <module 'torch' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/__init__.py'>
+
+    def test_short_cap_is_raw_unselected_and_native_patience_boundary_is_strict(tmp_path,native_policy):
+>       from treeneuron.research.node_v2 import NodeV2Predictor,_patience_reached
+E       ImportError: cannot import name 'NodeV2Predictor' from 'treeneuron.research.node_v2' (/Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/src/treeneuron/research/node_v2.py)
+
+tests/test_node_v2.py:150: ImportError
+_ test_G_changes_do_not_fit_transform_or_initialize_and_caller_rng_is_restored _
+
+tmp_path = PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-003-t2-red/test_G_changes_do_not_fit_tran0')
+native_policy = <module 'torch' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/__init__.py'>
+
+    def test_G_changes_do_not_fit_transform_or_initialize_and_caller_rng_is_restored(tmp_path,native_policy):
+>       from treeneuron.research.node_v2 import NodeV2Predictor
+E       ImportError: cannot import name 'NodeV2Predictor' from 'treeneuron.research.node_v2' (/Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/src/treeneuron/research/node_v2.py)
+
+tests/test_node_v2.py:159: ImportError
+_ test_failed_partial_fit_preserves_previous_model_and_original_error_receipt __
+
+tmp_path = PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-003-t2-red/test_failed_partial_fit_preser0')
+native_policy = <module 'torch' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/__init__.py'>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10e1fc500>
+
+    def test_failed_partial_fit_preserves_previous_model_and_original_error_receipt(tmp_path,native_policy,monkeypatch):
+        from treeneuron.research import node_v2
+>       model=node_v2.NodeV2Predictor().fit(request(tmp_path/'first',2));before=model.predict(np.array([[1.,2.]]))
+              ^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'treeneuron.research.node_v2' has no attribute 'NodeV2Predictor'
+
+tests/test_node_v2.py:177: AttributeError
+___________ test_fixture_update_cap_cannot_silently_run_full_anchor ____________
+
+tmp_path = PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-003-t2-red/test_fixture_update_cap_cannot0')
+native_policy = <module 'torch' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/__init__.py'>
+
+    def test_fixture_update_cap_cannot_silently_run_full_anchor(tmp_path,native_policy):
+>       from treeneuron.research.node_v2 import NodeV2Predictor
+E       ImportError: cannot import name 'NodeV2Predictor' from 'treeneuron.research.node_v2' (/Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/src/treeneuron/research/node_v2.py)
+
+tests/test_node_v2.py:197: ImportError
+=========================== short test summary info ============================
+FAILED tests/test_node_v2.py::test_direct_official_init_training_rolling_selection_and_full_rows
+FAILED tests/test_node_v2.py::test_actual_native_100_report_has_no_added_cap_report
+FAILED tests/test_node_v2.py::test_short_cap_is_raw_unselected_and_native_patience_boundary_is_strict
+FAILED tests/test_node_v2.py::test_G_changes_do_not_fit_transform_or_initialize_and_caller_rng_is_restored
+FAILED tests/test_node_v2.py::test_failed_partial_fit_preserves_previous_model_and_original_error_receipt
+FAILED tests/test_node_v2.py::test_fixture_update_cap_cannot_silently_run_full_anchor
+6 failed, 5 deselected in 0.76s

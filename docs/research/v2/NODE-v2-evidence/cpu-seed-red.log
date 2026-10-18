@@ -1,0 +1,49 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________ test_cpu_node_fit_does_not_touch_other_device_rngs ______________
+
+tmp_path = PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-015-cpu-seed-red/test_cpu_node_fit_does_not_tou0')
+native_policy = <module 'torch' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/__init__.py'>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10979faa0>
+
+    def test_cpu_node_fit_does_not_touch_other_device_rngs(tmp_path,native_policy,monkeypatch):
+        from treeneuron.research.node_v2 import NodeV2Predictor
+        def forbidden(*args,**kwargs):raise AssertionError('CPU NODE touched an off-device RNG')
+        for module,name in ((native_policy.cuda,'manual_seed_all'),(native_policy.mps,'manual_seed'),
+                (native_policy.xpu,'manual_seed_all'),(native_policy.mtia,'manual_seed_all')):
+            monkeypatch.setattr(module,name,forbidden)
+>       model=NodeV2Predictor().fit(request(tmp_path/'fit',2))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_node_v2.py:435: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/research/node_v2.py:391: in fit
+    runtime=_runtime();np.random.seed(seed);random.seed(seed);torch.manual_seed(seed)
+                                                              ^^^^^^^^^^^^^^^^^^^^^^^
+../../../../Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/random.py:59: in manual_seed
+    return _manual_seed_impl(seed)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+../../../../Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/random.py:67: in _manual_seed_impl
+    torch.cuda.manual_seed_all(seed)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (1337,), kwargs = {}
+
+>   def forbidden(*args,**kwargs):raise AssertionError('CPU NODE touched an off-device RNG')
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AssertionError: CPU NODE touched an off-device RNG
+
+tests/test_node_v2.py:431: AssertionError
+=============================== warnings summary ===============================
+tests/test_node_v2.py::test_cpu_node_fit_does_not_touch_other_device_rngs
+  /Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/src/treeneuron/baselines/_node_vendor/odst.py:38: SyntaxWarning: invalid escape sequence '\i'
+    :param threshold_init_cutoff: threshold log-temperatures initializer, \in (0, inf)
+
+tests/test_node_v2.py::test_cpu_node_fit_does_not_touch_other_device_rngs
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_node_v2.py::test_cpu_node_fit_does_not_touch_other_device_rngs
+1 failed, 42 deselected, 2 warnings in 3.23s

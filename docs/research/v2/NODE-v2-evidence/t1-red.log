@@ -1,0 +1,63 @@
+FFFFF                                                                    [100%]
+=================================== FAILURES ===================================
+_________ test_native_search_and_fixture_are_disjoint_recipe_policies __________
+
+    def test_native_search_and_fixture_are_disjoint_recipe_policies():
+>       from treeneuron.research.node_v2 import NodeV2Config
+E       ModuleNotFoundError: No module named 'treeneuron.research.node_v2'
+
+tests/test_node_v2.py:23: ModuleNotFoundError
+_______________ test_unknown_or_coercive_config_and_schema_fail ________________
+
+    def test_unknown_or_coercive_config_and_schema_fail():
+>       from treeneuron.research.node_v2 import NodeV2Config
+E       ModuleNotFoundError: No module named 'treeneuron.research.node_v2'
+
+tests/test_node_v2.py:37: ModuleNotFoundError
+_____ test_module_and_identity_helpers_do_not_import_torch_or_legacy_train _____
+
+tmp_path = PosixPath('/private/tmp/atn-node-v2-evidence-20261018/run-001-red/test_module_and_identity_helpe0')
+
+    def test_module_and_identity_helpers_do_not_import_torch_or_legacy_train(tmp_path):
+        script="""
+    import importlib.abc,sys
+    class Block(importlib.abc.MetaPathFinder):
+     def find_spec(self,name,path=None,target=None):
+      if name.split('.')[0] in {'torch','node','sklearn','qhoptim'} or name=='treeneuron.train':raise AssertionError(name)
+    sys.meta_path.insert(0,Block())
+    from treeneuron.research.node_v2 import NodeV2Config,source_identity
+    NodeV2Config.parse({'schema':'research/v2-node-config','family':'P12','mode':'native_anchor','feature_schema':{'columns':['x'],'categorical':[]},'parameters':{}})
+    assert source_identity()['package_sha256']
+    assert not any(x in sys.modules for x in ('torch','treeneuron.train','treeneuron.baselines.node'))
+    """
+        run=subprocess.run([sys.executable,'-c',script],capture_output=True,text=True)
+>       assert run.returncode==0,run.stdout+run.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "<string>", line 7, in <module>
+E         ModuleNotFoundError: No module named 'treeneuron.research.node_v2'
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python', '...ast):\n  File "<string>", line 7, in <module>\nModuleNotFoundError: No module named \'treeneuron.research.node_v2\'\n').returncode
+
+tests/test_node_v2.py:60: AssertionError
+_ test_typed_one_hot_unknown_and_missing_columns_precede_all_column_quantiles __
+
+    def test_typed_one_hot_unknown_and_missing_columns_precede_all_column_quantiles():
+>       from treeneuron.research.node_v2 import NodeTransform
+E       ModuleNotFoundError: No module named 'treeneuron.research.node_v2'
+
+tests/test_node_v2.py:64: ModuleNotFoundError
+________ test_constant_target_adaptation_and_query_geometry_are_strict _________
+
+    def test_constant_target_adaptation_and_query_geometry_are_strict():
+>       from treeneuron.research.node_v2 import NodeTransform
+E       ModuleNotFoundError: No module named 'treeneuron.research.node_v2'
+
+tests/test_node_v2.py:92: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_node_v2.py::test_native_search_and_fixture_are_disjoint_recipe_policies
+FAILED tests/test_node_v2.py::test_unknown_or_coercive_config_and_schema_fail
+FAILED tests/test_node_v2.py::test_module_and_identity_helpers_do_not_import_torch_or_legacy_train
+FAILED tests/test_node_v2.py::test_typed_one_hot_unknown_and_missing_columns_precede_all_column_quantiles
+FAILED tests/test_node_v2.py::test_constant_target_adaptation_and_query_geometry_are_strict
+5 failed in 0.24s

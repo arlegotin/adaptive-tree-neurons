@@ -61,7 +61,7 @@ def reference(req,resolved,directory):
     data=Dataset('explicit_inline_fixture',req.seed,quantile_transform=True,quantile_noise=.001,
         X_train=np.asarray(req.X_fit,dtype=np.float32),y_train=np.asarray(req.y_fit,dtype=np.float64),
         X_valid=np.asarray(req.X_select,dtype=np.float32),y_valid=np.asarray(req.y_select,dtype=np.float64),
-        X_test=np.zeros((1,2),dtype=np.float32),y_test=np.zeros(1))
+        X_test=np.zeros((1,np.asarray(req.X_fit).shape[1]),dtype=np.float32),y_test=np.zeros(1))
     mean=float(data.y_train.mean());scale=float(data.y_train.std());scale=scale or 1.
     y=((data.y_train-mean)/scale).astype(np.float32);g=((data.y_valid-mean)/scale).astype(np.float32)
     model=torch.nn.Sequential(arch.DenseBlock(data.X_train.shape[1],resolved['trees'],num_layers=1,tree_dim=3,

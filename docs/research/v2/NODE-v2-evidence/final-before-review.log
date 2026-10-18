@@ -1,0 +1,50 @@
+........................................................................ [ 52%]
+................................................................         [100%]
+=============================== warnings summary ===============================
+tests/test_node_v2.py::test_typed_one_hot_unknown_and_missing_columns_precede_all_column_quantiles
+tests/test_node_v2.py::test_typed_one_hot_unknown_and_missing_columns_precede_all_column_quantiles
+tests/test_node_v2.py::test_mixed_missing_unknown_and_constant_target_native_path_roundtrips
+tests/test_node_v2.py::test_mixed_missing_unknown_and_constant_target_native_path_roundtrips
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/sklearn/preprocessing/_data.py:2912: UserWarning: n_quantiles (1000) is greater than the total number of samples (6). n_quantiles is set to n_samples.
+    warnings.warn(
+
+tests/test_node_v2.py::test_constant_target_adaptation_and_query_geometry_are_strict
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/sklearn/preprocessing/_data.py:2912: UserWarning: n_quantiles (1000) is greater than the total number of samples (3). n_quantiles is set to n_samples.
+    warnings.warn(
+
+tests/test_node_v2.py::test_direct_official_init_training_rolling_selection_and_full_rows
+  /Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/src/treeneuron/baselines/_node_vendor/odst.py:38: SyntaxWarning: invalid escape sequence '\i'
+    :param threshold_init_cutoff: threshold log-temperatures initializer, \in (0, inf)
+
+tests/test_node_v2.py::test_direct_official_init_training_rolling_selection_and_full_rows
+tests/test_node_v2.py::test_direct_official_init_training_rolling_selection_and_full_rows
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+tests/test_node_v2.py: 15 warnings
+  /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/sklearn/preprocessing/_data.py:2912: UserWarning: n_quantiles (1000) is greater than the total number of samples (37). n_quantiles is set to n_samples.
+    warnings.warn(
+
+tests/test_node_v2.py: 14 warnings
+  /Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/src/treeneuron/baselines/_node_vendor/odst.py:113: UserWarning: Data-aware initialization is performed on less than 1000 data points. This may cause instability.To avoid potential problems, run this model on a data batch with at least 1000 data samples.You can do so manually before training. Use with torch.no_grad() for memory efficiency.
+    warn("Data-aware initialization is performed on less than 1000 data points. This may cause instability."
+
+tests/test_node_v2.py::test_direct_official_init_training_rolling_selection_and_full_rows
+  /Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/src/treeneuron/baselines/_node_vendor/qhadam.py:133: UserWarning: This overload of add_ is deprecated:
+  	add_(Number alpha, Tensor other)
+  Consider using one of the following signatures instead:
+  	add_(Tensor other, *, Number alpha = 1) (Triggered internally at /Users/runner/work/pytorch/pytorch/torch/csrc/utils/python_arg_parser.cpp:1841.)
+    exp_avg.mul_(beta1_adj).add_(1.0 - beta1_adj, d_p)
+
+tests/test_node_v2.py::test_direct_official_init_training_rolling_selection_and_full_rows
+  /Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/configs/vendor/node/upstream/lib/odst.py:38: SyntaxWarning: invalid escape sequence '\i'
+    :param threshold_init_cutoff: threshold log-temperatures initializer, \in (0, inf)
+
+tests/test_node_v2.py::test_direct_official_init_training_rolling_selection_and_full_rows
+tests/test_node_v2.py::test_same_seed_short_native_patience_matches_direct_source_and_stops_after_strict_boundary
+tests/test_node_v2.py::test_mixed_missing_unknown_and_constant_target_native_path_roundtrips
+  /Users/artemlegotin/.codex-s/worktrees/0dbd/adaptive-tree-neurons/configs/vendor/node/upstream/lib/odst.py:113: UserWarning: Data-aware initialization is performed on less than 1000 data points. This may cause instability.To avoid potential problems, run this model on a data batch with at least 1000 data samples.You can do so manually before training. Use with torch.no_grad() for memory efficiency.
+    warn("Data-aware initialization is performed on less than 1000 data points. This may cause instability."
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+136 passed, 42 warnings in 149.02s (0:02:29)

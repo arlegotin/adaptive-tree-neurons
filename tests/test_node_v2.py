@@ -123,7 +123,8 @@ def test_direct_official_init_training_rolling_selection_and_full_rows(tmp_path,
     for key,value in model._state['initial_model'].items():torch.testing.assert_close(value,expected['initial'][key],rtol=1e-6,atol=1e-7)
     for key,value in model._model.state_dict().items():torch.testing.assert_close(value,expected['model'].state_dict()[key],rtol=1e-6,atol=1e-7)
     for key,value in model._state['raw_model'].items():torch.testing.assert_close(value,expected['raw'][key],rtol=1e-6,atol=1e-7)
-    np.testing.assert_allclose(model.predict(req.X_select),expected['prediction'],rtol=1e-6,atol=1e-7)
+    np.testing.assert_allclose((model.predict(req.X_select)-req.y_fit.mean())/req.y_fit.std(),
+        (expected['prediction']-req.y_fit.mean())/req.y_fit.std(),rtol=1e-6,atol=1e-7)
     summary=model.resource_summary()
     assert summary['selected_step']==expected['selected_step'] and summary['executed_updates']==12
     assert [r['rows'] for r in model._state['trace']]==expected['trace']
@@ -153,6 +154,11 @@ def test_short_cap_is_raw_unselected_and_native_patience_boundary_is_strict(tmp_
     assert model.resource_summary()['checkpoint_available'] is False
     assert model.resource_summary()['selection_status']=='raw_unselected_at_cap'
     assert not _patience_reached(5100,100,5000) and _patience_reached(5101,100,5000)
+    model.save(tmp_path/'raw-snapshot')
+    loaded=NodeV2Predictor.load(tmp_path/'raw-snapshot',expected_manifest_sha256=trusted(tmp_path/'raw-snapshot'))
+    assert loaded.resource_summary()['selection_status']=='raw_unselected_at_cap'
+    assert loaded.resource_summary()['checkpoint_available'] is False
+    np.testing.assert_array_equal(model.predict(np.array([[1.,2.]])),loaded.predict(np.array([[1.,2.]])))
 
 
 def test_G_changes_do_not_fit_transform_or_initialize_and_caller_rng_is_restored(tmp_path,native_policy):
@@ -197,3 +203,236 @@ def test_fixture_update_cap_cannot_silently_run_full_anchor(tmp_path,native_poli
     from treeneuron.research.node_v2 import NodeV2Predictor
     for cap in (0,True,129):
         with pytest.raises(ValueError):NodeV2Predictor().fit(request(tmp_path/str(cap),cap))
+
+
+@pytest.fixture(scope='module')
+def portable_case(tmp_path_factory,native_policy):
+    from treeneuron.research.node_v2 import NodeV2Predictor
+    root=tmp_path_factory.mktemp('portable-case');req=request(root/'fit',12,config(trees=32,depth=4))
+    return NodeV2Predictor().fit(req),req,root/'pristine'
+
+
+def snapshot(case,path):
+    import shutil
+    model,req,pristine=case
+    if not pristine.exists():model.save(pristine)
+    shutil.copytree(pristine,path)
+    return json.loads((path/'manifest.json').read_text())
+
+
+def trusted(path):return hashlib.sha256((path/'manifest.json').read_bytes()).hexdigest()
+
+
+def tree(node,*keys):
+    for key in keys:
+        if isinstance(key,int) and 'list' in node:node=node['list'][key]
+        else:node=dict(node['mapping'])[key]
+    return node
+
+
+def set_tree(node,key,value):
+    for pair in node['mapping']:
+        if pair[0]==key:pair[1]=value;return
+    raise AssertionError(key)
+
+
+def test_portable_exact_reload_without_quantile_fit_or_data_initialization(tmp_path,portable_case,native_policy,monkeypatch):
+    from treeneuron.research.node_v2 import NodeV2Predictor
+    from sklearn.preprocessing import QuantileTransformer
+    from treeneuron.baselines._node_vendor.odst import ODST
+    model,req,_=portable_case;path=tmp_path/'snapshot';snapshot(portable_case,path)
+    def forbidden(*args,**kwargs):raise AssertionError('load/query must not fit or initialize')
+    monkeypatch.setattr(QuantileTransformer,'fit',forbidden);monkeypatch.setattr(ODST,'initialize',forbidden)
+    import random
+    before=(np.random.get_state(),random.getstate(),native_policy.get_rng_state().clone())
+    loaded=NodeV2Predictor.load(path,expected_manifest_sha256=trusted(path))
+    np.testing.assert_array_equal(loaded.predict(req.X_select),model.predict(req.X_select))
+    assert loaded.predict(req.X_select).dtype==np.float64
+    np.testing.assert_array_equal(before[0][1],np.random.get_state()[1]);assert before[0][2:]==np.random.get_state()[2:]
+    assert before[1]==random.getstate() and native_policy.equal(before[2],native_policy.get_rng_state())
+    assert loaded.resource_summary()==model.resource_summary()
+    with pytest.raises(ValueError):loaded.predict(req.X_select,batch_size=True)
+
+
+def test_external_manifest_hash_is_required_before_any_native_payload(tmp_path,portable_case,monkeypatch):
+    from treeneuron.research import node_v2
+    path=tmp_path/'snapshot';snapshot(portable_case,path)
+    def forbidden(*args,**kwargs):raise AssertionError('NPZ opened before external commitment')
+    monkeypatch.setattr(node_v2.np,'load',forbidden)
+    with pytest.raises(ValueError,match='commitment'):node_v2.NodeV2Predictor.load(path,expected_manifest_sha256='0'*64)
+    with pytest.raises(TypeError):node_v2.NodeV2Predictor.load(path)
+
+
+@pytest.mark.parametrize('change',['unknown','config','runtime','source','quantile_dtype','selected_dtype','initialization',
+    'selected_average','optimizer_dtype','optimizer_negative','optimizer_age','report_missing','report_negative',
+    'selected_step','trace_rows','trace_time','F_identity','extra_array'])
+def test_resealed_structured_endpoint_corruption_is_rejected(tmp_path,portable_case,native_policy,change):
+    from treeneuron.research.node_v2 import NodeV2Predictor
+    path=tmp_path/'snapshot';state=snapshot(portable_case,path)
+    with np.load(path/'arrays.npz',allow_pickle=False) as archive:arrays={k:archive[k].copy() for k in archive.files}
+    payload=state['payload']
+    selected=dict(tree(payload,'selected_model')['mapping'])
+    if change=='unknown':state['extra']=True
+    elif change=='config':state['config']['parameters']['trees']=16
+    elif change=='runtime':state['identity']['runtime']['python']='wrong runtime'
+    elif change=='source':state['identity']['source']['package_sha256']='0'*64
+    elif change=='quantile_dtype':
+        key=tree(payload,'transform','quantiles')['array'];arrays[key]=arrays[key].astype(np.float32)
+    elif change=='selected_dtype':
+        key=selected['0.0.response']['array'];arrays[key]=arrays[key].astype(np.float64)
+    elif change=='initialization':arrays[selected['0.0._is_initialized_tensor']['array']][...]=0
+    elif change=='selected_average':arrays[selected['0.0.response']['array']].flat[0]+=1
+    elif change in ('optimizer_dtype','optimizer_negative','optimizer_age'):
+        slot=tree(payload,'raw_optimizer','state')['mapping'][0][1]
+        if change=='optimizer_age':set_tree(slot,'beta1_weight',123.)
+        else:
+            key=tree(slot,'exp_avg_sq')['array']
+            if change=='optimizer_dtype':arrays[key]=arrays[key].astype(np.float64)
+            else:arrays[key].flat[0]=-1
+    elif change=='report_missing':tree(payload,'reports')['list'].pop()
+    elif change=='report_negative':set_tree(tree(payload,'reports',0),'g_mse',-1.)
+    elif change=='selected_step':set_tree(tree(payload,'summary'),'selected_step',1)
+    elif change=='trace_rows':set_tree(tree(payload,'trace',0),'rows',{'list':[999]})
+    elif change=='trace_time':set_tree(tree(payload,'trace',0),'elapsed_ns',-1)
+    elif change=='F_identity':set_tree(tree(payload,'F_identity','target'),'sha256','z'*64)
+    elif change=='extra_array':arrays['unexpected']=np.ones(1,dtype=np.float32)
+    np.savez(path/'arrays.npz',**arrays)
+    state['arrays']={k:dict(dtype=str(v.dtype),shape=list(v.shape),sha256=hashlib.sha256(np.ascontiguousarray(v).tobytes()).hexdigest()) for k,v in arrays.items()}
+    state['array_file']['sha256']=hashlib.sha256((path/'arrays.npz').read_bytes()).hexdigest()
+    (path/'manifest.json').write_text(json.dumps(state,allow_nan=False))
+    before=native_policy.get_rng_state().clone()
+    errors=dict(unknown='schema',config='recipe',runtime='binding',source='binding',quantile_dtype='quantile arrays',
+        selected_dtype='model tensor',initialization='Uninitialized',selected_average='rolling average',optimizer_dtype='slot tensor',
+        optimizer_negative='slot tensor',optimizer_age='bias-weight age',report_missing='Missing or additional',report_negative='G/window',
+        selected_step='summary',trace_rows='trace',trace_time='trace',F_identity='role-array',extra_array='Unreferenced')
+    with pytest.raises(ValueError,match=errors[change]):NodeV2Predictor.load(path,expected_manifest_sha256=trusted(path))
+    assert native_policy.equal(before,native_policy.get_rng_state())
+
+
+def test_same_seed_short_native_patience_matches_direct_source_and_stops_after_strict_boundary(tmp_path,native_policy):
+    from treeneuron.research.node_v2 import NodeV2Predictor,NodeV2Config
+    from node_v2_reference import reference
+    req=request(tmp_path/'fit',12,config(patience=2))
+    req=FitRequest(req.X_fit,req.y_fit,req.X_select,100.-100*(req.y_select-100.),req.seed,req.config,req.budget,req.artifact_dir)
+    model=NodeV2Predictor().fit(req);expected=reference(req,NodeV2Config.parse(req.config).resolved(),tmp_path/'reference')
+    summary=model.resource_summary()
+    assert summary['stop_reason']=='G_patience' and summary['executed_updates']==summary['selected_step']+3
+    assert summary['selected_step']==expected['selected_step'] and len(model._state['trace'])==len(expected['trace'])
+
+
+@pytest.mark.parametrize('changed_identity',['source','runtime'])
+def test_fit_identity_drift_retains_prior_prediction_and_failed_paid_trace(tmp_path,portable_case,native_policy,monkeypatch,changed_identity):
+    from treeneuron.research import node_v2
+    model=copy.deepcopy(portable_case[0]);before=model.predict(np.array([[1.,2.]]));changed=[False]
+    def identity():return {'identity':'after' if changed[0] else 'before'}
+    monkeypatch.setattr(node_v2,'source_identity' if changed_identity=='source' else '_runtime',identity)
+    original=node_v2._optimizer_step
+    def step(optimizer):original(optimizer);changed[0]=True
+    monkeypatch.setattr(node_v2,'_optimizer_step',step)
+    with pytest.raises(ValueError,match='changed'):model.fit(request(tmp_path/'drift',2))
+    np.testing.assert_array_equal(model.predict(np.array([[1.,2.]])),before)
+    receipt=json.loads((tmp_path/'drift/fit-receipt.json').read_text())
+    assert receipt['status']=='failed' and receipt['executed_updates']==2 and receipt['elapsed_ns']>0
+
+
+@pytest.mark.parametrize('change',['target_mean','quantile_values','G_role_identity'])
+def test_retained_prediction_binding_rejects_valid_geometry_transform_or_role_substitution(tmp_path,portable_case,native_policy,change):
+    from treeneuron.research.node_v2 import NodeV2Predictor
+    path=tmp_path/'snapshot';state=snapshot(portable_case,path);payload=state['payload']
+    with np.load(path/'arrays.npz',allow_pickle=False) as values:arrays={k:values[k].copy() for k in values.files}
+    if change=='target_mean':
+        p=tree(payload,'transform','preprocessing');set_tree(p,'target_mean',dict(p['mapping'])['target_mean']+1.)
+    elif change=='quantile_values':arrays[tree(payload,'transform','quantiles')['array']]+=1.
+    else:set_tree(tree(payload,'G_identity','target'),'sha256','a'*64)
+    np.savez(path/'arrays.npz',**arrays)
+    state['arrays']={k:dict(dtype=str(v.dtype),shape=list(v.shape),sha256=hashlib.sha256(v.tobytes()).hexdigest()) for k,v in arrays.items()}
+    state['array_file']['sha256']=hashlib.sha256((path/'arrays.npz').read_bytes()).hexdigest()
+    (path/'manifest.json').write_text(json.dumps(state))
+    with pytest.raises(ValueError,match='binding'):NodeV2Predictor.load(path,expected_manifest_sha256=trusted(path))
+
+
+def test_failure_after_partial_parameter_mutation_is_explicitly_indeterminate(tmp_path,portable_case,native_policy,monkeypatch):
+    from treeneuron.research import node_v2
+    model=copy.deepcopy(portable_case[0]);before=model.predict(np.array([[1.,2.]]))
+    def fail(optimizer):
+        with native_policy.no_grad():next(p for g in optimizer.param_groups for p in g['params'] if p.requires_grad).add_(1.)
+        raise FloatingPointError('partial native optimizer failure')
+    monkeypatch.setattr(node_v2,'_optimizer_step',fail)
+    with pytest.raises(FloatingPointError):model.fit(request(tmp_path/'failed',2))
+    receipt=json.loads((tmp_path/'failed/fit-receipt.json').read_text())
+    assert receipt['partial_optimizer_update_possible'] is True
+    assert sum(receipt['phase_costs_ns'].values())==receipt['elapsed_ns']
+    assert {'configuration','dependencies','preprocessing','initialization','training'}<=set(receipt['phase_costs_ns'])
+    assert all(type(v) is int and v>=0 for v in receipt['phase_costs_ns'].values())
+    assert receipt['executed_updates']==0 and receipt['trace'][0]['optimizer_entered'] is True
+    np.testing.assert_array_equal(model.predict(np.array([[1.,2.]])),before)
+
+
+def test_portable_snapshot_loads_in_fresh_one_thread_process(tmp_path,portable_case):
+    path=tmp_path/'snapshot';snapshot(portable_case,path);model,req,_=portable_case
+    np.save(tmp_path/'query.npy',req.X_select);np.save(tmp_path/'expected.npy',model.predict(req.X_select))
+    script="""
+from pathlib import Path
+import sys,numpy as np,torch
+from treeneuron.research.node_v2 import NodeV2Predictor
+torch.set_num_threads(1);torch.set_num_interop_threads(1)
+root=Path(sys.argv[1]);model=NodeV2Predictor.load(root/'snapshot',expected_manifest_sha256=sys.argv[2])
+np.testing.assert_array_equal(model.predict(np.load(root/'query.npy',allow_pickle=False)),np.load(root/'expected.npy',allow_pickle=False))
+"""
+    run=subprocess.run([sys.executable,'-c',script,str(tmp_path),trusted(path)],capture_output=True,text=True)
+    (tmp_path/'consumer.stdout.txt').write_text(run.stdout);(tmp_path/'consumer.stderr.txt').write_text(run.stderr)
+    assert run.returncode==0,run.stdout+run.stderr
+
+
+def test_source_identity_rejects_wrong_loaded_vendor_origin(native_policy,monkeypatch):
+    from treeneuron.research import node_v2
+    from treeneuron.baselines._node_vendor import arch
+    monkeypatch.setattr(arch,'__file__','/private/tmp/wrong-native-origin/arch.py')
+    with pytest.raises(ValueError,match='origin'):node_v2.source_identity()
+
+
+def test_resealed_identical_arrays_preserve_scalar_geometry_and_load(tmp_path,portable_case,native_policy):
+    from treeneuron.research.node_v2 import NodeV2Predictor
+    path=tmp_path/'snapshot';state=snapshot(portable_case,path)
+    with np.load(path/'arrays.npz',allow_pickle=False) as values:arrays={k:values[k].copy() for k in values.files}
+    assert all(state['arrays'][name]['shape']==list(value.shape) for name,value in arrays.items())
+    np.savez(path/'arrays.npz',**arrays)
+    state['arrays']={k:dict(dtype=str(v.dtype),shape=list(v.shape),sha256=hashlib.sha256(v.tobytes()).hexdigest()) for k,v in arrays.items()}
+    state['array_file']['sha256']=hashlib.sha256((path/'arrays.npz').read_bytes()).hexdigest()
+    (path/'manifest.json').write_text(json.dumps(state))
+    loaded=NodeV2Predictor.load(path,expected_manifest_sha256=trusted(path))
+    np.testing.assert_array_equal(loaded.predict(portable_case[1].X_select),portable_case[0].predict(portable_case[1].X_select))
+
+
+def test_mixed_missing_unknown_and_constant_target_native_path_roundtrips(tmp_path,native_policy):
+    from treeneuron.research.node_v2 import NodeV2Predictor,NodeV2Config
+    from node_v2_reference import reference
+    F=pd.DataFrame({'amount':[1.,np.nan,3.,4.,2.,5.],'kind':['a','b','a','b','a','b']})
+    G=pd.DataFrame({'amount':[2.5,np.nan],'kind':['b','new']})
+    cfg=config();cfg['feature_schema']=dict(columns=list(F),categorical=['kind'])
+    req=FitRequest(F,np.full(6,12.),G,np.full(2,12.),1337,cfg,{'max_updates':6},tmp_path/'fit')
+    model=NodeV2Predictor().fit(req)
+    encoded_F=np.array([[1,0,1,0,0],[3,1,0,1,0],[3,0,1,0,0],[4,0,0,1,0],[2,0,1,0,0],[5,0,0,1,0]],dtype=np.float32)
+    encoded_G=np.array([[2.5,0,0,1,0],[3,1,0,0,1]],dtype=np.float32)
+    adapted=FitRequest(encoded_F,req.y_fit,encoded_G,req.y_select,req.seed,req.config,req.budget,tmp_path/'reference')
+    expected=reference(adapted,NodeV2Config.parse(cfg).resolved(),tmp_path/'reference')
+    np.testing.assert_allclose(model.predict(G)-12.,expected['prediction']-12.,rtol=1e-6,atol=1e-7)
+    model.save(tmp_path/'snapshot');loaded=NodeV2Predictor.load(tmp_path/'snapshot',expected_manifest_sha256=trusted(tmp_path/'snapshot'))
+    np.testing.assert_array_equal(loaded.predict(G),model.predict(G))
+    assert loaded._transform.state['preprocessing']['target_constant'] is True
+    assert loaded._transform.state['preprocessing']['target_scale']==1.
+    assert loaded.resource_summary()['encoded_width']==5 and loaded.resource_summary()['quality_eligible'] is False
+    receipt=json.loads((tmp_path/'fit/fit-receipt.json').read_text())
+    assert sum(receipt['phase_costs_ns'].values())==receipt['elapsed_ns'] and len(receipt['trace'])==6
+
+
+def test_cpu_node_fit_does_not_touch_other_device_rngs(tmp_path,native_policy,monkeypatch):
+    from treeneuron.research.node_v2 import NodeV2Predictor
+    def forbidden_backend(label):
+        def forbidden(*args,**kwargs):raise AssertionError('CPU NODE touched an off-device RNG: '+label)
+        return forbidden
+    for module,name in ((native_policy.cuda,'manual_seed_all'),(native_policy.mps,'manual_seed'),
+            (native_policy.xpu,'manual_seed_all'),(native_policy.mtia,'manual_seed_all')):
+        monkeypatch.setattr(module,name,forbidden_backend(module.__name__))
+    model=NodeV2Predictor().fit(request(tmp_path/'fit',2))
+    assert model.resource_summary()['executed_updates']==2
