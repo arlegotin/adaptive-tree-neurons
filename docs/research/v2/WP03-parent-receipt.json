@@ -1,0 +1,45 @@
+{
+  "schema": "research/v2-software-verification",
+  "scope": "single parent prerequisite and exact/selected/unavailable snapshot loading; outer M2 queue pending",
+  "tests": {
+    "initial": "2 passed in3.00s",
+    "review_red": "configured/global receipt mismatch and same-FG changed teacher/manifest reproduced",
+    "integration": "31 passed,1 new fixture error in21.91s",
+    "recovery": "unchanged production code, fixture supplied validation_interval/patience; targeted test1passed2.93s"
+  },
+  "review": {
+    "fixed": [
+      "explicit configured backend receipt; restore caller global",
+      "check complete manifest/raw/split provenance before unavailable return"
+    ],
+    "final_static": "no remaining material findings"
+  },
+  "logs": [
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/parent-tests/atn-parent-artifacts-red.log",
+      "sha256": "ca69667aba8bf013383fef1b80ececb22e1d91aeaa58b5ec503b722028b201bd"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/parent-tests/atn-parent-artifacts-green.log",
+      "sha256": "8b86212f0cfcf43886fb27b3cacf2084b2e06b1fe67617eb952da3ae2dbd29e9"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/parent-tests/atn-parent-backend-review-red.log",
+      "sha256": "c91ef43123223266d1a50de7f4a6a4c049fbf4c6f0d58f04ef69bec97ff4d06a"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/parent-tests/atn-parent-provenance-review-red.log",
+      "sha256": "7c79cb64ab37310578eedb3fbc961d113e42ceed32ac946a1e9de4059e40adb3"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/parent-tests/atn-parent-fork-integration.log",
+      "sha256": "65ec46980e086b8dd66133a23c6bfb7ecc558be0e4516cc16ce8ead8ccb93e32"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/parent-tests/atn-parent-unfitted-recovery.log",
+      "sha256": "b9f437f47d912967dec86039612a4ff30123ce5c1dea867d5a778ff3911b7e0c"
+    }
+  ],
+  "T_accessed": false,
+  "scientific_result": false
+}

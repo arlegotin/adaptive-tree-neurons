@@ -95,3 +95,15 @@ The outer M2 controller, conditional admission, immutable prerequisite queue,
 recovery orchestration, V/E coordinator, complete standalone costs and source-bound
 resource admission are still pending. A worker's standalone cost remains null
 until those prerequisites are accounted for. Public M2 run remains disabled.
+
+`research/parent_artifacts.py` supplies the corresponding single-attempt parent
+prerequisite. It honors the configured backend receipt, saves actual snapshots
+and the complete G-selected parent separately, and restores caller RNG/receipt
+state. A planted-control prerequisite is explicitly unfitted at update0.
+`load_parent_input` verifies the exact F/G arrays and complete manifest identity
+before any unavailable-state result; corrupt/moved/changed commitments fail.
+Only a recorded unreached requested update returns unavailable, which the outer
+controller may use for the separately named fixed-budget fallback. Available
+actual snapshots become declared current boundaries, rather than G-best states.
+The outer queue still owns one declared same-seed infrastructure retry and must
+bind each returned result's bytes in its append-only ledger.

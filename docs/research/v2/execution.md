@@ -433,3 +433,18 @@ diagnostics, full cost accounting or Gate A analysis. M2 public run remains
 disabled. Continue with those controller pieces; do not infer a scientific result
 from worker acceptance. Main's former source-hold and raw comparison are finished;
 new package code needs its own source/runtime qualification before production.
+
+### WP03 parent prerequisite artifacts
+
+Added parent_artifacts.py with explicit trained/unfitted and patience/fixed-budget
+treatments, exact actual versus G-selected checkpoint loading, and unavailable
+states distinct from corruption. Initial two tests passed in3.00s. Review exposed
+the configured receipt being ignored in favor of a module global and missing
+manifest validation on the unavailable path; both reproduced RED and were fixed.
+The final static review found no material issue. Expanded integration passed31
+with one new test-fixture omission (required G interval/patience); supplying those
+declared fields made the unchanged-code targeted test pass in2.93s. This is a
+targeted recovery, not a second monolithic32-pass claim. The added fixture also
+proves planted prerequisites remain unfitted at update0 and receipt state is
+restored on interruption. WP03-parent-receipt.json retains all logs and outcomes.
+Outer M2 execution/admission/recovery and Gate A remain pending.
