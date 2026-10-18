@@ -1,0 +1,369 @@
+{
+  "Gate_A": "pending; full M1/M2 required",
+  "artifacts": {
+    "independent_disposition": {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/M1-control-audit/disposition.json",
+      "sha256": "ae85df34518b422652f585a0ccf1bc443362343df4dfcb35b13572ce84ad9240"
+    },
+    "independent_result": {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/M1-control-audit/result.json",
+      "sha256": "9844302b817d4905a8a0d5dbc8b5ab1f472db484bdbcffd1c1b568ee91546969"
+    },
+    "native_result": {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP02/M1-native-qualification/result.json",
+      "sha256": "025f65fedc397ee51c4d33e1fbc426114ffd49cb9e232f5db484cdea19df983c"
+    }
+  },
+  "independent": {
+    "F_variance_ddof0": 0.25328618546616705,
+    "Gate_A": "pending",
+    "actual_E_seed_policy": "seed64(data_seed,positive,E); the generic plan evaluation/reference/contrast seed fields are not used to generate planted E/teacher/current contrasts",
+    "all_growth_roles_lower_V_E_MSE_than_keep_in_this_single_cell": true,
+    "artifact_sha256": {
+      "array-checks.json": "edcfe79be29d25c1705c2f9382946187a9de8c324ac1f041a9a18114a96e0d27",
+      "audit.log": "9844302b817d4905a8a0d5dbc8b5ab1f472db484bdbcffd1c1b568ee91546969",
+      "audit.py": "f3deacc1f45121da76251dfba286f186fac2decbc065d39edac82fc787c6e6de",
+      "checks.json": "5f0d3c2529285e8455dd7bbe23c24454db47db800fd12c29f1bdcadea7ecfb6f",
+      "failures.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "input-hashes.json": "e747e63fa8a050fc5918c0043ac6f8fab9d7f50fc64eaf685eef3cfc05c859d7",
+      "recipe-sources.json": "e755faaa8c98a9d0e2a69891160ea46b9ab386cf9ea097e5de5f555df7d88f03",
+      "result.json": "9844302b817d4905a8a0d5dbc8b5ab1f472db484bdbcffd1c1b568ee91546969"
+    },
+    "checks": 282,
+    "containing_run_wall_seconds": 209.39096375,
+    "exact_metric_absolute_difference": 0.0,
+    "failures": 0,
+    "limitations": [
+      "One predeclared constructed positive-control instance/repetition at gamma2/sigma.1.",
+      "Oracle-current is advantaged by generating IDs; oracle-true additionally receives generating contrasts. These are diagnostics.",
+      "Growth beating keep in this instance does not establish placement superiority, cohort oracle sensitivity or primary-population efficacy.",
+      "V/E are development observations; no independent teacher or confidence interval is created by this arithmetic audit.",
+      "Predictions are authenticated retained arrays; no model was loaded to independently regenerate them. Resource observations are contended, not calibrated performance claims."
+    ],
+    "metric_authentication_scope": "Current retained raw predictions/labels/IDs hashed; raw teacher/noisefree arrays and observation/noise RNG streams independently reconstructed; model pointer/descriptor/payload checksum chains checked without deserializing tensors. No historical byte authenticity or filesystem-time proof is inferred.",
+    "metrics": {
+      "keep": {
+        "E": {
+          "mse": 0.013814163396866082,
+          "normalized_mse": 0.054539742747680656
+        },
+        "V": {
+          "mse": 0.01250142980783428,
+          "normalized_mse": 0.0493569350607326
+        }
+      },
+      "oracle_current": {
+        "E": {
+          "mse": 0.010508878503356335,
+          "normalized_mse": 0.041490136874283136
+        },
+        "V": {
+          "mse": 0.009992107802782549,
+          "normalized_mse": 0.039449872816365084
+        }
+      },
+      "oracle_true": {
+        "E": {
+          "mse": 0.010557688794537468,
+          "normalized_mse": 0.04168284494121264
+        },
+        "V": {
+          "mse": 0.009740700186691934,
+          "normalized_mse": 0.03845728960213291
+        }
+      },
+      "random": {
+        "E": {
+          "mse": 0.01071567277474817,
+          "normalized_mse": 0.042306581999433705
+        },
+        "V": {
+          "mse": 0.00997995255093866,
+          "normalized_mse": 0.03940188262763246
+        }
+      },
+      "top": {
+        "E": {
+          "mse": 0.010602243944092322,
+          "normalized_mse": 0.04185875326986014
+        },
+        "V": {
+          "mse": 0.009817570518391602,
+          "normalized_mse": 0.03876078160489725
+        }
+      }
+    },
+    "repeat_instructions": "Create a fresh sibling directory at the same depth and copy only audit.py into it; run with the qualified interpreter, PYTHONDONTWRITEBYTECODE=1, and numerical threads1. Preserve existing outputs; the script uses exclusive output creation and reads the same declared inputs.",
+    "sampled_noise": {
+      "E": {
+        "actual_observation_seed": 501571226358494622,
+        "max_noise_reconstruction_error": 2.220446049250313e-16,
+        "mse": 0.010063500229504556,
+        "nmse_F_variance": 0.03973173748494387,
+        "rows": 16384
+      },
+      "F": {
+        "actual_observation_seed": 3840478324858663204,
+        "max_noise_reconstruction_error": 2.220446049250313e-16,
+        "mse": 0.009556561174738474,
+        "nmse_F_variance": 0.037730289779325535,
+        "rows": 512
+      },
+      "G": {
+        "actual_observation_seed": 642618429811954782,
+        "max_noise_reconstruction_error": 2.220446049250313e-16,
+        "mse": 0.009977474362486229,
+        "nmse_F_variance": 0.0393920984838669,
+        "rows": 256
+      },
+      "V": {
+        "actual_observation_seed": 6853757833328897064,
+        "max_noise_reconstruction_error": 2.220446049250313e-16,
+        "mse": 0.009529275954597892,
+        "nmse_F_variance": 0.03762256491430629,
+        "rows": 256
+      }
+    },
+    "schema": "research/v2-M1-control-audit-disposition",
+    "seed_lineage": {
+      "gamma": 2.0,
+      "repetition": 0,
+      "roles": [
+        "keep",
+        "top",
+        "random",
+        "oracle_current",
+        "oracle_true"
+      ],
+      "seeds": {
+        "allocation_seed": 1069299422221621581,
+        "contrast_seed": 769763359236701576,
+        "data_seed": 4707034540592688950,
+        "evaluation_seed": 8029054421620249998,
+        "optimizer_collision_counter": 0,
+        "optimizer_seed": 4019904237,
+        "reference_seed": 7411841976332391089,
+        "teacher_seed": 3373601088612233575
+      },
+      "sigma": 0.1,
+      "teacher_index": 0
+    },
+    "selected_IDs": {
+      "oracle_current": [
+        0,
+        2
+      ],
+      "oracle_true": [
+        0,
+        2
+      ],
+      "random": [
+        4,
+        6
+      ],
+      "top": [
+        0,
+        1
+      ]
+    },
+    "selected_executed_updates": {
+      "keep": {
+        "executed": 1475,
+        "selected": 975
+      },
+      "oracle_current": {
+        "executed": 1475,
+        "selected": 975
+      },
+      "oracle_true": {
+        "executed": 900,
+        "selected": 400
+      },
+      "random": {
+        "executed": 4350,
+        "selected": 3850
+      },
+      "top": {
+        "executed": 2300,
+        "selected": 1800
+      }
+    },
+    "source_commit": "b11bbff5c4c106f83a342f8b8e8f667bb07dbd2a",
+    "source_sha256": "70f12afcd00edcd2c5b48850f5ae77f6b0512f97d979ca8a7191cd88c8f36515",
+    "status": "passed",
+    "teacher_precommit_evidence": "Committed source recipe writes teacher.json before calling the observation constructor; retained flag agrees. No independent filesystem timing or prior-existence proof is claimed.",
+    "true_oracle_relative_MSE_reduction_vs_random": {
+      "E": 0.014743262838614823,
+      "V": 0.02397329676925397
+    }
+  },
+  "metrics": {
+    "keep": {
+      "E": {
+        "absolute_error_p95": 0.2296478113852557,
+        "group_macro_mse": null,
+        "group_metrics": null,
+        "mae": 0.09319210304442656,
+        "max_absolute_error": 0.5176397587481119,
+        "mse": 0.013814163396866082,
+        "n": 16384,
+        "normalized_mse": 0.054539742747680656,
+        "normalized_mse_reason": null,
+        "rmse": 0.11753366920532211,
+        "worst_group_mse": null
+      },
+      "V": {
+        "absolute_error_p95": 0.2092258409070029,
+        "group_macro_mse": null,
+        "group_metrics": null,
+        "mae": 0.09017514612537542,
+        "max_absolute_error": 0.3500053120139681,
+        "mse": 0.01250142980783428,
+        "n": 256,
+        "normalized_mse": 0.0493569350607326,
+        "normalized_mse_reason": null,
+        "rmse": 0.1118097929871721,
+        "worst_group_mse": null
+      }
+    },
+    "oracle_current": {
+      "E": {
+        "absolute_error_p95": 0.20003399990033546,
+        "group_macro_mse": null,
+        "group_metrics": null,
+        "mae": 0.08178498764663454,
+        "max_absolute_error": 0.4526730199125346,
+        "mse": 0.010508878503356335,
+        "n": 16384,
+        "normalized_mse": 0.041490136874283136,
+        "normalized_mse_reason": null,
+        "rmse": 0.10251282116572705,
+        "worst_group_mse": null
+      },
+      "V": {
+        "absolute_error_p95": 0.19222925881394398,
+        "group_macro_mse": null,
+        "group_metrics": null,
+        "mae": 0.08192173048235063,
+        "max_absolute_error": 0.2799435029147539,
+        "mse": 0.009992107802782549,
+        "n": 256,
+        "normalized_mse": 0.039449872816365084,
+        "normalized_mse_reason": null,
+        "rmse": 0.09996053122499174,
+        "worst_group_mse": null
+      }
+    },
+    "oracle_true": {
+      "E": {
+        "absolute_error_p95": 0.19928326088812556,
+        "group_macro_mse": null,
+        "group_metrics": null,
+        "mae": 0.08203600709004052,
+        "max_absolute_error": 0.47493276546897367,
+        "mse": 0.010557688794537468,
+        "n": 16384,
+        "normalized_mse": 0.04168284494121264,
+        "normalized_mse_reason": null,
+        "rmse": 0.10275061457012054,
+        "worst_group_mse": null
+      },
+      "V": {
+        "absolute_error_p95": 0.19971473618587493,
+        "group_macro_mse": null,
+        "group_metrics": null,
+        "mae": 0.08091804310511988,
+        "max_absolute_error": 0.2598576201617089,
+        "mse": 0.009740700186691934,
+        "n": 256,
+        "normalized_mse": 0.03845728960213291,
+        "normalized_mse_reason": null,
+        "rmse": 0.09869498562081021,
+        "worst_group_mse": null
+      }
+    },
+    "random": {
+      "E": {
+        "absolute_error_p95": 0.20224952582212202,
+        "group_macro_mse": null,
+        "group_metrics": null,
+        "mae": 0.08256205879075662,
+        "max_absolute_error": 0.5145178987928156,
+        "mse": 0.01071567277474817,
+        "n": 16384,
+        "normalized_mse": 0.042306581999433705,
+        "normalized_mse_reason": null,
+        "rmse": 0.10351653382309596,
+        "worst_group_mse": null
+      },
+      "V": {
+        "absolute_error_p95": 0.20182199396213746,
+        "group_macro_mse": null,
+        "group_metrics": null,
+        "mae": 0.08195174531028486,
+        "max_absolute_error": 0.22081463912714394,
+        "mse": 0.00997995255093866,
+        "n": 256,
+        "normalized_mse": 0.03940188262763246,
+        "normalized_mse_reason": null,
+        "rmse": 0.09989971246674667,
+        "worst_group_mse": null
+      }
+    },
+    "top": {
+      "E": {
+        "absolute_error_p95": 0.1995484740226773,
+        "group_macro_mse": null,
+        "group_metrics": null,
+        "mae": 0.08213181708084973,
+        "max_absolute_error": 0.473256262124655,
+        "mse": 0.010602243944092322,
+        "n": 16384,
+        "normalized_mse": 0.04185875326986014,
+        "normalized_mse_reason": null,
+        "rmse": 0.10296719838906138,
+        "worst_group_mse": null
+      },
+      "V": {
+        "absolute_error_p95": 0.1943332539776565,
+        "group_macro_mse": null,
+        "group_metrics": null,
+        "mae": 0.08124588711832409,
+        "max_absolute_error": 0.2645662763482066,
+        "mse": 0.009817570518391602,
+        "n": 256,
+        "normalized_mse": 0.03876078160489725,
+        "normalized_mse_reason": null,
+        "rmse": 0.09908365414331267,
+        "worst_group_mse": null
+      }
+    }
+  },
+  "native_elapsed_seconds": 209.39096375,
+  "resources": {
+    "elapsed_ns": 88242483750,
+    "execution_identity_hash": "5e41e07d0506ad2a21123ca98b4896325d998708c23fd78570b69aaf6abf0c09",
+    "max_checkpoint_transaction_bytes": 2070967,
+    "peak_rss_bytes": 407666688,
+    "phase": "continuation",
+    "retained_bytes": 26361012,
+    "schema": "research/v2-resource-measurement",
+    "source_sha256": "70f12afcd00edcd2c5b48850f5ae77f6b0512f97d979ca8a7191cd88c8f36515",
+    "status": "completed_eligible",
+    "training_contract_hash": "0681fd77019e08decdd80e326ade948cdee7f4c7f734185f2240657f856dbebc",
+    "workload": {
+      "batch_size": 128,
+      "d": 2,
+      "h": 8,
+      "n_fit": 512,
+      "n_growth": 256,
+      "n_validation": 256
+    }
+  },
+  "sampled_noise_NMSE": 0.03973173748494387,
+  "schema": "research/v2-positive-control-receipt",
+  "scope": "single predeclared M1 positive-control instance0/repeat0 gamma2/sigma.1; five fits",
+  "source_commit": "b11bbff5c4c106f83a342f8b8e8f667bb07dbd2a",
+  "source_sha256": "70f12afcd00edcd2c5b48850f5ae77f6b0512f97d979ca8a7191cd88c8f36515",
+  "status": "completed_and_independently_recomputed"
+}

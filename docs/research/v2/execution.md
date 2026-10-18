@@ -500,3 +500,51 @@ WP07-tree-receipt.json and tree-fixture-qualification.md retain exact script/loc
 artifact identities, independent checks and all failures. Production adapters,
 full native eligible anchors, native-training interruption/recovery and broader
 workloads remain pending; Gate D/full-suite comparisons are not qualified.
+
+### First planted-control qualification completed and audited
+
+Main b11bbff, package70f12afcd00edcd2c5b48850f5ae77f6b0512f97d979ca8a7191cd88c8f36515,
+completed the predeclared M1 instance0/repeat0 gamma2/sigma.1 five-role case as
+session7956. Actual source-bound backend receipt creation passed first; the
+containing run took209.39096375s, retained26361012 bytes and recorded407666688
+peak RSS bytes. Conservative checkpoint transaction bound including the complete
+history journal was2070967 bytes. No formal timing/cost advantage is claimed.
+
+All five roles completed; selected/executed continuation updates were keep
+975/1475, top1800/2300, random3850/4350, known-ID/current-contrast975/1475 and
+known-ID/true-contrast400/900. E NMSEs in that order were.05453974275,
+.04185875327,.04230658200,.04149013687,.04168284494; sampled noise.03973173748.
+All growth arms improved on ordinary continuation on this constructed cell;
+cheap-versus-random improvement was only about1% on E. Oracles are privileged.
+Cheap selected duplicate units0/1, random4/6, and both oracles0/2. Similar final
+errors despite these differences motivate the already planned control-sensitivity
+and small joint-pair tests; they do not establish population-wide interchangeability.
+
+Independent raw NumPy/JSON audit passed282 checks plus32 exact-array checks,
+zero failures, all ten V/E metrics exact to saved arithmetic. It authenticated
+teacher coefficients/noiseless equations, FGVE seeds/IDs, F transforms, allocations
+and selected/executed raw-stage counters without model restoration or fitting.
+Result SHA9844302b817d4905a8a0d5dbc8b5ab1f472db484bdbcffd1c1b568ee91546969.
+The teacher-before-observation ordering is established from the committed recipe
+and flag, not independent filesystem timestamp evidence. Full disposition and
+artifact hashes are retained in WP02-positive-control-receipt.json. The tracked
+audit_positive_control.py is a byte-identical copy of the executed reader; follow
+the receipt's fresh-directory replay/source instructions.
+
+This is one diagnostic instance/repeat. It supplies neither a primary-population
+placement win nor full M1/Gate A completion. No T access occurred. Main package
+hold for this completed run is lifted; exact loading uses its recorded b11 source.
+Further implementation continues in the isolated worktree until qualified.
+
+### WP03 frozen-head retained model
+
+Added head_artifacts.py and a real-parent roundtrip test. Hidden-feature head
+predictions reconstruct exactly without refitting, with immutable parent/RNG.
+Initial artifact+head tests passed6 in5.59s. A structured wrong-runtime payload
+reproduced RED and was rejected after identity hardening. Review then found
+parseable but contradictory six-solve selection evidence could load; missing
+trials, invalid alpha and altered retained coefficients reproduced RED. The
+loader now verifies the full finite solve population, declared G tie rule and
+winning parameters. Final artifact+head tests passed6 in4.86s. All logs are bound
+in WP03-head-artifact-receipt.json. Outer M2 controller/cost/admission/recovery and
+Gate A remain pending; this is software acceptance only.

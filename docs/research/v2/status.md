@@ -57,6 +57,35 @@ checkpoint/export tensor payloads. Wall time was16.35minutes in the rerun versus
 Retained bytes remained approximately485MB. This verifies engineering
 compatibility, not an additional teacher or a predictive improvement.
 
+A first planted-control case has also completed: instance0/repeat0 at gamma2,
+noise sigma.1, with a deliberately unfitted h8 parent and count2. Here the known
+target contains useful gated structure. Exploratory E normalized errors were:
+
+| Procedure | Error; lower is better |
+|---|---:|
+| Ordinary continuation | .05453974 |
+| Cheap-score growth | .04185875 |
+| Matched random growth | .04230658 |
+| Known generating IDs, current F-derived contrasts | .04149014 |
+| Known generating IDs and true contrasts | .04168284 |
+| Sampled noise diagnostic | .03973174 |
+
+All growth roles reduced E error by about22–24% versus ordinary continuation in
+this case. Cheap placement was only about1% better than random on E. Independent
+NumPy/raw-array reconstruction reproduced every V/E metric exactly, with282
+checks and32 exact array checks. The two oracle roles use privileged information.
+This supports learnable useful capacity under this constructed recipe; it does
+not establish placement superiority, advantage over matched ordinary extra
+capacity or tuned models, or generalization across independent problems.
+This single qualification cell took209.39s and retained26.36MB; timings are
+contended observations. Full M1/M2 and Gate A remain pending.
+
+Cheap placement chose the duplicate units0/1; random chose4/6, while the planted
+generating IDs were0/2. Their similar final errors suggest this constructed case
+may offer many workable placements. That is a hypothesis about control
+sensitivity, not evidence that location never matters; the fixed multi-instance
+and small-pair comparisons must measure it.
+
 The next scientific gate asks whether the controls expose useful, learnable
 capacity on multiple independent problems. Matched timing, minibatch-stream,
 ordinary-capacity and recipe controls separate training gains from placement

@@ -107,3 +107,11 @@ controller may use for the separately named fixed-budget fallback. Available
 actual snapshots become declared current boundaries, rather than G-best states.
 The outer queue still owns one declared same-seed infrastructure retry and must
 bind each returned result's bytes in its append-only ledger.
+
+`research/head_artifacts.py` retains each M2e frozen hidden-feature head as a
+hash-bound JSON model, including the F transform, float32 hidden weights and
+float64 geometry/coefficients. Loading reconstructs predictions without refitting
+and checks source/lock/runtime/parent/transform identities. The complete six-solve
+G-selection evidence is validated, including stable alpha ties and agreement of
+retained parameters with the declared winner. All solves and their costs remain
+visible; standalone parent cost attribution still belongs to the outer queue.

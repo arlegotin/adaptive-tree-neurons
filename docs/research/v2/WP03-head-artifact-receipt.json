@@ -1,0 +1,37 @@
+{
+  "schema": "research/v2-software-verification",
+  "scope": "retained frozen-head model serialization and selection provenance; outer M2 controller pending",
+  "verification": {
+    "initial": "6 passed5.59s",
+    "runtime_binding": "wrong-runtime structured state RED then1passed3.07s",
+    "selection_binding": "missing trial/invalid alpha/inconsistent coefficient RED;6 artifact+head tests passed4.86s"
+  },
+  "logs": [
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/head-artifact-tests/atn-head-artifacts-red.log",
+      "sha256": "b6553a079559e3373d6be58b555a78fc8462889ef7d83b7e587dda7effcce779"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/head-artifact-tests/atn-head-artifacts-green.log",
+      "sha256": "76f335b4050632135fa876ec78777dcdb62d13bf5492ead362b52f0363e8af1d"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/head-artifact-tests/atn-head-artifacts-runtime-red.log",
+      "sha256": "8a9feec97df9f6b94322745f04d17a9ca3d1b908ef017c14cdc01206a80f8dca"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/head-artifact-tests/atn-head-artifacts-runtime-green.log",
+      "sha256": "dde794eb67f9dc8534e5ecb6079b9c46b71de8f0abb2843eeeb2d87725411187"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/head-artifact-tests/atn-head-selection-red.log",
+      "sha256": "1c06104f00133c25b629c6a25c772adf65cf5eb36aea26ed86721360b7804f61"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/head-artifact-tests/atn-head-selection-green.log",
+      "sha256": "c2eaf8c5def126ad76b6aec5271a698c61da86643f4529260eb15b5b7bf86b1e"
+    }
+  ],
+  "T_accessed": false,
+  "scientific_result": false
+}
