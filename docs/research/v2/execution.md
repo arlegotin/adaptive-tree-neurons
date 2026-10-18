@@ -925,3 +925,13 @@ waits for lease release. Seven missing-reporter RED failures became19affected
 GREEN in0.12s. Four old interim aggregate entries differ by1ULP under staged
 math.fsum aggregation; the old165event bytes/metrics are exactly unchanged and no
 fit/metric tolerance changed. See [M1-positive-prefix-receipt.json](M1-positive-prefix-receipt.json).
+
+P13 exact29 simple references integrated from a6ef4f7 (contract2900a65,
+implementationd7db80a, reviewed correctiona6ef4f7) as5d593a8/ec2e006/7f781cc.
+Single independent review found source/runtime captured after computation; two
+RED regressions now pin before/recheck after and preserve prior fitted state on
+failure. Builder94affected checks passed in25.66s; integrated63checks passed
+in23.95s. Nine original RED/GREEN logs are tracked, identities kept distinct in
+[P13-integration-receipt.json](P13-integration-receipt.json). No core/legacy/lock
+mutation, full transformed workload, Gate D, practical fit or HPO. Deferred
+hex-digest validation/allocation reporting remain visible in the review disposition.
