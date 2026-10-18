@@ -1,4 +1,5 @@
 .venv/
+.venv-research-v2/
 .uv-cache/
 .uv-python/
 .superpowers/

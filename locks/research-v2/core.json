@@ -1,0 +1,177 @@
+{
+  "schema": "research/v2-runtime",
+  "python": "3.12.13 (main, Jun 23 2026, 15:44:24) [Clang 22.1.3 ]",
+  "executable": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+  "platform": "macOS-26.7.1-arm64-arm-64bit",
+  "distributions": [
+    {
+      "name": "narwhals",
+      "version": "2.27.1",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/narwhals-2.27.1.dist-info",
+      "record_sha256": "dd9a643a7dc16d09dcfa8047c733c9d389eaf6ea64c572ce1e1420cedb0834f2"
+    },
+    {
+      "name": "scikit-learn",
+      "version": "1.9.1",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/scikit_learn-1.9.1.dist-info",
+      "record_sha256": "70730ccb591b1ca39faef73f40181c32c36253d3d7b75c644c591f8841647285"
+    },
+    {
+      "name": "cloudpickle",
+      "version": "3.1.2",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/cloudpickle-3.1.2.dist-info",
+      "record_sha256": "a24820e3d3ea3f0fb210f58b84abb5450a94cc649e573a9a0a69354afc6fa1de"
+    },
+    {
+      "name": "torch",
+      "version": "2.14.1",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch-2.14.1.dist-info",
+      "record_sha256": "3e709877a80df72f71402f8f4dac1ad9c303910423ebfe325487c79f1bee6537"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/packaging-26.3.dist-info",
+      "record_sha256": "1b8655965b0d83e9a067fd7f84b977bd1e117e0fb9f2874b2572781bdc9e2147"
+    },
+    {
+      "name": "networkx",
+      "version": "3.7",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/networkx-3.7.dist-info",
+      "record_sha256": "0403c7ac1516dc6dc03a4f0d8256c3b5d333c5721e6ab116c9f2b37fdeb6eb30"
+    },
+    {
+      "name": "joblib",
+      "version": "1.6.0",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/joblib-1.6.0.dist-info",
+      "record_sha256": "c1088eee5a30f2c8e5b1611ee43a7ccd8e8a9fcc53ebba0606692431d896a873"
+    },
+    {
+      "name": "Pygments",
+      "version": "2.21.0",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/pygments-2.21.0.dist-info",
+      "record_sha256": "2fa66b20b8f657e6789ad21c583dd403374c8acfc738b9c5f5c849d87c7376bf"
+    },
+    {
+      "name": "treeneuron",
+      "version": "0.1.0",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/treeneuron-0.1.0.dist-info",
+      "record_sha256": "7b898a28d7efba493f60e26e1f44812bc7c738b6881871c5b0c8c560b873354c"
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.1",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/iniconfig-2.3.1.dist-info",
+      "record_sha256": "0000f3396bc6bfd4ddf9c29d9a1f4c099b1b18479ef23a3a6548278c7cf9f48d"
+    },
+    {
+      "name": "numpy",
+      "version": "2.5.4",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/numpy-2.5.4.dist-info",
+      "record_sha256": "26eab5291581f4d816ddb8ca046f8e217e218c074f264e423875691d2be305a9"
+    },
+    {
+      "name": "sympy",
+      "version": "1.14.0",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/sympy-1.14.0.dist-info",
+      "record_sha256": "ed0bdf68cee6984983ef363679c28107ffa09dc785faa2299519bfa74a5253d2"
+    },
+    {
+      "name": "pluggy",
+      "version": "1.7.0",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/pluggy-1.7.0.dist-info",
+      "record_sha256": "bab7152cdb6aaa818c2be8786237e032b04022f00e928d71e8dc732b768d6e6d"
+    },
+    {
+      "name": "pytest",
+      "version": "9.1.1",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/pytest-9.1.1.dist-info",
+      "record_sha256": "11842800993f06177907c62d49457c80a5dd1d49d50a292c3262d1328ca13d1e"
+    },
+    {
+      "name": "setuptools",
+      "version": "84.0.0",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/setuptools-84.0.0.dist-info",
+      "record_sha256": "26b6656e2a9d04f4c1cc1e8580636454733af03d8dc2dac4b2d4636ff1ed6da8"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "2.9.0.post0",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/python_dateutil-2.9.0.post0.dist-info",
+      "record_sha256": "e15e868a50b9c4e71df17b31369843617780146ac5adb1bbfdcced0ebe501824"
+    },
+    {
+      "name": "mpmath",
+      "version": "1.3.0",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/mpmath-1.3.0.dist-info",
+      "record_sha256": "09cbd04e87d0c5ab64aab08291b31883e4ea27e8d2c640710e0beb1995e86b9b"
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.3",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/pyyaml-6.0.3.dist-info",
+      "record_sha256": "4e259774348bac93724047fa3547e03b71cbe2b7d37ca39be41513355d9cf36a"
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.9.0",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/fsspec-2026.9.0.dist-info",
+      "record_sha256": "f7b3713c1750221155b0601147f3b68a24f11e342dca818b5fd551f5ef88a74b"
+    },
+    {
+      "name": "filelock",
+      "version": "4.2.0",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/filelock-4.2.0.dist-info",
+      "record_sha256": "d0963b7f11563dea92731c9eabb471f793c0cf6ad1ecad2f7c387e08ed475505"
+    },
+    {
+      "name": "Jinja2",
+      "version": "3.1.6",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/jinja2-3.1.6.dist-info",
+      "record_sha256": "4551b3fb657b85a9f01e961c0f8a235da65d758149b619400211964b3ac02bdc"
+    },
+    {
+      "name": "threadpoolctl",
+      "version": "3.7.0",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/threadpoolctl-3.7.0.dist-info",
+      "record_sha256": "271378a6666651adc5c620731081b466a07024b75d7728b9d61b8335b45d7225"
+    },
+    {
+      "name": "pandas",
+      "version": "3.0.6",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/pandas-3.0.6.dist-info",
+      "record_sha256": "daeee3e7f48ab290d9508b7d3f6038fe2fe591d76d4e40345a85ba7b92ba04d7"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/typing_extensions-4.16.0.dist-info",
+      "record_sha256": "9e07fea845cac76293d927afa7157a14ecba39b318bc8af236b8de530b7656c1"
+    },
+    {
+      "name": "MarkupSafe",
+      "version": "3.0.4",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/markupsafe-3.0.4.dist-info",
+      "record_sha256": "0c3df9dafbe0606f021671da41b818c72b6c8177cca284c8ed73e9d3df955f0a"
+    },
+    {
+      "name": "six",
+      "version": "1.17.0",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/six-1.17.0.dist-info",
+      "record_sha256": "d16e50f347969b1e1919fb0c88bac4b9c644f5305bcfcfb00f72b646dbd4065d"
+    },
+    {
+      "name": "scipy",
+      "version": "1.18.1",
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/scipy-1.18.1.dist-info",
+      "record_sha256": "d95b7aa2c03940de0bec301021a5753ff3577b5b7ce28e6342d59f9d8556258a"
+    }
+  ],
+  "duplicate_distribution_identities": {},
+  "core_lock_sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+  "tracked_files": 1345,
+  "tracked_bytes": 54574270,
+  "historical_raw_authentication": "not_established",
+  "initial_git_head": "230e6575149c9fee440ca301fa3782a85751bac8",
+  "build_egg_info_disposition": "fresh setuptools-generated source egg-info moved to WP00 archive; installed dist-info retained"
+}
