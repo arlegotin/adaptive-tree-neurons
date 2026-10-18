@@ -76,7 +76,8 @@ def main():
         files = [p for p in root.rglob('*') if p.is_file()]
         payload = max((p.stat().st_size for p in files if p.suffix == '.pt'), default=0)
         metadata = max((p.stat().st_size for p in files if p.name.endswith('.meta.json')), default=0)
-        transaction = payload+metadata+4096
+        history = max((p.stat().st_size for p in files if p.name.startswith('history-') and p.suffix == '.jsonl'), default=0)
+        transaction = payload+metadata+history+4096
         rss = int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)*(1 if sys.platform=='darwin' else 1024)
         retained = sum(p.stat().st_size for p in files)
         workload = dict(d=config.model.d, h=config.model.h, n_fit=config.data.n_fit,
@@ -98,6 +99,7 @@ def main():
             refs.append(dict(path=str(path.resolve()), sha256=hashlib.sha256(path.read_bytes()).hexdigest()))
         manifest.update(status='completed', measurements=refs, retained_bytes=retained,
             peak_rss_bytes=rss, max_checkpoint_transaction_bytes=transaction,
+            transaction_estimator='conservative largest payload+metadata+complete history journal+4096-byte publication allowance; not measured write volume',
             elapsed_ns=time.perf_counter_ns()-STARTED,
             limitations=['one teacher/repetition; runtime variance not calibrated',
                          'phase clocks nested; do not add to containing elapsed',

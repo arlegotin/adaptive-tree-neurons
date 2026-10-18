@@ -41,5 +41,20 @@
     }
   ],
   "T_accessed": false,
-  "scientific_result": false
+  "scientific_result": false,
+  "control_report_failure_hardening": {
+    "red": "disk-full report replaced original numerical failure and skipped backend restore",
+    "green": "21 targeted+runner tests passed13.57s",
+    "scope": "failure publication only; numerical path unchanged",
+    "logs": [
+      {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/parent-tests/atn-control-publication-red.log",
+        "sha256": "c33ff550578e076e1ae0f18ebfa7d35b52845cf7270e8998bb7f1155ef075729"
+      },
+      {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP03/parent-tests/atn-control-publication-green.log",
+        "sha256": "6c889d7d08afdf963d38ceb37fa15a924f5a47569136e247cf0c706147c32658"
+      }
+    ]
+  }
 }

@@ -3,6 +3,7 @@ import copy
 from dataclasses import fields
 from pathlib import Path
 import time
+import sys
 
 import numpy as np
 import torch
@@ -103,6 +104,13 @@ def fit_control_pair(config, data, root, roles, *, control=None, guard=lambda: N
         report.update(status='failed', failure=f'{type(error).__name__}: {error}')
         raise
     finally:
+        active_error=sys.exc_info()[1]
         report['physical_elapsed_ns'] = time.perf_counter_ns()-started
-        write_new_json(root/'control-pair.json', report)
-        train.BACKEND_REPORT_PATH = original_backend
+        try:
+            try:
+                write_new_json(root/'control-pair.json', report)
+            except BaseException as publication_error:
+                if active_error is None:raise
+                active_error.add_note(f'Control report publication also failed: {publication_error}')
+        finally:
+            train.BACKEND_REPORT_PATH = original_backend

@@ -88,6 +88,24 @@ checkpoints, and emits hash-bound resource measurements. It does not complete
 M0, provide a variance estimate, or constitute resource admission by itself.
 Its measured observations and seeds remain development evidence permanently.
 
+The planted-control resource qualification uses the full M1 plan's first declared
+instance/repeat at gamma2/sigma.1, with five finite fit roles. It does not complete
+the full control matrix or decide Gate A. Create a fresh source-bound CPU receipt
+and fresh output; do not rerun an existing qualification destination:
+
+```sh
+"$ATN_PY" -m treeneuron.evaluation.search_worker \
+  --backend-receipt environment/research-v2-control-qualified-cpu.json
+"$ATN_PY" docs/research/v2/scripts/measure_positive_control.py \
+  --config configs/research/v2/M1-native-qualification.json \
+  --output artifacts/research-v2/WP02/M1-native-qualification
+```
+
+The qualifier stores actual F512/G256/V256/E16384 arrays, raw teacher coefficients,
+all native role states and coordinator predictions/metrics. Its true-contrast
+oracle is information-advantaged and diagnostic-only. Every outcome becomes
+development information; one instance/repeat is not a population result.
+
 Transfer acquisition retains official ZIPs, license pages, failed request
 receipts, exact raw hashes and a complete file inventory. The actual acquisition
 manifest/summary is bound by `WP07-acquisition-receipt.json`; raw bytes are local

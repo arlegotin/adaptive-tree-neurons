@@ -40,6 +40,29 @@
     "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src .venv-research-v2/bin/python artifacts/research-v2/WP03/native-storage-equivalence/replay-audit.py"
   ],
   "reproduction_note": "Create a fresh sibling audit directory at the same depth and copy only audit.py and replay-audit.py into it. Scripts resolve MAIN from that depth, read the same fixed input roots, and use exclusive output creation. Preserve all current outputs.",
+  "resource_estimator_correction": {
+    "reason": "Original measurement recipe omitted separate complete history journals from checkpoint transaction estimate; original receipts remain unchanged. Numerical equivalence audit unaffected. No production admission used those estimates.",
+    "reconstructed_bounds": {
+      "M0-journal-qualification": {
+        "conservative_transaction_upper_bound": 2606902,
+        "parts": {
+          "history": 2413636,
+          "metadata": 48727,
+          "payload": 140443,
+          "publication_allowance": 4096
+        }
+      },
+      "M0-native-qualification": {
+        "conservative_transaction_upper_bound": 2606368,
+        "parts": {
+          "history": 0,
+          "metadata": 2461829,
+          "payload": 140443,
+          "publication_allowance": 4096
+        }
+      }
+    }
+  },
   "resource_observations": [
     {
       "containing_wall_seconds": 5613.234290042,

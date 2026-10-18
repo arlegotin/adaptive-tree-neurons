@@ -378,8 +378,18 @@ qualification runs as session49572 under unchanged sourcef36bc2a4.
 Session49572 completed normally in981.287996666s, with484993527 retained bytes and
 538722304 peak RSS bytes. The old case took5613.234290042s, retained484895492
 bytes, and recorded562511872 peak RSS bytes. These are contended single-case
-observations; retained storage is approximately equal. Maximum checkpoint
-transaction bytes fell from2606368 to193266.
+observations; retained storage is approximately equal. The original receipt's
+transaction estimates were2606368 and193266; their journal omission is corrected
+below. Conservative reconstructed bounds are2606368 and2606902 bytes.
+
+Correction before any production resource admission: that recorded transaction
+estimator counted tensors/metadata but omitted complete history journals created
+in a new export directory. It therefore cannot establish reduced maximum disk
+headroom. Original receipts remain unchanged; WP03-native-equivalence-receipt.json
+adds independently reconstructed conservative bounds including journals. Both
+measurement recipes now include the largest complete journal as well as payload,
+metadata and publication allowance. Numerical equivalence/timing observations
+are unaffected. The old193266 estimate must not qualify journal-run capacity.
 
 Independent raw readers verified20 observation arrays,16 V/E prediction vectors
 plus4 reference arrays,18 ScoreTable arrays,77 native stages,40375 ordered
@@ -448,3 +458,20 @@ targeted recovery, not a second monolithic32-pass claim. The added fixture also
 proves planted prerequisites remain unfitted at update0 and receipt state is
 restored on interruption. WP03-parent-receipt.json retains all logs and outcomes.
 Outer M2 execution/admission/recovery and Gate A remain pending.
+
+### Controlled-task native resource qualification prepared
+
+Preparing the fixed M1 instance0/repeat0 gamma2/sigma.1 measurement, using the
+existing five-role F/G-only control worker and a new source-bound CPU receipt.
+M1-native-qualification.json changes only the backend receipt locator from the
+full M1 config, retaining every study/seed/numerical setting. The recipe is
+scripts/measure_positive_control.py; the destination must be fresh.
+
+Before reuse, source inspection found the control worker's report-publication
+error could mask a fit failure and skip restoring the caller's backend receipt.
+A mocked full-disk publication after a numerical failure reproduced RED. The
+failure path now retains the original exception and always restores the receipt;
+the numerical training path is unchanged. Targeted plus runner integration passed
+21 in13.57s. Logs control-publication-red/green are retained under WP03/parent-tests.
+No planted fit or new control-sensitivity result exists yet at this preparation
+entry. The full M1 matrix and Gate A remain pending regardless of this one cell.
