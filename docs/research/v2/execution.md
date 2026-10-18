@@ -601,3 +601,30 @@ main artifact namespace with zero mismatch; original source identities remain
 unchanged. Full native anchors, hard resource harness/recovery, remaining families
 and Gate D are still pending. No prepared transfer data or protected labels were
 used, and this does not establish practical superiority.
+
+### Independent local-score calibration implemented
+
+F-only CPU-float64 autograd, separate1e-7 fresh-Adam gate steps, mask changes and
+64 fixed-seed diagnostic minibatches now measure the legacy score's precise
+first-step target. Full gradients, row indices, signed full-F predictions and
+undefined ranks are retained without G/V/E-based selection. A zero eligible pool
+is explicitly insensitive. Independent review found a caller no-grad failure;
+it reproduced RED and the helper now enables/restores autograd explicitly. Final
+local/worker/data/graph/queue/native-contract integration passed62 in10.16s. No
+new scientific teacher or primary fit is counted by these fixtures. Optional
+single-eligible/all-tied rank fixtures and a redundant precision field remain
+deferred, with CPU float64 stated in code/docs. The receipt preserves every RED
+and GREEN result. Production dispatch/resources, conditional execution and Gate A
+remain pending.
+
+### Fixed-source M1 continuation qualification started
+
+An isolated detached checkout at132b250 now protects the control experiment from
+implementation edits. A newly produced source-bound CPU receipt qualified its
+runtime, and the existing measurement recipe is repeating the exact fixed
+instance0/repeat0 gamma2/sigma.1 case under that source. This is source/resource
+qualification of an already inspected teacher, not a new independent result.
+The active output is WP02/M1-source-132b250-positive. One heavy numerical worker
+uses one thread; root continues implementation in a different checkout. Larger
+control workload measurement and a full resource forecast still precede any
+full M1 matrix. No protected data have been created or opened.

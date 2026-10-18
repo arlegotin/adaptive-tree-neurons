@@ -1,0 +1,58 @@
+{
+  "schema": "research/v2-implementation-receipt",
+  "component": "F-only local gate-step calibration and M2 worker",
+  "base_commit": "132b250",
+  "tests": {
+    "initial": "3 missing-module RED failures; then3 passed in3.54s",
+    "worker": "unsupported local job RED; then62 passed in9.91s",
+    "review": "no-grad context RED; final62 passed in10.16s",
+    "logs": [
+      {
+        "path": "artifacts/research-v2/WP03/local-calibration-tests/atn-local-calibration-red.log",
+        "sha256": "4bf535c3943074c8e6fbd37d24f75d6bc1b9b9e9357180e8d6d866aadb515109"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/local-calibration-tests/atn-local-calibration-green-0.log",
+        "sha256": "f9469fe943b33f839a16b98266825e41ab971cbf7096da6fe9ac4044f3dd1e30"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/local-calibration-tests/atn-local-worker-red.log",
+        "sha256": "223c1312a08866944e01802793c68a6d6755123ad6cb399886e3dc0758761593"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/local-calibration-tests/atn-local-worker-integration.log",
+        "sha256": "a6c21390730b3e0722cbaa4d0b3f4040c040c2a10c4a0c30c24e7e923c3141a8"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/local-calibration-tests/atn-local-calibration-grad-red.log",
+        "sha256": "66b2091e2120db0cdbe57a4e5cdcef5cbd00d58062a589df0a221806783ae86f"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/local-calibration-tests/atn-local-worker-final-green.log",
+        "sha256": "e008f5c327652d88cd81cc53236e5ba96ecc8b9857cd9f11a1c5019f09f887e1"
+      }
+    ]
+  },
+  "review": {
+    "independent_reviewer": "diagnostic_review",
+    "math": "direction/sign/scaling, one-gate reset, birth contrast derivative, F-only minibatches, undefined ranks and caller state/RNG consistent",
+    "fixed": "explicit autograd context under torch.no_grad; reproduced RED before correction",
+    "optional_deferred": [
+      "additional single-eligible/all-tied rank fixtures",
+      "explicit CPU-float64 field in report; implementation and docs already specify it"
+    ]
+  },
+  "scope": {
+    "new_scientific_fits": 0,
+    "F_only": true,
+    "gate_step": 1e-07,
+    "minibatches": 64,
+    "diagnostic_precision": "CPU float64",
+    "protected_data_accessed": false,
+    "pending": [
+      "production dispatch/resource admission",
+      "conditional fallback/extension",
+      "Gate A analysis"
+    ]
+  }
+}

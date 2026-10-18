@@ -76,6 +76,6 @@ def compile_initial_graph(study):
         execution_identity=study['execution_identity'],study_config=study['config'],
         design_bindings=study['design_bindings'],matrix_counts=study['matrix_counts'],job_counts=counts,
         admission='initial_only',execution_implemented=False,
-        pending=['model/data/local-diagnostic/evaluation handlers','resource admission',
+        pending=['production dispatcher and resource admission',
                  'conditional fallback/extension admission','Gate A analysis'])
     return make_queue_plan(identity,jobs)

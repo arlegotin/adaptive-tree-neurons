@@ -1,9 +1,9 @@
 # Finite prerequisite queue implementation contract
 
 This is an internal execution primitive for the already specified M2 DAG, not a
-new experiment or an operational public M2 command. The initial M2 graph compiles;
-handlers,
-conditional admission, metric/gate analysis and measured resource admission
+new experiment or an operational public M2 command. The initial M2 graph compiles
+and individual model/data/evaluation/local-diagnostic handlers work on fixtures;
+production dispatch, conditional admission, metric/gate analysis and measured resource admission
 remain separate work. No fitting begins merely because this queue is implemented.
 
 The queue freezes identity, ordered job IDs/kinds/payloads/dependencies and a
@@ -54,5 +54,5 @@ They are not predictive results or native-workload qualification.
 1,184 evaluator,8 local-diagnostic and8 pair-oracle jobs. This represents exactly
 the initial1,176 nominal procedures plus8 G-selected subset-oracle evaluations.
 The compiled identity explicitly says execution is unimplemented. Conditional
-fallback/extension admission, actual handlers, resource qualification and Gate A
+fallback/extension admission, production dispatch, resource qualification and Gate A
 remain pending; no scientific M2 fits have run.

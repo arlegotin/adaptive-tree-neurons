@@ -28,6 +28,7 @@ def tiny_plan(receipt):
     add('parent','parent',parent,['data'])
     add('score','score',dict(snapshot='late_G_best'),['data','parent'])
     add('binding','horizon_binding',dict(seed=77),['score'])
+    add('local','local_diagnostic',{},['data','parent','score'])
     common=dict(parent_key='small',snapshot='late_G_best',allocation_seed=55,
         max_updates=6,stop_by_patience=True,treatment='continued_stream')
     for name,ids in (('good',[0,2]),('dead',[0,7])):
@@ -63,6 +64,9 @@ def test_native_workers_fit_select_then_evaluate_without_refitting(tmp_path,cpu_
     def value(name):return json.loads(open(latest[name]['result']['path']).read())['value']
     oracle=value('oracle');assert oracle['selection']['unit_ids']==[0,2]
     assert oracle['selection']['attempted_pair_count']==2
+    local=value('local');assert local['calibration']['selection_labels']=='F_only'
+    assert local['calibration']['minibatches']==64
+    assert local['calibration']['gate_gradient_max_absolute_error']<1e-10
     keep=value('evaluate-keep')
     assert set(keep['metrics'])=={'selected','prefix_0','prefix_2','prefix_6'}
     assert keep['T_accessed'] is False
@@ -99,8 +103,8 @@ def test_missing_candidate_closes_oracle_and_unknown_worker_cannot_fit(tmp_path,
     job=next(j for j in plan['attempts'] if j['job_id']=='oracle')
     out=worker(job,tmp_path/'oracle',deps,0)
     assert out['status']=='irrecoverable_missing' and out['selection']['unit_ids'] is None
-    with pytest.raises(NotImplementedError,match='local_diagnostic'):
-        worker(dict(kind='local_diagnostic'),tmp_path/'unknown',{},0)
+    with pytest.raises(NotImplementedError,match='unimplemented_fixture'):
+        worker(dict(kind='unimplemented_fixture'),tmp_path/'unknown',{},0)
 
 
 def test_worker_rejects_a_changed_job_before_its_side_effect(tmp_path,cpu_training_evidence):

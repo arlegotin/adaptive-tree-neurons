@@ -94,7 +94,7 @@ tie rule. Missing candidate slots remain ineligible records.
 
 The initial immutable prerequisite graph and generic recovery queue are now
 implemented (queue-implementation.md). The outer M2 controller, conditional
-admission, model handlers, V/E coordinator, complete standalone costs and
+admission, production dispatch, complete study cost/report publication and
 source-bound resource admission are still pending. A worker's standalone cost remains null
 until those prerequisites are accounted for. Public M2 run remains disabled.
 
@@ -136,5 +136,23 @@ check native/frozen-head raw/split identity against their actual data, plus nati
 F/G hashes. Standalone accounting authenticates the exact graph/event ledger and
 charges unique prerequisite ancestry once per procedure, including all oracle
 candidates. Queue startup/import and shared physical cost stay separate. The
-local-diagnostic handler, measured admission, conditional orchestration and Gate A
+production dispatcher, measured admission, conditional orchestration and Gate A
 still precede any public M2 run; no scientific M2 fitting has begun.
+
+`research/local_calibration.py` independently checks F-only gate derivatives by
+autograd on a CPU float64 copy of the parent. Each current-eligible unit receives
+one separate fresh-Adam gate-only step of1e-7, with the gate reset before the next
+measurement. Predicted and actual standardized F-loss decreases and ReLU-mask
+changes are retained; birth contrast gradients must be zero. This measures the
+legacy score's limited mathematical target, not nonlinear joint predictive value.
+The helper explicitly enables autograd inside a caller's no-grad context and
+preserves caller model/RNG. No eligible candidates produce an explicit insensitive
+record, and constant/one-unit rank correlations remain undefined rather than zero.
+
+The M2 local worker additionally draws64 independent F minibatches, without
+replacement within each batch, of size min(native batch,nF). Their seed is
+seed64(candidate_sample_seed,'M2-local-calibration/minibatches'). It saves every
+row index, gate gradient, signed predicted full-F decrease, rank correlation and
+undefined count. These are diagnostic samples, not the actual continuation row
+stream. No G/V/E labels select the step or direction. Queue timers pay the work;
+no production matrix is admitted by the passing fixtures.

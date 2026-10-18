@@ -14,10 +14,12 @@ from treeneuron.growth.score import InvalidScoreRun
 from .diagnostics import ForkSpec,score_parent,fit_diagnostic_fork
 from .head_artifacts import fit_head_artifact,load_head_artifact
 from .ledger import AttemptLedger,write_new_json
+from .local_calibration import calibrate_local_score
 from .opportunity_data import (prepare_data_artifact,load_fitting_data,
     load_evaluation_data,load_control_parameters)
 from .opportunity_inputs import save_scores,load_scores,horizon_slots,pair_oracle
 from .parent_artifacts import ParentSpec,fit_parent_artifact,load_parent_input
+from .seeds import seed64
 
 
 class OpportunityWorkers:
@@ -39,7 +41,7 @@ class OpportunityWorkers:
 
     def __call__(self,job,directory,dependencies,attempt):
         kind=job['kind']
-        if kind not in ('data','parent','score','horizon_binding','fit','head','pair_oracle','evaluate'):
+        if kind not in ('data','parent','score','horizon_binding','local_diagnostic','fit','head','pair_oracle','evaluate'):
             raise NotImplementedError(f'M2 {kind} worker is not implemented; no production admission')
         if job.get('job_id') not in self.jobs or canonical_hash(job)!=canonical_hash(self.jobs[job['job_id']]):
             raise ValueError('Worker job differs from its frozen queue plan')
@@ -90,6 +92,18 @@ class OpportunityWorkers:
         result=dict(status='completed_eligible',slots=score['horizon_slots'],table_sha256=score['table_sha256'],
             seed=score['candidate_sample_seed'],selection_labels='F_only')
         write_new_json(directory/'binding.json',result);return result
+
+    def _local_diagnostic(self,job,directory,dependencies):
+        view,parent=self._context(job,dependencies)
+        if parent is None:return dict(status='completed_ineligible',reason='Requested actual parent update was not reached')
+        scored=load_scores(self._dependency(dependencies,'score')['artifact_path'],parent)
+        seed=seed64(self._dependency(dependencies,'parent')['candidate_sample_seed'],'M2-local-calibration/minibatches')
+        calibrated=calibrate_local_score(parent,view.F,scored,seed=seed,minibatches=64,step_size=1e-7)
+        path=directory/'arrays.npz'
+        with path.open('xb') as stream:np.savez_compressed(stream,**calibrated.arrays)
+        result=dict(status=calibrated.report['status'],calibration=calibrated.report,
+            arrays_path=str(path.resolve()))
+        write_new_json(directory/'calibration.json',result);return result
 
     def _fit(self,job,directory,dependencies):
         view,parent=self._context(job,dependencies);p=job['payload']
