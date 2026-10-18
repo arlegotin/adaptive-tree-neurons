@@ -1009,3 +1009,16 @@ admission still rejects before output. CLI prints the M2 disposition and returns
 Two plan-flag REDs and three CLI-disposition REDs are retained, as is the earlier
 obsolete controller-message assertion. A real invalid-config launcher fixture
 retained start/log/terminal receipts and exit1, creating no queue or model.
+
+NODEv2 integrated from663f671 into1073997 after one independent review and
+one combined correction pass. CPU/float32 construction defaults now reject
+before draws, preserving caller settings; selected/raw optimizer states agree
+exactly at the same endpoint update. Four original REDs became GREEN. Builder
+141affected checks passed175.15s, including47NODEcases; root31scoped checks
+passed52.71s with35deselected/14expected warnings. Raw1,061files/57,316,940bytes
+verified and copied;249pytest convenience aliases mapped separately. Original
+source identities retained, integrated package separately bound. Actual101updates
+include report100; only16/32-tree fixtures ran. Full2048-tree eligible anchors,
+training recovery, resources, HPO and GateD remain pending. Terminal RNG
+structural-validation minor remains explicitly deferred.
+[Integration receipt](NODE-v2-integration-receipt.json).
