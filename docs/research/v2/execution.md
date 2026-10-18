@@ -23,12 +23,12 @@ Unchecked work is not completed, and prior investigation findings are not new ru
 |WP00|qualified|97228c6; references passed;89 passed/1 skipped; arithmetic error1.39e-17; tracked WP00 receipt|
 |WP01|verified|220 targeted passed;19 reference arrays byte-identical; WP01-receipt.json; broad integration still pending|
 |WP02|M1 complete; M0 partial|256M1 fits and independent512-vector arithmetic; M1 sensitivity passes; full M0 remains pending|
-|WP03|diagnostics in progress|boundary/prefix/head helper and history verified; finite M2 plan reviewed; controller/resource admission and Gate A pending|
+|WP03|M2 scientific queue running|53native resource classes qualified under e1b1018; live per-job admission; full227GiBprojection exceeds current free disk; Gate A pending|
 |WP04|pending Gate A|joint selector numerical and trained evidence; Gate B|
 |WP05|not admitted|measured geometry/newborn trigger|
 |WP06|not admitted|measured retention/family ceiling; at most one redesign|
 |WP07|data and adapter engineering|six raw pins/30 splits audited; tiny native adapters checked; full native workload/quality qualification and Gate D pending|
-|WP08|pending|all production evaluation code tested;168 primary searches; Gate E|
+|WP08|fixture implementation partial|group/bootstrap metrics and840-job metadata expansion verified; native supports/search/cost/protocol integration and168 primary searches pending; Gate E pending|
 |WP09|pure implementation partial|variance/grid/power fixtures verified; protocol/provenance/resource validation, actual calibration and Gate F pending|
 |WP10|pending Gate F|frozen complete execution; Gate G|
 |WP11|pending|independent audit and faithful final report|
@@ -1072,3 +1072,5 @@ clock and source/admission before calling the standard CLI. It is now fitting
 primary parents in fixed order; no GateA, new selector or protected test result.
 [Measured admission](WP03-M2-measured-admission.json). Later implementation code
 remains isolated and cannot relabel these checkpoints.
+
+WP08 metadata planner: all840jobs/168primary/672secondary expanded with paired HPO labels, source/runtime/support/data commitments and immutable values. Seventeen missing-interface REDs became GREEN;67affected tests passed2.07s. Conservative26880attempt ceiling differs from26700finite unique configurations because P13stops at29. No raw targets, transfer fits, practical admission, frozen release or efficacy claim. Receipt:WP08-workload-preparation-receipt.json.

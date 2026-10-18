@@ -1,0 +1,51 @@
+{
+  "T_accessed": false,
+  "base_commit": "3826c22",
+  "counts": {
+    "conservative_attempts": 26880,
+    "finite_unique_attempts": 26700,
+    "jobs": 840,
+    "primary": 168,
+    "secondary": 672
+  },
+  "evidence_level": "Finite metadata planning and artificial fixture checks only",
+  "execution_authorized": false,
+  "logs": {
+    "artifacts/research-v2/WP08/workload-preparation/01-red.log": {
+      "bytes": 27132,
+      "sha256": "f8380757384db316cceb807d84f7ee0f09a5031fe04c043250feef4ea5fcee16"
+    },
+    "artifacts/research-v2/WP08/workload-preparation/02-green.log": {
+      "bytes": 99,
+      "sha256": "551fc771815904231a6da298f1c437edf7595fd111a7eb29e1fe070136eeb1ee"
+    },
+    "artifacts/research-v2/WP08/workload-preparation/03-affected-green.log": {
+      "bytes": 99,
+      "sha256": "4e93cd1093c7e93d46c4a65534bb03395a69aaef5f7512fb001e55312a8ddc51"
+    }
+  },
+  "measured_forecast": null,
+  "pending": [
+    "native supports/anchors",
+    "measured resources",
+    "TPE/resume/cost execution",
+    "protocol freeze/secondary release"
+  ],
+  "schema": "research/v2-workload-preparation",
+  "source_files": {
+    "docs/research/v2/scripts/check_practical_plan.py": "b8a7a957c20e854a74ad2c86a7f615fa86e6edc462adf24cf71a2efdd169d2ea",
+    "src/treeneuron/research/workload.py": "96c1362787998ac95c411dc929675fe03cfef7bcda5926e963fe3ad3dcbdd3e8",
+    "tests/test_practical_workload.py": "e6286c73b1e0bc0bde2a198321798688d18f8558a5c867301be8e77f6597ae4a"
+  },
+  "verification": {
+    "affected_passed": 67,
+    "command": [
+      "python",
+      "-B",
+      "-c",
+      "import torch,pytest;torch.set_num_threads(1);torch.set_num_interop_threads(1);raise SystemExit(pytest.main([\"-q\",\"tests/test_practical_workload.py\",\"tests/test_practical_v2.py\",\"tests/test_design_v2.py\",\"tests/test_transfer_contract.py\"]))"
+    ],
+    "elapsed_seconds": 2.07,
+    "red_failures": 17
+  }
+}
