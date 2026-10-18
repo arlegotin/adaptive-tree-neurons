@@ -147,3 +147,30 @@ contention expected. Use one numerical worker; recheck memory/disk before
 admission and preserve/retry operational interruptions under the finite recovery
 rules. Timing with competing workloads is qualification evidence, not a formal
 efficiency comparison. The full practical program is still an unexecuted ceiling.
+
+WP07 data slice in progress in the isolated checkout: all six official raw pins
+matched. Root independently rehashed116 retained files with zero mismatches;
+the compact tracked acquisition receipt binds the54,899-byte manifest at
+`0ef5199e064f079b0802a31a4e022fd469d1661fb56835f8d4ef3638bc0db4cf`.
+Twelve initial DNS failures and successful request receipts remain. The original
+two acquisition scripts are retained under docs/research/v2/scripts/acquire_uci
+for clean acquisition; no raw labels were parsed by that workstream.
+
+Implemented semantic table allowlists, target-free stored group/chronological
+splits, F-only numeric/category encoding, separated label files and a primary-only
+transfer store. Five RED missing-module tests now pass (latest0.22s), covering
+target/proxy exclusions,12-group Energy minima, missing-hour embargo, reserved
+unknown categories and label barriers. A separate hash-pinned data overlay has
+openpyxl3.1.5/xlrd2.0.2/et-xmlfile2.0.0. Independent data-contract review and actual
+preparation are pending. All14 native practical families, their qualification,
+protected evaluator release and secondary-development release remain unimplemented.
+
+Data-contract review is complete. A public mutable manifest could change the
+secondary `primary` flag; the RED regression reproduced the bypass. Validated
+metadata now stays private behind defensive copies, and access independently
+checks the dataset's contractual primary fold. Expected file hashes are protected
+by the same boundary. The coordinator receives aligned V labels/rows/groups/dates
+without exposing them to workers. Duplicate configuration keys reject before
+output creation; exact reader versions/import locations and duplicate distribution
+checks precede preparation. No material review finding remains unaddressed;
+actual six-table preparation and all native-adapter qualification remain pending.

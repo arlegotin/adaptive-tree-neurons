@@ -16,6 +16,7 @@ dist/
 /checkpoints/
 /data/raw/
 /data/cache/
+/data/research-v2/
 /weights/
 *.ckpt
 *.pt

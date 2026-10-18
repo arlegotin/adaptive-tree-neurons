@@ -27,6 +27,9 @@ def main(argv=None):
             else:
                 from .runner import run
                 run(plan, args.output, resume=args.resume)
+        elif args.command == 'prepare-data':
+            from .transfer import prepare_data
+            prepare_data(args.config, args.output)
         else:
             owners = {'prepare-data': 'WP07', 'qualify': 'WP07', 'freeze': 'WP09',
                       'confirm': 'WP10', 'report': 'WP11'}

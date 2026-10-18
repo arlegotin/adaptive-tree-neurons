@@ -57,8 +57,10 @@ the later explicit applied-update extension; they are not implemented by this
 metadata version. Historical schema1 checkpoints require their original source;
 there is no silent migration or source-hash rewrite.
 
-CLI commands for WP03 onward currently fail with an owning-package prerequisite
-message. Native trainer checkpoints resume exactly. The outer legacy reference
+The WP03 experiment dispatcher and qualify/freeze/confirm/report commands still
+fail with an owning-package prerequisite message. The WP07 prepare-data slice
+below is implemented independently of baseline qualification. Native trainer
+checkpoints resume exactly. The outer legacy reference
 graph uses one declared deterministic same-seed infrastructure rerun under
 `--resume`, retaining both transaction directories and all events. OS leases
 prevent concurrent execution. Recovery cost bounds and unrecorded process-loss
@@ -84,3 +86,48 @@ all singleton/keep probes for teacher0/repetition0, retains observations and
 checkpoints, and emits hash-bound resource measurements. It does not complete
 M0, provide a variance estimate, or constitute resource admission by itself.
 Its measured observations and seeds remain development evidence permanently.
+
+Transfer acquisition retains official ZIPs, license pages, failed request
+receipts, exact raw hashes and a complete file inventory. The actual acquisition
+manifest/summary is bound by `WP07-acquisition-receipt.json`; raw bytes are local
+artifacts. To acquire anew in a fresh default directory, copy the original
+receipt-producing scripts, then execute them:
+
+```sh
+mkdir -p artifacts/research-v2/WP07/acquisition
+cp docs/research/v2/scripts/acquire_uci/download.py artifacts/research-v2/WP07/acquisition/
+cp docs/research/v2/scripts/acquire_uci/verify_extract.py artifacts/research-v2/WP07/acquisition/
+"$ATN_PY" artifacts/research-v2/WP07/acquisition/download.py --network-context authorized-uci-acquisition
+"$ATN_PY" artifacts/research-v2/WP07/acquisition/verify_extract.py
+```
+
+Never overwrite a previous acquisition manifest or raw file. A new acquisition
+has new receipt timestamps/digest: bind that new manifest in a new copy of
+P0-data.json while retaining the six fixed raw SHA256 pins. The checked-in P0
+config names this execution's manifest and is not a floating download locator.
+
+Install optional spreadsheet readers in a separate overlay; this leaves core
+training dependencies unchanged. Official wheel hashes are in the data lock:
+
+```sh
+uv pip install --python "$ATN_PY" --require-hashes --only-binary :all: \
+  --target environment/research-v2-data-site \
+  -r locks/research-v2/data-requirements.txt
+PYTHONPATH="$PWD/src:$PWD/environment/research-v2-data-site" \
+  "$ATN_PY" -m treeneuron.research.cli prepare-data \
+  --config configs/research/v2/P0-data.json --output data/research-v2
+```
+
+Preparation selects CCPP Sheet1, validates all six raw schemas/row/group counts,
+stores the concrete five splits and embargo omissions, and separates V/T labels
+from fitting-worker views. All output paths must be fresh; partial failure
+artifacts and preparation-status.json remain. It does not fit preprocessing or
+models, qualify native adapters, authorize secondary development, evaluate T, or
+freeze a scientific procedure. The public raw targets are parsed for partition
+serialization; sealing is an audited role boundary, not cryptographic nonaccess
+to the source tables. Data encoders fit only when an adapter receives F.
+
+Data dependencies were verified against the official
+[openpyxl](https://pypi.org/project/openpyxl/3.1.5/),
+[xlrd](https://pypi.org/project/xlrd/2.0.2/) and
+[et-xmlfile](https://pypi.org/project/et-xmlfile/2.0.0/) release records.

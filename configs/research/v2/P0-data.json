@@ -1,0 +1,6 @@
+{
+  "schema": "research/v2-data-preparation",
+  "acquisition_manifest": "artifacts/research-v2/WP07/acquisition/acquisition-manifest.json",
+  "acquisition_manifest_sha256": "0ef5199e064f079b0802a31a4e022fd469d1661fb56835f8d4ef3638bc0db4cf",
+  "datasets": ["airfoil", "concrete", "ccpp", "parkinsons", "bike", "energy"]
+}
