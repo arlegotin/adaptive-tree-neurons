@@ -57,8 +57,9 @@ Recorded G solve scores use the supplied target coordinates (F-standardized in
 the native wrapper). The coordinator must recompute original-unit V/E metrics.
 Per-alpha timers cover solve/G scoring; the enclosing procedure must additionally
 pay feature extraction, preparation, parent fitting and final prediction costs.
-The helper never consumes V/E labels or changes parent state/RNG. Its controller,
-durable serialization and full cost/failure integration remain pending.
+The helper never consumes V/E labels or changes parent state/RNG. Durable model
+serialization is implemented below; its outer controller and complete
+prerequisite cost/failure integration remain pending.
 
 M2d enumerates the common eligible singleton/pair pool; every nominal h8 singleton
 or pair remains visible, including ineligible dead-unit subsets. G chooses the
@@ -91,9 +92,10 @@ nominal slots from cheap top-four and a seeded sample of up to four remaining
 eligible IDs, and selects the small pair oracle on G with the declared stable
 tie rule. Missing candidate slots remain ineligible records.
 
-The outer M2 controller, conditional admission, immutable prerequisite queue,
-recovery orchestration, V/E coordinator, complete standalone costs and source-bound
-resource admission are still pending. A worker's standalone cost remains null
+The initial immutable prerequisite graph and generic recovery queue are now
+implemented (queue-implementation.md). The outer M2 controller, conditional
+admission, model handlers, V/E coordinator, complete standalone costs and
+source-bound resource admission are still pending. A worker's standalone cost remains null
 until those prerequisites are accounted for. Public M2 run remains disabled.
 
 `research/parent_artifacts.py` supplies the corresponding single-attempt parent
@@ -115,3 +117,13 @@ and checks source/lock/runtime/parent/transform identities. The complete six-sol
 G-selection evidence is validated, including stable alpha ties and agreement of
 retained parameters with the declared winner. All solves and their costs remain
 visible; standalone parent cost attribution still belongs to the outer queue.
+
+`research/opportunity_data.py` retains original primary/control arrays in separate
+F/G, validation-feature and evaluator archives. Fitting loads no evaluator or
+teacher file and receives no noiseless targets. The coordinator can reconstruct
+complete development/E observations afterward. Raw planted coefficients are
+written before observations are drawn. Source/config/request/seed, exact dtype,
+array shapes, row/group/split hashes and the native raw dataset identity are
+validated before reuse; V labels are unnecessary for verifying their opaque
+identity commitment. A tiny retained-data→parent→fork→coordinator integration
+passes. This primitive does not execute or admit the scientific M2 matrix.

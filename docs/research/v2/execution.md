@@ -563,3 +563,17 @@ pair failure makes the oracle missing. Source/runtime checks, one same-seed retr
 append-only paid failures and unknown worker-loss timing bounds remain explicit.
 Actual handlers, conditional admissions, resource qualification and Gate A are
 still pending. This is software evidence, not a placement result.
+
+### Retained M2 data and independent worker/evaluator access
+
+Exact native primary arrays and planted-control arrays now round-trip through
+role-separated storage. The fit loader opens F/G arrays and validation features
+only; V/E labels and all noiseless targets remain evaluator-only. Predeclared
+planted coefficients are saved before observation generation. One tiny native
+parent/fork integration uses those retained arrays and evaluates afterward. This
+is software verification, not an additional scientific teacher or M2 outcome.
+Independent review found retained-config/raw-ID and V-feature geometry gaps. All
+four malformed-artifact cases reproduced RED and were fixed; final affected
+integration passed22 in12.96s. Earlier fixture-import failure and recovery are
+retained in WP03-data-artifact-receipt.json. Outer handlers, resource admission,
+conditional execution and Gate A remain pending.

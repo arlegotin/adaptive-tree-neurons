@@ -1,0 +1,71 @@
+{
+  "schema": "research/v2-implementation-receipt",
+  "component": "role-separated M2 retained data",
+  "base_commit": "520594c",
+  "tests": {
+    "initial": "4 RED missing-module failures; then4 passed in0.37s",
+    "integration": "17 passed +1 fixture import error; import restored and18 passed in13.25s",
+    "review": "4 material malformed-artifact cases reproduced RED; final22 passed in12.96s",
+    "modules": [
+      "test_opportunity_data.py",
+      "test_parent_artifacts.py",
+      "test_diagnostic_forks.py",
+      "test_opportunity_inputs.py"
+    ],
+    "logs": [
+      {
+        "path": "artifacts/research-v2/WP03/data-artifact-tests/atn-opportunity-data-red.log",
+        "sha256": "deed0e99764bd9027fcfe9b9d00ffcb2279610e615669aa5a84c7e09256ea8bc"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/data-artifact-tests/atn-opportunity-data-green-0.log",
+        "sha256": "497a48836ebe8250efd6a2be95e6a182ee7675b4430e9b23644291fbc0f99632"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/data-artifact-tests/atn-opportunity-data-integration.log",
+        "sha256": "1e6d83d29ff6a54a7df698812cbfb13f851c77b689b6ddd0e79d68a6f22492be"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/data-artifact-tests/atn-opportunity-data-integration-1.log",
+        "sha256": "de684df05ad50d070f58cbca7cd34ee3cc75931d358cf70e8ce81dd49f08e3ff"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/data-artifact-tests/atn-opportunity-data-review-red.log",
+        "sha256": "582e092475633ac889c81e3c7503ad5508214df040fa2d0080074c50ab537530"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/data-artifact-tests/atn-opportunity-data-review-green.log",
+        "sha256": "701cc141dd65bedc4bbcacaf2a993d36d4d34972d7385b90dd12083c8cf5b28d"
+      }
+    ]
+  },
+  "review": {
+    "independent_reviewer": "opportunity_state_review",
+    "fixed": [
+      "revalidate retained request/protected-role/config/seed contract",
+      "recompute native dataset ID from opaque role commitments without reading V labels",
+      "enforce exact validation matrix and ID geometry before fitting"
+    ]
+  },
+  "scope": {
+    "raw_primary_arrays_match_native_generator": true,
+    "planted_coefficients_retained_before_observations": true,
+    "fit_loader_reads": [
+      "F/G arrays",
+      "V inputs and IDs",
+      "split/config/commitments"
+    ],
+    "fit_loader_never_opens": [
+      "evaluator.npz",
+      "teacher.json"
+    ],
+    "new_scientific_fits": 0,
+    "protected_data_created": false,
+    "pending": [
+      "outer model/data/evaluation handlers",
+      "resource admission",
+      "conditional admissions",
+      "Gate A"
+    ]
+  }
+}
