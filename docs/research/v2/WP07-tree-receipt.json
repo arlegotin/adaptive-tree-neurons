@@ -1,0 +1,44 @@
+{
+  "schema": "research/v2-native-tree-fixture-receipt",
+  "status": "bounded_direct_native_fixtures_passed",
+  "native_full_quality_anchors_qualified": false,
+  "Gate_D": "pending",
+  "cells": 8,
+  "fits": 16,
+  "max_rounds_per_fit": 128,
+  "patience": 8,
+  "prepared_transfer_data_accessed": false,
+  "T_accessed": false,
+  "scope": "synthetic F/G-only native API/stopping/category/save-load and linear-leaf checks; no procedure quality comparison",
+  "dependencies": {
+    "core_distributions_unchanged": 27,
+    "optional_overlay_distributions": 12
+  },
+  "evidence": {
+    "index.json": {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/tree-fixtures/index.json",
+      "sha256": "5abd6a1e5ef3aeea0531608407d5312db2102318931a2c077af4149c77233905"
+    },
+    "lifecycle-repair/disposition.json": {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/tree-fixtures/lifecycle-repair/disposition.json",
+      "sha256": "fa5351af71f02e8645d78d0f96d328e550259851111866e414ae9b01b5e01cee"
+    },
+    "tree-requirements.txt": {
+      "path": "locks/research-v2/tree-requirements.txt",
+      "sha256": "1298155fa06b633689632fc29b9fdbad6df30ab9c5ac8ac5f60cf0d4efc4fd93"
+    },
+    "tree-imports.py": {
+      "path": "locks/research-v2/tree-imports.py",
+      "sha256": "9d2c645c5f3418959b6ed012b8a86a1084383eb012683e6be064da40e6a27ed2"
+    },
+    "tree-resolve.py": {
+      "path": "locks/research-v2/tree-resolve.py",
+      "sha256": "3c25ff2f5b6a57b3835179833e6412a6ce665e850112602a392cbcfb4bb48427"
+    }
+  },
+  "root_verification": {
+    "tests": "9 harmless lifecycle/identity/context checks passed",
+    "path": "/private/tmp/atn-tree-lifecycle-root-20261018/result.json",
+    "sha256": "7c232c16b9a3660b5bdab9bfc0f1e9dc8c859644c93ac82bde84d73251c2e846"
+  }
+}

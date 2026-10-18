@@ -475,3 +475,28 @@ the numerical training path is unchanged. Targeted plus runner integration passe
 21 in13.57s. Logs control-publication-red/green are retained under WP03/parent-tests.
 No planted fit or new control-sensitivity result exists yet at this preparation
 entry. The full M1 matrix and Gate A remain pending regardless of this one cell.
+
+### WP07 direct native tree fixtures completed
+
+Eight fixed numeric/categorical cells,16 tiny fits across CatBoost/XGBoost and
+constant/linear LightGBM passed. They checked F/G coverage, F-only encodings,
+unseen categories, finite predictions, native stopping/best selection and exact
+save/load predictions. Every opposed-signal stopping control kept round1 after
+executing9; XGBoost's ordinary categorical cell reached128 rounds and is explicitly
+not a quality anchor. Actual LightGBM linear leaves were inspected. Independent
+metric reconstruction agreed within2.22e-16. All27 core and12 overlay identities
+remained unchanged; observed dual LLVM runtime processes did not crash/warn.
+
+The initial monitor launch failed on sandbox-denied process inspection. Review
+found that failure could leave a child unmonitored and omit terminal receipts.
+The original successful16-fit artifact bytes remain unchanged and bound to their
+executed helper; hardened process ownership now reaps on monitor/interruption
+errors and preserves the original exception with command/cost receipts. Workers
+enforce source/dependency hashes before imports, and phase-aware runtime context
+clarifies old auditor-only flags. Nine harmless tests passed, repeated by root.
+No numerical refits were needed; numerical function ASTs were checked unchanged.
+
+WP07-tree-receipt.json and tree-fixture-qualification.md retain exact script/lock/
+artifact identities, independent checks and all failures. Production adapters,
+full native eligible anchors, native-training interruption/recovery and broader
+workloads remain pending; Gate D/full-suite comparisons are not qualified.

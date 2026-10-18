@@ -1,0 +1,202 @@
+{
+  "core_import_specs": {
+    "dateutil": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/dateutil/__init__.py",
+    "narwhals": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/narwhals/__init__.py",
+    "numpy": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/numpy/__init__.py",
+    "packaging": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/packaging/__init__.py",
+    "pandas": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/pandas/__init__.py",
+    "scipy": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/scipy/__init__.py",
+    "six": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/six.py",
+    "sklearn": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/sklearn/__init__.py",
+    "torch": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/torch/__init__.py",
+    "yaml": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/lib/python3.12/site-packages/yaml/__init__.py"
+  },
+  "dry_run_wrapper_assertion_disposition": "The first wrapper incorrectly expected an entirely absent target. uv dry-run created only .lock; an independent corrected check verified no installed distribution/module and exit_code 0. No second installation or installation retry occurred.",
+  "files": {
+    "tree-core-constraints.txt": {
+      "bytes": 547,
+      "sha256": "eace2142899f69f1122dad56f93c094516f25b7122850a9c2627824f9da2ddcb"
+    },
+    "tree-requirements.in": {
+      "bytes": 131,
+      "sha256": "afc2e32dfc02fa8ced0ea8a8224d89acd6824d6728be6306bf796559c0271563"
+    },
+    "tree-requirements.txt": {
+      "bytes": 3770,
+      "sha256": "1298155fa06b633689632fc29b9fdbad6df30ab9c5ac8ac5f60cf0d4efc4fd93"
+    },
+    "tree-resolution.json": {
+      "bytes": 215612,
+      "sha256": "4e8ee8e0e1c706e5224103feba2d9cf0edb89d2680bb2edbd4eaf6f1064908f4"
+    },
+    "tree-resolve.py": {
+      "bytes": 15048,
+      "sha256": "3c25ff2f5b6a57b3835179833e6412a6ce665e850112602a392cbcfb4bb48427"
+    },
+    "tree-resolved-all.txt": {
+      "bytes": 57525,
+      "sha256": "65a6fec5ed5170a7f5c93a9ef8c717856f4bf1f90eac00ef4b19f1c0712de25e"
+    }
+  },
+  "offline_install_dry_run": {
+    "argv": [
+      "uv",
+      "pip",
+      "install",
+      "--python",
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "--no-deps",
+      "--require-hashes",
+      "--only-binary",
+      ":all:",
+      "--no-index",
+      "--offline",
+      "--find-links",
+      "/private/tmp/atn-tree-lock-20261018-hin0ywhi/acquisition-recovery/wheels",
+      "--target",
+      "/private/tmp/atn-tree-lock-20261018-hin0ywhi/dry-run-never-installed-site",
+      "--cache-dir",
+      "/private/tmp/atn-tree-lock-20261018-hin0ywhi/install-dry-run-cache",
+      "--no-config",
+      "--dry-run",
+      "-r",
+      "/private/tmp/atn-research-v2-next/locks/research-v2/tree-requirements.txt"
+    ],
+    "cwd": "/private/tmp/atn-research-v2-next",
+    "ended_utc_ns": 1792336010468198000,
+    "environment_overrides": {
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "exit_code": 0,
+    "log_sha256": "e0007e4bd5fff0b4fb241cf45e8a938fc7f12436df29d2a2928194da8432f8f8",
+    "output": "Using CPython 3.12.13 interpreter at: /Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python\nResolved 12 packages in 0.43ms\nWould download 12 packages\nWould install 12 packages\n + catboost==1.2.10\n + contourpy==1.4.0\n + cycler==0.12.1\n + fonttools==4.67.0\n + graphviz==0.21\n + kiwisolver==1.5.1\n + lightgbm==4.7.0\n + matplotlib==3.11.2\n + pillow==13.0.0\n + plotly==7.1.0\n + pyparsing==3.3.3\n + xgboost==3.4.1\n",
+    "packages_installed": false,
+    "started_utc_ns": 1792336010428384000,
+    "target_exists": true,
+    "target_files": [
+      ".lock"
+    ]
+  },
+  "receipt_generation_attempts": [
+    {
+      "attempt": 0,
+      "cause": {
+        "diagnosis": "The legacy email parser returns email.header.Header for the multiline/non-ASCII matplotlib License field; only that value is not JSON-serializable. All downloads, hashes, closure and core identity checks completed before receipt serialization.",
+        "exit_code": 1,
+        "log_sha256": "50e7da63bba1f33c70e0124bf549af5ae4b5992ae2a090bb0c52989974660b6e",
+        "reproduction_argv": [
+          "python",
+          "-c",
+          "import zipfile,email.parser,json\np='/private/tmp/atn-tree-lock-20261018-hin0ywhi/acquisition/wheels/matplotlib-3.11.2-cp312-cp312-macosx_11_0_arm64.whl'\nwith zipfile.ZipFile(p) as z:\n m=email.parser.BytesParser().parsebytes(z.read(next(n for n in z.namelist() if n.endswith('.dist-info/METADATA'))))\njson.dumps({'license':m.get('License')})\n"
+        ],
+        "script_before_sha256": "3ae8693329af7de9acecfca0ff45b620f241063e799a141346c10cc29601977f"
+      },
+      "output": "/private/tmp/atn-tree-lock-20261018-hin0ywhi/acquisition",
+      "raw_acquisition_events_sha256": "667539cbc07f3f0a3573d411a0a3f0c49fb600e9d5f0d2ccc47a67edd606b08d",
+      "status": "download_and_closure_checks_completed_receipt_serialization_failed"
+    },
+    {
+      "attempt": 1,
+      "fix": "Convert the legacy email Header license value to its full Unicode string before JSON serialization; no license metadata discarded.",
+      "output": "/private/tmp/atn-tree-lock-20261018-hin0ywhi/acquisition-recovery",
+      "script_sha256": "3c25ff2f5b6a57b3835179833e6412a6ce665e850112602a392cbcfb4bb48427",
+      "status": "completed_verified"
+    }
+  ],
+  "resolver_attempts": [
+    {
+      "argv": [
+        "uv",
+        "pip",
+        "compile",
+        "/private/tmp/atn-research-v2-next/locks/research-v2/tree-requirements.in",
+        "--constraints",
+        "/private/tmp/atn-research-v2-next/locks/research-v2/tree-core-constraints.txt",
+        "--python",
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+        "--python-version",
+        "3.12.13",
+        "--python-platform",
+        "aarch64-apple-darwin",
+        "--only-binary",
+        ":all:",
+        "--generate-hashes",
+        "--default-index",
+        "https://pypi.org/simple",
+        "--prerelease",
+        "disallow",
+        "--exclude-newer",
+        "2026-10-18T23:59:59Z",
+        "--cache-dir",
+        "/private/tmp/atn-tree-lock-20261018-hin0ywhi/uv-cache",
+        "--no-sources",
+        "--output-file",
+        "/private/tmp/atn-research-v2-next/locks/research-v2/tree-resolved-all.txt"
+      ],
+      "cwd": "/private/tmp/atn-tree-lock-20261018-hin0ywhi",
+      "ended_utc_ns": 1792335732485096000,
+      "environment_overrides": {},
+      "exit_code": 2,
+      "log": "compile-attempt-0.log",
+      "log_bytes": 346,
+      "log_sha256": "93fad54d3ba463798d2e2da1b9c8c56e3af474ae1c68c9e3161d648d8b9d5e53",
+      "output": "error: Request failed after 3 retries in 5.5s\n  Caused by: Failed to fetch: `https://pypi.org/simple/lightgbm/`\n  Caused by: error sending request for url (https://pypi.org/simple/lightgbm/)\n  Caused by: client error (Connect)\n  Caused by: dns error\n  Caused by: failed to lookup address information: nodename nor servname provided, or not known\n",
+      "started_utc_ns": 1792335726918745000
+    },
+    {
+      "argv": [
+        "uv",
+        "pip",
+        "compile",
+        "/private/tmp/atn-research-v2-next/locks/research-v2/tree-requirements.in",
+        "--constraints",
+        "/private/tmp/atn-research-v2-next/locks/research-v2/tree-core-constraints.txt",
+        "--python",
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+        "--python-version",
+        "3.12.13",
+        "--python-platform",
+        "aarch64-apple-darwin",
+        "--only-binary",
+        ":all:",
+        "--generate-hashes",
+        "--default-index",
+        "https://pypi.org/simple",
+        "--prerelease",
+        "disallow",
+        "--exclude-newer",
+        "2026-10-18T23:59:59Z",
+        "--cache-dir",
+        "/private/tmp/atn-tree-lock-20261018-hin0ywhi/uv-cache",
+        "--no-sources",
+        "--output-file",
+        "/private/tmp/atn-research-v2-next/locks/research-v2/tree-resolved-all.txt"
+      ],
+      "cwd": "/private/tmp/atn-tree-lock-20261018-hin0ywhi",
+      "ended_utc_ns": 1792335766066760000,
+      "environment_overrides": {},
+      "exit_code": 0,
+      "log": "compile-attempt-1.log",
+      "log_bytes": 57555,
+      "log_sha256": "65489d1b35d8020946695447770610ea8630ebc1df4939d88f22aa60d5a5f064",
+      "output": "Complete successful output is retained as tree-resolved-all.txt; raw log remains at the recorded scratch locator.",
+      "recovery": "same resolver invocation with authorized public network access after sandbox DNS failure",
+      "started_utc_ns": 1792335765269959000
+    }
+  ],
+  "schema": "research/v2-tree-lock-commands",
+  "validation": {
+    "all_12_final_and_original_download_hashes_match": true,
+    "all_active_dependency_edges_satisfied": true,
+    "core_distributions_and_records_unchanged": true,
+    "independent_post_run_core_identity_check": true,
+    "narrow_lock_hash_matches_receipt": true,
+    "no_distribution_or_module_installed_by_dry_run": true,
+    "no_downloaded_wheel_contains_pth_startup_files": true,
+    "no_wheel_member_overlaps_existing_core_RECORD_paths": true,
+    "offline_uv_dry_run_selects_exactly_12_packages": true,
+    "replay_script_syntax_valid": true
+  },
+  "wheel_core_file_collisions": [],
+  "wheel_pth_files": []
+}
