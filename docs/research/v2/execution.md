@@ -876,3 +876,11 @@ recorded in [tabm-integration-receipt.json](tabm-integration-receipt.json). Buil
 and integrated whole-package source identities remain distinct. Full native
 quality anchors, workload/deadline/recovery qualification, HPO and Gate D remain
 pending. These checks add zero independent teachers or predictive benchmark results.
+
+WP03 resource preparation now enumerates53 exact shape/treatment classes for
+all3853jobs/10,908,000 nominal+conditional update ceilings. Pure forecast and
+remaining-storage arithmetic passed41affected checks in9.46s after a reviewed
+retry-reserve contradiction was reproduced RED→GREEN. These tests use software
+profiles; no native profile, actual forecast or production admission is claimed.
+See [M2-resource-preparation.md](M2-resource-preparation.md). Next is native
+profile collection/authentication and production dispatch; no Gate A yet.

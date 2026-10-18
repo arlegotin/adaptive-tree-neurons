@@ -1,0 +1,78 @@
+{
+  "base_commit": "b14f42b",
+  "component": "M2 resource forecast preparation",
+  "inventory": {
+    "classes_by_kind": {
+      "data": 2,
+      "evaluate": 12,
+      "extension_decision": 1,
+      "fallback_gate": 1,
+      "fit": 22,
+      "head": 1,
+      "horizon_binding": 1,
+      "local_diagnostic": 1,
+      "pair_oracle": 1,
+      "parent": 7,
+      "score": 2,
+      "snapshot_gate": 2
+    },
+    "jobs": 3853,
+    "maximum_nominal_and_conditional_updates": 10908000,
+    "workload_classes": 53
+  },
+  "review": {
+    "finding": "Status-less attempted jobs could remove retry reserve",
+    "fix": "Domains must match; RED\u2192GREEN",
+    "reviewer": "opportunity_state_review"
+  },
+  "schema": "research/v2-implementation-receipt",
+  "scope": {
+    "actual_Gate_A": false,
+    "actual_resource_forecast_generated": false,
+    "full_repo_suite_run": false,
+    "native_resource_profiles_generated": 0,
+    "production_admission": false,
+    "protected_data_accessed": false,
+    "scientific_M2_fits": 0,
+    "software_profiles_only": true
+  },
+  "tests": {
+    "binding_red": "1 RED before forecast/source binding",
+    "command_recovery": "Workload inventory command initially imported editable main; explicit isolated PYTHONPATH corrected it",
+    "final": "41 passed in9.46s",
+    "first_green": "8 passed in5.27s",
+    "fixture_recovery": "Raw control parent has no stop_by_patience field; match worker defaultTrue. Nontraining measured updates0.",
+    "initial": "8 missing-API RED",
+    "logs": [
+      {
+        "path": "artifacts/research-v2/WP03/resource-preparation-tests/atn-opportunity-resources-binding-red.log",
+        "sha256": "72eab69831eed808881b08576ca895e298de22e0caa04d7070c423023cb3b649"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/resource-preparation-tests/atn-opportunity-resources-final.log",
+        "sha256": "01398c604ab488c9afa02a0a00f23f700f1267cc6ccb003ff8543a583c973369"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/resource-preparation-tests/atn-opportunity-resources-green-recovery.log",
+        "sha256": "097f3c9889c58b65ad28ac760e423c8b3339aea4b129de3a4c9ea25f6d8dc237"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/resource-preparation-tests/atn-opportunity-resources-green.log",
+        "sha256": "338cdf0b1ffecd047a092266348d91e1f99728f7662968a8a683fde20ab628b6"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/resource-preparation-tests/atn-opportunity-resources-red.log",
+        "sha256": "813d4401437f550b7952503653c136cb2854881e6dc3807c5b53ad086aec778a"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/resource-preparation-tests/atn-opportunity-resources-review-red.log",
+        "sha256": "9e04aa1d9fcca723b242c45dae1a40ae62053c2c96d87919dde7c4a7c5807a15"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/resource-preparation-tests/atn-opportunity-resources-reviewed-final.log",
+        "sha256": "a456bdf35f2971fd9f20df94e7d09335a1c545764aa84d470464c86d68688f8b"
+      }
+    ],
+    "review_red": "1 RED before matching attempted/status domains"
+  }
+}
