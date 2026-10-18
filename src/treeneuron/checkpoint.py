@@ -28,6 +28,51 @@ import torch
 from .config import canonical_json
 
 _VERSION = re.compile(r'checkpoint-[0-9a-f]{32}\.(?:pt|meta\.json)\Z')
+_PUBLICATION_CACHE = {}
+_PUBLICATION_CACHE_LIMIT = 32
+
+
+def _journal_stamp(path):
+    if path.is_symlink():
+        raise ValueError('Publication journal cannot be a symlink')
+    if not path.exists():
+        return None
+    stat = path.stat()
+    return (stat.st_dev, stat.st_ino, stat.st_size, stat.st_mtime_ns, stat.st_ctime_ns)
+
+
+def _published_versions(journal):
+    """Cached journal membership; only existing versions need filesystem checks."""
+    key, stamp = str(journal.resolve()), _journal_stamp(journal)
+    cached = _PUBLICATION_CACHE.get(key)
+    if cached is not None and cached['stamp'] == stamp:
+        _PUBLICATION_CACHE.pop(key)
+        _PUBLICATION_CACHE[key] = cached
+        return cached
+    names = set()
+    if stamp is not None:
+        try:
+            raw = journal.read_text()
+            if raw and not raw.endswith('\n'):
+                raise ValueError('Incomplete publication journal tail; retain and recover into a fresh run')
+            for line in raw.splitlines():
+                entry = json.loads(line)
+                if not isinstance(entry, dict) or set(entry) != {'metadata', 'payload'}:
+                    raise ValueError('Invalid publication journal entry')
+                for key_name, suffix in (('metadata', '.meta.json'), ('payload', '.pt')):
+                    name = entry[key_name]
+                    if type(name) is not str or not _VERSION.fullmatch(name) or not name.endswith(suffix):
+                        raise ValueError('Invalid publication journal version name')
+                    names.add(name)
+        except (UnicodeDecodeError, json.JSONDecodeError) as error:
+            raise ValueError('Invalid publication journal JSON') from error
+        if _journal_stamp(journal) != stamp:
+            raise ValueError('Publication journal changed during validation')
+    cached = dict(stamp=stamp, names=names)
+    _PUBLICATION_CACHE[key] = cached
+    if len(_PUBLICATION_CACHE) > _PUBLICATION_CACHE_LIMIT:
+        _PUBLICATION_CACHE.pop(next(iter(_PUBLICATION_CACHE)))
+    return cached
 
 
 def _digest(payload: bytes) -> str:
@@ -78,8 +123,13 @@ def _descriptor(path):
     if _digest(metadata.read_bytes()) != pointer['sha256']:
         raise ValueError('Checkpoint metadata checksum mismatch')
     descriptor = _read_json(metadata)
-    if set(descriptor) != {'schema_version', 'payload', 'sha256', 'state', 'best_state', 'history'} or descriptor['schema_version'] != 1:
+    if set(descriptor) != {'schema_version', 'payload', 'sha256', 'state', 'best_state', 'history'} or descriptor['schema_version'] not in (1, 2):
         raise ValueError('Invalid checkpoint descriptor')
+    if descriptor['schema_version'] == 2:
+        from .history import reference_path
+        reference_path(path.parent, descriptor['history'])
+    elif not isinstance(descriptor['history'], list):
+        raise ValueError('Invalid inline checkpoint history')
     payload = _version_path(path.parent, descriptor['payload'], '.pt')
     if _digest(payload.read_bytes()) != descriptor['sha256']:
         raise ValueError('Checkpoint payload checksum mismatch')
@@ -118,9 +168,12 @@ def _publish_snapshot(snapshot, best, history, path):
     torch.save({'state': snapshot['tensors'], 'best_state': None if best is None else best['tensors']}, payload)
     raw = payload.getvalue()
     version = f'checkpoint-{uuid.uuid4().hex}'
-    descriptor = {'schema_version': 1, 'payload': version + '.pt', 'sha256': _digest(raw),
+    from .history import History
+    journal = isinstance(history, History)
+    history_record = history.publish(path.parent) if journal else history
+    descriptor = {'schema_version': 2 if journal else 1, 'payload': version + '.pt', 'sha256': _digest(raw),
                   'state': snapshot['metadata'], 'best_state': None if best is None else best['metadata'],
-                  'history': history}
+                  'history': history_record}
     encoded = (canonical_json(descriptor) + '\n').encode()
     digest = _digest(encoded)
     pointer = {'schema_version': 1, 'metadata': version + '.meta.json', 'sha256': digest}
@@ -135,11 +188,18 @@ def _publish_snapshot(snapshot, best, history, path):
     _sync_directory(path.parent)
     # Journal only durable, successful publications; unjournaled attempts remain
     # evidence even when another save succeeds later.
-    with (path.parent / 'published.jsonl').open('ab') as stream:
-        stream.write((canonical_json({'metadata': pointer['metadata'], 'payload': descriptor['payload']}) + '\n').encode())
+    journal = path.parent/'published.jsonl'
+    cache = _published_versions(journal)
+    entry = {'metadata': pointer['metadata'], 'payload': descriptor['payload']}
+    with journal.open('ab') as stream:
+        stream.write((canonical_json(entry) + '\n').encode())
         stream.flush()
         os.fsync(stream.fileno())
     _sync_directory(path.parent)
+    # An interruption before the final stamp leaves a stale cache and forces a
+    # complete journal rebuild. Cached names never authorize unpublished files.
+    cache['names'].update(entry.values())
+    cache['stamp'] = _journal_stamp(journal)
     return digest
 
 
@@ -151,8 +211,9 @@ def load_checkpoint(path: Path, *, expected_hashes: Mapping[str, str], device: s
     validate_metadata(descriptor['state'], expected_hashes, device)
     if descriptor['best_state'] is not None:
         validate_metadata(descriptor['best_state'], expected_hashes, device)
-    if not isinstance(descriptor['history'], list):
-        raise ValueError('Invalid checkpoint history')
+    from .history import History
+    history = (History.load(path.parent, descriptor['history']) if descriptor['schema_version'] == 2
+               else History(descriptor['history']))
     tensors = torch.load(payload, map_location='cpu', weights_only=True)
     if not isinstance(tensors, dict) or set(tensors) != {'state', 'best_state'}:
         raise ValueError('Invalid checkpoint tensor schema')
@@ -170,7 +231,7 @@ def load_checkpoint(path: Path, *, expected_hashes: Mapping[str, str], device: s
                          expected_hashes=expected_hashes, device=device)
     state.best_snapshot = None if descriptor['best_state'] is None else {
         'metadata': descriptor['best_state'], 'tensors': tensors['best_state']}
-    state.history = descriptor['history']
+    state.history = history
     return state
 
 
@@ -179,22 +240,27 @@ def prune_checkpoints(directory: Path) -> dict:
     directory = Path(directory)
     referenced = set()
     pointers = []
+    history_prefixes = {}
     for path in directory.glob('*.json'):
         if _VERSION.fullmatch(path.name): continue
         pointer, descriptor, payload = _descriptor(path)
         referenced.update((pointer['metadata'], payload.name))
+        if descriptor['schema_version'] == 2:
+            ref = descriptor['history']
+            history_prefixes[ref['file']] = max(ref['bytes'], history_prefixes.get(ref['file'], 0))
         pointers.append(path.name)
     journal = directory / 'published.jsonl'
-    if journal.exists():
-        entries = [json.loads(line) for line in journal.read_text().splitlines()]
-        for entry in entries:
-            for key, suffix in (('metadata', '.meta.json'), ('payload', '.pt')):
-                path = _version_path(directory, entry[key], suffix)
-                if path.name not in referenced: path.unlink(missing_ok=True)
-        _sync_directory(directory)
+    published = _published_versions(journal)['names']
+    for path in directory.iterdir():
+        if _VERSION.fullmatch(path.name) and path.name in published and path.name not in referenced:
+            suffix = '.meta.json' if path.name.endswith('.meta.json') else '.pt'
+            _version_path(directory, path.name, suffix).unlink(missing_ok=True)
+    _sync_directory(directory)
     versions = [path for path in directory.iterdir() if _VERSION.fullmatch(path.name)]
     return {'policy': 'retain all durable pointer targets; delete only journaled superseded versions; preserve failed/unpublished attempts',
-            'pointers': sorted(pointers), 'referenced_bytes': sum((directory / name).stat().st_size for name in referenced),
+            'pointers': sorted(pointers), 'referenced_bytes': sum((directory / name).stat().st_size for name in referenced)+sum(history_prefixes.values()),
+            'history_committed_prefix_bytes': sum(history_prefixes.values()),
+            'history_files': sorted(history_prefixes),
             'retained_version_bytes': sum(p.stat().st_size for p in versions),
             'directory_bytes': sum(p.stat().st_size for p in directory.iterdir() if p.is_file()),
             'retained_payloads': sum(p.suffix == '.pt' for p in versions),

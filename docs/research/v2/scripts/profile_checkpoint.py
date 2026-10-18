@@ -27,13 +27,20 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--checkpoint', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--markers', type=int, default=0)
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=False)
     _, descriptor, _ = _descriptor(args.checkpoint)
     state = load_checkpoint(args.checkpoint, expected_hashes=descriptor['state']['identity_hashes'], device='cpu')
-    history = state.history
+    if args.markers < 0:
+        raise ValueError('markers must be nonnegative')
+    from treeneuron.history import History
+    original_history = state.history
+    history = History(state.history)
+    for index in range(args.markers):
+        history.append(dict(type='checkpoint_profile_marker', index=index, payload='x'*200))
     results = []
-    for label, value in (('original_history', history), ('empty_history', [])):
+    for label, value in (('journal_history', history), ('equivalent_inline_history', list(history)), ('empty_history', [])):
         root = args.output/label
         root.mkdir()
         state.history = value
@@ -51,9 +58,12 @@ def main():
         (root/'profile.txt').write_text(stream.getvalue())
         results.append(dict(case=label, publications=10, elapsed_ns=elapsed,
             history_events=len(value), retained_bytes=sum(p.stat().st_size for p in root.iterdir())))
-    state.history = history
+    state.history = original_history
     write_new_json(args.output/'result.json', dict(schema='research/v2-checkpoint-profile',
         source_sha256=train.source_hash(), checkpoint=str(args.checkpoint.resolve()),
+        argv=__import__('sys').argv, cwd=str(Path.cwd()),
+        script_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        synthetic_profile_marker_events=args.markers,
         pointer_sha256=hashlib.sha256(args.checkpoint.read_bytes()).hexdigest(),
         selected_update=state.update, results=results,
         limitation='Contended diagnostic; no training, predictive target access or formal timing claim'))

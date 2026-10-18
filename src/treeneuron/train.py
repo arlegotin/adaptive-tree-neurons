@@ -31,6 +31,8 @@ import numpy as np
 import torch
 from torch import nn
 
+from .history import History
+
 from .artifacts import RunPaths, append_event, finish_run, update_run_observations
 from .backend import ROOT, lock_hash, runtime_hash, select_backend, validate_backend_report
 from .cpu_envelope import supported_batch, requires_envelope, validate_envelope_reference
@@ -216,7 +218,7 @@ class TrainingState:
     fit_target_variance: float
     data_hashes: dict[str, str]
     stage: dict[str, Any] = field(default_factory=dict)
-    history: list[dict[str, Any]] = field(default_factory=list)
+    history: History = field(default_factory=History)
     growth_metadata: dict[str, Any] = field(default_factory=dict)
     best_snapshot: dict[str, Any] | None = None
     parameter_birth_updates: dict[str, int] = field(default_factory=dict)
