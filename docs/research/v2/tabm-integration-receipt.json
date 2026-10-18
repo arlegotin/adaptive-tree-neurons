@@ -1,0 +1,28 @@
+{
+  "adapter": "P07 TabM",
+  "builder_commit": "f5378d5acf964d25084f53d142408b479e1fa99c",
+  "builder_source_sha256": "2dce0892d85f584aa9dc5e27bfcd0b57c2ac29889dc763b4b87853cfdc04ffaf",
+  "builder_test_result": "107 passed in84.38s;4 native tiny exact-parity cases with14 rejection cases each",
+  "copied_evidence_bytes": 19734430,
+  "copied_evidence_files": 641,
+  "documentation_recovery": "First receipt writer used system python and failed import before modifying docs; rerun with qualified interpreter",
+  "evidence_inventory_sha256": "197419422fa8bcf76aa0245246140fe961d62a47bf5d7efb0bdc25ec9bf65be8",
+  "integrated_commit": "e89f7c6",
+  "integrated_source_sha256": "862e561f719cfcd4158cb92b28394dd6ae9a9c0f3553151a07adcf88f09907d1",
+  "overlay": "Byte-identical private installed-file tree copied; no core install or shared environment mutation",
+  "review": "Independent diagnostic_review P2 bytecode boundary reproduced RED\u2192GREEN in builder; no re-review",
+  "root_contract_result": "57 passed in 6.29s",
+  "root_log": {
+    "path": "artifacts/research-v2/WP07/tabm-integration/contracts.log",
+    "sha256": "f3b1c808d27dc8b31addd8c33e9332509b5813a67c33c2d8aeb5de8ac2996c6e"
+  },
+  "schema": "research/v2-adapter-integration",
+  "scope": {
+    "Gate_D_complete": false,
+    "HPO_run": false,
+    "T_accessed": false,
+    "full_native_anchors_qualified": false,
+    "full_repo_suite_run": false,
+    "new_independent_teachers": 0
+  }
+}

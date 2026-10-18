@@ -865,3 +865,14 @@ findings reproduced RED→GREEN; final affected suite55passed in7.86s. M2 produc
 metrics are not an independent arithmetic audit. Public M2 dispatch, measured
 admission and actual Gate A remain pending; see
 [WP03-collection-receipt.json](WP03-collection-receipt.json).
+
+P07 TabM engineering implementation integrated from reviewedf5378d5 as e89f7c6.
+Builder107checks passed in84.38s, including4tiny official-code parity fixtures,
+exact retained predictions/history/row orders/reloads,14mutation rejections per
+case, and the reviewed pre-import bytecode-policy correction. Copied641regular
+evidence files19,734,430bytes and the byte-identical private overlay into the main
+workspace; no core install. Root57contract/collection checks passed in6.29s,
+recorded in [tabm-integration-receipt.json](tabm-integration-receipt.json). Builder
+and integrated whole-package source identities remain distinct. Full native
+quality anchors, workload/deadline/recovery qualification, HPO and Gate D remain
+pending. These checks add zero independent teachers or predictive benchmark results.
