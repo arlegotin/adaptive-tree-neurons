@@ -30,7 +30,7 @@ Unchecked work is not completed, and prior investigation findings are not new ru
 |WP07|data and adapter engineering|six raw pins/30 splits audited; tiny native adapters checked; full native workload/quality qualification and Gate D pending|
 |WP08|fixture implementation partial|group/bootstrap metrics and840-job metadata expansion verified; native supports/search/cost/protocol integration and168 primary searches pending; Gate E pending|
 |WP09|pure implementation partial|variance/grid/power fixtures verified; protocol/provenance/resource validation, actual calibration and Gate F pending|
-|WP10|pending Gate F|frozen complete execution; Gate G|
+|WP10|pure analysis partial; execution pending Gate F|teacher t/bootstrap and explicit-family Holm fixtures verified; protected evaluator/raw audit/report integration and Gate G pending|
 |WP11|pending|independent audit and faithful final report|
 
 ## Decisions and deviations
@@ -1074,3 +1074,5 @@ primary parents in fixed order; no GateA, new selector or protected test result.
 remains isolated and cannot relabel these checkpoints.
 
 WP08 metadata planner: all840jobs/168primary/672secondary expanded with paired HPO labels, source/runtime/support/data commitments and immutable values. Seventeen missing-interface REDs became GREEN;67affected tests passed2.07s. Conservative26880attempt ceiling differs from26700finite unique configurations because P13stops at29. No raw targets, transfer fits, practical admission, frozen release or efficacy claim. Receipt:WP08-workload-preparation-receipt.json.
+
+WP10 teacher-analysis arithmetic: exact declared R2 inventory, teacher-level primary t interval/p at2%margin and separately retained whole-teacher bootstrap. Missing/failed cells block primary inference; zero risk/constant t variance stay undefined. Explicit-family Holm retains full multiplicity, without claiming simultaneous bounds.23missing-interface REDs and8mapping/list boundary failures precede98affected GREEN11.12s; three additional boundary checks passed existing behavior on first execution. No scientific teachers/fits/T or claim authorization. Receipt:WP10-teacher-analysis-preparation-receipt.json.

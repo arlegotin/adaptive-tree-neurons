@@ -1,0 +1,51 @@
+{
+  "T_accessed": false,
+  "base_commit": "079a595",
+  "claim_authorized": false,
+  "evidence_level": "Artificial prospective inference fixtures only",
+  "logs": {
+    "artifacts/research-v2/WP10/teacher-analysis-preparation/01-red.log": {
+      "bytes": 26756,
+      "sha256": "b1203096b64e383c5e02b9b58efd6b2ebc64ac93594590c4809f33a17ffecce8"
+    },
+    "artifacts/research-v2/WP10/teacher-analysis-preparation/02-green.log": {
+      "bytes": 14754,
+      "sha256": "5afccbb40e2b5e23243b09d3083604ab99d263a05acc1c1b9416e65af1bebd15"
+    },
+    "artifacts/research-v2/WP10/teacher-analysis-preparation/03-green.log": {
+      "bytes": 99,
+      "sha256": "525d249cd8bb5f4ebc672b99f8f94236bb0968745fa3b3bdfc9ad9f277425bc6"
+    },
+    "artifacts/research-v2/WP10/teacher-analysis-preparation/04-affected-green.log": {
+      "bytes": 180,
+      "sha256": "a2a9e9777ad0330e1566c12395b97fb14633b7270ccc0bfc5e342f864ff013fe"
+    }
+  },
+  "models_fit": 0,
+  "pending": [
+    "frozen protocol/provenance",
+    "raw prediction metric authentication",
+    "coverage/resource gates",
+    "compatible multiplicity bounds",
+    "protected prediction/report integration"
+  ],
+  "schema": "research/v2-teacher-analysis-preparation",
+  "scientific_teachers": 0,
+  "source_files": {
+    "docs/research/v2/scripts/check_teacher_analysis.py": "f4484469ee7d3b7a7ffa642536f92cd846d35490f6970e7f6fcb1f0c6afed562",
+    "src/treeneuron/analysis/primary_v2.py": "ffe810045a0bd28da9af7959a90af26d132064355089d8f71091516cf87d1dde",
+    "tests/test_primary_v2.py": "74abb9313834d68e0036593e4973893a77de82050fa4a3738477e0f32bc92cdc"
+  },
+  "verification": {
+    "canonical_hash_boundary_failures": 8,
+    "command": [
+      "python",
+      "-B",
+      "-c",
+      "import torch,pytest;torch.set_num_threads(1);torch.set_num_interop_threads(1);raise SystemExit(pytest.main([\"-q\",\"tests/test_primary_v2.py\",\"tests/test_practical_v2.py\",\"tests/test_design_v2.py\",\"tests/test_practical_workload.py\",\"tests/test_primary.py\"]))"
+    ],
+    "elapsed_seconds": 11.12,
+    "final_passed": 98,
+    "missing_interface_red": 23
+  }
+}
