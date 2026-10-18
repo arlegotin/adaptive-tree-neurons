@@ -1,0 +1,65 @@
+{
+  "T_accessed": false,
+  "base_commit": "3e878de",
+  "configurations": 32,
+  "evidence_level": "Exact native configuration sampling and engineering fixtures; zero predictive fits",
+  "full_native_anchor_trained": false,
+  "labels_read": [],
+  "logs": {
+    "artifacts/research-v2/WP08/realmlp-sampler-preparation/01-red.log": {
+      "bytes": 7590,
+      "sha256": "21f217de0b9d93e909e1ca2b89b6238d39813e98b8c9b4bb099bd947477dfeea"
+    },
+    "artifacts/research-v2/WP08/realmlp-sampler-preparation/02-full-red.log": {
+      "bytes": 10419,
+      "sha256": "ff96b618dfc12090ba6adedd46bbf2985d9d5afa4be3023c9d21d6f678fe2d91"
+    },
+    "artifacts/research-v2/WP08/realmlp-sampler-preparation/03-green.log": {
+      "bytes": 4042,
+      "sha256": "c43f8eaaf9d75b21f7d183d9174203dcc5641c1a63b4e894c9d35de9e37e2b6a"
+    },
+    "artifacts/research-v2/WP08/realmlp-sampler-preparation/04-batch-red.log": {
+      "bytes": 3358,
+      "sha256": "e72627471a77d0bcd97cb57f992ad4c9c8ca372ab27669764a312d0d95b0a91a"
+    },
+    "artifacts/research-v2/WP08/realmlp-sampler-preparation/05-batch-green.log": {
+      "bytes": 99,
+      "sha256": "e60570509c3cb6427d4fa5dab9eed946499a7c4ec81848c36426a11ee1247bf6"
+    },
+    "artifacts/research-v2/WP08/realmlp-sampler-preparation/06-affected-green.log": {
+      "bytes": 194,
+      "sha256": "38119d7fa3ddd5024c416636060ef3c6f6f28721559047815a68d6b17b2e9f17"
+    }
+  },
+  "native_fits": 0,
+  "native_source_identity_kind": "realmlp_native._source package digest; scientific Python + RealMLP/core/uv pins; distinct from train.source_hash",
+  "native_source_sha256": "a65b1dec7da2664e6f3c66a74f4bf7c5176a31f732d2d6a0386b799c4665bb9c",
+  "official_draws": 31,
+  "pending": [
+    "full256epoch eligible anchor",
+    "native workload/resources",
+    "other families supports",
+    "trial queue/deadline/paid failure/recovery",
+    "GateD"
+  ],
+  "raw_root": "artifacts/research-v2/WP08/realmlp-sampler-preparation",
+  "reconciliation_sha256": "a26315df47ad8e38700c7d0357f7b1dea5dc10ed9585df333dfc92bca76bc624",
+  "schema": "research/v2-realmlp-search-preparation",
+  "search_execution_authorized": false,
+  "source_files": {
+    "src/treeneuron/research/realmlp_search.py": "fb6f8fcb0fd1dfdd334fd48de9493be0c99f290b7bd2f14a039054ab0134bcbc",
+    "tests/test_realmlp_search.py": "39771d9a6af1c16dec0e08ef7378e78a41192286db2e03ee3513e0bb1ad0bd4d"
+  },
+  "verification": {
+    "affected_deselected": 1,
+    "affected_elapsed_seconds": 2.35,
+    "affected_passed": 142,
+    "initial_retained_draws": 17,
+    "initial_timeout_seconds": 180,
+    "missing_batch_red": 1,
+    "missing_interface_red": 8,
+    "native_elapsed_seconds": 31.45,
+    "native_passed": 7,
+    "sampler_schedule_body_seconds": 12.017089875
+  }
+}
