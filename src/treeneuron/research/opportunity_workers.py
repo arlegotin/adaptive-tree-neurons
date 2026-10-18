@@ -42,7 +42,7 @@ class OpportunityWorkers:
     def __call__(self,job,directory,dependencies,attempt):
         kind=job['kind']
         if kind not in ('data','parent','score','horizon_binding','local_diagnostic','fit','head','pair_oracle','evaluate',
-                        'fallback_gate','snapshot_gate'):
+                        'fallback_gate','snapshot_gate','extension_decision'):
             raise NotImplementedError(f'M2 {kind} worker is not implemented; no production admission')
         if job.get('job_id') not in self.jobs or canonical_hash(job)!=canonical_hash(self.jobs[job['job_id']]):
             raise ValueError('Worker job differs from its frozen queue plan')
@@ -63,6 +63,30 @@ class OpportunityWorkers:
     def _snapshot_gate(self,job,directory,dependencies):
         from .opportunity_gates import snapshot_gate
         result=snapshot_gate(job,dependencies)
+        write_new_json(directory/'decision.json',result)
+        return result
+
+    def _extension_decision(self,job,directory,dependencies):
+        from .opportunity_analysis import opportunity_summary
+        from .opportunity_plan import opportunity_decision_contract
+        contract=job['payload']['opportunity_decision_contract']
+        if contract!=opportunity_decision_contract(self.config):
+            raise ValueError('Opportunity decision contract differs from the pre-outcome recipe')
+        cases=[j['payload'] for j in self.jobs.values() if j['kind'] in ('fit','head')
+            and j['payload']['teacher_index']<4
+            and j['payload']['matrix'] in ('M2a','M2e_neural','M2e_head')]
+        outcomes={}
+        for name,record in dependencies.items():
+            source=self.jobs[name]
+            if source['kind']!='evaluate':raise ValueError('Extension requires terminal evaluator inputs')
+            value=record['value'];row=dict(status=value['status'])
+            if value['status']=='completed_eligible':
+                row['V_NMSE']=value['metrics']['selected']['V']['normalized_mse']
+            outcomes[source['payload']['attempt_id']]=row
+        summary=opportunity_summary(cases,outcomes,contract,teachers=range(4))
+        status=summary['status']
+        if status=='completed_eligible' and not summary['extension_required']:status='completed_ineligible'
+        result=dict(status=status,summary=summary,decision_scope='primary M2a/e and required fallback; one extension only')
         write_new_json(directory/'decision.json',result)
         return result
 

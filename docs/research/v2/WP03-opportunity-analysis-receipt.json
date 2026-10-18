@@ -1,0 +1,94 @@
+{
+  "base_commit": "7c8e12d",
+  "component": "V-only opportunity and planted-control sensitivity screening",
+  "review": {
+    "fixes": "Each facet reproduced RED then GREEN; stable risk-space count/centered interval arithmetic; explicit exhaustion",
+    "material_findings": [
+      "Cancellation at inclusive2% count and interval boundary",
+      "Eight-teacher summary still requested exhausted extension"
+    ],
+    "reviewer": "opportunity_state_review",
+    "rulings": [
+      "Warm-only benefit belongs to ordinary capacity",
+      "Reference recipes only for late continued-stream coordinate",
+      "Initial or required fallback is a fixed acquisition policy, never risk-selected",
+      "M1 true-contrast control cannot be replaced by M2d pair oracle"
+    ]
+  },
+  "schema": "research/v2-implementation-receipt",
+  "scope": {
+    "Gate_A_complete": false,
+    "full_repo_suite_run": false,
+    "protected_data_accessed": false,
+    "public_M2_run_enabled": false,
+    "scientific_M2_fits": 0
+  },
+  "tests": {
+    "after_governing_doc_binding": "23 passed in5.37s",
+    "final": "55 passed in15.08s",
+    "fixture_recoveries": [
+      "Serialized float boundary restored in input fixture",
+      "Bootstrap manual reference now uses exact original input construction; no tolerance change"
+    ],
+    "initial": "7 RED before policy/helper; unsupported extension worker RED before implementation;3 sensitivity RED",
+    "logs": [
+      {
+        "path": "artifacts/research-v2/WP03/opportunity-analysis-tests/atn-opportunity-analysis-red.log",
+        "sha256": "99493e47d8203a33d3a9b5a27c963ab7b077ba4dcb2c48f7c74ebd2e114c9f7a"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/opportunity-analysis-tests/atn-opportunity-analysis-green.log",
+        "sha256": "f4ac59886c932dc29924f06dd2f270ee5285351b336ea62eedc5ecd009167bda"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/opportunity-analysis-tests/atn-opportunity-extension-worker-red.log",
+        "sha256": "a4e7c934dfcd3e4e79e3ef9d2b33e5d9df871d4fbd28f4832af4783a74ac2ed2"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/opportunity-analysis-tests/atn-opportunity-analysis-integration.log",
+        "sha256": "5a187f64dd60a92c9b6810bba7a6df43ac0e92f73a4d1cb36dd9dd8435a68e06"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/opportunity-analysis-tests/atn-opportunity-analysis-green-recovery.log",
+        "sha256": "2e5fc70803abbbd955fd9838b1fdbd1e3bb00c8c860909ac96d4035d7ea14dca"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/opportunity-analysis-tests/atn-control-sensitivity-red.log",
+        "sha256": "d5630403ec7c3c0db14ff787fd06751f69ba7e5cb92fb5f7bb6780c7ba601562"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/opportunity-analysis-tests/atn-control-sensitivity-green.log",
+        "sha256": "30c6d8b585622ffe2212cbcf809e6f19491b57237a0f3019802384d83f2e141f"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/opportunity-analysis-tests/atn-opportunity-analysis-review-red.log",
+        "sha256": "ed9ab46f39790f031618bcfedd8cf9f9612d005c6a3ea5059ec361cac24a80fa"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/opportunity-analysis-tests/atn-opportunity-analysis-review-green.log",
+        "sha256": "c62745e94e7a8b4f6e18ad93272bd35fb6d50f215e36022f22123afcc03ac219"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/opportunity-analysis-tests/atn-opportunity-analysis-final.log",
+        "sha256": "b7b317013686cd46d3990b805d03b3184d49ba0a07915e0abb7bf3a08a3bfb2d"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/opportunity-analysis-tests/atn-opportunity-interval-review-red.log",
+        "sha256": "4e83311028e7af4a9cf0abe15a802660e2f5c886e587903c151a0bd7714a2b23"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/opportunity-analysis-tests/atn-opportunity-interval-review-green.log",
+        "sha256": "491855cb0054086d3827432c00afd43d0318646fd2a1c0dd8926347dc1f322ff"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/opportunity-analysis-tests/atn-opportunity-analysis-review-final.log",
+        "sha256": "1e95ebee174ce64e6c85d68d54f78c48aa0f1ead71fd4599454ff0fb6371d5d9"
+      },
+      {
+        "path": "artifacts/research-v2/WP03/opportunity-analysis-tests/atn-opportunity-analysis-doc-binding.log",
+        "sha256": "841af139d20412470502f0c220c311bcab0368ebd20d361baca978f0c63e315e"
+      }
+    ],
+    "review": "3 failed/11 passed before count/exhaustion fix;1 failed/10 passed before inclusive interval fix;15 GREEN after"
+  }
+}

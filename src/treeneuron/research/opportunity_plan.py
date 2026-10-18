@@ -16,6 +16,25 @@ ALPHAS = (0., 1e-6, 1e-4, 1e-2, 1., 100.)
 WARM_ROLES = ('keep', 'top', 'random', 'warm_lower', 'warm_upper')
 
 
+def opportunity_decision_contract(config):
+    contrasts = []
+    for snapshot in ('actual_250','actual_1000','late_G_best'):
+        for treatment in ('continued_stream','new_stream_retained_adam'):
+            for role in ('top','random','warm_lower','warm_upper'):
+                recipes = list(RECIPES) if (snapshot,treatment) == ('late_G_best','continued_stream') else []
+                contrasts.append(dict(contrast_id=f'{snapshot}/{treatment}/{role}',
+                    snapshot=snapshot,treatment=treatment,role=role,ordinary_recipes=recipes))
+    return dict(schema='research/v2-opportunity-decision',contrasts=contrasts,
+        minimum_relative_reduction=.02,minimum_qualifying_teachers=2,
+        bootstrap_iterations=20000,bootstrap_seed=seed64(config['seed_root'],config['study_id'],
+            'M2-extension-interval/bootstrap'),tie_relative_tolerance=1e-12,
+        acquisition='original_if_available_else_required_fixed_fallback',
+        aggregation='mean_R2_before_reference_choice_then_equal_teacher_relative_benefit',
+        interval='fixed_best_contrast_whole_teacher_percentile; linear quantile; no reselection',
+        inclusive_boundaries='risk inequality for counts; same bootstrap indices on risk differences centered at zero and margin',
+        extension='maximum_single_fixed_arm_qualifying_count<2 or best_fixed_interval_covers_0_and_.02')
+
+
 def expand_opportunity(config):
     c, b = config, config['base_experiment']
     anchor = resolve_experiment(dict(study_id=c['study_id'], model=dict(d=16,h=64,tau=1.),
@@ -127,6 +146,7 @@ def expand_opportunity(config):
          ('M2_execution_sha256','docs/research/v2/M2-execution.md'))}
     return dict(attempts=attempts,conditional_attempts=conditional,prerequisites=parents,probe_trials=0,
         matrix_counts=counts,execution_implemented=False,
+        opportunity_decision_contract=opportunity_decision_contract(c),
         design_bindings=bindings,ordinary_recipes=recipes,
         selection_contract=dict(primary_count='min(requested_count,common_current_eligible_count)',
             ordinary_brackets='ordinary_width_brackets(d,parent_parameter_count+2*m_effective*(d+1))',

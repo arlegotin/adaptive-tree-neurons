@@ -75,6 +75,7 @@ def compile_initial_graph(study):
     identity=dict(study_plan_hash=study['plan_hash'],source_sha256=study['source_sha256'],
         execution_identity=study['execution_identity'],study_config=study['config'],
         design_bindings=study['design_bindings'],matrix_counts=study['matrix_counts'],job_counts=counts,
+        opportunity_decision_contract=study['opportunity_decision_contract'],
         admission='initial_only',execution_implemented=False,
         pending=['production dispatcher and resource admission',
                  'conditional fallback/extension admission','Gate A analysis'])
@@ -137,7 +138,8 @@ def compile_bounded_graph(study):
     primary_evaluations = [j['job_id'] for j in initial['attempts']
         if j['kind'] == 'evaluate' and j['payload']['matrix'] in ('M2a','M2e_neural','M2e_head')]
     extension = add('extension_decision:primary', 'extension_decision',
-                    dict(policy=study['extension_policy'], selection_contract=study['selection_contract']),
+                    dict(policy=study['extension_policy'], selection_contract=study['selection_contract'],
+                         opportunity_decision_contract=study['opportunity_decision_contract']),
                     (*primary_evaluations, *fallback_evaluations), all_terminal=True)
     datasets = set()
     for parent in study['prerequisites']:
@@ -167,5 +169,5 @@ def compile_bounded_graph(study):
     if counts != expected:
         raise ValueError('Bounded M2 job arithmetic differs from its finite inventory')
     identity = dict(initial['identity'], admission='initial_and_bounded_conditions', job_counts=counts,
-                    pending=['production dispatcher, decision workers and resource admission', 'Gate A analysis'])
+                    pending=['production dispatcher and resource admission', 'final Gate A analysis'])
     return make_queue_plan(identity, jobs)

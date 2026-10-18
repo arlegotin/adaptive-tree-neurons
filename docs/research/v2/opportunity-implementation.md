@@ -164,3 +164,13 @@ capture partitions against executed updates before treating a snapshot as unreac
 Existing actual states never get replaced by fallback states. Compilation still
 reports execution_implemented=False: extension decision analysis, final Gate A,
 source-bound resource qualification and production dispatch remain pending.
+
+The V-only opportunity summary and the one-extension coordinator worker are now
+implemented. The source-expanded plan includes the24 fixed contrasts, exact
+reference scopes, R2 aggregation, bootstrap seed/draw law, boundary arithmetic and
+one-extension limit. Missing/failed/inconsistent-origin inputs block the screen.
+The M1 positive-sensitivity helper separately requires all16 true-oracle/random
+observations at gamma2/sigma.1 (four instances, R2). Neither passing analytic
+fixtures nor the presence of the helper is a measured control result. Final Gate A
+still requires completed authenticated M1/M2 evidence, complete raw reconstruction,
+source-bound resource admission and production dispatch.

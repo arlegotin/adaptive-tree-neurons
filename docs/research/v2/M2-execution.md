@@ -85,8 +85,8 @@ The one primary-extension decision has448 explicit terminal evaluator inputs:
 288 initial M2a/e and160 initial fallback slots. It is a primary-only decision;
 M2b/c/d diagnostics are separate inputs to final Gate A, not silently assumed
 successful because serial scheduling happened to finish them. Unexpected failure
-or missing primary evidence blocks the extension decision. The extension node's
-worker, complete resource admission and final Gate A analysis remain pending;
+or missing primary evidence blocks the extension decision. The extension node's V-only worker is now implemented. Complete resource
+admission, production dispatch and final Gate A analysis remain pending;
 compiling this graph does not enable public M2 execution.
 
 Before any M2 outcomes, these builder details resolve the existing screening
@@ -120,3 +120,19 @@ R2 means and at least2 of4 instances reaching2% V relative improvement. M2d's
 G-selected F-derived-contrast pair oracle is distinct evidence and cannot replace
 that information-advantaged control. Full final Gate A must retain failed and
 ineligible diagnostics rather than manufacturing a successful complete study.
+
+The decision implementation uses the maximum qualifying count of a single fixed
+registry arm, never the union of teachers across arms. It retains separate gated
+and ordinary-capacity counts. Once eight teachers have run, the numerical trigger
+is still reported but extension_required is false and extension_exhausted is true.
+The complete DAG cannot add a third primary cohort.
+
+Inclusive2% decisions compare arm risk <= .98 times reference risk. They do not
+classify a rounded1-arm/reference subtraction at its cancellation boundary.
+The descriptive ratio-bootstrap interval is retained. Its inclusive zero/margin
+trigger uses the same frozen bootstrap indices on risk differences centered at
+zero and at2%, each normalized by that teacher's reference risk. In exact
+arithmetic this is the same interval comparison; finite precision retains the
+intended risk boundary without adding a tolerance or changing the utility margin.
+Both centered intervals and the original descriptive interval remain in evidence.
+This arithmetic was fixed on analytic sentinel cases before any M2 fitting.

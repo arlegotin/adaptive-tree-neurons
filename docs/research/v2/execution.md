@@ -751,3 +751,32 @@ true-contrast sensitivity cannot be replaced by the M2d G-selected pair oracle.
 The machine-readable WP03-bounded-graph-receipt.json retains test/review details.
 Full M1 continues independently in detached604cffb; root source edits do not
 modify that scientific run.
+
+### V-only screening, fixed references and bounded extension implemented
+
+The source-resolved M2 plan now includes24 fixed growth/capacity contrasts and
+complete numerical decision policy. Opportunity summary averages R2 before
+V-reference family choice, preserves one original-or-required-fallback acquisition
+for every matched coordinate, keeps all fixed teachers, and reports ordinary
+capacity separately from top/random growth. Only late/continued has the five
+ordinary-recipe reference family; early/new-stream recipe scope stays limited.
+The extension worker uses only the448 declared primary evaluator inputs, never E.
+The separate M1 helper enforces gamma2/sigma.1 true-contrast oracle/random across
+four instances/R2; it cannot borrow the M2d trained-pair oracle.
+
+Independent review found an inclusive2% floating-point boundary affecting both
+counts and interval-trigger endpoints, plus misleading extension_required after
+all eight teachers. All facets reproduced RED before correction. Counts now use
+the risk inequality; interval endpoints use the same bootstrap draws on
+risk-space differences centered at zero/margin, retaining both centered and
+original descriptive intervals. The eight-teacher summary marks exhaustion and
+never requests another extension. No new utility threshold or tolerance was added.
+Final affected suite passed55 in15.08s; full repo suite is not claimed.
+
+Earlier first-GREEN attempts exposed two test-fixture boundaries: a numpy scalar
+instead of serialized JSONfloat and a manually rounded.93 versus the actual
+1-.07 input. Both fixtures were corrected at the native boundary without weakening
+validation/tolerances or changing production arithmetic. All original RED/GREEN
+logs are retained by WP03-opportunity-analysis-receipt.json. Production M2 dispatch,
+measured resources and final Gate A still remain; no M2 scientific fit, trained
+selector, modern quality comparison or protected-data access is claimed.
