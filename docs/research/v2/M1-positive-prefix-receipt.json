@@ -1,0 +1,75 @@
+{
+  "Gate_A_decided": false,
+  "T_accessed": false,
+  "artifacts": {
+    "artifacts/research-v2/WP02/M1-progress/positive-prefix-320/event-prefix.jsonl": "933168544c8662e70770aa371ed435ab67666b031e826e9bc7e68482b7744308",
+    "artifacts/research-v2/WP02/M1-progress/positive-prefix-320/green-final.log": "4e243c799a77f1d3cb76324f5cbb892e9fa8e7391ab7817981fa100fb2685ca8",
+    "artifacts/research-v2/WP02/M1-progress/positive-prefix-320/green.log": "64c5b6193505bb9c57ec66aee092bae206d5b02e559a456546311d9e60e7d43d",
+    "artifacts/research-v2/WP02/M1-progress/positive-prefix-320/invocation.json": "dfd13d1d9196872ca2b9cffc2ebf47ee05a6fc15be30793fa18a2867f6ef4614",
+    "artifacts/research-v2/WP02/M1-progress/positive-prefix-320/plan.json": "1f5378e519b37585d0623c7505a34883e9ed0c67145c9997fa55a590218e88af",
+    "artifacts/research-v2/WP02/M1-progress/positive-prefix-320/previous-prefix-comparison.json": "a6e6316b5e23c76527467798ed79eb5679170f05534685c5c0aacfa28439d41f",
+    "artifacts/research-v2/WP02/M1-progress/positive-prefix-320/red.log": "144d4174e6b8c83cae6c68fb30e6612f0215fa385e1d3abf086d90678a0ccf49",
+    "artifacts/research-v2/WP02/M1-progress/positive-prefix-320/summary.json": "591ff4150dd279240fb6d73afeef75275c372f8d27da9bd5ebbb1eac222aafa1"
+  },
+  "independent_raw_audit_pending": true,
+  "plan_hash": "cfe48a305c3c721eae7afe058ffe9af8f27c00dd7321be63359a3999abd6859d",
+  "positive_fits": 160,
+  "prefix_events": 320,
+  "producer_source_sha256": "5095a5d3bfc8d58bc863e0334550f122378664663fe265533e0441713c7216c4",
+  "schema": "research/v2-positive-prefix-receipt",
+  "sensitivity": {
+    "coordinate": {
+      "gamma": 2.0,
+      "sigma": 0.1
+    },
+    "efficacy_claim": false,
+    "information_advantaged": true,
+    "instances": [
+      {
+        "instance_index": 0,
+        "oracle_V_NMSE": 0.03894963942254405,
+        "qualifies": false,
+        "random_V_NMSE": 0.039558994477157494,
+        "relative_benefit": 0.015403704332406676
+      },
+      {
+        "instance_index": 1,
+        "oracle_V_NMSE": 0.03337172933565,
+        "qualifies": true,
+        "random_V_NMSE": 0.03443278054631419,
+        "relative_benefit": 0.030815147479507643
+      },
+      {
+        "instance_index": 2,
+        "oracle_V_NMSE": 0.04163356592774256,
+        "qualifies": true,
+        "random_V_NMSE": 0.04623589393992361,
+        "relative_benefit": 0.09954015419624118
+      },
+      {
+        "instance_index": 3,
+        "oracle_V_NMSE": 0.03544192699601364,
+        "qualifies": false,
+        "random_V_NMSE": 0.035111420732077445,
+        "relative_benefit": -0.009413070079338892
+      }
+    ],
+    "metric": "V_NMSE; mean R2 first",
+    "minimum_qualifying_instances": 2,
+    "minimum_relative_reduction": 0.02,
+    "qualifying_instances": 2,
+    "required_instances": 4,
+    "sensitive": true,
+    "status": "completed_eligible"
+  },
+  "source_files": {
+    "docs/research/v2/scripts/summarize_positive_prefix.py": "a965c35b404acbc894b59244e467910811fe7b66238fe29d43f679ec3e899e48",
+    "tests/test_positive_prefix_report.py": "fa0d819d941d2825478522277914d1c9fff19cd8eb37d698e472e95ff4049038"
+  },
+  "status": "provisional_event_arithmetic",
+  "tests": {
+    "green": "19 passed in0.12s",
+    "initial_combined_command": "no tests ran: guessed test_control_analysis.py absent; corrected to existing test_control_sensitivity.py",
+    "red": "7 missing-reporter assertion failures"
+  }
+}

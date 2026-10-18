@@ -152,3 +152,32 @@ training and cost. It does not need to create a unique unrestricted function
 family. This does not equate different allocations on that fixed parent. An
 actual-model32-fixture forward/gradient check supported the relabeling to8.88e-16,
 with zero training/teachers; see [fixed-count-capacity.md](fixed-count-capacity.md).
+
+All160 planted-positive fits have now completed. The negative controls are still
+running, so these are provisional event-table results, awaiting independent
+recalculation from retained prediction arrays. No Gate A decision follows yet.
+Mean exploratory E NMSE, after averaging R2 within each of four base instances:
+
+| Gate magnitude / noise | Keep | Cheap growth | Random growth | True-information oracle |
+|---|---:|---:|---:|---:|
+| .5 / 0 | .00212917 | .0000174730 | .0000131730 | .0000000825200 |
+| .5 / .1 | .04354531 | .04172836 | .04163478 | .04127422 |
+| 2 / 0 | .01540438 | .000975103 | .000438801 | .0000588626 |
+| 2 / .1 | .05534798 | .04429366 | .04209095 | .04149124 |
+
+Useful capacity is learnable in these constructed problems. Random growth has
+lower mean E error than the present cheap chooser in every displayed coordinate.
+At magnitude2/noise.1, random reduced error about24% versus keep, while cheap
+growth reduced it about20%; one instance materially regressed versus random.
+These are comparisons with this ordinary continuation, without a matched
+ordinary-extra-capacity or modern-model verdict.
+
+The predeclared sensitivity coordinate uses V, not E. True-information placement
+improved V risk over random by1.54%,3.08%,9.95% and−0.94% across the four instances.
+Exactly2of4 exceed the2% threshold, provisionally meeting the control sensitivity
+screen. This means the control can expose a placement opportunity; it does not
+show that our algorithm finds it or that ordinary training cannot explain it.
+The same four base instances recur across coordinates; there is no confirmation
+interval or claim of16independent problems. The complete immutable320-event
+prefix and helper/test hashes are retained in
+[M1-positive-prefix-receipt.json](M1-positive-prefix-receipt.json).

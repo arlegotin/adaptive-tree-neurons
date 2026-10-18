@@ -42,3 +42,11 @@ separate requirements. No modern practical comparison follows from these tables.
 [Implementation receipt](WP02-control-summary-receipt.json) retains the analytic
 RED/GREEN checks. Full raw audit and real-cohort output paths will be added after
 execution, without relabeling this prospective preparation as an executed result.
+
+Executed interim update: the positive160fit subset has closed. Its earliest
+320-event prefix was frozen and summarized without touching live raw files.
+The predeclared sensitivity screen provisionally qualifies2of4instances. Full
+independent raw audit and all256-slot summary still wait for the negative cohort
+and worker lease release. This interim result is recorded separately in
+[M1-positive-prefix-receipt.json](M1-positive-prefix-receipt.json); it is not an
+input advertised as independently audited Gate A evidence.

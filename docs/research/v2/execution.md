@@ -912,3 +912,16 @@ lifetime own RSS. Plain/observed tiny native queue prediction arrays match exact
 19affected checks passed in10.77s. No scientific profile, admission or M2 run is
 claimed. Whole-pipeline overhead, authenticated profile collection and production
 dispatch remain pending. [Receipt](WP03-observation-receipt.json).
+
+M1 positive subset closed: all160positive fits completed_eligible. A read-only
+reporter froze the earliest closed320-event prefix, preserving all four declared
+coordinates and the160-slot inventory. It validates the external plan commitment,
+event chain/transitions, risks and failed-slot handling, and explicitly does not
+read/audit live raw predictions or models. Its predeclared gamma2/sigma.1 V-only
+true-oracle screen provisionally qualifies2of4instances (benefits1.54%,3.08%,9.95%,
+−0.94%). Mean E favors random over cheap in all4coordinates; no efficacy/Gate A
+claim. Negative controls continue unchanged604cffb; full independent raw audit
+waits for lease release. Seven missing-reporter RED failures became19affected
+GREEN in0.12s. Four old interim aggregate entries differ by1ULP under staged
+math.fsum aggregation; the old165event bytes/metrics are exactly unchanged and no
+fit/metric tolerance changed. See [M1-positive-prefix-receipt.json](M1-positive-prefix-receipt.json).
