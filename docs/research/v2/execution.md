@@ -20,8 +20,8 @@ Unchecked work is not completed, and prior investigation findings are not new ru
 
 | Package | Status | Required next evidence |
 |---|---|---|
-|WP00|in progress|spec review, fresh runtime, numerical references, focused suite, inventory/arithmetic|
-|WP01|pending|RED corruption tests, semantic rejection, exact legitimate replay|
+|WP00|qualified|97228c6; references passed;89 passed/1 skipped; arithmetic error1.39e-17; tracked WP00 receipt|
+|WP01|verified|220 targeted passed;19 reference arrays byte-identical; WP01-receipt.json; broad integration still pending|
 |WP02|pending|strict research CLI/queue/role/snapshot/control tests|
 |WP03|pending|complete admitted M1/M2 evidence; Gate A|
 |WP04|pending Gate A|joint selector numerical and trained evidence; Gate B|
@@ -48,6 +48,32 @@ Unchecked work is not completed, and prior investigation findings are not new ru
 - Authorized branch creation initially hit the filesystem sandbox; the same
   operation succeeded through automatic escalation. Current branch is
   `research-v2-continuation`; no rejection or user approval was required.
+- Task1 complete: commit97228c6, fresh Python3.12.13 frozen core; references and
+  89-pass/1-skip focused suite; actual CPU receipt; scalar reaggregation only.
+  First DNS failure retained in command receipts. Fresh setuptools-generated
+  source egg-info duplicate was archived; installed dist-info remains.
+- Task2 RED: all15 semantic corruption assertions failed because old code accepted
+  corrupt state; legitimate roundtrip passed (`WP01/red.log`). Before reference
+  selected update6/cursor8, source089b03d13e1950b8e0c1ff54a147a121cf78db66acaaa2dcedd9ebf29afc3543.
+  New validation is isolated in `state_validation.py`; shape rules do not construct
+  modules or consume RNG. Training metadata version2 rejects schema1 under this
+  new source; exact old loading uses old source. Original age equals global update;
+  birth maps supply exact new ages. The reviewer identified the initial missing-
+  birth fallback as a real bypass; it was removed after a failing regression.
+  Local manual additions can register birth only with complete age0/zero-moment
+  records, while deserialization requires the explicit map. Incumbents require
+  birth0. Explicit freeze/applied-count policies remain Task6.
+- Task2 independent review found a second material case: process-default float64
+  makes PyTorch lazily create float64 Adam step scalars despite float32 parameters.
+  A RED regression reproduced it. Training now explicitly initializes fresh Adam
+  slots to the declared float32 recipe immediately before their first applied
+  update, preserving lazy update0 behavior and same numerical update equations.
+- The first broad suite was deliberately interrupted for these material fixes:
+  115 passed in242.90s, KeyboardInterrupt retained. It is not a full-suite pass.
+  Targeted state/training/causal verification is running on the corrected source;
+  broad integration verification follows when production source stabilizes.
+- Task3 preparatory contract tests:7 RED failures, missing research package and
+  snapshot API (`WP02/red.log`). No research efficacy fit has started.
 
 ## Resume procedure
 
@@ -60,3 +86,10 @@ Unchecked work is not completed, and prior investigation findings are not new ru
 
 Artifacts belong under `artifacts/research-v2/`, qualification declarations under
 `docs/research/v2/` and `locks/research-v2/`. No production T created/accessed yet.
+
+Task2 review dispositions: fixed missing-birth contract and process-default float64
+Adam scalar findings using failing regressions before changes. Deferred minor:
+new corruption tests do not directly assert optimizer-load call count/RNG preservation;
+existing coverage and preconstruction ordering cover that boundary. Schema1 loading
+is deliberately restricted to its original source; Task6 freezing and arbitrary
+moment-history authentication remain separate. No additional reviewer was dispatched.

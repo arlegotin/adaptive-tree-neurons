@@ -1,0 +1,28 @@
+{
+  "schema": "research/v2-state-verification",
+  "training_metadata_version": 2,
+  "before_after_arrays_compared": 19,
+  "exact_npz_sha256": "8c072d32850a63e1512e0fa6858363fe3ab5d7df3300914db1e469799ff6bb77",
+  "reference_selected_update": 6,
+  "new_contract": "explicit original/newborn parameter birth map; unfrozen global-minus-birth applied ages; declared float32 Adam steps",
+  "initial_red": "15 failed, 1 passed in 5.52s",
+  "initial_green": "168 passed in 47.63s",
+  "review_red": "2 failed in 3.09s",
+  "review_green": "220 passed, 1 warning in 92.41s (0:01:32)",
+  "interrupted_broad_suite": "115 passed in 242.90s (0:04:02)",
+  "source_after": "selected 6 cursor 8 source d62da4d14a4fcfa3d0b6c3239874dac8c8e10e57cd5df2120b680d28f4bb4589",
+  "logs": {
+    "backend-final.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "search-install.log": "36937c6fc9e67a8baa92e0d58294db91ccd1b1d6357609baf1701bc4cb2a65a2",
+    "review-green.log": "ef1c81659dd5d6fc7bf30c31d27a9c99999594f70b6b1a27e8fac9ea7b8c8e71",
+    "full-suite.log": "d7684deff638afb9bdbfa00b7f9ab7ce9bc0e6fd6621d247444e45cc2d59877c",
+    "red.log": "cc23f85858c21dab7b5f427f3ffc7a7daf0aed119525c840a33edcc6ce9a3af3",
+    "green.log": "a95548bcde0cec88c8b7f722a29d83c2751cc0cdc10ec20fe763c3eb9e015493",
+    "after-final.log": "c5afad4f48a51f788f46fde9557efed4e4568b1cca33030cd8c92675459a24a4",
+    "node-install.log": "adb6b4d60e0d701c21c2fe3cebc7ff9be9e18b9fcc0ebc438c70026e4ddc9af2",
+    "review-red.log": "209117219cfd4667d48d370518489eacf8ea50009e34064e216cfcd61a75f213",
+    "before.log": "ecbe4ec632ff034338f573634a542008a1fd9deb84cb684dbaa67f2c599b84b5",
+    "after.log": "6cf6691214789fd9463b2183d69b52a7a09b9e6ca8f286b6e0c62813e5d10223"
+  }
+}

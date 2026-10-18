@@ -110,14 +110,18 @@ def widen_parent(state: TrainingState, added_units: int, seed: int) -> GrowthMan
         backend=attach_causal_evidence(state.backend,model,config.training.batch_size)
         metadata=dict(manifest_scope='complete_regressor_including_head',parent_identity_hashes=copy.deepcopy(state.identity_hashes),
             parent_model=state.model.export_config(),widening_manifest=json.loads(canonical_json(manifest.to_dict())),
-            widening_seed=seed,adam_step_policy='old steps retained; separate added tensors have step zero and zero moments')
+            widening_seed=seed,insertion_update=state.update,
+            adam_step_policy='old steps retained; separate added tensors have step zero and zero moments')
         candidate=copy.copy(state)
         candidate.model,candidate.optimizer,candidate.scheduler=model,optimizer,schedule
         candidate.config,candidate.identity_hashes,candidate.backend=config,identity,backend
         candidate.growth_metadata=metadata
+        candidate.parameter_birth_updates = {
+            mapped[name]: state.parameter_birth_updates[name] for name in old}
+        candidate.parameter_birth_updates.update({name: state.update for name in added_names})
         snapshot=pack_state(candidate)
         validate_metadata(snapshot['metadata'],identity,'cpu'); validate_tensor_state(snapshot['tensors'])
-        for name in ('model','optimizer','scheduler','config','identity_hashes','backend','growth_metadata'):
+        for name in ('model','optimizer','scheduler','config','identity_hashes','backend','growth_metadata','parameter_birth_updates'):
             setattr(state,name,getattr(candidate,name))
         return manifest
     finally:

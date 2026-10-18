@@ -199,6 +199,7 @@ class TrainingState:
     history: list[dict[str, Any]] = field(default_factory=list)
     growth_metadata: dict[str, Any] = field(default_factory=dict)
     best_snapshot: dict[str, Any] | None = None
+    parameter_birth_updates: dict[str, int] = field(default_factory=dict)
 
     @property
     def device(self):
@@ -363,6 +364,8 @@ def _validate_live_adam_history(state):
 
 def validate_saved_adam_history(meta, tensors):
     """Check named serialized history before construction, loading or writing."""
+    from .state_validation import validate_model_tensors, validate_adam_tensors
+    spec = validate_model_tensors(meta, tensors)
     saved = tensors['optimizer']
     if (not isinstance(saved, Mapping) or not isinstance(saved.get('param_groups'), list)
             or not isinstance(saved.get('state'), Mapping)
@@ -382,6 +385,7 @@ def validate_saved_adam_history(meta, tensors):
     if set(saved['state']) - identifiers:
         raise ValueError('Unmapped saved Adam history')
     validate_adam_history(meta['update'], meta['model']['kind'], records)
+    validate_adam_tensors(meta, records, spec)
 
 
 def pack_state(state: TrainingState) -> dict[str, Any]:
@@ -402,17 +406,23 @@ def pack_state(state: TrainingState) -> dict[str, Any]:
     all_names = [name for group in groups for name in group['names']]
     if len(all_names) != len(set(all_names)) or set(all_names) != set(named):
         raise ValueError('Optimizer groups must cover each named model parameter exactly once')
-    metadata = {'schema_version': 1, 'config': state.config.to_dict(), 'model': state.model.export_config(),
+    from .state_validation import establish_birth_updates
+    births = establish_birth_updates(state)
+    metadata = {'schema_version': 2, 'config': state.config.to_dict(), 'model': state.model.export_config(),
                 'identity_hashes': state.identity_hashes, 'device': state.device, 'backend': state.backend,
                 'update': state.update, 'epoch': state.epoch, 'cursor': state.cursor,
                 'n_fit': state.order.numel(), 'optimizer_kind': 'adamw', 'optimizer_groups': groups,
                 'scheduler': state.scheduler.state_dict(), 'preprocessing': state.preprocessing.to_state(),
                 'fit_target_variance': state.fit_target_variance, 'data_hashes': state.data_hashes,
-                'stage': state.stage, 'growth_metadata': state.growth_metadata}
+                'stage': state.stage, 'growth_metadata': state.growth_metadata,
+                'parameter_birth_updates': births}
     canonical_json(metadata)
-    return {'metadata': copy.deepcopy(metadata), 'tensors': _tensor_copy({
+    snapshot = {'metadata': copy.deepcopy(metadata), 'tensors': _tensor_copy({
         'model': state.model.state_dict(), 'optimizer': optimizer,
         'order': state.order, 'sampler_generator': state.sampler_generator.get_state(), 'rng_states': state.rng_states})}
+    validate_tensor_state(snapshot['tensors'])
+    validate_saved_adam_history(metadata, snapshot['tensors'])
+    return snapshot
 
 
 def validate_metadata(meta, expected_hashes, device):
@@ -420,8 +430,8 @@ def validate_metadata(meta, expected_hashes, device):
     canonical_json(meta)
     required = {'schema_version', 'config', 'model', 'identity_hashes', 'device', 'backend', 'update', 'epoch',
                 'cursor', 'n_fit', 'optimizer_kind', 'optimizer_groups', 'scheduler', 'preprocessing',
-                'fit_target_variance', 'data_hashes', 'stage', 'growth_metadata'}
-    if set(meta) != required or meta['schema_version'] != 1:
+                'fit_target_variance', 'data_hashes', 'stage', 'growth_metadata', 'parameter_birth_updates'}
+    if set(meta) != required or type(meta['schema_version']) is not int or meta['schema_version'] != 2:
         raise ValueError('Invalid training metadata schema')
     identities = meta['identity_hashes']
     keys = {'code', 'lock', 'config', 'split', 'raw', 'transform', 'runtime'}
@@ -498,6 +508,10 @@ def validate_metadata(meta, expected_hashes, device):
             raise ValueError('Invalid update/sampler metadata')
     if meta['n_fit'] != config.data.n_fit or not 0 <= meta['cursor'] <= meta['n_fit']:
         raise ValueError('Invalid sampler cursor/count')
+    births = meta['parameter_birth_updates']
+    if (not isinstance(births, dict) or set(births) != expected_names
+            or any(type(v) is not int or not 0 <= v <= meta['update'] for v in births.values())):
+        raise ValueError('Invalid parameter birth update metadata')
     transform = FittedTransform.from_state(meta['preprocessing'])
     if canonical_hash(transform.to_state()) != identities['transform']:
         raise ValueError('Transform identity mismatch')
@@ -642,6 +656,7 @@ def unpack_state(snapshot, *, expected_hashes, device):
             meta['cursor'], generator, _tensor_copy(tensors['rng_states']), preprocessing,
             dict(meta['identity_hashes']), config, copy.deepcopy(meta['backend']), meta['fit_target_variance'],
             copy.deepcopy(meta['data_hashes']), copy.deepcopy(meta['stage']), growth_metadata=copy.deepcopy(meta['growth_metadata']))
+        state.parameter_birth_updates = dict(meta['parameter_birth_updates'])
         if 'causal_cpu_evidence' in meta['backend']:
             from .growth.insert import _validate_optimizer
             _validate_optimizer(state, set(named))
@@ -852,6 +867,15 @@ def _run(state, data, policy, paths):
             if any(p.grad is not None and not bool(torch.isfinite(p.grad).all()) for p in state.model.parameters()):
                 raise FloatingPointError('Nonfinite training gradient')
             lr = state.optimizer.param_groups[0]['lr']
+            # Adam's lazy scalar dtype otherwise follows the process default,
+            # even when every parameter and moment is explicitly float32.
+            for group in state.optimizer.param_groups:
+                for parameter in group['params']:
+                    if parameter.grad is not None and not state.optimizer.state.get(parameter):
+                        state.optimizer.state[parameter] = {
+                            'step': torch.tensor(0., dtype=torch.float32, device='cpu'),
+                            'exp_avg': torch.zeros_like(parameter),
+                            'exp_avg_sq': torch.zeros_like(parameter)}
             state.optimizer.step()
             if any(not bool(torch.isfinite(p).all()) for p in state.model.parameters()):
                 raise FloatingPointError('Nonfinite model after optimizer update')

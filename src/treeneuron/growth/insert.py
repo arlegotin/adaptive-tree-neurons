@@ -212,6 +212,7 @@ def insert_growth(state: TrainingState, allocation: Allocation) -> GrowthManifes
     old_state = dict(state.optimizer.state)
     base_lrs = list(state.scheduler.base_lrs)
     metadata = state.growth_metadata
+    births = dict(state.parameter_birth_updates)
     original = (layer.gate, layer.contrast, layer.grown_ids, layer.growth_applied)
     try:
         manifest = layer.grow(allocation.ids, values)
@@ -228,6 +229,7 @@ def insert_growth(state: TrainingState, allocation: Allocation) -> GrowthManifes
         state.optimizer.state.update(old_state)
         state.scheduler.base_lrs[:] = base_lrs
         state.growth_metadata = metadata
+        state.parameter_birth_updates = births
         raise
     finally:
         restore_rng(rng)
