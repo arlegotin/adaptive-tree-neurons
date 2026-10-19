@@ -1596,3 +1596,17 @@ created. The initial scan confused M0 canonical plan hash with byte SHA; failed
 script/log, actual file hash and corrected canonical authentication are retained.
 Versioned seed/ID files are inprotocol/research-v2/exclusions. See
 teacher-exclusion-inventory.md and WP09-teacher-exclusion-inventory-receipt.json.
+
+WP07 additional anchors COMPLETE engineering-only: twelve declared P03h64/lr.005
+native-coordinate/P13mean checks (six primary splits each) completed without
+cap/failure/retry underb848726/6e81099c. Independent inactive audit authenticates
+all queue/role/query hashes and reopens every saved model/prediction exactly,
+checks MLP all-F epoch permutations, and recomputes means from F targets. Maximum
+sampled root430833664bytes; queue44.703118625s contains44.590443791s job time and
+43.349828458s paid searches; separate audit11.719751417s, all contended. No V/T
+labels, quality comparison/HPO or audit refitting. Current distinct primary
+native completions114across118attempts (controlled recovery fixtures separate);
+P12/default16GiBtrack remains unadmitted, final support/common-source GateD still
+pending. ReceiptWP07-additional-primary-anchor-receipt.json. The initial external
+directory inventory preceded a subsequently added cohort-status note; earlier
+inventory bytes are retained and the final exact inventory includes both.

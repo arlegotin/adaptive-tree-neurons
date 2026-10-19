@@ -5,6 +5,24 @@ splits, not a predictive benchmark. Workers read F/G labels and V features only.
 No V labels, secondary-fold development or protected T were released. Every
 completed worker remained engineering-ineligible and GateD remains pending.
 
+The two remaining small declared anchor coordinates subsequently completed on
+all six primary splits underb848726/6e81099c: P03's one-layer h64/lr.005/WD0
+coordinate with native preprocessing and stopping, plus P13's F-fit mean.
+The MLP executed/selected epochs were Airfoil189/169, Concrete92/72,
+CCPP128/108, Parkinsons34/14, Bike23/3 and Energy27/7. This is the declared
+coordinate under the native P03 recipe, not replay of the historical recipe.
+
+All12completed without failure/cap/retry. The inactive audit authenticated every
+queue/primary role/query commitment and independently reopened each closed model
+to the exact saved prediction. Every MLP epoch covered all F rows; every P13
+prediction agrees with an independently summed F target mean. Workers recorded
+Torch1/1 for MLP and imported no Torch for P13. Maximum sampled root RSS was
+410.875MiB. Queue44.703118625s contains44.590443791s in jobs and43.349828458s in
+paid searches; the separate audit took11.719751417s. These contended clocks do
+not establish standalone efficiency and are not added across nesting levels.
+No V labels, T, model retraining in the audit or production search was used.
+See [the complete additional-anchor receipt](WP07-additional-primary-anchor-receipt.json).
+
 All12published MLP-D/ResNet-D anchors completed under their native G stopping
 rules, maximum1000epochs, LR.001/WD.01/batch128, native F-only preprocessing and
 categorical embeddings. Every F row was covered each epoch, original-unit query
