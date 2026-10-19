@@ -1,0 +1,37 @@
+{
+  "T_accessed": false,
+  "actual_V_scoring_performed": false,
+  "arrays_or_labels_opened": false,
+  "edge_red": "2failed/17passed in0.29s: malformed unhashable dataset escaped as TypeError",
+  "final": "49passed in1.26s",
+  "final_command_sha256": "285fd84319a7697be55fe301c787d134652b264e207290b42fb1a232903049c7",
+  "first_green": "46passed in1.25s",
+  "freeze_readiness_qualified": false,
+  "full_repository_suite": false,
+  "initial_red": "16failed in0.09s: missing module",
+  "inventory_sha256": "dfb2e13eba8cd9c4e7c3a96d0d022c6fbc5390de0a23bdd92789ba12fe02b159",
+  "protected_access_authorized": false,
+  "raw_files": 1735,
+  "raw_logical_bytes": 7380441,
+  "raw_root": "artifacts/research-v2/WP09/pre-freeze-transfer-access",
+  "real_audit_sha256": "54d982a4e1d37da82921c13a0f8eaa46f8d792d26cef9fad93bf9aec582190b4",
+  "real_recorded_event_counts": {
+    "airfoil": 35,
+    "bike": 20,
+    "ccpp": 20,
+    "concrete": 19,
+    "energy": 22,
+    "parkinsons": 19
+  },
+  "real_recorded_roles": [
+    "F_labels",
+    "G_labels",
+    "V_features"
+  ],
+  "real_total_events": 135,
+  "recorded_secondary_or_protected_access": false,
+  "schema": "research/v2-pre-freeze-transfer-access-preparation-receipt",
+  "source_sha256": "8b559d9c3839ec2acdba398b65cd121a7d79c9e40cf6475fa8fc17e0f504aaf8",
+  "status": "fixture_verified_and_recorded_primary_histories_audited",
+  "unlogged_filesystem_access_authenticated": false
+}

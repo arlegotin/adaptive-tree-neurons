@@ -157,6 +157,11 @@ checks passed. The 30-paired-block supervisor/collector now passes a complete
 workload and frozen measurement-policy qualification remain pending. The
 complete protected protocol/evaluator/auditor and
 confirmation-report execution remain incomplete.
+A read-only [pre-freeze API history auditor](pre-freeze-transfer-access.md)
+now passes49affected checks. It authenticated135recorded accesses across the
+six prepared datasets, all primary F/G labels and V features, without opening
+arrays or outcomes. This checks recorded API history and grants no protected
+access or final readiness; unlogged filesystem access remains unauthenticated.
 
 The complete M1 run took about2h23m30s of contended wall time and retained1.55GiB.
 Its512prediction vectors were independently checked. Storage maintenance on
