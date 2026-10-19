@@ -116,8 +116,11 @@ while giving comparison arms independent parameters and optimizer history; its
 65 affected checks passed. It grants no calibration or protected-data authority.
 The development raw-file auditor and explicit development report CLI now rebuild
 metrics from authenticated arrays while retaining missing runs; 89 affected
-checks passed. The complete protected protocol/evaluator/auditor and
-deployment/confirmation-report execution remain incomplete.
+checks passed. A separate deployment worker now measures model loading and native
+preprocessing/prediction without importing other model families; tiny P13/P00
+checks passed. Thirty paired timing blocks and full deployment qualification
+remain pending. The complete protected protocol/evaluator/auditor and
+confirmation-report execution remain incomplete.
 
 The complete M1 run took about2h23m30s of contended wall time and retained1.55GiB.
 Its512prediction vectors were independently checked. Storage maintenance on

@@ -1451,3 +1451,15 @@ The general/protected report command remains unavailable without its remaining
 implementation and qualification. This slice authenticates array bytes and
 arithmetic, not model-generation lineage, a complete operational ledger, costs
 or population inference. See development-raw-audit.md and its receipt.
+
+WP10 deployment worker: 16 missing-component RED cases preceded the standard-
+library-entry worker, then 34 affected P13/analysis checks passed. An expanded
+P00 fresh-process fixture exposed inherited parent OpenMP suppression; its failed
+worker receipt remains. The test launcher now applies the existing qualified
+child-only environment policy and records it, preserving the native guard.
+35 affected checks passed in 12.23 s. Tiny P13/P00 snapshots reproduced independent
+batch-1/batch-1024 fixture predictions exactly, retained every sample, imported
+only their own model stack, and separated common imports, model loading and
+resident prediction. Neither outer RSS/deadline supervision nor 30 paired blocks
+is supplied by this worker. No cost, quality or protected-access claim follows.
+See deployment-worker.md and WP10-deployment-worker-receipt.json.

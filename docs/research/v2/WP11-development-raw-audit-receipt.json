@@ -1,4 +1,9 @@
 {
+  "archived_pre_receipt_contract": {
+    "path": "artifacts/research-v2/WP11/development-raw-audit/source/docs/research/v2/development-raw-audit.md",
+    "scope": "Contract snapshot retained before appending the verification/receipt paragraph; current documentation may add evidence without changing executable source",
+    "sha256": "4659aca1d57ed482f5b149f1dd4198cfc5754bfca41d81d8092924750ca86137"
+  },
   "base_commit": "b653b7f",
   "cli_missing_options_red": 4,
   "deferred_legacy_backend_setups": 9,
@@ -32,7 +37,6 @@
   "schema": "research/v2-development-raw-audit-receipt",
   "scientific_source_sha256": "0c3a0c2fc0e3f7f1aa559f6d0f3d5bcf1636f6cadda013f891873336db03f83d",
   "source_files": {
-    "docs/research/v2/development-raw-audit.md": "4659aca1d57ed482f5b149f1dd4198cfc5754bfca41d81d8092924750ca86137",
     "src/treeneuron/analysis/audit_v2.py": "44e8469d95994830caca9bc5498dc8443a5e812917c41ac378234fad64966ed3",
     "src/treeneuron/research/cli.py": "9ac58851d59609bf0ef930104e3844cc0ac19724558ce0ef8aeb0cec2a58e4e8",
     "tests/test_audit_v2.py": "1c360036bbfbc056134c02b8b5aea70118aa6e6ca5fc27de3b088cd2ad351c2e"

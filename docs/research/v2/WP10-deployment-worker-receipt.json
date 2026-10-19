@@ -1,0 +1,60 @@
+{
+  "T_accessed": false,
+  "base_commit": "66c0e0a",
+  "cost_claim_authorized": false,
+  "expanded_failure_reason": "P00 child inherited the parent dependency OpenMP environment default; the existing qualified child-launch removal policy was missing from the new test harness. Kept native guard; corrected child environment and retained failed receipt. Worker does not remove/set suppression.",
+  "expanded_fixture_failures": 1,
+  "expanded_fixture_passed": 34,
+  "final_command_sha256": "b0229679e78b5a7880dd0d4d47a93636164c8298ea707c27fee84e7cb8947c50",
+  "final_passed": 35,
+  "final_seconds": 12.23,
+  "fresh_process_fixtures": [
+    {
+      "adapter_import_ns": 11382500,
+      "common_import_ns": 137019792,
+      "family_id": "P13",
+      "inner_elapsed_ns": 316143125,
+      "input_dtype": "float32",
+      "loaded_heavy_modules": [],
+      "model_load_ns": 141224667,
+      "process_lifetime_peak_rss_bytes": 83312640,
+      "status": "completed_ineligible"
+    },
+    {
+      "adapter_import_ns": 20661209,
+      "common_import_ns": 142531375,
+      "family_id": "P00",
+      "inner_elapsed_ns": 2034633917,
+      "input_dtype": "float32",
+      "loaded_heavy_modules": [
+        "torch"
+      ],
+      "model_load_ns": 1842583500,
+      "process_lifetime_peak_rss_bytes": 281755648,
+      "status": "completed_ineligible"
+    }
+  ],
+  "full_repository_suite": false,
+  "initial_green_passed": 34,
+  "initial_green_seconds": 7.97,
+  "initial_missing_component_red": 16,
+  "inventory_sha256": "8cb2ca5b2f500117e6838c3e7a8f54b1e12b2e0a12bdac7dbe0025d5bdf721d0",
+  "limits": [
+    "Actual P13/P00 tiny engineering snapshot checks only; other registered adapters require separate deployment qualification",
+    "No supervised30-paired-block coordinator, final cache/power/resource protocol, authentic quality bound or cost claim",
+    "Inner clocks exclude interpreter startup and final terminal publication; actual subprocess fixture records enclosing wall time separately",
+    "Process-lifetime peak own RSS, not strict peak or aggregate RAM",
+    "Nine legacy backend setup checks remain deferred; no full-repository green result"
+  ],
+  "production_practical_searches": 0,
+  "protected_access_authorized": false,
+  "raw_files": 367,
+  "raw_logical_bytes": 12167490,
+  "raw_root": "artifacts/research-v2/WP10/deployment-worker",
+  "schema": "research/v2-deployment-worker-preparation-receipt",
+  "scientific_source_sha256": "2820d8301a74d30c3c4b8d5447b11bdfe469d8596bf7c937c938ff1512dd32dc",
+  "source_files": {
+    "src/treeneuron/research/deployment_worker_v2.py": "6cf5fb4d37111d5dea3f97a3f946513dbf4cf4827110f183604c783a7d625e9d",
+    "tests/test_deployment_worker_v2.py": "de0b521349acc3defd1dc1b1503f38e6dfbd71e90c9e91550a5c2b331c4714a7"
+  }
+}
