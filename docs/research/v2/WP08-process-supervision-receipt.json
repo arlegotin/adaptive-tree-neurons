@@ -1,0 +1,125 @@
+{
+  "T_accessed": false,
+  "base_commit": "d8f1e2c",
+  "evidence_level": "Actual owned toy process execution, resource observation and termination; no native predictive quality",
+  "logs": {
+    "artifacts/research-v2/WP08/process-supervision-preparation/affected-green.log": {
+      "bytes": 25752,
+      "sha256": "835a85bec0ed789056d483ee0b66c13e454110847a6cd0e1a9a42f5d9d409777"
+    },
+    "artifacts/research-v2/WP08/process-supervision-preparation/fast-exit-red.log": {
+      "bytes": 1090,
+      "sha256": "dbf32a0127d9489a1a204bdb4d1a95347af3c0781fc340ac7d3130c87cff8429"
+    },
+    "artifacts/research-v2/WP08/process-supervision-preparation/native-qualification.log": {
+      "bytes": 99,
+      "sha256": "801032ef42d7fc6eea34f61c9b80660f8f21c7bdc1fbeb2b01b67f4430f78144"
+    },
+    "artifacts/research-v2/WP08/process-supervision-preparation/red.log": {
+      "bytes": 32877,
+      "sha256": "f9bf18f687e245f0e1555607843d91d9ab9cb845b33ba9e71f4adefddd046f00"
+    },
+    "artifacts/research-v2/WP08/process-supervision-preparation/sandbox-attempt.log": {
+      "bytes": 6242,
+      "sha256": "f3ecd199c43d23555a97d78681f4a61f370cd81926ee80e2d60135d203ce9715"
+    },
+    "artifacts/research-v2/WP08/process-supervision-preparation/scoped-green.log": {
+      "bytes": 260,
+      "sha256": "bf234c344c1b5ce69868bedb91e09d67b47490258260627b2963cb997b3c1fd6"
+    },
+    "artifacts/research-v2/WP08/process-supervision-preparation/zombie-probe-red.log": {
+      "bytes": 1993,
+      "sha256": "42fc3be508d36f93841d838a4992856383402c474e73b358753216f4ae8fa192"
+    }
+  },
+  "models_fitted": 0,
+  "pending": [
+    "nine unchanged legacy backend setup tests under normal memory pressure",
+    "native worker/recipe/runtime qualification",
+    "aggregate/strict peak memory measurement",
+    "outer queue and live admission integration",
+    "supervisor-death cost/disposition recovery",
+    "global freeze/secondary barrier",
+    "production searches"
+  ],
+  "raw_inventories": {
+    "raw-inventory.json": "c8a5444e588c6119198faf80076ee1101652df4dc7b55cc95c0f32db07fd1ff8",
+    "scoped-inventory.json": "ba6394466993cd92e1c1ed8c599d19de7815b6e85ff13735044cc1917b4565b3"
+  },
+  "root_cause_diagnostic": {
+    "observed": [
+      {
+        "group_probe": "exists",
+        "phase": "before",
+        "returncode": null
+      },
+      {
+        "group_probe": "PermissionError:1",
+        "phase": "after_term_before_reap",
+        "returncode": null
+      },
+      {
+        "group_probe": "ProcessLookupError:3",
+        "phase": "after_reap",
+        "returncode": -15
+      }
+    ],
+    "owned_child_pid": 3413,
+    "source": "Captured direct own-child tool output; not an independent predictive experiment"
+  },
+  "schema": "research/v2-process-supervision-preparation",
+  "scoped_raw": {
+    "aliases": 33,
+    "bytes": 330589,
+    "files": 152
+  },
+  "search_execution_authorized": false,
+  "source_files": {
+    "src/treeneuron/research/process_supervision_v2.py": "b1ba8052b7ad581dd9f4025b4f242957a4a889b6a8dc8d27313d56ed8c6c103e",
+    "tests/test_process_supervision_v2.py": "df448c7ceff7bb84e40272bd6c63594510744fc4a4d1dd095635a6aa065afe8a"
+  },
+  "strict_peak_memory_qualified": false,
+  "verification": {
+    "combined": {
+      "failed": 1,
+      "legacy_guard_setup_errors": 9,
+      "passed": 158,
+      "seconds": 4.79
+    },
+    "cwd": "/private/tmp/atn-research-v2-next",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "escalated_initial_passed": 22,
+    "escalated_initial_seconds": 1.09,
+    "fast_log_exit_red": 1,
+    "missing_module_red": 22,
+    "native_execution_escalated": true,
+    "sandbox_failed_closed": 7,
+    "sandbox_other_passed": 15,
+    "scoped_argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_process_supervision_v2.py",
+      "tests/test_search_controller_v2.py",
+      "tests/test_search_v2.py",
+      "tests/test_practical_workload.py",
+      "tests/test_practical_v2.py",
+      "tests/test_cost_v2.py",
+      "tests/test_primary_v2.py"
+    ],
+    "scoped_final_passed": 148,
+    "scoped_final_seconds": 2.32,
+    "zombie_group_red": 1
+  },
+  "whole_process_cost_authenticated": false
+}

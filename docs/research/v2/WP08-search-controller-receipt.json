@@ -1,5 +1,13 @@
 {
   "T_accessed": false,
+  "artificial_proof": {
+    "T_accessed": false,
+    "models_fitted": 0,
+    "path": "artifacts/research-v2/WP08/search-controller-proof-d8f1e2c/proof.json",
+    "producer_commit": "d8f1e2c",
+    "sha256": "e6ed5fa0a656df5804269c20ce5e5a128459f74331f2360cce0dcb2c93431e7d",
+    "source_sha256": "505f1dca072cde18d6f233b8bfb51e5a28ed305a30913a3d52beb1e3d93397a0"
+  },
   "base_commit": "f54eed1",
   "evidence_level": "Actual pinned TPE/outer callback replay with artificial scores, files and clock",
   "failed_setup_command": {

@@ -1096,3 +1096,13 @@ boundaries passed first run. Native trial workers, hard process/RSS supervision,
 process-death receipts, whole-process cost and global authorization remain pending.
 This code reads no labels and admits no practical scientific search; see
 search-controller-preparation.md and WP08-search-controller-receipt.json.
+
+WP08 process supervision: new own-group deadline/log/RSS observer uses real toy
+processes, never grants model eligibility.22initial missing-module REDs; sandbox
+RSS probe failed closed before child startup; escalated22passed1.09s. Fast log
+exit and macOS zombie-group reaping each received a failing regression and fix.
+Final scoped new search/analysis/process suite148passed2.32s. Combined attempt
+retained1process failure/158passes/9legacy memory-pressure-level2 setup errors;
+the nine setups remain pending normal resource conditions. No guard weakened,
+strict peak/descendant memory and native qualification still false. See
+process-supervision-preparation.md and WP08-process-supervision-receipt.json.
