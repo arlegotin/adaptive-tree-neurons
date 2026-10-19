@@ -1,0 +1,96 @@
+{
+  "Gate_D": false,
+  "T_accessed": false,
+  "base_commit": "1700ade",
+  "checkpoint_eligible": false,
+  "evidence_level": "Scoped pinned-native initialization observation and engineering parity; no efficacy inference",
+  "expired_temp_artifacts": "Two early failed fixture raw directories expired before copying; complete stdout retained",
+  "full_native_anchor": false,
+  "initialization_trace_qualified_scope": "Named pinned native RAM sampler; real tiny default has no subset; forced tiny fitter references cover actual subsets",
+  "logs": {
+    "artifacts/research-v2/WP07/realmlp-initialization-preparation/affected.log": {
+      "bytes": 111,
+      "sha256": "9eca8c93384ed8ebe20de7d10d5450c48ea8f90dd3ae5dee96d1225365ad7910"
+    },
+    "artifacts/research-v2/WP07/realmlp-initialization-preparation/collection.log": {
+      "bytes": 6539,
+      "sha256": "124e1c035294f895ca135d88d2b407c3e24068862f2dc6205c8686e7d5c0342c"
+    },
+    "artifacts/research-v2/WP07/realmlp-initialization-preparation/green-initial.log": {
+      "bytes": 2950,
+      "sha256": "9110164a536e4a350b4b756ff314751490cd171dd974ace0ac4f2e87134d89d9"
+    },
+    "artifacts/research-v2/WP07/realmlp-initialization-preparation/green-native-1.log": {
+      "bytes": 3113,
+      "sha256": "c14fbaef0b33d4b7932255a9284eff2a80abce540ae9c76303bcc0229fd05cf6"
+    },
+    "artifacts/research-v2/WP07/realmlp-initialization-preparation/green-native-2.log": {
+      "bytes": 98,
+      "sha256": "407c0b978e8460d2911220f92eaa0f17a12f9761bd2d65b2115541cc5f5d1e1d"
+    },
+    "artifacts/research-v2/WP07/realmlp-initialization-preparation/integration-green-initial.log": {
+      "bytes": 113,
+      "sha256": "e8b43c5256c07429ed07640ca5243fcc53658292ad9f1126bd51f9e5c410ca34"
+    },
+    "artifacts/research-v2/WP07/realmlp-initialization-preparation/integration-red.log": {
+      "bytes": 5205,
+      "sha256": "ec062804da1c344c6f7ff09c9b07f2d6091a5d2617be481bf133d4572aa63cd2"
+    },
+    "artifacts/research-v2/WP07/realmlp-initialization-preparation/red.log": {
+      "bytes": 4881,
+      "sha256": "48afa559c0d8f60763fc201083fffcf993741d9de6dd126e913597a04eb729c2"
+    }
+  },
+  "native_source_identity_kind": "realmlp_native._source; scientific Python plus RealMLP/core/uv pins; distinct from train.source_hash",
+  "native_source_sha256": "d39576e221b3ada8aadd48ded3b513d1e1c3be7ec41d907557c6981de8286328",
+  "pending": [
+    "complete256epoch anchors",
+    "actual native workload/resources",
+    "hard worker limits",
+    "interruption recovery",
+    "production registry/eligibility",
+    "bounded practical HPO",
+    "deployment qualification"
+  ],
+  "prepared_transfer_experiments": 0,
+  "quality_eligible": false,
+  "raw_inventories": {
+    "artifacts/research-v2/WP07/realmlp-initialization-preparation/affected-native-raw/inventory.json": "8eb35f01a28af26b0d76606d571cbf4ab7dcb87445d8152c9696ecf13128d2cc",
+    "artifacts/research-v2/WP07/realmlp-initialization-preparation/integration-first-green/inventory.json": "1148f5d2f180895cf6431c61701caef9a345b869b0f87292dffa90e56674da8f",
+    "artifacts/research-v2/WP07/realmlp-initialization-preparation/native-test-raw/inventory.json": "8d36dffad7fcadfe0ea2a91fba3d2f8ba97bfa46742ba77cff15346cba7708ab"
+  },
+  "raw_root": "artifacts/research-v2/WP07/realmlp-initialization-preparation",
+  "schema": "research/v2-realmlp-initialization-observation",
+  "source_files": {
+    "src/treeneuron/research/realmlp_initialization.py": "21fde67ebcfb3ac63ef6f5220993c09524f818e455f5e8cf8863e30360baa997",
+    "src/treeneuron/research/realmlp_native.py": "1627a3e0a1ebd9fe013fb536a4ae9352d22c30c7b7a591c7230737ef5e201bcb",
+    "tests/test_realmlp_contract.py": "7c6ef785bee0d6974b34d85989f89a6331aebe53d5ae5457bcce5c6bb2b68318",
+    "tests/test_realmlp_initialization.py": "ec86505b1c0a6cf4cbfd7a1e18d19016d947af23593b939991e6b31d7a5dece1",
+    "tests/test_realmlp_native.py": "095235d262e122523d82012fc1ed230b2de9655dc06f9153376644a793b40079"
+  },
+  "source_snapshot_timing": "During affected suite; matches source-bound native fit summaries",
+  "verification": {
+    "actual_creator_G_row_rejected_before_fitter": true,
+    "affected_passed": 64,
+    "affected_seconds": 516.71,
+    "component_passed": 5,
+    "component_seconds": 8.23,
+    "declared_native_numerical_failure_retained": true,
+    "fixture_setup_failures": [
+      "private overlay omitted",
+      "Torch interop thread setting repeated"
+    ],
+    "full_repository_suite": false,
+    "integration_missing_field_red": 1,
+    "integration_passed": 1,
+    "integration_seconds": 21.83,
+    "missing_module_red": 5,
+    "native_stored_tensors": 22,
+    "native_tensor_and_RNG_parity": true,
+    "nested_subset_rows": [
+      32,
+      8,
+      4
+    ]
+  }
+}

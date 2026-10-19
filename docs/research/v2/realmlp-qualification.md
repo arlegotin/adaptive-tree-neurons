@@ -1,11 +1,17 @@
 # RealMLP-TD engineering qualification
 
-Status: this bounded engineering slice is complete. The complete affected suite
+Historical receipt: the original bounded engineering slice is complete. Its complete affected suite
 passed52 tests in425.66s on the final corrected source. The declared12 graph
 cases have11 exact direct-official/fresh-load completions and1 preserved native
 numerical failure; four additional controls also match exactly. All model
 completions remain quality-ineligible. No full quality anchor, prepared transfer
 experiment, HPO or V/T access occurred. GateD remains open.
+
+The later [initialization observer](realmlp-initialization-observation.md) adds
+actual native RAM-subsample row records. Its component and adapter integration
+passed64 affected checks in516.71s. This does not promote any mode to
+quality eligibility. The source digests and old remaining-work statements below
+describe the original slice, rather than this later implementation revision.
 
 ## Recipe and protocol boundary
 

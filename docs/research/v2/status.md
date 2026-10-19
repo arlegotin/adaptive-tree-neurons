@@ -80,10 +80,10 @@ efficiency claim. [Execution ledger](execution.md), [reproduction](reproduce.md)
 [implementation plan](../../superpowers/plans/2026-10-18-research-v2.md) retain the
 exact state, evidence and next steps.
 
-As of19October,07:39UTC, the main diagnostic has1,772eligible completed queue jobs
-and one running short probe. Queue jobs include preparation/evaluation and are
+As of19October,09:03UTC, the main diagnostic has1,972eligible completed queue jobs,
+24ineligible entries and one running small pair-control fit. Queue jobs include preparation/evaluation and are
 not independent problems. No scientific failure has been recorded at that
-snapshot. About7.08GiB disk was free; live guards may pause the unchanged queue.
+snapshot. About10.97GiB disk was free; live guards may pause the unchanged queue.
 Host memory-pressure level2 is delaying extra backend verification that requires
 a larger reserve. We retain its setup failures rather than relaxing that guard.
 
@@ -105,3 +105,9 @@ I then found and corrected a reader-concurrency gap: future history maintenance
 requires the producer to be inactive. The completed pass had no recorded
 scientific failure; all4,376maintained/verified file commitments matched afterward.
 The study's source, predictions and decision rules have not changed.
+
+The RealMLP comparison adapter now records the actual rows used during native
+initialization. Its64-check engineering suite preserves official predictions,
+saved-model reload and RNG parity while checking F-only row boundaries. This
+improves baseline reliability; it supplies no new predictive result or native
+quality qualification. Full practical searches have not begun.

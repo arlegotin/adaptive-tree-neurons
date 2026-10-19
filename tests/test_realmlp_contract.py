@@ -150,7 +150,7 @@ def test_late_failed_fit_never_exposes_new_prediction_or_save_state(failure,tmp_
     interface=SimpleNamespace(model=SimpleNamespace(model=State(),creator=SimpleNamespace(static_model=State())),
         fit_params=[{'stop_epoch':{'rmse':3}}])
     history=summary_fixture()[1]['history']
-    observed=SimpleNamespace(history=history,batches=[[0,1]]*3,updates=3)
+    observed=SimpleNamespace(history=history,batches=[[0,1]]*3,updates=3,initialization={})
     monkeypatch.setattr(module,'_source',lambda:{})
     monkeypatch.setattr(module,'_dependencies',lambda:{})
     monkeypatch.setattr(module,'native_config',lambda *args:{})

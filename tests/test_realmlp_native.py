@@ -77,6 +77,10 @@ def worker(categorical,constant_target,output,variant=None,missing=False):
     assert pred.shape==(1031,) and np.isfinite(pred).all()
     assert np.all(pred>=float(yF.min())) and np.all(pred<=float(yF.max()))
     assert summary['checkpoint_eligible'] is False and summary['quality_eligible'] is False
+    initialization=summary['initialization_observation']
+    assert initialization['scope']=='native_creator' and initialization['creator_calls']==1
+    assert initialization['root_F_positions']==list(range(300)) and initialization['subsamples']==[]
+    assert initialization['status']=='completed' and initialization['calls']
     if constant_target:
         assert summary['selected_epoch']==3
         assert all(row['G_native_rmse']==0. and row['G_mse']==0. for row in summary['history'])

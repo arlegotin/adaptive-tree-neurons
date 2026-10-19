@@ -280,6 +280,10 @@ def _fit_native(prepared,parameters):
     from pytabkit.models.training.lightning_modules import TabNNModule
     from pytabkit.models.training.logging import StdoutLogger
     from pytabkit.models.training.metrics import Metrics,mse
+    from pytabkit.models.data.data import DictDataset
+    from pytabkit.models.nn_models.base import Fitter
+    from pytabkit.models.training.nn_creator import NNCreator
+    from treeneuron.research.realmlp_initialization import NativeInitializationTrace
     nF=prepared['split'].n_train
     n_batches=nF//min(256,nF)
 
@@ -344,20 +348,25 @@ def _fit_native(prepared,parameters):
     TabNNModule.create_callbacks=observed_callbacks
     interface=nn_interfaces.NNAlgInterface(**parameters)
     old_tf32=torch.backends.cuda.matmul.allow_tf32
+    initialization=NativeInitializationTrace(n_fit=nF,dataset_class=DictDataset,
+        fitter_class=Fitter,creator_class=NNCreator)
     try:
-        interface.fit(prepared['dataset'],[prepared['split']],InterfaceResources(1,[]),
-            StdoutLogger(0),[None],name='P06_native_RealMLP_fixture')
+        with initialization:
+            interface.fit(prepared['dataset'],[prepared['split']],InterfaceResources(1,[]),
+                StdoutLogger(0),[None],name='P06_native_RealMLP_fixture')
     except BaseException as error:
         visited=set(sum(observer.batches,[]))
         error.realmlp_observation=dict(F_row_batches=copy.deepcopy(observer.batches),
             applied_updates=observer.updates,history=copy.deepcopy(observer.history),
             finite_F_online_losses=list(observer.losses),fit_rows=nF,
+            initialization_observation=initialization.snapshot(),
             unvisited_F_row_ids=sorted(set(range(nF))-visited))
         raise
     finally:
         observer.restore()
         TabNNModule.create_callbacks=original
         torch.backends.cuda.matmul.allow_tf32=old_tf32
+    observer.initialization=initialization.snapshot()
     return interface,observer
 
 
@@ -492,7 +501,7 @@ class RealMLPPredictor:
                 Gate_D='pending_portable_representation_full_native_anchor_resource_workload_recovery_qualification',
                 portable_snapshot_qualified=False,snapshot_capability='closed_native_inference_format_requires_fixture_qualification',hard_resource_enforcement='outer harness required; max_seconds observed after fit',
                 interrupted_training_resume='not_implemented',accessed_roles=['F','G'],
-                initialization_only_subsample_indices='not_observed; workload activation requires separate qualification',
+                initialization_observation=copy.deepcopy(observation.initialization),
                 diagnostic_state_sha256=_sha(root/'diagnostic-state.npz'),
                 native_graph_sha256=_sha(root/'native-graph-inspection.json'),
                 target_statistics_policy='F_only_in_pinned_native_NNCreator_not_an_adapter_departure')

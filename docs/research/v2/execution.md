@@ -33,6 +33,15 @@ Unchecked work is not completed, and prior investigation findings are not new ru
 |WP10|pure analysis partial; execution pending Gate F|teacher t/bootstrap and explicit-family Holm fixtures verified; protected evaluator/raw audit/report integration and Gate G pending|
 |WP11|pending|independent audit and faithful final report|
 
+Latest Task7 slice: native RealMLP initialization observation is integrated.
+The64-check affected suite passed in516.71s, preserving direct-official/reload
+parity and the declared native numerical-failure case. Actual initialization
+row lineage, including nested RAM subsampling, is now recorded without extra
+draws. This closes an observation gap; full native quality/workload/resource/
+recovery qualification and GateD remain pending. See
+[receipt](WP07-initialization-observation-receipt.json) and
+[scope](realmlp-initialization-observation.md). The active M2 source is unchanged.
+
 ## Decisions and deviations
 
 - The supplied handoff is the authorized scientific design. No additional design
