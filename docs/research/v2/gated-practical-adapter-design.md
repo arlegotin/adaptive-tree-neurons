@@ -2,8 +2,9 @@
 
 This is a Task7 implementation addendum to the binding research-v2 spec/plan.
 It does not admit a new selector or change any scientific gate. P00/P01/P02/P05
-still lack production adapters; the code described here is to be implemented and
-qualified before any practical search. GateA remains pending.
+now have engineering adapters implementing this contract; final source/support
+and production readiness remain required before practical search. Gate A remains
+pending.
 
 Keep the legacy training/checkpoint, static and widening guards intact. Their
 finite d16/h64–95 receipts cannot certify categorical expansion, h128 or the
@@ -83,6 +84,15 @@ gradient/participation evidence, row-stream commitments and costs. Retained
 inference snapshots use closed JSON/NPZ with exact dtype/shape/source checks;
 unsupported native training recovery must fail clearly and use only an admitted
 same-seed operational rerun, never an implicit optimizer restart.
+
+The ungrown selective-parent session can also be forked in memory. The fork
+rebuilds optimizer ownership against copied parameters, then restores the same
+validated model, moments, ages, sampler, absolute schedule, stage and RNG state.
+It leaves the caller's RNG unchanged. Grown/static topologies are outside this
+helper's scope. This supports paired mechanism orchestration; it does not create
+a persistent checkpoint format or authorize calibration. The parent and child
+reproduce the next update exactly and remain independent through child growth.
+See [fork evidence](WP09-parent-fork-receipt.json).
 
 Implementation order is config and mathematical model checks, then stage/state
 and F/G-only adapter checks, then closed snapshot/worker integration and measured

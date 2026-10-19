@@ -1,0 +1,22 @@
+{
+  "base_commit": "bd82076",
+  "calibration_execution_authorized": false,
+  "full_repository_suite": false,
+  "green_affected_passed": 65,
+  "green_seconds": 1.02,
+  "inventory_sha256": "34d4dfe5d8d1c10779ad00df2989b6a3c9c34c7f6c4d25c48856a96fdaf84e52",
+  "native_optimizer_resume": false,
+  "protected_access_authorized": false,
+  "qualification": "In-memory ungrown parent fork only; independent parameters/moments/sampler, unchanged caller RNG, identical next update, subsequent isolated growth",
+  "quality_eligible": false,
+  "raw_files": 5,
+  "raw_logical_bytes": 33737,
+  "raw_root": "artifacts/research-v2/WP09/mechanism-parent-fork",
+  "red_missing_method_cases": 2,
+  "schema": "research/v2-parent-fork-preparation",
+  "scientific_source_sha256": "5dbf4b4733ca0aef70f49d3b48c611c72973249195b146513e05d342c2814c01",
+  "source_files": {
+    "src/treeneuron/research/gated_training.py": "ce83ba79a00916eef8c11b8b202924a0d7cfac593b9480d0a322b1fa110f68e4",
+    "tests/test_gated_training.py": "cdc8472c3e869f6155277acf13fc547f46a2ba2345bc90899a91862f7664151a"
+  }
+}

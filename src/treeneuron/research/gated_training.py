@@ -11,7 +11,7 @@ import random
 import numpy as np
 import torch
 
-from treeneuron.train import UpdateSchedule, capture_rng, restore_rng
+from treeneuron.train import SelectiveRegressor, UpdateSchedule, capture_rng, restore_rng
 
 
 def _integer(x,low,high):return type(x) is int and low<=x<=high
@@ -85,6 +85,25 @@ class TrainingSession:
             stage=copy.deepcopy(self.stage),n_rows=self.n_rows,batch_size=self.batch_size)
         self._validate(result)
         return result
+
+    def fork_ungrown_parent(self):
+        """Copy a validated ordinary parent into an independent in-memory arm.
+
+        Construction rebuilds optimizer ownership against the copied parameters.
+        The caller's RNG is unchanged; each arm retains the parent's saved RNG
+        for its next update. This is not a persistent checkpoint migration.
+        """
+        if not isinstance(self.model,SelectiveRegressor) or self.model.layer.growth_applied:
+            raise ValueError('Only an ungrown selective parent can be forked')
+        saved=self.snapshot();caller_rng=capture_rng()
+        try:
+            child=self.create(copy.deepcopy(self.model),n_rows=self.n_rows,sampler_seed=0,
+                lr=self.scheduler.base_lrs[0],weight_decay=self.optimizer.param_groups[0]['weight_decay'],
+                scheduler=self.scheduler.kind,horizon=self.scheduler.horizon,batch_size=self.batch_size)
+            child.restore(saved)
+            return child
+        finally:
+            restore_rng(caller_rng)
 
     def _validate(self,value):
         fields={'schema','model','optimizer','scheduler','order','sampler_generator','cursor','epoch','update',

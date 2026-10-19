@@ -1414,3 +1414,26 @@ retained; primary useful-margin validation remains unchanged. The provisional
 policy now names and source-binds this construction before data. All proof is
 sentinel-only; raw-artifact/protected-protocol/practical-family/deployment readiness
 remains pending. See WP11-secondary-region-report-receipt.json.
+
+WP07 controlled whole-trial rerun qualification: all 16 scheduled jobs reached
+their declared terminal pattern: eight controlled resource stops and eight
+same-data/configuration/seed native reruns. The generic queue retains
+`completed_with_failures` and launcher exit 4 because the controlled stops are
+resource failures. A separate inactive audit authenticated both queues, all
+original role/query identities and every prediction/selected-weight array.
+All children were reaped; all eight stops preceded the adapter training marker.
+This qualifies startup-stop followed by whole-trial rerun for these cases; native
+optimizer resume remains unsupported. No V/T labels or practical HPO were used.
+An initial auditor used the wrong spelling for the supervisor's recorded stop
+reason; its source/log are retained, and correcting that check required no new
+fitting. Queue wall 46.092601750 s contains 43.398087790 s of paid searches.
+The raw 453-file inventory and immutable source identities are retained in
+[the receipt](WP07-gated-rerun-qualification-receipt.json).
+
+WP09 in-memory paired-parent preparation: two missing-method RED cases preceded
+`TrainingSession.fork_ungrown_parent`; 65 affected stage/core checks then passed
+in 1.02 s. The fork rebuilds parameter ownership and preserves model, moments,
+sampler, schedule and RNG without sharing their mutable state or changing caller
+RNG. The next updates match exactly; growing the child leaves the parent intact.
+Already grown models reject. This is fixture-tested groundwork, not persistent
+resume or permission to run calibration. See WP09-parent-fork-receipt.json.

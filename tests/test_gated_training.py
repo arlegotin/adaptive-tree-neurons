@@ -207,3 +207,30 @@ def test_nonfinite_cached_random_draw_cannot_enter_a_restored_training_state(kin
     else:bad['rng']['numpy']['has_gauss']=1;bad['rng']['numpy']['cached_gaussian']=float('nan')
     with pytest.raises(ValueError):state.restore(bad)
     same(state.snapshot(),before)
+
+
+def test_ungrown_parent_fork_has_independent_parameters_moments_sampler_and_unchanged_caller_rng():
+    state=session(scheduler='cosine');X,y=tensors()
+    for _ in range(3):state.step(X,y)
+    assert hasattr(state,'fork_ungrown_parent'), 'Missing complete-state mechanism parent fork'
+    parent=state.snapshot();random.random();np.random.random(3);torch.rand(5)
+    caller=api().capture_rng();child=state.fork_ungrown_parent()
+    same(api().capture_rng(),caller);same(child.snapshot(),parent);same(state.snapshot(),parent)
+    for (name,p),(other,q) in zip(state.model.named_parameters(),child.model.named_parameters()):
+        assert name==other and p is not q and p.data_ptr()!=q.data_ptr()
+        assert state.optimizer.state[p]['exp_avg'].data_ptr()!=child.optimizer.state[q]['exp_avg'].data_ptr()
+    a=state.step(X,y);b=child.step(X,y);assert a==b
+    same(state.snapshot(),child.snapshot())
+    before=state.snapshot();insert_gates(child.model,child.optimizer,torch.tensor([0,2]),torch.full((2,4),.05))
+    child.adopt_growth(child.model);child.step(X,y)
+    same(state.snapshot(),before)
+    assert not state.model.layer.growth_applied and child.model.layer.growth_applied
+
+
+def test_parent_fork_rejects_already_grown_topology_without_mutating_its_state():
+    state=session();X,y=tensors();state.step(X,y)
+    assert hasattr(state,'fork_ungrown_parent'), 'Missing topology-scoped mechanism fork'
+    insert_gates(state.model,state.optimizer,torch.tensor([0,2]),torch.full((2,4),.05));state.adopt_growth(state.model)
+    before=state.snapshot()
+    with pytest.raises(ValueError):state.fork_ungrown_parent()
+    same(state.snapshot(),before)

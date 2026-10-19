@@ -96,8 +96,12 @@ G selection, exact paired parent/candidate identity and closed prediction reload
 Together with the baselines this is102native-anchor completions from104attempts.
 Eight separate endpoint checks also passed at F20000/G20000/d128/width128/batch256,
 with complete row-stream and saved-prediction audits. Those are synthetic workload
-fixtures, not new scientific teachers. Recovery and final common-source/support
-qualification remain required. Legacy model/backend guards remain intact.
+fixtures, not new scientific teachers. Eight controlled startup resource stops
+were followed by exactly one same-data/configuration/seed native rerun each;
+every saved weight and query prediction matched the earlier audited anchor.
+This qualifies whole-trial rerun for those cases, not recovery of an interrupted
+optimizer. Final common-source/support qualification remains required. Legacy
+model/backend guards remain intact.
 The [implementation contract](gated-practical-adapter-design.md) and
 [worker evidence](WP07-gated-worker-receipt.json) state the exact boundaries.
 
@@ -106,7 +110,11 @@ or protected confirmation has run. The mandatory suite still needs remaining
 workload/recipe qualification, including NODE's full native anchor. Missing or
 capped methods are unavailable comparisons, not scored predictive losses.
 Power, seed commitments, independent metric arithmetic, search supervision,
-compatible teacher-family Holm bounds and report rendering are fixture-tested components; the complete protected
+compatible teacher-family Holm bounds and report rendering are fixture-tested components. An
+in-memory parent-fork helper now preserves the complete selected training state
+while giving comparison arms independent parameters and optimizer history; its
+65 affected checks passed. It grants no calibration or protected-data authority.
+The complete protected
 protocol/evaluator/auditor and deployment/report execution remain incomplete.
 
 The complete M1 run took about2h23m30s of contended wall time and retained1.55GiB.
