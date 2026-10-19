@@ -58,3 +58,13 @@ def test_native_budget_does_not_grant_non_NODE_training_checkpoint_support(tmp_p
     with pytest.raises(ValueError):
         api().run_engineering_trial(path,expected_request_sha256=expected,output=tmp_path/'worker',training_checkpoints=tmp_path/'checkpoints')
     assert not (tmp_path/'checkpoints').exists()
+
+
+def test_unbounded_NODE_still_requires_its_explicit_recoverable_checkpoint_route(tmp_path):
+    path,value=request_fixture(tmp_path/'input');value['family_id']='P12'
+    value['config']=dict(schema='research/v2-node-config',family='P12',mode='native_anchor',
+        execution='bounded_memory_v1',feature_schema=value['config']['feature_schema'],parameters={})
+    value['budget']={'native_stopping':True};expected=write_request(path,value)
+    with pytest.raises(ValueError):api()._validate_request(path,expected)
+    parsed,_=api()._validate_request(path,expected,recoverable_training=True)
+    assert parsed['budget']=={'native_stopping':True}

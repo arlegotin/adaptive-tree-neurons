@@ -56,7 +56,8 @@ Execution steps for Task7, before the new long run:
 
 The new route is `research.method_worker --training-checkpoints PATH` with an
 explicit `native_stopping:true` budget; `--resume` requires matching stored state.
-Only P12 accepts training-checkpoint/resume arguments. Explicit update budgets
+Only P12 accepts training-checkpoint/resume arguments, and uncapped P12 requires
+that explicit recoverable route. Explicit update budgets
 up to128 are engineering proofs, never native completion. The explicit native
 budget is now also accepted by other workers: their existing validated empty
 adapter budget preserves configured native stopping, with no wall cap. Requested

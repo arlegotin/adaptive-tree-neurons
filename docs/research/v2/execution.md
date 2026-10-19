@@ -1740,3 +1740,10 @@ are artificial file-backed inventories, not native quality results or release
 authority. Production coordinator and final source/native/protocol checks remain.
 See WP08-native-quality-primary-inventory-receipt.json. Active held M3e78 and
 NODEb680 sources remain unchanged.
+
+A follow-up original recovery-entry check caught overly broad native-budget
+acceptance for P12without checkpoints. The uncapped NODEroute again requires
+explicit training-checkpoint arguments; non-NODE native budgets remain valid.
+58affected checks passed143.74s/31native warnings after3REDcases (including one
+obsolete P13expectation updated for the new contract). No unsafe full job or
+experimental prediction changed. See WP08-native-quality-NODE-entry-receipt.json.

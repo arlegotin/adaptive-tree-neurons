@@ -170,7 +170,7 @@ def _validate_request(path,expected,*,recoverable_training=False):
     recovery_budget=(type(budget) is dict and (set(budget)=={'native_stopping'} and budget['native_stopping'] is True
         or set(budget)=={'max_updates'} and type(budget['max_updates']) is int and 0<budget['max_updates']<=128))
     if (recoverable_training and (value['family_id']!='P12' or not recovery_budget)
-            or not recoverable_training and not (bounded or native)
+            or not recoverable_training and not (bounded or native and value['family_id']!='P12')
             or type(identity) is not dict or set(identity)!={'dataset','split_kind','split_sha256'}
             or type(identity['dataset']) is not str or not identity['dataset']
             or identity['split_kind'] not in ('grouped','temporal') or not _digest(identity['split_sha256'])):

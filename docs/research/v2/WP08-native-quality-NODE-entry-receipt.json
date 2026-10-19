@@ -1,0 +1,26 @@
+{
+  "T_accessed": false,
+  "finding": "Generic native budget acceptance inadvertently allowed unbounded P12 without its required training-checkpoint route",
+  "logs": [
+    {
+      "bytes": 3480,
+      "path": "artifacts/research-v2/WP08/native-quality-NODE-entry-red.log",
+      "sha256": "3100ab47b93979b10a966fdd824fb0f024217cbd73c60075425b7ebd6656643f"
+    },
+    {
+      "bytes": 2110,
+      "path": "artifacts/research-v2/WP08/native-quality-NODE-entry-green.log",
+      "sha256": "0f3ad656f196b0eb9cfd153b5d5d90f8ab43aae9cc24844291dca3bb27e27bbe"
+    }
+  ],
+  "pending": "Qualified uncapped production coordinator and final native qualification; current qualification CLI still has its original bounded mode",
+  "production_HPO_run": false,
+  "repair": "Uncapped NODE requires explicit recoverable_training/--training-checkpoints; non-NODE native budgets remain supported without checkpoint authority",
+  "schema": "research/v2-native-quality-NODE-entry-contract",
+  "source_sha256": "b85e4266ccac13a61dec7e423a3cda6ec1754287b958d4734c86468bf4d2fa63",
+  "tests": {
+    "GREEN": "58 passed/31 native warnings in143.74s; old P13 expectation updated for the explicit new budget contract",
+    "RED": "3 failed/1 passed/.34s: new P12 guard, old P12 regression, and one intentionally obsolete old P13 expectation"
+  },
+  "validity": "No native algorithm, source-held experiment or saved prediction changed; no unsafe uncheckpointed full NODE job was launched"
+}

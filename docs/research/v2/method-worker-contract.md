@@ -45,7 +45,8 @@ existing validated empty budget, which carries no wall-time observation cap;
 NODE keeps its native flag. The worker records both requested and resolved
 adapter budgets. It never replaces the cap with a very large number.
 
-Only P12 accepts training-checkpoint/resume arguments. Other native workers may
+Only P12 accepts training-checkpoint/resume arguments, and uncapped P12 requires
+that explicit route. Other native workers may
 finish without a wall cap but cannot claim optimizer recovery. All outputs remain
 engineering-ineligible; neither native stopping nor a successful reload grants
 production eligibility, V-label or protected-data access. Existing bounded
@@ -128,3 +129,11 @@ The corrected scientific Python digest is
 adapter bundle digests are separate. Full native anchor retry, transfer workloads,
 recovery and production eligibility remain pending. See the
 [correction receipt](WP07-tree-worker-snapshot-correction.json).
+
+A follow-up check of the original recovery entry tests caught an overly broad
+generic-budget condition: unbounded NODE could enter without its checkpoint
+argument. The restriction is restored; non-NODE native budgets still work.
+Three RED results include two real P12 guard cases and an obsolete old P13
+expectation, updated for the new explicit contract.58affected checks passed
+in143.74seconds. No unsafe full job was launched. See
+WP08-native-quality-NODE-entry-receipt.json.

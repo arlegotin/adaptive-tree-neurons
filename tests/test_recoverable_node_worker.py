@@ -10,12 +10,13 @@ import pytest
 from test_method_worker import request_fixture, write_request
 
 
-def test_recovery_request_is_NODE_only_and_cannot_disable_legacy_budget(tmp_path):
+def test_non_NODE_native_budget_does_not_grant_training_checkpoint_authority(tmp_path):
     from treeneuron.research.method_worker import _validate_request
     path, value = request_fixture(tmp_path/'input')
     value['budget']={'native_stopping': True}
     digest=write_request(path,value)
-    with pytest.raises(ValueError):_validate_request(path,digest)
+    parsed,_=_validate_request(path,digest)
+    assert parsed['budget']=={'native_stopping':True}
     with pytest.raises(ValueError):_validate_request(path,digest,recoverable_training=True)
 
 
