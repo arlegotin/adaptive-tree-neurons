@@ -64,3 +64,13 @@ NODE checkout with `bounded_memory_v1`,7200s, sampled4GiBRSS and unchanged nativ
 stopping. Initial live admission passed. Its first78seconds stayed near1.46GiB
 sampled RSS. Completion/native quality remains pending. See
 [the full-shape receipt](WP07-NODE-bounded-full-shape-receipt.json).
+
+The practical P12 support compiler now includes this same explicit policy in
+its native anchor and every search configuration. The HPO coordinates remain
+trees/depth/LR multiplier; memory execution is fixed outside that space.
+One missing-policy regression failed first. All34affected support/compiled-worker
+checks then passed14.25s with native RSS observation. An earlier sandbox run
+retained33passes/one failure because `/bin/ps` was blocked before either owned
+child started; native permission resolved it without a code or guard change.
+No production search or qualification is granted. The active native fit retains
+its original separate source; see [the compiler receipt](WP08-NODE-fixed-execution-policy-receipt.json).

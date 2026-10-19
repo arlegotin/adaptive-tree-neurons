@@ -121,3 +121,18 @@ def test_input_or_returned_dictionary_mutation_cannot_change_later_support_or_it
     schema['columns'].append('later');first['support']['width']['choices'].append(999)
     second=module.family_search_spec('P00',SCHEMA)
     assert second['support_hash']==digest and second['support']['width']['choices']==[64,128]
+
+
+def test_node_memory_policy_is_fixed_for_anchor_and_every_draw_outside_hpo_support():
+    module=api();spec=module.family_search_spec('P12',SCHEMA)
+    assert set(spec['support'])=={'trees','depth','lr_multiplier'}
+    assert spec['anchors'][0]['config']['execution']=='bounded_memory_v1'
+    from treeneuron.research.node_v2 import NodeV2Config
+    for high in (False,True):
+        cfg=module.compile_search_draw('P12',SCHEMA,draw(spec['support'],high))
+        assert cfg['execution']=='bounded_memory_v1'
+        resolved=NodeV2Config.parse(cfg).resolved()
+        assert resolved['batch_size']==512 and resolved['report_frequency']==100
+        assert resolved['patience']==5000 and resolved['execution']['microbatch_rows']==32
+    bad=draw(spec['support']);bad['execution']='unchunked'
+    with pytest.raises(ValueError):module.compile_search_draw('P12',SCHEMA,bad)

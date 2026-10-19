@@ -47,6 +47,7 @@ def _config(family,schema,parameters,*,mode='native_anchor',variant=None):
         'tabm' if family=='P07' else 'node' if family=='P12' else 'native-tree')
     result=dict(schema='research/v2-'+name+'-config',family=family,mode=mode,
         feature_schema=copy.deepcopy(schema),parameters=parameters)
+    if family=='P12':result['execution']='bounded_memory_v1'
     if variant is not None:result['variant']=variant
     return _parse(family,result)
 

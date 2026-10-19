@@ -1,0 +1,23 @@
+{
+  "T_accessed": false,
+  "V_labels_read": false,
+  "architecture_support_unchanged": true,
+  "execution_authorized": false,
+  "execution_policy": "bounded_memory_v1",
+  "execution_policy_in_HPO_space": false,
+  "final_command_sha256": "c4d7f9b74c28e0df82fad5875eec58419efc9301383573910b248e276fb20bbc",
+  "final_native_run": "34passed in14.25s",
+  "full_repository_suite": false,
+  "initial_red": "1failed in0.26s: anchor missing explicit execution policy",
+  "inventory_sha256": "8dbe8610269ddf28bb2c54303bf30a19aafc168d6b400590c21219e5c404d62a",
+  "native_fit_source_unchanged": "ea3993a/c2639fc8 in separate held NODE checkout",
+  "native_quality_qualified": false,
+  "primary_searches_executed": 0,
+  "raw_files": 143,
+  "raw_logical_bytes": 3063560,
+  "raw_root": "artifacts/research-v2/WP08/NODE-fixed-execution-policy",
+  "sandbox_run": "33passed/1failed in1.44s: owned RSS probe PermissionError before both children",
+  "schema": "research/v2-NODE-fixed-practical-execution-policy",
+  "source_sha256": "bf8013a363cda764a8058801bbd515e6e15e3571a376db7435fa27d7a1e54b2e",
+  "status": "fixture_verified_native_qualification_pending"
+}
