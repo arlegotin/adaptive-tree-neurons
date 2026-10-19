@@ -1,0 +1,79 @@
+{
+  "base_commit": "4321082",
+  "frozen_M2_unchanged": "e1b1018/e322da64",
+  "log_hashes": {
+    "affected.log": "595c3c62c92ce483d220b5907e0fc1a479397e6ff9e242683872bf23f634d839",
+    "initial-green.log": "3861c0583ebaf925c1cfeb3079224fb8cc16fefc97e4233ed12bbe93e85cbc6a",
+    "input-drift-red.log": "cd6ccd69ee2e19d13902e6246507ce4a3bb143daef18990df853018a28a83cb0",
+    "red.log": "cbd655e04fadb4a187c34eba5ac7c524c706d50a849138c840d206474c1c8f89"
+  },
+  "model_fits": 0,
+  "pending": [
+    "complete exclusion registry and actual generated teacher ID checks",
+    "same-root interrupted-publication recovery",
+    "observation namespaces",
+    "complete readiness/resource/power validation",
+    "final protocol freeze and protected evaluation"
+  ],
+  "production_T_accessed": false,
+  "production_confirmation_roots_created": 0,
+  "production_observation_arrays_created": 0,
+  "protected_access_authorized": false,
+  "raw_root": "artifacts/research-v2/WP09/confirmation-seed-preparation",
+  "real_calibration_teachers": 0,
+  "registry_completeness_qualified": false,
+  "relocation": "same-volume rename only; original bytes/inodes preserved; old locators retained in relocation map",
+  "retained_counts_excluding_inventory": {
+    "bytes": 6642629,
+    "files": 3735,
+    "symlinks": 27
+  },
+  "retained_inventory_sha256": "9ba040a97a25bb6858331a123b3b8134ede12b446e634496cb09173e45a4d642",
+  "schema": "research/v2-confirmation-seed-preparation",
+  "scientific_source_sha256": "7cf9f9b6b60114b8e88a0f16c0ff89fbb3ac1385a2d524de044ebf66a57216f0",
+  "source_files": {
+    "src/treeneuron/research/confirmation_seeds.py": "697ce3532f5bb28182007c2c88922637a0204628839672bdde4a126eb50bc5d0",
+    "tests/test_confirmation_seed_commitment.py": "a99dc617b02a6a081eeca3de52d0ef55c9a2575e91381c09496c2674a48ac85d"
+  },
+  "teacher_id_exclusions_verified": false,
+  "verification": {
+    "cwd": "/private/tmp/atn-research-v2-next",
+    "explicit_environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "final_affected_passed": 87,
+    "final_affected_seconds": 13.51,
+    "full_repository_suite": false,
+    "initial_green_passed": 17,
+    "initial_green_seconds": 6.34,
+    "input_drift_failures": 3,
+    "interpreter": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+    "missing_component_failures": 17,
+    "pytest_argv": [
+      "-q",
+      "--basetemp",
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP09/confirmation-seed-preparation/affected-raw",
+      "tests/test_confirmation_seed_commitment.py",
+      "tests/test_protocol_v2.py",
+      "tests/test_design_v2.py",
+      "tests/test_primary_v2.py"
+    ],
+    "python_argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-B",
+      "-"
+    ],
+    "suites": [
+      "tests/test_confirmation_seed_commitment.py",
+      "tests/test_protocol_v2.py",
+      "tests/test_design_v2.py",
+      "tests/test_primary_v2.py"
+    ]
+  }
+}

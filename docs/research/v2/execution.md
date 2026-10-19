@@ -1227,3 +1227,13 @@ final source. No final full144-check rerun is claimed. All records are toy sourc
 repositories/sentinel fixtures, with no actual calibration or production T.
 Calibration execution, complete readiness, confirmation/v2 and protected freeze
 remain pending. See provisional-method-lock.md and its WP09 receipt.
+
+WP09 fresh-root commitment preparation:17 missing-component failures became17
+passing checks. Three input-drift regressions then failed and were corrected;
+87 affected seed/protocol/design/teacher-analysis checks passed13.51s. A fresh
+owner-only root can be committed publicly by hash after method selection, with
+known seed-overlap rejection and exact reopening. No actual confirmation root,
+observation generation, calibration, model fitting or T access occurred. Complete
+registry/generated-teacher independence, observation namespaces, publication
+recovery and final protocol freeze remain pending. See
+confirmation-seed-commitment.md and WP09-confirmation-seed-receipt.json.

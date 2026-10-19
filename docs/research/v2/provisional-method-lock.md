@@ -37,6 +37,11 @@ calibration lineage/resource authentication, root commitment, confirmation/v2,
 grouped/temporal protected access and protocol freeze remain separate WP09/WP10
 implementation requirements before any production HPO/calibration.
 
+The separate [seed commitment](confirmation-seed-commitment.md) can bind a fresh
+root to this chosen identity on fixtures. It preserves the distinction between
+known seed exclusions and complete generated-teacher independence; it also
+grants no protected access.
+
 Verification retained144 passing affected checks on the initial implementation,
 then two failing checkout-provenance regressions, followed by41 passing focused
 checks on the corrected source. This is not a final144-check rerun or a complete
