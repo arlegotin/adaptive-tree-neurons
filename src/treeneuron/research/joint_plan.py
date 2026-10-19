@@ -30,7 +30,7 @@ def expand_joint(config):
         data=dict(n_fit=2306,n_growth=577,n_validation=577,noise_sigma=.1),
         training=dict(base_updates=8000,continuation_updates=8000,batch_size=128,
             learning_rate=.005,weight_decay=.001,scheduler='constant',validation_interval=25,
-            patience=20,checkpoint_interval=1),backend=dict(device='cpu',cpu_threads=1,interop_threads=1))).to_dict()
+            patience=20,checkpoint_interval=25),backend=dict(device='cpu',cpu_threads=1,interop_threads=1))).to_dict()
     if (c['teachers']!=8 or c['repetitions']!=2 or c['evaluation_rows']!=65536
             or c['seed_root']!=2026101801
             or any(b[section]!=anchor[section] for section in ('model','growth','data','training','backend'))):

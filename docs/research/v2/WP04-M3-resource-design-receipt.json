@@ -1,0 +1,73 @@
+{
+  "M3_teachers_generated": 0,
+  "T_accessed": false,
+  "checkpoint_cadence": {
+    "G_interval": 25,
+    "characterization": "1 passed in4.45s; exact parent/grown model+Adam+sampler+RNG and G curves",
+    "scientific_updates_unchanged": true,
+    "value": 25
+  },
+  "forecast": {
+    "complete_scientific_entries": 3089,
+    "deadline": null,
+    "maximum_planned_updates": 3440000,
+    "native_profiles_available": false,
+    "scope": "Arithmetic over authenticated profiles; caller rows alone grant no production admission"
+  },
+  "logs": [
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/forecast-green.log",
+      "sha256": "de908a91339ae3b9bf169ae94ff3cd2be207975240f90a7618d8f0b49a607711"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/qualification-plan-final.log",
+      "sha256": "e062cdc203532bb38ab03cdcbb3b8b711227d7a3ea71556e43f978775238697d"
+    },
+    {
+      "bytes": 3820,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/forecast-red.log",
+      "sha256": "87f5c14639790b1c6146eb53261694d5c1a867d61a869f3b5e97b4a1181db043"
+    },
+    {
+      "bytes": 98,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/checkpoint-cadence-characterization.log",
+      "sha256": "c26b5f84fdb21dd8a152021f7e4a54b5abf35c98b0599aa80afb23809487fe0c"
+    },
+    {
+      "bytes": 1348,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/qualification-red.log",
+      "sha256": "0cd5a134f3c331621b15a2ad7b34aebb056b16e78ca7e198e2c8e332820f9c8b"
+    },
+    {
+      "bytes": 1122,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/qualification-green.log",
+      "sha256": "3eab26be5eebc4923ea989a6597bedce0556d1d9a5494cba5f774223f38ef641"
+    }
+  ],
+  "pending": [
+    "Native observed-qualification runner/profile collector",
+    "Authenticated admission factory and scientific public dispatcher",
+    "Final-source CPU receipt and held checkout",
+    "Actual full-horizon engineering profiles and prospective M3 execution"
+  ],
+  "qualification_graph": {
+    "classes": 35,
+    "entries": 258,
+    "maximum_updates": 107500,
+    "native_entries": 97,
+    "seeds": "Independent engineering-resource-only namespace",
+    "synthetic_decision_fixtures": 160,
+    "synthetic_decisions": 1
+  },
+  "schema": "research/v2-M3-resource-design-implementation",
+  "source_sha256": "3d269084943181856a0e50424de7e001ce65ff7814c7647b2366132cb76f7202",
+  "tests": {
+    "combined_final": "23 passed in24.53s",
+    "forecast_RED": "6 failed in.04s",
+    "qualification_RED": "2 failed in.05s",
+    "qualification_intermediate": "1 omitted-evaluation closure failure,15 passed in9.30s",
+    "qualification_plan_final": "16 passed in9.10s"
+  }
+}

@@ -13,7 +13,7 @@ def config():
         teachers=8,repetitions=2,evaluation_rows=65536,base_experiment=dict(study_id='M3-joint',model=dict(d=16,h=64,tau=1.),
         growth=dict(m_requested=16,epsilon=.05),data=dict(n_fit=2306,n_growth=577,n_validation=577,noise_sigma=.1),
         training=dict(base_updates=8000,continuation_updates=8000,batch_size=128,learning_rate=.005,weight_decay=.001,
-            scheduler='constant',validation_interval=25,patience=20,checkpoint_interval=1),
+            scheduler='constant',validation_interval=25,patience=20,checkpoint_interval=25),
         backend=dict(device='cpu',cpu_threads=1,interop_threads=1))))
 
 

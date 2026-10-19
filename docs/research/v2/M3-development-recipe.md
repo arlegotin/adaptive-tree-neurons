@@ -78,3 +78,14 @@ manifest; forecast the entire matrix and admit it under live resource guards.
 Pin a separate source checkout for execution. Do not weaken the matrix, remove
 failed teachers or shorten an arm when resources fluctuate. No M3 teacher data
 has been generated, no M3 efficacy result exists, and no protected T is opened.
+
+Operational checkpoint decision, still before any M3 teacher: use publication
+interval25, aligned with G25, rather than writing a complete checkpoint after
+every update. Initial/final/error and strict-best/current checkpoint semantics
+remain native. Every row update and G result is still logged. A paired native
+parent-plus-grown continuation characterization passed with exactly matching
+model/Adam/sampler/RNG/selected states and G curves under cadences1and25
+(1check,4.45seconds). This is an explicit new configuration identity and I/O
+policy, not a change to optimization, the G grid or a claim of byte-identical
+checkpoint files. Full-horizon qualification uses that same policy. Historical
+runs keep their original cadence and bytes.
