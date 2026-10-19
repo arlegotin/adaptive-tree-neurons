@@ -1,0 +1,125 @@
+{
+  "base_commit": "21aac13",
+  "inventory_sha256": "848df327ac5bab658c5e02f2acf5c7d4b80dc9b53f9616250ab7effdda61a6a0",
+  "limits": [
+    "F37/G17/query11 encoded d23, width8/3+3-update engineering fixtures",
+    "Sampled root RSS is neither strict peak nor aggregate descendant memory",
+    "No whole-suite green, full native anchor, persistent optimizer resume or predictive comparison claim"
+  ],
+  "native_cases": [
+    {
+      "child_reaped": true,
+      "encoded_width": 23,
+      "family": "P00",
+      "process_sha256": "1a3f3078126cdb72131455296233cbf1a1f13ea2cf59d02ac622d075147367a5",
+      "sampled_peak_root_rss_bytes": 377208832,
+      "source": "9520c35fbe982fe9ce74f75d5755526f549ea334ff0fe8737712a0a4b1648c29",
+      "variant": null,
+      "worker_terminal_sha256": "cce1494e4a681d16313cc0c231cf3723a92f580980c6b21615b5459b9dec5f1a"
+    },
+    {
+      "child_reaped": true,
+      "encoded_width": 23,
+      "family": "P01",
+      "process_sha256": "d34131d2dfa1998470a772f9430280a03516675612ae8b4f808418231203e8eb",
+      "sampled_peak_root_rss_bytes": 377159680,
+      "source": "9520c35fbe982fe9ce74f75d5755526f549ea334ff0fe8737712a0a4b1648c29",
+      "variant": null,
+      "worker_terminal_sha256": "910696eff26aa4efac3e61db8a5a2e9f7d6ee77881a95df4c93a39c899c65b2f"
+    },
+    {
+      "child_reaped": true,
+      "encoded_width": 23,
+      "family": "P02",
+      "process_sha256": "cb809bda88231a0c4ac6a3c9bc2e456b607ae1cfb47126b4387259317c05054f",
+      "sampled_peak_root_rss_bytes": 373817344,
+      "source": "9520c35fbe982fe9ce74f75d5755526f549ea334ff0fe8737712a0a4b1648c29",
+      "variant": "lower",
+      "worker_terminal_sha256": "3f4bf11d1454dfd60dd4c8222d4f61d4386aba1e03b03ca79b84317b499a13d6"
+    },
+    {
+      "child_reaped": true,
+      "encoded_width": 23,
+      "family": "P02",
+      "process_sha256": "f2fcc4f9eb02b6bca80d378ffe93dc1b4094de6776eb55d7a541e55b81d64c6b",
+      "sampled_peak_root_rss_bytes": 374734848,
+      "source": "9520c35fbe982fe9ce74f75d5755526f549ea334ff0fe8737712a0a4b1648c29",
+      "variant": "upper",
+      "worker_terminal_sha256": "ef6b9eedbd9a55ebb1f81e696715f8a686a3505a2c189a5df982e3ecd18ffa03"
+    },
+    {
+      "child_reaped": true,
+      "encoded_width": 23,
+      "family": "P05",
+      "process_sha256": "cfb27caffc264fbba2d5b5884f57a964e7f258e8f422b90224b919df67e72cae",
+      "sampled_peak_root_rss_bytes": 375488512,
+      "source": "9520c35fbe982fe9ce74f75d5755526f549ea334ff0fe8737712a0a4b1648c29",
+      "variant": "centered_partial",
+      "worker_terminal_sha256": "5cfd3f2aba4d7db9385c8936f88d186da37db4b2cce0c216626bd82d56a73a70"
+    },
+    {
+      "child_reaped": true,
+      "encoded_width": 23,
+      "family": "P05",
+      "process_sha256": "619d0772f36f74df38cb127732a90dfb38e8996991aad320a1b1b6aa93c0d3b3",
+      "sampled_peak_root_rss_bytes": 375619584,
+      "source": "9520c35fbe982fe9ce74f75d5755526f549ea334ff0fe8737712a0a4b1648c29",
+      "variant": "centered_full",
+      "worker_terminal_sha256": "864275a2629f8a2a1468b41d80a3fc7b1449659457d47ed75c0f49d763f532b1"
+    },
+    {
+      "child_reaped": true,
+      "encoded_width": 23,
+      "family": "P05",
+      "process_sha256": "d3281a4248d6eefd8e993fc16813ba78b78e5588dd3436127064261564572c62",
+      "sampled_peak_root_rss_bytes": 375701504,
+      "source": "9520c35fbe982fe9ce74f75d5755526f549ea334ff0fe8737712a0a4b1648c29",
+      "variant": "direct_partial",
+      "worker_terminal_sha256": "ada3bb53220933f5133d1bc08142d2b37d976d934ec7ac777b6df359945f2780"
+    },
+    {
+      "child_reaped": true,
+      "encoded_width": 23,
+      "family": "P05",
+      "process_sha256": "a048f5b20eb897831b2ed2c404f8998bf8253d94a8dbe888549904095afc025f",
+      "sampled_peak_root_rss_bytes": 372998144,
+      "source": "9520c35fbe982fe9ce74f75d5755526f549ea334ff0fe8737712a0a4b1648c29",
+      "variant": "direct_full",
+      "worker_terminal_sha256": "147eda1aca1d0458d41c2eaa7fd8031716c13552e9ee09ee8472240124a8fe5c"
+    }
+  ],
+  "raw_files": 1206,
+  "raw_logical_bytes": 5656277,
+  "raw_root": "artifacts/research-v2/WP07/gated-worker-preparation",
+  "readiness": {
+    "Gate_A": false,
+    "Gate_D": false,
+    "T_accessed": false,
+    "V_labels_read": false,
+    "adapter_fit": true,
+    "checkpoint_eligible": false,
+    "closed_inference_snapshot": true,
+    "engineering_worker": true,
+    "native_full_workload_qualified": false,
+    "persistent_training_resume": false,
+    "production_practical_searches": 0,
+    "quality_eligible": false
+  },
+  "schema": "research/v2-gated-worker-preparation",
+  "scientific_source_sha256": "9520c35fbe982fe9ce74f75d5755526f549ea334ff0fe8737712a0a4b1648c29",
+  "source_files": {
+    "src/treeneuron/research/method_worker.py": "b615f35a2d2b2edd6c829795f800e0b67bd16e694bdc4e53b1bd600a2380390d",
+    "tests/test_method_worker.py": "90c6754f99d7acbdb6636d5e5720f5c897d646683e1bebefcebe42131930167d",
+    "tests/test_method_worker_gated.py": "6d3f69bcc58107927dbe53d3924438662266a4389f9ddf8b7aeff26a6ffb9d7f"
+  },
+  "verification": {
+    "full_repository_suite": false,
+    "native_passed": 88,
+    "native_seconds": 43.0,
+    "sandboxed_failed": 20,
+    "sandboxed_failure_cause": "macOS /bin/ps sandbox PermissionError during supervisor preflight, before owned child spawn; no resource guard changed",
+    "sandboxed_passed": 68,
+    "unavailable_MPS_check_and_nine_legacy_backend_setups_still_deferred": true,
+    "unsupported_family_red": 8
+  }
+}

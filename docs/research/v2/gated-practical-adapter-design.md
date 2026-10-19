@@ -92,24 +92,22 @@ authorize V/T access. Production integration remains incomplete until every
 owning contract and the final-source qualification pass.
 
 
-The configuration/model core and in-memory complete-state stage engine are now
-implemented. The stage selects strict original-unit G MSE with float64 target
-values, supports absolute constant/cosine schedules and restores model, Adam,
-parameter births, complete RNG, sampler order/cursor/epoch and selected counters.
-Full row-index update events remain external and are not rewound on selection.
-One-process replay and corruption boundaries passed154affected checks with one
-unavailable-MPS skip. This does not qualify persistent interruption recovery,
-the complete adapter, closed inference snapshots or worker/native workloads.
-See [stage evidence](WP07-gated-stage-receipt.json). Native search/calibration and
-all scientific gates remain pending.
+The configuration/model core, F/G fit adapter, in-memory complete-state stages,
+closed inference and engineering-worker integration are implemented. The stages
+select original-unit G MSE with float64 targets and restore matching model, Adam,
+parameter births, schedule, sampler and RNG. Paid update events remain external.
+Eight topologies reopen predictions exactly and pass supervised fresh-worker
+F37/G17/query11 fixtures at encoded d23; the worker remains engineering-ineligible.
+Separate native full-workload/recovery qualification and final source-bound
+readiness are pending. Persistent interrupted-training resume is unavailable;
+only an explicitly admitted deterministic operational rerun may recover a trial.
+No scientific gate, HPO support or protected access has been promoted.
 
-
-Fitting and closed inference snapshots now exist for P00/P01/P02/P05. Eight
-topologies reopen original-unit predictions exactly on engineering fixtures.
-The trusted manifest binds source/core/runtime, actual transformed dimensions,
-recipe, seed, weights and F preprocessing. Invalid dtype/shape/names/finiteness,
-inconsistent unit/age metadata, changed transforms and claims of unsupported
-training resume reject. Final166affected checks passed with one unavailable-MPS
-skip; worker integration and measured native workload/recovery admission remain
-pending. See [fit evidence](WP07-gated-fit-receipt.json) and
-[closed-state evidence](WP07-gated-snapshot-receipt.json).
+Evidence records preserve the successive source identities and all initial
+failures: [core](WP07-gated-core-receipt.json),
+[stage](WP07-gated-stage-receipt.json), [fitting](WP07-gated-fit-receipt.json),
+[closed state](WP07-gated-snapshot-receipt.json) and
+[worker](WP07-gated-worker-receipt.json). The core/stage/snapshot affected suite
+passed166with one MPS skip before registration; the current worker/supervision
+suite passed88. Nine legacy backend setups remain resource-deferred; neither
+count is a whole-repository pass or predictive result.

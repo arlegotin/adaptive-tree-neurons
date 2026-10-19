@@ -1345,3 +1345,16 @@ model/transform/recipe binding and selected/birth ages; native training resume
 remains unavailable. All outputs remain engineering-ineligible; worker/native
 workload admission and scientific gates are pending. Exact source/raw inventory
 and initial failures are in WP07-gated-snapshot-receipt.json.
+
+
+WP07 own-family worker integration:8unsupported-family RED cases preceded
+registration of P00/P01/P02/P05 in the engineering dispatcher. Initial sandboxed
+verification retained68passes/20failures because macOS denied supervisor/bin/ps
+preflight before child spawn. Running with actual process-measurement access,
+without code/guard relaxation, passed88checks in43.00s. All8own variants fitted,
+reopened predictions exactly, stayed engineering-ineligible, preserved query
+IDs, imported only Torch among tracked heavy namespaces and reaped their child.
+Largest sampled root RSS was377208832bytes, not a strict/aggregate peak.
+The unknown-family sentinel now uses P14 because P00 is implemented. Full native
+workload/recovery and production qualification remain pending. Exact source and
+raw inventory are in WP07-gated-worker-receipt.json. No V/T labels or practical HPO.

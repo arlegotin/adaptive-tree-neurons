@@ -24,6 +24,10 @@ _ROOT = Path(__file__).resolve().parents[3]
 _THREADS = ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS',
             'VECLIB_MAXIMUM_THREADS','NUMEXPR_NUM_THREADS')
 _ADAPTERS = {
+    'P00': ('gated_native','GatedPredictor',True),
+    'P01': ('gated_native','GatedPredictor',True),
+    'P02': ('gated_native','GatedPredictor',True),
+    'P05': ('gated_native','GatedPredictor',True),
     'P03': ('ordinary_neural','OrdinaryNeuralPredictor',True),
     'P04': ('ordinary_neural','OrdinaryNeuralPredictor',True),
     'P06': ('realmlp_native','RealMLPPredictor',False),

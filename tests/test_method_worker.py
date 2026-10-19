@@ -66,7 +66,7 @@ def test_invalid_engineering_request_rejects_before_adapter_import(change,tmp_pa
     elif change=='escaped_path':value['files']['F']['path']='../F.npz'
     elif change=='unknown_role':value['files']['T']=value['files']['F']
     elif change=='seed_bool':value['fit_seed']=True
-    elif change=='unsupported_family':value['family_id']='P00'
+    elif change=='unsupported_family':value['family_id']='P14'
     elif change in ('bad_time_gap','time_reversal'):
         file=path.parent/'G.npz'
         with np.load(file,allow_pickle=False) as z:arrays={k:z[k] for k in z.files}
