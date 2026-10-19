@@ -1321,3 +1321,15 @@ This does not implement persistent recovery, a complete fit adapter, inference
 serialization, worker integration or workload admission. Source3c2578d7; raw
 249files2272016bytes, exact inventory and limits in WP07-gated-stage-receipt.json.
 No V/T labels, production HPO, calibration, freeze or scientific gate change.
+
+
+WP07 own-family fitting preparation:9missing-component RED cases preceded real
+fresh-process P00/P01/P02-lower/P02-upper and four P05 variants. All9native fixture
+checks passed26.20s. F37/G17 with encoded d23 checks F-only scaling/vocabularies,
+unknown categories, exact paired parent/candidate-table identity, actual eligible
+capacity brackets, two complete-state stages, function preservation and ages.
+The invalid high-cardinality attempt is retained; no data truncation or legacy
+guard relaxation. Fitting and prediction now exist, but closed snapshots, worker
+integration, persistent recovery and real workload admission remain pending.
+All results remain engineering-ineligible; no V/T labels or practical search.
+See WP07-gated-fit-receipt.json for exact source/raw inventory.

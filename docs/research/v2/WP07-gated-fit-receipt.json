@@ -1,0 +1,48 @@
+{
+  "base_commit": "50b2948",
+  "behaviors": [
+    "F-only numeric/typed-category preprocessing with reserved unknown indicator",
+    "P00 and P01 exact same selected parent and candidate-table bytes; only placement differs",
+    "Actual-eligibility lower/upper ordinary capacity and static coordinate/capacity controls",
+    "Both complete-state native-recipe stages, exact function-preserving birth and validated ages",
+    "F/G fitting only; caller Python/NumPy/Torch random states preserved",
+    "Encoded high-cardinality overflow rejects before training and retains failure"
+  ],
+  "inventory_sha256": "1c07716c5b8812733aeed32b6e07be6f46895d82db740203954a7cc961627c63",
+  "limits": [
+    "F37/G17 encoded d23 engineering fixtures, not full-size/native-anchor quality evidence",
+    "Numerical package/import/native runtime policy remains explicit; adapter does not force OpenMP suppression",
+    "Native worker integration, saved-model validation and actual workload/recovery qualification pending"
+  ],
+  "raw_files": 90,
+  "raw_logical_bytes": 763843,
+  "raw_root": "artifacts/research-v2/WP07/gated-fit-preparation",
+  "readiness": {
+    "Gate_A": false,
+    "Gate_D": false,
+    "T_accessed": false,
+    "V_labels_read": false,
+    "adapter_fit": true,
+    "checkpoint_eligible": false,
+    "closed_inference_snapshot": false,
+    "method_worker": false,
+    "native_workload_qualified": false,
+    "persistent_training_resume": false,
+    "production_practical_searches": 0,
+    "quality_eligible": false
+  },
+  "schema": "research/v2-gated-fit-preparation",
+  "scientific_source_sha256": "47ab560e4c27aa3028d8b42d195ecf36b7f903cdae20c656e793cee760e9a8b2",
+  "source_files": {
+    "src/treeneuron/research/gated_native.py": "a4cc4d581c81ae135cadcd9fbeed0473d2102b769f74afccb37ebac0b08c4b4b",
+    "tests/test_gated_native_fit.py": "953b142ee26c70ee43ca2b7c6d97c881dc7314cfa326edf5df3c4ad4da919b0f"
+  },
+  "verification": {
+    "encoded_fixture_dimension": 23,
+    "fresh_processes": true,
+    "full_repository_suite": false,
+    "native_green": 9,
+    "native_seconds": 26.2,
+    "red_missing_component": 9
+  }
+}
