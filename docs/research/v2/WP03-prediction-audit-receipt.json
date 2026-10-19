@@ -1,0 +1,56 @@
+{
+  "Gate_A_decided": false,
+  "T_accessed": false,
+  "base_commit": "1b50f68",
+  "evidence_level": "Analytic raw prediction/queue fixtures; no new scientific predictive outcome",
+  "logs": {
+    "artifacts/research-v2/WP03/prediction-audit-preparation/affected-green.log": {
+      "bytes": 99,
+      "sha256": "783dcbf4544a6da0a53443951a722135309094a02de882379447814287cdb7c4"
+    },
+    "artifacts/research-v2/WP03/prediction-audit-preparation/green-1.log": {
+      "bytes": 99,
+      "sha256": "f374d45aa1a832cf5c888b78fa022f02ac39cdea4b2c0a2fd154f44805163a71"
+    },
+    "artifacts/research-v2/WP03/prediction-audit-preparation/red.log": {
+      "bytes": 17847,
+      "sha256": "409c1e1134a6baa5a20e6a8a1b819ded06f4ef3463c594cd37a7e2e90901d303"
+    }
+  },
+  "models_fitted": 0,
+  "pending": [
+    "execute on completed inactive native engineering queue",
+    "full inactive scientific M2 raw arithmetic",
+    "frozen-source Gate A collection",
+    "scientific report and actual claim decision"
+  ],
+  "schema": "research/v2-M2-prediction-audit-preparation",
+  "scientific_M2_predictions_opened": false,
+  "source_files": {
+    "docs/research/v2/scripts/audit_m2_predictions.py": "0642462384bbcfcdf571c63a4748560f35ac39d4340074f6a3abc0abda94f8d5",
+    "src/treeneuron/research/opportunity_prediction_audit.py": "c16b14cfb6a2fe3407691e581cc43d76972e38f70a810a240d4256afa88e3f8d",
+    "tests/test_opportunity_prediction_audit.py": "25bed40d0abd5bff1b5f815691960252511defdcf58c3fdf88ec77a4a74da9fb"
+  },
+  "verification": {
+    "additional_boundaries_first_pass_green": 2,
+    "affected_passed": 66,
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-B",
+      "-c",
+      "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"tests/test_opportunity_prediction_audit.py\",\"tests/test_opportunity_collection.py\",\"tests/test_control_audit.py\",\"tests/test_workqueue.py\",\"tests/test_metrics.py\"]))"
+    ],
+    "cwd": "/private/tmp/atn-research-v2-next",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "missing_module_red": 14,
+    "seconds": 2.58
+  }
+}
