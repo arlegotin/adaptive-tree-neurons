@@ -87,6 +87,35 @@ def test_lost_RSS_probe_after_start_stops_the_owned_child_and_retains_failure(tm
     assert r['stop_reason']=='rss_probe_unavailable'
 
 
+@pytest.mark.parametrize('past_deadline',[False,True])
+def test_probe_timeout_at_the_worker_deadline_is_distinguished_from_lost_measurement(past_deadline,tmp_path,monkeypatch):
+    import subprocess
+    calls=[]
+    def probe(pid,timeout_ns):
+        calls.append(pid)
+        if len(calls)==1:return 1
+        if past_deadline:time.sleep(.25)
+        raise subprocess.TimeoutExpired(['controlled-owned-RSS-probe'],timeout_ns/1e9)
+    monkeypatch.setattr(api(),'root_rss_bytes',probe)
+    r=run(tmp_path,'import time; time.sleep(30)',timeout_ns=200000000)
+    assert r['child_started'] and r['child_reaped'] and r['eligible_model'] is False
+    assert r['execution_status']==('timeout' if past_deadline else 'input_or_dependency_failure')
+    assert r['stop_reason']==('dedicated_worker_deadline_during_rss_probe' if past_deadline else 'rss_probe_unavailable')
+    assert 'TimeoutExpired' in r['diagnostic']
+
+
+def test_deadline_expiring_in_preflight_is_retained_without_starting_a_child(tmp_path,monkeypatch):
+    import subprocess
+    def probe(pid,timeout_ns):
+        time.sleep(.25)
+        raise subprocess.TimeoutExpired(['controlled-preflight-RSS-probe'],timeout_ns/1e9)
+    monkeypatch.setattr(api(),'root_rss_bytes',probe)
+    r=run(tmp_path,"raise AssertionError('must not run')",timeout_ns=200000000)
+    assert r['execution_status']=='timeout' and not r['child_started']
+    assert r['stop_reason']=='dedicated_worker_deadline_during_rss_preflight'
+    assert 'TimeoutExpired' in r['diagnostic'] and r['observed_peak_root_rss_bytes'] is None
+
+
 def test_process_that_leaves_background_descendants_is_not_a_clean_completion(tmp_path):
     r=run(tmp_path,"import subprocess,sys; subprocess.Popen([sys.executable,'-c','import time; time.sleep(30)']); print('parent exits')")
     assert r['returncode']==0 and r['execution_status']=='input_or_dependency_failure'

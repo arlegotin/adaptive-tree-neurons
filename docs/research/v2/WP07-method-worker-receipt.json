@@ -1,0 +1,132 @@
+{
+  "Gate_D": false,
+  "T_accessed": false,
+  "actual_process_proof": {
+    "paid_process_attempts": 4,
+    "path": "artifacts/research-v2/WP07/method-worker-preparation/native-final-raw/test_real_method_worker_owned_0/proof.json",
+    "same_seed_rerun_predictions_exact": true,
+    "sha256": "aba8b5e3fbe48dfb6111c956a6511ca52eaffbeb3c5f69d045b18fc48b3982b9",
+    "strict_peak_or_descendant_memory_qualified": false,
+    "summed_disjoint_outer_attempt_ns": 1837127667
+  },
+  "base_commit": "b128a19",
+  "checkpoint_eligible": false,
+  "dispatch_only_unqualified_families": [
+    "P03",
+    "P04",
+    "P06",
+    "P07",
+    "P08",
+    "P09",
+    "P10",
+    "P11",
+    "P12"
+  ],
+  "evidence_level": "Fresh worker engineering and actual bounded own-process controls; no predictive efficacy inference",
+  "fixed_defects": [
+    "Changed request/input accepted after original fit",
+    "ENOSPC terminal status misclassified",
+    "Deadline-limited RSS probe timeout misclassified after launch and in preflight"
+  ],
+  "logs": {
+    "artifacts/research-v2/WP07/method-worker-preparation/affected-initial.log": {
+      "bytes": 180,
+      "sha256": "985325e9bcc8957c5fe68ee22ecd30e2a09de3247b9225f3984413cf59e5a5c2"
+    },
+    "artifacts/research-v2/WP07/method-worker-preparation/deadline-classification-red.log": {
+      "bytes": 1743,
+      "sha256": "385d21296ffe55d5737214e4f7d319b9921075e0feb77b0539b2491153592c73"
+    },
+    "artifacts/research-v2/WP07/method-worker-preparation/deadline-preflight-red.log": {
+      "bytes": 2872,
+      "sha256": "c03451480625a1bf2f74888b29c2f7f77c933cd79523dd1721b8a218e37a2c95"
+    },
+    "artifacts/research-v2/WP07/method-worker-preparation/green-boundaries.log": {
+      "bytes": 99,
+      "sha256": "f7793ba79ffc617a635ae9ece18e3ea6ab760ace9674f3f26c0544e4beec32de"
+    },
+    "artifacts/research-v2/WP07/method-worker-preparation/green-initial.log": {
+      "bytes": 99,
+      "sha256": "026dbc90d1501c8bfe19b2ae380529a11ce2e067c79d60f845794d8f00bdb345"
+    },
+    "artifacts/research-v2/WP07/method-worker-preparation/late-fault-red.log": {
+      "bytes": 3500,
+      "sha256": "86f042ba4e3f86b1800d6802dd6409f9a36c851cdae6789a5638237c3a960efe"
+    },
+    "artifacts/research-v2/WP07/method-worker-preparation/native-affected-green.log": {
+      "bytes": 181,
+      "sha256": "9e9feea444ef966696dfea8b251fff11082cdbb0f227af18c12b4206ba528c69"
+    },
+    "artifacts/research-v2/WP07/method-worker-preparation/native-affected.log": {
+      "bytes": 3162,
+      "sha256": "17f9d40546f8320d2021f3853e67a912e3d126112407e892bd52ee182b5a947b"
+    },
+    "artifacts/research-v2/WP07/method-worker-preparation/red-temporal.log": {
+      "bytes": 22933,
+      "sha256": "7753aaedf1534b3ef980ad359677cc0c431f5ac9182e9e06172f68e256207074"
+    },
+    "artifacts/research-v2/WP07/method-worker-preparation/red.log": {
+      "bytes": 16824,
+      "sha256": "fcc916c42e672c814e2f43aac0960b0caef06b4126d5a676bc0d6c4304949feb"
+    },
+    "artifacts/research-v2/WP07/method-worker-preparation/telemetry-red.log": {
+      "bytes": 905,
+      "sha256": "ba44aa0303b8aa1a824de2a1154672e24e431d856d9b697befec5ed2b519df13"
+    }
+  },
+  "native_optimizer_checkpoint_resume": false,
+  "native_worker_families_executed": [
+    "P13_mean_engineering_fixture"
+  ],
+  "pending": [
+    "Other native fresh workers",
+    "Complete native anchors/workloads",
+    "Production registry/eligibility",
+    "Paid controller integration",
+    "Source/runtime-qualified resource forecast",
+    "Protocol/protected evaluation",
+    "Deployment"
+  ],
+  "practical_searches": 0,
+  "prepared_transfer_fits": 0,
+  "quality_eligible": false,
+  "raw_inventories": {
+    "artifacts/research-v2/WP07/method-worker-preparation/native-final-raw/inventory.json": "bea8559a6050dec202384789002fabab72c0c5802b078609af3a2ae1251861cc",
+    "artifacts/research-v2/WP07/method-worker-preparation/native-integration-failure/inventory.json": "6e39db9b5af0ce562cca4f1c05bc07e2fc7d3cba740e69be3e7c8ddb02bc9b69"
+  },
+  "raw_root": "artifacts/research-v2/WP07/method-worker-preparation",
+  "schema": "research/v2-method-worker-engineering",
+  "scientific_source_sha256": "66abdf78b0c89b43c4789b459fc5d29e9e842d43f6eebf77e5ca4adaf20dc487",
+  "source_algorithm_compared_to_train": true,
+  "source_files": {
+    "src/treeneuron/research/method_worker.py": "29dff185374fc7a3285058850abaf0467b346692b63debdfa53980bbcfa225a9",
+    "src/treeneuron/research/process_supervision_v2.py": "bd874ce139e5a8d5ad396ccd1775478bf7e8580ceaea7ac1fdfa69a9acab0a93",
+    "tests/test_method_worker.py": "38fc974c18471fe5da41f60792c958c4643dd04394be49640a0a5a1e920e2837",
+    "tests/test_method_worker_supervised.py": "92b61553edcc5303911b72d1e23f5fae3c16a40629131b0d1278d1cb020e89fa",
+    "tests/test_process_supervision_v2.py": "1955f6ab6b1b11d66158e7eec8baeaaaedc30cba748ee2f03f244ec9301135eb"
+  },
+  "source_kind": "train.source_hash algorithm; distinct from adapter bundle digests",
+  "unavailable_families": [
+    "P00",
+    "P01",
+    "P02",
+    "P05"
+  ],
+  "verification": {
+    "affected_passed": 89,
+    "affected_seconds": 28.42,
+    "controlled_deadline_red": 2,
+    "expanded_missing_module_red": 15,
+    "first_native_integration_failures": 1,
+    "first_native_integration_passed": 113,
+    "first_native_seconds": 28.81,
+    "full_repository_suite": false,
+    "initial_green": 15,
+    "initial_missing_module_red": 12,
+    "late_fault_red": 2,
+    "native_affected_passed": 117,
+    "native_affected_seconds": 30.58,
+    "predeadline_probe_failure_preserved": true,
+    "telemetry_missing_helper_red": 1
+  }
+}

@@ -42,6 +42,15 @@ recovery qualification and GateD remain pending. See
 [receipt](WP07-initialization-observation-receipt.json) and
 [scope](realmlp-initialization-observation.md). The active M2 source is unchanged.
 
+Task7/8 engineering bridge: a fresh method-worker entry point now authenticates
+F/G and feature-only query inputs, retains closed snapshots/predictions and
+rejects stale inputs/source.117 affected checks passed, including actual tiny
+P13 workers under owned-process timeout/RSS controls and an identical-seed rerun.
+A deadline/probe classification defect was reproduced and corrected, with the
+original failure retained. This does not qualify native quality, admit HPO or
+release T. Other method workers/full anchors remain pending. See
+[worker contract](method-worker-contract.md) and [receipt](WP07-method-worker-receipt.json).
+
 ## Decisions and deviations
 
 - The supplied handoff is the authorized scientific design. No additional design

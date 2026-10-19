@@ -98,6 +98,10 @@ def supervise_process(*,argv,cwd,env_overrides,output,timeout_ns,rss_limit_bytes
         try:
             # Unknown measurement capability fails before starting an expensive fit.
             try:root_rss_bytes(os.getpid(),max(1,min(250000000,timeout_ns)))
+            except subprocess.TimeoutExpired as error:
+                diagnostic=f'{type(error).__name__}: {error}'
+                if time.perf_counter_ns()-started>=timeout_ns:
+                    status='timeout';reason='dedicated_worker_deadline_during_rss_preflight'
             except Exception as error:diagnostic=f'{type(error).__name__}: {error}'
             else:
                 if time.perf_counter_ns()-started>=timeout_ns:status='timeout';reason='deadline_before_spawn'
@@ -119,6 +123,12 @@ def supervise_process(*,argv,cwd,env_overrides,output,timeout_ns,rss_limit_bytes
                             except ProcessLookupError:
                                 if proc.poll() is not None:continue
                                 status='input_or_dependency_failure';reason='rss_probe_unavailable';diagnostic='Owned worker disappeared from RSS probe';break
+                            except subprocess.TimeoutExpired as error:
+                                diagnostic=f'{type(error).__name__}: {error}'
+                                if time.perf_counter_ns()-started>=timeout_ns:
+                                    status='timeout';reason='dedicated_worker_deadline_during_rss_probe'
+                                else:status='input_or_dependency_failure';reason='rss_probe_unavailable'
+                                break
                             except Exception as error:
                                 status='input_or_dependency_failure';reason='rss_probe_unavailable';diagnostic=f'{type(error).__name__}: {error}';break
                             if type(rss) is not int or rss<0:
