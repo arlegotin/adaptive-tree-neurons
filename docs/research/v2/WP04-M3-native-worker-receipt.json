@@ -1,0 +1,60 @@
+{
+  "M3_teachers_generated": 0,
+  "T_accessed": false,
+  "behaviors": [
+    "F-only local/conditional/unconditioned/span placement and G-only fixed-horizon structural probes",
+    "Complete ordinary fresh/warm and inherited-growth native stages with closed V/E prediction evaluation",
+    "All nominal candidates, dead-unit skips and paid prerequisite costs retained; a failed eligible probe blocks structural choice",
+    "Requested count survives common eligibility reduction, including effective zero",
+    "Keep and singleton probes must share complete executed horizons and exact parent/table bindings"
+  ],
+  "fixtures": "Real h8/d2 control with short six-update worker stages; neither main M3 efficacy nor full-horizon resource qualification",
+  "logs": [
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP04/M3-worker-implementation/count-green.log",
+      "sha256": "9577e8aa396cee453c43ddd4e7ddd3d85f5ccfb7f0bd5583e9efb1ec84ebe9c5"
+    },
+    {
+      "bytes": 5239,
+      "path": "artifacts/research-v2/WP04/M3-worker-implementation/effective-count-red.log",
+      "sha256": "ab245737f589d58680b9da6045e7ebfaa1d5bb303cbdc699e3c80610cf0b1c59"
+    },
+    {
+      "bytes": 1147,
+      "path": "artifacts/research-v2/WP04/M3-worker-implementation/red.log",
+      "sha256": "86d540ff3b8b41860c64fd3695935de9a8e90e77d888b046f6ee17bbfdeab739"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP04/M3-worker-implementation/green.log",
+      "sha256": "70ad1d1f751b863a2846faa2bcbb85484b9b1c5a9c9031b1663d52da6b077f17"
+    },
+    {
+      "bytes": 362,
+      "path": "artifacts/research-v2/WP04/M3-worker-implementation/final.log",
+      "sha256": "24ef093ad950382c68fdab50beb3b8bb4bd8c45d0bd25a7ac80905d293e17ae2"
+    },
+    {
+      "bytes": 4420,
+      "path": "artifacts/research-v2/WP04/M3-worker-implementation/keep-horizon-red.log",
+      "sha256": "b9aaca53fd5408da1f1cf6237d0cc2ff9b6bbceeb87db813bff71d993d7518b7"
+    }
+  ],
+  "pending": [
+    "Measured complete native M3 workload/storage qualification",
+    "Production dispatcher/live admission and immutable execution source hold",
+    "Fresh primary-teacher study and Gate B"
+  ],
+  "schema": "research/v2-M3-native-worker-composition",
+  "scientific_M3_execution_admitted": false,
+  "source_sha256": "32d68a4a613e1e3f4b4751430053edbb028322dc2e53031aa943374ae78b6da7",
+  "tests": {
+    "effective_count_GREEN": "9 passed in30.66s",
+    "effective_count_RED": "2 failed in12.75s",
+    "final": "220 passed,1 unavailable-device skip in96.51s",
+    "first_GREEN": "1 native composition check passed in14.89s",
+    "initial_RED": "1 missing-module failure in2.31s",
+    "keep_horizon_RED": "1 failed in15.06s"
+  }
+}

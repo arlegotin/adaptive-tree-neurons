@@ -168,3 +168,13 @@ conditional eight-teacher tranche is predeclared. Its CLI plan and exact shared
 seeds are implemented, while public run rejects before data creation until
 production workers/resource admission are ready. See the
 [plan receipt](WP04-M3-plan-implementation-receipt.json). This is no M3 outcome.
+
+The complete M3 native worker composition now passes220checks with one
+unavailable-device skip. A real short-budget fixture exercises all ten fit roles,
+all nominal h8 singleton probes, exact local diagnostics, G-only structural
+selection, closed V/E evaluation, paid prerequisite accounting and no duplicate
+work on resume. Requested count remains explicit when eligibility reduces it,
+including zero. Shortening the keep horizon or losing an eligible probe blocks
+selection. See the [worker receipt](WP04-M3-native-worker-receipt.json). Full
+M3-horizon resource qualification and the admitted public dispatcher are still
+pending, so no scientific M3 teacher has been generated.

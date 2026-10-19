@@ -119,6 +119,21 @@ def test_nominal_dead_subset_is_ineligible_without_a_fitted_model(tmp_path,cpu_t
     assert result['models']=={} and not (tmp_path/'dead'/'runs').exists()
 
 
+def test_fixed_selected_subset_preserves_requested_count_when_eligibility_reduces_it(training_case,tmp_path):
+    from treeneuron import train
+    from treeneuron.research.roles import fitting_view
+    from treeneuron.research.diagnostics import ForkSpec,ScoredParent,score_parent,fit_diagnostic_fork
+    data,config,paths=training_case;view=fitting_view(data);parent=train.fit_parent(view,config,paths)
+    scored=score_parent(parent,view.F)
+    # A deliberately empty admitted pool tests the effective-count boundary.
+    scored.table.adam_scores.zero_();scored.table.sgd_scores.zero_()
+    scored=ScoredParent(scored.table,scored.parent_sha256,scored.table.table_hash,scored.elapsed_ns)
+    result=fit_diagnostic_fork(parent,view,tmp_path/'empty-selected',
+        ForkSpec('fixed_subset',16,71,4,unit_ids=(),fixed_budget=True),scored=scored)
+    assert result['status']=='completed_eligible' and result['requested_count']==16 and result['effective_count']==0
+    assert result['selected_ids']==[] and result['executed_stage_updates']==4
+
+
 def test_failed_result_publication_preserves_original_failure_and_rng(training_case,tmp_path,monkeypatch):
     from treeneuron import train
     from treeneuron.research.roles import fitting_view

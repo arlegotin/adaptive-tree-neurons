@@ -75,7 +75,7 @@ class ForkSpec:
     selection_prefixes: tuple[int,...]=()
 
     def __post_init__(self):
-        if (self.role not in ('keep','top','random','warm_lower','warm_upper','subset','ridge')
+        if (self.role not in ('keep','top','random','warm_lower','warm_upper','subset','fixed_subset','ridge')
                 or type(self.requested_count) is not int or self.requested_count<0
                 or type(self.max_updates) is not int or self.max_updates<=0
                 or type(self.allocation_seed) is not int or not 0<=self.allocation_seed<2**63
@@ -85,13 +85,14 @@ class ForkSpec:
                 or any(type(i) is not int or i<0 for i in self.unit_ids)
                 or list(self.unit_ids)!=sorted(set(self.unit_ids))
                 or (self.role=='subset' and (not self.unit_ids or len(self.unit_ids)!=self.requested_count))
-                or (self.role!='subset' and self.unit_ids)):
+                or (self.role=='fixed_subset' and len(self.unit_ids)>self.requested_count)
+                or (self.role not in ('subset','fixed_subset') and self.unit_ids)):
             raise ValueError('Invalid fixed diagnostic fork specification')
 
 
-def _subset(table,ids,seed):
+def _subset(table,ids,seed,*,requested=None):
     rows=[table.ids.tolist().index(unit) for unit in ids]
-    return Allocation(len(ids),len(ids),torch.tensor(ids,dtype=torch.int64),table.contrasts[rows].clone(),
+    return Allocation(len(ids) if requested is None else requested,len(ids),torch.tensor(ids,dtype=torch.int64),table.contrasts[rows].clone(),
         'greedy',seed,table.table_hash,torch.zeros(len(ids),dtype=torch.int64),
         {'shared_scored_units':len(table.ids),'standalone_contrast_units_required':0})
 
@@ -142,6 +143,8 @@ def fit_diagnostic_fork(parent,data,output,spec,*,scored=None,selection_trace=No
             policy='adam',seed=spec.allocation_seed).ids.tolist()
         effective=(0 if spec.requested_count==0 else None) if eligible is None else min(spec.requested_count,len(eligible))
         report.update(common_eligible_ids=eligible,requested_count=spec.requested_count,effective_count=effective)
+        if spec.role=='fixed_subset' and (len(spec.unit_ids)!=effective or any(unit not in eligible for unit in spec.unit_ids)):
+            raise ValueError('Fixed selected subset must use exactly the common effective count and eligible pool')
         if spec.role=='subset' and any(unit not in eligible for unit in spec.unit_ids):
             report.update(status='completed_ineligible',reason='nominal subset contains a current-ineligible unit; retained without substitution')
             return report
@@ -150,8 +153,9 @@ def fit_diagnostic_fork(parent,data,output,spec,*,scored=None,selection_trace=No
         initial_prediction=state.predict(data.G.X)
         current=state.stage['kind']=='research_boundary'
         selected=[]
-        if spec.role in ('top','random','subset','ridge'):
-            allocation=(ridge_allocation if spec.role=='ridge' else _subset(scored.table,spec.unit_ids,spec.allocation_seed) if spec.role=='subset'
+        if spec.role in ('top','random','subset','fixed_subset','ridge'):
+            allocation=(ridge_allocation if spec.role=='ridge' else _subset(scored.table,spec.unit_ids,spec.allocation_seed,
+                requested=spec.requested_count) if spec.role in ('subset','fixed_subset')
                 else allocate(scored.table,spec.requested_count,
                     policy='adam' if spec.role=='top' else 'random',seed=spec.allocation_seed))
             (insert_at_current_boundary if current else insert_growth)(state,allocation)

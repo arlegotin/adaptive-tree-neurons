@@ -1,0 +1,64 @@
+{
+  "T_accessed": false,
+  "application": {
+    "T_accessed": false,
+    "cost_scope": "External storage maintenance overlapping the contended scientific cohort; do not add overlapping containing clocks",
+    "counts": {
+      "already_compressed_verified": 4822,
+      "published_identical_bytes": 1866
+    },
+    "elapsed_ns": 99177037500,
+    "failure": null,
+    "logical_bytes_changed": false,
+    "planned_files": 6688,
+    "reported_per_file_block_saving_bytes": 1886646272,
+    "scientific_source_parameters_and_attempt_queue_changed": false,
+    "status": "completed",
+    "volume_free_after_bytes": 8611532800,
+    "volume_free_before_bytes": 6759653376,
+    "volume_saving_attributed": false
+  },
+  "failed_sandbox_attempt": "First scratch copy had size0/flags0 although ditto returned0; safety guard stopped before any replacement",
+  "files": [
+    {
+      "bytes": 563,
+      "path": "artifacts/research-v2/WP04/completed-M2-storage-c170fc8-native-recovery/result.json",
+      "sha256": "d429004eac05ec627d823fdd1c8708e0c651e669260926034c6b83d9a6ff827a"
+    },
+    {
+      "bytes": 353,
+      "path": "artifacts/research-v2/WP04/completed-M2-storage-c170fc8-native-recovery/postcheck.json",
+      "sha256": "e3ad08e74c53febfbf6eed717c91aca9aec855c09c0d56f091738dfff8a674b6"
+    },
+    {
+      "bytes": 1295,
+      "path": "artifacts/research-v2/WP04/completed-M2-storage-c170fc8-native-recovery/invocation.json",
+      "sha256": "b7580855efd2b2ae52655b8502e187f1b0bcdb2bd7ec6ba61403d0ad96900b03"
+    },
+    {
+      "bytes": 1118,
+      "path": "artifacts/research-v2/WP04/completed-M2-storage-c170fc8/file-000000/failure.json",
+      "sha256": "aa5d14cc222bc411ef7201f41f883aec54c587c911c7f0fbeb0d522b12383585"
+    },
+    {
+      "bytes": 636,
+      "path": "artifacts/research-v2/WP04/completed-M2-storage-c170fc8/native-disposable-check.json",
+      "sha256": "d4253313242e4b0ebbbbf0b60b14f2b74856d0eba893ad650540e7526a6ec2ed"
+    }
+  ],
+  "logical_bytes_or_scientific_queue_changed": false,
+  "native_disposable_recovery": "Same source in an escalated disposable copy preserved all351476bytes/SHA and UF_COMPRESSED32; qualified operator unchanged",
+  "operator_module_sha256": "2a129c78eee5e55e56c984fee837073e19f5684ef87ea745d86e3a7fa3031292",
+  "postcheck": {
+    "T_accessed": false,
+    "all_original_logical_bytes_sizes_and_published_result_markers_match": true,
+    "elapsed_ns": 30244745542,
+    "files": 6688,
+    "ledger_event_hash": "0c68ffaf65dc850924c4760e280e39e90cb59225076950edbb972cbf537541d2",
+    "queue_plan_hash": "d0537c5c7caee7c6e4c6d09e3e2f68b2c819f8e38853ab1cad67850718d6381a",
+    "status": "passed"
+  },
+  "qualification_sha256": "0d241cecbe6fc581240c1ea74ae3074877f197f8ea5b790f5819fe39ad2d27ab",
+  "schema": "research/v2-completed-M2-storage-preparation",
+  "scope": "External storage preparation after M2 completion, overlapping active new NODE qualification; do not add to old scientific cohort or nested fit clocks"
+}
