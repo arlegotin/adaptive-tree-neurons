@@ -49,3 +49,20 @@ def test_diagnostic_cannot_fit_or_substitute_G_oracle_targets(training_case):
     trace=joint_ridge_select(parent,data.F,build_gate_blocks(parent,data.F,scored),JointSelectionConfig(count=2),scored=scored)
     for wrong in (data.F,replace(data.G,noise_free_target=data.G.y.copy()),replace(data.G,y=data.G.y+.1)):
         with pytest.raises(ValueError):diagnose_local_updates(parent,data.F,wrong,scored,trace)
+
+
+def test_complete_local_diagnostic_can_be_published_by_the_canonical_artifact_writer(training_case,tmp_path):
+    """Numpy scalar cutoffs and integer gate keys must not break evidence publication."""
+    import json
+    from treeneuron.research.joint_allocation import build_gate_blocks,joint_ridge_select
+    from treeneuron.research.joint_selector import JointSelectionConfig
+    from treeneuron.research.local_updates import diagnose_local_updates
+    from treeneuron.research.ledger import write_new_json
+    parent,data,scored=fixture(training_case)
+    trace=joint_ridge_select(parent,data.F,build_gate_blocks(parent,data.F,scored),JointSelectionConfig(count=2),scored=scored)
+    result=diagnose_local_updates(parent,data.F,data.G,scored,trace)
+    path=tmp_path/'diagnostic.json'
+    write_new_json(path,result)
+    restored=json.loads(path.read_text())
+    assert restored==result
+    assert set(restored['solution']['gate_delta'])=={str(i) for i in trace.to_dict()['selected_ids']}

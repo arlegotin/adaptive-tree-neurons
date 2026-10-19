@@ -1,0 +1,43 @@
+{
+  "M3_teachers_generated": 0,
+  "T_accessed": false,
+  "causes": [
+    "Operator used count instead of legacy m_requested; rejected before fixture fitting",
+    "Diagnostic cutoff was a NumPy scalar and gate solution keys were integers; strict canonical evidence writer correctly rejected them"
+  ],
+  "fix": "Explicit native float cutoff and canonical string gate IDs; no mathematical or training treatment change",
+  "pending": [
+    "Fresh full-size same-fixture run under corrected source",
+    "Small-oracle prediction comparison",
+    "M3 runner, workload forecast and scientific execution"
+  ],
+  "prior_failed_attempts": [
+    {
+      "bytes": 2534,
+      "path": "artifacts/research-v2/WP04/full-selector-workload-517aa69/process/process.json",
+      "sha256": "2e0dce236d1295e84c1fd13ca40ded848aa6d5c4a356545ffb907a4ffe144983"
+    },
+    {
+      "bytes": 2653,
+      "path": "artifacts/research-v2/WP04/full-selector-workload-517aa69-recovery/process/process.json",
+      "sha256": "1ea7abaa5d2e30ca075eba7704d849ac2512a0203661d3bf0496e5376a2db7c2"
+    },
+    {
+      "bytes": 3369,
+      "path": "artifacts/research-v2/WP04/local-joint-update-publication/red.log",
+      "sha256": "c1e6ba3660c8d25846dfefa4b5243ab0bd6396f974d78685e10c644767ff2a14"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP04/local-joint-update-publication/green.log",
+      "sha256": "68be05cb8199ce6fa4586af08c0709632d8a8e336b7c9361c9242138669863ab"
+    }
+  ],
+  "quality_claim": false,
+  "schema": "research/v2-joint-diagnostic-publication-fix",
+  "source_sha256": "1a85a7eb7fb7137bc4412d55c88721e80c53036158b85af14fc1c17612bd9d26",
+  "tests": {
+    "GREEN": "61 passed in11.95s",
+    "RED": "1 failed in3.63s"
+  }
+}

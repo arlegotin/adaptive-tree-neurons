@@ -127,3 +127,13 @@ optimizer, sampler and caller RNG remain unchanged. Four initial missing-module
 RED tests and three missing rank/vector-record failures preceded the final
 60combined checks in11.42seconds. See
 [the diagnostic receipt](WP04-local-joint-update-receipt.json).
+
+The full-size engineering operator exposed a publication integration gap before
+any M3 experiment: its initial configuration used the wrong legacy field name,
+and the corrected run reached the local solve but could not publish a NumPy
+cutoff/integer-key diagnostic through the strict canonical writer. Both failed
+attempts and costs remain retained. Explicit scalar/key serialization now passes
+61 affected checks after a reproduced failing publication test. The numerical
+objective and training treatment are unchanged. See the
+[correction receipt](WP04-diagnostic-publication-fix-receipt.json). A fresh full-size
+run is still required; neither failure establishes a predictive outcome.

@@ -38,7 +38,7 @@ def _solve(bundle,residual,config,ids):
     if design.shape[1]:
         augmented=np.vstack([design,np.diag(np.sqrt(len(residual)*penalties))])
         coef,_,rank,singular=np.linalg.lstsq(augmented,np.r_[residual,np.zeros(design.shape[1])],rcond=None)
-        cutoff=max(augmented.shape)*np.finfo(np.float64).eps*float(singular[0])
+        cutoff=float(max(augmented.shape)*np.finfo(np.float64).eps*float(singular[0]))
         if rank!=design.shape[1]:raise FloatingPointError('Unexpected augmented-solve rank truncation; no fallback')
     else:coef=np.empty(0);rank=0;cutoff=0.;singular=np.empty(0)
     parent_scaled=np.zeros(J.shape[1])
@@ -119,7 +119,7 @@ def diagnose_local_updates(parent,F,G,scored,trace):
         current_parent_MSE={role:float(np.mean((y[role]-bundle.prediction)**2)) for role,bundle in bundles.items()},
         optimized_parent_objective=parent_objective,full_step_penalized_objective=objective,
         linear_solve=solve,solution=dict(parent_delta=u.tolist(),parent_parameter_columns=list(bundles['F'].parameter_columns),
-            gate_delta={unit:value.tolist() for unit,value in v.items()}),
+            gate_delta={str(unit):value.tolist() for unit,value in v.items()}),
         penalized_local_gain=parent_objective-objective,evaluations=evaluations,
         elapsed_ns=time.perf_counter_ns()-started,
         interpretation='Penalized gain is relative to optimized local parent; raw MSE and nonlinear changes are separate diagnostics')
