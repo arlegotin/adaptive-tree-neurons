@@ -1,0 +1,103 @@
+{
+  "Gate_D": false,
+  "T_accessed": false,
+  "V_labels_read": false,
+  "all_queue_file_commitments_verified": true,
+  "audit_sha256": "54f278b732424c17bc4c99aba90dc8389ce7d3497f5945422e443908182114d4",
+  "cases": [
+    {
+      "applied_updates": 768,
+      "job_id": "P06/airfoil/primary/native-anchor",
+      "native_bundle_sha256": "22ff2505317697382d9bb4b4bd031fc383e16a6815d4de304550a67b77db3826",
+      "native_epochs": 256,
+      "paid_search_ns": 21534648083,
+      "process_peak_rss_bytes": 495878144,
+      "reload_exact": true,
+      "rows_seen": 842,
+      "selected_epoch": 209,
+      "status": "completed_ineligible",
+      "unvisited_F_rows": 0,
+      "worker_terminal_sha256": "54e9941d83de480dc5a572124424c2738b3376b2b424323d71a6b88f71601f42"
+    },
+    {
+      "applied_updates": 512,
+      "job_id": "P06/concrete/primary/native-anchor",
+      "native_bundle_sha256": "22ff2505317697382d9bb4b4bd031fc383e16a6815d4de304550a67b77db3826",
+      "native_epochs": 256,
+      "paid_search_ns": 19186656124,
+      "process_peak_rss_bytes": 486178816,
+      "reload_exact": true,
+      "rows_seen": 577,
+      "selected_epoch": 109,
+      "status": "completed_ineligible",
+      "unvisited_F_rows": 0,
+      "worker_terminal_sha256": "6948170925abc81ea2be9ccdf9627ef973b939e021409cfef5ae8ff62fa7276d"
+    },
+    {
+      "child_reaped": true,
+      "job_id": "P06/ccpp/primary/native-anchor",
+      "paid_search_ns": 33031957500,
+      "sampled_root_peak_rss_bytes": 1137623040,
+      "status": "resource_exhausted",
+      "stop_reason": "observed_root_rss_limit"
+    },
+    {
+      "applied_updates": 3328,
+      "job_id": "P06/parkinsons/primary/native-anchor",
+      "native_bundle_sha256": "22ff2505317697382d9bb4b4bd031fc383e16a6815d4de304550a67b77db3826",
+      "native_epochs": 256,
+      "paid_search_ns": 35697757001,
+      "process_peak_rss_bytes": 906199040,
+      "reload_exact": true,
+      "rows_seen": 3352,
+      "selected_epoch": 184,
+      "status": "completed_ineligible",
+      "unvisited_F_rows": 0,
+      "worker_terminal_sha256": "70d30683197fe84baaba32ebe71b66f9a394453a23e102f5395452df8cb284dc"
+    },
+    {
+      "child_reap_receipt_missing": true,
+      "error_type": "TimeoutExpired",
+      "job_id": "P06/bike/primary/native-anchor",
+      "message": "Command '['/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python', '-B', '-m', 'treeneuron.research.method_worker', '--request', '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/P06-primary-anchors-702479e/queue/jobs/10f1f530c0621b01d67b368fe78af0ac569f3de2b2aa7c7787023d58eff42b71/attempt-0/search/attempt-000/input/request.json', '--expected-request-sha256', 'd113c8ee7622f3413ef4e1ba313a1b59ef3ba52051a8fa5485a83e4e69e95563', '--output', '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/P06-primary-anchors-702479e/queue/jobs/10f1f530c0621b01d67b368fe78af0ac569f3de2b2aa7c7787023d58eff42b71/attempt-0/search/attempt-000/worker']' timed out after 0.01 seconds",
+      "paid_search_ns": 60349698792,
+      "status": "input_or_dependency_failure"
+    },
+    {
+      "applied_updates": 256,
+      "job_id": "P06/energy/primary/native-anchor",
+      "native_bundle_sha256": "22ff2505317697382d9bb4b4bd031fc383e16a6815d4de304550a67b77db3826",
+      "native_epochs": 256,
+      "paid_search_ns": 18278899833,
+      "process_peak_rss_bytes": 479215616,
+      "reload_exact": true,
+      "rows_seen": 320,
+      "selected_epoch": 200,
+      "status": "completed_ineligible",
+      "unvisited_F_rows": 0,
+      "worker_terminal_sha256": "fb1a24270a632c7b0a9d16e78bbea016f94e80c5723e2c2c7fdf7aac4fd0af11"
+    }
+  ],
+  "completed_native_256_epoch_anchors": 4,
+  "files": 175,
+  "ledger_hash": "1ed36cc38cd4958468661f1cd6634a6d6ca29c68fc694bebd1e8619a5dff1f6d",
+  "logical_bytes": 49134222,
+  "pending": [
+    "Fix and regress asynchronous child-reap timeout in supervisor",
+    "One recorded same-seed CCPP/Bike operational recovery under explicit larger resource track when live memory permits",
+    "Final source/runtime/workload admission",
+    "Native recovery and complete practical evaluation"
+  ],
+  "plan_hash": "16652b467860880c3db2ccdce31c6e4d090d8a436d11315e3da1158de94f87f4",
+  "process_inspection_scope": "No qualified-interpreter processes remained beyond known M2 wrapper/worker and inspection process; Bike original PID/reap result absent",
+  "process_inspection_sha256": "45968d98dcd4b8b2c066d812c20ba84809a1498cb573377f9b6905429493d751",
+  "production_practical_searches": 0,
+  "quality_eligible": false,
+  "raw_inventory_sha256": "747102366063984a29339bd9ddd6c5262a73d9215339412dcea64ee1d9d0e531",
+  "raw_root": "artifacts/research-v2/WP07/P06-primary-anchors-702479e",
+  "same_seed_retries_so_far": 0,
+  "schema": "research/v2-P06-primary-anchor-initial-receipt",
+  "scientific_source_sha256": "17cbebfcacf71ba776eef8d763b3b544a842582b5d3fdbb5c32f1e26d2895bad",
+  "source_commit": "702479eb80d7f2a03dacd140c8d75286ab9fdf5f",
+  "unavailable": 2
+}

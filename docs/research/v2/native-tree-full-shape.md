@@ -38,9 +38,9 @@ their presence in a clean public checkout is not asserted. The original M2 data
 files were independently byte/array authenticated and repackaged for this worker;
 no older checkpoint was loaded under a changed source identity.
 
-## Actual transfer anchor qualification in progress
+## Completed actual transfer anchor execution checks
 
-A separate immutable queue now contains24engineering anchors: CatBoost, XGBoost,
+A separate immutable queue completed24engineering anchors: CatBoost, XGBoost,
 constant-leaf LightGBM and linear-leaf LightGBM on all6prepared datasets. Only
 outer0is admitted for nontemporal data; Bike uses outer4. The existing
 `TransferStore.development` access boundary releases F/G labels and V features;
@@ -58,7 +58,7 @@ not allocation guarantees. No alternative seed, shortened recipe or automatic
 failure deletion is admitted.
 
 The parked execution checkout is `/private/tmp/atn-research-v2-next` at702479e;
-its source must remain unchanged while this queue runs or resumes. Local launch,
+its source must remain unchanged during its execution or any identical resume. The24-anchor queue is now inactive. Local launch,
 plan, access records, per-job resources, complete native snapshots/failures and
 paid clocks are under
 `artifacts/research-v2/WP07/tree-primary-anchors-702479e/`. A resource-only pause
@@ -66,10 +66,38 @@ resumes the identical launcher with `--resume`; infrastructure faults need their
 recorded diagnosis before a same-seed recovery. Source changes require a new
 identity and disposition of affected work.
 
-At19October11:45UTC,4anchors had completed as engineering-ineligible and the
-Bike CatBoost anchor was running. A complete terminal audit is still required.
-All worker quality/protected flags and GateD remain false. This is native recipe,
+All24native anchors completed without a timeout, failure or retry. The
+read-only inactive-queue audit authenticated every retained file commitment. A
+separate query audit checked actual row/group/day IDs and identical query arrays
+across methods against the prepared primary manifests. Every worker reported
+exact saved-model reload and every owned child was reaped. This is no independent
+full-training replay or prediction-quality evaluation. All worker quality/protected
+flags and GateD remain false. This is native recipe,
 shape and resource qualification; it is neither the168primary practical searches
 nor a modern predictive benchmark, and it cannot select a winner. Missing native
 recovery, production registry/readiness and remaining mandatory adapters still
 block a complete practical claim.
+
+
+The queue body took84.454529334s while other work shared the computer; paid job
+clocks totaled84.243978916s and nested paid searches81.889614331s. Data acquisition,
+coordinator startup, dedicated timing and standalone cost attribution are not
+qualified by these clocks. The largest sampled worker RSS was213.78125MiB. No
+V-label or T file was opened. Native training was capped by its original rounds
+or stopped by its original G patience, as retained below; the table reports
+executed/selected rounds, not a claim of global convergence.
+
+| Dataset | CatBoost | XGBoost | LightGBM constant | LightGBM linear |
+|---|---:|---:|---:|---:|
+| Airfoil |2562/2362|304/204|685/585|144/44|
+| Concrete |8450/8250|172/72|335/235|121/21|
+| CCPP |10000/9984|328/228|934/834|690/590|
+| Parkinsons |357/157|108/8|101/1|101/1|
+| Bike |1817/1617|199/99|228/128|132/32|
+| Energy |839/639|129/29|171/71|165/65|
+
+The [complete24-anchor receipt](WP07-tree-primary-anchor-receipt.json) binds each
+case's source/native bundle, dimensions, row counts, stop, snapshot, resources and
+query checks. Its inventory covers684retained files with exact hashes. Native fault recovery
+and final production admission remain pending. These24actual transfer fits are
+engineering evidence, distinct from the still-zero production practical searches.

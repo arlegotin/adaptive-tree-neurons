@@ -69,7 +69,7 @@ question concerns learning from the current parent within finite training/cost.
 
 Strong baseline adapters have passed tiny official-reference checks, and full
 native-recipe execution is now being measured. A CatBoost anchor completed on one
-main-family development dataset;24tree anchors are running on the designated
+main-family development dataset; all24tree anchors completed on the designated
 primary transfer splits. These are execution/resource checks, with no V labels
 or protected outcomes used. The modern predictive comparison remains unrun. Prospective
 variance/power software is prepared on artificial fixtures; no real calibration
@@ -142,3 +142,13 @@ and recovered model agreed exactly. Both attempts and their costs are retained;
 this fixes our harness and gives no predictive verdict. The next24anchor checks
 use primary training/stopping data and validation features only. See
 [native anchor execution](native-tree-full-shape.md).
+
+All24tree anchors completed their native recipes, reopened saved models exactly,
+and passed file/primary-split/query-row audits. Their largest sampled worker was
+under214MiB. Full256-epoch RealMLP anchors also completed on Airfoil, Concrete,
+Parkinsons and Energy, with every F row visited across training. CCPP exceeded
+the conservative1GiB worker cap; Bike hit that cap and exposed a cleanup wait
+error. Both remain unavailable at this qualification envelope, not predictive
+losses. No baseline worker remained at a later qualified-interpreter process
+inspection. The cleanup repair and explicit resource recovery remain pending;
+all comparative V/test scores and production searches are still unrun.
