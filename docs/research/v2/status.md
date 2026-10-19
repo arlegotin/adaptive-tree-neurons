@@ -111,8 +111,10 @@ workload/recipe qualification, including NODE's full native anchor. Missing or
 capped methods are unavailable comparisons, not scored predictive losses.
 All 14 families now have explicit native-anchor and finite search-support
 descriptors, with checked translation from atomic TPE draws to native schemas.
-Their qualification flags remain false; production trial/V-scoring integration
-and the final support lock are still required.
+Their qualification flags remain false. An engineering wrapper now connects raw
+TPE proposals to guarded native trials, retaining both configurations and paid
+translation time. Production V scoring and the final support lock are still
+required.
 Power, seed commitments, independent metric arithmetic, search supervision,
 compatible teacher-family Holm bounds and report rendering are fixture-tested components. An
 in-memory parent-fork helper now preserves the complete selected training state

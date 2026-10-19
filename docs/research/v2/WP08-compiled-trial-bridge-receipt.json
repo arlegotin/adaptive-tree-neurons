@@ -1,0 +1,41 @@
+{
+  "HPO_seed32": 73,
+  "T_accessed": false,
+  "V_labels_read": false,
+  "actual_native_engineering_trials": 2,
+  "additional_deadline_passed": 1,
+  "base_commit": "149b320",
+  "coordinator_pause_resume": true,
+  "deadline_command_sha256": "673a5c90481cb5d0ceb08738b09ea0d6e710b0486c6b65c5ac5a444db386fedf",
+  "deferred_legacy_backend_setups": 9,
+  "fitting_seed": 17,
+  "full_repository_suite": false,
+  "initial_missing_component_red": 6,
+  "integration_affected_passed": 58,
+  "integration_command_sha256": "a64e9e2afb34e04a8285271913f47144c24b0484a01e4c4af9f499571766c59a",
+  "integration_seconds": 12.37,
+  "inventory_sha256": "51a827b61f17456691cd2794bc0d987a8b3adf0f0029bc1c8eb4d75e7ca16d1a",
+  "limits": [
+    "One tiny full-recipe P00 anchor and one raw TPE proposal; no native quality promotion or validation scoring",
+    "Native support/workload qualification, complete global support lock, production coordinator and protected protocol remain pending",
+    "Six initial missing-module failures preceded implementation; the additional deadline branch check passed on first execution"
+  ],
+  "production_practical_searches": 0,
+  "quality_eligible": false,
+  "raw_and_compiled_configurations_retained": true,
+  "raw_files": 182,
+  "raw_logical_bytes": 3103890,
+  "raw_root": "artifacts/research-v2/WP08/compiled-trial-bridge",
+  "schema": "research/v2-compiled-engineering-trial-preparation-receipt",
+  "scientific_source_sha256": "e590aa74170b409a2204330fa271f537eba20e230f3480e85afdd54f950680a7",
+  "source_files": {
+    "src/treeneuron/research/compiled_trial_bridge_v2.py": "f72e1c9eb27ddd173ddd04dcef813db50e126b9017703954f80c61aab03387f7",
+    "tests/test_compiled_trial_bridge_v2.py": "63da55e0732b37499788b7b9a5d7c7925da888b70dff74e1103f84bccd6d8567"
+  },
+  "statuses": [
+    "completed_ineligible",
+    "completed_ineligible"
+  ],
+  "translation_charged_in_same_remaining_budget": true,
+  "winner": null
+}

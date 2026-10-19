@@ -1499,3 +1499,16 @@ P06 keeps its native sampler. Unknown/missing/nonfinite/off-step/unadmitted draw
 reject; inactive conditional coordinates and duplicates remain paid. No model
 fits, labels, production HPO, final qualified support lock or trial/V-score bridge
 were added. See practical-search-supports.md and its receipt.
+
+WP08 typed supervised proposal bridge: six missing-component RED cases preceded
+strict binding of raw TPE support/anchors to native adapter configuration
+compilation. Fifty-eight affected checks passed in 12.37 s, including two actual
+small full-recipe P00 engineering fits, one native anchor and one TPE proposal,
+with clean unchanged-plan pause/resume. Both retained seed17, remained ineligible
+and reaped their owned child. Raw controller history and compiled worker request
+stay linked through a retained translation file and complete artifact inventory.
+Source/provenance compilation consumes the same remaining trial budget. A separate
+exhaustion boundary check passed: timeout before child start still retains its
+translation. P06/P13 cannot be silently routed through generic TPE. No V labels,
+quality scores/winner or production HPO were admitted. See supervised-search-bridge.md
+and WP08-compiled-trial-bridge-receipt.json.

@@ -73,3 +73,38 @@ exact package, tests, logs, old fixture failure and final raw process/queue proo
 This is one engineering queue repeated for software verification, not independent
 predictive evidence. No production practical search, V-label evaluation, protected
 T, native optimizer recovery or native-quality promotion occurred.
+
+## Typed generic TPE proposal contract
+
+The implemented Task8 slice adds `CompiledEngineeringTrialBridge` in
+`research/compiled_trial_bridge_v2.py`. It requires the exact family descriptor
+hash, atomic support and native anchor sequence from `search_supports_v2`.
+P06's native sampler and P13's finite support retain their existing direct-config
+path; this wrapper cannot replace either with generic TPE. The per-search support
+identity names the canonical family descriptor; the eventual global lock must
+bind every family descriptor separately from its enclosing file digest.
+
+The wrapper translates only declared raw TPE proposals, preserves exact native
+anchors, and calls the existing owned-process engineering bridge. Compilation
+and provenance preparation consume the same remaining enclosing trial budget;
+there is no added trial or free prefix work. The original controller proposal
+remains unchanged. Each attempt retains raw/compiled configurations, source and
+support commitments, inactive conditional coordinates and translation timing.
+The final artifact inventory includes the translation file. Clean pause/resume
+uses the same immutable plan, fitting seed and sampler journal.
+
+This remains an engineering-only connection. No V labels/scores, winner,
+production admission, native quality promotion or protected access is supplied.
+A later separately qualified coordinator must independently authenticate V
+predictions and compute the declared group/day metric before production search.
+
+Six missing-module RED cases preceded implementation. Fifty-eight affected
+checks then passed in 12.37 s, including one actual small full-recipe P00 native
+anchor and one compiled TPE proposal across a clean operator pause/resume. Both
+remained engineering-ineligible, used fitting seed17, retained exact raw/native
+configuration linkage and reaped their supervised child. A separate deadline
+boundary check passed on first execution: preparation exhausting the available
+nanosecond records a paid timeout and translation without starting a child.
+No V labels, score or winner were admitted. Source, logs, model/query artifacts,
+translations and immutable queue records are retained in
+[the receipt](WP08-compiled-trial-bridge-receipt.json).

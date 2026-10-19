@@ -45,5 +45,7 @@ The implementation passed 26 initial native-schema/range/anchor checks after
 gated-core checks. A retained artificial feature-schema descriptor covers all
 14 families and 20 anchors; it creates no observations, model fits or validation
 selection. P13 retains 29 configurations. No final qualified support lock or
-production raw-draw/worker/V-score bridge is supplied by this component. See
+production raw-draw/worker/V-score bridge is supplied by this component. The
+separate [engineering translation wrapper](supervised-search-bridge.md) now
+connects compiled draws to guarded trials; production V scoring remains pending. See
 [the receipt](WP08-family-search-supports-receipt.json).
