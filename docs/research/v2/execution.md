@@ -1153,3 +1153,18 @@ reauthenticates every byte and cached/fresh History values. New modulef2ba610e
 requires qualification75107058 and matching History reader; oldf3c75/339a279e
 receipts retain original scope. No live history application yet; .pt/metadata/
 pointers/arrays/source/globalqueue/activewriters remain excluded.
+
+Important storage-reader correction: active history replacement can trip frozen
+History.load inode-stamp validation despite identical bytes. A controlled actual
+History.load RED reproduced it; helper now holds read-only exclusive producer
+lease for each history operation, default CLI refuses active history before any
+mutation, events-only mode excludes all history.134affectedGREEN21.52s and new
+native disposable CLI proof cover producer/shared-reader blocking and both safe
+modes. Module2a129c78 requires qualification0d241cec.
+
+Earliera5e8 batch completed3,468publications/908verified in115.172s with reported
+per-file allocation4,747,350,016bytes lower. Independent postcheck all4,376original
+hashes/sizes and result markers match; observed entire scientific ledger has
+zero failure/interruption events (1,884eligible/2nominalineligible/1running at
+1792398022287970000). The broader active-history policy is withdrawn; science
+sourcee1b/e322 and all logical bytes remain unchanged. Full inactive audit pending.

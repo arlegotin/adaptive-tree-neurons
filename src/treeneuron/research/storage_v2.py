@@ -14,6 +14,7 @@ import stat
 import subprocess
 import tempfile
 import time
+from contextlib import contextmanager
 
 from treeneuron.config import canonical_hash
 from .ledger import write_new_json
@@ -61,8 +62,32 @@ def _committed_file(ref,root):
     return source.resolve()
 
 
+@contextmanager
+def history_maintenance_lease(protected_root):
+    """Exclude the producer and its coordinated readers; do not rewrite metadata."""
+    import fcntl
+    path=Path(protected_root)/'worker-lease.json'
+    if path.is_symlink() or not path.is_file():raise ValueError('Protected queue lease required for history maintenance')
+    with path.open('r') as stream:
+        try:fcntl.flock(stream.fileno(),fcntl.LOCK_EX|fcntl.LOCK_NB)
+        except BlockingIOError as error:
+            raise PermissionError('Checkpoint history compression requires an inactive producer and readers') from error
+        try:yield
+        finally:fcntl.flock(stream.fileno(),fcntl.LOCK_UN)
+
+
 def compress_training_log(ref,*,protected_root,output,staging_root,min_saving_bytes=4096,
                           free_disk_floor_bytes=512*1024**2):
+    kwargs=dict(protected_root=protected_root,output=output,staging_root=staging_root,
+        min_saving_bytes=min_saving_bytes,free_disk_floor_bytes=free_disk_floor_bytes)
+    path=ref.get('path') if isinstance(ref,dict) else None
+    if type(path) is str and re.fullmatch(r'history-[0-9a-f]{32}\.jsonl',Path(path).name):
+        with history_maintenance_lease(protected_root):return _compress_training_log(ref,**kwargs)
+    return _compress_training_log(ref,**kwargs)
+
+
+def _compress_training_log(ref,*,protected_root,output,staging_root,min_saving_bytes,
+                           free_disk_floor_bytes):
     started=time.perf_counter_ns();root=Path(protected_root).resolve();output=Path(output);staging=Path(staging_root)
     if (output.resolve().is_relative_to(root) or staging.resolve().is_relative_to(root)
             or type(min_saving_bytes) is not int or min_saving_bytes<0

@@ -1,0 +1,97 @@
+{
+  "T_accessed": false,
+  "base_commit": "a5e8dd8",
+  "correction": "Read-only exclusive producer lease for every complete history operation; CLI preflight refuses active producer/readers; events-only mode excludes all history",
+  "current_policy_supersedes_active_history_admission": true,
+  "finding": "Concurrent inode replacement can make frozen History.load reject an otherwise byte-identical file",
+  "logs": {
+    "artifacts/research-v2/WP03/storage-operator-preparation/history-affected-green.log": {
+      "bytes": 181,
+      "sha256": "b8be030e89bb5000125d3468e55c09c4da0f65ed34a931674f61f09099797e50"
+    },
+    "artifacts/research-v2/WP03/storage-operator-preparation/history-lease-final-green.log": {
+      "bytes": 181,
+      "sha256": "1811bb6ca5e1848b48be3c3fcffa686dacfebcf67848eeb1fca2be71aedae8f2"
+    },
+    "artifacts/research-v2/WP03/storage-operator-preparation/history-native-qualification.log": {
+      "bytes": 3917,
+      "sha256": "e1477c934f737e739b02a3db92b5a39c64198c83860450f6a06c9d5c0e94b610"
+    },
+    "artifacts/research-v2/WP03/storage-operator-preparation/history-reader-native-qualification.log": {
+      "bytes": 3960,
+      "sha256": "81f4dd18c7994491c80ac349c03dd1160d01990c5e0f5fe581e2c528ac671f61"
+    },
+    "artifacts/research-v2/WP03/storage-operator-preparation/history-reader-race-green.log": {
+      "bytes": 181,
+      "sha256": "d2bc94b9a464700a7fb0f90ddb20c6506a87d5a6dae2430e18fe496c2bbdd8c7"
+    },
+    "artifacts/research-v2/WP03/storage-operator-preparation/history-reader-race-red.log": {
+      "bytes": 3083,
+      "sha256": "e1400490528f93b091f9ea22dfd90a06a91d79e532e859acfe49aaa2cf49568b"
+    },
+    "artifacts/research-v2/WP03/storage-operator-preparation/history-scope-red.log": {
+      "bytes": 17184,
+      "sha256": "9e2e5af33896c1b7f31d36529f6fef82e30929599d8e06346d9cd57b0a256b27"
+    }
+  },
+  "native_batch_proof": {
+    "active_finished_events_only_allowed": true,
+    "active_history_refused_before_mutation": true,
+    "cached_history_equal": true,
+    "full_queue_authenticated": true,
+    "inactive_history_allowed": true,
+    "models_fitted": 0,
+    "path": "artifacts/research-v2/WP03/storage-leased-batch-cli-proof-a5e8dd8/proof.json",
+    "sha256": "328275c570d9dfa5987ad51e3077c8f88a1d3464761de76875a684f28b63628e"
+  },
+  "native_qualification": {
+    "all_checks_passed": true,
+    "child_lifetime_peak_rss_bytes": 60030976,
+    "disposable_only": true,
+    "history_requires_inactive_producer": true,
+    "operator_lifetime_peak_rss_bytes": 80003072,
+    "operator_module_sha256": "2a129c78eee5e55e56c984fee837073e19f5684ef87ea745d86e3a7fa3031292",
+    "path": "artifacts/research-v2/WP03/atomic-log-compression-leased-qualification-a5e8dd8/qualification.json",
+    "sha256": "0d241cecbe6fc581240c1ea74ae3074877f197f8ea5b790f5819fe39ad2d27ab"
+  },
+  "prior_application_postcheck": {
+    "all_historical_nonstandard_status_events": [],
+    "all_original_logical_hashes_sizes_and_result_markers_match": true,
+    "files": 4376,
+    "full_inactive_queue_audit_pending": true,
+    "observed_utc_ns": 1792398022287970000,
+    "path": "artifacts/research-v2/WP03/completed-log-compression-a5e8dd8-02/postcheck.json",
+    "sha256": "22a1eeb33588e96003f7288fa99f38ac71ed666de7f8123e54def7fc05b6a1de"
+  },
+  "root_cause": "History.load compares inode/mtime/ctime stamp before and after reading a committed prefix",
+  "schema": "research/v2-history-storage-reader-correction",
+  "scientific_source_parameters_unchanged": true,
+  "source_files": {
+    "docs/research/v2/scripts/compress_completed_logs.py": "912694203fe6d9222b9fba67e04cd5f4ea83a1da2984c7d41b8786d1748d355b",
+    "docs/research/v2/scripts/qualify_log_compression.py": "1dc737cdccf81ac323762980051a6e5efce2afe377719e204ab7629afbc4c12e",
+    "src/treeneuron/research/storage_v2.py": "2a129c78eee5e55e56c984fee837073e19f5684ef87ea745d86e3a7fa3031292",
+    "tests/test_storage_v2.py": "9e9718f204c9be6a89c62561d87b502c659cf7c6aa2c167fe47bf6d6da9973fc"
+  },
+  "verification": {
+    "affected_passed": 134,
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-B",
+      "-c",
+      "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"tests/test_storage_v2.py\",\"tests/test_opportunity_prediction_audit.py\",\"tests/test_opportunity_collection.py\",\"tests/test_control_audit.py\",\"tests/test_workqueue.py\",\"tests/test_metrics.py\",\"tests/test_checkpoint.py\"]))"
+    ],
+    "controlled_History_load_race_red": 1,
+    "cwd": "/private/tmp/atn-research-v2-next",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "seconds": 21.52,
+    "shared_reader_boundary_first_pass_green": 1
+  }
+}

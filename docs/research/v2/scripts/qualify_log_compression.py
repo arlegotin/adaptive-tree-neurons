@@ -20,7 +20,8 @@ def main():
     parser.add_argument('--expected-plan-hash',required=True);parser.add_argument('--output',type=Path,required=True)
     args=parser.parse_args();started=time.perf_counter_ns();args.output.mkdir(parents=True,exist_ok=False)
     source_plan=storage_v2.plan_completed_training_logs(args.study,expected_plan_hash=args.expected_plan_hash)
-    checks=[];carrier=args.output/'disposable-study'
+    checks=[];carrier=args.output/'disposable-study';carrier.mkdir()
+    write_new_json(carrier/'worker-lease.json',dict(software_only=True))
     for kind in ('events','history'):
         choices=[r for r in source_plan['files'] if (Path(r['path']).name=='events.jsonl')==(kind=='events')]
         original=max(choices,key=lambda r:(r['bytes'],r['path']))
@@ -67,7 +68,8 @@ def main():
         disposable_copy_only=True,logical_bytes=sum(r['logical_bytes'] for r in checks),original_reader_identical=True,
         random_seek_reads_identical=True,readonly_mmap_identical=True,JSON_lines_parsed=sum(r['JSON_lines_parsed'] for r in checks),
         no_temporary_names_in_protected_inventory=True,reported_block_saving_bytes=sum(r['reported_block_saving_bytes'] for r in checks),
-        history_values_identical=True,history_reader_module_sha256=storage_v2._sha(sys.modules[History.__module__].__file__),all_checks_passed=True,
+        history_values_identical=True,history_requires_inactive_producer=True,
+        history_reader_module_sha256=storage_v2._sha(sys.modules[History.__module__].__file__),all_checks_passed=True,
         elapsed_ns=time.perf_counter_ns()-started,native_escalated_execution=True,
         live_scientific_files_mutated=False,model_or_source_changed=False,T_accessed=False,
         volume_saving_attributed=False,operator_lifetime_peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*(1 if sys.platform=='darwin' else 1024),

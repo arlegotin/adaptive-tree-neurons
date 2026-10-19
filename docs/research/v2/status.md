@@ -99,3 +99,9 @@ preserving their exact readable hashes and all recorded evidence. It reported
 about1.28GiB less per-file allocation and left models/data/checkpoints unchanged.
 The experiment continues under its original source and resource guards; this
 changes storage representation and supplies no new predictive result.
+
+The checkpoint-history storage pass also kept every original readable hash.
+I then found and corrected a reader-concurrency gap: future history maintenance
+requires the producer to be inactive. The completed pass had no recorded
+scientific failure; all4,376maintained/verified file commitments matched afterward.
+The study's source, predictions and decision rules have not changed.

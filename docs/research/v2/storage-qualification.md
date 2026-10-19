@@ -1,5 +1,10 @@
 # Storage recovery qualification
 
+Current policy: completed event logs can be maintained while a producer runs;
+checkpoint-history text requires a read-only exclusive producer lease throughout
+each operation. The CLI refuses active history maintenance before changing any
+file. This supersedes the earlier active-history admission recorded below.
+
 Transparent filesystem compression was tested only on newly created copies of
 an already completed checkpoint. The live scientific queue and its original
 files were left unchanged. No production storage operator was implemented.
@@ -76,3 +81,28 @@ authentication. The new module/tool/reader hashes and both-format requirement
 replace the old qualification for future operations; earlier receipts still
 describe their original module. Actual application and postcheck remain separately
 recorded in WP03-history-storage-receipt.json. Active writers remain excluded.
+
+The second batch completed3,468new publications and reverified908already-compressed
+files in115.172s, with4,747,350,016bytes less stat-reported per-file allocation.
+Afterward, all4,376original byte hashes/sizes and producer result markers matched.
+The entire observed scientific ledger contained no failure/interruption event.
+
+A subsequent source review found a concurrency gap missed by the first native
+qualification: History.load compares the inode stamp before/after its read. An
+atomic replacement during that read can therefore cause validation failure even
+when logical bytes are identical. A controlled test reproduced that exact failure.
+The helper now takes a read-only exclusive producer lease before a history
+operation, excluding producer and coordinated collector reads until publication
+finishes. The default batch CLI refuses an active producer before any mutation;
+`--events-only` selects no history files. The prior completed application had no
+recorded cohort failure and all original commitments still match, but its broader
+active-history policy is withdrawn. No further active history maintenance is
+permitted.
+
+The corrected suite passed134tests in21.52s. New native disposable qualification
+and a full CLI check proved active-history refusal before mutation, active
+finished-events-only operation, inactive-history operation, unchanged queue bytes,
+and cached/fresh History equality. The shared-reader boundary also passes without
+changing lease metadata bytes. The new operator/qualification digests and exact
+postcheck are in WP03-history-reader-correction-receipt.json. Full inactive
+scientific archive authentication remains pending.

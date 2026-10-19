@@ -1,5 +1,17 @@
 {
   "T_accessed": false,
+  "application": {
+    "all_original_logical_hashes_sizes_and_result_markers_postchecked": true,
+    "already_compressed_verified": 908,
+    "elapsed_ns": 115172286250,
+    "path": "artifacts/research-v2/WP03/completed-log-compression-a5e8dd8-02",
+    "published_files": 3468,
+    "reported_per_file_block_saving_bytes": 4747350016,
+    "status": "completed",
+    "volume_free_after_bytes": 12426522624,
+    "volume_free_before_bytes": 7799087104,
+    "volume_saving_attributed": false
+  },
   "base_commit": "6889f82",
   "batch_cli_proof": {
     "T_accessed": false,
@@ -10,7 +22,8 @@
     "sha256": "d7829df5f7939d7a4a6f47d78fcbf47b8b3d6b3fb79fdc3f0e1bb295fc227929",
     "software_only": true
   },
-  "live_application": false,
+  "current_policy_superseded_by": "WP03-history-reader-correction-receipt.json",
+  "live_application": true,
   "logs": {
     "artifacts/research-v2/WP03/storage-operator-preparation/history-affected-green.log": {
       "bytes": 181,
@@ -42,9 +55,8 @@
     "sha256": "751070583920974ed471331795427566c53b154aa4490af5ba387ac55649197a"
   },
   "pending": [
-    "apply the new exact qualified module to committed closed logs only",
-    "postcheck logical hashes and result markers",
-    "full inactive scientific-queue audit"
+    "full inactive scientific-queue audit",
+    "future history maintenance only under exclusive producer/read lease"
   ],
   "schema": "research/v2-closed-history-storage-extension",
   "scope": "Completed producer-published event logs and history-<uuid>.jsonl within the owning artifact only; all logical bytes unchanged",

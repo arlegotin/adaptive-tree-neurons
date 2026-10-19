@@ -140,6 +140,7 @@ def test_published_completed_history_files_keep_exact_prefix_and_cached_history_
     from treeneuron.history import History
     study=tmp_path/'study';job=study/'jobs'/'frozen'/'attempt-0';directory=job/location
     history=History(dict(update=i,rows=[1,2,3]) for i in range(200));reference=history.publish(directory)
+    (study/'worker-lease.json').write_text('{"software_only":true}')
     file=directory/reference['file'];before=file.read_bytes();loaded_before=History.load(directory,reference)
     marker=job/'job-result.json';entry=dict(path=file.relative_to(job).as_posix(),bytes=len(before),sha256=hashlib.sha256(before).hexdigest())
     marker.write_text(json.dumps(dict(job_id='frozen',value={'status':'completed_eligible'},files=[entry])))
@@ -152,3 +153,36 @@ def test_published_completed_history_files_keep_exact_prefix_and_cached_history_
     # against the same committed prefix before extending it. Never a live writer.
     loaded_before.append(dict(update=200,rows=[4,5,6]));extended=loaded_before.publish(directory)
     assert extended['count']==201 and list(History.load(directory,reference))==list(history)
+
+
+def test_concurrent_study_history_reader_is_protected_from_inode_replacement(tmp_path,monkeypatch):
+    from treeneuron.history import History
+    from treeneuron import history as history_module
+    from treeneuron.research.ledger import StudyLease
+    study=tmp_path/'study';job=study/'jobs'/'frozen'/'attempt-0';directory=job/'artifact'
+    original=History(dict(update=i,rows=[1,2,3]) for i in range(200));reference=original.publish(directory)
+    file=directory/reference['file'];marker=job/'job-result.json';raw=file.read_bytes()
+    entry=dict(path=file.relative_to(job).as_posix(),bytes=len(raw),sha256=hashlib.sha256(raw).hexdigest())
+    marker.write_text(json.dumps(dict(job_id='frozen',value={'status':'completed_eligible'},files=[entry])))
+    ref=dict(path=str(file),bytes=entry['bytes'],sha256=entry['sha256'],job_id='frozen',result_reference=dict(path=str(marker),sha256=hashlib.sha256(marker.read_bytes()).hexdigest()))
+    monkeypatch.setattr(api(),'_ditto',plain);read_prefix=history_module._read_prefix;blocked=[]
+    def during_checkpoint_validation(path,length):
+        try:compress(tmp_path,ref)
+        except PermissionError:blocked.append(True)
+        return read_prefix(path,length)
+    monkeypatch.setattr(history_module,'_read_prefix',during_checkpoint_validation)
+    with StudyLease(study):loaded=History.load(directory,reference)
+    assert blocked==[True] and loaded==original
+    assert not (tmp_path/'operation').exists()
+
+
+def test_shared_collector_also_excludes_history_maintenance_without_changing_lease_bytes(tmp_path):
+    import fcntl
+    study=tmp_path/'study';study.mkdir();lease=study/'worker-lease.json';lease.write_text('{"owner":"fixture"}')
+    original=lease.read_bytes()
+    with lease.open('r') as reader:
+        fcntl.flock(reader.fileno(),fcntl.LOCK_SH|fcntl.LOCK_NB)
+        with pytest.raises(PermissionError,match='inactive'):
+            with api().history_maintenance_lease(study):pass
+    with api().history_maintenance_lease(study):pass
+    assert lease.read_bytes()==original

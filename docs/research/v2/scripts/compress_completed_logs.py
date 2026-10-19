@@ -7,7 +7,7 @@ import stat
 import sys
 import time
 
-from treeneuron.config import canonical_json
+from treeneuron.config import canonical_hash,canonical_json
 from treeneuron.research import storage_v2
 from treeneuron.research.ledger import StudyLease,write_new_json
 
@@ -16,6 +16,7 @@ def main():
     parser=argparse.ArgumentParser();parser.add_argument('--study',type=Path,required=True)
     parser.add_argument('--expected-plan-hash',required=True);parser.add_argument('--qualification',type=Path,required=True)
     parser.add_argument('--expected-qualification-sha256',required=True);parser.add_argument('--output',type=Path,required=True)
+    parser.add_argument('--events-only',action='store_true',help='Allow only finished event logs while producer runs; history requires inactive producer')
     args=parser.parse_args();started=time.perf_counter_ns()
     if args.output.resolve().is_relative_to(args.study.resolve()):raise ValueError('Maintenance must not add files to the frozen queue')
     if args.qualification.is_symlink() or storage_v2._sha(args.qualification)!=args.expected_qualification_sha256:
@@ -26,6 +27,7 @@ def main():
     if (proof.get('schema')!='research/v2-atomic-log-compression-qualification'
             or proof.get('qualified_log_kinds')!=['events','history']
             or proof.get('history_values_identical') is not True
+            or proof.get('history_requires_inactive_producer') is not True
             or proof.get('history_reader_module_sha256')!=storage_v2._sha(Path(storage_v2.__file__).parents[1]/'history.py')
             or any(proof.get(k) is not True for k in required) or proof.get('live_scientific_files_mutated') is not False
             or proof.get('T_accessed') is not False or proof.get('platform')!=sys.platform or sys.platform!='darwin'
@@ -34,6 +36,14 @@ def main():
             or proof.get('source_device')!=args.study.stat().st_dev):
         raise ValueError('Native compression/reader/atomic-publication qualification differs')
     plan=storage_v2.plan_completed_training_logs(args.study,expected_plan_hash=args.expected_plan_hash)
+    original_snapshot=plan.pop('plan_hash');plan['base_storage_snapshot_hash']=original_snapshot
+    plan['file_selection']='events_only' if args.events_only else 'events_and_history'
+    if args.events_only:plan['files']=[ref for ref in plan['files'] if Path(ref['path']).name=='events.jsonl']
+    else:
+        # Refuse before any mutation; each history operation also holds its own
+        # exclusive lease, so a producer starting later cannot race publication.
+        with storage_v2.history_maintenance_lease(args.study):pass
+    plan['plan_hash']=canonical_hash(plan)
     args.output.mkdir(parents=True,exist_ok=False)
     with StudyLease(args.output):
         write_new_json(args.output/'plan.json',plan)
