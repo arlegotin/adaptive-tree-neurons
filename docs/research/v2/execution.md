@@ -1525,3 +1525,17 @@ Only artificial Energy/Bike tables were used; no real V/T, production search,
 model qualification or eligibility authority. All five opened references are
 rechecked, float32 predictions explicitly upcast only for metrics, and zero F
 variance remains unavailable. See primary-validation-scoring.md and its receipt.
+
+WP07 NODE budget integration: the registered worker passedmax_seconds to an
+adapter acceptingonlymax_updates. Ten RED checks preceded a separate native/
+search monotonic time-budget path with no update ceiling, unchanged native
+patience/report/rolling/QHAdam and retained request budget. Finite engineering
+update limits are unchanged.28checks passed4.20s; an added post-update deadline
+case failed, then a check before G evaluation fixed it. Final153affected tests
+passed192.79s with44native warnings, including bounded direct-official/portable
+snapshot/corruption comparisons and shared worker/P13/transforms. Expired native
+worker configuration now reports timeout before allocation. A small actual NODE
+loop with explicit fixture recipe/predetermined G predictions checks strict
+patience, not quality. Full2048timed native anchor and completed unbounded saved
+endpoint remain unqualified; no real transferV/T, HPO or efficacy claim. See
+NODE-shared-worker-budget.md and WP07-NODE-worker-budget-receipt.json.

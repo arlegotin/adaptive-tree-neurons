@@ -109,6 +109,9 @@ No production practical search, real variance calibration, final protocol freeze
 or protected confirmation has run. The mandatory suite still needs remaining
 workload/recipe qualification, including NODE's full native anchor. Missing or
 capped methods are unavailable comparisons, not scored predictive losses.
+The NODE worker/adapter time-budget mismatch has been repaired without shortening
+its native recipe.153affected numerical/state/worker checks passed; the full
+timed2048-tree anchor and its no-update-ceiling saved endpoint remain unqualified.
 All 14 families now have explicit native-anchor and finite search-support
 descriptors, with checked translation from atomic TPE draws to native schemas.
 Their qualification flags remain false. An engineering wrapper now connects raw

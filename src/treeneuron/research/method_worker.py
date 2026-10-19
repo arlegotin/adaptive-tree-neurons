@@ -244,7 +244,7 @@ def run_engineering_trial(request_path,*,expected_request_sha256,output):
         if time.perf_counter_ns()-started>value['budget']['max_seconds']*1e9:
             record.update(status='timeout',reason='Worker body exceeded requested budget; outputs retained ineligible')
     except BaseException as error:
-        status='interrupted_recoverable' if isinstance(error,(KeyboardInterrupt,SystemExit)) else (
+        status='interrupted_recoverable' if isinstance(error,(KeyboardInterrupt,SystemExit)) else 'timeout' if isinstance(error,TimeoutError) else (
             'resource_exhausted' if isinstance(error,MemoryError) or isinstance(error,OSError) and error.errno in (12,28) else
             'numerical_failure' if isinstance(error,ArithmeticError) else 'input_or_dependency_failure')
         record.update(status=status,error_type=type(error).__module__+'.'+type(error).__qualname__,

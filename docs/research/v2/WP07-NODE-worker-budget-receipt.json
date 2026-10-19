@@ -1,0 +1,45 @@
+{
+  "T_accessed": false,
+  "actual_transfer_V_labels_read": false,
+  "base_commit": "69da2f8",
+  "command_receipts": {
+    "final-green-command.json": "5ca7d51e35082a7f60334691bcbabeaaee03c48e1c8a0548a28c3d0f887b2f15",
+    "green-command.json": "d3a8f49db92fb1fb8745cb5244d1ade13111602cc645df9cec83a5a7fe3db226",
+    "post-update-deadline-red-command.json": "db1d97a136b2bf20791bb9383946fccc063801df82c054eaf8d35b7c42eb790e",
+    "red-command.json": "0d6ffd54dc940c645b1e33e773d283fd4b4d3de28a93bb6dc32047a3e4388771"
+  },
+  "deferred_legacy_backend_setups": 9,
+  "final_affected_passed": 153,
+  "final_affected_seconds": 192.79,
+  "first_affected_passed": 28,
+  "first_affected_seconds": 4.2,
+  "full_2048_native_anchor_qualified": false,
+  "full_repository_suite": false,
+  "initial_red": 10,
+  "initial_red_seconds": 1.76,
+  "inventory_sha256": "8f190d54d6ea9a1913007de1bc897206d726806dd29aedf00daf85f0b344ebd4",
+  "legacy_update_budget_unchanged": true,
+  "limits": [
+    "Actual small NODE unbounded-loop test uses an explicit fixture recipe and predetermined G predictions; no native quality result",
+    "Full timed native anchor and its no-update-ceiling saved endpoint remain to be qualified",
+    "Hard deadline/RSS and noninterruptible kernel cleanup remain external supervisor responsibilities"
+  ],
+  "native_recipe_shortened": false,
+  "native_warnings": 44,
+  "post_update_deadline_red": 1,
+  "quality_eligible": false,
+  "raw_files": 451,
+  "raw_logical_bytes": 13629478,
+  "raw_root": "artifacts/research-v2/WP07/node-worker-budget",
+  "schema": "research/v2-NODE-shared-worker-budget-receipt",
+  "scientific_source_sha256": "ca2ad724cded4413513dd05cb0f3218a51f516ecb4c6da2eda41a603853ac19c",
+  "source_files": {
+    "docs/research/v2/NODE-shared-worker-budget.md": "c6a09db80722b44864bcc89a503ce27918d1cad33554010eb2f955b831fea1ef",
+    "src/treeneuron/research/method_worker.py": "af31489dd3d55df9cdc19ce33334259198a5b7b06a5852301f40e52d360ceafb",
+    "src/treeneuron/research/node_v2.py": "7963c3f734f300507fca316ffddcce3b676457be32111bed77bcd219f0e5c9d8",
+    "tests/test_node_worker_budget.py": "2bb2591d962e3548c747dbb24692cf67e7d489d7b6ee2e7080a87496ac305692"
+  },
+  "time_budget_update_ceiling": null,
+  "timeout_status_retained": true,
+  "unbounded_native_snapshot_qualified": false
+}

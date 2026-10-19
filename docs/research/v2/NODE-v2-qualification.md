@@ -90,6 +90,15 @@ operation imports are authenticated when fitting/restoring.
 
 ## Pending qualification
 
+The shared worker's time-budget integration was subsequently repaired on the
+research continuation branch. Native/search configurations now accept the
+worker's max_seconds without adding an update ceiling; expired fits retain a
+timeout status. The finite-update engineering path remains intact.153affected
+checks passed, including the original direct-reference and snapshot checks.
+This does not qualify a full2048-tree timed anchor or its completed unbounded
+snapshot. See [the exact contract](NODE-shared-worker-budget.md) and
+[receipt](WP07-NODE-worker-budget-receipt.json).
+
 Static row/encoded-width/parameter guards are explicit unmeasured input rejection
 boundaries. They do not establish finite transformed workload capacity, hard RSS,
 deadline or concurrency admission. F/G rows are never silently dropped.

@@ -335,11 +335,32 @@ def _restore_rng(value,torch):
     np.random.set_state(value['numpy']);random.setstate(value['python']);torch.set_rng_state(value['torch'])
 
 
-def _train(model,optimizer,F,y,G,gy,resolved,cap,trace):
+def _training_budget(cfg,budget,*,started_ns):
+    if type(budget) is not dict:raise ValueError('Explicit NODE training budget required')
+    if set(budget)=={'max_updates'}:
+        cap=budget['max_updates']
+        if type(cap) is not int or cap<=0 or cfg.state['mode']=='engineering_fixture' and cap>128:
+            raise ValueError('Invalid NODE explicit update ceiling')
+        return cap,None
+    if set(budget)=={'max_seconds'}:
+        seconds=budget['max_seconds']
+        if cfg.state['mode']=='engineering_fixture' or not _finite(seconds) or not 0<seconds<=7200:
+            raise ValueError('Native/search NODE requires a finite positive time budget at most7200s')
+        return None,started_ns+int(seconds*1e9)
+    raise ValueError('Choose exactly one explicit NODE time or update budget')
+
+
+def _check_deadline(deadline_ns):
+    if deadline_ns is not None and time.perf_counter_ns()>=deadline_ns:
+        raise TimeoutError('NODE fit exceeded its complete monotonic time budget')
+
+
+def _train(model,optimizer,F,y,G,gy,resolved,cap,trace,*,deadline_ns=None):
     torch=_native()[0];tx=torch.from_numpy(F);ty=torch.from_numpy(y)
     indices=np.arange(len(F),dtype=np.int64);cursor=len(F);epoch=-1;window=[];reports=[];best=None;best_opt=None;best_window=[]
     best_mse=float('inf');best_step=0;step=0
-    while step<cap:
+    while cap is None or step<cap:
+        _check_deadline(deadline_ns)
         if cursor==len(F):np.random.shuffle(indices);cursor=0;epoch+=1
         batch=indices[cursor:cursor+resolved['batch_size']].copy();cursor+=len(batch)
         record=dict(step=step+1,epoch=epoch,rows=batch.tolist(),loss=None,gradient_norms={},optimizer_entered=False,applied=False,elapsed_ns=0)
@@ -357,6 +378,7 @@ def _train(model,optimizer,F,y,G,gy,resolved,cap,trace):
             record['optimizer_entered']=True;_optimizer_step(optimizer);record['applied']=True;step+=1
             if any(not torch.isfinite(p).all() for p in model.parameters()):raise FloatingPointError('Nonfinite native NODE updated parameter')
         finally:record['elapsed_ns']=time.perf_counter_ns()-started
+        _check_deadline(deadline_ns)
         if step%resolved['report_frequency']==0:
             raw=_model_state(model);window.append(dict(step=step,model=raw));window=window[-5:]
             averaged=_average(window);model.load_state_dict(averaged)
@@ -366,6 +388,7 @@ def _train(model,optimizer,F,y,G,gy,resolved,cap,trace):
             if mse<best_mse:
                 best_mse=mse;best_step=step;best=_model_state(model);best_opt=copy.deepcopy(optimizer.state_dict());best_window=copy.deepcopy(window)
             model.load_state_dict(raw)
+        _check_deadline(deadline_ns)
         if _patience_reached(step,best_step,resolved['patience']):break
     raw=_model_state(model);raw_opt=copy.deepcopy(optimizer.state_dict())
     if best is not None:model.load_state_dict(best)
@@ -389,16 +412,16 @@ class NodeV2Predictor:
         phase_started=started;phase_costs={}
         def enter_phase(name):
             nonlocal phase,phase_started
+            _check_deadline(deadline_ns)
             now=time.perf_counter_ns();phase_costs[phase]=phase_costs.get(phase,0)+now-phase_started
             phase=name;phase_started=now
         def captured_costs():
             now=time.perf_counter_ns();costs=phase_costs.copy();costs[phase]=costs.get(phase,0)+now-phase_started
             return costs,now-started
-        caller_numpy=np.random.get_state();caller_python=random.getstate()
+        caller_numpy=np.random.get_state();caller_python=random.getstate();deadline_ns=None
         try:
-            cfg=NodeV2Config.parse(request.config);seed=_seed(request.seed);resolved=cfg.resolved();cap=request.budget.get('max_updates')
-            if (set(request.budget)!={'max_updates'} or type(cap) is not int or cap<=0
-                    or cfg.state['mode']=='engineering_fixture' and cap>128):raise ValueError('Invalid NODE explicit update ceiling')
+            cfg=NodeV2Config.parse(request.config);seed=_seed(request.seed);resolved=cfg.resolved()
+            cap,deadline_ns=_training_budget(cfg,request.budget,started_ns=started)
             enter_phase('source_validation');source=source_identity();enter_phase('dependencies');torch=_native()[0]
             before=_rng(torch);before['numpy']=caller_numpy;before['python']=caller_python
             _require_native_defaults(torch)
@@ -413,7 +436,7 @@ class NodeV2Predictor:
             _initialized(model)
             if any(not torch.isfinite(v).all() for v in model.state_dict().values()):raise FloatingPointError('Nonfinite native NODE initialized state')
             initial=_model_state(model);optimizer=_optimizer(model,resolved);enter_phase('training')
-            state=_train(model,optimizer,F,y,G,gy,resolved,cap,trace);state['initial_model']=initial
+            state=_train(model,optimizer,F,y,G,gy,resolved,cap,trace,deadline_ns=deadline_ns);state['initial_model']=initial
             state.update(transform=transform.to_state(),seed=seed,max_updates=cap,n_fit=len(F),n_select=len(G),
                 F_identity=dict(features=_array_identity(F),target=_array_identity(_target(request.y_fit))),
                 G_identity=dict(features=_array_identity(G),target=_array_identity(_target(request.y_select))),
@@ -423,13 +446,13 @@ class NodeV2Predictor:
             if source_identity()!=source or _runtime()!=runtime:raise ValueError('NODE source/runtime changed during fitting')
             identity=dict(source=source,runtime=runtime)
             costs,elapsed=captured_costs()
-            receipt=dict(status='completed_ineligible',seed=seed,config=cfg.to_state(),resolved=resolved,phase='complete',
+            receipt=dict(status='completed_ineligible',seed=seed,config=cfg.to_state(),resolved=resolved,phase='complete',budget=copy.deepcopy(request.budget),
                 elapsed_ns=elapsed,phase_costs_ns=costs,timing_scope='Through phase capture; successful receipt publication/final caller-state restoration require enclosing worker time',executed_updates=state['summary']['executed_updates'],
                 trace=trace,summary=state['summary'],identity=identity)
             enter_phase('receipt_publication');_write(root/'fit-receipt.json',receipt)
         except BaseException as error:
             costs,elapsed=captured_costs()
-            receipt=dict(status='failed',seed=request.seed,config=request.config,phase=phase,elapsed_ns=elapsed,phase_costs_ns=costs,
+            receipt=dict(status='failed',seed=request.seed,config=request.config,phase=phase,budget=copy.deepcopy(request.budget),elapsed_ns=elapsed,phase_costs_ns=costs,
                 timing_scope='Through failure capture; failure receipt publication/final caller-state restoration require enclosing worker time',
                 executed_updates=sum(r['applied'] for r in trace),trace=trace,
                 partial_optimizer_update_possible=any(r['optimizer_entered'] and not r['applied'] for r in trace),error_type=type(error).__name__,reason=str(error),traceback=traceback.format_exc())
@@ -617,7 +640,8 @@ def _validate_endpoint(state,cfg):
         'reports','trace','sampler','rng','summary','transform','seed','max_updates','n_fit','n_select','F_identity','G_identity','initialization','prediction_binding'}
     if type(state) is not dict or set(state)!=fields:raise ValueError('Invalid NODE endpoint fields')
     seed=_seed(state['seed']);cap=state['max_updates'];nf=state['n_fit'];ng=state['n_select']
-    if (type(cap) is not int or cap<1 or cfg.state['mode']=='engineering_fixture' and cap>128
+    if ((cap is not None and (type(cap) is not int or cap<1))
+            or cfg.state['mode']=='engineering_fixture' and (cap is None or cap>128)
             or type(nf) is not int or not 2<=nf<=20000 or type(ng) is not int or not 1<=ng<=20000):raise ValueError('Invalid NODE endpoint workload')
     transform=NodeTransform.from_state(state['transform']);width=transform.state['width']
     if (transform.state['seed']!=seed or transform.state['n_fit']!=nf or transform.state['schema']!=cfg.state['feature_schema']
@@ -636,7 +660,7 @@ def _validate_endpoint(state,cfg):
     model=_build_model(width,resolved)
     for name in ('initial_model','raw_model'):_validate_model(state[name],model)
     summary=state['summary'];trace=state['trace'];reports=state['reports']
-    if type(summary) is not dict or type(trace) is not list or not trace or len(trace)>cap or type(reports) is not list:raise ValueError('Invalid NODE training evidence')
+    if type(summary) is not dict or type(trace) is not list or not trace or (cap is not None and len(trace)>cap) or type(reports) is not list:raise ValueError('Invalid NODE training evidence')
     executed=len(trace);gradient_names={name for name,p in model.named_parameters() if p.requires_grad};cursor=0;epoch=0;seen=[]
     for step,row in enumerate(trace,1):
         if (type(row) is not dict or set(row)!={'step','epoch','rows','loss','gradient_norms','optimizer_entered','applied','elapsed_ns'}
@@ -669,7 +693,7 @@ def _validate_endpoint(state,cfg):
         if row is not None and row['g_mse']<best:best=row['g_mse'];best_step=step;winner=row
         if _patience_reached(step,best_step,resolved['patience']):first_stop=step;break
     if first_stop is not None and first_stop!=executed:raise ValueError('NODE trace continued past native patience')
-    if first_stop is None and executed!=cap:raise ValueError('NODE stopped before its declared cap/patience')
+    if first_stop is None and (cap is None or executed!=cap):raise ValueError('NODE stopped before its declared cap/patience')
     expected_summary=dict(executed_updates=executed,selected_step=winner['step'] if winner is not None else None,
         stop_reason='G_patience' if first_stop is not None else 'max_updates',checkpoint_available=winner is not None,
         selection_status='G_selected' if winner is not None else 'raw_unselected_at_cap',quality_eligible=False,native_full_anchor_qualified=False)
