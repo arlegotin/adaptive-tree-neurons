@@ -1,0 +1,56 @@
+{
+  "Gate_D": false,
+  "T_accessed": false,
+  "V_labels_read": false,
+  "failed_attempt_receipt": "WP07-tree-worker-snapshot-correction.json",
+  "files": 39,
+  "fit_seed": 17,
+  "git_commit": "702479eb80d7f2a03dacd140c8d75286ab9fdf5f",
+  "inventory_sha256": "2e95c33fb24e12b2d83f2ca7da6dbc4fd7a274bdde6ca946b372dc1bd756cc3d",
+  "logical_bytes": 13286033,
+  "native_adapter_bundle_sha256": "6907642e89c70a1d338e24c92ec2f18631c9e089546121d1e825a7843cba7578",
+  "native_recipe": {
+    "executed_rounds": 10000,
+    "max_rounds": 10000,
+    "mode": "native_anchor",
+    "native_stop": "max_rounds",
+    "patience": 200,
+    "resolved_depth": 6,
+    "resolved_learning_rate": 0.01425199955701828,
+    "selected_rounds": 9994
+  },
+  "prepared_transfer_fits": 0,
+  "production_practical_searches": 0,
+  "proof": {
+    "child_reaped": true,
+    "direct_official_vs_worker_exact": true,
+    "direct_proof_sha256": "be895b306d77acca810d0103e6ee3e752c51514a3d28f33d6f44be7d399a5e31",
+    "native_optimizer_resume": false,
+    "old_failed_worker_model_vs_recovery_exact": true,
+    "snapshot_reload_exact": true
+  },
+  "quality_eligible": false,
+  "raw_root": "artifacts/research-v2/WP07/P08-native-primary-shape-recovery-702479e",
+  "resources": {
+    "charged_search_ns": 22092602042,
+    "clock_nesting": "Native fit within worker within paid search within launcher; add only separate failed/recovery paid searches",
+    "dedicated_timing_qualified": false,
+    "failed_plus_recovery_paid_search_ns": 43886284000,
+    "launcher_body_ns": 22147426959,
+    "native_fit_ns": 19672747625,
+    "process_lifetime_peak_rss_bytes": 204062720,
+    "sampled_root_peak_rss_bytes": 223674368,
+    "strict_peak_or_descendant_memory_qualified": false,
+    "worker_body_ns": 21921162625
+  },
+  "same_data_configuration_seed": true,
+  "schema": "research/v2-P08-native-primary-shape-recovery",
+  "scope": "One full native recipe on a real-size synthetic development dataset; direct official inference parity, not full official independent retraining or predictive comparison",
+  "source_sha256": "17cbebfcacf71ba776eef8d763b3b544a842582b5d3fdbb5c32f1e26d2895bad",
+  "workload": {
+    "F": 2306,
+    "G": 577,
+    "V_features": 577,
+    "dimensions": 16
+  }
+}

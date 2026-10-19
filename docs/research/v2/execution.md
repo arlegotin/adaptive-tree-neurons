@@ -1266,3 +1266,22 @@ supplied audit and opens no raw evidence; it cannot authenticate that audit or
 authorize confirmation. Sentinel reports only, no real study report or T access.
 Canonical artifact audit/protected readers/production CLI remain pending. See
 canonical-report-renderer.md and WP11-report-renderer-receipt.json.
+
+
+WP07 native tree worker correction and full-shape engineering:702479e / scientific
+17cbebfc reproduces four tree snapshot failures, then passes87affected checks
+with6optional read-only snapshot skips in19.25s. Original full CatBoost native
+training reached10000/selected9994before worker reopen failed; one same-data/
+config/seed recovery completed with exact reload and official inference parity
+against the original partial model. Full-shape raw input/output/source identities,
+43.886284000s total disjoint paid searches and resource scopes are in
+WP07-P08-native-primary-shape-receipt.json and native-tree-full-shape.md.
+No comparative predictive metrics, V labels or T were accessed.
+
+A separate24-anchor primary-transfer engineering queue is active at the same
+parked source, serial native workers with per-attempt300s/1GiB root-sampled
+limits and live memory/disk admission. Its actual transfer fits must be reported
+separately from the still-zero production practical searches. The current native
+checkout must stay fixed; further source implementation may occur in the main
+continuation checkout and cannot rewrite/relabel these earlier receipts. GateD
+and all production qualification/protocol gates remain pending.

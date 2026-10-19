@@ -67,9 +67,11 @@ proposed complementary-group selector has not been trained or confirmed. At a
 fixed growth count, unrestricted model families can be relabeled; the placement
 question concerns learning from the current parent within finite training/cost.
 
-Strong baseline adapters are progressing through tiny official-reference checks.
-Those checks are implementation evidence, not predictive wins. Full native anchors,
-modern practical comparison and protected confirmation remain pending. Prospective
+Strong baseline adapters have passed tiny official-reference checks, and full
+native-recipe execution is now being measured. A CatBoost anchor completed on one
+main-family development dataset;24tree anchors are running on the designated
+primary transfer splits. These are execution/resource checks, with no V labels
+or protected outcomes used. The modern predictive comparison remains unrun. Prospective
 variance/power software is prepared on artificial fixtures; no real calibration
 or protocol freeze has occurred.
 
@@ -80,10 +82,10 @@ efficiency claim. [Execution ledger](execution.md), [reproduction](reproduce.md)
 [implementation plan](../../superpowers/plans/2026-10-18-research-v2.md) retain the
 exact state, evidence and next steps.
 
-As of19October,10:55UTC, the main diagnostic has2,258eligible completed queue jobs,
-104ineligible entries and one running small pair-control fit. Queue jobs include preparation/evaluation and are
+As of19October,11:45UTC, the main diagnostic has2,376eligible completed queue jobs,
+496ineligible entries and one running parent fit in the preset extension. Queue jobs include preparation/evaluation and are
 not independent problems. No scientific failure has been recorded at that
-snapshot. About9.05GiB disk was free; live guards may pause the unchanged queue.
+snapshot. About8.49GiB disk was free; live guards may pause the unchanged queue.
 Host memory-pressure level2 is delaying extra backend verification that requires
 a larger reserve. We retain its setup failures rather than relaxing that guard.
 
@@ -121,11 +123,22 @@ quality qualification. Full practical searches have not begun.
 The paid search queue now also runs real engineering workers, retaining failed
 attempts, complete file hashes and exact clean-pause resume. Its148-check affected
 suite passed. It reads no validation labels and admits no benchmark winner until
-native qualification is complete. The main diagnostic has reached the third of
-four small pair-control problems; its complete scientific verdict is still pending.
+native qualification is complete. At that earlier snapshot the main diagnostic had reached the third small
+pair-control problem. It has since finished those controls and entered its
+predeclared four-to-eight-teacher extension; the first four did not settle its
+screening rule. The complete scientific verdict remains pending.
 
 One stronger baseline, RealMLP, has now completed its full256-epoch recipe through
 the supervised pipeline on a small synthetic fixture. All300 training rows were
 visited across the run, and saved-model reload reproduced predictions exactly.
 Recorded worker memory stayed around459MiB. This verifies that fixture's recipe
 execution; it is not a benchmark comparison or a result against our grown model.
+
+The first full CatBoost worker run exposed a snapshot-format integration error
+after training had finished. Four native regressions reproduced it; the corrected
+worker passed87affected checks and one same-seed recovery completed10000rounds
+with exact saved-model reload. Official inference on the original partial model
+and recovered model agreed exactly. Both attempts and their costs are retained;
+this fixes our harness and gives no predictive verdict. The next24anchor checks
+use primary training/stopping data and validation features only. See
+[native anchor execution](native-tree-full-shape.md).
