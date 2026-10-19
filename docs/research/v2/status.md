@@ -109,6 +109,10 @@ No production practical search, real variance calibration, final protocol freeze
 or protected confirmation has run. The mandatory suite still needs remaining
 workload/recipe qualification, including NODE's full native anchor. Missing or
 capped methods are unavailable comparisons, not scored predictive losses.
+All 14 families now have explicit native-anchor and finite search-support
+descriptors, with checked translation from atomic TPE draws to native schemas.
+Their qualification flags remain false; production trial/V-scoring integration
+and the final support lock are still required.
 Power, seed commitments, independent metric arithmetic, search supervision,
 compatible teacher-family Holm bounds and report rendering are fixture-tested components. An
 in-memory parent-fork helper now preserves the complete selected training state

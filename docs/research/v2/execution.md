@@ -1488,3 +1488,14 @@ no teacher or observation creation. Collisions and source/commitment changes
 fail without replacing the committed root. All authority/exclusion-completeness
 flags remain false. No real confirmation root, calibration or T was created.
 See confirmation-seed-commitment.md and WP09-confirmation-namespaces-receipt.json.
+
+WP08 family supports: 26 missing-component RED cases preceded fixed native
+anchor/range declarations and typed TPE-draw compilation. Initial 26 checks
+passed; the expanded run passed 113 in 35.61 s with existing TPE/controller,
+official RealMLP sampler and gated-core checks. Artificial schema descriptors
+retain 14 families/20 explicit anchors, exact P00/P01 support pairing, all P05/P07
+variants, the additional P03 width/LR coordinate and P13's 29 configurations.
+P06 keeps its native sampler. Unknown/missing/nonfinite/off-step/unadmitted draws
+reject; inactive conditional coordinates and duplicates remain paid. No model
+fits, labels, production HPO, final qualified support lock or trial/V-score bridge
+were added. See practical-search-supports.md and its receipt.

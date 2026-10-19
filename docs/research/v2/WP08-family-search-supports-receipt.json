@@ -1,0 +1,38 @@
+{
+  "P06_native_sampler_preserved": true,
+  "T_accessed": false,
+  "V_labels_read": false,
+  "base_commit": "e9f3b67",
+  "declared_anchors": 20,
+  "deferred_legacy_backend_setups": 9,
+  "descriptor_fixture_sha256": "9388d240439bf89755049316bb0b5a5cfccd677cf31f133a11303a5d7464ace6",
+  "execution_authorized": false,
+  "family_count": 14,
+  "final_affected_passed": 113,
+  "final_command_sha256": "b4cd6db841d7a10048f7f79fa69f9a7b67d753a9a102146cd1343639c20cc09a",
+  "final_seconds": 35.61,
+  "finite_P13_configurations": 29,
+  "full_repository_suite": false,
+  "initial_green_passed": 26,
+  "initial_green_seconds": 0.32,
+  "initial_missing_component_red": 26,
+  "inventory_sha256": "6a3f020b9f81e78939c0a1e4ea2d60504e42bd3a5e20809757dd40cbbc6b1bb4",
+  "limits": [
+    "Native-schema metadata and bounded TPE support compilation only; not a final qualified support/adapter lock",
+    "All native workload/range qualification and production raw-draw-to-worker/V-score bridge still required",
+    "Conditional inactive coordinates and duplicate draws remain retained/paid; no added attempt slots",
+    "P03 historical width/LR coordinate uses native P03 preprocessing/stopping and is not historical recipe replay"
+  ],
+  "native_workload_qualified": false,
+  "new_scientific_fits": 0,
+  "production_practical_searches": 0,
+  "raw_files": 146,
+  "raw_logical_bytes": 563411,
+  "raw_root": "artifacts/research-v2/WP08/family-search-supports",
+  "schema": "research/v2-family-search-support-preparation-receipt",
+  "scientific_source_sha256": "b7b27ecfe3aef4ddb72c479b3f626cc8d946d5a0bee1ca04799ab2cd0da86af9",
+  "source_files": {
+    "src/treeneuron/research/search_supports_v2.py": "54d6d4a0f8813570b5e1da561c1fb259cb2837d88851a3748cbd0068889288df",
+    "tests/test_search_supports_v2.py": "9aa32fef00912724b0ebd05d6d01dd6310266a05a3326e591142d9e0411db51f"
+  }
+}
