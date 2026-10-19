@@ -1,0 +1,62 @@
+{
+  "Gate_D": false,
+  "T_accessed": false,
+  "aliases": 84,
+  "base_commit": "7adf4fa",
+  "fix": "A short wait timeout keeps the owned group live within the existing grace/SIGKILL path. Publish owned PID/PGID immediately after new-session spawn, before later failure points.",
+  "inventory_sha256": "a70de54f878a75aee931ab6e6733d4ac39b672ddb9b30787f78c5e784c0e1604",
+  "logs": {
+    "final.log": {
+      "bytes": 180,
+      "sha256": "f6b271153b679aeb6f1c3148fee25df1570d7938db691d2c5f836ee89e4e36f7"
+    },
+    "green.log": {
+      "bytes": 180,
+      "sha256": "b8e8b7a722e1da29ca1027366ea0b4e8328aadb8148eb1387268aa827ee843cb"
+    },
+    "red.log": {
+      "bytes": 10647,
+      "sha256": "0b41ac367e55cde69ee9208dd226b4ae8396a35c680e49c053c2c9b2e67bf093"
+    }
+  },
+  "no_old_receipt_rewritten": true,
+  "no_permission_or_RSS_guard_relaxed": true,
+  "observed_failure": "Bike RealMLP root memory stop reached TERM cleanup; EPERM group-probe fallback wait(.01) timed out while the child was still terminating, escaping before final process receipt",
+  "pending": [
+    "Single same-data/config/seed CCPP/Bike rerun under explicitly larger resource track when admitted",
+    "Final source/native registry qualification",
+    "Native recovery claims beyond observed same-seed rerun",
+    "Production practical comparison and protected evaluation"
+  ],
+  "quality_eligible": false,
+  "raw_files": 1059,
+  "raw_logical_bytes": 5986604,
+  "raw_root": "artifacts/research-v2/WP08/async-child-cleanup-correction",
+  "retained_native_failure_receipt": "WP07-P06-primary-anchor-initial-receipt.json",
+  "schema": "research/v2-async-child-cleanup-correction",
+  "scientific_source_sha256": "a6cf616a3bb632451b9fe0969fa6ad23fff75a93440942ff6ca93f2bd2ae929e",
+  "signal_scope": "Only the new owned child group",
+  "source_files": {
+    "src/treeneuron/research/process_supervision_v2.py": "a5ed3ba01bfd9261dbfaf4582b4090fe454e09eee7778daeb45e2b461539ee64",
+    "tests/test_process_supervision_v2.py": "51f99eef05694f17da4bfd0bfb4c1c23317023383b47b776eafa4dfff1c041a8"
+  },
+  "verification": {
+    "cleanup_boundaries": "Real delayed TERM exit and ignored TERM/SIGKILL under injected observed EPERM group-probe behavior",
+    "final_PID_fault_boundary": "Controlled cleanup exception after real child spawn preserves owned PID; test finally terminates/reaps the real child",
+    "final_green_passed": 84,
+    "final_green_seconds": 19.98,
+    "full_repository_suite": false,
+    "initial_green_passed": 84,
+    "initial_green_seconds": 19.87,
+    "red_failures": 3,
+    "red_seconds": 0.18,
+    "suite": [
+      "tests/test_process_supervision_v2.py",
+      "tests/test_method_worker.py",
+      "tests/test_method_worker_supervised.py",
+      "tests/test_method_worker_trees.py",
+      "tests/test_supervised_search_bridge.py",
+      "tests/test_search_controller_v2.py"
+    ]
+  }
+}

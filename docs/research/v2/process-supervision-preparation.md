@@ -50,3 +50,29 @@ The initial sandbox attempt's temporary receipts expired through pytest cleanup
 before archival; its failure log and captured diagnostic remain. The scoped final
 run's raw inventory is added separately. These are software fixtures, with no
 research teachers, native predictive fits, transfer experiments or T access.
+
+## Asynchronous termination correction
+
+A later full RealMLP Bike workload exceeded its1GiB engineering RSS cap. The
+supervisor sent TERM, but its macOS EPERM group-probe fallback assumed the child
+would reap within0.01s. That wait timed out while termination was still in
+progress, escaping before the final process receipt. The failed attempt retains
+its input, samples, partial outputs, traceback and paid cost. A later inspection
+found no qualified-interpreter processes beyond the known M2 wrapper/worker and
+inspection process; the original Bike PID/reap receipt was not published.
+
+Three regressions failed before this correction: a real delayed-TERM child, a
+real ignored-TERM child requiring KILL, and missing early owned-PID publication.
+The short wait timeout now means the owned group still needs the existing grace/
+KILL path. EPERM is never treated as absence. A separate `spawned.json` publishes
+PID/PGID immediately after new-session spawn and is included in final file hashes;
+a controlled later cleanup fault proves that the PID record survives it.
+
+The affected native process/worker/bridge/controller suite passed84 checks in
+19.98s, including all four native tree-worker snapshot cases. This is not a full
+repository suite pass. No signal scope, unknown-RSS check, recipe, seed or
+quality gate was relaxed. Source is
+`a6cf616a3bb632451b9fe0969fa6ad23fff75a93440942ff6ca93f2bd2ae929e`;
+[the correction receipt](WP08-async-child-cleanup-receipt.json) retains source,
+RED/GREEN logs, raw artifacts and the original failure link. Actual native
+resource recovery remains separate from these process tests.

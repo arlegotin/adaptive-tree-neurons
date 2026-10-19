@@ -171,3 +171,51 @@ def test_macos_zombie_group_probe_is_rechecked_after_reaping_the_own_child(monke
     receipt=api()._terminate(child,100000000)
     assert child.returncode==-15 and receipt['group_absent_observed']
     assert calls.index('reap')<len(calls)-1 and calls.count('signal')==1
+
+
+@pytest.mark.parametrize('ignore_term',[False,True])
+def test_group_probe_permission_race_waits_for_real_child_cleanup(ignore_term,tmp_path,monkeypatch):
+    """A live child's wait(.01) timeout must not escape the termination grace."""
+    import select
+    import signal
+    import subprocess
+    action=('signal.signal(signal.SIGTERM,signal.SIG_IGN)' if ignore_term else
+        'signal.signal(signal.SIGTERM,lambda *_:(time.sleep(.08),sys.exit(0)))')
+    child=subprocess.Popen([sys.executable,'-B','-c',
+        'import signal,time,sys; '+action+'; print("ready",flush=True); time.sleep(30)'],
+        cwd=tmp_path,stdout=subprocess.PIPE,text=True,start_new_session=True)
+    original=api()._group_exists
+    def observed_permission_race(pid):
+        assert pid==child.pid
+        if child.poll() is None:raise PermissionError(1,'controlled native group-probe race')
+        return original(pid)
+    try:
+        assert select.select([child.stdout],[],[],2)[0] and child.stdout.readline()=='ready\n'
+        monkeypatch.setattr(api(),'_group_exists',observed_permission_race)
+        receipt=api()._terminate(child,0 if ignore_term else 250_000_000)
+        assert child.returncode==(-signal.SIGKILL if ignore_term else 0)
+        assert receipt['term_sent'] and receipt['group_absent_observed']
+        assert receipt['kill_sent'] is ignore_term
+    finally:
+        if child.poll() is None:child.kill()
+        child.wait(timeout=2)
+        child.stdout.close()
+
+
+def test_owned_pid_survives_a_later_cleanup_failure(tmp_path,monkeypatch):
+    original=api()._terminate;children=[]
+    def cleanup_fault(child,grace_ns):
+        children.append(child)
+        raise RuntimeError('controlled late cleanup fault')
+    monkeypatch.setattr(api(),'_terminate',cleanup_fault)
+    try:
+        with pytest.raises(RuntimeError,match='controlled late cleanup fault'):
+            run(tmp_path,"import time; time.sleep(30)",rss_limit_bytes=1)
+        path=tmp_path/'supervisor/spawned.json'
+        assert path.is_file(), 'Owned PID must survive a later cleanup/publication exception'
+        spawn=json.loads(path.read_text())
+        assert spawn['child_pid']==children[0].pid and spawn['child_pgid']==children[0].pid
+        assert spawn['new_session'] is True
+        assert not (tmp_path/'supervisor/process.json').exists()
+    finally:
+        for child in children:original(child,100_000_000)

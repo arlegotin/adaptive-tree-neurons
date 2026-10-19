@@ -42,8 +42,10 @@ def _terminate(proc,grace_ns):
         try:return _group_exists(proc.pid)
         except PermissionError:
             # Observed on macOS for a zombie-only group before wait/reap. Never
-            # interpret EPERM as absence: reap our child, then probe again.
-            proc.wait(timeout=.01)
+            # interpret EPERM as absence. TERM may still be in progress: a short
+            # wait timeout means keep the grace/kill path active, not abandon it.
+            try:proc.wait(timeout=.01)
+            except subprocess.TimeoutExpired:return True
             return _group_exists(proc.pid)
     try:os.killpg(proc.pid,signal.SIGTERM);record['term_sent']=True
     except ProcessLookupError:pass
@@ -117,6 +119,9 @@ def supervise_process(*,argv,cwd,env_overrides,output,timeout_ns,rss_limit_bytes
                         stdout=stdout,stderr=stderr,start_new_session=True)
                     except OSError as error:reason='process_start_failure';diagnostic=f'{type(error).__name__}: {error}'
                     if proc is not None:
+                        write_new_json(output/'spawned.json',dict(schema='research/v2-owned-process',
+                            child_pid=proc.pid,child_pgid=proc.pid,new_session=True,
+                            observed_utc_ns=time.time_ns()))
                         while True:
                             elapsed=time.perf_counter_ns()-started;code=proc.poll()
                             if elapsed>=timeout_ns:status='timeout';reason='dedicated_worker_deadline';break
@@ -153,7 +158,9 @@ def supervise_process(*,argv,cwd,env_overrides,output,timeout_ns,rss_limit_bytes
                 if proc.poll() is None or _group_exists(proc.pid):termination=_terminate(proc,terminate_grace_ns)
                 else:proc.wait()
             stdout.flush();stderr.flush();os.fsync(stdout.fileno());os.fsync(stderr.fileno())
-    files=[_file_ref(output/name,output) for name in ('started.json','stdout.log','stderr.log','resource-samples.jsonl')]
+    names=['started.json','stdout.log','stderr.log','resource-samples.jsonl']
+    if (output/'spawned.json').exists():names.append('spawned.json')
+    files=[_file_ref(output/name,output) for name in names]
     receipt=dict(schema='research/v2-process-receipt',**{k:v for k,v in command.items() if k!='schema'},
         execution_status=status,stop_reason=reason,diagnostic=diagnostic,child_started=proc is not None,
         child_pid=None if proc is None else proc.pid,returncode=None if proc is None else proc.returncode,
