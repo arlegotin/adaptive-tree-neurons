@@ -1086,3 +1086,13 @@ WP08 TPE sampler: new strict float/integer/category support and pending ask/tell
 Storage recovery qualification (fresh copies only): ditto transparent compression returned0 but produced a0byte readable data fork/flags0 for a114917byte checkpoint copy. Ordinary copying preserved exact bytes. First optional xattr inspection also failed because os.listxattr is unavailable; both attempts remain retained. The underlying cause was not isolated. Compression is rejected for this environment; no live artifact/source changed, and the original frozen checkpoint was reauthenticated. Live disk pauses remain authoritative. Receipt:WP03-storage-qualification-receipt.json.
 
 WP07 next activation boundary: RealMLPPredictor currently deliberately publishes quality_eligible=False/checkpoint_eligible=False for every mode. Running256epochs alone cannot promote it. Actual initialization-only RAM-subsample observations, native full-recipe/workload/portable-state checks, hard worker deadline/RSS and interruption disposition must be qualified through a versioned production path. Do not flip engineering flags or bypass existing guards. The NNCreator initialization precedes on_fit_start; observing training row batches alone does not capture initialization subsampling. This is pending qualification, not a newly found predictive defect.
+
+WP08 outer callback queue: source/config-bound native-anchor-first and finite/TPE
+execution now retains all paid slots, failures, same-seed/checkpoint one-recovery
+attempts, external journal endpoints and prefix/deadline eligibility.145affected
+new/legacy checks passed21.63s after21missing-module REDs, four optional-dependency
+canonicalization failures and one final-slot recovery boundary RED. Three further
+boundaries passed first run. Native trial workers, hard process/RSS supervision,
+process-death receipts, whole-process cost and global authorization remain pending.
+This code reads no labels and admits no practical scientific search; see
+search-controller-preparation.md and WP08-search-controller-receipt.json.

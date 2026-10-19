@@ -1,0 +1,74 @@
+{
+  "T_accessed": false,
+  "base_commit": "f54eed1",
+  "evidence_level": "Actual pinned TPE/outer callback replay with artificial scores, files and clock",
+  "failed_setup_command": {
+    "cmd": "PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 .venv-does-not-exist/bin/python -V",
+    "exit_code": 127,
+    "reason": "Incorrect interpreter locator; corrected before any test or fit"
+  },
+  "logs": {
+    "artifacts/research-v2/WP08/search-controller-preparation/boundary-red.log": {
+      "bytes": 1212,
+      "sha256": "87ec04371e8a2fa98e02a21912cd953cd873d734c4061388e92e16c0a07d3a00"
+    },
+    "artifacts/research-v2/WP08/search-controller-preparation/green-1.log": {
+      "bytes": 7921,
+      "sha256": "c782948336cd85a6429712a45c4fe635c3f698306b27a83e8d6c7cd4ec0cd108"
+    },
+    "artifacts/research-v2/WP08/search-controller-preparation/green-2.log": {
+      "bytes": 99,
+      "sha256": "ca4107189e93a4540eff826fa53f36e97642e7afe98dc27b4a27e4e1dfcb83d8"
+    },
+    "artifacts/research-v2/WP08/search-controller-preparation/green-final.log": {
+      "bytes": 261,
+      "sha256": "cbc440bf29f78de13331dc51db374249287254cfef4ece6fb49049c7ae318777"
+    },
+    "artifacts/research-v2/WP08/search-controller-preparation/red.log": {
+      "bytes": 29100,
+      "sha256": "9ff0203a3301d21b313213d8ea2e84b9a557882c9bbb81315fd904ce559352c0"
+    }
+  },
+  "models_fit": 0,
+  "pending": [
+    "native support/anchor and worker qualification",
+    "hard child deadline/RSS enforcement",
+    "external process-death invocation/disposition receipts",
+    "whole-process timing authentication",
+    "raw V score reconstruction",
+    "source/runtime and global protocol/freeze authorization",
+    "production practical searches"
+  ],
+  "schema": "research/v2-search-controller-preparation",
+  "search_execution_authorized": false,
+  "source_files": {
+    "docs/research/v2/scripts/check_search_controller.py": "9be7e088aa156ed0e4471ce6c124721c59d969bec658eb2a695c4da7232fdfd1",
+    "src/treeneuron/research/search_controller_v2.py": "93d4c85c8a675a2fab8813d54e8826259e4b7780e9dea19a19f7258e2113b66f",
+    "src/treeneuron/research/search_v2.py": "b22377f25aca0499292cb18f5ab5b73c09b8e17e25ef1cda3286917fb93a6893",
+    "tests/test_search_controller_v2.py": "84a12912566cb096589a9699090fc60bce51d4275121958322e1559ef5695c5a"
+  },
+  "verification": {
+    "additional_boundaries_first_pass_green": 3,
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-B",
+      "-c",
+      "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"tests/test_search_controller_v2.py\",\"tests/test_search_v2.py\",\"tests/test_practical_workload.py\",\"tests/test_practical_v2.py\",\"tests/test_cost_v2.py\",\"tests/test_primary_v2.py\",\"tests/test_search.py\"]))"
+    ],
+    "cwd": "/private/tmp/atn-research-v2-next",
+    "elapsed_seconds": 21.63,
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "final_passed": 145,
+    "final_slot_recovery_red": 1,
+    "missing_module_red": 21,
+    "optional_dependency_mapping_failures": 4
+  }
+}

@@ -86,6 +86,9 @@ class ReplayTPEV2:
     def history(self):return _copy(self._history)
 
     @property
+    def dependency_identity(self):return _copy(self._dependency_identity)
+
+    @property
     def pending_suggestion(self):return None if self._pending is None else _copy(self._pending.params)
 
     def ask(self):
