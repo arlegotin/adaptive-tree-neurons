@@ -1,5 +1,26 @@
 # Exact joint selector implementation
 
+The full fresh M3 study is now running under its held source and competent
+treatment. Its first eight teachers completed and triggered the single admitted
+extension; a final predictive result and Gate B decision remain pending. Earlier
+implementation entries below record their own historical verification stages.
+
+The separate `research.joint_costs` collector distinguishes standalone
+experimental dependencies from the containing shared cohort. It charges each
+fit/evaluation its data, parent, score, probes and selection dependencies once.
+At data creation it excludes only the extension-decision control barrier; the
+initial eight-teacher study is not a prerequisite for training each later model.
+Local-model diagnostics and sampling decisions remain in the physical cohort
+and its separately reported investigation overhead. Cumulative retry costs are
+retained once. Independent collection requires an inactive queue, all retained
+file inventories and an externally committed ledger endpoint. These contended
+archive clocks are not deployment timings or an efficiency claim.
+Five initial missing-feature failures preceded17passing cost/queue checks.
+The final32affected checks passed in37.12seconds, including an actual small
+native ten-role queue and all nine nominal singleton/keep probes. No real M3
+scientific costs have yet been collected. See
+[the implementation receipt](WP04-M3-cost-implementation-receipt.json).
+
 Gate A passed after the complete M2 collection and independent raw arithmetic;
 see [M2 findings](../../../reports/research-v2-M2.md). WP04 is now admitted for
 its bounded numerical qualification and fresh-teacher study. It has no new

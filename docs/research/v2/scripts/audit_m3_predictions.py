@@ -14,6 +14,7 @@ import numpy as np
 from treeneuron.research import opportunity_prediction_audit
 from treeneuron.research.ledger import write_new_json
 from treeneuron.research.joint_analysis import summarize_joint_predictions
+from treeneuron.research.joint_costs import collect_joint_costs
 
 
 def package_digest():
@@ -37,6 +38,10 @@ def main():
         write_new_json(args.output/'audit.json',result)
         if result['status']=='completed_arithmetic':
             write_new_json(args.output/'development-summary.json',summarize_joint_predictions(result))
+            costs=collect_joint_costs(args.study,expected_plan_hash=args.expected_plan_hash,
+                expected_ledger_hash=args.expected_ledger_hash)
+            if package_digest()!=before:raise ValueError('Auditor source changed during cost collection')
+            write_new_json(args.output/'experimental-costs.json',costs)
     except BaseException as error:
         failure=dict(exception_type=type(error).__name__,message=str(error),traceback=traceback.format_exc())
         write_new_json(args.output/'error.json',failure)

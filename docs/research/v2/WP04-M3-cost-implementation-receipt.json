@@ -1,0 +1,33 @@
+{
+  "Gate_B_decided": false,
+  "T_accessed": false,
+  "actual_M3_collected": false,
+  "artifact_inventory_scope": "Pure description authenticates ledger only; inactive collection authenticates every retained file/result and externally committed endpoint; no native tensor-chain or outer process timing authentication",
+  "cost_boundary": "Standalone experimental dependencies stop only the extension-decision control edge at data generation; data, parent, scoring, probes, placement, fitting and evaluation still charged once. Physical queue and diagnostic/control overhead retained separately. Cumulative retry costs charged once, not once per event.",
+  "logs": [
+    {
+      "bytes": 6312,
+      "path": "artifacts/research-v2/WP04/M3-costs-red.log",
+      "sha256": "24758e697ba520501ae9ca55ee2b7c4b02fae4294b7b9e077fc06dc5f96d6dfe"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP04/M3-costs-green.log",
+      "sha256": "e7295eefdf7692e1719c685c5d8a3edd1f0dc7f77f25aab9bd8153dec6d4def1"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP04/M3-costs-affected.log",
+      "sha256": "dc4290f2b2a96587e8427a89337fd087c3d9523cbbf2caccc1c78c026ecc608b"
+    }
+  ],
+  "operator": "docs/research/v2/scripts/audit_m3_predictions.py now writes experimental-costs.json after a complete independent arithmetic audit; syntax checked, actual scientific invocation pending",
+  "quality_cost_claim": false,
+  "schema": "research/v2-M3-experimental-cost-implementation",
+  "source_sha256": "4dbf2141ca1215b4edc12aaad8d8fa9934f3b10fcf99cbc59fb87335ebc360b6",
+  "tests": {
+    "GREEN": "17 passed/.42s",
+    "RED": "5 missing-feature failures/.20s",
+    "affected": "32 passed/37.12s including actual small native10role queue, all9nominal probes, independent prediction audit and immutable queue checks"
+  }
+}
