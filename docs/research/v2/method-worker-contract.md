@@ -70,7 +70,7 @@ not a realistic native resource envelope or an efficiency result. The observed
 normal root peak was86,949,888bytes; sampled root RSS is not strict peak or
 aggregate descendant memory. There is no native optimizer-checkpoint resume here.
 
-Only the P13 worker has this end-to-end execution evidence. The fixed dispatcher
+At the source of the original receipt below, only the P13 worker had this end-to-end execution evidence. The fixed dispatcher
 names other implemented adapters, but they still need method-specific fresh-worker
 and full workload qualification. P00/P01/P02/P05 remain unavailable. Native anchors,
 production eligibility, paid-controller integration,32-attempt HPO, full resource
@@ -83,3 +83,27 @@ equal without requiring Torch in the worker. Adapter-specific bundle identities
 remain separate. The containing coordinator must still authenticate observations
 against the sealed dataset/split manifests; this worker does not reconstruct UCI
 provenance or claim cryptographic isolation from an operator with file access.
+
+## Tree snapshot integration correction
+
+A later full native CatBoost anchor on one retained primary development dataset
+(F2306/G577/query577, d16) completed10000 native rounds, selected9994, and saved
+its model. The common worker then failed because it assumed a neural-style
+`manifest.json`; all four tree adapters instead publish `state.json` and require
+`expected_state_sha256`. This is a worker integration defect, not a predictive
+defeat. No V labels or T were read. The failed attempt and its21.793681958s paid
+search cost remain retained.
+
+Four real supervised tree-worker regressions reproduced that same missing-file
+error. The correction dispatches the existing snapshot entrypoint/hash argument
+by family and records a neutral path/hash commitment, without changing native
+training or snapshot formats. All four short native workers then completed,
+reopened their bound snapshots exactly, and preserved query row IDs. The affected
+worker/supervisor/bridge/tree suites passed87 checks with6 optional read-only
+snapshot-probe skips in19.25s. This is not a full repository test pass.
+
+The corrected scientific Python digest is
+`17cbebfcacf71ba776eef8d763b3b544a842582b5d3fdbb5c32f1e26d2895bad`;
+adapter bundle digests are separate. Full native anchor retry, transfer workloads,
+recovery and production eligibility remain pending. See the
+[correction receipt](WP07-tree-worker-snapshot-correction.json).

@@ -208,8 +208,13 @@ def run_engineering_trial(request_path,*,expected_request_sha256,output):
                 or not np.isfinite(prediction).all()):
             raise FloatingPointError('Worker produced invalid original-unit query predictions')
         model.save(root/'snapshot')
-        snapshot_digest=_sha(root/'snapshot/manifest.json')
-        restored=type(model).load(root/'snapshot',expected_manifest_sha256=snapshot_digest)
+        # Native tree adapters publish state.json and require its external hash.
+        # Keep their existing closed format rather than fabricating a manifest.
+        snapshot_name,hash_argument=(('state.json','expected_state_sha256')
+            if value['family_id'] in ('P08','P09','P10','P11') else
+            ('manifest.json','expected_manifest_sha256'))
+        snapshot_digest=_sha(root/'snapshot'/snapshot_name)
+        restored=type(model).load(root/'snapshot',**{hash_argument:snapshot_digest})
         if not np.array_equal(prediction,np.asarray(restored.predict(frames['V_features']))):
             raise ValueError('Worker closed snapshot reload changed its query predictions')
         with (root/'predictions.npz').open('xb') as stream:
@@ -225,11 +230,13 @@ def run_engineering_trial(request_path,*,expected_request_sha256,output):
             if (file.is_symlink() or not file.resolve().is_relative_to(request_path.parent.resolve())
                     or not file.is_file() or _sha(file)!=ref['sha256']):
                 raise ValueError('Worker committed input changed during execution')
-        record.update(status='completed_ineligible',snapshot_manifest_sha256=snapshot_digest,
+        record.update(status='completed_ineligible',
+            snapshot_commitment=dict(path='snapshot/'+snapshot_name,sha256=snapshot_digest),
             snapshot_reload_exact=True,adapter_resources=model.resource_summary(),
             loaded_heavy_modules=loaded_method_modules(),
             hard_limits_enforced='Requires containing supervisor; this worker records its body only',
             prediction_rows=len(prediction),eligible_scope='Engineering result only; native workload/GateD qualification pending')
+        record['snapshot_state_sha256' if snapshot_name=='state.json' else 'snapshot_manifest_sha256']=snapshot_digest
         if time.perf_counter_ns()-started>value['budget']['max_seconds']*1e9:
             record.update(status='timeout',reason='Worker body exceeded requested budget; outputs retained ineligible')
     except BaseException as error:

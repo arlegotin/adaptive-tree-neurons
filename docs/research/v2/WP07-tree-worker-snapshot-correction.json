@@ -1,0 +1,75 @@
+{
+  "Gate_D": false,
+  "T_accessed": false,
+  "V_labels_read": false,
+  "base_commit": "b0e4c8e9554999c6271702d442d095eefd7c8c17",
+  "diagnosis": "Worker assumed every adapter publishes manifest.json/expected_manifest_sha256; all four tree adapters publish state.json/expected_state_sha256",
+  "failed_full_anchor": {
+    "F_rows": 2306,
+    "G_rows": 577,
+    "charged_search_ns": 21793681958,
+    "child_reaped": true,
+    "executed_rounds": 10000,
+    "failure_phase": "Snapshot reopen after native fit/save",
+    "inventory_sha256": "af80f4efafef1834fee661f1261bb93b5530444c6c320820fc5d5f870f425b47",
+    "native_fit_ns": 19669552667,
+    "native_training_completed": true,
+    "query_features_rows": 577,
+    "raw_dimensions": 16,
+    "root": "artifacts/research-v2/WP07/P08-native-primary-shape-b0e4c8e",
+    "root_peak_rss_sample_bytes": 221609984,
+    "selected_rounds": 9994,
+    "source_sha256": "ffc608fe612f22bc644104337287d6c6f610d02ec136ddce6f8c58badce0fb9a",
+    "status": "input_or_dependency_failure",
+    "worker_lifetime_peak_rss_bytes": 202604544
+  },
+  "logs": {
+    "green.log": {
+      "bytes": 191,
+      "sha256": "7ef01dc9fef53d3843f9cf74adb235784a66a86bd895385f15d932a5806b0e7f"
+    },
+    "red.log": {
+      "bytes": 20193,
+      "sha256": "152720c6cba360d1eb3d226ceeda4a84a53c7ea52d0b8198e00357ac8dddc0af"
+    }
+  },
+  "pending": [
+    "Single recorded same-seed native anchor rerun under corrected source",
+    "Actual transfer workload qualification",
+    "Native recovery",
+    "Production readiness and protocol"
+  ],
+  "prepared_transfer_fits": 0,
+  "production_practical_searches": 0,
+  "quality_eligible": false,
+  "raw_inventory_sha256": "cb80d6c074892f9a822ab24f8c872c79d35162ec4239b0d65b5bb05fc2423b64",
+  "raw_root": "artifacts/research-v2/WP07/tree-worker-snapshot-correction",
+  "schema": "research/v2-tree-worker-snapshot-correction",
+  "scientific_source_sha256": "17cbebfcacf71ba776eef8d763b3b544a842582b5d3fdbb5c32f1e26d2895bad",
+  "source_files": {
+    "src/treeneuron/research/method_worker.py": "d3d32242cf19a4448b9fa9cd9b6a5dc97746253abe34cf8112f566e04577030d",
+    "tests/test_method_worker_trees.py": "f65331406fb826ec3028ec98e28a912b81f2f0a2064b2e886de6785fafb98f1a"
+  },
+  "unchanged_native_adapter": true,
+  "verification": {
+    "full_repository_suite": false,
+    "green_passed": 87,
+    "green_raw": "artifacts/research-v2/WP07/tree-worker-snapshot-correction/green-raw",
+    "green_seconds": 19.25,
+    "green_skipped": 6,
+    "nine_legacy_backend_setups_deferred": "Latest actual host memory pressure2; guards unchanged",
+    "red_failed": 4,
+    "red_raw": "artifacts/research-v2/WP07/tree-worker-snapshot-correction/red-raw",
+    "red_seconds": 7.7,
+    "skip_reason": "Six read-only mutation probes require an explicitly supplied retained tree snapshot fixture; no bypass",
+    "tests": [
+      "tests/test_method_worker_trees.py",
+      "tests/test_method_worker.py",
+      "tests/test_method_worker_supervised.py",
+      "tests/test_supervised_search_bridge.py",
+      "tests/test_process_supervision_v2.py",
+      "tests/test_native_tree_contract.py",
+      "tests/test_native_tree_review_guards.py"
+    ]
+  }
+}
