@@ -80,10 +80,10 @@ efficiency claim. [Execution ledger](execution.md), [reproduction](reproduce.md)
 [implementation plan](../../superpowers/plans/2026-10-18-research-v2.md) retain the
 exact state, evidence and next steps.
 
-As of19October,10:34UTC, the main diagnostic has2,204eligible completed queue jobs,
-88ineligible entries and one running small pair-control fit. Queue jobs include preparation/evaluation and are
+As of19October,10:55UTC, the main diagnostic has2,258eligible completed queue jobs,
+104ineligible entries and one running small pair-control fit. Queue jobs include preparation/evaluation and are
 not independent problems. No scientific failure has been recorded at that
-snapshot. About7.00GiB disk was free; live guards may pause the unchanged queue.
+snapshot. About9.05GiB disk was free; live guards may pause the unchanged queue.
 Host memory-pressure level2 is delaying extra backend verification that requires
 a larger reserve. We retain its setup failures rather than relaxing that guard.
 

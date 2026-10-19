@@ -4,6 +4,14 @@ Start with the spec, plan and execution ledger linked from this directory. The
 ledger is authoritative for which packages and scientific gates have completed.
 Historical reproduction is still documented in the root REPRODUCE.md.
 
+Current scientific state: M1 completed all256 planned fits under its pinned
+604cffb source; the full M0 four-teacher/R2 cohort remains pending. M2 is running
+under a separate pinned e1b1018 checkout, with no Gate A decision yet. Modern
+baseline comparison, real calibration and protected confirmation remain pending.
+Current implementation HEAD has additional engineering code and cannot silently
+replace either scientific source. See [M1 results](../../../reports/research-v2-M1.md),
+[M2 execution](M2-execution.md) and [plain status](status.md).
+
 Use a fresh Python3.12.13 environment:
 
 ```sh
@@ -43,8 +51,9 @@ The v2 CLI can expand strict finite M0/M1 plans without loading observations:
 Each output must be fresh. Resolved plans include source/config hashes and exact
 seed/role identities. M0 has64 final fits and520 nominal probe trials; M1 has160
 positive and96 negative final fits. Positive coordinates share four parent/data
-instances, not16 independent teachers. No production M0/M1 completion is currently
-claimed. Native execution requires a fresh backend receipt matching the current
+instances, not16 independent teachers. The pinned M1 cohort has completed; a new
+execution of these commands has a new source identity and must not replace it.
+Native execution requires a fresh backend receipt matching the current
 whole-package source, and measured resource admission before a research matrix.
 The tiny native fixtures are software tests with deliberately reduced budgets.
 
@@ -57,8 +66,11 @@ the later explicit applied-update extension; they are not implemented by this
 metadata version. Historical schema1 checkpoints require their original source;
 there is no silent migration or source-hash rewrite.
 
-The WP03 experiment dispatcher and qualify/freeze/confirm/report commands still
-fail with an owning-package prerequisite message. The WP07 prepare-data slice
+The WP03 M2 dispatcher is implemented and its active scientific run has measured
+admission. Generic qualify/freeze/confirm/report entry points still require their
+remaining production implementations and prerequisites. Separate native adapter,
+provisional method/seed and pure analysis APIs are documented in their component
+contracts; they do not make those CLI stages complete. The WP07 prepare-data slice
 below is implemented independently of baseline qualification. Native trainer
 checkpoints resume exactly. The outer legacy reference
 graph uses one declared deterministic same-seed infrastructure rerun under
@@ -66,7 +78,8 @@ graph uses one declared deterministic same-seed infrastructure rerun under
 prevent concurrent execution. Recovery cost bounds and unrecorded process-loss
 time explicitly block formal efficiency claims; they are never reported as exact
 standalone savings. Source/lock/runtime/backend receipt identity cannot change on
-resume. Measured full resource forecasts remain pending.
+resume. M2 has a source-bound measured forecast and rolling live admission;
+the full practical program still lacks measured native workload forecasts.
 Read the live ledger before executing production matrices. Synthetic protected T
 has not been created. Transfer T roles are sealed by the preparation below;
 their labels have not been accessed for fitting, selection or predictive evaluation.
@@ -151,18 +164,19 @@ Data dependencies were verified against the official
 [xlrd](https://pypi.org/project/xlrd/2.0.2/) and
 [et-xmlfile](https://pypi.org/project/et-xmlfile/2.0.0/) release records.
 
-### Full M1 measured admission and current run
+### Full M1 measured admission and completed source identity
 
 The forecast recipe now exists at scripts/admit_control_matrix.py. It consumes a
 resolved M1 config and completed positive/negative qualification directories,
 verifies their source/runtime/training/profile commitments, and writes a fresh
 plan, forecast and proposed admission. Publication is separate. See
-WP02-M1-source-604cffb-receipt.json for the admitted current run and exact paths.
+WP02-M1-source-604cffb-receipt.json for its original admission and exact paths.
 Its scientific checkout remains detached604cffb even as implementation advances.
 Never replace its config/source/lock/receipt on resume; use the retained exact
 command with --resume only after confirming its previous process has stopped.
-The full cohort is running, not complete. M2 dispatch and later protocol commands
-remain unimplemented; no confirmation or practical result is implied.
+The full cohort completed and its report rebuilt byte-for-byte, as recorded
+below. M2 dispatch now runs separately under e1b1018. No practical benchmark or
+protected confirmation result is implied by either development study.
 
 Ordinary-neural adapter engineering can be checked with
 `tests/test_ordinary_neural_contract.py`, `tests/test_ordinary_neural_training.py`
@@ -189,7 +203,8 @@ This recomputes original-unit metrics from retained arrays and row identities;
 it does not reexecute models, validate the checkpoint metadata/tensor chain or
 regenerate teacher/data bytes. It retains missing statuses and blocks complete
 sensitivity when any of the required four-instance/R2 observations is absent.
-The full cohort is still running at this implementation checkpoint.
+The full cohort is complete. The audit remains read-only and still rejects an
+active worker lease if replayed against any running source-bound study.
 
 ## Completed M1 development study
 
@@ -221,3 +236,34 @@ records also contain original absolute locators. Relocation requires an explicit
 locator mapping before using these audit helpers, rather than editing raw bytes.
 No protected access, model/teacher replay or checkpoint tensor-chain authentication
 is implied by the arithmetic report.
+
+## Active M2 and later implementation work
+
+The active scientific checkout is `/private/tmp/atn-research-v2-M2-run` at
+e1b1018, package SHA256
+`e322da64b518f29a14bde3385bfcf6d683993b717ed4c1fc13a7a5440a1f9a47`.
+Its complete native qualification, measured admission and immutable queue precede
+execution. [M2 execution](M2-execution.md) records the source/admission contract;
+WP03-M2-measured-admission.json retains the forecast. The original local launcher
+is `artifacts/research-v2/WP03/M2-e1b1018-launch/launch.py`. It records argv,
+environment, process clocks, interruptions and terminal status. Resume only that
+unchanged queue after its worker stops, with the same source/config/receipts.
+
+Current implementation HEAD includes later worker/search, provisional protocol
+and analysis components. It must not load old source-bound training state as a
+current run or reuse an old backend receipt. New native execution requires fresh
+qualification; old records retain their original identities. Full M2 collection
+and independent prediction auditing run only after the scientific worker is
+inactive. The joint selector still requires the resulting Gate A decision.
+
+[Provisional method locks](provisional-method-lock.md),
+[fresh seed commitments](confirmation-seed-commitment.md) and
+[independent prediction arithmetic](prediction-arithmetic.md) are fixture-tested
+components. They grant no calibration/protected access, do not freeze a study,
+and do not complete the final evaluator, artifact audit or reporter.
+
+For additional tests, choose a fresh explicit `pytest --basetemp` inside the
+retained artifact namespace and reject an existing destination before launching.
+This avoids pytest cleanup of earlier evidence and a second physical copy of
+large temporary archives. Preserve original failures and same-source recovery
+records; do not weaken native memory/backend guards under host contention.

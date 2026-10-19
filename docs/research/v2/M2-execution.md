@@ -150,8 +150,9 @@ An insensitive control pauses efficacy interpretation. After the required single
 extension, absent fixed-arm opportunity retires the regime; a warm-only screen
 permits a bounded selector investigation with competent ordinary controls and is
 labeled ordinary_capacity_only. These are development routing decisions, never
-confirmation. Public execution remains disabled pending measured admission and
-complete orchestration. See [WP03-gate-A-receipt.json](WP03-gate-A-receipt.json).
+confirmation. At this initial preparation stage public execution remained
+disabled pending measured admission and complete orchestration; the later active
+run is recorded below. See [WP03-gate-A-receipt.json](WP03-gate-A-receipt.json).
 
 Authenticated final collection now has an implemented read-only boundary. An
 external study/queue commitment must match the recompiled bounded graph and an
@@ -165,8 +166,8 @@ The stored extension decision must equal the summary reconstructed from its
 producer V inputs. E is not an extension input. Cumulative charged job time
 retains worker-loss downtime-bound precision and is not called measured physical
 elapsed. M2 metrics remain authenticated producer outputs; independent raw
-prediction reconstruction is still required. Production dispatch and measured
-resource admission are still pending. The
+prediction reconstruction is still required. At collection preparation,
+production dispatch and measured resource admission were still pending. The
 [collection receipt](WP03-collection-receipt.json) records tests and review fixes.
 
 ## Measured production dispatcher boundary
@@ -176,8 +177,9 @@ that dispatch was unimplemented describe their original preparation stages.
 Running M2 still requires a source/target/qualification-queue matched admission
 that is independently reconstructed from every authenticated native/control
 resource class. Missing classes, changed raw bytes, changed runtime/source or
-a handwritten admission cannot start a scientific queue. No such complete
-qualification or admission has yet been generated.
+a handwritten admission cannot start a scientific queue. Complete qualification
+and admission were subsequently generated for the pinned e1b1018 scientific run,
+as recorded in the active-run section below.
 
 The admission commits the entire3,853-job forecast. Under the lease, each next
 job requires its full-ceiling allocation, the rolling untouched-job retry reserve,
@@ -199,3 +201,27 @@ The fixed engineering qualification procedure is specified in
 environment overrides, source/config hashes, child logs and an enclosing process
 clock. Bootstrap engineering capacity limits are explicit operator allowances,
 not scientific speed/disk forecasts. No protected T is used.
+
+## Active scientific run,19 October2026
+
+The detached e1b1018 checkout holds package SHA256
+`e322da64b518f29a14bde3385bfcf6d683993b717ed4c1fc13a7a5440a1f9a47`.
+Native qualification completed530 queue jobs:520 eligible and10 explicitly
+ineligible, with no failed/retried attempt. It authenticated53 target workload
+classes/75 profiles,121,850 actual updates and630.45MiB lifetime peak process RSS.
+These are engineering measurements, not predictive results or a strict RAM bound.
+The measured admission is [WP03-M2-measured-admission.json](WP03-M2-measured-admission.json).
+
+The complete conservative forecast remains visible:85.91/129.70 worker-hours and
+227.14GiB logical storage under the declared extrapolation. Those projections
+are not guaranteed future runtime quantiles. The active worker admits one full
+job at a time with the recorded rolling margins and may pause under contention;
+it does not promise that the full queue fits available storage. Its exact launch
+and invocation receipts are retained locally under
+`artifacts/research-v2/WP03/M2-e1b1018-launch`.
+
+Current implementation HEAD has later engineering code. It does not replace
+this source, source-bound state or admission. Full inactive collection and
+independent prediction auditing remain pending; Gate A has not been decided.
+The [plain status](status.md) records operational snapshots without treating
+queue jobs as independent problems or interpreting unfinished outcomes.

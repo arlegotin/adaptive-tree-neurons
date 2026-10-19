@@ -36,7 +36,7 @@ Soft affine trees and gated units are established model families. The research t
 
 ## Results
 
-The latest diagnostic tested **8 fresh independently generated regression problems, with 2 paired training repetitions per problem**. Each problem had 262,144 held-out evaluation observations. Short search tried every single-neuron insertion for 320 updates; long search allowed up to 8,000 updates with the normal validation stopping rule. Both then restarted the joint grown model from the original parent.
+The published long-probe diagnostic tested **8 fresh independently generated regression problems, with 2 paired training repetitions per problem**. Each problem had 262,144 held-out evaluation observations. Short search tried every single-neuron insertion for 320 updates; long search allowed up to 8,000 updates with the normal validation stopping rule. Both then restarted the joint grown model from the original parent. The newer v2 control study and active opportunity diagnostic are tracked separately in the [current status](docs/research/v2/status.md).
 
 Lower normalized evaluation MSE is better: each problem's squared prediction error is divided by its fitting-target variance. Repetitions are averaged within each problem, then all 8 problems receive equal weight.
 
