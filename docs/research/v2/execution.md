@@ -7,6 +7,17 @@ Unchecked work is not completed, and prior investigation findings are not new ru
 
 ## Intake
 
+Latest operational slice: [delayed M2 collection](delayed-M2-collection.md) passes
+44affected fixture checks. It waits on the original producer and a separately
+pinned auditor, records every stage, and refuses partial/failed queues. No M2
+Gate A decision or new predictive result follows from this preparation. The
+user freed RAM; the recorded recheck found12.18GiBmemory proxy versus20.5GiB
+required for the16GiBNODEtrack, so it remained unlaunched. The user then requested
+achieving the same scientific comparison within available RAM; investigate
+bounded-memory initialization, prediction chunks and accumulated full-batch
+gradients under a new explicit execution identity. Preserve the native model,
+effective batch and stopping rules, and verify numerical agreement first.
+
 - User authorized specification, plan and execution of the full finite handoff.
 - Starting HEAD230e6575149c9fee440ca301fa3782a85751bac8, clean `main`.
 - `origin/HEAD` missing; no scientific path diff against pinned commit.

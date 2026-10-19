@@ -1,0 +1,34 @@
+{
+  "Gate_A_decided": false,
+  "T_accessed": false,
+  "auditor": {
+    "root": "/private/tmp/atn-research-v2-next",
+    "source_sha256": "6e81099c339b803ab6ed216e4f6987d3d2d238065b474a5703477d3b7ef345f7"
+  },
+  "autonomous_fitting": false,
+  "efficacy_claim": false,
+  "helper_sha256": "f0aaa1dcc820dc04f0487440c3e61ef4a3c982a37a1e99d55e639ec077cff880",
+  "inventory_sha256": "9653d5497c9b3f4c77bcbcbaf6fa5658b8d8bacf17bb04d4b5941aade4f287b0",
+  "partial_outcomes_read": false,
+  "planned_operator_config_sha256": "4e9287922d165f22138731fe7b9d8e135f90096abf9951d37fea390c525113aa",
+  "producer": {
+    "root": "/private/tmp/atn-research-v2-M2-run",
+    "source_sha256": "e322da64b518f29a14bde3385bfcf6d683993b717ed4c1fc13a7a5440a1f9a47"
+  },
+  "production_preflight": {
+    "T_accessed": false,
+    "status": "producer_active"
+  },
+  "raw_ordinary_bytes": 3445595,
+  "raw_ordinary_files": 713,
+  "raw_root": "artifacts/research-v2/WP03/delayed-collection-preparation",
+  "schema": "research/v2-M2-delayed-collection-preparation",
+  "source_sha256": "6e81099c339b803ab6ed216e4f6987d3d2d238065b474a5703477d3b7ef345f7",
+  "status": "fixture_verified_production_wait_not_yet_started",
+  "tests": {
+    "edge_red": "1failed/15passed in0.25s (symlink output escaped queue exclusion)",
+    "final": "44passed in3.30s",
+    "initial_green": "11passed in0.08s",
+    "initial_red": "9failed in0.06s (missing helper)"
+  }
+}
