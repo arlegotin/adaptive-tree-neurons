@@ -7,10 +7,12 @@ NODE timeout is retained; it published no model to resume. Budget prefixes remai
 a separate view. See [the implementation amendment](results-first-native-execution.md).
 
 The full2048-tree recovery proof now matches uninterrupted training exactly at
-about1.18GiBsampled peak RSS. The uncapped same-data/seed17 Energy native fit is
-running in a pinned checkout and publishes periodic recovery checkpoints. It retains the normal
-validation stopping rule and4GiBobserved-RSS guard. This remains engineering
-qualification, without a predictive comparison or protected T access.
+about1.18GiBsampled peak RSS. The uncapped same-data/seed17 Energy native fit completed its normal stopping
+rule at5701updates, selecting700, after7362.48seconds (just over two hours)
+and1.64GiBsampled peak RSS. Independent saved-prediction replay is exact and
+the57native validation checks/row coverage agree. This qualifies one full native
+anchor workload, without a predictive comparison or protected T access. See
+[the completion receipt](WP07-NODE-uncapped-completion-receipt.json).
 
 Start with a small neural network. Give selected neurons a learned switch between
 two affine rules, preserving predictions when that flexibility is inserted.

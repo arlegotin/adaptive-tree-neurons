@@ -38,8 +38,13 @@ future native qualification and quality runs. Exact periodic raw-training resume
 explicit deadline-free supervision and storage-bounded payload retention are
 now pass106affected NODE/worker checks plus33process checks. Full2048-tree
 recovery matches all training state and predictions, with1.18GiBsampled peak;
-independent audit passed. The same-data/seed17 uncapped Energy restart is running
-under held `c33a84e` and publishes periodic recoverable checkpoints. See
+independent audit passed. The same-data/seed17 uncapped Energy restart completed under held `c33a84e`:5701
+updates, selected700,57native Gchecks,7362.48seconds and1.64GiBsampled peak RSS.
+A separate7.40-second read-only audit verified normal patience/rolling checkpoints,
+full F-row coverage and exact saved-prediction replay. This one native workload
+brings distinct primary anchor completions to115across120ordinary attempts;
+remaining P12datasets and final-source/support qualification still block Gate D.
+See [the completion receipt](WP07-NODE-uncapped-completion-receipt.json) and
 [the proof/launch receipt](WP07-NODE-recovery-full-shape-receipt.json). No production HPO,
 calibration, global freeze or protected T has run. Earlier intake/progress entries
 below retain their historical meaning; they are not the current queue status.
