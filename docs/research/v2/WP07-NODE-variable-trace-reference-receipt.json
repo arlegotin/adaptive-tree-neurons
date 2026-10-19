@@ -1,0 +1,74 @@
+{
+  "Airfoil_completed": false,
+  "Gate_D": false,
+  "T_accessed": false,
+  "V_labels_read": false,
+  "behavior": "Independent minibatch/tail/epoch coverage, rolling G grid, strict earliest G best and exact first native patience endpoint; read-only shared producer lease; actual query sizes and temporal IDs",
+  "files": [
+    {
+      "bytes": 17957,
+      "path": "artifacts/research-v2/WP07/NODE-variable-trace-reference-red.log",
+      "sha256": "2c50d9dc75907d221fc213d8b78cb36c0df3515c8d9609fcbd78fecce5515c71"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP07/NODE-variable-trace-reference-green.log",
+      "sha256": "33c930eade6286ef5ddd39f98dab7b7067892f96d99a96cffb302925675837f3"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP07/NODE-variable-trace-reference-affected.log",
+      "sha256": "5738445f7f1266d129a21e6af2d8523fec0be053b3226fa1602933d13ace2a6c"
+    },
+    {
+      "bytes": 2003,
+      "path": "artifacts/research-v2/WP07/NODE-Energy-variable-trace-audit-16c62ba.json",
+      "sha256": "102a4c4dbecfbab7f25a0feffabb689ac379a3f30d56c1b111bc1d36f45cdc68"
+    },
+    {
+      "bytes": 2093,
+      "path": "artifacts/research-v2/WP07/NODE-Energy-variable-trace-audit-16c62ba.stdout.log",
+      "sha256": "f6026a3d1470452310b7ee07e678357dc816d194677be53678fbbcc4abe0df99"
+    },
+    {
+      "bytes": 476,
+      "path": "artifacts/research-v2/WP07/NODE-Energy-variable-trace-audit-16c62ba.stderr.log",
+      "sha256": "b784d565e4d49369476e29420913c5a00752cb540e5aec970637dad7135f3aea"
+    },
+    {
+      "bytes": 3570,
+      "path": "docs/research/v2/scripts/native_node_trace_reference.py",
+      "sha256": "2a071ef73e74957d7d6acf14a0ad771ec850dc8357864bc6a8fb3a98f0ad0a1c"
+    },
+    {
+      "bytes": 7725,
+      "path": "docs/research/v2/scripts/audit_node_native_completion.py",
+      "sha256": "5c85b17fc6e6999aa5ba3f2c94dba82f2159fedbd0bcc4591b79e936fc9acff3"
+    }
+  ],
+  "new_full_native_anchor_added": false,
+  "old_energy_operator": {
+    "git_version": "8f9fa91:docs/research/v2/scripts/audit_node_native_completion.py",
+    "path": "docs/research/v2/scripts/audit_node_native_completion.py",
+    "sha256": "5a35655ca1220ae75fbeda9e3d7928892eee290e8c01250b2cd6916c99ec5197"
+  },
+  "real_energy_recheck": {
+    "audit_elapsed_ns": 9560132958,
+    "complete_epochs": 5701,
+    "exact_closed_prediction_replay": true,
+    "executed_updates": 5701,
+    "rows_updated": 1824320,
+    "selected_step": 700
+  },
+  "schema": "research/v2-NODE-variable-batch-audit-reference",
+  "scope": "Hand-enumerated variable-batch counterexamples plus repeated actual Energy completion/replay. Full Airfoil and other native-size audits await their completed anchors. Earlier Energy receipt retains its own recoverable Git operator bytes.",
+  "source_of_training": "c33a84eda018d11b2dbe237dbc0b5b681c8e65c9",
+  "tests": {
+    "GREEN": "14 passed in 0.03s",
+    "RED": "14 missing-reference failures/.07s",
+    "affected": "26 passed/.13s"
+  },
+  "training_changed": false,
+  "training_package_sha256": "b680a26b2176c6c5cc0f59cf19192d7ee963826a7575cce5ec5ee695521a65cc",
+  "training_reexecuted": false
+}

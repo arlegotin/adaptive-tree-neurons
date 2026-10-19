@@ -38,6 +38,12 @@ The first eight teachers have completed and the one predeclared uncertainty
 extension is active. Partial outcomes have not been used to change the method,
 treatment or teacher inventory. Independently audit the complete admitted queue
 before interpreting M3 or deciding Gate B.
+An independent auditor is pinned at654a2cc/package4dbf2141. The operational
+waiter checks the producer lease without opening partial outcomes and invokes
+the verified prediction/teacher/cost analysis only after the admitted queue is
+complete and inactive. Raw waiting/analysis outputs are under
+`artifacts/research-v2/WP04/M3-delayed-audit-654a2cc`. See
+[its launch receipt](WP04-M3-delayed-audit-launch-receipt.json).
 
 The bounded-memory Energy NODE attempt finished at its old7200-second cap, with
 about1.49GiBsampled peak and no saved model. The user then explicitly prioritized

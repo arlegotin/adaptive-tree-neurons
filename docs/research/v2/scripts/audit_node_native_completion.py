@@ -1,5 +1,7 @@
 """Audit an inactive uncapped NODE anchor, without fitting or query labels."""
 import argparse
+from contextlib import contextmanager
+import fcntl
 import hashlib
 import json
 import math
@@ -23,12 +25,23 @@ assert sys.dont_write_bytecode
 sys.path.insert(0,str(source/'src'))
 from treeneuron.research.method_worker import scientific_source_sha256,_initialize_native_threads
 from treeneuron.research.trial_bridge_v2 import EngineeringTrialBridge
-from treeneuron.research.ledger import StudyLease,write_new_json
+from treeneuron.research.ledger import write_new_json
+from native_node_trace_reference import check_native_trace
 
 def sha(path):
     with Path(path).open('rb') as stream:return hashlib.file_digest(stream,'sha256').hexdigest()
 
-with StudyLease(root):
+@contextmanager
+def inactive_study(path):
+    lease=path/'worker-lease.json'
+    if lease.is_symlink():raise ValueError('Ordinary producer lease required')
+    with lease.open('r') as stream:
+        try:fcntl.flock(stream.fileno(),fcntl.LOCK_SH|fcntl.LOCK_NB)
+        except BlockingIOError as error:raise PermissionError('Cannot audit an active native producer') from error
+        try:yield
+        finally:fcntl.flock(stream.fileno(),fcntl.LOCK_UN)
+
+with inactive_study(root):
     identity=json.loads((root/'study.json').read_text())
     assert scientific_source_sha256()==identity['source_sha256']
     assert identity['budget']=={'native_stopping':True} and identity['wall_deadline_ns'] is None
@@ -69,34 +82,30 @@ with StudyLease(root):
     assert state['max_updates'] is None and summary['stop_reason']=='G_patience'
     assert summary['config']==identity['config'] and state['trace']==fit['trace'] and state['summary']==fit['summary']
     steps=summary['executed_updates'];n=len(arrays['F']['y'])
-    assert n==320 and len(arrays['G']['y'])==128 and len(arrays['V_features']['X'])==128
+    assert n==state['n_fit'] and len(arrays['G']['y'])==state['n_select']
     assert steps==len(state['trace'])==fit['executed_updates']
-    assert all(t['step']==i+1 and t['applied'] is t['optimizer_entered'] is True
-        and sorted(t['rows'])==list(range(n)) for i,t in enumerate(state['trace']))
-    reports=state['reports'];by_step={r['step']:r for r in reports}
-    assert len(reports)==len(by_step) and list(by_step)==list(range(100,steps+1,100))
-    best=math.inf;best_step=0;first_stop=None
-    for step in range(1,steps+1):
-        if step in by_step:
-            r=by_step[step]
-            assert r['snapshot_steps']==list(range(max(100,step-400),step+1,100))
-            if r['g_mse']<best:best=r['g_mse'];best_step=step
-        if step>best_step+5000:first_stop=step;break
-    assert first_stop==steps and best_step==summary['selected_step']
+    reports=state['reports']
+    trace_reference=check_native_trace(trace=state['trace'],reports=reports,n_fit=n,
+        batch_size=512,report_frequency=100,patience=5000,latest_checkpoints=5,
+        selected_step=summary['selected_step'],executed_updates=steps)
+    best_step=trace_reference['selected_step']
     q=arrays['V_features']
     with np.load(attempt/'worker/predictions.npz',allow_pickle=False) as archive:
-        assert set(archive.files)=={'prediction','row_id','group_id'}
+        assert set(archive.files)=={'prediction','row_id','group_id'}|({'timestamps'} if 'timestamps' in q else set())
         assert np.array_equal(archive['row_id'],q['row_id']) and np.array_equal(archive['group_id'],q['group_id'])
+        if 'timestamps' in q:np.testing.assert_array_equal(archive['timestamps'],q['timestamps'])
         repeated=model.predict(pd.DataFrame(q['X'],columns=identity['config']['feature_schema']['columns']))
         np.testing.assert_array_equal(repeated,archive['prediction'])
     assert scientific_source_sha256()==identity['source_sha256']
     result=dict(schema='research/v2-NODE-uncapped-completion-audit',status='native_anchor_completed_and_replayed',
         source_sha256=identity['source_sha256'],source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=source,text=True).strip(),
-        operator_sha256=sha(__file__),study_sha256=sha(root/'study.json'),request_sha256=sha(request_path),
+        operator_sha256=sha(__file__),trace_reference_sha256=sha(Path(__file__).with_name('native_node_trace_reference.py')),
+        trace_reference=trace_reference,dataset=request['observation_identity']['dataset'],
+        study_sha256=sha(root/'study.json'),request_sha256=sha(request_path),
         process_receipt_sha256=sha(process_path),worker_terminal_sha256=sha(attempt/'worker/terminal.json'),
         selected_snapshot_manifest_sha256=worker['snapshot_manifest_sha256'],prediction_sha256=sha(attempt/'worker/predictions.npz'),
         executed_updates=steps,selected_step=best_step,native_G_evaluations=len(reports),
-        training_rows=n,query_rows=128,encoded_width=summary['encoded_width'],
+        training_rows=n,query_rows=len(q['row_id']),encoded_width=summary['encoded_width'],
         trainable_parameters=sum(p.numel() for p in model._model.parameters() if p.requires_grad),
         total_parameters=sum(p.numel() for p in model._model.parameters())+sum(b.numel() for b in model._model.buffers()),
         native_stopping_independently_checked=True,exact_selected_prediction_replay=True,

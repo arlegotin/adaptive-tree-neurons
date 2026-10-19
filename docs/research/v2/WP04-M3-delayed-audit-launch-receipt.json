@@ -1,0 +1,35 @@
+{
+  "Gate_B_decided": false,
+  "T_accessed": false,
+  "actual_scientific_collection_completed": false,
+  "analysis_script_sha256": "84236cddfed76d214ac9a077a6a219abc74838d4bfdd16c1598ee59235c3a6fc",
+  "argv": [
+    "artifacts/research-v2/WP04/M3-delayed-audit-654a2cc/operator.py"
+  ],
+  "auditor_source": "/private/tmp/atn-research-v2-M3-audit-654a2cc",
+  "auditor_source_sha256": "4dbf2141ca1215b4edc12aaad8d8fa9934f3b10fcf99cbc59fb87335ebc360b6",
+  "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+  "expected_plan_hash": "23ab57c782e1474985356d3216fbc00ba0a0b8294001b66b22511305d6dbb6c5",
+  "files": [
+    {
+      "bytes": 4793,
+      "path": "artifacts/research-v2/WP04/M3-delayed-audit-654a2cc/operator.py",
+      "sha256": "7459f679f60fbb2c052d81e93bb1e0124bb19aa7ea4d1e7d1a39d3bce3713288"
+    },
+    {
+      "bytes": 976,
+      "path": "artifacts/research-v2/WP04/M3-delayed-audit-654a2cc/invocation.json",
+      "sha256": "90f84bf8ed785a801643612c931ebc97b2bf47220d89216c06ed20aa71c643c7"
+    }
+  ],
+  "interpreter": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+  "operational_glue_only": true,
+  "operator_sha256": "7459f679f60fbb2c052d81e93bb1e0124bb19aa7ea4d1e7d1a39d3bce3713288",
+  "poll_seconds": 30,
+  "producer_queue": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/M3-joint-53bd029/queue",
+  "schema": "research/v2-M3-delayed-audit-launch-receipt",
+  "scope": "Operational waiting/glue around verified auditor; no fits, partial predictive outcomes or Gate B decisions",
+  "session_id": 57359,
+  "status": "waiting_for_inactive_complete_producer",
+  "wall_deadline": null
+}

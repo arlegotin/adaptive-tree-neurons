@@ -97,6 +97,16 @@ operator also supports grouped fold0 and Bike last temporal fold4 explicitly;
 no secondary-fold experimentation is admitted. This launch has no quality result.
 See WP07-NODE-Airfoil-launch-receipt.json.
 
+The independent native-completion auditor now checks the actual variable role
+sizes and512-row/tail minibatches. It no longer assumes every dataset has
+Energy's full-F-per-update geometry. Fourteen counterexample checks and the
+affected26checks pass; a fresh read-only audit of the completed Energy state
+again verifies5701updates/selected700 and exact saved predictions. Training is
+not reexecuted. The new operator and standard-library reference hashes are
+recorded separately; the earlier Energy audit's bytes remain recoverable in
+Git. Airfoil's final audit remains pending. See
+WP07-NODE-variable-trace-reference-receipt.json.
+
 Quality-first HPO needs explicit controller/inventory semantics before production:
 finite32attempt supports remain; every attempted native configuration may finish;
 time prefixes admit only models completed by their deadline. Full-quality and
