@@ -61,6 +61,15 @@ admission; recovery, qualification, V scoring and protocol integration remain
 pending. See [bridge receipt](WP08-supervised-bridge-receipt.json) and
 [executed scope](supervised-search-bridge.md). M2 remains on its original source.
 
+P06 now has one full256-epoch native-recipe fixture through that pipeline. The
+F300/G37/query1031 synthetic table has no query labels; one fixed-seed attempt
+completed within its180s/1GiB sampled-RSS envelope after a live availability
+check. All300 F rows were visited cumulatively and closed reload matched exactly.
+The20.243s paid search region is a tiny engineering observation, not a transfer
+forecast or efficiency claim. Prepared-transfer anchors, complete workloads,
+native recovery and GateD remain pending; quality eligibility stays false. See
+[receipt](WP07-P06-native256-fixture-receipt.json). No production V/T was opened.
+
 ## Decisions and deviations
 
 - The supplied handoff is the authorized scientific design. No additional design

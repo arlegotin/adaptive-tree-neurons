@@ -13,6 +13,13 @@ passed64 affected checks in516.71s. This does not promote any mode to
 quality eligibility. The source digests and old remaining-work statements below
 describe the original slice, rather than this later implementation revision.
 
+A subsequent [full-recipe fixture](WP07-P06-native256-fixture-receipt.json) ran
+all256 native epochs through the supervised worker on a new small synthetic
+F300/G37/query1031 table. It retains exact closed-reload predictions, complete
+cumulative F-row exposure and actual runtime/resource evidence. This is not a
+prepared-transfer workload, a direct-official256-epoch parity experiment or an
+eligible practical comparison. GateD and all quality flags remain false.
+
 ## Recipe and protocol boundary
 
 The official source, wheel, private dependency closure and original reviewed

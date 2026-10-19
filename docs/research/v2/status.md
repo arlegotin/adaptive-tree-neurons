@@ -117,3 +117,9 @@ attempts, complete file hashes and exact clean-pause resume. Its148-check affect
 suite passed. It reads no validation labels and admits no benchmark winner until
 native qualification is complete. The main diagnostic has reached the third of
 four small pair-control problems; its complete scientific verdict is still pending.
+
+One stronger baseline, RealMLP, has now completed its full256-epoch recipe through
+the supervised pipeline on a small synthetic fixture. All300 training rows were
+visited across the run, and saved-model reload reproduced predictions exactly.
+Recorded worker memory stayed around459MiB. This verifies that fixture's recipe
+execution; it is not a benchmark comparison or a result against our grown model.
