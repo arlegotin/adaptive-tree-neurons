@@ -56,6 +56,24 @@ def test_native_quality_keeps_the_finite_workload_without_inventing_a_time_ceili
     assert plan['execution_implemented'] is False and plan['protected_access_authorized'] is False
 
 
+def test_native_quality_fit_randomization_is_fixed_independent_and_paired_across_every_family():
+    import hashlib,json
+    rows=expand(native_quality=True).to_dict()['jobs'];paired={}
+    for row in rows:
+        key=(row['dataset'],row['outer_fold'],row['search_repeat'])
+        paired.setdefault(key,set()).add((row['fit_seed64'],row['fit_seed'],row['fit_seed32_collision_counter']))
+    assert len(paired)==60 and all(len(v)==1 for v in paired.values())
+    assert len({next(iter(v))[1] for v in paired.values()})==60
+    assert {next(iter(v))[1] for v in paired.values()}.isdisjoint({r['hpo_seed32'] for r in rows})
+    labels=[2026101802,'P2-search','practical','airfoil','outer','0','repeat','0','fit']
+    raw=json.dumps(labels,separators=(',',':'),ensure_ascii=True).encode('ascii')
+    first=rows[0]
+    assert first['fit_seed64']==int.from_bytes(hashlib.sha256(raw).digest()[:8],'big')&((1<<63)-1)
+    library=json.dumps(labels+['library32',str(first['fit_seed32_collision_counter'])],separators=(',',':')).encode('ascii')
+    assert first['fit_seed']==int.from_bytes(hashlib.sha256(library).digest()[:8],'big')&((1<<32)-1)
+    assert all('fit_seed' not in r for r in expand().to_dict()['jobs'])
+
+
 def test_bike_uses_last_block_and_secondary_requires_all_primary_hashes():
     rows=expand().to_dict()['jobs'];primary=[r for r in rows if r['tranche']=='primary']
     assert {r['outer_fold'] for r in primary if r['dataset']=='bike'}=={4}

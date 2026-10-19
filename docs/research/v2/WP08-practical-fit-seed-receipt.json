@@ -1,0 +1,47 @@
+{
+  "T_accessed": false,
+  "current_producers_unchanged": [
+    "M3 held53bd029/e78e",
+    "NODE Airfoil heldc33a84e/b680"
+  ],
+  "fields": [
+    "fit_seed64",
+    "fit_seed",
+    "fit_seed32_collision_counter"
+  ],
+  "legacy_bounded_metadata_unchanged": true,
+  "logs": [
+    {
+      "bytes": 4964,
+      "path": "artifacts/research-v2/WP08/practical-fit-seed-red.log",
+      "sha256": "ca134f33c6f291dd17bbaf203cb764d1ea42c7c896309232ea8de3d58fb782d1"
+    },
+    {
+      "bytes": 180,
+      "path": "artifacts/research-v2/WP08/practical-fit-seed-green.log",
+      "sha256": "7c998511f794214d622dd874046e7cde3339920c93d709b4ac8dae9163ae419a"
+    }
+  ],
+  "namespace": {
+    "labels": [
+      "study_id",
+      "practical",
+      "dataset",
+      "outer",
+      "str(fold)",
+      "repeat",
+      "str(repeat)",
+      "fit"
+    ],
+    "root": 2026101802
+  },
+  "policy": "60 model labels paired across14families and every trial; allocate library32 after all60unchanged HPO library seeds, excluding HPO and earlier model values; preserve collision counter; no seed selection",
+  "production_HPO_run": false,
+  "schema": "research/v2-practical-fit-seed-implementation",
+  "scope": "Native-quality planner/search/inventory metadata binding only; native model generation, qualification, T access and production readiness remain unauthenticated",
+  "source_sha256": "f7eefb73f71e78f7cf19cae463bb613534e496e208d67e2cf6f848cf76692a06",
+  "tests": {
+    "GREEN": "78 passed in26.41s: practical workload, file-backed168-primary inventory and paid search controller",
+    "RED": "3 failed/46 deselected in2.18s: absent fixed-fit metadata; consistent changed search/trial seed and self-rehashed job seed incorrectly accepted"
+  }
+}

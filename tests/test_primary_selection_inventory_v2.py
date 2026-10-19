@@ -36,7 +36,7 @@ def prepare(root,*,native_quality=False):
         identity=dict(job_id=job['job_id'],family_id=job['family_id'],search_repeat=job['search_repeat'],
             source_sha256=source,runtime_sha256=job['runtime_sha256'],support_sha256='e'*64,split_sha256=job['split_hash'])
         search_budget=dict(deadline_ns=None,prefixes_ns=[600000000000,1800000000000,7200000000000]) if native_quality else {}
-        search_plan=make_search_plan(identity=identity,fit_seed=17,hpo_seed32=job['hpo_seed32'],
+        search_plan=make_search_plan(identity=identity,fit_seed=job.get('fit_seed',17),hpo_seed32=job['hpo_seed32'],
             anchors=[dict(variant='native_anchor_fixture')],mode='finite',support=None,
             candidates=[dict(variant='first'),dict(variant='tied_later')],**search_budget)
         def trial(request):
@@ -60,10 +60,31 @@ def test_full_native_quality_primary_winners_can_complete_after_every_budget_pre
     plan,procedure,selections=prepare(tmp_path,native_quality=True)
     result=seal(tmp_path,plan,procedure,selections);models=result.payload['models']
     assert len(models)==168 and all(m['winner_attempt_index']==1 and m['paid_search_ns']==32400000000000 for m in models)
+    seeds={j['job_id']:j['fit_seed'] for j in plan.to_dict()['jobs']}
+    assert all(m['fit_seed']==seeds[m['job_id']] for m in models)
     assert result.payload['secondary_release_authorized'] is result.payload['protected_access_authorized'] is False
     loaded=api().load_primary_selection_inventory(result.path,expected_file_sha256=result.file_sha256,
         plan=plan,expected_plan_hash=plan.to_dict()['plan_hash'])
     assert loaded.payload==result.payload
+
+
+@pytest.mark.parametrize('change',['consistent_search_seed','self_rehashed_job_seed'])
+def test_quality_inventory_rejects_unplanned_fit_seeds_even_with_consistent_trial_metadata(tmp_path,change):
+    from treeneuron.config import canonical_json
+    from treeneuron.research.workload import PracticalPlan
+    plan,procedure,selections=prepare(tmp_path,native_quality=True);entry=selections[next(iter(selections))]
+    if change=='self_rehashed_job_seed':
+        value=plan.to_dict();value['jobs'][0]['fit_seed']=123
+        value['plan_hash']=canonical_hash({k:v for k,v in value.items() if k!='plan_hash'})
+        plan=PracticalPlan(canonical_json(value))
+    else:
+        path=Path(entry['search_plan']['path']);saved=json.loads(path.read_text());saved['fit_seed']+=1
+        saved['plan_hash']=canonical_hash({k:v for k,v in saved.items() if k!='plan_hash'})
+        entry['search_plan']=publish(path,saved)
+        path=Path(entry['search_result']['path']);result=json.loads(path.read_text());result['plan_hash']=saved['plan_hash']
+        for row in result['records']:row['fit_seed']=saved['fit_seed']
+        result['winner']['fit_seed']=saved['fit_seed'];entry['search_result']=publish(path,result)
+    with pytest.raises(ValueError):seal(tmp_path,plan,procedure,selections)
 
 
 @pytest.mark.parametrize('mutation',['deadline_stop','false_prefix'])

@@ -201,6 +201,15 @@ add the smallest deterministic counter and retain it. Confirmation root is newly
 generated after choice, committed by hash before protected teacher creation,
 revealed with archive. Check actual teacher identities for overlap.
 
+Practical native-quality jobs also fix model randomness before production:
+labels are `(study_id,'practical',dataset,'outer',str(fold),'repeat',str(repeat),
+'fit')` under root2026101802. Retain the canonical63-bit value and allocate its
+library32 value after all60fixed HPO library seeds, excluding those values and
+earlier model labels. Store each collision counter. A dataset/fold/repeat shares
+this model seed across every family and trial; seeds are never HPO candidates.
+Bind it through the search plan and selected-model inventory. These paired
+labels do not imply identical initial tensors across different architectures.
+
 ## Controls
 
 Exact algebra control: actual gate Jacobians with duplicate and complementary

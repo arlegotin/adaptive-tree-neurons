@@ -66,6 +66,28 @@ def practical_search_budget(family,*,native_quality=False):
         official_anchor_first=True,failures_and_caps_paid=True)
 
 
+def _paired_search_seeds(study_id,seed_root,*,native_quality):
+    if (type(study_id) is not str or re.fullmatch(r'[A-Za-z0-9_-]+',study_id) is None
+            or type(seed_root) is not int or seed_root!=2026101802 or type(native_quality) is not bool):
+        raise ValueError('Fixed practical seed namespace required')
+    used32=set();seeds={}
+    for dataset in _DATASETS:
+        for fold in range(5):
+            for repeat in range(2):
+                labels=(study_id,'practical',dataset,'outer',str(fold),'repeat',str(repeat),'HPO')
+                library,counter=seed32(seed_root,*labels,used=used32)
+                seeds[dataset,fold,repeat]=dict(hpo_seed=seed64(seed_root,*labels),hpo_seed32=library,
+                    seed32_collision_counter=counter)
+    if native_quality:
+        # Keep every established HPO number; model seeds exclude all HPO
+        # values and earlier model labels, with intentional family pairing.
+        for (dataset,fold,repeat),record in seeds.items():
+            labels=(study_id,'practical',dataset,'outer',str(fold),'repeat',str(repeat),'fit')
+            library,counter=seed32(seed_root,*labels,used=used32)
+            record.update(fit_seed64=seed64(seed_root,*labels),fit_seed=library,fit_seed32_collision_counter=counter)
+    return seeds
+
+
 def expand_practical(data_manifests,*,support_lock_sha256,source_sha256,runtime_sha256,
                      lock_sha256,study_id='P2-search',seed_root=2026101802,native_quality=False):
     """Return840 fixed jobs without opening role arrays or authorizing workers.
@@ -84,14 +106,7 @@ def expand_practical(data_manifests,*,support_lock_sha256,source_sha256,runtime_
     checked={name:_checked_manifest(name,data_manifests[name]) for name in _DATASETS}
     # Seeds label60 independent searches. Reusing a label across14 families is
     # intentional pairing, whereas an accidental collision across labels is not.
-    used32=set();seeds={}
-    for dataset in _DATASETS:
-        for fold in range(5):
-            for repeat in range(2):
-                labels=(study_id,'practical',dataset,'outer',str(fold),'repeat',str(repeat),'HPO')
-                library,counter=seed32(seed_root,*labels,used=used32)
-                seeds[dataset,fold,repeat]=dict(hpo_seed=seed64(seed_root,*labels),hpo_seed32=library,
-                    seed32_collision_counter=counter)
+    seeds=_paired_search_seeds(study_id,seed_root,native_quality=native_quality)
     jobs=[]
     for tranche in ('primary','secondary'):
         for dataset in _DATASETS:

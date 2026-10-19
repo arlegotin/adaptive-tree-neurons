@@ -11,7 +11,7 @@ from treeneuron.analysis.practical_v2 import select_completed_trial
 from .deployment_worker_v2 import _json,_source
 from .ledger import write_new_json
 from .search_controller_v2 import SearchPlan,_checked_plan
-from .workload import PracticalPlan,_DATASETS,_FAMILIES,practical_search_budget
+from .workload import PracticalPlan,_DATASETS,_FAMILIES,practical_search_budget,_paired_search_seeds
 
 
 _FLAGS=('secondary_release_authorized','protected_access_authorized','native_qualification_authenticated',
@@ -48,6 +48,7 @@ def _primary(plan,expected):
     if type(jobs) is not list or len(jobs)!=840:raise ValueError('All840fixed practical jobs required')
     policy=value.get('budget_policy','legacy_bounded')
     if policy not in ('legacy_bounded','native_quality'):raise ValueError('Unknown practical budget policy')
+    seeds=_paired_search_seeds(value.get('study_id'),value.get('seed_root'),native_quality=policy=='native_quality')
     seen=set();primary=[]
     for job in jobs:
         if type(job) is not dict:raise ValueError('Invalid fixed practical job')
@@ -60,6 +61,7 @@ def _primary(plan,expected):
         if (key in seen or job.get('job_id')!=job_id or job.get('tranche')!=('primary' if is_primary else 'secondary')
                 or any(job.get(k)!=value[k] for k in ('source_sha256','runtime_sha256','support_lock_sha256','lock_sha256'))
                 or job.get('budget')!=practical_search_budget(family,native_quality=policy=='native_quality')
+                or any(type(job.get(k)) is not type(v) or job[k]!=v for k,v in seeds[dataset,fold,repeat].items())
                 or job.get('seed_selection_allowed') is not False):
             raise ValueError('Practical primary/secondary partition or binding changed')
         seen.add(key)
@@ -118,6 +120,8 @@ def _assemble(plan,expected,procedure,selections,created):
                 or search_plan['hpo_seed32']!=job['hpo_seed32'] or search_plan['max_attempts']!=budget['max_attempts']
                 or search_plan['deadline_ns']!=deadline or search_plan['prefixes_ns']!=prefixes):
             raise ValueError('Search source/family/split/repeat/HPO/budget differs from its primary job')
+        if value.get('budget_policy')=='native_quality' and search_plan['fit_seed']!=job['fit_seed']:
+            raise ValueError('Search model seed differs from the fixed paired practical job')
         result=_ref(entry['search_result'],references,decode=True)
         stops=('attempt_limit','support_exhausted') if deadline is None else ('attempt_limit','deadline','support_exhausted')
         if (type(result) is not dict or result.get('schema')!='research/v2-outer-search-result'
@@ -165,10 +169,14 @@ def _assemble(plan,expected,procedure,selections,created):
         model=_ref(entry['selected_model'],references)
         if (model,entry['selected_model']['sha256']) not in winner_files:
             raise ValueError('Selected model is not one of its V-selected winner artifacts')
-        models.append(dict(job_id=job['job_id'],dataset=job['dataset'],outer_fold=job['outer_fold'],
+        model_record=dict(job_id=job['job_id'],dataset=job['dataset'],outer_fold=job['outer_fold'],
             family_id=job['family_id'],search_repeat=job['search_repeat'],split_hash=job['split_hash'],
             manifest_hash=job['manifest_hash'],winner_attempt_index=winner['attempt_index'],V_score=winner['V_score'],
-            attempts_paid=len(records),paid_search_ns=total,model=entry['selected_model']))
+            attempts_paid=len(records),paid_search_ns=total,model=entry['selected_model'])
+        if value.get('budget_policy')=='native_quality':
+            model_record.update(fit_seed=job['fit_seed'],fit_seed64=job['fit_seed64'],
+                fit_seed32_collision_counter=job['fit_seed32_collision_counter'])
+        models.append(model_record)
     for path,digest in list(references.items()):_ref(dict(path=path,sha256=digest),{})
     if _source()!=value['source_sha256']:raise ValueError('Scientific source changed during primary sealing')
     return dict(schema='research/v2-primary-selection-payload',created_utc_ns=created,plan_hash=expected,
