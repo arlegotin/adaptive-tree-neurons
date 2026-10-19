@@ -1,0 +1,30 @@
+{
+  "T_accessed": false,
+  "conditional_extension_barrier": "all160 initial final evaluations; no secondary teacher data before declared decision",
+  "full_queue_entries": 3089,
+  "logs": [
+    {
+      "bytes": 1377,
+      "path": "artifacts/research-v2/WP04/M3-graph-implementation/red.log",
+      "sha256": "9c32dcd6e7ca479ff30a6a7dfb0f5a82041169daa2feaec295eead35b8a770b2"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP04/M3-graph-implementation/green.log",
+      "sha256": "a880424936079bab985ef4f3591e6cd62dd47b8d5d796862d4c4d6eb523f9108"
+    }
+  ],
+  "pending": [
+    "Native worker composition",
+    "Measured full workload resource admission",
+    "Production source hold and scientific run"
+  ],
+  "placement_dependencies": "F/source/parent only; G probe selection is a separate explicit branch",
+  "schema": "research/v2-M3-graph-implementation",
+  "scientific_execution_admitted": false,
+  "source_sha256": "69f291c79ef8980a9d13b805f2288dffd5fa46efd8fa4782896dbf4fa2705f80",
+  "tests": {
+    "GREEN": "17 passed in5.89s",
+    "RED": "2 failed in.05s"
+  }
+}
