@@ -1,0 +1,35 @@
+{
+  "additional_scientific_teachers": 0,
+  "completed_plan_task": 4,
+  "evidence": [
+    {
+      "path": "artifacts/research-v2/WP03/M2-post-execution-tests/started.json",
+      "sha256": "c467686637d53823f1178337b745dae812367c49fe640cee89bf3fe98bce4039"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/M2-post-execution-tests/driver.log",
+      "sha256": "20918b6425f1694397540b3c23fce220412c1f8716b5b8c9a308d579f14aaf94"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/M2-post-execution-tests/pytest.log",
+      "sha256": "c4b52a19d78c1e80b3c5f4ec20f42acb1daff1095583d1ccc2a7b30c343526b5"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/M2-post-execution-tests/terminal.json",
+      "sha256": "5d598c38b104b913d4ccd18327f67c4a0f39cea934797586b0741594f58d6d4c"
+    }
+  ],
+  "failed": 0,
+  "next_plan_task": 5,
+  "original_scientific_producer_source_unchanged": true,
+  "passed": 170,
+  "protected_production_data_accessed": false,
+  "pytest_seconds": 70.04,
+  "schema": "research/v2-M2-post-execution-software-check",
+  "scientific_package_sha256": "69733d9d9ac92c3ab474bb8beb59cbab29d34c803ceced8e23eb225d1451ec2b",
+  "scope": "WP03 diagnostics, execution, collection, arithmetic and Gate A; not the whole repository",
+  "status": "passed",
+  "test_file_count": 20,
+  "verification_checkout": "27d730cbce536e3a645d2fe32c7090f565ae25bf",
+  "whole_repository_suite_passed": false
+}
