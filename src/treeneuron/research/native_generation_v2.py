@@ -38,8 +38,10 @@ def audit_native_generation(*,request_path,expected_request_sha256,native_refere
             or request['config']['feature_schema']!=dict(columns=manifest['feature_names'],categorical=manifest['categorical_features'])
             or request['observation_identity']!=dict(dataset=manifest['dataset'],split_kind='temporal' if manifest['dataset']=='bike' else 'grouped',split_sha256=split['split_hash'])):
         raise ValueError('Native generation seed/configuration/budget/primary split differs')
+    prepared_roles={}
     for role in ('F','G','V_features'):
         relative=f'outer-{outer_fold}/'+('V-features.npz' if role=='V_features' else role+'.npz')
+        prepared_roles[prepared_root/relative]=manifest['files'][relative]['sha256']
         if (request['files'][role]['sha256']!=manifest['files'][relative]['sha256']
                 or _sha(prepared_root/relative)!=request['files'][role]['sha256']):
             raise ValueError('Native fitting roles differ from their committed primary dataset')
@@ -106,6 +108,7 @@ def audit_native_generation(*,request_path,expected_request_sha256,native_refere
                 or saved['prediction'].shape!=query['row_id'].shape or not np.isfinite(saved['prediction']).all()):
             raise ValueError('Native prediction rows/types differ from primary V features')
     if (scientific_source_sha256()!=before or _sha(manifest_path)!=expected_manifest_sha256
+            or any(_sha(path)!=digest for path,digest in prepared_roles.items())
             or canonical_hash(_inventory(root))!=native_reference['inventory_sha256']):
         raise ValueError('Native generation evidence changed during verification')
     return dict(schema='research/v2-native-generation-chain-audit',status='authenticated_source_bound_chain',

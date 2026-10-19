@@ -84,3 +84,16 @@ def test_a_real_shortened_neural_fixture_cannot_pass_as_native_generation(tmp_pa
     assert result['status']=='completed_ineligible'
     with pytest.raises(ValueError):fn(**dict(args,request_path=path,expected_request_sha256=sha(path),
         native_reference=result['recovery_reference'],expected_configuration=request['config']))
+
+
+def test_late_atomic_replacement_of_prepared_role_cannot_escape_end_of_audit_check(tmp_path,monkeypatch):
+    from treeneuron.research.transfer import TransferStore
+    fn=api();args,attempt=actual(tmp_path,monkeypatch);original=TransferStore._access
+    def change_sealed_role_after_initial_hash(store,*values,**kwargs):
+        original(store,*values,**kwargs)
+        # Atomic replacement separates the original from its staged hard link.
+        # The fit input remains valid, but the authoritative prepared bytes drift.
+        path=args['prepared_root']/'outer-0/F.npz';temporary=path.with_name('controlled-replacement.tmp')
+        temporary.write_bytes(b'Changed after the initial prepared-role verification');temporary.replace(path)
+    monkeypatch.setattr(TransferStore,'_access',change_sealed_role_after_initial_hash)
+    with pytest.raises(ValueError):fn(**args)

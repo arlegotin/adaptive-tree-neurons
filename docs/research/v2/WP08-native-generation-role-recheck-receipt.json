@@ -1,0 +1,27 @@
+{
+  "T_accessed": false,
+  "finding": "Native generation rechecked staged inputs and manifest at the end but omitted authoritative prepared-role bytes; atomic replacement could leave staged hard links valid while the source path drifted",
+  "logs": [
+    {
+      "bytes": 1752,
+      "path": "artifacts/research-v2/WP08/native-generation-late-role-red.log",
+      "sha256": "4a82ab33bbea0ba10ccfcfaf8895c6f57c4084996ec31b3c833bcefcd916a633"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP08/native-generation-late-role-green.log",
+      "sha256": "b8ccd17cdfac9e10868483db4ad0486cd4030d39ed951930009265d01b03efd6"
+    }
+  ],
+  "observed_in_real_studies": false,
+  "production_HPO_run": false,
+  "repair": "Retain original F/G/V-feature path/hash references and recheck all at function exit, following the existing independent V scorer pattern",
+  "schema": "research/v2-native-generation-prepared-role-recheck",
+  "scope": "Verifier consistency hardening on disposable synthetic roles; no altered scientific data, fitted weights or source-held runs",
+  "source_sha256": "68ecf56af55239d394a5b2d46583b9a79c41e261b6dab21eb8cbf565a407b6d6",
+  "tests": {
+    "GREEN": "43 passed/23.49s across generation, native qualification and primary V scoring",
+    "RED": "1 failed/10 deselected/2.17s: controlled late atomic replacement passed before the fix"
+  },
+  "training_algorithm_changed": false
+}

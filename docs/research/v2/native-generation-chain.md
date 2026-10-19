@@ -37,3 +37,10 @@ shortened recipe. Final48affected checks passed in43.75seconds, including
 native supervision and immutable qualification recovery. These are synthetic
 sealed-role fixtures, not official data acquisition or a new native anchor.
 See [the evidence receipt](WP08-native-generation-chain-receipt.json).
+
+A follow-up controlled atomic replacement exposed an end-of-check gap: staged
+inputs could remain unchanged while an original prepared role was replaced.
+The verifier now rechecks every original F/G/V-feature hash at exit, following
+the independent V scorer's existing pattern. The regression failed before the
+repair;43affected checks then passed in23.49seconds. No real study data or model
+was affected. See [the repair receipt](WP08-native-generation-role-recheck-receipt.json).
