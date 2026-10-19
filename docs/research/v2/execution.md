@@ -1437,3 +1437,17 @@ sampler, schedule and RNG without sharing their mutable state or changing caller
 RNG. The next updates match exactly; growing the child leaves the parent intact.
 Already grown models reject. This is fixture-tested groundwork, not persistent
 resume or permission to run calibration. See WP09-parent-fork-receipt.json.
+
+WP10/WP11 development raw-array audit and CLI: 25 missing-component RED cases
+preceded 73 affected passing checks. A subsequent file-change-during-audit RED
+led to final revalidation of all raw references, then 74 checks passed. Four
+missing CLI-option RED cases preceded the explicit development-report branch;
+89 affected checks passed in 17.78 s, including existing scientific queue CLI
+dispositions. Temporary committed source fixtures and known grouped arrays
+exercise exact byte/source/row binding, original-unit arithmetic, all statuses,
+no-overwrite publication, source-output refusal and pre-decoder T rejection.
+No real protected label, model fit, calibration or practical search was used.
+The general/protected report command remains unavailable without its remaining
+implementation and qualification. This slice authenticates array bytes and
+arithmetic, not model-generation lineage, a complete operational ledger, costs
+or population inference. See development-raw-audit.md and its receipt.

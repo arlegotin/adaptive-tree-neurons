@@ -15,6 +15,9 @@ def main(argv=None):
         cmd.add_argument('--output', type=Path, required=True)
         if name == 'run':
             cmd.add_argument('--resume', action='store_true')
+        if name == 'report':
+            cmd.add_argument('--development-manifest-sha256')
+            cmd.add_argument('--repository-root',type=Path)
     args = parser.parse_args(argv)
     try:
         if args.command in ('plan', 'run'):
@@ -34,6 +37,16 @@ def main(argv=None):
         elif args.command == 'prepare-data':
             from .transfer import prepare_data
             prepare_data(args.config, args.output)
+        elif args.command == 'report' and args.development_manifest_sha256 is not None:
+            from treeneuron.analysis.audit_v2 import audit_development_study
+            from treeneuron.analysis.report_v2 import write_report
+            from treeneuron.protocol import _execution
+            root=(args.repository_root or Path.cwd()).resolve();output=args.output.resolve()
+            if output.is_relative_to(root) and _execution(output.relative_to(root).as_posix()):
+                raise ValueError('Report output must not add/change executable scientific inputs')
+            audit=audit_development_study(args.study/'development-manifest.json',
+                expected_manifest_sha256=args.development_manifest_sha256,repository_root=root)
+            print(json.dumps(write_report(audit,args.output),sort_keys=True))
         else:
             owners = {'prepare-data': 'WP07', 'qualify': 'WP07', 'freeze': 'WP09',
                       'confirm': 'WP10', 'report': 'WP11'}

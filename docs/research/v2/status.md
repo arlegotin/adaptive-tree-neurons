@@ -114,8 +114,10 @@ compatible teacher-family Holm bounds and report rendering are fixture-tested co
 in-memory parent-fork helper now preserves the complete selected training state
 while giving comparison arms independent parameters and optimizer history; its
 65 affected checks passed. It grants no calibration or protected-data authority.
-The complete protected
-protocol/evaluator/auditor and deployment/report execution remain incomplete.
+The development raw-file auditor and explicit development report CLI now rebuild
+metrics from authenticated arrays while retaining missing runs; 89 affected
+checks passed. The complete protected protocol/evaluator/auditor and
+deployment/confirmation-report execution remain incomplete.
 
 The complete M1 run took about2h23m30s of contended wall time and retained1.55GiB.
 Its512prediction vectors were independently checked. Storage maintenance on

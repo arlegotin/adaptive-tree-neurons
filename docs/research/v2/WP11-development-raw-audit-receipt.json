@@ -1,0 +1,40 @@
+{
+  "base_commit": "b653b7f",
+  "cli_missing_options_red": 4,
+  "deferred_legacy_backend_setups": 9,
+  "drift_affected_green": 74,
+  "drift_green_seconds": 12.09,
+  "drift_red": 1,
+  "final_affected_passed": 89,
+  "final_command_sha256": "362b385b33bf9b903042652ca2cdd23fc873ddb43d4ad213c7e5b18ab2698596",
+  "final_seconds": 17.78,
+  "full_repository_suite": false,
+  "initial_affected_green": 73,
+  "initial_green_seconds": 12.35,
+  "initial_missing_component_red": 25,
+  "inventory_sha256": "004abfaa7473a4e2bbb48da20fcdca13f196c3227b36af236c5fa4498dc019ed",
+  "raw_files": 4973,
+  "raw_logical_bytes": 7792456,
+  "raw_root": "artifacts/research-v2/WP11/development-raw-audit",
+  "readiness": {
+    "T_accessed": false,
+    "calibration_execution_authorized": false,
+    "complete_operational_ledger_authentication": false,
+    "cost_authentication": false,
+    "development_raw_array_audit": true,
+    "development_report_CLI": true,
+    "model_generation_provenance": false,
+    "population_inference": false,
+    "production_confirmation_report": false,
+    "protected_protocol": false,
+    "quality_eligible": false
+  },
+  "schema": "research/v2-development-raw-audit-receipt",
+  "scientific_source_sha256": "0c3a0c2fc0e3f7f1aa559f6d0f3d5bcf1636f6cadda013f891873336db03f83d",
+  "source_files": {
+    "docs/research/v2/development-raw-audit.md": "4659aca1d57ed482f5b149f1dd4198cfc5754bfca41d81d8092924750ca86137",
+    "src/treeneuron/analysis/audit_v2.py": "44e8469d95994830caca9bc5498dc8443a5e812917c41ac378234fad64966ed3",
+    "src/treeneuron/research/cli.py": "9ac58851d59609bf0ef930104e3844cc0ac19724558ce0ef8aeb0cec2a58e4e8",
+    "tests/test_audit_v2.py": "1c360036bbfbc056134c02b8b5aea70118aa6e6ca5fc27de3b088cd2ad351c2e"
+  }
+}
