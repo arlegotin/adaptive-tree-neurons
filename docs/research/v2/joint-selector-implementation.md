@@ -137,3 +137,14 @@ attempts and costs remain retained. Explicit scalar/key serialization now passes
 objective and training treatment are unchanged. See the
 [correction receipt](WP04-diagnostic-publication-fix-receipt.json). A fresh full-size
 run is still required; neither failure establishes a predictive outcome.
+
+The corrected h64/d16/F2306/count16 numerical workload now passes, including
+full-parent conditioning, exact selected-set dense reference, fixed-fraction
+nonlinear diagnostics, native insertion and closed checkpoint reload. Its
+contended supervised elapsed time was7.097seconds, observed root RSS821346304bytes
+(about.765GiB); this includes a30-update linear-plus-sine fixture, not a full
+scientific fit or an aggregate machine peak. Independently regenerated F/G
+inputs, manually assembled full Jacobian/dense ridge and restored native
+predictions/moments agree. See the
+[full-workload receipt](WP04-full-selector-workload-receipt.json). No primary
+teacher was generated; Gate B and predictive usefulness remain unresolved.

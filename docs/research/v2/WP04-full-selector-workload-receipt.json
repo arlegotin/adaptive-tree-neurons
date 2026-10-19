@@ -1,0 +1,75 @@
+{
+  "T_accessed": false,
+  "audit_operator_recovery": "First invocation used the wrong descriptor nesting for identity_hashes, failed before checkpoint load; corrected to descriptor.state.identity_hashes and reran, no training or source change",
+  "independent_audit": {
+    "dense_gain_error": 2.5153490401663703e-17,
+    "dense_objective_error": 1.5178830414797062e-17,
+    "elapsed_ns": 1248998583
+  },
+  "new_primary_teachers": 0,
+  "pending": [
+    "Small-oracle prediction comparison",
+    "M3 immutable runner/resource admission",
+    "M3 predictive results and Gate B"
+  ],
+  "prior_failures_retained": [
+    "full-selector-workload-517aa69",
+    "full-selector-workload-517aa69-recovery"
+  ],
+  "process": {
+    "elapsed_ns": 7097131708,
+    "observed_peak_root_rss_bytes": 821346304,
+    "rss_scope": "Observed root worker RSS samples; descendants and unobserved peaks are not measured",
+    "timeout_ns": null
+  },
+  "references": [
+    {
+      "bytes": 781,
+      "path": "artifacts/research-v2/WP04/full-selector-workload-5575718/proof/result.json",
+      "sha256": "f3ba75e87e11ca5f4311613d00200a85d1857512f3fa410889c8f1a14b184d87"
+    },
+    {
+      "bytes": 2691,
+      "path": "artifacts/research-v2/WP04/full-selector-workload-5575718/process/process.json",
+      "sha256": "bf21ff6c753d18f8bcbab1f36eef3013423764d9fbd6091d76ef28ec41dfdb0f"
+    },
+    {
+      "bytes": 4679,
+      "path": "artifacts/research-v2/WP04/full-selector-workload-5575718/independent-audit.py",
+      "sha256": "1fada1a642df4601753751658a031ce0a39264b2bed66207efcae793d06b6de0"
+    },
+    {
+      "bytes": 5320,
+      "path": "artifacts/research-v2/WP04/full-selector-workload-5575718/independent-audit.json",
+      "sha256": "03f8840ef857a43e931a0dee8f31a2d8d1329ee93b75b56fc4767f3209935237"
+    }
+  ],
+  "schema": "research/v2-joint-full-workload-receipt",
+  "source_sha256": "1a85a7eb7fb7137bc4412d55c88721e80c53036158b85af14fc1c17612bd9d26",
+  "status": "passed",
+  "workload": {
+    "F_rows": 2306,
+    "G_rows": 577,
+    "T_accessed": false,
+    "closed_checkpoint_reload_exact": true,
+    "d": 16,
+    "effective_count": 16,
+    "exact_function_preservation": true,
+    "full_direct_reference_error": 1.5612511283791264e-17,
+    "grown_parameters": 1697,
+    "h": 64,
+    "interpretation": "Linear-plus-sine numerical fixture only; no predictive benefit, Gate B or M3 study outcome",
+    "new_primary_teachers": 0,
+    "newborn_age_zero": true,
+    "old_moments_unchanged": true,
+    "parent_parameters": 1153,
+    "process_body_ns": 5704650292,
+    "quality_eligible": false,
+    "requested_count": 16,
+    "schema": "research/v2-joint-native-workload",
+    "selected_parent_update": 30,
+    "selection_sha256": "27107b4698add6585beb8eb5e01e7d39abc16138936543dcc48b6e751beb7248",
+    "source_sha256": "1a85a7eb7fb7137bc4412d55c88721e80c53036158b85af14fc1c17612bd9d26",
+    "status": "passed"
+  }
+}
