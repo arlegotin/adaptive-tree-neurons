@@ -119,3 +119,17 @@ HPO were accessed, and every worker remains engineering-ineligible. Width128/
 batch256/extreme workloads, remaining mandatory native anchors, recovery and final
 source/registry/protocol qualification remain pending. See the
 [own-family native receipt](WP07-gated-primary-anchor-receipt.json).
+
+
+A separate8-case synthetic workload check completed for all own variants at
+F20000/G20000/query1024, input dimension128, parent width128 and batch256. Dynamic
+count is64; static partial/full counts follow their declared recipes. Full native
+stages and stopping remained intact. All cases completed without cap/failure/retry,
+with exact saved-prediction reload and full F coverage in both executed stages.
+The largest sampled root RSS was560.8125MiB. Queue124.350397833s contains
+122.934593040s in paid searches. The audit independently checked streams, G
+selection, fixture-role hashes and paired parent/candidate identity. This is
+endpoint workload evidence, not8new primary-population teachers or transfer tasks,
+and not blanket admission of every interior HPO setting. Sourcea1da434/9520c35f;
+[endpoint receipt](WP07-gated-upper-workload-receipt.json). Persistent native resume,
+final common-source/runtime qualification and production readiness remain pending.

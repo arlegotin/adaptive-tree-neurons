@@ -22,7 +22,7 @@ def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def prepare(repository):
     project=Path(__file__).resolve().parents[1]
     for name in ('src/treeneuron/research/protocol_v2.py','src/treeneuron/analysis/design_v2.py',
-                 'src/treeneuron/research/seeds.py'):
+                 'src/treeneuron/research/seeds.py','src/treeneuron/analysis/primary_v2.py'):
         p=repository/name;p.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(project/name,p)
     git(repository,'add','.');git(repository,'commit','-qm','toy committed v2 decision source')
     refs={}
@@ -150,3 +150,24 @@ def test_checkout_provenance_must_name_real_execution_equivalent_bytes(checkout,
     value['payload']['source']['checkout_commit']='0'*40 if checkout=='nonexistent' else original_commit
     value['lock_hash']=canonical_hash(value['payload']);path=tmp_path/'forged-checkout.json';path.write_text(json.dumps(value))
     with pytest.raises(ValueError):api().load_provisional_method(path,expected_file_sha256=sha(path),repository_root=repository)
+
+
+def test_provisional_policy_fixes_secondary_construction_and_endpoint_convention(repository,tmp_path):
+    locked,_=create(repository,tmp_path);policy=locked.payload['analysis_policy']
+    assert policy['compatible_adjusted_lower_bounds']==dict(
+        construction='teacher_t_guilbaud2008_choice2_strict',alpha=.025,
+        marginal_lower_endpoint='included',rejected_margin_endpoint='excluded',
+        partial_rejection='no_numeric_gap_for_rejected_effect',all_rejected='common_minimum_marginal_lower')
+    value=json.loads(locked.path.read_text());p=value['payload']
+    p['analysis_policy']['compatible_adjusted_lower_bounds']['marginal_lower_endpoint']='excluded'
+    p['analysis_sha256']=canonical_hash(p['analysis_policy']);value['lock_hash']=canonical_hash(p)
+    changed=tmp_path/'reinterpreted-endpoint.json';changed.write_text(json.dumps(value))
+    with pytest.raises(ValueError):api().load_provisional_method(changed,expected_file_sha256=sha(changed),repository_root=repository)
+
+
+def test_secondary_interval_code_is_bound_by_bytes_before_calibration(repository,tmp_path):
+    locked,_=create(repository,tmp_path)
+    relative='src/treeneuron/analysis/primary_v2.py'
+    assert locked.payload['code_bindings']['secondary_bounds']==dict(path=relative,sha256=sha(repository/relative))
+    (repository/relative).write_text('# replaced secondary inference\n')
+    with pytest.raises(ValueError):api().load_provisional_method(locked.path,expected_file_sha256=locked.file_sha256,repository_root=repository)

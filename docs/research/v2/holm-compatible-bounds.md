@@ -31,3 +31,10 @@ exclude the margin. This distinguishes a nonrejected equality boundary from an
 open above-margin assertion. The common all-rejected bound includes its endpoint
 when it is numerically above the margin. The paper's usual non-strict testing
 convention is adapted explicitly rather than mixing endpoint conventions.
+
+
+Canonical report projection is implemented. The provisional method policy records
+the construction and endpoint rule and binds the inference source before data.
+The renderer validates the complete family and preserves open versus included
+endpoints without relaxing the primary confidence gate. Raw-artifact/protected
+protocol authentication and practical bootstrap-family integration remain pending.

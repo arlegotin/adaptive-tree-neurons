@@ -12,7 +12,7 @@ import time
 
 from treeneuron.config import canonical_hash,canonical_json
 from treeneuron.protocol import execution_snapshot,_execution,_reference
-from treeneuron.analysis import design_v2
+from treeneuron.analysis import design_v2,primary_v2
 from . import seeds
 from .ledger import write_new_json
 
@@ -81,7 +81,9 @@ def _analysis(method,study_id):
         power_simulation_cohorts=100000,power_laws=['centered_empirical','normal','t5'],
         target_power=.9,power_binomial_lower_minimum=.9,null_binomial_upper_maximum=.03,
         secondary_hypotheses=hypotheses,secondary_multiplicity='Holm_fixed_declared_family',
-        compatible_adjusted_lower_bounds='required_in_final_analysis',
+        compatible_adjusted_lower_bounds=dict(construction='teacher_t_guilbaud2008_choice2_strict',alpha=.025,
+            marginal_lower_endpoint='included',rejected_margin_endpoint='excluded',
+            partial_rejection='no_numeric_gap_for_rejected_effect',all_rejected='common_minimum_marginal_lower'),
         missingness='missing_planned_prediction_blocks_complete_primary_claim',
         protected_sample_size_looks='none',refit='retain_F_fit_G_selected_model',
         effect_sign_or_significance_used_for_sample_size=False)
@@ -91,6 +93,7 @@ def _code_bindings(root,snapshot):
     expected={
         'method_lock':('src/treeneuron/research/protocol_v2.py',Path(__file__)),
         'variance_decision':('src/treeneuron/analysis/design_v2.py',Path(design_v2.__file__)),
+        'secondary_bounds':('src/treeneuron/analysis/primary_v2.py',Path(primary_v2.__file__)),
         'seed_derivation':('src/treeneuron/research/seeds.py',Path(seeds.__file__)),
     }
     result={}

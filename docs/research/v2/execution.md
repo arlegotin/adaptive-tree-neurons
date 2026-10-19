@@ -1387,3 +1387,30 @@ unchanged. Source353a3d84; initial source receipt retained separately. Normal-
 marginal assumptions, endpoint/report integration and protected production
 readiness remain explicit limitations. No calibration, freeze or T access.
 See holm-compatible-bounds.md and WP10-holm-compatible-bounds-receipt.json.
+
+
+WP07 endpoint workload:a1da434/9520c35f completed8/8synthetic checks at
+F20000/G20000/query1024/d128/h128/batch256. Full native stage ceilings/stopping,
+no V/T labels, no cap/failure/retry. Independent audit verifies streams/full-F
+coverage/G selection/fixture roles/query IDs/paired parent+candidate+count.
+Max sampled root560.8125MiB; queue124.350397833s contains paid122.934593040s.
+These are endpoint engineering fixtures, not new primary teachers or practical
+searches. A copied audit flag was relabeled fixture-role rather than primary-role;
+initial audit/source retained, no data/model change. See endpoint receipt.
+
+Storage refresh:finished-events-only operation completed317new identical-byte
+publications and916already-compressed verifications in37.595361042s. Independent
+postcheck verified all1,233original hashes/sizes/result markers; no history files
+selected. Reported per-file allocation472727552bytes lower; volume change remains
+unattributed while other work runs. M2scientific source/model/queue unchanged.
+WP03-events-storage-refresh-receipt.json retains operator/qualification/plan and
+cost scopes. Full inactive M2archive audit remains pending.
+
+WP10/WP11 secondary-region projection:2positive formatting RED cases preceded
+schema/endpoint validation;2bridge/concrete-policy RED cases and1source-binding
+RED followed. Final115affected checks passed14.53s. Complete families, strict
+p/endpoint compatibility, unavailable hypotheses and byte-stable formatting are
+retained; primary useful-margin validation remains unchanged. The provisional
+policy now names and source-binds this construction before data. All proof is
+sentinel-only; raw-artifact/protected-protocol/practical-family/deployment readiness
+remains pending. See WP11-secondary-region-report-receipt.json.

@@ -1,0 +1,40 @@
+{
+  "base_commit": "5e9a5e2",
+  "inventory_sha256": "ffe2d7054c8a9f9026a65007d0ab861714194ab3a66b411bf0cb2bd1d37cc203",
+  "limits": [
+    "Renderer formats supplied arithmetic; it cannot authenticate raw data or protocol",
+    "Primary useful-margin lower>margin gate is unchanged",
+    "Practical bootstrap-family confidence-region integration remains separate",
+    "Nine legacy backend setups remain resource-deferred, no complete-suite claim"
+  ],
+  "raw_aliases": 43,
+  "raw_files": 4457,
+  "raw_logical_bytes": 7328407,
+  "raw_root": "artifacts/research-v2/WP11/secondary-report-preparation",
+  "readiness": {
+    "T_accessed": false,
+    "compatible_region_report_projection": true,
+    "concrete_provisional_policy_and_math_source_binding": true,
+    "final_protocol_freeze": false,
+    "protected_access_authorized": false,
+    "raw_artifact_auditor": false,
+    "real_calibration": false
+  },
+  "schema": "research/v2-secondary-region-report-preparation",
+  "scientific_source_sha256": "90984cfabbb5fba35a1af0ffbeb45ec093d98fe8f27f2fe16b52ea62813ae244",
+  "source_files": {
+    "src/treeneuron/analysis/report_v2.py": "acc7dc159e0ba244baa28078e0a1f40caadd3bcfe0797931ae03733fb2a19e89",
+    "src/treeneuron/research/protocol_v2.py": "8c01331412940a91ea8e8561be5c4604457829782f61f5e429c3b5492ef9df21",
+    "tests/test_protocol_v2.py": "0ef67f3607552ac246d9b4e15cb73e93cfef285b4ee6206977d781e648c4dd16",
+    "tests/test_report_secondary_bounds.py": "fd0efc2f78274bb15307c822461edb33aeac556caf333980e13eff2b58fda42a"
+  },
+  "verification": {
+    "bridge_policy_red": 2,
+    "final_passed": 115,
+    "final_seconds": 14.53,
+    "full_repository_suite": false,
+    "initial_guard_passed": 11,
+    "initial_positive_feature_red": 2,
+    "source_binding_red": 1
+  }
+}

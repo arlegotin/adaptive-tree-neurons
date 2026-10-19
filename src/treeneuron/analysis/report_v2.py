@@ -44,7 +44,9 @@ def _number(value):
 
 
 def _validated(value):
-    _keys(value,_FIELDS)
+    if type(value) is not dict:raise ValueError('Canonical audit record required')
+    _keys(value,_FIELDS|({'secondary_families'} if 'secondary_families' in value else set()))
+    _secondary_families(value.get('secondary_families',[]))
     if (value['schema']!='research/v2-canonical-audit'
             or value['status'] not in ('completed','estimation','retired','blocked')
             or value['evidence_scope'] not in ('software','arithmetic','development','confirmation')):
@@ -126,6 +128,78 @@ def _validated(value):
     return predictions,missing
 
 
+
+def _secondary_families(values):
+    if type(values) is not list:raise ValueError('Explicit secondary family list required')
+    seen=set();result=[]
+    for f in values:
+        _keys(f,('family_id','construction','planned_hypotheses','independent_unit','n_units','alpha','margin','status','unavailable_reason','rows'))
+        _text(f['family_id']);planned=_names(f['planned_hypotheses']);_number(f['margin']);_number(f['alpha'])
+        if (f['family_id'] in seen or not planned or f['construction']!='teacher_t_guilbaud2008_choice2_strict'
+                or f['independent_unit']!='teacher' or type(f['n_units']) is not int or f['n_units']<2
+                or f['alpha'] is None or not 0<f['alpha']<1 or f['margin'] is None
+                or f['status'] not in ('completed','unavailable_family') or type(f['rows']) is not list):
+            raise ValueError('Invalid secondary family, construction or independent units')
+        seen.add(f['family_id']);rows={}
+        for row in f['rows']:
+            _keys(row,('hypothesis_id','raw_p','adjusted_p','lower','lower_endpoint_excluded','rejected'))
+            name=row['hypothesis_id']
+            if type(name) is not str or name not in planned or name in rows:raise ValueError('Secondary family inventory differs')
+            rows[name]=row
+            if f['status']=='unavailable_family':
+                if any(row[k] is not None for k in ('raw_p','adjusted_p','lower','lower_endpoint_excluded','rejected')):
+                    raise ValueError('Unavailable family cannot carry adjusted inference')
+            else:
+                for key in ('raw_p','adjusted_p','lower'):
+                    _number(row[key])
+                    if row[key] is None:raise ValueError('Completed secondary inference requires finite numbers')
+                if (not 0<=row['raw_p']<=row['adjusted_p']<=1 or type(row['rejected']) is not bool
+                        or row['rejected']!=(row['adjusted_p']<f['alpha']) or type(row['lower_endpoint_excluded']) is not bool):
+                    raise ValueError('Secondary adjusted probability/rejection differs')
+        if set(rows)!=set(planned):raise ValueError('Every secondary hypothesis must remain visible')
+        if f['status']=='unavailable_family':_text(f['unavailable_reason'])
+        else:
+            if f['unavailable_reason'] is not None:raise ValueError('Completed secondary family has an unavailable reason')
+            all_rejected=all(row['rejected'] for row in rows.values())
+            if all_rejected:
+                endpoints={row['lower'] for row in rows.values()}
+                if len(endpoints)!=1:raise ValueError('All-rejected construction requires its common lower bound')
+            for row in rows.values():
+                endpoint=row['lower'];excluded=row['lower_endpoint_excluded']
+                if all_rejected:
+                    valid=endpoint>=f['margin'] and excluded==(endpoint==f['margin'])
+                elif row['rejected']:valid=endpoint==f['margin'] and excluded
+                else:valid=endpoint<=f['margin'] and not excluded
+                if not valid:raise ValueError('Secondary endpoint contradicts its strict Holm region')
+        result.append((f,[rows[name] for name in planned]))
+    return result
+
+
+def teacher_family_report_record(family_id,result):
+    """Project supplied teacher arithmetic; authenticate no data or protocol."""
+    _text(family_id)
+    if (type(result) is not dict or result.get('schema')!='research/v2-holm-compatible-teacher-bounds'
+            or result.get('status') not in ('completed','unavailable_family')):
+        raise ValueError('Explicit compatible teacher-region result required')
+    planned=_names(result['planned_hypotheses']);teachers=_names(result['teacher_ids'])
+    if result['teacher_count']!=len(teachers) or result['family_size']!=len(planned):
+        raise ValueError('Teacher/family inventory differs from its supplied inference')
+    available=result['status']=='completed';rows=[]
+    for name in planned:
+        bound=result['bounds'][name] if available else None
+        rows.append(dict(hypothesis_id=name,raw_p=result['holm']['raw_p'][name] if available else None,
+            adjusted_p=result['holm']['adjusted_p'][name] if available else None,
+            lower=bound['lower'] if available else None,
+            lower_endpoint_excluded=bound['lower_endpoint_excluded'] if available else None,
+            rejected=bound['rejects_margin_null'] if available else None))
+    reason=None if available else ('Unavailable complete family; missing '+str(result['missing_hypotheses'])+
+        '; degenerate '+str(result['degenerate_hypotheses'])+'.')
+    value=dict(family_id=family_id,construction='teacher_t_guilbaud2008_choice2_strict',
+        planned_hypotheses=list(planned),independent_unit='teacher',n_units=len(teachers),
+        alpha=result['alpha'],margin=result['margin'],status=result['status'],unavailable_reason=reason,rows=rows)
+    _secondary_families([value])
+    return value
+
 def render_report(audit):
     """Format supplied audit facts deterministically; never infer study success."""
     predictions,missing=_validated(audit)
@@ -158,6 +232,20 @@ def render_report(audit):
         cells=[_text(row['comparison_id']),row['decision'],*[_number(row[k]) for k in ('estimate','lower','upper','margin')],
             _text(row['independent_unit']),'unavailable' if row['n_units'] is None else str(row['n_units']),_text(row['explanation'])]
         lines.append('| '+' | '.join(cells)+' |')
+    for family,rows in _secondary_families(audit.get('secondary_families',[])):
+        lines+=['','## Secondary family: '+_text(family['family_id']),'',
+            'Construction: '+family['construction']+'. Independent units: teacher; count '+str(family['n_units'])+'.',
+            'Family alpha: '+_number(family['alpha'])+'. Margin: '+_number(family['margin'])+'.',
+            'Conditional on valid marginal teacher t inference. Supplied calculations do not authenticate data or protocol.',
+            'No numeric gap beyond the margin is established by an open endpoint equal to that margin.','',
+            '| Hypothesis | Raw p | Holm adjusted p | Lower assertion | Margin null test |',
+            '| --- | ---: | ---: | --- | --- |']
+        if family['status']=='unavailable_family':lines+=['',_text(family['unavailable_reason']),'']
+        for row in rows:
+            assertion=('unavailable' if row['lower'] is None else
+                'effect '+('> ' if row['lower_endpoint_excluded'] else '>= ')+_number(row['lower']))
+            test='unavailable' if row['rejected'] is None else 'rejected (arithmetic)' if row['rejected'] else 'not rejected'
+            lines.append('| '+' | '.join([_text(row['hypothesis_id']),_number(row['raw_p']),_number(row['adjusted_p']),assertion,test])+' |')
     lines+=['','## Attempt inventory','','| Attempt | Status |','| --- | --- |']
     for row in audit['attempts']:lines.append(f'| {_text(row["attempt_id"])} | {row["status"]} |')
     costs=audit['costs'];lines+=['','## Resources','']

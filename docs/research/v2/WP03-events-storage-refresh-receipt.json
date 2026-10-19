@@ -1,0 +1,38 @@
+{
+  "T_accessed": false,
+  "cost_scope": "External storage maintenance overlapping the contended scientific cohort; do not add overlapping containing clocks",
+  "counts": {
+    "already_compressed_verified": 916,
+    "published_identical_bytes": 317
+  },
+  "elapsed_ns": 37595361042,
+  "event_logs_only": true,
+  "failure": null,
+  "independent_postcheck": {
+    "T_accessed": false,
+    "all_original_hashes_sizes_result_markers_match": true,
+    "elapsed_ns": 8267841041,
+    "files": 1233,
+    "history_files_selected": 0,
+    "logical_source_and_model_bytes_unchanged": true,
+    "schema": "research/v2-events-storage-independent-postcheck"
+  },
+  "inventory_sha256": "0fb086f9436bb8a24eca3da57786c2dea18d40235d842c3c8cbccfd3181875bc",
+  "logical_bytes_changed": false,
+  "operator_module_sha256": "2a129c78eee5e55e56c984fee837073e19f5684ef87ea745d86e3a7fa3031292",
+  "planned_files": 1233,
+  "producer_source_sha256": "e322da64b518f29a14bde3385bfcf6d683993b717ed4c1fc13a7a5440a1f9a47",
+  "protected_plan_hash": "d0537c5c7caee7c6e4c6d09e3e2f68b2c819f8e38853ab1cad67850718d6381a",
+  "qualification_sha256": "0d241cecbe6fc581240c1ea74ae3074877f197f8ea5b790f5819fe39ad2d27ab",
+  "raw_aliases": 0,
+  "raw_files": 957,
+  "raw_logical_bytes": 2206596,
+  "raw_root": "artifacts/research-v2/WP03/completed-events-compression-5e9a5e2-03",
+  "reported_per_file_block_saving_bytes": 472727552,
+  "schema": "research/v2-finished-events-storage-refresh",
+  "scientific_source_parameters_and_attempt_queue_changed": false,
+  "status": "completed",
+  "volume_free_after_bytes": 7378206720,
+  "volume_free_before_bytes": 6885834752,
+  "volume_saving_attributed": false
+}

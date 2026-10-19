@@ -47,3 +47,12 @@ then two failing checkout-provenance regressions, followed by41 passing focused
 checks on the corrected source. This is not a final144-check rerun or a complete
 repository pass. Legacy protected-evaluator tests use disposable sentinel data;
 no production protected observations or real calibration teachers were accessed.
+
+
+The policy now names the implemented secondary confidence-region construction
+and strict endpoint convention explicitly, replacing the earlier unresolved
+placeholder. The `secondary_bounds` binding authenticates primary_v2.py along
+with the method lock, variance decision and seed derivation. Loading rejects a
+self-rehashed endpoint change and any changed secondary-inference bytes. This
+strengthens the provisional identity; all calibration/protected authority remains
+false. It does not turn earlier provisional fixtures into a final protocol.

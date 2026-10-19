@@ -33,3 +33,17 @@ generated reports are sentinels, with no real predictions, confirmation, model
 fitting or T access. The canonical artifact auditor, frozen protected reader,
 complete study-to-audit conversion, deployment workers and production `report`
 CLI remain pending. This is not the completed WP11 independent audit or release.
+
+
+The renderer now accepts one explicit optional `secondary_families` envelope for
+the fixed teacher-t/Guilbaud construction. Its bridge projects the actual
+compatible-region arithmetic into a complete hypothesis inventory. Tables print
+`effect > margin` for an open rejected margin endpoint and `effect >= lower`
+for an included marginal endpoint. Partial rejection cannot acquire an invented
+numeric gap. Unavailable families retain every hypothesis with unavailable
+inference. Primary `lower > margin` confirmation validation is unchanged.
+The pre-calibration method policy fixes the construction and endpoint convention
+and binds the actual secondary-inference source bytes. Rehashed policy edits or
+changed source fail loading. All115affected checks passed; these remain sentinels,
+without a complete raw-artifact auditor, protected protocol or production report.
+See [evidence](WP11-secondary-region-report-receipt.json).

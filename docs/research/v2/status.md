@@ -64,14 +64,15 @@ four-to-eight-teacher extension is running. The small exhaustive pair controls
 have finished, but no final scientific collection or Gate A decision has occurred.
 The complementary-group selector has not been trained or confirmed.
 
-As of19October12:57UTC, the queue has2,485eligible completed jobs,496ineligible
-entries and one running continuation. These include preparation/evaluation and
-nominal skips, not independent problems. No historical scientific failure status
-was recorded at that snapshot. About6.79GiB disk was free. Live disk/memory guards
-can pause the same queue; full completion is not promised from a ceiling forecast.
-The last native memory-pressure reading remains2, so nine legacy backend setup
-checks remain deferred with their guard intact. One MPS test is unavailable in
-this process; no full-repository green result is claimed.
+As of19October13:43UTC, the queue has2,573eligible completed jobs,496ineligible
+entries and one running continuation on the sixth declared teacher. These include
+preparation/evaluation and nominal skips, not independent problems. No historical
+scientific failure status was recorded at that snapshot. About6.03GiB disk was
+free. Live disk/memory guards can pause the same queue; full completion is not
+promised from a ceiling forecast. The last native memory-pressure reading remains2,
+so nine legacy backend setup checks remain deferred with their guard intact.
+One MPS test is unavailable in this process; no full-repository green result is
+claimed.
 
 The practical comparison is being made executable. On the designated primary
 transfer splits,54distinct native-anchor checks completed:24tree anchors,
@@ -93,8 +94,10 @@ engineering-ineligible. The48full-recipe primary-split native checks have now co
 failure or retry, reaching encoded dimension67. Their audit verified row streams,
 G selection, exact paired parent/candidate identity and closed prediction reload.
 Together with the baselines this is102native-anchor completions from104attempts.
-Wider/batch256/extreme workloads, recovery and final common-source qualification
-are still required. Legacy model/backend guards remain intact.
+Eight separate endpoint checks also passed at F20000/G20000/d128/width128/batch256,
+with complete row-stream and saved-prediction audits. Those are synthetic workload
+fixtures, not new scientific teachers. Recovery and final common-source/support
+qualification remain required. Legacy model/backend guards remain intact.
 The [implementation contract](gated-practical-adapter-design.md) and
 [worker evidence](WP07-gated-worker-receipt.json) state the exact boundaries.
 
@@ -111,7 +114,9 @@ Its512prediction vectors were independently checked. Storage maintenance on
 finished M2 logs preserved every recorded logical-byte commitment. A discovered
 checkpoint-history reader race led to a stricter inactive-producer lease rule;
 all4,376maintained/verified commitments matched and no cohort failure was recorded.
-Active checkpoint histories are no longer maintained. These are reliability and
+Active checkpoint histories are no longer maintained. A later finished-events-only
+pass preserved all1,233original hashes/markers and reported about451MiB less
+per-file allocation; it supplies no predictive result. These are reliability and
 storage results, not predictive improvements.
 
 Next scientific decision:collect the complete frozen M2 and independently
