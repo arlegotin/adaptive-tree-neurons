@@ -31,6 +31,14 @@ def _finite(value):
     except OverflowError:return False
 
 
+def _remaining(plan,total):
+    return None if plan['deadline_ns'] is None else plan['deadline_ns']-total
+
+
+def _expired(plan,total):
+    return plan['deadline_ns'] is not None and total>=plan['deadline_ns']
+
+
 @dataclass(frozen=True)
 class SearchPlan:
     resolved_json:str
@@ -41,7 +49,11 @@ class SearchPlan:
 def make_search_plan(*,identity,fit_seed,hpo_seed32,anchors,mode,support,candidates,
                      max_attempts=32,deadline_ns=7200000000000,
                      prefixes_ns=(600000000000,1800000000000)):
-    """Bind a supplied qualified support; this does not qualify its semantics."""
+    """Bind supplied support; explicit deadline=None allows finite native quality.
+
+    This grants neither support/native-worker qualification nor label access.
+    Integer deadlines retain their legacy budget and completion semantics.
+    """
     fields={'job_id','family_id','search_repeat','source_sha256','runtime_sha256','support_sha256','split_sha256'}
     if (not isinstance(identity,dict) or set(identity)!=fields or type(identity['job_id']) is not str
             or not identity['job_id'] or identity['family_id'] not in tuple(f'P{i:02}' for i in range(14))
@@ -50,9 +62,9 @@ def make_search_plan(*,identity,fit_seed,hpo_seed32,anchors,mode,support,candida
                 for k in fields-{'job_id','family_id','search_repeat'})):
         raise ValueError('Explicit immutable search identity required')
     if (not _integer(fit_seed,0,2**63-1) or not _integer(hpo_seed32,0,2**32-1)
-            or not _integer(max_attempts,1,32) or not _integer(deadline_ns,1,7200000000000)):
+            or not _integer(max_attempts,1,32) or deadline_ns is not None and not _integer(deadline_ns,1,7200000000000)):
         raise ValueError('Invalid bounded search budget or seed')
-    if (not isinstance(prefixes_ns,(list,tuple)) or any(not _integer(n,1,deadline_ns) for n in prefixes_ns)
+    if (not isinstance(prefixes_ns,(list,tuple)) or any(not _integer(n,1,7200000000000 if deadline_ns is None else deadline_ns) for n in prefixes_ns)
             or list(prefixes_ns)!=sorted(set(prefixes_ns))):raise ValueError('Invalid descriptive prefixes')
     if (not isinstance(anchors,list) or not 1<=len(anchors)<=max_attempts
             or any(not isinstance(p,dict) or not p for p in anchors)
@@ -173,8 +185,8 @@ def _read_events(directory,plan,cursor):
                 raise ValueError('Invalid outer attempt transition')
             expected=cursor.take()
             request=dict(**expected,attempt_index=len(records),fit_seed=plan['fit_seed'],
-                budget_remaining_ns=plan['deadline_ns']-event['total_charged_ns']) if expected is not None else None
-            if request is None or request['budget_remaining_ns']<=0 or canonical_json(row)!=canonical_json(request):
+                budget_remaining_ns=_remaining(plan,event['total_charged_ns'])) if expected is not None else None
+            if request is None or _expired(plan,event['total_charged_ns']) or canonical_json(row)!=canonical_json(request):
                 raise ValueError('Archived candidate/seed/budget differs from exact search replay')
             active=row
         elif kind=='attempt_finished':
@@ -254,16 +266,16 @@ def run_search(directory,*,plan,evaluate_trial,resume=False,clock_ns=time.perf_c
         count=0
         while True:
             total=now()
-            if total>=plan['deadline_ns']:reason='deadline';break
+            if _expired(plan,total):reason='deadline';break
             if len(records)>=plan['max_attempts']:reason='attempt_limit';break
             if count>=max_attempts_this_invocation:reason='operator_pause';break
             candidate=cursor.take()
             if candidate is None:reason='support_exhausted';break
             # Candidate generation/replay/preparation is paid before admission.
             total=now()
-            if total>=plan['deadline_ns']:reason='deadline';break
+            if _expired(plan,total):reason='deadline';break
             request=dict(**candidate,attempt_index=len(records),fit_seed=plan['fit_seed'],
-                budget_remaining_ns=plan['deadline_ns']-total)
+                budget_remaining_ns=_remaining(plan,total))
             append('attempt_started',request,total)
             attempt=directory/f"attempt-{len(records):03}";attempt.mkdir(exist_ok=False)
             callback_request=_copy(request)|dict(attempt_directory=str(attempt.resolve()),search_directory=str(directory.resolve()))
@@ -282,7 +294,7 @@ def run_search(directory,*,plan,evaluate_trial,resume=False,clock_ns=time.perf_c
                     files=partial_files,
                     checkpoint_files=[],reason='Unexpected coordinator exception; diagnosis required',unexpected_exception=True)
             total=now()
-            if total>plan['deadline_ns'] and result['status']=='completed_eligible':
+            if plan['deadline_ns'] is not None and total>plan['deadline_ns'] and result['status']=='completed_eligible':
                 result|=dict(reported_status=result['status'],reported_V_score=result['V_score'],status='timeout',
                     V_score=None,reason='Completed after the enclosing dedicated-worker deadline')
             record=_record(plan,request,result,total,records)
@@ -291,11 +303,11 @@ def run_search(directory,*,plan,evaluate_trial,resume=False,clock_ns=time.perf_c
             if unexpected:reason='unexpected_coordinator_error';break
             if cursor.recovery_exhausted:reason='recovery_exhausted';break
             if result['status']=='interrupted_recoverable':
-                reason=('recovery_budget_exhausted' if len(records)>=plan['max_attempts'] or now()>=plan['deadline_ns']
+                reason=('recovery_budget_exhausted' if len(records)>=plan['max_attempts'] or _expired(plan,now())
                     else 'interrupted_recoverable')
                 break
         # Prefix selection/summary preparation itself belongs to this invocation.
-        selected=select_completed_trial(records,deadline_ns=plan['deadline_ns'])
+        selected=select_completed_trial(records,deadline_ns=now() if plan['deadline_ns'] is None else plan['deadline_ns'])
         prefixes={str(n):select_completed_trial(records,deadline_ns=n) for n in plan['prefixes_ns']}
         append('session_finished',dict(stop_reason=reason))
         total=events[-1]['total_charged_ns']

@@ -1710,3 +1710,13 @@ real native ten-role fixture exposed its abbreviated source-less test identity;
 fixing that fixture (not the guard) yields53affected GREEN17.40s. See
 WP04-M3-prediction-analysis-implementation-receipt.json. The running M3 resource
 producer remains held53bd029/e78e; this later auditor source is separate.
+
+The results-first quality controller now admits explicitdeadlineNone with finite
+32paid attempts, completed full-quality selection and separate10/30/120prefixes.
+It preserves exact pause/retry replay; the capped engineering bridge refuses that
+mode before starting work.65affected native checks passed36.09s after retained
+sandbox/bin/psfailures. This is a controller slice; qualified production workers,
+full-quality inventory/freeze and final workload admission remain pending. See
+WP08-native-quality-controller-receipt.json and results-first-native-execution.md.
+One full NODEworker now continues Airfoilprimary/seed17 atnative stopping inheld
+c33/b680, while M3 remains held53/e78. See WP07-NODE-Airfoil-launch-receipt.json.

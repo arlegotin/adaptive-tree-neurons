@@ -1,0 +1,54 @@
+{
+  "T_accessed": false,
+  "V_labels_read_for_quality_search": false,
+  "clock_scope": "Long-duration controller cases use explicit virtual clocks and real retained callback files; actual native worker fixtures separately supervised",
+  "implemented": [
+    "Explicit deadline_ns=None preserves every completed eligible trial beyond two hours",
+    "Maximum32paid attempts, fixed supports/anchors/seeds and one identical-candidate retry remain",
+    "Separate completion-based10/30/120minute prefixes; late models cannot retroactively win a prefix",
+    "Exact nil-budget journal replay, clean pause/resume and interrupted-candidate checkpoint/seed preservation",
+    "Legacy capped engineering bridge refuses native-quality plans before search/worker creation"
+  ],
+  "logs": [
+    {
+      "bytes": 8668,
+      "path": "artifacts/research-v2/WP08/quality-controller-red.log",
+      "sha256": "576a08b43f5ec871930986ff58437f8e6b4ab3bb4dfb0258b5712b856d23e71d"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP08/quality-controller-green.log",
+      "sha256": "045928269e28bc569f0af7e3bb6760f080d1c97173c7b5991992dea35ee361be"
+    },
+    {
+      "bytes": 1325,
+      "path": "artifacts/research-v2/WP08/quality-bridge-red.log",
+      "sha256": "a99e8d578c462b79d109445260225be80c6231d53bf68d43cf7b165d9237ba4a"
+    },
+    {
+      "bytes": 4626,
+      "path": "artifacts/research-v2/WP08/quality-controller-affected.log",
+      "sha256": "b32fac15b61e3a7c12e02db78dfaf3d08eeb189475cbdfef79adedb1f0859565"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP08/quality-controller-affected-native-recovery.log",
+      "sha256": "9067dd3215dbb96547410e130e92be80506f3f6f8d0ee72412b0d6b4fea4cb89"
+    }
+  ],
+  "not_yet_implemented": [
+    "Deadline-free qualified production trial bridge for all14families",
+    "Full-quality primary inventory/freeze selection semantics",
+    "Actual native complete-search workload forecast and all-family qualification"
+  ],
+  "production_HPO_run": false,
+  "schema": "research/v2-finite-native-quality-controller",
+  "source_sha256": "35bc0bd9d936528c438754863a80dbda17be2ebc4253f7701b727e31a4ce4d53",
+  "tests": {
+    "affected_initial": "63 passed/2 failed in20.91s; sandbox denied /bin/ps; both native children refused by unchanged owned-RSS guard",
+    "affected_native_recovery": "65 passed in36.09s under allowed native owned-process probe; no source/test/guard weakening",
+    "bridge_RED": "1 failed in.31s",
+    "controller_GREEN": "29 passed in.50s",
+    "controller_RED": "3 failed in.20s"
+  }
+}

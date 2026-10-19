@@ -1,0 +1,73 @@
+{
+  "Gate_D": false,
+  "T_accessed": false,
+  "V_labels_read": false,
+  "admission": {
+    "admitted": true,
+    "available_memory_bytes": 10145628160,
+    "free_disk_bytes": 16798392320,
+    "memory_basis": "vm_stat free+inactive+speculative pages; heuristic, no allocation guarantee",
+    "memory_details": {
+      "page_size": 16384,
+      "pages": {
+        "\"Translation faults\"": 7016059336,
+        "Anonymous pages": 727422,
+        "Compressions": 233690990,
+        "Decompressions": 178175624,
+        "File-backed pages": 492974,
+        "Pageins": 179161192,
+        "Pageouts": 818656,
+        "Pages active": 605487,
+        "Pages copy-on-write": 553734858,
+        "Pages free": 4331,
+        "Pages inactive": 608721,
+        "Pages occupied by compressor": 806260,
+        "Pages purgeable": 3707,
+        "Pages purged": 63034483,
+        "Pages reactivated": 171132873,
+        "Pages speculative": 6188,
+        "Pages stored in compressor": 1528199,
+        "Pages throttled": 0,
+        "Pages wired down": 269545,
+        "Pages zero filled": 6305553464,
+        "Swapins": 3305033,
+        "Swapouts": 5286626
+      }
+    },
+    "observed_utc_ns": 1792445926892188000,
+    "platform": "macOS-26.7.1-arm64-arm-64bit"
+  },
+  "config": {
+    "execution": "bounded_memory_v1",
+    "family": "P12",
+    "feature_schema": {
+      "categorical": [],
+      "columns": [
+        "frequency",
+        "angle",
+        "chord",
+        "velocity",
+        "thickness"
+      ]
+    },
+    "mode": "native_anchor",
+    "parameters": {},
+    "schema": "research/v2-node-config"
+  },
+  "dataset": "airfoil",
+  "deadline": null,
+  "distinct_completed_primary_anchors": 115,
+  "fit_seed": 17,
+  "operator": "docs/research/v2/scripts/run_node_native_primary.py",
+  "operator_change": "Generalized the completed Energy operator to explicit dataset, primary fold0/grouped or Bike lastfold4/temporal, retaining identical native worker/supervision/recovery",
+  "operator_sha256": "30df497b72db200f6039df7f51000d32cef2d08360563a94bb2ad58ef4cbc069",
+  "ordinary_attempts": 121,
+  "outer_fold": 0,
+  "prepared_manifest_sha256": "faba96df4da23855b07c066eb29565243ccfe2d521d59db57bf105d9c24d8d64",
+  "root": "artifacts/research-v2/WP07/NODE-airfoil-native-recoverable-c33a84e",
+  "schema": "research/v2-NODE-primary-native-launch",
+  "source_commit": "c33a84e",
+  "source_sha256": "b680a26b2176c6c5cc0f59cf19192d7ee963826a7575cce5ec5ee695521a65cc",
+  "status": "running",
+  "study_sha256": "d48a31743d0336ff6b54784533401678357e4e45619e38f7a47032fdbcbb8bff"
+}

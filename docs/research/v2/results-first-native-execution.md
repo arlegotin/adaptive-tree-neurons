@@ -78,16 +78,48 @@ for all three fits and closure, peaking at1,267,253,248sampled RSS bytes
 models, checked exact state equality, resource commitments and process cleanup.
 Its separate cost is retained; the105-update fixture is quality-ineligible.
 
-The same Energyprimary data/seed17 full native fit has started in that held
-checkout, with no wall deadline and sampled4GiBRSS supervision. Initial admission
-found about11.30GiBmemory proxy and6.54GiBdisk. Operational payloads retain at
-most two committed states plus one transaction; full row histories remain once.
-The initial recoverable state was published. Native stopping, full P12 workload
-qualification and full-suite claims remain pending. See
-[the proof and launch receipt](WP07-NODE-recovery-full-shape-receipt.json).
+The Energyprimary data/seed17 full native fit completed in that held checkout:
+5701updates/selected700/57Gchecks,7362.48seconds and1.64GiBsampled peak RSS.
+A separate audit verified the native stop and exactly replayed saved predictions.
+Operational payloads retain at most two committed states plus one transaction;
+full row histories remain once. Full six-dataset P12/final-source qualification
+and full-suite claims remain pending. See
+[the completion receipt](WP07-NODE-uncapped-completion-receipt.json).
+
+The next single native NODE worker now runs Airfoil primary fold0/seed17 from
+the same held source, with the same full architecture, native stop,32-row
+execution, periodic exact recovery,4GiBguard and no wall deadline. Its primary
+operator also supports grouped fold0 and Bike last temporal fold4 explicitly;
+no secondary-fold experimentation is admitted. This launch has no quality result.
+See WP07-NODE-Airfoil-launch-receipt.json.
 
 Quality-first HPO needs explicit controller/inventory semantics before production:
 finite32attempt supports remain; every attempted native configuration may finish;
 time prefixes admit only models completed by their deadline. Full-quality and
 matched-budget winners and costs are distinct. No current engineering queue is
 retroactively promoted into that production procedure.
+
+Prospective quality-search scope: at most32attempted configurations per family
+(including failures/retries; P13ends after its29finite configurations), with fixed
+supports/anchors/seeds and each attempted native fit allowed its declared
+stopping rule. There is no wall-clock quality cutoff. The10/30/120minute
+completion prefixes remain descriptive views of that same sequential search.
+Their winners cannot include a trial completed later. The full-quality portfolio
+pays every P02–P13search; its cost is measured, with no inherited24-worker-hour
+ceiling or equal-cost claim. This results-first policy must enter the final
+prospective quality estimand, workload forecast and freeze before any production
+search. The earlier120minute primary contract is superseded for the quality
+view only, under the user’s explicit instruction. Margins, fixed supports, paired
+repeats and test-access barriers remain unchanged.
+
+The controller now implements explicit `deadline_ns=None` for that finite quality
+view, with exact nil-budget journal replay and separate prefix selection. Legacy
+integer-deadline outputs retain their prior semantics. Three new controller
+cases failed before implementation; a legacy capped-bridge refusal also failed
+first. Final65affected checks passed in36.09seconds. An initial sandbox run
+retained63passes/two owned-RSS probe failures; native recovery passed without
+weakening the guard. The existing engineering bridge explicitly rejects
+quality plans. A qualified deadline-free production worker bridge, full-quality
+primary inventory/freeze and actual workload admission remain pending; no
+production HPO or real quality selection has run. See
+WP08-native-quality-controller-receipt.json.

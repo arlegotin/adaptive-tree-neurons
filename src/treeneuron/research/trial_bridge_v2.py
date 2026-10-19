@@ -22,6 +22,8 @@ class EngineeringTrialBridge:
                  interpreter,extra_pythonpath=(),rss_limit_bytes=512*1024**2):
         started=time.perf_counter_ns()
         bound=_checked_plan(plan);template_path=Path(template_path)
+        if bound['deadline_ns'] is None:
+            raise ValueError('Capped engineering bridge does not implement native-quality worker budgets')
         template,_=_validate_request(template_path,expected_template_sha256)
         identity=bound['identity'];interpreter=Path(interpreter)
         if (identity['family_id'] not in _ADAPTERS or identity['family_id']!=template['family_id']

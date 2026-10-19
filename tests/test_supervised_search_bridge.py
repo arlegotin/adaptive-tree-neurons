@@ -51,6 +51,18 @@ def test_invalid_bridge_binding_rejects_before_creating_search_or_starting_worke
     assert not (tmp_path/'search').exists()
 
 
+def test_capped_engineering_bridge_cannot_silently_substitute_for_native_quality(tmp_path):
+    from treeneuron.research.search_controller_v2 import make_search_plan
+    path,template,legacy=setup(tmp_path);p=legacy.to_dict()
+    keys=('identity','fit_seed','hpo_seed32','anchors','mode','support','candidates','max_attempts','deadline_ns','prefixes_ns')
+    values={k:p[k] for k in keys};values['deadline_ns']=None
+    quality=make_search_plan(**values)
+    with pytest.raises(ValueError,match='native.quality'):
+        api().EngineeringTrialBridge(plan=quality,template_path=path,expected_template_sha256=sha(path),
+            search_directory=tmp_path/'search',interpreter=sys.executable)
+    assert not (tmp_path/'search').exists()
+
+
 def test_actual_supervised_paid_search_retains_failures_and_exact_clean_resume(tmp_path):
     assert hasattr(api(),'EngineeringTrialBridge')
     from treeneuron.research.search_controller_v2 import run_search

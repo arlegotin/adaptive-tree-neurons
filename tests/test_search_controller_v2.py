@@ -42,6 +42,51 @@ def run(directory,config,worker,clock,**kwargs):
     return api().run_search(directory,plan=config,evaluate_trial=worker,clock_ns=clock,**kwargs)
 
 
+def test_native_quality_search_keeps_late_completed_models_and_separate_budget_prefixes(tmp_path):
+    minute=60*10**9;clock=Clock();requests=[]
+    config=plan(deadline_ns=None,max_attempts=3,prefixes_ns=[10*minute,30*minute,120*minute])
+    durations=[11*minute,120*minute,130*minute]
+    def worker(request):
+        requests.append(copy.deepcopy(request));clock.advance(durations[len(requests)-1])
+        return result(request,score=1./len(requests))
+    out=run(tmp_path/'quality',config,worker,clock)
+    assert len(requests)==3 and all(r['budget_remaining_ns'] is None for r in requests)
+    assert [r['status'] for r in out['records']]==['completed_eligible']*3
+    assert out['winner']['attempt_index']==2 and out['stop_reason']=='attempt_limit'
+    assert out['total_charged_ns']==261*minute
+    assert out['prefixes'][str(10*minute)]['winner'] is None
+    assert out['prefixes'][str(30*minute)]['winner']['attempt_index']==0
+    assert out['prefixes'][str(120*minute)]['winner']['attempt_index']==0
+    assert out['native_worker_qualified'] is False and out['protected_access_authorized'] is False
+
+
+def test_native_quality_pause_resume_does_not_create_a_two_hour_deadline(tmp_path):
+    hour=3600*10**9;clock=Clock();seen=[];config=plan(deadline_ns=None,max_attempts=2)
+    def worker(request):
+        seen.append(copy.deepcopy(request));clock.advance(3*hour)
+        return result(request,score=1./len(seen))
+    first=run(tmp_path/'quality',config,worker,clock,max_attempts_this_invocation=1)
+    assert first['stop_reason']=='operator_pause' and first['total_charged_ns']==3*hour
+    second=run(tmp_path/'quality',config,worker,clock,resume=True,expected_journal_hash=first['journal_hash'])
+    assert len(seen)==2 and second['winner']['attempt_index']==1 and second['total_charged_ns']==6*hour
+    assert all(r['budget_remaining_ns'] is None for r in seen) and seen[1]['config']=={'width':32}
+
+
+def test_native_quality_interruption_retains_same_seed_checkpoint_and_paid_attempt_limit(tmp_path):
+    hour=3600*10**9;clock=Clock();seen=[];config=plan(deadline_ns=None,max_attempts=2)
+    def worker(request):
+        seen.append(copy.deepcopy(request));clock.advance(3*hour)
+        return result(request,status='interrupted_recoverable' if len(seen)==1 else 'completed_eligible')
+    first=run(tmp_path/'quality',config,worker,clock)
+    assert first['stop_reason']=='interrupted_recoverable'
+    second=run(tmp_path/'quality',config,worker,clock,resume=True,expected_journal_hash=first['journal_hash'])
+    assert len(seen)==2 and seen[0]['config']==seen[1]['config'] and seen[1]['retry_index']==1
+    assert seen[1]['checkpoint_files'] and seen[0]['fit_seed']==seen[1]['fit_seed']==487
+    assert second['attempts_paid']==2 and second['stop_reason']=='attempt_limit'
+    with pytest.raises(ValueError,match='terminal'):
+        run(tmp_path/'quality',config,worker,clock,resume=True,expected_journal_hash=second['journal_hash'])
+
+
 def test_native_anchor_is_first_and_every_failure_consumes_the_outer_slot(tmp_path):
     clock=Clock();requests=[]
     def worker(request):
