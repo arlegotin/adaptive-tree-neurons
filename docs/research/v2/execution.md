@@ -7,6 +7,14 @@ Unchecked work is not completed, and prior investigation findings are not new ru
 
 ## Intake
 
+NODE resource continuation: the explicit bounded execution passed111affected
+checks and a full2048-tree/depth6/F1025/init1000 proof. Three updates covered
+512/512/1rows, peak sampled RSS1.097GiB, independent closed predictions exact.
+The separate NODE checkout holds `ea3993a`/`c2639fc8…`; its full Energyprimary
+native anchor now runs withseed17/7200s/4GiB and the same native stopping.
+This is not a predictive or quality result. See
+[the full-shape receipt](WP07-NODE-bounded-full-shape-receipt.json).
+
 Latest operational slice: [delayed M2 collection](delayed-M2-collection.md) passes
 44affected fixture checks. It waits on the original producer and a separately
 pinned auditor, records every stage, and refuses partial/failed queues. No M2

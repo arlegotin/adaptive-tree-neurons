@@ -47,3 +47,20 @@ disk. This is a new qualified execution track; the unchunked4GiBtrack is not
 retried. A three-update proof remains quality-ineligible. Keep every failure,
 timeout, prior cost and resource observation. No Vlabels or protected T are
 needed for these engineering checks.
+
+The full-shape proof completed under held source `ea3993a`/`c2639fc8…`.
+It retained615,169total/614,400trainable parameters and all specified rows/updates.
+The supervisor sampled179RSS observations, with a maximum1,177,665,536bytes
+(1.097GiB), and reaped the child after19.212825542s. The training phase itself
+took2.804748084s; these nested clocks are not added. Independent checks verified
+all supervisor commitments, regenerated the artificial inputs, checked full-F
+coverage and reopened the closed model with exact predictions. The initial
+stdin audit took6.205387208s. A retained executable audit then repeated those
+checks solely to provide a durable replay command; both costs remain visible.
+This remains a capped three-update engineering result.
+
+The full Energyprimary/seed17 native fit is now running in the separate held
+NODE checkout with `bounded_memory_v1`,7200s, sampled4GiBRSS and unchanged native
+stopping. Initial live admission passed. Its first78seconds stayed near1.46GiB
+sampled RSS. Completion/native quality remains pending. See
+[the full-shape receipt](WP07-NODE-bounded-full-shape-receipt.json).

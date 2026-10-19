@@ -175,8 +175,11 @@ The [delayed collection operator](delayed-M2-collection.md) now passes44affected
 checks and can wait for complete inactive results under pinned producer/auditor
 sources. It starts no fits and consumes no partial outcomes. The user's available
 memory remains below the larger NODE track's admission threshold; a lower-memory
-execution of the same native model is now being investigated, with numerical
-equivalence checks required before use.
+execution of the same native model now passes111affected checks. A full-size
+three-update proof used1.097GiBsampled peak RSS and preserved closed predictions
+exactly. The full Energy native fit is running under the new explicit execution
+policy and4GiBcap; native completion and quality remain pending. See
+[the exact execution and evidence](NODE-bounded-memory.md).
 Advance a new chooser only if the specified opportunity gate permits it; record
 a negative or inconclusive result with the same completeness as a favorable one.
 The [execution ledger](execution.md), [reproduction](reproduce.md),
