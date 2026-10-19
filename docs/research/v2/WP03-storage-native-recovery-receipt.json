@@ -1,0 +1,73 @@
+{
+  "T_accessed": false,
+  "base_commit": "d9bc033",
+  "eligible_scope": "Published immutable completed-job artifact/runs/<id>/events.jsonl only, staged/receipted outside protected inventory; no active writers or other file kinds",
+  "logs": {
+    "artifacts/research-v2/WP03/storage-operator-preparation/affected-green.log": {
+      "bytes": 179,
+      "sha256": "eb0688e2deaf8176dc60b8331e9bbcb4c28ce1904d830e882279b9f4e4b7935d"
+    },
+    "artifacts/research-v2/WP03/storage-operator-preparation/green-1.log": {
+      "bytes": 99,
+      "sha256": "b2bb7c736fd764c58b5c084c02be00c2655a150d19312641f7648c97349df7df"
+    },
+    "artifacts/research-v2/WP03/storage-operator-preparation/native-qualification.log": {
+      "bytes": 2298,
+      "sha256": "8de76bd9b0f8920ca2fa21a27132d914edd19da076028aabd220765ecb67f5d3"
+    },
+    "artifacts/research-v2/WP03/storage-operator-preparation/red.log": {
+      "bytes": 20296,
+      "sha256": "023fcf56d035c018792a93d9fe14b4c022b7a3a6be1ab2b96be760cfde985373"
+    }
+  },
+  "native_qualification": {
+    "JSON_lines": 16324,
+    "compression_tool_sha256": "72445501c67a78d02937a598ad6b97cbd20abe4977010cce3dc6c75a7e230b8c",
+    "disposable_only": true,
+    "logical_bytes": 21715143,
+    "open_reader_random_seek_mmap_identical": true,
+    "operator_module_sha256": "f3c75bb7db3be59d6604e49dc17309d6d204370a454231a0d716aac32454b460",
+    "path": "artifacts/research-v2/WP03/atomic-log-compression-qualification-d9bc033/qualification.json",
+    "reported_per_file_saving_bytes": 7970816,
+    "sha256": "339a279ee4a966bc33e09e074efa4eb7b43ab3af27b562f76cb7dd31f36efb09",
+    "source_original_unchanged": true
+  },
+  "pending": [
+    "end-to-end batch CLI on disposable authenticated queue",
+    "apply qualified representation maintenance to committed logs only",
+    "retain external housekeeping costs and unchanged producer commitments"
+  ],
+  "prior_cause": "Native context passed where earlier sandbox copies failed; exact OS mechanism remains unisolated",
+  "prior_failed_receipt_sha256": "f6e69be52c3c0c05dc865020cf4b922578b16b40b2cec214d6a7ebf879a48b94",
+  "production_applied": false,
+  "schema": "research/v2-native-storage-recovery",
+  "scientific_bytes_changed": false,
+  "source_files": {
+    "docs/research/v2/scripts/compress_completed_logs.py": "4cd1c18594be68a4bd112898ffcda7d1cb84c823489ecf673b7c857d5834dbf2",
+    "docs/research/v2/scripts/qualify_log_compression.py": "cb6fb82e4dfe2dd0b5f84dba70332fba8d05e4f1b8f380d037dacc16e78c5074",
+    "src/treeneuron/research/storage_v2.py": "f3c75bb7db3be59d6604e49dc17309d6d204370a454231a0d716aac32454b460",
+    "tests/test_storage_v2.py": "e59636dc2a1895894a77a0ac29d942dde2c89cb12576d6acc07f69624c2b595e"
+  },
+  "verification": {
+    "affected_passed": 80,
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-B",
+      "-c",
+      "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"tests/test_storage_v2.py\",\"tests/test_opportunity_prediction_audit.py\",\"tests/test_opportunity_collection.py\",\"tests/test_control_audit.py\",\"tests/test_workqueue.py\",\"tests/test_metrics.py\"]))"
+    ],
+    "cwd": "/private/tmp/atn-research-v2-next",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "missing_module_red": 14,
+    "seconds": 2.74
+  },
+  "volume_saving_attributed": false
+}

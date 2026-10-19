@@ -1124,3 +1124,13 @@ plan/events before launch. Scientific queue remains active and unaudited.
 Operational snapshot1792395541039956000:1,772eligible queue jobs/1running,
 7,597,350,912bytes free; no failure. Current host pressure2 defers the nine
 unchanged fresh-backend setup checks.
+
+Storage native recovery preparation: same checkpoint/text copy-only condition
+passes all four byte checks under native escalation; earlier failures retained,
+OS mechanism not fully isolated. New publisher14RED→80affectedGREEN2.74s; only
+committed completed-job training event logs qualify. Disposable native21.7MB log
+preserves SHA/open readers/random seeks/mmap/16,324JSONlines and stat allocation
+decreases7.97MB, with original unchanged. Exact module/tool/device qualification
+binds batch helper; no live application yet. Source/checkpoint/array/global-ledger
+bytes stay unchanged, scratch outside protected queue, old-inode backup until
+durable matching-byte receipt. Per-file block savings are not volume attribution.
