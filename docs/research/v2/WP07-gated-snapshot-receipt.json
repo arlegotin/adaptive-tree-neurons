@@ -1,0 +1,55 @@
+{
+  "base_commit": "7282c63",
+  "behaviors": [
+    "Eight own-family topologies reload original-unit predictions exactly",
+    "External manifest hash, exact source/core/native-runtime identity and closed JSON/NPZ allocation checks",
+    "Strict weight names/shapes/dtypes/finiteness; no implicit cast",
+    "Recipe/seed/topology/transform/weights prediction binding and selected/birth/Adam-age consistency",
+    "Changed live weights or preprocessing fail before snapshot output creation",
+    "Immutable output path and explicit inference-only scope; a claim of training resume rejects"
+  ],
+  "inventory_sha256": "edc522d9428c35dcbf3f66f0c503f5cbbf38ffee0f98d62933faabeff3c0a44a",
+  "limits": [
+    "F37/G17 encoded d23 engineering fixtures; no full native anchor or practical quality evidence",
+    "Fresh-worker integration and actual transformed workload/recovery qualification pending",
+    "Nine legacy backend setup checks remain deferred at native pressure2, one MPS check unavailable"
+  ],
+  "raw_files": 679,
+  "raw_logical_bytes": 7807381,
+  "raw_root": "artifacts/research-v2/WP07/gated-snapshot-preparation",
+  "readiness": {
+    "Gate_A": false,
+    "Gate_D": false,
+    "T_accessed": false,
+    "V_labels_read": false,
+    "adapter_fit": true,
+    "checkpoint_eligible": false,
+    "closed_inference_snapshot": true,
+    "method_worker": false,
+    "native_workload_qualified": false,
+    "persistent_training_resume": false,
+    "production_practical_searches": 0,
+    "quality_eligible": false
+  },
+  "schema": "research/v2-gated-closed-state-preparation",
+  "scientific_source_sha256": "ec859b135bf26380ae91bd0bbdfc410d9c41ed37f73bedfe376cba3099f10397",
+  "source_files": {
+    "src/treeneuron/research/gated_native.py": "a5f001bca81f3a0bf58e568781b340159796d6c598c0123e6acdac1332621925",
+    "tests/test_gated_native_snapshot.py": "fa5b6bbf4d8d5f28fbbf1ff157c4e12a5d7156d76da0bcb40306d72b9997e783"
+  },
+  "verification": {
+    "corrected_boundary_passed": 1,
+    "corrected_boundary_seconds": 11.76,
+    "final_passed": 166,
+    "final_seconds": 81.47,
+    "final_skipped": 1,
+    "first_integration_failed": 1,
+    "first_integration_passed": 11,
+    "fixture_error": "Nested generated Python newline was not escaped; initial source/stdout retained, fixture corrected without a production change",
+    "full_repository_suite": false,
+    "initial_fixture_syntax_error": 1,
+    "initial_red_missing_save": 2,
+    "scope_red_seconds": 12.92,
+    "scope_semantic_red": 1
+  }
+}

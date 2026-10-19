@@ -102,3 +102,14 @@ unavailable-MPS skip. This does not qualify persistent interruption recovery,
 the complete adapter, closed inference snapshots or worker/native workloads.
 See [stage evidence](WP07-gated-stage-receipt.json). Native search/calibration and
 all scientific gates remain pending.
+
+
+Fitting and closed inference snapshots now exist for P00/P01/P02/P05. Eight
+topologies reopen original-unit predictions exactly on engineering fixtures.
+The trusted manifest binds source/core/runtime, actual transformed dimensions,
+recipe, seed, weights and F preprocessing. Invalid dtype/shape/names/finiteness,
+inconsistent unit/age metadata, changed transforms and claims of unsupported
+training resume reject. Final166affected checks passed with one unavailable-MPS
+skip; worker integration and measured native workload/recovery admission remain
+pending. See [fit evidence](WP07-gated-fit-receipt.json) and
+[closed-state evidence](WP07-gated-snapshot-receipt.json).

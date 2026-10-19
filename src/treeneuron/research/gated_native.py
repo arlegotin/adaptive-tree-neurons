@@ -1,7 +1,7 @@
 """Own-family F/G-only fit boundary; engineering only until workload admission.
 
-This slice provides fitting/prediction and retains full candidate/event evidence.
-Closed inference serialization and worker registration are separate requirements;
+Fitting and closed inference retain candidate/event and prediction bindings.
+Worker integration and native workload admission are separate requirements;
 persistent interrupted-training resume is explicitly unavailable.
 """
 import copy
@@ -22,12 +22,14 @@ import numpy as np
 from treeneuron.baselines.api import FitRequest
 from .gated_config import GatedConfig
 from .native_trees import _target, _peak_rss, _failure_domain
-from .p13_simple import _source, _preprocessing, _features, _array_identity, _write, _hash, _sha
+from .p13_simple import (_source, _preprocessing, _features, _array_identity, _write, _hash, _sha,
+    _read, _validate_preprocessing)
 from .seeds import seed64
 
 _ROOT=Path(__file__).resolve().parents[3]
 _THREADS=('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS','NUMEXPR_NUM_THREADS')
 _IMPORT_CONTEXT=None
+_SNAPSHOT_SCOPE='Closed inference only; persistent optimizer/sampler training resume is unavailable'
 
 
 def _dependencies():
@@ -176,11 +178,13 @@ class GatedPredictor:
                 parent_selected_state_sha256=parent_hash,candidate_table_sha256=candidate_hash,
                 effective_count=count,selected_ids=ids,ordinary_width=ordinary_width,growth_function_preserved_exact=preserved,
                 total_parameters=sum(p.numel() for p in model.parameters()),trainable_parameters=sum(p.numel() for p in model.parameters() if p.requires_grad),
-                stages=stages,parameter_ages=ages,selected_native_state_sha256=_state_identity(model),
+                stages=stages,parameter_ages=ages,seed=request.seed,selected_native_state_sha256=_state_identity(model),
                 native_training_wall_ns=native_ns,total_fit_wall_ns=elapsed,process_peak_rss_bytes=_peak_rss(),
                 event_stream_sha256=_sha(root/'events.jsonl'),source=source,dependencies=deps,runtime=runtime,
                 accessed_roles=['F','G'],time_limit_exceeded=timeout,persistent_training_resume=False,
                 hard_resource_enforcement='Containing supervisor required; max_seconds here is post-fit observation')
+            summary['selected_prediction_state_sha256']=_prediction_binding(config,summary)
+            _validate_summary(config,summary,model)
             _write(root/'attempt.json',summary)
             self._model,self._summary,self._config,self._preprocessing=model,summary,config,preprocessing
             self._source,self._dependencies=source,deps;self._seed=request.seed
@@ -209,3 +213,160 @@ class GatedPredictor:
         return result
 
     def resource_summary(self):return copy.deepcopy(self._summary)
+
+
+    def save(self,path):
+        if self._model is None:raise RuntimeError('Own-method predictor must be fitted')
+        if self._source!=_source() or self._dependencies!=_dependencies():
+            raise ValueError('Fitted source/runtime changed')
+        _validate_preprocessing(self._preprocessing,self._config.feature_schema)
+        if self._preprocessing!=self._summary['preprocessing']:
+            raise ValueError('Preprocessing changed after the selected checkpoint')
+        _validate_summary(self._config,self._summary,self._model)
+        path=Path(path);path.mkdir(parents=True,exist_ok=False)
+        state={name:t.detach().cpu().numpy().copy() for name,t in self._model.state_dict().items()}
+        np.savez(path/'weights.npz',**state)
+        _write(path/'manifest.json',dict(schema='research/v2-gated-prediction-snapshot',family=self.family,
+            config=self._config.to_state(),seed=self._seed,source=self._source,dependencies=self._dependencies,
+            preprocessing=self._preprocessing,resources=self._summary,weights_sha256=_sha(path/'weights.npz'),
+            payload={k:dict(dtype=str(v.dtype),shape=list(v.shape)) for k,v in state.items()},
+            snapshot_scope=_SNAPSHOT_SCOPE))
+
+    @classmethod
+    def load(cls,path,*,expected_manifest_sha256):
+        import zipfile
+        path=Path(path);manifest=path/'manifest.json';payload=path/'weights.npz'
+        if (path.is_symlink() or manifest.is_symlink() or payload.is_symlink()
+                or not manifest.is_file() or not payload.is_file() or not _digest(expected_manifest_sha256)
+                or _sha(manifest)!=expected_manifest_sha256):
+            raise ValueError('Require an unchanged closed snapshot and external trusted manifest SHA256')
+        value=_read(manifest)
+        fields={'schema','family','config','seed','source','dependencies','preprocessing','resources','weights_sha256','payload','snapshot_scope'}
+        if (type(value) is not dict or set(value)!=fields or value['schema']!='research/v2-gated-prediction-snapshot'
+                or value['snapshot_scope']!=_SNAPSHOT_SCOPE):
+            raise ValueError('Unknown closed gated snapshot schema or fields')
+        config=GatedConfig.parse(value['family'],value['config'])
+        source=_source();dependencies=_dependencies()
+        if value['source']!=source or value['dependencies']!=dependencies:
+            raise ValueError('Snapshot belongs to a different source or qualified dependency identity')
+        summary=value['resources'];preprocessing=value['preprocessing']
+        if (type(summary) is not dict or type(value['seed']) is not int or value['seed']!=summary.get('seed')
+                or not 0<=value['seed']<2**63 or preprocessing!=summary.get('preprocessing')
+                or summary.get('source')!=source or summary.get('dependencies')!=dependencies):
+            raise ValueError('Snapshot differs from selected model lineage/transform')
+        _validate_preprocessing(preprocessing,config.feature_schema)
+        from .ordinary_neural import _runtime,_runtime_identity
+        if _runtime_identity(_runtime())!=_runtime_identity(summary['runtime']):
+            raise ValueError('Native runtime images or thread treatment changed')
+        _validate_summary(config,summary)
+        import torch
+        with torch.random.fork_rng(devices=[]):model=_rebuild(config,summary)
+        expected=model.state_dict()
+        if _sha(payload)!=value['weights_sha256']:raise ValueError('Closed tensor payload hash differs')
+        with zipfile.ZipFile(payload) as zipped:
+            entries=zipped.infolist()
+            if (len(entries)!=len(expected) or {e.filename for e in entries}!={k+'.npy' for k in expected}
+                    or sum(e.file_size for e in entries)>64*1024**2):
+                raise ValueError('Closed tensor allocation or names exceed the declared model')
+        with np.load(payload,allow_pickle=False) as arrays:
+            if len(arrays.files)!=len(expected) or set(arrays.files)!=set(expected) or set(value['payload'])!=set(expected):
+                raise ValueError('Closed tensor names differ from the selected topology')
+            tensors={}
+            for name,reference in expected.items():
+                a=arrays[name]
+                if (a.dtype!=reference.numpy().dtype or a.shape!=tuple(reference.shape) or not np.isfinite(a).all()
+                        or value['payload'][name]!=dict(dtype=str(a.dtype),shape=list(a.shape))):
+                    raise ValueError('Closed tensor shape/dtype/finiteness mismatch; casting is forbidden')
+                if name.endswith('grown_ids') and not np.array_equal(a,reference.numpy()):
+                    raise ValueError('Closed unit identity differs from the selected topology')
+                tensors[name]=torch.from_numpy(a.copy())
+        model.load_state_dict(tensors,strict=True);_validate_summary(config,summary,model);model.eval()
+        result=cls(config.to_state()['family'])
+        result._model,result._config,result._seed=model,config,value['seed']
+        result._summary,result._preprocessing=summary,preprocessing
+        result._source,result._dependencies=source,dependencies
+        return result
+
+
+def _digest(value):return type(value) is str and len(value)==64 and all(c in '0123456789abcdef' for c in value)
+
+
+def _prediction_binding(config,summary):
+    return _hash(dict(config=config.to_state(),seed=summary['seed'],preprocessing=summary['preprocessing'],
+        model=summary['selected_native_state_sha256'],effective_count=summary['effective_count'],
+        selected_ids=summary['selected_ids'],ordinary_width=summary['ordinary_width']))
+
+
+def _validate_summary(config,summary,model=None):
+    recipe=config.resolved();family=recipe['family'];count=summary.get('effective_count');ids=summary.get('selected_ids')
+    if (summary.get('schema')!='research/v2-gated-resources' or summary.get('family')!=family
+            or summary.get('mode')!=config.to_state()['mode'] or summary.get('resolved_parameters')!=recipe
+            or summary.get('checkpoint_eligible') is not False or summary.get('quality_eligible') is not False
+            or summary.get('Gate_D') is not False or summary.get('persistent_training_resume') is not False
+            or summary.get('accessed_roles')!=['F','G'] or summary.get('status') not in ('completed_ineligible','timeout')
+            or type(summary.get('seed')) is not int or not 0<=summary['seed']<2**63
+            or type(count) is not int or not 0<=count<=recipe['requested_count'] or type(ids) is not list
+            or any(type(i) is not int or not 0<=i<recipe['width'] for i in ids) or ids!=sorted(set(ids))):
+        raise ValueError('Closed recipe, roles, eligibility or unit identities differ')
+    _validate_preprocessing(summary['preprocessing'],config.feature_schema)
+    columns=summary['preprocessing']['columns'];d=sum(1+int(c['indicator']) if c['kind']=='numeric' else len(c['categories'])+1 for c in columns)
+    if (type(summary.get('fit_rows')) is not int or not 2<=summary['fit_rows']<=20000
+            or type(summary.get('select_rows')) is not int or not 1<=summary['select_rows']<=20000
+            or not 1<=d<=128 or summary.get('encoded_width')!=d):raise ValueError('Closed F/G workload differs')
+    base_count=recipe['width']*(d+2)+1
+    if family=='P05':
+        if count!=recipe['requested_count'] or ids or summary['parent_selected_state_sha256'] is not None or summary['candidate_table_sha256'] is not None:
+            raise ValueError('Static snapshot cannot carry a grown-parent lineage')
+        expected_count=base_count+2*count*(d+1)
+    else:
+        if len(ids)!=count or not _digest(summary['candidate_table_sha256']) or not _digest(summary['parent_selected_state_sha256']) or summary['growth_function_preserved_exact'] is not True:
+            raise ValueError('Growth snapshot lacks its selected parent/candidate lineage')
+        if family=='P02':
+            from .gated_models import ordinary_brackets
+            width=ordinary_brackets(d,recipe['width'],count)[0 if recipe['variant']=='lower' else 1]
+            if summary['ordinary_width']!=width:raise ValueError('Ordinary capacity bracket changed')
+            expected_count=width*(d+2)+1
+        else:expected_count=base_count+2*count*(d+1)
+    if family!='P02' and summary['ordinary_width'] is not None:raise ValueError('Unexpected ordinary topology')
+    if summary.get('total_parameters')!=expected_count or summary.get('trainable_parameters')!=expected_count:
+        raise ValueError('Closed parameter count differs from the selected topology')
+    stages=summary.get('stages');absolute=0;birth=None
+    if type(stages) is not list or len(stages)!=2:raise ValueError('Both declared training stages are required')
+    for index,(stage,limit) in enumerate(zip(stages,(recipe['base_updates'],recipe['continuation_updates']))):
+        if (type(stage) is not dict or set(stage)!={'selected_absolute_update','selected_stage_update','executed_stage_updates','executed_absolute_update','stop','G_mse'}
+                or type(stage['executed_stage_updates']) is not int or not 1<=stage['executed_stage_updates']<=limit
+                or type(stage['selected_stage_update']) is not int or not 0<=stage['selected_stage_update']<=stage['executed_stage_updates']
+                or stage['selected_absolute_update']!=absolute+stage['selected_stage_update']
+                or stage['executed_absolute_update']!=absolute+stage['executed_stage_updates']
+                or stage['stop'] not in ('patience','max_updates') or stage['stop']=='max_updates' and stage['executed_stage_updates']!=limit
+                or type(stage['G_mse']) not in (int,float) or not 0<=stage['G_mse']<float('inf')):
+            raise ValueError('Invalid selected/executed stage counters or risk')
+        absolute=stage['selected_absolute_update']
+        if index==0:birth=absolute
+    if not _digest(summary.get('selected_native_state_sha256')) or summary.get('selected_prediction_state_sha256')!=_prediction_binding(config,summary):
+        raise ValueError('Prediction weights/transform/recipe binding differs')
+    records=summary.get('parameter_ages')
+    if type(records) is not list or not records or len({r.get('name') for r in records if type(r) is dict})!=len(records):
+        raise ValueError('Missing or duplicate parameter ages')
+    for row in records:
+        name=row.get('name');born=(birth if family in ('P00','P01') and type(name) is str and name.startswith(('layer.gate.','layer.contrast.'))
+            or family=='P02' and type(name) is str and name.startswith(('added_affine.','added_head.')) else 0)
+        if (set(row)!={'name','birth_update','age','selected_absolute_update'} or type(name) is not str
+                or type(row['birth_update']) is not int or row['birth_update']!=born
+                or type(row['age']) is not int or row['age']!=absolute-born or row['selected_absolute_update']!=absolute):
+            raise ValueError('Applied Adam age differs from selected/birth updates')
+    if model is not None:
+        if {r['name'] for r in records}!=set(dict(model.named_parameters())) or sum(p.numel() for p in model.parameters())!=expected_count or _state_identity(model)!=summary['selected_native_state_sha256']:
+            raise ValueError('Closed/live parameters differ from the selected model')
+
+
+def _rebuild(config,summary):
+    import torch
+    from .gated_models import parent_model,StaticModel,_WarmOrdinary
+    recipe=config.resolved();family=recipe['family'];d=summary['encoded_width'];width=recipe['width']
+    if family=='P05':
+        return StaticModel(d,width,recipe['requested_count'],'centered' if recipe['variant'].startswith('centered') else 'direct_leaf',tau=recipe['tau'],dropout=recipe['dropout'])
+    parent=parent_model(d,width,recipe['tau'])
+    if family=='P02':return _WarmOrdinary(parent,summary['ordinary_width'],seed64(summary['seed'],'gated','ordinary'))
+    parent.layer.grow(torch.tensor(summary['selected_ids'],dtype=torch.int64),torch.zeros((summary['effective_count'],d+1),dtype=torch.float32))
+    return parent

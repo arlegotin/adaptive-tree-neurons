@@ -1333,3 +1333,15 @@ guard relaxation. Fitting and prediction now exist, but closed snapshots, worker
 integration, persistent recovery and real workload admission remain pending.
 All results remain engineering-ineligible; no V/T labels or practical search.
 See WP07-gated-fit-receipt.json for exact source/raw inventory.
+
+
+WP07 closed own-family state:two real missing-save failures and one generated
+test-fixture newline syntax error were retained. Correcting the fixture exposed
+no model-output change; its corruption cases passed. One explicit unsupported
+scope acceptance RED was then fixed. Final166affected checks passed/1MPS skip
+in81.47s, including all8topology reloads and existing stage/math/state tests.
+Closed JSON/NPZ checks source/dependencies/runtime, shapes/dtypes/finiteness,
+model/transform/recipe binding and selected/birth ages; native training resume
+remains unavailable. All outputs remain engineering-ineligible; worker/native
+workload admission and scientific gates are pending. Exact source/raw inventory
+and initial failures are in WP07-gated-snapshot-receipt.json.
