@@ -1635,3 +1635,16 @@ P12/default16GiBtrack remains unadmitted, final support/common-source GateD stil
 pending. ReceiptWP07-additional-primary-anchor-receipt.json. The initial external
 directory inventory preceded a subsequently added cohort-status note; earlier
 inventory bytes are retained and the final exact inventory includes both.
+
+WP10 independent prediction replay implemented on fixtures.28missing-component
+RED checks preceded28GREEN37.24s. First combined run87GREEN/1FAIL68.79s exposed an
+older P00 deployment fixture fitted after NODE loaded an extra sklearn OpenMP
+image. The strict loader rejected that genuine saved/fresh runtime mismatch.
+Test-only P00 fitting now uses a separate process in both fixture helpers; model
+code/guards remain unchanged. Final affected88GREEN75.51s (six upstream NODE
+warnings), including reversed fixture order, label-free37-row float64 queries,
+exact original prediction dtype/values, ID/hash/path checks, and late snapshot/
+input drift. No protected labels, native-quality promotion or production search.
+ReceiptWP10-independent-prediction-replay-receipt.json retains raw artifacts and
+the initial combined failure. Task10 and complete protected evaluator remain
+partial. Held M2/NODE/auditor checkouts are unchanged.

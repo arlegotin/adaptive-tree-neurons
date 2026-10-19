@@ -64,13 +64,14 @@ four-to-eight-teacher extension is running. The small exhaustive pair controls
 have finished, but no final scientific collection or Gate A decision has occurred.
 The complementary-group selector has not been trained or confirmed.
 
-As of19October15:50UTC, the queue has2,815eligible completed jobs,496ineligible
-entries and one running continuation on the seventh declared teacher. These include
-preparation/evaluation and nominal skips, not independent problems. No historical
-scientific failure status was recorded at that snapshot. About4.04GiB disk was
-free. Live disk/memory guards can pause the same queue; full completion is not
-promised from a ceiling forecast. The last native memory-pressure reading remains2,
-so nine legacy backend setup checks remain deferred with their guard intact.
+As of19October17:41UTC, the queue has2,951eligible completed jobs,496ineligible
+entries and one running continuation on the eighth declared teacher. These include
+preparation/evaluation and nominal skips, not independent problems. No failed
+terminal status appears in that operational snapshot. About4.04GiB disk was
+free at the earlier15:50snapshot; the17:41snapshot has7.41GiB free. Live
+disk/memory guards can pause the same queue; full completion is not promised from
+a ceiling forecast. The nine previously memory-deferred legacy backend checks
+subsequently passed under normal native pressure, with their guards intact.
 One MPS test is unavailable in this process; no full-repository green result is
 claimed.
 
@@ -126,9 +127,14 @@ thread setup now passes fresh-process regressions and39affected checks. Four
 optional tree checks skipped without the isolated overlay. The same-data/seed
 rerun reached4.28GiBsampled root RSS and was stopped against its4GiBcap, with the
 child/group cleaned up. No prediction or accuracy loss is assigned. The default
-16GiBtrack currently fails its20.5GiBmemory-proxy admission floor, so it has not
-launched. P12 qualification/full-suite claims wait for qualified resources;
-the native recipe is preserved. This establishes no general NODE infeasibility.
+16GiBtrack failed its20.5GiBmemory-proxy admission floor and was not launched.
+An explicitly versioned bounded-memory execution now preserves all2048trees,
+depth6, effective batch512 and native stopping. After numerical/reference checks
+and a full-size three-update proof at1.097GiB peak, the same Energy/data/seed
+native fit is running under a4GiB cap. Its sampled peak at17:41UTC is about1.49GiB;
+native completion, remaining P12 workloads and full-suite claims stay pending.
+These execution results establish no predictive winner or general NODE
+infeasibility. See [the memory policy and evidence](NODE-bounded-memory.md).
 All 14 families now have explicit native-anchor and finite search-support
 descriptors, with checked translation from atomic TPE draws to native schemas.
 Their qualification flags remain false. The repeatable native qualification
@@ -154,10 +160,15 @@ unqualified.
 The development raw-file auditor and explicit development report CLI now rebuild
 metrics from authenticated arrays while retaining missing runs; 89 affected
 checks passed. A separate deployment worker now measures model loading and native
-preprocessing/prediction without importing other model families; tiny P13/P00
-checks passed. The 30-paired-block supervisor/collector now passes a complete
+preprocessing/prediction without importing other model families; tiny P13/P00/P12
+checks passed after correcting fresh NODE thread setup. The 30-paired-block supervisor/collector now passes a complete
 60-process fixture and explicit failure/partial-queue checks. Full deployment
 workload and frozen measurement-policy qualification remain pending. The
+independent [prediction replay worker](prediction-replay.md) now reproduces
+retained P13/P00/P12 fixture predictions in fresh processes without labels or
+refitting;88affected checks passed. It preserves native query precision and
+strict runtime identity. This authenticates closed-artifact predictions, not
+their complete training/protocol lineage. The
 complete protected protocol/evaluator/auditor and
 confirmation-report execution remain incomplete.
 A read-only [pre-freeze API history auditor](pre-freeze-transfer-access.md)

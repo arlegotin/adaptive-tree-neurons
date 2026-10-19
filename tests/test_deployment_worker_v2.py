@@ -25,7 +25,22 @@ def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def publish(path,value):path.write_text(json.dumps(value,sort_keys=True)+'\n');return sha(path)
 
 
-def prepare(root,family='P13'):
+def prepare(root,family='P13',_isolated=True):
+    # A prior NODE fixture can load sklearn's second OpenMP image into pytest.
+    # The production guard correctly rejects that image set in a fresh P00
+    # deployment. Fit P00 in its own process, as production already does.
+    if family=='P00' and _isolated:
+        project=Path(__file__).resolve().parents[1]
+        env=os.environ|dict(PYTHONPATH=str(project/'src'),PYTHONDONTWRITEBYTECODE='1')
+        for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS','NUMEXPR_NUM_THREADS'):env[key]='1'
+        env.pop('KMP_DUPLICATE_LIB_OK',None)
+        code='import runpy,sys; from pathlib import Path; from treeneuron.research.method_worker import _initialize_native_threads; _initialize_native_threads("P00"); runpy.run_path(sys.argv[1])["prepare"](Path(sys.argv[2]),"P00",_isolated=False)'
+        argv=[sys.executable,'-B','-c',code,str(Path(__file__).resolve()),str(root)]
+        result=subprocess.run(argv,cwd=project,env=env,capture_output=True,text=True,timeout=60)
+        publish(root/'fixture-command.json',dict(argv=argv,cwd=str(project),returncode=result.returncode))
+        (root/'fixture-stdout.log').write_text(result.stdout);(root/'fixture-stderr.log').write_text(result.stderr)
+        assert result.returncode==0,result.stderr
+        path=root/'input/request.json';return path,json.loads(path.read_text()),sha(path)
     from treeneuron.research.p13_simple import P13Predictor
     from treeneuron.baselines.api import FitRequest
     from treeneuron.research.method_worker import scientific_source_sha256

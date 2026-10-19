@@ -1,0 +1,75 @@
+{
+  "T_accessed": false,
+  "artifacts_root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/independent-prediction-replay",
+  "comparison": "Exact dtype and values",
+  "correction": "P00 test fixture fitting isolated in fresh processes; native model/load guards unchanged.",
+  "failure_cause": "Shared parent pytest process previously imported NODE/sklearn; saved P00 had extra sklearn OpenMP image absent in fresh P00. Production runtime guard correctly rejected drift.",
+  "inventory_sha256": "312716a1c45738f8cb5886e524deac3122e538e44decfc55b1032cfd42948d2c",
+  "labels_read": false,
+  "limitations": [
+    "Fixture execution only; no native workload/GateD qualification.",
+    "No complete training/attempt/protocol authentication or protected evaluator.",
+    "Outer supervisor remains responsible for wall time/RSS/reaping."
+  ],
+  "model_generation_authenticated": false,
+  "ordinary_bytes": 35915617,
+  "ordinary_file_count": 2703,
+  "protected_access_authorized": false,
+  "quality_eligible": false,
+  "query_dtype": "float64",
+  "query_rows": 37,
+  "real_fresh_replay_families": [
+    "P13_grouped",
+    "P13_temporal",
+    "P00",
+    "P12"
+  ],
+  "retained_failure": "tests/test_deployment_worker_v2.py::test_actual_fresh_deployment_has_only_its_method_imports_separates_clocks_and_keeps_all_samples[P00]",
+  "schema": "research/v2-independent-prediction-replay-receipt",
+  "scientific_source_sha256": "44dcca973b2917bf9395a42ecedb4627eeacf44ec91e846fe5969a02e682e08b",
+  "source_and_evidence": [
+    {
+      "path": "src/treeneuron/research/prediction_replay_v2.py",
+      "sha256": "14b4c136b4c8e9d3da85fdcde314208d1df4c149fafa2adadac4127216a9bd08"
+    },
+    {
+      "path": "tests/test_prediction_replay_v2.py",
+      "sha256": "b9b0994e6609e5db8e579c0ae2fcd58e5d65d39b70be4ed8999f87e883421058"
+    },
+    {
+      "path": "tests/test_deployment_worker_v2.py",
+      "sha256": "4a08eca36634b1c0f81d30f7b1fbf02b9e7754fc1721ef78f47809fd474dd6ff"
+    }
+  ],
+  "status": "verified_software_component",
+  "verification": [
+    {
+      "failed": 28,
+      "passed": 0,
+      "pytest_seconds": 0.45,
+      "stage": "missing_component_RED"
+    },
+    {
+      "failed": 0,
+      "passed": 28,
+      "pytest_seconds": 37.24,
+      "stage": "initial_GREEN",
+      "warnings": 4
+    },
+    {
+      "failed": 1,
+      "passed": 87,
+      "pytest_seconds": 68.79,
+      "stage": "first_affected",
+      "warnings": 6
+    },
+    {
+      "failed": 0,
+      "passed": 88,
+      "pytest_seconds": 75.51,
+      "stage": "final_affected",
+      "warnings": 6
+    }
+  ],
+  "whole_repository_suite_passed": false
+}
