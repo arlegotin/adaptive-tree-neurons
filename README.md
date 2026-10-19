@@ -18,6 +18,9 @@ arithmetic. Growth helps the planted tasks, while the present chooser has not
 established an advantage over random; see the [plain status](docs/research/v2/status.md)
 and [M1 results](reports/research-v2-M1.md). The new selector, strong-baseline
 benchmark and confirmation have not been completed.
+The completed [M2 diagnostic](reports/research-v2-M2.md) finds substantial ordinary
+training headroom and admits a bounded test of joint allocation. It does not
+establish a win for the present chooser.
 
 ## The idea
 

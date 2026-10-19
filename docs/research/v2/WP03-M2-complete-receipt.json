@@ -1,0 +1,92 @@
+{
+  "T_accessed": false,
+  "audited_evaluation_jobs": 1408,
+  "audited_prediction_vectors": 5472,
+  "auditor_commit": "b84872601b11ccf21163ea8eb8088184953f20f2",
+  "auditor_package_sha256": "6e81099c339b803ab6ed216e4f6987d3d2d238065b474a5703477d3b7ef345f7",
+  "charged_cumulative_job_ns": 69114187297110,
+  "checkpoint_tensor_chain_authenticated": false,
+  "cohort_whole_process_wall_ns": 69415103434250,
+  "cost_precision": "measured_job_elapsed",
+  "decision": {
+    "advance_joint_selector": true,
+    "decision": "screen_passed",
+    "efficacy_claim": false,
+    "expected_job_count": 3853,
+    "gated_growth_opportunity": true,
+    "input_bindings": {
+      "control_audit_sha256": "0e69c6730b3c2675ad7b2cd62c338f29493e26420ef2f05ad2f726d976f36aa5",
+      "expected_jobs_sha256": "8d7cad0d0639d5fa707ae8a1550355379db337ca5d857e3176b29c1ef73e8ab6",
+      "extension_status_sha256": "d75fc85d86fbf913825cac503d08e9b6633437b87a0fedf1a8354e87c99bc27b",
+      "final_summary_sha256": "19f85cc7350952d287e1d5416db33a13a4f9bcb67ccdd33890c938bc2b7eb3f6",
+      "initial_summary_sha256": "e67bad125ebc9b42e2f7e0195a14fac9bda65e4a66ffe1216e2c365d3059236d",
+      "job_statuses_sha256": "8a6b75ebe48dd9517d1a10232902b3c6e84a68e7895a65cae24099b794b7f007",
+      "opportunity_contract_sha256": "bf28dc3a06b5db268ffcfdb33ef20a11354eb98008cb54469a909ca49d6a43e5"
+    },
+    "reason": "Bounded joint-selector research may proceed with competent ordinary controls",
+    "schema": "research/v2-gate-A",
+    "scope": "gated_growth_opportunity",
+    "screen_passed": true
+  },
+  "efficacy_claim": false,
+  "input_files": [
+    {
+      "path": "artifacts/research-v2/WP03/M2-delayed-collection-f87b387/collected/producer_collection/collection.json",
+      "sha256": "52bda3705bd2f78cde2de3d89b6c263f7a5cb07872cf3b6889d372a33c922a1c"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/M2-delayed-collection-f87b387/collected/independent_prediction_audit/audit/audit.json",
+      "sha256": "3d24307152a181cba9d1fc49f151cdc25d28bb31cfe8198cb0e69e3b78b9e3ed"
+    },
+    {
+      "path": "artifacts/research-v2/WP03/M2-delayed-collection-f87b387/collected/terminal.json",
+      "sha256": "afbd43030787914706e4c97802b8dbfb49bebf333f0450a6567e91bab784e71a"
+    },
+    {
+      "path": "audit/research-v2/M2/description.json",
+      "sha256": "c0d876d65f4be02c9c6615f17b54c99a249ba7daff509c9cc3e06cf9e1622109"
+    },
+    {
+      "path": "docs/research/v2/scripts/report_m2_opportunity.py",
+      "sha256": "27638f248f0b1ec69daa8cda4cce750959ce72cc583be54ec75a74a4f4507048"
+    },
+    {
+      "path": "reports/research-v2-M2.md",
+      "sha256": "d2e35367360b1cd58d36d90e6d170ac4cbc9b55f163077e789d817295a842f66"
+    }
+  ],
+  "inventory_sha256": "be5d66b6951a320dc8d01435e0f79fa277faa9c6f48b74bf51766d581ff0b47b",
+  "ledger_event_hash": "0c68ffaf65dc850924c4760e280e39e90cb59225076950edbb972cbf537541d2",
+  "limitations": [
+    "Development screening only; not a confirmed mean benefit.",
+    "Raw vector arithmetic is distinct from teacher regeneration/model replay/tensor-state authentication.",
+    "A clone has compact scalar reporting inputs; full raw archives remain locally retained at the recorded external locators."
+  ],
+  "maximum_absolute_metric_difference": 5.551115123125783e-17,
+  "model_predictions_reexecuted": false,
+  "modern_baseline_benchmark_completed": false,
+  "next_admission": "WP04 exact joint estimator numerical qualification, then bounded fresh-teacher comparison; common competent parent/treatment must be frozen before fitting",
+  "observed_utc_ns": 1792433552695480000,
+  "ordinary_postprocess_bytes": 82994896,
+  "ordinary_postprocess_files": 25,
+  "paired_training_repetitions": 2,
+  "planned_evaluation_jobs": 1792,
+  "planned_queue_jobs": 3853,
+  "postprocessing_whole_ns": 227861691833,
+  "primary_independent_teachers": 8,
+  "producer_commit": "e1b1018",
+  "producer_package_sha256": "e322da64b518f29a14bde3385bfcf6d683993b717ed4c1fc13a7a5440a1f9a47",
+  "protected_confirmation": false,
+  "queue_plan_hash": "d0537c5c7caee7c6e4c6d09e3e2f68b2c819f8e38853ab1cad67850718d6381a",
+  "report_reproduced_byte_exact": true,
+  "scalar_metric_comparisons": 65664,
+  "schema": "research/v2-M2-complete-receipt",
+  "small_control_base_instances": 4,
+  "status": "completed_audited_development",
+  "status_counts": {
+    "completed_eligible": 2989,
+    "completed_ineligible": 864
+  },
+  "teacher_data_regenerated": false,
+  "timers_nested": true
+}

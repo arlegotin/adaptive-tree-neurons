@@ -5,8 +5,10 @@ two affine rules, preserving predictions when that flexibility is inserted.
 Then ask whether growth helps, whether a chooser beats random placement, and
 whether the complete procedure is competitive with strong existing methods.
 
-The present verdict is cautiously encouraging for useful capacity, disappointing
-for the current chooser, and unresolved for practical competitiveness.
+The present verdict is cautious about useful capacity, disappointing for the
+current chooser, and unresolved for practical competitiveness. The completed
+[M2 diagnostic](../../../reports/research-v2-M2.md) strengthens the case for
+competent ordinary training and permits one bounded joint-selector test.
 
 The first full new control study has finished:256 planned fits, no missing or
 failed result. Independent arithmetic from512 retained V/E prediction vectors
@@ -60,16 +62,21 @@ streams therefore needs matched controls rather than assuming earlier growth hel
 M2 has finished its matched timing/stream, ordinary-capacity/recipe and small
 pair-oracle diagnostic queue. Its immutable source checkout passed53native workload classes. The
 initial four teachers did not settle its screening rule, so the predeclared
-four-to-eight-teacher extension was run. Collection and an independent raw
-prediction audit are in progress; no final scientific Gate A decision is reported yet.
+four-to-eight-teacher extension was run. Collection and independent raw prediction
+arithmetic now agree:5,472prediction vectors,65,664scalar comparisons, maximum
+discrepancy5.55e-17. Gate A passes its development screen, permitting bounded
+joint-selector research with competent ordinary controls. Gated growth clears
+the2%screen on two primary teachers in one coordinate, versus five for an
+ordinary-capacity coordinate. This is no average or confirmatory placement win.
 The complementary-group selector has not been trained or confirmed.
 
 At19October17:56UTC, all3,853planned queue entries are terminal:2,989eligible
 and864ineligible entries. These include preparation/evaluation and nominal skips,
 not3,853independent problems or fitted models. No failed terminal status appears
 in that operational snapshot. The producer exited0 and the pinned collection
-operator acquired the inactive queue. Raw authentication, arithmetic and the
-scientific decision still need the two collection stages. About6.76GiB disk was
+operator acquired the inactive queue. Both collection stages completed under
+their pinned producer/auditor sources. The cohort took about19h17mof contended
+wall time, including substantial evidence I/O. About6.76GiB disk was
 free at that snapshot. The nine previously memory-deferred legacy backend checks
 subsequently passed under normal native pressure, with their guards intact.
 One MPS test is unavailable in this process; no full-repository green result is
@@ -192,9 +199,21 @@ pass preserved all1,233original hashes/markers and reported about451MiB less
 per-file allocation; it supplies no predictive result. These are reliability and
 storage results, not predictive improvements.
 
-Next scientific decision:collect the complete frozen M2 and independently
-recompute its raw predictions before deciding Gate A. Continue native workload
-qualification and finish the production analysis/access code in parallel.
+The four-teacher fixed-horizon diagnostic also exposes ordinary training
+headroom: continued keep reduces mean E NMSE from.05159380to.04321783, about16.2%,
+after8,000additional updates without patience stopping. It beats every sampled
+singleton slot on final mean V/E risk. The.001weight-decay ordinary recipe has
+the lowest global mean V risk among the five declared recipes. These diagnostics
+have different scopes and are not a direct before/after comparison. Early gated
+growth frequently worsens risk; cheap placement has higher mean V/E risk than
+random in all six tested timing/stream cells. The small G-selected pair oracle
+differs from singleton-ranked pairs in7of8repeats, providing a finite reason to
+test joint allocation; it pays for exhaustive search on a planted task.
+
+Next scientific step:validate the exact parent-conditioned joint ridge estimator
+against dense solves and small subsets. Freeze the common competent parent and
+training treatment before its bounded fresh-teacher comparison. Continue native
+workload qualification and production analysis/access implementation in parallel.
 The [delayed collection operator](delayed-M2-collection.md) now passes44affected
 checks and can wait for complete inactive results under pinned producer/auditor
 sources. It starts no fits and consumes no partial outcomes. The user's available
