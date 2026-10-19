@@ -1463,3 +1463,17 @@ only their own model stack, and separated common imports, model loading and
 resident prediction. Neither outer RSS/deadline supervision nor 30 paired blocks
 is supplied by this worker. No cost, quality or protected-access claim follows.
 See deployment-worker.md and WP10-deployment-worker-receipt.json.
+
+WP10 paired process coordinator: nine missing-component RED cases preceded the
+fixed 30-block/60-job queue. Initial 44 affected checks passed in 53.95 s with a
+complete actual P13 process fixture. Two new failure-path RED cases then exposed
+incorrect promotion of a nonzero process exit and loss of an orphan running
+status. Final 46 checks passed in 54.31 s after those corrections. The native
+owned-process supervisor retained RSS/deadline/environment/reap records; a live
+shortage pauses before a new child. An inactive collector authenticates every
+queue result and refuses complete-case paired summaries. Final 60-process fixture
+collection retained 31.072220707 s paid queue time and 27.315774372 s nested
+supervisor-enclosing process time. Identical mean-model fixtures, contended host,
+no speed/quality inference and no pooled initial/final cohort. Full measurement
+policy, native workloads, authentic quality bound and protected evaluation remain
+pending. See WP10-deployment-blocks-receipt.json.

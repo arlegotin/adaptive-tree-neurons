@@ -1,0 +1,41 @@
+{
+  "T_accessed": false,
+  "all_children_reaped": true,
+  "base_commit": "513f916",
+  "charged_queue_job_ns": 31072220707,
+  "cost_claim_authorized": false,
+  "deferred_legacy_backend_setups": 9,
+  "failure_semantics_red": 2,
+  "final_command_sha256": "98db7c9b8f746f2284319d38cc4108c22a9e8229873bdbd914a6915cfa231233",
+  "final_fixture_audit_sha256": "ff2c562828dabf4ffc1ae2a9612358a37a4acaa1ea58f0ee7066b9da2394dad3",
+  "final_fixture_completed_processes": 60,
+  "final_fixture_ledger_hash": "692dde3122434e367d6fcd48862cbbcee4e3962fda817af33907b40d9dc8c66b",
+  "final_fixture_plan_hash": "6a68d128838ee2db4686ff9745e6f1456466dd28c0a66f7eb898bec6274caf69",
+  "final_passed": 46,
+  "final_seconds": 54.31,
+  "first_green_passed": 44,
+  "first_green_seconds": 53.95,
+  "full_repository_suite": false,
+  "initial_and_final_cohorts_pooled": false,
+  "initial_missing_component_red": 9,
+  "inventory_sha256": "869ecf12ecfb33e9adee5382ed21d1d391811eebeff593e2301b8329e938a541",
+  "limits": [
+    "Actual tiny P13 process fixtures plus P13/P00 worker tests; full native deployment workloads remain unqualified",
+    "Contended host; no dedicated timing/cache/power/global protocol qualification",
+    "No authentic quality bound, protected data or cost claim",
+    "Cold process clocks enclose supervisor preflight/publication; resident prediction and model-load clocks remain separate"
+  ],
+  "protected_access_authorized": false,
+  "qualification": "Identical P13 mean-model fixture requests; randomized30pairedprocessblocks. No comparative accuracy or speed result.",
+  "quality_bound_authenticated": false,
+  "raw_files": 1571,
+  "raw_logical_bytes": 20896523,
+  "raw_root": "artifacts/research-v2/WP10/deployment-blocks",
+  "schema": "research/v2-paired-deployment-preparation-receipt",
+  "scientific_source_sha256": "1d965e31de0663c7ac453ad551e1e50f5a848ea435ebc6321cb203eb35705a0f",
+  "source_files": {
+    "src/treeneuron/research/deployment_blocks_v2.py": "077a427516eb2ab44d8e87656c5e4d7726dc133f73475574a994af22588ed219",
+    "tests/test_deployment_blocks_v2.py": "04296c30e6913f631ac04a3b72d253da72ae594215ce2363eb97e94cfaed6a2d"
+  },
+  "sum_disjoint_process_enclosing_ns": 27315774372
+}

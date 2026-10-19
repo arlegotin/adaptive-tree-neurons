@@ -54,3 +54,44 @@ P00 loaded Torch only. Both batch sizes reproduced independently saved fixture
 predictions exactly and retained all three resident samples plus one declared
 warmup. These are contended engineering observations, not comparative timing
 evidence or a claim about real-data quality. See [the receipt](WP10-deployment-worker-receipt.json).
+
+## Paired block coordinator contract
+
+The implemented coordinator is `research/deployment_blocks_v2.py`. It expands
+exactly 30 paired blocks into 60 sequential owned-process jobs. The order uses
+the existing cost analyzer's seed namespace and RNG law. Both requests bind
+identical query bytes, feature schema, batch sizes, warmups and sample count;
+their model/family can differ. No seed or fastest block is selected. Complete
+request/source/interpreter bindings and per-child deadline/RSS settings enter the
+queue identity. Child-only environment treatment matches the qualified trial
+bridge, including its recorded removal of inherited OpenMP suppression.
+
+Each worker runs under the existing owned-process supervisor. Live disk and
+available-memory proxies can pause the unchanged queue before a child starts.
+Every attempt remains paid and terminal statuses remain visible. No automatic
+measurement rerun is admitted; interruption/recovery events remain explicit.
+The collector authenticates the inactive queue and every stored process/worker
+record. One missing member makes the complete paired comparison unavailable;
+there is no complete-case filtering or invented duration. Each process block
+uses the rounded arithmetic mean of all its declared resident samples as its
+batch duration. Thirty process blocks, not the individual resident calls, are
+the paired uncertainty units. Cold process, load and resident clocks remain
+separate. Pauses and contended host conditions must be disclosed.
+
+This engineering coordinator produces inputs for the existing paired timing
+arithmetic. It grants no protected access, hardware/precision/workload admission,
+dedicated timing qualification, quality-bound authentication or efficiency claim.
+Those require the final frozen measurement policy and complete audit.
+
+Nine missing-component RED cases preceded its implementation. The first affected
+run passed 44 checks, including 60 actual fresh P13 worker processes. Two later
+failure fixtures exposed an incorrect success status after a nonzero child exit
+and an orphan `running` status reported as absent. Both failed before correction.
+The final affected run passed 46 checks in 54.31 s, again including the complete
+60-process fixture and a deliberately paused partial queue. Every final fixture
+child was reaped; missing members prevent paired summaries. The independent
+inactive collection retained 31.072220707 s of paid queue jobs containing
+27.315774372 s of supervisor-enclosing process clocks. These contended prototype
+measurements compare identical mean-model fixtures and establish no speed gain.
+Initial and final cohorts are retained separately and are never pooled for
+inference. See [the coordinator receipt](WP10-deployment-blocks-receipt.json).
