@@ -1,0 +1,94 @@
+# Native neural anchor execution checks
+
+These are implementation/resource checks on the designated primary development
+splits, not a predictive benchmark. Workers read F/G labels and V features only.
+No V labels, secondary-fold development or protected T were released. Every
+completed worker remained engineering-ineligible and GateD remains pending.
+
+All12published MLP-D/ResNet-D anchors completed under their native G stopping
+rules, maximum1000epochs, LR.001/WD.01/batch128, native F-only preprocessing and
+categorical embeddings. Every F row was covered each epoch, original-unit query
+predictions were finite/aligned, and saved-model reload was exact. No timeout,
+failure or retry occurred. The table reports executed/selected epochs.
+
+| Dataset | MLP-D | ResNet-D |
+|---|---:|---:|
+| Airfoil |62/42|60/40|
+| Concrete |62/42|73/53|
+| CCPP |131/111|53/33|
+| Parkinsons |22/2|41/21|
+| Bike |35/15|36/16|
+| Energy |30/10|100/80|
+
+The queue body took83.690681541s while other work shared the machine. Job clocks
+totaled83.585643459s and nested paid searches82.440917833s; do not add the levels.
+This excludes data acquisition/coordinator startup and establishes no dedicated
+or standalone efficiency claim. The largest sampled worker RSS was416.359375MiB.
+The inactive-queue audit authenticated all file commitments and checked original
+primary role hashes and actual query row/group/day correspondence. A first
+read-only audit used the wrong input-manifest filename; its failure is retained.
+The corrected audit required no refitting or modification of model outputs.
+See the [complete ordinary-anchor receipt](WP07-ordinary-primary-anchor-receipt.json).
+
+RealMLP completed its full256-epoch native recipe on all6datasets. Initial
+Airfoil, Concrete, Parkinsons and Energy runs completed under a1GiB sampled root
+RSS cap. CCPP exceeded that cap, and Bike's memory stop exposed a supervisor
+cleanup race. Both initial attempts, costs and partial outputs remain retained
+in the [initial receipt](WP07-P06-primary-anchor-initial-receipt.json). The race
+was reproduced and corrected; [process evidence](WP08-async-child-cleanup-receipt.json)
+does not imply any accuracy improvement.
+
+One same-data/configuration/seed17 operational rerun per unavailable case used
+an explicit3GiB sampled root cap, with at least4.25GiB measured memory-availability
+proxy and1GiB free disk required before each attempt. Both passed admission and
+completed256epochs. CCPP applied5120updates/selected epoch231; Bike applied10752/
+selected epoch15. Every F row was visited cumulatively and no native
+initialization RAM subsampling occurred. All query predictions reopened exactly,
+and both owned children were reaped. The largest sampled root peak was about
+1.74GiB; the largest worker lifetime peak was about1.75GiB. Those measurements
+have different scopes and are not strict aggregate memory guarantees.
+
+The recovery queue body took112.824234000s and its nested paid searches totaled
+112.241047249s. Earlier losing operational attempts remain charged separately;
+this is not optimizer-checkpoint resume. See the
+[recovery receipt](WP07-P06-resource-recovery-receipt.json). The four original
+completions used source702479e/17cbebfc; the two recoveries and MLP/ResNet queue
+used0b9b59f/a6cf616a. No old snapshot identity was rewritten or silently loaded
+under changed code. Final common-source qualification is still required.
+
+Raw immutable launchers, queues, configurations, data references, native
+initialization/row orders, snapshots, predictions, resource stops and audit logs
+are retained under the receipt's local artifact paths. Native learning code and
+recipes were unchanged during operational recovery. The full dependency/source
+locks remain part of each adapter, and native bundle digests are separate from
+the whole scientific Python digest.
+
+TabM's plain and piecewise-embedding anchors completed all12cases on the same
+six primary splits, using source0b9b59f and their full native stopping rules.
+All F rows were covered each epoch, every closed reload was exact, and the
+inactive-queue audit authenticated primary role hashes, query IDs and retained
+file commitments. There were no caps, failures or retries. Executed/selected epochs:
+
+| Dataset | Plain | Piecewise embeddings |
+|---|---:|---:|
+| Airfoil |131/113|123/105|
+| Concrete |95/77|91/73|
+| CCPP |132/114|213/195|
+| Parkinsons |32/14|20/2|
+| Bike |38/20|45/27|
+| Energy |25/7|24/6|
+
+The queue body took966.482750500s, containing965.180023875s in paid searches;
+these nested timers are not added. The largest sampled root worker RSS was
+1320.859375MiB. Limits were20minutes/3GiB per anchor with live4.25GiB memory-proxy
+and1GiB disk admission floors. These are engineering observations under shared
+host load, separate from the prospective120-minute practical search budget.
+The17-file116788-byte private overlay matched the previously qualified overlay;
+all27core packages remained unchanged. No V-driven configuration or seed choice
+occurred. The [complete TabM receipt](WP07-TabM-primary-anchor-receipt.json) retains
+the exact source/plan/resource boundaries and local raw artifact inventory.
+
+The complete mandatory suite still needs remaining adapters, recovery/workload
+admission, final-source readiness, complete paid searches and protected evaluation.
+These checks make that comparison executable; they establish no superiority of
+the proposed neurons or any baseline.

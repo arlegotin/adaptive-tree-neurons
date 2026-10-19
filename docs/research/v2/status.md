@@ -82,12 +82,13 @@ efficiency claim. [Execution ledger](execution.md), [reproduction](reproduce.md)
 [implementation plan](../../superpowers/plans/2026-10-18-research-v2.md) retain the
 exact state, evidence and next steps.
 
-As of19October,11:45UTC, the main diagnostic has2,376eligible completed queue jobs,
-496ineligible entries and one running parent fit in the preset extension. Queue jobs include preparation/evaluation and are
-not independent problems. No scientific failure has been recorded at that
-snapshot. About8.49GiB disk was free; live guards may pause the unchanged queue.
-Host memory-pressure level2 is delaying extra backend verification that requires
-a larger reserve. We retain its setup failures rather than relaxing that guard.
+As of19October,12:32UTC, the main diagnostic has2,421eligible completed queue
+jobs,496ineligible entries and one running fit in the preset extension. Queue
+jobs include preparation/evaluation and are not independent problems. No
+scientific failure has been recorded at that snapshot. About7.22GiB disk was
+free; live guards may pause the unchanged queue. The last native memory-pressure
+reading was level2, so nine extra legacy backend setup checks remain deferred
+with their guard intact. No full-repository green result is claimed.
 
 The benchmark infrastructure now checks paid anchor/failure/recovery accounting,
 exact resumed TPE choices, late-result exclusion and own-process deadline/resource
@@ -139,16 +140,27 @@ after training had finished. Four native regressions reproduced it; the correcte
 worker passed87affected checks and one same-seed recovery completed10000rounds
 with exact saved-model reload. Official inference on the original partial model
 and recovered model agreed exactly. Both attempts and their costs are retained;
-this fixes our harness and gives no predictive verdict. The next24anchor checks
-use primary training/stopping data and validation features only. See
+this fixes our harness and gives no predictive verdict. Those24anchor checks used primary training/stopping data and validation features only. See
 [native anchor execution](native-tree-full-shape.md).
 
 All24tree anchors completed their native recipes, reopened saved models exactly,
-and passed file/primary-split/query-row audits. Their largest sampled worker was
-under214MiB. Full256-epoch RealMLP anchors also completed on Airfoil, Concrete,
-Parkinsons and Energy, with every F row visited across training. CCPP exceeded
-the conservative1GiB worker cap; Bike hit that cap and exposed a cleanup wait
-error. Both remain unavailable at this qualification envelope, not predictive
-losses. No baseline worker remained at a later qualified-interpreter process
-inspection. The cleanup repair and explicit resource recovery remain pending;
-all comparative V/test scores and production searches are still unrun.
+and passed file/primary-split/query-row audits. Full256-epoch RealMLP anchors
+completed on all6datasets after one explicit larger-memory, same-seed recovery
+each for CCPP and Bike. Both initial operational failures and paid costs remain
+retained. The supervisor cleanup race exposed by Bike was reproduced and fixed.
+
+The12MLP/ResNet and12TabM plain/embedded primary-anchor checks also completed
+without timeout or retry. Their saved predictions reopened exactly and every F
+row was covered each epoch. This makes54distinct primary native-anchor
+completions from56attempts across the tree/ordinary/RealMLP/TabM families. These
+are contended execution checks, with no V labels or T accessed, no comparative
+accuracy claim and no production search. See
+[native neural checks](native-neural-primary-anchors.md).
+
+The proposed neurons' own practical adapter is being extended to the actual
+transformed tabular shapes. Its configuration/model core passed109affected checks
+with one unavailable-MPS skip, including exact gate insertion, inherited Adam
+state, ordinary widening and independent static forward references. Stage
+training, closed saved-state handling, worker integration and measured workload
+qualification are still pending. This work leaves the historical model guards
+intact and does not admit the new joint chooser before Gate A.

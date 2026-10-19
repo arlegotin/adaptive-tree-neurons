@@ -1,0 +1,58 @@
+{
+  "aliases": 8,
+  "base_commit": "0b9b59f5c2d1ee63fb8ccd26a74e07bd4115f99a",
+  "behaviors": [
+    "Strict immutable own-family anchors/search/engineering recipes and equal selected/random treatment",
+    "Exact dimension-aware ordinary parameter brackets",
+    "Generic selective growth preserves parent objects, Adam moments/ages and predictions at encoded d21",
+    "Gate-first then contrast learning; zero-headed ordinary inheritance learns in its two factors",
+    "Transactional optimizer-registration rollback and corrupt Adam rejection",
+    "Independent NumPy static affine-mixture-before-ReLU reference",
+    "Legacy finite static/widening guards remain closed"
+  ],
+  "inventory_sha256": "e552daeac00fc1d88230f490eeef9aa241866f666436b28eecb302b2887e0505",
+  "pending": [
+    "Complete F-only adapter/training stage, full-state G-best restoration and age validation",
+    "Closed snapshot reload/source/shape validation and engineering worker integration",
+    "Actual native workload and recovery qualification",
+    "All existing scientific opportunity/benchmark/protocol gates"
+  ],
+  "raw_files": 17,
+  "raw_logical_bytes": 147280,
+  "raw_root": "artifacts/research-v2/WP07/gated-core-preparation",
+  "readiness": {
+    "Gate_A": false,
+    "Gate_D": false,
+    "T_accessed": false,
+    "V_labels_read": false,
+    "closed_snapshot": false,
+    "method_worker": false,
+    "model_math_core_only": true,
+    "native_workload_qualified": false,
+    "production_practical_searches": 0,
+    "quality_eligible": false,
+    "stage_training": false
+  },
+  "schema": "research/v2-gated-native-core-preparation",
+  "scientific_source_sha256": "0c5f70813ee3b14c627db7b4b300d3febf798939a9454cd1498c7f6b046629e2",
+  "source_files": {
+    "docs/research/v2/gated-practical-adapter-design.md": "9a5a2ea1219993db41bcc933542c953501ce46fcb53038dc3a7b021f735e02d8",
+    "src/treeneuron/research/gated_config.py": "7b5bc5a0fc90783f476c8f5ded6642df07cdcef7d31eb7367322f1142c10383a",
+    "src/treeneuron/research/gated_models.py": "d985ce2dd0e72a4824f0767f8ae664fecf214db0058c00c1e2f2e4fe1c334bf5",
+    "tests/test_gated_native_core.py": "4106b5237621bc548b47a355bd3b37df754900a10a98adc17f57120f4b6f7212"
+  },
+  "verification": {
+    "expanded_red": 35,
+    "final_green": 109,
+    "final_green_seconds": 0.81,
+    "fresh_verification_green": 109,
+    "fresh_verification_seconds": 1.1,
+    "full_repository_suite": false,
+    "initial_green": 108,
+    "initial_missing_component_red": 32,
+    "legacy_backend_setup_tests_deferred": 9,
+    "numeric_overflow_red": 1,
+    "skip": "tests/test_growth.py:142 MPS unavailable in this process; native backend gate must run separately",
+    "unavailable_device_skips": 1
+  }
+}

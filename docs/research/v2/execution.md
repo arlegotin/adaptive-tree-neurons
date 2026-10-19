@@ -1278,10 +1278,32 @@ against the original partial model. Full-shape raw input/output/source identitie
 WP07-P08-native-primary-shape-receipt.json and native-tree-full-shape.md.
 No comparative predictive metrics, V labels or T were accessed.
 
-A separate24-anchor primary-transfer engineering queue is active at the same
-parked source, serial native workers with per-attempt300s/1GiB root-sampled
+That separate24-anchor primary-transfer engineering queue completed at the same
+parked source, with serial native workers with per-attempt300s/1GiB root-sampled
 limits and live memory/disk admission. Its actual transfer fits must be reported
-separately from the still-zero production practical searches. The current native
-checkout must stay fixed; further source implementation may occur in the main
-continuation checkout and cannot rewrite/relabel these earlier receipts. GateD
+separately from the still-zero production practical searches. Its source remained fixed throughout execution; subsequent implementation cannot
+rewrite/relabel these earlier receipts. GateD
 and all production qualification/protocol gates remain pending.
+
+
+WP07 native neural primary-anchor execution:12MLP/ResNet anchors and12TabM
+plain/embedded anchors completed without cap/retry, with full F coverage and
+worker-reported exact closed reloads. RealMLP completed all6native256-epoch
+anchors after one larger-resource, same-data/config/seed recovery each for CCPP
+and Bike; both initial failures stay retained. Across these and24tree anchors,
+54distinct primary-anchor completions required56attempts. No V labels, secondary
+fold development, T or production HPO were admitted. Final common-source and
+recovery/workload qualification remain pending. See native-neural-primary-anchors.md
+and the ordinary, P06-recovery and TabM primary-anchor receipts.
+
+WP07 own-family core preparation:strict immutable P00/P01/P02/P05 recipes,
+actual-dimension parameter brackets, generic function-preserving gate/ordinary
+insertion and centered/direct static models are implemented separately from the
+legacy guarded wrappers. Missing-component and semantic corruption RED cases
+preceded implementation. Fresh verification109passed/1unavailable-MPS skip in1.10s;
+nine legacy backend setup checks remain deferred at last memory-pressure2,
+without a full-suite claim. This is a mathematical/configuration core, not a
+qualified adapter:stage training, complete-state restoration, closed snapshots,
+worker integration and native workload measurement remain pending. Source0c5f7081;
+WP07-gated-core-receipt.json and gated-practical-adapter-design.md contain exact
+contracts, raw tests and boundaries. GateA/D, practical searches and T remain pending.
