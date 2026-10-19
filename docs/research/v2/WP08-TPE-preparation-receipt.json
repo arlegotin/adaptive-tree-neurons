@@ -1,0 +1,61 @@
+{
+  "T_accessed": false,
+  "base_commit": "9da8e37",
+  "evidence_level": "Actual pinned TPE event replay on artificial objectives; no model evaluation",
+  "logs": {
+    "artifacts/research-v2/WP08/tpe-preparation/01-red.log": {
+      "bytes": 21083,
+      "sha256": "23e7374e1f7b54870108752fcce00b2706680983b7345f9effa6b5b179da5787"
+    },
+    "artifacts/research-v2/WP08/tpe-preparation/02-green.log": {
+      "bytes": 99,
+      "sha256": "aeecf27adc1a434609d5d96624f01cadd7a36fb9bcec1af2f675f33ddd1a8c99"
+    },
+    "artifacts/research-v2/WP08/tpe-preparation/03-typed-replay-red.log": {
+      "bytes": 1311,
+      "sha256": "f3278f79ab7070139c6e07992c22e5ff65a0dca13808a6cdf698f68e6aaf27da"
+    },
+    "artifacts/research-v2/WP08/tpe-preparation/04-affected-green.log": {
+      "bytes": 181,
+      "sha256": "19709f46e7c25ab9bd208e899134d7ed7870574eafd201596baa9cdaa34cfee0"
+    }
+  },
+  "models_fit": 0,
+  "overlay_clone_sha256": "fb73ce17bee8e8a581669a58c6404ad1c9a9b1b71389f8a051991d105eb609f6",
+  "pending": [
+    "whole-runtime qualification",
+    "native anchors/supports",
+    "outer attempt queue/deadline/paid cost lineage",
+    "frozen secondary release",
+    "full production searches"
+  ],
+  "schema": "research/v2-tpe-preparation",
+  "search_execution_authorized": false,
+  "source_files": {
+    "docs/research/v2/scripts/check_tpe_replay.py": "8fe0fa6c23317eaac38c067ee2e288e3deabfa2cb2ac3eda66e16639556fb7a1",
+    "src/treeneuron/research/search_v2.py": "5e31de160e799f197942de4ee54b4298c85804e8fefa1f7a652303e135c0c8dd",
+    "tests/test_search_v2.py": "0e21a159349f8987316948ccdaaf7be0df437e77c773136f926b93467ac62ece"
+  },
+  "verification": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-B",
+      "-c",
+      "import torch,pytest;torch.set_num_threads(1);torch.set_num_interop_threads(1);raise SystemExit(pytest.main([\"-q\",\"tests/test_search_v2.py\",\"tests/test_search.py\",\"tests/test_cost_v2.py\",\"tests/test_primary_v2.py\",\"tests/test_practical_v2.py\",\"tests/test_practical_workload.py\",\"tests/test_design_v2.py\"]))"
+    ],
+    "cwd": "/private/tmp/atn-research-v2-next",
+    "elapsed_seconds": 23.64,
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "final_passed": 144,
+    "missing_interface_red": 17,
+    "typed_replay_red": 1
+  }
+}
