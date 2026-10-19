@@ -55,3 +55,14 @@ resource pause, identical-plan resume, terminal-job preservation, CLI dispatch,
 and the existing research runner/work-queue/planner checks. The mocked queue
 completion fixture fits no model. Actual CLI native execution is still pending.
 See [the preparation receipt](WP07-native-qualification-runner-receipt.json).
+
+The real CLI check subsequently completed at `c9cf9d9`/`7e9105f6…`: plan then
+qualify ran the native P13 mean coordinate on Energy's primary F320 and 128 query
+rows. An inactive independent audit authenticated the queue and process records,
+recomputed the F mean with zero prediction error, and reopened the saved model
+with exact predictions. The worker imported no Torch and was reaped. Sampled
+peak RSS was 85,131,264 bytes. Fresh qualification CLI wall time was 2.737855750 s,
+containing a 0.942460666 s worker process; the separate audit body took 0.511829708 s.
+This repeats an already executed coordinate to verify command wiring; it adds no
+distinct anchor or independent teacher. No V/T labels, HPO, quality comparison or
+Gate D promotion. See [the real-command receipt](WP07-native-qualification-real-CLI-receipt.json).

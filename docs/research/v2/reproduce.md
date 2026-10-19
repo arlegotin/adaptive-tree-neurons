@@ -68,7 +68,8 @@ there is no silent migration or source-hash rewrite.
 
 The WP03 M2 dispatcher is implemented and its active scientific run has measured
 admission. The native-anchor engineering `qualify` command and its strict
-qualification-plan dispatch now pass fixture checks; see the
+qualification-plan dispatch now pass fixture checks and an independently audited
+real P13 primary-split command check; see the
 [command contract](native-qualification-runner.md). They grant no Gate D or
 production-quality eligibility. Freeze/confirm/general-report entry points still
 require their remaining production implementations and prerequisites. Separate native adapter,

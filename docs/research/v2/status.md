@@ -131,7 +131,10 @@ launched. P12 qualification/full-suite claims wait for qualified resources;
 the native recipe is preserved. This establishes no general NODE infeasibility.
 All 14 families now have explicit native-anchor and finite search-support
 descriptors, with checked translation from atomic TPE draws to native schemas.
-Their qualification flags remain false. An engineering wrapper now connects raw
+Their qualification flags remain false. The repeatable native qualification
+command now passes 67 affected checks and a real P13 primary-split check with
+independent mean/reload verification; it grants no Gate D or quality comparison.
+An engineering wrapper now connects raw
 TPE proposals to guarded native trials, retaining both configurations and paid
 translation time. A separate primary-only V scorer now binds predictions to
 sealed rows/groups/actual timestamps and recomputes the declared metric;63affected
@@ -179,7 +182,7 @@ qualification and finish the production analysis/access code in parallel.
 The [delayed collection operator](delayed-M2-collection.md) now passes44affected
 checks and can wait for complete inactive results under pinned producer/auditor
 sources. It starts no fits and consumes no partial outcomes. The user's available
-memory remains below the larger NODE track's admission threshold; a lower-memory
+memory check did not admit the larger NODE track. A lower-memory
 execution of the same native model now passes111affected checks. A full-size
 three-update proof used1.097GiBsampled peak RSS and preserved closed predictions
 exactly. The full Energy native fit is running under the new explicit execution
