@@ -132,3 +132,64 @@ def analyze_teacher_risks(planned_teacher_ids,records,*,seed,iterations=20000,ch
         'below_useful_margin' if interval[1]<USEFUL_MARGIN else 'inconclusive')
     return dict(base,status='completed',student_t_interval=interval,one_sided_margin_p=p,
         useful_margin_decision=decision)
+
+
+def holm_compatible_teacher_bounds(teacher_ids,effects,*,planned_hypotheses,
+        margin=USEFUL_MARGIN,alpha=.025):
+    """Guilbaud(2008), equation18/Choice2: simultaneous regions and strict Holm tests.
+
+    Inputs are already R2-averaged teacher log-risk effects in the same declared
+    teacher order. Partial rejection establishes an open endpoint at the margin
+    for rejected effects, without inventing an effect-size gap. The primary
+    single-comparison two-sided95% t interval is unchanged. These regions require
+    valid marginal t inference and grant no protected or claim authority.
+    """
+    teachers=_names(teacher_ids,'Paired teacher inventory');planned=_names(planned_hypotheses,'Multiplicity family')
+    if (len(teachers)<2 or type(effects) is not dict or not set(effects)<=set(planned)
+            or type(alpha) not in (int,float) or not math.isfinite(alpha) or not 0<alpha<1
+            or type(margin) not in (int,float) or not math.isfinite(margin)):
+        raise ValueError('Complete declared family, paired teacher order, finite margin and valid alpha required')
+    missing=[name for name in planned if effects.get(name) is None];degenerate=[];summaries={}
+    for name in planned:
+        values=effects.get(name)
+        if values is None:continue
+        if (type(values) is not list or len(values)!=len(teachers)
+                or any(type(v) not in (int,float) or not math.isfinite(v) for v in values)):
+            raise ValueError('Each contrast requires one finite effect per paired teacher, not repetitions')
+        offset=[v-values[0] for v in values];center=math.fsum(offset)/len(values)
+        mean=values[0]+center;sd=math.sqrt(math.fsum((v-center)**2 for v in offset)/(len(values)-1))
+        se=sd/math.sqrt(len(values))
+        if not all(math.isfinite(v) for v in (mean,sd,se)):raise ValueError('Nonfinite marginal inference arithmetic')
+        if se==0:degenerate.append(name);continue
+        degrees=len(teachers)-1;p=float(t.sf((mean-margin)/se,degrees))
+        if not math.isfinite(p):raise ValueError('Nonfinite marginal t probability')
+        summaries[name]=dict(mean=mean,standard_error=se,df=degrees,p=p)
+    base=dict(schema='research/v2-holm-compatible-teacher-bounds',planned_hypotheses=list(planned),
+        teacher_ids=list(teachers),teacher_count=len(teachers),family_size=len(planned),margin=margin,
+        alpha=alpha,familywise_confidence=1-alpha,claim_authorized=False,protected_access_authorized=False,
+        raw_metrics_authenticated=False,marginal_summaries=summaries,missing_hypotheses=missing,
+        degenerate_hypotheses=degenerate,
+        method='Guilbaud2008 equation18 and Section3.2 Choice2/equation22; equal Holm weights',
+        assumption='Valid marginal Student-t inference over independent teachers; arbitrary cross-contrast dependence',
+        endpoint_convention='Marginal endpoints are closed; a rejected margin endpoint is open. Numeric equality to the margin alone is not a rejection.')
+    if missing or degenerate:return dict(base,status='unavailable_family',holm=None,bounds=None)
+    adjusted=holm_family({name:summaries[name]['p'] for name in planned},planned_hypotheses=planned,alpha=alpha)
+    rejected=set(adjusted['rejected']);remaining=len(planned)-len(rejected)
+    def lower(name,level):
+        row=summaries[name];critical=float(t.ppf(1-level,row['df']))
+        value=row['mean']-critical*row['standard_error']
+        if not math.isfinite(value):raise ValueError('Marginal t confidence endpoint is not representable')
+        return value
+    bounds={}
+    if remaining:
+        for name in planned:
+            endpoint=margin if name in rejected else min(margin,lower(name,alpha/remaining))
+            bounds[name]=dict(lower=endpoint,lower_endpoint_excluded=name in rejected,rejects_margin_null=name in rejected,
+                strictly_sharper_than_margin=endpoint>margin)
+    else:
+        common=max(margin,min(lower(name,alpha) for name in planned))
+        for name in planned:
+            bounds[name]=dict(lower=common,lower_endpoint_excluded=common==margin,rejects_margin_null=True,
+                strictly_sharper_than_margin=common>margin)
+    return dict(base,status='completed',holm=adjusted,bounds=bounds,
+        all_hypotheses_rejected=not remaining)

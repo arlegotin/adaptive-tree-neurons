@@ -1,0 +1,62 @@
+{
+  "base_commit": "a1da434",
+  "inventory_sha256": "fdf2586e1ccbd9cc6e0b92a9c010058ea6db6147039869622cbaa354dd448ba4",
+  "limits": [
+    "Valid only conditional on valid marginal t inference; not a distribution-free guarantee",
+    "The3000-cohort fixture is not the specified100000-cohort prospective power/coverage gate",
+    "Primary two-sided95% t interval,2% margin and5% alternative remain unchanged",
+    "Practical bootstrap-family interval integration remains separate",
+    "Nine legacy backend setups remain deferred at native pressure2; no whole-suite pass"
+  ],
+  "method": {
+    "all_rejection": "Common minimum marginal unadjusted t bound, intersected with above-margin region",
+    "arbitrary_cross_contrast_dependence_allowed": true,
+    "missing_or_degenerate_family": "Unavailable; never drop a hypothesis",
+    "normal_marginal_assumption_required": true,
+    "paper_sha256": "b513fd8e14041f195d806528a4ef1c9cbdac6bb01cb53b225694ddb1c0c0eefc",
+    "partial_rejection": "Open lower endpoint at fixed margin for rejected contrasts; no invented effect-size gap",
+    "primary_source": "https://doi.org/10.1002/bimj.200710449",
+    "read_scope": "Definitions, Theorem1/equation18, Section3.2 Choice2/equation22, worked examples; not a claim of entire-paper review"
+  },
+  "raw_files": 12,
+  "raw_logical_bytes": 211674,
+  "raw_root": "artifacts/research-v2/WP10/holm-compatible-preparation",
+  "readiness": {
+    "canonical_report_endpoint_integration": false,
+    "claim_authorized": false,
+    "final_protocol_frozen": false,
+    "protected_access_authorized": false,
+    "real_calibration_run": false,
+    "teacher_secondary_arithmetic": true
+  },
+  "schema": "research/v2-holm-compatible-bounds-preparation",
+  "scientific_source_sha256": "c19e87e299a2f87da2d34c3b651b4198d673c09d451efcb455b377a3493ba860",
+  "source_files": {
+    "docs/research/v2/holm-compatible-bounds.md": "7fa5c685891c2024633106f86d121a20c21d0298580d5eff3d464e2b97aaa7dd",
+    "src/treeneuron/analysis/primary_v2.py": "7e76fa3fe6382f270d08b002856fda6acb1c86bfa214326c689a7d3de8e8c4a3",
+    "tests/test_holm_compatible_bounds.py": "3cc7d8e074326e3e97ae91809306fbe1c540c1997361e2c9d7f21622a362df20"
+  },
+  "verification": {
+    "Monte_Carlo_fixture": {
+      "cohorts": 3000,
+      "coverage": 0.9753333333333334,
+      "covered": 2926,
+      "cross_contrast_correlation": 0.7,
+      "effects": [
+        0.09,
+        0.02,
+        -0.03
+      ],
+      "not_prospective_power_gate": true,
+      "required_fixture_floor": 0.965,
+      "seed": 3801,
+      "teacher_count": 8
+    },
+    "final_green": 62,
+    "final_seconds": 1.82,
+    "full_repository_suite": false,
+    "initial_green": 61,
+    "initial_seconds": 1.51,
+    "missing_API_red": 11
+  }
+}

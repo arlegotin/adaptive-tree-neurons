@@ -92,3 +92,30 @@ The complete mandatory suite still needs remaining adapters, recovery/workload
 admission, final-source readiness, complete paid searches and protected evaluation.
 These checks make that comparison executable; they establish no superiority of
 the proposed neurons or any baseline.
+
+
+Own-family P00/P01/P02/P05 full-recipe execution has also completed. Its48checks
+cover selected/random growth, both ordinary warm parameter brackets and all four
+static variants across the six primary splits, at native h64/8000+8000/G25/
+patience20 settings and fit seed17. No case failed, timed out, capped or retried.
+All original-unit query predictions reopened exactly; all children were reaped.
+Actual encoded dimension reached67, and the largest sampled worker root RSS was
+384.078125MiB. Each standalone fit paid its own parent/scoring/continuation work.
+
+The inactive audit authenticated every queue file and primary role hash, checked
+all query IDs, independently reconstructed every minibatch stream, verified full
+F coverage in both executed stages and earliest G-minimum selection, and confirmed
+that dynamic arms shared the same parent, candidate table and effective count.
+It did not perform independent full retraining or qualify persistent optimizer
+resume. An initial audit command pointed to the wrong script locator; its failure
+is retained, with no refit or model-output change.
+
+The queue body took257.989440208s, containing253.041007545s in paid searches;
+timing is contended and excludes some outer startup/audit costs. Sourcea1da434/
+9520c35f remained fixed in the isolated checkout. These48checks raise the total
+to102distinct primary native-anchor completions from104attempts across the
+implemented families. No V labels, secondary-fold development, T or practical
+HPO were accessed, and every worker remains engineering-ineligible. Width128/
+batch256/extreme workloads, remaining mandatory native anchors, recovery and final
+source/registry/protocol qualification remain pending. See the
+[own-family native receipt](WP07-gated-primary-anchor-receipt.json).

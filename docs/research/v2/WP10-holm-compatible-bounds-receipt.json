@@ -1,0 +1,92 @@
+{
+  "base_commit": "a1da434",
+  "initial_source_disposition": "Sentinel-only result retained. Corrected strict-test endpoint compatibility before any production analysis.",
+  "initial_source_receipt": {
+    "path": "docs/research/v2/WP10-holm-compatible-initial-receipt.json",
+    "sha256": "a20143b47a8075b109f2840057b72fc28e8e848b275194be2fac68e587f597c3"
+  },
+  "inventory_file": "inventory-final.json",
+  "inventory_sha256": "7afa1bfbd30acb949562a6d40e03ac2353e548ecfbb996373f871bbbd948f3f6",
+  "limits": [
+    "Valid only conditional on valid marginal t inference; not a distribution-free guarantee",
+    "The3000-cohort fixture is not the specified100000-cohort prospective power/coverage gate",
+    "Primary two-sided95% t interval,2% margin and5% alternative remain unchanged",
+    "Practical bootstrap-family interval integration remains separate",
+    "Nine legacy backend setups remain deferred at native pressure2; no whole-suite pass"
+  ],
+  "method": {
+    "all_rejection": "Common minimum marginal unadjusted t bound, intersected with above-margin region",
+    "arbitrary_cross_contrast_dependence_allowed": true,
+    "missing_or_degenerate_family": "Unavailable; never drop a hypothesis",
+    "normal_marginal_assumption_required": true,
+    "paper_sha256": "b513fd8e14041f195d806528a4ef1c9cbdac6bb01cb53b225694ddb1c0c0eefc",
+    "partial_rejection": "Open lower endpoint at fixed margin for rejected contrasts; no invented effect-size gap",
+    "primary_source": "https://doi.org/10.1002/bimj.200710449",
+    "read_scope": "Definitions, Theorem1/equation18, Section3.2 Choice2/equation22, worked examples and Appendix proof; not entire-paper review",
+    "strict_endpoint_adaptation": "Existing p<alpha is preserved using closed marginal lower endpoints, opening only a rejected margin endpoint; no fake numeric gap"
+  },
+  "raw_files": 19,
+  "raw_logical_bytes": 236661,
+  "raw_root": "artifacts/research-v2/WP10/holm-compatible-preparation",
+  "readiness": {
+    "canonical_report_endpoint_integration": false,
+    "claim_authorized": false,
+    "final_protocol_frozen": false,
+    "protected_access_authorized": false,
+    "real_calibration_run": false,
+    "teacher_secondary_arithmetic": true
+  },
+  "schema": "research/v2-holm-compatible-bounds-preparation",
+  "scientific_source_sha256": "353a3d84bbf52915b1abf028476a18d45a1036a28248171475ae06cad31237ce",
+  "source_files": {
+    "docs/research/v2/holm-compatible-bounds.md": "a269acfcac02c442efc6284f64cededb1620072e249fe25b6f28ea6829d4fd47",
+    "src/treeneuron/analysis/primary_v2.py": "5294ca9e73acb4e2ff2eec6d3fd92fe7d7aa11e170d63b61aaa6d24da22c4af2",
+    "tests/test_holm_compatible_bounds.py": "8ded14dafbd462b1e2e76d052299dd6c11683cb31fda7a62d31a23fbf2c6aa45"
+  },
+  "verification": {
+    "Monte_Carlo_fixture": {
+      "cohorts": 3000,
+      "coverage": 0.9753333333333334,
+      "covered": 2926,
+      "cross_contrast_correlation": 0.7,
+      "effects": [
+        0.09,
+        0.02,
+        -0.03
+      ],
+      "not_prospective_power_gate": true,
+      "required_fixture_floor": 0.965,
+      "seed": 3801,
+      "teacher_count": 8
+    },
+    "final_command": {
+      "argv": [
+        ".venv-research-v2/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_holm_compatible_bounds.py",
+        "tests/test_primary_v2.py",
+        "tests/test_design_v2.py",
+        "--basetemp",
+        "artifacts/research-v2/WP10/holm-compatible-preparation/strict-final-raw"
+      ],
+      "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+      "environment": {
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "src"
+      }
+    },
+    "final_green": 63,
+    "final_seconds": 1.72,
+    "full_repository_suite": false,
+    "initial_green": 61,
+    "initial_seconds": 1.51,
+    "missing_API_red": 11,
+    "strict_endpoint_red": 1,
+    "strict_endpoint_red_seconds": 0.55
+  }
+}

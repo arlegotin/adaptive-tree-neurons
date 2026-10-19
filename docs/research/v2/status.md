@@ -89,8 +89,12 @@ separate v2 models, complete-state stages and closed prediction snapshots. Eight
 variants passed actual supervised F37/G17/query11 fixtures at encoded dimension23.
 Selected and random growth use exactly the same parent/candidate directions;
 ordinary widening brackets the actual effective gate count. All remain
-engineering-ineligible. Full native workloads, recovery and final common-source
-qualification are still required. Legacy model/backend guards remain intact.
+engineering-ineligible. The48full-recipe primary-split native checks have now completed without cap,
+failure or retry, reaching encoded dimension67. Their audit verified row streams,
+G selection, exact paired parent/candidate identity and closed prediction reload.
+Together with the baselines this is102native-anchor completions from104attempts.
+Wider/batch256/extreme workloads, recovery and final common-source qualification
+are still required. Legacy model/backend guards remain intact.
 The [implementation contract](gated-practical-adapter-design.md) and
 [worker evidence](WP07-gated-worker-receipt.json) state the exact boundaries.
 
@@ -98,8 +102,8 @@ No production practical search, real variance calibration, final protocol freeze
 or protected confirmation has run. The mandatory suite still needs remaining
 workload/recipe qualification, including NODE's full native anchor. Missing or
 capped methods are unavailable comparisons, not scored predictive losses.
-Power, seed commitments, independent metric arithmetic, search supervision and
-report rendering are fixture-tested components; the complete protected
+Power, seed commitments, independent metric arithmetic, search supervision,
+compatible teacher-family Holm bounds and report rendering are fixture-tested components; the complete protected
 protocol/evaluator/auditor and deployment/report execution remain incomplete.
 
 The complete M1 run took about2h23m30s of contended wall time and retained1.55GiB.

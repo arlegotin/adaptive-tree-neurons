@@ -1358,3 +1358,32 @@ Largest sampled root RSS was377208832bytes, not a strict/aggregate peak.
 The unknown-family sentinel now uses P14 because P00 is implemented. Full native
 workload/recovery and production qualification remain pending. Exact source and
 raw inventory are in WP07-gated-worker-receipt.json. No V/T labels or practical HPO.
+
+
+WP07 own-family native primary anchors:a1da434/9520c35f completed48/48without
+failure/cap/retry. Native h64/8000+8000/G25/patience20/seed17 recipes were unchanged;
+only primary F/G labels and V features were released. The inactive audit
+reconstructed row streams, checked full F coverage, earliest G-minimum selection,
+shared parent/candidate/count across dynamic arms, all file/role/query commitments,
+worker-reported exact closed reloads and all child reaps. Max encoded dimension67,
+max sampled root384.078125MiB. Queue257.989440208s contains paid253.041007545s;
+contended, no standalone efficiency claim. Raw1548files85217363bytes inventory
+8ee7d76a2422513ecc4691d2306d48a9f8f5ca5e91a30da6af65cd1042bb4df8.
+Initial read-only audit launch used a wrong locator; failure retained, corrected
+without fitting or changing outputs. Complete suite now102distinct primary
+native-anchor completions/104attempts; production HPO/V labels/T still0.
+Width128/batch256/extreme/native recovery/final-source and mandatory NODE anchor
+qualification remain pending. See WP07-gated-primary-anchor-receipt.json.
+
+WP10 secondary-family interval preparation:primary literature was checked for
+Holm-compatible confidence regions. Eleven missing-API RED cases preceded the
+teacher-level construction; a strict-test endpoint mismatch was then exposed by
+one additional RED and corrected using closed marginal endpoints/open rejected
+margin endpoints. Final63affected checks passed1.72s. A fixed3000-cohort correlated
+normal fixture covered2926/3000(97.5333%); this is software sensitivity, not the
+prospective100000-cohort power/coverage gate. Missing/degenerate hypotheses leave
+the full family unavailable. Primary t intervals,2% margin and5% alternative are
+unchanged. Source353a3d84; initial source receipt retained separately. Normal-
+marginal assumptions, endpoint/report integration and protected production
+readiness remain explicit limitations. No calibration, freeze or T access.
+See holm-compatible-bounds.md and WP10-holm-compatible-bounds-receipt.json.
