@@ -57,20 +57,20 @@ continuation repeat an already unsuccessful tail. That no-op does not prove
 ordinary training has exhausted useful headroom. Changing timing or minibatch
 streams therefore needs matched controls rather than assuming earlier growth helps.
 
-M2 is running matched timing/stream, ordinary-capacity/recipe and small pair-oracle
-diagnostics. Its immutable source checkout passed53native workload classes. The
+M2 has finished its matched timing/stream, ordinary-capacity/recipe and small
+pair-oracle diagnostic queue. Its immutable source checkout passed53native workload classes. The
 initial four teachers did not settle its screening rule, so the predeclared
-four-to-eight-teacher extension is running. The small exhaustive pair controls
-have finished, but no final scientific collection or Gate A decision has occurred.
+four-to-eight-teacher extension was run. Collection and an independent raw
+prediction audit are in progress; no final scientific Gate A decision is reported yet.
 The complementary-group selector has not been trained or confirmed.
 
-As of19October17:41UTC, the queue has2,951eligible completed jobs,496ineligible
-entries and one running continuation on the eighth declared teacher. These include
-preparation/evaluation and nominal skips, not independent problems. No failed
-terminal status appears in that operational snapshot. About4.04GiB disk was
-free at the earlier15:50snapshot; the17:41snapshot has7.41GiB free. Live
-disk/memory guards can pause the same queue; full completion is not promised from
-a ceiling forecast. The nine previously memory-deferred legacy backend checks
+At19October17:56UTC, all3,853planned queue entries are terminal:2,989eligible
+and864ineligible entries. These include preparation/evaluation and nominal skips,
+not3,853independent problems or fitted models. No failed terminal status appears
+in that operational snapshot. The producer exited0 and the pinned collection
+operator acquired the inactive queue. Raw authentication, arithmetic and the
+scientific decision still need the two collection stages. About6.76GiB disk was
+free at that snapshot. The nine previously memory-deferred legacy backend checks
 subsequently passed under normal native pressure, with their guards intact.
 One MPS test is unavailable in this process; no full-repository green result is
 claimed.
@@ -148,6 +148,11 @@ checks passed on artificial tables. It opens labels only through the logged
 coordinator after prediction alignment, preserves zero-variance unavailability,
 and grants no model/qualification/eligibility authority. Production scoring
 integration and the final support lock remain required.
+An immutable [primary selection inventory](primary-selection-inventory.md)
+now checks all168primary winners, their deadline/tie/proposal identities and
+committed model/losing-trial bytes on artificial fixtures;87affected checks pass.
+It supplies one final-freeze input. It grants no secondary-fold or protected
+release and does not authenticate native qualification or the full search journal.
 Power, seed commitments, independent metric arithmetic, search supervision,
 compatible teacher-family Holm bounds and report rendering are fixture-tested components. An
 in-memory parent-fork helper now preserves the complete selected training state

@@ -1,0 +1,70 @@
+{
+  "T_accessed": false,
+  "V_arithmetic_authenticated": false,
+  "artifacts_root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP09/primary-selection-inventory",
+  "artificial_fixture_inventories": true,
+  "fixed_barrier_facts": [
+    "Exactly168primary jobs; separate paired repetitions",
+    "Current source and fixed plan/search budget/HPO/split identities",
+    "Terminal search and retained-score deadline/tie winner",
+    "Native anchor and finite proposal lineage",
+    "All listed paid files rechecked; selected model belongs to winner",
+    "Immutable external inventory commitment; load rechecks all files"
+  ],
+  "inventory_sha256": "f4e140d272f4395cce322f724243779ce352fd4a1379eec10be7fcf1fc5cdc93",
+  "labels_decoded": false,
+  "limitations": [
+    "Externally committed artifact integrity is not producer/model/native-quality authentication.",
+    "TPE proposal identities checked; suggestion law needs complete authenticated journal.",
+    "Final confirmation/v2 protocol and secondary/protected release remain pending."
+  ],
+  "model_generation_authenticated": false,
+  "native_predictive_fits": 0,
+  "native_qualification_authenticated": false,
+  "ordinary_bytes": 95864545,
+  "ordinary_file_count": 56617,
+  "production_practical_searches": 0,
+  "protected_access_authorized": false,
+  "schema": "research/v2-primary-selection-inventory-receipt",
+  "scientific_source_sha256": "69733d9d9ac92c3ab474bb8beb59cbab29d34c803ceced8e23eb225d1451ec2b",
+  "search_journal_authenticated": false,
+  "secondary_release_authorized": false,
+  "source_and_tests": [
+    {
+      "path": "src/treeneuron/research/primary_selection_v2.py",
+      "sha256": "88d546869b7dc4c6423fadc23f9f44055c763ae922db7522c18a1c2186418719"
+    },
+    {
+      "path": "tests/test_primary_selection_inventory_v2.py",
+      "sha256": "689ff9ab7a6aab5f188d270769efcc68bf51111dae96c57fa9b80ebfd2ca245b"
+    }
+  ],
+  "status": "verified_software_component",
+  "verification": [
+    {
+      "failed": 19,
+      "passed": 0,
+      "pytest_seconds": 0.12,
+      "stage": "missing_component_RED"
+    },
+    {
+      "failed": 0,
+      "passed": 19,
+      "pytest_seconds": 19.6,
+      "stage": "initial_GREEN"
+    },
+    {
+      "failed": 5,
+      "passed": 0,
+      "pytest_seconds": 5.49,
+      "stage": "lineage_RED"
+    },
+    {
+      "failed": 0,
+      "passed": 87,
+      "pytest_seconds": 24.69,
+      "stage": "final_affected"
+    }
+  ],
+  "whole_repository_suite_passed": false
+}

@@ -1648,3 +1648,5 @@ input drift. No protected labels, native-quality promotion or production search.
 ReceiptWP10-independent-prediction-replay-receipt.json retains raw artifacts and
 the initial combined failure. Task10 and complete protected evaluator remain
 partial. Held M2/NODE/auditor checkouts are unchanged.
+
+WP08/WP09 primary-selection inventory verified on artificial168-job fixtures:19missing-component RED ->19GREEN19.60s, then5proposal/truncation/malformed RED ->87affectedGREEN24.69s. External source/plan/results/model bindings and all listed paid files are checked; winners recomputed at deadlines with declared ties, repetitions never selected as candidates. Changed sources/models/losers/procedures and incomplete/secondary/swapped/late/forged winners fail. No real native fits or label arrays decoded; final qualification/journal/model/V arithmetic and secondary/protected release remain unauthenticated. ReceiptWP09-primary-selection-inventory-receipt.json. M2 scientific producer69903 exited0 at17:56UTC:3853terminal entries (2989eligible864ineligible), pinned watch5663 collecting inactive queue; no audited scientific verdict yet.
