@@ -1,5 +1,12 @@
 # Repeatable native-anchor qualification
 
+**19October amendment:** this document describes the existing capped runner.
+The user's results-first instruction supersedes that prospective wall-time
+policy. A separate explicit recoverable NODE route is being verified before an
+uncapped native restart; see [its contract](results-first-native-execution.md).
+The old runner remains capped until its versioned controller is updated; do not
+silently use it to perform quality-first qualification or repeat its two-hour stop.
+
 Implement the WP07 `research.cli qualify` command using the already tested
 method worker, native support compiler, owned-process supervisor and immutable
 work queue. This replaces one-off operational launchers for future qualification;

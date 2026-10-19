@@ -147,7 +147,7 @@ def _load_inputs(path,value):
     return result
 
 
-def _validate_request(path,expected):
+def _validate_request(path,expected,*,recoverable_training=False):
     if (path.is_symlink() or not path.is_file() or not _digest(expected) or _sha(path)!=expected):
         raise ValueError('Worker request differs from external trusted digest')
     value=_read_json(path)
@@ -163,9 +163,13 @@ def _validate_request(path,expected):
             or type(value['files']) is not dict or set(value['files'])!={'F','G','V_features'}):
         raise ValueError('Invalid/unsupported engineering worker request or source identity')
     budget=value['budget'];identity=value['observation_identity']
-    if (type(budget) is not dict or set(budget)!={'max_seconds'}
-            or type(budget['max_seconds']) not in (int,float)
-            or not math.isfinite(budget['max_seconds']) or not 0<budget['max_seconds']<=7200
+    bounded=(type(budget) is dict and set(budget)=={'max_seconds'}
+        and type(budget['max_seconds']) in (int,float)
+        and math.isfinite(budget['max_seconds']) and 0<budget['max_seconds']<=7200)
+    recovery_budget=(type(budget) is dict and (set(budget)=={'native_stopping'} and budget['native_stopping'] is True
+        or set(budget)=={'max_updates'} and type(budget['max_updates']) is int and 0<budget['max_updates']<=128))
+    if (recoverable_training and (value['family_id']!='P12' or not recovery_budget)
+            or not recoverable_training and not bounded
             or type(identity) is not dict or set(identity)!={'dataset','split_kind','split_sha256'}
             or type(identity['dataset']) is not str or not identity['dataset']
             or identity['split_kind'] not in ('grouped','temporal') or not _digest(identity['split_sha256'])):
@@ -196,7 +200,7 @@ def _initialize_native_threads(family):
     return threads
 
 
-def run_engineering_trial(request_path,*,expected_request_sha256,output):
+def run_engineering_trial(request_path,*,expected_request_sha256,output,training_checkpoints=None,resume=False):
     """Retain a fresh engineering attempt; no retry or eligibility promotion."""
     started=time.perf_counter_ns();root=Path(output);request_path=Path(request_path)
     if root.exists() or root.is_symlink():raise ValueError('Fresh worker output required; no overwrite/retry')
@@ -209,7 +213,8 @@ def run_engineering_trial(request_path,*,expected_request_sha256,output):
         startup_environment={k:os.environ.get(k) for k in (*_THREADS,'PYTHONDONTWRITEBYTECODE','KMP_DUPLICATE_LIB_OK')})
     model=None
     try:
-        value,arrays=_validate_request(request_path,expected_request_sha256)
+        if type(resume) is not bool or resume and training_checkpoints is None:raise ValueError('Resume requires explicit training checkpoints')
+        value,arrays=_validate_request(request_path,expected_request_sha256,recoverable_training=training_checkpoints is not None)
         if not sys.dont_write_bytecode or any(os.environ.get(k)!='1' for k in _THREADS):
             raise ValueError('Fresh worker requires disabled bytecode and declared single numerical threads')
         record.update(job_id=value['job_id'],family_id=value['family_id'],fit_seed=value['fit_seed'],
@@ -223,8 +228,12 @@ def run_engineering_trial(request_path,*,expected_request_sha256,output):
         import pandas as pd
         schema=value['config']['feature_schema'];columns=schema['columns']
         frames={role:pd.DataFrame(a['X'],columns=columns) for role,a in arrays.items()}
-        model.fit(FitRequest(frames['F'],arrays['F']['y'],frames['G'],arrays['G']['y'],
-            value['fit_seed'],value['config'],value['budget'],root/'fit'))
+        fit_request=FitRequest(frames['F'],arrays['F']['y'],frames['G'],arrays['G']['y'],
+            value['fit_seed'],value['config'],value['budget'],root/'fit')
+        if training_checkpoints is None:model.fit(fit_request)
+        else:
+            record['training_recovery']=dict(checkpoints=str(Path(training_checkpoints).resolve()),resume=resume)
+            model.fit(fit_request,training_checkpoints=training_checkpoints,resume=resume)
         query=arrays['V_features'];prediction=np.asarray(model.predict(frames['V_features']))
         if (prediction.shape!=(len(query['X']),) or prediction.dtype.kind not in 'iuf'
                 or not np.isfinite(prediction).all()):
@@ -259,7 +268,7 @@ def run_engineering_trial(request_path,*,expected_request_sha256,output):
             hard_limits_enforced='Requires containing supervisor; this worker records its body only',
             prediction_rows=len(prediction),eligible_scope='Engineering result only; native workload/GateD qualification pending')
         record['snapshot_state_sha256' if snapshot_name=='state.json' else 'snapshot_manifest_sha256']=snapshot_digest
-        if time.perf_counter_ns()-started>value['budget']['max_seconds']*1e9:
+        if 'max_seconds' in value['budget'] and time.perf_counter_ns()-started>value['budget']['max_seconds']*1e9:
             record.update(status='timeout',reason='Worker body exceeded requested budget; outputs retained ineligible')
     except BaseException as error:
         status='interrupted_recoverable' if isinstance(error,(KeyboardInterrupt,SystemExit)) else 'timeout' if isinstance(error,TimeoutError) else (
@@ -285,9 +294,12 @@ def main(argv=None):
     parser.add_argument('--request',type=Path,required=True)
     parser.add_argument('--expected-request-sha256',required=True)
     parser.add_argument('--output',type=Path,required=True)
+    parser.add_argument('--training-checkpoints',type=Path)
+    parser.add_argument('--resume',action='store_true')
     args=parser.parse_args(argv)
     try:
-        result=run_engineering_trial(args.request,expected_request_sha256=args.expected_request_sha256,output=args.output)
+        result=run_engineering_trial(args.request,expected_request_sha256=args.expected_request_sha256,output=args.output,
+            training_checkpoints=args.training_checkpoints,resume=args.resume)
     except Exception as error:
         print(f'method-worker: {type(error).__name__}: {error}',file=sys.stderr);return 2
     print(json.dumps(dict(status=result['status'],quality_eligible=False),sort_keys=True))

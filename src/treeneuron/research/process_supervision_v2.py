@@ -86,10 +86,13 @@ def supervise_process(*,argv,cwd,env_overrides,output,timeout_ns,rss_limit_bytes
             or any(type(k) is not str or not k or '=' in k or '\0' in k
                 or v is not None and (type(v) is not str or '\0' in v)
                 or k in ('HOME','home','CODEX_HOME') for k,v in env_overrides.items())
-            or any(not _positive(n) for n in (timeout_ns,rss_limit_bytes,poll_interval_ns,log_limit_bytes))
+            or timeout_ns is not None and not _positive(timeout_ns)
+            or any(not _positive(n) for n in (rss_limit_bytes,poll_interval_ns,log_limit_bytes))
             or type(terminate_grace_ns) is not int or terminate_grace_ns<0
             or not isinstance(identity,dict) or not identity):raise ValueError('Invalid supervised process execution contract')
     identity_json=canonical_json(identity)
+    def expired(elapsed):return timeout_ns is not None and elapsed>=timeout_ns
+    def probe_budget(elapsed=0):return 250000000 if timeout_ns is None else max(1,min(250000000,timeout_ns-elapsed))
     child_environment=dict(os.environ)
     for key,value in env_overrides.items():
         if value is None:child_environment.pop(key,None)
@@ -106,14 +109,14 @@ def supervise_process(*,argv,cwd,env_overrides,output,timeout_ns,rss_limit_bytes
     with (output/'stdout.log').open('xb') as stdout,(output/'stderr.log').open('xb') as stderr,(output/'resource-samples.jsonl').open('x') as observations:
         try:
             # Unknown measurement capability fails before starting an expensive fit.
-            try:root_rss_bytes(os.getpid(),max(1,min(250000000,timeout_ns)))
+            try:root_rss_bytes(os.getpid(),probe_budget())
             except subprocess.TimeoutExpired as error:
                 diagnostic=f'{type(error).__name__}: {error}'
-                if time.perf_counter_ns()-started>=timeout_ns:
+                if expired(time.perf_counter_ns()-started):
                     status='timeout';reason='dedicated_worker_deadline_during_rss_preflight'
             except Exception as error:diagnostic=f'{type(error).__name__}: {error}'
             else:
-                if time.perf_counter_ns()-started>=timeout_ns:status='timeout';reason='deadline_before_spawn'
+                if expired(time.perf_counter_ns()-started):status='timeout';reason='deadline_before_spawn'
                 else:
                     try:proc=subprocess.Popen(argv,cwd=cwd,env=child_environment,stdin=subprocess.DEVNULL,
                         stdout=stdout,stderr=stderr,start_new_session=True)
@@ -124,20 +127,20 @@ def supervise_process(*,argv,cwd,env_overrides,output,timeout_ns,rss_limit_bytes
                             observed_utc_ns=time.time_ns()))
                         while True:
                             elapsed=time.perf_counter_ns()-started;code=proc.poll()
-                            if elapsed>=timeout_ns:status='timeout';reason='dedicated_worker_deadline';break
+                            if expired(elapsed):status='timeout';reason='dedicated_worker_deadline';break
                             if (output/'stdout.log').stat().st_size+(output/'stderr.log').stat().st_size>log_limit_bytes:
                                 status='resource_exhausted';reason='log_bytes_limit';break
                             if code is not None:
                                 status='exited';reason='process_exit'
                                 if _group_exists(proc.pid):status='input_or_dependency_failure';reason='unexpected_live_process_group'
                                 break
-                            try:rss=root_rss_bytes(proc.pid,max(1,min(250000000,timeout_ns-elapsed)))
+                            try:rss=root_rss_bytes(proc.pid,probe_budget(elapsed))
                             except ProcessLookupError:
                                 if proc.poll() is not None:continue
                                 status='input_or_dependency_failure';reason='rss_probe_unavailable';diagnostic='Owned worker disappeared from RSS probe';break
                             except subprocess.TimeoutExpired as error:
                                 diagnostic=f'{type(error).__name__}: {error}'
-                                if time.perf_counter_ns()-started>=timeout_ns:
+                                if expired(time.perf_counter_ns()-started):
                                     status='timeout';reason='dedicated_worker_deadline_during_rss_probe'
                                 else:status='input_or_dependency_failure';reason='rss_probe_unavailable'
                                 break
@@ -149,7 +152,7 @@ def supervise_process(*,argv,cwd,env_overrides,output,timeout_ns,rss_limit_bytes
                             observations.write(canonical_json(dict(elapsed_ns=time.perf_counter_ns()-started,root_rss_bytes=rss))+'\n')
                             observations.flush();os.fsync(observations.fileno())
                             if rss>rss_limit_bytes:status='resource_exhausted';reason='observed_root_rss_limit';break
-                            remaining=timeout_ns-(time.perf_counter_ns()-started)
+                            remaining=poll_interval_ns if timeout_ns is None else timeout_ns-(time.perf_counter_ns()-started)
                             if remaining>0:time.sleep(min(poll_interval_ns,remaining)/1e9)
         except (KeyboardInterrupt,SystemExit) as error:
             status='interrupted_recoverable';reason='supervisor_interrupted';diagnostic=type(error).__name__
@@ -171,7 +174,7 @@ def supervise_process(*,argv,cwd,env_overrides,output,timeout_ns,rss_limit_bytes
         native_recipe_runtime_qualified=False,files=files,elapsed_ns=time.perf_counter_ns()-started,
         clock_scope='Supervisor entry through log closure/file hashing before final receipt publication; child startup included',
         whole_process_cost_authenticated=False)
-    receipt['deadline_overshoot_ns']=max(0,receipt['elapsed_ns']-timeout_ns)
+    receipt['deadline_overshoot_ns']=None if timeout_ns is None else max(0,receipt['elapsed_ns']-timeout_ns)
     # Verify the serialized caller identity was not mutated during the callback-free run.
     if canonical_json(identity)!=identity_json:raise ValueError('Caller process identity changed during execution')
     write_new_json(output/'process.json',receipt)

@@ -1,5 +1,10 @@
 # NODE within the shared machine's RAM
 
+**19October user amendment:** complete native results take priority over the
+two-hour budget. The timed attempt below is retained historical evidence. The
+next fit uses native stopping with periodic raw-training checkpoints; see
+[the prospective implementation contract](results-first-native-execution.md).
+
 The user requested completing the same comparison without waiting for20GiBfree
 RAM. This adds the explicit NODE-v2 configuration field
 `execution: bounded_memory_v1`. It is a fixed execution policy, not a model-search

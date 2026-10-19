@@ -5,6 +5,24 @@ Read this with `docs/superpowers/specs/2026-10-18-research-v2-design.md` and
 entry point. Update it after every task, gate, failure recovery and source change.
 Unchecked work is not completed, and prior investigation findings are not new runs.
 
+## Current continuation,19October
+
+M2 has completed and its raw prediction arithmetic has been independently audited;
+see [the complete report](../../../reports/research-v2-M2.md). Gate A admits one
+bounded joint-selector study, without establishing a placement win. WP04's dense
+joint objective and full actual parent/gate Jacobians are verified; candidate,
+trace and insertion integration and a frozen competent M3 recipe remain pending.
+
+The bounded-memory Energy NODE attempt finished at its old7200-second cap, with
+about1.49GiBsampled peak and no saved model. The user then explicitly prioritized
+completed results over that wall cap. The spec/plan amendment and
+[results-first execution contract](results-first-native-execution.md) govern
+future native qualification and quality runs. Exact periodic raw-training resume,
+explicit deadline-free supervision and storage-bounded payload retention are
+being verified before a same-data/seed17 fresh restart. No production HPO,
+calibration, global freeze or protected T has run. Earlier intake/progress entries
+below retain their historical meaning; they are not the current queue status.
+
 ## Intake
 
 Deferred software recovery: at `dd0483a`/`8b559d9c…`, native pressure was 1 with

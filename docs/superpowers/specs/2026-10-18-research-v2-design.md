@@ -391,9 +391,10 @@ majority of defined small-oracle teachers, with undefined/all-tied cases reporte
 and not counted as successes. Require >=2 defined teachers; otherwise inconclusive.
 Main M3 uncertainty expansion triggers only when its fixed joint-versus-random
 whole-teacher95% descriptive interval spans both zero and log(1/.98).
-Unqualified cost explosion means exceeding the16GiB worker envelope or inability
-to finish the declared120-minute standalone procedure without weakening controls;
-otherwise expose measured Pareto position and do not claim efficiency from quality.
+Unqualified cost explosion means exceeding the qualified worker memory/storage
+envelope or inability to complete without weakening controls. Per19October user
+amendment, elapsed time beyond120minutes alone does not retire a quality branch;
+expose measured Pareto position and do not claim efficiency from quality.
 These conservative builder choices make qualitative gates executable and must
 remain labeled as choices made at implementation, not historical preregistration.
 
@@ -457,15 +458,17 @@ license/import location; no floating main. Investigation pinned TabM
 c1f3d1ff366d794d06d3c77a6ac92e8eccfd90c3 only; resolve others, do not invent versions.
 Use official primary documentation when qualifying current APIs.
 
-Each family sequential search <=32 attempted configs AND120 dedicated-worker
-minutes, official anchor first, two fixed HPO seeds (not seed candidates).
-Eligible completed retained models at10/30-minute prefixes descriptive; completing
+Each quality-first family sequential search has <=32 attempted configs, official
+anchor first, two fixed HPO seeds (not seed candidates), and no wall-time cap on
+its native fits. Eligible completed retained models at10/30/120-minute prefixes
+form the separate resource-bounded view; completing
 after prefix is ineligible there. Paid failures/caps/startup/preprocess/parent/
 scoring/probes/V evaluation included. Native minimum schedule must not be weakened
-to fit budget: qualify larger common budget pre-T or block full-suite claim.
+to fit a prefix: retain it as unavailable there, and finish for the quality view.
 Search supports fixed before168 primary jobs; no V-driven range changes/restarts.
-840 total jobs=14*6*5*2,168 primary/672 secondary; maxima26880 attempts/1680 worker
-hours (primary5376/336h), not a measured forecast. Measure anchor P50/P90 time,
+840 total jobs=14*6*5*2,168 primary/672 secondary; maximum26880 attempts
+(primary5376). The earlier1680/336worker-hour ceilings belonged to the superseded
+120-minute policy and no longer cap quality work. Measure anchor P50/P90 time,
 disk/RAM and schedule first. Default memory16GiB/worker, same CPU thread allocation;
 GPU track separate with hardware/precision/power and cost when available.
 

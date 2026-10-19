@@ -1,0 +1,76 @@
+{
+  "Gate_D": false,
+  "T_accessed": false,
+  "V_labels_read": false,
+  "behavior": "Explicit native-stopping budget, raw training resume with atomic checkpoints/exclusive lease, fixed original F/G/seed/source/runtime/config, bounded payload retention and external immutable row history",
+  "full_native_shape_recovery_proven": false,
+  "limitations": [
+    "Targeted affected checks, no monolithic suite result",
+    "Native warnings retained",
+    "Full native shape proof required before long Energy restart",
+    "Legacy common qualify/search controllers remain capped, separate from new NODE route"
+  ],
+  "native_stopping_completed": false,
+  "production_quality_HPO_policy_implemented": false,
+  "raw_files": [
+    {
+      "bytes": 4327,
+      "path": "artifacts/research-v2/WP07/NODE-training-recovery/affected-final.log",
+      "sha256": "dfe24a5e8b30b9f8ec8e1ff0106519cbfe7368b2605f09032bae008a86eec40a"
+    },
+    {
+      "bytes": 6053,
+      "path": "artifacts/research-v2/WP07/NODE-training-recovery/binding-lock-red.log",
+      "sha256": "ddf198ee08eb4abd3b733bfa52f390312405d29975ffb4b34ba7dd22cd7a8355"
+    },
+    {
+      "bytes": 2871,
+      "path": "artifacts/research-v2/WP07/NODE-training-recovery/green-1.log",
+      "sha256": "c184d4537c83e2a17d7977cbd6c75081444a511dbac47ca72afe357a98d61cc4"
+    },
+    {
+      "bytes": 2110,
+      "path": "artifacts/research-v2/WP07/NODE-training-recovery/green-2.log",
+      "sha256": "ce05c8e9056eff2e976e0169f95d5200c5291a95f0d2f58ee3fc6b050ae03ce2"
+    },
+    {
+      "bytes": 7454,
+      "path": "artifacts/research-v2/WP07/NODE-training-recovery/hardening-red.log",
+      "sha256": "85af7c694767a2e592428a1673e343095c147567bc649a276559a57f6adff823"
+    },
+    {
+      "bytes": 7415,
+      "path": "artifacts/research-v2/WP07/NODE-training-recovery/no-deadline-red.log",
+      "sha256": "f7447ed3a0a504762b6d1d8aac04a660b92e6e220308649ed309b1bb3dc128ac"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP07/NODE-training-recovery/process-green.log",
+      "sha256": "0f4979754037d40d4dae1df984b48ba583afc89dcb1006ff7dfcdaa98eb2a201"
+    },
+    {
+      "bytes": 12112,
+      "path": "artifacts/research-v2/WP07/NODE-training-recovery/red.log",
+      "sha256": "314fc0cdd5cf771dfe1bbb12a41514cbd16d5393d6a422bf47815115a98c7fda"
+    },
+    {
+      "bytes": 6229,
+      "path": "artifacts/research-v2/WP07/NODE-training-recovery/worker-red.log",
+      "sha256": "f996bf2ac2d478c8efe0d82a43dfda1627cdc1d231ab1e08b34d24b99ab5a118"
+    }
+  ],
+  "schema": "research/v2-NODE-training-recovery-implementation",
+  "scientific_fits": 0,
+  "source_sha256": "b680a26b2176c6c5cc0f59cf19192d7ee963826a7575cce5ec5ee695521a65cc",
+  "test_records": {
+    "affected_final": "106 passed,79 native warnings in248.74s",
+    "binding_lease_RED": "2 failed in6.40s",
+    "hardening_first": "3 failed,3 passed in11.41s; two slot0 fixture errors corrected, retention missing",
+    "initial_GREEN": "8 passed in61.84s",
+    "initial_RED": "8 failed in8.96s",
+    "intermediate_GREEN": "18 passed in102.63s",
+    "supervisor_GREEN": "33 passed in2.04s",
+    "supervisor_RED": "2 failed in.08s",
+    "worker_RED": "4 failed in.16s"
+  }
+}

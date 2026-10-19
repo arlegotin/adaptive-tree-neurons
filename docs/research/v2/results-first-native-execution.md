@@ -26,23 +26,26 @@ Implementation decisions are the builder's calls under the user's instruction:
 - Keep row/update history in immutable external segments. Each state commits its
   prefix; a resumed attempt reads that prefix and leaves later uncommitted files
   intact. Publication writes immutable payload/metadata before an atomic pointer.
-  Retain all operational checkpoints initially; measure storage and compact only
-  with a declared, verified retention policy if needed.
+  Retain the latest two committed tensor payloads; after atomic publication,
+  remove only older committed operational payloads, recording their hashes and
+  the superseding publication. Keep every manifest, row-history segment and
+  failed transaction. Test this bound before admission: retaining every full
+ 2048-tree tensor payload would otherwise consume the remaining disk.
 - A separate explicit native-stopping route has no time deadline. Keep owned
   process supervision, RSS/disk admission and interruption receipts. One worker
   runs at a time. No hidden data subsampling, native-recipe shortening or new seed.
 
 Execution steps for Task7, before the new long run:
 
-- [ ] Write and observe failing tests for native-stopping budgets, exact interrupted
+- [x] Write and observe failing tests for native-stopping budgets, exact interrupted
   continuation across a non-epoch boundary, wrong identities/dtype/negative
   moments, raw versus averaged weights, and incomplete atomic publication.
-- [ ] Add a focused training-checkpoint module and NODE training hooks. Reuse
+- [x] Add a focused training-checkpoint module and NODE training hooks. Reuse
   safe closed-array encoding; keep prediction snapshots and legacy capped paths.
-- [ ] Prove uninterrupted and resumed rows, raw/selected weights, moments, RNG,
+- [x] Prove uninterrupted and resumed rows, raw/selected weights, moments, RNG,
   sampler and G records agree on actual native tiny geometry, ignoring measured
   elapsed times. Run affected endpoint, worker and process-supervision checks.
-- [ ] Add and verify deadline-free owned supervision and a checkpointed native
+- [x] Add and verify deadline-free owned supervision and a checkpointed native
   qualification entry point. Preserve all attempts and independently reopen the
   final model/predictions. This route grants no V/T access or quality win.
 - [ ] Run an actual full2048-tree shape recovery proof before admitting the long
@@ -50,6 +53,23 @@ Execution steps for Task7, before the new long run:
 - [ ] Pin the new executable source, forecast disk use, and restart Energy/seed17
   under native stopping with periodic checkpoints and RAM/disk guards. Continue
   selector implementation while that single worker runs.
+
+The new route is `research.method_worker --training-checkpoints PATH` with an
+explicit `native_stopping:true` budget; `--resume` requires matching stored state.
+Only P12 accepts this route. Explicit update budgets up to128 are engineering
+proofs, never native completion. Other workers and existing capped controllers
+retain their prior contracts. The native launch operator is
+`docs/research/v2/scripts/run_node_native_recovery.py`; its arguments pin the
+prepared manifest and held source. It stages only F/G and V features, checks
+resource admission and uses owned-process supervision without a deadline.
+
+Final affected verification passed106checks with79retained native warnings in
+248.74seconds. A separate real process-supervision run passed33checks in2.04s.
+Initial missing features, an incorrect test optimizer-slot assumption and all
+subsequent RED/GREEN stages remain in
+[the implementation receipt](WP07-NODE-training-recovery-implementation-receipt.json).
+The tiny exact-recovery result does not qualify full2048-tree recovery or native
+patience completion. The full-size operator is the next admission gate.
 
 Quality-first HPO needs explicit controller/inventory semantics before production:
 finite32attempt supports remain; every attempted native configuration may finish;

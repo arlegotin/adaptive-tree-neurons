@@ -380,6 +380,8 @@ def _restore_rng(value,torch):
 
 def _training_budget(cfg,budget,*,started_ns):
     if type(budget) is not dict:raise ValueError('Explicit NODE training budget required')
+    if set(budget)=={'native_stopping'} and budget['native_stopping'] is True and cfg.state['mode']!='engineering_fixture':
+        return None,None
     if set(budget)=={'max_updates'}:
         cap=budget['max_updates']
         if type(cap) is not int or cap<=0 or cfg.state['mode']=='engineering_fixture' and cap>128:
@@ -398,11 +400,33 @@ def _check_deadline(deadline_ns):
         raise TimeoutError('NODE fit exceeded its complete monotonic time budget')
 
 
-def _train(model,optimizer,F,y,G,gy,resolved,cap,trace,*,deadline_ns=None):
+def _train(model,optimizer,F,y,G,gy,resolved,cap,trace,*,deadline_ns=None,resume_state=None,checkpoint=None):
     torch=_native()[0];tx=torch.from_numpy(F);ty=torch.from_numpy(y)
     indices=np.arange(len(F),dtype=np.int64);cursor=len(F);epoch=-1;window=[];reports=[];best=None;best_opt=None;best_window=[]
     best_mse=float('inf');best_step=0;step=0
+    if resume_state is not None:
+        state=resume_state
+        model.load_state_dict(state['raw_model']);optimizer.load_state_dict(state['raw_optimizer'])
+        for layer in model[0]:layer._is_initialized_bool=True
+        indices=state['sampler']['permutation'].copy();cursor=state['sampler']['cursor'];epoch=state['sampler']['epoch']
+        window=copy.deepcopy(state['rolling_window']);reports=copy.deepcopy(state['reports'])
+        best=copy.deepcopy(state['selected_model']);best_opt=copy.deepcopy(state['selected_optimizer'])
+        best_window=copy.deepcopy(state['selected_window']);step=state['summary']['executed_updates']
+        best_step=state['summary']['selected_step'] or 0
+        if reports:best_mse=min(row['g_mse'] for row in reports)
+        trace.extend(copy.deepcopy(state['trace']));_restore_rng(state['rng'],torch)
+    def boundary():
+        return dict(initial_model=None,selected_model=copy.deepcopy(best),selected_optimizer=copy.deepcopy(best_opt),
+            raw_model=_model_state(model),raw_optimizer=copy.deepcopy(optimizer.state_dict()),
+            rolling_window=copy.deepcopy(window),selected_window=copy.deepcopy(best_window),reports=copy.deepcopy(reports),trace=trace,
+            sampler=dict(permutation=indices.copy(),cursor=cursor,epoch=epoch),rng=_rng(torch),
+            summary=dict(executed_updates=step,selected_step=best_step if best is not None else None,
+                stop_reason='checkpoint_boundary',checkpoint_available=best is not None,
+                selection_status='G_selected' if best is not None else 'raw_unselected_at_cap',
+                quality_eligible=False,native_full_anchor_qualified=False))
+    if checkpoint is not None and resume_state is None:checkpoint(boundary())
     while cap is None or step<cap:
+        if _patience_reached(step,best_step,resolved['patience']):break
         _check_deadline(deadline_ns)
         if cursor==len(F):np.random.shuffle(indices);cursor=0;epoch+=1
         batch=indices[cursor:cursor+resolved['batch_size']].copy();cursor+=len(batch)
@@ -436,8 +460,10 @@ def _train(model,optimizer,F,y,G,gy,resolved,cap,trace,*,deadline_ns=None):
             if mse<best_mse:
                 best_mse=mse;best_step=step;best=_model_state(model);best_opt=copy.deepcopy(optimizer.state_dict());best_window=copy.deepcopy(window)
             model.load_state_dict(raw)
+            if checkpoint is not None:checkpoint(boundary())
         _check_deadline(deadline_ns)
         if _patience_reached(step,best_step,resolved['patience']):break
+    if checkpoint is not None and step%resolved['report_frequency']!=0:checkpoint(boundary())
     raw=_model_state(model);raw_opt=copy.deepcopy(optimizer.state_dict())
     if best is not None:model.load_state_dict(best)
     model.eval()
@@ -453,11 +479,12 @@ def _train(model,optimizer,F,y,G,gy,resolved,cap,trace,*,deadline_ns=None):
 class NodeV2Predictor:
     def __init__(self):self._model=None;self._state=None;self._transform=None;self._identity=None;self._config=None
 
-    def fit(self,request):
+    def fit(self,request,*,training_checkpoints=None,resume=False):
         if not isinstance(request,FitRequest):raise ValueError('NODE requires FitRequest')
+        if type(resume) is not bool or resume and training_checkpoints is None:raise ValueError('Explicit NODE checkpoint root required for resume')
         root=Path(request.artifact_dir);root.mkdir(parents=True,exist_ok=False)
         started=time.perf_counter_ns();trace=[];phase='configuration';cfg=None;before=None;torch=None
-        phase_started=started;phase_costs={}
+        phase_started=started;phase_costs={};store=None
         def enter_phase(name):
             nonlocal phase,phase_started
             _check_deadline(deadline_ns)
@@ -480,15 +507,31 @@ class NodeV2Predictor:
             width=F.shape[1];parameters=resolved['trees']*(3*2**resolved['depth']+width*resolved['depth']+2*resolved['depth'])
             if len(F)>20000 or len(G)>20000 or width>4096 or parameters>10000000:raise ValueError('NODE finite preallocation envelope exceeded; measured admission still pending')
             enter_phase('initialization');model=_build_model(width,resolved)
-            _initialize_model(model,F[:min(1000,len(F))],resolved)
-            _initialized(model)
-            if any(not torch.isfinite(v).all() for v in model.state_dict().values()):raise FloatingPointError('Nonfinite native NODE initialized state')
-            initial=_model_state(model);optimizer=_optimizer(model,resolved);enter_phase('training')
-            state=_train(model,optimizer,F,y,G,gy,resolved,cap,trace,deadline_ns=deadline_ns);state['initial_model']=initial
-            state.update(transform=transform.to_state(),seed=seed,max_updates=cap,n_fit=len(F),n_select=len(G),
+            static=dict(transform=transform.to_state(),seed=seed,max_updates=cap,n_fit=len(F),n_select=len(G),
                 F_identity=dict(features=_array_identity(F),target=_array_identity(_target(request.y_fit))),
                 G_identity=dict(features=_array_identity(G),target=_array_identity(_target(request.y_select))),
                 initialization=dict(requested_rows=1000,actual_rows=min(1000,len(F)),ordered_indices=list(range(min(1000,len(F)))),prefix=_array_identity(F[:min(1000,len(F))])))
+            store=None;resume_state=None
+            if training_checkpoints is not None:
+                from .node_checkpoints import NodeCheckpointStore
+                packed={};bound_static=_pack(static,packed)
+                binding=dict(config=cfg.to_state(),identity=dict(source=source,runtime=runtime),budget=request.budget,
+                    static=bound_static,arrays={k:_array_identity(v) for k,v in packed.items()})
+                store=NodeCheckpointStore(training_checkpoints,binding,resume=resume)
+                if resume:resume_state=store.load(cfg)
+            if resume_state is None:
+                _initialize_model(model,F[:min(1000,len(F))],resolved);_initialized(model)
+                if any(not torch.isfinite(v).all() for v in model.state_dict().values()):raise FloatingPointError('Nonfinite native NODE initialized state')
+                initial=_model_state(model)
+            else:initial=resume_state['initial_model']
+            def publish(state):
+                state.update(copy.deepcopy(static));state['initial_model']=initial
+                state['prediction_binding']=_prediction_binding(state,cfg)
+                store.publish(state,cfg)
+            optimizer=_optimizer(model,resolved);enter_phase('training')
+            state=_train(model,optimizer,F,y,G,gy,resolved,cap,trace,deadline_ns=deadline_ns,
+                resume_state=resume_state,checkpoint=publish if store is not None else None)
+            state['initial_model']=initial;state.update(static)
             state['prediction_binding']=_prediction_binding(state,cfg)
             enter_phase('identity_recheck')
             if source_identity()!=source or _runtime()!=runtime:raise ValueError('NODE source/runtime changed during fitting')
@@ -497,6 +540,7 @@ class NodeV2Predictor:
             receipt=dict(status='completed_ineligible',seed=seed,config=cfg.to_state(),resolved=resolved,phase='complete',budget=copy.deepcopy(request.budget),
                 elapsed_ns=elapsed,phase_costs_ns=costs,timing_scope='Through phase capture; successful receipt publication/final caller-state restoration require enclosing worker time',executed_updates=state['summary']['executed_updates'],
                 trace=trace,summary=state['summary'],identity=identity)
+            if training_checkpoints is not None:receipt['resume_step']=0 if resume_state is None else resume_state['summary']['executed_updates']
             enter_phase('receipt_publication');_write(root/'fit-receipt.json',receipt)
         except BaseException as error:
             costs,elapsed=captured_costs()
@@ -508,6 +552,7 @@ class NodeV2Predictor:
             except BaseException as publication:error.add_note(f'NODE original failure receipt publication also failed: {publication}')
             raise
         finally:
+            if store is not None:store.close()
             if before is not None:_restore_rng(before,torch)
             else:np.random.set_state(caller_numpy);random.setstate(caller_python)
         self._model,self._transform,self._state,self._identity,self._config=model,transform,state,identity,cfg
@@ -655,7 +700,7 @@ def _validate_optimizer(value,model,resolved,age):
     torch=_native()[0];expected=_optimizer(model,resolved).state_dict();parameters=list(model.parameters())
     if (type(value) is not dict or set(value)!={'state','param_groups'} or type(value['state']) is not dict
             or _canonical(value['param_groups'])!=_canonical(expected['param_groups'])):raise ValueError('NODE optimizer recipe/group geometry differs')
-    ids={i for i,p in enumerate(parameters) if p.requires_grad}
+    ids={i for i,p in enumerate(parameters) if p.requires_grad} if age else set()
     if set(value['state'])!=ids or any(type(i) is not int for i in value['state']):raise ValueError('NODE optimizer state inventory differs')
     weights=[0.,0.]
     for _ in range(age):weights=[1.+beta*w for beta,w in zip(resolved['optimizer']['betas'],weights)]
@@ -683,7 +728,7 @@ def _validate_rng_state(value):
     if not isinstance(t,torch.Tensor) or t.dtype!=torch.uint8 or t.shape!=torch.get_rng_state().shape:raise ValueError('Invalid NODE Torch RNG state')
 
 
-def _validate_endpoint(state,cfg):
+def _validate_endpoint(state,cfg,*,allow_running=False):
     torch=_native()[0];resolved=cfg.resolved()
     fields={'initial_model','selected_model','selected_optimizer','raw_model','raw_optimizer','rolling_window','selected_window',
         'reports','trace','sampler','rng','summary','transform','seed','max_updates','n_fit','n_select','F_identity','G_identity','initialization','prediction_binding'}
@@ -709,7 +754,7 @@ def _validate_endpoint(state,cfg):
     model=_build_model(width,resolved)
     for name in ('initial_model','raw_model'):_validate_model(state[name],model)
     summary=state['summary'];trace=state['trace'];reports=state['reports']
-    if type(summary) is not dict or type(trace) is not list or not trace or (cap is not None and len(trace)>cap) or type(reports) is not list:raise ValueError('Invalid NODE training evidence')
+    if type(summary) is not dict or type(trace) is not list or not trace and not allow_running or (cap is not None and len(trace)>cap) or type(reports) is not list:raise ValueError('Invalid NODE training evidence')
     executed=len(trace);gradient_names={name for name,p in model.named_parameters() if p.requires_grad};cursor=0;epoch=0;seen=[]
     for step,row in enumerate(trace,1):
         if (type(row) is not dict or set(row)!={'step','epoch','rows','loss','gradient_norms','optimizer_entered','applied','elapsed_ns'}
@@ -722,12 +767,14 @@ def _validate_endpoint(state,cfg):
         seen+=row['rows'];cursor+=len(row['rows'])
         if len(set(seen))!=len(seen):raise ValueError('Duplicate NODE training row within shuffled epoch')
         if cursor==nf and step<executed:cursor=0;epoch+=1;seen=[]
+    if not executed:cursor=nf;epoch=-1;seen=[]
     sampler=state['sampler']
     if (type(sampler) is not dict or set(sampler)!={'permutation','cursor','epoch'} or not isinstance(sampler['permutation'],np.ndarray)
             or sampler['permutation'].dtype!=np.dtype('int64') or sampler['permutation'].shape!=(nf,)
             or not np.array_equal(np.sort(sampler['permutation']),np.arange(nf,dtype=np.int64))
             or type(sampler['cursor']) is not int or sampler['cursor']!=cursor or type(sampler['epoch']) is not int or sampler['epoch']!=epoch
-            or sampler['permutation'][:cursor].tolist()!=seen):raise ValueError('NODE sampler endpoint does not match paid trace')
+            or executed and sampler['permutation'][:cursor].tolist()!=seen
+            or not executed and not np.array_equal(sampler['permutation'],np.arange(nf,dtype=np.int64))):raise ValueError('NODE sampler endpoint does not match paid trace')
     expected_steps=list(range(resolved['report_frequency'],executed+1,resolved['report_frequency']))
     if len(reports)!=len(expected_steps):raise ValueError('Missing or additional NODE G report')
     winner=None;best=float('inf');best_step=0;first_stop=None;report_by_step={}
@@ -742,9 +789,9 @@ def _validate_endpoint(state,cfg):
         if row is not None and row['g_mse']<best:best=row['g_mse'];best_step=step;winner=row
         if _patience_reached(step,best_step,resolved['patience']):first_stop=step;break
     if first_stop is not None and first_stop!=executed:raise ValueError('NODE trace continued past native patience')
-    if first_stop is None and (cap is None or executed!=cap):raise ValueError('NODE stopped before its declared cap/patience')
+    if not allow_running and first_stop is None and (cap is None or executed!=cap):raise ValueError('NODE stopped before its declared cap/patience')
     expected_summary=dict(executed_updates=executed,selected_step=winner['step'] if winner is not None else None,
-        stop_reason='G_patience' if first_stop is not None else 'max_updates',checkpoint_available=winner is not None,
+        stop_reason='checkpoint_boundary' if allow_running else 'G_patience' if first_stop is not None else 'max_updates',checkpoint_available=winner is not None,
         selection_status='G_selected' if winner is not None else 'raw_unselected_at_cap',quality_eligible=False,native_full_anchor_qualified=False)
     if _canonical(summary)!=_canonical(expected_summary):raise ValueError('NODE checkpoint/eligibility/stop summary differs from evidence')
     registry={}

@@ -219,3 +219,17 @@ def test_owned_pid_survives_a_later_cleanup_failure(tmp_path,monkeypatch):
         assert not (tmp_path/'supervisor/process.json').exists()
     finally:
         for child in children:original(child,100_000_000)
+
+
+def test_explicit_no_deadline_still_records_cost_and_enforces_RSS(tmp_path):
+    r=run(tmp_path,"print('finished native treatment')",timeout_ns=None)
+    assert r['execution_status']=='exited' and r['returncode']==0
+    assert r['timeout_ns'] is None and r['deadline_overshoot_ns'] is None
+    assert r['elapsed_ns']>0 and r['rss_sample_count']>0
+
+
+def test_no_deadline_never_disables_the_owned_process_memory_guard(tmp_path):
+    r=run(tmp_path,"import time; x=bytearray(80*1024*1024); time.sleep(30)",
+          timeout_ns=None,rss_limit_bytes=40*1024**2)
+    assert r['execution_status']=='resource_exhausted'
+    assert r['stop_reason']=='observed_root_rss_limit' and r['child_reaped']
