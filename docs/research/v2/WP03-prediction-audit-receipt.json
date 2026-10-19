@@ -2,6 +2,26 @@
   "Gate_A_decided": false,
   "T_accessed": false,
   "base_commit": "1b50f68",
+  "completed_native_engineering_audit": {
+    "T_accessed": false,
+    "Torch_imported": false,
+    "audited_prediction_vectors": 48,
+    "auditor_commit": "1775a18",
+    "auditor_source_sha256": "38c92475d99aff40683b829995ae2c5c2d79aa330b8eef24ca9d5b86678f628a",
+    "files": {
+      "audit.json": "3bad2affe206327fd6892fca195e06b6c1d53468af347da4b339f9a5d8986ab0",
+      "invocation.json": "357489ec9914123943efc1c7a1aaf08150d83ff467865842cdba6d280ef4fd6b"
+    },
+    "maximum_absolute_metric_difference": 5.551115123125783e-17,
+    "new_models_fit": 0,
+    "observed_body_ns": 2147157750,
+    "path": "artifacts/research-v2/WP03/qualification-prediction-audit-1775a18",
+    "planned_evaluation_jobs": 12,
+    "producer_commit": "e1b1018",
+    "producer_scope": "Previously completed native resource engineering qualification; not scientific M2",
+    "producer_source_sha256": "e322da64b518f29a14bde3385bfcf6d683993b717ed4c1fc13a7a5440a1f9a47",
+    "scalar_metric_comparisons": 576
+  },
   "evidence_level": "Analytic raw prediction/queue fixtures; no new scientific predictive outcome",
   "logs": {
     "artifacts/research-v2/WP03/prediction-audit-preparation/affected-green.log": {
@@ -19,7 +39,6 @@
   },
   "models_fitted": 0,
   "pending": [
-    "execute on completed inactive native engineering queue",
     "full inactive scientific M2 raw arithmetic",
     "frozen-source Gate A collection",
     "scientific report and actual claim decision"

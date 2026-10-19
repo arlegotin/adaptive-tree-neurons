@@ -51,3 +51,12 @@ The helper records separate producer/auditor identities, exact commands/runtime,
 output hashes and failures. It does not modify the frozen queue. Frozen-source
 `collect_opportunity` still owns the prespecified opportunity/Gate A decision;
 this later arithmetic audit supplies a separate consistency check.
+
+A read-only compatibility execution on the already completed native engineering
+qualification queue authenticated all530jobs and reconstructed12evaluators,48
+V/E prediction vectors and576scalar fields, with maximum absolute difference
+5.55e-17. It took2.147s of auditor body time and imported no Torch. Producer
+sourcee322da64 remained distinct from auditor38c92475; the preexisting archive
+inventory authenticated both plan and ledger before invocation. No new fitting,
+scientific teacher or Gate A evidence was added. Exact paths/hashes appear in
+WP03-prediction-audit-receipt.json. The active scientific queue was untouched.

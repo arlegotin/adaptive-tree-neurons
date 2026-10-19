@@ -79,3 +79,17 @@ efficiency claim. [Execution ledger](execution.md), [reproduction](reproduce.md)
 [binding spec](../../superpowers/specs/2026-10-18-research-v2-design.md) and
 [implementation plan](../../superpowers/plans/2026-10-18-research-v2.md) retain the
 exact state, evidence and next steps.
+
+As of19October,07:39UTC, the main diagnostic has1,772eligible completed queue jobs
+and one running short probe. Queue jobs include preparation/evaluation and are
+not independent problems. No scientific failure has been recorded at that
+snapshot. About7.08GiB disk was free; live guards may pause the unchanged queue.
+Host memory-pressure level2 is delaying extra backend verification that requires
+a larger reserve. We retain its setup failures rather than relaxing that guard.
+
+The benchmark infrastructure now checks paid anchor/failure/recovery accounting,
+exact resumed TPE choices, late-result exclusion and own-process deadline/resource
+outcomes. The independent raw-result auditor agrees with saved predictions from
+48earlier engineering vectors. These are reliability improvements, not new
+predictive successes. No modern-baseline benchmark or protected confirmation has
+run, and the new joint chooser still awaits Gate A.
