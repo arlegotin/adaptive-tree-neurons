@@ -92,6 +92,33 @@ class ConfirmationSeedPlan:
     protected_access_authorized:bool=False
 
 
+def _private(path,expected,method,root,registry):
+    path=_file(path,expected)
+    if path.stat().st_mode&0o077:raise ValueError('Private confirmation root must retain owner-only permissions')
+    v=_read(path);p=method.payload;matrix='C2' if p['method']['claim']=='residual_capacity' else 'C1'
+    if (type(v) is not dict or set(v)!=_PRIVATE_FIELDS or v['schema']!='research/v2-private-confirmation-root'
+            or v['matrix']!=matrix or type(v['teacher_count']) is not int or v['teacher_count'] not in range(32,129,8)
+            or v['method_file_sha256']!=method.file_sha256
+            or v['execution_sha256']!=p['source']['execution_sha256']
+            or v['excluded_registry_sha256']!=registry['sha256']):
+        raise ValueError('Private root lineage differs from the chosen method and exclusions')
+    teachers=_teachers(v['root'],matrix,v['teacher_count'],_registry(root,registry))
+    return v,teachers
+
+
+def _publish(public,private,private_digest,method,root,registry):
+    v,teachers=_private(private,private_digest,method,root,registry);p=method.payload
+    payload=dict(study_id=p['study_id'],claim=p['method']['claim'],matrix=v['matrix'],
+        teacher_count=v['teacher_count'],created_utc_ns=time.time_ns(),method_file_sha256=method.file_sha256,
+        method_lock_hash=method.lock_hash,execution_sha256=p['source']['execution_sha256'],code_binding=_code(method,root),
+        excluded_registry=dict(registry),private_file_sha256=private_digest,root_sha256=_root_hash(v['root']),
+        teacher_seed_set_sha256=canonical_hash(dict(teacher_seeds=list(teachers))),
+        protected_access_authorized=False,teacher_id_exclusions_verified=False,registry_completeness_qualified=False)
+    value=dict(schema='research/v2-confirmation-seed-commitment',payload=payload,commitment_hash=canonical_hash(payload))
+    write_new_json(public,value)
+    return SeedCommitment(public,_sha(public),payload['root_sha256'])
+
+
 def commit_confirmation_seeds(*,method_path,expected_method_sha256,repository_root,
         excluded_registry,teacher_count,public_output,private_output):
     """Draw one fresh root, commit new seed IDs, and leave observations untouched.
@@ -105,9 +132,9 @@ def commit_confirmation_seeds(*,method_path,expected_method_sha256,repository_ro
         raise ValueError('Confirmation teacher count must be on the fixed32..128 grid')
     public=_new_output(public_output,root);private=_new_output(private_output,root)
     if public.resolve()==private.resolve():raise ValueError('Public commitment and private root require distinct paths')
-    excluded=_registry(root,excluded_registry);binding=_code(method,root)
+    excluded=_registry(root,excluded_registry);_code(method,root)
     p=method.payload;matrix='C2' if p['method']['claim']=='residual_capacity' else 'C1'
-    fresh=secrets.randbits(63);teachers=_teachers(fresh,matrix,teacher_count,excluded)
+    fresh=secrets.randbits(63);_teachers(fresh,matrix,teacher_count,excluded)
     # Entropy acquisition is outside our control. Recheck the exact original
     # commitments before publishing a root under possibly changed inputs.
     load_provisional_method(method_path,expected_file_sha256=expected_method_sha256,repository_root=root)
@@ -119,15 +146,17 @@ def commit_confirmation_seeds(*,method_path,expected_method_sha256,repository_ro
     descriptor=os.open(private,os.O_WRONLY|os.O_CREAT|os.O_EXCL,0o600)
     with os.fdopen(descriptor,'w') as stream:
         stream.write(canonical_json(private_value)+'\n');stream.flush();os.fsync(stream.fileno())
-    payload=dict(study_id=p['study_id'],claim=p['method']['claim'],matrix=matrix,
-        teacher_count=teacher_count,created_utc_ns=time.time_ns(),method_file_sha256=expected_method_sha256,
-        method_lock_hash=method.lock_hash,execution_sha256=p['source']['execution_sha256'],code_binding=binding,
-        excluded_registry=dict(excluded_registry),private_file_sha256=_sha(private),root_sha256=_root_hash(fresh),
-        teacher_seed_set_sha256=canonical_hash(dict(teacher_seeds=list(teachers))),
-        protected_access_authorized=False,teacher_id_exclusions_verified=False,registry_completeness_qualified=False)
-    value=dict(schema='research/v2-confirmation-seed-commitment',payload=payload,commitment_hash=canonical_hash(payload))
-    write_new_json(public,value)
-    return SeedCommitment(public,_sha(public),payload['root_sha256'])
+    return _publish(public,private,_sha(private),method,root,excluded_registry)
+
+
+def resume_confirmation_seed_publication(*,method_path,expected_method_sha256,repository_root,
+        excluded_registry,private_path,expected_private_sha256,public_output):
+    """Publish the same retained root after failure; never draw a replacement."""
+    root=Path(repository_root).resolve()
+    method=load_provisional_method(method_path,expected_file_sha256=expected_method_sha256,repository_root=root)
+    _code(method,root)
+    public=_new_output(public_output,root)
+    return _publish(public,Path(private_path),expected_private_sha256,method,root,excluded_registry)
 
 
 def load_confirmation_seeds(path,*,expected_file_sha256,private_path,method_path,

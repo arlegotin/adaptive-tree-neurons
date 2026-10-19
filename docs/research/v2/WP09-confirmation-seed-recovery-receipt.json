@@ -1,0 +1,62 @@
+{
+  "aliases": 18,
+  "base_commit": "ed4db24",
+  "calibration_execution_authorized": false,
+  "changed_source": {
+    "src/treeneuron/research/confirmation_seeds.py": "6c9bc90e179a87f86bc1f970123016825448d34c34eeb8b008908f5824f61ee7",
+    "tests/test_confirmation_seed_commitment.py": "d5402753cc4f001b5b0d27a299d6937a17f2d8d2fefc660dd4146b960b4303ab"
+  },
+  "files_excluding_inventory": 2162,
+  "frozen_M2_unchanged": "e1b1018/e322da64",
+  "inventory_sha256": "c0fc7a6d8c55b351d271baecc931ec3f5b60240f2a81697cc66ca6bdd5039c64",
+  "logical_bytes_excluding_inventory": 3232245,
+  "logs": {
+    "affected.log": "4b6eb41b7f253d7535d89e9afe7760ee327d8e39fcdcc1b0e7fc63456972e013",
+    "red.log": "b026c4152c5d1eb9629d8642b13555e984e9834263133e50aa96751f29546609"
+  },
+  "native_optimizer_recovery_qualified": false,
+  "pending": [
+    "complete teacher exclusion registry and generated identities",
+    "observation namespace/attempt list",
+    "full readiness and final freeze",
+    "production calibration and protected evaluator/report"
+  ],
+  "production_T_accessed": false,
+  "production_roots_created": 0,
+  "protected_access_authorized": false,
+  "raw_root": "artifacts/research-v2/WP09/confirmation-seed-recovery",
+  "recovery_scope": "Root publication only: same private bytes, external commitment, source/method/exclusion identity; no fresh entropy",
+  "schema": "research/v2-confirmation-seed-recovery-preparation",
+  "scientific_source_sha256": "6a3f6addd0b7e0d28ee0608a91c73ca6b495e38260fa82eb98e97103cc6cd7da",
+  "verification": {
+    "affected_passed": 89,
+    "affected_seconds": 13.26,
+    "cwd": "/private/tmp/atn-research-v2-next",
+    "explicit_environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "full_repository_suite": false,
+    "missing_recovery_failures": 2,
+    "pytest_argv": [
+      "-q",
+      "--basetemp",
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP09/confirmation-seed-recovery/affected-raw",
+      "tests/test_confirmation_seed_commitment.py",
+      "tests/test_protocol_v2.py",
+      "tests/test_design_v2.py",
+      "tests/test_primary_v2.py"
+    ],
+    "python_argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-B",
+      "-"
+    ]
+  },
+  "whole_search_recovery_qualified": false
+}

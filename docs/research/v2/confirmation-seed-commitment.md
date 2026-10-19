@@ -16,9 +16,11 @@ The owner-only private file is written/fsynced first. The public file commits it
 bytes, the root, ordered teacher seeds, chosen method, exclusions and source,
 without publishing the root or individual seeds. External file commitments are
 required when reopening both this record and its method identity. A public-write
-failure retains the private file for diagnosis; the API refuses to regenerate
-over it. Same-root interrupted-publication recovery is not implemented yet and
-must be explicit before production use. No roots are selected from outcomes.
+failure retains the private file for diagnosis; the creation API refuses to
+regenerate over it. `resume_confirmation_seed_publication` requires that exact
+private-file commitment, the same method/source/exclusion commitments and an
+absent public output. It publishes the retained root without drawing entropy or
+changing private bytes. No roots are selected from outcomes.
 
 The registry's bytes and known seed exclusions are verified. Registry completeness
 and actual generated teacher IDs are explicitly unqualified: the generator must
@@ -35,3 +37,10 @@ component became17 passing checks. Three subsequently failing input-drift
 checks led to revalidation before publication;87 affected seed/protocol/design/
 teacher-analysis checks then passed. No real confirmation root, calibration
 teacher, observation arrays, model fits or protected outcomes were created.
+
+Same-root publication recovery subsequently added two failing regression checks,
+then89 affected checks passed. The proof forces a public-write failure, retains
+the exact private bytes, prohibits another entropy draw, and reopens the recovered
+commitment with the original teacher seeds. Changed private commitments and
+overwriting an existing public record fail. This qualifies root publication
+recovery only; native model/optimizer and complete search recovery are separate.

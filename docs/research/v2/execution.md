@@ -1237,3 +1237,11 @@ observation generation, calibration, model fitting or T access occurred. Complet
 registry/generated-teacher independence, observation namespaces, publication
 recovery and final protocol freeze remain pending. See
 confirmation-seed-commitment.md and WP09-confirmation-seed-receipt.json.
+
+WP09 same-root publication recovery: two missing-API checks failed, then89
+affected checks passed13.26s. A controlled public-write failure followed by an
+explicit resume preserves all private root bytes and teacher seeds without
+requesting new entropy. The external private-file commitment, source/method/
+exclusions and absent-public-output checks remain mandatory. No production roots,
+calibration or protected access; model/optimizer and whole-search recovery remain
+unqualified. See WP09-confirmation-seed-recovery-receipt.json.

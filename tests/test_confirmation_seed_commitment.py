@@ -123,3 +123,40 @@ def test_inputs_changed_during_root_draw_fail_before_any_publication(change,repo
     monkeypatch.setattr(secrets,'randbits',changing_entropy)
     with pytest.raises(ValueError):api().commit_confirmation_seeds(**kwargs)
     assert not kwargs['public_output'].exists() and not kwargs['private_output'].exists()
+
+
+def test_failed_publication_resumes_the_same_committed_private_root_without_redrawing(repository,tmp_path,monkeypatch):
+    _,kwargs=setup(repository,tmp_path,monkeypatch)
+    assert hasattr(api(),'resume_confirmation_seed_publication')
+    writer=api().write_new_json
+    def disk_full(path,value):raise OSError(28,'controlled publication failure')
+    monkeypatch.setattr(api(),'write_new_json',disk_full)
+    with pytest.raises(OSError):api().commit_confirmation_seeds(**kwargs)
+    private=kwargs['private_output'];before=private.read_bytes();digest=sha(private)
+    import secrets
+    def no_new_entropy(bits):raise AssertionError('A resume must retain the existing root')
+    monkeypatch.setattr(secrets,'randbits',no_new_entropy)
+    monkeypatch.setattr(api(),'write_new_json',writer)
+    resume=dict(method_path=kwargs['method_path'],expected_method_sha256=kwargs['expected_method_sha256'],
+        repository_root=repository,excluded_registry=kwargs['excluded_registry'],private_path=private,
+        expected_private_sha256=digest,public_output=kwargs['public_output'])
+    result=api().resume_confirmation_seed_publication(**resume)
+    assert private.read_bytes()==before
+    plan=api().load_confirmation_seeds(result.path,expected_file_sha256=result.file_sha256,
+        private_path=private,method_path=kwargs['method_path'],
+        expected_method_sha256=kwargs['expected_method_sha256'],repository_root=repository)
+    assert plan.teacher_seeds[:2]==(8253235515464078001,5397323325650482004)
+    with pytest.raises(ValueError):api().resume_confirmation_seed_publication(**resume)
+
+
+def test_seed_publication_recovery_rejects_uncommitted_private_bytes(repository,tmp_path,monkeypatch):
+    _,kwargs=setup(repository,tmp_path,monkeypatch)
+    assert hasattr(api(),'resume_confirmation_seed_publication')
+    def disk_full(path,value):raise OSError(28,'controlled publication failure')
+    monkeypatch.setattr(api(),'write_new_json',disk_full)
+    with pytest.raises(OSError):api().commit_confirmation_seeds(**kwargs)
+    with pytest.raises(ValueError):api().resume_confirmation_seed_publication(
+        method_path=kwargs['method_path'],expected_method_sha256=kwargs['expected_method_sha256'],
+        repository_root=repository,excluded_registry=kwargs['excluded_registry'],
+        private_path=kwargs['private_output'],expected_private_sha256='0'*64,public_output=kwargs['public_output'])
+    assert not kwargs['public_output'].exists()
