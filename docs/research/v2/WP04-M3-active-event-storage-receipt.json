@@ -1,0 +1,76 @@
+{
+  "T_accessed": false,
+  "application": {
+    "T_accessed": false,
+    "cost_scope": "External storage maintenance overlapping the contended scientific cohort; do not add overlapping containing clocks",
+    "counts": {
+      "published_identical_bytes": 1967
+    },
+    "elapsed_ns": 98808746042,
+    "failure": null,
+    "logical_bytes_changed": false,
+    "planned_files": 1967,
+    "reported_per_file_block_saving_bytes": 2472423424,
+    "scientific_source_parameters_and_attempt_queue_changed": false,
+    "status": "completed",
+    "volume_free_after_bytes": 8378548224,
+    "volume_free_before_bytes": 6201077760,
+    "volume_saving_attributed": false
+  },
+  "files": [
+    {
+      "bytes": 1401906,
+      "path": "artifacts/research-v2/WP04/M3-active-event-storage-69d6b1a/plan.json",
+      "sha256": "d0c4823a9fc8b980f33e2b22cbb4443f1feb4090e9cbdd9599a6218045a66b88"
+    },
+    {
+      "bytes": 1262,
+      "path": "artifacts/research-v2/WP04/M3-active-event-storage-69d6b1a/invocation.json",
+      "sha256": "e2264c752e52157aeb94d1041f320aafff3c4e614396c333922b64876a59996c"
+    },
+    {
+      "bytes": 528,
+      "path": "artifacts/research-v2/WP04/M3-active-event-storage-69d6b1a/result.json",
+      "sha256": "126abf7f05ca71c770529dfaae53fbb2e66621d0f50aeb43063f22b86212c0e1"
+    },
+    {
+      "bytes": 723,
+      "path": "artifacts/research-v2/WP04/M3-active-event-storage-69d6b1a/postcheck.json",
+      "sha256": "c1fdf59bd17c749ff83e44fcac9947a816dc828bee69b5103156f3612de89d2d"
+    },
+    {
+      "bytes": 2628,
+      "path": "artifacts/research-v2/WP04/M3-active-event-storage-69d6b1a.stdout.log",
+      "sha256": "b00d078b7b70ca0919fedcdc799650c652181bb9038a39fcdff6023c6ab0e326"
+    },
+    {
+      "bytes": 0,
+      "path": "artifacts/research-v2/WP04/M3-active-event-storage-69d6b1a.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "postcheck": {
+    "T_accessed": false,
+    "all_original_logical_sizes_SHA256_and_result_markers_match": true,
+    "all_selected_files_report_UF_COMPRESSED": true,
+    "elapsed_ns": 6410471500,
+    "files": 1967,
+    "logical_bytes": 6770526290,
+    "markers": 1967,
+    "original_ledger_frontier": "1b2efa0a4b42d16e48f0c18b47e75ad7ce2b3f789f0dc1b3392dfe1cfd145611",
+    "original_ledger_prefix_bytes": 2421098,
+    "original_ledger_prefix_events": 4985,
+    "producer_active_during_maintenance": true,
+    "queue_plan_hash": "23ab57c782e1474985356d3216fbc00ba0a0b8294001b66b22511305d6dbb6c5",
+    "scope": "Streaming independent SHA256/size and original result-marker/ledger-prefix check; no model fitting, metrics or protected access",
+    "status": "passed"
+  },
+  "producer_source_sha256": "e78e027ffd7b0c1f4f4596b9e7ae8eee6c6a55e0f92e297a5d93e519cf1391a9",
+  "qualified_operator_module_sha256": "2a129c78eee5e55e56c984fee837073e19f5684ef87ea745d86e3a7fa3031292",
+  "qualified_proof_sha256": "0d241cecbe6fc581240c1ea74ae3074877f197f8ea5b790f5819fe39ad2d27ab",
+  "queue_plan_hash": "23ab57c782e1474985356d3216fbc00ba0a0b8294001b66b22511305d6dbb6c5",
+  "schema": "research/v2-M3-active-event-storage-maintenance",
+  "selection": "Only producer-committed finished event logs; all active logs, all checkpoint histories, weights, arrays, source and attempt lists excluded",
+  "training_or_selection_treatment_changed": false,
+  "volume_saving_attributed": false
+}

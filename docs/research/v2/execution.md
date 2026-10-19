@@ -44,6 +44,13 @@ the verified prediction/teacher/cost analysis only after the admitted queue is
 complete and inactive. Raw waiting/analysis outputs are under
 `artifacts/research-v2/WP04/M3-delayed-audit-654a2cc`. See
 [its launch receipt](WP04-M3-delayed-audit-launch-receipt.json).
+As shared free disk approached6GiB, qualified lossless maintenance compressed
+1,967completed event logs while M3 continued. An independent streaming check
+verified every original logical byte hash/size, all1,967result markers and the
+original ledger prefix. Reported per-file allocation decreased by2,472,423,424
+bytes; shared volume changes are not attributed solely to this work. Active
+logs, all checkpoint histories, parameters, data and the fixed queue were
+unchanged. See [the maintenance receipt](WP04-M3-active-event-storage-receipt.json).
 
 The bounded-memory Energy NODE attempt finished at its old7200-second cap, with
 about1.49GiBsampled peak and no saved model. The user then explicitly prioritized
