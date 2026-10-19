@@ -1,0 +1,34 @@
+{
+  "evidence": "File-backed artificial168-primary inventories and real retained callback files with virtual long clocks; no native fits or labels",
+  "implementation": [
+    "Explicit native_quality840job plan with168primary/672secondary, fixed seeds/support counts and no fabricated worker-hour ceiling",
+    "Full-quality primary winners use actual paid endpoint; completion-based10/30/120prefixes independently reconstructed",
+    "Every job budget checked against its global policy; mixed deadline modes, fake deadline closure and retroactive prefix winners reject",
+    "Default legacy bounded plan retained; no secondary/protected/qualification/model-generation/journal/V-arithmetic release authority"
+  ],
+  "logs": [
+    {
+      "bytes": 8226,
+      "path": "artifacts/research-v2/WP08/quality-inventory-red.log",
+      "sha256": "729b9f489dd297bd5042fe2de0d76a38c4c11152389f33b5ca498a82e1743929"
+    },
+    {
+      "bytes": 180,
+      "path": "artifacts/research-v2/WP08/quality-inventory-green.log",
+      "sha256": "552b12e9c0bf644bb0e166fb0b3364a8d6c0f2428d0ed02dcbff88de2b02ed78"
+    }
+  ],
+  "pending": [
+    "Qualified deadline-free production trial coordinator",
+    "Full native support/model-generation/journal/V-arithmetic authentication",
+    "Final global freeze and measured workload admission"
+  ],
+  "production_HPO_run": false,
+  "protected_T_accessed": false,
+  "schema": "research/v2-native-quality-workload-primary-inventory",
+  "source_sha256": "8b8149abc6eafe09a58800ab7370485458504e13a04325c8fd6e634d85cbf3eb",
+  "tests": {
+    "GREEN": "75 passed in23.96s",
+    "RED": "5 failed in1.20s, including accepted self-rehashed contradictory job budget"
+  }
+}

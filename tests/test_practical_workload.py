@@ -43,6 +43,19 @@ def test_all_840_search_jobs_keep_exact_primary_secondary_partition_and_caps():
     assert plan['execution_implemented'] is False and plan['protected_access_authorized'] is False
 
 
+def test_native_quality_keeps_the_finite_workload_without_inventing_a_time_ceiling():
+    plan=expand(native_quality=True).to_dict();legacy=expand().to_dict()
+    assert len(plan['jobs'])==840 and plan['tranches']==dict(primary_jobs=168,secondary_jobs=672)
+    assert plan['budget_policy']=='native_quality' and plan['plan_hash']!=legacy['plan_hash']
+    assert plan['limits']['dedicated_worker_hours_ceiling'] is None
+    assert plan['limits']['primary_worker_hours_ceiling'] is None
+    assert plan['limits']['conservative_attempt_ceiling']==26880
+    assert all(j['budget']['deadline_ns'] is None and j['budget']['max_attempts']==32
+        and j['budget']['descriptive_prefixes_ns']==[600000000000,1800000000000,7200000000000] for j in plan['jobs'])
+    assert [(j['job_id'],j['hpo_seed']) for j in plan['jobs']]==[(j['job_id'],j['hpo_seed']) for j in legacy['jobs']]
+    assert plan['execution_implemented'] is False and plan['protected_access_authorized'] is False
+
+
 def test_bike_uses_last_block_and_secondary_requires_all_primary_hashes():
     rows=expand().to_dict()['jobs'];primary=[r for r in rows if r['tranche']=='primary']
     assert {r['outer_fold'] for r in primary if r['dataset']=='bike'}=={4}

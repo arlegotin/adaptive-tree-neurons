@@ -126,3 +126,16 @@ quality plans. A qualified deadline-free production worker bridge, full-quality
 primary inventory/freeze and actual workload admission remain pending; no
 production HPO or real quality selection has run. See
 WP08-native-quality-controller-receipt.json.
+
+The practical metadata planner now exposes explicit `native_quality=True`:
+840jobs/168primary/672secondary and all pairing/support-count barriers stay
+fixed, while elapsed-worker-hour ceilings become unavailable rather than being
+invented. Its primary inventory accepts native-completed winners at their
+actual paid endpoint and independently recomputes the10/30/120minute views.
+Every job budget must match the global view. Contradictory/mixed budgets, fake
+deadline closures and retroactive prefix winners reject. Five regressions failed
+before implementation;75affected checks passed in23.96seconds on file-backed
+artificial inventories. All release/qualification/model-generation/journal/V
+authentication flags remain false. The qualified production trial coordinator
+and final protocol still need implementation; no production HPO has run. See
+WP08-native-quality-primary-inventory-receipt.json.

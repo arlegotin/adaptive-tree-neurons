@@ -21,24 +21,26 @@ def ref(path):return dict(path=str(path.resolve()),sha256=hashlib.sha256(path.re
 def publish(path,value):path.write_text(json.dumps(value,sort_keys=True)+'\n');return ref(path)
 
 
-def prepare(root):
+def prepare(root,*,native_quality=False):
     from test_practical_workload import fixtures
     from treeneuron.research.workload import expand_practical
     from treeneuron.research.method_worker import scientific_source_sha256
     from treeneuron.research.search_controller_v2 import make_search_plan,run_search
     source=scientific_source_sha256()
-    plan=expand_practical(fixtures(),support_lock_sha256='a'*64,source_sha256=source,runtime_sha256='c'*64,lock_sha256='d'*64)
+    arguments=dict(native_quality=True) if native_quality else {}
+    plan=expand_practical(fixtures(),support_lock_sha256='a'*64,source_sha256=source,runtime_sha256='c'*64,lock_sha256='d'*64,**arguments)
     procedure=publish(root/'procedure.json',dict(schema='explicit_unqualified_fixture_procedure',source_sha256=source))
     selections={}
     for job in (j for j in plan.to_dict()['jobs'] if j['tranche']=='primary'):
         directory=root/job['job_id'];clock=[0]
         identity=dict(job_id=job['job_id'],family_id=job['family_id'],search_repeat=job['search_repeat'],
             source_sha256=source,runtime_sha256=job['runtime_sha256'],support_sha256='e'*64,split_sha256=job['split_hash'])
+        search_budget=dict(deadline_ns=None,prefixes_ns=[600000000000,1800000000000,7200000000000]) if native_quality else {}
         search_plan=make_search_plan(identity=identity,fit_seed=17,hpo_seed32=job['hpo_seed32'],
             anchors=[dict(variant='native_anchor_fixture')],mode='finite',support=None,
-            candidates=[dict(variant='first'),dict(variant='tied_later')])
+            candidates=[dict(variant='first'),dict(variant='tied_later')],**search_budget)
         def trial(request):
-            clock[0]+=5;index=request['attempt_index'];file=Path(request['attempt_directory'])/'model.json'
+            clock[0]+=10800000000000 if native_quality else 5;index=request['attempt_index'];file=Path(request['attempt_directory'])/'model.json'
             evidence=publish(file,dict(family=job['family_id'],scope='Artificial model bytes, no native fit',index=index))
             return dict(status='numerical_failure' if index==0 else 'completed_eligible',V_score=None if index==0 else 1.-(5e-13 if index==2 else 0.),
                 files=[evidence],checkpoint_files=[],reason='Fixture paid failure' if index==0 else None)
@@ -52,6 +54,36 @@ def prepare(root):
 def seal(root,plan,procedure,selections):
     return api().seal_primary_selection_inventory(plan=plan,expected_plan_hash=plan.to_dict()['plan_hash'],
         global_procedure=procedure,selections=selections,output=root/'inventory.json')
+
+
+def test_full_native_quality_primary_winners_can_complete_after_every_budget_prefix(tmp_path):
+    plan,procedure,selections=prepare(tmp_path,native_quality=True)
+    result=seal(tmp_path,plan,procedure,selections);models=result.payload['models']
+    assert len(models)==168 and all(m['winner_attempt_index']==1 and m['paid_search_ns']==32400000000000 for m in models)
+    assert result.payload['secondary_release_authorized'] is result.payload['protected_access_authorized'] is False
+    loaded=api().load_primary_selection_inventory(result.path,expected_file_sha256=result.file_sha256,
+        plan=plan,expected_plan_hash=plan.to_dict()['plan_hash'])
+    assert loaded.payload==result.payload
+
+
+@pytest.mark.parametrize('mutation',['deadline_stop','false_prefix'])
+def test_quality_inventory_rejects_fabricated_deadlines_or_retroactive_prefix_winners(tmp_path,mutation):
+    plan,procedure,selections=prepare(tmp_path,native_quality=True);entry=selections[next(iter(selections))]
+    p=Path(entry['search_result']['path']);value=json.loads(p.read_text())
+    if mutation=='deadline_stop':value['stop_reason']='deadline'
+    else:value['prefixes']['7200000000000']['winner']=value['winner']
+    entry['search_result']=publish(p,value)
+    with pytest.raises(ValueError):seal(tmp_path,plan,procedure,selections)
+
+
+def test_self_rehashed_job_budget_cannot_contradict_the_primary_search_contract(tmp_path):
+    from treeneuron.config import canonical_json
+    from treeneuron.research.workload import PracticalPlan
+    plan,procedure,selections=prepare(tmp_path);value=plan.to_dict()
+    value['jobs'][0]['budget']['deadline_ns']=None
+    value['plan_hash']=canonical_hash({k:v for k,v in value.items() if k!='plan_hash'})
+    changed=PracticalPlan(canonical_json(value))
+    with pytest.raises(ValueError):seal(tmp_path,changed,procedure,selections)
 
 
 def test_all_168_primary_winners_are_sealed_with_repeats_separate_and_no_release(tmp_path,monkeypatch):

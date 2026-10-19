@@ -11,7 +11,7 @@ from treeneuron.analysis.practical_v2 import select_completed_trial
 from .deployment_worker_v2 import _json,_source
 from .ledger import write_new_json
 from .search_controller_v2 import SearchPlan,_checked_plan
-from .workload import PracticalPlan,_DATASETS,_FAMILIES
+from .workload import PracticalPlan,_DATASETS,_FAMILIES,practical_search_budget
 
 
 _FLAGS=('secondary_release_authorized','protected_access_authorized','native_qualification_authenticated',
@@ -46,6 +46,8 @@ def _primary(plan,expected):
         raise ValueError('Practical plan/source commitment changed')
     jobs=value.get('jobs')
     if type(jobs) is not list or len(jobs)!=840:raise ValueError('All840fixed practical jobs required')
+    policy=value.get('budget_policy','legacy_bounded')
+    if policy not in ('legacy_bounded','native_quality'):raise ValueError('Unknown practical budget policy')
     seen=set();primary=[]
     for job in jobs:
         if type(job) is not dict:raise ValueError('Invalid fixed practical job')
@@ -57,6 +59,7 @@ def _primary(plan,expected):
         is_primary=fold==(4 if dataset=='bike' else 0)
         if (key in seen or job.get('job_id')!=job_id or job.get('tranche')!=('primary' if is_primary else 'secondary')
                 or any(job.get(k)!=value[k] for k in ('source_sha256','runtime_sha256','support_lock_sha256','lock_sha256'))
+                or job.get('budget')!=practical_search_budget(family,native_quality=policy=='native_quality')
                 or job.get('seed_selection_allowed') is not False):
             raise ValueError('Practical primary/secondary partition or binding changed')
         seen.add(key)
@@ -108,15 +111,17 @@ def _assemble(plan,expected,procedure,selections,created):
             raise ValueError('Exact search-plan/result/selected-model references required')
         saved_plan=_ref(entry['search_plan'],references,decode=True)
         search_plan=_checked_plan(SearchPlan(canonical_json(saved_plan)));identity=search_plan['identity']
+        budget=job['budget'];deadline=budget['deadline_ns'];prefixes=budget['descriptive_prefixes_ns']
         if (identity['job_id']!=job['job_id'] or identity['family_id']!=job['family_id']
                 or identity['search_repeat']!=job['search_repeat'] or identity['source_sha256']!=value['source_sha256']
                 or identity['runtime_sha256']!=value['runtime_sha256'] or identity['split_sha256']!=job['split_hash']
-                or search_plan['hpo_seed32']!=job['hpo_seed32'] or search_plan['max_attempts']!=32
-                or search_plan['deadline_ns']!=7200000000000 or search_plan['prefixes_ns']!=[600000000000,1800000000000]):
+                or search_plan['hpo_seed32']!=job['hpo_seed32'] or search_plan['max_attempts']!=budget['max_attempts']
+                or search_plan['deadline_ns']!=deadline or search_plan['prefixes_ns']!=prefixes):
             raise ValueError('Search source/family/split/repeat/HPO/budget differs from its primary job')
         result=_ref(entry['search_result'],references,decode=True)
+        stops=('attempt_limit','support_exhausted') if deadline is None else ('attempt_limit','deadline','support_exhausted')
         if (type(result) is not dict or result.get('schema')!='research/v2-outer-search-result'
-                or result.get('plan_hash')!=search_plan['plan_hash'] or result.get('stop_reason') not in ('attempt_limit','deadline','support_exhausted')
+                or result.get('plan_hash')!=search_plan['plan_hash'] or result.get('stop_reason') not in stops
                 or result.get('protected_access_authorized') is not False):
             raise ValueError('Complete unchanged terminal search required, not paused/error execution')
         records=result.get('records')
@@ -127,15 +132,19 @@ def _assemble(plan,expected,procedure,selections,created):
                     or type(r.get('fit_seed')) is not int or r['fit_seed']!=search_plan['fit_seed'] for r in records)):
             raise ValueError('Paid attempt inventory/repetition differs')
         _proposal_lineage(search_plan,records,result['stop_reason'])
-        selection=select_completed_trial(records,deadline_ns=search_plan['deadline_ns'])
-        winner=selection['winner'];total=result.get('total_charged_ns')
+        total=result.get('total_charged_ns')
+        if type(total) is not int or total<0:raise ValueError('Actual primary search endpoint required')
+        selection=select_completed_trial(records,deadline_ns=total if deadline is None else deadline)
+        winner=selection['winner']
         if (winner is None or winner!=result.get('winner') or type(total) is not int
                 or total<records[-1]['completion_ns'] or total<selection['total_charged_ns']
                 or result.get('final_unassigned_coordinator_ns')!=total-selection['total_charged_ns']
                 or result['stop_reason']=='attempt_limit' and len(records)!=32
-                or result['stop_reason']=='deadline' and total<search_plan['deadline_ns']
+                or result['stop_reason']=='deadline' and total<deadline
                 or result['stop_reason']=='support_exhausted' and search_plan['mode']!='finite'):
             raise ValueError('Primary winner/deadline/tie/cost result contradicts retained trials')
+        if result.get('prefixes')!={str(n):select_completed_trial(records,deadline_ns=n) for n in prefixes}:
+            raise ValueError('Primary descriptive prefix results contradict retained completion times')
         search_root=Path(entry['search_plan']['path']).parent
         winner_files=set()
         for row in records:

@@ -57,8 +57,17 @@ class PracticalPlan:
         return json.loads(self.resolved_json)
 
 
+def practical_search_budget(family,*,native_quality=False):
+    if family not in _FAMILIES or type(native_quality) is not bool:
+        raise ValueError('Known family and explicit quality-view flag required')
+    return dict(max_attempts=32,unique_configuration_limit=29 if family=='P13' else 32,
+        deadline_ns=None if native_quality else 7200000000000,
+        descriptive_prefixes_ns=[600000000000,1800000000000]+([7200000000000] if native_quality else []),
+        official_anchor_first=True,failures_and_caps_paid=True)
+
+
 def expand_practical(data_manifests,*,support_lock_sha256,source_sha256,runtime_sha256,
-                     lock_sha256,study_id='P2-search',seed_root=2026101802):
+                     lock_sha256,study_id='P2-search',seed_root=2026101802,native_quality=False):
     """Return840 fixed jobs without opening role arrays or authorizing workers.
 
     Support/source/runtime locks are immutable external prerequisites. They are
@@ -66,7 +75,7 @@ def expand_practical(data_manifests,*,support_lock_sha256,source_sha256,runtime_
     The primary/secondary partition cannot be used to select favorable folds.
     """
     if (type(study_id) is not str or re.fullmatch(r'[A-Za-z0-9_-]+',study_id) is None
-            or type(seed_root) is not int or seed_root!=2026101802):
+            or type(seed_root) is not int or seed_root!=2026101802 or type(native_quality) is not bool):
         raise ValueError('Invalid fixed practical study identity or seed root')
     if not isinstance(data_manifests,dict) or set(data_manifests)!=set(_DATASETS):
         raise ValueError('All six fixed datasets, including separate simulation Energy, required')
@@ -97,9 +106,7 @@ def expand_practical(data_manifests,*,support_lock_sha256,source_sha256,runtime_
                             tranche=tranche,simulation_only=dataset=='energy',
                             manifest_hash=manifest_hash,split_hash=splits[fold],**bindings,
                             **seeds[dataset,fold,repeat],seed_selection_allowed=False,
-                            budget=dict(max_attempts=32,unique_configuration_limit=29 if family=='P13' else 32,
-                                deadline_ns=7200000000000,descriptive_prefixes_ns=[600000000000,1800000000000],
-                                official_anchor_first=True,failures_and_caps_paid=True),
+                            budget=practical_search_budget(family,native_quality=native_quality),
                             fit_worker_access=['F_labels','G_labels','V_features'],
                             coordinator_access=['V_labels'],protected_access_authorized=False,
                             execution_prerequisites=(['qualified_native_anchor','measured_resource_admission',
@@ -110,10 +117,12 @@ def expand_practical(data_manifests,*,support_lock_sha256,source_sha256,runtime_
         tranches=dict(primary_jobs=168,secondary_jobs=672),
         limits=dict(conservative_attempt_ceiling=26880,finite_unique_attempt_ceiling=26700,
             primary_conservative_attempt_ceiling=5376,primary_finite_unique_attempt_ceiling=5340,
-            dedicated_worker_hours_ceiling=1680,primary_worker_hours_ceiling=336),
+            dedicated_worker_hours_ceiling=None if native_quality else 1680,
+            primary_worker_hours_ceiling=None if native_quality else 336),
         forecast=None,forecast_status='Requires measured complete native anchors; ceilings are not forecasts',
         execution_implemented=False,protected_access_authorized=False,
         qualification_scope='Metadata commitment validation only; raw data, native supports and workers unqualified here',
         secondary_barrier='All168primary models and global procedure must be frozen by confirmation/v2; this plan grants no release')
+    if native_quality:value['budget_policy']='native_quality'
     value['plan_hash']=canonical_hash(value)
     return PracticalPlan(canonical_json(value))

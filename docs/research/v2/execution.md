@@ -1730,3 +1730,13 @@ required environment thread declarations and its10failures/7errors/36passes
 are retained. No code or guard weakened for recovery. See
 WP08-native-quality-worker-receipt.json. Qualified production search, full-quality
 inventory and final native support/source qualification remain pending.
+
+20October: explicit native-quality practical workload/primary-integrity view
+passes75affected checks23.96s after5RED1.20s. It retains840/168/672jobs and
+32paid attempts, gives no fake elapsed-hours ceiling, seals full-quality winners
+at actual endpoints and reconstructs10/30/120prefixes separately. Self-rehashed
+job-budget contradictions and retroactive prefix/deadline claims reject. These
+are artificial file-backed inventories, not native quality results or release
+authority. Production coordinator and final source/native/protocol checks remain.
+See WP08-native-quality-primary-inventory-receipt.json. Active held M3e78 and
+NODEb680 sources remain unchanged.
