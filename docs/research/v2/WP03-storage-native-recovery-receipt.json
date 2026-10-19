@@ -2,6 +2,15 @@
   "T_accessed": false,
   "base_commit": "d9bc033",
   "eligible_scope": "Published immutable completed-job artifact/runs/<id>/events.jsonl only, staged/receipted outside protected inventory; no active writers or other file kinds",
+  "end_to_end_batch_proof": {
+    "T_accessed": false,
+    "all_original_queue_bytes_identical": true,
+    "models_fit": 0,
+    "path": "artifacts/research-v2/WP03/storage-batch-cli-proof-7e439b0/proof.json",
+    "post_compression_full_queue_authenticated": true,
+    "sha256": "808aa8162571b82897e2084dc83d99c7ab31a19399416874178fcb30223bc1c6",
+    "software_only": true
+  },
   "logs": {
     "artifacts/research-v2/WP03/storage-operator-preparation/affected-green.log": {
       "bytes": 179,
@@ -33,13 +42,33 @@
     "source_original_unchanged": true
   },
   "pending": [
-    "end-to-end batch CLI on disposable authenticated queue",
-    "apply qualified representation maintenance to committed logs only",
-    "retain external housekeeping costs and unchanged producer commitments"
+    "full inactive scientific queue authentication",
+    "separate external housekeeping cost disclosure",
+    "continue existing live resource admission; logical forecast unchanged"
   ],
   "prior_cause": "Native context passed where earlier sandbox copies failed; exact OS mechanism remains unisolated",
   "prior_failed_receipt_sha256": "f6e69be52c3c0c05dc865020cf4b922578b16b40b2cec214d6a7ebf879a48b94",
-  "production_applied": false,
+  "production_application": {
+    "all_original_logical_file_hashes_sizes_and_result_markers_reauthenticated": true,
+    "elapsed_ns": 59866058292,
+    "files": 908,
+    "full_inactive_queue_audit_pending": true,
+    "path": "artifacts/research-v2/WP03/completed-log-compression-7e439b0-01",
+    "producer_commit": "e1b1018",
+    "producer_source_sha256": "e322da64b518f29a14bde3385bfcf6d683993b717ed4c1fc13a7a5440a1f9a47",
+    "receipts": {
+      "events.jsonl": "50d3ca7aff30aa37846156294b3f61d9f416745d845a751f62678af8bcfdaa19",
+      "invocation.json": "d9628f4391400c2479aa940566cf8b3820e3c1cdbe97ecf5503d02d6944ba5ce",
+      "plan.json": "195962c0e08d20e4c559f6ef60d0752528e9f1b860b005539bd5a4a9ebbcd32c",
+      "postcheck.json": "495f8a332eef17e163924eb7a26992ca1bbc92c0b1dbc12730bbe48026e720a6",
+      "result.json": "21da09543152755a414cb9542396fb29a73185be54ddb259050568ad5e5dc160"
+    },
+    "reported_per_file_block_saving_bytes": 1378652160,
+    "volume_free_after_bytes": 8066584576,
+    "volume_free_before_bytes": 6898626560,
+    "volume_saving_attributed": false
+  },
+  "production_applied": true,
   "schema": "research/v2-native-storage-recovery",
   "scientific_bytes_changed": false,
   "source_files": {

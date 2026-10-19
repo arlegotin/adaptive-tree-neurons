@@ -1134,3 +1134,13 @@ decreases7.97MB, with original unchanged. Exact module/tool/device qualification
 binds batch helper; no live application yet. Source/checkpoint/array/global-ledger
 bytes stay unchanged, scratch outside protected queue, old-inode backup until
 durable matching-byte receipt. Per-file block savings are not volume attribution.
+
+Storageapplication7e439b0 complete: batch CLI software-only two-file queue proof
+preserves all queue bytes/full authentication. Then908committed scientific
+training-event logs compressed with identical logical bytes,59.866s, no failure;
+all original hashes/sizes and producer markers independently rechecked afterward.
+Stat per-file savings1,378,652,160bytes; observed volume free6,898,626,560→
+8,066,584,576bytes, not causally attributed while other work runs. Frozen scientific
+e1b/e322 source and all model/data/checkpoint/queue bytes unchanged. Actual
+scientific queue remains running; full inactive audit pending. Exact receipts
+WP03/completed-log-compression-7e439b0-01 and native recovery JSON.

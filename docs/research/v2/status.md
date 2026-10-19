@@ -57,11 +57,11 @@ continuation repeat an already unsuccessful tail. That no-op does not prove
 ordinary training has exhausted useful headroom. Changing timing or minibatch
 streams therefore needs matched controls rather than assuming earlier growth helps.
 
-Next comes M2: matched timing/stream, ordinary-capacity/recipe and small pair-oracle
+M2 is running: matched timing/stream, ordinary-capacity/recipe and small pair-oracle
 diagnostics. Native resource qualification passed all53workload classes; the
 fixed M2 scientific queue is now running in an isolated source checkout with
 live disk/memory pauses. Its full conservative storage projection is227GiB
-against about12GiB currently free, so eventual full completion is not promised.
+against about12GiB free at admission, so eventual full completion is not promised.
 Gate A remains pending. The
 proposed complementary-group selector has not been trained or confirmed. At a
 fixed growth count, unrestricted model families can be relabeled; the placement
@@ -93,3 +93,9 @@ outcomes. The independent raw-result auditor agrees with saved predictions from
 48earlier engineering vectors. These are reliability improvements, not new
 predictive successes. No modern-baseline benchmark or protected confirmation has
 run, and the new joint chooser still awaits Gate A.
+
+A qualified storage pass compressed908published logs from finished jobs while
+preserving their exact readable hashes and all recorded evidence. It reported
+about1.28GiB less per-file allocation and left models/data/checkpoints unchanged.
+The experiment continues under its original source and resource guards; this
+changes storage representation and supplies no new predictive result.

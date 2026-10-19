@@ -47,3 +47,14 @@ verification and actual application are recorded separately in
 storage housekeeping overlaps the contended mechanism run and must not be hidden
 as intrinsic method speed or added again to an enclosing physical clock. The
 full227GiB logical forecast remains unchanged and live disk/RAM guards still apply.
+
+The committed batch CLI then passed an end-to-end two-log disposable queue check:
+every original queue file retained its exact bytes and authenticated_queue passed
+again. A fixed snapshot of908completed scientific event logs was subsequently
+maintained under7e439b0, with no failure in59.866s. Each file's original hash/size
+and each producer result marker was checked again after the batch. Per-file stat
+allocation totals decreased1,378,652,160bytes (about1.28GiB). Observed whole-volume
+free space changed from6,898,626,560to8,066,584,576bytes while other work continued;
+that delta is not attributed solely to this operation. The active scientific
+source stayede1b1018/e322da64, and no model/data/checkpoint/queue bytes changed.
+Full inactive-queue authentication remains for the final audit.
