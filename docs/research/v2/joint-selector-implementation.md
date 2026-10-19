@@ -50,7 +50,31 @@ pre-residualization scales, rank-deficient parents, zero blocks/count retention,
 duplicate-gate sharing and non-tied row/ID permutation.
 
 These checks use small matrices, without scientific teachers or model fitting.
-The full prediction-Jacobian builder, actual gate-Jacobian counterexample,
-CandidateBlock/trace/Allocation adapter and native workload validation remain
-pending. No complete selector or trained M3 outcome follows. See
+The full prediction-Jacobian builder and actual gate-Jacobian counterexample
+are now verified below. CandidateBlock/trace/Allocation integration and native
+workload validation remain pending. No complete selector or trained M3 outcome
+follows. See
 [the numerical receipt](WP04-joint-core-receipt.json).
+
+`prediction_jacobians` in `research/jacobian.py` accepts the actual ungrown
+SelectiveRegressor, CPU float64 model-coordinate X and unchanged augmented
+contrasts. It includes every currently trainable parent parameter, in named
+parameter order, and rejects other layers rather than conditioning on a partial
+parent. Frozen parent parameters are omitted deliberately. Analytic gate blocks
+match autograd on the actual zero-gate insertion, including biases and ReLU's
+zero derivative at the boundary. Model mode, parameters, gradients and RNG are
+preserved. The future state adapter must verify exact F identity and apply its
+existing F-fitted transform once before calling this helper.
+
+Twelve missing-module RED checks preceded implementation. An additional malformed
+layer case then failed explicitly and received a strict layer-type guard. Final
+Jacobian/core verification passed43checks in.31s. The actual-Jacobian stationary
+parent construction ranks duplicate singletons above the complementary singleton:
+unpenalized residual MSE.00113057 versus.00280908. The duplicate pair remains at
+.00113057, while the complementary pair reaches2.37e-31. Parent stationarity is
+accurate to1.03e-16. The zero-parent/.01-gate estimator chooses the complementary
+pair; default positive-parent ridge is instead checked against its own dense
+objective, with maximum error2.50e-17 across all subsets. These are algebraic
+controls, without fitted teachers or efficacy evidence. The
+[Jacobian receipt](WP04-joint-jacobian-receipt.json) retains every test failure and
+the constructed reference.

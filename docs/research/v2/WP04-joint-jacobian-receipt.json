@@ -1,0 +1,61 @@
+{
+  "T_accessed": false,
+  "actual_gate_counterexample": {
+    "default_ridge_maximum_dense_objective_error": 2.4936649967166602e-17,
+    "parent_stationarity_max": 1.022902112575987e-16,
+    "unpenalized_MSE": {
+      "complementary_pair": 2.373997817501329e-31,
+      "duplicate_pair": 0.0011305738790359473,
+      "singleton_complement": 0.0028090752438358307,
+      "singleton_duplicate": 0.0011305738790359475
+    },
+    "zero_parent_ridge_selected_ids": [
+      0,
+      2
+    ]
+  },
+  "artifacts_root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP04/joint-jacobian",
+  "counterexample_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP04/joint-jacobian/recorded-final-temp/test_actual_stationary_parent_0/counterexample.json",
+  "counterexample_sha256": "462b656635d817fde6b03bfbff916b4276fe37d9e5f507c15ea0e275969f061a",
+  "final": {
+    "failed": 0,
+    "passed": 43,
+    "pytest_seconds": 0.31
+  },
+  "full_selector_integration_complete": false,
+  "initial_RED": {
+    "failed": 12,
+    "pytest_seconds": 0.98
+  },
+  "inventory_sha256": "d3bfcc99e6ba522e9c0f7c1b1a43e6fa34f3dcd02bed18b77def9c921d1ffa28",
+  "malformed_layer_RED": {
+    "failed": 1,
+    "passed": 42,
+    "pytest_seconds": 0.39
+  },
+  "new_scientific_teachers": 0,
+  "ordinary_bytes": 22002,
+  "ordinary_files": 9,
+  "predictive_benefit_established": false,
+  "remaining": [
+    "Exact-F TrainingState and ScoredParent identity/transform adapter",
+    "Immutable CandidateBlock and complete SelectionTrace",
+    "Checked original-contrast Allocation adapter and insertion checks",
+    "Temporary solved-update diagnostics",
+    "Native workload/source/resource qualification before M3"
+  ],
+  "schema": "research/v2-joint-jacobian-receipt",
+  "scientific_package_sha256": "9c1b1de44588cffa24233e1436a1426c02eeb98734c6b26169b7f294b5675d22",
+  "source_files": [
+    {
+      "path": "src/treeneuron/research/jacobian.py",
+      "sha256": "98c59da396a1f2880a7c73e267d54e65dbb209c2af06e126d93ad73c255f0ec3"
+    },
+    {
+      "path": "tests/test_joint_jacobian.py",
+      "sha256": "c8ad81c40cdc10cdb87d54acb54e8c942fc26d300cafa233bd203699cb628119"
+    }
+  ],
+  "status": "prediction_Jacobians_verified_only",
+  "training_runs": 0
+}
