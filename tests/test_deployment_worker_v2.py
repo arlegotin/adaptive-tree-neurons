@@ -39,8 +39,15 @@ def prepare(root,family='P13'):
         config=dict(schema='research/v2-gated-native-config',family='P00',mode='engineering_fixture',
             feature_schema=config['feature_schema'],parameters=dict(width=8),base_updates=3,
             continuation_updates=3,validation_interval=1,patience=2)
+    if family=='P12':
+        from treeneuron.research.method_worker import _initialize_native_threads
+        _initialize_native_threads('P12')
+        from treeneuron.research.node_v2 import NodeV2Predictor
+        cls=NodeV2Predictor
+        config=dict(schema='research/v2-node-config',family='P12',mode='engineering_fixture',
+            execution='bounded_memory_v1',feature_schema=config['feature_schema'],parameters={})
     model=cls().fit(FitRequest(X,3.+2.*X.x.to_numpy(),X.iloc[:4],np.ones(4),17,config,
-        dict(max_seconds=30.),root/'fit'))
+        dict(max_updates=2) if family=='P12' else dict(max_seconds=30.),root/'fit'))
     model.save(data/'snapshot');query=data/'query.npz'
     np.savez(query,X=np.column_stack((np.arange(1024),np.arange(1024)%2)).astype(np.float32),
         row_id=np.arange(1024,dtype=np.int64))
@@ -83,7 +90,7 @@ def test_invalid_request_rejects_before_method_import(kind,tmp_path):
     assert result['T_accessed'] is result['cost_claim_authorized'] is False
 
 
-@pytest.mark.parametrize('family',['P13','P00'])
+@pytest.mark.parametrize('family',['P13','P00','P12'])
 def test_actual_fresh_deployment_has_only_its_method_imports_separates_clocks_and_keeps_all_samples(family,tmp_path):
     api();path,value,digest=prepare(tmp_path,family);output=tmp_path/'output';root=Path(__file__).resolve().parents[1]
     env=os.environ|dict(PYTHONPATH=str(root/'src'),PYTHONDONTWRITEBYTECODE='1')
@@ -101,7 +108,9 @@ def test_actual_fresh_deployment_has_only_its_method_imports_separates_clocks_an
     (tmp_path/'stdout.log').write_text(result.stdout);(tmp_path/'stderr.log').write_text(result.stderr)
     assert result.returncode==0,result.stderr
     record=json.loads((output/'terminal.json').read_text())
-    assert record['status']=='completed_ineligible' and record['loaded_heavy_modules']==([] if family=='P13' else ['torch'])
+    expected_modules=[] if family=='P13' else ['torch','treeneuron.baselines._node_vendor'] if family=='P12' else ['torch']
+    assert record['status']=='completed_ineligible' and record['loaded_heavy_modules']==expected_modules
+    assert record['torch_threads']==(None if family=='P13' else dict(intra_op=1,inter_op=1))
     assert record['cost_claim_authorized'] is record['protected_access_authorized'] is False
     assert record['whole_fresh_process_wall_authenticated'] is False
     assert record['query_rows']==1024 and record['input_dtype']=='float32'

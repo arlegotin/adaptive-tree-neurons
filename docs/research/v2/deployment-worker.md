@@ -95,3 +95,20 @@ inactive collection retained 31.072220707 s of paid queue jobs containing
 measurements compare identical mean-model fixtures and establish no speed gain.
 Initial and final cohorts are retained separately and are never pooled for
 inference. See [the coordinator receipt](WP10-deployment-blocks-receipt.json).
+
+Fresh NODE deployment exposed a caller-policy gap after bounded-memory fitting
+was added. The deployment entry did not explicitly initialize Torch's inter-op
+pool; NODE preserves a strict caller-thread guard, while the other tested neural
+adapters configure their own runtime. A real fresh P12 process failed on that
+guard before this correction. Deployment now reuses the fitting worker's
+per-family thread setup after request and feature validation, charging it within
+`adapter_import_ns` and recording the actual counts. Simple/tree families keep
+their lazy imports; the P13 process remains Torch-free. Adapter guards and native
+model arithmetic are unchanged.
+
+The new P12 fixture uses 16 trees/depth 2, two capped updates and the explicit
+bounded-memory policy; it is not a native quality fit. The RED run failed in
+16.60 s. All 47 affected deployment/paired-process/cost checks then passed with
+four native warnings in 77.52 s. Fresh P13/P00/P12 predictions match their retained
+references exactly. Private active M2 and full NODE fitting sources were not
+changed. See [the thread-policy receipt](WP10-deployment-NODE-thread-setup-receipt.json).

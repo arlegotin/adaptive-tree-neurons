@@ -139,7 +139,8 @@ def run_deployment(request_path,*,expected_request_sha256,output):
         record.update(family_id=value['family_id'],scientific_source_sha256=value['scientific_source_sha256'],
             query_rows=len(X),input_dtype=str(X.dtype),query_sha256=value['query']['sha256'],snapshot_sha256=value['snapshot']['metadata_sha256'])
         begin=time.perf_counter_ns();record['adapter_import_started']=True
-        from .method_worker import _ADAPTERS,loaded_method_modules
+        from .method_worker import _ADAPTERS,loaded_method_modules,_initialize_native_threads
+        record['torch_threads']=_initialize_native_threads(value['family_id'])
         module,name,_=_ADAPTERS[value['family_id']]
         cls=getattr(importlib.import_module('treeneuron.research.'+module),name)
         record['adapter_import_ns']=time.perf_counter_ns()-begin

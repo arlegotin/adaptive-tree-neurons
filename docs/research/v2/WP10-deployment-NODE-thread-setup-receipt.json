@@ -1,0 +1,36 @@
+{
+  "P12_fixture": {
+    "depth": 2,
+    "execution": "bounded_memory_v1",
+    "trees": 16,
+    "updates": 2
+  },
+  "P13_Torch_imported": false,
+  "T_accessed": false,
+  "actual_fresh_deployment_families": [
+    "P13",
+    "P00",
+    "P12"
+  ],
+  "cost_claim": false,
+  "final_command_sha256": "d7c67d6716f329c090e65756d343e5aba628ef2a7a0c3ab83918903fe3747a1c",
+  "full_repository_suite": false,
+  "green": "47passed/4warnings in77.52s",
+  "inventory_sha256": "3ff222f2acf85bebfcaea2aa85f0d15bb7057ce7e2a20fd4c24471c44e3c8f0e",
+  "native_adapter_guards_unchanged": true,
+  "native_thread_counts": {
+    "inter_op": 1,
+    "intra_op": 1
+  },
+  "predictions_match_exactly": true,
+  "quality_claim": false,
+  "raw_bytes": 10750297,
+  "raw_files": 805,
+  "raw_root": "artifacts/research-v2/WP10/deployment-NODE-thread-setup",
+  "red": "1actual fresh NODE deployment failure in16.60s: native interop guard",
+  "schema": "research/v2-deployment-NODE-thread-setup",
+  "scope": "Fresh deployment caller thread policy and existing paired-process/cost fixtures; no change to private active NODE or M2 training source",
+  "source_sha256": "5390b90e876d2f5b54dccbc0aa907e6dbeb824f1c605a10699c9e603c6d2e563",
+  "status": "verified",
+  "thread_setup_charged_to": "adapter_import_ns"
+}
