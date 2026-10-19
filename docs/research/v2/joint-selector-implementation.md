@@ -13,8 +13,8 @@ once per parent/block, normalizes retained columns once and builds the exact
 parent-conditioned gate Gram/residual. `gain(ids)`, `objective(ids)`,
 `marginal_gain(ids, candidate)` and `greedy(eligible_ids)` share those original
 scales. They cannot read data roles, models or labels outside the supplied F
-arrays. Full parent/gate analytic Jacobians, immutable CandidateBlock and the
-Allocation adapter follow after this numerical core passes.
+arrays. Full parent/gate analytic Jacobians and the immutable candidate/native
+Allocation integration are now verified on small actual models below.
 
 Use the binding spec's Schur objective for positive parent ridge, and one
 orthogonal SVD parent basis for zero parent ridge. Report retained rank/cutoff,
@@ -51,9 +51,8 @@ duplicate-gate sharing and non-tied row/ID permutation.
 
 These checks use small matrices, without scientific teachers or model fitting.
 The full prediction-Jacobian builder and actual gate-Jacobian counterexample
-are now verified below. CandidateBlock/trace/Allocation integration and native
-workload validation remain pending. No complete selector or trained M3 outcome
-follows. See
+are now verified below. Temporary solved-update diagnostics, full native workload
+validation and the M3 runner/recipe remain pending. No trained M3 outcome follows. See
 [the numerical receipt](WP04-joint-core-receipt.json).
 
 `prediction_jacobians` in `research/jacobian.py` accepts the actual ungrown
@@ -78,3 +77,33 @@ objective, with maximum error2.50e-17 across all subsets. These are algebraic
 controls, without fitted teachers or efficacy evidence. The
 [Jacobian receipt](WP04-joint-jacobian-receipt.json) retains every test failure and
 the constructed reference.
+
+`research/joint_allocation.py` connects these components through explicit APIs:
+`build_gate_blocks(parent,F,scored)`,
+`joint_ridge_select(parent,F,candidates,config,scored=scored)` and
+`selection_to_allocation(parent,F,scored,trace,seed=seed)`. The input `scored` is
+the existing parent-bound `ScoredParent`, rather than a bare table whose parent
+cannot be authenticated. Verify exact original F arrays/rows/groups and exclude
+evaluator targets; apply the original F-fitted transforms once. Every nominal ID
+remains recorded, with precisely the legacy allocation guard shared across arms.
+Candidate contrasts use immutable bytes-backed float64 arrays. Selection
+deep-copies the parent into float64 and changes no parent state or RNG.
+
+The immutable serialized trace includes original contrasts, all conditional
+scores/ties, solve residuals/conditioning, fixed RMS/drop masks, parent-span rank
+and novelty fractions, data/source/configuration bindings, objectives and timing
+scope. Known ineligible nonfinite spectra use explicit IEEE spelling strings,
+with the original tensor-byte table hash retained. No scalar is imputed.
+Conversion checks the parent/table/contrast/count identities and complete
+conditional winner/gain chain. Native insertion accepts the distinct
+`joint_ridge` policy label while retaining its dtype, optimizer, rollback and
+parameter guards. It still casts the unchanged float64 contrasts into the
+parent's native float32 representation, explicitly recorded by the trace.
+
+Eight missing-module RED tests preceded implementation;51combined checks then
+passed. Two further failures pinned nonfinite diagnostic serialization and the
+final identity-recheck timer; three more pinned inconsistent conditional traces.
+The affected growth/optimizer/Adam/state run passed192checks with one unavailable
+device skip in54.56seconds, and final adapter/core/Jacobian checks passed56in7.68seconds.
+These are software/geometry checks, not evidence of predictive improvement.
+See [the integration receipt](WP04-joint-allocation-receipt.json).

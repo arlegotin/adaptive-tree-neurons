@@ -151,7 +151,7 @@ def _allocation_values(state, allocation):
     a, layer = allocation, state.model.layer
     if (type(a.requested_count) is not int or type(a.effective_count) is not int
             or not 0 <= a.effective_count <= min(a.requested_count, layer.h)
-            or a.policy not in ('adam', 'sgd', 'random', 'keep', 'gaussian', 'greedy')
+            or a.policy not in ('adam', 'sgd', 'random', 'keep', 'gaussian', 'greedy', 'joint_ridge')
             or (a.policy == 'keep' and a.effective_count != 0)
             or type(a.seed) is not int or not 0 <= a.seed < 2**63
             or type(a.table_hash) is not str or len(a.table_hash) != 64

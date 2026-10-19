@@ -146,8 +146,18 @@ class _JointProblem:
             best=max(v[0] for v in choices.values());tol=self.config.tie_relative_tolerance*max(1.,abs(best))
             unit=min(unit for unit,value in choices.items() if value[0]>=best-tol)
             gain,projection,newborn,newz=choices[unit]
+            diagnostics=[]
+            for j,(_,project,Lj,zj) in sorted(choices.items()):
+                block=self._columns[j]
+                Hj=self._H[np.ix_(block,block)]-project.T@project
+                sj=self._s[block]-project.T@z
+                solved=solve_triangular(Lj.T,zj,lower=False) if len(zj) else np.empty(0)
+                error=float(np.linalg.norm(Hj@solved-sj))/max(1.,float(np.linalg.norm(sj)))
+                diagnostics.append(dict(unit_id=j,retained_columns=len(zj),relative_solve_residual=error,
+                    condition_number=float(np.linalg.cond(Lj)**2) if len(zj) else None))
             slots.append(dict(slot=slot,unit_id=unit,marginal_gain=gain,
-                candidate_gains=[dict(unit_id=j,gain=choices[j][0]) for j in sorted(choices)]))
+                candidate_gains=[dict(unit_id=j,gain=choices[j][0]) for j in sorted(choices)],
+                numerical_diagnostics=diagnostics))
             if len(newz):
                 lower=np.block([[lower,np.zeros((len(columns),len(newz)))],[projection.T,newborn]])
                 z=np.r_[z,newz]

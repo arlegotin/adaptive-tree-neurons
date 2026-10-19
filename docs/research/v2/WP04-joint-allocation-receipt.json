@@ -1,0 +1,60 @@
+{
+  "T_accessed": false,
+  "common_eligibility": "Unchanged legacy allocate guard",
+  "files": [
+    {
+      "bytes": 272,
+      "path": "artifacts/research-v2/WP04/joint-allocation/affected-final.log",
+      "sha256": "ed632c221056895cef1c6853ae69cc339adae22d4719f84e41449dd6000f529d"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP04/joint-allocation/final.log",
+      "sha256": "292c35c5ab40fc964dcc5e9868ec8a171f7265f498aef6657fdc4da7fd13d408"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP04/joint-allocation/green-1.log",
+      "sha256": "e2223cff9463f32f3343bd04708615064e6df7e219b478ba98740f1d3308f06f"
+    },
+    {
+      "bytes": 6111,
+      "path": "artifacts/research-v2/WP04/joint-allocation/hardening-red.log",
+      "sha256": "c84daa8a48d6f1d4bce96284e89a9ca06d871f8a9168532d5e0a0402e084a0eb"
+    },
+    {
+      "bytes": 12450,
+      "path": "artifacts/research-v2/WP04/joint-allocation/red.log",
+      "sha256": "c3f50dfcd81f1b7e9767f48cc42550c8a1dfc3a12f85ecb5ee53fccdcc91b2b2"
+    },
+    {
+      "bytes": 4646,
+      "path": "artifacts/research-v2/WP04/joint-allocation/trace-chain-red.log",
+      "sha256": "9acefbfb87a580e813e5742b8340c4673884a9fade98f284839da8f37ab4c129"
+    }
+  ],
+  "local_solved_updates_applied": false,
+  "new_scientific_teachers": 0,
+  "original_contrasts_preserved": true,
+  "parent_RNG_weights_optimizer_preserved_by_selection": true,
+  "pending": [
+    "Temporary solved-update diagnostics",
+    "Full native selector workload/resources",
+    "Frozen competent M3 recipe and runner",
+    "Fresh teacher M3 development study"
+  ],
+  "predictive_benefit": false,
+  "schema": "research/v2-joint-allocation-integration",
+  "source_policy": "joint_ridge",
+  "source_sha256": "8fb65dc9f35693fae8606cdc348159206e669ae69096a30edec62c8fa564b376",
+  "status": "exact_F_bound_selection_and_native_insertion_fixture_verified",
+  "tests": {
+    "affected": "192 passed,1 unavailable-device skip in54.56s",
+    "final": "56 passed in7.68s",
+    "hardening_RED": "2 failed in4.24s",
+    "initial_GREEN": "51 passed in5.16s",
+    "initial_RED": "8 failed in5.82s",
+    "trace_chain_RED": "3 failed in4.49s"
+  },
+  "trained_M3_results": false
+}
