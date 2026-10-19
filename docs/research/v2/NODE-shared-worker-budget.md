@@ -58,3 +58,18 @@ overlay (the isolated qualification checkout retains it). This is separate from
 the earlier153-check budget run. The same Energy data/configuration/seed17 is
 admitted for one operational rerun under a new explicit source. Full native
 qualification remains pending until that run and its inactive audit succeed.
+
+The one same-data/configuration/seed17 Energy recovery usedb848726/6e81099c.
+It passed live admission and was stopped at a sampled root RSS of4,590,419,968
+bytes against the declared4GiBcap. The owned child/group was reaped/absent.
+Charged job time was6.349094750s, containing6.291723333s in the supervised process.
+There is no completed fit receipt or prediction, so executed updates remain
+unknown and no predictive loss is assigned. This does not establish infeasibility
+at the default16GiBceiling or on another workload.
+
+A live check for a larger16GiBtrack found7.17GiBmemory-availability proxy versus
+the declared20.5GiBadmission floor; it was not launched. No further4GiBretry or
+smaller NODE architecture is admitted. Full P12 qualification and any complete
+mandatory-suite claim remain blocked on qualified resources/native completion;
+mechanism work can continue. See
+[the exact resource-stop receipt](WP07-NODE-resource-stop-receipt.json).

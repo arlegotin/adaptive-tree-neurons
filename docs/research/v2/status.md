@@ -116,7 +116,11 @@ The first full Energy attempt stopped before training on an unset fresh-worker
 Torch thread guard. That failed attempt and costs remain retained; process-owned
 thread setup now passes fresh-process regressions and39affected checks. Four
 optional tree checks skipped without the isolated overlay. The same-data/seed
-operational rerun is pending, with the native recipe and guard intact.
+rerun reached4.28GiBsampled root RSS and was stopped against its4GiBcap, with the
+child/group cleaned up. No prediction or accuracy loss is assigned. The default
+16GiBtrack currently fails its20.5GiBmemory-proxy admission floor, so it has not
+launched. P12 qualification/full-suite claims wait for qualified resources;
+the native recipe is preserved. This establishes no general NODE infeasibility.
 All 14 families now have explicit native-anchor and finite search-support
 descriptors, with checked translation from atomic TPE draws to native schemas.
 Their qualification flags remain false. An engineering wrapper now connects raw
