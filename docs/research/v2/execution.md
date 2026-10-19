@@ -1696,3 +1696,12 @@ partial. Held M2/NODE/auditor checkouts are unchanged.
 WP08/WP09 primary-selection inventory verified on artificial168-job fixtures:19missing-component RED ->19GREEN19.60s, then5proposal/truncation/malformed RED ->87affectedGREEN24.69s. External source/plan/results/model bindings and all listed paid files are checked; winners recomputed at deadlines with declared ties, repetitions never selected as candidates. Changed sources/models/losers/procedures and incomplete/secondary/swapped/late/forged winners fail. No real native fits or label arrays decoded; final qualification/journal/model/V arithmetic and secondary/protected release remain unauthenticated. ReceiptWP09-primary-selection-inventory-receipt.json. M2 scientific producer69903 exited0 at17:56UTC:3853terminal entries (2989eligible864ineligible), pinned watch5663 collecting inactive queue; no audited scientific verdict yet.
 
 WP03 completed at Gate A screen_passed. The full eight-teacher/R2 M2 run and four-base small oracle controls are reported in reports/research-v2-M2.md. Independent arithmetic checked 5,472 vectors and 65,664 metrics, max 5.55e-17. Final post-execution WP03 checks passed 170 tests in 70.04 s across 20 files. Original source and queue remain unchanged. Task 5 exact joint estimator is admitted for numerical validation and its bounded prospective matrix with competent ordinary controls. No placement/practical efficacy claim. See WP03-M2-complete-receipt.json and WP03-M2-post-execution-tests-receipt.json.
+
+M3 independent result arithmetic now has its own exploratory audit entry and
+strict teacher summary. It reconstructs retained predictions without model
+imports, preserves every conditional/failed status, averages both repeats before
+log ratios and leaves Gate B undecided.13missing-feature RED ->29GREEN, then a
+real native ten-role fixture exposed its abbreviated source-less test identity;
+fixing that fixture (not the guard) yields53affected GREEN17.40s. See
+WP04-M3-prediction-analysis-implementation-receipt.json. The running M3 resource
+producer remains held53bd029/e78e; this later auditor source is separate.

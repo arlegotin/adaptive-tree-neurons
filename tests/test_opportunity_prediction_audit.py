@@ -21,14 +21,14 @@ def digest(value):
     return array_hash(value)
 
 
-def fixture(tmp_path,mutation=None,missing=False,prefix=False):
+def fixture(tmp_path,mutation=None,missing=False,prefix=False,kind='m2_opportunity'):
     from treeneuron.research.workqueue import make_queue_plan,run_queue
     request=dict(population='primary',teacher_index=0)
     jobs=[dict(job_id='data:primary/teacher-0',kind='data',payload=request,depends_on=[]),
         dict(job_id='procedure:toy',kind='fit',payload={'matrix':'M2a'},depends_on=['data:primary/teacher-0']),
         dict(job_id='evaluate:toy',kind='evaluate',payload={'matrix':'M2a'},depends_on=['data:primary/teacher-0','procedure:toy'])]
     if missing:jobs.append(dict(job_id='evaluate:missing',kind='evaluate',payload={},depends_on=['data:primary/teacher-0','procedure:toy']))
-    plan=make_queue_plan(dict(source_sha256='a'*64,study_config={'kind':'m2_opportunity'}),jobs)
+    plan=make_queue_plan(dict(source_sha256='a'*64,study_config={'kind':kind}),jobs)
     root=tmp_path/'queue'
     arrays={}
     for index,(role,y) in enumerate([('F',[0.,2.]),('G',[1.]),('V',[1.,3.]),('E',[2.,4.,6.])]):

@@ -1,0 +1,45 @@
+{
+  "T_accessed": false,
+  "evidence_limits": [
+    "Independent retained raw arithmetic, not model/teacher reexecution or checkpoint semantic audit",
+    "Eight/sixteen teachers, R2 risk means before log ratios, all ten fixed roles and inactive conditional rows retained",
+    "No automatic Gate B or confirmatory decision; local prediction/cost/penalty-sharing/correction review remains"
+  ],
+  "logs": [
+    {
+      "bytes": 11344,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/prediction-audit-red.log",
+      "sha256": "ce777f78e77f0a2634ed0efd374abb22800b25784f9334e2eb30d8701db6f523"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/prediction-audit-green.log",
+      "sha256": "5272304aa59cd29d7311024e5cf5105ea59a9275af5c71ac1d466e290d1f44ce"
+    },
+    {
+      "bytes": 3606,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/prediction-audit-integration.log",
+      "sha256": "9e6a9d24ace6de8f9848b21ff1ae4559df772f4541824a5f640352b2af09978d"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/prediction-audit-integration-recovery.log",
+      "sha256": "5b133de944b450b76e5013aaba8ba3d255f2cd499f7d8bdd7338b4850a154e20"
+    }
+  ],
+  "modules": [
+    "research.opportunity_prediction_audit.audit_joint_predictions",
+    "research.joint_analysis.summarize_joint_predictions"
+  ],
+  "producer_source_hold": "53bd029/e78e remains immutable; new audit code is a distinct future auditor identity",
+  "schema": "research/v2-M3-independent-metric-analysis-implementation",
+  "scientific_M3_outcomes_read": false,
+  "source_sha256": "fcad88225f5696d178f09be65c7a3ebd7113ac9780efad92d662c7dc8c25fca3",
+  "tests": {
+    "RED": "13 missing-feature failures in.15s",
+    "initial_GREEN": "29 passed in.41s",
+    "integration_final": "53 passed in17.40s after test fixture supplied actual source identity; no production guard weakened",
+    "integration_initial": "1 failed/52 passed in17.91s; abbreviated native test fixture lacked source identity required by unchanged audit guard"
+  },
+  "verification": "Real short-budget ten-role native fixture predictions independently reconstructed; changed scalar arithmetic/row alignment, missing fits, duplicate teacher/repeat/role and invalid risks cannot become complete summaries"
+}

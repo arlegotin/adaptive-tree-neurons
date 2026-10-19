@@ -138,11 +138,22 @@ def audit_opportunity_predictions(directory,*,expected_plan_hash,expected_ledger
     All paid attempt files are authenticated by the shared queue reader. Only
     completed eligible evaluators have predictions reconstructed here.
     """
+    return _audit_predictions(directory,expected_plan_hash=expected_plan_hash,expected_ledger_hash=expected_ledger_hash,
+        kind='m2_opportunity',schema='research/v2-opportunity-prediction-audit',gate='Gate_A_decided')
+
+
+def audit_joint_predictions(directory,*,expected_plan_hash,expected_ledger_hash):
+    """Reconstruct M3 development predictions; source/design review stays separate."""
+    return _audit_predictions(directory,expected_plan_hash=expected_plan_hash,expected_ledger_hash=expected_ledger_hash,
+        kind='m3_joint',schema='research/v2-joint-prediction-audit',gate='Gate_B_decided')
+
+
+def _audit_predictions(directory,*,expected_plan_hash,expected_ledger_hash,kind,schema,gate):
     root=Path(directory).resolve();commitments={};rows=[];cache={};vectors=0;comparisons=0;maximum=0.
     with authenticated_queue(directory,expected_plan_hash=expected_plan_hash) as (plan,ledger,results):
         endpoint=ledger.events[-1]['event_hash'] if ledger.events else '0'*64
         if endpoint!=expected_ledger_hash:raise ValueError('External ledger endpoint differs')
-        if plan['identity'].get('study_config',{}).get('kind')!='m2_opportunity':raise ValueError('Only M2 exploratory queues admitted')
+        if plan['identity'].get('study_config',{}).get('kind')!=kind:raise ValueError('Exploratory queue kind differs from this audit')
         source=plan['identity']['source_sha256'];jobs={j['job_id']:j for j in plan['attempts']}
         statuses={j:'never_started' for j in jobs};statuses.update({e['attempt_id']:e['status'] for e in ledger.events})
         references={e['attempt_id']:e['result'] for e in ledger.events if 'result' in e}
@@ -189,11 +200,11 @@ def audit_opportunity_predictions(directory,*,expected_plan_hash,expected_ledger
                         actual[model][role]=metric;vectors+=1;comparisons+=len(metric)
             row.update(metrics=actual,fit_target_variance=variance)
         complete=all(s in ('completed_eligible','completed_ineligible') for s in statuses.values())
-        return dict(schema='research/v2-opportunity-prediction-audit',status='completed_arithmetic' if complete else 'incomplete_or_failed',
+        return dict(schema=schema,status='completed_arithmetic' if complete else 'incomplete_or_failed',
             queue_plan_hash=expected_plan_hash,ledger_event_hash=endpoint,producer_source_sha256=source,
             planned_evaluation_jobs=len(rows),audited_evaluation_jobs=sum('metrics' in r for r in rows),
             audited_prediction_vectors=vectors,scalar_metric_comparisons=comparisons,
             maximum_absolute_metric_difference=maximum,rows=rows,statuses=statuses,file_commitments=commitments,
             evidence_level='authenticated queue bytes plus independently reconstructed retained-prediction arithmetic',
             model_predictions_reexecuted=False,checkpoint_tensor_chain_authenticated=False,teacher_data_regenerated=False,
-            feature_values_revalidated=True,Gate_A_decided=False,T_accessed=False,efficacy_claim=False)
+            feature_values_revalidated=True,**{gate:False},T_accessed=False,efficacy_claim=False)
