@@ -106,3 +106,12 @@ and cached/fresh History equality. The shared-reader boundary also passes withou
 changing lease metadata bytes. The new operator/qualification digests and exact
 postcheck are in WP03-history-reader-correction-receipt.json. Full inactive
 scientific archive authentication remains pending.
+
+A fourth fixed-frontier events-only refresh reverified1,233already-compressed
+files and published129new identical-byte representations,1,362files total.
+The batch took28.489351375s; an independent9.917069208s postcheck verified every
+original hash/length and producer marker. No history was selected. Summed per-file
+stat allocation decreased214,867,968bytes; the concurrently changing whole-volume
+free-space delta is not attributed. Operator/qualification/source bindings remain
+unchanged, and full inactive M2 archive authentication is still pending. See
+[the fourth refresh receipt](WP03-events-storage-refresh-04-receipt.json).

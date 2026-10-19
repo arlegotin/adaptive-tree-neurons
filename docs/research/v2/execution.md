@@ -1539,3 +1539,12 @@ loop with explicit fixture recipe/predetermined G predictions checks strict
 patience, not quality. Full2048timed native anchor and completed unbounded saved
 endpoint remain unqualified; no real transferV/T, HPO or efficacy claim. See
 NODE-shared-worker-budget.md and WP07-NODE-worker-budget-receipt.json.
+
+A fourth fixed-frontier events-only refresh reverified1,233already-compressed
+files and published129new identical-byte representations,1,362files total.
+The batch took28.489351375s; an independent9.917069208s postcheck verified every
+original hash/length and producer marker. No history was selected. Summed per-file
+stat allocation decreased214,867,968bytes; the concurrently changing whole-volume
+free-space delta is not attributed. Operator/qualification/source bindings remain
+unchanged, and full inactive M2 archive authentication is still pending. See
+[the fourth refresh receipt](WP03-events-storage-refresh-04-receipt.json).
