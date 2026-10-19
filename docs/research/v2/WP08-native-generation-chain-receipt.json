@@ -1,0 +1,47 @@
+{
+  "T_accessed": false,
+  "V_labels_read": false,
+  "active_holds_unchanged": [
+    "M3:53bd029/e78e",
+    "NODE Airfoil:c33a84e/b680",
+    "M3auditor:654a2cc/4dbf"
+  ],
+  "behavior": "Read-only current-source native request/process/worker/snapshot/prediction inventory chain, exact compiled-config and model-seed binding to primary prepared F/G/V features; no V/T labels",
+  "logs": [
+    {
+      "bytes": 13624,
+      "path": "artifacts/research-v2/WP08/native-generation-chain-red.log",
+      "sha256": "6620c76ad96f4d441b74571f7ec20a14b926a34419750f5665aee69166dc2436"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP08/native-generation-chain-green.log",
+      "sha256": "8affb311d025d6abdf155051be4cb179680a75333f2d25fb3fde97422e336e40"
+    },
+    {
+      "bytes": 2112,
+      "path": "artifacts/research-v2/WP08/native-generation-fixture-guard-red.log",
+      "sha256": "fadcc34a3bcd52baa43b22f0a135573f05671721f2f827d530fd5c37f9e2fcef"
+    },
+    {
+      "bytes": 2551,
+      "path": "artifacts/research-v2/WP08/native-generation-chain-affected.log",
+      "sha256": "390a39e93b28178061e38e2fa5872305d39bddb5f265497de49da6b4aa69df6d"
+    }
+  ],
+  "model_generation_chain_component": true,
+  "pending": "Compose final native qualification, support/journal, fresh prediction replay, V arithmetic, resource policy and source/freeze authority before any production winner",
+  "production_HPO_run": false,
+  "production_model_generation_readiness": false,
+  "production_quality_bridge": false,
+  "quality_eligible": false,
+  "schema": "research/v2-native-generation-chain-implementation",
+  "scope": "Source-bound receipt and byte/role lineage only, not independent training/prediction reexecution, original acquisition, native workload/support qualification, HPO journal or V scoring",
+  "source_sha256": "225176702d61788671cb667d9bfc02b7b456e7194464e8f7b5b353b938ee312c",
+  "tests": {
+    "RED": "9 missing-feature failures/.45s",
+    "affected_GREEN": "48 passed/7 retained native warnings/43.75s including native supervision, immutable retry and qualification contracts",
+    "first_GREEN": "9 passed/11.53s",
+    "fixture_guard_RED": "1 failed/9 deselected/8.26s with the new exclusion deliberately removed: a real2-epoch P03 fixture otherwise passed. Guard restored before final verification."
+  }
+}
