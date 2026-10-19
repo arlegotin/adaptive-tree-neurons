@@ -35,6 +35,16 @@ def test_normal_process_retains_exact_command_environment_output_and_external_cl
     assert r['rss_scope']=='Observed root worker RSS samples; descendants and unobserved peaks are not measured'
 
 
+def test_explicit_environment_removal_is_recorded_without_mutating_the_parent(tmp_path,monkeypatch):
+    monkeypatch.setenv('ATN_REMOVE_ME','inherited')
+    r=run(tmp_path,"import os; print(repr(os.environ.get('ATN_REMOVE_ME')))",
+        env_overrides={'ATN_REMOVE_ME':None})
+    assert r['execution_status']=='exited' and r['returncode']==0
+    assert (tmp_path/'supervisor/stdout.log').read_text()=='None\n'
+    assert r['environment_overrides']=={'ATN_REMOVE_ME':None}
+    assert os.environ['ATN_REMOVE_ME']=='inherited'
+
+
 def test_timeout_terminates_the_own_process_group_and_preserves_partial_output(tmp_path):
     started=time.perf_counter()
     r=run(tmp_path,"import time; print('started',flush=True); time.sleep(30)",timeout_ns=300000000)

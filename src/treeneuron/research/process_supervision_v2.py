@@ -70,7 +70,9 @@ def supervise_process(*,argv,cwd,env_overrides,output,timeout_ns,rss_limit_bytes
                       log_limit_bytes=64*1024**2,identity):
     """Retain one process attempt; its caller decides native terminal eligibility.
 
-    ``argv`` is executed without a shell. No retries or model selection occur.
+    ``argv`` is executed without a shell. An explicit None environment override
+    removes that variable in the child only; the removal is retained in receipts.
+    No retries or model selection occur.
     This does not recover a supervisor that itself is killed, nor authenticate
     the caller's native recipe/runtime/source identities.
     """
@@ -79,12 +81,17 @@ def supervise_process(*,argv,cwd,env_overrides,output,timeout_ns,rss_limit_bytes
     if (not isinstance(argv,list) or not argv or any(type(s) is not str or not s or '\0' in s for s in argv)
             or not Path(argv[0]).is_absolute() or not Path(argv[0]).is_file()
             or not cwd.is_dir() or not isinstance(env_overrides,dict)
-            or any(type(k) is not str or not k or '=' in k or '\0' in k or type(v) is not str or '\0' in v
+            or any(type(k) is not str or not k or '=' in k or '\0' in k
+                or v is not None and (type(v) is not str or '\0' in v)
                 or k in ('HOME','home','CODEX_HOME') for k,v in env_overrides.items())
             or any(not _positive(n) for n in (timeout_ns,rss_limit_bytes,poll_interval_ns,log_limit_bytes))
             or type(terminate_grace_ns) is not int or terminate_grace_ns<0
             or not isinstance(identity,dict) or not identity):raise ValueError('Invalid supervised process execution contract')
     identity_json=canonical_json(identity)
+    child_environment=dict(os.environ)
+    for key,value in env_overrides.items():
+        if value is None:child_environment.pop(key,None)
+        else:child_environment[key]=value
     if output.is_symlink() or output.exists():raise ValueError('Fresh process output required; no silent retry/overwrite')
     output.mkdir(parents=True)
     command=dict(schema='research/v2-process-start',argv=argv,cwd=str(cwd.resolve()),
@@ -106,7 +113,7 @@ def supervise_process(*,argv,cwd,env_overrides,output,timeout_ns,rss_limit_bytes
             else:
                 if time.perf_counter_ns()-started>=timeout_ns:status='timeout';reason='deadline_before_spawn'
                 else:
-                    try:proc=subprocess.Popen(argv,cwd=cwd,env=os.environ|env_overrides,stdin=subprocess.DEVNULL,
+                    try:proc=subprocess.Popen(argv,cwd=cwd,env=child_environment,stdin=subprocess.DEVNULL,
                         stdout=stdout,stderr=stderr,start_new_session=True)
                     except OSError as error:reason='process_start_failure';diagnostic=f'{type(error).__name__}: {error}'
                     if proc is not None:

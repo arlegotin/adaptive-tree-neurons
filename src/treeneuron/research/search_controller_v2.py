@@ -272,8 +272,14 @@ def run_search(directory,*,plan,evaluate_trial,resume=False,clock_ns=time.perf_c
             except Exception as error:
                 unexpected=True;path=attempt/'unexpected-error.json'
                 write_new_json(path,dict(exception_type=type(error).__name__,message=str(error),traceback=traceback.format_exc()))
+                partial_files=[]
+                for saved in sorted(attempt.rglob('*')):
+                    if saved.is_symlink():raise ValueError('Unexpected trial artifact symlink; audit required')
+                    if saved.is_file():
+                        with saved.open('rb') as stream:digest=hashlib.file_digest(stream,'sha256').hexdigest()
+                        partial_files.append(dict(path=str(saved.relative_to(directory)),sha256=digest))
                 result=dict(status='input_or_dependency_failure',V_score=None,
-                    files=[dict(path=str(path.relative_to(directory)),sha256=hashlib.sha256(path.read_bytes()).hexdigest())],
+                    files=partial_files,
                     checkpoint_files=[],reason='Unexpected coordinator exception; diagnosis required',unexpected_exception=True)
             total=now()
             if total>plan['deadline_ns'] and result['status']=='completed_eligible':

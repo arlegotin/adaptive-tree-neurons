@@ -57,6 +57,22 @@ def test_native_anchor_is_first_and_every_failure_consumes_the_outer_slot(tmp_pa
     assert out['protected_access_authorized'] is False and out['native_worker_qualified'] is False
 
 
+def test_unexpected_trial_failure_commits_partial_native_files_and_stops_the_search(tmp_path):
+    clock=Clock()
+    def worker(request):
+        root=Path(request['attempt_directory'])/'native';root.mkdir()
+        (root/'partial-state.bin').write_bytes(b'actual retained partial native bytes')
+        clock.advance(7)
+        raise RuntimeError('controlled coordinator failure after native output')
+    out=run(tmp_path/'search',plan(),worker,clock)
+    assert out['stop_reason']=='unexpected_coordinator_error' and out['attempts_paid']==1
+    assert out['records'][0]['status']=='input_or_dependency_failure' and out['winner'] is None
+    files={ref['path']:ref['sha256'] for ref in out['records'][0]['files']}
+    assert files['attempt-000/native/partial-state.bin']==hashlib.sha256(b'actual retained partial native bytes').hexdigest()
+    assert 'attempt-000/unexpected-error.json' in files
+    assert out['total_charged_ns']==7
+
+
 def test_deadline_includes_coordinator_work_and_late_predictions_cannot_win(tmp_path):
     clock=Clock();requests=[]
     def worker(request):

@@ -51,6 +51,16 @@ original failure retained. This does not qualify native quality, admit HPO or
 release T. Other method workers/full anchors remain pending. See
 [worker contract](method-worker-contract.md) and [receipt](WP07-method-worker-receipt.json).
 
+The paid controller is now connected to actual supervised engineering workers.
+A four-slot P13 fixture retains an unsupported candidate's failure, pauses after
+two and resumes the same configs/seed with all files and costs authenticated.
+148 combined checks passed; it reads no V labels and selects no winner. Explicit
+child-only environment removal and partial-native-file retention also passed
+their RED/GREEN boundaries. This is not production HPO or native-quality
+admission; recovery, qualification, V scoring and protocol integration remain
+pending. See [bridge receipt](WP08-supervised-bridge-receipt.json) and
+[executed scope](supervised-search-bridge.md). M2 remains on its original source.
+
 ## Decisions and deviations
 
 - The supplied handoff is the authorized scientific design. No additional design

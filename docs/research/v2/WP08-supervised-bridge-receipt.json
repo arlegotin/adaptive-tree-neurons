@@ -1,0 +1,103 @@
+{
+  "T_accessed": false,
+  "actual_queue_proof": {
+    "charged_ns": 3037147208,
+    "external_two_invocation_span_ns": 3037977292,
+    "fixture_generation_and_caller_startup_excluded": true,
+    "nested_disjoint_supervisor_ns": 2932647583,
+    "paid_attempts": 4,
+    "path": "artifacts/research-v2/WP08/supervised-bridge-preparation/final-native-raw/test_actual_supervised_paid_se0/proof.json",
+    "returned_V_scores": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "sha256": "2e56d9eb4a1c2adac0996b0d83b3269a2d479f87e0d517486bd07be341c24209",
+    "statuses": [
+      "completed_ineligible",
+      "input_or_dependency_failure",
+      "completed_ineligible",
+      "completed_ineligible"
+    ],
+    "winner": null
+  },
+  "base_commit": "c986501",
+  "engineering_queue_repeated_for_software_verification": true,
+  "evidence_level": "Actual supervised engineering workers inside immutable paid search; no predictive efficacy claim",
+  "fresh_environment": "Explicit child-only removal of inherited KMP_DUPLICATE_LIB_OK; no forced suppression",
+  "logs": {
+    "artifacts/research-v2/WP08/supervised-bridge-preparation/bridge-red.log": {
+      "bytes": 4496,
+      "sha256": "ed4e770cf36f66865b84ec892018603804165cd378229320735b6f9010441e63"
+    },
+    "artifacts/research-v2/WP08/supervised-bridge-preparation/controller-green.log": {
+      "bytes": 99,
+      "sha256": "21df7219ec3305243527e81fdfa73bd6ea03e5448db9f96b74de715e0e72062c"
+    },
+    "artifacts/research-v2/WP08/supervised-bridge-preparation/environment-removal-red.log": {
+      "bytes": 3832,
+      "sha256": "9b5939b33c119a5f1a8c50db9c63a695d8346271e4e97aea41837e46bbb599a7"
+    },
+    "artifacts/research-v2/WP08/supervised-bridge-preparation/native-affected.log": {
+      "bytes": 261,
+      "sha256": "7f139c3b378a2968f67a95d61fdbf4c8a4dfff5af30ce0448b005cfe0624939d"
+    },
+    "artifacts/research-v2/WP08/supervised-bridge-preparation/native-corrected-fixture.log": {
+      "bytes": 99,
+      "sha256": "9bf37aa6bbc541b605c3af4a8e7389ad6de1548884516f65cd59203b0dd11a3f"
+    },
+    "artifacts/research-v2/WP08/supervised-bridge-preparation/native-initial.log": {
+      "bytes": 8016,
+      "sha256": "3640dd2240b830ebffa8ae770029b3d322fa65ee9e6c8b1c19d49c6484816c25"
+    },
+    "artifacts/research-v2/WP08/supervised-bridge-preparation/partial-files-red.log": {
+      "bytes": 1688,
+      "sha256": "518f4755c47e8cd3ba5f40599da643ed21bc734132a164e207fa22d9ebb8a5d9"
+    }
+  },
+  "native_optimizer_or_same_seed_infrastructure_recovery_qualified": false,
+  "native_quality_eligible": false,
+  "pending": [
+    "native workload/anchor qualification",
+    "production registry/eligibility",
+    "coordinator V scoring",
+    "native recovery",
+    "whole search process crash recovery",
+    "complete resource forecasting",
+    "protocol freeze/protected evaluation"
+  ],
+  "practical_searches": 0,
+  "protected_access_authorized": false,
+  "raw_inventories": {
+    "artifacts/research-v2/WP08/supervised-bridge-preparation/bridge-first-green/inventory.json": "83d1388e77f5af5da036346f1df20ba799aa4f295e163d2a85e4d77bb274f26f",
+    "artifacts/research-v2/WP08/supervised-bridge-preparation/final-native-raw/inventory.json": "640c00c67a956ec38a99269fd9fe4cd5eeee5bb3ca58642563773ee76debfeb1",
+    "artifacts/research-v2/WP08/supervised-bridge-preparation/initial-fixture-failure/inventory.json": "c1ac2674f1b7a36f84a1e801ef6377accbb8913463842cbaf6ab141123f4e245"
+  },
+  "raw_root": "artifacts/research-v2/WP08/supervised-bridge-preparation",
+  "schema": "research/v2-supervised-engineering-bridge",
+  "scientific_source_sha256": "1fd172f99533f22beddf7e8dbbf0c3669eaf88cade59444cbaacd437fbf2b838",
+  "source_files": {
+    "src/treeneuron/research/process_supervision_v2.py": "c40eb358b058dd4bd756cb86922fb989d55f278f80dd43a7aeae7fa30cfc16b0",
+    "src/treeneuron/research/search_controller_v2.py": "a97b5c1bbec8c2b4aebb6f048d30759e7588a7c093635376482e2089d89f42ef",
+    "src/treeneuron/research/trial_bridge_v2.py": "d9066cb30c382b74063d7caec91a89f2a2d745715e78aee09b48789afb85d825",
+    "tests/test_process_supervision_v2.py": "1681b88ee091be4be164dc0e60e5d0c6d271fb89cae5681801992cbdfd8c8525",
+    "tests/test_search_controller_v2.py": "24432ddd6619b4565faefe93a19e0fd88d4017862bfad54771751a15b648638a",
+    "tests/test_supervised_search_bridge.py": "aef1eda35c37eba36cbc43b5a24dd3375117528bdffbe4e11055db9dab7d4d36"
+  },
+  "source_kind": "train.source_hash algorithm, checked equal to method worker algorithm",
+  "verification": {
+    "combined_native_passed": 148,
+    "combined_native_seconds": 33.71,
+    "corrected_native_passed": 58,
+    "corrected_native_seconds": 5.48,
+    "environment_removal_red": 1,
+    "full_repository_suite": false,
+    "initial_native_fixture_failures": 4,
+    "initial_other_passed": 54,
+    "missing_bridge_red": 4,
+    "partial_controller_green": 26,
+    "partial_native_file_red": 1
+  },
+  "worker_input_storage": "Byte-authenticated immutable hard links; EXDEV verified-copy fallback disclosed per file"
+}

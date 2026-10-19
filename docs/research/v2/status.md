@@ -80,10 +80,10 @@ efficiency claim. [Execution ledger](execution.md), [reproduction](reproduce.md)
 [implementation plan](../../superpowers/plans/2026-10-18-research-v2.md) retain the
 exact state, evidence and next steps.
 
-As of19October,09:03UTC, the main diagnostic has1,972eligible completed queue jobs,
-24ineligible entries and one running small pair-control fit. Queue jobs include preparation/evaluation and are
+As of19October,09:42UTC, the main diagnostic has2,112eligible completed queue jobs,
+66ineligible entries and one running small pair-control fit. Queue jobs include preparation/evaluation and are
 not independent problems. No scientific failure has been recorded at that
-snapshot. About10.97GiB disk was free; live guards may pause the unchanged queue.
+snapshot. About11.01GiB disk was free; live guards may pause the unchanged queue.
 Host memory-pressure level2 is delaying extra backend verification that requires
 a larger reserve. We retain its setup failures rather than relaxing that guard.
 
@@ -111,3 +111,9 @@ initialization. Its64-check engineering suite preserves official predictions,
 saved-model reload and RNG parity while checking F-only row boundaries. This
 improves baseline reliability; it supplies no new predictive result or native
 quality qualification. Full practical searches have not begun.
+
+The paid search queue now also runs real engineering workers, retaining failed
+attempts, complete file hashes and exact clean-pause resume. Its148-check affected
+suite passed. It reads no validation labels and admits no benchmark winner until
+native qualification is complete. The main diagnostic has reached the third of
+four small pair-control problems; its complete scientific verdict is still pending.
