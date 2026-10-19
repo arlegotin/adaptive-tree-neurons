@@ -166,10 +166,11 @@ def _validate_request(path,expected,*,recoverable_training=False):
     bounded=(type(budget) is dict and set(budget)=={'max_seconds'}
         and type(budget['max_seconds']) in (int,float)
         and math.isfinite(budget['max_seconds']) and 0<budget['max_seconds']<=7200)
+    native=(type(budget) is dict and set(budget)=={'native_stopping'} and budget['native_stopping'] is True)
     recovery_budget=(type(budget) is dict and (set(budget)=={'native_stopping'} and budget['native_stopping'] is True
         or set(budget)=={'max_updates'} and type(budget['max_updates']) is int and 0<budget['max_updates']<=128))
     if (recoverable_training and (value['family_id']!='P12' or not recovery_budget)
-            or not recoverable_training and not bounded
+            or not recoverable_training and not (bounded or native)
             or type(identity) is not dict or set(identity)!={'dataset','split_kind','split_sha256'}
             or type(identity['dataset']) is not str or not identity['dataset']
             or identity['split_kind'] not in ('grouped','temporal') or not _digest(identity['split_sha256'])):
@@ -228,8 +229,12 @@ def run_engineering_trial(request_path,*,expected_request_sha256,output,training
         import pandas as pd
         schema=value['config']['feature_schema'];columns=schema['columns']
         frames={role:pd.DataFrame(a['X'],columns=columns) for role,a in arrays.items()}
+        native=value['budget']=={'native_stopping':True}
+        adapter_budget={} if native and value['family_id']!='P12' else value['budget']
+        record['budget_resolution']=dict(requested=value['budget'],adapter=adapter_budget,
+            policy='native_stopping' if native else 'explicit_training_recovery' if training_checkpoints is not None else 'observed_wall_cap')
         fit_request=FitRequest(frames['F'],arrays['F']['y'],frames['G'],arrays['G']['y'],
-            value['fit_seed'],value['config'],value['budget'],root/'fit')
+            value['fit_seed'],value['config'],adapter_budget,root/'fit')
         if training_checkpoints is None:model.fit(fit_request)
         else:
             record['training_recovery']=dict(checkpoints=str(Path(training_checkpoints).resolve()),resume=resume)

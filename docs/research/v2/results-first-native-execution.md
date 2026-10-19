@@ -56,9 +56,12 @@ Execution steps for Task7, before the new long run:
 
 The new route is `research.method_worker --training-checkpoints PATH` with an
 explicit `native_stopping:true` budget; `--resume` requires matching stored state.
-Only P12 accepts this route. Explicit update budgets up to128 are engineering
-proofs, never native completion. Other workers and existing capped controllers
-retain their prior contracts. The native launch operator is
+Only P12 accepts training-checkpoint/resume arguments. Explicit update budgets
+up to128 are engineering proofs, never native completion. The explicit native
+budget is now also accepted by other workers: their existing validated empty
+adapter budget preserves configured native stopping, with no wall cap. Requested
+and resolved budgets are recorded. Existing capped paths retain their behavior.
+See WP08-native-quality-worker-receipt.json. The native launch operator is
 `docs/research/v2/scripts/run_node_native_recovery.py`; its arguments pin the
 prepared manifest and held source. It stages only F/G and V features, checks
 resource admission and uses owned-process supervision without a deadline.

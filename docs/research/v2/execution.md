@@ -1720,3 +1720,13 @@ full-quality inventory/freeze and final workload admission remain pending. See
 WP08-native-quality-controller-receipt.json and results-first-native-execution.md.
 One full NODEworker now continues Airfoilprimary/seed17 atnative stopping inheld
 c33/b680, while M3 remains held53/e78. See WP07-NODE-Airfoil-launch-receipt.json.
+
+Native quality worker budgets now cover all14registered families explicitly,
+without a fake large timeout. Non-NODE models receive their validated empty
+adapter budget; NODE keeps native stopping/checkpoint semantics. Both budgets
+are recorded and all worker outputs remain engineering-ineligible.2RED/5PASS
+then53affected GREEN110.97s/31native warnings; the first wider launch omitted
+required environment thread declarations and its10failures/7errors/36passes
+are retained. No code or guard weakened for recovery. See
+WP08-native-quality-worker-receipt.json. Qualified production search, full-quality
+inventory and final native support/source qualification remain pending.

@@ -1,0 +1,38 @@
+{
+  "T_accessed": false,
+  "V_labels_read": false,
+  "active_producers_unchanged": [
+    "M3:53bd029/e78e",
+    "NODE Airfoil:c33a84e/b680"
+  ],
+  "behavior": "Explicit native_stopping:true maps to validated empty adapter budget for non-NODE models; NODE retains its native flag and checkpoint route. Requested/adapter budgets and policy are recorded; native configuration/stopping remains unchanged",
+  "evidence": "Fresh P13 exact mean predictions and short P03 native fixture closed snapshots/actual empty budget; mixed/implicit flags reject before adapter; non-NODE checkpoint authority remains refused; NODE exact recovery retained",
+  "full_native_anchor_quality_qualification": false,
+  "logs": [
+    {
+      "bytes": 4626,
+      "path": "artifacts/research-v2/WP08/native-quality-worker-red.log",
+      "sha256": "4564d6661df1b888c2a9c9fd91d9619188d9092fbfea84054e1d27f03fb38576"
+    },
+    {
+      "bytes": 34258,
+      "path": "artifacts/research-v2/WP08/native-quality-worker-green.log",
+      "sha256": "6b972c256ed1a918d86e2f27cc8151ab0a72dfd613d5e13a9c8151907a75d634"
+    },
+    {
+      "bytes": 2110,
+      "path": "artifacts/research-v2/WP08/native-quality-worker-green-runtime-recovery.log",
+      "sha256": "e8af2923ef8e3740f622201eaccb74bbd9a3a9007a04b3459dd58064fdde3334"
+    }
+  ],
+  "production_HPO_run": false,
+  "production_quality_bridge": false,
+  "schema": "research/v2-explicit-native-quality-worker-budgets",
+  "scope": "Engineering-only worker budget boundary for all14registered families; no qualified production callback or quality promotion",
+  "source_sha256": "bcf89ce14916ea738d277290a917565d6a28338607019a737798011e6f3437e4",
+  "tests": {
+    "RED": "2 failed/5 passed in.51s: new fresh P13/P03 native budgets rejected before adapters",
+    "initial_affected": "36 passed/10 failed/7 errors in31.22s: launcher omitted five required thread environment variables; direct worker/NODE guards correctly rejected it",
+    "recovery": "53 passed/31 retained native warnings in110.97s with prescribed thread environment; no implementation/test/guard changes"
+  }
+}

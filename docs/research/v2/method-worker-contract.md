@@ -16,8 +16,8 @@ or encode categories before the declared native F-fitted transform.
 Temporal requests retain actual timestamps, require increasing rows and a minimum
 24-clock-hour gap between successive F/G/V roles. They do not fill missing hours.
 
-Dispatch a fixed allowlist to the existing lazy native adapters. P00/P01/P02/P05
-remain unavailable until their v2 tabular adapters/workloads exist. No fallback
+Dispatch a fixed allowlist to the versioned lazy native adapters. Native
+workload qualification remains separate from registration. No fallback
 model, generic import from request text, seed replacement or eligibility promotion.
 Use each adapter's FitRequest, original-unit prediction and closed snapshot APIs.
 Save predictions with their original row/group IDs and verify same-process snapshot
@@ -34,6 +34,27 @@ All labels here are synthetic fixtures; no prepared transfer or T access occurs.
 The full practical program and all downstream source must still be ready before
 production searches/calibration. This bridge is a prerequisite, not GateD or a
 claim that the840-job program has run.
+
+## Current native quality budget boundary,19October
+
+All14families now have registered versioned adapters; the historical execution
+sections below retain their original source/scope. Current qualification status
+is in status.md. An explicit `native_stopping:true` worker budget now preserves
+native configured stopping for every family. Non-NODE adapters receive their
+existing validated empty budget, which carries no wall-time observation cap;
+NODE keeps its native flag. The worker records both requested and resolved
+adapter budgets. It never replaces the cap with a very large number.
+
+Only P12 accepts training-checkpoint/resume arguments. Other native workers may
+finish without a wall cap but cannot claim optimizer recovery. All outputs remain
+engineering-ineligible; neither native stopping nor a successful reload grants
+production eligibility, V-label or protected-data access. Existing bounded
+requests retain their prior behavior. Fresh P13 and short P03 fixtures, invalid
+flag/role tests and NODE recovery checks pass53affected tests in110.97seconds.
+The first wider launcher omitted required thread environment variables; every
+failure and the unchanged guarded recovery are retained in
+WP08-native-quality-worker-receipt.json. Full14-family native/support qualification
+and the deadline-free qualified production coordinator remain pending.
 
 ## Executed slice and limits
 
