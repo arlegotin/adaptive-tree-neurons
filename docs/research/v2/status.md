@@ -1,6 +1,6 @@
 # What the research is trying to establish
 
-**19October priority update:** the user prioritizes completed results over the
+**20October continuation:** the user prioritizes completed results over the
 two-hour comparison budget. Native qualification and the quality view will run to
 normal model stopping, with RAM/disk guards and resumable checkpoints. The earlier
 NODE timeout is retained; it published no model to resume. Budget prefixes remain
@@ -43,6 +43,10 @@ pending. The fresh eight-teacher/R2 comparison is now launched under the
 qualification authenticated76model checkpoints in273.61seconds at.94GiBsampled
 peak RSS. No fresh result or Gate B decision follows from that engineering pass.
 See [the qualification/launch receipt](WP04-M3-native-qualification-launch-receipt.json).
+The initial eight teachers are complete and the single predeclared uncertainty
+extension is running. This is development sampling under the stored rule, not
+confirmation or permission to keep adding teachers. Wait for the full admitted
+queue and independent raw-prediction audit before the final M3 interpretation.
 
 The first full new control study has finished:256 planned fits, no missing or
 failed result. Independent arithmetic from512 retained V/E prediction vectors
@@ -245,10 +249,11 @@ random in all six tested timing/stream cells. The small G-selected pair oracle
 differs from singleton-ranked pairs in7of8repeats, providing a finite reason to
 test joint allocation; it pays for exhaustive search on a planted task.
 
-Next scientific step:validate the exact parent-conditioned joint ridge estimator
-against dense solves and small subsets. Freeze the common competent parent and
-training treatment before its bounded fresh-teacher comparison. Continue native
-workload qualification and production analysis/access implementation in parallel.
+Next scientific step: finish the admitted M3 comparison, independently reconstruct
+its predictions and review placement, ordinary-capacity controls and full costs.
+The numerical selector, small-subset checks and common treatment are already
+fixed and verified above. Continue native workload qualification and production
+analysis/access implementation in parallel.
 The [delayed collection operator](delayed-M2-collection.md) now passes44affected
 checks and can wait for complete inactive results under pinned producer/auditor
 sources. It starts no fits and consumes no partial outcomes. The user's available

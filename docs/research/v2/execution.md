@@ -5,7 +5,7 @@ Read this with `docs/superpowers/specs/2026-10-18-research-v2-design.md` and
 entry point. Update it after every task, gate, failure recovery and source change.
 Unchecked work is not completed, and prior investigation findings are not new runs.
 
-## Current continuation,19October
+## Current continuation,20October
 
 M2 has completed and its raw prediction arithmetic has been independently audited;
 see [the complete report](../../../reports/research-v2-M2.md). Gate A admits one
@@ -34,6 +34,10 @@ with no wall deadline; no Gate B result or protected T. The full raw forecast is
 queue resumption may be needed as other processes use disk. See
 WP04-M3-native-qualification-launch-receipt.json, WP04-M3-trace-roundtrip-fix-receipt.json,
 WP04-M3-execution-implementation-receipt.json and M3-resource-execution-design.md.
+The first eight teachers have completed and the one predeclared uncertainty
+extension is active. Partial outcomes have not been used to change the method,
+treatment or teacher inventory. Independently audit the complete admitted queue
+before interpreting M3 or deciding Gate B.
 
 The bounded-memory Energy NODE attempt finished at its old7200-second cap, with
 about1.49GiBsampled peak and no saved model. The user then explicitly prioritized

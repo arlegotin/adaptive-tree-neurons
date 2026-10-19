@@ -1,0 +1,89 @@
+{
+  "T_accessed": false,
+  "V_labels_read": false,
+  "active_producers_unchanged": [
+    "M3:53bd029/e78e",
+    "NODE Airfoil:c33a84e/b680"
+  ],
+  "behavior": [
+    "Explicit native-stopping requests only; timeout None with owned-process RSS guard",
+    "Mandatory NODE training checkpoints and exact byte-verified independent copy on recovery",
+    "Closed previous attempt authenticated against external request/inventory commitment; old evidence unchanged",
+    "No committed checkpoint and non-NODE recovery are explicit same-seed restarts",
+    "Owned child termination by signal retains interrupted-recoverable receipt",
+    "Native imports and caches stay in their own attempt"
+  ],
+  "command_argv": [
+    ".venv-research-v2/bin/python",
+    "-B",
+    "-c",
+    "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"tests/test_native_fit_supervision.py\",\"tests/test_native_quality_worker.py\",\"tests/test_recoverable_node_worker.py\",\"tests/test_node_training_recovery.py\",\"tests/test_process_supervision_v2.py\"]))"
+  ],
+  "environment_overrides": {
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "logs": [
+    {
+      "bytes": 13494,
+      "path": "artifacts/research-v2/WP08/native-fit-supervision-red.log",
+      "sha256": "ceb0f06fdcfde37fdbaaa4ef7fe93bd0e4baa2fcb5132ade298bcca63318997e"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP08/native-fit-supervision-green.log",
+      "sha256": "b21a099e8f65810b62c50092a52d104a0a51085b50a697138b70dc58623f4769"
+    },
+    {
+      "bytes": 3448,
+      "path": "artifacts/research-v2/WP08/native-fit-supervision-signal-red.log",
+      "sha256": "026559621abba7db282be6a7742092a89e9bc35d3d1f9893ef33a874f6ea872a"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP08/native-fit-supervision-affected.log",
+      "sha256": "3988eefe4e1e54b0a07f3165295310bd4a2964938fff02061d1a2bb2c3a80bb0"
+    },
+    {
+      "bytes": 2296,
+      "path": "artifacts/research-v2/WP08/native-fit-supervision-native-copy-final.log",
+      "sha256": "ee70340ccb60ad5eacb0af77668f379ef57801e7b42ff08d1f586b38269ca7b9"
+    },
+    {
+      "bytes": 3527,
+      "path": "artifacts/research-v2/WP08/native-fit-supervision-cache-red.log",
+      "sha256": "c6158d6f22904820108cda5f076139e46f69f40c960f0c1e588672dd16265d02"
+    },
+    {
+      "bytes": 3589,
+      "path": "artifacts/research-v2/WP08/native-fit-supervision-cache-red-corrected.log",
+      "sha256": "5b887f66181ed12c508a1319a592310b61f7087c0b70217ed45c189b7343dee8"
+    },
+    {
+      "bytes": 2296,
+      "path": "artifacts/research-v2/WP08/native-fit-supervision-final.log",
+      "sha256": "551ff54dc8bdc2c20b7fb1fb257db9e33e4146055712ce193bc416edca8a2598"
+    }
+  ],
+  "pending": "Generic uncapped qualification integration; qualified production coordinator/model lineage/V evaluation and final freeze",
+  "production_HPO_run": false,
+  "production_quality_bridge": false,
+  "quality_eligible": false,
+  "schema": "research/v2-native-fit-supervision-implementation",
+  "scope": "Engineering-only uncapped single attempt; containing queue owns qualification, retry admission and full cost",
+  "source_sha256": "1f354f8169a6f98b98318e6b37a637d86bf7c02a4ff5dabbddb9369a860fa4c7",
+  "tests": {
+    "affected_GREEN": "52 passed/16.76s",
+    "cache_RED": "2 failed/7.17s: real child lacked required attempt-local cache paths",
+    "cache_initial": "2 failed/8.14s: incorrect test receipt key; corrected before production change",
+    "final_GREEN": "73 passed/36 retained native warnings/146.83s",
+    "first_GREEN": "10 passed/8.19s",
+    "initial_RED": "10 missing-module failures/3.83s",
+    "real_checkpoint_copy": "73 passed/36 native warnings/146.88s; real tiny NODE copy/resume equals all uninterrupted raw/selected state and predictions",
+    "signal_RED": "1 failed/.49s: externally terminated child lacked closed recoverable result"
+  }
+}

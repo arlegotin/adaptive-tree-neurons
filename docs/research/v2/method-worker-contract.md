@@ -137,3 +137,19 @@ Three RED results include two real P12 guard cases and an obsolete old P13
 expectation, updated for the new explicit contract.58affected checks passed
 in143.74seconds. No unsafe full job was launched. See
 WP08-native-quality-NODE-entry-receipt.json.
+
+The reusable `research.native_fit_v2.run_native_fit` supervisor now runs an
+explicit native-stopping engineering request without a wall deadline, retaining
+owned-process RSS guards, method-specific imports and attempt-local caches.
+NODE always receives its training-checkpoint path. A recoverable attempt may
+copy its externally committed checkpoint tree into a fresh attempt with distinct
+files; it cannot modify the previous attempt. The native loader still checks
+model, source, runtime, data and optimizer semantics. Non-NODE retries restart
+the same seed; they do not claim optimizer recovery. A missing initial NODE
+checkpoint is also an explicitly recorded same-seed restart.
+
+This helper does not grant native qualification, V scoring, production HPO or
+protected access. The containing queue must authenticate prior attempts and
+charge all fitting, copying, final inventory and retry costs. Generic native
+qualification and the production coordinator still need integration. See
+[the supervision receipt](WP08-native-fit-supervision-receipt.json).

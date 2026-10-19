@@ -103,6 +103,15 @@ time prefixes admit only models completed by their deadline. Full-quality and
 matched-budget winners and costs are distinct. No current engineering queue is
 retroactively promoted into that production procedure.
 
+The shared native-fit supervisor now also supports immutable checkpoint-copy
+recovery into a fresh attempt. It authenticates an externally committed closed
+attempt and copies ordinary files, leaving previous evidence unchanged. Actual
+NODE state loading remains responsible for tensor/runtime/source/data checks.
+Other methods retain explicit same-seed restart semantics until their own exact
+optimizer recovery is qualified. The helper remains engineering-only; see
+WP08-native-fit-supervision-receipt.json. Its clocks are nested in the containing
+queue, which must also charge publication, inventory and retry costs.
+
 Prospective quality-search scope: at most32attempted configurations per family
 (including failures/retries; P13ends after its29finite configurations), with fixed
 supports/anchors/seeds and each attempted native fit allowed its declared
