@@ -9,6 +9,33 @@ from test_train import cpu_training_evidence
 from test_opportunity_workers import tiny_plan
 
 
+def test_multi_digit_candidate_trace_survives_real_publication_and_still_rejects_changes(tmp_path):
+    """Numeric candidate-key ordering must not change the committed trace hash."""
+    import hashlib
+    from treeneuron.research.joint_allocation import SelectionTrace
+    from treeneuron.research.joint_workers import JointWorkers
+    from treeneuron.research.ledger import write_new_json
+    from treeneuron.research.workqueue import make_queue_plan
+    plan=make_queue_plan({'study_config':{}},[
+        dict(job_id='placement',kind='placement',payload={},depends_on=[])])
+    worker=JointWorkers(plan)
+    directory=tmp_path/'queue/jobs/local/attempt-0';directory.mkdir(parents=True)
+    path=tmp_path/'queue/jobs/placement/attempt-0/selection.json';path.parent.mkdir(parents=True)
+    original=SelectionTrace(json.dumps({'parent_span_novelty_fraction':{j:j/64 for j in range(64)}},
+        sort_keys=True,separators=(',',':')))
+    write_new_json(path,original.to_dict())
+    value=dict(selection_path=str(path),selection_file_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
+        trace_sha256=original.sha256)
+    loaded=worker._trace(directory,{'placement':{'value':value}})
+    assert loaded.sha256==original.sha256
+    assert loaded.to_dict()['parent_span_novelty_fraction']['10']==.15625
+    changed=json.loads(path.read_text());changed['parent_span_novelty_fraction']['10']=.9
+    path.write_text(json.dumps(changed))
+    value['selection_file_sha256']=hashlib.sha256(path.read_bytes()).hexdigest()
+    with pytest.raises(ValueError,match='trace digest'):
+        worker._trace(directory,{'placement':{'value':value}})
+
+
 def joint_fixture(receipt):
     from treeneuron.research.workqueue import make_queue_plan
     original=tiny_plan(receipt);jobs=[{k:v for k,v in j.items() if k!='attempt_id'}

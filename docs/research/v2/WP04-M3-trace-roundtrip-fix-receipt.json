@@ -1,0 +1,40 @@
+{
+  "M3_scientific_teachers_generated": 0,
+  "T_accessed": false,
+  "failed_qualification": {
+    "disposition": "Gracefully interrupted owned process; preserve all failures and require fresh source-bound full qualification",
+    "elapsed_ns": 75129247042,
+    "peak_root_rss_bytes": 950468608,
+    "root": "artifacts/research-v2/WP04/M3-native-qualification-0b84d63",
+    "source_commit": "0b84d63",
+    "source_sha256": "e82c9223e519ab2055da7eeeba0bf6d720e9bfd8e73c8bbb140debd9be5764a0"
+  },
+  "failure": "Integer unit IDs sort numerically before initial JSON serialization, then lexically as strings on reload; 64-unit record failed its unchanged digest check",
+  "logs": [
+    {
+      "bytes": 3510,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/trace-roundtrip-red.log",
+      "sha256": "98834d35a628172c780eab293bbf412dc1e48e8f7e5cf86c78698c5fc7473e54"
+    },
+    {
+      "bytes": 88,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/trace-roundtrip-green.log",
+      "sha256": "4c0e95d33b168e3e878ac00d39dab1be6e4e5c08438c117f5d689fc37a050161"
+    },
+    {
+      "bytes": 110,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/trace-roundtrip-green-recovery.log",
+      "sha256": "62c36f98838938ae4ad93a1c8c98c5ce05d4dd9e56a76b8844d08094c517a8ed"
+    }
+  ],
+  "next": "Commit repair; fresh backend receipt in a new held checkout; repeat same engineering seeds and full horizons, no protected data",
+  "repair": "Normalize SelectionTrace JSON once before committing its digest; retain both exact file hash and semantic trace hash checks",
+  "schema": "research/v2-M3-trace-roundtrip-repair",
+  "scientific_algorithm_changed": false,
+  "source_sha256": "e78e027ffd7b0c1f4f4596b9e7ae8eee6c6a55e0f92e297a5d93e519cf1391a9",
+  "verification": {
+    "RED": "1 failed in .50s at real worker trace-publication boundary",
+    "corrected_GREEN": "55 passed in74.02s, including actual native composition/full warm control and corruption rejection",
+    "first_GREEN_invocation": "exit4, nonexistent test_local_updates.py; no tests collected; error retained"
+  }
+}

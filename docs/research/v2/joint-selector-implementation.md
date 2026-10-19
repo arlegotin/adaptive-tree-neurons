@@ -188,3 +188,10 @@ receipts/admission stop before scientific data creation. The supervised operator
 preserves the qualified interpreter path rather than resolving its venv symlink.
 See the [execution receipt](WP04-M3-execution-implementation-receipt.json).
 Actual final-source resource profiles and scientific M3/Gate B remain pending.
+
+The first full qualification caught numeric candidate-key ordering at trace
+publication/reload (IDs10andabove). Normalize JSON before committing the trace
+hash; calculations and selections are unchanged. A real64-key worker boundary
+regression failed before the fix, then55affected tests passed in74.02s, including
+continued tamper rejection. The old qualification is retained and cannot admit
+scientific execution. See WP04-M3-trace-roundtrip-fix-receipt.json.

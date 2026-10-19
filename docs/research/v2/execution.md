@@ -22,8 +22,12 @@ The full M3 graph, native workers, qualification/profile collector, resource
 forecasts, authenticated admission and public run/qualify routes now pass300
 affected checks with one device skip. This includes a real full8000-update
 width95ordinary control. A missing receipt/admission fails before data creation.
-Actual final-source engineering qualification remains required before scientific
-M3 execution; no M3 teacher or protected T exists yet. See
+The first full engineering qualification exposed a JSON unit-key ordering
+bug at trace reload. Exact file/trace guards rejected all four local diagnostic
+reads. A real64-key boundary test failed, the minimal trace normalization repair
+passed55affected checks, and the original qualification remains retained. A fresh
+source-bound full qualification is required; no scientific M3 teacher or protected
+T exists yet. See WP04-M3-trace-roundtrip-fix-receipt.json,
 WP04-M3-execution-implementation-receipt.json and M3-resource-execution-design.md.
 
 The bounded-memory Energy NODE attempt finished at its old7200-second cap, with

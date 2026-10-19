@@ -53,6 +53,11 @@ class CandidateBlock:
 class SelectionTrace:
     payload_json:str
 
+    def __post_init__(self):
+        # JSON makes integer unit keys strings. Normalize before committing a
+        # digest so numeric vs lexical ordering survives file publication.
+        object.__setattr__(self,'payload_json',_json(json.loads(self.payload_json)))
+
     def to_dict(self):return json.loads(self.payload_json)
 
     @property
