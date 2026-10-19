@@ -1,5 +1,12 @@
 {
   "T_accessed": false,
+  "artificial_proof": {
+    "T_accessed": false,
+    "path": "artifacts/research-v2/WP08/cost-proof-3e878de/result.json",
+    "producer_commit": "3e878de",
+    "sha256": "9bd569f77be85c9f751c1bcb4e1177e8a100d418b6b6166abb6f004f4a70130d",
+    "source_sha256": "6bcc8dd516dce6d7d72e8674ee8c2f267329678125c8ef885b65dd6da6b35d48"
+  },
   "base_commit": "c648ed9",
   "cost_claim_authorized": false,
   "evidence_level": "Artificial timer/paired-block arithmetic only",

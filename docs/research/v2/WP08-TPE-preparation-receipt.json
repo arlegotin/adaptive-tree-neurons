@@ -1,5 +1,12 @@
 {
   "T_accessed": false,
+  "artificial_proof": {
+    "T_accessed": false,
+    "path": "artifacts/research-v2/WP08/tpe-proof-7551306/result.json",
+    "producer_commit": "7551306",
+    "sha256": "673338f390a8ff3f624bc2548217c20048e6ad40b5223c56c54446436db1ef15",
+    "source_sha256": "16aba45f3e8b3216d4f8af1b239d3138287ac2e9996aebb69a822d84ae224d84"
+  },
   "base_commit": "9da8e37",
   "evidence_level": "Actual pinned TPE event replay on artificial objectives; no model evaluation",
   "logs": {

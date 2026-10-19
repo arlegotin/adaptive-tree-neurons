@@ -1,0 +1,49 @@
+{
+  "T_accessed": false,
+  "cause": "not_isolated; no permission or filesystem diagnosis established",
+  "compression_copy": {
+    "flags": 0,
+    "readable_bytes": 0,
+    "returncode": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "created_utc_ns": 1792392971786794000,
+  "decision": "reject_compression_in_this_environment",
+  "evidence": {
+    "artifacts/research-v2/WP03/storage-qualification-7551306/check.py": "f7a8de7a39843176618611a0307bcf6dc2f468fbd69c355518664e9c627b6036",
+    "artifacts/research-v2/WP03/storage-qualification-7551306/compressed-parent-copy.pt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "artifacts/research-v2/WP03/storage-qualification-7551306/ditto-help.txt": "5ecdf2315af01171c8cc2d626b24c534e9c3a3cf3242fffc281bbc43ef8f40a3",
+    "artifacts/research-v2/WP03/storage-qualification-7551306/failure.json": "d75452ed9bf718ac2313acba11542b171fef1f408ead0a8e515dd57744ec91d3",
+    "artifacts/research-v2/WP03/storage-qualification-7551306/parent-copy.pt": "e999110a3b03e0da784876326969b9b73450f93808520d388a1980af40671e7b",
+    "artifacts/research-v2/WP03/storage-qualification-7551306/repeated-metadata.txt": "5b4f43d79cd176e1f1d771d6607c378bd86d5172c0e1aee5e236bce8d114b6c7",
+    "artifacts/research-v2/WP03/storage-qualification-7551306/retry-1/check.py": "7da9ec37bc70d01227dfe566cad0120b516d7e0e61905cacbed29cb957045707",
+    "artifacts/research-v2/WP03/storage-qualification-7551306/retry-1/compressed-diagnostic.pt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "artifacts/research-v2/WP03/storage-qualification-7551306/retry-1/compressed-parent-copy.pt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "artifacts/research-v2/WP03/storage-qualification-7551306/retry-1/diagnostic.json": "eaa8707d8e695ac1cb3f1cbfed0cfb8e5954212e5a529f517a6e29fb361830c3",
+    "artifacts/research-v2/WP03/storage-qualification-7551306/retry-1/ditto-help.txt": "5ecdf2315af01171c8cc2d626b24c534e9c3a3cf3242fffc281bbc43ef8f40a3",
+    "artifacts/research-v2/WP03/storage-qualification-7551306/retry-1/mismatch-inspection.json": "cd05e9829b2131414424d5cc097e5e6a465d12a9e347ba87d1f7d435d916a845",
+    "artifacts/research-v2/WP03/storage-qualification-7551306/retry-1/ordinary-copy.pt": "e999110a3b03e0da784876326969b9b73450f93808520d388a1980af40671e7b",
+    "artifacts/research-v2/WP03/storage-qualification-7551306/retry-1/parent-copy.pt": "e999110a3b03e0da784876326969b9b73450f93808520d388a1980af40671e7b",
+    "artifacts/research-v2/WP03/storage-qualification-7551306/retry-1/repeated-metadata.txt": "5b4f43d79cd176e1f1d771d6607c378bd86d5172c0e1aee5e236bce8d114b6c7"
+  },
+  "first_failure": "os.listxattr unavailable in this Python build",
+  "live_artifacts_mutated": false,
+  "ordinary_copy": {
+    "logical_bytes_identical": true,
+    "readable_bytes": 114917,
+    "sha256": "e999110a3b03e0da784876326969b9b73450f93808520d388a1980af40671e7b"
+  },
+  "original_reauthenticated": true,
+  "production_operator_implemented": false,
+  "schema": "research/v2-storage-qualification-disposition",
+  "source_checkpoint_entry": {
+    "bytes": 114917,
+    "path": "artifact/runs/d8f4eed4541e4e009251d3190b22714c/checkpoints/checkpoint-133a9999d7bf4a6c9daa22d2cba33fb3.pt",
+    "sha256": "e999110a3b03e0da784876326969b9b73450f93808520d388a1980af40671e7b"
+  },
+  "source_commit": "e1b1018",
+  "source_result_reference": {
+    "path": "/private/tmp/atn-research-v2-M2-run/artifacts/research-v2/M2-opportunity-e1b1018/jobs/e0e62b49487233d59e1ee3e46b0c5077e150d23f5354d1eeafd140ee2452cbda/attempt-0/job-result.json",
+    "sha256": "0e0601fa9c4ca2db530e91bb90aca6e6d751a5cbbbe9e89a4abcd69ac0eb7169"
+  }
+}
