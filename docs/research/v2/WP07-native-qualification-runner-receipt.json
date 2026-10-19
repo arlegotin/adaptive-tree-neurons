@@ -1,0 +1,32 @@
+{
+  "Gate_D": false,
+  "T_accessed": false,
+  "V_labels_read": false,
+  "actual_CLI_model_fits": 0,
+  "corrected_affected": "66passed in18.45s with documented thread setup; no guard change",
+  "datasets": 6,
+  "declared_native_anchors": 20,
+  "final": "67passed in18.12s",
+  "final_command_sha256": "37559026a2c5a16c0fb8148722fe069885c029642827c36f39d1717a276a6d42",
+  "first_affected": "65passed/1failed in18.80s: caller Torch interop policy missing",
+  "first_green": "12passed in1.41s",
+  "full_inventory_planned": 120,
+  "full_repository_suite": false,
+  "initial_red": "12failed in0.09s: missing module",
+  "limitations": [
+    "Qualification execution and role/source/resource records, not native-quality promotion",
+    "Independent workload/range/recovery and final source locks still required",
+    "No primary practical searches or protected evaluator authority"
+  ],
+  "path_and_cli_red": "4failed/13passed in1.70s: malformed paths and nonmapping JSON",
+  "quality_eligible": false,
+  "raw_bytes": 15549110,
+  "raw_files": 1980,
+  "raw_root": "artifacts/research-v2/WP07/native-qualification-runner",
+  "schema": "research/v2-native-qualification-runner-preparation",
+  "semantic_red": "1failed in0.13s: missing semantic features escaped as KeyError",
+  "source_sha256": "7e9105f6b4f8fdffbc8025c0c477b8bee6c8d1a87687cfc257b0259e430c71d8",
+  "status": "fixture_verified_real_CLI_smoke_pending",
+  "tested_orchestration_only": true,
+  "unit_inventory_sha256": "b61f207320a5f4b0545176d87d65aa4a01d2297b0407c4c12adb05f87c570a49"
+}

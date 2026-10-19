@@ -67,8 +67,11 @@ metadata version. Historical schema1 checkpoints require their original source;
 there is no silent migration or source-hash rewrite.
 
 The WP03 M2 dispatcher is implemented and its active scientific run has measured
-admission. Generic qualify/freeze/confirm/report entry points still require their
-remaining production implementations and prerequisites. Separate native adapter,
+admission. The native-anchor engineering `qualify` command and its strict
+qualification-plan dispatch now pass fixture checks; see the
+[command contract](native-qualification-runner.md). They grant no Gate D or
+production-quality eligibility. Freeze/confirm/general-report entry points still
+require their remaining production implementations and prerequisites. Separate native adapter,
 provisional method/seed and pure analysis APIs are documented in their component
 contracts; they do not make those CLI stages complete. The WP07 prepare-data slice
 below is implemented independently of baseline qualification. Native trainer

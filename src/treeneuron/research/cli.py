@@ -13,7 +13,7 @@ def main(argv=None):
         key = 'protocol' if name == 'confirm' else 'study' if name == 'report' else 'config'
         cmd.add_argument('--'+key, type=Path, required=True)
         cmd.add_argument('--output', type=Path, required=True)
-        if name == 'run':
+        if name in ('run','qualify'):
             cmd.add_argument('--resume', action='store_true')
         if name == 'report':
             cmd.add_argument('--development-manifest-sha256')
@@ -21,6 +21,14 @@ def main(argv=None):
     args = parser.parse_args(argv)
     try:
         if args.command in ('plan', 'run'):
+            if args.command=='plan':
+                from .method_worker import _read_json
+                metadata=_read_json(args.config)
+                if isinstance(metadata,dict) and metadata.get('schema')=='research/v2-native-qualification':
+                    from .qualify import qualification_plan
+                    from .ledger import write_new_json
+                    write_new_json(args.output,qualification_plan(args.config))
+                    return 0
             from .config import load_research_config, expand
             config = load_research_config(args.config)
             plan = expand(config)
@@ -34,6 +42,11 @@ def main(argv=None):
                     print(json.dumps(dict(status=result['status'],statuses=result['statuses'],
                         charged_job_ns=result['charged_job_ns']),sort_keys=True))
                     return 0 if result['status']=='completed' else 4 if result['status']=='completed_with_failures' else 3
+        elif args.command == 'qualify':
+            from .qualify import qualify
+            result=qualify(args.config,args.output,resume=args.resume)
+            print(json.dumps(dict(status=result['status'],statuses=result['statuses'],quality_eligible=False),sort_keys=True))
+            return 0 if result['status']=='completed' else 3 if result['status']=='paused_before_job' else 4
         elif args.command == 'prepare-data':
             from .transfer import prepare_data
             prepare_data(args.config, args.output)
