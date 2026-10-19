@@ -122,6 +122,18 @@ class _JointProblem:
 
     def objective(self,ids):return self._q0-self.gain(ids)
 
+    def singleton_top(self,eligible_ids):
+        """Independent singleton ranking control, with the true selected-set gain."""
+        eligible=list(_ids(eligible_ids,self._columns));effective=min(self.config.count,len(eligible))
+        gains={unit:self.gain([unit]) for unit in eligible};order=[]
+        for _ in range(effective):
+            remaining=[j for j in eligible if j not in order];best=max(gains[j] for j in remaining)
+            tolerance=self.config.tie_relative_tolerance*max(1.,abs(best))
+            order.append(min(j for j in remaining if gains[j]>=best-tolerance))
+        return dict(selected_ids=sorted(order),selection_order=order,requested_count=self.config.count,
+            effective_count=effective,eligible_count=len(eligible),predicted_gain=self.gain(order),slots=[],
+            singleton_gains=[dict(unit_id=j,gain=gains[j]) for j in eligible])
+
     def _conditional(self,selected,lower,z,unit):
         columns=self._columns[unit];cross=self._H[np.ix_(selected,columns)]
         projection=solve_triangular(lower,cross,lower=True) if selected else np.empty((0,len(columns)))

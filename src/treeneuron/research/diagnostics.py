@@ -75,7 +75,7 @@ class ForkSpec:
     selection_prefixes: tuple[int,...]=()
 
     def __post_init__(self):
-        if (self.role not in ('keep','top','random','warm_lower','warm_upper','subset')
+        if (self.role not in ('keep','top','random','warm_lower','warm_upper','subset','ridge')
                 or type(self.requested_count) is not int or self.requested_count<0
                 or type(self.max_updates) is not int or self.max_updates<=0
                 or type(self.allocation_seed) is not int or not 0<=self.allocation_seed<2**63
@@ -96,7 +96,7 @@ def _subset(table,ids,seed):
         {'shared_scored_units':len(table.ids),'standalone_contrast_units_required':0})
 
 
-def fit_diagnostic_fork(parent,data,output,spec,*,scored=None,guard=lambda:None):
+def fit_diagnostic_fork(parent,data,output,spec,*,scored=None,selection_trace=None,guard=lambda:None):
     """Fit one nominal fork; the outer M2 controller owns admission and recovery."""
     started=time.perf_counter_ns()
     snapshot,fingerprint=_parent(parent)
@@ -115,6 +115,16 @@ def fit_diagnostic_fork(parent,data,output,spec,*,scored=None,guard=lambda:None)
         raise ValueError('Score binding belongs to another parent')
     if scored is not None and scored.table.table_hash!=scored.table_sha256:
         raise ValueError('Score table changed after binding')
+    ridge_allocation=None
+    if spec.role=='ridge':
+        from .joint_allocation import SelectionTrace,selection_to_allocation
+        if type(selection_trace) is not SelectionTrace:
+            raise ValueError('Ridge fork requires its immutable selection trace')
+        ridge_allocation=selection_to_allocation(parent,data.F,scored,selection_trace,seed=spec.allocation_seed)
+        if ridge_allocation.requested_count!=spec.requested_count:
+            raise ValueError('Fork count differs from selection trace count')
+    elif selection_trace is not None:
+        raise ValueError('Selection trace is only valid for a ridge fork')
     root=Path(output);root.mkdir(parents=True,exist_ok=False)
     report=dict(schema='research/v2-diagnostic-fork',status='running',request=asdict(spec),
         resolved_policy=asdict(policy),parent_sha256=fingerprint,parent_update=parent.update,
@@ -122,6 +132,9 @@ def fit_diagnostic_fork(parent,data,output,spec,*,scored=None,guard=lambda:None)
         table_sha256=None if scored is None else scored.table_sha256,models={},
         nominal_ids=list(spec.unit_ids),V_accessed=False,E_accessed=False,T_accessed=False)
     write_new_json(root/'request.json',report)
+    if selection_trace is not None:
+        write_new_json(root/'selection.json',selection_trace.to_dict())
+        report['selection_trace_sha256']=selection_trace.sha256
     before=train.capture_rng()
     try:
         guard()
@@ -137,8 +150,8 @@ def fit_diagnostic_fork(parent,data,output,spec,*,scored=None,guard=lambda:None)
         initial_prediction=state.predict(data.G.X)
         current=state.stage['kind']=='research_boundary'
         selected=[]
-        if spec.role in ('top','random','subset'):
-            allocation=(_subset(scored.table,spec.unit_ids,spec.allocation_seed) if spec.role=='subset'
+        if spec.role in ('top','random','subset','ridge'):
+            allocation=(ridge_allocation if spec.role=='ridge' else _subset(scored.table,spec.unit_ids,spec.allocation_seed) if spec.role=='subset'
                 else allocate(scored.table,spec.requested_count,
                     policy='adam' if spec.role=='top' else 'random',seed=spec.allocation_seed))
             (insert_at_current_boundary if current else insert_growth)(state,allocation)

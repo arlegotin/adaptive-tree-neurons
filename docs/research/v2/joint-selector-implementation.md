@@ -148,3 +148,14 @@ inputs, manually assembled full Jacobian/dense ridge and restored native
 predictions/moments agree. See the
 [full-workload receipt](WP04-full-selector-workload-receipt.json). No primary
 teacher was generated; Gate B and predictive usefulness remain unresolved.
+
+The matched local-singleton ridge control and conditional joint placement now
+enter the same native diagnostic continuation through a checked `ridge` fork.
+The singleton control ranks independent gains but reports the actual selected
+set objective; it never adds singleton scores and calls that a joint gain.
+Traces retain the explicit strategy, common eligibility/count and original
+contrasts. Native allocation metadata distinguishes `local_ridge` and
+`joint_ridge`. Fixed-budget forks preserve paired streams and parent/RNG state.
+Final verification passed195checks with1unavailable-device skip. The
+[integration receipt](WP04-joint-fork-integration-receipt.json) records the failing
+feature checks and recoveries; there is still no M3 predictive result.

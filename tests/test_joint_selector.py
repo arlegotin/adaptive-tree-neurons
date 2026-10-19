@@ -84,6 +84,18 @@ def test_conditional_greedy_selects_complement_over_duplicate_singleton():
     assert len(trace['slots'])==2 and len(trace['slots'][0]['candidate_gains'])==3
 
 
+def test_singleton_control_ranks_independent_gains_but_reports_actual_joint_gain():
+    module=api();parent=np.zeros((3,0));r=np.array([1.,.5,0.]);a=np.array([[1.],[0.],[0.]])
+    blocks={5:a.copy(),2:a.copy(),9:np.array([[0.],[1.],[0.]])}
+    problem=module.prepare_joint_problem(parent,r,blocks,module.JointSelectionConfig(count=2,parent_ridge=0.))
+    trace=problem.singleton_top([9,5,2])
+    assert trace['selected_ids']==[2,5] and trace['selection_order']==[2,5]
+    assert trace['predicted_gain']==pytest.approx(problem.gain([2,5]))
+    assert trace['predicted_gain']<sum(row['gain'] for row in trace['singleton_gains'] if row['unit_id'] in (2,5))
+    zero=module.prepare_joint_problem(parent,r,{1:np.zeros((3,1)),4:np.zeros((3,1))},module.JointSelectionConfig(count=3))
+    assert zero.singleton_top([4,1])['selected_ids']==[1,4]
+
+
 def test_zero_columns_keep_fixed_count_and_original_input_arrays_are_unchanged():
     module=api();parent=np.ones((5,1));r=np.arange(5,dtype=np.float64);blocks={4:np.zeros((5,2)),1:np.zeros((5,2))}
     saved=[x.copy() for x in (parent,r,*blocks.values())]

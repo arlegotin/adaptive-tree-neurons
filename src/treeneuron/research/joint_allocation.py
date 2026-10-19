@@ -60,6 +60,8 @@ class SelectionTrace:
 
 
 def _check_chain(report,config,eligible):
+    if report.get('strategy')=='singleton':
+        return _check_singletons(report,config,eligible)
     order=report['selection_order'];slots=report['slots'];gain=report['predicted_gain']
     valid_number=lambda v:type(v) in (int,float) and math.isfinite(v) and v>=0
     if (type(order) is not list or any(type(i) is not int for i in order) or sorted(order)!=report['selected_ids']
@@ -84,6 +86,25 @@ def _check_chain(report,config,eligible):
         total+=values[unit];remaining.remove(unit)
     if not math.isclose(gain,total,rel_tol=1e-8,abs_tol=1e-10):
         raise ValueError('Selection trace total gain differs from conditional chain')
+
+
+def _check_singletons(report,config,eligible):
+    rows=report.get('singleton_gains');order=report['selection_order'];gain=report['predicted_gain']
+    if (type(rows) is not list or len(rows)!=len(eligible) or report['slots']!=[]
+            or any(type(row) is not dict or set(row)!={'unit_id','gain'} or type(row['unit_id']) is not int
+                or type(row['gain']) not in (int,float) or not math.isfinite(row['gain']) or row['gain']<0 for row in rows)
+            or {row['unit_id'] for row in rows}!=eligible or type(order) is not list
+            or any(type(unit) is not int for unit in order) or sorted(order)!=report['selected_ids']
+            or len(order)!=report['effective_count'] or report['eligible_count']!=len(eligible)
+            or type(gain) not in (int,float) or not math.isfinite(gain) or gain<0
+            or not math.isclose(gain,report['parent_objective']-report['selected_objective'],rel_tol=1e-8,abs_tol=1e-10)):
+        raise ValueError('Singleton selection trace inventory/objective is inconsistent')
+    values={row['unit_id']:row['gain'] for row in rows};remaining=set(eligible)
+    for unit in order:
+        best=max(values[j] for j in remaining);tolerance=config.tie_relative_tolerance*max(1.,abs(best))
+        if unit!=min(j for j in remaining if values[j]>=best-tolerance):
+            raise ValueError('Singleton selection trace winner/tie rule differs')
+        remaining.remove(unit)
 
 
 def _bound(parent,F,scored):
@@ -120,26 +141,27 @@ def build_gate_blocks(parent,F,scored):
         for unit in table.ids.tolist())
 
 
-def joint_ridge_select(parent,F,candidates,config,*,scored):
+def joint_ridge_select(parent,F,candidates,config,*,scored,strategy='conditional'):
     """Select IDs only; solved local parameter updates are never installed here."""
     started=time.perf_counter_ns()
     expected=build_gate_blocks(parent,F,scored)
     if (type(candidates) is not tuple or any(type(c) is not CandidateBlock for c in candidates)
             or [_record(c) for c in candidates]!=[_record(c) for c in expected]):
         raise ValueError('Candidate IDs/contrasts/eligibility differ from bound original table')
-    if not isinstance(config,JointSelectionConfig):raise ValueError('Explicit immutable joint selection configuration required')
+    if not isinstance(config,JointSelectionConfig) or strategy not in ('conditional','singleton'):
+        raise ValueError('Explicit immutable joint configuration and declared selection strategy required')
     x=parent.preprocessing.transform_X(F.X)
     y=parent.preprocessing.transform_y(F.y)
     contrasts={c.unit_id:c.contrast for c in candidates if c.eligible}
     bundle=prediction_jacobians(copy.deepcopy(parent.model).double().eval(),np.asarray(x,dtype=np.float64),contrasts)
     residual=np.asarray(y,dtype=np.float64)-bundle.prediction
     problem=prepare_joint_problem(bundle.parent,residual,bundle.gate_blocks,config)
-    selected=problem.greedy(sorted(contrasts))
+    selected=(problem.greedy if strategy=='conditional' else problem.singleton_top)(sorted(contrasts))
     eigenvalues=np.linalg.eigvalsh(problem._H)
     if len(eigenvalues) and eigenvalues[0]<=0:raise FloatingPointError('Nonpositive regularized gate Gram; no fallback')
     native_dtype=str(parent.model.layer.base.weight.dtype).removeprefix('torch.')
     peak=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*(1 if sys.platform=='darwin' else 1024)
-    report=dict(schema='research/v2-joint-selection',**selected,config=asdict(config),
+    report=dict(schema='research/v2-joint-selection',**selected,strategy=strategy,config=asdict(config),
         parent_sha256=scored.parent_sha256,table_sha256=scored.table_sha256,identities=copy.deepcopy(parent.identity_hashes),
         F_hashes={k:array_hash(getattr(F,k)) for k in ('X','y','row_id','group_id')},
         candidates=[_record(c) for c in candidates],candidate_sha256=_hash([_record(c) for c in candidates]),
@@ -173,7 +195,8 @@ def selection_to_allocation(parent,F,scored,trace,*,seed):
         raise ValueError('Immutable selection trace and declared seed required')
     report=trace.to_dict();eligible={c.unit_id for c in candidates if c.eligible}
     config=JointSelectionConfig(**report['config']);ids=report['selected_ids']
-    if (report['schema']!='research/v2-joint-selection' or report['parent_sha256']!=scored.parent_sha256
+    if (report['schema']!='research/v2-joint-selection' or report.get('strategy') not in ('conditional','singleton')
+            or report['parent_sha256']!=scored.parent_sha256
             or report['table_sha256']!=scored.table_sha256 or report['identities']!=parent.identity_hashes
             or report['candidate_sha256']!=_hash([_record(c) for c in candidates])
             or report['candidates']!=[_record(c) for c in candidates]
@@ -184,6 +207,7 @@ def selection_to_allocation(parent,F,scored,trace,*,seed):
             or report['local_update_applied'] is not False):raise ValueError('Selection trace identity/count/candidate binding differs')
     _check_chain(report,config,eligible)
     contrasts=scored.table.contrasts[ids].clone() if ids else torch.empty((0,parent.model.layer.d+1),dtype=torch.float64)
-    return Allocation(config.count,len(ids),torch.tensor(ids,dtype=torch.int64),contrasts,'joint_ridge',seed,
+    policy='joint_ridge' if report['strategy']=='conditional' else 'local_ridge'
+    return Allocation(config.count,len(ids),torch.tensor(ids,dtype=torch.int64),contrasts,policy,seed,
         scored.table_sha256,torch.zeros(len(ids),dtype=torch.int64),
         {'shared_scored_units':parent.model.layer.h,'standalone_contrast_units_required':0})
