@@ -80,10 +80,10 @@ efficiency claim. [Execution ledger](execution.md), [reproduction](reproduce.md)
 [implementation plan](../../superpowers/plans/2026-10-18-research-v2.md) retain the
 exact state, evidence and next steps.
 
-As of19October,09:42UTC, the main diagnostic has2,112eligible completed queue jobs,
-66ineligible entries and one running small pair-control fit. Queue jobs include preparation/evaluation and are
+As of19October,10:34UTC, the main diagnostic has2,204eligible completed queue jobs,
+88ineligible entries and one running small pair-control fit. Queue jobs include preparation/evaluation and are
 not independent problems. No scientific failure has been recorded at that
-snapshot. About11.01GiB disk was free; live guards may pause the unchanged queue.
+snapshot. About7.00GiB disk was free; live guards may pause the unchanged queue.
 Host memory-pressure level2 is delaying extra backend verification that requires
 a larger reserve. We retain its setup failures rather than relaxing that guard.
 
@@ -93,6 +93,12 @@ outcomes. The independent raw-result auditor agrees with saved predictions from
 48earlier engineering vectors. These are reliability improvements, not new
 predictive successes. No modern-baseline benchmark or protected confirmation has
 run, and the new joint chooser still awaits Gate A.
+
+An immutable pre-calibration method identity is now fixture-tested. It fixes the
+future analysis policy and its random seeds before calibration data, but grants
+no calibration or protected-label access. No real calibration, final protocol
+freeze or protected confirmation has occurred. The remaining readiness and
+evaluation code must be completed before production searches or calibration.
 
 A qualified storage pass compressed908published logs from finished jobs while
 preserving their exact readable hashes and all recorded evidence. It reported

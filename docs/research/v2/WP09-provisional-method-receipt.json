@@ -1,0 +1,96 @@
+{
+  "base_commit": "1154ab8",
+  "calibration_execution_authorized": false,
+  "configuration_semantics_qualified": false,
+  "legacy_protected_test_data": "disposable sentinel fixtures only",
+  "logs": {
+    "artifacts/research-v2/WP09/provisional-method-preparation/affected.log": {
+      "bytes": 192,
+      "sha256": "764e96924b2c29341216f7f1a6517456440f4027a265038f4d184789c8c4be0f"
+    },
+    "artifacts/research-v2/WP09/provisional-method-preparation/checkout-red.log": {
+      "bytes": 3156,
+      "sha256": "fd15fd3bd6f7f433cc9a7d071265b3f66910da0532c7a3b89b175107f9e689f2"
+    },
+    "artifacts/research-v2/WP09/provisional-method-preparation/final-focused.log": {
+      "bytes": 99,
+      "sha256": "6f5bcc61087cff12d07c8057e1171f161ec4ec42e6a0db4ae662056633a46e0e"
+    },
+    "artifacts/research-v2/WP09/provisional-method-preparation/green-initial.log": {
+      "bytes": 99,
+      "sha256": "2d366a7000ebc0434f2e9693b324aab96ce018928a8b8662da7094a2ca75ad87"
+    },
+    "artifacts/research-v2/WP09/provisional-method-preparation/red.log": {
+      "bytes": 16214,
+      "sha256": "7535f4afcf640c2f2e0f3a9f1aa338ffd624387a4aaeac2bfe9d0b8650c21360"
+    },
+    "artifacts/research-v2/WP09/provisional-method-preparation/seed-policy-red.log": {
+      "bytes": 1245,
+      "sha256": "b99a9ed716bf0e3555b0d1904fa3be266b32f89383bfb325c7cd94c61e27cbf8"
+    }
+  },
+  "main_M2_scientific_source_unchanged": "e1b1018/e322da64",
+  "native_quality_eligible": false,
+  "nine_legacy_backend_resource_setups": "deferred while native memory pressure level2; guards unchanged",
+  "pending": [
+    "semantic method/workload qualification",
+    "authenticated calibration execution",
+    "complete readiness",
+    "confirmation root commitment and exclusions",
+    "grouped/temporal confirmation/v2",
+    "final freeze",
+    "protected evaluator/report implementation"
+  ],
+  "production_T_accessed": false,
+  "production_T_created": false,
+  "protected_access_authorized": false,
+  "provisional_only": true,
+  "raw_retention": {
+    "completed_test_roots": "all three same-volume relocated into raw/; original directory inodes preserved",
+    "duplicate_partial_archive": {
+      "files_SHA256_verified": 360912,
+      "full_original_test_output_inventory_hashed": false,
+      "logical_bytes_verified": 641172130,
+      "receipt": "artifacts/research-v2/WP09/provisional-method-preparation/archive-relocation.json",
+      "receipt_sha256": "226c8bbf71ccfdf3bf412428064245c7022f8868514d88a2de1faa098ce2ec40",
+      "status": "verified_redundant_copy_removed_only"
+    },
+    "early_red_raw": "earliest temporary directories expired; stdout failure logs retained",
+    "future_policy": "fresh explicit pytest --basetemp inside retained artifacts; no broad raw-tree copy",
+    "relocation_receipts": [
+      "artifacts/research-v2/WP09/provisional-method-preparation/relocation-4661.json",
+      "artifacts/research-v2/WP09/provisional-method-preparation/relocation-4662.json",
+      "artifacts/research-v2/WP09/provisional-method-preparation/relocation-4663.json"
+    ]
+  },
+  "raw_root": "artifacts/research-v2/WP09/provisional-method-preparation",
+  "real_calibration_teachers": 0,
+  "schema": "research/v2-provisional-method-preparation",
+  "scientific_source_sha256": "c0b29540cbeae85f8f36712b2f24db4527405739b3ca2d71e1dd1f394e2011de",
+  "source_files": {
+    "src/treeneuron/analysis/design_v2.py": "f413a983f86ef9e7de82a794ec14a12b2977f53ca98a670c7350808ef8537e48",
+    "src/treeneuron/research/protocol_v2.py": "d44d183303fcc9a6d3411ec6d8284ac01054ef3558369a5d15463b05dc65de1d",
+    "src/treeneuron/research/seeds.py": "6f1e07864d106750f2ef616bc9dc522f254beec22909354875da5e2856f8fb26",
+    "tests/test_protocol_v2.py": "0340f111bccd056bb649dd84fe1f877dd18e1aa2cd30c291f87089981deedcab"
+  },
+  "source_snapshot": "artifacts/research-v2/WP09/provisional-method-preparation/source-snapshot/inventory.json",
+  "source_snapshot_sha256": "44232825e2a15388130dff4a679862852c7b2019dbd6c1529f89441bd6ca8d99",
+  "verification": {
+    "checkout_provenance_failures": 2,
+    "final_focused_passed": 41,
+    "final_focused_seconds": 5.06,
+    "final_focused_suites": [
+      "tests/test_protocol_v2.py",
+      "tests/test_design_v2.py"
+    ],
+    "final_full_affected_rerun": false,
+    "full_repository_suite": false,
+    "initial_affected_passed": 144,
+    "initial_affected_seconds": 529.59,
+    "initial_affected_source_sha256": "9891f8350b5833625a52261ff87f9b01a5fbb7d36ab0a4efcd610b7b66c1dbac",
+    "initial_green_passed": 13,
+    "initial_green_seconds": 2.59,
+    "initial_missing_API_failures": 13,
+    "missing_seed_policy_failures": 1
+  }
+}

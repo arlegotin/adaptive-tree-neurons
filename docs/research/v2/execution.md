@@ -1205,3 +1205,25 @@ hashes/sizes and result markers match; observed entire scientific ledger has
 zero failure/interruption events (1,884eligible/2nominalineligible/1running at
 1792398022287970000). The broader active-history policy is withdrawn; science
 sourcee1b/e322 and all logical bytes remain unchanged. Full inactive audit pending.
+
+WP07/WP08 subsequent engineering: native RealMLP initialization row lineage is
+observed without additional sampling; a source-bound fresh method worker and
+supervised paid-search bridge retain input/source checks, failed attempts and
+all measured costs. Their documented fixture suites passed64,117 and148 checks,
+respectively, under their separate source identities. All outputs remain
+quality-ineligible. The full256-epoch RealMLP anchor completed on one predeclared
+small synthetic fixture, with300 F rows visited cumulatively and exact closed
+model reload predictions. This qualifies that execution path only; native
+transfer workloads, recovery and practical comparison remain pending. Detailed
+contracts and receipts are realmlp-initialization-observation.md, method-worker-contract.md,
+supervised-search-bridge.md and WP07-P06-native256-fixture-receipt.json.
+
+WP09 provisional identity preparation: immutable method/claim/role/source/
+reference bindings and fixed variance/inference policy are implemented separately
+from legacy confirmation. Bootstrap and simulation seeds are committed before
+data.144 affected checks passed on the initial implementation; two new checkout
+provenance checks then failed and were corrected;41 focused checks passed on the
+final source. No final full144-check rerun is claimed. All records are toy source
+repositories/sentinel fixtures, with no actual calibration or production T.
+Calibration execution, complete readiness, confirmation/v2 and protected freeze
+remain pending. See provisional-method-lock.md and its WP09 receipt.
