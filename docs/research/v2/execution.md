@@ -1512,3 +1512,16 @@ exhaustion boundary check passed: timeout before child start still retains its
 translation. P06/P13 cannot be silently routed through generic TPE. No V labels,
 quality scores/winner or production HPO were admitted. See supervised-search-bridge.md
 and WP08-compiled-trial-bridge-receipt.json.
+
+WP08 primary coordinator score binding: 22 missing-component RED cases preceded
+same-byte prediction/F/feature authentication and strict primary split/row/group/
+time validation before logged V access. The first combined run had40pass/1fail:
+Bike store IDs index dates while the independent arithmetic uses calendar-day
+ordinals. An explicit checked bijection preserves sealed identities and supplies
+calendar ordinals only to arithmetic; corrected41checks passed. Two further RED
+cases exposed legacy label casts/ignored extras; strict original closed payload
+validation now follows the logged reader. Final63affected checks passed1.22s.
+Only artificial Energy/Bike tables were used; no real V/T, production search,
+model qualification or eligibility authority. All five opened references are
+rechecked, float32 predictions explicitly upcast only for metrics, and zero F
+variance remains unavailable. See primary-validation-scoring.md and its receipt.

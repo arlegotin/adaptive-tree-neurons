@@ -64,10 +64,10 @@ four-to-eight-teacher extension is running. The small exhaustive pair controls
 have finished, but no final scientific collection or Gate A decision has occurred.
 The complementary-group selector has not been trained or confirmed.
 
-As of19October14:28UTC, the queue has2,663eligible completed jobs,496ineligible
-entries and one running continuation on the sixth declared teacher. These include
+As of19October15:11UTC, the queue has2,739eligible completed jobs,496ineligible
+entries and one running continuation on the seventh declared teacher. These include
 preparation/evaluation and nominal skips, not independent problems. No historical
-scientific failure status was recorded at that snapshot. About6.13GiB disk was
+scientific failure status was recorded at that snapshot. About5.50GiB disk was
 free. Live disk/memory guards can pause the same queue; full completion is not
 promised from a ceiling forecast. The last native memory-pressure reading remains2,
 so nine legacy backend setup checks remain deferred with their guard intact.
@@ -113,8 +113,12 @@ All 14 families now have explicit native-anchor and finite search-support
 descriptors, with checked translation from atomic TPE draws to native schemas.
 Their qualification flags remain false. An engineering wrapper now connects raw
 TPE proposals to guarded native trials, retaining both configurations and paid
-translation time. Production V scoring and the final support lock are still
-required.
+translation time. A separate primary-only V scorer now binds predictions to
+sealed rows/groups/actual timestamps and recomputes the declared metric;63affected
+checks passed on artificial tables. It opens labels only through the logged
+coordinator after prediction alignment, preserves zero-variance unavailability,
+and grants no model/qualification/eligibility authority. Production scoring
+integration and the final support lock remain required.
 Power, seed commitments, independent metric arithmetic, search supervision,
 compatible teacher-family Holm bounds and report rendering are fixture-tested components. An
 in-memory parent-fork helper now preserves the complete selected training state

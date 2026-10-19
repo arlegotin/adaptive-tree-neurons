@@ -1,0 +1,46 @@
+{
+  "Bike_day_identity_mapping_explicit": true,
+  "T_accessed": false,
+  "actual_transfer_V_labels_read": false,
+  "additional_label_semantics_red": 2,
+  "all_opened_references_rechecked": true,
+  "base_commit": "667fc53",
+  "command_receipts": {
+    "corrected-green-command.json": "5d3d3a20ff6a20a61d01c2d473f72cefd0893faceb68126d21f2e562680e546b",
+    "final-green-command.json": "eba71c4a2152cce104b81ddf4c9e4ebc8a30a3895ada9f17234d27dfc874e4b8",
+    "green-command.json": "968c6b03a05a6c07a2ff521b7037ce0653f916993c4e7f56bde277c0ceffbf01",
+    "label-semantics-red-command.json": "cfb87f7a08ff0c5fb03c0566ad5fcdf4f09bfdd3a97598dd209c450d47c79718",
+    "red-command.json": "fc51046185382831f00d4c1f8f6b7eb180ec045ff376c9e7edf0400fbe87a71a"
+  },
+  "corrected_combined_passed": 41,
+  "corrected_combined_seconds": 1.21,
+  "deferred_legacy_backend_setups": 9,
+  "final_affected_passed": 63,
+  "final_affected_seconds": 1.22,
+  "first_combined_failed": 1,
+  "first_combined_passed": 40,
+  "full_repository_suite": false,
+  "initial_missing_component_red": 22,
+  "initial_red_seconds": 1.09,
+  "inventory_sha256": "28041680abd483e169fb6a62bde09ec127f186e50326831f7993cdfc18b176a6",
+  "limits": [
+    "Artificial sealed Energy/Bike fixtures only; no predictive result",
+    "Production callback must separately qualify native model/data/source and pay all loading/hashing/scoring cost",
+    "Secondary development and protected evaluator remain unavailable"
+  ],
+  "model_generation_authenticated": false,
+  "production_searches": 0,
+  "quality_eligible": false,
+  "raw_acquisition_authenticated": false,
+  "raw_files": 3087,
+  "raw_logical_bytes": 14402296,
+  "raw_root": "artifacts/research-v2/WP08/primary-validation-scoring",
+  "schema": "research/v2-primary-validation-scoring-preparation-receipt",
+  "scientific_source_sha256": "22852ff9353d1e37cf6657750324c98c7bd65e7ff344899a911171edcbd0571d",
+  "selection_authorized": false,
+  "source_files": {
+    "docs/research/v2/primary-validation-scoring.md": "1afcc1d0f87e6776e7d2a626cf3be3fc064e16428d31e230d74839bb5e194171",
+    "src/treeneuron/research/validation_scoring_v2.py": "a8b44892f5f4d00c637143ba5b77d1b89ea4bed5658381ae5466584c3e450cb7",
+    "tests/test_validation_scoring_v2.py": "e5adbc67a1bbdac03861347ba209e7e9fe026e17cd8904060e8463b66789a699"
+  }
+}
