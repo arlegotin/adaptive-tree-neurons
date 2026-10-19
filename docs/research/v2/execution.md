@@ -19,7 +19,11 @@ completed results over that wall cap. The spec/plan amendment and
 [results-first execution contract](results-first-native-execution.md) govern
 future native qualification and quality runs. Exact periodic raw-training resume,
 explicit deadline-free supervision and storage-bounded payload retention are
-being verified before a same-data/seed17 fresh restart. No production HPO,
+now passes106affected NODE/worker checks plus33process checks. Full2048-tree
+recovery matches all training state and predictions, with1.18GiBsampled peak;
+independent audit passed. The same-data/seed17 uncapped Energy restart is running
+under held `c33a84e` and has published checkpoint100. See
+[the proof/launch receipt](WP07-NODE-recovery-full-shape-receipt.json). No production HPO,
 calibration, global freeze or protected T has run. Earlier intake/progress entries
 below retain their historical meaning; they are not the current queue status.
 

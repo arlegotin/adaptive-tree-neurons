@@ -1,0 +1,87 @@
+{
+  "Gate_D": false,
+  "T_accessed": false,
+  "V_labels_read": false,
+  "full_shape": {
+    "audit_path": "artifacts/research-v2/WP07/NODE-training-recovery/full-shape-c33a84e/independent-audit.json",
+    "audit_sha256": "b57244c8a15f732cb9e807398690b4de5ad80ee24632fba59ed5b442377bf694",
+    "closed_prediction_reload_exact": true,
+    "containing_process_elapsed_ns": 219564842125,
+    "exact_raw_and_selected_training_state": true,
+    "final_updates": 105,
+    "interrupted_applied_updates": 102,
+    "native_patience_completion": false,
+    "paid_fit_attempts": 3,
+    "peak_sampled_rss_bytes": 1267253248,
+    "quality_eligible": false,
+    "raw_inventory_bytes": 90731129,
+    "raw_inventory_files": 29,
+    "reference_updates": 105,
+    "resume_step": 100,
+    "retained_tensor_payloads": 2,
+    "separate_independent_audit_elapsed_ns": 10715679833,
+    "total_physical_applied_updates": 212
+  },
+  "limitations": [
+    "Full-shape proof is an engineering update-capped fixture",
+    "Running native fit has not completed or established quality",
+    "Observed RSS is not aggregate or strict peak RAM",
+    "Production quality-first HPO controller remains pending"
+  ],
+  "native_attempt": {
+    "files": [
+      {
+        "bytes": 1119,
+        "path": "artifacts/research-v2/WP07/NODE-energy-native-recoverable-c33a84e/study.json",
+        "sha256": "ca11fc8328696e95b1aab84741c283477d329220b45d715f801e7eadf34e6eaf"
+      },
+      {
+        "bytes": 988,
+        "path": "artifacts/research-v2/WP07/NODE-energy-native-recoverable-c33a84e/input/request.json",
+        "sha256": "16cbd51b501ee6a7ec23839e8f073a4756d696b64b4e2cd189ce043d961c1ecc"
+      },
+      {
+        "bytes": 873,
+        "path": "artifacts/research-v2/WP07/NODE-energy-native-recoverable-c33a84e/attempt-000/admission.json",
+        "sha256": "b7f27d3295f73f5c7dc2129619b9184901f946b626fc29dd249f2c6da957bb98"
+      },
+      {
+        "bytes": 1024,
+        "path": "artifacts/research-v2/WP07/NODE-energy-native-recoverable-c33a84e/attempt-000/invocation.json",
+        "sha256": "9bd152012fefc6abb16fea528a6997ffd58de97deec865c84c21748d91c30253"
+      },
+      {
+        "bytes": 1582,
+        "path": "artifacts/research-v2/WP07/NODE-energy-native-recoverable-c33a84e/attempt-000/process/started.json",
+        "sha256": "2aa7818013ba3255c622e36bb0420f52ccf18f7dcdc47df3c48f36721773f600"
+      },
+      {
+        "bytes": 133,
+        "path": "artifacts/research-v2/WP07/NODE-energy-native-recoverable-c33a84e/attempt-000/process/spawned.json",
+        "sha256": "679eff0647586868252e35e5ac9935f5dcf8b4d4357b86cc2822ecff7be31039"
+      }
+    ],
+    "fit_seed": 17,
+    "latest_checkpoint_at_observation": {
+      "manifest": {
+        "bytes": 22273,
+        "path": "checkpoint-000000000100-b63817c2211642dcb8b163af00b9c749/manifest.json",
+        "sha256": "c7f7fc4cacac75810301b24738157eb92b3e836303c969dc867cba6007e3351d"
+      },
+      "schema": "research/v2-node-training-pointer",
+      "step": 100
+    },
+    "ordinary_attempt_number_including_prior_failure_records": 120,
+    "qualified_primary_anchor_completions_still": 114,
+    "recorded_utc_ns": 1792437696198328000,
+    "same_original_Energy_data": true,
+    "sampled_root_rss_limit_bytes": 4294967296,
+    "status": "running",
+    "wall_deadline_ns": null
+  },
+  "prior_capped_attempt_retained": "WP07-NODE-bounded-native-timeout-receipt.json",
+  "producer_commit": "c33a84e",
+  "schema": "research/v2-NODE-recovery-full-shape-and-launch",
+  "scientific_predictive_win": false,
+  "source_sha256": "b680a26b2176c6c5cc0f59cf19192d7ee963826a7575cce5ec5ee695521a65cc"
+}

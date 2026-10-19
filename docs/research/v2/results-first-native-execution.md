@@ -48,9 +48,9 @@ Execution steps for Task7, before the new long run:
 - [x] Add and verify deadline-free owned supervision and a checkpointed native
   qualification entry point. Preserve all attempts and independently reopen the
   final model/predictions. This route grants no V/T access or quality win.
-- [ ] Run an actual full2048-tree shape recovery proof before admitting the long
+- [x] Run an actual full2048-tree shape recovery proof before admitting the long
   Energy run. Record peak RSS, checkpoint bytes, source and exact results.
-- [ ] Pin the new executable source, forecast disk use, and restart Energy/seed17
+- [x] Pin the new executable source, forecast disk use, and restart Energy/seed17
   under native stopping with periodic checkpoints and RAM/disk guards. Continue
   selector implementation while that single worker runs.
 
@@ -69,7 +69,22 @@ Initial missing features, an incorrect test optimizer-slot assumption and all
 subsequent RED/GREEN stages remain in
 [the implementation receipt](WP07-NODE-training-recovery-implementation-receipt.json).
 The tiny exact-recovery result does not qualify full2048-tree recovery or native
-patience completion. The full-size operator is the next admission gate.
+patience completion. The full-size operator has now passed under held commit
+`c33a84e`:105reference updates, interruption after102applied updates, restoration
+from checkpoint100 and continuation to105match raw/selected weights, moments,
+RNG, sampler, rows and predictions exactly. The owned process took219.565seconds
+for all three fits and closure, peaking at1,267,253,248sampled RSS bytes
+(about1.18GiB). Independent audit regenerated the fixture inputs, reopened both
+models, checked exact state equality, resource commitments and process cleanup.
+Its separate cost is retained; the105-update fixture is quality-ineligible.
+
+The same Energyprimary data/seed17 full native fit has started in that held
+checkout, with no wall deadline and sampled4GiBRSS supervision. Initial admission
+found about11.30GiBmemory proxy and6.54GiBdisk. Operational payloads retain at
+most two committed states plus one transaction; full row histories remain once.
+The initial recoverable state was published. Native stopping, full P12 workload
+qualification and full-suite claims remain pending. See
+[the proof and launch receipt](WP07-NODE-recovery-full-shape-receipt.json).
 
 Quality-first HPO needs explicit controller/inventory semantics before production:
 finite32attempt supports remain; every attempted native configuration may finish;

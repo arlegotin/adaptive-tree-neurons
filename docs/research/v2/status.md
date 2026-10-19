@@ -6,6 +6,12 @@ normal model stopping, with RAM/disk guards and resumable checkpoints. The earli
 NODE timeout is retained; it published no model to resume. Budget prefixes remain
 a separate view. See [the implementation amendment](results-first-native-execution.md).
 
+The full2048-tree recovery proof now matches uninterrupted training exactly at
+about1.18GiBsampled peak RSS. The uncapped same-data/seed17 Energy native fit is
+running in a pinned checkout and has saved checkpoint100. It retains the normal
+validation stopping rule and4GiBobserved-RSS guard. This remains engineering
+qualification, without a predictive comparison or protected T access.
+
 Start with a small neural network. Give selected neurons a learned switch between
 two affine rules, preserving predictions when that flexibility is inserted.
 Then ask whether growth helps, whether a chooser beats random placement, and
