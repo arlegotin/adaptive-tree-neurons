@@ -26,8 +26,13 @@ The first full engineering qualification exposed a JSON unit-key ordering
 bug at trace reload. Exact file/trace guards rejected all four local diagnostic
 reads. A real64-key boundary test failed, the minimal trace normalization repair
 passed55affected checks, and the original qualification remains retained. A fresh
-source-bound full qualification is required; no scientific M3 teacher or protected
-T exists yet. See WP04-M3-trace-roundtrip-fix-receipt.json,
+source-bound full qualification then passed:258terminal entries,76native model
+checkpoints and35workload classes,273.61seconds/.94GiBsampled peak RSS. Fresh
+M3 science is launched from held53bd029/e78e under its measured admission,
+with no wall deadline; no Gate B result or protected T. The full raw forecast is
+30.71GBinitial/61.42GBmaximum, so inactive byte-preserving compression and exact
+queue resumption may be needed as other processes use disk. See
+WP04-M3-native-qualification-launch-receipt.json, WP04-M3-trace-roundtrip-fix-receipt.json,
 WP04-M3-execution-implementation-receipt.json and M3-resource-execution-design.md.
 
 The bounded-memory Energy NODE attempt finished at its old7200-second cap, with

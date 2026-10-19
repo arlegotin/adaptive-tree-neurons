@@ -38,7 +38,11 @@ so this does not credit joint selection for the quality difference. Joint gain
 predicts finite V pair outcomes better than summed singleton scores on3of4bases,
 passing the prewritten small-control screen; two correlations remain negative.
 Independent raw-prediction arithmetic agrees. Fresh primary M3 evidence remains
-pending, under the [locked stronger common treatment](M3-development-recipe.md).
+pending. The fresh eight-teacher/R2 comparison is now launched under the
+[locked stronger common treatment](M3-development-recipe.md). Full native
+qualification authenticated76model checkpoints in273.61seconds at.94GiBsampled
+peak RSS. No fresh result or Gate B decision follows from that engineering pass.
+See [the qualification/launch receipt](WP04-M3-native-qualification-launch-receipt.json).
 
 The first full new control study has finished:256 planned fits, no missing or
 failed result. Independent arithmetic from512 retained V/E prediction vectors

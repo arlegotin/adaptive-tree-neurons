@@ -1,0 +1,49 @@
+{
+  "Gate_B_decided": false,
+  "admission_sha256": "f9a12744a476afb425a20cf52cfdf537585f3903d6ca7943ecaf3f18ee095d58",
+  "held_source": "/private/tmp/atn-research-v2-M3-recovery",
+  "producer_source_commit": "53bd029",
+  "producer_source_sha256": "e78e027ffd7b0c1f4f4596b9e7ae8eee6c6a55e0f92e297a5d93e519cf1391a9",
+  "protected_T_accessed": false,
+  "qualification": {
+    "decision_entries": 1,
+    "eligible_terminal_entries": 257,
+    "engineering_native_spine_entries": 97,
+    "ineligible_terminal_entries": 1,
+    "ledger_event_hash": "fbcb7ce45fa6b0416ef94549e2b337027b59ed6325811ce1ebdbe52120875332",
+    "native_checkpoints_authenticated": 76,
+    "profile_rows": 98,
+    "profiles_sha256": "848833f8e02efdccc2cfb5b7b243c33905fea7aae97e1e9cbd01f151ac1017c2",
+    "qualifications": "All native horizons, complete F/G, topology/dtype/state/source and runtime authenticated; decision fixtures explicitly synthetic",
+    "root": "artifacts/research-v2/WP04/M3-native-qualification-53bd029",
+    "synthetic_decision_fixture_entries": 160,
+    "terminal": {
+      "T_accessed": false,
+      "elapsed_ns": 273612018000,
+      "execution_status": "exited",
+      "observed_peak_root_rss_bytes": 1004404736,
+      "returncode": 0,
+      "scientific_M3_admission": false
+    },
+    "workload_classes": 35
+  },
+  "resource_forecast": {
+    "forecast_complete_raw_bytes": 61418895079,
+    "forecast_initial_raw_bytes": 30709484007,
+    "forecast_initial_typical_seconds": 5769.081912799489,
+    "forecast_slow_worker_seconds": 17684.12252486307,
+    "forecast_typical_worker_seconds": 11538.072466307978,
+    "max_checkpoint_transaction_bytes": 4133535,
+    "peak_rss_bytes": 1004421120,
+    "retry_reserve_bytes": 62548181,
+    "storage_policy": "Whole next job plus rolling retry/transaction/free margin; disclose full raw forecast; inactive byte-identical log compression may be needed",
+    "timing_interpretation": "Median and1.5x maximum scaled profile heuristics, not calibrated population quantiles; no execution deadline"
+  },
+  "resource_policy": "3GiB own-process guard, whole next-job live RAM/disk admission, no wall deadline; if disk pauses, use inactive qualified identical-byte compression and exact same-source resume",
+  "schema": "research/v2-M3-native-qualification-and-launch",
+  "scientific_launch_root": "artifacts/research-v2/M3-joint-53bd029",
+  "scientific_result": null,
+  "scope": "Fresh development study only;8teachersR2/10roles/1040nominal short trials; one prewritten precision extension to16 only",
+  "source_hold": "Do not alter held package/config/binding spec/recipe/receipt/admission during execution; MAIN auditor changes are separate",
+  "target_plan_hash": "23ab57c782e1474985356d3216fbc00ba0a0b8294001b66b22511305d6dbb6c5"
+}
