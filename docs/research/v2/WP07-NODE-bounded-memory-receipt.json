@@ -1,0 +1,41 @@
+{
+  "Gate_D": false,
+  "T_accessed": false,
+  "V_labels_read": false,
+  "actor_source_files": {
+    "src/treeneuron/research/node_v2.py": "ccc6302163e4071537600cc038b24d5a12a3a78fbff8ce119a732e5c388169a0",
+    "tests/test_node_bounded_memory.py": "10c1aee91d14f891a10bd1a40df19e307ea8fc02c6dc4b75021052fe514af357"
+  },
+  "actual_full_shape_resource_qualified": false,
+  "execution_policy": "bounded_memory_v1",
+  "final_affected": "111passed/50warnings in180.12s",
+  "full_repository_suite": false,
+  "incorrect_command": "First affected command named nonexistent test_method_worker_v2.py; exit4/no tests; retained then corrected",
+  "initial_green": "7passed/8warnings in17.55s",
+  "initial_red": "7failed in0.83s",
+  "legacy_backend_setups_still_deferred": 9,
+  "maximum_errors": {
+    "test_float32_vendor_gradients_0": {
+      "dtype": "float32",
+      "gradient": 4.656612873077393e-10,
+      "loss": 0.0,
+      "moment": 4.656612873077393e-10,
+      "parameter": 1.4901161193847656e-08,
+      "prediction": 0.0
+    },
+    "test_float64_accumulation_uses0": {
+      "dtype": "float64",
+      "gradient": 4.440892098500626e-16,
+      "loss": 0.0
+    }
+  },
+  "native_stopping_completed": false,
+  "quality_eligible": false,
+  "raw_ordinary_bytes": 8493250,
+  "raw_ordinary_files": 233,
+  "raw_root": "artifacts/research-v2/WP07/NODE-bounded-memory",
+  "schema": "research/v2-NODE-bounded-memory-preparation",
+  "source_sha256": "c2639fc8769f273342391d338fb780f2f199b63e3ce92f2c16d8d5c58d1a3a45",
+  "status": "fixture_verified_full_shape_pending",
+  "unit_inventory_sha256": "3781466f8cdc20176e80af6c278fa473aed7bbe91ec02e68638cb4b0ed6dbe99"
+}

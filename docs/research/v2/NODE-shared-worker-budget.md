@@ -73,3 +73,10 @@ smaller NODE architecture is admitted. Full P12 qualification and any complete
 mandatory-suite claim remain blocked on qualified resources/native completion;
 mechanism work can continue. See
 [the exact resource-stop receipt](WP07-NODE-resource-stop-receipt.json).
+
+The user subsequently ruled out waiting for20GiBfree RAM and requested the same
+comparison within available memory. The [bounded-memory execution design](NODE-bounded-memory.md)
+adds an explicit chunked calculation while preserving the native model,
+effective batch and stopping. It requires numerical equivalence and a new measured
+full-shape resource proof before another native fit. The prior unchunked stops
+remain unchanged; this admission amendment does not weaken the baseline.

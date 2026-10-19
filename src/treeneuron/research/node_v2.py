@@ -69,10 +69,13 @@ class NodeV2Config:
 
     @classmethod
     def parse(cls,value):
-        if (type(value) is not dict or set(value)!={'schema','family','mode','feature_schema','parameters'}
+        fields={'schema','family','mode','feature_schema','parameters'}
+        if (type(value) is not dict or set(value) not in (fields,fields|{'execution'})
                 or value['schema']!='research/v2-node-config' or value['family']!='P12'
                 or value['mode'] not in ('native_anchor','search','engineering_fixture')):
             raise ValueError('Invalid versioned NODE configuration')
+        if 'execution' in value and value['execution']!='bounded_memory_v1':
+            raise ValueError('Unknown explicit NODE execution policy')
         schema=_schema(value['feature_schema']);p=value['parameters'];mode=value['mode']
         if type(p) is not dict:raise ValueError('NODE parameters must be a mapping')
         support={} if mode=='native_anchor' else dict(trees=(512,1024,2048),depth=(4,6),lr_multiplier=(.5,1,2))
@@ -81,7 +84,9 @@ class NodeV2Config:
         for key,item in p.items():
             if type(item) not in ((int,float) if key=='lr_multiplier' else (int,)) or item not in support[key]:
                 raise ValueError('NODE setting outside frozen support')
-        return cls(dict(schema=value['schema'],family='P12',mode=mode,feature_schema=schema,parameters=copy.deepcopy(p)))
+        state=dict(schema=value['schema'],family='P12',mode=mode,feature_schema=schema,parameters=copy.deepcopy(p))
+        if 'execution' in value:state['execution']=value['execution']
+        return cls(state)
 
     def to_state(self):return copy.deepcopy(self.state)
 
@@ -94,6 +99,10 @@ class NodeV2Config:
             head='channel0_mean_over_trees',dtype='float32',device='cpu')
         result.update({k:v for k,v in p.items() if k!='lr_multiplier'})
         result['optimizer']=dict(lr=.001*p.get('lr_multiplier',1),betas=[.95,.998],nus=[.7,1.],eps=1e-8,weight_decay=0.,decouple_weight_decay=False)
+        if self.state.get('execution')=='bounded_memory_v1':
+            result['execution']=dict(schema='research/v2-node-execution',microbatch_rows=32,
+                prediction_rows=32,initialization='full_prefix_no_output')
+            result['validation_chunk']=32
         return result
 
 
@@ -322,6 +331,40 @@ def _initialized(model):
         raise ValueError('Uninitialized NODE query is forbidden')
 
 
+def _initialize_model(model,features,resolved):
+    """Keep full native data-aware init, omit only the discarded routing output."""
+    torch=_native()[0]
+    with torch.no_grad():
+        if 'execution' not in resolved:
+            model(torch.from_numpy(features))
+            return
+        block=model[0]
+        if len(block)!=1 or block.input_dropout or block.max_features is not None:
+            raise ValueError('Bounded NODE initialization requires the native single layer')
+        layer=block[0]
+        if layer._is_initialized_bool is not None or int(layer._is_initialized_tensor.item())!=0:
+            raise ValueError('Bounded NODE initialization requires a fresh native layer')
+        layer.initialize(torch.from_numpy(features))
+        # Same bookkeeping as the pinned ModuleWithInit.__call__, without its
+        # following forward pass (the original caller discards that output).
+        layer._is_initialized_tensor.data[...] = 1
+        layer._is_initialized_bool = True
+
+
+def _loss_backward(model,x,y,resolved,*,deadline_ns=None):
+    """Accumulate a complete native minibatch before its one optimizer update."""
+    torch=_native()[0];size=resolved['execution']['microbatch_rows'];count=len(x)
+    total=x.new_zeros(())
+    for start in range(0,count,size):
+        _check_deadline(deadline_ns)
+        loss=(model(x[start:start+size])-y[start:start+size]).square().sum()/count
+        if not torch.isfinite(loss):raise FloatingPointError('Nonfinite native NODE chunk loss')
+        total.add_(loss.detach());loss.backward()
+        del loss
+    if not torch.isfinite(total):raise FloatingPointError('Nonfinite native NODE accumulated loss')
+    return total
+
+
 def _predict_normalized(model,features,chunk):
     torch=_native()[0];_initialized(model);model.eval()
     if not len(features):return np.empty(0,dtype=np.float32)
@@ -366,9 +409,14 @@ def _train(model,optimizer,F,y,G,gy,resolved,cap,trace,*,deadline_ns=None):
         record=dict(step=step+1,epoch=epoch,rows=batch.tolist(),loss=None,gradient_norms={},optimizer_entered=False,applied=False,elapsed_ns=0)
         trace.append(record);started=time.perf_counter_ns()
         try:
-            model.train();optimizer.zero_grad();loss=(model(tx[batch])-ty[batch]).square().mean()
+            model.train();optimizer.zero_grad()
+            if 'execution' in resolved:
+                loss=_loss_backward(model,tx[batch],ty[batch],resolved,deadline_ns=deadline_ns)
+            else:loss=(model(tx[batch])-ty[batch]).square().mean()
             if not torch.isfinite(loss):raise FloatingPointError('Nonfinite native NODE training loss')
-            record['loss']=float(loss.detach());loss.backward()
+            record['loss']=float(loss.detach())
+            if 'execution' not in resolved:loss.backward()
+            _check_deadline(deadline_ns)
             for name,p in model.named_parameters():
                 if p.grad is not None:
                     if p.grad.is_sparse or not torch.isfinite(p.grad).all():raise FloatingPointError('Invalid native NODE gradient')
@@ -432,7 +480,7 @@ class NodeV2Predictor:
             width=F.shape[1];parameters=resolved['trees']*(3*2**resolved['depth']+width*resolved['depth']+2*resolved['depth'])
             if len(F)>20000 or len(G)>20000 or width>4096 or parameters>10000000:raise ValueError('NODE finite preallocation envelope exceeded; measured admission still pending')
             enter_phase('initialization');model=_build_model(width,resolved)
-            with torch.no_grad():model(torch.from_numpy(F[:min(1000,len(F))]))
+            _initialize_model(model,F[:min(1000,len(F))],resolved)
             _initialized(model)
             if any(not torch.isfinite(v).all() for v in model.state_dict().values()):raise FloatingPointError('Nonfinite native NODE initialized state')
             initial=_model_state(model);optimizer=_optimizer(model,resolved);enter_phase('training')
@@ -469,6 +517,7 @@ class NodeV2Predictor:
         if self._model is None:raise RuntimeError('NODE must be fitted')
         chunk=self._config.resolved()['validation_chunk'] if batch_size is None else batch_size
         if type(chunk) is not int or chunk<=0:raise ValueError('Invalid NODE prediction chunk')
+        if 'execution' in self._config.resolved():chunk=min(chunk,self._config.resolved()['validation_chunk'])
         return self._transform.inverse(_predict_normalized(self._model,self._transform.transform(X),chunk))
 
     def save(self,directory):

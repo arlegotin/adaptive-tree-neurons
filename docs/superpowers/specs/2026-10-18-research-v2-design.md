@@ -640,3 +640,39 @@ worker, recheck resources before admitted batches, retain interruptions and paid
 work, and use the declared same-state/same-seed infrastructure recovery. Do not
 interpret contended timing as a dedicated-worker efficiency result or relax
 scientific budgets, seed pairing, or success gates to accommodate contention.
+
+### NODE bounded-memory execution amendment (19 October)
+
+The user says20GiBfree RAM is unlikely and requests the same scientific comparison
+within available RAM. Builder choice: add an explicit `execution` configuration
+value `bounded_memory_v1` to NODE-v2, leaving absent-field legacy behavior intact.
+This is an execution identity, never a V-selected hyperparameter or an automatic
+fallback. Keep the native2048trees/depth6/tree_dim3, effective512-row minibatches,
+F-prefix initialization on up to1000rows, QHAdam settings, row order, report100,
+rolling5, and strict5000-update patience. Vendor sources remain unchanged.
+
+Initialize the native single ODST layer on the entire original prefix and set its
+native initialization flags without computing the discarded full-prefix output.
+Verify initialized tensors and RNG exactly against the native first call. Split
+each training minibatch into32-row chunks; each chunk contributes its squared
+error sum divided by the original minibatch count, including short final chunks.
+Accumulate all gradients, then take exactly one QHAdam step. Evaluation uses
+at most32rows per forward, including an externally requested larger query batch.
+No training rows, trees, channels, precision or candidate checkpoints are removed.
+
+Numerical acceptance is CPUfloat32 rtol1e-5/atol1e-6 for predictions, gradients,
+QHAdam tensors and short finite trajectories against the full native calculation;
+initialization/RNG/order/optimizer ages remain exact. Also check CPUfloat64
+gradient algebra at rtol1e-10/atol1e-12. Retain actual maximum errors and any
+unstable/failed cases. Chunking changes floating-point reduction order, so this
+qualifies equivalent arithmetic within declared tolerances, not byte-identical
+long training or guaranteed identical checkpoint decisions. A completed native
+fit remains necessary for native eligibility; a bounded update/resource proof
+alone cannot establish quality. All old stops/costs remain visible.
+
+First measure a disposable full2048-tree engineering workload under a4GiBRSS
+limit with a live5.5GiBmemory proxy and1.5GiBdisk floor; only after it passes
+admit the unchanged Energyprimary/seed17 native anchor at the same resource
+limits and7200s. This is a newly verified execution track, superseding waiting
+for20.5GiB for this branch. Do not rerun the old unchunked4GiBtrack. Preserve
+frozen M2 and its held auditor; use a separate held source for NODE qualification.
