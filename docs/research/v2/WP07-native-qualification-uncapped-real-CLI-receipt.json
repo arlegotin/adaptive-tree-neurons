@@ -1,0 +1,114 @@
+{
+  "Gate_D": false,
+  "T_accessed": false,
+  "V_labels_read": false,
+  "actual_cli": true,
+  "anchor": "mean",
+  "dataset": "energy",
+  "family": "P13",
+  "files": [
+    {
+      "bytes": 674,
+      "path": "artifacts/research-v2/WP07/native-qualification-uncapped-real-654a2cc/config.json",
+      "sha256": "263addc4c473b68afb809a71738c442077a509b358188e9767e079be65e8bdba"
+    },
+    {
+      "bytes": 2322,
+      "path": "artifacts/research-v2/WP07/native-qualification-uncapped-real-654a2cc/plan.json",
+      "sha256": "45f50060a7cc3af647bf5e31b62994c8febd49adf5c7fd86a777e865f742aa2a"
+    },
+    {
+      "bytes": 949,
+      "path": "artifacts/research-v2/WP07/native-qualification-uncapped-real-654a2cc/plan-invocation.json",
+      "sha256": "077b6e55bad669dfff95042478b4c8bf5dbbe1e4a3ff3d27e50147885ebdce1f"
+    },
+    {
+      "bytes": 949,
+      "path": "artifacts/research-v2/WP07/native-qualification-uncapped-real-654a2cc/qualify-invocation.json",
+      "sha256": "8cf6bab85851b6e173474803f099685f4d86b4a10341e5e4c84107c532527adb"
+    },
+    {
+      "bytes": 0,
+      "path": "artifacts/research-v2/WP07/native-qualification-uncapped-real-654a2cc/plan-stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "artifacts/research-v2/WP07/native-qualification-uncapped-real-654a2cc/plan-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 116,
+      "path": "artifacts/research-v2/WP07/native-qualification-uncapped-real-654a2cc/qualify-stdout.log",
+      "sha256": "1b667c5b58e5dc4c2e7db3ec2cf2e4cd9cdbd4bca2bc3c3468ea939a220780fe"
+    },
+    {
+      "bytes": 0,
+      "path": "artifacts/research-v2/WP07/native-qualification-uncapped-real-654a2cc/qualify-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 4946,
+      "path": "artifacts/research-v2/WP07/native-qualification-uncapped-real-654a2cc/audit.py",
+      "sha256": "811d8cdebeccb10b0a12b3e4adc0cb8e24c854e193ea2ea73d1994c11d09e9f1"
+    },
+    {
+      "bytes": 228,
+      "path": "artifacts/research-v2/WP07/native-qualification-uncapped-real-654a2cc/audit-stdout.log",
+      "sha256": "26a71cd37305372c53b85af232b91232279f3f228802d700f6f79e6605da5231"
+    },
+    {
+      "bytes": 0,
+      "path": "artifacts/research-v2/WP07/native-qualification-uncapped-real-654a2cc/audit-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1430,
+      "path": "artifacts/research-v2/WP07/native-qualification-uncapped-real-654a2cc/independent-audit.json",
+      "sha256": "52eecc6fb01d6ef7268fb4e5dc38815a4cda5fbfc50e6f87230b42ad3a3594b4"
+    }
+  ],
+  "fit_seed": 17,
+  "held_source": "/private/tmp/atn-research-v2-M3-audit-654a2cc",
+  "independent_audit": {
+    "Gate_D": false,
+    "T_accessed": false,
+    "Torch_imported": false,
+    "V_labels_read": false,
+    "distinct_anchor_added": false,
+    "exact_F_mean": true,
+    "exact_closed_prediction_replay": true,
+    "ledger_event_hash": "fd973b7e22288d3bd7c8bad98b66602cd570f9fef0a780a7d1bd1de0d73290a1",
+    "native_process_ns": 4487644041,
+    "native_process_receipt_sha256": "5fd385b5e8f736ac70325680ed0b876d63177650c3300716d59c8fb61d987c56",
+    "native_worker_terminal_sha256": "285cee457d4c5ebe6bf25ea5f16008a9dbd12e94e8e86b62c24ae4521a05798c",
+    "no_wall_deadline": true,
+    "operator_sha256": "811d8cdebeccb10b0a12b3e4adc0cb8e24c854e193ea2ea73d1994c11d09e9f1",
+    "outer_CLI_ns": 6892749333,
+    "paid_job_ns": 4641568333,
+    "production_HPO_run": false,
+    "quality_eligible": false,
+    "query_rows": 128,
+    "queue_plan_hash": "4d9952621843c190e6d1ee3346e4dc7fcb4075790a9244ff66f0158e168e15a6",
+    "request_sha256": "142f48dd0a2cb774e15dcd67fd945a15ac40ffe6af2e388d4d09b390e56a1e04",
+    "sampled_peak_owned_RSS_bytes": 91160576,
+    "schema": "research/v2-native-qualification-uncapped-real-CLI-audit",
+    "scope": "One repeated existing primary P13 mean anchor verifies new native-mode CLI/source wiring; not full native qualification or predictive comparison. Timers are nested, independent audit separate.",
+    "separate_audit_elapsed_before_publication_ns": 407745583,
+    "source_commit": "654a2cc",
+    "source_sha256": "4dbf2141ca1215b4edc12aaad8d8fa9934f3b10fcf99cbc59fb87335ebc360b6",
+    "status": "completed_wiring_and_prediction_replay",
+    "training_rows": 320
+  },
+  "outer_fold": 0,
+  "production_HPO_run": false,
+  "query_rows": 128,
+  "raw_root": "artifacts/research-v2/WP07/native-qualification-uncapped-real-654a2cc",
+  "schema": "research/v2-native-qualification-uncapped-real-command-receipt",
+  "scope": "Repeated existing primary anchor verifies new explicit native-mode CLI, owned RSS and closed replay on official prepared roles; no distinct anchor or independent teacher added",
+  "source_commit": "654a2cc",
+  "source_sha256": "4dbf2141ca1215b4edc12aaad8d8fa9934f3b10fcf99cbc59fb87335ebc360b6",
+  "training_rows": 320,
+  "unchanged_distinct_primary_anchor_completions": 115,
+  "whole_command_returncode": 0
+}

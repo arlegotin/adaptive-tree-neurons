@@ -93,3 +93,11 @@ do not authenticate official dataset acquisition or qualify a new full native
 anchor. See WP07-native-qualification-uncapped-receipt.json for the complete
 RED/GREEN record. Production HPO, complete support/workload qualification and
 Gate D remain pending.
+
+The explicit native-mode CLI has now also completed a real repeated P13 mean
+anchor on the prepared Energy primary split (F320/query128) under held654a2cc.
+An inactive independent audit authenticated queue/worker files, reconstructed
+the exact F mean, reopened the closed model and reproduced predictions exactly.
+No wall deadline or V/T labels were used, and the native worker imported no
+Torch. This adds no distinct anchor or independent teacher. See
+[the real native-mode receipt](WP07-native-qualification-uncapped-real-CLI-receipt.json).
