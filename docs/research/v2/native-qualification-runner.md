@@ -1,11 +1,11 @@
 # Repeatable native-anchor qualification
 
-**19October amendment:** this document describes the existing capped runner.
-The user's results-first instruction supersedes that prospective wall-time
-policy. A separate explicit recoverable NODE route is being verified before an
-uncapped native restart; see [its contract](results-first-native-execution.md).
-The old runner remains capped until its versioned controller is updated; do not
-silently use it to perform quality-first qualification or repeat its two-hour stop.
+**20October amendment:** explicit `native_stopping:true` now selects the
+results-first qualification route, with no wall deadline and the same finite
+anchor inventory. NODE always uses its recoverable training checkpoints. Legacy
+configurations without this field retain their original capped behavior and
+identities; they are not a substitute for native-completed qualification. See
+[the execution contract](results-first-native-execution.md).
 
 Implement the WP07 `research.cli qualify` command using the already tested
 method worker, native support compiler, owned-process supervisor and immutable
@@ -22,6 +22,8 @@ selected families to lists of relative directories within the current checkout's
 Source and lock digests are externally supplied and rechecked throughout execution.
 The lock digest covers ordinary files under `locks/research-v2` plus `uv.lock`.
 Unknown fields and changed configuration, manifests, source or locks fail.
+The optional `native_stopping` field must be the literal `true` when present;
+numeric, string, null and false values fail rather than select an ambiguous mode.
 
 `qualification_plan(config_path)` expands every declared native anchor for each
 selected family/dataset, always using its primary split. The complete inventory
@@ -31,13 +33,23 @@ P03's h64 coordinate retains its native preprocessing/stopping. P12 always has
 `plan --config` supports the same configuration without starting fitting.
 
 `qualify(config_path, output, resume=False)` uses one sequential worker, seed 17,
-the complete native procedure, 7,200 seconds per anchor and sampled 4 GiB RSS.
+the complete native procedure and sampled 4 GiB RSS. Explicit native-stopping
+mode has no wall deadline; legacy mode retains 7,200 seconds per anchor.
 Recheck the live memory proxy (5.5 GiB) and disk (1.5 GiB) before every job.
 Pause before launch if unavailable; `--resume` requires the identical immutable
 plan. Preserve native stopping, every failure, source/dependency identity,
 closed model/predictions and all costs. Materialize only F/G and V-feature files
 through checked hard links or disclosed cross-device copies. Pay staging and
 translation in the enclosing trial budget. No partial timed-out fit is promoted.
+
+Native mode uses `native_fit_v2` directly, without a fake one-trial capped
+search. Before its one allowed resource/interruption retry, authenticate the
+previous queue failure and the entire retained raw attempt inventory. Only a
+closed, externally committed native result can supply a checkpoint-copy
+reference. Copy NODE checkpoints into independent files in a fresh attempt;
+other methods explicitly restart the same request/seed. Changed previous bytes
+fail before another child starts. All attempts and costs remain recorded. An
+unknown closure is not permission to copy or silently replace training state.
 
 The result records completed/ineligible/failed/paused statuses and coverage. It
 does not grant Gate D, native quality, production search, secondary development
@@ -73,3 +85,11 @@ containing a 0.942460666 s worker process; the separate audit body took 0.511829
 This repeats an already executed coordinate to verify command wiring; it adds no
 distinct anchor or independent teacher. No V/T labels, HPO, quality comparison or
 Gate D promotion. See [the real-command receipt](WP07-native-qualification-real-CLI-receipt.json).
+
+The explicit native mode has now been checked on real synthetic sealed-role
+fixtures, including a native P13 worker, a forced owned-RSS interruption and
+same-request/seed retry, and rejection of changed old evidence. These fixtures
+do not authenticate official dataset acquisition or qualify a new full native
+anchor. See WP07-native-qualification-uncapped-receipt.json for the complete
+RED/GREEN record. Production HPO, complete support/workload qualification and
+Gate D remain pending.

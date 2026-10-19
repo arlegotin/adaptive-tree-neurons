@@ -47,7 +47,9 @@ def load_qualification_config(path):
     path=Path(path)
     if path.is_symlink() or not path.is_file():raise ValueError('Ordinary qualification configuration required')
     value=_read_json(path)
-    if (type(value) is not dict or set(value)!=_FIELDS or value['schema']!='research/v2-native-qualification'
+    if (type(value) is not dict or set(value)-{'native_stopping'}!=_FIELDS
+            or 'native_stopping' in value and value['native_stopping'] is not True
+            or value['schema']!='research/v2-native-qualification'
             or type(value['study_id']) is not str or re.fullmatch('[A-Za-z0-9_-]{1,100}',value['study_id']) is None
             or value['source_sha256']!=qualification_source_sha256()
             or value['locks_sha256']!=qualification_locks_sha256()):
@@ -100,10 +102,11 @@ def qualification_plan(config_path):
         config_path=str(config_path),config_sha256=_sha(config_path),config=c,
         source_sha256=c['source_sha256'],locks_sha256=c['locks_sha256'],interpreter_sha256=_sha(c['interpreter']),
         full_native_anchor_inventory_planned=set(c['families'])==set(_FAMILIES) and set(c['datasets'])==set(_DATASETS),
-        fit_seed=17,per_anchor_deadline_ns=_DEADLINE,sampled_root_rss_limit_bytes=_RSS,
+        fit_seed=17,per_anchor_deadline_ns=None if c.get('native_stopping') else _DEADLINE,sampled_root_rss_limit_bytes=_RSS,
         resource_floor=dict(memory_proxy_bytes=11*1024**3//2,free_disk_bytes=1536*1024**2),
         quality_eligible=False,Gate_D=False,V_labels_read=False,T_accessed=False,
         purpose='Primary native-anchor execution engineering only; no HPO or predictive comparison')
+    if c.get('native_stopping'):identity['native_stopping']=True
     plan=make_queue_plan(identity,jobs)
     if load_qualification_config(config_path)!=c:raise ValueError('Qualification inputs changed during planning')
     return plan
@@ -114,7 +117,7 @@ def _resources(output):
     return live_resources(output)
 
 
-def _execute_anchor(job,directory,identity):
+def _execute_anchor(job,directory,identity,*,recovery_reference=None):
     from .transfer import TransferStore
     from .trial_bridge_v2 import EngineeringTrialBridge
     from .search_controller_v2 import make_search_plan,run_search
@@ -137,9 +140,23 @@ def _execute_anchor(job,directory,identity):
     write_new_json(input_root/'materialization.json',dict(files=material))
     request=dict(schema='research/v2-method-worker-request',purpose='engineering_qualification',
         job_id='qualification/'+job['job_id'],family_id=family,fit_seed=17,scientific_source_sha256=c['source_sha256'],
-        config=case['config'],budget=dict(max_seconds=7200.),files=files,
+        config=case['config'],budget=dict(native_stopping=True) if c.get('native_stopping') else dict(max_seconds=7200.),files=files,
         observation_identity=dict(dataset=dataset,split_kind='temporal' if dataset=='bike' else 'grouped',split_sha256=view.split_hash))
     path=input_root/'request.json';write_new_json(path,request)
+    if c.get('native_stopping'):
+        from .native_fit_v2 import run_native_fit
+        result=run_native_fit(path,expected_request_sha256=_sha(path),output=directory/'native',
+            interpreter=c['interpreter'],extra_pythonpath=[_ROOT/entry for entry in c['overlays'].get(family,[])],
+            rss_limit_bytes=_RSS,recovery_reference=recovery_reference)
+        write_new_json(directory/'native-fit-result.json',result)
+        if result['status']=='resource_exhausted':
+            raise MemoryError('Native fit exhausted its owned resource guard; retain and resume the same attempt list')
+        if result['status']=='interrupted_recoverable':
+            raise KeyboardInterrupt('Native fit interrupted after owned child closure; retain and resume the same attempt list')
+        return dict(status=result['status'],family=family,dataset=dataset,outer_fold=fold,anchor_id=case['anchor_id'],
+            config=case['config'],source_sha256=c['source_sha256'],manifest_sha256=c['datasets'][dataset]['manifest_sha256'],
+            native_stopping=True,paid_native_callback_ns=result['callback_elapsed_ns'],
+            quality_eligible=False,Gate_D=False,V_labels_read=False,T_accessed=False)
     trial_identity=dict(job_id=request['job_id'],family_id=family,search_repeat=0,source_sha256=c['source_sha256'],
         runtime_sha256=canonical_hash(dict(interpreter=identity['interpreter_sha256'],locks=c['locks_sha256'])),
         support_sha256=case['support_sha256'],split_sha256=view.split_hash)
@@ -154,6 +171,22 @@ def _execute_anchor(job,directory,identity):
     return dict(status=status,family=family,dataset=dataset,outer_fold=fold,anchor_id=case['anchor_id'],
         config=case['config'],source_sha256=c['source_sha256'],manifest_sha256=c['datasets'][dataset]['manifest_sha256'],
         paid_search_ns=result['total_charged_ns'],quality_eligible=False,Gate_D=False,V_labels_read=False,T_accessed=False)
+
+
+def _previous_native_attempt(directory,job,plan):
+    """Reauthenticate the queue's paid failure before trusting a recovery copy."""
+    from .ledger import AttemptLedger
+    from .workqueue import _read,_inventory
+    queue=directory.parents[2];old=directory.parent/'attempt-0'
+    ledger=AttemptLedger.resume(queue,plan)
+    events=[e for e in ledger.events if e['attempt_id']==job['job_id'] and e['status']=='interrupted_recoverable']
+    if len(events)!=1 or 'result' not in events[0]:raise ValueError('One authenticated prior native interruption required')
+    result=_read(events[0]['result'],queue,job);raw=result['value'].get('raw_attempt_evidence',{})
+    if (raw.get('status')!='inventory_committed_at_failure' or raw.get('path')!=str(old)
+            or raw.get('inventory')!=_inventory(old)):
+        raise ValueError('Previous paid native attempt bytes changed or were never committed')
+    native=old/'native';saved=_read_json(native/'result.json')
+    return dict(root=str(native),inventory_sha256=canonical_hash(_inventory(native)),request_sha256=saved['request_sha256'])
 
 
 def qualify(config_path,output,*,resume=False):
@@ -187,8 +220,11 @@ def qualify(config_path,output,*,resume=False):
         write_new_json(output/f'admission-{index}-{observations}.json',decision);observations+=1
         return decision
     try:
-        result=run_queue(plan,output/'queue',lambda job,directory,dependencies,recovery_attempt:
-            _execute_anchor(job,directory,identity),check_identity=unchanged,resume=resume,before_start=before_start)
+        def execute(job,directory,dependencies,recovery_attempt):
+            if not c.get('native_stopping'):return _execute_anchor(job,directory,identity)
+            previous=_previous_native_attempt(directory,job,plan) if recovery_attempt else None
+            return _execute_anchor(job,directory,identity,recovery_reference=previous)
+        result=run_queue(plan,output/'queue',execute,check_identity=unchanged,resume=resume,before_start=before_start)
         result|=dict(quality_eligible=False,Gate_D=False,V_labels_read=False,T_accessed=False,
             native_anchor_executions_complete=result['status']=='completed',
             full_native_anchor_inventory_planned=identity['full_native_anchor_inventory_planned'],

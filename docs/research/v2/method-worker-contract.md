@@ -150,6 +150,8 @@ checkpoint is also an explicitly recorded same-seed restart.
 
 This helper does not grant native qualification, V scoring, production HPO or
 protected access. The containing queue must authenticate prior attempts and
-charge all fitting, copying, final inventory and retry costs. Generic native
-qualification and the production coordinator still need integration. See
+charge all fitting, copying, final inventory and retry costs. The qualification
+CLI now has explicit native-stopping integration, including authentication of
+the containing queue's prior failure before copying. The production coordinator
+still needs integration and qualification. See
 [the supervision receipt](WP08-native-fit-supervision-receipt.json).

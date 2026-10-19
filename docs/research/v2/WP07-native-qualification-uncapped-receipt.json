@@ -1,0 +1,42 @@
+{
+  "Gate_D": false,
+  "T_accessed": false,
+  "V_labels_read": false,
+  "active_producers_unchanged": [
+    "M3:53bd029/e78e",
+    "NODE Airfoil:c33a84e/b680"
+  ],
+  "all_primary_anchor_jobs": 120,
+  "behavior": "Optional literal native_stopping:true selects finite uncapped native-anchor engineering; legacy configurations keep exact capped semantics",
+  "fit_seed": 17,
+  "fixture_scope": "Real native P13 processes on synthetic sealed-role sentinel tables; supplied acquisition metadata is fixture-only, not official dataset authentication. Real owned-RSS stop, same-request/seed retry, paid clocks, old tree preservation and tampering rejection. No new full native anchor qualified.",
+  "logs": [
+    {
+      "bytes": 10592,
+      "path": "artifacts/research-v2/WP07/native-qualification-uncapped-red.log",
+      "sha256": "e16eb5b250879aefa420196f90f07b43c88d1db85ad405c6a6f5a9cf4227ba4e"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP07/native-qualification-uncapped-green.log",
+      "sha256": "35f7698d2e1f69e1d603bfcca20daa5497654c35763ac4e56e2b4c6ca9ac7ff4"
+    },
+    {
+      "bytes": 2551,
+      "path": "artifacts/research-v2/WP07/native-qualification-uncapped-affected.log",
+      "sha256": "02b85c2f2c6c78db9bb7243444f98bb898375a4620d2ea314fb7156190f09dfb"
+    }
+  ],
+  "native_recipe_changed": false,
+  "pending": "Final-source/full native workload and support qualification; production quality coordinator/model lineage/V evaluation and protocol freeze",
+  "production_HPO_run": false,
+  "quality_eligible": false,
+  "recovery": "One paid resource/interruption retry authenticates prior queue result and complete raw inventory; helper copies closed NODE state into independent fresh files or explicitly restarts same seed for other models",
+  "schema": "research/v2-native-qualification-uncapped-implementation",
+  "source_sha256": "0bde7750e564a4dcde8beef5d255e9378688844174c8523294002d103408e167",
+  "tests": {
+    "GREEN": "26 passed/4.96s",
+    "RED": "4 failed/4 passed/.61s: optional native mode absent",
+    "affected": "70 passed/7 retained native warnings/45.26s"
+  }
+}
