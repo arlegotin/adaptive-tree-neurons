@@ -90,3 +90,15 @@ native workload qualification. This addendum makes implementation choices within
 the authorized spec; it does not replace GateA/B/D, confirm a useful model or
 authorize V/T access. Production integration remains incomplete until every
 owning contract and the final-source qualification pass.
+
+
+The configuration/model core and in-memory complete-state stage engine are now
+implemented. The stage selects strict original-unit G MSE with float64 target
+values, supports absolute constant/cosine schedules and restores model, Adam,
+parameter births, complete RNG, sampler order/cursor/epoch and selected counters.
+Full row-index update events remain external and are not rewound on selection.
+One-process replay and corruption boundaries passed154affected checks with one
+unavailable-MPS skip. This does not qualify persistent interruption recovery,
+the complete adapter, closed inference snapshots or worker/native workloads.
+See [stage evidence](WP07-gated-stage-receipt.json). Native search/calibration and
+all scientific gates remain pending.

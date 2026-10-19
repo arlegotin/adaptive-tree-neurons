@@ -1,0 +1,58 @@
+{
+  "aliases": 13,
+  "base_commit": "79d768d",
+  "invariants": [
+    "Independent manual AdamW/sampler/constant-or-absolute-cosine trajectory equality",
+    "Non-epoch-boundary full-state dropout/RNG/optimizer/sampler replay",
+    "Strict earliest G-best including update zero and a later selected point",
+    "External paid update/evaluation events survive best-state rewind",
+    "Original-unit float64 G loss through F-fitted location/scale",
+    "Birth age and absolute schedule remain correct for gate and ordinary growth",
+    "Corrupt model/optimizer dtype, moments, ages, sampler phase, stage risk/progress and RNG caches reject before state restoration"
+  ],
+  "inventory_sha256": "6919aa76d0f67279acf9b67d4f75613d2d708cb6a4e50c32a6ed5beefbdb9e75",
+  "limits": [
+    "Standalone in-process mathematical fixtures; no source-bound native workload/quality receipt",
+    "No persistent interruption resume or completed practical adapter",
+    "Nine legacy backend setups remain deferred at last native pressure2; no full-suite green claim"
+  ],
+  "raw_files": 249,
+  "raw_logical_bytes": 2272016,
+  "raw_root": "artifacts/research-v2/WP07/gated-stage-preparation",
+  "readiness": {
+    "Gate_A": false,
+    "Gate_D": false,
+    "T_accessed": false,
+    "V_labels_read": false,
+    "adapter_fit": false,
+    "closed_inference_snapshot": false,
+    "in_memory_complete_state": true,
+    "method_worker": false,
+    "native_workload_qualified": false,
+    "persistent_training_resume": false,
+    "production_practical_searches": 0,
+    "quality_eligible": false
+  },
+  "schema": "research/v2-gated-training-core-preparation",
+  "scientific_source_sha256": "3c2578d7d37c7e4e26621aa25ce97e86279b68dc87c339b3b52bef22a6beaaad",
+  "source_files": {
+    "src/treeneuron/research/gated_training.py": "303c2fd1c4111c9343382bac3013916ed9ff884fc89b48e9ebb4efe18027a0dc",
+    "tests/test_gated_training.py": "3f4158950b796dd7942ee77668d9ba2c1f0094a98362b0e2bc848da4250a0951"
+  },
+  "verification": {
+    "boundary_green": 60,
+    "boundary_red": 5,
+    "cached_random_nonfinite_red": 2,
+    "deferred_legacy_backend_setups": 9,
+    "final_passed": 154,
+    "final_seconds": 8.17,
+    "final_skipped": 1,
+    "full_repository_suite": false,
+    "initial_failure_cause": "Strict plain-dict check rejected legitimate PyTorch OrderedDict model state; accept dict subclasses with unchanged exact tensor validation",
+    "initial_green": 54,
+    "initial_integration_failures": 18,
+    "missing_component_red": 18,
+    "original_unit_green": 61,
+    "original_unit_red": 1
+  }
+}

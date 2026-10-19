@@ -1307,3 +1307,17 @@ qualified adapter:stage training, complete-state restoration, closed snapshots,
 worker integration and native workload measurement remain pending. Source0c5f7081;
 WP07-gated-core-receipt.json and gated-practical-adapter-design.md contain exact
 contracts, raw tests and boundaries. GateA/D, practical searches and T remain pending.
+
+
+WP07 own-family stage preparation:18missing-component RED cases preceded the
+complete in-memory TrainingSession engine. First integration rejected PyTorch's
+legitimate OrderedDict model state; exact tensor validation retained while
+accepting its dict subclass. Independent manual AdamW/row/schedule trajectories,
+non-epoch dropout/RNG replay, update-zero and later complete G-best restoration,
+external paid-event retention, newborn ages and original-unit float64 G loss
+pass. Five state/geometry boundary RED cases and two cached-nonfinite-RNG RED
+cases were corrected before final154passed/1unavailable-MPS skip in8.17s.
+This does not implement persistent recovery, a complete fit adapter, inference
+serialization, worker integration or workload admission. Source3c2578d7; raw
+249files2272016bytes, exact inventory and limits in WP07-gated-stage-receipt.json.
+No V/T labels, production HPO, calibration, freeze or scientific gate change.

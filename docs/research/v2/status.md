@@ -160,7 +160,8 @@ accuracy claim and no production search. See
 The proposed neurons' own practical adapter is being extended to the actual
 transformed tabular shapes. Its configuration/model core passed109affected checks
 with one unavailable-MPS skip, including exact gate insertion, inherited Adam
-state, ordinary widening and independent static forward references. Stage
-training, closed saved-state handling, worker integration and measured workload
-qualification are still pending. This work leaves the historical model guards
+state, ordinary widening and independent static forward references. The in-memory stage engine now also passes154affected checks with one MPS skip:
+it restores the whole selected training state and records original-unit G loss.
+The complete adapter, closed saved-state handling, worker integration and measured
+workload qualification are still pending. This work leaves the historical model guards
 intact and does not admit the new joint chooser before Gate A.
