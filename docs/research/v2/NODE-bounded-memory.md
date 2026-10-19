@@ -35,7 +35,7 @@ The affected native/reference/snapshot/worker/support regression run passed
 111checks with50native warnings in180.12s. It includes the unchanged direct
 official comparisons. An initial command named a nonexistent worker test file;
 it ran no tests, was retained, and was corrected. Actual full-shape resource
-measurement remains pending. See [the receipt](WP07-NODE-bounded-memory-receipt.json).
+measurement below has now completed. See [the receipt](WP07-NODE-bounded-memory-receipt.json).
 
 Admission sequence: pass affected regression checks; commit the new source;
 hold a separate NODE checkout (the M2 auditor remains unchanged); measure a
@@ -59,10 +59,14 @@ stdin audit took6.205387208s. A retained executable audit then repeated those
 checks solely to provide a durable replay command; both costs remain visible.
 This remains a capped three-update engineering result.
 
-The full Energyprimary/seed17 native fit is now running in the separate held
-NODE checkout with `bounded_memory_v1`,7200s, sampled4GiBRSS and unchanged native
-stopping. Initial live admission passed. Its first78seconds stayed near1.46GiB
-sampled RSS. Completion/native quality remains pending. See
+The full Energyprimary/seed17 native fit ran in the separate held NODE checkout
+with `bounded_memory_v1`,7200s, sampled4GiBRSS and unchanged native stopping.
+It reached the two-hour time cap. All65,666RSS samples stayed below4GiB; sampled
+peak was1,604,878,336bytes (about1.49GiB). Thus the observed memory barrier was
+removed, while native completion remains unqualified. The child was terminated,
+reaped and its process group verified absent. No successful fit receipt or
+prediction model was published; executed updates are unknown, not zero. This
+timeout is no predictive loss or general NODE infeasibility. See
 [the full-shape receipt](WP07-NODE-bounded-full-shape-receipt.json).
 
 The practical P12 support compiler now includes this same explicit policy in
@@ -72,5 +76,16 @@ One missing-policy regression failed first. All34affected support/compiled-worke
 checks then passed14.25s with native RSS observation. An earlier sandbox run
 retained33passes/one failure because `/bin/ps` was blocked before either owned
 child started; native permission resolved it without a code or guard change.
-No production search or qualification is granted. The active native fit retains
-its original separate source; see [the compiler receipt](WP08-NODE-fixed-execution-policy-receipt.json).
+No production search or qualification is granted. The timed-out native attempt
+retains its original separate source; see [the compiler receipt](WP08-NODE-fixed-execution-policy-receipt.json).
+
+The independent inactive audit authenticated the queue, source, original
+Energy F320/G128/query128 bytes, full native recipe and all process/resource
+commitments. Its containing job cost was7200.104335625s, enclosing paid search
+7200.071415251s and process7200.022782625s; do not add them. Earlier failed attempts
+and proof/qualification costs remain separate. At the declared120-minute budget
+this Energy anchor is unavailable; the full mandatory-suite claim remains
+blocked pending qualified missing comparisons. A larger common budget is a
+possible separately declared recovery before protected data, with an updated
+whole-program forecast. No repeat of this same capped run is currently admitted.
+See [the timeout receipt](WP07-NODE-bounded-native-timeout-receipt.json).

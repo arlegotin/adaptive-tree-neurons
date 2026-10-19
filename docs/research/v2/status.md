@@ -1,5 +1,11 @@
 # What the research is trying to establish
 
+**19October priority update:** the user prioritizes completed results over the
+two-hour comparison budget. Native qualification and the quality view will run to
+normal model stopping, with RAM/disk guards and resumable checkpoints. The earlier
+NODE timeout is retained; it published no model to resume. Budget prefixes remain
+a separate view. See [the implementation amendment](results-first-native-execution.md).
+
 Start with a small neural network. Give selected neurons a learned switch between
 two affine rules, preserving predictions when that flexibility is inserted.
 Then ask whether growth helps, whether a chooser beats random placement, and
@@ -138,8 +144,9 @@ child/group cleaned up. No prediction or accuracy loss is assigned. The default
 An explicitly versioned bounded-memory execution now preserves all2048trees,
 depth6, effective batch512 and native stopping. After numerical/reference checks
 and a full-size three-update proof at1.097GiB peak, the same Energy/data/seed
-native fit is running under a4GiB cap. Its sampled peak at17:41UTC is about1.49GiB;
-native completion, remaining P12 workloads and full-suite claims stay pending.
+native fit reached the two-hour time cap under a4GiB cap, at about1.49GiB sampled
+peak. Independent inactive audit confirms cleanup, source/data/recipe and paid
+time. Native completion, remaining P12 workloads and full-suite claims stay pending.
 These execution results establish no predictive winner or general NODE
 infeasibility. See [the memory policy and evidence](NODE-bounded-memory.md).
 All 14 families now have explicit native-anchor and finite search-support
@@ -220,8 +227,9 @@ sources. It starts no fits and consumes no partial outcomes. The user's availabl
 memory check did not admit the larger NODE track. A lower-memory
 execution of the same native model now passes111affected checks. A full-size
 three-update proof used1.097GiBsampled peak RSS and preserved closed predictions
-exactly. The full Energy native fit is running under the new explicit execution
-policy and4GiBcap; native completion and quality remain pending. See
+exactly. The full Energy native attempt reached its two-hour cap under the new
+execution policy and4GiBcap, without a qualified completed model. Memory stayed
+near1.49GiB peak, so memory and native-training completion are separate results. See
 [the exact execution and evidence](NODE-bounded-memory.md).
 The nine previously memory-deferred legacy backend checks now pass under normal
 native pressure (23.18 s). Their guards and earlier failure receipts are preserved;

@@ -8,6 +8,28 @@ the implementation plan, and that ledger before continuing after a context reset
 
 ## Intent and evidence boundary
 
+**19 October user priority amendment:** the user explicitly prioritizes completed
+scientific results over a two-hour deadline. Native qualification and the quality
+view must finish the declared native stopping procedure, without an arbitrary
+wall-time cap. Keep the finite configuration supports and attempt ceilings,
+paired information access, memory/storage guards, and all paid costs. The
+10/30/120-minute prefixes remain a separate resource-bounded view; an unfinished
+native model is unavailable at a prefix, never a predictive loss. Quality-first
+searches finish their finite attempted configurations; their different total
+times must be reported. Update forecasts before admission. No production HPO,
+calibration, global freeze or protected T preceded this amendment.
+
+Long NODE fits require periodic, atomic training checkpoints before restarting.
+Resume the raw model, optimizer, sampler and RNG, with G-selection/rolling-window
+state, under matching source/runtime/configuration/data identities. Never resume
+from averaged prediction weights. External append-only row/update records carry
+their own committed prefixes; checkpoints must not duplicate an ever-growing
+history. A resource interruption may resume the same seed/state and retains every
+attempt's costs. The earlier capped Energy fit has no saved model and cannot be
+resumed; its new checkpointed, uncapped run starts from the same seed and data.
+This amendment changes prospective resource policy, not historical receipts or
+the fixed usefulness margins, multiplicity rules or data-access boundaries.
+
 Determine whether adaptive affine-stump capacity, particularly informed placement,
 provides reproducible prediction or quality–cost advantages over a finite strong
 suite. Preserve useful infrastructure, change scientific hypotheses when evidence
