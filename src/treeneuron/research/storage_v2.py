@@ -18,7 +18,7 @@ import time
 from treeneuron.config import canonical_hash
 from .ledger import write_new_json
 
-_LOG=re.compile(r'artifact/runs/[0-9a-f]{32}/events\.jsonl\Z')
+_LOG=re.compile(r'(?:artifact/runs/[0-9a-f]{32}/events\.jsonl|artifact/(?:[A-Za-z0-9_-]+/)*history-[0-9a-f]{32}\.jsonl)\Z')
 
 
 def _sha(path):

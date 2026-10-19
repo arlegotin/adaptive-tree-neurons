@@ -133,3 +133,22 @@ def test_corrupted_completed_result_cannot_be_admitted_by_the_storage_plan(tmp_p
     run_queue(plan,study,lambda *_:dict(status='completed_eligible'),check_identity=lambda _:None)
     next(study.rglob('job-result.json')).write_text('{}')
     with pytest.raises(ValueError):api().plan_completed_training_logs(study,expected_plan_hash=plan['plan_hash'])
+
+
+@pytest.mark.parametrize('location',['artifact','artifact/checkpoints','artifact/runs/'+'a'*32+'/checkpoints','artifact/prefixes'])
+def test_published_completed_history_files_keep_exact_prefix_and_cached_history_values(tmp_path,monkeypatch,location):
+    from treeneuron.history import History
+    study=tmp_path/'study';job=study/'jobs'/'frozen'/'attempt-0';directory=job/location
+    history=History(dict(update=i,rows=[1,2,3]) for i in range(200));reference=history.publish(directory)
+    file=directory/reference['file'];before=file.read_bytes();loaded_before=History.load(directory,reference)
+    marker=job/'job-result.json';entry=dict(path=file.relative_to(job).as_posix(),bytes=len(before),sha256=hashlib.sha256(before).hexdigest())
+    marker.write_text(json.dumps(dict(job_id='frozen',value={'status':'completed_eligible'},files=[entry])))
+    ref=dict(path=str(file),bytes=entry['bytes'],sha256=entry['sha256'],job_id='frozen',result_reference=dict(path=str(marker),sha256=hashlib.sha256(marker.read_bytes()).hexdigest()))
+    monkeypatch.setattr(api(),'_ditto',plain)
+    result=compress(tmp_path,ref)
+    assert result['status']=='published_identical_bytes' and file.read_bytes()==before
+    assert list(History.load(directory,reference))==list(loaded_before)==list(history)
+    # On a disposable fixture, a subsequent publish checks the changed inode
+    # against the same committed prefix before extending it. Never a live writer.
+    loaded_before.append(dict(update=200,rows=[4,5,6]));extended=loaded_before.publish(directory)
+    assert extended['count']==201 and list(History.load(directory,reference))==list(history)

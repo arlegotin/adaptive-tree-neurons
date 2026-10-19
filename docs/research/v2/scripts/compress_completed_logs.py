@@ -24,6 +24,9 @@ def main():
     required=('all_checks_passed','disposable_copy_only','original_reader_identical',
         'random_seek_reads_identical','readonly_mmap_identical','no_temporary_names_in_protected_inventory')
     if (proof.get('schema')!='research/v2-atomic-log-compression-qualification'
+            or proof.get('qualified_log_kinds')!=['events','history']
+            or proof.get('history_values_identical') is not True
+            or proof.get('history_reader_module_sha256')!=storage_v2._sha(Path(storage_v2.__file__).parents[1]/'history.py')
             or any(proof.get(k) is not True for k in required) or proof.get('live_scientific_files_mutated') is not False
             or proof.get('T_accessed') is not False or proof.get('platform')!=sys.platform or sys.platform!='darwin'
             or proof.get('operator_module_sha256')!=storage_v2._sha(storage_v2.__file__)

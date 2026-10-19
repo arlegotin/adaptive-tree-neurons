@@ -1,0 +1,79 @@
+{
+  "T_accessed": false,
+  "base_commit": "6889f82",
+  "batch_cli_proof": {
+    "T_accessed": false,
+    "cached_fresh_history_equal": true,
+    "full_queue_reauthenticated": true,
+    "models_fit": 0,
+    "path": "artifacts/research-v2/WP03/storage-history-batch-cli-proof-6889f82/proof.json",
+    "sha256": "d7829df5f7939d7a4a6f47d78fcbf47b8b3d6b3fb79fdc3f0e1bb295fc227929",
+    "software_only": true
+  },
+  "live_application": false,
+  "logs": {
+    "artifacts/research-v2/WP03/storage-operator-preparation/history-affected-green.log": {
+      "bytes": 181,
+      "sha256": "b8be030e89bb5000125d3468e55c09c4da0f65ed34a931674f61f09099797e50"
+    },
+    "artifacts/research-v2/WP03/storage-operator-preparation/history-native-qualification.log": {
+      "bytes": 3917,
+      "sha256": "e1477c934f737e739b02a3db92b5a39c64198c83860450f6a06c9d5c0e94b610"
+    },
+    "artifacts/research-v2/WP03/storage-operator-preparation/history-scope-red.log": {
+      "bytes": 17184,
+      "sha256": "9e2e5af33896c1b7f31d36529f6fef82e30929599d8e06346d9cd57b0a256b27"
+    }
+  },
+  "native_qualification": {
+    "JSON_lines_parsed": 44635,
+    "child_lifetime_peak_rss_bytes": 58146816,
+    "disposable_only": true,
+    "elapsed_ns": 2367404334,
+    "history_values_identical": true,
+    "logical_bytes": 28047773,
+    "module_sha256": "f2ba610e8333a144229ad01fa6471806fac3d9196810462d37605550c2afdf98",
+    "operator_lifetime_peak_rss_bytes": 79872000,
+    "path": "artifacts/research-v2/WP03/atomic-log-compression-history-qualification-6889f82/qualification.json",
+    "qualified_log_kinds": [
+      "events",
+      "history"
+    ],
+    "sha256": "751070583920974ed471331795427566c53b154aa4490af5ba387ac55649197a"
+  },
+  "pending": [
+    "apply the new exact qualified module to committed closed logs only",
+    "postcheck logical hashes and result markers",
+    "full inactive scientific-queue audit"
+  ],
+  "schema": "research/v2-closed-history-storage-extension",
+  "scope": "Completed producer-published event logs and history-<uuid>.jsonl within the owning artifact only; all logical bytes unchanged",
+  "source_files": {
+    "docs/research/v2/scripts/compress_completed_logs.py": "c29cb7ab12d53b67e89efeaf61091076d2724d794e4f58e496b739eb019ef27b",
+    "docs/research/v2/scripts/qualify_log_compression.py": "83696200d4ec62e5da59991806d5c7ab946a45f14c20a57edcf8fb28d3fc153d",
+    "src/treeneuron/research/storage_v2.py": "f2ba610e8333a144229ad01fa6471806fac3d9196810462d37605550c2afdf98",
+    "tests/test_storage_v2.py": "8c4b948bcdb1e90189e60ff8974267dc92e86d0e4c900071e906b38a4f9a156c"
+  },
+  "source_history_reader_sha256": "e2fbb40021f9610f4114715047bb90d36a809b7a6ad0c1d010b8ca4dac2b57d2",
+  "verification": {
+    "affected_passed": 132,
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-B",
+      "-c",
+      "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"tests/test_storage_v2.py\",\"tests/test_opportunity_prediction_audit.py\",\"tests/test_opportunity_collection.py\",\"tests/test_control_audit.py\",\"tests/test_workqueue.py\",\"tests/test_metrics.py\",\"tests/test_checkpoint.py\"]))"
+    ],
+    "cwd": "/private/tmp/atn-research-v2-next",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "history_scope_red": 4,
+    "seconds": 21.27
+  }
+}

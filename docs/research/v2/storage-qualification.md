@@ -58,3 +58,21 @@ free space changed from6,898,626,560to8,066,584,576bytes while other work contin
 that delta is not attributed solely to this operation. The active scientific
 source stayede1b1018/e322da64, and no model/data/checkpoint/queue bytes changed.
 Full inactive-queue authentication remains for the final audit.
+
+A separately qualified second format now covers published `history-<uuid>.jsonl`
+files inside the completed producer artifact. These are checkpoint history
+records; checkpoint tensor payloads, metadata and pointers remain excluded.
+Inspection of History.load/publish confirmed that replacing an inode triggers
+prefix rehashing. Four failing history-path regressions became GREEN, including
+cached-history prefix reads and later disposable append/publish.132affected
+checks, including checkpoint tests, passed21.27s.
+
+Fresh native qualification covered both formats:28,047,773bytes/44,635JSON records,
+open readers/seek/mmap and cached/fresh History values identical, originals
+unchanged. Measured operator lifetime peak was79,872,000bytes and maximum child
+RSS58,146,816bytes; this is a bounded storage observation, not a predictor budget.
+A two-format disposable batch again preserved every queue byte and passed full
+authentication. The new module/tool/reader hashes and both-format requirement
+replace the old qualification for future operations; earlier receipts still
+describe their original module. Actual application and postcheck remain separately
+recorded in WP03-history-storage-receipt.json. Active writers remain excluded.

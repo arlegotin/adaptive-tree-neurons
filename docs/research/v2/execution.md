@@ -1144,3 +1144,12 @@ Stat per-file savings1,378,652,160bytes; observed volume free6,898,626,560→
 e1b/e322 source and all model/data/checkpoint/queue bytes unchanged. Actual
 scientific queue remains running; full inactive audit pending. Exact receipts
 WP03/completed-log-compression-7e439b0-01 and native recovery JSON.
+
+Closed checkpoint-history storage extension prepared:4unsupported-path REDs→
+132affectedGREEN21.27s including checkpoint regressions. Two-format native copied
+qualification28.05MB/44,635records preserves bytes/readers/seek/mmap/History state;
+operator79.87MBpeak/child58.15MB. Native two-format batch CLI disposable queue
+reauthenticates every byte and cached/fresh History values. New modulef2ba610e
+requires qualification75107058 and matching History reader; oldf3c75/339a279e
+receipts retain original scope. No live history application yet; .pt/metadata/
+pointers/arrays/source/globalqueue/activewriters remain excluded.
