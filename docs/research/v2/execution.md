@@ -7,6 +7,12 @@ Unchecked work is not completed, and prior investigation findings are not new ru
 
 ## Intake
 
+Deferred software recovery: at `dd0483a`/`8b559d9c…`, native pressure was 1 with
+60% reported pressure headroom. The exact nine previously resource-deferred
+legacy search/backend cases passed in 23.18 s without guard or source changes.
+Earlier errors remain retained. This closes that specific deferral, not a whole
+suite verification. See [the recovery receipt](WP00-previously-deferred-backend-recovery-receipt.json).
+
 NODE resource continuation: the explicit bounded execution passed111affected
 checks and a full2048-tree/depth6/F1025/init1000 proof. Three updates covered
 512/512/1rows, peak sampled RSS1.097GiB, independent closed predictions exact.

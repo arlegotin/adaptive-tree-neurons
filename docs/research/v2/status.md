@@ -185,6 +185,10 @@ three-update proof used1.097GiBsampled peak RSS and preserved closed predictions
 exactly. The full Energy native fit is running under the new explicit execution
 policy and4GiBcap; native completion and quality remain pending. See
 [the exact execution and evidence](NODE-bounded-memory.md).
+The nine previously memory-deferred legacy backend checks now pass under normal
+native pressure (23.18 s). Their guards and earlier failure receipts are preserved;
+this targeted recovery is not a whole-repository green run. See
+[the recovery receipt](WP00-previously-deferred-backend-recovery-receipt.json).
 Advance a new chooser only if the specified opportunity gate permits it; record
 a negative or inconclusive result with the same completeness as a favorable one.
 The [execution ledger](execution.md), [reproduction](reproduce.md),

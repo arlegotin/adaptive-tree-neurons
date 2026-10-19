@@ -1,0 +1,26 @@
+{
+  "command_sha256": "dd7962d82c39450c0fa5b459c6c26f08084af2649f28d15d65892e576c9b7079",
+  "commit": "dd0483a",
+  "full_repository_suite": false,
+  "initial_failure_retained_at": "artifacts/research-v2/WP08/process-supervision-preparation/affected-green.log",
+  "inventory_sha256": "2b5830d133b2eb8011fa5ebd6228b66834b3943d7df361af4b7ca6193a70befc",
+  "native_guards_unchanged": true,
+  "native_memory_pressure_free_percentage": 60,
+  "native_pressure_level": "1",
+  "new_scientific_teachers": 0,
+  "protected_access": false,
+  "pytest_seconds": 23.18,
+  "raw_bytes": 3163642,
+  "raw_files": 456,
+  "raw_root": "artifacts/research-v2/WP00/previously-deferred-search-backends-dd0483a",
+  "schema": "research/v2-previously-deferred-backend-recovery",
+  "scope": "Nine formerly resource-deferred software/backend fixtures only; historical failures/receipts preserved",
+  "source_sha256": "8b559d9c3839ec2acdba398b65cd121a7d79c9e40cf6475fa8fc17e0f504aaf8",
+  "status": "nine_targeted_checks_passed",
+  "test_groups": [
+    "test_actual_causal_worker_preserves_fg_provenance_and_closes_runs (5 variants)",
+    "test_alternate_causal_recipes_have_only_their_own_keys (3 variants)",
+    "test_changed_backend_receipt_between_coordinator_and_worker_fails"
+  ],
+  "tests_passed": 9
+}
