@@ -8,6 +8,17 @@ the implementation plan, and that ledger before continuing after a context reset
 
 ## Intent and evidence boundary
 
+**M3 development treatment amendment,19October (builder decision):** before any
+M3 teacher generation, fix the common parent/continuation treatment in
+`docs/research/v2/M3-development-recipe.md`. It uses the M2-selected global
+weight-decay1e-3 ordinary recipe and late parent, followed by fixed8000-update
+continuation without patience termination in every warm arm, with strict G-best
+selection on the original25-update grid. The purpose is to expose the ordinary
+headroom measured in M2 rather than crediting growth for replaying a short losing
+tail. Existing contrasts/count/ridge defaults and the finite M3 counts, expansion
+and correction rules remain. This is a prospective controlled development
+treatment, not a claim that the combined recipe is optimal or a protected freeze.
+
 **19 October user priority amendment:** the user explicitly prioritizes completed
 scientific results over a two-hour deadline. Native qualification and the quality
 view must finish the declared native stopping procedure, without an arbitrary

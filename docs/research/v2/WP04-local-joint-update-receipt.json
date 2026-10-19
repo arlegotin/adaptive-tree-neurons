@@ -1,0 +1,57 @@
+{
+  "G_fits_or_selects_fraction": false,
+  "T_accessed": false,
+  "direct_augmented_objective_matches_Schur": true,
+  "native_parent_dtype": "float32",
+  "new_primary_teachers": 0,
+  "pending": [
+    "Complete native h64/F2306 selector workload",
+    "Small-oracle held-out prediction comparison",
+    "M3 runner/resource admission and fresh-teacher study"
+  ],
+  "predictive_benefit": false,
+  "rank_cutoff_and_solution_vectors_retained": true,
+  "raw_files": [
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP04/local-joint-updates/final.log",
+      "sha256": "e88ee66537c405119e52942251b87844cc08b9e0fd087b38abbe119a4af66e1e"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP04/local-joint-updates/green-1.log",
+      "sha256": "063e82c3e4ee517c9168c573bfe7133384ff7861bce907f8ab4294bc840cbe1c"
+    },
+    {
+      "bytes": 8322,
+      "path": "artifacts/research-v2/WP04/local-joint-updates/rank-red.log",
+      "sha256": "c4731352f87002334f3033d0b5efcf51bf19e44c0875d77cc55cecee6c7b2615"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP04/local-joint-updates/recorded-final.log",
+      "sha256": "c665963fcb1509715027f4842c424e523324cede73c87e02ac2336bbbf56b927"
+    },
+    {
+      "bytes": 4613,
+      "path": "artifacts/research-v2/WP04/local-joint-updates/red.log",
+      "sha256": "50ee81de3d91d6720c35d53c56f80a3fac23307c76b868167a71d6d48a8e61af"
+    }
+  ],
+  "schema": "research/v2-local-joint-update-diagnostic",
+  "source_parent_optimizer_sampler_RNG_preserved": true,
+  "source_sha256": "20f5b39e38a404e607fc20bc53d64bf1720f192b5f0024620d7932f9e94f50b7",
+  "temporary_fractions": [
+    0.0625,
+    0.25,
+    1
+  ],
+  "temporary_model_dtype": "float64",
+  "tests": {
+    "final": "60 passed in11.42s",
+    "initial_GREEN": "60 passed in11.45s",
+    "initial_RED": "4 failed in3.30s",
+    "rank_vector_RED": "3 failed,1 passed in4.62s"
+  },
+  "trained_M3_results": false
+}

@@ -51,8 +51,10 @@ duplicate-gate sharing and non-tied row/ID permutation.
 
 These checks use small matrices, without scientific teachers or model fitting.
 The full prediction-Jacobian builder and actual gate-Jacobian counterexample
-are now verified below. Temporary solved-update diagnostics, full native workload
-validation and the M3 runner/recipe remain pending. No trained M3 outcome follows. See
+are now verified below. Temporary solved-update diagnostics also pass the checks
+below. Full native workload validation and the M3 runner remain pending. The
+common M3 development recipe is now fixed in
+[its decision record](M3-development-recipe.md); no trained M3 outcome follows. See
 [the numerical receipt](WP04-joint-core-receipt.json).
 
 `prediction_jacobians` in `research/jacobian.py` accepts the actual ungrown
@@ -107,3 +109,21 @@ The affected growth/optimizer/Adam/state run passed192checks with one unavailabl
 device skip in54.56seconds, and final adapter/core/Jacobian checks passed56in7.68seconds.
 These are software/geometry checks, not evidence of predictive improvement.
 See [the integration receipt](WP04-joint-allocation-receipt.json).
+
+`diagnose_local_updates(parent,F,G,scored,trace)` in `research/local_updates.py`
+uses a direct augmented least-squares solve with the original RMS masks/scales.
+It matches the selected regularized objective and rejects unexpected rank
+truncation. The zero-parent-ridge version uses the same retained parent span and
+the minimum normalized-coordinate-norm parent update on that span. It records
+the full solved parent/gate vectors, singular values, rank/cutoff and objective
+agreement. G cannot fit the solution or select a fraction.
+
+All fixed fractions1/16,1/4,1 are applied to separate float64 copies, with original
+contrasts, alongside predicted and actual F/G losses, ReLU-mask changes and gate
+saturation. These are float64 nonlinear diagnostics, distinct from native
+float32 training. Penalized gain is relative to an optimized local parent;
+current-parent raw MSE and nonlinear changes are reported separately. Parameters,
+optimizer, sampler and caller RNG remain unchanged. Four initial missing-module
+RED tests and three missing rank/vector-record failures preceded the final
+60combined checks in11.42seconds. See
+[the diagnostic receipt](WP04-local-joint-update-receipt.json).
