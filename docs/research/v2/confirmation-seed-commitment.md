@@ -71,6 +71,12 @@ mandatory final freeze/evaluator checks. This is procedural separation for
 cooperating workers, not encryption or permission to hand the complete private
 plan to an ordinary fitting worker.
 
+A retained public-field/development-plan inventory now supplies a durable
+[conservative known-seed registry](teacher-exclusion-inventory.md):10,171seed
+exclusions and74ID candidates. It does not promote completeness or actual
+generated-teacher independence; those final semantic/coverage checks remain
+pending. No real confirmation root was drawn for this inventory.
+
 Nine missing-component RED checks preceded the implementation; 50 affected
 namespace/commitment/protocol checks then passed in 27.25 s. Fixed-entropy
 temporary Git fixtures exercise all three claim kinds, 448 distinct 63-bit

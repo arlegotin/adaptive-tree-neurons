@@ -1583,3 +1583,16 @@ smaller NODE architecture is admitted. Full P12 qualification and any complete
 mandatory-suite claim remain blocked on qualified resources/native completion;
 mechanism work can continue. See
 [the exact resource-stop receipt](WP07-NODE-resource-stop-receipt.json).
+
+WP09 known exclusions: at813dbfc,575tracked JSON/YAML files parsed successfully,
+with three authenticated M0/M1/M2 development plans and explicit D1/D2 handoff
+seeds. The M2 plan only was opened, without partial predictive outcomes.77direct
+seed candidates and74ID candidates were retained. Conservative legacy expansion
+of79known root/default/direct candidates over indices0..127 agrees with the
+existing pure derive_seed on10,112entries; combined10,171sorted exclusions pass
+the known-seed loader. All source bytes were rechecked. Registry completeness/ID
+semantics stay false; no teacher arrays, entropy root or protected access were
+created. The initial scan confused M0 canonical plan hash with byte SHA; failed
+script/log, actual file hash and corrected canonical authentication are retained.
+Versioned seed/ID files are inprotocol/research-v2/exclusions. See
+teacher-exclusion-inventory.md and WP09-teacher-exclusion-inventory-receipt.json.

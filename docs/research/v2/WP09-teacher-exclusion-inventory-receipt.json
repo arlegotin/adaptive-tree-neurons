@@ -1,0 +1,42 @@
+{
+  "M0_plan_file_sha256": "7274ac81499bc6be37d2b1887829b2fda53c6596764e68b0386b099275856b7a",
+  "M0_plan_hash": "31f9756731d0ea449530530eaeeac9dc6b1fb10d16927df55508e8bdd2d16358",
+  "M2_predictive_results_opened": false,
+  "T_accessed": false,
+  "all_source_references_rechecked": true,
+  "confirmation_root_drawn": false,
+  "conservative_legacy_index_range": [
+    0,
+    127
+  ],
+  "derived_legacy_entries": 10112,
+  "direct_teacher_seed_candidates": 77,
+  "explicit_development_plans": 3,
+  "initial_failure": "M0 reference31f97567 was a canonical plan hash, not a file SHA; corrected after inspecting immutable plan/reference bytes",
+  "initial_scan_failed": true,
+  "inventory_sha256": "5479fcd3ce566b999d227639465ae60e302bf379da5eb6162b8472611bd26650",
+  "known_seed_loader_accepted": true,
+  "limits": [
+    "Conservative structural candidates/legacy closure are exclusions, not counts of executed scientific teachers",
+    "Retained generator IDs and complete semantic historical/development coverage still need final readiness review",
+    "Future development/calibration additions must extend this versioned registry before confirmation; no partial predictive outcomes were inspected"
+  ],
+  "observations_generated": false,
+  "outputs": {
+    "protocol/research-v2/exclusions/known-teacher-id-candidates.json": "eac5850ae24916b57b3bd375246df0bc18dc709964bff227461b10a1abcb67a2",
+    "protocol/research-v2/exclusions/known-teacher-seeds.json": "e7cd3bc543d92e906c7b50186c6cb53f818faaee8a322e8fcb604147739a5473"
+  },
+  "parse_failures": [],
+  "parsed_tracked_files": 575,
+  "raw_files": 14,
+  "raw_logical_bytes": 2600738,
+  "raw_root": "artifacts/research-v2/WP09/teacher-exclusion-inventory-813dbfc",
+  "registry_completeness_qualified": false,
+  "root_candidates": 79,
+  "scanned_commit": "813dbfc77b62ffbe345cea1b2d459b93754f25c5",
+  "schema": "research/v2-conservative-teacher-exclusions-receipt",
+  "teacher_ID_candidates": 74,
+  "teacher_ID_semantics_qualified": false,
+  "total_excluded_seed_count": 10171,
+  "tracked_structured_files": 575
+}
