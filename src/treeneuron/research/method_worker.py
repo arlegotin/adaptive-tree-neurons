@@ -179,6 +179,23 @@ def _factory(family):
     return cls(family) if with_family else cls()
 
 
+def _initialize_native_threads(family):
+    """Own the fresh neural process's Torch policy; keep other methods lazy.
+
+    OMP/BLAS environment variables do not set Torch's inter-op pool. Native
+    adapters retain their caller-policy guards instead of changing caller
+    globals; the containing fresh worker sets this treatment before fitting.
+    """
+    if family not in ('P00','P01','P02','P03','P04','P05','P06','P07','P12'):
+        return None
+    torch=importlib.import_module('torch')
+    torch.set_num_threads(1)
+    if torch.get_num_interop_threads()!=1:torch.set_num_interop_threads(1)
+    threads=dict(intra_op=torch.get_num_threads(),inter_op=torch.get_num_interop_threads())
+    if threads!=dict(intra_op=1,inter_op=1):raise ValueError('Fresh worker Torch thread initialization failed')
+    return threads
+
+
 def run_engineering_trial(request_path,*,expected_request_sha256,output):
     """Retain a fresh engineering attempt; no retry or eligibility promotion."""
     started=time.perf_counter_ns();root=Path(output);request_path=Path(request_path)
@@ -200,6 +217,7 @@ def run_engineering_trial(request_path,*,expected_request_sha256,output):
             observation_identity=value['observation_identity'],accessed_roles=['F_labels','G_labels','V_features'])
         # Inputs and source have passed before any adapter import or constructor.
         record['adapter_import_started']=True
+        record['torch_threads']=_initialize_native_threads(value['family_id'])
         model=_factory(value['family_id'])
         from treeneuron.baselines.api import FitRequest
         import pandas as pd

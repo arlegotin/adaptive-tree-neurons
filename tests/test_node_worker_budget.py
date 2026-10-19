@@ -1,5 +1,8 @@
 """Native NODE time budgets do not become shortened training recipes."""
 import json
+import os
+import subprocess
+import sys
 import time
 
 import numpy as np
@@ -12,6 +15,58 @@ from test_node_v2 import config
 def api():
     from treeneuron.research import node_v2
     return node_v2
+
+
+def test_fresh_worker_explicitly_initializes_neural_threads_without_importing_NODE(tmp_path):
+    script = '''
+import json,sys
+from treeneuron.research.method_worker import _initialize_native_threads
+assert _initialize_native_threads('P13') is None
+assert _initialize_native_threads('P08') is None
+assert 'torch' not in sys.modules
+record=_initialize_native_threads('P12')
+import torch
+assert record==dict(intra_op=1,inter_op=1)
+assert torch.get_num_threads()==torch.get_num_interop_threads()==1
+assert 'treeneuron.baselines._node_vendor.arch' not in sys.modules
+print(json.dumps(record,sort_keys=True))
+'''
+    argv = [sys.executable, '-B', '-c', script]
+    run = subprocess.run(argv, env=os.environ|{'PYTHONDONTWRITEBYTECODE': '1'},
+        capture_output=True, text=True, timeout=30)
+    (tmp_path/'thread-setup-process.json').write_text(json.dumps(dict(argv=argv, returncode=run.returncode,
+        stdout=run.stdout, stderr=run.stderr), indent=2)+'\n')
+    assert run.returncode == 0, run.stdout+run.stderr
+
+
+def test_fresh_validated_NODE_worker_sets_threads_before_factory(tmp_path):
+    path, value = request_fixture(tmp_path/'input')
+    value.update(family_id='P12', config=dict(config('native_anchor'),
+        feature_schema=value['config']['feature_schema']))
+    write_request(path, value)
+    script = '''
+import json,sys
+from pathlib import Path
+from treeneuron.research import method_worker
+def inspect(family):
+ import torch
+ assert family=='P12'
+ assert torch.get_num_threads()==torch.get_num_interop_threads()==1
+ raise RuntimeError('verified process-owned thread treatment before native factory')
+method_worker._factory=inspect
+try:method_worker.run_engineering_trial(Path(sys.argv[1]),expected_request_sha256=sys.argv[2],output=Path(sys.argv[3]))
+except RuntimeError as error:assert str(error)=='verified process-owned thread treatment before native factory'
+else:raise AssertionError('Expected controlled factory sentinel')
+record=json.loads((Path(sys.argv[3])/'terminal.json').read_text())
+assert record['torch_threads']==dict(intra_op=1,inter_op=1)
+assert record['quality_eligible'] is False
+'''
+    argv = [sys.executable, '-B', '-c', script, str(path), sha(path), str(tmp_path/'worker')]
+    run = subprocess.run(argv, env=os.environ|{'PYTHONDONTWRITEBYTECODE': '1'},
+        capture_output=True, text=True, timeout=30)
+    (tmp_path/'worker-thread-process.json').write_text(json.dumps(dict(argv=argv, returncode=run.returncode,
+        stdout=run.stdout, stderr=run.stderr), indent=2)+'\n')
+    assert run.returncode == 0, run.stdout+run.stderr
 
 
 @pytest.mark.parametrize('mode', ['native_anchor', 'search'])

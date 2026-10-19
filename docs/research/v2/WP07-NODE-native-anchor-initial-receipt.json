@@ -1,0 +1,23 @@
+{
+  "T_accessed": false,
+  "V_labels_read": false,
+  "charged_job_ns": 3620184250,
+  "child_reaped": true,
+  "executed_updates": 0,
+  "inventory_sha256": "1cb6cf3be8565144970d8d1d996486ea592906719dc98ecc34f3111b772d791f",
+  "ledger_hash": "351d9712e8fa091983fc22699cde6956bf9380bb331a8713f8dde98043a60845",
+  "observed_peak_root_rss_bytes": 335724544,
+  "phase": "dependencies",
+  "plan_hash": "553064aafc40b50ec178993f1ed5f022070292f899d659a84af778956069021e",
+  "predictive_loss_assigned": false,
+  "process_elapsed_ns": 3562527542,
+  "quality_eligible": false,
+  "raw_files": 34,
+  "raw_logical_bytes": 63625,
+  "raw_root": "artifacts/research-v2/WP07/NODE-energy-native-anchor-03eb296",
+  "reason": "Actual native runtime threads differ from the one-thread treatment",
+  "recovery": "Same data/configuration/seed17 under a newly qualified source after process-owned Torch thread initialization",
+  "schema": "research/v2-NODE-native-anchor-pretraining-failure-audit",
+  "source_sha256": "ca2ad724cded4413513dd05cb0f3218a51f516ecb4c6da2eda41a603853ac19c",
+  "status": "input_or_dependency_failure"
+}

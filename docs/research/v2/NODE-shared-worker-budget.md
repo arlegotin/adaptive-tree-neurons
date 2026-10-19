@@ -38,3 +38,23 @@ strict patience, not to claim native quality. The full2048-tree timed anchor
 and complete no-update-ceiling snapshot qualification remain pending. No real
 transfer labels, protected outcomes or native-quality eligibility were opened.
 See [the receipt](WP07-NODE-worker-budget-receipt.json).
+
+The first full Energy native attempt used03eb296/ca2ad724, passed live admission,
+and failed in dependencies before any optimizer update because fresh Torch
+inter-op threads were unset. The native guard remained intact. All34retained
+files, source/role commitments,3.620184250s charged job time,3.562527542s nested
+process time and the reaped child are bound in
+[the initial attempt receipt](WP07-NODE-native-anchor-initial-receipt.json).
+It receives no predictive loss or eligibility.
+
+A missing helper regression and a separate real fresh-worker wiring regression
+both failed. The process-owned worker now explicitly sets Torch intra/inter-op
+threads before the neural factory and records their actual values. It does so
+only after strict source/input validation; simple/tree methods remain Torch-free.
+Adapter caller-state guards are unchanged.39affected checks passed39.88s,
+including eight actual own-family workers and two fresh-process regressions;
+four optional tree cases skipped because this checkout has no pinned tree
+overlay (the isolated qualification checkout retains it). This is separate from
+the earlier153-check budget run. The same Energy data/configuration/seed17 is
+admitted for one operational rerun under a new explicit source. Full native
+qualification remains pending until that run and its inactive audit succeed.

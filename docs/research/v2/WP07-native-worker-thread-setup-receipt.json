@@ -1,0 +1,34 @@
+{
+  "T_accessed": false,
+  "V_labels_read": false,
+  "adapter_thread_guard_weakened": false,
+  "affected_passed": 39,
+  "affected_seconds": 39.88,
+  "base_commit": "6312d0c",
+  "command_receipts": {
+    "green-command.json": "2447b1bb7b62f026eec133966b38a43b4420c5afc5573794641611ceaa145dbc",
+    "red-command.json": "9d4045735a97b3d5cb3282057e93c5eee4e5b15b35a005c23bbbafd2704c3a7b",
+    "wiring-red-command.json": "547744deeaeb9ec5432ca82699f01809071895cc9aeb5b1a5edf0318f25d01e2"
+  },
+  "deferred_legacy_backend_setups": 9,
+  "fresh_worker_wiring_red": 1,
+  "full_2048_native_anchor_qualified": false,
+  "full_repository_suite": false,
+  "helper_missing_red": 1,
+  "initial_failed_native_source_commit": "03eb296",
+  "inventory_sha256": "ba1b6c38251644c7225bfcd0623ed7960a8974ff81e992e2f6a942dbe5ed747e",
+  "non_neural_torch_imported": false,
+  "optional_tree_skipped": 4,
+  "quality_eligible": false,
+  "raw_files": 365,
+  "raw_logical_bytes": 2457279,
+  "raw_root": "artifacts/research-v2/WP07/node-worker-thread-setup",
+  "schema": "research/v2-fresh-neural-worker-thread-setup-receipt",
+  "scientific_source_sha256": "6e81099c339b803ab6ed216e4f6987d3d2d238065b474a5703477d3b7ef345f7",
+  "skip_reason": "Pinned tree overlay exists only in isolated qualification checkout; absent from this MAIN worker test invocation",
+  "source_files": {
+    "docs/research/v2/NODE-shared-worker-budget.md": "95cd9751b6dbb491444e6c00b52ba22ac2e0c744a91f02c395d82fb92a7a5dbc",
+    "src/treeneuron/research/method_worker.py": "b3cf3d154ed136320f110299b7fa9fcd51942b6158833d57d68648cbbd3f1be4",
+    "tests/test_node_worker_budget.py": "e297e23c743df7662c0d2aaba7f5edb47ea10dc9411653d5a8a451c39a4b75ac"
+  }
+}

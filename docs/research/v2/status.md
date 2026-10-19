@@ -112,6 +112,11 @@ capped methods are unavailable comparisons, not scored predictive losses.
 The NODE worker/adapter time-budget mismatch has been repaired without shortening
 its native recipe.153affected numerical/state/worker checks passed; the full
 timed2048-tree anchor and its no-update-ceiling saved endpoint remain unqualified.
+The first full Energy attempt stopped before training on an unset fresh-worker
+Torch thread guard. That failed attempt and costs remain retained; process-owned
+thread setup now passes fresh-process regressions and39affected checks. Four
+optional tree checks skipped without the isolated overlay. The same-data/seed
+operational rerun is pending, with the native recipe and guard intact.
 All 14 families now have explicit native-anchor and finite search-support
 descriptors, with checked translation from atomic TPE draws to native schemas.
 Their qualification flags remain false. An engineering wrapper now connects raw
