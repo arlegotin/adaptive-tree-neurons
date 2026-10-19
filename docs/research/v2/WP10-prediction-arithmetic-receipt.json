@@ -1,0 +1,74 @@
+{
+  "base_commit": "e28c214",
+  "changed_source": {
+    "src/treeneuron/analysis/prediction_arithmetic_v2.py": "4ddcc9f1e5b1d2fb324ca7768766b2463b67b572910f01dcd1ae9c59a8f1c453",
+    "tests/test_prediction_arithmetic_v2.py": "bcfae733f7d8fd4031fe973f71ccc70b0bec548de0d9f53165fd2f7d93f3f5f2"
+  },
+  "claim_authorized": false,
+  "evidence_scope": "Pure arithmetic on hand-calculated sentinel arrays; no file-access capability or predictive result",
+  "files_excluding_inventory": 9,
+  "frozen_M2_unchanged": "e1b1018/e322da64",
+  "inventory_sha256": "836945a49f462e6b13395a024e941e590db8f3603408787bea8d154a605b7114",
+  "logical_bytes_excluding_inventory": 33513,
+  "logs": {
+    "affected.log": "c72e5c8fbcdbe8ef0a687182ad54e231f9ad77aa23097666d25bdc2846904a34",
+    "extreme-scale-red.log": "181e6417fd21dc7aebca8e56ed2a54337e645f5ea15ff300e0b56cce04e8b80c",
+    "initial-green.log": "34dc1820488d189b266562816b3c9e2245a1df61359f5523b4ea57d225341fac",
+    "red.log": "f35a0c2b31cd7cd7e0c173fb4a115b66cc1e051b5d773e8676448facf5ae004b"
+  },
+  "pending": [
+    "full confirmation/v2 protocol/record validation",
+    "protected evaluator/sealed artifact reader",
+    "independent complete artifact audit",
+    "deployment timing workers",
+    "canonical reporter"
+  ],
+  "production_T_accessed": false,
+  "proof": {
+    "arithmetic.json": "b56eef1d6bd2bcd65b826a6a0f627c05579e82615d2b2cf6e9c4d339aa78baa1",
+    "inputs.npz": "cd49b229acc63338b35421f7ed5be6c0d0a755f85086fdd3dd3aad2a3569ac1f"
+  },
+  "protected_access_authenticated": false,
+  "raw_model_provenance_authenticated": false,
+  "raw_root": "artifacts/research-v2/WP10/prediction-arithmetic-preparation",
+  "real_calibration_teachers": 0,
+  "real_model_fits": 0,
+  "schema": "research/v2-independent-prediction-arithmetic-preparation",
+  "scientific_source_sha256": "4818188b1bd909e65eac2d4b1e7d17a057a989f7336f1c7752a78f2e8d26e3bf",
+  "transfer_evaluations": 0,
+  "verification": {
+    "cwd": "/private/tmp/atn-research-v2-next",
+    "explicit_environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "final_affected_passed": 101,
+    "final_affected_seconds": 1.61,
+    "full_repository_suite": false,
+    "initial_passed": 11,
+    "initial_seconds": 0.07,
+    "missing_API_failures": 11,
+    "overflow_mean_boundary_first_passed": 1,
+    "pytest_argv": [
+      "-q",
+      "--basetemp",
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/prediction-arithmetic-preparation/affected-raw",
+      "tests/test_prediction_arithmetic_v2.py",
+      "tests/test_primary_v2.py",
+      "tests/test_practical_v2.py",
+      "tests/test_design_v2.py",
+      "tests/test_cost_v2.py"
+    ],
+    "python_argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-B",
+      "-"
+    ],
+    "subnormal_regression_failed": 1
+  }
+}

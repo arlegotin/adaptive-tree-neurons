@@ -1245,3 +1245,13 @@ requesting new entropy. The external private-file commitment, source/method/
 exclusions and absent-public-output checks remain mandatory. No production roots,
 calibration or protected access; model/optimizer and whole-search recovery remain
 unqualified. See WP09-confirmation-seed-recovery-receipt.json.
+
+WP10 independent metric preparation:11 missing-component failures became11
+passing hand-calculated cases. A representable-subnormal loss regression then
+failed and was corrected;101 affected metric/teacher/practical/design/cost checks
+passed1.61s. Group/day weights, exact prediction row alignment, complete planned
+failure inventory and undefined F variance are explicit. This pure array function
+opens no protected data, invokes no producer scorer/model and authenticates no
+protocol/source/model provenance. Real protected readers, artifact audit,
+deployment and final reporting remain pending. See prediction-arithmetic.md and
+WP10-prediction-arithmetic-receipt.json.
