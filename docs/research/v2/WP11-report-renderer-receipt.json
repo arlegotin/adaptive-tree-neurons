@@ -1,0 +1,93 @@
+{
+  "aliases": 7,
+  "base_commit": "f240683f612ab3f2aad94bd7b3d7682970753a6b",
+  "blocked_rebuilt_byte_equal": true,
+  "changed_source": {
+    "src/treeneuron/analysis/report_v2.py": "a57445ff09da75cdf70d0e3b6e24326ae3d24cd3d181409386f25d0a5f1772ed",
+    "tests/test_report_v2.py": "fe1f385741ae47892d0ced1a1ac624e2a7b3a81f352aa8af474757e06c0ee16f"
+  },
+  "files_excluding_inventory": 30,
+  "frozen_M2_unchanged": "e1b1018/e322da64",
+  "inventory_sha256": "71bd7e1b3c300b5a4c8f6c2313ec0750809a53a486e1b26c8c9e2eec4152ed0c",
+  "logical_bytes_excluding_inventory": 121075,
+  "logs": {
+    "affected.log": "64e162e290ddfd90c8641a34887fa5a3174baff311474292cd362073d99a627b",
+    "commit-affected.log": "8d526eec5f271c0fff14efb768d68113273a5cc83e7e2ba5685e97ecaadfff29",
+    "empty-inventory-red.log": "1ce484b0ddef68369503d736aa0a3b8031ba133a02d8909ad0033ee3fe47a153",
+    "final-affected.log": "121ac2b7a1244a508d93031eb81c53fde0da4c740ea711c41211087709fa5065",
+    "initial-green.log": "ebf302f1eb8a6cd74d7a77fe3ffd8012b525db1cd45cc9d82b753dc770614df0",
+    "interval-red.log": "074979d26bb0d2fef5fb4f999e58e0c62e36a4e5df546bb289fb9c0dc8bd2c93",
+    "provenance-red.log": "bf566968f4b055adf0f433a1f2b893dac86204b8b062a0293c107bf0c8013f05",
+    "red.log": "2b4fe730a5c07284ce1b99b0d4e15f955017939fa062afe4db033b3e55031b62",
+    "release-affected.log": "5a5a2063c8593e0ff82912845a4aae0ed490b7072128291f31f3e139476a19b5",
+    "undefined-metric-red.log": "51268df984d1e5a56b478dd9eeb6a4a239ba62a9f05df16d27d7a108d9f4dbdd"
+  },
+  "pending": [
+    "sealed canonical artifact auditor",
+    "complete protocol and protected reader",
+    "full study conversion",
+    "deployment workers",
+    "production report CLI"
+  ],
+  "production_T_accessed": false,
+  "protected_access_authorized": false,
+  "raw_audit_authenticated_by_renderer": false,
+  "raw_root": "artifacts/research-v2/WP11/report-preparation",
+  "real_model_fits": 0,
+  "real_studies_reported": 0,
+  "schema": "research/v2-canonical-report-renderer-preparation",
+  "scientific_source_sha256": "ffc608fe612f22bc644104337287d6c6f610d02ec136ddce6f8c58badce0fb9a",
+  "scope": "Pure deterministic formatting of supplied auditor records; no raw evidence/protocol authentication",
+  "sentinel_reports": {
+    "blocked-rebuilt.md": "cca74375e7a2092c6df66b1be1ec06f9ac15dacfe84383f33ad92e404d31bd62",
+    "blocked.md": "cca74375e7a2092c6df66b1be1ec06f9ac15dacfe84383f33ad92e404d31bd62",
+    "completed.md": "c4e466d71911572e8bf0ae035c6f149d56d93c02d26391271ec4cf00aa132209",
+    "estimation.md": "87e77d0c92afa881c7645963dc951485636aaf3e5278f0cb81cc7ded86941780",
+    "retired.md": "5c160f4a459a5eabf4bd0e2e1a893364a9b455b2bad9b2f8b9136537f3085a6c"
+  },
+  "verification": {
+    "cwd": "/private/tmp/atn-research-v2-next",
+    "empty_positive_inventory_failures": 2,
+    "explicit_environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "final_affected_passed": 122,
+    "final_affected_seconds": 1.41,
+    "full_repository_suite": false,
+    "initial_affected_passed": 118,
+    "initial_affected_seconds": 1.57,
+    "initial_passed": 12,
+    "initial_seconds": 0.04,
+    "interval_interface_failures": 8,
+    "interval_other_checks_passed": 9,
+    "missing_component_failures": 12,
+    "provenance_corrected_affected_passed": 120,
+    "provenance_corrected_seconds": 1.46,
+    "provenance_display_failure": 1,
+    "pytest_argv": [
+      "-q",
+      "--basetemp",
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP11/report-preparation/commit-affected-raw",
+      "tests/test_report_v2.py",
+      "tests/test_prediction_arithmetic_v2.py",
+      "tests/test_primary_v2.py",
+      "tests/test_practical_v2.py",
+      "tests/test_cost_v2.py",
+      "tests/test_design_v2.py"
+    ],
+    "python_argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-B",
+      "-"
+    ],
+    "undefined_corrected_affected_passed": 119,
+    "undefined_corrected_seconds": 1.42,
+    "undefined_normalization_failure": 1
+  }
+}

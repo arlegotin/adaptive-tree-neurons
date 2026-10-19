@@ -1255,3 +1255,14 @@ opens no protected data, invokes no producer scorer/model and authenticates no
 protocol/source/model provenance. Real protected readers, artifact audit,
 deployment and final reporting remain pending. See prediction-arithmetic.md and
 WP10-prediction-arithmetic-receipt.json.
+
+WP11 report-renderer preparation:12 missing-component failures became12 passing
+cases; interval fields and explicit undefined/provenance/inventory boundaries
+were added afterward. The final122 affected checks passed1.41s. All four study
+statuses, complete attempted/final inventories, supplied confidence bounds,
+strict useful-margin consistency, source/label/protocol attestation flags and
+separate physical/standalone costs are retained. The pure renderer trusts a
+supplied audit and opens no raw evidence; it cannot authenticate that audit or
+authorize confirmation. Sentinel reports only, no real study report or T access.
+Canonical artifact audit/protected readers/production CLI remain pending. See
+canonical-report-renderer.md and WP11-report-renderer-receipt.json.
