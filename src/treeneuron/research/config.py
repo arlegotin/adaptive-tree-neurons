@@ -78,6 +78,14 @@ class StudyPlan:
 def expand(config: ResearchConfig) -> StudyPlan:
     from treeneuron.train import source_hash
     c = config.to_dict()
+    if c['kind']=='m3_joint':
+        from .joint_plan import expand_joint
+        from .identity import execution_identity
+        value=dict(schema='research/v2-plan',config=c,source_sha256=source_hash(),**expand_joint(c),
+            protected_labels_accessed=False,fit_worker_roles=['F','G'],coordinator_roles=['V','E'],
+            execution_identity=execution_identity(c))
+        value['plan_hash']=canonical_hash(value)
+        return StudyPlan(canonical_json(value))
     if c['kind'] == 'm2_opportunity':
         from .opportunity_plan import expand_opportunity
         from .identity import execution_identity

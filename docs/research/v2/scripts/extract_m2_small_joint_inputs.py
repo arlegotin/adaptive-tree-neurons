@@ -73,7 +73,7 @@ for teacher in range(4):
   eligible=allocate(scored.table,8,policy='adam',seed=0).ids.tolist()
   arrays=dict(parent_J=J,residual=np.asarray(y-prediction,dtype=np.float64),**{'gate_'+str(k):v for k,v in blocks.items()})
   with (directory/'F-geometry.npz').open('xb') as stream:np.savez_compressed(stream,**arrays)
-  cases.append(dict(case_id=name,teacher_index=teacher,repetition=repeat,eligible_ids=eligible,parent_sha256=scored.parent_sha256,table_sha256=scored.table_sha256,geometry_sha256=hashlib.sha256((directory/'F-geometry.npz').read_bytes()).hexdigest(),current_top=allocate(scored.table,2,policy='adam',seed=0).ids.tolist(),native_training=parent.config.to_dict()['training']))
+  cases.append(dict(case_id=name,teacher_index=teacher,repetition=repeat,eligible_ids=eligible,parent_sha256=scored.parent_sha256,table_sha256=scored.table_sha256,geometry_sha256=hashlib.sha256((directory/'F-geometry.npz').read_bytes()).hexdigest(),current_top=allocate(scored.table,2,policy='adam',seed=0).ids.tolist(),matched_random=allocate(scored.table,2,policy='random',seed=parent.config.seeds.allocation).ids.tolist(),allocation_seed=parent.config.seeds.allocation,native_training=parent.config.to_dict()['training']))
   outcomes=[]
   for job in plan['attempts']:
    p=job['payload']

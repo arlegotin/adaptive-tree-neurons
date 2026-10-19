@@ -159,3 +159,12 @@ contrasts. Native allocation metadata distinguishes `local_ridge` and
 Final verification passed195checks with1unavailable-device skip. The
 [integration receipt](WP04-joint-fork-integration-receipt.json) records the failing
 feature checks and recoveries; there is still no M3 predictive result.
+
+The [small-oracle prediction check](../../../reports/research-v2-small-joint.md)
+now passes its narrowly defined development screen, with mixed correlations and
+identical selected pairs across new variants. The prospective M3 study expands
+to160initial final fits,1040nominal probes and16shared parent procedures; one
+conditional eight-teacher tranche is predeclared. Its CLI plan and exact shared
+seeds are implemented, while public run rejects before data creation until
+production workers/resource admission are ready. See the
+[plan receipt](WP04-M3-plan-implementation-receipt.json). This is no M3 outcome.

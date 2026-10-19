@@ -8,7 +8,7 @@ a separate view. See [the implementation amendment](results-first-native-executi
 
 The full2048-tree recovery proof now matches uninterrupted training exactly at
 about1.18GiBsampled peak RSS. The uncapped same-data/seed17 Energy native fit is
-running in a pinned checkout and has saved checkpoint100. It retains the normal
+running in a pinned checkout and publishes periodic recovery checkpoints. It retains the normal
 validation stopping rule and4GiBobserved-RSS guard. This remains engineering
 qualification, without a predictive comparison or protected T access.
 
@@ -21,6 +21,22 @@ The present verdict is cautious about useful capacity, disappointing for the
 current chooser, and unresolved for practical competitiveness. The completed
 [M2 diagnostic](../../../reports/research-v2-M2.md) strengthens the case for
 competent ordinary training and permits one bounded joint-selector test.
+
+The new selector now passes a full h64/d16/F2306/count16 engineering check at
+about.76GiB observed root RSS, including its small training fixture and dense
+solve. Predictions and inherited optimizer state survive insertion exactly.
+This is a memory/correctness result, not a predictive comparison.
+
+The [small-oracle reanalysis](../../../reports/research-v2-small-joint.md) uses
+the already completed four planted M2d bases, without fitting another model.
+The new local scores choose the generating pair0/2 instead of duplicate0/1.
+Mean E NMSE is.04510 versus.04622 for cheap and.04713 for matched random, with
+mixed individual effects. Every new local/joint variant chooses the same IDs,
+so this does not credit joint selection for the quality difference. Joint gain
+predicts finite V pair outcomes better than summed singleton scores on3of4bases,
+passing the prewritten small-control screen; two correlations remain negative.
+Independent raw-prediction arithmetic agrees. Fresh primary M3 evidence remains
+pending, under the [locked stronger common treatment](M3-development-recipe.md).
 
 The first full new control study has finished:256 planned fits, no missing or
 failed result. Independent arithmetic from512 retained V/E prediction vectors

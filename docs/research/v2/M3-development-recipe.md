@@ -54,6 +54,23 @@ No direction, timing, ridge or training grid is added. The one8→16uncertainty
 extension and conditional M3λ correction retain their original admission rules,
 counts and stop conditions. Small exact/control references remain separate.
 
+The single8→16 precision extension uses the fixed conditional-joint versus
+matched-random V contrast. Average R2 risks within each teacher before taking
+the log ratio, then use20000 whole-teacher bootstrap resamples and linear
+percentile95% endpoints. Extend exactly once only if that interval spans both
+zero and log(1/.98). Keep zero/no-op teachers; missing paired outcomes block the
+decision. The bootstrap seed is fixed by the M3 namespace before data exists.
+This implements the binding spec's descriptive interval rule; it is no efficacy
+test and cannot trigger a second expansion. Complete all initial outcomes before
+the extension barrier. M3λ remains its separate, explicitly bounded correction.
+
+The initial small-oracle prediction check may reuse the already completed M2d
+pair inventory. Extract its exact F geometry under the original producer source,
+run fixed new selectors before joining any finite G/V/E outcomes, and retain
+the old treatment and costs. This is development reanalysis of four known planted
+bases, rather than fresh M3 data or a refit. Native M3 source and resource
+qualification remain required before the primary study.
+
 Before any M3 scientific execution: finish the runner and exact small-oracle
 prediction diagnostics; qualify the complete h64/F2306 selector and insertion
 workload; measure fit/scoring/checkpoint/storage costs; expand the immutable job

@@ -1,0 +1,384 @@
+{
+  "Gate_B_passed": false,
+  "T_accessed": false,
+  "analysis_source": "c94adde6ded54a2e86747b8784addccc9a1d5c601b8ef90449446aeb12b303a0",
+  "attempt_scope": "Analysis/serialization retries only; no repeated scientific model fitting or data substitution",
+  "eligible_historical_fits": 232,
+  "files": [
+    {
+      "bytes": 197095,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/V-rank-analysis/F-only-selections.json",
+      "sha256": "47d7e5060f5cf32be85caacd51d9dff8e0c83ebfecdadb65001dc8d863424db7"
+    },
+    {
+      "bytes": 62811,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/V-rank-analysis/analysis.json",
+      "sha256": "9d0bbba88d8c9be9f530f752df4f41f83bc1e27441a328999f256d56e86508e3"
+    },
+    {
+      "bytes": 299,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/V-rank-analysis/request.json",
+      "sha256": "e76e232bebaa6bde101dbb77d65d565137019b13227d69c5fefb3109012cf5fa"
+    },
+    {
+      "bytes": 172173,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/analysis-e87adc9/F-only-selections.json",
+      "sha256": "91bb8adc177f71bec1053eeadbe94aa32a6aef378730d8a72c5232433a6f65cc"
+    },
+    {
+      "bytes": 0,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/analysis-e87adc9/analysis.json",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 299,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/analysis-e87adc9/request.json",
+      "sha256": "f1c8196c6ac8a40a8254fcea999782bb3d43695baf0d8e755c67a9bcdd9b1b7b"
+    },
+    {
+      "bytes": 172173,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/analysis-e87adc9-recovery/F-only-selections.json",
+      "sha256": "91bb8adc177f71bec1053eeadbe94aa32a6aef378730d8a72c5232433a6f65cc"
+    },
+    {
+      "bytes": 50113,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/analysis-e87adc9-recovery/analysis.json",
+      "sha256": "7b9d4155444dc95793618873030d39565b02e979e47e67d4c8d18fafd7ad6f59"
+    },
+    {
+      "bytes": 299,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/analysis-e87adc9-recovery/request.json",
+      "sha256": "f1c8196c6ac8a40a8254fcea999782bb3d43695baf0d8e755c67a9bcdd9b1b7b"
+    },
+    {
+      "bytes": 172293,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/analysis-with-random-e87adc9/F-only-selections.json",
+      "sha256": "248954d457a040e7fe2a7555f0867e5fc6a0b7e254d57a877c80b99a3f6d32bd"
+    },
+    {
+      "bytes": 55906,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/analysis-with-random-e87adc9/analysis.json",
+      "sha256": "f0e58bee7f32db86b55b5298a1a80a6a743b9168f8b027af5fcc9a2210e88db6"
+    },
+    {
+      "bytes": 299,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/analysis-with-random-e87adc9/request.json",
+      "sha256": "e76e232bebaa6bde101dbb77d65d565137019b13227d69c5fefb3109012cf5fa"
+    },
+    {
+      "bytes": 1688,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/independent-selected-and-V-rank-audit.json",
+      "sha256": "c4ff362ba07f4a6566fd0076e89ddc36089e36e88c5fad9f680ed397f8dacca9"
+    },
+    {
+      "bytes": 1086,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/independent-selected-prediction-audit.json",
+      "sha256": "bfd5f15e79e804048d1547e809cf08d6e4987dd081034e7ca9c47e41989ffaf1"
+    },
+    {
+      "bytes": 4493,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/independent-selected-prediction-audit.py",
+      "sha256": "b5b605507ab53f4ed50e80e0b5d4c4c0162cdf372c4da731117c8a66983de5ed"
+    },
+    {
+      "bytes": 246945,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs/export.json",
+      "sha256": "ba3a7d3a9e801872fa7256058fddf16e8cb73c78f3dc843ca499a86d1be29b20"
+    },
+    {
+      "bytes": 444,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs/request.json",
+      "sha256": "8cd33e79b58478076eba9b430b63b2afda8c020050881b6de38fb56248d4fe8d"
+    },
+    {
+      "bytes": 154330,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs/teacher-0-repeat-0/F-geometry.npz",
+      "sha256": "9b9fb778a943c9cfed009fd8b0c7e8a1ebb367a5f5201c225e48026faeac7d90"
+    },
+    {
+      "bytes": 40879,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs/teacher-0-repeat-0/outcomes.json",
+      "sha256": "c7a273e633e807185d71fe8f3dda0a2e4a368c3a0889740456c9757381bfcdda"
+    },
+    {
+      "bytes": 154330,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs/teacher-0-repeat-1/F-geometry.npz",
+      "sha256": "9b9fb778a943c9cfed009fd8b0c7e8a1ebb367a5f5201c225e48026faeac7d90"
+    },
+    {
+      "bytes": 40894,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs/teacher-0-repeat-1/outcomes.json",
+      "sha256": "02ec85b67846277cb47e1b26ff06b1a45e0eb88b4b41e3e39040b74fc3b3c8b6"
+    },
+    {
+      "bytes": 153937,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs/teacher-1-repeat-0/F-geometry.npz",
+      "sha256": "45071362ab57aa816f19418fa92de6f9b1d401b84d7b6f95b7814120cfce3089"
+    },
+    {
+      "bytes": 40843,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs/teacher-1-repeat-0/outcomes.json",
+      "sha256": "8f27e1bd6bd201d4e5b28a692436e45980ad31d3275becc035a4ac024805e7b7"
+    },
+    {
+      "bytes": 153937,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs/teacher-1-repeat-1/F-geometry.npz",
+      "sha256": "45071362ab57aa816f19418fa92de6f9b1d401b84d7b6f95b7814120cfce3089"
+    },
+    {
+      "bytes": 40856,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs/teacher-1-repeat-1/outcomes.json",
+      "sha256": "7c3b87ae4de526e8d28a5d519c462586122ac0be494b9ea6a1ca11e3ed2335ed"
+    },
+    {
+      "bytes": 154274,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs/teacher-2-repeat-0/F-geometry.npz",
+      "sha256": "55700b4e2738ed48e134ea84852f36f99d2b83be11e88e3dd133c3791fe8c85c"
+    },
+    {
+      "bytes": 40873,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs/teacher-2-repeat-0/outcomes.json",
+      "sha256": "6bd56ad2c7587156e26ccb77c69842a6be6976c35c458d8f532ae5f5822b059b"
+    },
+    {
+      "bytes": 154274,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs/teacher-2-repeat-1/F-geometry.npz",
+      "sha256": "55700b4e2738ed48e134ea84852f36f99d2b83be11e88e3dd133c3791fe8c85c"
+    },
+    {
+      "bytes": 40866,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs/teacher-2-repeat-1/outcomes.json",
+      "sha256": "69ab71d2ecdaa55f8a53591276d7fb7278b498438c957048c43608b0fe7c0e85"
+    },
+    {
+      "bytes": 155587,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs/teacher-3-repeat-0/F-geometry.npz",
+      "sha256": "c51f3afdd84c6bb78b8983db5692556640e9464a13b3750b7b48d0462bbc51dc"
+    },
+    {
+      "bytes": 40866,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs/teacher-3-repeat-0/outcomes.json",
+      "sha256": "71c244c9e0e35bbc3ae49afd408588d2f45c6148b6bde6264d6cd5f1b76f057e"
+    },
+    {
+      "bytes": 155587,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs/teacher-3-repeat-1/F-geometry.npz",
+      "sha256": "c51f3afdd84c6bb78b8983db5692556640e9464a13b3750b7b48d0462bbc51dc"
+    },
+    {
+      "bytes": 40867,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs/teacher-3-repeat-1/outcomes.json",
+      "sha256": "22dac2b19d840e17003d7964c96fef49cb25b92e8863ed65373e7749d8367be0"
+    },
+    {
+      "bytes": 247431,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs-with-random/export.json",
+      "sha256": "5879896f902ca8d0884b8424fbcad9d13f8873b67cbb4ffd15f8740028d37274"
+    },
+    {
+      "bytes": 444,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs-with-random/request.json",
+      "sha256": "8cd33e79b58478076eba9b430b63b2afda8c020050881b6de38fb56248d4fe8d"
+    },
+    {
+      "bytes": 154330,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs-with-random/teacher-0-repeat-0/F-geometry.npz",
+      "sha256": "9b9fb778a943c9cfed009fd8b0c7e8a1ebb367a5f5201c225e48026faeac7d90"
+    },
+    {
+      "bytes": 40879,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs-with-random/teacher-0-repeat-0/outcomes.json",
+      "sha256": "c7a273e633e807185d71fe8f3dda0a2e4a368c3a0889740456c9757381bfcdda"
+    },
+    {
+      "bytes": 154330,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs-with-random/teacher-0-repeat-1/F-geometry.npz",
+      "sha256": "9b9fb778a943c9cfed009fd8b0c7e8a1ebb367a5f5201c225e48026faeac7d90"
+    },
+    {
+      "bytes": 40894,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs-with-random/teacher-0-repeat-1/outcomes.json",
+      "sha256": "02ec85b67846277cb47e1b26ff06b1a45e0eb88b4b41e3e39040b74fc3b3c8b6"
+    },
+    {
+      "bytes": 153937,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs-with-random/teacher-1-repeat-0/F-geometry.npz",
+      "sha256": "45071362ab57aa816f19418fa92de6f9b1d401b84d7b6f95b7814120cfce3089"
+    },
+    {
+      "bytes": 40843,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs-with-random/teacher-1-repeat-0/outcomes.json",
+      "sha256": "8f27e1bd6bd201d4e5b28a692436e45980ad31d3275becc035a4ac024805e7b7"
+    },
+    {
+      "bytes": 153937,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs-with-random/teacher-1-repeat-1/F-geometry.npz",
+      "sha256": "45071362ab57aa816f19418fa92de6f9b1d401b84d7b6f95b7814120cfce3089"
+    },
+    {
+      "bytes": 40856,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs-with-random/teacher-1-repeat-1/outcomes.json",
+      "sha256": "7c3b87ae4de526e8d28a5d519c462586122ac0be494b9ea6a1ca11e3ed2335ed"
+    },
+    {
+      "bytes": 154274,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs-with-random/teacher-2-repeat-0/F-geometry.npz",
+      "sha256": "55700b4e2738ed48e134ea84852f36f99d2b83be11e88e3dd133c3791fe8c85c"
+    },
+    {
+      "bytes": 40873,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs-with-random/teacher-2-repeat-0/outcomes.json",
+      "sha256": "6bd56ad2c7587156e26ccb77c69842a6be6976c35c458d8f532ae5f5822b059b"
+    },
+    {
+      "bytes": 154274,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs-with-random/teacher-2-repeat-1/F-geometry.npz",
+      "sha256": "55700b4e2738ed48e134ea84852f36f99d2b83be11e88e3dd133c3791fe8c85c"
+    },
+    {
+      "bytes": 40866,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs-with-random/teacher-2-repeat-1/outcomes.json",
+      "sha256": "69ab71d2ecdaa55f8a53591276d7fb7278b498438c957048c43608b0fe7c0e85"
+    },
+    {
+      "bytes": 155587,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs-with-random/teacher-3-repeat-0/F-geometry.npz",
+      "sha256": "c51f3afdd84c6bb78b8983db5692556640e9464a13b3750b7b48d0462bbc51dc"
+    },
+    {
+      "bytes": 40866,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs-with-random/teacher-3-repeat-0/outcomes.json",
+      "sha256": "71c244c9e0e35bbc3ae49afd408588d2f45c6148b6bde6264d6cd5f1b76f057e"
+    },
+    {
+      "bytes": 155587,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs-with-random/teacher-3-repeat-1/F-geometry.npz",
+      "sha256": "c51f3afdd84c6bb78b8983db5692556640e9464a13b3750b7b48d0462bbc51dc"
+    },
+    {
+      "bytes": 40867,
+      "path": "artifacts/research-v2/WP04/M2d-joint-reanalysis/inputs-with-random/teacher-3-repeat-1/outcomes.json",
+      "sha256": "22dac2b19d840e17003d7964c96fef49cb25b92e8863ed65373e7749d8367be0"
+    }
+  ],
+  "independent_units": 4,
+  "interpretation": "Small development prediction screen passes3/4; identical local/joint selected pairs prevent attribution of quality benefit to joint selection; fresh primary M3 required",
+  "max_dense_objective_error": 4.163336342344337e-16,
+  "means": {
+    "G_pair_oracle": {
+      "E_NMSE": 0.04435031766465434,
+      "V_NMSE": 0.04197731457985124
+    },
+    "G_singleton": {
+      "E_NMSE": 0.04533922215398266,
+      "V_NMSE": 0.04358374094425845
+    },
+    "cheap": {
+      "E_NMSE": 0.04622443702197328,
+      "V_NMSE": 0.04500629090175157
+    },
+    "joint": {
+      "E_NMSE": 0.04510078906180695,
+      "V_NMSE": 0.04346332537163004
+    },
+    "local_singleton": {
+      "E_NMSE": 0.04510078906180695,
+      "V_NMSE": 0.04346332537163004
+    },
+    "pure_span": {
+      "E_NMSE": 0.04510078906180695,
+      "V_NMSE": 0.04346332537163004
+    },
+    "random": {
+      "E_NMSE": 0.0471306557532009,
+      "V_NMSE": 0.045831363634527084
+    },
+    "unconditioned": {
+      "E_NMSE": 0.04510078906180695,
+      "V_NMSE": 0.04346332537163004
+    }
+  },
+  "new_model_fits": 0,
+  "new_primary_teachers": 0,
+  "nominal_historical_fit_entries": 296,
+  "operator_failures_retained": [
+    "Initial analysis SyntaxError before output creation; corrected dictionary spelling",
+    "First completed analysis could not publish a NumPy integer count; partial output retained, explicit int count in fresh output"
+  ],
+  "prediction_screen": {
+    "defined_teachers": 4,
+    "joint_better_teachers": 3,
+    "passed": true,
+    "scope": "Existing spec held-out small-oracle prediction screen only; not full Gate B or fresh M3 evidence"
+  },
+  "producer_source": "e322da64b518f29a14bde3385bfcf6d683993b717ed4c1fc13a7a5440a1f9a47",
+  "raw_prediction_audit": {
+    "T_accessed": false,
+    "elapsed_ns": 237908542,
+    "max_raw_metric_error": 0.0,
+    "means": {
+      "G_pair_oracle": {
+        "E_NMSE": 0.04435031766465434,
+        "V_NMSE": 0.04197731457985124
+      },
+      "G_singleton": {
+        "E_NMSE": 0.04533922215398266,
+        "V_NMSE": 0.04358374094425845
+      },
+      "cheap": {
+        "E_NMSE": 0.04622443702197328,
+        "V_NMSE": 0.04500629090175156
+      },
+      "joint": {
+        "E_NMSE": 0.04510078906180695,
+        "V_NMSE": 0.04346332537163004
+      },
+      "local_singleton": {
+        "E_NMSE": 0.04510078906180695,
+        "V_NMSE": 0.04346332537163004
+      },
+      "pure_span": {
+        "E_NMSE": 0.04510078906180695,
+        "V_NMSE": 0.04346332537163004
+      },
+      "random": {
+        "E_NMSE": 0.0471306557532009,
+        "V_NMSE": 0.045831363634527084
+      },
+      "unconditioned": {
+        "E_NMSE": 0.04510078906180695,
+        "V_NMSE": 0.04346332537163004
+      }
+    },
+    "rank_checks": [
+      {
+        "joint_Spearman": 0.8163229895905437,
+        "singleton_sum_Spearman": 0.7602646196067664,
+        "teacher_index": 0
+      },
+      {
+        "joint_Spearman": 0.6955724653836223,
+        "singleton_sum_Spearman": 0.6562440328288932,
+        "teacher_index": 1
+      },
+      {
+        "joint_Spearman": -0.4242038008960167,
+        "singleton_sum_Spearman": -0.13194265646049116,
+        "teacher_index": 2
+      },
+      {
+        "joint_Spearman": -0.3955667510099282,
+        "singleton_sum_Spearman": -0.4640621997342019,
+        "teacher_index": 3
+      }
+    ],
+    "selected_method_rows": 64,
+    "selected_unique_prediction_vectors": 66,
+    "source": "Raw original committed M2d prediction arrays; no model fitting or protected access",
+    "status": "passed",
+    "unique_V_rank_vectors": 176
+  },
+  "repetitions": 2,
+  "schema": "research/v2-small-oracle-joint-reanalysis",
+  "source_loading": "Historical state only under original pinned producer; new selector receives exported F arrays"
+}

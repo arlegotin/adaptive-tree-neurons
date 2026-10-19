@@ -1,0 +1,55 @@
+{
+  "T_accessed": false,
+  "conditional": {
+    "final_fits": 160,
+    "parent_procedures": 16,
+    "probe_entries": 1040,
+    "repetitions": 2,
+    "teachers": 8
+  },
+  "extension": "One whole-teacher V log-risk interval precision rule,20000resamples; no efficacy claim",
+  "initial": {
+    "final_fits": 160,
+    "parent_procedures": 16,
+    "probe_entries": 1040,
+    "repetitions": 2,
+    "teachers": 8
+  },
+  "logs": [
+    {
+      "bytes": 23975,
+      "path": "artifacts/research-v2/WP04/M3-plan-implementation/red.log",
+      "sha256": "6bb57bac037acf7fbe27e75eb4c7f54326fc7f5428e9240c3cceca460dbcfdd9"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP04/M3-plan-implementation/green.log",
+      "sha256": "76ab6aa05df1c49e64a25a3fe244a6c03469364f3d0aea4ffe81ec5d6bd8d919"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP04/M3-plan-implementation/final.log",
+      "sha256": "5f685f12a08f751ffe92e9b46defffb9786a83f00aaebef3f1c010fa504fbd1d"
+    },
+    {
+      "bytes": 2187,
+      "path": "artifacts/research-v2/WP04/M3-plan-implementation/cli-red.log",
+      "sha256": "982dca6cb979a61672771e0c47dfcc2152330d35b15f0c776c3d7ee47a5423b4"
+    }
+  ],
+  "pending": [
+    "Production workers/dispatcher and complete resource qualification/admission",
+    "Held scientific source checkout",
+    "Fresh M3 study/Gate B"
+  ],
+  "schema": "research/v2-M3-finite-design-implementation",
+  "scientific_execution_admitted": false,
+  "source_sha256": "69f291c79ef8980a9d13b805f2288dffd5fa46efd8fa4782896dbf4fa2705f80",
+  "teacher_data_generated": 0,
+  "tests": {
+    "final_plan_runner": "37 passed in22.49s",
+    "initial_GREEN": "16 passed in3.73s",
+    "initial_RED": "11 failed in.27s",
+    "public_run_guard_RED": "1 failed in2.89s"
+  }
+}
