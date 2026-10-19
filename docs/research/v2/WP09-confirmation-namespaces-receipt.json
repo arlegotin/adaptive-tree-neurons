@@ -1,0 +1,34 @@
+{
+  "T_accessed": false,
+  "actual_entropy_drawn": false,
+  "base_commit": "9c8c5d9",
+  "calibration_execution_authorized": false,
+  "deferred_legacy_backend_setups": 9,
+  "derived_per_fixture": {
+    "independent_63_bit_namespaces": 448,
+    "library32_optimizer_seeds": 64,
+    "teachers": 32
+  },
+  "final_command_sha256": "f13c1c7c424736fca9d6f6051911598b80cc54d64eda3298b5aa5a48c5b59f2e",
+  "final_passed": 50,
+  "final_seconds": 27.25,
+  "fixture_entropy_root": 123,
+  "fixtures_only": true,
+  "full_repository_suite": false,
+  "initial_missing_component_red": 9,
+  "inventory_sha256": "12cc33cd656b793b5d253ca28d257f58a649507eb6246476683227305cbade1b",
+  "observation_arrays_generated": false,
+  "protected_access_authorized": false,
+  "raw_files": 3068,
+  "raw_logical_bytes": 5257906,
+  "raw_root": "artifacts/research-v2/WP09/confirmation-namespaces",
+  "registry_completeness_qualified": false,
+  "schema": "research/v2-confirmation-namespace-preparation-receipt",
+  "scientific_source_sha256": "3352be0f37b92ff1171b8df1217ead9a0b68080bff5df97128163885ff8c5a9c",
+  "source_files": {
+    "src/treeneuron/research/confirmation_namespaces.py": "be0fdf9368af738c13265fca343b6a777d2a198658c7102edc01b3eb4c35ecd1",
+    "tests/test_confirmation_namespaces.py": "417d4db92873ee7e75cd6e372c0ca49fd35a016be450e38296aba12be81a6581"
+  },
+  "teacher_id_exclusions_verified": false,
+  "teachers_generated": false
+}

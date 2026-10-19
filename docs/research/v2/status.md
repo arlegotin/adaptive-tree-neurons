@@ -114,6 +114,10 @@ compatible teacher-family Holm bounds and report rendering are fixture-tested co
 in-memory parent-fork helper now preserves the complete selected training state
 while giving comparison arms independent parameters and optimizer history; its
 65 affected checks passed. It grants no calibration or protected-data authority.
+Confirmation role-seed expansion is also fixture-tested, with shared teacher/data
+seeds across repeats and distinct recorded training/allocation namespaces. It
+generates no observations; historical exclusions and full freeze readiness remain
+unqualified.
 The development raw-file auditor and explicit development report CLI now rebuild
 metrics from authenticated arrays while retaining missing runs; 89 affected
 checks passed. A separate deployment worker now measures model loading and native

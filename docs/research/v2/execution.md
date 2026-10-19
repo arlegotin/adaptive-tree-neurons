@@ -1477,3 +1477,14 @@ supervisor-enclosing process time. Identical mean-model fixtures, contended host
 no speed/quality inference and no pooled initial/final cohort. Full measurement
 policy, native workloads, authentic quality bound and protected evaluation remain
 pending. See WP10-deployment-blocks-receipt.json.
+
+WP09 confirmation role namespaces: nine missing-component RED cases preceded
+pure expansion of the authenticated existing root. Fifty affected checks passed
+in 27.25 s on fixed-entropy temporary Git fixtures. Each 32-teacher fixture has
+448 distinct 63-bit namespaces and 64 collision-managed library32 optimizer
+seeds; two repeats share teacher/reference/F/G/V/T identities and paired arms
+reuse declared training/allocation records. Generator/entropy sentinels verify
+no teacher or observation creation. Collisions and source/commitment changes
+fail without replacing the committed root. All authority/exclusion-completeness
+flags remain false. No real confirmation root, calibration or T was created.
+See confirmation-seed-commitment.md and WP09-confirmation-namespaces-receipt.json.
