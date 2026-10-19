@@ -1,0 +1,65 @@
+{
+  "T_accessed": false,
+  "artifacts_root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP04/joint-core",
+  "dense_reference": {
+    "T_accessed": false,
+    "conditional_marginal_cases": 108,
+    "dense_reference_test_source_sha256": "483ed296f4c22759b431f5750a15153b974206c32bf7c30491b925fe8982a827",
+    "elapsed_ns": 49075792,
+    "maximum_errors": {
+      "Gram_asymmetry": 1.1102230246251565e-16,
+      "gain": 2.4424906541753444e-15,
+      "marginal_gain": 2.6645352591003757e-15,
+      "objective": 4.440892098500626e-15,
+      "parent_solve_residual": 1.1666591986477369e-16
+    },
+    "model_training_runs": 0,
+    "numerical_ridge_configurations": 9,
+    "objective_subset_cases": 72,
+    "operator_sha256": "4b2577189620f7f95571bc17534fa1ea54f91c5dca05de7366d897417881f4c3",
+    "predictive_benefit_established": false,
+    "schema": "research/v2-joint-core-reference",
+    "synthetic_scientific_teachers": 0
+  },
+  "final_focused": {
+    "failed": 0,
+    "passed": 29,
+    "pytest_seconds": 0.18
+  },
+  "first_GREEN": {
+    "passed": 15,
+    "pytest_seconds": 0.17
+  },
+  "initial_RED": {
+    "failed": 15,
+    "pytest_seconds": 0.11
+  },
+  "inventory_sha256": "8715d96c6874b2389055d196c7c1b62c0e3384c1171bd433d7e960b24a32c48c",
+  "model_training_runs": 0,
+  "new_scientific_teachers": 0,
+  "ordinary_bytes": 24941,
+  "ordinary_files": 9,
+  "predictive_benefit_established": false,
+  "public_parent_Allocation_integration_complete": false,
+  "remaining": [
+    "Full parent/analytic gate prediction Jacobians and autograd reference",
+    "Immutable candidates/full trace/checked Allocation adapter",
+    "Native workload/source/resource qualification",
+    "Frozen common M3 parent and continuation policy",
+    "Bounded fresh-teacher M3 and Gate B"
+  ],
+  "schema": "research/v2-joint-core-receipt",
+  "scientific_package_sha256": "eafc3a206602f2d2a62c3d8ee416490fa29c4383741015e240bbd63f43683c57",
+  "source_files": [
+    {
+      "path": "src/treeneuron/research/joint_selector.py",
+      "sha256": "59dc0d17e4c986cc37e730316e95318fa0c357a4ac510cb0b808dd0c8e2f0fa7"
+    },
+    {
+      "path": "tests/test_joint_selector.py",
+      "sha256": "483ed296f4c22759b431f5750a15153b974206c32bf7c30491b925fe8982a827"
+    }
+  ],
+  "status": "numerical_core_verified_only",
+  "whole_repository_suite_passed": false
+}
