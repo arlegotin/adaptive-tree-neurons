@@ -43,3 +43,25 @@ def test_qualification_rejects_a_changed_complete_scientific_queue():
     p=target();p['attempts'][0]['payload']['teacher_seed']+=1
     p['plan_hash']=canonical_hash({k:v for k,v in p.items() if k!='plan_hash'})
     with pytest.raises(ValueError):build_joint_qualification_plan(p)
+
+
+def test_qualification_decision_fixtures_are_explicit_and_cannot_be_promoted_or_changed(tmp_path):
+    from treeneuron.research.joint_qualification import build_joint_qualification_plan,JointQualificationWorkers
+    t=target();q=build_joint_qualification_plan(t);worker=JointQualificationWorkers(t,q)
+    inputs={}
+    for job in q['attempts']:
+        if job['kind']!='qualification_fixture':continue
+        directory=tmp_path/job['job_id'].replace('/','-');directory.mkdir()
+        value=worker(job,directory,{},0)
+        assert value['evidence_kind']=='synthetic_resource_decision_fixture'
+        assert value['scientific_admission'] is False and value['T_accessed'] is False
+        inputs[job['job_id']]=dict(value=value)
+    barrier=next(j for j in q['attempts'] if j['kind']=='extension_decision')
+    directory=tmp_path/'decision';directory.mkdir()
+    result=worker(barrier,directory,inputs,0)
+    assert result['status']=='completed_ineligible' and result['decision']['extend'] is False
+    assert result['evidence_kind']=='synthetic_resource_decision' and result['scientific_admission'] is False
+    changed=deepcopy(next(j for j in q['attempts'] if j['kind']=='qualification_fixture'))
+    changed['payload']['V_NMSE']=.1
+    with pytest.raises(ValueError,match='immutable|frozen|qualification'):
+        worker(changed,tmp_path/'changed',{},0)

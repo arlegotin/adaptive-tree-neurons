@@ -32,7 +32,7 @@ def test_m3_expands_fixed_replication_controls_and_one_uncertainty_extension():
     for row in p['probe_attempts']:
         assert row['max_updates']==300 and row['stop_by_patience'] is False
         assert row['selection_grid']==[0,25,50,75,100,125,150,175,200,225,250,275,300]
-    assert p['execution_implemented'] is False
+    assert p['execution_implemented'] is True
     assert p['protected_labels_accessed'] is False
 
 

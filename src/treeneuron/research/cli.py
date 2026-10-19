@@ -38,13 +38,20 @@ def main(argv=None):
             else:
                 from .runner import run
                 result=run(plan, args.output, resume=args.resume)
-                if config.to_dict()['kind']=='m2_opportunity':
+                if config.to_dict()['kind'] in ('m2_opportunity','m3_joint'):
                     print(json.dumps(dict(status=result['status'],statuses=result['statuses'],
                         charged_job_ns=result['charged_job_ns']),sort_keys=True))
                     return 0 if result['status']=='completed' else 4 if result['status']=='completed_with_failures' else 3
         elif args.command == 'qualify':
-            from .qualify import qualify
-            result=qualify(args.config,args.output,resume=args.resume)
+            from .method_worker import _read_json
+            metadata=_read_json(args.config)
+            if isinstance(metadata,dict) and metadata.get('schema')=='research/v2' and metadata.get('kind')=='m3_joint':
+                from .config import load_research_config,expand
+                from .joint_execution import run_joint_qualification
+                result=run_joint_qualification(expand(load_research_config(args.config)).to_dict(),args.output,resume=args.resume)
+            else:
+                from .qualify import qualify
+                result=qualify(args.config,args.output,resume=args.resume)
             print(json.dumps(dict(status=result['status'],statuses=result['statuses'],quality_eligible=False),sort_keys=True))
             return 0 if result['status']=='completed' else 3 if result['status']=='paused_before_job' else 4
         elif args.command == 'prepare-data':

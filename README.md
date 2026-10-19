@@ -21,6 +21,9 @@ benchmark and confirmation have not been completed.
 The completed [M2 diagnostic](reports/research-v2-M2.md) finds substantial ordinary
 training headroom and admits a bounded test of joint allocation. It does not
 establish a win for the present chooser.
+The [small-oracle check](reports/research-v2-small-joint.md) now gives a modest
+lead for new local scores on known planted controls; a fresh main-family study
+and the practical comparison remain pending.
 
 ## The idea
 

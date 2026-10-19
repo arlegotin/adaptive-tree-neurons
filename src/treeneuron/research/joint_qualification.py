@@ -7,6 +7,8 @@ from .joint_graph import compile_joint_graph
 from .joint_plan import FINAL_ROLES
 from .seeds import seed64,seed32
 from .workqueue import make_queue_plan
+from .joint_workers import JointWorkers
+from .ledger import write_new_json
 
 
 def checked_target(target):
@@ -75,3 +77,27 @@ def build_joint_qualification_plan(target):
         synthetic_exceptions=['Complete160-input extension decision uses fixed synthetic V risks, not scientific outcomes'],
         scope='One independent engineering primary-family teacher; full F/G/V/E shapes and native horizons; no scientific M3 teacher or efficacy admission')
     return make_queue_plan(identity,jobs)
+
+
+class JointQualificationWorkers(JointWorkers):
+    """Native spine plus explicitly synthetic decision metrics; never efficacy."""
+    def __init__(self,target,qualification,*,guard=lambda:None):
+        if canonical_json(build_joint_qualification_plan(target))!=canonical_json(qualification):
+            raise ValueError('M3 qualification differs from its frozen native workload/seeds')
+        super().__init__(qualification,guard=guard)
+
+    def __call__(self,job,directory,dependencies,attempt):
+        if job.get('job_id') not in self.jobs or canonical_hash(job)!=canonical_hash(self.jobs[job['job_id']]):
+            raise ValueError('M3 qualification job differs from its immutable plan')
+        self.guard()
+        if job['kind']=='qualification_fixture':
+            p=job['payload']
+            value=dict(status='completed_eligible',evidence_kind='synthetic_resource_decision_fixture',
+                metrics=dict(selected=dict(V=dict(normalized_mse=p['V_NMSE']))),
+                scientific_admission=False,T_accessed=False)
+            write_new_json(directory/'fixture.json',value)
+        else:
+            value=super().__call__(job,directory,dependencies,attempt)
+            value=dict(value,evidence_kind='synthetic_resource_decision' if job['kind']=='extension_decision'
+                else 'native_engineering_resource_workload',scientific_admission=False,T_accessed=False)
+        self.guard();return value

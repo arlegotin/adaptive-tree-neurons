@@ -178,3 +178,13 @@ including zero. Shortening the keep horizon or losing an eligible probe blocks
 selection. See the [worker receipt](WP04-M3-native-worker-receipt.json). Full
 M3-horizon resource qualification and the admitted public dispatcher are still
 pending, so no scientific M3 teacher has been generated.
+
+The resource collector and public M3 dispatcher now pass300affected checks
+with one device skip, including a full8000-update width95ordinary control.
+Qualification authenticates all raw files, native checkpoints, topology, F/G
+identity, precision and complete horizons before constructing a forecast. A
+completed all-ineligible queue cannot qualify native fitting. Missing runtime
+receipts/admission stop before scientific data creation. The supervised operator
+preserves the qualified interpreter path rather than resolving its venv symlink.
+See the [execution receipt](WP04-M3-execution-implementation-receipt.json).
+Actual final-source resource profiles and scientific M3/Gate B remain pending.

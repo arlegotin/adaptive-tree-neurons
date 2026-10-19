@@ -1,0 +1,115 @@
+{
+  "M3_teachers_generated": 0,
+  "T_accessed": false,
+  "completed": [
+    "Containing source/runtime/job-bound resource observations and exact actual-update/prefix counters",
+    "Explicitly synthetic full-size extension fixture separated from native workload evidence",
+    "Complete source/file/checkpoint/topology/dtype/update/data/stopping authentication before resource admission",
+    "Full next-job memory/disk/retry/transaction checks, no wall-clock quality deadline",
+    "Public M3 qualify/run routes and same-source immutable queue resumption"
+  ],
+  "logs": [
+    {
+      "bytes": 443,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/affected-final.log",
+      "sha256": "8f7d19679989fd39e70752bfe8306de745c1695d88ad6841e04f11834ff6b40d"
+    },
+    {
+      "bytes": 98,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/checkpoint-cadence-characterization.log",
+      "sha256": "c26b5f84fdb21dd8a152021f7e4a54b5abf35c98b0599aa80afb23809487fe0c"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/execution-green.log",
+      "sha256": "443f66f99e0b1438c8ee4a1b24d745eaf5ff93c590579d1b1f6249c4637efb3a"
+    },
+    {
+      "bytes": 110,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/execution-integration-green.log",
+      "sha256": "a37ef4387698a2824d6eba51775ffee4f2c39831b935147f93728596d183c1d5"
+    },
+    {
+      "bytes": 1935,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/execution-red.log",
+      "sha256": "3ed4e1d2a13b7aa53453321b47e7d84c45afacfa7d8c00a2d02e54c9ac42b88f"
+    },
+    {
+      "bytes": 3486,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/feature-interface-red.log",
+      "sha256": "1f8e14025326be38c4481a7048df8f7842310abc0f908ca10e4783c452c8b305"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/forecast-green.log",
+      "sha256": "de908a91339ae3b9bf169ae94ff3cd2be207975240f90a7618d8f0b49a607711"
+    },
+    {
+      "bytes": 3820,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/forecast-red.log",
+      "sha256": "87f5c14639790b1c6146eb53261694d5c1a867d61a869f3b5e97b4a1181db043"
+    },
+    {
+      "bytes": 4366,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/full-warm-topology-red.log",
+      "sha256": "9535b418e3e6b8ba3f537687f9d2564b684a98da1e212aeb5c48033a078a2eff"
+    },
+    {
+      "bytes": 98,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/observation-green.log",
+      "sha256": "57bfc241797c3c6785b044cceb49c8c5937ea0843be4ed756c663e85cdf26e3e"
+    },
+    {
+      "bytes": 1168,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/observation-red.log",
+      "sha256": "2ecd52fdec490bd922b218f52e954bdd6b59f6918e805076447da1764dbb3847"
+    },
+    {
+      "bytes": 1122,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/qualification-green.log",
+      "sha256": "3eab26be5eebc4923ea989a6597bedce0556d1d9a5494cba5f774223f38ef641"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/qualification-plan-final.log",
+      "sha256": "e062cdc203532bb38ab03cdcbb3b8b711227d7a3ea71556e43f978775238697d"
+    },
+    {
+      "bytes": 1348,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/qualification-red.log",
+      "sha256": "0cd5a134f3c331621b15a2ad7b34aebb056b16e78ca7e198e2c8e332820f9c8b"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/qualification-worker-green.log",
+      "sha256": "d466599f72bc3c01abf86da582e48b58fc418f6d8de88d84c095194ee582180b"
+    },
+    {
+      "bytes": 1121,
+      "path": "artifacts/research-v2/WP04/M3-resource-implementation/qualification-worker-red.log",
+      "sha256": "4b722a66e7b81533273f2ecb77b738189e2c9ec3f83c6431413b082382b89134"
+    }
+  ],
+  "native_fixture_note": "Full h64/F2306 warm-width95 ordinary control executed8000updates under cadence25; valid WidenedLayer inspected through its own native parameterization",
+  "operator_preflight": "Public qualification with missing CPU receipt exited2 before output creation",
+  "pending": [
+    "Fresh final-source CPU receipt and isolated held checkout",
+    "Actual full-horizon engineering qualification and authenticated resource forecast",
+    "Scientific M3 execution and Gate B decision"
+  ],
+  "schema": "research/v2-M3-admitted-execution-implementation",
+  "scientific_execution_admitted": false,
+  "source_sha256": "e82c9223e519ab2055da7eeeba0bf6d720e9bfd8e73c8bbb140debd9be5764a0",
+  "tests": {
+    "affected_final": "300 passed,1 device skip in183.52s",
+    "execution_RED": "2 failed in2.88s",
+    "execution_initial_GREEN": "12 passed in33.64s",
+    "full_8000_warm_topology_RED": "1 failed in32.88s",
+    "integration_GREEN": "29 passed in75.48s",
+    "observation_GREEN": "1 passed in3.96s",
+    "observation_RED": "1 failed in2.49s",
+    "qualification_worker_GREEN": "10 passed in22.87s",
+    "qualification_worker_RED": "1 failed in.06s",
+    "real_feature_interface_RED": "1 failed in6.93s"
+  }
+}

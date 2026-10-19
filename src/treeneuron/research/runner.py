@@ -101,7 +101,8 @@ def run(plan, output, *, resume=False):
         from .opportunity_execution import run_opportunity
         return run_opportunity(value,output,resume=resume)
     if value['config']['kind']=='m3_joint':
-        raise NotImplementedError('M3 requires its source-bound dispatcher and measured complete resource admission before run')
+        from .joint_execution import run_joint
+        return run_joint(value,output,resume=resume)
     if value['config']['kind'] not in ('m0_reference','m1_controls'):
         raise NotImplementedError('M2 plan is implemented; WP03 diagnostic controller/resource qualification remains required before run')
     if value['source_sha256'] != train.source_hash():

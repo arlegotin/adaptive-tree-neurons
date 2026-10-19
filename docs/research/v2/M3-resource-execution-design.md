@@ -97,10 +97,15 @@ execution context: the sandbox copy silently produced size0/flags0 and was
 safely rejected before publication. The retained disposable native proof restores
 identical bytes with UF_COMPRESSED. Do not relax that guard.
 
-Public `run --config M3-joint.json` remains blocked until dispatcher/admission
-validation is implemented and actual final-source profiles are complete. Future
-`qualify --config M3-joint.json` must explicitly route to this engineering spine,
-not the14-family transfer qualifier. Neither command may open protected T.
+Public `run --config M3-joint.json` and its admission validator are now
+implemented. Scientific execution remains blocked until actual final-source
+profiles are complete and authenticated. `qualify --config M3-joint.json` routes
+to this engineering spine, separately from the14-family transfer qualifier.
+Neither command may open protected T. The supervised launch operator is
+`docs/research/v2/scripts/run_m3_qualification.py`; it preserves the held source,
+records process startup/exit/RSS, retains every attempt and accepts explicit
+same-identity `--resume`. It has no wall deadline. It does not grant admission
+merely because its child exited successfully.
 Final Gate B needs fresh primary evidence and complete-cost reporting beyond the
 already passed four-base small-oracle prediction screen. No M3 scientific
 teacher has been generated at the time this design was written.

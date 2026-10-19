@@ -57,6 +57,6 @@ def compile_joint_graph(study):
     identity=dict(schema='research/v2-M3-queue-identity',source_sha256=study['source_sha256'],
         study_plan_hash=study['plan_hash'],study_config=study['config'],execution_identity=study['execution_identity'],
         design_bindings=study['design_bindings'],extension_contract=study['extension_contract'],
-        matrix_counts=study['matrix_counts'],job_counts=counts,execution_implemented=False,
-        pending=['M3 dispatcher and measured resource qualification/admission'],T_authorized=False)
+        matrix_counts=study['matrix_counts'],job_counts=counts,execution_implemented=True,
+        pending=['Actual native full-horizon resource qualification/admission'],T_authorized=False)
     return make_queue_plan(identity,jobs)

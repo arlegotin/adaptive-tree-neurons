@@ -10,8 +10,21 @@ Unchecked work is not completed, and prior investigation findings are not new ru
 M2 has completed and its raw prediction arithmetic has been independently audited;
 see [the complete report](../../../reports/research-v2-M2.md). Gate A admits one
 bounded joint-selector study, without establishing a placement win. WP04's dense
-joint objective and full actual parent/gate Jacobians are verified; candidate,
-trace and insertion integration and a frozen competent M3 recipe remain pending.
+joint objective, full parent/gate Jacobians, bound candidate/trace integration,
+temporary local diagnostics and native insertion are verified. The small-oracle
+reanalysis passes its narrowly defined prediction screen on3of4known planted
+bases; all new variants choose the same IDs, so joint-specific quality is still
+unproved. See reports/research-v2-small-joint.md. The competent M3 treatment is
+locked before any M3 teacher: weight decay1e-3, late parent and identical fixed
+8000-update warm continuations, with G25 and operational checkpoint cadence25.
+
+The full M3 graph, native workers, qualification/profile collector, resource
+forecasts, authenticated admission and public run/qualify routes now pass300
+affected checks with one device skip. This includes a real full8000-update
+width95ordinary control. A missing receipt/admission fails before data creation.
+Actual final-source engineering qualification remains required before scientific
+M3 execution; no M3 teacher or protected T exists yet. See
+WP04-M3-execution-implementation-receipt.json and M3-resource-execution-design.md.
 
 The bounded-memory Energy NODE attempt finished at its old7200-second cap, with
 about1.49GiBsampled peak and no saved model. The user then explicitly prioritized
@@ -19,10 +32,10 @@ completed results over that wall cap. The spec/plan amendment and
 [results-first execution contract](results-first-native-execution.md) govern
 future native qualification and quality runs. Exact periodic raw-training resume,
 explicit deadline-free supervision and storage-bounded payload retention are
-now passes106affected NODE/worker checks plus33process checks. Full2048-tree
+now pass106affected NODE/worker checks plus33process checks. Full2048-tree
 recovery matches all training state and predictions, with1.18GiBsampled peak;
 independent audit passed. The same-data/seed17 uncapped Energy restart is running
-under held `c33a84e` and has published checkpoint100. See
+under held `c33a84e` and publishes periodic recoverable checkpoints. See
 [the proof/launch receipt](WP07-NODE-recovery-full-shape-receipt.json). No production HPO,
 calibration, global freeze or protected T has run. Earlier intake/progress entries
 below retain their historical meaning; they are not the current queue status.
