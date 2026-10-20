@@ -1,0 +1,43 @@
+{
+  "changes": [
+    "Bind externally committed JSON buffers, named dataset/family/anchor, current source/software and exact native seed/configuration",
+    "Reopen original managed generation, immutable container and closed independent replay evidence",
+    "Require original replay query/prediction/metadata hashes and full snapshot byte inventory; original request/native result must remain inside original container",
+    "Independently recompute primary V arithmetic after provenance checks and recheck all source/file references before returning"
+  ],
+  "component": "closed native anchor proof reader",
+  "cross_component_red": "1DID_NOT_RAISE25.91s: recommitted replay query could differ from original while constant-model predictions remained correct",
+  "final_affected": "33passed83.62s: anchor reader/execution, independent candidate inspection and native generation chain",
+  "initial_green": "7passed31.26s",
+  "logs": [
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.superpowers/sdd/2026-10-18-research-v2/native-anchor-reader-red.log",
+      "sha256": "5d772702813c71ef94e21447d0ad46a293d3f0a59ad6556a9591d2fa93fb62ad"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.superpowers/sdd/2026-10-18-research-v2/native-anchor-reader-green.log",
+      "sha256": "0d4eb037bc3bb2b83aab10a6bf83b7ce4d29336d33bd7bcb2c50718c56ebefdf"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.superpowers/sdd/2026-10-18-research-v2/native-anchor-reader-cross-link-red.log",
+      "sha256": "59c7ab7635b7045b70feb91b6fddbc1b26488e42d3cf6f2ba5c26481791b9ad7"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.superpowers/sdd/2026-10-18-research-v2/native-anchor-reader-affected.log",
+      "sha256": "5a6cbd7ddb02c1a57fd6cfe95ab88fadd1a09cbee19c60ae73f496a3f4d4bcfb"
+    }
+  ],
+  "red": "7missing-reader failures0.29s",
+  "schema": "research/v2-implementation-receipt",
+  "scope": {
+    "T_accessed": false,
+    "actual_exercise": "Synthetic sealed Energy/P13 only; manipulated disposable proof output, original generations preserved",
+    "native_anchor_execution_authenticated": true,
+    "native_workload_qualified": false,
+    "production_registry_implemented": false,
+    "quality_eligible": false,
+    "reader_role": "Logged primary V coordinator; legitimate validation reread, never fit-worker V access",
+    "real_primary_native_anchor_count_added": 0,
+    "whole_suite_pass_claim": false
+  }
+}

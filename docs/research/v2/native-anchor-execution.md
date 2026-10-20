@@ -34,3 +34,30 @@ The containing elapsed time includes software validation and inspection; the
 inspection span is nested. The caller retains complete publication/return and
 earlier fitting/software-qualification costs. This packet makes no complete
 whole-process cost or predictive-efficacy claim.
+
+`load_native_anchor_execution(reference, prepared_root=..., ...)` now reopens
+this proof for a named dataset/family/anchor. The caller supplies externally
+committed closed artifact and prepared-manifest hashes. The reader checks the
+current software proof, exact native configuration/seed, original managed
+generation and immutable container, independent replay process/terminal, and
+the original-versus-replayed snapshot/query/prediction bindings. JSON decoding
+uses the bytes committed by the artifact inventory. Source and original files
+are checked again before returning.
+
+The reader runs as the **primary V coordinator**: after nonlabel provenance
+checks pass, it independently recomputes primary validation arithmetic through
+the logged access boundary. It does not fit or rerun inference, and it never
+opens protected T. Rechecking V does not select a configuration or determine
+technical inclusion. A raw-acquisition/support/workload registry is still
+required; the returned workload/quality/protected flags remain false.
+
+Seven missing-reader failures preceded seven passing cases in31.26seconds.
+A controlled cross-component test then showed that a recommitted feature-only
+replay could refer to a changed query while retaining correct constant-model
+predictions. That test failed to reject in25.91seconds. The reader now requires
+the actual original query hash, prediction hash, snapshot metadata and complete
+snapshot bytes, as well as original-container ownership. The33-case affected
+suite passed83.62seconds after the correction. All manipulated evidence was
+disposable synthetic P13 test output; original generations were preserved.
+See [the reader receipt](WP07-native-anchor-reader-receipt.json). No real-data
+quality score or native completion count was added by these tests.

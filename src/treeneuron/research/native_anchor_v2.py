@@ -1,6 +1,9 @@
 """Join fixed native anchor software and execution proofs, without promotion."""
 import copy
+import hashlib
+import os
 from pathlib import Path
+import sys
 import time
 
 from treeneuron.config import canonical_hash
@@ -10,6 +13,149 @@ from .native_candidate_v2 import inspect_primary_native_candidate
 from .native_verification_v2 import verification_profiles,load_native_implementation_verification
 from .search_supports_v2 import family_search_spec
 from .workqueue import _inventory
+
+
+def _closed_reference(reference):
+    from .method_worker import _digest
+    if (type(reference) is not dict or set(reference)!={'root','inventory_sha256'}
+            or type(reference['root']) is not str or not _digest(reference['inventory_sha256'])):
+        raise ValueError('Externally committed closed native proof required')
+    root=Path(reference['root'])
+    if not root.is_absolute() or root.resolve()!=root or root.is_symlink() or not root.is_dir():
+        raise ValueError('Ordinary immutable native proof directory required')
+    inventory=_inventory(root)
+    if canonical_hash(inventory)!=reference['inventory_sha256']:raise ValueError('Closed native proof bytes changed')
+    return root,inventory
+
+
+def _bound_json(root,inventory,relative):
+    path=root/relative
+    refs={row['path']:row['sha256'] for row in inventory['files']}
+    if relative not in refs or path.is_symlink():raise ValueError('Missing committed proof JSON')
+    raw=path.read_bytes()
+    if hashlib.sha256(raw).hexdigest()!=refs[relative]:raise ValueError('Proof JSON changed during decoding')
+    return _json(raw)
+
+
+def load_native_anchor_execution(reference,*,prepared_root,expected_manifest_sha256,
+        expected_family,expected_anchor_id,expected_dataset):
+    """Recheck a closed anchor and its primary V arithmetic as coordinator.
+
+    No fitting or new prediction is performed. Full workload/support/acquisition
+    qualification still requires the separate registry. Legitimate arithmetic
+    rechecking reads primary V labels through its logged coordinator boundary.
+    """
+    from .method_worker import _THREADS,_sha,_read_json,_digest
+    from .native_generation_v2 import audit_native_generation
+    from .prediction_replay_v2 import _request as replay_request
+    from .validation_scoring_v2 import score_primary_validation_prediction
+    from .workload import _checked_manifest
+    root,inventory=_closed_reference(reference);source=_source()
+    record=_bound_json(root,inventory,'result.json');prepared=Path(prepared_root)
+    if (not prepared.is_absolute() or prepared.resolve()!=prepared or prepared.is_symlink()
+            or not _digest(expected_manifest_sha256) or (prepared/'manifest.json').is_symlink()):
+        raise ValueError('Exact externally committed primary prepared data required')
+    raw=(prepared/'manifest.json').read_bytes()
+    if hashlib.sha256(raw).hexdigest()!=expected_manifest_sha256:raise ValueError('Prepared manifest bytes changed')
+    manifest=_json(raw);_checked_manifest(expected_dataset,manifest)
+    if manifest['dataset']!=expected_dataset:raise ValueError('Expected anchor dataset differs')
+    spec=family_search_spec(expected_family,dict(columns=manifest['feature_names'],categorical=manifest['categorical_features']))
+    choices=[row['config'] for row in spec['anchors'] if row['anchor_id']==expected_anchor_id]
+    if (len(choices)!=1 or record.get('schema')!='research/v2-native-anchor-execution'
+            or record.get('status')!='authenticated_native_anchor_execution'
+            or record.get('source_sha256')!=source or record.get('family_id')!=expected_family
+            or record.get('anchor_id')!=expected_anchor_id or record.get('dataset')!=expected_dataset
+            or record.get('fit_seed')!=17 or record.get('support_sha256')!=spec['support_hash']
+            or record.get('configuration_sha256')!=canonical_hash(choices[0])
+            or any(record.get(k) is not True for k in ('native_anchor_execution_authenticated','software_verified','prediction_reload_exact'))
+            or any(record.get(k) is not False for k in ('V_score_used_for_qualification','raw_acquisition_authenticated',
+                'native_workload_qualified','quality_eligible','HPO_journal_authenticated','protected_access_authorized','T_accessed'))):
+        raise ValueError('Native anchor source/coordinate or unearned authority differs')
+    profile=next(name for name,row in verification_profiles().items() if expected_family in row['families'])
+    software=load_native_implementation_verification(record['implementation_reference'],expected_profile=profile)
+    inspection_root,inspection_inventory=_closed_reference(record['inspection_reference'])
+    if inspection_root!=root/'inspection':raise ValueError('Native anchor inspection path differs')
+    inspection=_bound_json(inspection_root,inspection_inventory,'result.json')
+    if (inspection.get('schema')!='research/v2-native-candidate-inspection'
+            or inspection.get('status')!='completed_candidate_inspection' or inspection.get('source_sha256')!=source
+            or inspection.get('V_coordinator_invoked') is not True or inspection.get('V_labels_read_by_coordinator') is not True
+            or any(inspection.get(k) is not False for k in ('native_workload_qualified','HPO_journal_authenticated',
+                'quality_eligible','T_accessed','model_training_independently_reexecuted'))):
+        raise ValueError('Closed native anchor inspection provenance differs')
+    replay=_bound_json(inspection_root,inspection_inventory,'replay/terminal.json')
+    process=_bound_json(inspection_root,inspection_inventory,'process/process.json')
+    request_path=inspection_root/'input/request.json'
+    replay_sha=hashlib.sha256(request_path.read_bytes()).hexdigest()
+    replay_value,replayed_snapshot,_,_,_,_,_,_=replay_request(request_path,replay_sha)
+    expected_argv=['-B','-m','treeneuron.research.prediction_replay_v2','--request',str(request_path),
+        '--expected-request-sha256',replay_sha,'--output',str(inspection_root/'replay')]
+    env=process.get('environment_overrides',{});paths=env.get('PYTHONPATH','').split(os.pathsep)
+    argv=process.get('argv',[])
+    if (replay!=inspection.get('replay') or process!=inspection.get('process')
+            or replay.get('schema')!='research/v2-prediction-replay-terminal' or replay.get('status')!='completed_ineligible'
+            or replay.get('prediction_reload_exact') is not True or replay.get('labels_read') is not False
+            or replay.get('T_accessed') is not False or replay.get('request_sha256')!=replay_sha
+            or replay.get('family_id')!=expected_family or replay.get('scientific_source_sha256')!=source
+            or replay_value['family_id']!=expected_family or replay_value['feature_schema']!=spec['feature_schema']
+            or process.get('schema')!='research/v2-process-receipt' or process.get('execution_status')!='exited'
+            or process.get('returncode')!=0 or process.get('child_reaped') is not True or process.get('timeout_ns') is not None
+            or process.get('cwd')!=str(_ROOT) or not argv or Path(argv[0]).resolve()!=Path(sys.executable).resolve()
+            or argv[1:]!=expected_argv
+            or process.get('identity')!=dict(purpose='candidate_inspection',request_sha256=replay_sha,source_sha256=source)
+            or any(env.get(k)!='1' for k in (*_THREADS,'PYTHONDONTWRITEBYTECODE'))
+            or env.get('KMP_DUPLICATE_LIB_OK') is not None or env.get('PYTORCH_ENABLE_MPS_FALLBACK')!='0'
+            or not paths or paths[0]!=str(_ROOT/'src')
+            or any(not Path(path).resolve().is_relative_to((_ROOT/'environment').resolve()) for path in paths[1:])
+            or canonical_hash(_inventory(inspection_root/'replay'))!=inspection.get('replay_artifact_inventory_sha256')
+            or canonical_hash(_inventory(inspection_root/'process'))!=inspection.get('replay_process_inventory_sha256')):
+        raise ValueError('Managed independent replay proof differs')
+    generation=inspection['generation'];native_ref=generation['native_inventory']
+    native_process=_read_json(Path(native_ref['root'])/'process/process.json')
+    native_argv=native_process.get('argv',[])
+    if native_argv.count('--request')!=1:raise ValueError('Native managed generation request is missing/ambiguous')
+    native_path=Path(native_argv[native_argv.index('--request')+1])
+    native_request=_read_json(native_path)
+    args=dict(request_path=native_path,expected_request_sha256=generation['request_sha256'],native_reference=native_ref,
+        prepared_root=prepared,expected_manifest_sha256=expected_manifest_sha256,
+        outer_fold=4 if expected_dataset=='bike' else 0,expected_fit_seed=17,expected_configuration=choices[0])
+    container=Path(inspection['immutable_generation_root'])
+    original_snapshot=Path(generation['snapshot']['path']).parent
+    if (not native_path.resolve().is_relative_to(container)
+            or not Path(native_ref['root']).resolve().is_relative_to(container)
+            or replay_value['snapshot']['metadata_sha256']!=generation['snapshot']['sha256']
+            or replay_value['query']['sha256']!=native_request['files']['V_features']['sha256']
+            or replay_value['prediction']['sha256']!=generation['prediction']['sha256']
+            or replay.get('query_sha256')!=replay_value['query']['sha256']
+            or replay.get('prediction_sha256')!=replay_value['prediction']['sha256']
+            or replay.get('snapshot_metadata_sha256')!=generation['snapshot']['sha256']
+            or replay.get('query_rows')!=generation['query_rows']
+            or _inventory(replayed_snapshot)!=_inventory(original_snapshot)
+            or replay.get('snapshot_files')!=_inventory(original_snapshot)['files']):
+        raise ValueError('Independent replay is not bound to the original generation')
+    if (not container.is_absolute() or container.resolve()!=container or container.is_symlink()
+            or canonical_hash(_inventory(container))!=inspection['immutable_generation_inventory_sha256']
+            or audit_native_generation(**args)!=generation):raise ValueError('Original native generation proof differs')
+    prediction=Path(generation['prediction']['path'])
+    validation=score_primary_validation_prediction(root=prepared,outer_fold=args['outer_fold'],
+        expected_manifest_sha256=expected_manifest_sha256,prediction_path=prediction,
+        expected_prediction_sha256=generation['prediction']['sha256'])
+    if validation!=inspection['validation']:raise ValueError('Independent primary validation arithmetic differs')
+    if (audit_native_generation(**args)!=generation or _source()!=source
+            or _sha(prepared/'manifest.json')!=expected_manifest_sha256
+            or canonical_hash(_inventory(container))!=inspection['immutable_generation_inventory_sha256']
+            or _inventory(root)!=inventory
+            or load_native_implementation_verification(record['implementation_reference'],expected_profile=profile)!=software):
+        raise ValueError('Native anchor proof changed during loading')
+    for ref in validation['sources']:
+        path=Path(ref['path'])
+        if path.is_symlink() or _sha(path)!=ref['sha256']:raise ValueError('Final primary arithmetic input changed')
+    return dict(schema='research/v2-authenticated-native-anchor-execution',reference=copy.deepcopy(reference),
+        source_sha256=source,family_id=expected_family,anchor_id=expected_anchor_id,dataset=expected_dataset,
+        native_anchor_execution_authenticated=True,software_verified=True,prediction_reload_exact=True,
+        validation_recomputed=True,V_labels_read_by_coordinator=True,V_score_used_for_qualification=False,
+        native_workload_qualified=False,quality_eligible=False,T_accessed=False,
+        software=software,generation=generation,validation=validation,
+        scope='Reopened fixed native anchor software, managed generation, independent inference evidence and primary V arithmetic. No raw acquisition, complete workload/support registry or production/protected authority.')
 
 
 def qualify_native_anchor(*,implementation_reference,generation_arguments,immutable_generation_root,

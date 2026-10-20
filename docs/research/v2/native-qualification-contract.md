@@ -45,6 +45,10 @@ still proposed:
 ```python
 qualify_native_anchor(..., implementation_reference, generation_arguments,
                       immutable_generation_root, ...)
+load_native_anchor_execution(reference, prepared_root=...,
+                             expected_manifest_sha256=...,
+                             expected_family=..., expected_anchor_id=...,
+                             expected_dataset=...)
 # Proposed; not implemented yet:
 seal_native_qualification_registry(..., profile_references, anchor_references,
                                   workload_references, data_bindings, output)
