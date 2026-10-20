@@ -279,3 +279,9 @@ The [reproduction guide](reproduce.md), [binding spec](../../superpowers/specs/2
 and [implementation plan](../../superpowers/plans/2026-10-18-research-v2.md)
 separate implemented components from unrun studies. Historical source identities
 and publication results are preserved.
+
+[Secondary released-data roles](released-transfer.md) passed 59 affected checks
+on toy data and public qualification failures. The separate training/coordinator
+views preserve the legacy primary-only guards and deny T, with their own locked
+audit channel. Actual complete-qualified public release, secondary native
+workload/search execution and protected evaluation remain unrun/unfinished.

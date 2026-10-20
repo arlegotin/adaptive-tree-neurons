@@ -1,0 +1,111 @@
+{
+  "T_accessed": false,
+  "actual_complete_qualified_public_release": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_released_transfer_v2.py",
+      "tests/test_transfer_contract.py",
+      "tests/test_practical_global_freeze_v2.py",
+      "tests/test_transfer_access_prefix_v2.py",
+      "tests/test_transfer_access_v2.py",
+      "--basetemp=artifacts/research-v2/WP09/released-transfer-source-final-tmp"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "logs": [
+    {
+      "bytes": 7291,
+      "path": "artifacts/research-v2/WP09/released-transfer-RED.log",
+      "sha256": "aea67cc91dab1c19369be534105ff31399a3ccfd3b130e4a6f83561adcc3da59"
+    },
+    {
+      "bytes": 3235,
+      "path": "artifacts/research-v2/WP09/released-transfer-final.log",
+      "sha256": "11d029658ab38e15aaa3d0a19b126255ecae077121b44cf856cc3d1b5a296659"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP09/released-transfer-source-final.log",
+      "sha256": "88efd0d70655573412386150c9a06f56cb9c2e8d9f15f95ac26ef2f9a73e9aec"
+    }
+  ],
+  "native_models_fit": 0,
+  "observation": {
+    "bytes": 1264,
+    "path": "artifacts/research-v2/WP09/released-transfer-software/observation.json",
+    "sha256": "df3604a01fafd0a3848b1e3150377fdd90be51eb0926171883c9a63691136cfa"
+  },
+  "parent_commit": "7f9d4f0",
+  "production_readiness_authenticated": false,
+  "protected_access_authorized": false,
+  "real_transfer_labels_read": false,
+  "remaining": [
+    "Secondary native workload/adapter/search routes under unchanged supports",
+    "Full post-secondary retained-model and once-only T/evaluator barrier",
+    "Raw audit, physical costs, CLI/readiness and final review before final-source qualification/primary production"
+  ],
+  "schema": "research/v2-released-transfer-component-receipt",
+  "scope": "Actual-global-first public secondary-data API; private data-only engine on raw-identity-false toy Energy table and pure journal fixtures. No complete-qualified public release was fabricated/executed.",
+  "secondary_native_workload_qualified": false,
+  "source_sha256": "f6444f28eb51a088ea945b2dd1321aebf82d115efbd0fbc3e7e130748644c0c5",
+  "tested_files": [
+    {
+      "bytes": 8515,
+      "path": "src/treeneuron/research/released_transfer_v2.py",
+      "sha256": "3d2eceb313f9dfdbfc6d74364220ba25bec02e5853e82feb75cf95350e3e73d4"
+    },
+    {
+      "bytes": 14954,
+      "path": "src/treeneuron/research/practical_global_freeze_v2.py",
+      "sha256": "56debede11121e401541c32a93804a30137d2c13a4f5a5c2fabb66707cebd48d"
+    },
+    {
+      "bytes": 5228,
+      "path": "tests/test_released_transfer_v2.py",
+      "sha256": "ca4b8add15fb7d44b3dc7ce32abc344c7b0f5f1c784de76dc5da3ec5e246f39c"
+    },
+    {
+      "bytes": 6639,
+      "path": "tests/test_transfer_contract.py",
+      "sha256": "8e859e3e841a039e60d207b4dadf274827ef2eeca357e39cfe7324fb4281c91a"
+    },
+    {
+      "bytes": 5929,
+      "path": "tests/test_practical_global_freeze_v2.py",
+      "sha256": "85ea4960511ab9a3c6444d4f46453a2f67350234ad837fa1ada02d0ca98f0a63"
+    },
+    {
+      "bytes": 4324,
+      "path": "tests/test_transfer_access_prefix_v2.py",
+      "sha256": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb"
+    },
+    {
+      "bytes": 6923,
+      "path": "tests/test_transfer_access_v2.py",
+      "sha256": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd"
+    }
+  ],
+  "toy_secondary_F_G_V_read": true,
+  "verification": [
+    "Initial5missing-module failures0.38s",
+    "First57passed2failed0.73s: append-mode cursor at EOF bypassed prior log validation",
+    "Final59passed0.59s after seek(0) under journal lock"
+  ],
+  "whole_repository_suite_passed": false
+}

@@ -2593,3 +2593,30 @@ positive was not stubbed or run. [Contract](practical-global-barrier.md),
 full post-secondary/T/evaluator/auditor/cost/CLI/readiness/finalreview remain
 required before final-source qualification/primaryproduction. Heldc33CCPP7200+
 and source/env/ops remain unchanged; no new predictive outcome.
+
+## 20 October: separate released secondary F/G/V roles
+
+Added actual-global-first public ReleasedTransferStore; exact source-derived
+prepared root/manifest maps now belong to the global payload. Private data-only
+engine opens secondary F/G plus Vfeatures for the training view, Vlabels only
+through its coordinator, and always denies T. Legacy TransferStore guards are
+unchanged. Row/group/date/features/stream identities use the existing data types.
+Secondary native-workload qualification is not granted by a data view.
+
+Secondary events go to a separate locked, strict protocol/source/manifest/split/
+actor hash-chain journal under artifacts/research-v2/released-access/<planhash>,
+without adding mutable files to qualified prepared/proof roots or the old primary
+log. Initial5missing-module failures0.38s; first57passed2failed0.73s exposed read
+cursor at EOF in append-mode logs, bypassing history validation. Explicitseek0
+under the lock fixes the chain/protocol/corruption rejection. Final five-module
+59passed0.59s. Positive engine/capture uses unqualified toy Energy-shaped data;
+publicfalseq test fails before metadata/arrays/log. No realtransferlabels,
+nativefits, T or complete-qualified public release. Current claim ledger now
+clarifies the preserved Airfoil/Concrete tranche versus separately completed
+Parkinsons; two remaining native cells stay pending.
+
+[Contract](released-transfer.md), [receipt](WP09-released-transfer-receipt.json).
+Actual secondary native workload/adapter/search routes, full840postsecondary/T
+barrier/evaluator/rawaudit/cost/CLI/readiness/finalreview remain unfinished before
+final-source qualification or primary production. Heldc33CCPP7600+ and
+source/env/ops/predictive findings are unchanged.

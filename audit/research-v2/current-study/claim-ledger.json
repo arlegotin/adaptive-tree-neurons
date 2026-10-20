@@ -221,7 +221,7 @@
         }
       ],
       "status": "supported_execution_and_development",
-      "strongest_counterevidence_or_limit": "One fit seed per primary validation split, with no HPO/protected/efficiency claim. Three fixed NODE cells remain pending; earlier Airfoil summary is a preserved tranche snapshot. No final-source qualification or independent retraining."
+      "strongest_counterevidence_or_limit": "One fit seed per primary validation split, with no production HPO/protected/efficiency claim. Airfoil/Concrete records are preserved tranche snapshots; Parkinsons completion/scoring is separately disclosed. CCPP and Bike remain pending. No final-source qualification or independent retraining."
     },
     {
       "claim": "The measured largest TabM geometry completed near 3 GiB owned-root RSS without shrinking model/data/batch.",
@@ -366,6 +366,11 @@
           "bytes": 4681,
           "path": "docs/research/v2/WP09-practical-global-barrier-receipt.json",
           "sha256": "691feda4c8fe469a841c323e558363ef67c32ede2b3087394741ae919a873898"
+        },
+        {
+          "bytes": 4272,
+          "path": "docs/research/v2/WP09-released-transfer-receipt.json",
+          "sha256": "b0a96f0689c0cd716f8386e539b088012c4489537c33d2e0cd60b5b5103111d6"
         }
       ],
       "status": "supported_scoped_status",

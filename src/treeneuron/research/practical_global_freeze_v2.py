@@ -124,6 +124,8 @@ def _assemble(*,registry,qualification_reference,practical_plan_reference,expect
             support_reference=copy.deepcopy(support_reference),procedure_reference=copy.deepcopy(procedure_reference),
             qualification_reference=copy.deepcopy(qualification_reference),qualified_primary_models_reference=copy.deepcopy(qualified_primary_models_reference),
             source_sha256=value['source_sha256'],primary_models=copy.deepcopy(models['models']),primary_champions=champions,
+            prepared_datasets={name:dict(root=str(Path(registry['inputs']['prepared_roots'][name])),
+                manifest_file_sha256=registry['preparation']['datasets'][name]['manifest_file_sha256']) for name in _DATASETS},
             frozen_primary_access_prefixes=fixed,global_procedure_semantics_authenticated=True,
             qualified_primary_models_authenticated=True,secondary_development_access_authorized=True,
             secondary_native_workload_qualified=False,protected_access_authorized=False,protected_evaluation_authorized=False,

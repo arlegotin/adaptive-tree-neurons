@@ -43,3 +43,7 @@ secondary barrier implementation, not an executed global freeze. Released
 F/G/V and native-workload routes, protected evaluation/full artifact audit,
 physical cost/CLI/readiness and final review remain unfinished before final-source
 qualification and primary production.
+
+The [secondary data API](released-transfer.md) now reloads this barrier and uses
+its exact prepared-root map, with a separate protocol-bound access journal.
+It still denies T and does not qualify secondary native workloads or searches.
