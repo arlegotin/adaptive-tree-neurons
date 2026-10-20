@@ -3039,3 +3039,26 @@ label evaluator, full raw/model/access audit, deployment/cost, CLI/readiness or
 final review. Production actual qualification/HPO/T remain unrun. Heldc33NODE
 source/environment/operator queue unchanged: CCPP15000/best15000latestobserved,
 Bike next,118of120 engineering anchors complete.
+
+## Owned saved-query leaf and proof join,20October
+
+The [leaf](owned-saved-query-leaf.md) now performs cooperative ownership before
+method imports/features, checks the exact witnessed active query before/after
+inference and binds terminal/prediction/readback references in its closed body.
+A readonly actual process/body/numerical checker accepts the historical witnessed
+query-start prefix after a later commit; live access still requires active state.
+
+The seven-module final command passed179checks in80.57s, source0267f880e9b9d4c40329b245922da46d120e5bd0d35b44415ae8ecde50894668.
+Initial15missing-module failures, one sandbox process-observation denial before
+spawn, missing prefix/join checks and their recoveries are retained in the
+[receipt](WP10-owned-saved-query-leaf-receipt.json). Same-source scoped permission
+resolved the sandbox case. Its original temporary raw receipt has expired; the
+failure log and in-session diagnosis remain explicitly distinguished.
+
+Three retained local fixture episodes completed, denied before launch or failed
+before method import on forbidden label fields. The completed P13 worker
+reproduced37predictions/IDs exactly and imported no tracked heavy model namespace.
+No genuine native/protected public gate was mocked. The actual production
+coordinator, policy admission, numerical commit and all-predictions/label barrier
+remain unfinished, along with label/audit/deployment/cost/CLI/readiness/final
+review before actual final-source qualification/HPO. No actual T inference ran.

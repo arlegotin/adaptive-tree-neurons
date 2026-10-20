@@ -414,3 +414,11 @@ exact row/group/date alignment and complete source/model/feature commitments,
 without a second model prediction. Label filenames reject before byte access.
 Numerical readback alone grants no access authority: owned worker provenance and
 actual journal/label execution remain unfinished before production.
+
+The [owned saved-query leaf and checker](owned-saved-query-leaf.md) passed179
+affected checks in80.57s. A real local fixture joins cold ownership, source,
+active journal, saved model, finite output and closed process evidence; denial
+and malformed-input paths produce no prediction. The same observed proof remains
+readable from its historical journal prefix after a private commit. Production
+coordinator scheduling/admission and genuine protocol commits remain unfinished.
+No actual protected benchmark inference or labels were accessed.
