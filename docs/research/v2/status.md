@@ -160,7 +160,9 @@ The [cold primary worker body](primary-search-worker.md) passed 132 affected
 checks, including actual unqualified controller pause/resume and public rejection
 of false qualification. Complete qualified execution remains unrun. The measured
 production launcher, full external-cost reconciliation and primary-model/protocol
-barriers remain unfinished.
+barriers remain unfinished. The [exact model-barrier component](qualified-primary-models.md)
+passed 74 affected checks; complete execution on 168 genuine qualified searches
+remains unrun and authorizes no secondary or protected access.
 
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only

@@ -1,0 +1,101 @@
+{
+  "T_accessed": false,
+  "actual_168_qualified_searches_executed": false,
+  "actual_native_registry_success_fabricated": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-c",
+      "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"--tb=short\",\"--basetemp=artifacts/research-v2/WP11/qualified-primary-models-final-inventory-fixture\",\"tests/test_qualified_primary_models_v2.py\",\"tests/test_primary_selection_inventory_v2.py\",\"tests/test_qualified_search_audit_v2.py\"]))"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "fixture_observation": {
+    "bytes": 1577,
+    "path": "artifacts/research-v2/WP11/qualified-primary-models-fixture-observation.json",
+    "sha256": "af9c365ed0c90303ffd009e569bedf5a6f38d0c0f80077a244258f47005466bd"
+  },
+  "logs": [
+    {
+      "bytes": 23885,
+      "path": "artifacts/research-v2/WP11/qualified-primary-models-red.log",
+      "sha256": "8c5ccdb7ff341a0fca30ffdb184bac852cd70b6fd73ada16c5e8dbbed0394163"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP11/qualified-primary-models-first.log",
+      "sha256": "9420e1c2fa229c60ba298003d1c07c7714bd0fa4d6cc704d2f01fe9515146ad6"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP11/qualified-primary-models-final.log",
+      "sha256": "f4e691bedc39bec3db6ef4f70ca69729700b581a14a8d3aa3aeab6f2924aabf7"
+    },
+    {
+      "bytes": 160,
+      "path": "artifacts/research-v2/WP11/qualified-primary-models-first-source.json",
+      "sha256": "d60532b5d7e0bc6e25438986f678609e87d65485f722dcc9f04da1eb7abd23d5"
+    },
+    {
+      "bytes": 7310,
+      "path": "artifacts/research-v2/WP11/qualified-primary-models-search-inventory-red.log",
+      "sha256": "cd55727fd2c6cf17be02c78d0563905a21b5770b2b8838911e7f4f5cdebdc68d"
+    },
+    {
+      "bytes": 180,
+      "path": "artifacts/research-v2/WP11/qualified-primary-models-final-inventory.log",
+      "sha256": "f6a1eadb71cf2494e797317a4067e0657e64ed9d32cbc1ccf839c74e83745101"
+    }
+  ],
+  "parent_commit": "840c1b9",
+  "primary_168_model_barrier_satisfied": false,
+  "production_execution_authorized": false,
+  "protected_access_authorized": false,
+  "quality_eligible": false,
+  "schema": "research/v2-qualified-primary-model-barrier-component-receipt",
+  "scientific_source_sha256": "65b2beffb9ae498b0ae5686df4ab83ce347ac05e1c9d215358ccb1ff62becf8e",
+  "scope": "Implementation of genuine all-primary search/model composition, byte-only helper fixtures and public false-registry rejection. Actual complete168qualified execution is unrun; no forged successful registry/cohort.",
+  "secondary_release_authorized": false,
+  "tested_files": [
+    {
+      "bytes": 12899,
+      "path": "src/treeneuron/research/qualified_primary_models_v2.py",
+      "sha256": "263c9752934d9787a49cc40d09f66a622a5e1141bb3e1c58158125ed2fae065e"
+    },
+    {
+      "bytes": 4847,
+      "path": "tests/test_qualified_primary_models_v2.py",
+      "sha256": "ac60c5746a4f15bf0a6e6cd17a2ea32c39faf2f41e0d7a37b8e7b32c0ff5dc9a"
+    },
+    {
+      "bytes": 12540,
+      "path": "tests/test_primary_selection_inventory_v2.py",
+      "sha256": "9319a4d7e24733ea8052cd4aeb014345ea2465fd164a90bb35d36ad065840ef7"
+    },
+    {
+      "bytes": 11565,
+      "path": "tests/test_qualified_search_audit_v2.py",
+      "sha256": "c49cd90290f86439cd8b4098f8b3564751865c60b4f1584200f9a4b4924c8332"
+    }
+  ],
+  "verification": [
+    "Missing API:11failed .09s; first11checks passed",
+    "Initial three-module suite70passed35.22s before full-search inventory hardening; its source observation retained separately",
+    "Full-search inventory regressions4failed .34s; pin-before-audit and recheck-after/end added",
+    "Final affected three-module suite74passed34.08s/session93210exit0",
+    "Readonly fixture capture binds metadata/full snapshot and closed-search bytes with native/protected flagsFalse; no process/model/label access"
+  ],
+  "whole_training_procedure_cost_authenticated": false
+}

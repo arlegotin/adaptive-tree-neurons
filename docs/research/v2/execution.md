@@ -2182,3 +2182,22 @@ its control directory before writing handshake files; the body protects its
 working/proof/executable locations after actual registry validation. Held c33
 NODE source/environment/serial operators remain unchanged; CCPP continues,
 Bike follows, and M3/B0 negative branches stay closed.
+
+## 20 October: exact qualified primary-model barrier component
+
+Seal/load now require actual complete qualification first, then genuine qualified
+search audits for every one of the 168 primary jobs. The selected file must be
+the exact winning checkpoint metadata with its full snapshot, rather than any
+artifact from that attempt. Each full search inventory is pinned before audit
+and rechecked afterward and at the end, so extra/changed losing evidence cannot
+hide behind the older metadata inventory. Source/registry/primary facts recheck.
+
+Final affected suite74passed34.08s/session93210exit0. Initial missing APIs and the
+later full-search inventory regressions failed before their implementations;
+intermediate70check source/logs remain retained. Byte-only fixture helpers grant
+no native authority; false registry metadata cannot reach inventory/search I/O.
+Complete public execution on168actualqualifiedsearches remains UNRUN, with no
+fake successful registry/cohort. [Contract](qualified-primary-models.md) and
+[receipt](WP08-qualified-primary-models-receipt.json). Global procedure semantics,
+production resource/launcher/complete cost and protected protocol remain separate
+unfinished gates. Heldc33NODEsource/env/serial operators remain unchanged.
