@@ -2127,3 +2127,24 @@ tail unavailable. These cannot support an authenticated complete total-cost clai
 See [complete tranche](../../../reports/research-v2-native-anchors-parkinsons.md)
 and [source/proof receipt](WP07-NODE-Parkinsons-completion-and-V-receipt.json).
 M3/B0 negative gates and the unfinished practical qualification/HPO scope stand.
+
+## 20 October: cooperative cold-root ownership component
+
+A stdlib-only ready/grant handshake now retains cold-root startup/closure and
+validates trusted worker identity before nested execution. Once grant publication
+begins, cleanup uses one cooperative SIGINT and joins the root; it never hard
+kills an outer coordinator that may own separate nested sessions. This also
+covers exceptions immediately before/after grant and stop publication. Disk-full
+receipt failure cannot suppress cleanup or invent missing evidence.
+
+Missing-API tests failed first (14); publication-boundary regressions then failed
+(three) before the fixes. Final affected suite: 71 passed in 5.52 seconds,
+session 90232 exit zero, source `9da0e43e...35d1`. Thirteen actual tiny root
+observations reopened with process creation forbidden. No labels, native models,
+production searches or protected evidence were used. Root RSS remains sampled
+and advisory; nested native guards remain separate, with no default wall cap.
+[Contract](cooperative-process-ownership.md),
+[receipt](WP08-cooperative-process-ownership-receipt.json). Actual search-worker
+composition, full cost/journal reconciliation, primary model/protocol barriers
+and final-source qualification remain unfinished. Held c33 NODE source and
+runtime were not changed.

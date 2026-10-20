@@ -1,0 +1,115 @@
+{
+  "T_accessed": false,
+  "capture_operator": {
+    "bytes": 1777,
+    "path": "docs/research/v2/scripts/capture_cooperative_process_fixture.py",
+    "sha256": "68934e15850e8ca65820e902bb7c0d260a33428543f3926d180a83855df0b0d7"
+  },
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_cooperative_process_v2.py",
+      "tests/test_process_supervision_v2.py",
+      "tests/test_process_receipt_v2.py",
+      "--basetemp=artifacts/research-v2/WP11/cooperative-process-final-fixture"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "fixture_observation": {
+    "bytes": 44602,
+    "path": "artifacts/research-v2/WP11/cooperative-process-fixture-observation.json",
+    "sha256": "6dd9ce7719b2aebb58a05aaa24474c019531a97742eedcf9a2123bae9f1da9d7"
+  },
+  "labels_read": false,
+  "logs": [
+    {
+      "bytes": 20712,
+      "path": "artifacts/research-v2/WP11/cooperative-process-red.log",
+      "sha256": "ee141231cd59aecbde11e8e9684751ef4dfa3204bcb06737ee8bf9f036777b11"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP11/cooperative-process-first.log",
+      "sha256": "a657db8e6c29a85a74dd3a879d2c4bbbb6ecfc9cf1f3a246f85789de9ab258dd"
+    },
+    {
+      "bytes": 9606,
+      "path": "artifacts/research-v2/WP11/cooperative-publication-red.log",
+      "sha256": "8215d239bc09a19a467e5d28ccd14c6985420b7dbab35357b9a1c944c3d42b3e"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP11/cooperative-publication-green.log",
+      "sha256": "271baae6963ebccbce1b6197f7ad4aacc1052af511aa9c116909d06a003694e6"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP11/cooperative-process-final.log",
+      "sha256": "442cc00f85f1123dfb8e7b39097eeb224e4458cd65ff221c111816556cdb51e1"
+    }
+  ],
+  "native_workload_qualified": false,
+  "new_native_model_fits": 0,
+  "packages_installed_or_updated": false,
+  "parent_commit": "837315c",
+  "production_execution_authorized": false,
+  "quality_eligible": false,
+  "schema": "research/v2-cooperative-process-ownership-component-receipt",
+  "scientific_source_sha256": "9da0e43ead5ccfc15c15c87d7dce0eb1ef6d406f7242e2518e0aa3439aea35d1",
+  "scope": "Actual tiny trusted cold-worker and separate nested-session ownership/closure only. No native model, labels, production search, complete native registry or full training-procedure cost authority.",
+  "tested_files": [
+    {
+      "bytes": 23969,
+      "path": "src/treeneuron/research/cooperative_process_v2.py",
+      "sha256": "6374c7b7857af9105a4b151b345e4eab3dccd46dec776feb119ff491faef18e2"
+    },
+    {
+      "bytes": 12953,
+      "path": "tests/test_cooperative_process_v2.py",
+      "sha256": "896f8d24510b97195b5841dd87e9e24481ce63ac9734c350530e1305190759ca"
+    },
+    {
+      "bytes": 11543,
+      "path": "src/treeneuron/research/process_supervision_v2.py",
+      "sha256": "bb6ec9d3ee24765ee399c94a2c7b8e3e0661317ab13d7e8ee1be7f204f7e6704"
+    },
+    {
+      "bytes": 12194,
+      "path": "tests/test_process_supervision_v2.py",
+      "sha256": "884051e72e18e62324ebcbd492b81313416b62b8c7586c340ccebdca578a0256"
+    },
+    {
+      "bytes": 8210,
+      "path": "src/treeneuron/research/process_receipt_v2.py",
+      "sha256": "46ed2ef31bab69c384bd04860e06d18ca9c73fc7cfca792e3b61920947b1152a"
+    },
+    {
+      "bytes": 4579,
+      "path": "tests/test_process_receipt_v2.py",
+      "sha256": "3283357ccd21a9973b3cc96f49e1c49132bd08d6def1c79e14899bde58949057"
+    }
+  ],
+  "verification": [
+    "Missing API:14 failed .09s; initial implementation:14 passed2.07s",
+    "Publication boundary regressions:3 failed/1passed .49s; authorization-before-publication and cleanup independent of receipt write fixed",
+    "Expanded component18 passed2.41s; final three-module affected suite71 passed5.52s/session90232exit0",
+    "Readonly capture authenticates13actualclosed root episodes; subprocess creation and saved-PID probes forbidden",
+    "No automatic outer hard kill once grant publication begins; no strict/aggregate memory or bounded-cleanup guarantee"
+  ],
+  "whole_training_procedure_cost_authenticated": false
+}

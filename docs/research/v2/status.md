@@ -151,8 +151,11 @@ checks, including actual partial candidate, failure, replay and paid-retry
 records. Complete public qualified success awaits the actual final-source
 registry. [Callback preparation](primary-native-preparation.md) then passed 61
 scoped checks, including byte-only role staging and validation-label exclusion.
-Its actual qualified-factory path is unrun. Whole execution/supervision, external
-cost and primary-model/protocol barriers remain unfinished.
+Its actual qualified-factory path is unrun. The [cooperative root supervisor](cooperative-process-ownership.md)
+passed 71 affected checks, including actual nested cleanup and disk-publication
+failures. It supplies a cold-root clock and no native/production authority.
+Composition with search execution, full external-cost reconciliation and
+primary-model/protocol barriers remain unfinished.
 
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only
