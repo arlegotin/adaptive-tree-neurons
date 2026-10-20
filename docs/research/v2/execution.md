@@ -2757,3 +2757,29 @@ authority. Next full840 model seal, once-T/evaluator/raw audit, physical costs/
 deployment/CLI/readiness/final review before final-source actual qualification
 and primary production. Scientific branch closures and held c33 execution remain
 unchanged; no new protected root, remedy or budget cut.
+
+## 20 October: complete840 retained-model seal component
+
+Public seal/load actualglobal/native FIRST, then exact672 secondary proof map,
+genuine completed native/HPO/V search audits and full search/snapshot bytes for
+every retained native/10/30/120-minute model. Frozen primary168 copied unchanged;
+metadata-only helper validates all840 fixed identities and unavailable prefixes
+without native authority. Global/source/all models/searches rechecked before
+fresh publication; guard preserves both virtual and resolved interpreter paths.
+Even actual success supplies model inventory qualification only, no T/cost claim.
+
+Initial13RED1.72s→51GREEN3.59s. Added malformed job-ID test1failed1passed1.24s
+exposed TypeError on unhashable ID; explicit string check restores declared
+ValueError. Expanded82GREEN12.25s. Pure resolved-interpreter output boundary
+1RED0.07s→final five-module83GREEN12.26s. Positive fixtures are untrusted model
+metadata and byte-only local snapshots/searches; public false native/global gate
+fails before model/proof/output. Actual complete-qualified positive remains
+unrun/no complete registry/model success stub. Final metadata capture independent
+counts840=168+672, zero model files/fits/labels/T; its preliminary pre-guard source
+capture is retained separately. [Contract](practical-model-seal.md),
+[receipt](WP09-practical-models-receipt.json).
+
+Next final protected protocol/once-only feature->prediction->label evaluator,
+independent raw audit/cost/deployment/CLI/readiness/final review before final-source
+actual qualification and primary searches. Current scientific conclusions and
+held c33 runtime/source/operator plan unchanged; no rescue or protected root.

@@ -396,6 +396,11 @@
           "bytes": 4239,
           "path": "docs/research/v2/WP09-secondary-program-receipt.json",
           "sha256": "54e29f14e63ac1461db0f19ac90db672313437af325722b7119bfb0c6bd7197c"
+        },
+        {
+          "bytes": 5227,
+          "path": "docs/research/v2/WP09-practical-models-receipt.json",
+          "sha256": "4fee43fdab78724ff5f292dfca84c7f57dec2d0a4d17ef501300b9850bf281fa"
         }
       ],
       "status": "supported_scoped_status",

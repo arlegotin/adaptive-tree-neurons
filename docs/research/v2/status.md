@@ -6,7 +6,7 @@ changes and exact evidence boundaries.
 The [cross-study report](../../../reports/research-v2.md) links the scientific
 conclusions to their [evidence and counterevidence ledger](../../../audit/research-v2/current-study/claim-ledger.json).
 
-Current implementation work is the full840-model/protected-evaluation barrier,
+Current implementation work is the final protected-evaluation protocol/engine,
 raw audit, physical costs/deployment, production CLI/readiness and final review.
 The primary and secondary program components are implemented and fixture-tested;
 complete-qualified production searches, global release and protected evaluation
@@ -329,3 +329,9 @@ passed59affected checks. It retains immutable672-job order and exact paused
 caller history, and requires actual native/HPO/V terminal audits. Metadata and
 no-child fixtures grant no actual native/global success. Complete-qualified
 public positive/terminal execution and the complete840/T/cost gates remain unrun.
+
+The [complete practical model seal](practical-model-seal.md) is implemented and
+passed83affected checks. It requires actual native/HPO/V proofs and complete
+snapshots for all840 jobs/views, preserving the frozen primary168. Positive
+metadata/byte fixtures grant no native authority; actual complete-qualified
+positive execution remains unrun. Its output still grants no T or cost claim.
