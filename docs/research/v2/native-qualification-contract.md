@@ -74,3 +74,13 @@ The [prepared-data byte/source reader](prepared-data-lineage.md) now supplies
 the recorded source/raw/sealed-byte consistency component. It hashes opaque
 protected archives without decoding targets and grants no modeling authority.
 The complete registry and raw-to-model joins are still required.
+
+Resource forecasting must use retained artifact bytes, not parameter counts.
+The completed Airfoil NODE snapshot contains32,705,993array bytes and a
+24,465,520-byte manifest; its separate fit receipt is23,731,169bytes. These
+include audit/training state. Account for the retained current/best training
+states and transactions before admitting the larger searches. No completed
+payload deletion, weakened model, shortened native recipe or changed evidence
+retention is admitted by shared-input staging. Deployment reports must identify
+an audit-inclusive bundle cost rather than assigning it to intrinsic prediction
+arithmetic; a compact inference procedure needs its own qualification.
