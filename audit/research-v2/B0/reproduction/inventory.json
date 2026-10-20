@@ -1,0 +1,31 @@
+{
+  "files": {
+    "analysis.json": {
+      "bytes": 113152,
+      "sha256": "cd401dc768ca6aa496f6e7c611b5b22af8fbde34968a473d60838524c8cd48c0"
+    },
+    "audit.py": {
+      "bytes": 12978,
+      "sha256": "93e2e57d16aade7740e6abd14c9790df52aacd378249061bead4cafb883e4a64"
+    },
+    "executed-operator.py": {
+      "bytes": 17804,
+      "sha256": "4050bd007b72a58ac47203c95be666375fab2df27275c676fd25a1653fd5e46b"
+    },
+    "full-source-reconciliation.json": {
+      "bytes": 547,
+      "sha256": "01959357bef3816717e657b80fb1d140d9aa0bbdc696b0c59b954fd316f72016"
+    },
+    "report.py": {
+      "bytes": 7944,
+      "sha256": "239d6cb0b785b1602f561d95a34b52e5d5c920bfc8f7165374f52922525bba8c"
+    },
+    "study-plan.json": {
+      "bytes": 53628,
+      "sha256": "1e004e5e1a61c7c9efd0b623293f09e454e7fbb2ebf1f0794d723f1ac0a9bfff"
+    }
+  },
+  "operator_copy_is_executed_bytes_not_a_portable_rerun": true,
+  "raw_arrays_and_checkpoints_in_public_checkout": false,
+  "schema": "research/v2-B0-public-reproduction-inventory"
+}

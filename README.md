@@ -40,6 +40,12 @@ the grown anchor's0.092186 and RealMLP's0.073302. All20Airfoil points remain
 visible. This is still one development split/seed;116of120native engineering
 anchors have completed, with the remaining four NODE fits running serially.
 
+The [B0 native-backbone screen](reports/research-v2-B0.md) completed 72 fits on
+four new synthetic problems. A small ordinary network beat the validation-selected
+backbone family on all four problem averages. The fixed screen therefore admits
+no stronger-parent or residual-growth follow-up. This development result does
+not rank fully tuned methods or reverse the separate real-data findings.
+
 ## The idea
 
 An ordinary hidden neuron applies ReLU to one affine response. A grown neuron adds a gated contrast before that same ReLU:

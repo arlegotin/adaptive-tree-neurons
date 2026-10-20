@@ -7,6 +7,17 @@ Unchecked work is not completed, and prior investigation findings are not new ru
 
 ## Current continuation,20October
 
+The [B0 native-backbone screen](../../../reports/research-v2-B0.md) has completed
+all 72 fits on four fresh teachers, with no failure or retry. Independent raw
+arithmetic checked 288 F/G/V/E vectors and 1,440 metrics to 1.11e-16, plus all
+72 F variances. Zero of four teachers met its fixed 5% backbone-improvement
+rule (three were required); the V-selected ordinary family won every teacher
+E average. No B0 expansion or stronger-parent/residual follow-up is admitted.
+The [completion receipt](WP07-B0-completion-receipt.json) and
+[portable compact replay inputs](../../../audit/research-v2/B0/reproduction/inventory.json)
+preserve source, plan, outcome and reproduction limits. The current overview is
+[status.md](status.md); older paragraphs below retain their dated execution scope.
+
 M2 has completed and its raw prediction arithmetic has been independently audited;
 see [the complete report](../../../reports/research-v2-M2.md). Gate A admits one
 bounded joint-selector study, without establishing a placement win. WP04's dense
@@ -155,8 +166,8 @@ effective batch and stopping rules, and verify numerical agreement first.
 |WP03|M2 complete; Gate A passed|3853 terminal entries, independent5472-vector arithmetic; full M2 report|
 |WP04|M3 complete; Gate B closed negative|320final models/16teachers; independent640-vector arithmetic; no added-capacity or placement lead; optional correction declined|
 |WP05|not admitted|measured geometry/newborn trigger|
-|WP06|not admitted|measured retention/family ceiling; at most one redesign|
-|WP07|data and adapter engineering|six raw pins/30 splits audited; tiny native adapters checked; full native workload/quality qualification and Gate D pending|
+|WP06|not admitted|M3 negative; B0 ceiling screen negative (0/4); no retention or stronger-parent trigger|
+|WP07|data and adapter engineering; B0 complete negative|six raw pins/30 splits audited; 116/120 native anchors complete; remaining NODE serial queue and final common-source/support/quality qualification pending|
 |WP08|fixture implementation partial|group/bootstrap metrics and840-job metadata expansion verified; native supports/search/cost/protocol integration and168 primary searches pending; Gate E pending|
 |WP09|pure implementation partial|variance/grid/power fixtures verified; protocol/provenance/resource validation, actual calibration and Gate F pending|
 |WP10|pure analysis partial; execution pending Gate F|teacher t/bootstrap and explicit-family Holm fixtures verified; protected evaluator/raw audit/report integration and Gate G pending|

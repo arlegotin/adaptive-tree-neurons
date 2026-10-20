@@ -1,0 +1,9 @@
+{
+  "note": "Resolves the original immutable manifest Git alias to the full commit; no executed manifest/operator/model bytes changed.",
+  "operator_sha256": "4050bd007b72a58ac47203c95be666375fab2df27275c676fd25a1653fd5e46b",
+  "schema": "research/v2-B0-source-reconciliation",
+  "source_alias": "80afc0d",
+  "source_commit": "80afc0dd9966e74e8e6d251bc8a976335bcd72d5",
+  "source_sha256": "8a422995743bb121d3daa6263d47b334ca8a20c9047255206696a420cbaeaa57",
+  "study_plan_hash": "c88a00977904d28756038aceb047f3942c57b3a039ac26c3d48fbc96b2a49cea"
+}

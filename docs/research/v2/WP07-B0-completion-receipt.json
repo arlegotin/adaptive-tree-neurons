@@ -1,0 +1,173 @@
+{
+  "T_accessed": false,
+  "T_created": false,
+  "confirmation": false,
+  "counts": {
+    "F_variance_checks": 72,
+    "configurations": 9,
+    "data_jobs": 4,
+    "failed_fits": 0,
+    "fit_retries": 0,
+    "metric_comparisons": 1440,
+    "native_fits": 72,
+    "raw_prediction_vectors": 288,
+    "repeats": 2,
+    "teachers": 4,
+    "total_terminal_jobs": 76
+  },
+  "created_utc": "2026-10-20T05:58:27.447677+00:00",
+  "decision": {
+    "M3_gate_B": "closed_negative_unchanged",
+    "expansion_admitted": false,
+    "one_layer_lower_E_error_teacher_means": 4,
+    "qualifying_teachers": 0,
+    "required_relative_risk_reduction": 0.05,
+    "required_teachers": 3,
+    "residual_branch_admitted": false,
+    "screen_trigger": false,
+    "standardized_ordinary_followup_admitted": false
+  },
+  "declaration_commits": [
+    "a380bcb",
+    "bd2b05f"
+  ],
+  "files": [
+    {
+      "bytes": 17804,
+      "path": "artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/operator.py",
+      "sha256": "4050bd007b72a58ac47203c95be666375fab2df27275c676fd25a1653fd5e46b"
+    },
+    {
+      "bytes": 12978,
+      "path": "artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/audit.py",
+      "sha256": "93e2e57d16aade7740e6abd14c9790df52aacd378249061bead4cafb883e4a64"
+    },
+    {
+      "bytes": 7944,
+      "path": "artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/report.py",
+      "sha256": "239d6cb0b785b1602f561d95a34b52e5d5c920bfc8f7165374f52922525bba8c"
+    },
+    {
+      "bytes": 53628,
+      "path": "artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/study-plan.json",
+      "sha256": "1e004e5e1a61c7c9efd0b623293f09e454e7fbb2ebf1f0794d723f1ac0a9bfff"
+    },
+    {
+      "bytes": 84561,
+      "path": "artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/endpoint-0.json",
+      "sha256": "2f7dcbe020e47beda8489fd2e60f087588738d9ee65317f2df3e02817f066b68"
+    },
+    {
+      "bytes": 113152,
+      "path": "artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/audit-independent/analysis.json",
+      "sha256": "cd401dc768ca6aa496f6e7c611b5b22af8fbde34968a473d60838524c8cd48c0"
+    },
+    {
+      "bytes": 547,
+      "path": "artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/full-source-reconciliation.json",
+      "sha256": "01959357bef3816717e657b80fb1d140d9aa0bbdc696b0c59b954fd316f72016"
+    },
+    {
+      "bytes": 5792,
+      "path": "reports/research-v2-B0.md",
+      "sha256": "70cb67e7423e7caf1876081304e8591d1287b83691863f94b93f560213596d58"
+    },
+    {
+      "bytes": 1028,
+      "path": "audit/research-v2/B0/reproduction/inventory.json",
+      "sha256": "6862a9906022dcf4713e3088fb2e5c184e44815a1cfbf5e8fc2c3ccd3b8d123c"
+    },
+    {
+      "bytes": 5313,
+      "path": "audit/research-v2/B0/cases.csv",
+      "sha256": "7dec72567fbd95feb791a448882deb65533259d5c34ec455d2ba1adb8bd20254"
+    },
+    {
+      "bytes": 1169,
+      "path": "audit/research-v2/B0/V-selected.csv",
+      "sha256": "5e235954dff46ada4936ec022df746c5425461cf15520f55cb014aada3e7e9f8"
+    },
+    {
+      "bytes": 455,
+      "path": "audit/research-v2/B0/teacher-effects.csv",
+      "sha256": "46f44ecbe7aa73be90239b20cb3999af23f0c9d506fbbd326468a64cfcffc299"
+    },
+    {
+      "bytes": 6669,
+      "path": "audit/research-v2/B0/summary.json",
+      "sha256": "f937525a14f874598576714e2111f2d5931037c239dd4e4f73ab060cd63817a7"
+    }
+  ],
+  "known_exclusions": {
+    "historical_registry_complete": false,
+    "new_B0_teachers": 4,
+    "seed_values": 10224,
+    "teacher_id_candidates": 95
+  },
+  "limitations": [
+    "Four independent teachers, not 72 independent problems; no full HPO.",
+    "Native quantile one-layer and native backbones; not a direct paired rerun of M3 standardized competent keep.",
+    "No population, modern-suite dominance, placement or efficiency claim.",
+    "Remaining native NODE anchors and final registry/protocol remain unfinished."
+  ],
+  "mandatory_suite_qualified": false,
+  "metrics": {
+    "max_abs_difference": 1.1102230246251565e-16,
+    "normalization": "F target variance ddof=0",
+    "original_units": true,
+    "selection": "V within each finite family for each repeat, average R2 risks within teacher before log ratio"
+  },
+  "plan_hash": "c88a00977904d28756038aceb047f3942c57b3a039ac26c3d48fbc96b2a49cea",
+  "producer": {
+    "operator_sha256": "4050bd007b72a58ac47203c95be666375fab2df27275c676fd25a1653fd5e46b",
+    "source_commit": "80afc0dd9966e74e8e6d251bc8a976335bcd72d5",
+    "source_sha256": "8a422995743bb121d3daa6263d47b334ca8a20c9047255206696a420cbaeaa57"
+  },
+  "publication": {
+    "original_executed_operator_is_not_portable_full_training_replay": true,
+    "published_compact_analysis_and_operators": true,
+    "raw_arrays_checkpoints_in_public_checkout": false
+  },
+  "quality_eligible": false,
+  "retained_report_failure": {
+    "cause": "script-directory operator.py shadowed stdlib; fixed safe-path invocation only",
+    "log": "artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/report-readable-command.log",
+    "scientific_effect": false
+  },
+  "schema": "research/v2-B0-completion",
+  "status": "completed_development_screen_negative",
+  "time": {
+    "charged_job_ns": 1480251079750,
+    "dedicated_hardware": false,
+    "independent_audit_ns": 2497849083,
+    "invocation_ns": 1481964617875,
+    "outer_cost_separate": true,
+    "wall_deadline": null
+  },
+  "verification": {
+    "available_source_record_authentication": true,
+    "independent_new_inference": false,
+    "independent_training_reexecution": false,
+    "original_source_receipts_trusted": true,
+    "portable_report_replay": {
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+        "-P",
+        "-B",
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/audit/research-v2/B0/reproduction/report.py",
+        "--analysis",
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/audit/research-v2/B0/reproduction/analysis.json",
+        "--expected-sha256",
+        "cd401dc768ca6aa496f6e7c611b5b22af8fbde34968a473d60838524c8cd48c0",
+        "--output",
+        "/private/tmp/atn-B0-portable-replay-r0hks3m6/report.md",
+        "--tables",
+        "/private/tmp/atn-B0-portable-replay-r0hks3m6/tables"
+      ],
+      "cwd": "/private/tmp",
+      "result": "report and four compact tables byte-identical",
+      "returncode": 0
+    },
+    "raw_array_arithmetic": true
+  }
+}

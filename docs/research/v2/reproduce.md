@@ -4,13 +4,15 @@ Start with the spec, plan and execution ledger linked from this directory. The
 ledger is authoritative for which packages and scientific gates have completed.
 Historical reproduction is still documented in the root REPRODUCE.md.
 
-Current scientific state: M1 completed all256 planned fits under its pinned
-604cffb source; the full M0 four-teacher/R2 cohort remains pending. M2 is running
-under a separate pinned e1b1018 checkout, with no Gate A decision yet. Modern
-baseline comparison, real calibration and protected confirmation remain pending.
-Current implementation HEAD has additional engineering code and cannot silently
-replace either scientific source. See [M1 results](../../../reports/research-v2-M1.md),
-[M2 execution](M2-execution.md) and [plain status](status.md).
+Current scientific state: M1 and M2 are complete; M2 passed the opportunity screen.
+The later sixteen-teacher M3 joint-selector study closed Gate B negative.
+The four-teacher B0 native-backbone screen also closed negative, admitting no
+residual follow-up. The full M0 reference cohort, native-suite qualification,
+production practical search, real calibration and protected confirmation remain
+unfinished. Each completed study retains its own immutable scientific source;
+current implementation HEAD cannot silently replace it. Start with the
+[plain status](status.md), [M3 report](../../../reports/research-v2-M3.md) and
+[B0 report](../../../reports/research-v2-B0.md).
 
 Use a fresh Python3.12.13 environment:
 
@@ -66,7 +68,7 @@ the later explicit applied-update extension; they are not implemented by this
 metadata version. Historical schema1 checkpoints require their original source;
 there is no silent migration or source-hash rewrite.
 
-The WP03 M2 dispatcher is implemented and its active scientific run has measured
+The WP03 M2 dispatcher completed its source-bound scientific run under measured
 admission. The native-anchor engineering `qualify` command and its strict
 qualification-plan dispatch now pass fixture checks and an independently audited
 real P13 primary-split command check; see the
@@ -271,6 +273,43 @@ retained artifact namespace and reject an existing destination before launching.
 This avoids pytest cleanup of earlier evidence and a second physical copy of
 large temporary archives. Preserve original failures and same-source recovery
 records; do not weaken native memory/backend guards under host contention.
+
+## Completed B0 native-backbone development screen
+
+The [B0 report](../../../reports/research-v2-B0.md) and
+[completion receipt](WP07-B0-completion-receipt.json) describe four fresh teachers,
+two paired repeats and nine fixed native recipes. All 72 fits completed. The
+screen closed negative (zero of four teacher means met the 5% benefit rule,
+versus three required). No extra teachers, configurations or residual follow-up
+are admitted. The independent arithmetic is development evidence, not independent
+training or protected confirmation.
+
+The compact analysis, exact executed operator, read-only auditor, renderer,
+resolved queue plan and full source reconciliation are published under
+`audit/research-v2/B0/reproduction/`, with hashes in its inventory. This command
+regenerates the report and all compact tables using only Python's standard
+library, without loading labels or requiring retained model assets. Outputs
+must be fresh:
+
+```sh
+"$ATN_PY" -P -B audit/research-v2/B0/reproduction/report.py \
+  --analysis audit/research-v2/B0/reproduction/analysis.json \
+  --expected-sha256 cd401dc768ca6aa496f6e7c611b5b22af8fbde34968a473d60838524c8cd48c0 \
+  --output /private/tmp/atn-B0-report-replay.md \
+  --tables /private/tmp/atn-B0-table-replay
+```
+
+The report must match `reports/research-v2-B0.md` byte for byte, and all four table
+files must match `audit/research-v2/B0/`. This verifies compact arithmetic/report
+reproduction, not raw-file authentication. The full raw audit requires the local
+immutable queue at `artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/`
+and the held producer commit `80afc0dd9966e74e8e6d251bc8a976335bcd72d5` with
+its qualified environment. Its original operator depends on retained historical
+seed/exclusion/software assets; the published copy is the executed source, not
+a promise that a new checkout can recreate those assets from filenames. No
+silent path, source or model migration is supported. Use `-P` to prevent a local
+`operator.py` from shadowing Python's standard library. The failed report-only
+invocation and corrected safe-path invocation are retained in the raw study.
 
 ## Completed M3 development study
 

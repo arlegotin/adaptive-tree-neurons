@@ -1,0 +1,236 @@
+{
+  "T_accessed": false,
+  "analysis": {
+    "T_accessed": false,
+    "V_selected": [
+      {
+        "E_NMSE": 0.0345751678806516,
+        "V_NMSE": 0.03768835701587057,
+        "config_id": "O0_h64_historical",
+        "group": "one_layer",
+        "repeat": 0,
+        "teacher": 0
+      },
+      {
+        "E_NMSE": 0.03843208021368075,
+        "V_NMSE": 0.04087004762505451,
+        "config_id": "B2_RealMLP_TD",
+        "group": "backbone",
+        "repeat": 0,
+        "teacher": 0
+      },
+      {
+        "E_NMSE": 0.03795637422338774,
+        "V_NMSE": 0.0396646875452963,
+        "config_id": "O0_h64_historical",
+        "group": "one_layer",
+        "repeat": 1,
+        "teacher": 0
+      },
+      {
+        "E_NMSE": 0.03747270906619261,
+        "V_NMSE": 0.03868181726537764,
+        "config_id": "B2_RealMLP_TD",
+        "group": "backbone",
+        "repeat": 1,
+        "teacher": 0
+      },
+      {
+        "E_NMSE": 0.07333196605094651,
+        "V_NMSE": 0.0690789853592405,
+        "config_id": "O0_h64_historical",
+        "group": "one_layer",
+        "repeat": 0,
+        "teacher": 1
+      },
+      {
+        "E_NMSE": 0.09584704189606022,
+        "V_NMSE": 0.10347715760069678,
+        "config_id": "B2_RealMLP_TD",
+        "group": "backbone",
+        "repeat": 0,
+        "teacher": 1
+      },
+      {
+        "E_NMSE": 0.06615166367565016,
+        "V_NMSE": 0.059685372812119435,
+        "config_id": "O0_h64_historical",
+        "group": "one_layer",
+        "repeat": 1,
+        "teacher": 1
+      },
+      {
+        "E_NMSE": 0.08763238557112098,
+        "V_NMSE": 0.09702424751730004,
+        "config_id": "B2_RealMLP_TD",
+        "group": "backbone",
+        "repeat": 1,
+        "teacher": 1
+      },
+      {
+        "E_NMSE": 0.10272831032480446,
+        "V_NMSE": 0.08684673453184358,
+        "config_id": "O0_h64_historical",
+        "group": "one_layer",
+        "repeat": 0,
+        "teacher": 2
+      },
+      {
+        "E_NMSE": 0.1413077263921896,
+        "V_NMSE": 0.11615752434075619,
+        "config_id": "B2_RealMLP_TD",
+        "group": "backbone",
+        "repeat": 0,
+        "teacher": 2
+      },
+      {
+        "E_NMSE": 0.12322553903531867,
+        "V_NMSE": 0.09952433698156427,
+        "config_id": "O0_h64_historical",
+        "group": "one_layer",
+        "repeat": 1,
+        "teacher": 2
+      },
+      {
+        "E_NMSE": 0.13973275992295406,
+        "V_NMSE": 0.11345607107881468,
+        "config_id": "B2_RealMLP_TD",
+        "group": "backbone",
+        "repeat": 1,
+        "teacher": 2
+      },
+      {
+        "E_NMSE": 0.07503924061010106,
+        "V_NMSE": 0.05913581398568986,
+        "config_id": "O0_h64_historical",
+        "group": "one_layer",
+        "repeat": 0,
+        "teacher": 3
+      },
+      {
+        "E_NMSE": 0.0926197368406268,
+        "V_NMSE": 0.0780875916197154,
+        "config_id": "B2_RealMLP_TD",
+        "group": "backbone",
+        "repeat": 0,
+        "teacher": 3
+      },
+      {
+        "E_NMSE": 0.07138819500283715,
+        "V_NMSE": 0.05799512454304208,
+        "config_id": "O0_h64_historical",
+        "group": "one_layer",
+        "repeat": 1,
+        "teacher": 3
+      },
+      {
+        "E_NMSE": 0.10555607038984753,
+        "V_NMSE": 0.08762416741778757,
+        "config_id": "B2_RealMLP_TD",
+        "group": "backbone",
+        "repeat": 1,
+        "teacher": 3
+      }
+    ],
+    "config_means": [
+      {
+        "E_NMSE": 0.07304955710046217,
+        "V_NMSE": 0.06370242659683333,
+        "config_id": "O0_h64_historical",
+        "group": "one_layer"
+      },
+      {
+        "E_NMSE": 0.13547702997729796,
+        "V_NMSE": 0.1275656405426278,
+        "config_id": "O1_h64_native_optimizer",
+        "group": "one_layer"
+      },
+      {
+        "E_NMSE": 0.10853484361206815,
+        "V_NMSE": 0.1030830731719387,
+        "config_id": "O2_h128_native_optimizer",
+        "group": "one_layer"
+      },
+      {
+        "E_NMSE": 0.11253884085647284,
+        "V_NMSE": 0.1042246405162367,
+        "config_id": "O3_h256_native_optimizer",
+        "group": "one_layer"
+      },
+      {
+        "E_NMSE": 0.11729441617392157,
+        "V_NMSE": 0.10787998044408696,
+        "config_id": "O4_h512_native_optimizer",
+        "group": "one_layer"
+      },
+      {
+        "E_NMSE": 0.1236892715235356,
+        "V_NMSE": 0.11660299533411594,
+        "config_id": "B0_MLP_D",
+        "group": "backbone"
+      },
+      {
+        "E_NMSE": 0.11960003065734773,
+        "V_NMSE": 0.11077541561010527,
+        "config_id": "B1_ResNet_D",
+        "group": "backbone"
+      },
+      {
+        "E_NMSE": 0.09232506378658407,
+        "V_NMSE": 0.08442232805818785,
+        "config_id": "B2_RealMLP_TD",
+        "group": "backbone"
+      },
+      {
+        "E_NMSE": 0.16168457530098404,
+        "V_NMSE": 0.15095210043241303,
+        "config_id": "B3_TabM_piecewise",
+        "group": "backbone"
+      }
+    ],
+    "confirmation": false,
+    "decision": "Specified native-family ceiling screen negative/inconclusive; no added B0 configurations/teachers or automatic M6 admission",
+    "independent_teachers": 4,
+    "paired_repetitions": 2,
+    "qualifying_teachers": 0,
+    "quality_eligible": false,
+    "screen_trigger": false,
+    "teacher_effects": [
+      {
+        "at_least_5_percent": false,
+        "backbone_E_NMSE": 0.037952394639936674,
+        "log_risk_benefit": -0.04545825152551608,
+        "one_layer_E_NMSE": 0.03626577105201967,
+        "relative_reduction": -0.04650731361805893,
+        "teacher": 0
+      },
+      {
+        "at_least_5_percent": false,
+        "backbone_E_NMSE": 0.0917397137335906,
+        "log_risk_benefit": -0.2741553045688641,
+        "one_layer_E_NMSE": 0.06974181486329833,
+        "relative_reduction": -0.31541907696853855,
+        "teacher": 1
+      },
+      {
+        "at_least_5_percent": false,
+        "backbone_E_NMSE": 0.14052024315757183,
+        "log_risk_benefit": -0.2181679663204372,
+        "one_layer_E_NMSE": 0.11297692468006157,
+        "relative_reduction": -0.2437959659064004,
+        "teacher": 2
+      },
+      {
+        "at_least_5_percent": false,
+        "backbone_E_NMSE": 0.09908790361523717,
+        "log_risk_benefit": -0.3026245663389326,
+        "one_layer_E_NMSE": 0.0732137178064691,
+        "relative_reduction": -0.3534062547836063,
+        "teacher": 3
+      }
+    ]
+  },
+  "analysis_sha256": "cd401dc768ca6aa496f6e7c611b5b22af8fbde34968a473d60838524c8cd48c0",
+  "quality_eligible": false,
+  "scope": "Available source-bound raw prediction/observation arithmetic and fixed development screen, not retraining, fresh inference, protected confirmation or mandatory-suite superiority"
+}

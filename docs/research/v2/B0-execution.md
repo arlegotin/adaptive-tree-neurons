@@ -22,7 +22,14 @@ before qualification or data creation; its explanation/corrected run remain.
 A separate plan reader recomputed the hash, seed derivations/collision rules,
 all72fit slots and intentional method pairing.
 
-Native runs are in progress. Outputs retain their engineering
+All 76 jobs completed: four data preparations and 72 full native fits, with no
+failed, interrupted or repeated fit. The [independent report](../../../reports/research-v2-B0.md)
+closes the screen **negative: zero of four teachers met the required 5% benefit**,
+against a required three of four. The V-selected ordinary family had lower E
+error on every teacher average. No expansion, standardized-ordinary follow-up or
+residual branch is admitted by this screen.
+
+Outputs retain their engineering
 `completed_ineligible` status and quality flags; this is not mandatory-suite
 registry admission. Complete native fitting and same-worker V reload precede
 fresh feature-only E/F/G inference. The query worker predicts all68,419rows,
@@ -32,8 +39,8 @@ All source/config/seed and terminal failure records remain visible.
 
 Four new teacher IDs were authenticated from completed immutable data jobs,
 a committed ledger prefix, typed TeacherSpec reconstruction and independent
-canonical JSON hashes. This audits completed data while fits continue, not the
-active whole queue or predictions. Teacher coefficients/normalizers and
+canonical JSON hashes. That earlier exclusion audit covered completed data while
+fits continued, rather than the then-active whole queue or predictions. Teacher coefficients/normalizers and
 metadata were parsed; sampled observation arrays/labels were hashed opaquely
 by this exclusion audit. Known exclusions now contain10,224seed values and
 95teacher-ID candidates, adding36seed values/four teachers. Historical
@@ -57,12 +64,22 @@ score determined this resource update or changed the attempt list.
 
 New workers have4GiB RSS guards/no wall deadline; admission requires an8GiB
 memory proxy and4GiB disk. Tested shapes do not require20GiB free RAM. The
-separate c33a84eConcrete NODE run/serial continuation is unchanged; these jobs
+separate c33a84e Concrete NODE run/serial continuation is unchanged; these jobs
 are not a dedicated-hardware timing comparison.
 
 Local artifacts:
 `artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/`.
-Do not edit its bound operator, declaration, original forecast, software
-endpoint or through-M3 exclusions while it runs. Record progress in separate
-receipts. Completion, independent metric audit and prospective screen decision
-remain pending.
+The independent inactive-queue audit checked 288 F/G/V/E prediction vectors,
+1,440 metrics and all 72 F variances; maximum metric discrepancy was 1.11e-16.
+It authenticated available source, native stopping, configuration, seed, role,
+query and closed-state records. It did not independently repeat training or
+inference. Enclosing job time was 1,480.25 seconds (about 24.67 minutes), with
+outer startup/publication and software checks separate; clocks were contended.
+
+The [completion receipt](WP07-B0-completion-receipt.json) binds the report and
+compact tables. The prior admission/exclusion receipt remains a historical
+running-state record. Preserve the executed operator, declaration, original
+forecast, software endpoint and through-M3 inputs. A report-only safe-path
+invocation failure and its recovery are retained separately; no training, data or
+metric was changed. Reproduction requires the retained raw execution assets;
+the public compact tables alone cannot authenticate every training transition.
