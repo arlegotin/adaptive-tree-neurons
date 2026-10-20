@@ -1,0 +1,94 @@
+{
+  "T_accessed": false,
+  "added_actual_teachers": 4,
+  "current_known_teacher_ID_candidates": 95,
+  "current_known_teacher_seed_values": 10224,
+  "exclusion_audit_scope": "Committed complete data-job prefix only; teacher coefficients/normalizers/metadata parsed; observation arrays/labels hashed opaquely; active whole queue not authenticated",
+  "execution_status": "running",
+  "full_practical_suite_qualified": false,
+  "independent_teachers": 4,
+  "main_M3_gate_B": "closed_negative",
+  "native_profiles": [
+    {
+      "profile": "ordinary_neural",
+      "reference": {
+        "inventory_sha256": "6ee88940cd8cf1c899c84b8dc6113a9c9c7381408a2fa6b82ac9b4ae5c77e1e5",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/preparation/software/ordinary_neural"
+      },
+      "test_cases": 5
+    },
+    {
+      "profile": "realmlp",
+      "reference": {
+        "inventory_sha256": "af0678790dd85fcaf6bf315b57a390b3d04f847b8e4367709cf67c7a5370ac3e",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/preparation/software/realmlp"
+      },
+      "test_cases": 12
+    },
+    {
+      "profile": "tabm",
+      "reference": {
+        "inventory_sha256": "15c1a74e2c89ea26821175328831691c897e7957def7eba96a52c63c16122175",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/preparation/software/tabm"
+      },
+      "test_cases": 4
+    }
+  ],
+  "notes": [
+    "Git alias resolved without altering original plan",
+    "Bound declaration, operator, initial forecast, source and old exclusions remain unchanged",
+    "Future M6 needs competent standardized ordinary control and residual structure; B0 cannot admit it automatically"
+  ],
+  "paired_repetitions": 2,
+  "plan_hash": "c88a00977904d28756038aceb047f3942c57b3a039ac26c3d48fbc96b2a49cea",
+  "planned_data_jobs": 4,
+  "planned_native_fits": 72,
+  "protected_access_authorized": false,
+  "quality_eligible": false,
+  "references": [
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/study-plan.json",
+      "sha256": "1e004e5e1a61c7c9efd0b623293f09e454e7fbb2ebf1f0794d723f1ac0a9bfff"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/independent-plan-check.json",
+      "sha256": "0de15472aaadf2de354e9dc66cb2425265f78feaaef706d90966675ea7323070"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/full-source-reconciliation.json",
+      "sha256": "01959357bef3816717e657b80fb1d140d9aa0bbdc696b0c59b954fd316f72016"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/preparation/dependency-copy.json",
+      "sha256": "7ea38332e256a4d26d088815af2ce0c3b930cf4e5d1a90d5e7df205c8bc0d92c"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/preparation/workload-forecast.json",
+      "sha256": "91dbd9db09dc89e9beb263412153a46fe34934b2ec364c21e91dfbb3d121fafa"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/preparation/workload-forecast-after-first-block.json",
+      "sha256": "8a16e91fc3b701774c055bcc2f044d54dbfad36a3b9d2914e85ee62b1d317580"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/preparation/software/endpoint.json",
+      "sha256": "b77b255dec80cf79297c9e80c231ae52c3a8a3cac528908483d505bc11a5d42d"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/exclusions/result.json",
+      "sha256": "f5388a28ca9b9b384309bd4dc43cc2a5b7495c25054a1c82a3275cd5a5ce8590"
+    }
+  ],
+  "registry_completeness_qualified": false,
+  "results_analyzed": false,
+  "schema": "research/v2-B0-admission-and-exclusion-receipt",
+  "source": {
+    "note": "Resolves the original immutable manifest Git alias to the full commit; no executed manifest/operator/model bytes changed.",
+    "operator_sha256": "4050bd007b72a58ac47203c95be666375fab2df27275c676fd25a1653fd5e46b",
+    "schema": "research/v2-B0-source-reconciliation",
+    "source_alias": "80afc0d",
+    "source_commit": "80afc0dd9966e74e8e6d251bc8a976335bcd72d5",
+    "source_sha256": "8a422995743bb121d3daa6263d47b334ca8a20c9047255206696a420cbaeaa57",
+    "study_plan_hash": "c88a00977904d28756038aceb047f3942c57b3a039ac26c3d48fbc96b2a49cea"
+  }
+}

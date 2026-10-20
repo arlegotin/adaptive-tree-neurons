@@ -1,1 +1,23 @@
-{"M3_metadata_provenance":{"path":"protocol/research-v2/exclusions/authenticated-M3-teachers.json","sha256":"acb79dda74d3af393c58ed68e81505f6221c9495b70021840e2da444a31186b9"},"T_accessed":false,"coverage_complete":false,"protected_access_authorized":false,"registry_completeness_qualified":false,"schema":"research/v2-current-known-exclusions","teacher_ID_candidates":{"path":"protocol/research-v2/exclusions/known-teacher-id-candidates-through-M3.json","sha256":"33af0a9697cefa3e1019e5a5f0237ba43026d2247e7d1beea9fb1215b150c9c1"},"teacher_seed_registry":{"path":"protocol/research-v2/exclusions/known-teacher-seeds-through-M3.json","sha256":"856e56e083eab1ae92adb1595f8e85dbd6773ee36364b9cd4cb3cf335c62e2ff"}}
+{
+  "B0_metadata_provenance": {
+    "path": "protocol/research-v2/exclusions/authenticated-B0-teachers.json",
+    "sha256": "5519da811fd367646ca88fd125b1f3b893d667a0932b6ab206ab7a38234af47b"
+  },
+  "M3_metadata_provenance": {
+    "path": "protocol/research-v2/exclusions/authenticated-M3-teachers.json",
+    "sha256": "acb79dda74d3af393c58ed68e81505f6221c9495b70021840e2da444a31186b9"
+  },
+  "T_accessed": false,
+  "coverage_complete": false,
+  "protected_access_authorized": false,
+  "registry_completeness_qualified": false,
+  "schema": "research/v2-current-known-exclusions",
+  "teacher_ID_candidates": {
+    "path": "protocol/research-v2/exclusions/known-teacher-id-candidates-through-B0.json",
+    "sha256": "e7ddc21b547342a4cfcb191964a36386c8e696690b5e72a89d02dac4ac43a9a3"
+  },
+  "teacher_seed_registry": {
+    "path": "protocol/research-v2/exclusions/known-teacher-seeds-through-B0.json",
+    "sha256": "cd1b9d8dddfd254eeeed7ff29decb10672e9248fe68b815e2d6b35da2be5adb6"
+  }
+}

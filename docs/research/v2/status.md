@@ -12,6 +12,12 @@ embedded TabM Bike case at about3GiB sampled worker RSS. Its initial2GiB stop
 and identical-request retry are retained. These were short geometry checks,
 with no V-label/test access or quality score; native training remains uncapped.
 
+The [B0 development screen](B0-execution.md) is now running four fresh primary
+synthetic problems, two repetitions and nine fixed native neural recipes.
+It compares a specified one-layer family with stronger backbones before any
+residual-growth decision. M3's negative placement gate remains closed; B0 is
+not its extension or a confirmation. All recipes/seeds were fixed before data.
+
 The full2048-tree recovery proof now matches uninterrupted training exactly at
 about1.18GiBsampled peak RSS. The uncapped same-data/seed17 Energy native fit completed its normal stopping
 rule at5701updates, selecting700, after7362.48seconds (just over two hours)

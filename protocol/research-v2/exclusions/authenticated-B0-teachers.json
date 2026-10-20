@@ -1,0 +1,131 @@
+{
+  "T_accessed": false,
+  "array_or_label_values_decoded": false,
+  "audit_scope": "Committed completed data jobs plus a verified retained ledger prefix while remaining fits continue; not authentication of the active whole queue or prediction/optimization outcomes",
+  "coverage_complete": false,
+  "ledger_prefix_sha256": "e6f7b9bb0222348026a594a4c5a6697191293416fad8284ef0259c419107216f",
+  "new_unique_seed_values": 36,
+  "new_unique_teachers": 4,
+  "registry_completeness_qualified": false,
+  "schema": "research/v2-authenticated-B0-teacher-exclusions",
+  "source": {
+    "note": "Resolves the original immutable manifest Git alias to the full commit; no executed manifest/operator/model bytes changed.",
+    "operator_sha256": "4050bd007b72a58ac47203c95be666375fab2df27275c676fd25a1653fd5e46b",
+    "schema": "research/v2-B0-source-reconciliation",
+    "source_alias": "80afc0d",
+    "source_commit": "80afc0dd9966e74e8e6d251bc8a976335bcd72d5",
+    "source_sha256": "8a422995743bb121d3daa6263d47b334ca8a20c9047255206696a420cbaeaa57",
+    "study_plan_hash": "c88a00977904d28756038aceb047f3942c57b3a039ac26c3d48fbc96b2a49cea"
+  },
+  "study_plan_hash": "c88a00977904d28756038aceb047f3942c57b3a039ac26c3d48fbc96b2a49cea",
+  "teachers": [
+    {
+      "job_id": "data:0",
+      "job_result_reference": {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/queue/jobs/6e933244255e3f3587cb8a85c962f45625c371304d83be5fedbd81f2b6355db2/attempt-0/job-result.json",
+        "sha256": "455cb5adafd0ff2540eadaea2e3f5ffb8f16f760d8b87076b69adc8c4b2665e4"
+      },
+      "observation_seeds": {
+        "E": 7328027111829569038,
+        "F": 8278298705214011884,
+        "G": 8693443266032220193,
+        "V": 8679706113961737647
+      },
+      "reference_seed": 6177648807105112392,
+      "root_seeds": {
+        "data_seed": 5029191453109686392,
+        "evaluation_seed": 7328027111829569038,
+        "reference_seed": 6177648807105112392,
+        "teacher_seed": 8650546317201754417
+      },
+      "teacher_file": {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/queue/jobs/6e933244255e3f3587cb8a85c962f45625c371304d83be5fedbd81f2b6355db2/attempt-0/artifact/teacher.json",
+        "sha256": "495a5f2fa0374b1e7394e8a4ef8a988dae0e95709165ce0bbe2d116f22071d7f"
+      },
+      "teacher_id": "ae8c7b90b29f0b6c6742c492ff57dff34cbb8084a2c4da155fc543fd1fa5da73",
+      "teacher_seed": 8650546317201754417,
+      "typed_and_independent_hash_agree": true
+    },
+    {
+      "job_id": "data:1",
+      "job_result_reference": {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/queue/jobs/27cef734820b050606a733cf451b0c71ecee3f26c76ed150db9e3ebac369b87a/attempt-0/job-result.json",
+        "sha256": "1a3fb85f91631152892ea24cf27bed64549e4a3e11026d42cb0a35e7c0041576"
+      },
+      "observation_seeds": {
+        "E": 278025367253301359,
+        "F": 6497199840401599463,
+        "G": 8963050733235433511,
+        "V": 7480466740506228420
+      },
+      "reference_seed": 5305890938875817961,
+      "root_seeds": {
+        "data_seed": 220939360061755866,
+        "evaluation_seed": 278025367253301359,
+        "reference_seed": 5305890938875817961,
+        "teacher_seed": 5894682115241591501
+      },
+      "teacher_file": {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/queue/jobs/27cef734820b050606a733cf451b0c71ecee3f26c76ed150db9e3ebac369b87a/attempt-0/artifact/teacher.json",
+        "sha256": "606b8a2a2ce90775541c30e64fd2f3df8b79e3baa55bfe8c500f89bdf5802c6a"
+      },
+      "teacher_id": "0e366d9cdea2e5fab858f09a5b7036b2353e5c46b20142445ea168eb9b492799",
+      "teacher_seed": 5894682115241591501,
+      "typed_and_independent_hash_agree": true
+    },
+    {
+      "job_id": "data:2",
+      "job_result_reference": {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/queue/jobs/93ad1ffd8fb8ee6a941902365496c6726688037751670d8e1545af293b7d0a5e/attempt-0/job-result.json",
+        "sha256": "a8ce042052064bf7b18672def3a0074aae9fd84a98926f509a7916f3ad39c6c1"
+      },
+      "observation_seeds": {
+        "E": 3623258754335939712,
+        "F": 261534045398160503,
+        "G": 7207408675216696986,
+        "V": 2044841931498317728
+      },
+      "reference_seed": 2303969316454157470,
+      "root_seeds": {
+        "data_seed": 1501095002637467935,
+        "evaluation_seed": 3623258754335939712,
+        "reference_seed": 2303969316454157470,
+        "teacher_seed": 8765470022768430857
+      },
+      "teacher_file": {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/queue/jobs/93ad1ffd8fb8ee6a941902365496c6726688037751670d8e1545af293b7d0a5e/attempt-0/artifact/teacher.json",
+        "sha256": "7487a458ef24f48fdfda4dc1278365c7a45d0180f593c50759ddc84d502773c4"
+      },
+      "teacher_id": "1ed349a039877e089d2bc1003970f73f15ca5a8aae40076b2188f3b1d0bf845c",
+      "teacher_seed": 8765470022768430857,
+      "typed_and_independent_hash_agree": true
+    },
+    {
+      "job_id": "data:3",
+      "job_result_reference": {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/queue/jobs/05ceca2275e50f00a34f8f29af59fd96995a95a957aad7635392b5e15fdfca2f/attempt-0/job-result.json",
+        "sha256": "19015e6595a71f7b9d9de99e35ee02684eac26eb8c66c383d46313979b8dd612"
+      },
+      "observation_seeds": {
+        "E": 6357042144066946819,
+        "F": 6969078165990572293,
+        "G": 7602794468563474579,
+        "V": 4370764886874383731
+      },
+      "reference_seed": 6651174693532502494,
+      "root_seeds": {
+        "data_seed": 6825513391717108363,
+        "evaluation_seed": 6357042144066946819,
+        "reference_seed": 6651174693532502494,
+        "teacher_seed": 5227364149603112900
+      },
+      "teacher_file": {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/B0-native-primary-backbones-80afc0d/queue/jobs/05ceca2275e50f00a34f8f29af59fd96995a95a957aad7635392b5e15fdfca2f/attempt-0/artifact/teacher.json",
+        "sha256": "053061c3afe2ba09674fd042a373edfc26c0354b5613c255d87c7233e30fb120"
+      },
+      "teacher_id": "b900833b1a323ec736d0427fa0910b2f6cfca0a85947837837a0c2be5b6a58fb",
+      "teacher_seed": 5227364149603112900,
+      "typed_and_independent_hash_agree": true
+    }
+  ]
+}
