@@ -94,9 +94,10 @@ The [follow-up receipt](WP11-software-follow-up-receipt.json) preserves the
 original failures and exact scope. Production guards remain intact.
 
 The [recorded native training reader](native-training-observation.md) now checks
-P13's closed-form F context/design, finite payload and raw process observations.
-Its 23 reader/generation checks pass. Other families and the complete qualification
-registry remain pending; this is not production model eligibility.
+closed-form references and the four own-model families, including full native
+two-stage update/gradient/selection records and raw process observations. Its
+latest combined check passed 32 cases. Nine other families and the complete
+qualification registry remain pending; this is not production model eligibility.
 
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only

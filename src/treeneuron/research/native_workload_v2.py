@@ -7,6 +7,7 @@ Family-specific observation checks are admitted explicitly as implemented.
 import copy
 import hashlib
 import io
+import math
 from pathlib import Path
 import zipfile
 
@@ -124,13 +125,175 @@ def _inspect_p13(root,read,request,arrays):
         scope='Recorded complete-F design and target/preprocessing arithmetic; managed closed fit/reload is trusted')
 
 
+def _gated_shapes(family,recipe,summary):
+    d=summary['encoded_width'];h=recipe['width'];m=summary['effective_count'];shapes={}
+    def linear(name,outputs,inputs,bias=True):
+        shapes[name+'.weight']=[outputs,inputs]
+        if bias:shapes[name+'.bias']=[outputs]
+    if family=='P05':
+        if m<h:linear('ordinary',h-m,d)
+        if m:
+            linear('gate',m,d)
+            for name in (('center','contrast') if recipe['variant'].startswith('centered') else ('left','right')):
+                linear(name,m,d)
+        linear('head',1,h);buffers={}
+    else:
+        prefix='incumbent.' if family=='P02' else ''
+        linear(prefix+'layer.base',h,d);linear(prefix+'head',1,h)
+        ids=[] if family=='P02' else summary['selected_ids']
+        buffers={prefix+'layer.grown_ids':np.asarray(ids,dtype=np.int64)}
+        if family=='P02':
+            extra=summary['ordinary_width']-h
+            if extra:linear('added_affine',extra,d);linear('added_head',1,extra,bias=False)
+        elif m:
+            linear('layer.gate',m,d);linear('layer.contrast',m,d)
+    return shapes,buffers
+
+
+def _gated_payload(root,state,recipe,summary):
+    from .p13_simple import _array_identity,_hash
+    shapes,buffers=_gated_shapes(recipe['family'],recipe,summary)
+    expected={k:dict(dtype='float32',shape=v) for k,v in shapes.items()}
+    expected.update({k:dict(dtype='int64',shape=list(v.shape)) for k,v in buffers.items()})
+    if canonical_hash(state.get('payload'))!=canonical_hash(expected):raise ValueError('Gated tensor geometry differs')
+    path=root/'worker/snapshot/weights.npz'
+    if path.is_symlink() or path.stat().st_size>8*1024**2:raise ValueError('Gated tensor payload allocation differs')
+    raw=path.read_bytes()
+    if hashlib.sha256(raw).hexdigest()!=state['weights_sha256']:raise ValueError('Gated tensor payload bytes differ')
+    with zipfile.ZipFile(io.BytesIO(raw)) as archive:
+        members=archive.infolist()
+        if (len(members)!=len(expected) or {m.filename for m in members}!={k+'.npy' for k in expected}
+                or sum(m.file_size for m in members)>8*1024**2):raise ValueError('Gated tensor payload allocation differs')
+    with np.load(io.BytesIO(raw),allow_pickle=False) as saved:values={k:saved[k].copy() for k in saved.files}
+    if (set(values)!=set(expected) or any(v.dtype!=np.dtype(expected[k]['dtype'])
+            or list(v.shape)!=expected[k]['shape'] or not np.isfinite(v).all() for k,v in values.items())
+            or any(not np.array_equal(values[k],v) for k,v in buffers.items())
+            or {r['name'] for r in summary['parameter_ages']}!=set(shapes)
+            or sum(values[k].size for k in shapes)!=summary['total_parameters']
+            or _hash({k:_array_identity(v) for k,v in values.items()})!=summary['selected_native_state_sha256']):
+        raise ValueError('Gated tensor values, parameter ages or selected identity differ')
+
+
+def _finite_number(value):return type(value) in (int,float) and math.isfinite(value) and value>=0
+
+
+def _gated_stages(root,refs,recipe,summary):
+    name='worker/fit/events.jsonl';expected=refs.get(name)
+    if not expected or summary['event_stream_sha256']!=expected:raise ValueError('Gated update stream commitment differs')
+    stage_index=0;result=[];digest=hashlib.sha256();nF=summary['fit_rows'];batch=recipe['batch_size']
+    per_epoch=math.ceil(nF/batch)
+    def fresh():
+        return dict(updates=0,last_evaluation=None,best=None,best_offset=None,bad=0,visited=set(),epoch=None,epoch_rows=set(),first_slot=None)
+    progress=fresh()
+    with (root/name).open('rb') as stream:
+        for raw in stream:
+            digest.update(raw);event=_json(raw)
+            if (not raw.endswith(b'\n') or type(event) is not dict or stage_index>=2
+                    or event.get('stage')!=('base','continuation')[stage_index]):
+                raise ValueError('Gated stage ordering or record differs')
+            limit=(recipe['base_updates'],recipe['continuation_updates'])[stage_index]
+            absolute=0 if stage_index==0 else summary['stages'][0]['selected_absolute_update']
+            offset=progress['updates'];kind=event.get('type')
+            if kind=='evaluation':
+                if (set(event)!={'type','stage','update','stage_update','G_mse','improved'}
+                        or type(event['stage_update']) is not int or event['stage_update']!=offset
+                        or type(event['update']) is not int or event['update']!=absolute+offset or progress['last_evaluation']==offset
+                        or offset and offset%recipe['validation_interval'] and offset!=limit
+                        or not _finite_number(event['G_mse'])):raise ValueError('Gated G evaluation grid differs')
+                improved=progress['best'] is None or event['G_mse']<progress['best']
+                if event['improved'] is not improved:raise ValueError('Gated strict-best decision differs')
+                if improved:progress.update(best=event['G_mse'],best_offset=offset,bad=0)
+                else:progress['bad']+=1
+                progress['last_evaluation']=offset
+            elif kind=='update':
+                if (set(event)!={'type','stage','update','stage_update','row_indices','F_online_mse','learning_rates','gradient_norms'}
+                        or progress['last_evaluation'] is None or offset>=limit or progress['bad']>=recipe['patience']
+                        or offset%recipe['validation_interval']==0 and progress['last_evaluation']!=offset
+                        or type(event['stage_update']) is not int or event['stage_update']!=offset+1
+                        or type(event['update']) is not int or event['update']!=absolute+offset+1
+                        or not _finite_number(event['F_online_mse'])):raise ValueError('Gated applied update/grid differs')
+                update=event['update'];slot=(update-1)%per_epoch;epoch=(update-1)//per_epoch;rows=event['row_indices']
+                if (type(rows) is not list or len(rows)!=min(batch,nF-slot*batch)
+                        or any(type(r) is not int or not 0<=r<nF for r in rows) or len(set(rows))!=len(rows)):
+                    raise ValueError('Gated sampler batch differs')
+                if progress['epoch']!=epoch:progress.update(epoch=epoch,epoch_rows=set(),first_slot=slot)
+                if progress['epoch_rows'].intersection(rows):raise ValueError('Repeated gated row within sampler epoch')
+                progress['epoch_rows'].update(rows);progress['visited'].update(rows)
+                if slot==per_epoch-1 and progress['first_slot']==0 and len(progress['epoch_rows'])!=nF:
+                    raise ValueError('Incomplete gated F epoch')
+                extra=(recipe['family'] in ('P00','P01') and summary['effective_count']>0
+                    or recipe['family']=='P02' and summary['ordinary_width']>recipe['width'])
+                groups=2 if stage_index==1 and extra else 1
+                norms=event['gradient_norms'];rates=event['learning_rates']
+                factor=1. if recipe['scheduler']=='constant' else (1+math.cos(math.pi*(update-1)/recipe['schedule_horizon']))/2
+                if (type(norms) is not list or len(norms)!=groups or not all(_finite_number(v) for v in norms)
+                        or type(rates) is not list or len(rates)!=groups or not all(_finite_number(v) for v in rates)
+                        or rates!=[recipe['lr']*factor]*groups):raise ValueError('Gated recorded gradients or scheduled learning rates differ')
+                progress['updates']+=1
+            elif kind=='selection':
+                selected=progress['best_offset'];stop='patience' if progress['bad']>=recipe['patience'] else 'max_updates'
+                if (set(event)!={'type','stage','selected_absolute_update','selected_stage_update','executed_stage_updates','stop'}
+                        or any(type(event[k]) is not int for k in ('selected_absolute_update','selected_stage_update','executed_stage_updates'))
+                        or offset<=0 or progress['last_evaluation']!=offset or selected is None
+                        or stop=='max_updates' and offset!=limit
+                        or event['selected_absolute_update']!=absolute+selected or event['selected_stage_update']!=selected
+                        or event['executed_stage_updates']!=offset or event['stop']!=stop):
+                    raise ValueError('Gated selected/executed stage endpoint differs')
+                endpoint=dict(selected_absolute_update=absolute+selected,selected_stage_update=selected,
+                    executed_stage_updates=offset,executed_absolute_update=absolute+offset,stop=stop,G_mse=progress['best'])
+                if canonical_hash(endpoint)!=canonical_hash(summary['stages'][stage_index]):raise ValueError('Gated stage summary differs from update stream')
+                result.append(dict(stage=event['stage'],executed_updates=offset,selected_updates=selected,
+                    visited_F_rows=len(progress['visited']),complete_recorded_F_coverage=len(progress['visited'])==nF,stop=stop))
+                stage_index+=1;progress=fresh()
+            else:raise ValueError('Unknown gated training event')
+    if digest.hexdigest()!=expected or stage_index!=2:raise ValueError('Gated training stream is incomplete or changed')
+    return result
+
+
+def _inspect_gated(root,read,refs,request,arrays):
+    import pandas as pd
+    from .gated_config import GatedConfig
+    from .gated_native import _matrix,_validate_summary
+    from .p13_simple import _source,_array_identity,_preprocessing
+    family=request['family_id'];config=GatedConfig.parse(family,request['config']);recipe=config.resolved()
+    state=read('worker/snapshot/manifest.json');worker=read('worker/terminal.json');summary=state['resources']
+    if (state.get('schema')!='research/v2-gated-prediction-snapshot' or state.get('family')!=family
+            or canonical_hash(state.get('config'))!=canonical_hash(config.to_state()) or state.get('seed')!=request['fit_seed']
+            or state.get('source')!=_source() or summary.get('source')!=state['source']
+            or canonical_hash(worker['adapter_resources'])!=canonical_hash(summary)
+            or summary.get('status')!='completed_ineligible' or summary.get('time_limit_exceeded') is not False
+            or summary.get('seed')!=request['fit_seed'] or summary.get('dependencies')!=state['dependencies']):
+        raise ValueError('Gated native snapshot/worker identity differs')
+    _validate_summary(config,summary)
+    if config.to_state()['mode'] not in ('native_anchor','search'):raise ValueError('Shortened gated fixture is not a native workload')
+    frames={k:pd.DataFrame(v['X'],columns=config.feature_schema['columns']) for k,v in arrays.items() if k in ('F','G')}
+    yF=arrays['F']['y'].astype(np.float64);yG=arrays['G']['y'].astype(np.float64)
+    preprocessing=_preprocessing(frames['F'],yF,config.feature_schema)
+    if (canonical_hash(preprocessing)!=canonical_hash(state['preprocessing'])
+            or canonical_hash(preprocessing)!=canonical_hash(summary['preprocessing'])
+            or summary['fit_rows']!=len(yF) or summary['select_rows']!=len(yG)):
+        raise ValueError('Gated complete F/G/preprocessing context differs')
+    F64,F=_matrix(frames['F'],config.feature_schema,preprocessing);_,G=_matrix(frames['G'],config.feature_schema,preprocessing)
+    inputs=read('worker/fit/input-manifest.json')
+    expected=dict(schema='research/v2-gated-fit-input',source=state['source'],dependencies=state['dependencies'],
+        config=config.to_state(),resolved_parameters=recipe,seed=request['fit_seed'],preprocessing=preprocessing,
+        F_features=_array_identity(F64),G_features=_array_identity(G),F_target=_array_identity(yF),G_target=_array_identity(yG),accessed_roles=['F','G'])
+    if canonical_hash(inputs)!=canonical_hash(expected):raise ValueError('Gated recorded transformed inputs differ')
+    _gated_payload(root,state,recipe,summary);stages=_gated_stages(root,refs,recipe,summary)
+    return dict(procedure='two_stage_adamw',F_context_rows=len(yF),G_context_rows=len(yG),
+        encoded_width=F.shape[1],total_parameters=summary['total_parameters'],effective_count=summary['effective_count'],
+        stages=stages,finite_recorded_gradients_checked=True,finite_tensor_payload_checked=True,
+        actual_optimization_independently_reexecuted=False,persistent_training_resume=False,
+        scope='Recorded native stages, full input/visited rows, gradients, schedule, structural tensors and strict G selection; managed optimization remains trusted')
+
+
 def inspect_native_workload(*,request_path,expected_request_sha256,native_reference,prepared_root,
         expected_manifest_sha256,outer_fold,expected_fit_seed,expected_configuration):
     args=copy.deepcopy(dict(request_path=request_path,expected_request_sha256=expected_request_sha256,
         native_reference=native_reference,prepared_root=prepared_root,expected_manifest_sha256=expected_manifest_sha256,
         outer_fold=outer_fold,expected_fit_seed=expected_fit_seed,expected_configuration=expected_configuration))
     config=args['expected_configuration'];family=config.get('family') if type(config) is dict else None
-    if family!='P13':raise ValueError('Recorded native workload observation for this family is not implemented')
+    if family not in ('P00','P01','P02','P05','P13'):raise ValueError('Recorded native workload observation for this family is not implemented')
     generation=audit_native_generation(**args);root=Path(args['native_reference']['root'])
     inventory=_inventory(root)
     if canonical_hash(inventory)!=args['native_reference']['inventory_sha256']:
@@ -138,7 +301,7 @@ def inspect_native_workload(*,request_path,expected_request_sha256,native_refere
     read,refs=_bound_reader(root,inventory);process=_process_observation(root,read,refs)
     from .method_worker import _validate_request
     request,arrays=_validate_request(Path(args['request_path']),args['expected_request_sha256'])
-    training=_inspect_p13(root,read,request,arrays)
+    training=(_inspect_p13(root,read,request,arrays) if family=='P13' else _inspect_gated(root,read,refs,request,arrays))
     if audit_native_generation(**args)!=generation or _inventory(root)!=inventory:
         raise ValueError('Native workload inputs or evidence changed during inspection')
     return dict(schema='research/v2-recorded-native-workload-observation',status='checked_recorded_native_workload',

@@ -6,10 +6,10 @@ fit, its primary F/G and feature-only V roles, and its externally committed
 closed output inventory. It reads no V labels or protected arrays. It does not
 fit a model, solve coefficients or make new predictions.
 
-The current implemented family is **P13 only**, covering mean, ridge and
-spline-ridge formats. Other families fail explicitly before workload observation;
-the remaining family-specific training checks are still required. This component
-does not make the complete native qualification registry operational.
+The current implemented families are **P00, P01, P02, P05 and P13**: grown,
+random growth, warm ordinary growth, static gates and closed-form references.
+Other families fail explicitly before workload observation. Their training checks
+and the complete native qualification registry remain unfinished.
 
 The reader captures mutable proposal inputs, hashes metadata buffers before
 decoding, and rechecks the full generation/inventory at exit. It joins the
@@ -19,6 +19,15 @@ sample is allowed when a positive observed peak exists. Understated peaks,
 incorrect ownership and changed source/input/proof bytes cannot supply a passed
 observation. Samples measure the root worker; descendants and unobserved peaks
 remain outside that measurement.
+
+For the four own-model families it joins the complete F/G preprocessing and
+transformed-input records, checks actual native topology and finite float32
+parameters/int64 growth buffers, and reopens both training stages. Applied rows,
+partial batches and complete observed epochs must agree with the sampler phase.
+Recorded gradient norms, absolute learning-rate schedule, strict G-best flags,
+patience/cap stops and selected/executed counters must agree. It checks recorded
+optimization and selected tensors; it does not independently rerun neural updates
+or establish persistent interrupted-training resume.
 
 For P13 it checks the declared native configuration and composite source identity,
 replays F-only preprocessing/design arithmetic and identities, verifies F-derived
@@ -38,8 +47,8 @@ software profiles, all 120 full native anchors, support geometry, workload and
 recovery evidence, and the complete production candidate/protocol identity.
 Earlier held-source models and their flags remain unchanged.
 
-Remaining family checks follow the approved Task7 contract: two-stage gate/ordinary
-update streams; ordinary-neural and TabM full epoch orders and gradients;
+Remaining family checks follow the approved Task7 contract: ordinary-neural and
+TabM full epoch orders and gradients;
 RealMLP's native admitted/omitted rows; native tree round/selection records;
 and NODE's actual updates, rows, gradients and selected/current recovery state.
 Their own native stopping and row policies must be preserved. A short geometry
@@ -52,3 +61,10 @@ The [P13 component receipt](WP07-native-training-P13-observation-receipt.json)
 records 23 passing reader/generation checks, including all three actual estimator
 formats, after the retained missing-interface, payload and typed-identity failures.
 No full repository pass or other-family implementation follows from that count.
+The [own-model receipt](WP07-native-training-own-models-receipt.json) records the
+later 32-case combined pass. Actual full native procedures used F325/G130 and
+eighteen encoded features, including 69-row partial batches. Consistently
+recommitted duplicate rows, false G-best flags, negative gradient norms, wrong
+tensor dtype and a boolean update counter are rejected. The final counter case
+exposed a reader gap before the typed checks were added. These manipulated
+software fixtures do not establish corruption in ordinary or historical runs.

@@ -1,0 +1,110 @@
+{
+  "T_accessed": false,
+  "checks": [
+    "F-only preprocessing and original transformed input commitments",
+    "Two-stage applied-update/sampler/gradient/LR records and strict G-best/patience selection",
+    "Native topology, float32 parameters/int64 growth buffers, finite weights and selected-state identity",
+    "Managed process and raw sampled RSS joins reused from prior closed-form component"
+  ],
+  "fault_controls": [
+    "duplicate F row within an applied batch",
+    "false initial G-best flag",
+    "negative gradient norm",
+    "self-recommitted float64 tensor declaration",
+    "boolean initial absolute update counter"
+  ],
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-c",
+      "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"--tb=short\",\"tests/test_native_workload_gated.py\",\"tests/test_native_workload_observation.py\",\"tests/test_native_generation_chain.py\"]))"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "final_source_qualified": false,
+  "held_scientific_models_modified": false,
+  "implemented_families": [
+    "P00",
+    "P01",
+    "P02",
+    "P05",
+    "P13"
+  ],
+  "logs": [
+    {
+      "bytes": 3597,
+      "path": "artifacts/research-v2/WP11/native-workload-gated-RED.log",
+      "sha256": "39940c0d1b1d2f51dc0ee2aaca16a2141bb9a9adf91d4b7804f207c9059b7843"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP11/native-workload-gated-first-GREEN.log",
+      "sha256": "7bd6b11af4a85a6ca514cdab749841330307a5bca057758df1cc44318ece8ddd"
+    },
+    {
+      "bytes": 110,
+      "path": "artifacts/research-v2/WP11/native-workload-gated-adversarial.log",
+      "sha256": "328e6390ada01b2ba72a405c629f8bf766858f0b33af26cd39bd1e79d5de9ca6"
+    },
+    {
+      "bytes": 880,
+      "path": "artifacts/research-v2/WP11/native-workload-gated-counter-RED.log",
+      "sha256": "f01cd612a065810e66f3bd66ee8c6b77596a8f6ff3ca2f76910eb3ad5b492799"
+    },
+    {
+      "bytes": 110,
+      "path": "artifacts/research-v2/WP11/native-workload-gated-final-affected.log",
+      "sha256": "460355db5211cdbb266477ed16d2de9f070796f91ce17d517f2847c9e1285e98"
+    }
+  ],
+  "native_workload_qualified": false,
+  "observed_fixtures": {
+    "bytes": 3622,
+    "path": "artifacts/research-v2/WP11/native-workload-gated-distinct-fixture-observations.json",
+    "sha256": "3e4aad0c32e953e5c69365bb151c7fed617e233339af55910092be281903c7d0"
+  },
+  "parent_commit": "d44efff9752bc0fcf5ebfa0fdeec7523d9a9f49a",
+  "production_registry_complete": false,
+  "quality_eligible": false,
+  "schema": "research/v2-recorded-native-workload-own-models-receipt",
+  "scientific_source_sha256": "9290dd4e27e3ffecfc045a5fc93c241248ac3255a0cf2139821ea661cc9d8603",
+  "scope": "Full native stopping procedures on synthetic Energy-schema data, F325/G130/18 encoded columns and partial 69-row batches. No actual-data/workload qualification, predictive comparison, independent neural retraining by the reader or protected access.",
+  "status": "five_families_implemented_remaining_nine_pending",
+  "tested_files": [
+    {
+      "bytes": 23500,
+      "path": "src/treeneuron/research/native_workload_v2.py",
+      "sha256": "52d7bd1042e8a9706a2a017860f03f634d02b1d5da709c09550d2c0ed145dcd2"
+    },
+    {
+      "bytes": 3699,
+      "path": "tests/native_workload_cases.py",
+      "sha256": "db0a6ac127c4f566b99d3e9e62931206bda3d7e5573f5cdc72b3a89b1a4ed20b"
+    },
+    {
+      "bytes": 4012,
+      "path": "tests/test_native_workload_gated.py",
+      "sha256": "43cd091d80fc431131c82f237b5d785cde6170a4238953168e26d33e30f3f512"
+    }
+  ],
+  "tested_worktree_dirty_during_TDD": true,
+  "verification": [
+    "Four real native family procedures then expected unimplemented-reader failures:4failed24.26s",
+    "Own-model plus closed-form observation:16passed42.47s",
+    "Adversarial and generation joins:31passed83.75s",
+    "Boolean initial update self-recommit:1failed/8deselected6.58s, then strict typed counter checks",
+    "Final32passed89.51s across own-model/closed-form/generation modules"
+  ]
+}
