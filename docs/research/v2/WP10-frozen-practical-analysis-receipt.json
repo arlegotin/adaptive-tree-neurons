@@ -1,0 +1,140 @@
+{
+  "T_accessed": false,
+  "actual_complete_qualified_public_positive": false,
+  "actual_label_archives_read": 0,
+  "actual_models_fitted_or_loaded": 0,
+  "artifact_inventory": {
+    "bytes": 2605,
+    "path": "artifacts/research-v2/WP10/frozen-practical-analysis-software-inventory.json",
+    "sha256": "421f4f45f9467a2ad812888148e8c82690edc01c4267c9bb614179ede60f4502"
+  },
+  "base_commit": "cb517f5",
+  "capture": {
+    "actual_public_invalid_qualification_rejected_before_output": true,
+    "bootstrap_iterations": 20000,
+    "champion_log_effect": 0.6931471805599453,
+    "fixed_P02_log_effect": 0.9162907318741549,
+    "folds": 30,
+    "holm_family": 13,
+    "metadata_only": true,
+    "missing_native_comparison_unavailable": true,
+    "planned_views": 3360,
+    "procedure_jobs": 840,
+    "same_paired_indices_for_all_families": true
+  },
+  "capture_script": {
+    "bytes": 4429,
+    "path": "artifacts/research-v2/WP10/capture_frozen_practical_analysis.py",
+    "sha256": "7d39d89b56eaa9a335d15349a03b62931e15aa6fdc05c30a41e718ba9d7fa643"
+  },
+  "claim_authorized": false,
+  "date": "2026-10-21",
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_frozen_practical_analysis_v2.py",
+      "tests/test_practical_comparisons_v2.py",
+      "tests/test_practical_v2.py",
+      "tests/test_practical_T_protocol_v2.py",
+      "tests/test_protected_label_evaluator_v2.py",
+      "tests/test_protected_prediction_gate_v2.py",
+      "tests/test_protected_journal_v2.py"
+    ],
+    "bytecode_disabled": true,
+    "exit_code": 0,
+    "process_observation": "Only fixture-owned worker PIDs and boot identity; scoped permission, unchanged native guards",
+    "pytest_plugin_autoload_disabled": true,
+    "result": "151 passed in87.74s",
+    "session_id": 87360,
+    "threads": 1
+  },
+  "limitations": [
+    "Known numeric metadata only; no benchmark predictive result or genuine protected evaluation",
+    "Actual public seal/load require full actual native/protocol/prediction/witnessed metrics gates; complete-qualified positive unrun",
+    "Independent raw target/model/access audit, dependence qualification, deployment/full costs, report/CLI/readiness and final review remain before production",
+    "Draw vectors omitted from compact output; immutable group-loss inputs, seed/law/source, iterations and pair hashes permit exact recomputation",
+    "Conditional bootstrap uncertainty for fitted models on five named tasks, not retraining or dataset-population inference"
+  ],
+  "logs": [
+    {
+      "bytes": 29609,
+      "path": "artifacts/research-v2/WP10/frozen-practical-analysis-software/test-logs/frozen-analysis-red.log",
+      "sha256": "2f3d2d96eca090f8292864428d20c9d6d8ac4f42b7d05ac7fff7d6d5c5f754fd"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/frozen-practical-analysis-software/test-logs/frozen-analysis-first-green.log",
+      "sha256": "e637b98d5850b118fa485c6720013f9a5619d276a18df235887985cab335795c"
+    },
+    {
+      "bytes": 4253,
+      "path": "artifacts/research-v2/WP10/frozen-practical-analysis-software/test-logs/frozen-analysis-boundaries-red.log",
+      "sha256": "d9ce93fa9ee2805a501f87b0a5d050eed56ed37aa534e652d8baa9ff9c09f458"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP10/frozen-practical-analysis-software/test-logs/frozen-analysis-affected.log",
+      "sha256": "35a058e2ec2f61965b4cf1b076238f929b394939b587244cc77891525c76bc9e"
+    },
+    {
+      "bytes": 271,
+      "path": "artifacts/research-v2/WP10/frozen-practical-analysis-software/test-logs/frozen-analysis-final-affected.log",
+      "sha256": "ead17f5fa9cd9d5fd1f19ddfa693e774808a4fff0a2db6bfa7ac46b5be8192cc"
+    },
+    {
+      "bytes": 333,
+      "path": "artifacts/research-v2/WP10/frozen-practical-analysis-software/test-logs/frozen-analysis-capture.log",
+      "sha256": "91611b8fc65ecbd180d6a5e479b888972dde0bcde311de9827e46bab1f390f5f"
+    }
+  ],
+  "native_c33_source_environment_and_immutable_operator_plan_unchanged": true,
+  "native_models_authenticated": false,
+  "observation": {
+    "bytes": 1946,
+    "path": "artifacts/research-v2/WP10/frozen-practical-analysis-software/observation.json",
+    "sha256": "45b074d8298d20ca01c6e747b55ea5a6281fa05111c9baaa1fb6bd0fe2e2ca09"
+  },
+  "protected_access_authorized": false,
+  "raw_model_provenance_authenticated": false,
+  "schema": "research/v2-frozen-practical-analysis-software-receipt",
+  "source_file": {
+    "bytes": 18280,
+    "path": "src/treeneuron/research/frozen_practical_analysis_v2.py",
+    "sha256": "be5ea9266a412056882e3e59e25123ab3b931889a4a44667a26ed1efa7644cf5"
+  },
+  "source_sha256": "ed9da2aead7f0bf13fc9f8a17b116e9468eb4a8358fb3234014cfd6ec9ad0d4e",
+  "study_scope_or_algorithm_rescue_changed": false,
+  "test_file": {
+    "bytes": 11757,
+    "path": "tests/test_frozen_practical_analysis_v2.py",
+    "sha256": "c073b96f7c4a87859ee316fc6118ed6e9b701713a35365f6579846ff6d5fd8aa"
+  },
+  "verification": [
+    {
+      "cause": "Missing module; intended RED",
+      "result": "14 failed in.60s"
+    },
+    {
+      "result": "14 passed in3.01s",
+      "scope": "Initial new-module pass"
+    },
+    {
+      "cause": "Missing public loader; missing family still retained a complete portfolio champion; undefined Energy suppressed observational prefix points. Each corrected before final verification",
+      "result": "3 failed,1 passed,14 deselected in2.75s"
+    },
+    {
+      "result": "71 passed in10.28s",
+      "scope": "Four analysis/protocol modules"
+    },
+    {
+      "result": "151 passed in87.74s",
+      "scope": "Final seven affected modules; overlaps preceding commands, no whole-suite pass"
+    }
+  ],
+  "whole_training_procedure_cost_authenticated": false
+}

@@ -18,6 +18,9 @@ original-unit metrics, role-access records, interruption checks and read-only
 reuse of committed results. Its final affected command passed142 checks.
 Actual frozen inferential analysis, independent audit and the remaining
 production prerequisites above are still unfinished; no benchmark T was read.
+The [frozen comparison binding](frozen-practical-analysis.md) is now also
+fixture-tested, including fixed V champion, paired resampling and all model
+views. Actual protected analysis and independent raw audit remain unrun.
 
 ## The idea and present verdict
 
