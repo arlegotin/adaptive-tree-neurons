@@ -1,0 +1,93 @@
+{
+  "T_accessed": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-c",
+      "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"--tb=short\",\"--basetemp=artifacts/research-v2/WP11/search-cold-origin-final-fixture\",\"tests/test_search_controller_v2.py\",\"tests/test_cooperative_process_v2.py\",\"tests/test_native_search_audit.py\",\"tests/test_qualified_search_audit_v2.py\"]))"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "fixture_observation": {
+    "bytes": 48515,
+    "path": "artifacts/research-v2/WP11/search-cold-origin-fixture-observation.json",
+    "sha256": "a7c307945ed8551ff63b27692898e4d7457901565d5d23a695217acddaf3c7e1"
+  },
+  "labels_read": false,
+  "logs": [
+    {
+      "bytes": 10996,
+      "path": "artifacts/research-v2/WP11/search-cold-origin-red.log",
+      "sha256": "e14b520a76383fe5e2ade26de4363381c56e681dd1067cf929aa9a3206aec245"
+    },
+    {
+      "bytes": 113,
+      "path": "artifacts/research-v2/WP11/search-cold-origin-first.log",
+      "sha256": "017e373334337ea426e9952e82b8c0e7f868f7243b84d41d98e65a2be6288dbf"
+    },
+    {
+      "bytes": 181,
+      "path": "artifacts/research-v2/WP11/search-cold-origin-final.log",
+      "sha256": "5fa808e8203d01644f9c53ee7834fe79b0c938a40138a1c81546a6839ae97793"
+    }
+  ],
+  "native_models_fit_in_clock_capture": false,
+  "parent_commit": "2a2929c",
+  "production_execution_authorized": false,
+  "quality_eligible": false,
+  "schema": "research/v2-search-cold-origin-component-receipt",
+  "scientific_source_sha256": "656dac1018783b31a37b4d405e65d8d4d44ca6eef4e2201ec2c1597864b2238b",
+  "scope": "Software clock/journal composition and actual tiny process-ready bounds. No actual primary search/full native registry/calibration/protected execution.",
+  "tested_files": [
+    {
+      "bytes": 25705,
+      "path": "src/treeneuron/research/cooperative_process_v2.py",
+      "sha256": "67f46afa6d3e316a253b1f6cb22c9af267e8ebc4c69b03f55e6de1c579db08ea"
+    },
+    {
+      "bytes": 20567,
+      "path": "src/treeneuron/research/search_controller_v2.py",
+      "sha256": "e566022bc63ca8e3885de47b23318f6eb0493df94ccf262d81bbf22e7c7e2a43"
+    },
+    {
+      "bytes": 19144,
+      "path": "tests/test_search_controller_v2.py",
+      "sha256": "372d22606d4476e554162c021c8d8cac09a5ee986e22074f3b50bc470fbf8539"
+    },
+    {
+      "bytes": 13690,
+      "path": "tests/test_cooperative_process_v2.py",
+      "sha256": "0d5d553634928d23dfe202c0710ed4a11cdfbb3a409bcf91b9bd6a337ea0eae2"
+    },
+    {
+      "bytes": 9073,
+      "path": "tests/test_native_search_audit.py",
+      "sha256": "98d046604b296029aa8f296c400109d236b2a1d3314696c78302394f40e48328"
+    },
+    {
+      "bytes": 11565,
+      "path": "tests/test_qualified_search_audit_v2.py",
+      "sha256": "c49cd90290f86439cd8b4098f8b3564751865c60b4f1584200f9a4b4924c8332"
+    }
+  ],
+  "verification": [
+    "Six missing-origin/clock fields failed2.30s before implementation",
+    "Six targeted cases passed2.29s after explicit origin and actual parent/child-ready clock bounds",
+    "Expanded four-module affected suite110 passed12.12s/session14539exit0",
+    "Fourteen actual tiny root episodes reopened without process creation or saved-PID probes",
+    "Controller origin/prepaid-tail unit examples use fixture scores/clocks, not predictive results; legacy journal shape and audit replay preserved"
+  ],
+  "whole_training_procedure_cost_authenticated": false
+}

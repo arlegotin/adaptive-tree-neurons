@@ -308,3 +308,35 @@ def test_unclosed_process_death_cannot_be_assigned_a_free_zero_cost_resume(tmp_p
     assert last['kind']=='attempt_started'
     with pytest.raises(ValueError,match='Unclosed.*external invocation cost'):
         run(tmp_path/'search',config,worker,clock,resume=True,expected_journal_hash=last['event_hash'])
+
+
+def test_explicit_outer_origin_charges_cold_start_and_preparation_before_first_prefix(tmp_path):
+    clock=Clock();clock.advance(100);config=plan(deadline_ns=None,prefixes_ns=[50,100,150])
+    def worker(request):clock.advance(5);return result(request)
+    output=run(tmp_path/'search',config,worker,clock,max_attempts_this_invocation=1,
+        invocation_origin_ns=10,invocation_preparation_ns=7)
+    assert output['records'][0]['completion_ns']==102
+    assert output['prefixes']['100']['winner'] is None
+    assert output['prefixes']['150']['winner'] is not None
+    events=[json.loads(line) for line in (tmp_path/'search/events.jsonl').read_text().splitlines()]
+    assert events[0]['payload']['invocation_preparation_ns']==97
+
+
+def test_resume_pays_previous_closed_outer_tail_before_any_new_model_can_win(tmp_path):
+    clock=Clock();clock.advance(100);config=plan(deadline_ns=None,prefixes_ns=[100,110,120])
+    def worker(request):clock.advance(5);return result(request)
+    first=run(tmp_path/'search',config,worker,clock,max_attempts_this_invocation=1,invocation_origin_ns=10)
+    assert first['total_charged_ns']==95
+    clock.advance(1905)
+    second=run(tmp_path/'search',config,worker,clock,resume=True,expected_journal_hash=first['journal_hash'],
+        invocation_origin_ns=2000,invocation_preparation_ns=5,max_attempts_this_invocation=1)
+    assert second['records'][1]['completion_ns']==115
+    assert second['prefixes']['110']['winner']['attempt_index']==0
+
+
+@pytest.mark.parametrize('origin',[True,-1,101])
+def test_invalid_or_future_outer_clock_origin_rejects_without_creating_search(tmp_path,origin):
+    clock=Clock();clock.advance(100)
+    with pytest.raises(ValueError,match='origin'):
+        run(tmp_path/'search',plan(),lambda request:result(request),clock,invocation_origin_ns=origin)
+    assert not (tmp_path/'search').exists()

@@ -153,8 +153,10 @@ registry. [Callback preparation](primary-native-preparation.md) then passed 61
 scoped checks, including byte-only role staging and validation-label exclusion.
 Its actual qualified-factory path is unrun. The [cooperative root supervisor](cooperative-process-ownership.md)
 passed 71 affected checks, including actual nested cleanup and disk-publication
-failures. It supplies a cold-root clock and no native/production authority.
-Composition with search execution, full external-cost reconciliation and
+failures. It supplies a cold-root clock and no native/production authority. Its
+[clock-origin extension](WP08-search-cold-origin-receipt.json) passed 110 affected
+checks, paying startup and declared prior closing tails before prefix eligibility.
+Composition with actual search execution, full external-cost reconciliation and
 primary-model/protocol barriers remain unfinished.
 
 Next: finish the fixed native NODE inventory, audit each completion and publish

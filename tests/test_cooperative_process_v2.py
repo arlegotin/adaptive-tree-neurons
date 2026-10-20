@@ -21,13 +21,14 @@ from treeneuron.research.cooperative_process_v2 import cooperative_worker
 mode, target = sys.argv[1], Path(sys.argv[2])
 identity = dict(fixture='nested-cold-worker', source='engineering-only')
 if mode == 'wrong': identity['source'] = 'wrong-source'
-if mode == 'spoof':
+if mode in ('spoof','offset'):
     import time
     from treeneuron.research.cooperative_process_v2 import _read, _write, _ready_expected
     control = Path(os.environ['ATN_SEARCH_CONTROL_ROOT'])
     start, raw = _read(control/'started.json')
-    ready = _ready_expected(start,os.environ['ATN_SEARCH_CONTROL_START_SHA256'],os.getpid(),os.getppid())
-    ready['identity_sha256'] = '0'*64
+    ready = _ready_expected(start,os.environ['ATN_SEARCH_CONTROL_START_SHA256'],os.getpid(),os.getppid(),time.perf_counter_ns())
+    if mode == 'spoof': ready['identity_sha256'] = '0'*64
+    else: ready['worker_ready_monotonic_ns'] = 1
     _write(control/'ready.json',ready)
     time.sleep(1)
     raise SystemExit(13)
@@ -59,6 +60,7 @@ def observations(tmp_path_factory):
             ('denied', 'normal', False, 256*1024**2, None),
             ('wrong', 'wrong', True, 256*1024**2, None),
             ('spoof', 'spoof', True, 256*1024**2, None),
+            ('offset', 'offset', True, 256*1024**2, None),
             ('paused', 'pause', True, 256*1024**2, 1_500_000_000),
             ('rss', 'pause', True, 1, None),
             ('nonzero', 'nonzero', True, 256*1024**2, None),
@@ -103,7 +105,15 @@ def test_normal_nested_process_is_joined_and_external_clock_includes_startup(obs
     assert proof['whole_training_procedure_cost_authenticated'] is False
 
 
-@pytest.mark.parametrize('name', ['denied', 'wrong', 'spoof'])
+def test_actual_worker_clock_is_bounded_by_its_parent_ready_observation(observations):
+    row=observations()['normal'];root=row['root']/'process'
+    start=json.loads((root/'started.json').read_text());ready=json.loads((root/'ready.json').read_text())
+    r=row['receipt'];origin=start['supervisor_started_monotonic_ns']
+    assert origin+r['spawn_requested_elapsed_ns']<=ready['worker_ready_monotonic_ns']<=origin+r['ready_observed_elapsed_ns']
+    assert reopen(row)['shared_monotonic_clock_observed'] is True
+
+
+@pytest.mark.parametrize('name', ['denied', 'wrong', 'spoof', 'offset'])
 def test_no_grant_means_no_nested_worker_and_only_own_root_can_be_stopped(observations, name):
     row = observations()[name]
     result = row['receipt']
@@ -228,6 +238,7 @@ def test_reopening_a_receipt_never_starts_a_process_or_probes_an_old_PID(observa
 
 
 @pytest.mark.parametrize('name,field,value', [('ready.json','identity_sha256','0'*64),
+    ('ready.json','worker_ready_monotonic_ns',1),
     ('grant.json','nonce','wrong'),('worker-closure.json','child_pid',True)])
 def test_recommitted_protocol_files_cannot_change_ownership(observations,name,field,value):
     row = observations()['normal'];root = row['root']/'process'

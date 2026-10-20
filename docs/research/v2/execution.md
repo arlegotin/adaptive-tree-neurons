@@ -2148,3 +2148,13 @@ and advisory; nested native guards remain separate, with no default wall cap.
 composition, full cost/journal reconciliation, primary model/protocol barriers
 and final-source qualification remain unfinished. Held c33 NODE source and
 runtime were not changed.
+
+The subsequent exact-origin extension passed 110 affected checks in 12.12 seconds
+(session14539 exit zero), including actual parent/worker-ready monotonic bounds
+and a clock-domain mismatch that cannot receive grant. The controller pays
+origin-to-entry preparation and declared prior closing tails before prefix
+eligibility. Existing generic receipts and legacy controller defaults remain
+readable; no old record is rewritten. Fourteen tiny root episodes reopened
+without new processes. [Receipt](WP08-search-cold-origin-receipt.json).
+The actual primary search worker and authenticated cross-episode cost matching
+remain unfinished, rather than being inferred from this primitive.

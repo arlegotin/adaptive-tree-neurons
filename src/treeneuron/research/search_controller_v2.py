@@ -221,17 +221,25 @@ def _record(plan,request,result,total,records):
 
 
 def run_search(directory,*,plan,evaluate_trial,resume=False,clock_ns=time.perf_counter_ns,
-               max_attempts_this_invocation=32,invocation_preparation_ns=0,expected_journal_hash=None):
+               max_attempts_this_invocation=32,invocation_preparation_ns=0,expected_journal_hash=None,
+               invocation_origin_ns=None):
     """Execute serial callback attempts, or identical recovery after a clean pause.
 
     An unclosed process-death journal fails closed: its unmeasured tail cannot be
     assigned zero cost. The external crash supervisor/recovery receipt is pending.
     Returned V scores are caller-supplied, not independently authenticated here.
+    An externally authenticated origin includes cold startup/preparation through
+    this entry without a measurement-to-call gap. Additional preparation may pay
+    a preceding closed episode's tail; the controller authenticates neither.
     """
     started=clock_ns();plan=_checked_plan(plan);directory=Path(directory)
     if (not _integer(started) or not _integer(max_attempts_this_invocation,1,32)
             or not _integer(invocation_preparation_ns) or type(resume) is not bool or not callable(evaluate_trial)):
         raise ValueError('Invalid search invocation')
+    if invocation_origin_ns is not None:
+        if not _integer(invocation_origin_ns,0,started):
+            raise ValueError('Invalid or future invocation clock origin')
+        invocation_preparation_ns+=started-invocation_origin_ns
     if directory.is_symlink():raise ValueError('Search directory cannot be a symbolic link')
     if not resume:
         if directory.exists():raise ValueError('Search already exists; use unchanged-plan resume')

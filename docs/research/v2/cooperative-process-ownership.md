@@ -48,3 +48,18 @@ reopens thirteen actual closed fixture episodes while process creation is
 forbidden. Whole practical worker execution, outer-cost reconciliation with
 the search journal, the all-primary-model barrier and final protocol remain
 unfinished. Existing held-source native benchmarks continue unchanged.
+
+The subsequent [clock-composition receipt](WP08-search-cold-origin-receipt.json)
+records 110 affected checks. New ready records include a worker monotonic
+timestamp bounded by the parent's pre-spawn request and ready observation. A
+clock-domain mismatch rejects before grant. The lower bound uses the pre-spawn
+request: the child can run before the parent's process-creation call returns.
+Earlier generic receipts remain readable with no shared-clock observation.
+
+`run_search(invocation_origin_ns=...)` includes an authenticated outer origin's
+startup/preparation span before prefix selection, using the existing journal
+preparation field. Explicit additional preparation can pay the previous closed
+outer episode's unassigned closing time before a resumed candidate runs. The
+generic controller accepts a caller's clock; actual episode/journal matching
+and qualification must authenticate it. This extension preserves legacy
+default behavior and does not itself implement the production search worker.

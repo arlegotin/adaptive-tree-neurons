@@ -65,12 +65,27 @@ def _ref(path):
     return dict(path=path.name, bytes=path.stat().st_size, sha256=_sha(path.read_bytes()))
 
 
-def _ready_expected(start, start_sha, pid, parent_pid):
-    return dict(schema='research/v2-cooperative-ready', child_pid=pid, child_pgid=pid,
+def _ready_expected(start, start_sha, pid, parent_pid, worker_ready_ns=None):
+    value = dict(schema='research/v2-cooperative-ready', child_pid=pid, child_pgid=pid,
         parent_pid=parent_pid, started_sha256=start_sha, nonce=start['nonce'],
         identity_sha256=_sha(_canonical(start['identity']).encode()),
         argv_sha256=_sha(_canonical(start['argv']).encode()),
         no_nested_spawn_before_grant=True)
+    if worker_ready_ns is not None:
+        value['worker_ready_monotonic_ns'] = worker_ready_ns
+    return value
+
+
+def _validate_ready(ready,start,start_sha,pid,parent_pid,spawn_requested_ns,observed_elapsed_ns):
+    origin = start.get('supervisor_started_monotonic_ns')
+    worker = ready.get('worker_ready_monotonic_ns') if origin is not None else None
+    if origin is not None and (not _positive(origin) or not _positive(spawn_requested_ns)
+            or not _positive(observed_elapsed_ns) or not _positive(worker)
+            or not origin+spawn_requested_ns <= worker <= origin+observed_elapsed_ns):
+        raise ValueError('Worker and parent clock domains do not match observed ready bounds')
+    if _canonical(ready) != _canonical(_ready_expected(start,start_sha,pid,parent_pid,worker)):
+        raise ValueError('Cooperative ready identity differs')
+    return origin is not None
 
 
 def _grant_expected(ready_sha, nonce):
@@ -92,7 +107,8 @@ is retained as an operational failure, never a resumable search by assumption.
             or _canonical(list(sys.orig_argv)) != _canonical(start['argv'])
             or os.getpgid(0) != os.getpid() or os.getppid() != start['supervisor_pid']):
         raise ValueError('Cooperative worker ownership/identity mismatch')
-    ready = _ready_expected(start, start_sha, os.getpid(), os.getppid())
+    ready = _ready_expected(start, start_sha, os.getpid(), os.getppid(),
+        time.perf_counter_ns() if 'supervisor_started_monotonic_ns' in start else None)
     previous = signal.signal(signal.SIGINT, signal.default_int_handler)
     entered = False
     exit_kind = 'returned'
@@ -150,6 +166,7 @@ enforcing a hard outer memory bound. Admission runs after ready, before grant.
     start = dict(schema='research/v2-cooperative-start', argv=argv, cwd=str(cwd),
         environment_overrides=env_overrides, identity=identity, admission_identity=admission_identity,
         supervisor_pid=os.getpid(), nonce=secrets.token_hex(32), started_utc_ns=time.time_ns(),
+        supervisor_started_monotonic_ns=started,
         rss_pause_bytes=rss_pause_bytes, poll_interval_ns=poll_interval_ns,
         handshake_timeout_ns=handshake_timeout_ns, pause_after_ns=pause_after_ns,
         log_limit_bytes=log_limit_bytes)
@@ -165,7 +182,7 @@ enforcing a hard outer memory bound. Admission runs after ready, before grant.
     proc = None
     status, reason, diagnostic = 'input_or_dependency_failure', 'before_spawn', None
     granted = authorized = stop_attempted = False
-    grant_elapsed = grant_started_elapsed = spawn_elapsed = None
+    grant_elapsed = grant_started_elapsed = spawn_elapsed = spawn_requested = ready_observed = None
     stop_publication_error = None
     signals, samples = [], []
 
@@ -209,6 +226,7 @@ enforcing a hard outer memory bound. Admission runs after ready, before grant.
             (output/'resource-samples.jsonl').open('x') as observations:
         try:
             root_rss_bytes(os.getpid(), 250_000_000)
+            spawn_requested = time.perf_counter_ns()-started
             proc = subprocess.Popen(argv,cwd=cwd,env=environment,stdin=subprocess.DEVNULL,
                 stdout=stdout,stderr=stderr,start_new_session=True)
             spawn_elapsed = time.perf_counter_ns()-started
@@ -222,9 +240,8 @@ enforcing a hard outer memory bound. Admission runs after ready, before grant.
                     break
                 if not granted and (output/'ready.json').exists():
                     ready, raw = _read(output/'ready.json')
-                    if _canonical(ready) != _canonical(_ready_expected(start,start_sha,proc.pid,os.getpid())):
-                        reason = 'invalid_ready_identity'
-                        break
+                    ready_observed = time.perf_counter_ns()-started
+                    _validate_ready(ready,start,start_sha,proc.pid,os.getpid(),spawn_requested,ready_observed)
                     admission = admission_check()
                     if not isinstance(admission,dict) or type(admission.get('admitted')) is not bool:
                         raise ValueError('Admission must return an explicit boolean and retained evidence')
@@ -306,6 +323,7 @@ enforcing a hard outer memory bound. Admission runs after ready, before grant.
         child_reaped=proc is not None and proc.returncode is not None,grant_issued=granted,
         grant_publication_started=authorized,grant_publication_started_elapsed_ns=grant_started_elapsed,
         spawn_elapsed_ns=spawn_elapsed,grant_elapsed_ns=grant_elapsed,signals=signals,
+        spawn_requested_elapsed_ns=spawn_requested,ready_observed_elapsed_ns=ready_observed,
         stop_publication_error=stop_publication_error,
         cooperative_stop_requested=(output/'request-stop.json').exists(),worker_protocol_closed=closed,
         rss_sample_count=len(samples),observed_peak_root_rss_bytes=max((s['root_rss_bytes'] for s in samples),default=None),
@@ -367,6 +385,10 @@ def inspect_cooperative_process(*, root, expected_receipt_sha256, expected_start
                 or receipt['spawn_elapsed_ns'] >= receipt['elapsed_ns']
                 or _canonical(owned) != _canonical(dict(schema='research/v2-cooperative-owned-root',child_pid=pid,child_pgid=pid,new_session=True))):
             raise ValueError('Invalid owned cooperative root')
+        if 'supervisor_started_monotonic_ns' in start and (not _positive(start['supervisor_started_monotonic_ns'])
+                or not _positive(receipt.get('spawn_requested_elapsed_ns'))
+                or not receipt['spawn_requested_elapsed_ns']<=receipt['spawn_elapsed_ns']):
+            raise ValueError('Invalid cold-root monotonic origin/spawn bounds')
     elif any(receipt.get(k) is not None for k in ('child_pid','returncode','spawn_elapsed_ns')):
         raise ValueError('Unstarted root cannot have process counters')
     granted = 'grant.json' in names
@@ -375,14 +397,16 @@ def inspect_cooperative_process(*, root, expected_receipt_sha256, expected_start
     authorized = receipt.get('grant_publication_started')
     if type(authorized) is not bool or granted and not authorized:
         raise ValueError('Grant publication phase required')
+    shared_clock = False
     if authorized:
         ready, ready_raw = _read(root/'ready.json')
         admission, _ = _read(root/'admission.json')
-        if (not spawned or _canonical(ready) != _canonical(_ready_expected(start,expected_started_sha256,pid,start['supervisor_pid']))
-                or admission.get('admitted') is not True
+        if (not spawned or admission.get('admitted') is not True
                 or not _positive(receipt.get('grant_publication_started_elapsed_ns'))
                 or not receipt['spawn_elapsed_ns'] < receipt['grant_publication_started_elapsed_ns'] < receipt['elapsed_ns']):
             raise ValueError('Cooperative grant/ready/admission disagree')
+        shared_clock = _validate_ready(ready,start,expected_started_sha256,pid,start['supervisor_pid'],
+            receipt.get('spawn_requested_elapsed_ns'),receipt.get('ready_observed_elapsed_ns'))
     elif receipt.get('grant_publication_started_elapsed_ns') is not None:
         raise ValueError('Unauthorized root cannot have grant publication clock')
     if granted:
@@ -427,5 +451,6 @@ def inspect_cooperative_process(*, root, expected_receipt_sha256, expected_start
     if receipt['execution_status'] == 'exited' and (not granted or not closure_present):
         raise ValueError('Exited protocol requires closed granted worker')
     return dict(receipt,root_process_clock_authenticated=True,
+        shared_monotonic_clock_observed=shared_clock,
         nested_cleanup_independently_authenticated=False,
         scope='Closed root clock and handshake only; caller must authenticate native nested closure, search history, model and source')
