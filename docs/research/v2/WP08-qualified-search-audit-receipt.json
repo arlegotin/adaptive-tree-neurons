@@ -1,0 +1,120 @@
+{
+  "T_accessed": false,
+  "complete_public_qualified_success_executed": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-c",
+      "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"--tb=short\",\"--basetemp=artifacts/research-v2/WP11/qualified-search-audit-preparation-final-fixture\",\"tests/test_qualified_search_audit_v2.py\",\"tests/test_native_outcome_reader_v2.py\",\"tests/test_native_search_audit.py\",\"tests/test_qualified_native_trial_v2.py\",\"tests/test_native_trial_bridge.py\"]))"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "fixture_observation": {
+    "bytes": 22284,
+    "path": "artifacts/research-v2/WP11/qualified-search-audit-fixture-observation.json",
+    "sha256": "4155d87e23b3dc1899461666755e04093f48d623f0579c6973bfcf12c0a74644"
+  },
+  "logs": [
+    {
+      "bytes": 21534,
+      "path": "artifacts/research-v2/WP11/qualified-search-audit-RED.log",
+      "sha256": "34e4762ca15fcf48c6e2bfa004f9caff9e79ac5e012dbfcd55af2f13492835a0"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP11/qualified-search-audit-first.log",
+      "sha256": "c1933b480d26886d7a2e76715ca385a60dc75af03b256b7726cbe7a44aae38e7"
+    },
+    {
+      "bytes": 787,
+      "path": "artifacts/research-v2/WP11/qualified-search-recovery-type-RED.log",
+      "sha256": "770ad018951b98ec12f86500f2f159ea446f4a4d5c268e8d2b2872cbda3bbcb8"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP11/qualified-search-audit-extended.log",
+      "sha256": "388edef86304ebe03d3ace0b9aee1e5f07196691bb3d5c11dcbdf461c46092fe"
+    },
+    {
+      "bytes": 180,
+      "path": "artifacts/research-v2/WP11/qualified-search-audit-final-affected.log",
+      "sha256": "53df840f786304bc4f6d294eb4c2ae91812564b45adefd361685f690e5df7b86"
+    },
+    {
+      "bytes": 4121,
+      "path": "artifacts/research-v2/WP11/qualified-search-preparation-RED.log",
+      "sha256": "b4a1f239b7c72b96f9c4dcd89a59439c768cac9277c9be0258b161b9cddec321"
+    },
+    {
+      "bytes": 180,
+      "path": "artifacts/research-v2/WP11/qualified-search-audit-preparation-final-affected.log",
+      "sha256": "3f045b968c1e118ca901d72de289f2660e9c009295fad4915fc79ef4fed28321"
+    }
+  ],
+  "native_workload_qualified": false,
+  "packages_installed_or_updated": false,
+  "parent_commit": "e19466d",
+  "primary_168_model_barrier_implemented": false,
+  "protected_access_authorized": false,
+  "qualified_primary_execution_factory_implemented": false,
+  "quality_eligible": false,
+  "schema": "research/v2-qualified-search-audit-component-receipt",
+  "scientific_source_sha256": "9d689b8519001444f808b2ab22de31a9c201c4c637cd94e4940c0d8475d0e682",
+  "scope": "Actual partial mean/native RSS/replay failure/identical paid restart and untrusted pure comparison fixtures. Complete public actual-qualified success is neither simulated nor run. Full wrapper requires actual registry and exact declared global job; final-source production execution awaits qualification.",
+  "tested_files": [
+    {
+      "bytes": 24538,
+      "path": "src/treeneuron/research/qualified_search_audit_v2.py",
+      "sha256": "4c82dd043012a887090a0550c7cdb92e5efa59f992e2ae1f2a99b9f3dd71bc42"
+    },
+    {
+      "bytes": 11565,
+      "path": "tests/test_qualified_search_audit_v2.py",
+      "sha256": "c49cd90290f86439cd8b4098f8b3564751865c60b4f1584200f9a4b4924c8332"
+    },
+    {
+      "bytes": 7209,
+      "path": "tests/test_native_outcome_reader_v2.py",
+      "sha256": "509d03d225ee5f1e141cedb75e3e0f0be6b1f673461a2ecef03c396bba478b4a"
+    },
+    {
+      "bytes": 9073,
+      "path": "tests/test_native_search_audit.py",
+      "sha256": "98d046604b296029aa8f296c400109d236b2a1d3314696c78302394f40e48328"
+    },
+    {
+      "bytes": 6693,
+      "path": "tests/test_qualified_native_trial_v2.py",
+      "sha256": "59f8f92ac7b9e2f0e46f6e6dec8058895044b59e3d27f2357be96c7df8c7a6c7"
+    },
+    {
+      "bytes": 7712,
+      "path": "tests/test_native_trial_bridge.py",
+      "sha256": "0d26ec63dcb08677d8124c97000d196b2805e3087cdc93fb72f7c38eb2216b8a"
+    }
+  ],
+  "verification": {
+    "additional_prerequisite_prefix_failures": 4,
+    "initial_affected_green_cases": 89,
+    "initial_extended_green_cases": 24,
+    "initial_green_cases": 21,
+    "initial_missing_interface_failures": 21,
+    "passed": 93,
+    "seconds": 31.13,
+    "typed_recovery_index_failure": 1,
+    "whole_suite_or_final_source_pass": false
+  },
+  "whole_outer_process_cost_authenticated": false
+}

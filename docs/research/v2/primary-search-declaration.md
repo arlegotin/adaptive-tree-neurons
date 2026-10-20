@@ -27,6 +27,7 @@ the pre-repair 74-check run and both source identities remain in the
 [component receipt](WP08-primary-search-declaration-receipt.json).
 
 No production support lock or native-quality search was emitted. The actual
-qualified execution factory, complete paid-journal/candidate audit, primary
-model barrier and final protocol integrations remain required. The original
+qualified execution factory, actual full-registry execution of the
+[paid-journal/candidate audit](qualified-search-audit.md), primary model barrier
+and final protocol integrations remain required. The original
 scientific M3/B0 decisions are unchanged.

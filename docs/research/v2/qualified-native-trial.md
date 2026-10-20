@@ -14,7 +14,9 @@ The [actual support-law lock](practical-support-lock.md) supplies the separate
 complete search-space file identity. The [primary declaration compiler](primary-search-declaration.md)
 now binds these low-level plans to the full study's declared model and HPO seeds;
 RealMLP's 63-bit native seed is distinct from the generic 32-bit library seed.
-The qualified execution factory and complete search auditor remain unfinished.
+The [complete search auditor component](qualified-search-audit.md) now composes
+the retained evidence; its actual full-registry path and the qualified execution
+factory remain unrun/unfinished respectively.
 
 After an actual native candidate completes, its raw and compiled proposal,
 request, immutable generation, full recorded workload, closed independent
@@ -55,5 +57,6 @@ these checks.
 
 The [native outcome reader](native-outcome-reader.md) additionally joins that
 process evidence to its original native request/result and worker terminal.
-Exact paid search recovery lineage and complete journal/candidate composition
-remain separate requirements.
+The search auditor now checks exact paid recovery lineage and journal/candidate
+composition. The complete actual registry execution and global model/protocol
+barriers remain required.

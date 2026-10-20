@@ -58,12 +58,15 @@ adds Airfoil: V NMSE 0.107493, versus grown 0.092186 and RealMLP 0.073302.
 All twenty Airfoil anchors remain visible. The [Concrete tranche](../../../reports/research-v2-native-anchors-concrete.md)
 adds NODE at 0.161727, versus grown 0.209199 and CatBoost 0.129860. All twenty
 Concrete coordinates are visible. Native engineering completions now number
-117 of 120. Parkinsons stopped on a disk-full error; its published checkpoint
-pointer remains at update 4,000. Its original complete checkpoint loader then
+117 of 120. Parkinsons stopped on a disk-full error at its published update-4,000
+checkpoint. Its original complete checkpoint loader then
 passed under the unchanged source/runtime, validating model/optimizer state and
 sampling history without training or prediction. See the separate
 [checkpoint validation receipt](WP07-NODE-storage-checkpoint-validation-receipt.json).
-Safe-storage admission is still required before same-source/seed recovery.
+After disk recovered, the unchanged launcher admitted a same-source/seed
+continuation; its first newly observed published checkpoint is update 4,100.
+The [resume receipt](WP07-NODE-storage-resume-receipt.json) retains admission and
+the original failed attempt. This is ongoing training, not another completion.
 CCPP and Bike remain pending. The
 [interruption receipt](WP07-NODE-storage-interruption-2026-10-20-receipt.json)
 preserves missing terminal records and available error/cost evidence. The
@@ -148,7 +151,11 @@ The [primary declaration compiler](primary-search-declaration.md) passed 78
 affected checks. It binds exact study job/support/runtime/model/HPO namespaces;
 a pre-production compatibility repair keeps paired model seeds within the
 unchanged native tree guard. No completed scientific seed or result changes.
-Qualified execution and the complete search audit remain unfinished.
+The [search auditor component](qualified-search-audit.md) then passed 93 scoped
+checks, including actual partial candidate, failure, replay and paid-retry
+records. Complete public qualified success awaits the actual final-source
+registry. The execution factory, whole external cost and primary-model/protocol
+barriers remain unfinished.
 
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only

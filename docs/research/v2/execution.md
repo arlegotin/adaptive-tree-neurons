@@ -2058,3 +2058,23 @@ failures as availability outcomes. The
 three reproduced semantic/type faults, final commands and read-only observations.
 Full qualified-search composition, recovery lineage and outer wall time remain
 unfinished. No predictive or protected result changed.
+
+### Same-source native continuation and search audit, 20 October
+
+The [native continuation receipt](WP07-NODE-storage-resume-receipt.json) records
+renewed admission after shared disk recovered: about 2 GiB free and a 9.3 GB
+available-memory proxy at launch. The original full NODE model, seed17,
+effective batch512/microbatch32, 4 GiB owned RSS guard and uncapped native
+stopping remain unchanged. The new attempt resumed update 4,000 and published
+4,100. The failed attempt and missing terminal cost tail remain explicit;
+CCPP/Bike are still pending and no new V score has been produced.
+
+The [qualified search audit component](qualified-search-audit.md) passed 93
+affected checks. It joins exact declarations/journals, all paid files, native
+outcomes, recovery packets and candidate admission evidence, and enforces the
+native sampler's minimum cost before first-prefix eligibility. The
+[receipt](WP08-qualified-search-audit-receipt.json) retains all failures and actual
+partial observations. No full-registry public success is simulated or claimed.
+The qualified execution factory, external whole-process accounting,
+all-primary-model barrier and final protocol/evaluator integration remain
+unfinished. Scientific M3/B0 decisions and protected-data status are unchanged.

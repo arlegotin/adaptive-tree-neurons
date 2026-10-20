@@ -1,0 +1,46 @@
+{
+  "T_accessed": false,
+  "V_labels_read": false,
+  "completed_native_anchors": 117,
+  "execution_session_id": 32249,
+  "files": [
+    {
+      "bytes": 3226,
+      "path": "artifacts/research-v2/WP07/NODE-parkinsons-resume-4000-c33a84e/invocation.json",
+      "sha256": "4c70df5c3da24e1fb63bfad395edec18eed46c20fe940eda801180a873eb7641"
+    },
+    {
+      "bytes": 242,
+      "path": "artifacts/research-v2/WP07/NODE-parkinsons-resume-4000-c33a84e/starting-checkpoint-pointer.json",
+      "sha256": "ff87ced2373e11b583ad31fedf8bbb3c13636935ed64edba921eba18cfc07269"
+    },
+    {
+      "bytes": 871,
+      "path": "artifacts/research-v2/WP07/NODE-parkinsons-native-recoverable-c33a84e/attempt-001/admission.json",
+      "sha256": "62a07154f483e7bac883af104ebeba1e155ee1dcef2e94b79703d67ca263c321"
+    },
+    {
+      "bytes": 133,
+      "path": "artifacts/research-v2/WP07/NODE-parkinsons-native-recoverable-c33a84e/attempt-001/process/spawned.json",
+      "sha256": "2290092d0fdac6f689cfe41303591fe91338e1630eb97bbefb95c8eec206c574"
+    }
+  ],
+  "fit_seed": 17,
+  "held_source_commit": "c33a84eda018d11b2dbe237dbc0b5b681c8e65c9",
+  "missing_terminal_cost_tail_reconstructed": false,
+  "observed_published_step": 4100,
+  "observed_utc_ns": 1792499794751262000,
+  "original_failed_attempt_retained": true,
+  "original_pointer_representation": "Reconstructed from immutable update4000 manifest and matched byte-for-byte to the externally recorded launch pointer SHA256; original live pointer remains producer-owned.",
+  "original_scientific_source_sha256": "b680a26b2176c6c5cc0f59cf19192d7ee963826a7575cce5ec5ee695521a65cc",
+  "planned_native_anchors": 120,
+  "quality_eligible": false,
+  "root_RSS_limit_bytes": 4294967296,
+  "schema": "research/v2-owned-node-storage-resume-receipt",
+  "scope": "Live operational observation only; no completed fit, selected predictions, V score or final cost claim. New attempt001 continues the original update4000 state. CCPP/Bike still pending.",
+  "source_config_seed_or_native_budget_changed": false,
+  "starting_checkpoint_step": 4000,
+  "status": "running_engineering_continuation",
+  "wall_deadline": null,
+  "worker_pid": 55320
+}

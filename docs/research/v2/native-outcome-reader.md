@@ -11,7 +11,8 @@ becomes an arbitrary prediction loss. The reader requires complete closed
 records: a disk-full attempt missing its terminal receipt stays incomplete.
 It cannot reconstruct an unmeasured cost tail as zero.
 
-This is a prerequisite for the complete paid-search auditor. It grants no native
+The [paid-search auditor component](qualified-search-audit.md) now consumes this
+evidence. The outcome reader itself grants no native
 workload, model eligibility, independent training replay, search recovery lineage,
 whole-search timing or protected access. The exact journal must still bind any
 restart/recovery to the preceding paid attempt, and successful candidates need
