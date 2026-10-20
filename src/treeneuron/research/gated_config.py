@@ -39,7 +39,8 @@ class GatedConfig:
         for key,item in parameters.items():
             if key not in allowed:raise ValueError('Unknown or unadmitted method setting')
             if key=='width':
-                choices=(4,8) if fixture else (32,64,128) if family=='P05' else (64,128)
+                native_choices=(32,64,128) if family=='P05' else (64,128)
+                choices=(4,8,*native_choices) if fixture else native_choices
                 valid=type(item) is int and item in choices
             elif key=='lr':valid=_number(item,1e-4,1e-2)
             elif key=='weight_decay':valid=_number(item,0.,1e-2) and (item==0 or item>=1e-7)

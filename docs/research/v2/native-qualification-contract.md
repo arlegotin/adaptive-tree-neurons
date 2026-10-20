@@ -75,6 +75,13 @@ the recorded source/raw/sealed-byte consistency component. It hashes opaque
 protected archives without decoding targets and grants no modeling authority.
 The complete registry and raw-to-model joins are still required.
 
+[Full-geometry short probes](native-support-probes.md) now provide an explicit
+engineering catalog and owned worker for wider/deeper support shapes. Only
+synthetic ridge and128-unit ordinary-growth cases exercised the runner during
+implementation. A short geometry result is not full native training or complete
+support qualification; actual final-source workload/gradient/coverage evidence
+and the registry remain required.
+
 Resource forecasting must use retained artifact bytes, not parameter counts.
 The completed Airfoil NODE snapshot contains32,705,993array bytes and a
 24,465,520-byte manifest; its separate fit receipt is23,731,169bytes. These

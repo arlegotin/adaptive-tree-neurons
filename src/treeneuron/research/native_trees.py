@@ -94,7 +94,8 @@ class NativeTreeConfig:
             if family == 'P09':
                 allowed['max_bin'] = (64,)
             if family in ('P10', 'P11'):
-                allowed.update(num_leaves=(7, 15, 31), min_data_in_leaf=(8, 20, 50, 100), max_bin=(31,))
+                allowed.update(num_leaves=tuple(sorted({7, *allowed['num_leaves']})),
+                    min_data_in_leaf=tuple(sorted({8, *allowed['min_data_in_leaf']})), max_bin=(31,))
         for key, item in parameters.items():
             if key not in allowed:
                 raise ValueError(f'Unknown or reserved native parameter: {key}')

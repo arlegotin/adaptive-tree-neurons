@@ -1,0 +1,65 @@
+{
+  "changes": [
+    "Keep native model geometry in explicit short engineering configurations",
+    "Allow existing production widths/leaves/min-row settings in corresponding engineering schemas; production settings unchanged",
+    "Bind source/locks/primary data, own fresh single-thread/no-wall-deadline/RSS-guarded process, stage complete F/G and V features",
+    "Retain failures and clear published success after final byte/source validation failure"
+  ],
+  "component": "native full-geometry short engineering probes",
+  "logs": [
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.superpowers/sdd/2026-10-18-research-v2/support-probes-red.log",
+      "sha256": "b7bb64a72cc2e9692dd2538f97ae86e2daa6b125c7379c186d0dbfe80361f8d5"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.superpowers/sdd/2026-10-18-research-v2/support-probes-first-green.log",
+      "sha256": "5db972ab8df8ba228ece090cbbf09ed5d75cdc088d0723c2a24c5095ea2ac9d4"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.superpowers/sdd/2026-10-18-research-v2/support-probes-green.log",
+      "sha256": "3c73536170a94649301df5c97deaf56353c41c00f8c1238d88024fcda0aca564"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.superpowers/sdd/2026-10-18-research-v2/support-probes-late-red.log",
+      "sha256": "c20464076e9a4e85d545855948c380e425753e88eba4fcaf94c63dc608dd5c6d"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.superpowers/sdd/2026-10-18-research-v2/support-probes-affected.log",
+      "sha256": "83cbc48675217f780e05411c6d4084b04d5615adc8f3e25b82af7b615d6d7f37"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.superpowers/sdd/2026-10-18-research-v2/support-probes-affected-v2.log",
+      "sha256": "c552352c2c9c132cec9d43ba8ab206cb9dfe6477ab87e494f858dd6177e6f5e8"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.superpowers/sdd/2026-10-18-research-v2/support-probes-tree-parity.log",
+      "sha256": "f5d881b3d54b8d6f8214a608ed323c0a71557396124c2d63cd552df01c40e9da"
+    }
+  ],
+  "remaining": [
+    "Complete final-source native anchor and support/workload qualification",
+    "Native software verification tree profile must explicitly bind its opted-in tree overlay; absent opt-in correctly leaves it unqualified",
+    "Production qualified registry and downstream protocol remain pending"
+  ],
+  "schema": "research/v2-implementation-receipt",
+  "scope": {
+    "T_accessed": false,
+    "V_labels_read": false,
+    "actual_new_probe_execution": "synthetic P13ridge and full-width128 ordinary growth only, plus controlled RSS failure and late fixture-byte drift",
+    "catalog_cases_per_schema": 43,
+    "full_native_training": false,
+    "native_workload_qualified": false,
+    "quality_eligible": false,
+    "real_data_quality_runs_added": 0,
+    "whole_suite_pass_claim": false
+  },
+  "tests": {
+    "affected": "110passed8skipped7warnings100.07s; tree overlay opt-in absent",
+    "first_implementation": "18passed/4failed0.74s; actual split actual_rows field and fixture-only LightGBM choice restriction identified",
+    "initial_green": "22passed6.40s",
+    "initial_red": "22 missing-module failures in0.44s",
+    "invalid_command": "first affected command named an absent test file; no tests ran, failure retained",
+    "late_drift_red": "1failed1.25s; error raised but published success flags remained",
+    "separate_pinned_tree_parity": "8passed24.04s with explicit already-qualified retained overlay"
+  }
+}
