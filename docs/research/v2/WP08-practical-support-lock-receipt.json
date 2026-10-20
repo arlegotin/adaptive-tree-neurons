@@ -1,0 +1,76 @@
+{
+  "T_accessed": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-c",
+      "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"--tb=short\",\"--basetemp=artifacts/research-v2/WP11/practical-support-lock-final-fixture\",\"tests/test_practical_support_lock_v2.py\",\"tests/test_search_supports_v2.py\",\"tests/test_practical_workload.py\",\"tests/test_qualified_native_trial_v2.py\"]))"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "final_source_qualified": false,
+  "fixture_observation": {
+    "bytes": 5030,
+    "path": "artifacts/research-v2/WP11/practical-support-lock-fixture-observation.json",
+    "sha256": "733d50648219dde3d9511510ef2a33fa816a378997c6627bc061a57f4f17e87a"
+  },
+  "held_scientific_workers_changed": false,
+  "limitation": "Metadata lock is not native qualification or execution. A real production lock must be regenerated at final executable source before actual qualification. Do not put aggregate all-lock identity inside its own lock file; final qualification identity binds that file externally. Affected-suite candidate fixtures are separate synthetic engineering runs, not production searches.",
+  "logs": [
+    {
+      "bytes": 10058,
+      "path": "artifacts/research-v2/WP11/practical-support-lock-RED.log",
+      "sha256": "ddf23210b42d50730fac016eedc1efe27528d71c0ac0f87b95cf1223d4ee7892"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP11/practical-support-lock-first-GREEN.log",
+      "sha256": "44c7ea2d89472d5c86862d67568e12bab4d4daa79089e25d8bd90f5454627aa6"
+    },
+    {
+      "bytes": 179,
+      "path": "artifacts/research-v2/WP11/practical-support-lock-final-affected.log",
+      "sha256": "36b9bf8a879a358f45b4f2b834f2f7eaf13f2a1ef283977ed48c827bfd949993"
+    }
+  ],
+  "native_workload_qualified": false,
+  "packages_installed_or_updated": false,
+  "parent_commit": "39afc499045ce47b6461f4b7619ae31c9bf41fee",
+  "primary_job_factory_implemented": false,
+  "production_lock_emitted": false,
+  "protected_access_authorized": false,
+  "quality_eligible": false,
+  "schema": "research/v2-actual-practical-support-lock-component-receipt",
+  "scientific_source_sha256": "1d3f50571cb8078a00cdc3a3d457d074a0cff6af5b3aa320d0c857d25a68e576",
+  "scope": "All84 current declared dataset/family spaces,120native anchors, P13finite29, matched P00/P01 supports and native32attempt/no-deadline budget law, with exact current core/source/per-family source bindings. Lock API fits no model, samples no HPO configuration and reads no dataset.",
+  "support_lock_component_implemented": true,
+  "tested_files": [
+    {
+      "bytes": 2923,
+      "path": "src/treeneuron/research/practical_support_lock_v2.py",
+      "sha256": "c3e053208ce619cc1ef90d5275abef04fa2dbf59299225aa7393bd4eba4d7a32"
+    },
+    {
+      "bytes": 3345,
+      "path": "tests/test_practical_support_lock_v2.py",
+      "sha256": "9f4154fba04b2231dc07225ebfa533ccf8dcbfd9db8e09795ef8c4709a0dfa79"
+    }
+  ],
+  "verification": [
+    "Missing API:10failed0.09s",
+    "Initial10passed1.37s/session92006exit0",
+    "Final75affected checks passed8.32s/session71115exit0"
+  ]
+}

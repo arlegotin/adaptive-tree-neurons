@@ -2006,3 +2006,14 @@ the [receipt](WP08-closed-process-receipt.json). No reader launches a process,
 probes an old PID or converts failure to predictive risk. This supports the
 remaining paid qualified-search audit; it grants no method, whole-job-cost or
 protected authority. The native scientific queue and recipes are unchanged.
+
+### Actual practical support-law lock, 20 October
+
+The [support-law component](practical-support-lock.md) passed 75 affected
+checks. It seals and independently rebuilds all 84 dataset/family declarations,
+120 native anchors and native-quality budgets, including matched informed/random
+factor supports. A self-rehashed changed space rejects. The
+[receipt](WP08-practical-support-lock-receipt.json) retains source, commands and
+the reopened temporary metadata lock. No production lock, data access or search
+was performed by this API. The actual file will be emitted at final executable
+source; full primary-job seed/source/data/registry binding remains unfinished.

@@ -285,6 +285,11 @@
           "bytes": 3488,
           "path": "docs/research/v2/WP08-closed-process-receipt.json",
           "sha256": "c14196aba9ba3eeef3d9b1e7af8a3f8f546c608d76a85036879a749d2a5006b5"
+        },
+        {
+          "bytes": 3703,
+          "path": "docs/research/v2/WP08-practical-support-lock-receipt.json",
+          "sha256": "c9e6891dce67c97832be9dc961da5cb3f2cd61c8b6b6fd2fae89321b2f455e88"
         }
       ],
       "status": "supported_scoped_status",

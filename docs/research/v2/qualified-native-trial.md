@@ -10,6 +10,10 @@ working root, primary fold, manifest, split, family support and current
 source/test/lock identity. Production search plans identify the qualified
 runtime with the SHA256 of `locks/research-v2/core.json`. The native worker still
 checks its actual dependencies and execution treatment.
+The [actual support-law lock](practical-support-lock.md) supplies the separate
+complete search-space file identity. The remaining primary-job factory/auditor
+must tie these low-level plans to the full study's declared model and HPO seeds;
+RealMLP's 63-bit native seed is distinct from the generic 32-bit library seed.
 
 After an actual native candidate completes, its raw and compiled proposal,
 request, immutable generation, full recorded workload, closed independent
