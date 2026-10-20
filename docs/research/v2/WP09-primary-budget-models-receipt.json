@@ -1,0 +1,110 @@
+{
+  "T_accessed": false,
+  "actual_complete_qualified_public_success": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_primary_budget_models_v2.py",
+      "tests/test_qualified_primary_models_v2.py",
+      "tests/test_qualified_search_audit_v2.py",
+      "tests/test_practical_v2.py",
+      "--basetemp=artifacts/research-v2/WP09/primary-budget-models-owned-final-tmp"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "owned_fixture_process_inspection_authorized": true
+  },
+  "logs": [
+    {
+      "bytes": 20102,
+      "path": "artifacts/research-v2/WP09/primary-budget-models-RED.log",
+      "sha256": "272a406fad21d9c511427f6dcc40288f32d6ae8d10e60d0d95e808711396013b"
+    },
+    {
+      "bytes": 29164,
+      "path": "artifacts/research-v2/WP09/primary-budget-models-final.log",
+      "sha256": "4c71fa2f777ae25382cfe475b60e0ebe54f794372b670eaa4f102d781bffd603"
+    },
+    {
+      "bytes": 179,
+      "path": "artifacts/research-v2/WP09/primary-budget-models-owned-final.log",
+      "sha256": "b920b3b0aca37689d519191b6b3a68bcb884ac38431070383517144d16ef08b6"
+    }
+  ],
+  "native_models_fit_in_capture": 0,
+  "observation": {
+    "bytes": 7745,
+    "path": "artifacts/research-v2/WP09/budget-models-software-observation.json",
+    "sha256": "27643aced6deba45afd1c9860a9733b36500d93eeea0373c081d8dea103ec359"
+  },
+  "parent_commit": "80e51d8",
+  "production_readiness_authenticated": false,
+  "protected_access_authorized": false,
+  "real_labels_read_in_capture": false,
+  "remaining": [
+    "Actual post-search global protocol",
+    "Secondary released role/workload qualification routes",
+    "Once-only protected evaluator/full artifact audit",
+    "Physical whole-cost/CLI/readiness and final review before final qualification/primary production"
+  ],
+  "schema": "research/v2-primary-budget-model-component-receipt",
+  "scope": "Byte-only native-quality/prefix snapshot selection helper plus real native-auditor collection and strong model-barrier integration. Actual complete-qualified public search/168-model positive paths remain unrun; no success stubbed.",
+  "source_sha256": "c75b1c7a0c896dfe30475b53bf1d62ec4d03d0ee3dcb0977c1b541be3c8dda44",
+  "tested_files": [
+    {
+      "bytes": 3350,
+      "path": "src/treeneuron/research/primary_budget_models_v2.py",
+      "sha256": "2564ded7322e2b5ef411af863950bcc411cc1a239424b5de003bc1fdd5448776"
+    },
+    {
+      "bytes": 24884,
+      "path": "src/treeneuron/research/qualified_search_audit_v2.py",
+      "sha256": "5e124d4c2269eb5b0842f7146be24fe32c775d799f71aba06753281861a3098b"
+    },
+    {
+      "bytes": 14683,
+      "path": "src/treeneuron/research/qualified_primary_models_v2.py",
+      "sha256": "7e6ce3a60b2cc3acdb9d5ac0e750c8f0a5fcf253a9ec8fcc51d6fc91e4a47fff"
+    },
+    {
+      "bytes": 4677,
+      "path": "tests/test_primary_budget_models_v2.py",
+      "sha256": "25b9ebdc9ce3388aa62f76e232c4e68ad51ea34cb439608985c606fdc677e577"
+    },
+    {
+      "bytes": 4847,
+      "path": "tests/test_qualified_primary_models_v2.py",
+      "sha256": "ac60c5746a4f15bf0a6e6cd17a2ea32c39faf2f41e0d7a37b8e7b32c0ff5dc9a"
+    },
+    {
+      "bytes": 11565,
+      "path": "tests/test_qualified_search_audit_v2.py",
+      "sha256": "c49cd90290f86439cd8b4098f8b3564751865c60b4f1584200f9a4b4924c8332"
+    },
+    {
+      "bytes": 9921,
+      "path": "tests/test_practical_v2.py",
+      "sha256": "2a7da2af3c1fed9881f424a1c4c576f521887b17d2261f2810138d709fb54f43"
+    }
+  ],
+  "verification": [
+    "Initial10missing-interface failures0.14s",
+    "Sandbox expanded62passed12failed3.65s; owned failure/recovery fixture workers denied /bin/ps before startup",
+    "Unchanged source with owned PID inspection:74passed8.18s/session80573exit0"
+  ],
+  "whole_repository_suite_passed": false
+}

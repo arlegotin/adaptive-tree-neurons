@@ -258,7 +258,7 @@ def audit_primary_qualified_search(*,practical_plan,expected_practical_plan_hash
         finishes=[e['payload'] for e in events if e['kind']=='attempt_finished']
         if {p.name for p in root.glob('attempt-*')}!={f'attempt-{i:03}' for i in range(len(starts))}:
             raise ValueError('Actual attempt directories differ from the paid search history')
-        attempts=[];winner=None
+        attempts=[];winner=None;candidate_models={}
         for request,finish in zip(starts,finishes,strict=True):
             row=finish['record'];index=request['attempt_index'];attempt=root/f'attempt-{index:03}'
             _exact_attempt_files(root,index,row['files'])
@@ -274,10 +274,14 @@ def audit_primary_qualified_search(*,practical_plan,expected_practical_plan_hash
                 raise ValueError('Paid journal changes native eligibility/failure/score/recovery evidence')
             attempts.append(dict(attempt_index=index,status=row['status'],V_score=row['V_score'],
                 evidence_sha256=canonical_hash(component),admission_sha256=_sha(attempt/'admission.json')))
-            if saved['winner'] is not None and saved['winner']['attempt_index']==index:
+            if row['status']=='completed_eligible':
                 generation=component['candidate_component']['generation'];snapshot=Path(generation['snapshot']['path']).parent
-                winner=dict(attempt_index=index,selected_metadata=generation['snapshot'],snapshot_root=str(snapshot),
+                candidate_models[index]=dict(selected_metadata=generation['snapshot'],snapshot_root=str(snapshot),
                     snapshot_inventory_sha256=canonical_hash(_inventory(snapshot)),generation_sha256=canonical_hash(generation))
+                if saved['winner'] is not None and saved['winner']['attempt_index']==index:
+                    winner=dict(attempt_index=index,**candidate_models[index])
+        from .primary_budget_models_v2 import inspect_budget_model_views
+        views=inspect_budget_model_views(search_result=saved,candidate_models=candidate_models)
         QualifiedNativeTrialBridge._unchanged(binding)
         again=compile_primary_search_declaration(practical_plan=practical_plan,
             expected_practical_plan_hash=expected_practical_plan_hash,job_id=job_id,support_reference=support_reference,
@@ -287,7 +291,7 @@ def audit_primary_qualified_search(*,practical_plan,expected_practical_plan_hash
             raise ValueError('Qualified search evidence changed during audit')
     return dict(schema='research/v2-qualified-primary-search-audit',practical_plan_hash=expected_practical_plan_hash,
         job_id=job_id,declaration_hash=declaration['declaration_hash'],qualification_reference=copy.deepcopy(qualification_reference),
-        journal=journal,attempts=attempts,selected_model=winner,completed_search=journal['completed_search'],
+        journal=journal,attempts=attempts,selected_model=winner,search_view_models=views,completed_search=journal['completed_search'],
         complete_selected_model=journal['completed_search'] and winner is not None,
         HPO_journal_authenticated=True,all_attempt_native_evidence_authenticated=True,
         all_eligible_V_scores_authenticated=True,native_workload_qualified=True,

@@ -262,6 +262,12 @@ valid primary audit events, and rejects secondary/T events in that channel.
 It grants no data-release authority; the actual post-search protocol and released
 role/evaluator routes remain unfinished.
 
+[Primary budget-model binding](primary-budget-models.md) passed 74 affected
+checks. It pins the different native-quality and 10/30/120-minute winner models,
+keeps unavailable prefixes explicit, and extends the actual search/model audits
+to all retained views. Complete-qualified public execution remains unrun; this
+adds no secondary/T permission or training time cutoff.
+
 The [reproduction guide](reproduce.md), [binding spec](../../superpowers/specs/2026-10-18-research-v2-design.md)
 and [implementation plan](../../superpowers/plans/2026-10-18-research-v2.md)
 separate implemented components from unrun studies. Historical source identities

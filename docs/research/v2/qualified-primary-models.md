@@ -39,3 +39,9 @@ Measured production admission and launcher/cost reconciliation, the complete
 global procedure protocol and protected evaluator remain unfinished. Current
 engineering baselines are not promoted into this barrier by their completion
 counts or by a passing software suite.
+
+[Budget-view model binding](primary-budget-models.md) now also retains the exact
+10/30/120-minute winner snapshots or explicit unavailable status per job. The
+native view must equal the original qualified winner. All distinct retained
+snapshots receive byte checks before publication; complete actual positive
+execution remains unrun.

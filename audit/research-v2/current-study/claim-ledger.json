@@ -356,6 +356,11 @@
           "bytes": 3987,
           "path": "docs/research/v2/WP09-transfer-access-prefix-receipt.json",
           "sha256": "5fa39b44fbd09cc2307c7da98497968db5045992062374ee8ccc4ff959313ac2"
+        },
+        {
+          "bytes": 4332,
+          "path": "docs/research/v2/WP09-primary-budget-models-receipt.json",
+          "sha256": "1f7d55c508ee67f6f400a3ab4f80e48b4085e90cf9e14e0fcb896192d81c6eaa"
         }
       ],
       "status": "supported_scoped_status",

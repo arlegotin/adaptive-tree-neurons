@@ -2543,3 +2543,25 @@ Actual globalfreeze/prefix-model joins, released roles/evaluator/full audit and
 remaining cost/CLI/readiness remain pending before final-source qualification or
 primary production. Heldc33CCPP6500+/serialsource/env/ops and predictive findings
 remain unchanged.
+
+## 20 October: primary retained models at every budget view
+
+Added byte-bound native-quality and10/30/120-minute view selection from the exact
+completed-trial/V tie rules. Every eligible supplied candidate needs full
+snapshot metadata/inventory; unavailable prefixes stay explicit, not losses.
+Actual qualified search auditing now collects all eligible native generations
+and returns each retained view. Strong168model sealing stores the views, checks
+nativeview equals its winner, and rechecks every distinct retained snapshot.
+No budget cutoff or native training recipe changes.
+
+Initial10missing-interface failures0.14s. Expanded sandbox62passed12failed3.65s:
+owned native failure/recovery fixture starts denied/bin/ps before children.
+Unchanged source with owned PID inspection:four-module74passed8.18s/session80573
+exit0. Raw toy-model capture verifies native/10/30/120 winner indices2/0/1/1 from
+supplied software clocks/scores, with no actual native/model-generation authority.
+Full actual-qualified public/168positive paths remain unrun and were not stubbed.
+[Contract](primary-budget-models.md), [receipt](WP09-primary-budget-models-receipt.json).
+Post-search globalprotocol, secondaryrole/workload route, protected evaluator/
+fullaudit, cost/CLI/readiness/finalreview remain required before final-source
+qualification/primaryproduction. Heldc33fits/source/env/ops and predictive results
+are unchanged.

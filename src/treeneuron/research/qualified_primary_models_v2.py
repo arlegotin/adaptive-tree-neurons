@@ -106,13 +106,25 @@ def _assemble(*,registry,practical_plan,expected_practical_plan_hash,support_ref
             expected_metadata=winner['selected_metadata'],snapshot_root=Path(winner['snapshot_root']),
             expected_inventory_sha256=winner['snapshot_inventory_sha256'])
         snapshots.append(bound)
+        views=actual.get('search_view_models')
+        if (type(views) is not dict or views.get('schema')!='research/v2-primary-budget-model-bindings'
+                or type(views.get('views')) is not dict
+                or set(views['views'])!={'native_quality','600000000000','1800000000000','7200000000000'}
+                or views['views']['native_quality'].get('model_binding')!=winner):
+            raise ValueError('Every actual retained budget model must match the qualified search')
+        for view in views['views'].values():
+            model=view['model_binding']
+            if model is None:continue
+            view_bound=inspect_selected_snapshot_binding(selected_model=model['selected_metadata'],expected_metadata=model['selected_metadata'],
+                snapshot_root=Path(model['snapshot_root']),expected_inventory_sha256=model['snapshot_inventory_sha256'])
+            if view_bound not in snapshots:snapshots.append(view_bound)
         models.append(dict(job_id=name,dataset=job['dataset'],outer_fold=job['outer_fold'],
             family_id=job['family_id'],search_repeat=job['search_repeat'],fit_seed=job['fit_seed'],
             split_hash=job['split_hash'],manifest_hash=job['manifest_hash'],V_score=row['V_score'],
             winner_attempt_index=winner['attempt_index'],selected_metadata=bound['metadata'],
             snapshot_root=bound['snapshot_root'],snapshot_inventory_sha256=bound['snapshot_inventory_sha256'],
             search_directory=str(root),search_inventory_sha256=search_digest,
-            generation_sha256=winner['generation_sha256'],qualified_search_audit_sha256=canonical_hash(actual)))
+            generation_sha256=winner['generation_sha256'],budget_view_models=views['views'],qualified_search_audit_sha256=canonical_hash(actual)))
     # All mutable access logs are outside the pinned proof inventories. Recheck
     # the genuine registry, old inventory and full model bytes before returning.
     if load_native_qualification_registry(qualification_reference)!=registry:
