@@ -96,6 +96,14 @@ def _worker(request_path,expected,output):
     return result
 
 
+def _tree_test_environment(profile,overlays,output):
+    if profile=='native_trees':
+        if len(overlays)!=1:raise ValueError('Native tree profile requires one explicit pinned project overlay')
+        return dict(ATN_TREE_OVERLAY=overlays[0],
+            ATN_TREE_ADAPTER_TEST_OUTPUT=str(Path(output).resolve()/'worker/native-tree-parity'))
+    return dict(ATN_TREE_OVERLAY=None,ATN_TREE_ADAPTER_TEST_OUTPUT=None)
+
+
 def verify_native_implementation(*,profile,output,interpreter,extra_pythonpath=(),rss_limit_bytes=4*1024**3):
     started=time.perf_counter_ns();output=Path(output);interpreter=Path(interpreter)
     if (type(profile) is not str or profile not in _PROFILES or output.exists() or output.is_symlink()
@@ -106,6 +114,7 @@ def verify_native_implementation(*,profile,output,interpreter,extra_pythonpath=(
         path=Path(value).resolve()
         if not path.is_dir() or not path.is_relative_to((_ROOT/'environment').resolve()):raise ValueError('Pinned project verification overlay required')
         overlays.append(str(path))
+    tree_environment=_tree_test_environment(profile,overlays,output)
     request=dict(schema='research/v2-native-implementation-request',profile=profile,identity=verification_identity())
     output.mkdir(parents=True,exist_ok=False);path=output/'request.json';write_new_json(path,request);expected=_sha(path)
     _request(path,expected)
@@ -113,6 +122,7 @@ def verify_native_implementation(*,profile,output,interpreter,extra_pythonpath=(
     env.update(PYTHONPATH=os.pathsep.join([str(_ROOT/'src'),*overlays]),KMP_DUPLICATE_LIB_OK=None,PYTORCH_ENABLE_MPS_FALLBACK='0',
         PYTEST_DISABLE_PLUGIN_AUTOLOAD='1',PYTEST_ADDOPTS=None,PYTEST_PLUGINS=None,PYTEST_CURRENT_TEST=None,
         MPLCONFIGDIR=str((output/'cache/mpl').resolve()),XDG_CACHE_HOME=str((output/'cache/xdg').resolve()))
+    env.update(tree_environment)
     process=supervise_process(argv=[str(interpreter),'-B','-m','treeneuron.research.native_verification_v2','--request',str(path.resolve()),
         '--expected-request-sha256',expected,'--output',str((output/'worker').resolve())],cwd=_ROOT,env_overrides=env,
         output=output/'process',timeout_ns=None,rss_limit_bytes=rss_limit_bytes,
@@ -158,6 +168,9 @@ def load_native_implementation_verification(reference,*,expected_profile):
             or any(env.get(k) is not None for k in ('PYTEST_ADDOPTS','PYTEST_PLUGINS','KMP_DUPLICATE_LIB_OK'))
             or not paths or paths[0]!=str(_ROOT/'src') or any(not Path(p).resolve().is_relative_to((_ROOT/'environment').resolve()) for p in paths[1:])):
         raise ValueError('Native verification managed invocation differs')
+    if any(env.get(key)!=value or key not in env for key,value in
+            _tree_test_environment(expected_profile,paths[1:],root).items()):
+        raise ValueError('Native tree fixture overlay/output controls differ from their managed profile')
     count=checked_junit(root/'worker/junit.xml')
     if worker['test_cases']!=count or worker['junit_sha256']!=_sha(root/'worker/junit.xml'):raise ValueError('Native verification test result changed')
     if request['identity']!=verification_identity() or canonical_hash(_inventory(root))!=reference['inventory_sha256']:

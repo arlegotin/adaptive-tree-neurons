@@ -1,0 +1,53 @@
+{
+  "affected": "7passed49.62s: semantic metadata-forgery rejection plus existing joined-native-anchor consumers",
+  "changes": [
+    "Native tree profile requires exactly one pinned project overlay before creating worker output",
+    "Explicit ATN_TREE_OVERLAY and owned per-profile parity evidence path override inherited values",
+    "Other profiles explicitly clear both tree controls",
+    "Read-only proof loader checks the same profile/overlay/output join, including a controlled rehashed metadata forgery"
+  ],
+  "component": "explicit native tree software-profile environment",
+  "dependency_transfer": {
+    "files": 2922,
+    "logical_bytes": 205272152,
+    "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/tree-overlay-byte-copy-f122d40/receipt.json",
+    "qualification": "Actual native profile validates current locked byte/import environment; copying alone granted no qualification",
+    "resolution_or_version_change": false,
+    "sha256": "97b6a76e71d01d0fafdfe42bf8e09b2e3bf155ec63b4fa2c4771b9194f0f293a",
+    "source_unchanged": true
+  },
+  "green": "10passed72.58s, including actual full8-case direct-author tree profile under explicit pinned environment and simple profile",
+  "logs": [
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.superpowers/sdd/2026-10-18-research-v2/native-profile-overlay-red.log",
+      "sha256": "3f54ddd5fd49b8e9e807444d5e590d9b45057e8ca6850bc7beb3dca2a5011b12"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.superpowers/sdd/2026-10-18-research-v2/native-profile-missing-overlay-red.log",
+      "sha256": "e3779a1ca37aee4eb59532c7b9018526d168066098b4d075e4febe8bb954fe3a"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.superpowers/sdd/2026-10-18-research-v2/native-profile-overlay-green.log",
+      "sha256": "b6d7be047e7a22e713dc6ad2daa6eede3cdd439e47fe093dc9e1080f4106d39e"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.superpowers/sdd/2026-10-18-research-v2/native-profile-overlay-affected.log",
+      "sha256": "ef0c45d476328718470aab871520f617271377374df180707862cbf988180bba"
+    }
+  ],
+  "red": "2failed26.35s: poisoned inherited overlay/output affected native profile; other profiles did not clear controls. Missing-overlay regression1failed0.62s: DID NOT RAISE before worker creation",
+  "schema": "research/v2-implementation-receipt",
+  "scope": {
+    "HPO_admitted": false,
+    "T_accessed": false,
+    "V_labels_opened_by_native_tree_profile": false,
+    "actual_primary_anchor_models_added": 0,
+    "final_source_all_seven_profiles_complete": false,
+    "native_workload_qualified": false,
+    "quality_eligible": false,
+    "software_profiles_exercised_in_this_slice": [
+      "native_trees",
+      "simple"
+    ]
+  }
+}

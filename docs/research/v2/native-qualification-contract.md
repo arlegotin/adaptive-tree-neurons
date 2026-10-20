@@ -30,9 +30,12 @@ guard and no wall deadline. It binds all test/helper files, locks and current
 scientific source before/after execution. Its externally committed inventory
 and managed process/JUnit result can be reopened read-only. Skips block this
 specific qualification; they are retained rather than silently called passes.
-The simple profile was exercised end to end in this implementation slice;
-execution of the other six profiles under the final source is still required.
-Earlier individual native fixture receipts retain their own source and scope.
+The original slice exercised the simple profile end to end. The later tree
+profile correction explicitly binds its one pinned project overlay and all
+owned parity outputs, overriding ambient tree-test controls; other profiles
+explicitly clear those controls. The reader checks the same environment join.
+Final-source execution of all seven profiles remains required after production
+implementation. Earlier fixture receipts retain their own source and scope.
 
 The first interface now supplies the
 [joined anchor execution proof](native-anchor-execution.md). Its raw-acquisition,
