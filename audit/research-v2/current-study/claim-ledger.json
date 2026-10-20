@@ -431,6 +431,11 @@
           "bytes": 7455,
           "path": "docs/research/v2/WP10-practical-T-protocol-receipt.json",
           "sha256": "f3c68315218b73dba16445ac88765693f77b5b25da11da2e88d98055a28b5226"
+        },
+        {
+          "bytes": 6849,
+          "path": "docs/research/v2/WP10-protected-journal-receipt.json",
+          "sha256": "0255583f93719002445ca08ecf3acf521499c5218b83d86743beaa4678577932"
         }
       ],
       "status": "supported_scoped_status",

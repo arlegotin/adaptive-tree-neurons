@@ -2949,3 +2949,36 @@ or T; no fake qualified model/global/readiness success. Actual public positive
 and all production searches/protected evaluation remain unrun. Next once-only
 ownership/access/prediction engine and native T query workers, independent audit,
 deployment/CLI/readiness/final review before final-source actual qualification.
+
+
+## Protected metadata ownership/journal component,20October
+
+The [component](protected-journal.md) now binds stable dataset/raw-hash/target
+owners to one final protocol, study directory and random genesis. A copied
+protocol resumes the original history; a new directory cannot reset it. Claims
+are locked in deterministic order and checked for conflicts before missing
+claims publish. Partial claim I/O retains prior claims. Event witnesses commit
+the full study binding and detect a valid-prefix journal truncation. Missing
+or partial transactions block automatic recovery. Symlinked storage fails.
+
+The final eight-module command passed146checks in27.85seconds. Initial21
+missing-module failures, first owner-stage3failures, four symlink failures and
+two whole-binding witness failures are retained in the
+[receipt](WP10-protected-journal-receipt.json), with their corrections. An actual
+competing writer blocks on the journal lock and completes after release. The
+metadata capture has11events, simulated same-state recovery, and30hand-entered
+ns; those are arithmetic, not hardware timings. Symbolic prediction/metric JSON
+files contain no arrays. Even its symbolic label/metric stage has no native,
+protected-access or actual T authority. The real public false-qualification
+route fails before creating study output. No model, prediction or real label
+archive was read for this capture.
+
+Source42fed28071c7690254c56fe0ddfce483959cac2a070b91bf6cf5351056277f82.
+Final-source actual qualification, primary/secondary HPO, global release and
+protected evaluation remain unrun. Required production readiness is still
+unimplemented; genuine coordinator admission, method-specific saved-state T
+query, finite aligned prediction validation, independent raw/model audit,
+deployment/cost completion, CLI and final branch review remain before production.
+The heldc33NODE queue is unchanged: CCPP14300/best14300last observed, Bike next,
+118of120engineering anchors complete. No overall completion or new scientific
+benefit is claimed.

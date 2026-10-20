@@ -1,0 +1,183 @@
+{
+  "T_accessed": false,
+  "actual_complete_qualified_public_positive": false,
+  "actual_label_archives_read": 0,
+  "actual_models_fitted": 0,
+  "actual_predictions_or_metrics_computed": 0,
+  "actual_public_false_qualification_rejected_before_output": true,
+  "artifact_inventory": {
+    "bytes": 6903,
+    "path": "artifacts/research-v2/WP10/protected-journal-software-inventory.json",
+    "sha256": "cd9fd437a0d2a8751f9be90b7b17983cf4bd257d14cfcf52b9b053c14dfe34a2"
+  },
+  "base_commit": "5bf415424916fdc67f3f8865dc146897814ad85a",
+  "capture_script": {
+    "bytes": 4723,
+    "path": "artifacts/research-v2/WP10/capture_protected_journal.py",
+    "sha256": "ef0cc064191089dc7ef8b64b534be8fe3fbfe8ccb28ed44fac17fc1c7852f72a"
+  },
+  "date": "2026-10-20",
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_protected_journal_v2.py",
+      "tests/test_practical_T_protocol_v2.py",
+      "tests/test_practical_preT_costs_v2.py",
+      "tests/test_qualified_practical_models_v2.py",
+      "tests/test_practical_global_freeze_v2.py",
+      "tests/test_practical_procedure_v2.py",
+      "tests/test_released_transfer_v2.py",
+      "tests/test_transfer_access_v2.py"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "final_verification": {
+    "exit_code": 0,
+    "failed": 0,
+    "passed": 146,
+    "seconds": 27.85,
+    "session_id": 12376,
+    "whole_suite": false
+  },
+  "implementation_files": [
+    {
+      "bytes": 20931,
+      "path": "src/treeneuron/research/protected_journal_v2.py",
+      "sha256": "e91cbb589e1cd7e6d3095504bb24676ef918fa63b260ab4cd9f31ea969e55dc0"
+    },
+    {
+      "bytes": 17723,
+      "path": "tests/test_protected_journal_v2.py",
+      "sha256": "cd3bf318c2649bc647d7636be6c28864ea11e478bcee12e08e129b08369e9dec"
+    }
+  ],
+  "limitations": [
+    "Private metadata commits do not validate finite/aligned numerical predictions or permit actual label access.",
+    "Public fixed workspace owner archive must be retained; this is bundle governance, not OS cryptographic isolation.",
+    "A missing/partial/ahead witness or journal blocks automatic recovery; never reset it.",
+    "Actual production readiness/native T inference/raw audit/deployment/cost/CLI/final review remain incomplete.",
+    "No actual full qualified public positive, production search, global release or protected evaluation ran."
+  ],
+  "logs": [
+    {
+      "bytes": 36108,
+      "path": "artifacts/research-v2/WP10/protected-journal-red.log",
+      "sha256": "702c70d7b62394166cb9293335e543c39824e3c0b23e6b2b9642c12fb96f994a"
+    },
+    {
+      "bytes": 8666,
+      "path": "artifacts/research-v2/WP10/protected-journal-first-green.log",
+      "sha256": "b2321a4d88b46681458f8b37b5b13a4145b0797cfa9cf9223a0d47a21c905e0c"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/protected-journal-second.log",
+      "sha256": "18d82e2be10275e0d526e6d18902dc48547ee5a0152d4e5bf848c3771e39619e"
+    },
+    {
+      "bytes": 6019,
+      "path": "artifacts/research-v2/WP10/protected-journal-hardening-red.log",
+      "sha256": "0aff95357b9b7fce511f262b50b591f927bce97b72102d79b6efcd4b3ba2ac6b"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/protected-journal-hardening-green.log",
+      "sha256": "3229e3ed42c10d5131f833d00aab4fcad2bfc8a95b80cf6a4109048954d4f21a"
+    },
+    {
+      "bytes": 1935,
+      "path": "artifacts/research-v2/WP10/protected-journal-path-red.log",
+      "sha256": "442737a02a8c45401ad99c5adfaa6ab9beadee1d7e58151e866816239d2dccf7"
+    },
+    {
+      "bytes": 181,
+      "path": "artifacts/research-v2/WP10/protected-journal-affected.log",
+      "sha256": "b2933f3df59c9469891d9d466aea0d9d5272d5348679855ed36d6a33ab313c67"
+    },
+    {
+      "bytes": 3184,
+      "path": "artifacts/research-v2/WP10/protected-journal-binding-red.log",
+      "sha256": "bd471d5e64dba47e607377d8d95b75dad398ac2af2eec151f25554c66f3e618d"
+    },
+    {
+      "bytes": 261,
+      "path": "artifacts/research-v2/WP10/protected-journal-final.log",
+      "sha256": "fa2189ad66edb1c1e1ab9f36d46edb6b8680ff633c6995bd2a518b995c77bdeb"
+    }
+  ],
+  "native_qualification_authenticated": false,
+  "next": "Implement genuine coordinator admission and method-specific saved-state T-feature inference, then finite aligned prediction commits/label barrier, raw audit/deployment/CLI/readiness/final review before final-source qualification/HPO.",
+  "observation": {
+    "bytes": 1373,
+    "path": "artifacts/research-v2/WP10/protected-journal-software/observation.json",
+    "sha256": "1a3d1aa33a15dde7319cdafa381584e9071663e504d8d84d6239448d969acb64"
+  },
+  "private_metadata_capture": {
+    "copied_protocol_original_genesis_preserved": true,
+    "event_count": 11,
+    "known_symbolic_paid_ns": 30,
+    "new_directory_owner_rejected": true,
+    "query_attempts": [
+      2,
+      1
+    ],
+    "symbolic_cost_not_hardware": true
+  },
+  "protected_access_authorized": false,
+  "red_green": [
+    {
+      "outcome": "21 failed in 0.42s",
+      "stage": "missing module"
+    },
+    {
+      "outcome": "3 failed,18 passed in 2.37s; metadata preparation incorrectly checked owner conflicts before the claim transaction",
+      "stage": "first implementation"
+    },
+    {
+      "outcome": "21 passed in 2.27s",
+      "stage": "owner-stage correction"
+    },
+    {
+      "outcome": "4 failed,35 passed in 3.81s",
+      "stage": "symlink attack"
+    },
+    {
+      "outcome": "39 passed in 5.92s",
+      "stage": "canonical storage reads"
+    },
+    {
+      "outcome": "1 failed,1 passed,39 deselected in0.43s; actual lock writer succeeded",
+      "stage": "proof-root guard"
+    },
+    {
+      "outcome": "144 passed in30.16s",
+      "stage": "first combined run"
+    },
+    {
+      "outcome": "2 failed,41 deselected in0.36s; query IDs and prediction-manifest identity were not committed",
+      "stage": "whole-binding witness attack"
+    },
+    {
+      "outcome": "146 passed in27.85s",
+      "stage": "binding hash committed by owners and every event"
+    }
+  ],
+  "schema": "research/v2-protected-journal-component-receipt",
+  "scope": "Once-only stable owner archive and witnessed metadata state machine; no numerical prediction or label permission",
+  "source_sha256": "42fed28071c7690254c56fe0ddfce483959cac2a070b91bf6cf5351056277f82"
+}

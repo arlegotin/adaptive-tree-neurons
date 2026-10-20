@@ -360,8 +360,8 @@ join and final evaluation/readiness work remain unfinished.
 The [clock byte-binding revision](WP10-call-clock-binding-receipt.json) passed
 215affected checks. Program invocations now commit every full-call clock hash,
 and readback rejects changed bytes. No native or cost permission follows.
-The actual pre-T cost module is in progress; its15initial missing-module
-failures are retained separately from the passing prerequisite suite.
+The initial pre-T cost module missing-module failures remain retained separately
+from the prerequisite suite. Its completed component is described below.
 
 The [practical training/search cost join](practical-preT-costs.md) is now
 implemented as a component. Its affected commands passed237 and111checks
@@ -376,6 +376,18 @@ The [final practical protocol component](final-practical-protocol.md) passed
 103affected checks. It derives unchanged pre-search rules and binds complete
 model/data/cost identities. Repetition-preserving duplicate-state reuse is
 checked on untrusted metadata. Actual public success remains unrun: production
-readiness is an explicit missing dependency, and the once-only evaluator, native
-T prediction, raw audit, deployment, CLI and final review remain unfinished.
+readiness is an explicit missing dependency. The owner/journal component below
+implements metadata history; native T prediction, actual label access, raw audit,
+deployment, CLI and final review remain unfinished.
 The protocol itself grants no label access.
+
+
+The [protected ownership/journal component](protected-journal.md) passed146
+affected checks. Stable raw-dataset/target owners bind one protocol, directory
+and random genesis; immutable event witnesses reject history truncation and
+changed query inventories. Private fixtures exercise interruption, retained
+costs and the all-predictions-before-labels stage but grant no numerical or data
+permission. Public false qualification fails before output; genuine complete
+qualified success remains unrun. Actual saved-state T inference and independent
+prediction/label validation are next. No new predictive result accompanies
+this implementation.

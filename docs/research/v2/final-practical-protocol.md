@@ -20,9 +20,10 @@ archives remain separate; protocol compilation does not decode either. Output
 guards preserve all model searches, execution proofs, data and runtimes while
 allowing a fresh protocol file in the declared output namespace.
 
-A protocol alone grants **no label access**. The forthcoming once-only evaluator
-must commit all required predictions before opening labels, retain immutable
-access history and reject source/model/protocol changes. Production readiness
+A protocol alone grants **no label access**. The [ownership/journal component](protected-journal.md) now retains witnessed
+metadata history and the all-predictions stage. The actual evaluator still must
+validate numerical predictions and enforce that history before opening labels;
+metadata state or protocol flags alone cannot authorize access. Production readiness
 is a required named dependency; until implemented it fails closed with an
 actionable error. There is no permissive readiness stub. Neither readiness nor
 the evaluator is complete yet, so genuine protected execution remains unavailable.
