@@ -3104,3 +3104,11 @@ metadata markers; a separate missing-end case fails and retains original bytes.
 No actual labels, benchmark fitting or genuine protected inference occurred.
 Actual public seal/load positive remains unrun. Label evaluation and the full
 audit/deployment/cost/report/CLI/readiness/final review still precede production.
+
+## Once-only frozen label scoring,21October
+
+The [scorer](protected-label-evaluator.md) requires actual protocol and complete-prediction gates before public label I/O. It binds fixed views, exact roles/rows/groups/days, original-unit metrics, F ddof0 variance, access records and closed computation costs. Committed results reopen no labels; complete published outputs can recover a missing final journal commit, while ambiguous incomplete stages block. No model load/fit/predict or T-based selection occurs.
+
+The seven-module command passed142 checks in111.75s; this overlaps earlier checks. The [receipt](WP10-label-evaluator-receipt.json) preserves all failures and recovery:15 initial missing-module failures;5 pre-worker sandbox failures; unchanged-source retry with one test-reference mistake; and a reproduced before-role source-guard gap, corrected before final verification. Original sandbox receipt and changed-label fixture bytes are retained. Two known P13 fixture fits/four owned queries supplied one scored pair and one failed changed-label pair; no benchmark fit/labels or genuine protected evaluation. Sourcea877278284b9d1abda4265291fc1bd3c25d9dd4936b6d5d96c40bf647cc9530f.
+
+Inferential comparisons, independent raw/model/access audit, deployment/full costs, report/CLI/readiness and final review remain before final-source production qualification/HPO. This component is not Task10 completion or new efficacy evidence. Heldc33 native source/environment/immutable serial plan is unchanged; CCPP last observed17900 with selected17900, Bike queued,118/120 engineering completions.

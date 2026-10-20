@@ -13,6 +13,12 @@ complete-qualified production searches, global release and protected evaluation
 have not run. Two fixed old-source native engineering fits remain in progress
 or queued. These boundaries distinguish software progress from new results.
 
+The [once-only label scorer](protected-label-evaluator.md) now has tested
+original-unit metrics, role-access records, interruption checks and read-only
+reuse of committed results. Its final affected command passed142 checks.
+Actual frozen inferential analysis, independent audit and the remaining
+production prerequisites above are still unfinished; no benchmark T was read.
+
 ## The idea and present verdict
 
 Give selected neurons a switch between two affine rules. Insert it without

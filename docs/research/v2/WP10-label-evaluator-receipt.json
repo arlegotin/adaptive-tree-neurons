@@ -1,0 +1,148 @@
+{
+  "T_accessed": false,
+  "actual_benchmark_label_archives_read": 0,
+  "actual_benchmark_models_fitted": 0,
+  "actual_complete_qualified_public_positive": false,
+  "artifact_inventory": {
+    "bytes": 41465,
+    "path": "artifacts/research-v2/WP10/label-evaluator-software-inventory.json",
+    "sha256": "bed9b23e9edb05dcf79680b3d7ddf60b55a5987cdfb10998a2ccd130160b2116"
+  },
+  "base_commit": "2335d6b",
+  "capture": {
+    "access_files_unchanged_on_replay": true,
+    "actual_known_fixture_fits": 2,
+    "actual_owned_queries": 4,
+    "actual_public_invalid_qualification_rejected_before_output": true,
+    "ambiguous_retry_blocked": true,
+    "changed_known_fixture_labels_rejected": true,
+    "idempotent_replay_label_reads": 0,
+    "known_fixture_target_archives_scored": 1,
+    "original_changed_label_bytes_retained": true
+  },
+  "capture_script": {
+    "bytes": 4382,
+    "path": "artifacts/research-v2/WP10/capture_label_evaluator.py",
+    "sha256": "cab352320cacb5dd268711afa993fa368963fd8f3a346d3f6bddb2a7e8124cc0"
+  },
+  "date": "2026-10-21",
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_protected_label_evaluator_v2.py",
+      "tests/test_protected_prediction_gate_v2.py",
+      "tests/test_protected_prediction_queue_v2.py",
+      "tests/test_protected_query_worker_v2.py",
+      "tests/test_protected_journal_v2.py",
+      "tests/test_prediction_arithmetic_v2.py",
+      "tests/test_practical_comparisons_v2.py"
+    ],
+    "environment": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "exit_code": 0,
+    "owned_process_observation": "Scoped /bin/ps for fixture-owned PIDs and boot identity; no guard weakening",
+    "result": "142 passed in111.75s",
+    "scope": "Seven affected modules, overlapping earlier checks; no whole-suite pass",
+    "session_id": 56672
+  },
+  "governance": {
+    "algorithm_rescue_or_budget_cut_admitted": false,
+    "auto_review_rejection": false,
+    "native_c33_source_environment_and_immutable_operator_plan_unchanged": true,
+    "protected_root_or_calibration_created": false
+  },
+  "initial_failures": [
+    {
+      "cause": "Missing evaluator module, intended RED",
+      "result": "15 failed in .18s"
+    },
+    {
+      "cause": "Sandbox /bin/ps denied before fixture child launch; original failed receipt retained, unchanged-source scoped retry",
+      "result": "5 failed,10 passed in4.75s"
+    },
+    {
+      "cause": "Test expected fold metrics directly in the closed-completion reference; test now follows its metrics_reference, no production behavior changed",
+      "result": "1 failed,14 passed in18.37s"
+    },
+    {
+      "cause": "Missing before-role source guard; reached forbidden input path. Guard added, affected command green",
+      "result": "1 failed,18 deselected in.12s"
+    }
+  ],
+  "initial_sandbox_receipt": {
+    "bytes": 1736,
+    "path": "artifacts/research-v2/WP10/label-evaluator-software-initial-sandbox-failure/process.json",
+    "sha256": "eb25eed7e436badfdc787aae934dbca59e3327002f042870514b9b78ab8a81e9"
+  },
+  "limitations": [
+    "Actual public complete-qualified positive remains unrun; missing production readiness and final source qualification",
+    "Metric/comparison inputs only; actual inferential comparison/audit/deployment/full-cost/report/CLI/readiness and final review remain production prerequisites",
+    "Clock excludes own final clock/completion/journal publication and return; containing caller and repeat readback costs remain separate, never zero-imputed",
+    "Ambiguous interrupted label stage without closed complete outputs blocks automatic reset/re-read. A fully published closed result may be committed after actual revalidation without reopening labels",
+    "Known local fixture targets are not protected benchmark outcomes; no new predictive research conclusion"
+  ],
+  "logs": [
+    {
+      "bytes": 23579,
+      "path": "artifacts/research-v2/WP10/label-evaluator-software/test-logs/label-evaluator-red.log",
+      "sha256": "8f9e99facee009859b759fc2327b5daab1a7a4b15ea1e26b7761af8d8eb16f12"
+    },
+    {
+      "bytes": 15894,
+      "path": "artifacts/research-v2/WP10/label-evaluator-software/test-logs/label-evaluator-first-green.log",
+      "sha256": "6e5e739585e7bc230fe29077fabbb1e1cc5e9535f480a08ac1ef306ac7372dee"
+    },
+    {
+      "bytes": 1465,
+      "path": "artifacts/research-v2/WP10/label-evaluator-software/test-logs/label-evaluator-scoped-retry.log",
+      "sha256": "c758ad9bc7a00d0d5faa2529314fb29bea71223a9b01d2357b55ee74307207cb"
+    },
+    {
+      "bytes": 2818,
+      "path": "artifacts/research-v2/WP10/label-evaluator-software/test-logs/label-source-red.log",
+      "sha256": "06da3ef1fecde622d7a050ac5eac81440a63eee5f0942746896d14891d9b65ac"
+    },
+    {
+      "bytes": 192,
+      "path": "artifacts/research-v2/WP10/label-evaluator-software/test-logs/label-evaluator-affected.log",
+      "sha256": "b3db6ec7d12b609ada4159551f6ff9f9cd382c37eedc2043fb31a0cc5904642f"
+    },
+    {
+      "bytes": 485,
+      "path": "artifacts/research-v2/WP10/label-evaluator-software/test-logs/label-evaluator-capture.log",
+      "sha256": "dbe1b339189785c9d15f0268758223aac662eba2c85fb45c2684a8aa3db6a734"
+    }
+  ],
+  "native_qualification_authenticated": false,
+  "observation": {
+    "bytes": 2670,
+    "path": "artifacts/research-v2/WP10/label-evaluator-software/observation.json",
+    "sha256": "fc03e4c8e73aa7209503d3c656fcdce0c99f4794839b5d62ee0922e091f21007"
+  },
+  "protected_access_authorized": false,
+  "schema": "research/v2-label-evaluator-software-receipt",
+  "source_file": {
+    "bytes": 21293,
+    "path": "src/treeneuron/research/protected_label_evaluator_v2.py",
+    "sha256": "a1c870ad6a996b3c973f2ded792ba29b01452ac3863a90b93d138295cc400ade"
+  },
+  "source_sha256": "a877278284b9d1abda4265291fc1bd3c25d9dd4936b6d5d96c40bf647cc9530f",
+  "test_file": {
+    "bytes": 11821,
+    "path": "tests/test_protected_label_evaluator_v2.py",
+    "sha256": "a8e89831f751d31ff75bcb917b0a11c79d894337f1707e1a3e3e5a133ac889ce"
+  },
+  "whole_training_procedure_cost_authenticated": false
+}

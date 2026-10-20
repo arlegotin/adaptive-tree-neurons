@@ -466,6 +466,11 @@
           "bytes": 6186,
           "path": "docs/research/v2/WP10-complete-prediction-gate-receipt.json",
           "sha256": "4f8d059635dab00d36b4583fc2ac037b1d685c78453f43b718ea8ebb49bc4e8a"
+        },
+        {
+          "bytes": 6403,
+          "path": "docs/research/v2/WP10-label-evaluator-receipt.json",
+          "sha256": "b059f17a1e068fd27f568a451634269282913c771a8119a7fb6c4c1c31ee242f"
         }
       ],
       "status": "supported_scoped_status",
