@@ -1,0 +1,156 @@
+{
+  "T_accessed": false,
+  "actual_full_qualified_public_success_executed": false,
+  "actual_primary_command_denied_before_spawn_in_capture": true,
+  "caller_additional_interval_routed_into_search": true,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_primary_caller_boundary_v2.py",
+      "tests/test_primary_caller_v2.py",
+      "tests/test_unstarted_primary_cost_v2.py",
+      "tests/test_primary_search_worker_v2.py",
+      "tests/test_primary_resource_binding_v2.py",
+      "tests/test_primary_invocation_v2.py",
+      "tests/test_cooperative_process_v2.py",
+      "--basetemp=artifacts/research-v2/WP08/caller-boundary-source-final-tmp"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "fixture_observation": {
+    "bytes": 2846,
+    "path": "artifacts/research-v2/WP08/caller-cost-boundary-software-observation.json",
+    "sha256": "3c2d51c83cba966fc80a9c69f19eeab93a29b84d6d50d1b546bb75a8a68ca3f8"
+  },
+  "logs": [
+    {
+      "bytes": 9281,
+      "path": "artifacts/research-v2/WP08/caller-boundary-RED.log",
+      "sha256": "1d43f08e08f54228517d1ed36d9d8a3f4ae4564809bce0a83ff964faa4359381"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP08/caller-boundary-GREEN.log",
+      "sha256": "1bb9d0c9de2d4dc440ba3ccb6e27b9bdad7e17c07a7255225242e10e0fc185c1"
+    },
+    {
+      "bytes": 1770,
+      "path": "artifacts/research-v2/WP08/caller-boundary-hash-RED.log",
+      "sha256": "850749cea6497331c5ab2a634ae33b7f91732f7a814dadd0e7d11f6113d9058f"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP08/caller-boundary-final.log",
+      "sha256": "b19ba7f417d7cde94d084bb5b7e69e1a6f1970f23c2d3fd021b768bde25580cf"
+    },
+    {
+      "bytes": 9786,
+      "path": "artifacts/research-v2/WP08/caller-boundary-records-RED.log",
+      "sha256": "f977caed6a33564184835ff9a7e7eb96b201e54cb5e216303ff5e6bb5d695258"
+    },
+    {
+      "bytes": 180,
+      "path": "artifacts/research-v2/WP08/caller-boundary-joined-final.log",
+      "sha256": "c0f60cbda36b87f0319e1c96f756ace638b61d7dcde075abdaaed2587cac67fc"
+    },
+    {
+      "bytes": 180,
+      "path": "artifacts/research-v2/WP08/caller-boundary-source-final.log",
+      "sha256": "97db82e970236666f51801c8ddda087df67a6a950e23f7c4d71315ed3b99520f"
+    }
+  ],
+  "mixed_actual_qualified_body_unstarted_chain_executed": false,
+  "native_models_fit_in_capture": 0,
+  "native_qualification_authenticated": false,
+  "packages_installed_or_updated": false,
+  "parent_commit": "f660d0e",
+  "plan_or_role_arrays_read_in_capture": false,
+  "production_readiness_authenticated": false,
+  "protected_access_authorized": false,
+  "schema": "research/v2-caller-cost-boundary-component-receipt",
+  "scientific_source_sha256": "329db5e498a4426c9a7da049c6f831f8f70ac7b7ed67ba9161d92d779bbb26c9",
+  "scope": "Known observed caller completion interval replaces nested root interval in prior resource-bound history costs. Root-only old records remain explicit. Actual final completion publication/return require physical study accounting; no complete-cost authority.",
+  "secondary_release_authorized": false,
+  "tested_files": [
+    {
+      "bytes": 29362,
+      "path": "src/treeneuron/research/cooperative_process_v2.py",
+      "sha256": "28177cee85a713e00038c138250301027b4d686be6da93336d4579c249d0450c"
+    },
+    {
+      "bytes": 15427,
+      "path": "src/treeneuron/research/primary_caller_v2.py",
+      "sha256": "ee9d129722a2e4959c269bf7aca54c71116b96e8fffbecedee3cd3f14b7e2c9a"
+    },
+    {
+      "bytes": 8949,
+      "path": "src/treeneuron/research/primary_invocation_v2.py",
+      "sha256": "056b1a76d3d728b5ef2f50a8602937ee18b672c5d898daf756df472fdaaf48ed"
+    },
+    {
+      "bytes": 27551,
+      "path": "src/treeneuron/research/primary_search_worker_v2.py",
+      "sha256": "09f7abffd078467a46dcc8b7df40c358cfacf7006067d54bb46aa2879cdaf7ac"
+    },
+    {
+      "bytes": 8327,
+      "path": "tests/test_primary_caller_boundary_v2.py",
+      "sha256": "c6270991c8226dae6008997811a602a2504e42ffd601c7ccbba28074bea57ec7"
+    },
+    {
+      "bytes": 9297,
+      "path": "tests/test_primary_caller_v2.py",
+      "sha256": "fe226777480fc218ab2dc07631e478bbd9df10a81994591e84beb6b20ae6270a"
+    },
+    {
+      "bytes": 6009,
+      "path": "tests/test_unstarted_primary_cost_v2.py",
+      "sha256": "86cc6100a1a175a8173827d19dc256147b0a66760ffb169e11f187c5f0ab6f4b"
+    },
+    {
+      "bytes": 14814,
+      "path": "tests/test_primary_search_worker_v2.py",
+      "sha256": "35c25bb4ab9e72fdd8ec32da491447c145ea5fa37800f20353d21e7aaa8927c7"
+    },
+    {
+      "bytes": 9809,
+      "path": "tests/test_primary_resource_binding_v2.py",
+      "sha256": "006b48a7096724d108a770f533a5aae254887e530bddbd2ba73cf101e1d2b74f"
+    },
+    {
+      "bytes": 8020,
+      "path": "tests/test_primary_invocation_v2.py",
+      "sha256": "2e9f2bb51f2c1bb4ed93a8586b67e26451295c13f106f66d541e7a590b135bb3"
+    },
+    {
+      "bytes": 13690,
+      "path": "tests/test_cooperative_process_v2.py",
+      "sha256": "0d5d553634928d23dfe202c0710ed4a11cdfbb3a409bcf91b9bd6a337ea0eae2"
+    }
+  ],
+  "verification": [
+    "Missing-API RED: 7 setup errors in 0.05s",
+    "First GREEN: 19 passed in 1.48s",
+    "Hashing endpoint regression RED: 1 failed, 7 deselected in 0.22s",
+    "Intermediate: 63 passed in 5.03s",
+    "Linked schemas/root protection RED: 5 failed, 8 deselected in 0.53s",
+    "Intermediate: 109 passed in 5.48s",
+    "Final exact source: 136 passed in 8.27s; session75755 exit0"
+  ],
+  "whole_training_procedure_cost_authenticated": false
+}

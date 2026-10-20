@@ -77,19 +77,22 @@ def _validate_request(value):
         raise ValueError('Actual native qualification inventory reference required')
     _path(q['root'])
     for episode in value['previous_episodes']:
-        if (type(episode) is not dict
-                or set(episode)!={'process_root','process_receipt_sha256','process_started_sha256','body_outcome_sha256'}
-                or any(not _digest(episode[k]) for k in episode if k!='process_root')):
+        base={'process_root','process_receipt_sha256','process_started_sha256','body_outcome_sha256'}
+        if (type(episode) is not dict or set(episode) not in (base,base|{'caller_reference'} if resource else base)
+                or any(not _digest(episode[k]) for k in episode if k not in ('process_root','caller_reference'))):
             raise ValueError('Exact closed prior episode commitments required')
         _path(episode['process_root'])
+        if 'caller_reference' in episode:_reference(episode['caller_reference'])
     unstarted=value.get('previous_unstarted_episodes',[])
     if type(unstarted) is not list or len(unstarted)>32:
         raise ValueError('Bounded unstarted episode history required')
     for episode in unstarted:
-        if (type(episode) is not dict or set(episode)!={'process_root','process_receipt_sha256','process_started_sha256'}
-                or any(not _digest(episode[k]) for k in episode if k!='process_root')):
+        base={'process_root','process_receipt_sha256','process_started_sha256'}
+        if (type(episode) is not dict or set(episode) not in (base,base|{'caller_reference'})
+                or any(not _digest(episode[k]) for k in episode if k not in ('process_root','caller_reference'))):
             raise ValueError('Exact unstarted root commitments required')
         _path(episode['process_root'])
+        if 'caller_reference' in episode:_reference(episode['caller_reference'])
     return value
 
 
@@ -141,10 +144,11 @@ def _unstarted_episode_state(request):
     from .cooperative_process_v2 import inspect_cooperative_process
     previous=request.get('previous_unstarted_episodes',[])
     if type(previous) is not list or len(previous)>32:raise ValueError('Bounded unstarted history required')
-    total=0;seen=set();closed={row['process_root'] for row in request.get('previous_episodes',[])}
+    total=0;seen=set();checked=0;closed={row['process_root'] for row in request.get('previous_episodes',[])}
     for index,reference in enumerate(previous):
-        if (type(reference) is not dict or set(reference)!={'process_root','process_receipt_sha256','process_started_sha256'}
-                or any(not _digest(reference[k]) for k in reference if k!='process_root')):
+        base={'process_root','process_receipt_sha256','process_started_sha256'}
+        if (type(reference) is not dict or set(reference) not in (base,base|{'caller_reference'})
+                or any(not _digest(reference[k]) for k in reference if k not in ('process_root','caller_reference'))):
             raise ValueError('Exact unstarted root commitments required')
         root=_path(reference['process_root'])
         if str(root) in closed or root in seen:raise ValueError('Unstarted root cannot overlap or be charged twice')
@@ -161,10 +165,14 @@ def _unstarted_episode_state(request):
         if (prior_unstarted!=previous[:index]
                 or prior_closed!=request['previous_episodes'][:len(prior_closed)]):
             raise ValueError('Unstarted episode chronology differs from exact operational prefixes')
-        total+=proof['elapsed_ns']
+        if 'caller_reference' in reference:
+            from .primary_caller_v2 import inspect_caller_boundary
+            total+=inspect_caller_boundary(reference['caller_reference'],process_reference=reference)['elapsed_ns'];checked+=1
+        else:total+=proof['elapsed_ns']
     return dict(elapsed_ns=total,episodes=len(previous),model_attempts_paid=0,
+        caller_boundaries_checked=checked,root_only_episodes=len(previous)-checked,
         native_qualification_authenticated=False,whole_training_procedure_cost_authenticated=False,
-        scope='Closed never-authorized owned root clocks only; no fitting, qualification, model attempt or missing-tail imputation. Supervisor final publication and caller work remain outside this measured root boundary.')
+        scope='Closed never-authorized owned episode clocks; a validated caller completion is used when supplied, otherwise only the root clock is known. No fitting, qualification, model slot or missing-tail imputation. Final completion publication/return still need the study clock; root-only records do not measure additional caller work.')
 
 
 def _check_episode_journal_prefix(search,body,result):
@@ -237,7 +245,10 @@ def _previous_episode_state(request):
         prefix=_check_episode_journal_prefix(request['search_directory'],body,result)
         if prefix<=last_prefix:raise ValueError('Prior episodes must advance the exact closed journal')
         last_prefix=prefix
-        total+=proof['elapsed_ns']
+        if 'caller_reference' in reference:
+            from .primary_caller_v2 import inspect_caller_boundary
+            total+=inspect_caller_boundary(reference['caller_reference'],process_reference=reference)['elapsed_ns']
+        else:total+=proof['elapsed_ns']
         if result['total_charged_ns']>total+_unstarted_episode_state(prior_request)['elapsed_ns']:
             raise ValueError('Controller cost exceeds its complete closed outer episodes')
         last=dict(body=body,result=result)

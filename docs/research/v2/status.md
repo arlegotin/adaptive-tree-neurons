@@ -204,8 +204,15 @@ outer-cost/protocol gates remain pending.
 The [owned caller component](primary-caller.md) passed 123 affected checks. It
 performs actual preflight before output and checks resources before worker
 start and before grant. No native models were fit by its new fixtures. Full
-qualified public execution, production queue/readiness, additional caller-cost
-routing, global procedure and protected evaluation remain unrun/unfinished.
+qualified public execution, production queue/readiness, physical whole-cost
+reconciliation, global procedure and protected evaluation remain unrun/unfinished.
+
+The [caller-cost boundary](caller-cost-boundary.md) passed 136 affected checks.
+It routes validated known caller intervals before future candidate-prefix
+eligibility, protects linked prior caller roots and keeps older root-only costs
+explicit. Its final publication/return still needs the physical study clock.
+No native models, labels or protected data were used by the new capture; full
+qualified public and mixed-history execution remain unrun.
 
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only

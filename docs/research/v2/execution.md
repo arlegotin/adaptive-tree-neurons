@@ -2383,3 +2383,28 @@ standalone routing and study-clock bookkeeping coverage; full-cost authority
 stays false. Production queue/readiness/global procedure/protected integration
 remain unfinished. [Contract](primary-caller.md),
 [receipt](WP08-primary-caller-receipt.json). Heldc33NODEjobs/source/env/ops unchanged.
+
+## 20 October: known caller completion costs before search prefixes
+
+The separate immutable completion companion now observes caller entry through
+episode publication/hash and completion preparation. The read-only reader
+checks exact source/linked schemas/bytes/owned process/clock relations, without
+spawning or probing saved PIDs. Resource histories may use the validated caller
+interval in place of the nested root interval. Older root-only records keep
+explicit counts; no missing tail is zeroed. Prior caller roots are protected.
+
+Initial7missing-interface setup errors0.05s; first19passed1.48s. A hashing-cost
+regression failed0.22s before moving the endpoint after reference hashing.
+Intermediate63passed5.03s; five linked-record/root-protection checks failed0.53s
+before fixes. Joined109passed5.48s; after scope/docstring clarification, final
+seven-module136passed8.27s/session75755exit0 binds the exact resulting source.
+Read-only no-child primary-command fixture capture pays42,499,959ns, including
+10,883,042ns beyond the nested root; no native model, plan or label read.
+
+Own completion publication/return remain outside the observed endpoint and
+require the physical study clock. Whole-cost/quality/protected authority remain
+false. Actual full-qualified public success and mixed qualified-body/unstarted
+execution remain unrun. Production queue/readiness/global procedure/protected
+integration still required. [Contract](caller-cost-boundary.md),
+[receipt](WP08-caller-cost-boundary-receipt.json). Heldc33source/env/serialops and
+existing predictive outcomes are unchanged.

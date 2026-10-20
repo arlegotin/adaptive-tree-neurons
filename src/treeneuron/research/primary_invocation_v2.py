@@ -43,6 +43,10 @@ def _prior_input_locations(previous):
         if type(argv) is not list or len(argv)!=11:
             raise ValueError('Exact prior invocation command required')
         paths.extend([root,_path(argv[6]),_path(argv[10])])
+        if 'caller_reference' in episode:
+            completion=_reference(episode['caller_reference'])
+            if completion!=root.parent/'caller-complete.json':raise ValueError('Prior caller completion location differs')
+            paths.extend([root.parent,completion])
     return paths
 
 

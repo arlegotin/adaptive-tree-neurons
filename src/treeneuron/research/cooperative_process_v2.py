@@ -142,7 +142,8 @@ def supervise_cooperative_process(*, argv, cwd, env_overrides, output, identity,
 
 ``pause_after_ns`` is an optional cooperative operational limit; None supplies
 no wall cap. Root RSS is sampled, and excess requests cleanup rather than
-enforcing a hard outer memory bound. Admission runs after ready, before grant.
+enforcing a hard outer memory bound. Admission runs after ready, before grant;
+``admit_before_spawn`` optionally adds an earlier check without starting a worker.
 """
     entered=time.perf_counter_ns()
     if invocation_origin_ns is not None and (not _positive(invocation_origin_ns) or invocation_origin_ns>entered):

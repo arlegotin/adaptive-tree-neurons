@@ -40,7 +40,9 @@ chain still awaits actual qualification; its existing exact body-prefix checks
 remain required.
 
 The [owned caller component](primary-caller.md) now emits and accepts these
-references. Complete-qualified execution, additional caller-cost routing,
-production queue/readiness, final procedure freeze and protected evaluation
+references. The [caller boundary](caller-cost-boundary.md) now routes its known
+additional interval before future prefix eligibility; older root-only records
+remain explicitly distinguished. Complete-qualified execution, physical whole-
+cost reconciliation, production queue/readiness, final procedure freeze and protected evaluation
 remain unrun/unfinished. Existing scientific results and held-source jobs are
 unchanged.

@@ -24,11 +24,12 @@ caller outcomes grant no native quality or protected-data authority.
 The containing root clock includes parent preflight, request publication,
 startup, worker activity, reap and log hashing. The caller also retains its
 additional interval through observer return and metadata readback. Its own
-final outcome publication is outside that endpoint. Root and caller intervals
-are nested and must not be added twice. Routing the additional caller interval
-into future prefix/standalone cost accounting and covering final bookkeeping
-with the study clock remain required before a complete cost claim. No missing
-or unmeasured interval is assigned zero.
+final outcome publication is outside that endpoint. A later
+[completion boundary](caller-cost-boundary.md) includes that publication and
+routes the known caller interval into future search prefixes. Root and caller
+intervals are nested and must not be added twice. Covering the completion
+record's own publication/return with the physical study clock remains required
+before a complete cost claim. No missing or unmeasured interval is assigned zero.
 
 The affected six-module suite passed **123 checks in 7.85 seconds**. Five real
 generic caller episodes cover success, pre-spawn denial, changed resources

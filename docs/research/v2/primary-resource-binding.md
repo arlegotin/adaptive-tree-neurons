@@ -34,8 +34,9 @@ No complete actual-qualified public success was stubbed or executed.
 
 The [receipt](WP08-primary-resource-binding-receipt.json) retains the evidence.
 The [owned caller component](primary-caller.md) now composes this binding and
-retains pre-spawn/pregrant denials. Complete-qualified public execution, outer-
-cost reconciliation, final executable readiness/global procedure freeze and
+retains pre-spawn/pregrant denials. Its [caller-cost boundary](caller-cost-boundary.md)
+now routes known additional intervals before future prefixes. Complete-qualified
+public execution, physical whole-cost reconciliation, final executable readiness/global procedure freeze and
 protected evaluation remain unrun/unfinished.
 This binding does not authorize secondary folds or T. Existing scientific
 results and held-source NODE jobs are unchanged.
