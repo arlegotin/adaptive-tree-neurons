@@ -351,6 +351,11 @@
           "bytes": 5056,
           "path": "docs/research/v2/WP08-primary-program-receipt.json",
           "sha256": "9018a6d9022c3e9f97093df31a87ec7f972145dbe88f47a7dabfd7c384b180fb"
+        },
+        {
+          "bytes": 3987,
+          "path": "docs/research/v2/WP09-transfer-access-prefix-receipt.json",
+          "sha256": "5fa39b44fbd09cc2307c7da98497968db5045992062374ee8ccc4ff959313ac2"
         }
       ],
       "status": "supported_scoped_status",

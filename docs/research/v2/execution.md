@@ -2522,3 +2522,24 @@ cost authority is false. [Contract](primary-program.md),
 remaining full evaluator/auditor, post-search globalfreeze andsecondary/Trelease
 must precede actual final-source qualification/production searches. Heldc33fits/
 source/env/ops and prior predictive outcomes are unchanged.
+
+## 20 October: freeze-time primary access prefix
+
+Added read-only prefix capture/revalidation under the existing primary-only log
+auditor. Later legitimate primary validation/audit calls may append after the
+exact recorded byte/hash/event boundary; the complete suffix must still satisfy
+legacy primary-only rules. Secondary/T channels remain forbidden and old
+TransferStore guards unchanged. Existing log SHleases exclude appends; absence
+stays an explicit weaker snapshot. No arrays or release capability are supplied.
+
+Initial13missing-interface failures0.09s; first64passed10.79s. Three new strict
+type cases failed0.27s because Python dict equality equated booleans/integers in
+count/fold/flag metadata. Explicit type/False checks fix those cases; final four-
+module67passed10.64s/session73254exit0. Read-only toy API capture reopens the first
+event unchanged after a second primary event, no labels/nativefit/T. These are
+recorded API commitments, not proof of unlogged filesystem nonaccess.
+[Contract](transfer-access-prefix.md), [receipt](WP09-transfer-access-prefix-receipt.json).
+Actual globalfreeze/prefix-model joins, released roles/evaluator/full audit and
+remaining cost/CLI/readiness remain pending before final-source qualification or
+primary production. Heldc33CCPP6500+/serialsource/env/ops and predictive findings
+remain unchanged.

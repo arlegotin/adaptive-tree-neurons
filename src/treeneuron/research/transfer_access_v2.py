@@ -127,3 +127,41 @@ def audit_pre_freeze_access(root,*,expected_manifest_sha256,expected_access_sha2
     with primary_access_snapshot(root,expected_manifest_sha256=expected_manifest_sha256,
                                  expected_access_sha256=expected_access_sha256) as result:
         return result
+
+
+@contextmanager
+def frozen_primary_access_prefix(root,*,expected_manifest_sha256,prefix=None):
+    """Preserve a recorded boundary while permitting later valid primary audits.
+
+    This is not a data-release capability. A separate post-freeze journal must
+    carry any authorized secondary/protected access; it cannot enter this log.
+    """
+    fields={'schema','dataset','primary_fold','manifest_file_sha256','manifest_hash','prefix_bytes',
+        'prefix_sha256','prefix_event_count','prefix_event_hash','access_log_absent_at_freeze',
+        'protected_access_authorized','unlogged_filesystem_access_authenticated','arrays_or_labels_opened','T_accessed','scope'}
+    with primary_access_snapshot(root,expected_manifest_sha256=expected_manifest_sha256) as snapshot:
+        path=Path(root)/'access.jsonl';raw=_bytes(path) if path.exists() else b''
+        if prefix is None:
+            length=len(raw);absent=snapshot['status']=='access_log_absent_snapshot'
+        else:
+            if (type(prefix) is not dict or set(prefix)!=fields or type(prefix.get('prefix_bytes')) is not int
+                    or not 0<=prefix['prefix_bytes']<=len(raw)
+                    or type(prefix.get('prefix_event_count')) is not int or prefix['prefix_event_count']<0
+                    or type(prefix.get('primary_fold')) is not int
+                    or any(prefix.get(k) is not False for k in ('protected_access_authorized',
+                        'unlogged_filesystem_access_authenticated','arrays_or_labels_opened','T_accessed'))
+                    or type(prefix.get('access_log_absent_at_freeze')) is not bool):
+                raise ValueError('Exact frozen prefix record and integer byte boundary required')
+            length=prefix['prefix_bytes'];absent=prefix['access_log_absent_at_freeze']
+        if absent and length:raise ValueError('An absent frozen log cannot contain recorded access bytes')
+        _,manifest,primary=_manifest(Path(root)/'manifest.json',expected_manifest_sha256)
+        history=_history(raw[:length],manifest,primary)
+        record=dict(schema='research/v2-frozen-primary-access-prefix',dataset=snapshot['dataset'],
+            primary_fold=primary,manifest_file_sha256=expected_manifest_sha256,manifest_hash=snapshot['manifest_hash'],
+            prefix_bytes=length,prefix_sha256=hashlib.sha256(raw[:length]).hexdigest(),
+            prefix_event_count=history['event_count'],prefix_event_hash=history['access_event_hash'],
+            access_log_absent_at_freeze=absent,protected_access_authorized=False,
+            unlogged_filesystem_access_authenticated=False,arrays_or_labels_opened=False,T_accessed=False,
+            scope='Exact recorded primary API prefix; later valid primary-only events allowed. No secondary/protected capability or unlogged filesystem nonaccess proof.')
+        if prefix is not None and record!=prefix:raise ValueError('Frozen primary API prefix identity or bytes changed')
+        yield record

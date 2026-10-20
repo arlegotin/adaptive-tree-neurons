@@ -1,0 +1,105 @@
+{
+  "T_accessed": false,
+  "actual_complete_qualified_public_freeze": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_transfer_access_prefix_v2.py",
+      "tests/test_transfer_access_v2.py",
+      "tests/test_practical_procedure_v2.py",
+      "tests/test_qualified_primary_models_v2.py",
+      "--basetemp=artifacts/research-v2/WP09/transfer-access-prefix-source-final-tmp"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "logs": [
+    {
+      "bytes": 17859,
+      "path": "artifacts/research-v2/WP09/transfer-access-prefix-RED.log",
+      "sha256": "0f6128d1be1d64b8bc032d6e52f1ece7ba33d0885c1b2046a18c38fd0e0a28e8"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP09/transfer-access-prefix-final.log",
+      "sha256": "d7e412e51d9aea5e04f02d58510e2afb8a9f2aac8eff49286c336055aa966bf3"
+    },
+    {
+      "bytes": 5182,
+      "path": "artifacts/research-v2/WP09/transfer-access-prefix-types-RED.log",
+      "sha256": "758b23e38cea8487436bc1b164bc32b499fd0d904d99057f2ffade4d5e6d0fb5"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP09/transfer-access-prefix-source-final.log",
+      "sha256": "83d426ceb54323e4806ad1878cbf422795995bd448d8dacc73bd585dd66981b2"
+    }
+  ],
+  "native_models_fit": 0,
+  "observation": {
+    "bytes": 1986,
+    "path": "artifacts/research-v2/WP09/access-prefix-software-observation.json",
+    "sha256": "2550feb67d498aa638f74ceb54913e4a469c314a408e2c5f6f53b284d834ea11"
+  },
+  "parent_commit": "d03d331",
+  "production_readiness_authenticated": false,
+  "protected_access_authorized": false,
+  "remaining": [
+    "Actual post-search protocol/model/prefix-model join",
+    "Secondary released role and workload qualification routes",
+    "Once-only protected evaluator/full artifact audit",
+    "Physical whole-cost/CLI/readiness and final review before final qualification/primary production"
+  ],
+  "role_arrays_opened": false,
+  "schema": "research/v2-transfer-access-prefix-component-receipt",
+  "scope": "Read-only exact recorded-primary API prefix and valid primary-only suffix, shared lease for existing logs; no unlogged-filesystem nonaccess proof or release capability.",
+  "source_sha256": "0e638a2fb30a73fb1248e440d4bbf1992cc1ddd6be6b3d94eef72b4a1019944f",
+  "tested_files": [
+    {
+      "bytes": 9891,
+      "path": "src/treeneuron/research/transfer_access_v2.py",
+      "sha256": "f449de3c56e8b33e70fceac1403643a7d5b5053804a7e8409f574dbaa9076de1"
+    },
+    {
+      "bytes": 4324,
+      "path": "tests/test_transfer_access_prefix_v2.py",
+      "sha256": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb"
+    },
+    {
+      "bytes": 6923,
+      "path": "tests/test_transfer_access_v2.py",
+      "sha256": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd"
+    },
+    {
+      "bytes": 7011,
+      "path": "tests/test_practical_procedure_v2.py",
+      "sha256": "d22569e868bca6a351139cb89739d7a375bf38cbb38b588d915acc83597f1f2f"
+    },
+    {
+      "bytes": 4847,
+      "path": "tests/test_qualified_primary_models_v2.py",
+      "sha256": "ac60c5746a4f15bf0a6e6cd17a2ea32c39faf2f41e0d7a37b8e7b32c0ff5dc9a"
+    }
+  ],
+  "verification": [
+    "Initial13missing-interface failures0.09s",
+    "First64passed10.79s",
+    "Boolean/count/fold/flag type regressions3failed13deselected0.27s",
+    "Final67passed10.64s/session73254exit0"
+  ],
+  "whole_repository_suite_passed": false
+}

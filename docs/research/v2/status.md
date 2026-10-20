@@ -256,6 +256,12 @@ actual complete-qualified public program/terminal paths remain unrun. Readiness,
 physical whole-cost, final evaluator/auditor, global freeze and CLI dispatch are
 still pending before production searches or secondary/protected access.
 
+The [frozen primary access-prefix helper](transfer-access-prefix.md) passed 67
+affected checks. It preserves the exact freeze boundary while allowing later
+valid primary audit events, and rejects secondary/T events in that channel.
+It grants no data-release authority; the actual post-search protocol and released
+role/evaluator routes remain unfinished.
+
 The [reproduction guide](reproduce.md), [binding spec](../../superpowers/specs/2026-10-18-research-v2-design.md)
 and [implementation plan](../../superpowers/plans/2026-10-18-research-v2.md)
 separate implemented components from unrun studies. Historical source identities
