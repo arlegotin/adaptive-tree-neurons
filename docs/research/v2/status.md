@@ -3,6 +3,8 @@
 Updated 20 October 2026. This page summarizes the current state; the
 [execution ledger](execution.md) retains earlier snapshots, failures, source
 changes and exact evidence boundaries.
+The [cross-study report](../../../reports/research-v2.md) links the scientific
+conclusions to their [evidence and counterevidence ledger](../../../audit/research-v2/current-study/claim-ledger.json).
 
 ## The idea and present verdict
 
@@ -79,6 +81,13 @@ metrics to 5.55e-17. B0’s 288 F/G/V/E vectors and 1,440 metrics agree to 1.11e
 all 72 F variances also agree. Those checks authenticate available arrays and
 records, not independent retraining. Full raw execution assets remain local;
 compact public evidence, scripts and source identities have explicit limits.
+
+The complete software run at `61221f4` returned 2,217 passes, 42 failures,
+369 setup errors and six skips. Its [full case inventory](../../../audit/research-v2/software/whole-suite-61221f4/summary.json)
+retains memory-pressure failures, process-state contamination and unresolved
+details. Seven separate native profiles at `4f19a05` passed 202 checks. Neither
+is a final-source whole-suite success. Two reproduced launcher-isolation defects
+are being corrected in test helpers, with production guards unchanged.
 
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only

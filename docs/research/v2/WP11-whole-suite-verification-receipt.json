@@ -1,0 +1,31 @@
+{
+  "T_accessed": false,
+  "final_branch_review_complete": false,
+  "fixture_isolation_regressions": "Two observed RED failures, then two GREEN in16.25s; broader affected check pending",
+  "isolated_profiles": {
+    "bytes": 3864,
+    "path": "audit/research-v2/software/whole-suite-61221f4/isolated-native-profiles.json",
+    "sha256": "3104d134a997733de79b081b09cb9ab93b3892273cb4206d421501c5a1af210e"
+  },
+  "native_profiles_cases": 202,
+  "native_profiles_passed": 7,
+  "nonpassing_names": {
+    "bytes": 94682,
+    "path": "audit/research-v2/software/whole-suite-61221f4/nonpassing-cases.csv",
+    "sha256": "76c2fa0068f80746dfdeb1a8010ee883c8d26e8df38769b989f0d4750b473857"
+  },
+  "production_qualification": false,
+  "profile_RSS_limit_unchanged_bytes": 4294967296,
+  "profile_operational_pauses": 2,
+  "schema": "research/v2-whole-suite-verification-receipt",
+  "scope": "One complete old-base repository run and seven separate later source/test/lock-bound software profiles. No whole-suite green, final-source qualification or predictive claim.",
+  "simple_profile_memory_proxy_floor_amended_bytes": 5905580032,
+  "software_profile_commit": "4f19a05e52c77448df356fb8e18f05c64c744af8",
+  "source_or_native_guard_weakened": false,
+  "status": "completed_with_failures",
+  "whole_suite": {
+    "bytes": 1747,
+    "path": "audit/research-v2/software/whole-suite-61221f4/summary.json",
+    "sha256": "249abe77e927247c9ebaae08218fcc697adafb7744ab6b8dcc97883c0bb397e8"
+  }
+}

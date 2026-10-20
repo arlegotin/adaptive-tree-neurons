@@ -1,0 +1,282 @@
+{
+  "claims": [
+    {
+      "claim": "Function-preserving insertion is supported in the implemented one-growth setting.",
+      "claim_id": "insertion",
+      "evidence_kind": "software_and_math",
+      "sources": [
+        {
+          "bytes": 1836,
+          "path": "docs/research/v2/WP01-receipt.json",
+          "sha256": "f9901e87be4c7a0ba0d478753b308843219669138a433433fab2570ecd3b71f3"
+        },
+        {
+          "bytes": 11204,
+          "path": "reports/research-v2-M3.md",
+          "sha256": "40878a0bccef84804d11a4eb6beaa2c802a41e358fc666b9786748b7bd3958dc"
+        }
+      ],
+      "status": "supported",
+      "strongest_counterevidence_or_limit": "Does not establish useful optimization or future architectures."
+    },
+    {
+      "claim": "Gates learn useful planted structure; random growth also benefits.",
+      "claim_id": "planted_capacity",
+      "evidence_kind": "executed_development",
+      "sources": [
+        {
+          "bytes": 6011,
+          "path": "reports/research-v2-M1.md",
+          "sha256": "c4683b982fe4dc9391a029742028984010dcf1d2f15fbe8b346f8359d57f4cdf"
+        }
+      ],
+      "status": "supported_conditionally",
+      "strongest_counterevidence_or_limit": "No superiority to matched ordinary extra capacity or population-wide placement claim."
+    },
+    {
+      "claim": "M2 passed its fixed development opportunity screen.",
+      "claim_id": "opportunity",
+      "evidence_kind": "executed_development",
+      "sources": [
+        {
+          "bytes": 10639,
+          "path": "reports/research-v2-M2.md",
+          "sha256": "d2e35367360b1cd58d36d90e6d170ac4cbc9b55f163077e789d817295a842f66"
+        }
+      ],
+      "status": "supported_screen",
+      "strongest_counterevidence_or_limit": "Ordinary training and capacity controls exposed more opportunity; not an efficacy confirmation."
+    },
+    {
+      "claim": "Joint placement did not pass Gate B and does not reliably beat matched random.",
+      "claim_id": "main_placement",
+      "evidence_kind": "compact_reaggregation_and_prior_raw_audit",
+      "sources": [
+        {
+          "bytes": 86033,
+          "path": "audit/research-v2/M3/development-summary.json",
+          "sha256": "0e6f46ebc8aa631b9eb022b802ce006b583c66e8fb0a938c819d373c006319b5"
+        },
+        {
+          "bytes": 1970,
+          "path": "audit/research-v2/M3/gate-B.json",
+          "sha256": "76c3d059178357c2f097496c50a49a1ca5021a4808d0fa00f72a073a66a41fef"
+        },
+        {
+          "bytes": 8629,
+          "path": "audit/research-v2/M3/teacher-risks.csv",
+          "sha256": "e6eec9cf5e5f94a01af99f1d0ca50b2099573d2b8405481181a61b0e7e86bcc4"
+        },
+        {
+          "bytes": 6228,
+          "path": "docs/research/v2/WP04-M3-completion-receipt.json",
+          "sha256": "7b750538eebc00964055f59aae3969422779b03e110f216264495ec28d0b1fb2"
+        }
+      ],
+      "status": "negative_development",
+      "strongest_counterevidence_or_limit": "Descriptive effect intervals overlap zero; cannot prove all placement methods or populations fail."
+    },
+    {
+      "claim": "Competent ordinary continuation beats joint growth on all sixteen M3 teacher-average E risks.",
+      "claim_id": "ordinary_headroom",
+      "evidence_kind": "compact_reaggregation",
+      "sources": [
+        {
+          "bytes": 8629,
+          "path": "audit/research-v2/M3/teacher-risks.csv",
+          "sha256": "e6eec9cf5e5f94a01af99f1d0ca50b2099573d2b8405481181a61b0e7e86bcc4"
+        },
+        {
+          "bytes": 11204,
+          "path": "reports/research-v2-M3.md",
+          "sha256": "40878a0bccef84804d11a4eb6beaa2c802a41e358fc666b9786748b7bd3958dc"
+        }
+      ],
+      "status": "supported_development",
+      "strongest_counterevidence_or_limit": "Specific WD=.001 fixed-8000 treatment and primary teacher population; E was inspected during development."
+    },
+    {
+      "claim": "Small solved steps improve local loss but full solved steps badly miss the nonlinear objective.",
+      "claim_id": "local_model",
+      "evidence_kind": "retained_diagnostic_arithmetic",
+      "sources": [
+        {
+          "bytes": 179308,
+          "path": "audit/research-v2/M3/local-review.json",
+          "sha256": "41e1348aef8556ed7f8ada187d1886e7687d597a9855f8890db8f3e04bfe3704"
+        },
+        {
+          "bytes": 11204,
+          "path": "reports/research-v2-M3.md",
+          "sha256": "40878a0bccef84804d11a4eb6beaa2c802a41e358fc666b9786748b7bd3958dc"
+        }
+      ],
+      "status": "supported_diagnostic",
+      "strongest_counterevidence_or_limit": "Temporary solved parent-plus-gate moves do not measure actual gate-only Adam saturation or admit a remedy."
+    },
+    {
+      "claim": "B0 failed its 5%-improvement screen on zero of four teachers, versus three required.",
+      "claim_id": "backbones",
+      "evidence_kind": "independently_audited_raw_and_compact_replay",
+      "sources": [
+        {
+          "bytes": 6669,
+          "path": "audit/research-v2/B0/summary.json",
+          "sha256": "f937525a14f874598576714e2111f2d5931037c239dd4e4f73ab060cd63817a7"
+        },
+        {
+          "bytes": 113152,
+          "path": "audit/research-v2/B0/reproduction/analysis.json",
+          "sha256": "cd401dc768ca6aa496f6e7c611b5b22af8fbde34968a473d60838524c8cd48c0"
+        },
+        {
+          "bytes": 6487,
+          "path": "docs/research/v2/WP07-B0-completion-receipt.json",
+          "sha256": "e8d4142f9e8c129fe55287675bc834e9d10a1299940f149f2c51cd9fc052b255"
+        }
+      ],
+      "status": "negative_development",
+      "strongest_counterevidence_or_limit": "Four teachers/native presets only; native quantile one-layer grid is not the M3 F-standardized competent keep."
+    },
+    {
+      "claim": "Existing anchors have lower V risk than P00 on all five observational primary splits in the original survey.",
+      "claim_id": "native_anchor_scores",
+      "evidence_kind": "compact_reaggregation_and_prior_raw_audit",
+      "sources": [
+        {
+          "bytes": 20555,
+          "path": "audit/research-v2/primary-anchor-development/scores.csv",
+          "sha256": "576eeecb5826b8e7295762dd92b1fc97ac3f2573e67812f8c09239ed7d820c3c"
+        },
+        {
+          "bytes": 4444,
+          "path": "docs/research/v2/WP07-primary-anchor-development-survey-receipt.json",
+          "sha256": "236f4a615d372e30c459f0c54619df1e732a90ac8450e8e7f4d7226bd09c1de2"
+        }
+      ],
+      "status": "supported_development",
+      "strongest_counterevidence_or_limit": "One split/seed; V-best selection is development information, not full HPO, a protected champion or independent population inference."
+    },
+    {
+      "claim": "Static full gating leads the observed Energy V anchors.",
+      "claim_id": "energy",
+      "evidence_kind": "retained_validation_scores",
+      "sources": [
+        {
+          "bytes": 20555,
+          "path": "audit/research-v2/primary-anchor-development/scores.csv",
+          "sha256": "576eeecb5826b8e7295762dd92b1fc97ac3f2573e67812f8c09239ed7d820c3c"
+        },
+        {
+          "bytes": 7244,
+          "path": "reports/research-v2-primary-anchors.md",
+          "sha256": "36bf482f335a7b409c55b33d285b6ee7fd27303eed469f9698f4ca9d1cb6f7d3"
+        }
+      ],
+      "status": "supported_narrow_lead",
+      "strongest_counterevidence_or_limit": "Simulation only; two V groups/twelve overall, different capacity and initialization, no placement claim."
+    },
+    {
+      "claim": "Airfoil full native NODE completed and its new V score is retained alongside every original anchor.",
+      "claim_id": "node_followup",
+      "evidence_kind": "retained_native_audit_and_raw_arithmetic",
+      "sources": [
+        {
+          "bytes": 6475,
+          "path": "docs/research/v2/WP07-NODE-Airfoil-completion-and-V-receipt.json",
+          "sha256": "15bd8f81b24755901830816cac947f020c196d30c79e28e9e5b6930f29c44c95"
+        },
+        {
+          "bytes": 2012,
+          "path": "audit/research-v2/native-anchor-follow-up/summary.json",
+          "sha256": "17ee1639207d2a96628b0003c8934c5ed56daa7771fbc6fbdffd5a720591084d"
+        }
+      ],
+      "status": "supported_execution_and_development",
+      "strongest_counterevidence_or_limit": "Four NODE cells remain pending; no full mandatory-suite qualification or source migration."
+    },
+    {
+      "claim": "The measured largest TabM geometry completed near 3 GiB owned-root RSS without shrinking model/data/batch.",
+      "claim_id": "resources",
+      "evidence_kind": "retained_resource_samples",
+      "sources": [
+        {
+          "bytes": 7463,
+          "path": "docs/research/v2/WP07-actual-support-geometry-receipt.json",
+          "sha256": "e317b397313ec23cee57c0a72bc9e05f890118dec94c62b7fd275abadf4cd768"
+        },
+        {
+          "bytes": 3480,
+          "path": "reports/research-v2-resource-probes.md",
+          "sha256": "b3979bff0c00fce9a5e7c95c6cc0e4466abf89afaac7e9dbe2d84a0be0648077"
+        }
+      ],
+      "status": "supported_engineering",
+      "strongest_counterevidence_or_limit": "Short engineering geometry, heuristic live admission and sampled root RSS; not full-hardware memory or native quality qualification."
+    },
+    {
+      "claim": "No new selector entered calibration or protected confirmation; practical production work remains unfinished.",
+      "claim_id": "scope",
+      "evidence_kind": "gate_and_component_records",
+      "sources": [
+        {
+          "bytes": 1970,
+          "path": "audit/research-v2/M3/gate-B.json",
+          "sha256": "76c3d059178357c2f097496c50a49a1ca5021a4808d0fa00f72a073a66a41fef"
+        },
+        {
+          "bytes": 6487,
+          "path": "docs/research/v2/WP07-B0-completion-receipt.json",
+          "sha256": "e8d4142f9e8c129fe55287675bc834e9d10a1299940f149f2c51cd9fc052b255"
+        },
+        {
+          "bytes": 6362,
+          "path": "docs/research/v2/native-qualification-contract.md",
+          "sha256": "e39daf4b9321872b7e4f289cdae8633d6816117d1b4aa8fde936a4ad2844f6ce"
+        }
+      ],
+      "status": "supported_scoped_status",
+      "strongest_counterevidence_or_limit": "Recorded API boundaries are not proof of cryptographic filesystem nonaccess. Complete prototype components do not imply a final protocol."
+    },
+    {
+      "claim": "No broad first-growth or first-residual-aware principle is claimed.",
+      "claim_id": "novelty",
+      "evidence_kind": "provided_primary_literature_and_design",
+      "sources": [
+        {
+          "bytes": 48931,
+          "path": "docs/superpowers/specs/2026-10-18-research-v2-design.md",
+          "sha256": "96114652e9b4c7da56fba950e7efc43d493629554dc336b0a6e2685b72d930f6"
+        }
+      ],
+      "status": "scope_boundary",
+      "strongest_counterevidence_or_limit": "Close conceptual prior art exists; a useful implementation or negative result is not a general novelty claim."
+    },
+    {
+      "claim": "The complete repository software run failed; seven separate native profiles passed 202 source-bound checks. No final-source or whole-suite green is claimed.",
+      "claim_id": "software_scope",
+      "evidence_kind": "executed_software_and_complete_failure_inventory",
+      "sources": [
+        {
+          "bytes": 1477,
+          "path": "docs/research/v2/WP11-whole-suite-verification-receipt.json",
+          "sha256": "8af9b0c913aabd7838ed7a323b0ebddd3fd7166f46b8145e9cc2bdd1ac9c92b2"
+        }
+      ],
+      "status": "supported",
+      "strongest_counterevidence_or_limit": "Original detailed probe bytes for three backend aggregate failures were not recovered from pytest temporary files; timing follow-up and final-source verification remain incomplete. Separate profiles are not a monolithic pass."
+    }
+  ],
+  "created_utc": "2026-10-20T06:05:41.912084+00:00",
+  "final_branch_review_complete": false,
+  "new_fit_or_inference": false,
+  "new_raw_label_access": false,
+  "protected_confirmation": false,
+  "report": {
+    "path": "reports/research-v2.md",
+    "sha256": "8dcbeb37509bc3fbd7e95739f7054df6e3428994c732643e905d0d806b387f26"
+  },
+  "schema": "research/v2-current-cross-study-claim-ledger",
+  "scope": "Curated evidence-linked development synthesis; compact inputs and prior audit receipts, not a new whole-raw/model-generation audit or completed production report path.",
+  "status": "development_negative_with_practical_work_pending"
+}

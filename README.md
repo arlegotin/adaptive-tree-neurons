@@ -8,7 +8,9 @@ This project implements that growth mechanism and tests a harder question: **can
 
 [Results](#results) · [Try the layer](#try-the-layer) · [Reproduction](REPRODUCE.md) · [Research design](docs/superpowers/specs/2026-10-16-selective-tree-neurons-design.md) · [Citation](CITATION.cff)
 
-The [research v2 continuation](docs/research/v2/execution.md) is in progress.
+The [research v2 continuation](docs/research/v2/execution.md) is in progress;
+the [current cross-study report](reports/research-v2.md) brings its results,
+negative decisions and unfinished comparisons together.
 Its [spec](docs/superpowers/specs/2026-10-18-research-v2-design.md) and
 [implementation plan](docs/superpowers/plans/2026-10-18-research-v2.md) preserve
 the finite experiments and claim gates. Checkpoint semantic hardening, diagnostic

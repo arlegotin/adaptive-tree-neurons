@@ -1,0 +1,88 @@
+{
+  "T_accessed": false,
+  "all_seven_software_profiles_passed": true,
+  "commit": "4f19a05e52c77448df356fb8e18f05c64c744af8",
+  "profiles": [
+    {
+      "cases": 48,
+      "elapsed_ns": 81013505500,
+      "identity_sha256": "a05b1bd25c86f6a3dc96be041e177f9d2c4f6f2ef027ef0647bbe8893a177d56",
+      "peak_root_rss_bytes": 341049344,
+      "profile": "gated",
+      "reference": {
+        "inventory_sha256": "f4d81685315d693d7462f2ba28803a541da47aad6f2447021691d99d38c41c9f",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/native-profiles-4f19a05/gated"
+      }
+    },
+    {
+      "cases": 8,
+      "elapsed_ns": 26544228292,
+      "identity_sha256": "a05b1bd25c86f6a3dc96be041e177f9d2c4f6f2ef027ef0647bbe8893a177d56",
+      "peak_root_rss_bytes": 86360064,
+      "profile": "native_trees",
+      "reference": {
+        "inventory_sha256": "7144a480d1e5d74fdab087728ad05ee19594943cc1810b9651b6c01a5d51efec",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/native-profiles-4f19a05/native_trees"
+      }
+    },
+    {
+      "cases": 77,
+      "elapsed_ns": 329866729958,
+      "identity_sha256": "a05b1bd25c86f6a3dc96be041e177f9d2c4f6f2ef027ef0647bbe8893a177d56",
+      "peak_root_rss_bytes": 464814080,
+      "profile": "node",
+      "reference": {
+        "inventory_sha256": "d18c0ba46da9468080932f926ec61ebbd270413a12b23680e613e70dcc439d6b",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/native-profiles-4f19a05/node"
+      }
+    },
+    {
+      "cases": 5,
+      "elapsed_ns": 95810948041,
+      "identity_sha256": "a05b1bd25c86f6a3dc96be041e177f9d2c4f6f2ef027ef0647bbe8893a177d56",
+      "peak_root_rss_bytes": 249462784,
+      "profile": "ordinary_neural",
+      "reference": {
+        "inventory_sha256": "f8a85f78191b2f978aac6b557b0b4d283b0df8682e9d21798e56c71669d7c3d6",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/native-profiles-4f19a05/ordinary_neural"
+      }
+    },
+    {
+      "cases": 12,
+      "elapsed_ns": 235654993167,
+      "identity_sha256": "a05b1bd25c86f6a3dc96be041e177f9d2c4f6f2ef027ef0647bbe8893a177d56",
+      "peak_root_rss_bytes": 249233408,
+      "profile": "realmlp",
+      "reference": {
+        "inventory_sha256": "f48f8cc4b34bccd6efe7ecd1e0f52994970b7bc0ec43196289c210b6550cd8ed",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/native-profiles-4f19a05/realmlp"
+      }
+    },
+    {
+      "cases": 48,
+      "elapsed_ns": 26201435875,
+      "identity_sha256": "a05b1bd25c86f6a3dc96be041e177f9d2c4f6f2ef027ef0647bbe8893a177d56",
+      "peak_root_rss_bytes": 104103936,
+      "profile": "simple",
+      "reference": {
+        "inventory_sha256": "4fff2752bce8fdd5a68c81a79a23640380234ad46987c1dc8563fd59dc6c5cc1",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/native-profiles-4f19a05/simple"
+      }
+    },
+    {
+      "cases": 4,
+      "elapsed_ns": 102162813125,
+      "identity_sha256": "a05b1bd25c86f6a3dc96be041e177f9d2c4f6f2ef027ef0647bbe8893a177d56",
+      "peak_root_rss_bytes": 259473408,
+      "profile": "tabm",
+      "reference": {
+        "inventory_sha256": "1e03a65b1d090d82d49693558d6e3117709fca298bca2bc24c60256c77d6e5d9",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/native-profiles-4f19a05/tabm"
+      }
+    }
+  ],
+  "quality_eligible": false,
+  "schema": "research/v2-fixed-native-profile-summary",
+  "scope": "Seven isolated source/test/lock-bound software profiles, not full repository success, final-source qualification, new practical fitting or protected evidence",
+  "total_cases": 202
+}
