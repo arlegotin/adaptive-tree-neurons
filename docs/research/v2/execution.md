@@ -1913,3 +1913,19 @@ fits, protected metrics, native/HPO promotion or dataset changes. Protected
 archives were checked only as opaque bytes. The earlier fixture receipt's
 pending field remains historical; this execution has its separate
 [receipt](WP07-retained-data-lineage-audit-receipt.json).
+
+Airfoil native run82458completed exit0 at12,101updates/G-selected7,100,
+121G checks, native patience;18,923.475828875seconds/~1.83GiBsampled worker
+RSS. Serial13703 independently audited it exactly (8.328095500seconds;
+audit1e2539f0...) and started Concrete with the same held c33/b680full recipe.
+Native engineering completion count116of120; four P12cells remain pending.
+The decision5ec83ac/fixed-five-cell plan af41ee1f... preceded new V access.
+Airfoil new V NMSE0.10749333144874425; raw fsum seven metrics/F variance
+agree exactly. Original120-plan/115scores remain unchanged; no new scoring fit,
+HPO, source migration or T. All20Airfoil anchors and five follow-up statuses
+are in [the separate report](../../../reports/research-v2-native-anchors-follow-up.md).
+The original scoring script's conditional status assertion was separately
+reviewed unconditionally; actual native status/roles were already valid and
+bound by the independent completion audit, so no score/inclusion changed.
+A report-only None-metrics AttributeError was retained/recovered without label
+reopening. See [receipt](WP07-NODE-Airfoil-completion-and-V-receipt.json).

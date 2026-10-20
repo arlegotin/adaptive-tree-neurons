@@ -1,0 +1,123 @@
+{
+  "F_variance_discrepancy": 0.0,
+  "G_evaluations": 121,
+  "Gate_D": false,
+  "T_accessed": false,
+  "V_groups": 15,
+  "V_rows": 185,
+  "V_score": 0.10749333144874425,
+  "completed_native_anchor_count": 116,
+  "decision_commit": "5ec83ac",
+  "files": [
+    {
+      "bytes": 6087,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/primary-node-anchor-development-96707ea/plan.json",
+      "sha256": "af41ee1f4e253a7c01c68ea5baaa405b56a8992d044a905514b139f6f47820ec"
+    },
+    {
+      "bytes": 5471,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/primary-node-anchor-development-96707ea/operator.py",
+      "sha256": "f118dceb17a53fb1282a2dca3fdedc1371a034fefaae83b66cbb3515dfea766d"
+    },
+    {
+      "bytes": 652,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/primary-node-anchor-development-96707ea/invocation.json",
+      "sha256": "86424dfc2830c55766552be8826d0b6d000c54b4c845b61f46525e61cfbe2878"
+    },
+    {
+      "bytes": 4858,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/primary-node-anchor-development-96707ea/scores.json",
+      "sha256": "1c79964a02140edcc086585cbc1c366caf34b2b9a30c5412367fd46d880ebcdd"
+    },
+    {
+      "bytes": 113,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/primary-node-anchor-development-96707ea/result.json",
+      "sha256": "0f639fb341be26bfeeb7d17205766a2f625a9f893b6403ba9b982d84f7431625"
+    },
+    {
+      "bytes": 513,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/primary-node-anchor-development-96707ea/launch.log",
+      "sha256": "5e85167cce2ccd48531d0cdb3202f95cab162afa561f441b0ece80c9cda41e89"
+    },
+    {
+      "bytes": 793,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/primary-node-anchor-development-96707ea/metadata-recheck.json",
+      "sha256": "e8a1243fc72a641d89fefbe264c050e1156055aefad98997baf5e7e2fca44e9d"
+    },
+    {
+      "bytes": 1771,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/primary-node-anchor-development-96707ea/strict-metadata-review.py",
+      "sha256": "b1dae2418632597a7cc056a36be7e5cc5532f5b05264da73c1a900ae8c9321a7"
+    },
+    {
+      "bytes": 832,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/primary-node-anchor-development-96707ea/strict-metadata-review.json",
+      "sha256": "630879b4ffcc82411658e1e2512e91151834238ed24390a333c06165f53a6aaa"
+    },
+    {
+      "bytes": 0,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/primary-node-anchor-development-96707ea/strict-review.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 338,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/primary-node-anchor-development-96707ea/report-generation-0-prefix.py",
+      "sha256": "a532c3452f4202e1055235d4ab03b2f6d92c156fac6332e4092150138fcafcb3"
+    },
+    {
+      "bytes": 378,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/primary-node-anchor-development-96707ea/report-generation-0.log",
+      "sha256": "da33053861ddaf21f6cf97e7d9a4596898f14662433b3e43ef23e13d9ef447ef"
+    },
+    {
+      "bytes": 9108,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/primary-node-anchor-development-96707ea/report-generation.py",
+      "sha256": "2f3d7155ae8554347272faf9771fc5208e42a94e7afc9aaf7a94fa8a1a0befe6"
+    },
+    {
+      "bytes": 2011,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-primary-native-continuation-c33a84e/airfoil-completion-audit.json",
+      "sha256": "1e2539f0717e48948388ed59f20cac51e08eeaee0bf26ed4d5162769c50d78e9"
+    },
+    {
+      "bytes": 219190,
+      "path": "audit/research-v2/primary-anchor-development/summary.json",
+      "sha256": "70e5cfbd7d90fdb734b219505ca237b3065e4fa2b8076c2081839dcb23c4ccd9"
+    },
+    {
+      "bytes": 2639,
+      "path": "audit/research-v2/native-anchor-follow-up/airfoil.csv",
+      "sha256": "ef30e2a4ffbe59bd309fd821749e6d8ffd6a1ab487e70072a0d33482d20a224e"
+    },
+    {
+      "bytes": 2012,
+      "path": "audit/research-v2/native-anchor-follow-up/summary.json",
+      "sha256": "17ee1639207d2a96628b0003c8934c5ed56daa7771fbc6fbdffd5a720591084d"
+    }
+  ],
+  "followup_plan_sha256": "af41ee1f4e253a7c01c68ea5baaa405b56a8992d044a905514b139f6f47820ec",
+  "independent_completion_audit_ns": 8328095500,
+  "independent_metric_comparisons": 7,
+  "independent_metric_max_abs_discrepancy": 0.0,
+  "metadata_review": "Original executed conditional assertion fallback checked roles; prior independent completion audit required actual valid completed status. Unconditional status/role/hash review passed without V reopening or score/inclusion changes. Original script retained.",
+  "native_containing_ns": 18923475828875,
+  "native_peak_worker_RSS_bytes": 1962049536,
+  "native_source_commit": "c33a84eda018d11b2dbe237dbc0b5b681c8e65c9",
+  "native_source_sha256": "b680a26b2176c6c5cc0f59cf19192d7ee963826a7575cce5ec5ee695521a65cc",
+  "native_updates": 12101,
+  "new_model_fits_for_scoring": 0,
+  "original_plan_sha256": "88f028088b27f19df3f634a7bfaedf9fcf293a861f220899abd00e5fe93154fc",
+  "original_survey_unchanged": true,
+  "pending_followup_cells": 4,
+  "planned_native_anchor_count": 120,
+  "production_practical_searches": 0,
+  "quality_eligible": false,
+  "report_error": "Initial report-only AttributeError on None metrics of unavailable original P12 row; reproducing prefix/log retained. Fixed generator preserves original unavailable status and adds the new result separately.",
+  "schema": "research/v2-NODE-Airfoil-completion-and-V-receipt",
+  "scored_followup_cells": 1,
+  "scoring_and_reconstruction_ns": 76362958,
+  "scoring_source_commit": "5ec83ac17752765f518737f69febf449519c54c8",
+  "scoring_source_sha256": "637fe8d3ff3a9f9b3c31f9b3eee6598fe4710f09e5ecac875cf52112a8b7f079",
+  "selected_step": 7100,
+  "status": "completed_development_followup"
+}

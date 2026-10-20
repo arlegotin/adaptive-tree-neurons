@@ -381,3 +381,12 @@ audit and result hashes are recorded inWP07-retained-data-lineage-audit-receipt.
 It verifies the exact original suite/acquisition hashes and retained preparation
 commit without numerical decoding. It does not grant the remaining native/
 workload/protocol authority.
+
+The first newly completed NODE V tranche is retained at
+`artifacts/research-v2/WP07/primary-node-anchor-development-96707ea/`. Its fixed
+five-cell plan/decision preceded V, and its scorer, separate raw arithmetic,
+strict metadata review and report generator are retained. Rebuild the report
+from saved scores with`report-generation.py`; it opens no labels. The original
+survey remains unchanged. See WP07-NODE-Airfoil-completion-and-V-receipt.json
+and reports/research-v2-native-anchors-follow-up.md. Do not duplicate the active
+Concrete fit: serial session13703 owns the remaining native queue.

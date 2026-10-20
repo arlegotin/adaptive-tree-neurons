@@ -1,0 +1,60 @@
+{
+  "T_accessed": false,
+  "followup_plan_sha256": "af41ee1f4e253a7c01c68ea5baaa405b56a8992d044a905514b139f6f47820ec",
+  "native_producer_commit": "c33a84eda018d11b2dbe237dbc0b5b681c8e65c9",
+  "native_producer_sha256": "b680a26b2176c6c5cc0f59cf19192d7ee963826a7575cce5ec5ee695521a65cc",
+  "new_fits": 0,
+  "original_survey_plan_sha256": "88f028088b27f19df3f634a7bfaedf9fcf293a861f220899abd00e5fe93154fc",
+  "original_survey_unchanged": true,
+  "quality_eligible": false,
+  "rows": [
+    {
+      "F_variance_discrepancy": 0.0,
+      "V_groups": 15,
+      "V_rows": 185,
+      "V_score": 0.10749333144874425,
+      "cell_id": "P12/native_anchor/airfoil",
+      "dataset": "airfoil",
+      "independent_max_absolute_discrepancy": 0.0,
+      "independent_metric_comparisons": 7,
+      "metrics": {
+        "normalized_risk": 0.10749333144874425,
+        "primary_MAE": 1.631171424748863,
+        "primary_MSE": 5.326018557892811,
+        "primary_RMSE": 2.307816838029572,
+        "row_MAE": 1.6126908625935834,
+        "row_MSE": 5.319676408460083,
+        "row_RMSE": 2.306442370504861
+      },
+      "quality_eligible": false,
+      "status": "completed_native_development_score"
+    },
+    {
+      "V_score": null,
+      "cell_id": "P12/native_anchor/concrete",
+      "dataset": "concrete",
+      "status": "pending_native_completion"
+    },
+    {
+      "V_score": null,
+      "cell_id": "P12/native_anchor/ccpp",
+      "dataset": "ccpp",
+      "status": "pending_native_completion"
+    },
+    {
+      "V_score": null,
+      "cell_id": "P12/native_anchor/parkinsons",
+      "dataset": "parkinsons",
+      "status": "pending_native_completion"
+    },
+    {
+      "V_score": null,
+      "cell_id": "P12/native_anchor/bike",
+      "dataset": "bike",
+      "status": "pending_native_completion"
+    }
+  ],
+  "schema": "research/v2-native-anchor-follow-up-summary",
+  "source_commit": "5ec83ac17752765f518737f69febf449519c54c8",
+  "source_sha256": "637fe8d3ff3a9f9b3c31f9b3eee6598fe4710f09e5ecac875cf52112a8b7f079"
+}

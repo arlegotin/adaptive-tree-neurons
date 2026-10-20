@@ -34,6 +34,12 @@ all five observational validation splits. A static fully gated model leads the
 separate Energy simulation. These single-seed development results are distinct
 from the unfinished tuned benchmark and protected test evaluation.
 
+The [separate NODE follow-up](reports/research-v2-native-anchors-follow-up.md)
+now adds its completed Airfoil native anchor: validation error0.107493 versus
+the grown anchor's0.092186 and RealMLP's0.073302. All20Airfoil points remain
+visible. This is still one development split/seed;116of120native engineering
+anchors have completed, with the remaining four NODE fits running serially.
+
 ## The idea
 
 An ordinary hidden neuron applies ReLU to one affine response. A grown neuron adds a gated contrast before that same ReLU:

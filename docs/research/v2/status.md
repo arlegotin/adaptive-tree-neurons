@@ -21,7 +21,7 @@ two affine rules, preserving predictions when that flexibility is inserted.
 Then ask whether growth helps, whether a chooser beats random placement, and
 whether the complete procedure is competitive with strong existing methods.
 
-The latest result is negative for the current growth procedure. The completed
+The primary-population result is negative for the current growth procedure. The completed
 [M3 joint-placement study](../../../reports/research-v2-M3.md) tested sixteen
 fresh primary synthetic problems, two training repetitions and ten final roles:
 320 models, without a failed or missing entry. Continuing the ordinary network
@@ -59,6 +59,18 @@ unavailable. They are not a tuned benchmark or protected generalization result.
 No new fitting, HPO, best-seed choice, secondary development or T access occurred.
 Older qualification receipts' no-V-label statements describe their original fit/
 audit executions; the survey now explicitly records coordinator V access.
+
+The [separate native NODE follow-up](../../../reports/research-v2-native-anchors-follow-up.md)
+adds Airfoil at0.107493331V NMSE, compared with grown0.092186325 and
+RealMLP0.073302. Thus this particular full NODE anchor is behind the grown
+model, while stronger anchors still lead. All20Airfoil points and the fixed
+five-cell follow-up inventory are retained; four NODE cells remain pending.
+The full model finished12,101updates by native patience after about5¼hours,
+with about1.83GiBsampled worker RSS. Independent saved predictions/native stopping
+and seven new V metrics/F variance check exactly. Native engineering completions
+are now116of120. Concrete is running next under the original serial plan;
+no HPO/production eligibility, source migration or protected T evaluation follows.
+See [the completion/follow-up receipt](WP07-NODE-Airfoil-completion-and-V-receipt.json).
 
 The first full new control study has finished:256 planned fits, no missing or
 failed result. Independent arithmetic from512 retained V/E prediction vectors
