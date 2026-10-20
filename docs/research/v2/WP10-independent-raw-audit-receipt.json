@@ -1,0 +1,151 @@
+{
+  "T_accessed": false,
+  "actual_benchmark_label_archives_read": 0,
+  "actual_benchmark_models_fitted": 0,
+  "actual_complete_qualified_public_positive": false,
+  "algorithm_rescue_budget_cut_or_new_protected_root_admitted": false,
+  "artifact_inventory": {
+    "bytes": 45398,
+    "path": "artifacts/research-v2/WP10/independent-raw-audit-software-inventory.json",
+    "sha256": "8f59770709a34297e9d74ddf39264e899fc0d3a906e9cae138303b95e5551f1c"
+  },
+  "base_commit": "354c0ef",
+  "capture": {
+    "actual_known_fixture_fits": 2,
+    "actual_owned_queries": 4,
+    "deliberate_wrong_producer_rejected": true,
+    "explicit_auditor_access_records": true,
+    "known_fixture_target_archives_reread_for_audit": 2,
+    "matched_queries": 2,
+    "max_absolute_difference": 0.0,
+    "numeric_comparisons": 35,
+    "public_invalid_qualification_rejected_before_output": true,
+    "wrong_producer_is_fault_injection_not_observed_research_bug": true
+  },
+  "capture_script": {
+    "bytes": 3536,
+    "path": "artifacts/research-v2/WP10/capture_independent_raw_audit.py",
+    "sha256": "0b37b10872e8613fdbdf64fb0b563ca85554d9bb72862d5e864674a463e2b75c"
+  },
+  "claim_authorized": false,
+  "date": "2026-10-21",
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_independent_raw_audit_v2.py",
+      "tests/test_protected_label_evaluator_v2.py",
+      "tests/test_frozen_practical_analysis_v2.py",
+      "tests/test_practical_procedure_v2.py",
+      "tests/test_practical_T_protocol_v2.py",
+      "tests/test_protected_prediction_gate_v2.py",
+      "tests/test_protected_journal_v2.py",
+      "tests/test_prediction_arithmetic_v2.py",
+      "tests/test_practical_comparisons_v2.py"
+    ],
+    "bytecode_disabled": true,
+    "exit_code": 0,
+    "process_observation": "Scoped /bin/ps for fixture-owned PIDs and boot identity; no native guard weakened",
+    "pytest_plugin_autoload_disabled": true,
+    "result": "174 passed in106.72s",
+    "session_id": 64583,
+    "threads": 1
+  },
+  "limitations": [
+    "Independent raw arithmetic and exact byte/row joins exercised only on known local fixtures; no new predictive result",
+    "Actual complete native/model/source/protocol/access-qualified public positive remains unrun",
+    "Final report must join this actual recomputation with genuine evidence, failed attempts, dependence qualification and full containing cost/deployment records; standalone flags are no capability",
+    "Own terminal/bound publication and return plus containing caller costs excluded from inner clock, never zero-imputed",
+    "Production deployment/cost/report/CLI/readiness and final review remain before final-source qualification/HPO"
+  ],
+  "logs": [
+    {
+      "bytes": 19051,
+      "path": "artifacts/research-v2/WP10/independent-raw-audit-software/test-logs/raw-audit-red.log",
+      "sha256": "7d3bb6d42c161f1da5b7ce69cc81b06cafd51d83f9d2e1fdcaa3cafd57b168a1"
+    },
+    {
+      "bytes": 16087,
+      "path": "artifacts/research-v2/WP10/independent-raw-audit-software/test-logs/raw-audit-first-green.log",
+      "sha256": "326785f0033b85e0e36271bfc439b1c17f5b9de0ce61f75553e2aacff7ccef70"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/independent-raw-audit-software/test-logs/raw-audit-second-green.log",
+      "sha256": "70543bebacf50def24c86ec27b155abf825fbe354b7fda3a0f245ba990d51d74"
+    },
+    {
+      "bytes": 272,
+      "path": "artifacts/research-v2/WP10/independent-raw-audit-software/test-logs/raw-audit-final-affected.log",
+      "sha256": "434d1e165020c86ca5c383c2a4682471c03fe35ec8bc73d8a259d66540825ecf"
+    },
+    {
+      "bytes": 329,
+      "path": "artifacts/research-v2/WP10/independent-raw-audit-software/test-logs/raw-audit-capture.log",
+      "sha256": "8e4e6685ab8364f1d7a48d4470965f2a7e6b661a7be809b16357b26c2932cae1"
+    }
+  ],
+  "native_c33_source_environment_and_immutable_operator_plan_unchanged": true,
+  "native_models_authenticated": false,
+  "observation": {
+    "bytes": 1813,
+    "path": "artifacts/research-v2/WP10/independent-raw-audit-software/observation.json",
+    "sha256": "2023037ee76f6dd0b570278471c5988ec088350f3e2e469a5c247e375a9ac036"
+  },
+  "policy_ruling": "WP11 independent raw recomputation is now explicitly declared in the preproduction policy: fixed auditor may reread the same sealed targets solely for verification, with immutable actor records; no model updates/configuration selection/refit/test reset. No actual production protocol/search/source freeze existed before this clause.",
+  "protected_access_authorized": false,
+  "schema": "research/v2-independent-raw-audit-software-receipt",
+  "source_files": [
+    {
+      "bytes": 15441,
+      "path": "src/treeneuron/research/independent_raw_audit_v2.py",
+      "sha256": "4367d59fcd3dfcedf2fe395fa46401cea9cfdf6cd6945c0420aadbad72250fdf"
+    },
+    {
+      "bytes": 11240,
+      "path": "src/treeneuron/research/practical_procedure_v2.py",
+      "sha256": "55d37aec3f0e7d23e6894352c2eeb734165baf6053e302cac026a23233054e0e"
+    },
+    {
+      "bytes": 21421,
+      "path": "src/treeneuron/research/protected_label_evaluator_v2.py",
+      "sha256": "0ec2f47a6093f6a1974d1d40190667f8c54da3ea229851271837cf00034012e3"
+    }
+  ],
+  "source_sha256": "94953dfe4dd51e80478b7836d35306d40e7ff9684abb029ebe93082bd252b3c5",
+  "test_files": [
+    {
+      "bytes": 7702,
+      "path": "tests/test_independent_raw_audit_v2.py",
+      "sha256": "cfb0b0db657627df39ca6ee49122b9520f39fd50fd1a0c00075da2bd1696c5dc"
+    },
+    {
+      "bytes": 11880,
+      "path": "tests/test_protected_label_evaluator_v2.py",
+      "sha256": "d34530e81db30abec4f7aaf94a20fc8bbd421257b2e58a716a7339831e67b9e7"
+    }
+  ],
+  "verification": [
+    {
+      "cause": "Missing independent auditor; intended RED",
+      "result": "12 failed in.12s"
+    },
+    {
+      "cause": "Missing copy import in new explicit audit-policy declaration; failed before target access",
+      "result": "2 failed,10 passed in2.04s"
+    },
+    {
+      "result": "12 passed in8.78s",
+      "scope": "Initial independent-auditor pass"
+    },
+    {
+      "result": "174 passed in106.72s",
+      "scope": "Final nine affected modules, including13 auditor tests; counts overlap preceding commands, no whole-suite pass"
+    }
+  ],
+  "whole_training_procedure_cost_authenticated": false
+}

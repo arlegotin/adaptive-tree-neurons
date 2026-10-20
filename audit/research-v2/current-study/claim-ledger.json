@@ -476,6 +476,11 @@
           "bytes": 5868,
           "path": "docs/research/v2/WP10-frozen-practical-analysis-receipt.json",
           "sha256": "2de4da81bbe8cbf0119aa8656efbfdefe328ada25e0542bc5878b89227212556"
+        },
+        {
+          "bytes": 6450,
+          "path": "docs/research/v2/WP10-independent-raw-audit-receipt.json",
+          "sha256": "48bad08e2b743a1bcc57518f4993637cc9bbfd9ea2ab293d38d49c46de136bbd"
         }
       ],
       "status": "supported_scoped_status",

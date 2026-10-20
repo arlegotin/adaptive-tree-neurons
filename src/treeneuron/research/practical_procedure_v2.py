@@ -3,6 +3,7 @@
 The post-search global freeze must separately join actual qualified models,
 whole-cost evidence and protected access controls. A declaration is no token.
 """
+import copy
 from pathlib import Path
 import sys
 import time
@@ -24,6 +25,11 @@ _FALSE=('execution_authorized','native_workload_qualified','protected_access_aut
     'whole_training_procedure_cost_authenticated','T_accessed')
 
 
+PROTECTED_AUDIT_POLICY=dict(actor='auditor',targets='Same frozen F/T bytes after witnessed metric completion',
+    purpose='Independent raw metric verification only',model_updates=False,configuration_selection=False,
+    access_records='Immutable role access intent and closed outcome; never reset once-only test study')
+
+
 def _policy(study_id):
     return dict(
         method=dict(P00_placement='legacy_cheap_adam',P01_placement='informed_direction_random',
@@ -40,7 +46,8 @@ def _policy(study_id):
             V_labels_reader='declared_coordinator',checkpoint_selection='strict_best_G_complete_state',
             final_model='retained_F_fit_G_selected',refit_F_G_V=False,
             retrieval_labels='F_only',foundation_context='declared_F_only',
-            protected='Once-only frozen evaluator; no model or configuration selection from T'),
+            protected='Once-only frozen evaluator; no model or configuration selection from T',
+            protected_audit=copy.deepcopy(PROTECTED_AUDIT_POLICY)),
         search=dict(official_anchors_first=True,max_attempts=32,P13_unique_configurations=29,
             training_wall_time_limit_ns=None,quality_view='native_completion',
             descriptive_prefixes_ns=[600_000_000_000,1800_000_000_000,7200_000_000_000],

@@ -118,12 +118,13 @@ def _label_cases(payload,inspection):
     return cases
 
 
-def _read_role(case,role,*,root,source_sha256,protocol_sha256,genesis_sha256,index):
+def _read_role(case,role,*,root,source_sha256,protocol_sha256,genesis_sha256,index,actor='evaluator'):
     """Witness access intent before opening bytes; retain failed outcomes."""
     if _source()!=source_sha256:raise ValueError('Frozen source changed before label role access')
     if role not in ('F','T_labels'):raise ValueError('Only explicitly bound F and protected T-label roles may be read')
+    if actor not in ('evaluator','auditor'):raise ValueError('Explicit frozen evaluator or auditor actor required')
     reference=case[role]['reference'];stem=root/'accesses'/f'{index:04}'
-    start=dict(schema='research/v2-frozen-label-role-access-start',actor='evaluator',source_sha256=source_sha256,
+    start=dict(schema='research/v2-frozen-label-role-access-start',actor=actor,source_sha256=source_sha256,
         protocol_sha256=protocol_sha256,genesis_sha256=genesis_sha256,dataset=case['dataset'],outer_fold=case['outer_fold'],
         role=role,reference=reference,origin_ns=time.perf_counter_ns(),standalone_authority=False)
     _write_new(Path(str(stem)+'-start.json'),start);error=None;status='failed';byte_count=None

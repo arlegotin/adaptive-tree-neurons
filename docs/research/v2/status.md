@@ -6,8 +6,10 @@ changes and exact evidence boundaries.
 The [cross-study report](../../../reports/research-v2.md) links the scientific
 conclusions to their [evidence and counterevidence ledger](../../../audit/research-v2/current-study/claim-ledger.json).
 
-Current implementation work is the final protected-evaluation protocol/engine,
-raw audit, physical costs/deployment, production CLI/readiness and final review.
+Current implementation work connects scored/audited outputs to complete costs,
+deployment measurements and the production report/CLI/readiness gates, followed
+by final review. Prediction, scoring, analysis and raw-audit components have
+fixture checks; their complete-qualified production path has not run.
 The primary and secondary program components are implemented and fixture-tested;
 complete-qualified production searches, global release and protected evaluation
 have not run. Two fixed old-source native engineering fits remain in progress
@@ -21,6 +23,9 @@ production prerequisites above are still unfinished; no benchmark T was read.
 The [frozen comparison binding](frozen-practical-analysis.md) is now also
 fixture-tested, including fixed V champion, paired resampling and all model
 views. Actual protected analysis and independent raw audit remain unrun.
+The [independent raw auditor](independent-raw-audit.md) is now fixture-tested
+with separate arithmetic and deliberate wrong-score detection. This adds
+software evidence; it has not inspected benchmark T or established a new win.
 
 ## The idea and present verdict
 

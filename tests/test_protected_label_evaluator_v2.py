@@ -70,7 +70,7 @@ def test_temporal_scoring_uses_actual_days_and_keeps_missing_hours():
     assert out['normalized_group_losses']['query-a']==[1.,9.]
 
 
-def complete_fixture(tmp_path):
+def complete_fixture(tmp_path,*,augment=None):
     from test_protected_prediction_queue_v2 import local_protocol,owned_fixture_executor
     from test_protected_query_worker_v2 import ref
     from treeneuron.research.protected_prediction_queue_v2 import _run_prediction_queue
@@ -84,6 +84,7 @@ def complete_fixture(tmp_path):
     payload['prediction_manifest']['view_bindings']=[dict(job_id=q['job_id'],dataset='toy',outer_fold=0,family_id='P13',
         search_repeat=r,view='native_quality',status='retained_model_bytes',deadline_ns=None,query_id=q['query_id'])
         for r,q in enumerate(payload['prediction_manifest']['queries'])]
+    if augment is not None:augment(payload)
     path=Path(reference['path']);path.write_text(json.dumps(payload,sort_keys=True)+'\n');reference=ref(path)
     seen=[];study=tmp_path/'study'
     result=_run_prediction_queue(protocol_payload=payload,protocol_reference=reference,directory=study,owner_root=tmp_path/'owners',
