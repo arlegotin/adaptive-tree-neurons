@@ -285,3 +285,12 @@ on toy data and public qualification failures. The separate training/coordinator
 views preserve the legacy primary-only guards and deny T, with their own locked
 audit channel. Actual complete-qualified public release, secondary native
 workload/search execution and protected evaluation remain unrun/unfinished.
+
+[Secondary native evidence](secondary-native-evidence.md) now checks managed
+generation, full workload, fresh label-free replay, coordinator V arithmetic and
+read-only reopening on a secondary toy fold. Two separate regression commands
+passed 80 and 61 checks. Public real global qualification remains mandatory;
+no complete-qualified positive release or real secondary search has run. The
+unchanged-support secondary template/callback/program route, full 840-model/T
+barrier, protected evaluator/auditor, costs, CLI/readiness and final review still
+remain before final-source qualification and production searches.

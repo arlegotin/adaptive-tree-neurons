@@ -1,0 +1,223 @@
+{
+  "T_accessed": false,
+  "capture_recovery": "First read-only capture used the macOS /var temporary-path alias and was rejected by the canonical-path guard before output. Resolving the actual /private/var path fixed only the capture invocation; production guards/source unchanged.",
+  "capture_script": {
+    "bytes": 3946,
+    "path": "artifacts/research-v2/WP09/capture-secondary-native-software.py",
+    "sha256": "bd6ad229de2548ec3af603540f6e380f3fdafaf3d72ccbcda768bb43d695f030"
+  },
+  "complete_qualified_public_execution": false,
+  "initial_RED": "1failed5setupErrors0.50s: all assert the not-yet-implemented secondary module is missing",
+  "logs": [
+    {
+      "bytes": 8680,
+      "path": "artifacts/research-v2/WP09/secondary-native-red.log",
+      "sha256": "9642a815c6d960404ac3970c7ad93ea2f489c8b6f8ffc73a2ce6b7ace510d083"
+    },
+    {
+      "bytes": 180,
+      "path": "artifacts/research-v2/WP09/secondary-native-green.log",
+      "sha256": "c3718b94f6a267e59096a0ea3f10b862e7f71692971dacc3c8618a0b501cf562"
+    },
+    {
+      "bytes": 111,
+      "path": "artifacts/research-v2/WP09/secondary-native-family-regression.log",
+      "sha256": "8a27814d3e6c82b2eb8e729fc3274022a35ec68f098ffbce234e779266b6078c"
+    },
+    {
+      "bytes": 250,
+      "path": "artifacts/research-v2/WP09/secondary-native-capture.log",
+      "sha256": "91c50cc18455e26a73eb01587d9c6ef92acd0ea168c5e7d1ce03950a74e4ffac"
+    }
+  ],
+  "observation": {
+    "bytes": 1954,
+    "path": "artifacts/research-v2/WP09/secondary-native-software/observation.json",
+    "sha256": "c439fa9558d13de3d4c1a0dd8540439595b1d7f5882bfc7dd7b8c72abacb3a67"
+  },
+  "parent_commit": "7ba0e2e",
+  "production_readiness_authenticated": false,
+  "protected_access_authorized": false,
+  "real_transfer_labels_read": false,
+  "remaining": [
+    "Unchanged-support actual secondary native template/callback/paid-search and owned program routes",
+    "Complete840 retained-model seal and once-only protected evaluator/raw audit",
+    "Physical costs/deployment, CLI/readiness and final review before final-source qualification/production"
+  ],
+  "schema": "research/v2-secondary-native-evidence-component-receipt",
+  "scope": "Real secondary generation/workload/replay/V evidence route, gated publicly by actual global qualification; positive private-core tests use raw-identity-false toy data only. No successful complete-qualified public release was fabricated.",
+  "secondary_native_workload_qualified": false,
+  "source_sha256": "504dec673552887bd6bef60e334da9acceee2a96c3ebac22aea429894547c590",
+  "tested_files": [
+    {
+      "bytes": 3443,
+      "path": "src/treeneuron/research/secondary_native_evidence_v2.py",
+      "sha256": "52d105c7b7f336b343e34136afa5f0a300a7c94584762b1cd380511191556df8"
+    },
+    {
+      "bytes": 10889,
+      "path": "src/treeneuron/research/native_generation_v2.py",
+      "sha256": "506903a1fe246b986695a105b3214a818510b41de27a8e3c83d12e3293ad31e5"
+    },
+    {
+      "bytes": 51132,
+      "path": "src/treeneuron/research/native_workload_v2.py",
+      "sha256": "c82b3cf151ff1ac4c91aa685602bcc0c6b05b77b3398ba5a2f85998b900303af"
+    },
+    {
+      "bytes": 10489,
+      "path": "src/treeneuron/research/native_candidate_v2.py",
+      "sha256": "e5f291db6aa17972ad438d6da1a999225b65548c2baf76468386e51406e22fe4"
+    },
+    {
+      "bytes": 10767,
+      "path": "src/treeneuron/research/native_inspection_reader_v2.py",
+      "sha256": "3c08479482b9ef73fc18ad735243cf630dc7b73914fe8b731a323772d91bdcba"
+    },
+    {
+      "bytes": 10032,
+      "path": "src/treeneuron/research/validation_scoring_v2.py",
+      "sha256": "32d709efc140907f081ee62e8cd72beb5a199e19aee0b2d91a3afe2a1cc43d33"
+    },
+    {
+      "bytes": 9222,
+      "path": "src/treeneuron/research/released_transfer_v2.py",
+      "sha256": "e16dac90d6094891ac40792c0df8955650ae19c5168717cec45229d6da2cb931"
+    },
+    {
+      "bytes": 6088,
+      "path": "tests/test_secondary_native_evidence_v2.py",
+      "sha256": "b3e06b9677960cde94d5db08f5605a237c97d04a626a6cb360b028f10fea924b"
+    },
+    {
+      "bytes": 5904,
+      "path": "tests/test_native_generation_chain.py",
+      "sha256": "3b4b8f0f66417cc13ae4afe84c72d7474c8ffba8a6f3116209f22208be5b27be"
+    },
+    {
+      "bytes": 9306,
+      "path": "tests/test_native_workload_observation.py",
+      "sha256": "5d4f241c027fd87bf7d3853a5d4f72ab8b800de5ca52e441eb0621b94d755bba"
+    },
+    {
+      "bytes": 5581,
+      "path": "tests/test_native_candidate_inspection.py",
+      "sha256": "741766945be198598995979e6ec4f738962c7bee8e08faf01c71f6c9c89cd23c"
+    },
+    {
+      "bytes": 9991,
+      "path": "tests/test_native_inspection_reader_v2.py",
+      "sha256": "e4e3e8a115ef47679a4362ae80f0e1777d9b67044eaf1496327fee471a2aa9b1"
+    },
+    {
+      "bytes": 10416,
+      "path": "tests/test_validation_scoring_v2.py",
+      "sha256": "e5adbc67a1bbdac03861347ba209e7e9fe026e17cd8904060e8463b66789a699"
+    },
+    {
+      "bytes": 5228,
+      "path": "tests/test_released_transfer_v2.py",
+      "sha256": "ca4b8add15fb7d44b3dc7ce32abc344c7b0f5f1c784de76dc5da3ec5e246f39c"
+    },
+    {
+      "bytes": 1078,
+      "path": "tests/test_native_workload_tensor_bounds.py",
+      "sha256": "34368a51cbaee417c2c4c76fd8670e9d2e86ee1994f67f24ffe26d67266202e0"
+    },
+    {
+      "bytes": 4012,
+      "path": "tests/test_native_workload_gated.py",
+      "sha256": "43cd091d80fc431131c82f237b5d785cde6170a4238953168e26d33e30f3f512"
+    },
+    {
+      "bytes": 3817,
+      "path": "tests/test_native_workload_epochs.py",
+      "sha256": "e264a2634028491965cd4a457ea64ab18274139ca4acce712c34151aae68f64f"
+    },
+    {
+      "bytes": 3812,
+      "path": "tests/test_native_workload_external.py",
+      "sha256": "1229ac128468509e9bff546c161374e32ed3b8f433ffce31328c4e1e8a39f872"
+    },
+    {
+      "bytes": 5473,
+      "path": "tests/test_native_workload_node.py",
+      "sha256": "59cb5b007b4308cc6a02d134b0c4c4812bad47e8b105659128d50a8746ff22f8"
+    },
+    {
+      "bytes": 7712,
+      "path": "tests/test_native_trial_bridge.py",
+      "sha256": "0d26ec63dcb08677d8124c97000d196b2805e3087cdc93fb72f7c38eb2216b8a"
+    },
+    {
+      "bytes": 6693,
+      "path": "tests/test_qualified_native_trial_v2.py",
+      "sha256": "59f8f92ac7b9e2f0e46f6e6dec8058895044b59e3d27f2357be96c7df8c7a6c7"
+    }
+  ],
+  "toy_F_G_V_labels_read": true,
+  "toy_model_fit_and_fresh_prediction_replay_exercised": true,
+  "verification": [
+    {
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+        "-P",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_secondary_native_evidence_v2.py",
+        "tests/test_native_generation_chain.py",
+        "tests/test_native_workload_observation.py",
+        "tests/test_native_candidate_inspection.py",
+        "tests/test_native_inspection_reader_v2.py",
+        "tests/test_validation_scoring_v2.py",
+        "tests/test_released_transfer_v2.py"
+      ],
+      "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+      "environment_overrides": {
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+        "VECLIB_MAXIMUM_THREADS": "1"
+      },
+      "owned_child_process_inspection": true,
+      "result": "80passed59.26s"
+    },
+    {
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+        "-P",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_native_workload_tensor_bounds.py",
+        "tests/test_native_workload_gated.py",
+        "tests/test_native_workload_epochs.py",
+        "tests/test_native_workload_external.py",
+        "tests/test_native_workload_node.py",
+        "tests/test_native_trial_bridge.py",
+        "tests/test_qualified_native_trial_v2.py"
+      ],
+      "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+      "environment_overrides": {
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+        "VECLIB_MAXIMUM_THREADS": "1"
+      },
+      "owned_child_process_inspection": true,
+      "result": "61passed293.68s"
+    }
+  ],
+  "whole_repository_suite_passed": false
+}

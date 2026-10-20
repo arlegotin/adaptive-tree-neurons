@@ -75,6 +75,18 @@ class _ReleasedRoles:
     @property
     def manifest(self):return self._store.manifest
 
+    def _access(self,fold,roles):
+        """Conservatively record the full admitted fitting context for audits.
+
+        The arithmetic audit may read only F labels and V feature identities.
+        The event records the admitted F/G/V fitting capability, not a claim
+        that every granted label was decoded by that particular call.
+        """
+        self._split(fold)
+        if roles not in (['F_labels','G_labels','V_features'],['F_labels','V_features','V_group_or_day_ids']):
+            raise PermissionError('Released evidence audit cannot extend its fitting roles')
+        self._record(outer_fold=fold,actor='frozen_secondary_fit_worker',roles=list(_ACTORS['frozen_secondary_fit_worker']))
+
     def _split(self,fold):
         primary=4 if self.manifest['dataset']=='bike' else 0
         if type(fold) is not int or not 0<=fold<5:raise ValueError('Integer fixed secondary fold required')

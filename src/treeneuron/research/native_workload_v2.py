@@ -621,9 +621,14 @@ def inspect_native_workload(*,request_path,expected_request_sha256,native_refere
     args=copy.deepcopy(dict(request_path=request_path,expected_request_sha256=expected_request_sha256,
         native_reference=native_reference,prepared_root=prepared_root,expected_manifest_sha256=expected_manifest_sha256,
         outer_fold=outer_fold,expected_fit_seed=expected_fit_seed,expected_configuration=expected_configuration))
+    return _inspect_native_workload(args,audit_generation=audit_native_generation)
+
+
+def _inspect_native_workload(args,*,audit_generation,role_scope='primary'):
+    args=copy.deepcopy(args)
     config=args['expected_configuration'];family=config.get('family') if type(config) is dict else None
     if family not in tuple(f'P{i:02}' for i in range(14)):raise ValueError('Recorded native workload observation for this family is not implemented')
-    generation=audit_native_generation(**args);root=Path(args['native_reference']['root'])
+    generation=audit_generation(**args);root=Path(args['native_reference']['root'])
     inventory=_inventory(root)
     if canonical_hash(inventory)!=args['native_reference']['inventory_sha256']:
         raise ValueError('Native workload inventory changed')
@@ -638,11 +643,11 @@ def inspect_native_workload(*,request_path,expected_request_sha256,native_refere
         training=inspect_node_records(root,read,request,arrays)
     elif family in ('P03','P04','P07'):training=_inspect_epochs(root,read,refs,request,arrays)
     else:training=_inspect_gated(root,read,refs,request,arrays)
-    if audit_native_generation(**args)!=generation or _inventory(root)!=inventory:
+    if audit_generation(**args)!=generation or _inventory(root)!=inventory:
         raise ValueError('Native workload inputs or evidence changed during inspection')
     return dict(schema='research/v2-recorded-native-workload-observation',status='checked_recorded_native_workload',
         family_id=family,source_sha256=generation['source_sha256'],configuration_sha256=generation['configuration_sha256'],
         generation=generation,input_rows={k:len(v['X']) for k,v in arrays.items()},training=training,
         process_observation_recomputed=True,process_observation=process,
         native_workload_qualified=False,quality_eligible=False,T_accessed=False,
-        scope='Recorded native procedure, primary role/context and raw resource observations; no complete qualification registry, new fit/inference, V labels or protected authority')
+        scope=f'Recorded native procedure, {role_scope} role/context and raw resource observations; no complete qualification registry, new fit/inference, V labels or protected authority')

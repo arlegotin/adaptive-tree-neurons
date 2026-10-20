@@ -46,6 +46,11 @@ def load_primary_native_inspection(reference,*,generation_arguments,immutable_ge
     journal, a selected model or a protected evaluator. V arithmetic is read
     through its declared primary coordinator; T remains unopened.
     """
+    return _load_native_inspection(reference,generation_arguments=generation_arguments,immutable_generation_root=immutable_generation_root,
+        audit_generation=audit_native_generation,score_validation=score_primary_validation_prediction)
+
+
+def _load_native_inspection(reference,*,generation_arguments,immutable_generation_root,audit_generation,score_validation,role_scope='primary'):
     reference=copy.deepcopy(reference);args=copy.deepcopy(generation_arguments)
     if type(args) is not dict or set(args)!=_ARGUMENTS:raise ValueError('Exact native generation arguments required')
     root,inventory=_closed_reference(reference);read,refs=_bound_reader(root,inventory)
@@ -64,7 +69,7 @@ def load_primary_native_inspection(reference,*,generation_arguments,immutable_ge
             or any(record.get(k) is not False for k in ('native_workload_qualified','HPO_journal_authenticated',
                 'quality_eligible','T_accessed','model_training_independently_reexecuted'))):
         raise ValueError('Closed native inspection source/schema/authority/generation differs')
-    generation=audit_native_generation(**args)
+    generation=audit_generation(**args)
     if record.get('generation')!=generation:raise ValueError('Inspection belongs to another original generation')
     replay=read('replay/terminal.json');process=read('process/process.json')
     path=root/'input/request.json';request_sha=_sha(path)
@@ -119,19 +124,19 @@ def load_primary_native_inspection(reference,*,generation_arguments,immutable_ge
             or _inventory(replayed_snapshot)!=_inventory(snapshot)
             or replay.get('snapshot_files')!=_inventory(snapshot)['files']):
         raise ValueError('Replay query/prediction/snapshot is not the original generation')
-    validation=score_primary_validation_prediction(root=args['prepared_root'],outer_fold=args['outer_fold'],
+    validation=score_validation(root=args['prepared_root'],outer_fold=args['outer_fold'],
         expected_manifest_sha256=args['expected_manifest_sha256'],prediction_path=Path(generation['prediction']['path']),
         expected_prediction_sha256=generation['prediction']['sha256'])
     if validation!=record.get('validation'):raise ValueError('Independent primary V arithmetic differs')
-    if (audit_native_generation(**args)!=generation or _source()!=source or _inventory(root)!=inventory
+    if (audit_generation(**args)!=generation or _source()!=source or _inventory(root)!=inventory
             or canonical_hash(_inventory(container))!=record['immutable_generation_inventory_sha256']):
         raise ValueError('Original source/generation/inspection changed while reading')
     for row in validation['sources']:
         original=Path(row['path'])
         if original.is_symlink() or _sha(original)!=row['sha256']:raise ValueError('Primary validation bytes changed after arithmetic')
-    return dict(schema='research/v2-authenticated-primary-native-inspection',reference=reference,source_sha256=source,
+    return dict(schema=f'research/v2-authenticated-{role_scope}-native-inspection',reference=reference,source_sha256=source,
         inspection_authenticated=True,generation=generation,validation=validation,
         prediction_reload_exact=True,V_labels_read_by_coordinator=True,process_observation=observation,
         new_fit_or_inference=False,native_workload_qualified=False,HPO_journal_authenticated=False,
         quality_eligible=False,protected_access_authorized=False,T_accessed=False,
-        scope='Reopened current-source primary native search generation, saved managed independent replay and exact coordinator V arithmetic. No new fit/inference, software/workload/support qualification, paid journal, selected model or protected authority.')
+        scope=f'Reopened current-source {role_scope} native search generation, saved managed independent replay and exact coordinator V arithmetic. No new fit/inference, software/workload/support qualification, paid journal, selected model or protected authority.')

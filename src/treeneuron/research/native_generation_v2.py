@@ -19,15 +19,26 @@ from .workqueue import _inventory
 
 def audit_native_generation(*,request_path,expected_request_sha256,native_reference,
         prepared_root,expected_manifest_sha256,outer_fold,expected_fit_seed,expected_configuration):
+    prepared=Path(prepared_root).resolve();manifest_path=prepared/'manifest.json'
+    if manifest_path.is_symlink() or not manifest_path.is_file() or _sha(manifest_path)!=expected_manifest_sha256:
+        raise ValueError('Externally committed primary prepared manifest required')
+    store=TransferStore(prepared);_checked_manifest(store.manifest['dataset'],store.manifest)
+    if type(outer_fold) is not int or outer_fold!=(4 if store.manifest['dataset']=='bike' else 0):
+        raise ValueError('This generation verifier admits primary roles only')
+    return _audit_native_generation(store=store,request_path=request_path,expected_request_sha256=expected_request_sha256,
+        native_reference=native_reference,prepared_root=prepared_root,expected_manifest_sha256=expected_manifest_sha256,
+        outer_fold=outer_fold,expected_fit_seed=expected_fit_seed,expected_configuration=expected_configuration)
+
+
+def _audit_native_generation(*,store,request_path,expected_request_sha256,native_reference,
+        prepared_root,expected_manifest_sha256,outer_fold,expected_fit_seed,expected_configuration,role_scope='primary'):
+    """Private byte/receipt core; the public route owns data-role admission."""
     request_path=Path(request_path).resolve();prepared_root=Path(prepared_root).resolve()
     manifest_path=prepared_root/'manifest.json';before=scientific_source_sha256()
     if (not _digest(expected_manifest_sha256) or manifest_path.is_symlink()
             or not manifest_path.is_file() or _sha(manifest_path)!=expected_manifest_sha256):
         raise ValueError('Externally committed primary prepared manifest required')
-    store=TransferStore(prepared_root);manifest=store.manifest
-    _checked_manifest(manifest['dataset'],manifest)
-    if type(outer_fold) is not int or outer_fold!=(4 if manifest['dataset']=='bike' else 0):
-        raise ValueError('This generation verifier admits primary roles only')
+    manifest=store.manifest
     split=store._split(outer_fold)
     request,_=_validate_request(request_path,expected_request_sha256,
         recoverable_training=_read_json(request_path).get('family_id')=='P12')
@@ -120,4 +131,4 @@ def audit_native_generation(*,request_path,expected_request_sha256,native_refere
         prediction=dict(path=str(prediction_path),sha256=_sha(prediction_path)),snapshot=dict(path=str(snapshot),sha256=_sha(snapshot)),
         model_training_independently_reexecuted=False,model_predictions_independently_reexecuted=False,
         native_workload_qualified=False,HPO_journal_authenticated=False,quality_eligible=False,V_labels_read=False,T_accessed=False,
-        scope='Trusted current-source managed receipts and immutable byte/primary-role chain; no independent optimization or prediction replay, native implementation/workload qualification, support/HPO/V arithmetic or protected authority')
+        scope=f'Trusted current-source managed receipts and immutable byte/{role_scope}-role chain; no independent optimization or prediction replay, native implementation/workload qualification, support/HPO/V arithmetic or protected authority')

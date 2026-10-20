@@ -21,6 +21,13 @@ from .workqueue import _inventory
 
 def inspect_primary_native_candidate(*,generation_arguments,immutable_generation_root,
         output,interpreter,extra_pythonpath=(),rss_limit_bytes=4*1024**3):
+    return _inspect_native_candidate(generation_arguments=generation_arguments,immutable_generation_root=immutable_generation_root,
+        output=output,interpreter=interpreter,extra_pythonpath=extra_pythonpath,rss_limit_bytes=rss_limit_bytes,
+        audit_generation=audit_native_generation,score_validation=score_primary_validation_prediction)
+
+
+def _inspect_native_candidate(*,generation_arguments,immutable_generation_root,
+        output,interpreter,extra_pythonpath=(),rss_limit_bytes=4*1024**3,audit_generation,score_validation,role_scope='primary'):
     started=time.perf_counter_ns();args=copy.deepcopy(generation_arguments)
     container=Path(immutable_generation_root).resolve();output=Path(output)
     if (type(args) is not dict or not container.is_dir() or output.exists() or output.is_symlink()
@@ -38,7 +45,7 @@ def inspect_primary_native_candidate(*,generation_arguments,immutable_generation
         if not path.is_dir() or not path.is_relative_to((_ROOT/'environment').resolve()):
             raise ValueError('Replay overlays must remain in the pinned environment')
         overlays.append(str(path))
-    generation=audit_native_generation(**args)
+    generation=audit_generation(**args)
     before=_inventory(container);source=scientific_source_sha256()
     request=_read_json(args['request_path']);snapshot=Path(generation['snapshot']['path']).parent
     query=Path(args['request_path']).parent/request['files']['V_features']['path']
@@ -58,7 +65,7 @@ def inspect_primary_native_candidate(*,generation_arguments,immutable_generation
         V_coordinator_invoked=False,V_labels_read_by_coordinator=False,T_accessed=False,
         model_training_independently_reexecuted=False,
         input_materialization=[],
-        scope='Current-source generation chain, independent closed-model inference and primary V arithmetic only. Native implementation/workload/support qualification, paid search journal and protected freeze remain separate.')
+        scope=f'Current-source generation chain, independent closed-model inference and {role_scope} V arithmetic only. Native implementation/workload/support qualification, paid search journal and protected freeze remain separate.')
     try:
         inputs=output/'input';inputs.mkdir()
         committed={row['path']:row['sha256'] for row in staged_snapshot['files']}
@@ -106,14 +113,14 @@ def inspect_primary_native_candidate(*,generation_arguments,immutable_generation
         record['replay_process_inventory_sha256']=canonical_hash(process_evidence)
         # No primary labels are opened until both generation and independent
         # inference pass. Repeat generation validation before and after V.
-        if audit_native_generation(**args)!=generation or _inventory(container)!=before:
+        if audit_generation(**args)!=generation or _inventory(container)!=before:
             raise ValueError('Original generation changed during independent replay')
         record['V_coordinator_invoked']=True;record['V_labels_read_by_coordinator']=None
-        record['validation']=score_primary_validation_prediction(root=args['prepared_root'],outer_fold=args['outer_fold'],
+        record['validation']=score_validation(root=args['prepared_root'],outer_fold=args['outer_fold'],
             expected_manifest_sha256=args['expected_manifest_sha256'],prediction_path=prediction,
             expected_prediction_sha256=generation['prediction']['sha256'])
         record['V_labels_read_by_coordinator']=True
-        if (audit_native_generation(**args)!=generation or _inventory(container)!=before
+        if (audit_generation(**args)!=generation or _inventory(container)!=before
                 or scientific_source_sha256()!=source or _inventory(inputs/'snapshot')!=staged_snapshot
                 or _sha(inputs/'query.npz')!=replay_request['query']['sha256']
                 or _sha(inputs/'prediction.npz')!=replay_request['prediction']['sha256']

@@ -82,11 +82,21 @@ def score_primary_validation_prediction(*, root, outer_fold, expected_manifest_s
     reader is called only after feature-only prediction alignment succeeds.
     Every opened reference is rechecked before returning a score.
     """
+    root=Path(root).resolve()
+    _content(root/'manifest.json',expected_manifest_sha256)
+    store=TransferStore(root);store._split(outer_fold)
+    return _score_validation_prediction(store=store,root=root,outer_fold=outer_fold,
+        expected_manifest_sha256=expected_manifest_sha256,prediction_path=prediction_path,
+        expected_prediction_sha256=expected_prediction_sha256)
+
+
+def _score_validation_prediction(*,store,root,outer_fold,expected_manifest_sha256,
+        prediction_path,expected_prediction_sha256,role_scope='primary'):
+    """Private shared arithmetic after the route has admitted its role context."""
     root = Path(root).resolve()
     manifest_path = root/'manifest.json'
     _content(manifest_path, expected_manifest_sha256)
-    store = TransferStore(root)
-    split = store._split(outer_fold)  # Secondary release remains forbidden.
+    split = store._split(outer_fold)
     prediction_path = Path(prediction_path).absolute()
     # Data-store paths cannot masquerade as a worker prediction, including T.
     if prediction_path.resolve().is_relative_to(root):
@@ -156,7 +166,7 @@ def score_primary_validation_prediction(*, root, outer_fold, expected_manifest_s
     for path, digest in references.items():
         _content(path, digest)
     metrics = arithmetic['methods']['candidate']
-    return dict(schema='research/v2-primary-validation-score', status=arithmetic['status'],
+    return dict(schema=f'research/v2-{role_scope}-validation-score', status=arithmetic['status'],
         dataset=manifest['dataset'], outer_fold=outer_fold, manifest_hash=manifest['manifest_hash'],
         split_hash=split['split_hash'], prediction_dtype=str(values.dtype), metric_dtype='float64',
         sealed_group_ids_sha256=array_hash(V.group_id),
@@ -169,4 +179,4 @@ def score_primary_validation_prediction(*, root, outer_fold, expected_manifest_s
         arithmetic=arithmetic, quality_eligible=False, selection_authorized=False,
         protected_access_authenticated=False, raw_acquisition_authenticated=False,
         model_generation_authenticated=False,
-        scope='Primary coordinator byte binding and V arithmetic only; native model/qualification and search eligibility require separate validation')
+        scope=f'{role_scope.capitalize()} coordinator byte binding and V arithmetic only; native model/qualification and search eligibility require separate validation')

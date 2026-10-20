@@ -2620,3 +2620,31 @@ Actual secondary native workload/adapter/search routes, full840postsecondary/T
 barrier/evaluator/rawaudit/cost/CLI/readiness/finalreview remain unfinished before
 final-source qualification or primary production. Heldc33CCPP7600+ and
 source/env/ops/predictive findings are unchanged.
+
+## 20 October: secondary native generation/workload/replay/V evidence
+
+Factored private role-context cores while preserving public primary-only
+generation/scoring/inspection guards. Separate public secondary entry points
+reopen the actual global barrier before role metadata/model evidence and require
+its exact prepared root/manifest/secondary fold. Actual secondary native fit,
+complete workload inspection, fresh-process model replay, separate V coordinator
+arithmetic and read-only saved-inspection reopening were exercised on an
+explicitly unqualified toy Energy-shaped table. No fake complete qualification
+was used. The actual complete-qualified public positive remains unrun; these
+components grant no search selection, secondary workload qualification or T.
+
+Initial missing-module RED:1failed5setupErrors0.50s. Focused seven modules:
+80passed59.26s. Separate native-family regression seven modules:61passed293.68s.
+Read-only capture initially used a macOS /var path alias; canonical-directory
+checks rejected it before output. Resolving the capture locator to /private/var
+allowed the unchanged guards to verify saved evidence. Captured F12/V4/two-group
+toy metric matches independent stdlib arithmetic exactly, with only F/G/Vfeatures
+in the fitting request and no primary log/T reads. This is scoped software/native
+evidence, not a final whole-suite or production-qualification pass.
+
+[Contract](secondary-native-evidence.md),
+[receipt](WP09-secondary-native-evidence-receipt.json). Next is the unchanged
+secondary template/callback/paid search/program route, then full840model/T once,
+evaluator/raw audit/cost/deployment/CLI/readiness/final review before final-source
+actual qualification or primary production. M3/B0 negative branch dispositions,
+all scientific results and the held c33 native execution/source/env stay unchanged.
