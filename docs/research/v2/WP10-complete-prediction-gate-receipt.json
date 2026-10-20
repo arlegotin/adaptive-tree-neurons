@@ -1,0 +1,155 @@
+{
+  "T_accessed": false,
+  "actual_benchmark_label_archives_read": 0,
+  "actual_benchmark_models_fitted": 0,
+  "actual_complete_qualified_public_positive": false,
+  "actual_protected_inference": false,
+  "artifact_inventory": {
+    "bytes": 37749,
+    "path": "artifacts/research-v2/WP10/complete-prediction-stage-software-inventory.json",
+    "sha256": "e1da5ce9a1a0281d59275bf51252a1be63a47339e41c11eee7bf7f5f19abd272"
+  },
+  "base_commit": "1b98253b3ce0db3502ddd8ce5ed93e7a36170250",
+  "capture": {
+    "additive_invocation_elapsed_ns": 2600878500,
+    "call_count": 2,
+    "common_invocation_overhead_ns": 1176671333,
+    "invocation_count": 1,
+    "missing_end_rejected_and_original_retained": true,
+    "nested_executor_call_ns": 1424207167,
+    "query_count": 2,
+    "stable_after_private_label_metric_markers": true
+  },
+  "capture_script": {
+    "bytes": 3968,
+    "path": "artifacts/research-v2/WP10/capture_complete_prediction_stage.py",
+    "sha256": "e855ef6af1b4448467db6877bda723d437630b4846c52654ad13daf8a59ba639"
+  },
+  "date": "2026-10-21",
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_protected_prediction_gate_v2.py",
+      "tests/test_protected_prediction_queue_v2.py",
+      "tests/test_protected_journal_v2.py",
+      "tests/test_protected_query_worker_v2.py",
+      "tests/test_protected_query_artifact_v2.py",
+      "tests/test_practical_T_protocol_v2.py",
+      "tests/test_cooperative_process_v2.py",
+      "tests/test_transfer_access_v2.py"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "permission_scope": "Observe only fixture supervisors and their own child PIDs"
+  },
+  "implementation_files": [
+    {
+      "bytes": 17044,
+      "path": "src/treeneuron/research/protected_prediction_gate_v2.py",
+      "sha256": "682948684f08aeff9bdb1dcb23f88743cc1fc86b75a3392505d855a3de71fc2b"
+    },
+    {
+      "bytes": 8091,
+      "path": "tests/test_protected_prediction_gate_v2.py",
+      "sha256": "f7392eaa970719ab3d28f0bc127c57c4b8ef5632e97d7300c84c5d86a3019c81"
+    }
+  ],
+  "limitations": [
+    "Private fixture stages and metadata flags confer no native/protected or direct label authority.",
+    "Actual complete-qualified seal/load remains unrun; readiness is still a missing required dependency.",
+    "Invocation final publication/return and later label/deployment stages are not complete pipeline cost evidence.",
+    "Actual label evaluator, full raw/metric/model/access audit, deployment/full-cost/report/CLI/readiness and final review remain before production.",
+    "Earlier checks overlap this command; no pooled or whole-suite success is inferred."
+  ],
+  "logs": [
+    {
+      "bytes": 20665,
+      "path": "artifacts/research-v2/WP10/protected-prediction-gate-red.log",
+      "sha256": "a52b5e00adbaac8b9e991d61987085426938d0207bb0f0bac1b9d8a375cb83e8"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP10/protected-prediction-gate-first.log",
+      "sha256": "995a78c207bcb12f08eb939f637ffc0191a6fae8910f5f7ad9cbaabe80e1777e"
+    },
+    {
+      "bytes": 1575,
+      "path": "artifacts/research-v2/WP10/protected-prediction-gate-output-red.log",
+      "sha256": "8aa6144195337d2aef0c1c22c44df955f47a708dfc2add13d4a7f42e8c50ff35"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP10/protected-prediction-gate-expanded.log",
+      "sha256": "1213a35162523a5d042f671484e4cad68a6615f50d491d715a4ef9da2f769fb0"
+    },
+    {
+      "bytes": 1353,
+      "path": "artifacts/research-v2/WP10/protected-prediction-gate-race-red.log",
+      "sha256": "0852a3ea05cb59801e7620ed158f39d70470180361b8adc7a38c7ecb69262fb7"
+    },
+    {
+      "bytes": 272,
+      "path": "artifacts/research-v2/WP10/protected-prediction-gate-affected.log",
+      "sha256": "436e500b8b9a025cec1611228adc01612851779f9ae032e1d10bd1f90273a961"
+    }
+  ],
+  "native_qualification_authenticated": false,
+  "next": "Actual once-only label evaluator using genuine protocol and complete prediction stage, explicit actor/access journal, original-unit paired metrics, then independent raw/model/access audit and remaining deployment/cost/report/CLI/readiness/final review before production.",
+  "observation": {
+    "bytes": 1588,
+    "path": "artifacts/research-v2/WP10/complete-prediction-stage-software/observation.json",
+    "sha256": "b8f4f16746f7b9437eef9a807a8cc84a636f4cc73146d9b8219910d8f1fb9439"
+  },
+  "protected_access_authorized": false,
+  "red_green": [
+    {
+      "outcome": "13 failed in0.07s",
+      "stage": "missing gate"
+    },
+    {
+      "outcome": "13 passed in36.77s",
+      "stage": "first implementation"
+    },
+    {
+      "outcome": "1 failed,15 deselected in0.19s; missing complete input/proof path guard",
+      "stage": "output guard"
+    },
+    {
+      "outcome": "16 passed in42.06s",
+      "stage": "historical metadata and method isolation"
+    },
+    {
+      "outcome": "1 failed,16 deselected in3.50s; record hash not rechecked at return",
+      "stage": "invocation changed during readback"
+    },
+    {
+      "outcome": "177 passed in105.57s",
+      "stage": "final hash/directory check and affected scope"
+    }
+  ],
+  "schema": "research/v2-complete-prediction-gate-component-receipt",
+  "scope": "Actual protocol-first public seal/load and complete readonly private prediction/attempt/invocation evidence inspector; no label evaluator or complete pipeline cost authority",
+  "source_sha256": "e184118bc5dbf31b4056847c547414fd8ed2e78219c59981a0c57cf2ed21368a",
+  "verification": {
+    "exit_code": 0,
+    "failed": 0,
+    "passed": 177,
+    "seconds": 105.57,
+    "session_id": 92177,
+    "whole_suite": false
+  }
+}

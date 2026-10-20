@@ -3087,3 +3087,20 @@ Actual complete-qualified public success, full queue/invocation/access audit,
 once-only labels, final raw/metric/model audit, deployment/full-cost/CLI/readiness
 and final review remain before production. No actual T metrics exist. Invocation
 clock publication/return is excluded and awaits containing cost evidence.
+
+## Complete prediction evidence gate,21October
+
+The [gate](complete-prediction-gate.md) now reconstructs every frozen prediction,
+failed/successful attempt and complete invocation, with actual owned and finite
+file evidence. Start/end pairing, exact call coverage, containing clocks and
+witnessed historical journal prefixes are required. Output paths preserve all
+model/data/study/owner/proof/runtime inputs. Records changed during readback fail.
+
+The final eight-module command passed177checks in105.57s, sourcee184118bc5dbf31b4056847c547414fd8ed2e78219c59981a0c57cf2ed21368a.
+Initial13missing-module failures, a missing path guard and one final hash-recheck
+failure/fix are retained in the [receipt](WP10-complete-prediction-gate-receipt.json).
+The local two-query/one-invocation capture remains byte-equivalent after private
+metadata markers; a separate missing-end case fails and retains original bytes.
+No actual labels, benchmark fitting or genuine protected inference occurred.
+Actual public seal/load positive remains unrun. Label evaluation and the full
+audit/deployment/cost/report/CLI/readiness/final review still precede production.

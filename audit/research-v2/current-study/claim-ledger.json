@@ -461,6 +461,11 @@
           "bytes": 8702,
           "path": "docs/research/v2/WP10-protected-prediction-queue-receipt.json",
           "sha256": "3e5f3c658b20831cc62112bc719970f4d5c9f9e812c52918a4b06fb9d386dcd6"
+        },
+        {
+          "bytes": 6186,
+          "path": "docs/research/v2/WP10-complete-prediction-gate-receipt.json",
+          "sha256": "4f8d059635dab00d36b4583fc2ac037b1d685c78453f43b718ea8ebb49bc4e8a"
         }
       ],
       "status": "supported_scoped_status",
