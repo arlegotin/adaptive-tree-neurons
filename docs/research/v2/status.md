@@ -93,6 +93,11 @@ counter fixtures; the real hardware-dependent training test remains unchanged.
 The [follow-up receipt](WP11-software-follow-up-receipt.json) preserves the
 original failures and exact scope. Production guards remain intact.
 
+The [recorded native training reader](native-training-observation.md) now checks
+P13's closed-form F context/design, finite payload and raw process observations.
+Its 23 reader/generation checks pass. Other families and the complete qualification
+registry remain pending; this is not production model eligibility.
+
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only
 the branches their gates authorize. The native/support/workload qualification

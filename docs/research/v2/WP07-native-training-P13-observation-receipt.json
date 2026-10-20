@@ -1,0 +1,90 @@
+{
+  "actual_fixtures": "Closed native mean/ridge/spline fits on synthetic Energy-schema primary roles. Original managed fitting/reload is trusted; observation itself forbids refit, prediction and least-squares solve. This is not official acquisition/data qualification.",
+  "authority": {
+    "T_accessed": false,
+    "final_source_qualified": false,
+    "native_workload_qualified": false,
+    "production_registry_complete": false,
+    "quality_eligible": false
+  },
+  "historical_or_held_models_modified": false,
+  "implemented_families": [
+    "P13"
+  ],
+  "logs": [
+    {
+      "bytes": 4120,
+      "path": "artifacts/research-v2/WP11/native-workload-observation-RED.log",
+      "sha256": "bed40d7b7e49e6ca26ceb605d4e43e485b2299c57a6389baa28046af778bcb7f"
+    },
+    {
+      "bytes": 1961,
+      "path": "artifacts/research-v2/WP11/native-workload-observation-first-GREEN.log",
+      "sha256": "405ee94f4bac853134e331a8e3953953678a42a46aaac40165d7ee52497b9be1"
+    },
+    {
+      "bytes": 98,
+      "path": "artifacts/research-v2/WP11/native-workload-observation-GREEN.log",
+      "sha256": "80ba2a52005c773420093a8180ce1373c166c120bd5c4a6ef4b57add59800f79"
+    },
+    {
+      "bytes": 1422,
+      "path": "artifacts/research-v2/WP11/native-workload-payload-RED.log",
+      "sha256": "12e1fc3b9f9cec2f45c62259e394b2f6774b55ee0800cfcc176d595f5fbe262a"
+    },
+    {
+      "bytes": 98,
+      "path": "artifacts/research-v2/WP11/native-workload-payload-GREEN.log",
+      "sha256": "0e3c648ae228056894999fafed2e35df89ab4f836a867efa34abb5b0bf26a51d"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP11/native-workload-P13-affected.log",
+      "sha256": "acabdd01355424cca35e390bde9cc05051473df2cd54df46ae2b40ca5f86881a"
+    },
+    {
+      "bytes": 869,
+      "path": "artifacts/research-v2/WP11/native-workload-width-type-RED.log",
+      "sha256": "0c395fc214bf913f74254cf0466fe94caa7e00bb52afd2e6a6d48be771c68def"
+    },
+    {
+      "bytes": 869,
+      "path": "artifacts/research-v2/WP11/native-workload-array-type-RED.log",
+      "sha256": "e53a714d4b58241ca7655649872f7920b30cc0c14d404d10b4a1db6af1fa38be"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP11/native-workload-P13-final-affected.log",
+      "sha256": "1fbf260d8405f3f88d85374adfbd22103cca2bba01d4647ed657834438ca8153"
+    }
+  ],
+  "parent_commit": "843324a59ae51b6971e87d2f854f63b3bf2713f0",
+  "process_scope": "Recomputed committed raw root RSS, ownership/start/closure and positive peak with genuine zero exit samples; no descendant/strict peak guarantee",
+  "schema": "research/v2-recorded-native-workload-P13-receipt",
+  "scientific_source_sha256": "b803ba0c8ed7f26d320678c158aab80960265f05645b600a16248056942b7548",
+  "status": "P13_component_verified_other_families_pending",
+  "tested_files": [
+    {
+      "bytes": 10792,
+      "path": "src/treeneuron/research/native_workload_v2.py",
+      "sha256": "53dfb9517d02ac98e14b3c9b56856b6e8196b713ab1be9a75631e4e669112039"
+    },
+    {
+      "bytes": 9227,
+      "path": "tests/test_native_workload_observation.py",
+      "sha256": "cbea3c0c421c8f48c25343dce70447982b5072b89ae9f6a3f10633f57860bd76"
+    }
+  ],
+  "tested_worktree_dirty_during_TDD": true,
+  "unimplemented_families_fail_closed": true,
+  "verification": [
+    "4missing failures0.59s",
+    "Initial implementation2passed2failed4.77s: corrected composite P13 source-identity schema handling",
+    "4passed4.95s",
+    "Controlled NaN coefficient/false-array-shape:2failed6passed9.00s",
+    "8passed8.97s",
+    "All three actual estimator formats plus generation:21passed31.55s",
+    "Boolean dimension/array identities each failed separately2.55/2.51s before strict typed checks",
+    "Final12reader plus11generation cases:23passed35.76s"
+  ]
+}
