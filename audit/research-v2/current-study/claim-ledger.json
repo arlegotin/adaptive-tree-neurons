@@ -376,6 +376,11 @@
           "bytes": 8691,
           "path": "docs/research/v2/WP09-secondary-native-evidence-receipt.json",
           "sha256": "7705990d443260f7e647ce9baa3039ae4b792d7ce507b2cfcc4d8e6e57bbd25d"
+        },
+        {
+          "bytes": 6605,
+          "path": "docs/research/v2/WP09-secondary-native-search-receipt.json",
+          "sha256": "f1f5751bbf3d6f94bddff83f71ac3fa86c90559c8abd3116872ffcc609b0162b"
         }
       ],
       "status": "supported_scoped_status",

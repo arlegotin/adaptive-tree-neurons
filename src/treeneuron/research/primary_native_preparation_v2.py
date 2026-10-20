@@ -26,6 +26,17 @@ def stage_primary_native_template(*,plan,prepared_root,expected_manifest_sha256,
     The caller's hashes are checked, not authenticated as official acquisition.
     Actual registry qualification and worker content validation remain required.
     """
+    def primary_store(prepared,fold):
+        store=TransferStore(prepared);_checked_manifest(store.manifest['dataset'],store.manifest)
+        if type(fold) is not int or fold!=(4 if store.manifest['dataset']=='bike' else 0):
+            raise ValueError('Primary template cannot read secondary development roles before freeze')
+        return store
+    return _stage_native_template(plan=plan,prepared_root=prepared_root,expected_manifest_sha256=expected_manifest_sha256,
+        outer_fold=outer_fold,output=output,store_factory=primary_store)
+
+
+def _stage_native_template(*,plan,prepared_root,expected_manifest_sha256,outer_fold,output,store_factory,
+        role_scope='primary',record_before_staging=None):
     started=time.perf_counter_ns();value=_checked_plan(plan);prepared=Path(prepared_root);output=Path(output)
     if (not prepared.is_absolute() or prepared.resolve()!=prepared or prepared.is_symlink()
             or not output.is_absolute() or output.resolve()!=output or output.exists() or output.is_symlink()
@@ -34,9 +45,7 @@ def stage_primary_native_template(*,plan,prepared_root,expected_manifest_sha256,
         raise ValueError('Fresh canonical template outside prepared/executable roots required')
     manifest=prepared/'manifest.json'
     if manifest.is_symlink() or _sha(manifest)!=expected_manifest_sha256:raise ValueError('Prepared manifest commitment differs')
-    store=TransferStore(prepared);_checked_manifest(store.manifest['dataset'],store.manifest)
-    if type(outer_fold) is not int or outer_fold!=(4 if store.manifest['dataset']=='bike' else 0):
-        raise ValueError('Primary template cannot read secondary development roles before freeze')
+    store=store_factory(prepared,outer_fold)
     split=store._split(outer_fold);identity=value['identity'];source=scientific_source_sha256()
     core=_ROOT/'locks/research-v2/core.json';spec=family_search_spec(identity['family_id'],
         dict(columns=store.manifest['feature_names'],categorical=store.manifest['categorical_features']))
@@ -59,6 +68,7 @@ def stage_primary_native_template(*,plan,prepared_root,expected_manifest_sha256,
         if len(names)!=len(set(names)) or set(names)!=allowed:
             raise ValueError('Primary role/query archive has missing fields or forbidden labels')
         originals[role]=(path,ref['sha256']);files[role]=dict(path=role+'.npz',sha256=ref['sha256'])
+    if record_before_staging is not None:record_before_staging(outer_fold)
     output.mkdir(parents=True,exist_ok=False);material=[]
     for role,(path,digest) in originals.items():
         material.append(dict(stage_immutable_file(path,output/(role+'.npz'),expected_sha256=digest),role=role))
@@ -74,11 +84,11 @@ def stage_primary_native_template(*,plan,prepared_root,expected_manifest_sha256,
             or _sha(manifest)!=expected_manifest_sha256 or scientific_source_sha256()!=source
             or _sha(core)!=identity['runtime_sha256']):
         raise ValueError('Primary template source/data/core changed during staging; partial output retained')
-    return dict(schema='research/v2-staged-primary-native-template',request_path=str(path),request_sha256=_sha(path),
+    return dict(schema=f'research/v2-staged-{role_scope}-native-template',request_path=str(path),request_sha256=_sha(path),
         source_sha256=source,plan_hash=value['plan_hash'],staged_roles=['F','G','V_features'],
         arrays_or_labels_decoded=False,raw_acquisition_authenticated=False,native_workload_qualified=False,
         quality_eligible=False,T_accessed=False,elapsed_before_return_ns=time.perf_counter_ns()-started,
-        scope='Byte-bound primary metadata/archive-name/staging component only. Official acquisition, array contents/role disjointness, native worker validation, registry and protocol admission remain separate.')
+        scope=f'Byte-bound {role_scope} metadata/archive-name/staging component only. Official acquisition, array contents/role disjointness, native worker validation, registry and protocol admission remain separate.')
 
 
 @dataclass(frozen=True)

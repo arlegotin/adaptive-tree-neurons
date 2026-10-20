@@ -64,6 +64,13 @@ def _bind_procedure(registry,native_arguments):
 def inspect_completed_native_trial(*,attempt_directory,expected_trial,prepared_root,
         expected_manifest_sha256,outer_fold):
     """Check an actual trial component; this helper grants no global admission."""
+    return _inspect_completed_native_trial(attempt_directory=attempt_directory,expected_trial=expected_trial,
+        prepared_root=prepared_root,expected_manifest_sha256=expected_manifest_sha256,outer_fold=outer_fold,
+        inspection_loader=load_primary_native_inspection,workload_inspector=inspect_native_workload)
+
+
+def _inspect_completed_native_trial(*,attempt_directory,expected_trial,prepared_root,expected_manifest_sha256,
+        outer_fold,inspection_loader,workload_inspector,role_scope='primary'):
     expected=copy.deepcopy(expected_trial);attempt=Path(attempt_directory)
     if (type(expected) is not dict or set(expected)!=_TRIAL
             or any(not _digest(expected[k]) for k in ('plan_hash','source_sha256'))
@@ -86,8 +93,8 @@ def inspect_completed_native_trial(*,attempt_directory,expected_trial,prepared_r
     args=dict(request_path=path,expected_request_sha256=_sha(path),native_reference=saved['generation']['native_inventory'],
         prepared_root=Path(prepared_root),expected_manifest_sha256=expected_manifest_sha256,
         outer_fold=outer_fold,expected_fit_seed=expected['fit_seed'],expected_configuration=expected['compiled_configuration'])
-    inspection=load_primary_native_inspection(reference,generation_arguments=args,immutable_generation_root=generation)
-    workload=inspect_native_workload(**args)
+    inspection=inspection_loader(reference,generation_arguments=args,immutable_generation_root=generation)
+    workload=workload_inspector(**args)
     if (workload['generation']!=inspection['generation'] or workload['source_sha256']!=expected['source_sha256']
             or packet.get('inspected_V_score')!=inspection['validation']['score']):
         raise ValueError('Trial workload/inspection belongs to a different generation or score')
@@ -98,7 +105,7 @@ def inspect_completed_native_trial(*,attempt_directory,expected_trial,prepared_r
         workload_sha256=canonical_hash(workload),generation=inspection['generation'],
         inspected_V_score=inspection['validation']['score'],resources=workload['process_observation'],
         quality_eligible=False,native_workload_qualified=False,T_accessed=False,
-        scope='Actual native proposal/generation/full workload/closed replay/primary V component only; no complete registry, paid journal or protected authority')
+        scope=f'Actual native proposal/generation/full workload/closed replay/{role_scope} V component only; no complete registry, paid journal or protected authority')
 
 
 class QualifiedNativeTrialBridge:

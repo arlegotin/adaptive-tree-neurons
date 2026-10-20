@@ -42,10 +42,11 @@ def _exact_attempt_files(search,index,rows):
         raise ValueError('Every paid attempt file must be retained exactly; no foreign/omitted losing evidence')
 
 
-def _failed_inspection(root,generation,args):
+def _failed_inspection(root,generation,args,*,audit_generation=None):
     """A supervised replay failure reads no V labels and supplies no score."""
     saved=_read_json(root/'result.json');process=_read_json(root/'process/process.json');source=scientific_source_sha256()
-    native=audit_native_generation(**args);request=_read_json(args['request_path']);path=root/'input/request.json'
+    native=(audit_native_generation if audit_generation is None else audit_generation)(**args)
+    request=_read_json(args['request_path']);path=root/'input/request.json'
     expected=dict(schema='research/v2-prediction-replay-request',purpose='engineering_qualification',
         family_id=request['family_id'],scientific_source_sha256=source,feature_schema=request['config']['feature_schema'],
         snapshot=dict(path='snapshot',metadata_sha256=native['snapshot']['sha256']),
@@ -90,6 +91,20 @@ def _failed_inspection(root,generation,args):
 def inspect_paid_native_attempt(*,search_directory,search_plan,spec,request,prepared_root,
         expected_manifest_sha256,outer_fold,official_schedule_reference,native_hpo_seed):
     """Actual component evidence only; this supplies no registry eligibility."""
+    def primary_store(prepared,fold):
+        store=TransferStore(prepared)
+        if type(fold) is not int or fold!=(4 if store.manifest['dataset']=='bike' else 0):
+            raise ValueError('Only primary development inputs admitted before the global freeze')
+        return store
+    return _inspect_paid_native_attempt(search_directory=search_directory,search_plan=search_plan,spec=spec,request=request,
+        prepared_root=prepared_root,expected_manifest_sha256=expected_manifest_sha256,outer_fold=outer_fold,
+        official_schedule_reference=official_schedule_reference,native_hpo_seed=native_hpo_seed,
+        store_factory=primary_store,component_inspector=inspect_completed_native_trial,failed_inspector=_failed_inspection)
+
+
+def _inspect_paid_native_attempt(*,search_directory,search_plan,spec,request,prepared_root,
+        expected_manifest_sha256,outer_fold,official_schedule_reference,native_hpo_seed,
+        store_factory,component_inspector,failed_inspector):
     search=Path(search_directory);plan=_checked_plan(SearchPlan(canonical_json(search_plan)));request=copy.deepcopy(request)
     keys={'candidate_id','candidate_origin','config','retry_index','checkpoint_files','attempt_index','fit_seed','budget_remaining_ns'}
     if (type(request) is not dict or set(request)!=keys or type(request['attempt_index']) is not int
@@ -114,9 +129,7 @@ def inspect_paid_native_attempt(*,search_directory,search_plan,spec,request,prep
         raise ValueError('Paid native proposal/source/authority/clock differs')
     prepared=Path(prepared_root);manifest=prepared/'manifest.json'
     if manifest.is_symlink() or _sha(manifest)!=expected_manifest_sha256:raise ValueError('Official prepared manifest differs')
-    store=TransferStore(prepared)
-    if type(outer_fold) is not int or outer_fold!=(4 if store.manifest['dataset']=='bike' else 0):
-        raise ValueError('Only primary development inputs admitted before the global freeze')
+    store=store_factory(prepared,outer_fold)
     split=store._split(outer_fold);role_files={}
     for role in ('F','G','V_features'):
         relative=f'outer-{outer_fold}/'+('V-features.npz' if role=='V_features' else role+'.npz')
@@ -169,13 +182,13 @@ def inspect_paid_native_attempt(*,search_directory,search_plan,spec,request,prep
     if upstream=='completed_ineligible':
         inspected=_read_json(attempt/'inspection/result.json')
         if inspected.get('status')=='completed_candidate_inspection':
-            component=inspect_completed_native_trial(attempt_directory=attempt,expected_trial=trial,
+            component=component_inspector(attempt_directory=attempt,expected_trial=trial,
                 prepared_root=prepared,expected_manifest_sha256=expected_manifest_sha256,outer_fold=outer_fold)
         else:
             args=dict(request_path=path,expected_request_sha256=_sha(path),native_reference=native,
                 prepared_root=prepared,expected_manifest_sha256=expected_manifest_sha256,outer_fold=outer_fold,
                 expected_fit_seed=plan['fit_seed'],expected_configuration=compiled)
-            failure_inspection=_failed_inspection(attempt/'inspection',generation,args)
+            failure_inspection=failed_inspector(attempt/'inspection',generation,args)
             upstream=failure_inspection['execution_status']
     status='interrupted_recoverable' if upstream in ('resource_exhausted','interrupted_recoverable') else upstream
     score=component['inspected_V_score'] if component is not None else None
@@ -246,6 +259,27 @@ def audit_primary_qualified_search(*,practical_plan,expected_practical_plan_hash
         raise ValueError('Exact closed search/result paths required')
     spec=family_search_spec(job['family_id'],dict(columns=TransferStore(prepared).manifest['feature_names'],
         categorical=TransferStore(prepared).manifest['categorical_features']))
+    def compile_again():
+        return compile_primary_search_declaration(practical_plan=practical_plan,expected_practical_plan_hash=expected_practical_plan_hash,
+            job_id=job_id,support_reference=support_reference,official_schedule_reference=official_schedule_reference)
+    result=_audit_qualified_search(declaration=declaration,prepared=prepared,manifest=manifest,spec=spec,search_directory=root,
+        expected_search_plan_sha256=expected_search_plan_sha256,result_path=result_path,expected_result_sha256=expected_result_sha256,
+        expected_journal_sha256=expected_journal_sha256,qualification_reference=qualification_reference,
+        attempt_inspector=inspect_paid_native_attempt,admission_checker=lambda packet,outcome,**kwargs:_check_admission(packet,outcome,qualification_reference,**kwargs),
+        unchanged=lambda:QualifiedNativeTrialBridge._unchanged(binding),compile_again=compile_again)
+    return dict(result,schema='research/v2-qualified-primary-search-audit',native_workload_qualified=True,
+        scope='Actual complete registry, exact primary global declaration, native proposal law, all paid native outcomes/candidate companions and selected snapshot. No whole outer process clock, all168/global freeze, secondary release or protected authority.')
+
+
+def _audit_qualified_search(*,declaration,prepared,manifest,spec,search_directory,expected_search_plan_sha256,
+        result_path,expected_result_sha256,expected_journal_sha256,qualification_reference,
+        attempt_inspector,admission_checker,unchanged,compile_again):
+    plan=declaration['search_plan'];job=declaration['job'];root=Path(search_directory);result_path=Path(result_path)
+    expected_practical_plan_hash=declaration['practical_plan_hash'];job_id=job['job_id']
+    official_schedule_reference=declaration['official_schedule_reference']
+    if (not root.is_absolute() or root.resolve()!=root or root.is_symlink()
+            or not result_path.is_absolute() or result_path.resolve()!=result_path or result_path.is_symlink()):
+        raise ValueError('Exact closed search/result paths required')
     with _inactive(root):
         before=_inventory(root);raw_plan=_bytes(root/'plan.json',expected_search_plan_sha256)
         if _json(raw_plan)!=plan:raise ValueError('Actual primary search differs from frozen global declaration')
@@ -262,10 +296,10 @@ def audit_primary_qualified_search(*,practical_plan,expected_practical_plan_hash
         for request,finish in zip(starts,finishes,strict=True):
             row=finish['record'];index=request['attempt_index'];attempt=root/f'attempt-{index:03}'
             _exact_attempt_files(root,index,row['files'])
-            component=inspect_paid_native_attempt(search_directory=root,search_plan=plan,spec=spec,request=request,
+            component=attempt_inspector(search_directory=root,search_plan=plan,spec=spec,request=request,
                 prepared_root=prepared,expected_manifest_sha256=manifest,outer_fold=job['outer_fold'],
                 official_schedule_reference=official_schedule_reference,native_hpo_seed=declaration['native_hpo_seed'])
-            admission=_read_json(attempt/'admission.json');_check_admission(admission,component,qualification_reference,charged_ns=row['charged_ns'])
+            admission=_read_json(attempt/'admission.json');admission_checker(admission,component,charged_ns=row['charged_ns'])
             result=finish['result']
             if (row['status']!=admission['status'] or row['V_score']!=admission['V_score']
                     or result['reason']!=(None if admission['quality_eligible'] else component['reason'])
@@ -282,19 +316,17 @@ def audit_primary_qualified_search(*,practical_plan,expected_practical_plan_hash
                     winner=dict(attempt_index=index,**candidate_models[index])
         from .primary_budget_models_v2 import inspect_budget_model_views
         views=inspect_budget_model_views(search_result=saved,candidate_models=candidate_models)
-        QualifiedNativeTrialBridge._unchanged(binding)
-        again=compile_primary_search_declaration(practical_plan=practical_plan,
-            expected_practical_plan_hash=expected_practical_plan_hash,job_id=job_id,support_reference=support_reference,
-            official_schedule_reference=official_schedule_reference)
+        unchanged()
+        again=compile_again()
         if (_inventory(root)!=before or _bytes(result_path,expected_result_sha256)!=raw_result
                 or _bytes(root/'plan.json',expected_search_plan_sha256)!=raw_plan or again!=declaration):
             raise ValueError('Qualified search evidence changed during audit')
-    return dict(schema='research/v2-qualified-primary-search-audit',practical_plan_hash=expected_practical_plan_hash,
+    return dict(schema='research/v2-recorded-native-search-audit',practical_plan_hash=expected_practical_plan_hash,
         job_id=job_id,declaration_hash=declaration['declaration_hash'],qualification_reference=copy.deepcopy(qualification_reference),
         journal=journal,attempts=attempts,selected_model=winner,search_view_models=views,completed_search=journal['completed_search'],
         complete_selected_model=journal['completed_search'] and winner is not None,
         HPO_journal_authenticated=True,all_attempt_native_evidence_authenticated=True,
-        all_eligible_V_scores_authenticated=True,native_workload_qualified=True,
+        all_eligible_V_scores_authenticated=True,native_workload_qualified=False,
         whole_process_cost_authenticated=False,primary_168_model_barrier_satisfied=False,
         protected_access_authorized=False,T_accessed=False,new_fit_or_inference=False,
-        scope='Actual complete registry, exact primary global declaration, native proposal law, all paid native outcomes/candidate companions and selected snapshot. No whole outer process clock, all168/global freeze, secondary release or protected authority.')
+        scope='Private complete paid-search/evidence arithmetic core; the public route owns actual native/global qualification. No protected or whole-cost authority.')

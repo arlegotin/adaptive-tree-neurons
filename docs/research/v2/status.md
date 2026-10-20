@@ -294,3 +294,11 @@ no complete-qualified positive release or real secondary search has run. The
 unchanged-support secondary template/callback/program route, full 840-model/T
 barrier, protected evaluator/auditor, costs, CLI/readiness and final review still
 remain before final-source qualification and production searches.
+
+The [secondary native search components](secondary-native-search.md) passed 107
+affected checks. Exact secondary jobs/supports, templates, native callbacks,
+companion admission and paid-search audits now have their own released-role
+route, preserving primary guards. Positive engineering tests use a toy table;
+complete-qualified public positive execution remains unrun. The owned secondary
+program/resource route, full840 protected-evaluation barrier, final evaluator,
+raw audit, costs/deployment, CLI/readiness and final review are still unfinished.

@@ -23,12 +23,20 @@ class InspectedNativeTrialBridge:
     def __init__(self,*,plan,template_path,expected_template_sha256,prepared_root,
             expected_manifest_sha256,outer_fold,search_directory,interpreter,
             extra_pythonpath=(),rss_limit_bytes=4*1024**3,official_schedule_reference=None,native_hpo_seed=None):
+        self._initialize(plan=plan,template_path=template_path,expected_template_sha256=expected_template_sha256,
+            prepared_root=prepared_root,expected_manifest_sha256=expected_manifest_sha256,outer_fold=outer_fold,
+            search_directory=search_directory,interpreter=interpreter,extra_pythonpath=extra_pythonpath,
+            rss_limit_bytes=rss_limit_bytes,official_schedule_reference=official_schedule_reference,native_hpo_seed=native_hpo_seed)
+
+    def _initialize(self,*,plan,template_path,expected_template_sha256,prepared_root,
+            expected_manifest_sha256,outer_fold,search_directory,interpreter,
+            extra_pythonpath=(),rss_limit_bytes=4*1024**3,official_schedule_reference=None,native_hpo_seed=None,role_store=None):
         started=time.perf_counter_ns();plan=_checked_plan(plan)
         template_path=Path(template_path).resolve();family=plan['identity']['family_id']
         template,_=_validate_request(template_path,expected_template_sha256,recoverable_training=family=='P12')
         prepared_root=Path(prepared_root).resolve();manifest=prepared_root/'manifest.json'
         if manifest.is_symlink() or _sha(manifest)!=expected_manifest_sha256:raise ValueError('Prepared manifest bytes differ')
-        store=TransferStore(prepared_root);split=store._split(outer_fold)
+        store=TransferStore(prepared_root) if role_store is None else role_store;split=store._split(outer_fold)
         spec=family_search_spec(family,template['config']['feature_schema']);identity=plan['identity']
         expected_candidates=spec['finite_configurations'][1:] if family=='P13' else []
         expected_mode=spec['search_kind'];self.native_sampler_minimum_prerequisite_ns=0
@@ -108,6 +116,8 @@ class InspectedNativeTrialBridge:
         if plan['mode']!='tpe' or index>=plan['max_attempts']-len(plan['anchors']):raise ValueError('Adaptive proposal exceeds support')
         return compile_search_draw(plan['identity']['family_id'],binding['spec']['feature_schema'],request['config'])
 
+    def _inspect_candidate(self,**kwargs):return inspect_primary_native_candidate(**kwargs)
+
     def __call__(self,request):
         started=time.perf_counter_ns();binding=json.loads(self._binding);plan=binding['plan'];self._unchanged(binding)
         keys={'candidate_id','candidate_origin','config','retry_index','checkpoint_files','attempt_index',
@@ -152,7 +162,7 @@ class InspectedNativeTrialBridge:
         inspection=None;inspection_span=0;status=native['status'];reason=native.get('reason')
         if status=='completed_ineligible':
             inspection_started=time.perf_counter_ns()
-            inspection=inspect_primary_native_candidate(generation_arguments=dict(request_path=path,
+            inspection=self._inspect_candidate(generation_arguments=dict(request_path=path,
                 expected_request_sha256=request_sha,native_reference=native['recovery_reference'],
                 prepared_root=Path(binding['prepared_root']),expected_manifest_sha256=binding['expected_manifest_sha256'],
                 outer_fold=binding['outer_fold'],expected_fit_seed=plan['fit_seed'],expected_configuration=compiled),

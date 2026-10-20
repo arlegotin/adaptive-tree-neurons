@@ -2648,3 +2648,33 @@ secondary template/callback/paid search/program route, then full840model/T once,
 evaluator/raw audit/cost/deployment/CLI/readiness/final review before final-source
 actual qualification or primary production. M3/B0 negative branch dispositions,
 all scientific results and the held c33 native execution/source/env stay unchanged.
+
+## 20 October: secondary native search components under unchanged supports
+
+Added a separate actual-global-first declaration/factory/auditor path. It derives
+secondary jobs from the same source/support/procedure/840-job plan, stages only
+F/G/Vfeatures and uses each method's qualified primary interpreter/import
+identity. The new secondary workload is checked separately after each completed
+fit, with fresh saved-model replay and coordinator V arithmetic. Companion
+admission preserves upstream engineering flags and retains paid failures and
+same-seed recovery. Shared private cores preserve all public primary-only guards.
+The paid search auditor reopens native outcomes, companion/global references,
+HPO law, all losing evidence and every native/prefix retained-model view.
+
+Initial5missing-module failures0.65s; first70passed45.83s; added actual paid-attempt
+regression1failed4deselected4.29s for missing helper; expanded99passed50.89s; final
+seven-module107passed56.14s. Positive fixture is explicitly unqualified toy
+secondary mean/ridge with two real fits/replays; its two-attempt engineering
+ceiling does not change production's32-attempt/finite29 support. Capture reopens
+both real paid components with no refit/inference, real transfer or T access.
+Pure untrusted companion-metadata tests are not actual native/global gate
+substitutes. Complete-qualified public positive factory/audit remains unrun;
+these are not an owned production program or whole-cost/840-model/T authority.
+
+[Contract](secondary-native-search.md),
+[receipt](WP09-secondary-native-search-receipt.json). Next owned secondary
+worker/program/resource admission and exact recovery, then full840/once-T,
+evaluation/raw audit/cost/deployment/CLI/readiness/final review before final-source
+qualification and primary production. No M3/B0 rescue, budget cut, new protected
+root or changed scientific result. Held c33 native fit passed8700 updates at the
+last observation; serial source/environment/operator settings stay unchanged.
