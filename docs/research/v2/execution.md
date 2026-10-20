@@ -1836,3 +1836,13 @@ fixtures exposed missing reader checks, now rejected. No production search or
 new fit ran. See [contract](native-search-journal-audit.md) and
 [receipt](WP08-native-search-journal-audit-receipt.json). The held long native
 worker and serial continuation source remain unchanged.
+
+The native inspected trial bridge now composes the declared primary proposal,
+uncapped owned fit, fresh model replay and V arithmetic;104affected checks passed
+43.89seconds with7retained native vendor warnings. Its actual RSS-stop fixture
+recovers the identical request/seed in a new paid attempt and preserves the old
+one. It still returns engineering-ineligible models, so no search winner or
+quality promotion is possible. P06's official-sampler schedule bridge, production
+qualification registry and final protocol remain pending. See
+[contract](native-inspected-trial-bridge.md) and
+[receipt](WP08-native-inspected-trial-bridge-receipt.json).

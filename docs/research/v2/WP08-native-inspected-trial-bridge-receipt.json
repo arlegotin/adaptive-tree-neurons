@@ -1,0 +1,52 @@
+{
+  "T_accessed": false,
+  "files": [
+    {
+      "bytes": 13086,
+      "path": "src/treeneuron/research/native_trial_bridge_v2.py",
+      "sha256": "758e49684b3ec2df6899a98465319eacd4d4272fa03ede251aeddc6fa46cf180"
+    },
+    {
+      "bytes": 7335,
+      "path": "tests/test_native_trial_bridge.py",
+      "sha256": "63747f0c7cfdc10d7b83ba9cc10816e4808a10665f883a002b810294c602749e"
+    },
+    {
+      "bytes": 11354,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-trial-bridge-red.log",
+      "sha256": "1a25b6e84134582247024c043f67075d9d18cfa13e5fef8b8419f3ff8da5d408"
+    },
+    {
+      "bytes": 1433,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-trial-bridge-green.log",
+      "sha256": "1f5c47faf9d609c2e478805345e159b0c39331654bbb9fcc608dadfe1deaad30"
+    },
+    {
+      "bytes": 99,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-trial-bridge-recovery-green.log",
+      "sha256": "89950c950365f5868ff5cfb0eecef057ded69089bf59b62e3a077cd237fd4fdf"
+    },
+    {
+      "bytes": 2632,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-trial-bridge-affected-green.log",
+      "sha256": "ea26f9a84c1cf046c5d095222246571a41241b4604ee41c7bd1e141374ebf3b8"
+    }
+  ],
+  "final_green": "104 passed,7retained native vendor warnings in43.89s",
+  "first_green": "8 passed in13.18s",
+  "initial_recovery": "7 passed/1 failed in11.79s: test expected checkpoint_files in compact record instead of committed journal result; production controller unchanged",
+  "native_workload_qualified": false,
+  "new_real_data_anchor_completions": 0,
+  "production_practical_searches": 0,
+  "protected_access_authorized": false,
+  "quality_eligible": false,
+  "red": "8 missing-module failures in .31s",
+  "schema": "research/v2-native-inspected-trial-bridge-receipt",
+  "source_sha256": "f45e10b17602cc9d33e909d7f4e2f2514f3b7a6f5e993608adbbefcddd07e4de",
+  "status": "verified_fixture_component",
+  "unimplemented": [
+    "P06 official-sampler schedule bridge",
+    "Production native/support/workload registry",
+    "Final selected-model qualification and protocol barrier"
+  ]
+}

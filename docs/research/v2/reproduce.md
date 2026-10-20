@@ -333,3 +333,11 @@ qualified interpreter and pinned search overlay. The67-case affected result
 is recorded inWP08-native-search-journal-audit-receipt.json. This exact declared
 journal replay does not grant native-quality eligibility or T access; compose
 the separate qualification, generation, validation and protocol evidence first.
+
+The inspected-native callback fixtures are in`tests/test_native_trial_bridge.py`.
+Together with candidate inspection, native supervision, search-journal,
+controller and semantic-support checks,104affected cases passed43.89seconds.
+Use native owned-process inspection permissions and the qualified interpreter;
+the actual tiny fits grant no native workload or acquisition qualification.
+P06 official scheduling is not implemented by this bridge; it must retain its
+separate pinned sampler. See native-inspected-trial-bridge.md.
