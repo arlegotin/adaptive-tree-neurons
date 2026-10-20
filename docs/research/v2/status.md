@@ -6,6 +6,12 @@ normal model stopping, with RAM/disk guards and resumable checkpoints. The earli
 NODE timeout is retained; it published no model to resume. Budget prefixes remain
 a separate view. See [the implementation amendment](results-first-native-execution.md).
 
+New [actual-input memory checks](../../../reports/research-v2-resource-probes.md)
+completed three full-size engineering geometries, including the largest
+embedded TabM Bike case at about3GiB sampled worker RSS. Its initial2GiB stop
+and identical-request retry are retained. These were short geometry checks,
+with no V-label/test access or quality score; native training remains uncapped.
+
 The full2048-tree recovery proof now matches uninterrupted training exactly at
 about1.18GiBsampled peak RSS. The uncapped same-data/seed17 Energy native fit completed its normal stopping
 rule at5701updates, selecting700, after7362.48seconds (just over two hours)

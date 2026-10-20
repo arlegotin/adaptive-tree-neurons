@@ -43,6 +43,13 @@ late-byte-corruption checks. The other catalog routes were parsed and checked
 for unchanged geometry; they have not all been executed under this component.
 No new real-data quality result, V-label access or protected access follows.
 
+The subsequent [actual-input resource tranche](../../../reports/research-v2-resource-probes.md)
+completed the full-width ordinary upper bracket on Bike and the largest
+embedded TabM geometry on Parkinsons/Bike. The Bike TabM exercise stopped at an
+initial2GiB guard, then completed the identical request/seed under4GiB at2.984GiB
+sampled root RSS. Both attempts and costs remain. These three short geometries
+are useful measurements, not complete catalog/native workload qualification.
+
 The remaining production registry must join final-source software verification,
 all native anchors, actual support/workload results and acquisition/data facts.
 Neither a declared catalog entry nor a successful short exercise supplies that
