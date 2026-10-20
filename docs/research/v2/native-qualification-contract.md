@@ -50,8 +50,9 @@ load_native_anchor_execution(reference, prepared_root=...,
                              expected_family=..., expected_anchor_id=...,
                              expected_dataset=...)
 # Proposed; not implemented yet:
-seal_native_qualification_registry(..., profile_references, anchor_references,
-                                  workload_references, data_bindings, output)
+seal_native_qualification_registry(*, preparation_reference, profile_references,
+                                  anchor_references, support_references,
+                                  recovery_reference, output)
 ```
 
 The registry must account for the fixed20anchors across six datasets, all seven
@@ -94,6 +95,14 @@ software checks passed at its recorded source, including complete native
 procedures on synthetic role fixtures. Its workload/quality authority remains
 false until this registry joins actual official-data executions, acquisition,
 full support and recovery evidence under the final source.
+
+The [full-size NODE recovery reader](native-recovery-qualification.md) adds a
+managed numerical proof and independent comparison of saved reference/resumed
+states, including optimizer, sampler and RNG. Its fixed 105-update engineering
+horizon does not qualify native stopping or prediction quality. The complete
+registry must join this capability under the same final source as the data,
+software, anchors and support records. Other methods use a declared paid
+identical-seed restart policy; this proof does not grant them persistent resume.
 
 The [closed geometry reader](native-support-probes.md#reopening-a-closed-exercise)
 now reopens a short probe's source/configuration/process/input/query records and

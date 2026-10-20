@@ -111,6 +111,13 @@ datasets, fit no models and sealed every role; the reader kept protected archive
 opaque. This supplies preparation provenance for the future registry, not a
 new predictive result or a replacement production dataset.
 
+The [full-size NODE recovery proof](native-recovery-qualification.md) passed
+40 affected checks with retained process and state evidence. Restoring update
+100 and continuing through 105 matches the uninterrupted saved training state,
+including weights, optimizer, RNG and sampler, apart from elapsed-time fields.
+This is an engineering capability; it grants no predictive or production
+qualification. Earlier test failures and a sandbox-blocked retry are retained.
+
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only
 the branches their gates authorize. The native/support/workload qualification

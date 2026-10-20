@@ -1,0 +1,133 @@
+{
+  "T_accessed": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-c",
+      "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"--tb=short\",\"--basetemp=artifacts/research-v2/WP11/native-recovery-retained-fixture-authorized\",\"tests/test_native_recovery_proof_v2.py\",\"tests/test_native_workload_tensor_bounds.py\",\"tests/test_process_supervision_v2.py\"]))"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "final_source_qualified": false,
+  "fixture_observation": {
+    "bytes": 30276,
+    "path": "artifacts/research-v2/WP11/native-recovery-proof-fixture-observation.json",
+    "sha256": "5149dfcaeab8076af96495acd6d11caaafb430fea7053e6fe0308ee35c76fe81"
+  },
+  "held_scientific_workers_changed": false,
+  "limitation": "Numerical horizon105 is an engineering recovery proof, not native patience completion or predictive evidence. Streamed state comparison does not independently reexecute numerical updates. Exact prediction/reload assertions are trusted pinned operator execution. Every numerical retry cost is retained, not added as independent scientific evidence.",
+  "logs": [
+    {
+      "bytes": 2294,
+      "path": "artifacts/research-v2/WP11/native-recovery-proof-RED.log",
+      "sha256": "f19b1e50a3aa5d2c6859f93bd8a93959811ac0596a479e417b754ae9312bc12f"
+    },
+    {
+      "bytes": 110,
+      "path": "artifacts/research-v2/WP11/native-recovery-proof-first-GREEN.log",
+      "sha256": "78efb07246b63d02a38590c48a523b3f36859427c2b1f04c89bcf0db436ba85c"
+    },
+    {
+      "bytes": 1450,
+      "path": "artifacts/research-v2/WP11/native-recovery-proof-adversarial.log",
+      "sha256": "b184582b5573cd436f79735069a21bc066fed537d895eb0ad80b3b2939363b97"
+    },
+    {
+      "bytes": 111,
+      "path": "artifacts/research-v2/WP11/native-recovery-proof-final-affected.log",
+      "sha256": "bd46acd8bc13ace3989674cc237746e13ed3ea68bd9959aebfd58ac5aca9fbeb"
+    },
+    {
+      "bytes": 11300,
+      "path": "artifacts/research-v2/WP11/native-recovery-proof-retained-affected.log",
+      "sha256": "3d92ce30daf7c25c76e6f3348c2eca2c85d6ca1128a488fa4d407ed4c7cb724a"
+    },
+    {
+      "bytes": 111,
+      "path": "artifacts/research-v2/WP11/native-recovery-proof-retained-authorized.log",
+      "sha256": "77b08161daa1042a34c9fcbe54a5a4cf819c43facc01d3f2d38d105f576966cb"
+    }
+  ],
+  "native_workload_qualified": false,
+  "packages_installed_or_updated": false,
+  "parent_commit": "651b2decee9db7f221a35b46538faf7e68ca2562",
+  "production_registry_complete": false,
+  "protected_access_authorized": false,
+  "quality_eligible": false,
+  "recovery_component_implemented": true,
+  "recovery_qualified": true,
+  "schema": "research/v2-fullsize-recovery-implementation-receipt",
+  "scientific_source_sha256": "5b24d5871778870332e86042aa47c7e4e66ffb32aa558440ee9c96c2f0e0f758",
+  "scope": "Managed full-size capped numerical recovery with independent streamed saved-state comparison, including raw/selected parameters/moments/RNG/sampler/windows/rows except elapsed clocks; not native stopping or predictive quality. Closed prediction equality is trusted pinned operator execution.",
+  "state_comparison": {
+    "actual_updates_independently_reexecuted_by_reader": false,
+    "additional_unapplied_gradient_attempts": 1,
+    "depth": 6,
+    "effective_batch": 512,
+    "interrupted_applied_updates": 102,
+    "native_workload_qualified": false,
+    "new_model_prediction_by_reader": false,
+    "paid_attempts": 3,
+    "process_observation": {
+      "observed_peak_root_rss_bytes": 1155088384,
+      "process_elapsed_ns": 246306748917,
+      "rss_limit_bytes": 4294967296,
+      "sample_count": 2198,
+      "scope": "Root worker samples only; no aggregate-descendant or strict peak guarantee"
+    },
+    "protected_access_authorized": false,
+    "quality_eligible": false,
+    "recovery_qualified": true,
+    "reference": {
+      "inventory_sha256": "f219a9c505d829e2427a6e263fdf566ca902ec58608ebd633c893aebfb54f93b",
+      "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP11/native-recovery-retained-fixture-authorized/fullsize-recovery0/execution"
+    },
+    "reference_updates": 105,
+    "resume_step": 100,
+    "resumed_new_updates": 5,
+    "schema": "research/v2-authenticated-fullsize-node-recovery",
+    "scope": "Managed full-size capped numerical recovery with independent streamed saved-state comparison, including raw/selected parameters/moments/RNG/sampler/windows/rows except elapsed clocks; not native stopping or predictive quality. Closed prediction equality is trusted pinned operator execution.",
+    "source_sha256": "5b24d5871778870332e86042aa47c7e4e66ffb32aa558440ee9c96c2f0e0f758",
+    "state_bytes_independently_compared": true,
+    "total_applied_updates": 212,
+    "trees": 2048
+  },
+  "tested_files": [
+    {
+      "bytes": 17765,
+      "path": "src/treeneuron/research/native_recovery_proof_v2.py",
+      "sha256": "a07e8f4da00afdb9ec6e2ece421ea70ea92bde76830cc71e3d5c53a28eb1ecc6"
+    },
+    {
+      "bytes": 5597,
+      "path": "tests/test_native_recovery_proof_v2.py",
+      "sha256": "0f2f493ee17b60976229da67e833112d3ab030817f887c07a9beb9d066cc457e"
+    },
+    {
+      "bytes": 4252,
+      "path": "docs/research/v2/scripts/check_node_training_recovery.py",
+      "sha256": "4cebc763d182013b9f6c11816bb00d8cbd18c158c24c89c450bd3ad1e8a4a060"
+    }
+  ],
+  "verification": [
+    "Missing API:2setup errors0.08s",
+    "First two checks passed236.43s, session67960exit0",
+    "Controlled paired tensor dtype and managed interpreter contradictions accepted:2failed/4passed233.92s",
+    "Typed native geometry and actual core/interpreter joins:40passed235.25s, session79541exit0",
+    "Shared pytest temporary execution subsequently unavailable; earlier test log preserved, no retained closed proof claimed from absent files",
+    "Fresh repo-owned retained retry:12failed/22passed/6errors1.47s; /bin/ps denied by sandbox, numerical child never started",
+    "Authorized same-source retry:40passed250.63s/session55012exit0, complete retained fixture independently reopened read-only"
+  ]
+}
