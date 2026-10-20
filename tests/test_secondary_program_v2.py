@@ -82,7 +82,11 @@ def test_driver_interruption_reopens_closed_secondary_denial_without_spawning(se
     with pytest.raises(RuntimeError):_run_program_queue(program,execute_episode=interrupted,audit_terminal=forbidden)
     journal=args['directory']/'events.jsonl';raw=journal.read_bytes();assert len(raw.splitlines())==1
     import subprocess
-    monkeypatch.setattr(subprocess,'Popen',forbidden)
+    original_popen=subprocess.Popen
+    def no_replacement_workers(argv,*a,**kw):
+        if argv==['/usr/sbin/sysctl','-n','kern.boottime']:return original_popen(argv,*a,**kw)
+        return forbidden(argv,*a,**kw)
+    monkeypatch.setattr(subprocess,'Popen',no_replacement_workers)
     result=_run_program_queue(program,execute_episode=forbidden,audit_terminal=forbidden,expected_journal_sha256=hashlib.sha256(raw).hexdigest())
     assert result['status']=='resource_pause' and result['completed_jobs']==0 and len(journal.read_bytes().splitlines())==2
 

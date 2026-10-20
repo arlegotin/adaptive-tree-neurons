@@ -113,7 +113,11 @@ def test_interrupted_driver_reopens_the_closed_caller_without_starting_a_replace
     root=args['directory'];journal=root/'events.jsonl';before=journal.read_bytes()
     assert len(before.splitlines())==1
     import subprocess
-    monkeypatch.setattr(subprocess,'Popen',forbidden)
+    original_popen=subprocess.Popen
+    def no_replacement_workers(argv,*a,**kw):
+        if argv==['/usr/sbin/sysctl','-n','kern.boottime']:return original_popen(argv,*a,**kw)
+        return forbidden(argv,*a,**kw)
+    monkeypatch.setattr(subprocess,'Popen',no_replacement_workers)
     recovered=module._run_program_queue(program,execute_episode=forbidden,audit_terminal=forbidden,
         expected_journal_sha256=hashlib.sha256(before).hexdigest())
     assert recovered['status']=='resource_pause' and recovered['completed_jobs']==0

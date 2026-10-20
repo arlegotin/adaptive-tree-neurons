@@ -401,6 +401,11 @@
           "bytes": 5227,
           "path": "docs/research/v2/WP09-practical-models-receipt.json",
           "sha256": "4fee43fdab78724ff5f292dfca84c7f57dec2d0a4d17ef501300b9850bf281fa"
+        },
+        {
+          "bytes": 6961,
+          "path": "docs/research/v2/WP10-clock-records-receipt.json",
+          "sha256": "d5e902a69c6da909db5844be6518b0cfff5bdad526f55836adb0ad00140eb6fa"
         }
       ],
       "status": "supported_scoped_status",

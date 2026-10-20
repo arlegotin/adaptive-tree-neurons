@@ -335,3 +335,11 @@ passed83affected checks. It requires actual native/HPO/V proofs and complete
 snapshots for all840 jobs/views, preserving the frozen primary168. Positive
 metadata/byte fixtures grant no native authority; actual complete-qualified
 positive execution remains unrun. Its output still grants no T or cost claim.
+
+[Explicit clock records](execution-clock-records.md) passed181affected checks.
+They bind caller/program intervals to observed boot domains, retain unknown
+domains honestly and preserve closed durations after reboot/resume. Separate
+software captures verify exact caller sums and interval containment where the
+kernel identity is available. These records still exclude their own final
+publication/return; full outer process costs and the final protected evaluator,
+audit, deployment, CLI/readiness and branch review remain before production.

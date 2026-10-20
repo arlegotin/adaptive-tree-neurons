@@ -155,7 +155,9 @@ def _run_program_queue(program,*,execute_episode,audit_terminal,expected_journal
     from .deployment_worker_v2 import _source
     from .ledger import StudyLease,write_new_json
     from .primary_search_worker_v2 import _path,_json
+    from .execution_clock_v2 import observe_clock_domain,PROGRAM_CLOCK_SCOPE
     started=time.perf_counter_ns() if invocation_origin_ns is None else invocation_origin_ns
+    clock_domain=observe_clock_domain()
     secondary=program.get('schema')=='research/v2-secondary-program-plan';limit=672 if secondary else 168
     if (type(max_episode_starts) is not int or not 1<=max_episode_starts<=limit
             or type(started) is not int or not 0<started<=time.perf_counter_ns()
@@ -207,11 +209,13 @@ def _run_program_queue(program,*,execute_episode,audit_terminal,expected_journal
                 scope='Closed serial episode queue with known caller clocks; actual model/global freeze and physical whole-cost remain separate')
         except BaseException as caught:error=caught
         finally:
-            receipt=dict(schema='research/v2-secondary-program-invocation' if secondary else 'research/v2-primary-program-invocation',source_sha256=program['source_sha256'],
-                program_hash=program['program_hash'],journal_sha256=_sha(journal),elapsed_ns=time.perf_counter_ns()-started,
+            journal_sha256=_sha(journal);end=time.perf_counter_ns()
+            receipt=dict(schema='research/v2-secondary-program-invocation-clock-1' if secondary else 'research/v2-primary-program-invocation-clock-1',source_sha256=program['source_sha256'],
+                program_hash=program['program_hash'],journal_sha256=journal_sha256,origin_ns=started,end_ns=end,
+                elapsed_ns=end-started,clock_domain=clock_domain,
                 result=value,error=None if error is None else dict(type=type(error).__name__,reason=str(error)),
                 whole_training_procedure_cost_authenticated=False,protected_access_authorized=False,T_accessed=False,
-                clock_scope='Actual invocation entry through preparation/queue/readback; own final receipt publication/return excluded')
+                clock_scope=PROGRAM_CLOCK_SCOPE)
             write_new_json(root/'invocations'/(uuid.uuid4().hex+'.json'),receipt)
         if error is not None:raise error
     return value

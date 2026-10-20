@@ -23,7 +23,7 @@ _FLAGS=('native_qualification_authenticated','quality_eligible','whole_training_
 def _file_reference(path):return dict(path=str(path),sha256=_sha(path))
 
 
-def _complete_caller(root,outcome,source):
+def _complete_caller(root,outcome,source,clock_domain):
     from .cooperative_process_v2 import _write
     from .deployment_worker_v2 import _source
     if 'process_reference' not in outcome:return outcome
@@ -31,9 +31,9 @@ def _complete_caller(root,outcome,source):
     references=dict(request_reference=_file_reference(root/'request.json'),caller_start_reference=_file_reference(root/'caller-start.json'),
         episode_reference=_file_reference(root/'episode.json'))
     end=time.perf_counter_ns();elapsed=end-outcome['invocation_origin_ns']
-    complete=dict(schema='research/v2-primary-caller-complete',root=str(root),caller_source_sha256=source,
+    complete=dict(schema='research/v2-primary-caller-complete-clock-1',root=str(root),caller_source_sha256=source,
         **references,process_reference=outcome['process_reference'],
-        origin_ns=outcome['invocation_origin_ns'],end_ns=end,elapsed_ns=elapsed,
+        origin_ns=outcome['invocation_origin_ns'],end_ns=end,elapsed_ns=elapsed,clock_domain=clock_domain,
         root_elapsed_ns=outcome['cooperative_root_elapsed_ns'],
         additional_caller_interval_ns=elapsed-outcome['cooperative_root_elapsed_ns'],status=outcome['status'],
         scope=_COMPLETE_SCOPE,**{key:False for key in _FLAGS})
@@ -49,6 +49,7 @@ def inspect_caller_boundary(reference,*,process_reference):
     from .cooperative_process_v2 import inspect_cooperative_process
     from .primary_search_worker_v2 import _path,_reference,_json
     from .deployment_worker_v2 import _source
+    from .execution_clock_v2 import validate_clock_domain
     if type(process_reference) is not dict:raise ValueError('Exact owned process reference required')
     base={key:process_reference[key] for key in ('process_root','process_receipt_sha256','process_started_sha256')}
     control=_path(base['process_root']);root=control.parent;path=_reference(reference)
@@ -56,11 +57,12 @@ def inspect_caller_boundary(reference,*,process_reference):
         raise ValueError('Caller boundary must be the exact committed local completion')
     value=_json(path.read_bytes())
     fields={'schema','root','caller_source_sha256','request_reference','caller_start_reference','episode_reference',
-        'process_reference','origin_ns','end_ns','elapsed_ns','root_elapsed_ns','additional_caller_interval_ns','status','scope',*_FLAGS}
-    if (type(value) is not dict or set(value)!=fields or value['schema']!='research/v2-primary-caller-complete'
+        'process_reference','origin_ns','end_ns','elapsed_ns','clock_domain','root_elapsed_ns','additional_caller_interval_ns','status','scope',*_FLAGS}
+    if (type(value) is not dict or set(value)!=fields or value['schema']!='research/v2-primary-caller-complete-clock-1'
             or value['root']!=str(root) or value['caller_source_sha256']!=_source() or value['scope']!=_COMPLETE_SCOPE
             or value['process_reference']!=base or any(value.get(key) is not False for key in _FLAGS)):
         raise ValueError('Caller boundary source/schema/authority differs')
+    validate_clock_domain(value['clock_domain'])
     loaded={}
     for name,filename in (('request_reference','request.json'),('caller_start_reference','caller-start.json'),('episode_reference','episode.json')):
         target=_reference(value[name])
@@ -70,7 +72,7 @@ def inspect_caller_boundary(reference,*,process_reference):
     proof=inspect_cooperative_process(root=control,expected_receipt_sha256=base['process_receipt_sha256'],expected_started_sha256=base['process_started_sha256'])
     start=_json((control/'started.json').read_bytes());caller=loaded['caller_start_reference'];episode=loaded['episode_reference']
     start_fields={'schema','argv','cwd','environment_overrides','identity','admission_identity','request_sha256',
-        'invocation_origin_ns','expect_primary_body','caller_source_sha256'}
+        'invocation_origin_ns','expect_primary_body','caller_source_sha256','clock_domain'}
     episode_fields={'schema','status','request_sha256','invocation_origin_ns',*_FLAGS,'observed_caller_elapsed_ns',
         'additional_caller_interval_ns','clock_scope','process_reference','cooperative_root_elapsed_ns','process_status','returncode','child_started'}
     optional={'unstarted_reference','body_outcome_reference','closed_body_reference','search_result_reference','error_type','reason','traceback'}
@@ -94,6 +96,7 @@ def inspect_caller_boundary(reference,*,process_reference):
             or episode.get('process_reference')!=base or episode.get('status')!=value['status']
             or any(episode.get(key) is not False for key in _FLAGS)
             or caller.get('caller_source_sha256')!=value['caller_source_sha256']
+            or caller.get('clock_domain')!=value['clock_domain']
             or value['origin_ns']!=caller.get('invocation_origin_ns') or value['origin_ns']!=episode.get('invocation_origin_ns')
             or value['origin_ns']!=start.get('supervisor_started_monotonic_ns')
             or any(caller.get(key)!=start.get(key) for key in ('argv','cwd','environment_overrides','identity','admission_identity'))
@@ -101,7 +104,8 @@ def inspect_caller_boundary(reference,*,process_reference):
             or episode.get('request_sha256')!=value['request_reference']['sha256']):
         raise ValueError('Caller clock, request, owned root or outcome boundary differs')
     if _sha(path)!=reference['sha256']:raise ValueError('Caller completion changed during reading')
-    return dict(elapsed_ns=value['elapsed_ns'],root_elapsed_ns=proof['elapsed_ns'],
+    return dict(origin_ns=value['origin_ns'],end_ns=value['end_ns'],clock_domain=value['clock_domain'],
+        elapsed_ns=value['elapsed_ns'],root_elapsed_ns=proof['elapsed_ns'],
         additional_caller_interval_ns=value['additional_caller_interval_ns'],caller_boundary_checked=True,
         **{key:False for key in _FLAGS},scope=_COMPLETE_SCOPE)
 
@@ -112,10 +116,11 @@ def _run_prepared_episode(*,prepared,episode_root,identity,admission_identity,ad
     from .cooperative_process_v2 import supervise_cooperative_process,inspect_cooperative_process,_write
     from .primary_search_worker_v2 import _path,_json
     from .deployment_worker_v2 import _source
+    from .execution_clock_v2 import observe_clock_domain
     if type(invocation_origin_ns) is not int or not 0<invocation_origin_ns<=time.perf_counter_ns():
         raise ValueError('Caller origin must precede entry before any publication')
     root=_path(str(episode_root));request=root/'request.json';control=root/'process'
-    source=_source()
+    source=_source();clock_domain=observe_clock_domain()
     raw=prepared['request_bytes']
     if (root.exists() or root.is_symlink() or type(raw) is not bytes
             or hashlib.sha256(raw).hexdigest()!=prepared['request_sha256']):
@@ -130,7 +135,8 @@ def _run_prepared_episode(*,prepared,episode_root,identity,admission_identity,ad
         _write(root/'caller-start.json',dict(schema='research/v2-primary-caller-start',argv=prepared['argv'],
             cwd=prepared['cwd'],environment_overrides=prepared['environment_overrides'],identity=identity,
             admission_identity=admission_identity,request_sha256=prepared['request_sha256'],
-            invocation_origin_ns=invocation_origin_ns,expect_primary_body=expect_primary_body,caller_source_sha256=source))
+            invocation_origin_ns=invocation_origin_ns,expect_primary_body=expect_primary_body,caller_source_sha256=source,
+            clock_domain=clock_domain))
         with request.open('xb') as stream:stream.write(raw);stream.flush();os.fsync(stream.fileno())
         if _sha(request)!=prepared['request_sha256']:raise ValueError('Published request bytes changed')
         process=supervise_cooperative_process(argv=prepared['argv'],cwd=prepared['cwd'],
@@ -167,7 +173,7 @@ def _run_prepared_episode(*,prepared,episode_root,identity,admission_identity,ad
             additional_caller_interval_ns=None if process is None else elapsed-process['elapsed_ns'],
             clock_scope=_EPISODE_SCOPE)
         _write(root/'episode.json',outcome)
-    return _complete_caller(root,outcome,source)
+    return _complete_caller(root,outcome,source,clock_domain)
 
 
 def run_primary_search_episode(*,practical_plan_reference,expected_practical_plan_hash,job_id,support_reference,

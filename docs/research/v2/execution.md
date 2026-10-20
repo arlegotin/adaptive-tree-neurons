@@ -2783,3 +2783,33 @@ Next final protected protocol/once-only feature->prediction->label evaluator,
 independent raw audit/cost/deployment/CLI/readiness/final review before final-source
 actual qualification and primary searches. Current scientific conclusions and
 held c33 runtime/source/operator plan unchanged; no rescue or protected root.
+
+## 20 October: explicit clock-domain records
+
+New caller/program `*-clock-1` schemas retain exact origin/end/elapsed values and
+kernel-boot/host/clock metadata. Closed readers validate stored domains without
+probing today's boot, check source/file/plan/journal commitments and grant no
+cost or T authority. Caller start and completion domains must agree. Unknown or
+different domains prohibit absolute interval comparisons; elapsed work is not
+discarded after reboot. Old receipts/source identities remain untouched.
+
+Missing module21RED1.77s→21PASS1.73s with a regex escape warning; the raw regex
+was corrected. First affected command102PASS2FAIL16.54s: old driver tests blocked
+the new bounded `sysctl` metadata query. Exact-query-only exceptions preserve
+their ban on every replacement worker. Final eleven-module181PASS19.94s, exit0.
+No whole-repository green claim; earlier broad-suite failures remain recorded.
+
+The first software capture has unknown domains under sandbox kernel-query
+restrictions. The separate permitted-query capture verifies shared observed
+domains, both caller intervals inside their respective containing program
+intervals and an independent caller sum67,125,458ns exactly matching the queue.
+No model worker, fit, real transfer labels or T; metadata fixtures do not grant
+native/global qualification. [Contract](execution-clock-records.md),
+[receipt](WP10-clock-records-receipt.json).
+
+Next is an owned outer program envelope measuring interpreter startup through
+all awaited children and worker return, followed by complete pre-T cost audit,
+final protected protocol/evaluator/raw audit/deployment/CLI/readiness and branch
+review. Existing inner records exclude their own final publication/return and
+cannot replace that evidence. Held native source/environment/operator plan and
+closed scientific branches remain unchanged.
