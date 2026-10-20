@@ -5,11 +5,11 @@ must admit the procedure before these inspected models can enter selection.
 """
 import json
 from pathlib import Path
-import shutil
 import time
 
 from treeneuron.config import canonical_hash,canonical_json
 from .ledger import write_new_json
+from .immutable_inputs import stage_immutable_file
 from .method_worker import _ROOT,_read_json,_sha,_validate_request,scientific_source_sha256
 from .native_fit_v2 import run_native_fit
 from .native_candidate_v2 import inspect_primary_native_candidate
@@ -137,9 +137,13 @@ class InspectedNativeTrialBridge:
             recovery=packet['native_reference']
         elif request['checkpoint_files']!=[]:raise ValueError('Fresh native attempt cannot reuse undeclared state')
         generation=attempt/'generation';inputs=generation/'input';inputs.mkdir(parents=True)
+        material=[]
         for role,ref in template['files'].items():
-            target=inputs/(role+'.npz');shutil.copyfile(Path(binding['template_path']).parent/ref['path'],target)
-            if _sha(target)!=ref['sha256']:raise ValueError('Native staged role copy changed')
+            target=inputs/(role+'.npz')
+            row=stage_immutable_file(Path(binding['template_path']).parent/ref['path'],target,expected_sha256=ref['sha256'])
+            material.append(dict(row,role=role))
+        write_new_json(inputs/'materialization.json',dict(files=material,
+            policy='Byte-authenticated immutable fitting/query roles; hard links or disclosed cross-device copies; containing clocks include staging'))
         path=inputs/'request.json';write_new_json(path,worker_request);request_sha=_sha(path)
         native=run_native_fit(path,expected_request_sha256=request_sha,output=generation/'native',
             interpreter=binding['interpreter'],extra_pythonpath=binding['extra_pythonpath'],

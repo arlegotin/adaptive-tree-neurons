@@ -13,9 +13,11 @@ external inspection directory, the qualified interpreter and pinned overlays.
 The output must be outside both the immutable container and prepared data store.
 The caller must also keep it outside any owning frozen queue.
 
-The inspector authenticates generation before creating replay inputs. It copies
-the complete closed snapshot, feature-only query and retained predictions into
-new, byte-verified inputs. The fresh replay process imports only that method's
+The inspector authenticates generation before creating replay inputs. It stages
+the complete closed snapshot, feature-only query and retained predictions as
+[byte-verified immutable inputs](immutable-input-staging.md), sharing their
+archives on the same filesystem with a cross-device copy fallback. The fresh
+replay process imports only that method's
 adapter, uses the declared numerical threads and owned RSS guard, has no wall
 deadline, and must reproduce prediction dtype/values exactly. It receives no V
 or T labels. All original generation files remain unchanged.

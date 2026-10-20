@@ -1,0 +1,69 @@
+{
+  "T_accessed": false,
+  "files": [
+    {
+      "bytes": 1808,
+      "path": "src/treeneuron/research/immutable_inputs.py",
+      "sha256": "0fd087d6475bbe46b72fa09cecd858bed8c5eea6744936c3f32181d99a8ac9ae"
+    },
+    {
+      "bytes": 9963,
+      "path": "src/treeneuron/research/native_candidate_v2.py",
+      "sha256": "c7a9f81a4473458356954a069e9be0c1d8732c32c3171fd14a950230f3904b43"
+    },
+    {
+      "bytes": 15092,
+      "path": "src/treeneuron/research/native_trial_bridge_v2.py",
+      "sha256": "39446487269eacbcf1e0311da0df22b775f81f96f8f9bc433eecc6acd8d0b3a6"
+    },
+    {
+      "bytes": 2306,
+      "path": "tests/test_immutable_input_staging.py",
+      "sha256": "91bfdccad9c547a2a6b594d46b92d196fc588391010ba6b0bf1620d354cdca5d"
+    },
+    {
+      "bytes": 5581,
+      "path": "tests/test_native_candidate_inspection.py",
+      "sha256": "741766945be198598995979e6ec4f738962c7bee8e08faf01c71f6c9c89cd23c"
+    },
+    {
+      "bytes": 7712,
+      "path": "tests/test_native_trial_bridge.py",
+      "sha256": "0d26ec63dcb08677d8124c97000d196b2805e3087cdc93fb72f7c38eb2216b8a"
+    },
+    {
+      "bytes": 6995,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/immutable-input-staging-red.log",
+      "sha256": "abbef1b8db337d822eaa848587e44119c981a00b8f33d90bf9ee96db81a544a9"
+    },
+    {
+      "bytes": 98,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/immutable-input-staging-green.log",
+      "sha256": "bd5201fad773316bbfda2cfee7833ff2d8db356db81550c537f47ba44de0ed2d"
+    },
+    {
+      "bytes": 6313,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/immutable-native-staging-red.log",
+      "sha256": "28055bdacd8b02a882cb91bb34e8ac0f3e43dcb13d209a4ff36301c061415b28"
+    },
+    {
+      "bytes": 2551,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/immutable-native-staging-affected-green.log",
+      "sha256": "a8fb9cfda4d20a5b31f46d80aba5a729040f55fc60812d088da1820b9bccaf0f"
+    }
+  ],
+  "final_green": "44 passed,7retained native warnings in59.93s",
+  "first_green": "5 passed in.05s",
+  "full_study_disk_forecast_qualified": false,
+  "integration_red": "2 actual native/replay cases failed in6.43s: copied snapshot inode differs and fitting materialization log absent",
+  "model_efficiency_claim": false,
+  "new_real_data_anchor_completions": 0,
+  "production_practical_searches": 0,
+  "quality_eligible": false,
+  "red": "5 missing-module failures in.06s",
+  "schema": "research/v2-immutable-input-staging-receipt",
+  "scope": "Same-filesystem immutable input/closed-inference archive hard links; exclusive cross-device copy fallback; original/staged hashes rechecked. Training recovery independent-copy code unchanged.",
+  "source_sha256": "10934920afa131dd7ab8f0313875a5b15fe3dffb9b91dbfce92c5ad226e5f41c",
+  "status": "verified_fixture_component",
+  "volume_saving_measured": false
+}

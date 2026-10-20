@@ -356,3 +356,9 @@ owned-process and worker guards passed28.30seconds. The real simple-profile
 execution supplies software evidence only. See native-qualification-contract.md
 for the still-required real native/support registry and final-source executions;
 this helper grants no predictive eligibility or protected release.
+
+Immutable read-only staging and its native integration are covered by
+`tests/test_immutable_input_staging.py`, native candidate/trial, generation and
+checkpoint-supervision tests. The44-case affected suite passed59.93seconds.
+Training recovery uses separate copies; same-device inference/input sharing is
+explicitly recorded. See immutable-input-staging.md for storage/cost scope.

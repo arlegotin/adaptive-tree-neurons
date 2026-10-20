@@ -11,6 +11,7 @@ import time
 
 from treeneuron.config import canonical_hash
 from .ledger import write_new_json
+from .immutable_inputs import stage_immutable_file
 from .method_worker import _ROOT,_THREADS,_read_json,_sha,scientific_source_sha256
 from .native_generation_v2 import audit_native_generation
 from .process_supervision_v2 import supervise_process
@@ -56,11 +57,22 @@ def inspect_primary_native_candidate(*,generation_arguments,immutable_generation
         native_workload_qualified=False,HPO_journal_authenticated=False,quality_eligible=False,
         V_coordinator_invoked=False,V_labels_read_by_coordinator=False,T_accessed=False,
         model_training_independently_reexecuted=False,
+        input_materialization=[],
         scope='Current-source generation chain, independent closed-model inference and primary V arithmetic only. Native implementation/workload/support qualification, paid search journal and protected freeze remain separate.')
     try:
         inputs=output/'input';inputs.mkdir()
-        shutil.copytree(snapshot,inputs/'snapshot',copy_function=shutil.copyfile)
-        shutil.copyfile(query,inputs/'query.npz');shutil.copyfile(prediction,inputs/'prediction.npz')
+        committed={row['path']:row['sha256'] for row in staged_snapshot['files']}
+        def stage_snapshot(original,target):
+            row=stage_immutable_file(original,target,expected_sha256=committed[Path(original).relative_to(snapshot).as_posix()])
+            record['input_materialization'].append(row)
+            return str(target)
+        shutil.copytree(snapshot,inputs/'snapshot',copy_function=stage_snapshot)
+        record['input_materialization'].append(stage_immutable_file(query,inputs/'query.npz',
+            expected_sha256=request['files']['V_features']['sha256']))
+        record['input_materialization'].append(stage_immutable_file(prediction,inputs/'prediction.npz',
+            expected_sha256=generation['prediction']['sha256']))
+        write_new_json(inputs/'materialization.json',dict(files=record['input_materialization'],
+            policy='Byte-authenticated immutable inference inputs, hard-linked on the same filesystem or copied across devices; containing clocks include staging'))
         if (_inventory(inputs/'snapshot')!=staged_snapshot
                 or _sha(inputs/'query.npz')!=request['files']['V_features']['sha256']
                 or _sha(inputs/'prediction.npz')!=generation['prediction']['sha256']):

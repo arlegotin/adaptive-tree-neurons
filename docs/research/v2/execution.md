@@ -1869,3 +1869,15 @@ quality eligibility. No real transfer fit/score/HPO/T was added. The proposed
 registry/production admission interface and remaining gates are explicit in
 [the qualification contract](native-qualification-contract.md); source and logs
 are inWP07-native-implementation-verification-receipt.json.
+
+Immutable fitting/query/closed-inference archives now use byte-verified shared
+staging on the same filesystem, with an exclusive cross-device copy fallback.
+This reduces duplicate archive storage without changing model/training/input
+bytes. Training checkpoint recovery retains independent copies. Five filesystem
+REDs then five GREENs and two real-path integration REDs preceded44affected
+GREENs59.93seconds/7retained native warnings, including exact NODE copy/recovery
+and unchanged original generation containers. No existing held artifact was
+altered; actual full-study disk forecasting/admission remains mandatory. See
+[storage policy](immutable-input-staging.md) and
+[receipt](WP08-immutable-input-staging-receipt.json). No real fit/quality/HPO/T count
+increased and no model efficiency or volume-free saving is claimed.

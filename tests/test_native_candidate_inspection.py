@@ -43,6 +43,12 @@ def test_real_native_candidate_replays_in_a_fresh_label_free_worker_before_prima
     assert result['elapsed_ns']>=result['replay_supervisor_span_ns']>0
     assert any('V_labels' in row['roles'] for row in access(args))
     assert _inventory(attempt)==before
+    import os
+    from pathlib import Path
+    source=Path(result['generation']['snapshot']['path']).parent
+    files=[p for p in source.rglob('*') if p.is_file()]
+    assert files and all(os.path.samefile(p,tmp_path/'inspection/input/snapshot'/p.relative_to(source)) for p in files)
+    assert len(result['input_materialization'])==len(files)+2
 
 
 @pytest.mark.parametrize('change',['seed','overlap','container'])

@@ -15,8 +15,9 @@ HPO seed; its exact32configurations are bound and rechecked. Its native
 distribution never becomes generic TPE. Missing or changed schedule evidence
 rejects before fitting.
 
-Each paid attempt creates a separate generation container with verified input
-copies. The owned fit has no wall deadline and retains its RSS guard. Successful
+Each paid attempt creates a separate generation container with
+[verified immutable archives](immutable-input-staging.md) and a recorded hard-link
+or cross-device copy method. The owned fit has no wall deadline and retains its RSS guard. Successful
 native completion is inspected in a fresh process, with V labels remaining in the
 coordinator. A packet keeps the raw/compiled proposal, model lineage, inspected
 V score, nested timings and complete file commitments. Outer search time includes

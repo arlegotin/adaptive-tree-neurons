@@ -67,6 +67,12 @@ def test_two_actual_native_models_keep_distinct_inspected_scores_without_quality
         expected=spec['anchors'][0]['config'] if i==0 else spec['finite_configurations'][1]
         assert request['config']==expected
         assert packet['callback_body_ns']>=packet['inspection_span_ns']>0
+        import os
+        staged=json.loads((attempt/'generation/input/materialization.json').read_text())
+        template=json.loads(args['request_path'].read_text())
+        assert len(staged['files'])==3
+        for role,ref in template['files'].items():
+            assert os.path.samefile(args['request_path'].parent/ref['path'],attempt/'generation/input'/(role+'.npz'))
     assert _inventory(old)==before
 
 
