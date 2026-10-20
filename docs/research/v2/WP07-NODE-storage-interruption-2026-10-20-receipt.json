@@ -1,0 +1,74 @@
+{
+  "T_accessed": false,
+  "available_completed_native_anchors": 117,
+  "checkpoint_byte_commitments_match": true,
+  "checkpoint_semantic_load_or_update_replay_performed": false,
+  "checkpoint_step": 4000,
+  "dataset": "parkinsons",
+  "execution_session_exit_code": 1,
+  "files": [
+    {
+      "bytes": 1596,
+      "path": "artifacts/research-v2/WP07/NODE-primary-native-continuation-c33a84e/launch.log",
+      "sha256": "35339d9e1409051dd5cdd294c597f5484fe85af4381b0451a2a3de9cbb4d9943"
+    },
+    {
+      "bytes": 3964,
+      "path": "artifacts/research-v2/WP07/NODE-primary-native-continuation-c33a84e/operator.py",
+      "sha256": "1fac258decfc8f3444ea0b9a9ed8a54b46ebc5ae7a819071f53cd1af1315241c"
+    },
+    {
+      "bytes": 1594,
+      "path": "artifacts/research-v2/WP07/NODE-parkinsons-native-recoverable-c33a84e/attempt-000/process/started.json",
+      "sha256": "3a24e22bd230a2a17d7682a4f26e2298f663bfe3f6402f7b656de873bdb1f880"
+    },
+    {
+      "bytes": 133,
+      "path": "artifacts/research-v2/WP07/NODE-parkinsons-native-recoverable-c33a84e/attempt-000/process/spawned.json",
+      "sha256": "0c7c6eeae5cce11564cf0f7fd2bb141f603d6f44b7daaef1123b59301655641b"
+    },
+    {
+      "bytes": 1139,
+      "path": "artifacts/research-v2/WP07/NODE-parkinsons-native-recoverable-c33a84e/attempt-000/process/stderr.log",
+      "sha256": "26a86c915da379b420732149ba5fd99c2bff7bcf710f77d262c8488b4b616050"
+    },
+    {
+      "bytes": 495021,
+      "path": "artifacts/research-v2/WP07/NODE-parkinsons-native-recoverable-c33a84e/attempt-000/process/resource-samples.jsonl",
+      "sha256": "3aac19288063f19ad10263929c52605d704c4d92a3fc92499fd8b0c2ae096eff"
+    },
+    {
+      "bytes": 242,
+      "path": "artifacts/research-v2/WP07/NODE-parkinsons-native-recoverable-c33a84e/checkpoints/latest.json",
+      "sha256": "ff87ced2373e11b583ad31fedf8bbb3c13636935ed64edba921eba18cfc07269"
+    },
+    {
+      "bytes": 46027,
+      "path": "artifacts/research-v2/WP07/NODE-parkinsons-native-recoverable-c33a84e/checkpoints/checkpoint-000000004000-2e2a76b5a8744c09b95881955f76a216/manifest.json",
+      "sha256": "cc878b7bf889315bf4d1adde81bd70bd00af37171a3c2d22b9dfe8ef2cae8595"
+    },
+    {
+      "bytes": 46231001,
+      "path": "artifacts/research-v2/WP07/NODE-parkinsons-native-recoverable-c33a84e/checkpoints/checkpoint-000000004000-2e2a76b5a8744c09b95881955f76a216/arrays.npz",
+      "sha256": "90ff148894eefe79bf4b121d98fb8ec5c975c6cd4572e41d987af69eae486030"
+    }
+  ],
+  "fit_seed": 17,
+  "free_disk_bytes_observed": 224178176,
+  "held_source_sha256": "b680a26b2176c6c5cc0f59cf19192d7ee963826a7575cce5ec5ee695521a65cc",
+  "missing_expected_records": [
+    "artifacts/research-v2/WP07/NODE-primary-native-continuation-c33a84e/terminal.json",
+    "artifacts/research-v2/WP07/NODE-primary-native-continuation-c33a84e/parkinsons-launch-invocation.json",
+    "artifacts/research-v2/WP07/NODE-parkinsons-native-recoverable-c33a84e/attempt-000/terminal.json",
+    "artifacts/research-v2/WP07/NODE-parkinsons-native-recoverable-c33a84e/attempt-000/process/process.json"
+  ],
+  "new_predictive_result": false,
+  "observed_utc_ns": 1792498367979207000,
+  "owned_pid_observed_absent": true,
+  "planned_native_anchors": 120,
+  "recovery": "Keep attempt unchanged; validate full held-source checkpoint semantics and same-source/config/seed resume only after disk/RAM admission. Retain unmeasured terminal tail as unavailable, never zero. Original queue cannot resume through output-exists guard; continuation requires a new explicit operator identity referencing this failed tranche.",
+  "schema": "research/v2-native-queue-storage-interruption",
+  "source_or_seed_changed": false,
+  "status": "paused_resource_exhausted_incomplete_terminal_records",
+  "worker_pid_recorded": 11073
+}

@@ -9,7 +9,7 @@ import json
 import re
 
 from treeneuron.config import canonical_hash, canonical_json
-from .seeds import seed64, seed32
+from .seeds import seed64, seed32, seed31
 
 _DATASETS=('airfoil','concrete','ccpp','parkinsons','bike','energy')
 _FAMILIES=tuple(f'P{i:02}' for i in range(14))
@@ -83,8 +83,11 @@ def _paired_search_seeds(study_id,seed_root,*,native_quality):
         # values and earlier model labels, with intentional family pairing.
         for (dataset,fold,repeat),record in seeds.items():
             labels=(study_id,'practical',dataset,'outer',str(fold),'repeat',str(repeat),'fit')
-            library,counter=seed32(seed_root,*labels,used=used32)
-            record.update(fit_seed64=seed64(seed_root,*labels),fit_seed=library,fit_seed32_collision_counter=counter)
+            # Pair every family numerically in the narrowest native range.
+            # Tree adapters require signed31; keep HPO/library32 untouched.
+            library,counter=seed31(seed_root,*labels,used=used32)
+            record.update(fit_seed64=seed64(seed_root,*labels),fit_seed=library,
+                fit_seed_bits=31,fit_seed31_collision_counter=counter)
     return seeds
 
 
@@ -138,6 +141,8 @@ def expand_practical(data_manifests,*,support_lock_sha256,source_sha256,runtime_
         execution_implemented=False,protected_access_authorized=False,
         qualification_scope='Metadata commitment validation only; raw data, native supports and workers unqualified here',
         secondary_barrier='All168primary models and global procedure must be frozen by confirmation/v2; this plan grants no release')
-    if native_quality:value['budget_policy']='native_quality'
+    if native_quality:
+        value['budget_policy']='native_quality'
+        value['native_fit_seed_policy']='paired-signed31-v1'
     value['plan_hash']=canonical_hash(value)
     return PracticalPlan(canonical_json(value))

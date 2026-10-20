@@ -61,7 +61,7 @@ def test_native_quality_fit_randomization_is_fixed_independent_and_paired_across
     rows=expand(native_quality=True).to_dict()['jobs'];paired={}
     for row in rows:
         key=(row['dataset'],row['outer_fold'],row['search_repeat'])
-        paired.setdefault(key,set()).add((row['fit_seed64'],row['fit_seed'],row['fit_seed32_collision_counter']))
+        paired.setdefault(key,set()).add((row['fit_seed64'],row['fit_seed'],row['fit_seed31_collision_counter']))
     assert len(paired)==60 and all(len(v)==1 for v in paired.values())
     assert len({next(iter(v))[1] for v in paired.values()})==60
     assert {next(iter(v))[1] for v in paired.values()}.isdisjoint({r['hpo_seed32'] for r in rows})
@@ -69,8 +69,9 @@ def test_native_quality_fit_randomization_is_fixed_independent_and_paired_across
     raw=json.dumps(labels,separators=(',',':'),ensure_ascii=True).encode('ascii')
     first=rows[0]
     assert first['fit_seed64']==int.from_bytes(hashlib.sha256(raw).digest()[:8],'big')&((1<<63)-1)
-    library=json.dumps(labels+['library32',str(first['fit_seed32_collision_counter'])],separators=(',',':')).encode('ascii')
-    assert first['fit_seed']==int.from_bytes(hashlib.sha256(library).digest()[:8],'big')&((1<<32)-1)
+    library=json.dumps(labels+['library31',str(first['fit_seed31_collision_counter'])],separators=(',',':')).encode('ascii')
+    assert first['fit_seed']==int.from_bytes(hashlib.sha256(library).digest()[:8],'big')&((1<<31)-1)
+    assert all(r['fit_seed_bits']==31 for r in rows)
     assert all('fit_seed' not in r for r in expand().to_dict()['jobs'])
 
 

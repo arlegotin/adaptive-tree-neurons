@@ -15,9 +15,15 @@ opened by the planner.
 Explicit native-quality mode separately fixes one model seed per
 dataset/fold/repetition, shared across all14families and every trial. Its canonical
 labels end in `'fit'`, replacing `'HPO'`, under root2026101802. Store `fit_seed64`,
-the worker's library32 `fit_seed`, and `fit_seed32_collision_counter`. Allocate
+the worker's signed-range31-bit `fit_seed`, `fit_seed_bits=31`, and
+`fit_seed31_collision_counter`. Native-quality plans declare
+`native_fit_seed_policy='paired-signed31-v1'`. Allocate
 model seeds after all60HPO library values, excluding those and prior model
-labels. Existing HPO values remain unchanged. The primary inventory checks
+labels, using the separate `'library31'` derivation namespace. Existing HPO and
+fit-root64 values remain unchanged. This prospective compatibility repair changes
+planned initialization numbers before any native-quality production search;
+[the amendment](2026-10-20-model-seed-range-amendment.md) retains its reason and
+verification. The primary inventory checks
 planned model seeds against each search and retained trial, and rejects even
 self-rehashed job seed changes. Distinct architectures consume randomness
 differently; shared labels do not promise identical initial tensors.

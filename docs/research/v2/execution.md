@@ -2017,3 +2017,27 @@ factor supports. A self-rehashed changed space rejects. The
 the reopened temporary metadata lock. No production lock, data access or search
 was performed by this API. The actual file will be emitted at final executable
 source; full primary-job seed/source/data/registry binding remains unfinished.
+
+### Primary search declaration and model-seed repair, 20 October
+
+The [primary declaration compiler](primary-search-declaration.md) now binds one
+exact primary job to the actual support law, source/core/adapter pins and paired
+model/HPO namespaces. RealMLP's official schedule uses its distinct 63-bit seed.
+The final affected suite passed 78 checks. The
+[prospective amendment](2026-10-20-model-seed-range-amendment.md) repairs planned
+model seeds to a common 31-bit range across all 14 families before production;
+completed experiments are unchanged. No native-quality production search,
+complete qualified-search audit or global freeze is claimed.
+
+### Native queue storage interruption, 20 October
+
+The held c33 NODE queue stopped during the Parkinsons run when the shared volume
+became full. The worker and outer operator could not publish their terminal
+JSON records; their error logs and incomplete attempt remain retained. The last
+published checkpoint pointer records update 4,000. This is an operational
+interruption, not an eligible fitted model or predictive result. The completed
+Airfoil/Concrete runs are unchanged; the engineering total remains 117 of 120
+anchors. Recovery must validate the existing checkpoint and resume the same
+source/configuration/seed after storage admission, retaining the failed attempt
+and its available cost evidence. No new native fit is admitted while free disk
+is below the declared reserve.

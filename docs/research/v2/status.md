@@ -58,7 +58,12 @@ adds Airfoil: V NMSE 0.107493, versus grown 0.092186 and RealMLP 0.073302.
 All twenty Airfoil anchors remain visible. The [Concrete tranche](../../../reports/research-v2-native-anchors-concrete.md)
 adds NODE at 0.161727, versus grown 0.209199 and CatBoost 0.129860. All twenty
 Concrete coordinates are visible. Native engineering completions now number
-117 of 120. Parkinsons is running, followed by CCPP and Bike serially. The
+117 of 120. Parkinsons stopped on a disk-full error; its published checkpoint
+pointer remains at update 4,000 with matching manifest/payload bytes. A full
+semantic checkpoint load and safe-storage admission are required before
+same-source/seed recovery. CCPP and Bike remain pending. The
+[interruption receipt](WP07-NODE-storage-interruption-2026-10-20-receipt.json)
+preserves missing terminal records and available error/cost evidence. The
 original survey and earlier receipts remain unchanged.
 
 The user prioritizes completed results over the original two-hour budget.
@@ -135,6 +140,12 @@ affected checks, including real partial candidate evidence and rejection of a
 false registry. Its complete qualified-success execution remains unrun; full
 registry qualification, paid-journal and primary-model/freeze connections are
 still required.
+
+The [primary declaration compiler](primary-search-declaration.md) passed 78
+affected checks. It binds exact study job/support/runtime/model/HPO namespaces;
+a pre-production compatibility repair keeps paired model seeds within the
+unchanged native tree guard. No completed scientific seed or result changes.
+Qualified execution and the complete search audit remain unfinished.
 
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only

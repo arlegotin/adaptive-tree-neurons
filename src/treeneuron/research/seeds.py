@@ -19,3 +19,14 @@ def seed32(root: int, *labels: str, used: set[int]) -> tuple[int, int]:
             used.add(value)
             return value, counter
         counter += 1
+
+
+def seed31(root: int, *labels: str, used: set[int]) -> tuple[int, int]:
+    """Allocate the common signed-library range without truncating another seed."""
+    counter = 0
+    while True:
+        value = seed64(root, *labels, 'library31', str(counter)) & ((1 << 31)-1)
+        if value not in used:
+            used.add(value)
+            return value, counter
+        counter += 1

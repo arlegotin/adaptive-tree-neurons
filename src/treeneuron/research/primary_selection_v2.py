@@ -48,6 +48,8 @@ def _primary(plan,expected):
     if type(jobs) is not list or len(jobs)!=840:raise ValueError('All840fixed practical jobs required')
     policy=value.get('budget_policy','legacy_bounded')
     if policy not in ('legacy_bounded','native_quality'):raise ValueError('Unknown practical budget policy')
+    if policy=='native_quality' and value.get('native_fit_seed_policy')!='paired-signed31-v1':
+        raise ValueError('Unknown native paired model-seed policy')
     seeds=_paired_search_seeds(value.get('study_id'),value.get('seed_root'),native_quality=policy=='native_quality')
     seen=set();primary=[]
     for job in jobs:
@@ -175,7 +177,7 @@ def _assemble(plan,expected,procedure,selections,created):
             attempts_paid=len(records),paid_search_ns=total,model=entry['selected_model'])
         if value.get('budget_policy')=='native_quality':
             model_record.update(fit_seed=job['fit_seed'],fit_seed64=job['fit_seed64'],
-                fit_seed32_collision_counter=job['fit_seed32_collision_counter'])
+                fit_seed_bits=job['fit_seed_bits'],fit_seed31_collision_counter=job['fit_seed31_collision_counter'])
         models.append(model_record)
     for path,digest in list(references.items()):_ref(dict(path=path,sha256=digest),{})
     if _source()!=value['source_sha256']:raise ValueError('Scientific source changed during primary sealing')

@@ -1,0 +1,132 @@
+{
+  "T_accessed": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-c",
+      "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"--tb=short\",\"--basetemp=artifacts/research-v2/WP11/primary-search-declaration-seed31-fixture\",\"tests/test_primary_search_declaration_v2.py\",\"tests/test_practical_seed_ranges_v2.py\",\"tests/test_practical_support_lock_v2.py\",\"tests/test_practical_workload.py\",\"tests/test_primary_selection_inventory_v2.py\"]))"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "final_source_qualified": false,
+  "fixture_observation": {
+    "bytes": 60583,
+    "path": "artifacts/research-v2/WP11/primary-search-declaration-fixture-observation.json",
+    "sha256": "c42adaa64c0151e9a84f91005cd9e56ad48c6b45d9b647647fbfde8133db5688"
+  },
+  "full_qualified_search_audit_implemented": false,
+  "held_scientific_workers_changed": false,
+  "limitation": "Artificial role metadata is not data authentication. Official sampler fits no model/reads no labels. Declared sampler paid span is only a minimum prerequisite. Full actual registry/data/resource/qualified worker/journal/global freeze/protected integrations remain required. No production support lock or search emitted.",
+  "logs": [
+    {
+      "bytes": 15697,
+      "path": "artifacts/research-v2/WP11/primary-search-declaration-RED.log",
+      "sha256": "cdd199a18dff5dd86b452b182ca02c97cd5587a9480bbadb3dab6a8a72c34153"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP11/primary-search-declaration-first-GREEN.log",
+      "sha256": "6b69840d182c92c7c4b882da47c6337f669953a3f95fc7bd79c4fd39d6244b48"
+    },
+    {
+      "bytes": 180,
+      "path": "artifacts/research-v2/WP11/primary-search-declaration-final-affected.log",
+      "sha256": "643d25cb5de13a77f15ca75c4c705b20e54120ea6ddedae50a02e5797faf2d5d"
+    },
+    {
+      "bytes": 180,
+      "path": "artifacts/research-v2/WP11/primary-search-declaration-seed31-affected.log",
+      "sha256": "8656cd15857e4d4fdc5451cd5ee95036dd8e70b352d10129a8060c4d2f33528f"
+    },
+    {
+      "bytes": 2576,
+      "path": "artifacts/research-v2/WP11/practical-seed-range-RED.log",
+      "sha256": "ffc927bf56f121d22d7bba02a2e0885737c8d2cf7ad7dbee4469981cc18709c1"
+    }
+  ],
+  "model_seed_policy": "paired-signed31-v1: common all14 model seed from separate library31 namespace; fit_seed_bits31/fit_seed31_collision_counter. HPO64/HPO32/fitroot64 values unchanged; prospective model-init numbers changed before all native-quality production. Existing actual experiments unchanged.",
+  "native_tree_seed_coordinates_checked": 240,
+  "native_workload_qualified": false,
+  "packages_installed_or_updated": false,
+  "parent_commit": "3663119df4162e7eed62b02c7f78c20250227995",
+  "pre_seed_range_evidence": [
+    {
+      "bytes": 147,
+      "path": "artifacts/research-v2/WP11/primary-seed-range-preflight.json",
+      "sha256": "27372fdbb75fa77c9ad1530b9a77525a769d9d94d1b5aa14575fb3cb3b9a5390"
+    },
+    {
+      "bytes": 60461,
+      "path": "artifacts/research-v2/WP11/primary-search-declaration-pre-seed-range-observation.json",
+      "sha256": "82eb27ab53627e4eb97787c01d1aab2d9ccfa6f9731194ee09928be5ded5f749"
+    },
+    {
+      "bytes": 3926,
+      "path": "artifacts/research-v2/WP11/primary-search-declaration-pre-seed-range-receipt.json",
+      "sha256": "83e749e4d8de1ba1d8812e85219282f95d458945d0641295238fc821bf6974d9"
+    }
+  ],
+  "primary_metadata_compiler_implemented": true,
+  "protected_access_authorized": false,
+  "qualified_primary_execution_factory_implemented": false,
+  "quality_eligible": false,
+  "schema": "research/v2-primary-search-declaration-component-receipt",
+  "scientific_source_sha256": "08b349f41ba05089f85b20e70b091b7bdec90b6c688dbedebb763e1bfaffd9db",
+  "scope": "Exact declared primary job, full 840/168 metadata namespace, actual support-file source/core/current research-adapter lock pins and paired model/HPO32 seeds; official RealMLP31suggestions+anchor bound separately to job.hpo_seed63.",
+  "seed_namespace_preservation_sha256": "a4227587309f5cf2735f47b393b3dbda3ed7623bab57dd37c76b4839b329fa79",
+  "tested_files": [
+    {
+      "bytes": 4327,
+      "path": "src/treeneuron/research/primary_search_declaration_v2.py",
+      "sha256": "93da2ea04ca870bf8c5a29c586fea4510e0b70e1b1ac0383038db6b163ce9c10"
+    },
+    {
+      "bytes": 5659,
+      "path": "tests/test_primary_search_declaration_v2.py",
+      "sha256": "684a2ec0417075479ce01cf1709f5013f026ddb3fa9b206b466d08011f9b9045"
+    },
+    {
+      "bytes": 8298,
+      "path": "tests/test_practical_workload.py",
+      "sha256": "7c3d6480295c85400c9f5913b2b4c34a4bd1fbb9c031132c7215ca63313e9eb1"
+    },
+    {
+      "bytes": 1290,
+      "path": "src/treeneuron/research/seeds.py",
+      "sha256": "d4750361e5c9b508345d067cf1edd48fcf96a528453ad67cfe36bb010d457d47"
+    },
+    {
+      "bytes": 8801,
+      "path": "src/treeneuron/research/workload.py",
+      "sha256": "ba81d97ec6ca54e31206a26981c9ebd6551f188aa23ed87603fc3c1f58a61ee0"
+    },
+    {
+      "bytes": 15210,
+      "path": "src/treeneuron/research/primary_selection_v2.py",
+      "sha256": "4e5cc681c0d1fdb4dd6287b64908217394d20af22c760faba25038256e1bc19c"
+    },
+    {
+      "bytes": 3093,
+      "path": "tests/test_practical_seed_ranges_v2.py",
+      "sha256": "7a5bfba8d3fe24f834d12701fe2e5fb719bae95075c9285d3c99bfa9e2be8e8e"
+    }
+  ],
+  "verification": [
+    "Missing API:15failed1.90s",
+    "First15passed18.78s/session40931exit0 including actual label-free official schedule",
+    "Initial pre-seed-range74affected checks passed42.93s/session28765exit0; preflight then found32of60planned UInt32 labels outside native signed31 range, before production",
+    "Range regression4failed2passed17deselected0.67s; common signed31 namespace/policy repair:final78passed46.04s/session2329exit0"
+  ]
+}
