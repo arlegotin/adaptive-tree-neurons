@@ -97,6 +97,18 @@ See [the completion receipt](WP07-NODE-uncapped-completion-receipt.json) and
 calibration, global freeze or protected T has run. Earlier intake/progress entries
 below retain their historical meaning; they are not the current queue status.
 
+The remaining NODE primary anchors are now fixed in a serial operational queue.
+It waits for the existing Airfoil fit, audits its closed state, then launches
+Concrete, Parkinsons, CCPP and Bike one at a time under the same heldc33a84e/b680
+source and native stopping. Each keeps seed17, full2048trees/depth6, effective
+batch512, bounded-memory execution,4GiBowned RSS cap and live5.5GiBmemory-proxy/
+1.5GiBdisk admission. There is no wall cap and no concurrent second NODE fit.
+Any failure or resource pause retains all evidence and stops the serial queue
+for diagnosis/exact recovery. Frozen copies of the qualified launcher/auditor/
+trace reference protect it from main-branch implementation changes. No future
+completion is claimed; inspect the raw queue/status before resuming. See
+[the serial launch receipt](WP07-NODE-primary-serial-launch-receipt.json).
+
 ## Intake
 
 Deferred software recovery: at `dd0483a`/`8b559d9c…`, native pressure was 1 with

@@ -1,0 +1,89 @@
+{
+  "Gate_D": false,
+  "T_accessed": false,
+  "V_labels_read": false,
+  "files": [
+    {
+      "bytes": 3643,
+      "path": "artifacts/research-v2/WP07/NODE-primary-native-continuation-c33a84e/plan.json",
+      "sha256": "fb2f25d9d58f64339a0931be2f2c89b120a2867384249702b294f2c6f5be8218"
+    },
+    {
+      "bytes": 3964,
+      "path": "artifacts/research-v2/WP07/NODE-primary-native-continuation-c33a84e/operator.py",
+      "sha256": "1fac258decfc8f3444ea0b9a9ed8a54b46ebc5ae7a819071f53cd1af1315241c"
+    },
+    {
+      "bytes": 7725,
+      "path": "artifacts/research-v2/WP07/NODE-primary-native-continuation-c33a84e/ops/audit_node_native_completion.py",
+      "sha256": "5c85b17fc6e6999aa5ba3f2c94dba82f2159fedbd0bcc4591b79e936fc9acff3"
+    },
+    {
+      "bytes": 3570,
+      "path": "artifacts/research-v2/WP07/NODE-primary-native-continuation-c33a84e/ops/native_node_trace_reference.py",
+      "sha256": "2a071ef73e74957d7d6acf14a0ad771ec850dc8357864bc6a8fb3a98f0ad0a1c"
+    },
+    {
+      "bytes": 7925,
+      "path": "artifacts/research-v2/WP07/NODE-primary-native-continuation-c33a84e/ops/run_node_native_primary.py",
+      "sha256": "30df497b72db200f6039df7f51000d32cef2d08360563a94bb2ad58ef4cbc069"
+    }
+  ],
+  "plan": {
+    "T_accessed": false,
+    "airfoil_study_sha256": "d48a31743d0336ff6b54784533401678357e4e45619e38f7a47032fdbcbb8bff",
+    "cases": [
+      {
+        "dataset": "concrete",
+        "manifest_sha256": "401ab700fb22c65b78fbd88f1faf0f1a647e6a0d727ca3bf8e0123692669e821",
+        "output": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-concrete-native-recoverable-c33a84e",
+        "prepared": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/prepared/concrete"
+      },
+      {
+        "dataset": "parkinsons",
+        "manifest_sha256": "405a238f49ba78c5e6c830e93b2d66db109924887bd009dc9dd99565dcfb13e5",
+        "output": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-parkinsons-native-recoverable-c33a84e",
+        "prepared": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/prepared/parkinsons"
+      },
+      {
+        "dataset": "ccpp",
+        "manifest_sha256": "91837a0b97013189b8723efd454176aa23b2e4f4806dac5e82fbd594f601e909",
+        "output": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-ccpp-native-recoverable-c33a84e",
+        "prepared": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/prepared/ccpp"
+      },
+      {
+        "dataset": "bike",
+        "manifest_sha256": "7370d34ba83567b70c3bfdccd3ce8881b94425bdce4b4875109b2411120f0adc",
+        "output": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-bike-native-recoverable-c33a84e",
+        "prepared": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/prepared/bike"
+      }
+    ],
+    "fit_seed": 17,
+    "free_disk_admission_bytes": 1610612736,
+    "interpreter": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+    "interpreter_sha256": "7b05d803bbc1bbfc81644af4faf2b88f0a37b8de96b9f42c1e08033e2cd0848a",
+    "maximum_simultaneous_native_fits": 1,
+    "memory_proxy_admission_bytes": 5905580032,
+    "model": "Full2048-tree/depth6/tree_dim3 QHAdam native stopping, bounded-memory execution; no model weakening",
+    "operators": {
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-primary-native-continuation-c33a84e/ops/audit_node_native_completion.py": "5c85b17fc6e6999aa5ba3f2c94dba82f2159fedbd0bcc4591b79e936fc9acff3",
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-primary-native-continuation-c33a84e/ops/native_node_trace_reference.py": "2a071ef73e74957d7d6acf14a0ad771ec850dc8357864bc6a8fb3a98f0ad0a1c",
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-primary-native-continuation-c33a84e/ops/run_node_native_primary.py": "30df497b72db200f6039df7f51000d32cef2d08360563a94bb2ad58ef4cbc069"
+    },
+    "quality_eligible": false,
+    "schema": "research/v2-NODE-primary-serial-continuation",
+    "scope": "Finish existing Airfoil then remaining four primary native engineering anchors serially; no V/HPO/T or production eligibility",
+    "source_commit": "c33a84eda018d11b2dbe237dbc0b5b681c8e65c9",
+    "source_root": "/private/tmp/atn-research-v2-node-recovery",
+    "source_sha256": "b680a26b2176c6c5cc0f59cf19192d7ee963826a7575cce5ec5ee695521a65cc",
+    "waiting_for_existing_airfoil": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-airfoil-native-recoverable-c33a84e",
+    "wall_deadline": null,
+    "worker_owned_RSS_cap_bytes": 4294967296
+  },
+  "plan_sha256": "fb2f25d9d58f64339a0931be2f2c89b120a2867384249702b294f2c6f5be8218",
+  "quality_eligible": false,
+  "schema": "research/v2-NODE-primary-native-serial-launch",
+  "scope": "Operational serial composition of held native launcher and checked audit; actual future completions not yet observed. Any failure pauses for diagnosis; no changed seed, weakened method or erased attempt.",
+  "session_id": 13703,
+  "status": "waiting_for_existing_airfoil"
+}
