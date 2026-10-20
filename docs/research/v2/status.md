@@ -87,7 +87,11 @@ The complete software run at `61221f4` returned 2,217 passes, 42 failures,
 retains memory-pressure failures, process-state contamination and unresolved
 details. Seven separate native profiles at `4f19a05` passed 202 checks. Neither
 is a final-source whole-suite success. Two reproduced launcher-isolation defects
-are being corrected in test helpers, with production guards unchanged.
+were corrected in test helpers: 57 affected checks and 27 main checkout checks
+passed. Fourteen fake-model timing/control checks also passed with declared
+counter fixtures; the real hardware-dependent training test remains unchanged.
+The [follow-up receipt](WP11-software-follow-up-receipt.json) preserves the
+original failures and exact scope. Production guards remain intact.
 
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only

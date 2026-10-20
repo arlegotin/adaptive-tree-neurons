@@ -9,6 +9,26 @@ def api():
     return timing
 
 
+@pytest.fixture
+def healthy_resource_counters(monkeypatch):
+    """Control only external guard signals for fake-model timing tests.
+
+    Actual backend/training and cold-process tests retain their real probes.
+    Keep the guard itself active; these counters never qualify a real run.
+    """
+    from treeneuron import doctor
+    original=doctor._probe
+    signals={('memory_pressure','-Q'):'System-wide memory free percentage: 50%',
+        ('sysctl','-n','kern.memorystatus_vm_pressure_level'):'1',
+        ('sysctl','-n','hw.memsize'):str(36*1024**3)}
+    def probe(argv):
+        if tuple(argv) not in signals:return original(argv)
+        return dict(command=argv,value=signals[tuple(argv)],reason=None,returncode=0,
+            test_only_counter_fixture=True)
+    monkeypatch.setattr(doctor,'_probe',probe)
+    return signals
+
+
 def test_mps_timing_synchronizes_both_boundaries():
     t=api();trace=[]
     def timer(): trace.append('start' if 'start' not in trace else 'stop');return len(trace)
@@ -17,7 +37,7 @@ def test_mps_timing_synchronizes_both_boundaries():
     assert elapsed==3
 
 
-def test_timing_complete_batches_retains_warmup_and_rebuilds(tmp_path):
+def test_timing_complete_batches_retains_warmup_and_rebuilds(tmp_path,healthy_resource_counters):
     t=api()
     class Model:
         def predict(self,X,*,batch_size=None):return np.asarray(X)[:,0]
@@ -85,7 +105,7 @@ def test_resident_causal_path_preserves_predictions_and_excludes_transform(train
 from test_train import training_case,cpu_training_evidence
 
 
-def test_timing_failure_retains_prior_raw_blocks_and_original_error():
+def test_timing_failure_retains_prior_raw_blocks_and_original_error(healthy_resource_counters):
     t=api()
     class Failing:
         def __init__(self):self.calls=0
@@ -100,7 +120,7 @@ def test_timing_failure_retains_prior_raw_blocks_and_original_error():
     assert caught.value.timing_record['raw_blocks'][-1]['status']=='failed'
 
 
-def test_cached_uncached_boundaries_retain_cache_work():
+def test_cached_uncached_boundaries_retain_cache_work(healthy_resource_counters):
     t=api()
     class Cached:
         def __init__(self):self.cache=None;self.builds=0
@@ -117,7 +137,7 @@ def test_cached_uncached_boundaries_retain_cache_work():
     assert len(cached['raw_blocks'])==len(uncached['raw_blocks'])==6
 
 
-def test_mixed_early_stable_and_capped_unstable_warmup_terminates(monkeypatch):
+def test_mixed_early_stable_and_capped_unstable_warmup_terminates(monkeypatch,healthy_resource_counters):
     t=api()
     class Model:
         def predict(self,X,*,batch_size=None):return np.zeros(len(X))
@@ -138,7 +158,7 @@ def test_mixed_early_stable_and_capped_unstable_warmup_terminates(monkeypatch):
     assert len(result['raw_blocks'])==14
 
 
-def test_interruption_between_blocks_retains_measured_warmup(monkeypatch):
+def test_interruption_between_blocks_retains_measured_warmup(monkeypatch,healthy_resource_counters):
     t=api()
     class Model:
         def predict(self,X,*,batch_size=None):return np.zeros(len(X))
@@ -157,7 +177,7 @@ def test_interruption_between_blocks_retains_measured_warmup(monkeypatch):
     assert caught.value.timing_record['error']['type']=='KeyboardInterrupt'
 
 
-def test_comparison_interleaves_methods_in_complete_shared_blocks(monkeypatch):
+def test_comparison_interleaves_methods_in_complete_shared_blocks(monkeypatch,healthy_resource_counters):
     t=api();calls=[]
     class Model:
         def __init__(self,name):self.name=name
@@ -201,7 +221,7 @@ def test_comparison_precision_preserves_pairing_and_drops_partial_blocks():
     assert result==t.rebuild_comparison(raw+raw[:4]*30,{'A':p,'B':p})
 
 
-def test_balanced_random_comparison_roundtrips_with_explicit_ids(tmp_path,monkeypatch):
+def test_balanced_random_comparison_roundtrips_with_explicit_ids(tmp_path,monkeypatch,healthy_resource_counters):
     t=api()
     class Model:
         def resource_summary(self):return {'capabilities':{'backend':'numpy_cpu','cache':False,'context':False}}
@@ -217,3 +237,20 @@ def test_balanced_random_comparison_roundtrips_with_explicit_ids(tmp_path,monkey
     assert not first['summary']['precision_reached']  # two blocks cannot assess p95
     path=tmp_path/'comparison.json';t.write_timing(path,first)
     assert t.read_timing(path)==json.loads(json.dumps(first))
+
+
+def test_pressure_rejection_still_blocks_fake_predictions_and_retains_exclusions(healthy_resource_counters):
+    # Removing/bypassing the real guard would allow calls and a selected batch.
+    healthy_resource_counters[('sysctl','-n','kern.memorystatus_vm_pressure_level')]='2'
+    t=api()
+    class Model:
+        def __init__(self):self.calls=0
+        def resource_summary(self):return {'capabilities':{'backend':'numpy_cpu','cache':False,'context':False}}
+        def predict(self,X,*,batch_size=None):self.calls+=1;return np.zeros(len(X))
+    model=Model()
+    result=t.measure_predictor(model,np.ones((3,1)),t.TimingPolicy(batch_sizes=(2,4),
+        warmup_window=2,max_warmup=2,min_repetitions=4,max_repetitions=4))
+    assert model.calls==0 and result['summary']['selected_batch'] is None
+    assert len(result['raw_blocks'])==2
+    assert all(row['status']=='excluded' and 'memory pressure level 2' in row['reason']
+        for row in result['raw_blocks'])

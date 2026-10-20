@@ -80,13 +80,21 @@ The complete repository software run at `61221f4` finished with 2,217 passed,
 411 failing/error cases, 333 explicitly or through their retained doctor receipt
 hit the legacy memory-pressure guard, 59 reported duplicate NODE dependency
 metadata, and eleven inherited a caller OpenMP setting. Three aggregate backend
-failures lack their original detailed probe records; five timing failures still
-need an isolated resource-interference check. All names and confidence limits
+failures lack their original detailed probe records. An isolated timing check
+reproduced resource-guard suppression before any fake-model prediction. All
+original names and confidence limits
 are retained in the [failure inventory](../audit/research-v2/software/whole-suite-61221f4/summary.json).
 Seven separate native software profiles at `4f19a05` passed 202 checks with no
 skips. They cover all fourteen families, but do not supply final-source workload
 qualification or erase the broad-run failures. Native guards and historical
 expected results remain intact. [Verification receipt](../docs/research/v2/WP11-whole-suite-verification-receipt.json).
+
+Two test-launcher isolation corrections passed 57 affected checks and 27 main
+checkout integration checks. Fake-model timing tests now supply explicitly
+labeled guard-counter inputs; fourteen checks passed, including rejection under
+simulated pressure. The actual hardware-dependent training test and production
+guard remain unchanged. These scoped recoveries do not replace the original
+whole-suite result. [Follow-up receipt](../docs/research/v2/WP11-software-follow-up-receipt.json).
 
 Raw arrays, recoverable states and append-only ledgers are retained locally with source-bound inventories. Historical missing raw archives remain missing. Reproduction does not depend on remembering a conversation; [commands, exact identities and portability limits](../docs/research/v2/reproduce.md) are versioned. Each study’s held source is immutable, and old reports and expected historical hashes remain intact.
 

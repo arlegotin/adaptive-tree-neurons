@@ -230,9 +230,9 @@
           "sha256": "e8d4142f9e8c129fe55287675bc834e9d10a1299940f149f2c51cd9fc052b255"
         },
         {
-          "bytes": 6362,
+          "bytes": 6795,
           "path": "docs/research/v2/native-qualification-contract.md",
-          "sha256": "e39daf4b9321872b7e4f289cdae8633d6816117d1b4aa8fde936a4ad2844f6ce"
+          "sha256": "219943e032d528619b16fddbbc4d24964f194dab45a8611ae12e67f893e49f0a"
         }
       ],
       "status": "supported_scoped_status",
@@ -265,6 +265,20 @@
       ],
       "status": "supported",
       "strongest_counterevidence_or_limit": "Original detailed probe bytes for three backend aggregate failures were not recovered from pytest temporary files; timing follow-up and final-source verification remain incomplete. Separate profiles are not a monolithic pass."
+    },
+    {
+      "claim": "Reproduced test-launcher contamination and fake-model timing resource coupling have scoped verified corrections; production/native guards and historical whole-suite results remain unchanged.",
+      "claim_id": "scoped_software_recovery",
+      "evidence_kind": "controlled_software_failure_and_scoped_recovery",
+      "sources": [
+        {
+          "bytes": 3391,
+          "path": "docs/research/v2/WP11-software-follow-up-receipt.json",
+          "sha256": "bb953dce4c91e9aa432fa052d2e371caa2465c694014068ff0a94713f51d76c8"
+        }
+      ],
+      "status": "supported",
+      "strongest_counterevidence_or_limit": "Real legacy hardware qualification remains resource-dependent; whole-program source/protocol qualification and final branch review are unfinished. Test-only counter fixtures grant no native or predictive authority."
     }
   ],
   "created_utc": "2026-10-20T06:05:41.912084+00:00",
@@ -274,7 +288,7 @@
   "protected_confirmation": false,
   "report": {
     "path": "reports/research-v2.md",
-    "sha256": "8dcbeb37509bc3fbd7e95739f7054df6e3428994c732643e905d0d806b387f26"
+    "sha256": "fa9f7c401e17bba5e157df35ad52cbf6bc2605e27619fc01b2600042ae719387"
   },
   "schema": "research/v2-current-cross-study-claim-ledger",
   "scope": "Curated evidence-linked development synthesis; compact inputs and prior audit receipts, not a new whole-raw/model-generation audit or completed production report path.",

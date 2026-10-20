@@ -1,0 +1,69 @@
+{
+  "T_accessed": false,
+  "checks": [
+    {
+      "log": {
+        "bytes": 99,
+        "path": "artifacts/research-v2/WP11/whole-suite-61221f4/early-root-cause-evidence/fixture-isolation-GREEN.log",
+        "sha256": "d30593e5bebbadd3babfced28033e3b625f60ef32b0e66d4dd0e1933761f6ed4"
+      },
+      "purpose": "Two controlled fixture launch regressions",
+      "result": "2passed in16.25s"
+    },
+    {
+      "log": {
+        "bytes": 111,
+        "path": "artifacts/research-v2/WP11/whole-suite-61221f4/early-root-cause-evidence/fixture-isolation-affected.log",
+        "sha256": "4641bdbf5f294c561cb6698713b96fb4319a14c8b41c573b8ff334aa4584c9ec"
+      },
+      "purpose": "Five affected fixture/reader modules on isolated checkout",
+      "result": "57passed in181.00s"
+    },
+    {
+      "log": {
+        "bytes": 110,
+        "path": "artifacts/research-v2/WP11/whole-suite-61221f4/early-root-cause-evidence/main-integration-3b4c095.log",
+        "sha256": "9de13ffc72de1b6ee460b9e6ced589b07b670cc78ccfeef70170e19c33de3f2d"
+      },
+      "purpose": "Main checkout integrated reader and launcher regressions at3b4c095",
+      "result": "27passed in68.84s"
+    },
+    {
+      "log": {
+        "bytes": 113,
+        "path": "artifacts/research-v2/WP11/whole-suite-61221f4/early-root-cause-evidence/timing-control-flow-GREEN.log",
+        "sha256": "a86a1f5bf26afcdbdfd2c742a02368776238c7ed731c72ea5396086d722fb7da"
+      },
+      "purpose": "Fake-model timing/control-flow module including guard-rejection case",
+      "result": "14passed,1deselected in3.14s"
+    }
+  ],
+  "final_branch_review_complete": false,
+  "final_source_qualification": false,
+  "original_whole_suite_result_replaced": false,
+  "production_resource_or_dependency_guards_changed": false,
+  "production_source_changed_by_corrections": false,
+  "quality_eligible": false,
+  "reference_diagnostic": {
+    "bytes": 9294,
+    "path": "artifacts/research-v2/WP11/whole-suite-61221f4/early-root-cause-evidence/fresh-reference-diagnostic.json",
+    "sha256": "dd3a395c4aaf2b958f1a6f9d90ad38911520e20f9daa370512718ba7e6dcef9f"
+  },
+  "reference_scope": "Fresh standalone/package math passed; aggregate backend readiness remained false. Original detailed reports for three whole-suite aggregate failures were not recovered, so later evidence is not attributed to the original observations.",
+  "schema": "research/v2-software-follow-up-receipt",
+  "scientific_source_sha256": "563ce93a488eee28df69cffd81ee065803daea7f8bba62319f85889a076e8613",
+  "status": "scoped_corrections_verified",
+  "timing_diagnostics": [
+    {
+      "bytes": 502,
+      "path": "artifacts/research-v2/WP11/whole-suite-61221f4/early-root-cause-evidence/timing-fixture-before.json",
+      "sha256": "29ca7748fb005e44aa40df3a19cfebca2a4855ad6d1e2c67f271c02d087e5840"
+    },
+    {
+      "bytes": 11262,
+      "path": "artifacts/research-v2/WP11/whole-suite-61221f4/early-root-cause-evidence/fresh-timing-diagnostic.json",
+      "sha256": "a2e473c38c64007c08ab9c5d0257bb576432ecef3683e763074659dd761c4925"
+    }
+  ],
+  "timing_scope": "Seven fake-model clock/control-flow tests now declare three labeled external guard counter inputs. The actual guard remains active. A pressure-two case verifies zero prediction calls and retained exclusions. The real backend-dependent resident-training test was not repeated; its original resource failure remains."
+}
