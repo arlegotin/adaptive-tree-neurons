@@ -1,6 +1,7 @@
 """Actual own-family F/G fitting and paired growth; no native quality admission."""
 import importlib.util
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -35,7 +36,11 @@ def fit(family,name,variant=None):
     return GatedPredictor(family).fit(FitRequest(F,Y,G,GY,17,config(family,variant),{},root/name))
 '''
     script.write_text(prefix+body)
-    child=subprocess.run([sys.executable,'-B',str(script)],capture_output=True,text=True,timeout=120)
+    # Match the production fresh-worker policy; an upstream parent import may
+    # set this default, which the native adapter correctly rejects on entry.
+    env=dict(os.environ)
+    env.pop('KMP_DUPLICATE_LIB_OK',None)
+    child=subprocess.run([sys.executable,'-B',str(script)],env=env,capture_output=True,text=True,timeout=120)
     (tmp_path/'stdout.log').write_text(child.stdout);(tmp_path/'stderr.log').write_text(child.stderr)
     assert child.returncode==0,child.stderr
     return json.loads(child.stdout)

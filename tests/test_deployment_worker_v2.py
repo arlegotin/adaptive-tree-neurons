@@ -26,16 +26,16 @@ def publish(path,value):path.write_text(json.dumps(value,sort_keys=True)+'\n');r
 
 
 def prepare(root,family='P13',_isolated=True):
-    # A prior NODE fixture can load sklearn's second OpenMP image into pytest.
-    # The production guard correctly rejects that image set in a fresh P00
-    # deployment. Fit P00 in its own process, as production already does.
-    if family=='P00' and _isolated:
+    # Prior private-reference/search imports may change metadata or native
+    # images in pytest. Fit both neural fixtures in their own core process,
+    # as production already does; keep the parent's process state untouched.
+    if family in ('P00','P12') and _isolated:
         project=Path(__file__).resolve().parents[1]
         env=os.environ|dict(PYTHONPATH=str(project/'src'),PYTHONDONTWRITEBYTECODE='1')
         for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS','NUMEXPR_NUM_THREADS'):env[key]='1'
         env.pop('KMP_DUPLICATE_LIB_OK',None)
-        code='import runpy,sys; from pathlib import Path; from treeneuron.research.method_worker import _initialize_native_threads; _initialize_native_threads("P00"); runpy.run_path(sys.argv[1])["prepare"](Path(sys.argv[2]),"P00",_isolated=False)'
-        argv=[sys.executable,'-B','-c',code,str(Path(__file__).resolve()),str(root)]
+        code='import runpy,sys; from pathlib import Path; from treeneuron.research.method_worker import _initialize_native_threads; _initialize_native_threads(sys.argv[3]); runpy.run_path(sys.argv[1])["prepare"](Path(sys.argv[2]),sys.argv[3],_isolated=False)'
+        argv=[sys.executable,'-B','-c',code,str(Path(__file__).resolve()),str(root),family]
         result=subprocess.run(argv,cwd=project,env=env,capture_output=True,text=True,timeout=60)
         publish(root/'fixture-command.json',dict(argv=argv,cwd=str(project),returncode=result.returncode))
         (root/'fixture-stdout.log').write_text(result.stdout);(root/'fixture-stderr.log').write_text(result.stderr)

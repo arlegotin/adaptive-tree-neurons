@@ -1,0 +1,62 @@
+{
+  "T_accessed": false,
+  "base_commit": "4f19a05e52c77448df356fb8e18f05c64c744af8",
+  "behavior": [
+    "The gated fixture removes inherited OpenMP suppression only from its child, preserving parent environment.",
+    "The NODE deployment fixture uses its own exact-core process rather than inheriting pytest private package metadata.",
+    "Real model fitting, finite prediction, closed snapshot and unchanged parent state are checked."
+  ],
+  "final_branch_review_complete": false,
+  "legacy_hashes_changed": false,
+  "logs": [
+    {
+      "bytes": 353,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP11/whole-suite-61221f4/early-root-cause-evidence/fixture-isolation-before.json",
+      "sha256": "b9b9f7145989924438bf87f459298efdbac747cce01900ff752e4baaeace1c83"
+    },
+    {
+      "bytes": 3460,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP11/whole-suite-61221f4/early-root-cause-evidence/fixture-isolation-RED.log",
+      "sha256": "9938f715d31e6457595b19bdabdeeb2ff79707e2b5a940a2d40a1f37d3914397"
+    },
+    {
+      "bytes": 99,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP11/whole-suite-61221f4/early-root-cause-evidence/fixture-isolation-GREEN.log",
+      "sha256": "d30593e5bebbadd3babfced28033e3b625f60ef32b0e66d4dd0e1933761f6ed4"
+    },
+    {
+      "bytes": 111,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP11/whole-suite-61221f4/early-root-cause-evidence/fixture-isolation-affected.log",
+      "sha256": "4641bdbf5f294c561cb6698713b96fb4319a14c8b41c573b8ff334aa4584c9ec"
+    }
+  ],
+  "native_guards_changed": false,
+  "production_source_changed": false,
+  "regressions": {
+    "GREEN": "2passed in16.25s",
+    "RED": "2failed/1native warning in73.47s",
+    "affected": "57passed in181.00s"
+  },
+  "schema": "research/v2-native-fixture-isolation-correction",
+  "scientific_source_sha256": "563ce93a488eee28df69cffd81ee065803daea7f8bba62319f85889a076e8613",
+  "scope": "Test-fixture launch isolation only; not a native algorithm, measured training treatment, quality promotion or final-source/whole-branch qualification.",
+  "status": "verified_test_helper_correction",
+  "tested_files": [
+    {
+      "bytes": 6228,
+      "path": "/private/tmp/atn-research-v2-support-reader-61221f4/tests/test_gated_native_fit.py",
+      "sha256": "6d08ea2350a36152f0d4be705bdb9cb5689aa00cbb5185277d61004d432b0af8"
+    },
+    {
+      "bytes": 10980,
+      "path": "/private/tmp/atn-research-v2-support-reader-61221f4/tests/test_deployment_worker_v2.py",
+      "sha256": "9c1dcdca2ce53d65bfb78d303eeced8c1ffa1ab71664c791fedaf2340f538a05"
+    },
+    {
+      "bytes": 1346,
+      "path": "/private/tmp/atn-research-v2-support-reader-61221f4/tests/test_native_fixture_isolation.py",
+      "sha256": "5e9787bc660478d6b5f3ecebf00a71ceeaefa82a325175325d2c65551d7ae201"
+    }
+  ],
+  "whole_suite_result_replaced": false
+}
