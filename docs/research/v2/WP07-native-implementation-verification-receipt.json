@@ -1,0 +1,60 @@
+{
+  "T_accessed": false,
+  "files": [
+    {
+      "bytes": 12538,
+      "path": "src/treeneuron/research/native_verification_v2.py",
+      "sha256": "9fc941565950eb59db988b518af2221dcfb990851ed80a0ff2a4af12452746ae"
+    },
+    {
+      "bytes": 3062,
+      "path": "tests/test_native_implementation_verification.py",
+      "sha256": "609fffd15c3c59e8d4e434ea24e8091d7d3d6ce865d2db71889a7302adf55aec"
+    },
+    {
+      "bytes": 11065,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-implementation-verification-red.log",
+      "sha256": "77006b0f55c9cd6a1b62d790735b518e5cd060a4dbb73890b4a6f86294620baa"
+    },
+    {
+      "bytes": 99,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-implementation-verification-green.log",
+      "sha256": "eb471df33e2df3ef1d945bc9bc6d341b158531706f72e55fa6034fb9e2117388"
+    },
+    {
+      "bytes": 100,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-implementation-verification-affected-green.log",
+      "sha256": "a38f051730169793c938cba5cd54608a25c4d568751af906568da59091e6f8a2"
+    }
+  ],
+  "final_green": "58 passed in28.30s",
+  "first_green": "7 passed in23.46s",
+  "native_workload_qualified": false,
+  "new_real_data_anchor_completions": 0,
+  "production_practical_searches": 0,
+  "profile_catalog": [
+    "gated",
+    "ordinary_neural",
+    "realmlp",
+    "tabm",
+    "native_trees",
+    "node",
+    "simple"
+  ],
+  "profiles_executed_in_this_slice": [
+    "simple"
+  ],
+  "quality_eligible": false,
+  "red": "7 missing-module failures in .05s",
+  "schema": "research/v2-native-implementation-verification-receipt",
+  "scope": "Source/test/helper/lock-bound fixed native implementation checks with actual managed P13 profile. Other profiles must execute under final source. No real native workload, wider/deeper support, production quality or predictive qualification.",
+  "source_sha256": "f8761e7e20d7474a610646b39de69429252d26cc84c6263709d48686828a2ef9",
+  "status": "verified_fixture_component",
+  "verification": [
+    "Catalog covers every mandatory family exactly once and returns independent copies",
+    "Zero, skipped, failed and error test reports reject even with a hypothetical zero exit",
+    "Actual owned simple profile reopens with exact current input/process/JUnit inventory",
+    "Changed profile or byte reference rejects",
+    "Actual one-byte RSS stop reaped; no usable qualification reference"
+  ]
+}

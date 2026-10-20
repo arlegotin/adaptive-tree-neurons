@@ -1858,3 +1858,14 @@ once, with helper lower-bound and nested clocks disclosed. Real data, HPO,
 final qualification/freeze/T counts stay unchanged. See
 [contract](native-official-schedule-worker.md) and
 [receipt](WP08-native-official-schedule-worker-receipt.json).
+
+WP07 software-verification prerequisite now has a fixed seven-profile catalog
+covering all14families, source/test/helper/lock bindings, owned uncapped process
+and strict nonempty/no-skip/no-failure JUnit checks. Actual simple-profile and
+RSS-stop fixtures passed7new checks23.46seconds;58affected checks passed28.30s.
+Only that profile was executed end to end in this slice; the other six require
+final-source execution. Software verification never grants native workload or
+quality eligibility. No real transfer fit/score/HPO/T was added. The proposed
+registry/production admission interface and remaining gates are explicit in
+[the qualification contract](native-qualification-contract.md); source and logs
+are inWP07-native-implementation-verification-receipt.json.

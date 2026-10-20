@@ -349,3 +349,10 @@ overlay. The97-case affected result also covers trial/journal/controller/support
 checks. Its actual full native P06 model uses synthetic sealed fixtures only.
 See native-official-schedule-worker.md and its source/log receipt; production
 qualification, primary selection and final protocol are still required.
+
+The fixed software-verification prerequisite is exercised by
+`tests/test_native_implementation_verification.py`;58affected checks including
+owned-process and worker guards passed28.30seconds. The real simple-profile
+execution supplies software evidence only. See native-qualification-contract.md
+for the still-required real native/support registry and final-source executions;
+this helper grants no predictive eligibility or protected release.
