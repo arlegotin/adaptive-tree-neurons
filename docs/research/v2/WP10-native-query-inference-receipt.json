@@ -1,0 +1,48 @@
+{
+  "component": "bounded complete feature-only native inference",
+  "contract": [
+    "Strict source/model/query/schema/float64 feature identifiers, no label fields or object arrays before adapter import",
+    "Predict every row in fixed1024-row chunks, max262144rows/128columns/512MiB archive allocation bound",
+    "Method-specific closed load, finite consistent per-chunk predictions; preserve IDs/timestamps",
+    "Owned fresh no-wall-deadline/RSS process; recheck entire model/query/source after worker exit; no fit/selection/protected unlock"
+  ],
+  "final_affected": "47passed51.43s,4retained vendor warnings",
+  "initial_green": "8passed3.41s",
+  "invalid_affected_command": "Absent test_native_prediction_replay.py; no tests ran. Correct path test_prediction_replay_v2.py used in retained recovery",
+  "late_corruption_red": "3DID_NOT_RAISE3.20s: staged query/metadata/weight bytes changed after child exit",
+  "logs": [
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.superpowers/sdd/2026-10-18-research-v2/native-query-red.log",
+      "sha256": "ede42631064336af5299c5305d22085919756d007ec4f148d1a33bbf4c8dd517"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.superpowers/sdd/2026-10-18-research-v2/native-query-green.log",
+      "sha256": "3ced93e7301121299138a687c40cfe3235cdf67aba1f693614a2579043f7d3f6"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.superpowers/sdd/2026-10-18-research-v2/native-query-late-red.log",
+      "sha256": "0771d06885116d8ee7c88bb4cdc81bc0587b1fc80693a85c705757aab627d586"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.superpowers/sdd/2026-10-18-research-v2/native-query-affected.log",
+      "sha256": "c111517e140e46c701125b00728dc2e1f2e0d6e0f40298d196b3f8aabae3c8ce"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.superpowers/sdd/2026-10-18-research-v2/native-query-affected-v2.log",
+      "sha256": "cb0253355d3a0b7f47b6ce9f10ab6b19413df427927fe33e5b52e301068257ce"
+    }
+  ],
+  "red": "8missing-module failures0.38s",
+  "schema": "research/v2-implementation-receipt",
+  "scope": {
+    "actual_new_large_query": "P13 native closed model on synthetic fixture,65536feature-only rows/all64chunks and correct original-unit values/IDs",
+    "fitting_performed": false,
+    "full_all_family_large_query_qualification": false,
+    "labels_read": false,
+    "protected_access_authorized": false,
+    "quality_eligible": false,
+    "real_native_anchors_added": 0,
+    "real_teachers_added": 0,
+    "whole_suite_pass_claim": false
+  }
+}
