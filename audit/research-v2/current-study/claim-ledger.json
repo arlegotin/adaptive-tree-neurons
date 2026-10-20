@@ -280,6 +280,11 @@
           "bytes": 4272,
           "path": "docs/research/v2/WP08-qualified-native-trial-receipt.json",
           "sha256": "20e8e23d073bc61c6d0fef6b8cb6daa7727a4552dbb3802663113c09e8e28417"
+        },
+        {
+          "bytes": 3488,
+          "path": "docs/research/v2/WP08-closed-process-receipt.json",
+          "sha256": "c14196aba9ba3eeef3d9b1e7af8a3f8f546c608d76a85036879a749d2a5006b5"
         }
       ],
       "status": "supported_scoped_status",

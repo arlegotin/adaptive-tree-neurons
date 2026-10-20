@@ -43,4 +43,7 @@ registry; production integration remains unqualified.
 A candidate's companion eligibility is separate from an authenticated complete
 HPO journal, the 168 primary selected models, global procedure freeze and
 protected evaluation. Those connections remain required before production
-claims. No new scientific result or protected access follows from these checks.
+claims. The [closed operational process reader](closed-process-receipts.md)
+now supplies the paid failure-record component without turning failures into
+prediction losses. No new scientific result or protected access follows from
+these checks.

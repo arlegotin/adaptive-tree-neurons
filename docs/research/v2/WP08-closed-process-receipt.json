@@ -1,0 +1,81 @@
+{
+  "T_accessed": false,
+  "complete_qualified_search_audit_implemented": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "--tb=short",
+      "--basetemp=artifacts/research-v2/WP11/process-receipt-final-fixture",
+      "tests/test_process_receipt_v2.py",
+      "tests/test_process_supervision_v2.py",
+      "tests/test_native_search_audit.py"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src"
+    }
+  },
+  "final_source_qualified": false,
+  "fixture_observation": {
+    "bytes": 6068,
+    "path": "artifacts/research-v2/WP11/process-receipt-fixture-observation.json",
+    "sha256": "3f81c6ce484d3600d2014d2c22ad5fbd6908244c3e3a311d419c02e625178279"
+  },
+  "held_scientific_workers_changed": false,
+  "limitation": "Trusts original managed execution and monotonic receipt clock; no independent absolute-clock authenticity, native recipe/model quality, aggregate RAM, whole external job cost or protected authority. Operational failures are not imputed predictive risks.",
+  "logs": [
+    {
+      "bytes": 11031,
+      "path": "artifacts/research-v2/WP11/process-receipt-RED.log",
+      "sha256": "50789a576f5d34b8c8cac16057e6c79824b6da9f7bb598944c25de28e437f2a7"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP11/process-receipt-first-GREEN.log",
+      "sha256": "40113fa377bd599dd7a835b04d83951b4f462220b5ae33804e97014a8509fb73"
+    },
+    {
+      "bytes": 2536,
+      "path": "artifacts/research-v2/WP11/process-receipt-types-RED.log",
+      "sha256": "2fe0c320afc50858555c37ccd7b9185c1cf0e3ff6db7e4bdb5d5e20376ae7fa5"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP11/process-receipt-final-affected.log",
+      "sha256": "b3c249b0a6a10c7119af7b2d39ea64361dc81812ed39d6f5f8f7bc8e857a792d"
+    }
+  ],
+  "packages_installed_or_updated": false,
+  "parent_commit": "e161cef3280acfb4ce87c63b6f281bdd8813671e",
+  "process_reader_implemented": true,
+  "protected_access_authorized": false,
+  "quality_eligible": false,
+  "schema": "research/v2-closed-process-receipt-component-receipt",
+  "scientific_source_sha256": "365f6cbd2537fc3468f1b011d7ca48d9f23ffda2c798637a74f0e784a02a8218",
+  "scope": "Saved managed argv/cwd/env/identity, exact files/start/spawn/closure/deadline and raw rootRSS; includes legitimate guard overshoot, nonzero exit and no-child start failure. No live PID probe/signals/new process from reader.",
+  "tested_files": [
+    {
+      "bytes": 8210,
+      "path": "src/treeneuron/research/process_receipt_v2.py",
+      "sha256": "46ed2ef31bab69c384bd04860e06d18ca9c73fc7cfca792e3b61920947b1152a"
+    },
+    {
+      "bytes": 4579,
+      "path": "tests/test_process_receipt_v2.py",
+      "sha256": "3283357ccd21a9973b3cc96f49e1c49132bd08d6def1c79e14899bde58949057"
+    }
+  ],
+  "verification": [
+    "Missing API:11failed0.08s",
+    "Actual normal/nonzero/RSS/timeout/pre-spawn outcomes plus content faults:11passed1.22s/session96170exit0",
+    "Malformed status/reason/file-row types leaked TypeError/AttributeError:3failed11deselected1.13s",
+    "Explicit typed rejection:67affected checks passed4.13s/session86453exit0"
+  ]
+}

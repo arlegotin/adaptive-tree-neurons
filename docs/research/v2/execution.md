@@ -1995,3 +1995,14 @@ production-positive execution remains unrun until all final-source prerequisites
 are complete. Whole paid-journal/primary-model/freeze/protected integration is
 still unfinished. The separate c33 native cohort continues under its original
 source; no scientific result or method admission changed.
+
+### Closed operational process reader, 20 October
+
+The [closed process reader](closed-process-receipts.md) passed 67 affected
+process/journal checks. Actual tiny normal, nonzero, RSS-stop, timeout and
+pre-spawn failure records reopen with their original operational status.
+Malformed field types now reject explicitly; source and failures are retained in
+the [receipt](WP08-closed-process-receipt.json). No reader launches a process,
+probes an old PID or converts failure to predictive risk. This supports the
+remaining paid qualified-search audit; it grants no method, whole-job-cost or
+protected authority. The native scientific queue and recipes are unchanged.
