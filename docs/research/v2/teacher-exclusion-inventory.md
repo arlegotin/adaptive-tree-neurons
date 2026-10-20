@@ -1,5 +1,21 @@
 # Known synthetic-problem exclusions
 
+The [current index](../../../protocol/research-v2/exclusions/current-known-exclusions.json)
+now references the through-M3 known-seed and ID registries. Use that explicit
+new version for future provisional protocols; the original files below remain
+unchanged historical inputs. The update adds all16completed scientific M3
+teachers and one distinct native qualification teacher. Two qualification runs
+used the same engineering teacher, so18metadata records give17new identities.
+
+The new sorted registry contains10,188known seeds and91ID candidates. Each new
+seed/ID agrees with committed native request/result/split/teacher metadata, the
+checked TeacherSpec schema/identity, and an independent canonical-JSON SHA256.
+All consumed input hashes were rechecked. No teacher or observation array was
+regenerated/read, no fresh root drawn and no T accessed. This extends known
+exclusions; global historical/ID completeness remains unqualified. See
+[the new provenance](../../../protocol/research-v2/exclusions/authenticated-M3-teachers.json)
+and [receipt](WP09-M3-teacher-exclusion-extension-receipt.json).
+
 The new [known-seed registry](../../../protocol/research-v2/exclusions/known-teacher-seeds.json)
 and [ID candidates](../../../protocol/research-v2/exclusions/known-teacher-id-candidates.json)
 make current exclusions durable. They grant no confirmation or protected access.

@@ -1815,3 +1815,14 @@ production HPO eligibility, native workload/support qualification, global freeze
 or T access. See [the component contract](native-candidate-inspection.md) and
 [receipt](WP08-native-candidate-inspection-receipt.json). Native baseline holds/
 serial operators remain unchanged.
+
+Known confirmation exclusions now include the completed M3 study. The new
+through-M3 versions retain10188known seeds/91ID candidates, adding16scientific
+teachers and one distinct native qualification teacher. The two qualification
+runs share that one engineering identity. Original registry bytes remain
+unchanged. Every new identity was checked against committed native metadata,
+TeacherSpec and an independent canonical-JSON hash; observation arrays and fresh
+roots were not generated/read. Full historical/test/calibration closure remains
+unqualified, so no confirmation capability follows. Future protocols must use
+[the current version index](../../../protocol/research-v2/exclusions/current-known-exclusions.json).
+See [the extension receipt](WP09-M3-teacher-exclusion-extension-receipt.json).

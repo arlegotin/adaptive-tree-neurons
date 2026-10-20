@@ -318,3 +318,11 @@ imports; native `/bin/ps` access is needed for the existing RSS supervisor.
 The71-case affected suite passed65.91seconds; initial failures and source/log
 hashes are retained inWP08-native-candidate-inspection-receipt.json. Synthetic
 sealed fixtures are not official acquisition or predictive evidence.
+
+The new through-M3 exclusion files are listed by
+`protocol/research-v2/exclusions/current-known-exclusions.json`. They preserve the
+original575-file scan's registry as an unchanged historical input and add17actual
+M3/qualification metadata identities. The collection script/input commitments,
+sorted-registry loader check and dual identity arithmetic are retained in
+WP09-M3-teacher-exclusion-extension-receipt.json. Raw observation arrays were not
+opened for this update. Completeness/confirmation authority remain false.
