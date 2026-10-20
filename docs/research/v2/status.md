@@ -130,7 +130,11 @@ The [generic candidate reader](native-inspection-reader.md) passed 54 affected
 checks on actual small grouped and temporal native records. It reopens searched
 configurations as well as anchors, checks saved replay evidence and recomputes
 primary V arithmetic. It grants no selection eligibility. The separate
-registry-qualified production callback remains the next connection.
+[registry-qualified callback component](qualified-native-trial.md) passed 70
+affected checks, including real partial candidate evidence and rejection of a
+false registry. Its complete qualified-success execution remains unrun; full
+registry qualification, paid-journal and primary-model/freeze connections are
+still required.
 
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only

@@ -71,9 +71,10 @@ forecasts; they cannot silently become current-source qualified models. No
 compatibility migration has been admitted. Resource pressure permits declared
 same-state/same-seed recovery and lower concurrency, with all earlier cost paid.
 
-The future production callback must consume this registry, preserve the native
-sampler preparation cost, and authenticate every candidate before passing its
-score to selection. The [generic closed inspection reader](native-inspection-reader.md)
+The [production callback component](qualified-native-trial.md) now requires this
+registry, preserves the native sampler preparation cost and authenticates each
+candidate before companion admission. Its complete actual qualified-success
+execution remains unrun. The [generic closed inspection reader](native-inspection-reader.md)
 now supplies the reopened anchor/search generation, saved independent inference
 and exact primary V arithmetic component. Its flags remain unqualified; every
 candidate still needs the complete registry and its own full workload check.

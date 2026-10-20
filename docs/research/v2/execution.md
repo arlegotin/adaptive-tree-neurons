@@ -1979,3 +1979,19 @@ were joined. Late label-byte replacement also rejects. The
 [receipt](WP08-native-inspection-reader-receipt.json) retains all logs and
 independently reopened fixture observations. This connects candidate evidence;
 it does not qualify a full registry or produce a selected practical model.
+
+### Registry-qualified candidate admission component, 20 October
+
+The [new callback component](qualified-native-trial.md) passed 70 affected
+checks. It requires the actual full registry, checks procedure metadata before
+worker input preparation and keeps original engineering flags unchanged.
+Actual small candidate components remain unqualified when checked alone.
+Changed proposals and prerequisite bytes reject. Source/test/lock/core-runtime,
+working-root, split and support bindings precede inner worker preparation.
+The [receipt](WP08-qualified-native-trial-receipt.json) binds exact evidence.
+
+No complete registry or public qualified success was fabricated. Actual
+production-positive execution remains unrun until all final-source prerequisites
+are complete. Whole paid-journal/primary-model/freeze/protected integration is
+still unfinished. The separate c33 native cohort continues under its original
+source; no scientific result or method admission changed.

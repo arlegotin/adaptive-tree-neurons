@@ -257,9 +257,9 @@
           "sha256": "e8d4142f9e8c129fe55287675bc834e9d10a1299940f149f2c51cd9fc052b255"
         },
         {
-          "bytes": 8765,
+          "bytes": 8849,
           "path": "docs/research/v2/native-qualification-contract.md",
-          "sha256": "a0729c6d757d75b3094f790c7bae9b41b7ba1f7c5f926548d146e8a8b52aa434"
+          "sha256": "897359b5a37368fbf80d4881f4c2c4188e1473611173d77e229dd9905ea5e8d9"
         },
         {
           "bytes": 6678,
@@ -275,6 +275,11 @@
           "bytes": 3981,
           "path": "docs/research/v2/WP08-native-inspection-reader-receipt.json",
           "sha256": "6691be76f6fb43501fef93adef3063a52fab82ccffb6f97b7dd520cb30f6009a"
+        },
+        {
+          "bytes": 4272,
+          "path": "docs/research/v2/WP08-qualified-native-trial-receipt.json",
+          "sha256": "20e8e23d073bc61c6d0fef6b8cb6daa7727a4552dbb3802663113c09e8e28417"
         }
       ],
       "status": "supported_scoped_status",

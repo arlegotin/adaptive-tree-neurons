@@ -1,0 +1,83 @@
+{
+  "T_accessed": false,
+  "callback_implementation_present": true,
+  "complete_registry_executed": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-c",
+      "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"--tb=short\",\"--basetemp=artifacts/research-v2/WP11/qualified-native-trial-final-fixture\",\"tests/test_qualified_native_trial_v2.py\",\"tests/test_native_inspection_reader_v2.py\",\"tests/test_native_trial_bridge.py\",\"tests/test_search_controller_v2.py\"]))"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "final_source_qualified": false,
+  "full_qualified_callback_executed": false,
+  "held_scientific_workers_changed": false,
+  "integrity_policy": "Deep registry reopen once per constructor; current verification identity, all closed prerequisite byte inventories and all working role archives checked at each callback boundary. Integrity I/O paid, not a free intrinsic-method speedup.",
+  "limitation": "Public qualified-success path awaits an actual complete final-source registry; no fake positive registry used in tests. Whole paid journal, primary selected-model/global freeze and protected evaluator integration still pending.",
+  "logs": [
+    {
+      "bytes": 11896,
+      "path": "artifacts/research-v2/WP11/qualified-native-trial-RED.log",
+      "sha256": "2184d06835bf10632a5c7bd51512dced8042688ae42e324d7961b7fa8483ad53"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP11/qualified-native-trial-first-GREEN.log",
+      "sha256": "8826bec6c715df21d00fccdc5cffff06a9f29b152e1357395431ae3b88ea9930"
+    },
+    {
+      "bytes": 6053,
+      "path": "artifacts/research-v2/WP11/qualified-native-trial-binding-RED.log",
+      "sha256": "7e4bbdcd79e1796ac7a5ab8de3532a16f3ec1b68435750b21fa1cb98a72e263a"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP11/qualified-native-trial-final-affected.log",
+      "sha256": "402c9d0b990ffd355943f80f307673c7db6aff8b3575695942f7cb69e63070e8"
+    }
+  ],
+  "packages_installed_or_updated": false,
+  "parent_commit": "d0d7ea9772ecaa045590b60a6953767dbf54ea1a",
+  "partial_observation": {
+    "bytes": 11308,
+    "path": "artifacts/research-v2/WP11/qualified-native-trial-partial-observation.json",
+    "sha256": "d63c05890488f9a2b698d5b4f7344596cfb1d2dd86b4a7bc11a22f748bd0c5e3"
+  },
+  "protected_access_authorized": false,
+  "quality_eligible": false,
+  "runtime_pin_contract": "Production plan.identity.runtime_sha256 is SHA256 of qualified locks/research-v2/core.json.",
+  "schema": "research/v2-qualified-native-trial-component-receipt",
+  "scientific_source_sha256": "6efedc326c7ca943fe2edf14af00327eda06b09bbf8f528973f3e39700f99d26",
+  "scope": "Requires complete actual registry before inner callback construction, checks exact source/core runtime/support/split/working-root before worker input decode; actual partial trial proposal/full-workload/replay/V joins verified without global admission. Original engineering packets unchanged.",
+  "tested_files": [
+    {
+      "bytes": 10424,
+      "path": "src/treeneuron/research/qualified_native_trial_v2.py",
+      "sha256": "beb0f63ecfc08450390a5e4622054188c468f6e2f4d1bb2098e157714e5e9b1c"
+    },
+    {
+      "bytes": 6693,
+      "path": "tests/test_qualified_native_trial_v2.py",
+      "sha256": "59f8f92ac7b9e2f0e46f6e6dec8058895044b59e3d27f2357be96c7df8c7a6c7"
+    }
+  ],
+  "verification": [
+    "Missing API:11failed0.09s",
+    "Initial invalid registry/actual partial candidates/byte guard:11passed6.61s/session28235exit0",
+    "Missing pre-worker metadata boundary:8failed11deselected0.91s",
+    "Final exact metadata boundary and four affected modules:70passed29.05s/session92646exit0"
+  ]
+}
