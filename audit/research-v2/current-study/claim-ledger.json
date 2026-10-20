@@ -230,9 +230,9 @@
           "sha256": "e8d4142f9e8c129fe55287675bc834e9d10a1299940f149f2c51cd9fc052b255"
         },
         {
-          "bytes": 7325,
+          "bytes": 7730,
           "path": "docs/research/v2/native-qualification-contract.md",
-          "sha256": "bfa45b0cbdd854ef21f583ee805091dad0c95660347d8e97638335576afc87fa"
+          "sha256": "4552f402ff9eb683a934de28de086b6878fc3abd8be756629dfb0eb79acf1b8c"
         }
       ],
       "status": "supported_scoped_status",

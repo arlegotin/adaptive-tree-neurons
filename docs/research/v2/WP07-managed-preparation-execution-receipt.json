@@ -1,0 +1,128 @@
+{
+  "actual_fixture_models_fit": 0,
+  "data_overlay_copy": {
+    "bytes": 48793,
+    "path": "artifacts/research-v2/WP07/data-overlay-byte-copy-ba76d7e/receipt.json",
+    "sha256": "84e3feae4d7135ae96668a417b81b27c2bd293165173a2f54ab06885f3abd2a6"
+  },
+  "data_overlay_marker_retention": {
+    "bytes": 616,
+    "path": "artifacts/research-v2/WP07/data-overlay-byte-copy-ba76d7e/marker-exclusion.json",
+    "sha256": "71f1a64359c7923144e791f0a67130a34ef564191cadd7cbc986d9d795f88ef8"
+  },
+  "data_preparation_component_implemented": true,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "--tb=short",
+      "tests/test_preparation_execution_v2.py",
+      "tests/test_prepared_data_lineage.py",
+      "tests/test_transfer_contract.py",
+      "tests/test_process_supervision_v2.py"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "final_source_qualified": false,
+  "fixture_observation": {
+    "bytes": 11427,
+    "path": "artifacts/research-v2/WP11/preparation-execution-fixture-observation.json",
+    "sha256": "590029a4175192fe47e65dfe2387657c1fd8aaf2b5b5d5e3989931155f68a7cd"
+  },
+  "held_scientific_workers_changed": false,
+  "logs": [
+    {
+      "bytes": 3222,
+      "path": "artifacts/research-v2/WP11/preparation-execution-RED.log",
+      "sha256": "ad6423e5e88ee300a8837e75cd0a01299f36ecad4035fbad0d4a7d17d91f7f99"
+    },
+    {
+      "bytes": 2142,
+      "path": "artifacts/research-v2/WP11/preparation-execution-first-GREEN.log",
+      "sha256": "623b8d068301d2624279825177bb0ec79da82e3090d11356bb420fd5918e705c"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP11/preparation-execution-clean-overlay.log",
+      "sha256": "b74df0995ca654294cdb1ae6eafadb9a13658f051c8e17012a1fe6a118614c7b"
+    },
+    {
+      "bytes": 846,
+      "path": "artifacts/research-v2/WP11/preparation-execution-adversarial.log",
+      "sha256": "21a7a089149106888e2860dbc27f0f0286efd8062d5b032fe21443659ed03842"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP11/preparation-execution-final-affected.log",
+      "sha256": "0635ec181662385fd2ed57bb5880aa6b8dc4954d22eaebf41d5d08a51c16baca"
+    },
+    {
+      "bytes": 2122,
+      "path": "artifacts/research-v2/WP11/preparation-execution-joins-RED.log",
+      "sha256": "b9c7fb5cbc70f567e94769ea83e7deaf66962792edcb2cde130c247e9a1cbc46"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP11/preparation-execution-final-joins.log",
+      "sha256": "f4e9efe7b5c814baa5c2ea5dd4215f889e7768ac9fc9f820734854484e0079f1"
+    }
+  ],
+  "native_workload_qualified": false,
+  "old_archived_byte_audit_semantics_preserved": true,
+  "packages_installed_or_updated": false,
+  "parent_commit": "ba76d7e7a8a3544b77964355f100b91b307f4e7c",
+  "private_files_copied": 227,
+  "private_generated_bytecode_excluded": 188,
+  "production_registry_complete": false,
+  "protected_access_authorized": false,
+  "protected_label_archives_hashed": 30,
+  "quality_eligible": false,
+  "schema": "research/v2-managed-preparation-implementation-receipt",
+  "scientific_source_sha256": "747e6747f523efd81db198d6468238c3d8b5bab275bb9a4d563bd2ab330db857",
+  "scope": "Actual dedicated preparation of copies of six exact retained official raw tables; source/locks/runtime/input/output/180archive joins. Raw targets parsed only to prepare/seal roles. Reader hashes protected archives without NumPy decoding or modeling. Managed generation is trusted, not independently numerically reconstructed by reader. Test fixture is not final production prepared data.",
+  "tested_files": [
+    {
+      "bytes": 23047,
+      "path": "src/treeneuron/research/preparation_execution_v2.py",
+      "sha256": "1b77269e4cc5e9df9e00ca956d6c888d1063dc1210cd08e2516fb878314ac53d"
+    },
+    {
+      "bytes": 11039,
+      "path": "src/treeneuron/research/prepared_lineage_v2.py",
+      "sha256": "df7f87706bc2115acec31c8a310e79d7eb4b1da28688991a9d984e056bc6328a"
+    },
+    {
+      "bytes": 6690,
+      "path": "tests/test_preparation_execution_v2.py",
+      "sha256": "b3f2f518ef623a717fdf14c490c3b2e4d93650cbf1d3e71ee5a50573bbc8e6ba"
+    },
+    {
+      "bytes": 638,
+      "path": "locks/research-v2/data-environment.json",
+      "sha256": "c2e1ee6a4fe78a6d2c47374944d7b5f9aa55278cb5a13ac7131b6dba4d5ba9ca"
+    }
+  ],
+  "verification": [
+    "Missing API1failed/2errors0.22s",
+    "First11case run9passed/2errors2.13s: copied undeclared zero-byte package-manager .lock rejected by exact overlay guard",
+    "Retained marker outside import overlay; unchanged code11passed5.32s",
+    "Controlled runtime import hash accepted erroneously:1failed/6passed4.49s",
+    "Joined actual pinned import files/Python/platform:54affected checks passed8.19s",
+    "Three consistent bad schema/authority/suite-command records were accepted:3failed/7deselected4.43s",
+    "Strict result version/authority and actual suite invocation/status joins:final57passed7.49s/session75302exit0"
+  ]
+}

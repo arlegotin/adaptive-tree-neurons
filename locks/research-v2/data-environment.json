@@ -1,0 +1,9 @@
+{
+  "schema": "research/v2-data-environment",
+  "distributions": [
+    {"name": "et-xmlfile", "version": "2.0.0", "record_sha256": "0f0861905c07d20c301567320c32950ef93b01084295cc11d54ba9705eb269bb"},
+    {"name": "openpyxl", "version": "3.1.5", "record_sha256": "89fb27b7b9ef96f6871e5f400b8aedf1f569856ac2594f0cf48ff0fbcd04ece0"},
+    {"name": "xlrd", "version": "2.0.2", "record_sha256": "07a620c90259b30a85ba6da2ce19e217d4b7abc00d0e20d9e700d649371383e5"}
+  ],
+  "provenance": "Exact previously qualified wheel RECORDs from WP07-preparation-receipt.json; wheel identities remain pinned in data-requirements.txt. No dependency update."
+}

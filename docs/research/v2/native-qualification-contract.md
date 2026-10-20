@@ -80,7 +80,12 @@ an explicitly unchanged legacy practical reference is the remaining candidate.
 The [prepared-data byte/source reader](prepared-data-lineage.md) now supplies
 the recorded source/raw/sealed-byte consistency component. It hashes opaque
 protected archives without decoding targets and grants no modeling authority.
-The complete registry and raw-to-model joins are still required.
+The [managed preparation proof](data-preparation-execution.md) now adds trusted
+current-source raw-table parsing/sealing, locked runtime/import identity and
+owned process/output joins. Its reader hashes all sealed role archives without
+decoding labels; it does not independently reconstruct their numerical content.
+The complete registry must join this actual preparation lineage to native model
+inputs. Earlier prepared/model assets do not migrate into the new source.
 
 The [recorded native workload reader](native-training-observation.md) now covers
 all fourteen families and raw process observations. It preserves each method's

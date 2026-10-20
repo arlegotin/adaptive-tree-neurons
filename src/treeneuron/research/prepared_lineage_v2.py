@@ -39,6 +39,21 @@ def archived_scientific_source(commit):
 
 def audit_prepared_transfer_suite(*,prepared_root,expected_suite_sha256,acquisition_manifest,
         expected_acquisition_sha256,preparation_commit):
+    return _audit_prepared_suite(prepared_root=prepared_root,expected_suite_sha256=expected_suite_sha256,
+        acquisition_manifest=acquisition_manifest,expected_acquisition_sha256=expected_acquisition_sha256,
+        preparation_commit=preparation_commit,current_preparation=False)
+
+
+def audit_current_prepared_transfer_suite(*,prepared_root,expected_suite_sha256,acquisition_manifest,
+        expected_acquisition_sha256):
+    """Opaque byte/schema checks for a current-source preparation, not execution proof."""
+    return _audit_prepared_suite(prepared_root=prepared_root,expected_suite_sha256=expected_suite_sha256,
+        acquisition_manifest=acquisition_manifest,expected_acquisition_sha256=expected_acquisition_sha256,
+        preparation_commit=None,current_preparation=True)
+
+
+def _audit_prepared_suite(*,prepared_root,expected_suite_sha256,acquisition_manifest,
+        expected_acquisition_sha256,preparation_commit,current_preparation):
     started=time.perf_counter_ns();source=_source();prepared=Path(prepared_root);acquisition=Path(acquisition_manifest)
     if any(type(v) is not str or re.fullmatch('[0-9a-f]{64}',v) is None for v in (expected_suite_sha256,expected_acquisition_sha256)):
         raise ValueError('External preparation/acquisition SHA256 commitments required')
@@ -59,7 +74,9 @@ def audit_prepared_transfer_suite(*,prepared_root,expected_suite_sha256,acquisit
         value=_json(raw);observe(path,digest)
         return value
     suite_path=prepared/'suite.json';suite=decode(suite_path,expected_suite_sha256)
-    acquired=decode(acquisition,expected_acquisition_sha256);origin=archived_scientific_source(preparation_commit)
+    acquired=decode(acquisition,expected_acquisition_sha256)
+    origin=(dict(commit=None,source_sha256=source,python_files=len(list((_ROOT/'src/treeneuron').rglob('*.py'))))
+        if current_preparation else archived_scientific_source(preparation_commit))
     fields={'schema','status','datasets','models_fitted','protected_labels_read_for_modeling','source_sha256',
         'dependencies','argv','cwd','environment_overrides','config','suite_hash'}
     if (type(suite) is not dict or set(suite)!=fields or suite['schema']!='research/v2-prepared-suite'
@@ -116,7 +133,7 @@ def audit_prepared_transfer_suite(*,prepared_root,expected_suite_sha256,acquisit
     for path,digest in references.items():observe(Path(path),digest)
     if source!=_source():raise ValueError('Data byte-audit implementation changed during inspection')
     return dict(schema='research/v2-prepared-data-byte-source-audit',source_sha256=source,
-        preparation_source=origin,recorded_preparation_source_matches_commit=True,
+        preparation_source=origin,recorded_preparation_source_matches_commit=not current_preparation,
         expected_suite_sha256=expected_suite_sha256,expected_acquisition_sha256=expected_acquisition_sha256,
         suite_hash=suite['suite_hash'],datasets=datasets,raw_assets_hashed=6,role_archives_hashed=role_count,
         protected_label_archives_hashed=protected_count,arrays_or_labels_decoded=False,data_content_rederived=False,

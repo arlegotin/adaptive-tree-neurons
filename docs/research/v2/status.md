@@ -102,6 +102,12 @@ and QHAdam state checks; the reader does not repeat optimization or recovery.
 Earlier failures and fixes remain in the component receipts. The complete
 qualification registry is still pending; this is not production model eligibility.
 
+The [managed preparation reader](data-preparation-execution.md) also passed 57
+separate data/process checks. Its worker prepared copies of all six official raw
+datasets, fit no models and sealed every role; the reader kept protected archives
+opaque. This supplies preparation provenance for the future registry, not a
+new predictive result or a replacement production dataset.
+
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only
 the branches their gates authorize. The native/support/workload qualification
