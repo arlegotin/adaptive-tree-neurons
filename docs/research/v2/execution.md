@@ -1940,3 +1940,31 @@ reviewed unconditionally; actual native status/roles were already valid and
 bound by the independent completion audit, so no score/inclusion changed.
 A report-only None-metrics AttributeError was retained/recovered without label
 reopening. See [receipt](WP07-NODE-Airfoil-completion-and-V-receipt.json).
+
+### Closed recovery and native prerequisite registry, 20 October
+
+The [full-size recovery component](native-recovery-qualification.md) passed 40
+checks with retained process/state files. Shared pytest temporary evidence had
+become unavailable; an explicit retained retry first stopped before numerical
+launch because sandboxed `/bin/ps` was denied, then the authorized same-source
+run passed. Logs retain both outcomes. Exact raw/selected state comparison and
+the capped numerical horizon do not establish native quality.
+
+The [registry component](native-qualification-registry.md) now fixes seven
+software profiles, 120 anchors and 258 support exercises. Combined actual
+partial-component checks passed 62 cases with one missing-overlay skip; that
+linear-tree case passed separately under the pinned overlay. Real small-model
+records prove that a valid second generation cannot supply another anchor's
+workload. This is not a fabricated complete qualified bundle.
+
+Integration review found that legitimate access logs would mutate an immutable
+preparation inventory. Explicit working roots now join identical manifests and
+all 180 opaque role archives to the sealed official preparation, while access
+logs append outside its proof root. Actual logging, protected-byte tampering,
+manifest drift and root-alias checks cover this boundary. No split, target,
+model, effective batch or native recipe changed. Full final-source registry
+execution, production admission and protected evaluation remain pending. The
+[registry receipt](WP07-native-qualification-registry-receipt.json) and
+[recovery receipt](WP07-native-recovery-proof-receipt.json) bind exact source,
+commands, failures and retained observations. The held c33 native queue continues
+under its original source.

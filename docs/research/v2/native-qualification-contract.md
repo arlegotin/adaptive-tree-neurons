@@ -39,8 +39,9 @@ implementation. Earlier fixture receipts retain their own source and scope.
 
 The first interface now supplies the
 [joined anchor execution proof](native-anchor-execution.md). Its raw-acquisition,
-complete-workload and production flags remain false. The registry interface is
-still proposed:
+complete-workload and production flags remain false. The
+[registry implementation](native-qualification-registry.md) now joins these
+components; its complete final-source execution remains unrun:
 
 ```python
 qualify_native_anchor(..., implementation_reference, generation_arguments,
@@ -49,10 +50,10 @@ load_native_anchor_execution(reference, prepared_root=...,
                              expected_manifest_sha256=...,
                              expected_family=..., expected_anchor_id=...,
                              expected_dataset=...)
-# Proposed; not implemented yet:
-seal_native_qualification_registry(*, preparation_reference, profile_references,
+seal_native_qualification_registry(*, preparation_reference, prepared_roots, profile_references,
                                   anchor_references, support_references,
                                   recovery_reference, output)
+load_native_qualification_registry(reference)
 ```
 
 The registry must account for the fixed20anchors across six datasets, all seven

@@ -103,7 +103,7 @@ adapters' unexposed internal traces remain explicit. The latest combined run
 passed 57 cases. NODE tensors are checked in chunks, with exact sampler order
 and QHAdam state checks; the reader does not repeat optimization or recovery.
 Earlier failures and fixes remain in the component receipts. The complete
-qualification registry is still pending; this is not production model eligibility.
+actual qualification registry is still pending; this is not production model eligibility.
 
 The [managed preparation reader](data-preparation-execution.md) also passed 57
 separate data/process checks. Its worker prepared copies of all six official raw
@@ -118,11 +118,20 @@ including weights, optimizer, RNG and sampler, apart from elapsed-time fields.
 This is an engineering capability; it grants no predictive or production
 qualification. Earlier test failures and a sandbox-blocked retry are retained.
 
+The [registry component](native-qualification-registry.md) now joins the fixed
+120 anchors, 258 support exercises, seven software profiles, official preparation
+and recovery proofs. Its combined partial-component checks passed 62 cases,
+with one tree-overlay check skipped; that check then passed separately with the
+pinned overlay. A real access-log test preserves immutable preparation while
+checking every working-copy role file. The complete actual registry is unrun,
+so this grants no Gate D or search eligibility.
+
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only
 the branches their gates authorize. The native/support/workload qualification
-registry, production practical HPO, complete protocol/evaluator integration and
-final source freeze remain unfinished. There is no permission to treat engineering
+registry's complete actual execution, production practical HPO, complete
+protocol/evaluator integration and final source freeze remain unfinished.
+There is no permission to treat engineering
 flags as production eligibility or to open T while those prerequisites are absent.
 
 The [reproduction guide](reproduce.md), [binding spec](../../superpowers/specs/2026-10-18-research-v2-design.md)

@@ -257,14 +257,19 @@
           "sha256": "e8d4142f9e8c129fe55287675bc834e9d10a1299940f149f2c51cd9fc052b255"
         },
         {
-          "bytes": 8332,
+          "bytes": 8462,
           "path": "docs/research/v2/native-qualification-contract.md",
-          "sha256": "6a6b693bbf0d653a9fa52f435f91764fcee878def619941496a87fa873175ae0"
+          "sha256": "04a5ee56bc4d259a15441e109fe9687e2248803f6809cc78ded24f13f2349f25"
         },
         {
           "bytes": 6678,
           "path": "docs/research/v2/WP07-native-recovery-proof-receipt.json",
           "sha256": "cfc689fa2fea18c6854296b1439163d51e115f4da95ed0903dbebfea2d967cfd"
+        },
+        {
+          "bytes": 6093,
+          "path": "docs/research/v2/WP07-native-qualification-registry-receipt.json",
+          "sha256": "97627c144fe72ede93965d56e0726ef90f249d2eb03f7464201d62534e111c3c"
         }
       ],
       "status": "supported_scoped_status",

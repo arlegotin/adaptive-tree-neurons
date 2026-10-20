@@ -1,0 +1,132 @@
+{
+  "Gate_D": false,
+  "T_accessed": false,
+  "complete_registry_executed": false,
+  "counts": {
+    "anchors": 120,
+    "datasets": 6,
+    "profiles": 7,
+    "supports": 258
+  },
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-c",
+      "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"-rs\",\"--tb=short\",\"--basetemp=artifacts/research-v2/WP11/native-registry-working-joined-fixture\",\"tests/test_native_qualification_registry_v2.py\",\"tests/test_native_anchor_reader.py\",\"tests/test_native_support_probe_reader.py\",\"tests/test_preparation_execution_v2.py\"]))"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "final_source_qualified": false,
+  "held_scientific_workers_changed": false,
+  "limitation": "No mocked complete success or actual full Gate D bundle. Final-source qualification awaits remaining production implementation/review. Original worker/model quality flags remain false. Component code is not a completed practical benchmark.",
+  "logs": [
+    {
+      "bytes": 14498,
+      "path": "artifacts/research-v2/WP11/native-qualification-registry-RED.log",
+      "sha256": "0540fd841563324c585950a0e3a8032be07f30bae0c73dd8c18bf8100f14ea7d"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP11/native-qualification-registry-first-GREEN.log",
+      "sha256": "88e7f54271496291b5930549c3819de65cc038c47db364e85d8fdcc313866da6"
+    },
+    {
+      "bytes": 2097,
+      "path": "artifacts/research-v2/WP11/native-qualification-registry-anchor-RED.log",
+      "sha256": "f94435bd44781b866e8190480a37a2b0a4b01d2739ece108c0ebb498c5aee7b9"
+    },
+    {
+      "bytes": 122,
+      "path": "artifacts/research-v2/WP11/native-qualification-registry-joined-affected.log",
+      "sha256": "9179920be659ba66830bb8e75f9709f863a925fae5bf717193a5fede45eb82d3"
+    },
+    {
+      "bytes": 3488,
+      "path": "artifacts/research-v2/WP11/native-qualification-registry-working-RED.log",
+      "sha256": "696c7bf91ac736de10dfec985c5c4dcb07158b4491897f744658672bb70f917d"
+    },
+    {
+      "bytes": 313,
+      "path": "artifacts/research-v2/WP11/native-qualification-registry-working-joined.log",
+      "sha256": "ff772d7788fa31519fd1c7f8ff6e3b283f4a8fa6a5b1285f1c5313c690791a74"
+    },
+    {
+      "bytes": 98,
+      "path": "artifacts/research-v2/WP11/native-qualification-registry-tree-overlay.log",
+      "sha256": "0834f0bc535eca7971e1b72cc3aaebca5fc1b94ef5e3d37d6a2e2b367c40d94a"
+    }
+  ],
+  "packages_installed_or_updated": false,
+  "parent_commit": "67a74d3",
+  "partial_observation": {
+    "bytes": 11265,
+    "path": "artifacts/research-v2/WP11/native-qualification-registry-partial-observation.json",
+    "sha256": "aae847e37ef3cf53889fc02feefc1fd4e46d906cbd1726a37ba526a711148b54"
+  },
+  "prepared_roots_amendment": "Explicit external working roots prevent permitted access.jsonl from mutating the closed preparation inventory. Exact manifests and all180opaque role bytes joined before/after; legacy TransferStore and closed hashes remain intact.",
+  "production_candidate_admission_implemented": false,
+  "protected_access_authorized": false,
+  "quality_eligible": false,
+  "registry_component_implemented": true,
+  "schema": "research/v2-native-qualification-registry-implementation-receipt",
+  "scientific_source_sha256": "2c03cb34ca4554a065435051fba820a856c97df000c1bb63719cb8dbbc47e51a",
+  "scope": "Fixed coverage, real partial anchor/workload and actual official preparation/working-byte joins; complete real registry is unrun.",
+  "targeted_overlay_recovery": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "--tb=short",
+      "--basetemp=artifacts/research-v2/WP11/native-registry-tree-overlay-fixture",
+      "tests/test_native_support_probe_reader.py::test_actual_linear_tree_geometry_reopens_its_state_json_contract"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "ATN_TREE_OVERLAY": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/environment/research-v2-tree-site",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "tested_files": [
+    {
+      "bytes": 15316,
+      "path": "src/treeneuron/research/native_qualification_registry_v2.py",
+      "sha256": "1e9c7f1acdde09e9079dfbb140f2866ac4d8bd43dd0432cccc38a0990961438a"
+    },
+    {
+      "bytes": 11672,
+      "path": "tests/test_native_qualification_registry_v2.py",
+      "sha256": "f56dec87fd13012ff699af49a86d3f6705cedd5c3255d4da70183ba0589ad964"
+    }
+  ],
+  "verification": [
+    "Missing API:14failed0.32s",
+    "Initial coverage/actual preparation partial proof:14passed5.12s",
+    "Missing per-anchor join:2failed14deselected30.48s, real numerical fixtures retained",
+    "First combined:58passed1optional-tree-overlay-skip121.55s",
+    "New immutable preparation/working-copy lifecycle:4failed16deselected5.32s",
+    "Final combined:62passed1optional-tree-overlay-skip126.29s/session78065exit0",
+    "Same source/test bytes, explicit pinned tree overlay:omitted case passed3.64s/session59743exit0; separate recovery, not a monolithic green run"
+  ]
+}
