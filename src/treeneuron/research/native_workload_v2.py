@@ -287,13 +287,155 @@ def _inspect_gated(root,read,refs,request,arrays):
         scope='Recorded native stages, full input/visited rows, gradients, schedule, structural tensors and strict G selection; managed optimization remains trusted')
 
 
+def _epoch_orders(root,refs,summary):
+    """Stream one epoch at a time, even for a long native trajectory."""
+    name='worker/fit/F-row-orders.npz';path=root/name
+    if path.is_symlink() or refs.get(name)!=summary['row_orders_sha256']:
+        raise ValueError('Native epoch order commitment differs')
+    digest=hashlib.sha256()
+    with path.open('rb') as stream:
+        for block in iter(lambda:stream.read(1024**2),b''):digest.update(block)
+    if digest.hexdigest()!=refs[name]:raise ValueError('Native epoch order bytes differ')
+    n=summary['fit_rows'];epochs=summary['executed_epochs'];expected=np.arange(n,dtype=np.int64)
+    with zipfile.ZipFile(path) as archive:
+        members=archive.infolist()
+        if len(members)!=1 or members[0].filename!='row_indices.npy' or members[0].file_size!=epochs*n*8+128:
+            raise ValueError('Native epoch order archive allocation differs')
+        with archive.open(members[0]) as stream:
+            version=np.lib.format.read_magic(stream)
+            if version!=(1,0):raise ValueError('Unsupported native epoch order array format')
+            shape,fortran,dtype=np.lib.format.read_array_header_1_0(stream)
+            if shape!=(epochs,n) or fortran or dtype!=np.dtype('int64'):
+                raise ValueError('Native epoch order geometry/dtype differs')
+            for row in summary['history']:
+                raw=stream.read(n*8)
+                if (len(raw)!=n*8 or hashlib.sha256(raw).hexdigest()!=row['row_order_sha256']
+                        or not np.array_equal(np.sort(np.frombuffer(raw,dtype=np.int64)),expected)):
+                    raise ValueError('Native epoch order is not a complete F permutation')
+            if stream.read(1):raise ValueError('Unexpected native epoch order tail')
+
+
+def _epoch_payload(root,state,summary,family):
+    """Check finite retained tensors without constructing or initializing a model."""
+    path=root/'worker/snapshot/weights.npz';limit=128*1024**2
+    payload=state['payload']
+    if (type(payload) is not dict or not payload or len(payload)>2048 or path.is_symlink()
+            or path.stat().st_size>limit):raise ValueError('Native epoch tensor allocation differs')
+    raw=path.read_bytes()
+    if hashlib.sha256(raw).hexdigest()!=state['weights_sha256']:raise ValueError('Native epoch tensor bytes differ')
+    with zipfile.ZipFile(io.BytesIO(raw)) as archive:
+        members=archive.infolist()
+        if (len(members)!=len(payload) or {m.filename for m in members}!={k+'.npy' for k in payload}
+                or sum(m.file_size for m in members)>limit):raise ValueError('Native epoch tensor allocation differs')
+    identity={}
+    with np.load(io.BytesIO(raw),allow_pickle=False) as saved:
+        for name in saved.files:
+            value=saved[name]
+            if (value.dtype not in (np.dtype('float32'),np.dtype('int64'),np.dtype('bool'))
+                    or not np.isfinite(value).all()
+                    or canonical_hash(payload[name])!=canonical_hash(dict(dtype=str(value.dtype),shape=list(value.shape)))):
+                raise ValueError('Native epoch tensor dtype, shape or finiteness differs')
+            if value.dtype==np.dtype('int64'):
+                if name=='category_offsets' and family!='P07':
+                    offsets=np.cumsum([0]+summary['cardinalities'][:-1],dtype=np.int64)
+                    if not np.array_equal(value,offsets):raise ValueError('Native category offsets differ')
+                elif family=='P04' and name.endswith('.num_batches_tracked'):
+                    selected=summary['selected_epoch']*math.ceil(summary['fit_rows']/summary['resolved_parameters']['batch_size'])
+                    if value.shape!=() or value.item()!=selected:raise ValueError('Native selected BatchNorm age differs')
+                else:raise ValueError('Unexpected native epoch integer tensor')
+            if value.dtype==np.dtype('bool') and not (family=='P07' and state['config']['variant']=='piecewise'
+                    and name.rsplit('.',1)[-1] in ('mask','single_bin_mask')):
+                raise ValueError('Unexpected native epoch boolean tensor')
+            if name.endswith('running_var') and np.any(value<0):raise ValueError('Negative native running variance')
+            identity[name]=dict(shape=list(value.shape),dtype='torch.'+str(value.dtype),
+                sha256=hashlib.sha256(value.tobytes()).hexdigest())
+    if canonical_hash(identity)!=summary['selected_native_state_sha256']:
+        raise ValueError('Native epoch selected tensor identity differs')
+
+
+def _inspect_epochs(root,read,refs,request,arrays):
+    import pandas as pd
+    family=request['family_id'];tabm=family=='P07'
+    if tabm:
+        from . import tabm_native as native
+        config=native.TabMConfig.parse(request['config']);transform_type=native.TabMTransform;target_type=native.TabMTarget
+    else:
+        from . import ordinary_neural as native
+        config=native.OrdinaryNeuralConfig.parse(family,request['config']);transform_type=native.NeuralTransform;target_type=native.TargetTransform
+    state=read('worker/snapshot/manifest.json');worker=read('worker/terminal.json');summary=state['resources']
+    prefix='tabm' if tabm else 'ordinary-neural'
+    if (state.get('schema')!='research/v2-'+prefix+'-snapshot' or not tabm and state.get('family')!=family
+            or canonical_hash(state.get('config'))!=canonical_hash(config.to_state())
+            or type(state.get('seed')) is not int or state['seed']!=request['fit_seed']
+            or state.get('source')!=native._source() or canonical_hash(worker['adapter_resources'])!=canonical_hash(summary)
+            or canonical_hash(read('worker/fit/attempt.json'))!=canonical_hash(summary)
+            or config.mode not in ('native_anchor','search') or summary.get('time_limit_exceeded') is not False
+            or summary.get('fitted') is not True or summary.get('seed')!=request['fit_seed']
+            or tabm and canonical_hash(summary.get('dependencies'))!=canonical_hash(state['dependencies'])
+            or summary.get('budget')!={} or summary.get('accessed_roles')!=['F','G']):
+        raise ValueError('Native epoch snapshot/worker/input identity differs')
+    counters=('fit_rows','select_rows','executed_epochs','selected_epoch','applied_updates','total_parameters','trainable_parameters')
+    if (any(type(summary.get(k)) is not int for k in counters)
+            or not 1<=summary['total_parameters']<=10_000_000
+            or not 0<summary['trainable_parameters']<=summary['total_parameters']):
+        raise ValueError('Native epoch counters differ')
+    native._validate_summary(config,summary)
+    transform=transform_type.from_state(state['feature_transform']);target=target_type.from_state(state['target_transform'])
+    frames={k:pd.DataFrame(arrays[k]['X'],columns=config.feature_schema['columns']) for k in ('F','G')}
+    yF=arrays['F']['y'].astype(np.float64);yG=arrays['G']['y'].astype(np.float64)
+    if (summary['fit_rows']!=len(yF) or summary['select_rows']!=len(yG) or transform.fit_rows!=len(yF)
+            or canonical_hash(transform.schema)!=canonical_hash(config.feature_schema)
+            or canonical_hash(dict(values=transform.cardinalities))!=canonical_hash(dict(values=summary['cardinalities']))
+            or canonical_hash(target.to_state())!=canonical_hash(target_type.fit(yF).to_state())
+            or summary['feature_transform_sha256']!=native._canonical(state['feature_transform'])
+            or summary['target_transform_sha256']!=native._canonical(state['target_transform'])):
+        raise ValueError('Native epoch full F/G transform or target context differs')
+    F=transform.transform(frames['F']);G=transform.transform(frames['G'])
+    expected=dict(schema='research/v2-'+prefix+'-attempt',source=state['source'],dependencies=state['dependencies'],
+        seed=request['fit_seed'],config=config.to_state(),resolved_parameters=config.resolved(),
+        feature_transform=transform.to_state(),target_transform=target.to_state(),budget={},
+        F_target_sha256=hashlib.sha256(yF.tobytes()).hexdigest(),G_target_sha256=hashlib.sha256(yG.tobytes()).hexdigest(),
+        fit_rows=len(yF),select_rows=len(yG),accessed_roles=['F','G'])
+    if tabm:
+        # This native implementation commits raw targets after its float32
+        # conversion, before standardization. Ordinary neural uses float64.
+        expected['F_target_sha256']=hashlib.sha256(yF.astype(np.float32).tobytes()).hexdigest()
+        expected['G_target_sha256']=hashlib.sha256(yG.astype(np.float32).tobytes()).hexdigest()
+        native._validated_bins(config,F[0].shape[1],state['bins']);expected['bins']=state['bins']
+        if summary.get('n_numeric')!=F[0].shape[1] or summary['bins_sha256']!=native._canonical(state['bins']):
+            raise ValueError('Native TabM numerical geometry/bins differ')
+        for role,value in (('F',F),('G',G)):
+            expected[role+'_numeric_sha256']=hashlib.sha256(value[0].tobytes()).hexdigest()
+            expected[role+'_categorical_sha256']=hashlib.sha256(value[1].tobytes()).hexdigest()
+    else:
+        expected.update(F_features_sha256=hashlib.sha256(F.tobytes()).hexdigest(),G_features_sha256=hashlib.sha256(G.tobytes()).hexdigest())
+    if canonical_hash(read('worker/fit/input-manifest.json'))!=canonical_hash(expected):
+        raise ValueError('Native epoch transformed input commitments differ')
+    origin=0 if tabm else 1;updates=math.ceil(len(yF)/config.resolved()['batch_size'])
+    for index,row in enumerate(summary['history']):
+        if (type(row['epoch']) is not int or row['epoch']!=index+origin
+                or type(row['applied_updates']) is not int or row['applied_updates']!=updates*(index+1)
+                or not _finite_number(row['gradient_norm_min']) or not _finite_number(row['gradient_norm_max'])
+                or row['gradient_norm_max']<row['gradient_norm_min']):
+            raise ValueError('Native epoch gradient or applied-update record differs')
+    _epoch_orders(root,refs,summary);_epoch_payload(root,state,summary,family)
+    return dict(procedure='native_epoch_adamw',F_context_rows=len(yF),G_context_rows=len(yG),
+        executed_epochs=summary['executed_epochs'],selected_epoch=summary['selected_epoch'],native_epoch_index_origin=origin,
+        native_stop=summary['native_stop'],full_F_coverage_each_epoch_verified=True,
+        finite_recorded_gradients_checked=True,finite_tensor_payload_checked=True,
+        training_objective='mean_member_mse' if tabm else 'mse',
+        selected_F_mean=summary.get('selected_F_mean'),actual_optimization_independently_reexecuted=False,
+        feature_transform_fitting_independently_reexecuted=False,persistent_training_resume=False,
+        scope='Recorded native epochs, complete row permutations, transformed inputs, gradients, tensor payload and native G selection; managed optimization and fitted quantiles remain trusted')
+
+
 def inspect_native_workload(*,request_path,expected_request_sha256,native_reference,prepared_root,
         expected_manifest_sha256,outer_fold,expected_fit_seed,expected_configuration):
     args=copy.deepcopy(dict(request_path=request_path,expected_request_sha256=expected_request_sha256,
         native_reference=native_reference,prepared_root=prepared_root,expected_manifest_sha256=expected_manifest_sha256,
         outer_fold=outer_fold,expected_fit_seed=expected_fit_seed,expected_configuration=expected_configuration))
     config=args['expected_configuration'];family=config.get('family') if type(config) is dict else None
-    if family not in ('P00','P01','P02','P05','P13'):raise ValueError('Recorded native workload observation for this family is not implemented')
+    if family not in ('P00','P01','P02','P03','P04','P05','P07','P13'):raise ValueError('Recorded native workload observation for this family is not implemented')
     generation=audit_native_generation(**args);root=Path(args['native_reference']['root'])
     inventory=_inventory(root)
     if canonical_hash(inventory)!=args['native_reference']['inventory_sha256']:
@@ -301,7 +443,9 @@ def inspect_native_workload(*,request_path,expected_request_sha256,native_refere
     read,refs=_bound_reader(root,inventory);process=_process_observation(root,read,refs)
     from .method_worker import _validate_request
     request,arrays=_validate_request(Path(args['request_path']),args['expected_request_sha256'])
-    training=(_inspect_p13(root,read,request,arrays) if family=='P13' else _inspect_gated(root,read,refs,request,arrays))
+    if family=='P13':training=_inspect_p13(root,read,request,arrays)
+    elif family in ('P03','P04','P07'):training=_inspect_epochs(root,read,refs,request,arrays)
+    else:training=_inspect_gated(root,read,refs,request,arrays)
     if audit_native_generation(**args)!=generation or _inventory(root)!=inventory:
         raise ValueError('Native workload inputs or evidence changed during inspection')
     return dict(schema='research/v2-recorded-native-workload-observation',status='checked_recorded_native_workload',

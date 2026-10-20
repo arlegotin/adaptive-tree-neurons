@@ -6,8 +6,9 @@ fit, its primary F/G and feature-only V roles, and its externally committed
 closed output inventory. It reads no V labels or protected arrays. It does not
 fit a model, solve coefficients or make new predictions.
 
-The current implemented families are **P00, P01, P02, P05 and P13**: grown,
-random growth, warm ordinary growth, static gates and closed-form references.
+The current implemented families are **P00, P01, P02, P03, P04, P05, P07 and P13**:
+grown, random growth, warm ordinary growth, MLP, ResNet, static gates, TabM and
+closed-form references.
 Other families fail explicitly before workload observation. Their training checks
 and the complete native qualification registry remain unfinished.
 
@@ -47,8 +48,18 @@ software profiles, all 120 full native anchors, support geometry, workload and
 recovery evidence, and the complete production candidate/protocol identity.
 Earlier held-source models and their flags remain unchanged.
 
-Remaining family checks follow the approved Task7 contract: ordinary-neural and
-TabM full epoch orders and gradients;
+For MLP, ResNet and both TabM variants, the reader streams retained epoch orders
+one epoch at a time and verifies complete F permutations and their history hashes.
+It checks recorded gradient bounds, finite selected tensors and native stopping
+and checkpoint selection. Ordinary neural epochs start at one; TabM epochs start
+at zero. TabM trains mean member MSE and selects with native averaged-prediction
+RMSE. Its committed raw targets use float32; ordinary neural uses float64.
+Existing fitted feature transforms are reopened for input arithmetic without
+refitting their quantiles. Scalar F-target statistics are recomputed using the
+native convention. The original quantile fit and optimizer execution remain
+trusted managed evidence. This does not establish persistent training recovery.
+
+Remaining family checks follow the approved Task7 contract:
 RealMLP's native admitted/omitted rows; native tree round/selection records;
 and NODE's actual updates, rows, gradients and selected/current recovery state.
 Their own native stopping and row policies must be preserved. A short geometry
@@ -68,3 +79,8 @@ recommitted duplicate rows, false G-best flags, negative gradient norms, wrong
 tensor dtype and a boolean update counter are rejected. The final counter case
 exposed a reader gap before the typed checks were added. These manipulated
 software fixtures do not establish corruption in ordinary or historical runs.
+The [epoch receipt](WP07-native-training-epochs-receipt.json) records a later
+40-case combined pass, including four full native epoch procedures and
+consistently recommitted duplicate-row, negative-gradient, boolean-epoch and
+false-selected-epoch faults. This count includes the earlier components' cases;
+it is not an additional forty independent studies.

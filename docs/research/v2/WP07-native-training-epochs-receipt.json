@@ -1,0 +1,128 @@
+{
+  "T_accessed": false,
+  "checks": [
+    "Actual complete native epoch procedures; ordinary1-based and TabM0-based epochs preserved",
+    "Streamed full F permutation and row-order hashes each epoch",
+    "Reopened F-fitted transforms, raw target dtype and complete F/G input commitments",
+    "Native checkpoint/stop rules, finite gradient bounds and finite selected tensor identity; selected ResNet BatchNorm age"
+  ],
+  "fault_controls": [
+    "Recommitted duplicate F row and matching row hash",
+    "Negative gradient norm",
+    "Boolean zero epoch",
+    "Selected epoch beyond executed native history"
+  ],
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "--tb=short",
+      "tests/test_native_workload_epochs.py",
+      "tests/test_native_workload_gated.py",
+      "tests/test_native_workload_observation.py",
+      "tests/test_native_generation_chain.py"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "final_source_qualified": false,
+  "held_scientific_models_modified": false,
+  "implemented_families": [
+    "P00",
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P05",
+    "P07",
+    "P13"
+  ],
+  "logs": [
+    {
+      "bytes": 3150,
+      "path": "artifacts/research-v2/WP11/native-workload-epochs-RED.log",
+      "sha256": "34651155718735037653062ff3aab85e98b1ef47285a031ee77934402cf99d61"
+    },
+    {
+      "bytes": 1257,
+      "path": "artifacts/research-v2/WP11/native-workload-embedded-epoch-RED.log",
+      "sha256": "dcfcda13820f3a6963be6e6cd06b7e7e953afd6b6600af03079b443d688f408b"
+    },
+    {
+      "bytes": 5443,
+      "path": "artifacts/research-v2/WP11/native-workload-epochs-first-GREEN.log",
+      "sha256": "2b024ded460a5a733e2529fb0899ced450066dfc0cc0520839721ad8ffd58d18"
+    },
+    {
+      "bytes": 2273,
+      "path": "artifacts/research-v2/WP11/native-workload-epochs-GREEN.log",
+      "sha256": "5cf50b735fc434f2cd0c6277faabbede4770fe4124d4a7add58ae1a230c82d18"
+    },
+    {
+      "bytes": 111,
+      "path": "artifacts/research-v2/WP11/native-workload-eight-families-GREEN.log",
+      "sha256": "a1d672fee8ea3003fcd4954b780d54e8bc5821e14219c15d5dd140afb48d2249"
+    }
+  ],
+  "native_workload_qualified": false,
+  "parent_commit": "c878e6b399e465aaa04b136dba7079efa8cb79f0",
+  "production_registry_complete": false,
+  "quality_eligible": false,
+  "schema": "research/v2-recorded-native-workload-epochs-receipt",
+  "scientific_source_sha256": "a74780bf1829467774a5dc37d2a3380a21e39984211e1f5b9137ddd946b94bde",
+  "scope": "Real full-native software fits on predeclared synthetic Energy-schema roles F325/G130, not official768-row acquisition, new scientific teachers, practical HPO or test evaluation. Reader performs no new neural training/prediction or quantile refit. Original managed optimization and quantile fitting remain trusted. Shell thread variables were1; parent Torch API threads were not explicitly overridden in this combined run; managed native workers enforce their own single-thread contract.",
+  "status": "eight_families_implemented_remaining_six_pending",
+  "tested_files": [
+    {
+      "bytes": 34563,
+      "path": "src/treeneuron/research/native_workload_v2.py",
+      "sha256": "2c5ec87aafc4f97eb7bc910a18217d494aeccd148353a828e452e568c8de9cc4"
+    },
+    {
+      "bytes": 3817,
+      "path": "tests/native_workload_cases.py",
+      "sha256": "cded6d830b5a42edc1e67ef6eceebd77deac691238143459431c6ebad4ee4df3"
+    },
+    {
+      "bytes": 3817,
+      "path": "tests/test_native_workload_epochs.py",
+      "sha256": "e264a2634028491965cd4a457ea64ab18274139ca4acce712c34151aae68f64f"
+    },
+    {
+      "bytes": 4012,
+      "path": "tests/test_native_workload_gated.py",
+      "sha256": "43cd091d80fc431131c82f237b5d785cde6170a4238953168e26d33e30f3f512"
+    },
+    {
+      "bytes": 9227,
+      "path": "tests/test_native_workload_observation.py",
+      "sha256": "cbea3c0c421c8f48c25343dce70447982b5072b89ae9f6a3f10633f57860bd76"
+    },
+    {
+      "bytes": 5904,
+      "path": "tests/test_native_generation_chain.py",
+      "sha256": "3b4b8f0f66417cc13ae4afe84c72d7474c8ffba8a6f3116209f22208be5b27be"
+    }
+  ],
+  "tested_worktree_dirty_during_TDD": true,
+  "verification": [
+    "Three native epoch fixtures then missing-family RED:3failed21.80s",
+    "Embedded TabM full native fixture then missing-family RED:1failed/3deselected9.51s",
+    "Initial reader4failed30.53s: mapping-only hash helper and absent ordinary summary dependency field",
+    "Corrected reader2passed/2failed30.34s: F/G-only comparison isolated native TabM float32 raw-target commitments",
+    "Final combined40passed153.59s; session16584exit0"
+  ]
+}

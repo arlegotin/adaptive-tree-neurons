@@ -10,7 +10,7 @@ import numpy as np
 import pandas as pd
 
 
-def actual_native_family(tmp_path,family):
+def actual_native_family(tmp_path,family,*,variant=None):
     from treeneuron.config import canonical_hash
     from treeneuron.data.tabular import DATASETS,table_from_frame
     from treeneuron.research.deployment_worker_v2 import _ROOT,_source
@@ -29,7 +29,8 @@ def actual_native_family(tmp_path,family):
     sealed=tmp_path/'sealed';seal_table(table,sealed);store=TransferStore(sealed)
     manifest=store.manifest;feature_schema=dict(columns=manifest['feature_names'],categorical=manifest['categorical_features'])
     anchors=family_search_spec(family,feature_schema)['anchors']
-    anchor=next(a for a in anchors if a['config'].get('variant')=='upper') if family=='P02' else anchors[0]
+    if variant is not None:anchor=next(a for a in anchors if a['config'].get('variant')==variant)
+    else:anchor=next(a for a in anchors if a['config'].get('variant')=='upper') if family=='P02' else anchors[0]
     config=copy.deepcopy(anchor['config'])
     if family=='P12':
         # A full native stopping procedure at a declared search geometry, not
