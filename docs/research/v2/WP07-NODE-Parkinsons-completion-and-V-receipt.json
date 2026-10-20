@@ -1,0 +1,134 @@
+{
+  "F_variance_discrepancy": 0.0,
+  "T_accessed": false,
+  "V_groups": 6,
+  "V_rows": 742,
+  "V_score": 1.3110880523930404,
+  "coordinator_commit": "5356edf",
+  "coordinator_sha256": "65553d01b9eefa929a932a3a1aa515f5d66d03f1c935bde4548a5f0107b040b8",
+  "earlier_tranches_unchanged": true,
+  "executed_updates": 5801,
+  "final_common_source_qualified": false,
+  "followup_plan_sha256": "35e64ee9a32d830cb49d21979a79d12af1af9065533cdf90d89baece9ecc116f",
+  "independent_max_absolute_discrepancy": 0.0,
+  "independent_metric_comparisons": 7,
+  "model_inference_for_scoring": 0,
+  "native_G_evaluations": 58,
+  "native_engineering_completions": 118,
+  "new_fits_for_scoring": 0,
+  "observed_peak_root_rss_bytes": 1906049024,
+  "original115score_survey_unchanged": true,
+  "pending_followup_cells": 2,
+  "planned_native_anchors": 120,
+  "predecessor_observations": {
+    "attempt_index": 0,
+    "exact_terminal_cost_tail_available": false,
+    "historical_checkpoint_payload_retention": "Original rolling-two-payload policy may trim old arrays; immutable manifests/history and the separately validated starting-state observation remain retained",
+    "last_resource_sample_elapsed_ns": 8794918028041,
+    "observed_peak_root_rss_bytes": 1777958912,
+    "original_terminal_backfilled": false,
+    "status": "resource_exhausted_missing_producer_terminal"
+  },
+  "prior_Airfoil_and_Concrete_V_rechecked_exactly": true,
+  "producer_commit": "c33a84eda018d11b2dbe237dbc0b5b681c8e65c9",
+  "producer_sha256": "b680a26b2176c6c5cc0f59cf19192d7ee963826a7575cce5ec5ee695521a65cc",
+  "proof_files": [
+    {
+      "bytes": 12918,
+      "path": "artifacts/research-v2/WP07/primary-node-anchor-development-parkinsons-5356edf/plan.json",
+      "sha256": "35e64ee9a32d830cb49d21979a79d12af1af9065533cdf90d89baece9ecc116f"
+    },
+    {
+      "bytes": 5496,
+      "path": "artifacts/research-v2/WP07/primary-node-anchor-development-parkinsons-5356edf/operator.py",
+      "sha256": "48c6a3f0e08faa3cac5b5517cd5e5a156a756fa1c75ad57c1794b3b3ebc128e6"
+    },
+    {
+      "bytes": 663,
+      "path": "artifacts/research-v2/WP07/primary-node-anchor-development-parkinsons-5356edf/invocation.json",
+      "sha256": "f3ee33745be7f7b0a13be50cfee6a2e735a6710d687c5c90cc1945b6e8fa51fe"
+    },
+    {
+      "bytes": 12805,
+      "path": "artifacts/research-v2/WP07/primary-node-anchor-development-parkinsons-5356edf/scores.json",
+      "sha256": "dc385533b6f565a373625509c9421242eaac88fdcd5e15c0cf5edce3f49b7dd0"
+    },
+    {
+      "bytes": 114,
+      "path": "artifacts/research-v2/WP07/primary-node-anchor-development-parkinsons-5356edf/result.json",
+      "sha256": "9704dfe868d0d748f669bf790d111cc0da866afa5a40a69b53e6d246e8342803"
+    },
+    {
+      "bytes": 559,
+      "path": "artifacts/research-v2/WP07/primary-node-anchor-development-parkinsons-5356edf/launch.log",
+      "sha256": "98f9065314d5309b786ba03bd785f2d706e841cafcbfaa719042c0167aa54c6a"
+    }
+  ],
+  "public_files": [
+    {
+      "bytes": 4274,
+      "path": "reports/research-v2-native-anchors-parkinsons.md",
+      "sha256": "259b56bab73a2443d2ff4aace36e0cdf497ebac45193cd6c8a3f6fd52d3eb850"
+    },
+    {
+      "bytes": 891,
+      "path": "audit/research-v2/native-anchor-follow-up/parkinsons.csv",
+      "sha256": "4bb2599afeeecdb7105fa53e184922da0b682fdbcf2ade615cd7a028d131b599"
+    },
+    {
+      "bytes": 30824,
+      "path": "audit/research-v2/native-anchor-follow-up/parkinsons-summary.json",
+      "sha256": "0b8b0e83143c308742c282b163a5847c9008f3d39b38536062558ab41e27395f"
+    },
+    {
+      "bytes": 30824,
+      "path": "audit/research-v2/native-anchor-follow-up/parkinsons-reproduction/inputs.json",
+      "sha256": "0b8b0e83143c308742c282b163a5847c9008f3d39b38536062558ab41e27395f"
+    },
+    {
+      "bytes": 5540,
+      "path": "audit/research-v2/native-anchor-follow-up/parkinsons-reproduction/render.py",
+      "sha256": "47a4d467cc25fe8f76d340a0111d43e663248fbb102ef427179de844318da4d7"
+    },
+    {
+      "bytes": 5496,
+      "path": "audit/research-v2/native-anchor-follow-up/parkinsons-reproduction/operator.py",
+      "sha256": "48c6a3f0e08faa3cac5b5517cd5e5a156a756fa1c75ad57c1794b3b3ebc128e6"
+    },
+    {
+      "bytes": 12918,
+      "path": "audit/research-v2/native-anchor-follow-up/parkinsons-reproduction/plan.json",
+      "sha256": "35e64ee9a32d830cb49d21979a79d12af1af9065533cdf90d89baece9ecc116f"
+    },
+    {
+      "bytes": 663,
+      "path": "audit/research-v2/native-anchor-follow-up/parkinsons-reproduction/invocation.json",
+      "sha256": "f3ee33745be7f7b0a13be50cfee6a2e735a6710d687c5c90cc1945b6e8fa51fe"
+    },
+    {
+      "bytes": 114,
+      "path": "audit/research-v2/native-anchor-follow-up/parkinsons-reproduction/result.json",
+      "sha256": "9704dfe868d0d748f669bf790d111cc0da866afa5a40a69b53e6d246e8342803"
+    },
+    {
+      "bytes": 3598,
+      "path": "audit/research-v2/native-anchor-follow-up/parkinsons-reproduction/completion-audit.json",
+      "sha256": "01841a0baa18666c4784b401eac30cd46fe13161ce366ffefcba0c6592456f56"
+    }
+  ],
+  "quality_eligible": false,
+  "schema": "research/v2-NODE-Parkinsons-completion-development-receipt",
+  "scope": "One fixed native setting/primary grouped split/seed17, including exactly resumed disk interruption. No tuned/protected/efficiency or independent retraining claim.",
+  "scored_unique_followup_cells": 3,
+  "selected_step": 800,
+  "status": "completed_fixed_development_followup",
+  "successful_resume_containing_elapsed_ns": 3844988157250,
+  "verification": [
+    "Independent fsum arithmetic exactly agrees on seven metrics and F variance; previous Airfoil/Concrete values unchanged",
+    "Actual resumed completion audit validates first native stopping point and exact selected-prediction reload under held original source",
+    "All fixed five cells retained; no seed or hyperparameter choice; missing two remain pending",
+    "Original failed attempt and unavailable terminal cost tail retained without manufactured receipts"
+  ],
+  "wall_deadline_ns": null,
+  "whole_training_procedure_cost_authenticated": false
+}

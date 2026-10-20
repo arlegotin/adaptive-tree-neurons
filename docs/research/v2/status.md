@@ -57,21 +57,15 @@ The [fixed NODE follow-up](../../../reports/research-v2-native-anchors-follow-up
 adds Airfoil: V NMSE 0.107493, versus grown 0.092186 and RealMLP 0.073302.
 All twenty Airfoil anchors remain visible. The [Concrete tranche](../../../reports/research-v2-native-anchors-concrete.md)
 adds NODE at 0.161727, versus grown 0.209199 and CatBoost 0.129860. All twenty
-Concrete coordinates are visible. Native engineering completions now number
-117 of 120. Parkinsons stopped on a disk-full error at its published update-4,000
-checkpoint. Its original complete checkpoint loader then
-passed under the unchanged source/runtime, validating model/optimizer state and
-sampling history without training or prediction. See the separate
-[checkpoint validation receipt](WP07-NODE-storage-checkpoint-validation-receipt.json).
-After disk recovered, the unchanged launcher admitted a same-source/seed
-continuation; its first newly observed published checkpoint is update 4,100.
-The [resume receipt](WP07-NODE-storage-resume-receipt.json) retains admission and
-the original failed attempt. This is ongoing training, not another completion.
-CCPP and Bike remain pending; a [separate serial controller](native-storage-continuation.md)
-will admit them after the resumed Parkinsons completion audit. The
-[interruption receipt](WP07-NODE-storage-interruption-2026-10-20-receipt.json)
-preserves missing terminal records and available error/cost evidence. The
-original survey and earlier receipts remain unchanged.
+Concrete coordinates are visible. The [Parkinsons tranche](../../../reports/research-v2-native-anchors-parkinsons.md)
+adds NODE at 1.311088, versus grown 1.246646 and CatBoost 0.738719. Its same-state
+continuation after the disk-full interruption finished normally; native stopping
+and selected predictions passed the original-source audit. All twenty coordinates,
+both attempts and the unavailable original terminal cost tail remain visible.
+Native engineering completions now number 118 of 120. CCPP is running and Bike
+follows through the [serial controller](native-storage-continuation.md). The
+original survey, earlier tranches and [interruption receipt](WP07-NODE-storage-interruption-2026-10-20-receipt.json)
+remain unchanged. No complete total-cost claim is made for interrupted Parkinsons.
 
 The user prioritizes completed results over the original two-hour budget.
 Native anchors therefore run to their normal stopping rule with **no wall-time

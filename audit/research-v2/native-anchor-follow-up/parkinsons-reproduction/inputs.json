@@ -1,0 +1,717 @@
+{
+  "T_accessed": false,
+  "completion_audit": {
+    "Gate_D": false,
+    "T_accessed": false,
+    "V_labels_read": false,
+    "all_attempt_terminal_receipts_available": false,
+    "attempt_index": 1,
+    "audit_elapsed_ns": 9634808792,
+    "containing_clock_scope": "Successful named invocation only; predecessor available RSS-time lower bound and unavailable terminal tail are separate",
+    "containing_elapsed_ns": 3844988157250,
+    "dataset": "parkinsons",
+    "encoded_width": 21,
+    "exact_selected_prediction_replay": true,
+    "executed_updates": 5801,
+    "full_six_dataset_P12_qualification": false,
+    "model_training_independently_reexecuted": false,
+    "native_G_evaluations": 58,
+    "native_stopping_independently_checked": true,
+    "observed_peak_root_rss_bytes": 1906049024,
+    "old_pid_probed": false,
+    "operator_sha256": "c80888f8559115188c5a2a7589f2b5a9f35806a9d6d50e900b991e65cdd235b4",
+    "prediction_sha256": "96cbb6eb86dc4a145f1f7d992c76d10d4c33ae2bba8f22673f74a665db351ad6",
+    "prior_external_references": {
+      "checkpoint_validation_receipt": {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/docs/research/v2/WP07-NODE-storage-checkpoint-validation-receipt.json",
+        "sha256": "d48755c9900fd21c092756fb1cf782d7d4de53eba554211f049fa7a0c6047c6c"
+      },
+      "interruption_receipt": {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/docs/research/v2/WP07-NODE-storage-interruption-2026-10-20-receipt.json",
+        "sha256": "631b635c118db5ff8d4308b37110dd5a65637bb148d55cad6a3f2c535cc4ed1b"
+      },
+      "resume_invocation": {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-parkinsons-resume-4000-c33a84e/invocation.json",
+        "sha256": "4c70df5c3da24e1fb63bfad395edec18eed46c20fe940eda801180a873eb7641"
+      }
+    },
+    "prior_interruption_observations": {
+      "attempt_index": 0,
+      "exact_terminal_cost_tail_available": false,
+      "historical_checkpoint_payload_retention": "Original rolling-two-payload policy may trim old arrays; immutable manifests/history and the separately validated starting-state observation remain retained",
+      "last_resource_sample_elapsed_ns": 8794918028041,
+      "observed_peak_root_rss_bytes": 1777958912,
+      "original_terminal_backfilled": false,
+      "status": "resource_exhausted_missing_producer_terminal"
+    },
+    "process_elapsed_ns": 3844895963292,
+    "process_receipt_sha256": "f50ae2f697ec005257dd9635a0e59a5be0410ffdbe1d105a293be95acab9276d",
+    "query_rows": 742,
+    "request_sha256": "4da03a64315eac009022cf5349fd53c270e41473ff6619841b91548608c2022b",
+    "schema": "research/v2-NODE-uncapped-completion-audit",
+    "scientific_quality_comparison": false,
+    "selected_snapshot_manifest_sha256": "58ddc720fe411beda474cf36ab3a953844f1df443bfe51a7c226225b79ba7f1c",
+    "selected_step": 800,
+    "source_commit": "c33a84eda018d11b2dbe237dbc0b5b681c8e65c9",
+    "source_sha256": "b680a26b2176c6c5cc0f59cf19192d7ee963826a7575cce5ec5ee695521a65cc",
+    "status": "native_anchor_completed_and_replayed",
+    "study_sha256": "a57c80b513c648f6afb6d1fab0d3fe41ccb3dde0a4604e54e5ba77067f8e33ea",
+    "timers_nested": true,
+    "total_parameters": 676609,
+    "trace_reference": {
+      "complete_epochs": 828,
+      "executed_updates": 5801,
+      "final_epoch_index": 828,
+      "final_epoch_rows": 2560,
+      "native_G_evaluations": 58,
+      "native_stopping_independently_checked": true,
+      "rows_updated": 2778016,
+      "scope": "Independent trace geometry, strict G selection, rolling window and first native patience endpoint only; no RNG or weight-update reexecution",
+      "selected_step": 800,
+      "training_reexecuted": false,
+      "training_rows": 3352
+    },
+    "trace_reference_sha256": "2a071ef73e74957d7d6acf14a0ad771ec850dc8357864bc6a8fb3a98f0ad0a1c",
+    "trainable_parameters": 675840,
+    "training_rows": 3352,
+    "wall_deadline_ns": null,
+    "whole_training_procedure_cost_authenticated": false,
+    "worker_terminal_sha256": "b295af328e0f81e5a228132c51a7c20d1c0091c03f7927c7142df15cade97b35"
+  },
+  "coordinator_source_sha256": "65553d01b9eefa929a932a3a1aa515f5d66d03f1c935bde4548a5f0107b040b8",
+  "native_engineering_completions": 118,
+  "new_fits": 0,
+  "original_anchors": [
+    {
+      "V_group_day_NMSE": "1.246645682977141",
+      "V_group_day_RMSE": "9.072918202565148",
+      "V_row_MAE": "7.519396138431726",
+      "V_row_RMSE": "9.017291936351556",
+      "anchor_id": "native_anchor",
+      "cell_id": "P00/native_anchor/parkinsons",
+      "dataset": "parkinsons",
+      "family": "P00",
+      "fit_seed": "17",
+      "outer_fold": "0",
+      "status": "completed_native_engineering_anchor"
+    },
+    {
+      "V_group_day_NMSE": "1.246645682977141",
+      "V_group_day_RMSE": "9.072918202565148",
+      "V_row_MAE": "7.519396138431726",
+      "V_row_RMSE": "9.017291936351556",
+      "anchor_id": "native_anchor",
+      "cell_id": "P01/native_anchor/parkinsons",
+      "dataset": "parkinsons",
+      "family": "P01",
+      "fit_seed": "17",
+      "outer_fold": "0",
+      "status": "completed_native_engineering_anchor"
+    },
+    {
+      "V_group_day_NMSE": "1.246645682977141",
+      "V_group_day_RMSE": "9.072918202565148",
+      "V_row_MAE": "7.519396138431726",
+      "V_row_RMSE": "9.017291936351556",
+      "anchor_id": "native_lower",
+      "cell_id": "P02/native_lower/parkinsons",
+      "dataset": "parkinsons",
+      "family": "P02",
+      "fit_seed": "17",
+      "outer_fold": "0",
+      "status": "completed_native_engineering_anchor"
+    },
+    {
+      "V_group_day_NMSE": "1.246645682977141",
+      "V_group_day_RMSE": "9.072918202565148",
+      "V_row_MAE": "7.519396138431726",
+      "V_row_RMSE": "9.017291936351556",
+      "anchor_id": "native_upper",
+      "cell_id": "P02/native_upper/parkinsons",
+      "dataset": "parkinsons",
+      "family": "P02",
+      "fit_seed": "17",
+      "outer_fold": "0",
+      "status": "completed_native_engineering_anchor"
+    },
+    {
+      "V_group_day_NMSE": "1.8273573742134763",
+      "V_group_day_RMSE": "10.984675245764947",
+      "V_row_MAE": "9.172444393456189",
+      "V_row_RMSE": "10.889391456590753",
+      "anchor_id": "native_anchor",
+      "cell_id": "P03/native_anchor/parkinsons",
+      "dataset": "parkinsons",
+      "family": "P03",
+      "fit_seed": "17",
+      "outer_fold": "0",
+      "status": "completed_native_engineering_anchor"
+    },
+    {
+      "V_group_day_NMSE": "1.677368979367819",
+      "V_group_day_RMSE": "10.524216661477881",
+      "V_row_MAE": "8.351442496455611",
+      "V_row_RMSE": "10.468058553793659",
+      "anchor_id": "historical_width_lr_coordinate_under_native_preprocessing",
+      "cell_id": "P03/historical_width_lr_coordinate_under_native_preprocessing/parkinsons",
+      "dataset": "parkinsons",
+      "family": "P03",
+      "fit_seed": "17",
+      "outer_fold": "0",
+      "status": "completed_native_engineering_anchor"
+    },
+    {
+      "V_group_day_NMSE": "0.9381047992551871",
+      "V_group_day_RMSE": "7.870478840186978",
+      "V_row_MAE": "6.354392068557955",
+      "V_row_RMSE": "7.9681856634925445",
+      "anchor_id": "native_anchor",
+      "cell_id": "P04/native_anchor/parkinsons",
+      "dataset": "parkinsons",
+      "family": "P04",
+      "fit_seed": "17",
+      "outer_fold": "0",
+      "status": "completed_native_engineering_anchor"
+    },
+    {
+      "V_group_day_NMSE": "1.3595410489995503",
+      "V_group_day_RMSE": "9.474834641105007",
+      "V_row_MAE": "7.5416007470734145",
+      "V_row_RMSE": "9.618956064196032",
+      "anchor_id": "native_centered_partial",
+      "cell_id": "P05/native_centered_partial/parkinsons",
+      "dataset": "parkinsons",
+      "family": "P05",
+      "fit_seed": "17",
+      "outer_fold": "0",
+      "status": "completed_native_engineering_anchor"
+    },
+    {
+      "V_group_day_NMSE": "1.307316247857212",
+      "V_group_day_RMSE": "9.291071584213954",
+      "V_row_MAE": "7.625213848020177",
+      "V_row_RMSE": "9.406452372235751",
+      "anchor_id": "native_centered_full",
+      "cell_id": "P05/native_centered_full/parkinsons",
+      "dataset": "parkinsons",
+      "family": "P05",
+      "fit_seed": "17",
+      "outer_fold": "0",
+      "status": "completed_native_engineering_anchor"
+    },
+    {
+      "V_group_day_NMSE": "1.3712120022898195",
+      "V_group_day_RMSE": "9.5154160001944",
+      "V_row_MAE": "7.596421980479898",
+      "V_row_RMSE": "9.665968975728052",
+      "anchor_id": "native_direct_partial",
+      "cell_id": "P05/native_direct_partial/parkinsons",
+      "dataset": "parkinsons",
+      "family": "P05",
+      "fit_seed": "17",
+      "outer_fold": "0",
+      "status": "completed_native_engineering_anchor"
+    },
+    {
+      "V_group_day_NMSE": "1.2678685254398028",
+      "V_group_day_RMSE": "9.149820771827931",
+      "V_row_MAE": "7.509480551724215",
+      "V_row_RMSE": "9.299772230967118",
+      "anchor_id": "native_direct_full",
+      "cell_id": "P05/native_direct_full/parkinsons",
+      "dataset": "parkinsons",
+      "family": "P05",
+      "fit_seed": "17",
+      "outer_fold": "0",
+      "status": "completed_native_engineering_anchor"
+    },
+    {
+      "V_group_day_NMSE": "1.0437410922157806",
+      "V_group_day_RMSE": "8.301792378034584",
+      "V_row_MAE": "6.109559541320801",
+      "V_row_RMSE": "8.249260521826443",
+      "anchor_id": "native_anchor",
+      "cell_id": "P06/native_anchor/parkinsons",
+      "dataset": "parkinsons",
+      "family": "P06",
+      "fit_seed": "17",
+      "outer_fold": "0",
+      "status": "completed_native_engineering_anchor"
+    },
+    {
+      "V_group_day_NMSE": "1.137401712340482",
+      "V_group_day_RMSE": "8.666273994209478",
+      "V_row_MAE": "7.038560047294252",
+      "V_row_RMSE": "8.817806629494351",
+      "anchor_id": "native_plain",
+      "cell_id": "P07/native_plain/parkinsons",
+      "dataset": "parkinsons",
+      "family": "P07",
+      "fit_seed": "17",
+      "outer_fold": "0",
+      "status": "completed_native_engineering_anchor"
+    },
+    {
+      "V_group_day_NMSE": "1.4044453910508168",
+      "V_group_day_RMSE": "9.63003588302037",
+      "V_row_MAE": "7.897915552308939",
+      "V_row_RMSE": "9.539998091517779",
+      "anchor_id": "native_piecewise",
+      "cell_id": "P07/native_piecewise/parkinsons",
+      "dataset": "parkinsons",
+      "family": "P07",
+      "fit_seed": "17",
+      "outer_fold": "0",
+      "status": "completed_native_engineering_anchor"
+    },
+    {
+      "V_group_day_NMSE": "0.7387186624724347",
+      "V_group_day_RMSE": "6.9841733822417",
+      "V_row_MAE": "5.470764501229877",
+      "V_row_RMSE": "6.721894357549878",
+      "anchor_id": "native_anchor",
+      "cell_id": "P08/native_anchor/parkinsons",
+      "dataset": "parkinsons",
+      "family": "P08",
+      "fit_seed": "17",
+      "outer_fold": "0",
+      "status": "completed_native_engineering_anchor"
+    },
+    {
+      "V_group_day_NMSE": "0.7840796771422528",
+      "V_group_day_RMSE": "7.1954104975780915",
+      "V_row_MAE": "5.156923739005035",
+      "V_row_RMSE": "6.83498618766577",
+      "anchor_id": "native_anchor",
+      "cell_id": "P09/native_anchor/parkinsons",
+      "dataset": "parkinsons",
+      "family": "P09",
+      "fit_seed": "17",
+      "outer_fold": "0",
+      "status": "completed_native_engineering_anchor"
+    },
+    {
+      "V_group_day_NMSE": "1.441330264938954",
+      "V_group_day_RMSE": "9.755672887281476",
+      "V_row_MAE": "8.068979728315545",
+      "V_row_RMSE": "9.508085687639923",
+      "anchor_id": "native_anchor",
+      "cell_id": "P10/native_anchor/parkinsons",
+      "dataset": "parkinsons",
+      "family": "P10",
+      "fit_seed": "17",
+      "outer_fold": "0",
+      "status": "completed_native_engineering_anchor"
+    },
+    {
+      "V_group_day_NMSE": "1.4408208232354265",
+      "V_group_day_RMSE": "9.753948651700904",
+      "V_row_MAE": "8.070192665876997",
+      "V_row_RMSE": "9.506608807387703",
+      "anchor_id": "native_anchor",
+      "cell_id": "P11/native_anchor/parkinsons",
+      "dataset": "parkinsons",
+      "family": "P11",
+      "fit_seed": "17",
+      "outer_fold": "0",
+      "status": "completed_native_engineering_anchor"
+    },
+    {
+      "V_group_day_NMSE": "",
+      "V_group_day_RMSE": "",
+      "V_row_MAE": "",
+      "V_row_RMSE": "",
+      "anchor_id": "native_anchor",
+      "cell_id": "P12/native_anchor/parkinsons",
+      "dataset": "parkinsons",
+      "family": "P12",
+      "fit_seed": "17",
+      "outer_fold": "0",
+      "status": "unavailable_native_anchor"
+    },
+    {
+      "V_group_day_NMSE": "1.5166242187815004",
+      "V_group_day_RMSE": "10.00724356647307",
+      "V_row_MAE": "8.487832707270552",
+      "V_row_RMSE": "9.834612548989647",
+      "anchor_id": "mean",
+      "cell_id": "P13/mean/parkinsons",
+      "dataset": "parkinsons",
+      "family": "P13",
+      "fit_seed": "17",
+      "outer_fold": "0",
+      "status": "completed_native_engineering_anchor"
+    }
+  ],
+  "plan_sha256": "35e64ee9a32d830cb49d21979a79d12af1af9065533cdf90d89baece9ecc116f",
+  "previous_tranche_plan_sha256": "acfe5bd73e1866ceba6d8c3065a4bf7a17a1c931332a1f4f52a3dff223eef250",
+  "schema": "research/v2-fixed-native-development-followup-inputs",
+  "scores": {
+    "T_accessed": false,
+    "new_fits": 0,
+    "original_survey_unchanged": true,
+    "plan_sha256": "35e64ee9a32d830cb49d21979a79d12af1af9065533cdf90d89baece9ecc116f",
+    "quality_eligible": false,
+    "rows": [
+      {
+        "F_variance_discrepancy": 0.0,
+        "V_groups": 15,
+        "V_rows": 185,
+        "V_score": 0.10749333144874425,
+        "cell_id": "P12/native_anchor/airfoil",
+        "dataset": "airfoil",
+        "independent_max_absolute_discrepancy": 0.0,
+        "independent_metric_comparisons": 7,
+        "metrics": {
+          "normalized_risk": 0.10749333144874425,
+          "primary_MAE": 1.631171424748863,
+          "primary_MSE": 5.326018557892811,
+          "primary_RMSE": 2.307816838029572,
+          "row_MAE": 1.6126908625935834,
+          "row_MSE": 5.319676408460083,
+          "row_RMSE": 2.306442370504861
+        },
+        "quality_eligible": false,
+        "status": "completed_native_development_score",
+        "validation": {
+          "F_target_variance": 49.54743225566883,
+          "arithmetic": {
+            "F_target_variance": 49.54743225566883,
+            "F_targets_sha256": "bd4ec533ec8b219ed4d92fc6c698876626fb29e3b6f9e5f22cbaf204a62d568b",
+            "claim_authorized": false,
+            "evaluation_targets_sha256": "6a6687d724f24b883ed799b1514ad1403b800bac19469c6b0761f943f0c0f4a9",
+            "group_ids_sha256": "8ae2229994f2f79c695faa1f3f793119b4ffc1aeb55330ced375f3a6d772e1ef",
+            "grouping": "group",
+            "groups": 15,
+            "methods": {
+              "candidate": {
+                "normalized_risk": 0.10749333144874425,
+                "primary_MAE": 1.631171424748863,
+                "primary_MSE": 5.326018557892811,
+                "primary_RMSE": 2.307816838029572,
+                "row_MAE": 1.6126908625935834,
+                "row_MSE": 5.319676408460083,
+                "row_RMSE": 2.306442370504861
+              }
+            },
+            "missing_methods": [],
+            "planned_methods": [
+              "candidate"
+            ],
+            "prediction_hashes": {
+              "candidate": {
+                "row_id": "cfe3167f1d52f36652cc68a39eb2f14b97d5e05c4399a4ed48fb133e785e6821",
+                "values": "08b32cefd11c689e474d8c74de835159b60e5f700007bcacc63f11e4741c4bf3"
+              }
+            },
+            "protected_access_authenticated": false,
+            "raw_model_provenance_authenticated": false,
+            "risk_inventory_complete": true,
+            "row_ids_sha256": "cfe3167f1d52f36652cc68a39eb2f14b97d5e05c4399a4ed48fb133e785e6821",
+            "rows": 185,
+            "schema": "confirmation/v2-prediction-arithmetic",
+            "scope": "Arithmetic only; caller must separately authenticate frozen data/model/source/access and role independence",
+            "status": "complete_arithmetic",
+            "statuses": {
+              "candidate": "completed_eligible"
+            },
+            "timestamps_sha256": null
+          },
+          "dataset": "airfoil",
+          "day_id_mapping": null,
+          "grouping": "group",
+          "manifest_hash": "607044e7f33bbf4fdc1ae0e9e02edf54ed8a0c537880de0a70c90b4af78cdeee",
+          "metric_dtype": "float64",
+          "metrics": {
+            "normalized_risk": 0.10749333144874425,
+            "primary_MAE": 1.631171424748863,
+            "primary_MSE": 5.326018557892811,
+            "primary_RMSE": 2.307816838029572,
+            "row_MAE": 1.6126908625935834,
+            "row_MSE": 5.319676408460083,
+            "row_RMSE": 2.306442370504861
+          },
+          "model_generation_authenticated": false,
+          "outer_fold": 0,
+          "prediction_dtype": "float64",
+          "protected_access_authenticated": false,
+          "quality_eligible": false,
+          "raw_acquisition_authenticated": false,
+          "schema": "research/v2-primary-validation-score",
+          "scope": "Primary coordinator byte binding and V arithmetic only; native model/qualification and search eligibility require separate validation",
+          "score": 0.10749333144874425,
+          "sealed_group_ids_sha256": "8ae2229994f2f79c695faa1f3f793119b4ffc1aeb55330ced375f3a6d772e1ef",
+          "selection_authorized": false,
+          "sources": [
+            {
+              "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-airfoil-native-recoverable-c33a84e/attempt-000/worker/predictions.npz",
+              "sha256": "1c2906cb30bd17e80fd37203c11330d0272dc008d60a9f9e7fd420a7d5150900"
+            },
+            {
+              "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/prepared/airfoil/coordinator/outer-0/V-labels.npz",
+              "sha256": "08846e5b0f750150526c84c4d3aacb2c1a6d5e91832e21b65002a797da61d540"
+            },
+            {
+              "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/prepared/airfoil/manifest.json",
+              "sha256": "faba96df4da23855b07c066eb29565243ccfe2d521d59db57bf105d9c24d8d64"
+            },
+            {
+              "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/prepared/airfoil/outer-0/F.npz",
+              "sha256": "b0b80600b0de9071afedf78265436166cd996fb8771ab4ca8a21ac1ba5bbc1cf"
+            },
+            {
+              "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/prepared/airfoil/outer-0/V-features.npz",
+              "sha256": "5c1f72bce7b03ad3b64aeb1322e7dd20884e6b9f6060167248b964d1fabf62e7"
+            }
+          ],
+          "split_hash": "1dcc884549082aa147a8df9fc39613635a11aeb321f0da7b1b04019903008b95",
+          "status": "complete_arithmetic"
+        }
+      },
+      {
+        "F_variance_discrepancy": 0.0,
+        "V_groups": 86,
+        "V_rows": 123,
+        "V_score": 0.1617271659432777,
+        "cell_id": "P12/native_anchor/concrete",
+        "dataset": "concrete",
+        "independent_max_absolute_discrepancy": 0.0,
+        "independent_metric_comparisons": 7,
+        "metrics": {
+          "normalized_risk": 0.1617271659432777,
+          "primary_MAE": 4.836271558829295,
+          "primary_MSE": 44.8906737915786,
+          "primary_RMSE": 6.700050282764943,
+          "row_MAE": 4.264762922094142,
+          "row_MSE": 35.687966506268204,
+          "row_RMSE": 5.9739406179060905
+        },
+        "quality_eligible": false,
+        "status": "completed_native_development_score",
+        "validation": {
+          "F_target_variance": 277.57039783485124,
+          "arithmetic": {
+            "F_target_variance": 277.57039783485124,
+            "F_targets_sha256": "11754b3f220575eae77d0a769f0c5201d790ce84e6a3f0d313bb630b5db67e8f",
+            "claim_authorized": false,
+            "evaluation_targets_sha256": "7c3c152ce42cb44a11c7efba270e787f02b0a7fc60fb6490701a816bda8921ff",
+            "group_ids_sha256": "6427ff34f8d6ff098495945c518063db41a2ec66d782177f164cfffe6a6625c8",
+            "grouping": "group",
+            "groups": 86,
+            "methods": {
+              "candidate": {
+                "normalized_risk": 0.1617271659432777,
+                "primary_MAE": 4.836271558829295,
+                "primary_MSE": 44.8906737915786,
+                "primary_RMSE": 6.700050282764943,
+                "row_MAE": 4.264762922094142,
+                "row_MSE": 35.687966506268204,
+                "row_RMSE": 5.9739406179060905
+              }
+            },
+            "missing_methods": [],
+            "planned_methods": [
+              "candidate"
+            ],
+            "prediction_hashes": {
+              "candidate": {
+                "row_id": "2ede1c4ef45f5449b69424bc5ff4af9f303f59265938865d482f779e272f8972",
+                "values": "2f889491809703674c2a147c5f3fc2093bf030f09d89ce67978698c338c8becb"
+              }
+            },
+            "protected_access_authenticated": false,
+            "raw_model_provenance_authenticated": false,
+            "risk_inventory_complete": true,
+            "row_ids_sha256": "2ede1c4ef45f5449b69424bc5ff4af9f303f59265938865d482f779e272f8972",
+            "rows": 123,
+            "schema": "confirmation/v2-prediction-arithmetic",
+            "scope": "Arithmetic only; caller must separately authenticate frozen data/model/source/access and role independence",
+            "status": "complete_arithmetic",
+            "statuses": {
+              "candidate": "completed_eligible"
+            },
+            "timestamps_sha256": null
+          },
+          "dataset": "concrete",
+          "day_id_mapping": null,
+          "grouping": "group",
+          "manifest_hash": "a7e6a924ad5062c68b6a984b154745948a8c9593d672f76d6f7da3a2872ba3f0",
+          "metric_dtype": "float64",
+          "metrics": {
+            "normalized_risk": 0.1617271659432777,
+            "primary_MAE": 4.836271558829295,
+            "primary_MSE": 44.8906737915786,
+            "primary_RMSE": 6.700050282764943,
+            "row_MAE": 4.264762922094142,
+            "row_MSE": 35.687966506268204,
+            "row_RMSE": 5.9739406179060905
+          },
+          "model_generation_authenticated": false,
+          "outer_fold": 0,
+          "prediction_dtype": "float64",
+          "protected_access_authenticated": false,
+          "quality_eligible": false,
+          "raw_acquisition_authenticated": false,
+          "schema": "research/v2-primary-validation-score",
+          "scope": "Primary coordinator byte binding and V arithmetic only; native model/qualification and search eligibility require separate validation",
+          "score": 0.1617271659432777,
+          "sealed_group_ids_sha256": "6427ff34f8d6ff098495945c518063db41a2ec66d782177f164cfffe6a6625c8",
+          "selection_authorized": false,
+          "sources": [
+            {
+              "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-concrete-native-recoverable-c33a84e/attempt-000/worker/predictions.npz",
+              "sha256": "8662669e22132f762c0023cb24eb75675c0bfee7e69a04b57434398596beb7aa"
+            },
+            {
+              "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/prepared/concrete/coordinator/outer-0/V-labels.npz",
+              "sha256": "e8252c070cb5b8d7702ce9ced616d38cd1948233e2f48b827c72834b1e7732b7"
+            },
+            {
+              "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/prepared/concrete/manifest.json",
+              "sha256": "401ab700fb22c65b78fbd88f1faf0f1a647e6a0d727ca3bf8e0123692669e821"
+            },
+            {
+              "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/prepared/concrete/outer-0/F.npz",
+              "sha256": "eefb1abb6dc574d6066b520b34c9e5d685eaff3b34a10aa4751c0d138da48229"
+            },
+            {
+              "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/prepared/concrete/outer-0/V-features.npz",
+              "sha256": "685575980fff23cb2b585b11d8baedea707a019d34f0729a4d654d759f15e1c3"
+            }
+          ],
+          "split_hash": "124b38c97b1c5b0b857b32d3deded7382a798d026c4a966d1a8ed7e3d1238056",
+          "status": "complete_arithmetic"
+        }
+      },
+      {
+        "V_score": null,
+        "cell_id": "P12/native_anchor/ccpp",
+        "dataset": "ccpp",
+        "status": "pending_native_completion"
+      },
+      {
+        "F_variance_discrepancy": 0.0,
+        "V_groups": 6,
+        "V_rows": 742,
+        "V_score": 1.3110880523930404,
+        "cell_id": "P12/native_anchor/parkinsons",
+        "dataset": "parkinsons",
+        "independent_max_absolute_discrepancy": 0.0,
+        "independent_metric_comparisons": 7,
+        "metrics": {
+          "normalized_risk": 1.3110880523930404,
+          "primary_MAE": 7.800032187431396,
+          "primary_MSE": 86.5730689740654,
+          "primary_RMSE": 9.304465002033453,
+          "row_MAE": 7.5986258588374795,
+          "row_MSE": 83.63886049081523,
+          "row_RMSE": 9.145428392963078
+        },
+        "quality_eligible": false,
+        "status": "completed_native_development_score",
+        "validation": {
+          "F_target_variance": 66.03146815047961,
+          "arithmetic": {
+            "F_target_variance": 66.03146815047961,
+            "F_targets_sha256": "bd5bf2ed6e815a5027150391ab18842a1e83f435db4a5bfd1e225cf62831885b",
+            "claim_authorized": false,
+            "evaluation_targets_sha256": "b6a25e9a28a2ee7575aa071e698b0560a0cfebfa1190975e77103ba7ce7f8643",
+            "group_ids_sha256": "d4d2c29ac6511fb6606b1ba0d05af729304c0a79b9fded4943ea920fd18faa9b",
+            "grouping": "group",
+            "groups": 6,
+            "methods": {
+              "candidate": {
+                "normalized_risk": 1.3110880523930404,
+                "primary_MAE": 7.800032187431396,
+                "primary_MSE": 86.5730689740654,
+                "primary_RMSE": 9.304465002033453,
+                "row_MAE": 7.5986258588374795,
+                "row_MSE": 83.63886049081523,
+                "row_RMSE": 9.145428392963078
+              }
+            },
+            "missing_methods": [],
+            "planned_methods": [
+              "candidate"
+            ],
+            "prediction_hashes": {
+              "candidate": {
+                "row_id": "487bf8217677869e0332308394fdc7cb375042e88db0e1aed79fa8bb21751a10",
+                "values": "76627f0858ce17f657a360978368110c5c204ae33511b30d3a3e83e6bf04b68a"
+              }
+            },
+            "protected_access_authenticated": false,
+            "raw_model_provenance_authenticated": false,
+            "risk_inventory_complete": true,
+            "row_ids_sha256": "487bf8217677869e0332308394fdc7cb375042e88db0e1aed79fa8bb21751a10",
+            "rows": 742,
+            "schema": "confirmation/v2-prediction-arithmetic",
+            "scope": "Arithmetic only; caller must separately authenticate frozen data/model/source/access and role independence",
+            "status": "complete_arithmetic",
+            "statuses": {
+              "candidate": "completed_eligible"
+            },
+            "timestamps_sha256": null
+          },
+          "dataset": "parkinsons",
+          "day_id_mapping": null,
+          "grouping": "group",
+          "manifest_hash": "551692e0f23abb43ee32e76263243b5f70eacf81329666c0255e9683dbaf51bb",
+          "metric_dtype": "float64",
+          "metrics": {
+            "normalized_risk": 1.3110880523930404,
+            "primary_MAE": 7.800032187431396,
+            "primary_MSE": 86.5730689740654,
+            "primary_RMSE": 9.304465002033453,
+            "row_MAE": 7.5986258588374795,
+            "row_MSE": 83.63886049081523,
+            "row_RMSE": 9.145428392963078
+          },
+          "model_generation_authenticated": false,
+          "outer_fold": 0,
+          "prediction_dtype": "float64",
+          "protected_access_authenticated": false,
+          "quality_eligible": false,
+          "raw_acquisition_authenticated": false,
+          "schema": "research/v2-primary-validation-score",
+          "scope": "Primary coordinator byte binding and V arithmetic only; native model/qualification and search eligibility require separate validation",
+          "score": 1.3110880523930404,
+          "sealed_group_ids_sha256": "d4d2c29ac6511fb6606b1ba0d05af729304c0a79b9fded4943ea920fd18faa9b",
+          "selection_authorized": false,
+          "sources": [
+            {
+              "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-parkinsons-native-recoverable-c33a84e/attempt-001/worker/predictions.npz",
+              "sha256": "96cbb6eb86dc4a145f1f7d992c76d10d4c33ae2bba8f22673f74a665db351ad6"
+            },
+            {
+              "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/prepared/parkinsons/coordinator/outer-0/V-labels.npz",
+              "sha256": "7ceb695da1214eefbcf08eb735c21b8bcb6334091a2bc37858a90ec545d1d94d"
+            },
+            {
+              "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/prepared/parkinsons/manifest.json",
+              "sha256": "405a238f49ba78c5e6c830e93b2d66db109924887bd009dc9dd99565dcfb13e5"
+            },
+            {
+              "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/prepared/parkinsons/outer-0/F.npz",
+              "sha256": "ed903c5a82dfef31b3df01103c0179cfab09adf70a0bc351f71f11994d83a004"
+            },
+            {
+              "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/prepared/parkinsons/outer-0/V-features.npz",
+              "sha256": "8b1eb827131b76bc595bd2f30239b31cbd760a8182a0899b28e4a462b9223b98"
+            }
+          ],
+          "split_hash": "3cb83c9ae3d2c11c5d026f69f382d53764846a8d65ef2565ffd78e9ab50a672f",
+          "status": "complete_arithmetic"
+        }
+      },
+      {
+        "V_score": null,
+        "cell_id": "P12/native_anchor/bike",
+        "dataset": "bike",
+        "status": "pending_native_completion"
+      }
+    ],
+    "schema": "research/v2-native-development-appendix",
+    "scope": "Fixed newly completed native anchor development V; no tuned-family or protected comparison"
+  }
+}

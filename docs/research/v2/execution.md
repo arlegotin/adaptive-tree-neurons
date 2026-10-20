@@ -2109,3 +2109,21 @@ the reopened unqualified observation. Complete actual qualified-factory success
 is unrun; no production search, protected access or new predictive result is
 claimed. Whole external cost/cleanup and primary-model/protocol integration
 remain unfinished. Held-source native workers are unchanged.
+
+## 20 October: Parkinsons native completion after exact storage recovery
+
+Parkinsons completed at 5,801 updates, with native G selection at update 800 and
+58 G checks. The unchanged original-source resumed-completion auditor passed
+trace/stopping and exact selected-prediction reload. Native engineering completions
+are 118/120; CCPP started next and Bike remains queued. No model wall cap was used.
+
+The fixed five-cell development tranche scored Parkinsons V NMSE 1.3110880523930404
+(742 rows, six subjects), versus grown 1.246646 and CatBoost 0.738719. Seven raw
+fsum metrics and F variance agree exactly; Airfoil/Concrete were rechecked exactly.
+No fit or model inference was performed for scoring, and T stays sealed. The
+successful continuation took 3,844.988 seconds at 1.775 GiB sampled root peak;
+original retained samples cover at least 8,794.918 seconds, with its terminal cost
+tail unavailable. These cannot support an authenticated complete total-cost claim.
+See [complete tranche](../../../reports/research-v2-native-anchors-parkinsons.md)
+and [source/proof receipt](WP07-NODE-Parkinsons-completion-and-V-receipt.json).
+M3/B0 negative gates and the unfinished practical qualification/HPO scope stand.

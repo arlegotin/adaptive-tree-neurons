@@ -3,11 +3,12 @@
     "T_accessed": false,
     "new_fits_or_model_inference_for_scoring": 0,
     "previous_Airfoil_value_rechecked": true,
+    "previous_Concrete_value_rechecked": true,
     "primary_V_labels_read_by_declared_coordinator": true,
     "reference": {
-      "bytes": 4935,
-      "path": "docs/research/v2/WP07-NODE-Concrete-completion-and-V-receipt.json",
-      "sha256": "f05b79724d062d9a2b5aa7f407833896fc9f3d263578ac0fb1430dffc8b3aeae"
+      "bytes": 6058,
+      "path": "docs/research/v2/WP07-NODE-Parkinsons-completion-and-V-receipt.json",
+      "sha256": "23878b782d487c70557edca26c4f7c067b50d01f145a98d3ede6ae2dee402310"
     },
     "secondary_development_accessed": false
   },
@@ -344,9 +345,9 @@
   "new_raw_label_access": false,
   "protected_confirmation": false,
   "report": {
-    "bytes": 14469,
+    "bytes": 14691,
     "path": "reports/research-v2.md",
-    "sha256": "9d06b476fc0cb8e1ec5cbad7af185d7edf212b8adf20e85fd92eefe61623180b"
+    "sha256": "24f1d7a91ddcab5d6fb106fbaf2172b68a21979c63fa883531d1c61129cde1c2"
   },
   "schema": "research/v2-current-cross-study-claim-ledger",
   "scope": "Curated evidence-linked report assembly from compact inputs and prior audit receipts. The no-new-fit/inference/raw-label flags describe assembly only; separate fixed native V scoring is disclosed below. Not a new whole-raw/model-generation audit or completed production report path.",
