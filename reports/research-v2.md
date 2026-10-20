@@ -50,7 +50,7 @@ Native quantile preprocessing and fixed presets are part of this comparison. The
 
 ## Native practical anchors: development only
 
-The original fixed survey contains 115 completed cells out of 120 planned, using one seed on the designated primary V splits. The separate fixed follow-up adds the completed Airfoil NODE anchor, bringing native engineering completions to 116. Concrete is running, with Parkinsons, CCPP and Bike queued serially. No missing prediction is scored as a model loss. The original survey and follow-up remain separate immutable records.
+The original fixed survey contains 115 completed cells out of 120 planned, using one seed on the designated primary V splits. Separate fixed follow-up tranches add completed Airfoil and Concrete NODE anchors, bringing native engineering completions to 117. Parkinsons is running, with CCPP and Bike queued serially. No missing prediction is scored as a model loss. The original survey and both follow-up tranches remain separate immutable records.
 
 | Observational primary V split | Grown cheap | Matched random | Lowest observed existing anchor | Existing-anchor NMSE |
 |---|---:|---:|---|---:|
@@ -60,7 +60,7 @@ The original fixed survey contains 115 completed cells out of 120 planned, using
 | parkinsons | 1.246646 | 1.246646 | P08 / native_anchor | 0.738719 |
 | bike | 0.370625 | 0.370625 | P07 / native_piecewise | 0.169430 |
 
-Best available V anchors are descriptive, selected on the same V data; they are not protected-test champions or full tuned-family winners. P13 here is mean only, not its complete ridge/spline search. The grown model beats random on Airfoil, reverses on Concrete and ties on the other four dataset coordinates. Airfoil’s later full NODE V NMSE is .107493, above grown .092186 and RealMLP .073302; this preserves both favorable and unfavorable comparisons.
+Best available V anchors are descriptive, selected on the same V data; they are not protected-test champions or full tuned-family winners. P13 here is mean only, not its complete ridge/spline search. The grown model beats random on Airfoil, reverses on Concrete and ties on the other four dataset coordinates. Airfoil’s later full NODE V NMSE is .107493, above grown .092186 and RealMLP .073302. Concrete NODE reaches .161727, below grown .209199 and above CatBoost .129860; the [complete Concrete tranche](research-v2-native-anchors-concrete.md) preserves all twenty coordinates and five fixed follow-up statuses. These comparisons remain development evidence.
 
 Energy remains separate simulation transfer. A fully static gated anchor has V NMSE .009856, the lowest observed there. Only two geometry groups are in primary V, from twelve in the whole table. This is a useful representation lead with a different capacity/initialization scope, not evidence for adaptive placement or observational population superiority. [All 120 original cells](research-v2-primary-anchors.md), [fixed NODE follow-up](research-v2-native-anchors-follow-up.md).
 

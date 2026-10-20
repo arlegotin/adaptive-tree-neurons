@@ -1,4 +1,16 @@
 {
+  "additional_development_scoring": {
+    "T_accessed": false,
+    "new_fits_or_model_inference_for_scoring": 0,
+    "previous_Airfoil_value_rechecked": true,
+    "primary_V_labels_read_by_declared_coordinator": true,
+    "reference": {
+      "bytes": 4935,
+      "path": "docs/research/v2/WP07-NODE-Concrete-completion-and-V-receipt.json",
+      "sha256": "f05b79724d062d9a2b5aa7f407833896fc9f3d263578ac0fb1430dffc8b3aeae"
+    },
+    "secondary_development_accessed": false
+  },
   "claims": [
     {
       "claim": "Function-preserving insertion is supported in the implemented one-growth setting.",
@@ -115,7 +127,7 @@
       "strongest_counterevidence_or_limit": "Temporary solved parent-plus-gate moves do not measure actual gate-only Adam saturation or admit a remedy."
     },
     {
-      "claim": "B0 failed its 5%-improvement screen on zero of four teachers, versus three required.",
+      "claim": "B0 met its 5% improvement target on zero of four teachers, failing the fixed screen requiring three.",
       "claim_id": "backbones",
       "evidence_kind": "independently_audited_raw_and_compact_replay",
       "sources": [
@@ -177,7 +189,7 @@
       "strongest_counterevidence_or_limit": "Simulation only; two V groups/twelve overall, different capacity and initialization, no placement claim."
     },
     {
-      "claim": "Airfoil full native NODE completed and its new V score is retained alongside every original anchor.",
+      "claim": "Airfoil and Concrete full native NODE completed; fixed follow-up retains both V scores and every original anchor coordinate.",
       "claim_id": "node_followup",
       "evidence_kind": "retained_native_audit_and_raw_arithmetic",
       "sources": [
@@ -190,10 +202,25 @@
           "bytes": 2012,
           "path": "audit/research-v2/native-anchor-follow-up/summary.json",
           "sha256": "17ee1639207d2a96628b0003c8934c5ed56daa7771fbc6fbdffd5a720591084d"
+        },
+        {
+          "bytes": 4935,
+          "path": "docs/research/v2/WP07-NODE-Concrete-completion-and-V-receipt.json",
+          "sha256": "f05b79724d062d9a2b5aa7f407833896fc9f3d263578ac0fb1430dffc8b3aeae"
+        },
+        {
+          "bytes": 2918,
+          "path": "audit/research-v2/native-anchor-follow-up/concrete-summary.json",
+          "sha256": "c86874254673320d59b8551a9c2fdbbfa5c4a6e0eb558aa5894cd2fc6df6c010"
+        },
+        {
+          "bytes": 4436,
+          "path": "reports/research-v2-native-anchors-concrete.md",
+          "sha256": "6d04dc8246ede16406db852922f15258772a54b87cf07f8ba08a82d468b9e9f3"
         }
       ],
       "status": "supported_execution_and_development",
-      "strongest_counterevidence_or_limit": "Four NODE cells remain pending; no full mandatory-suite qualification or source migration."
+      "strongest_counterevidence_or_limit": "One fit seed per primary validation split, with no HPO/protected/efficiency claim. Three fixed NODE cells remain pending; earlier Airfoil summary is a preserved tranche snapshot. No final-source qualification or independent retraining."
     },
     {
       "claim": "The measured largest TabM geometry completed near 3 GiB owned-root RSS without shrinking model/data/batch.",
@@ -287,10 +314,11 @@
   "new_raw_label_access": false,
   "protected_confirmation": false,
   "report": {
+    "bytes": 14469,
     "path": "reports/research-v2.md",
-    "sha256": "fa9f7c401e17bba5e157df35ad52cbf6bc2605e27619fc01b2600042ae719387"
+    "sha256": "9d06b476fc0cb8e1ec5cbad7af185d7edf212b8adf20e85fd92eefe61623180b"
   },
   "schema": "research/v2-current-cross-study-claim-ledger",
-  "scope": "Curated evidence-linked development synthesis; compact inputs and prior audit receipts, not a new whole-raw/model-generation audit or completed production report path.",
+  "scope": "Curated evidence-linked report assembly from compact inputs and prior audit receipts. The no-new-fit/inference/raw-label flags describe assembly only; separate fixed native V scoring is disclosed below. Not a new whole-raw/model-generation audit or completed production report path.",
   "status": "development_negative_with_practical_work_pending"
 }

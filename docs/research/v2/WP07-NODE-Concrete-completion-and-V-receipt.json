@@ -1,0 +1,106 @@
+{
+  "F_variance_discrepancy": 0.0,
+  "T_accessed": false,
+  "V_groups": 86,
+  "V_rows": 123,
+  "V_score": 0.1617271659432777,
+  "audit_elapsed_ns": 10090844958,
+  "containing_elapsed_ns": 21712648727042,
+  "coordinator_commit": "c98435e",
+  "coordinator_sha256": "747e6747f523efd81db198d6468238c3d8b5bab275bb9a4d563bd2ab330db857",
+  "executed_updates": 19801,
+  "final_common_source_qualified": false,
+  "followup_plan_sha256": "acfe5bd73e1866ceba6d8c3065a4bf7a17a1c931332a1f4f52a3dff223eef250",
+  "independent_max_absolute_discrepancy": 0.0,
+  "independent_metric_comparisons": 7,
+  "native_G_evaluations": 198,
+  "native_engineering_completions": 117,
+  "new_fits_for_scoring": 0,
+  "observed_peak_root_rss_bytes": 1785741312,
+  "original115score_survey_unchanged": true,
+  "pending_followup_cells": 3,
+  "planned_native_anchors": 120,
+  "previous_Airfoil_tranche_unchanged": true,
+  "prior_Airfoil_V_rechecked_exactly": true,
+  "process_elapsed_ns": 21712584828709,
+  "producer_commit": "c33a84eda018d11b2dbe237dbc0b5b681c8e65c9",
+  "producer_sha256": "b680a26b2176c6c5cc0f59cf19192d7ee963826a7575cce5ec5ee695521a65cc",
+  "proof_files": [
+    {
+      "bytes": 2015,
+      "path": "artifacts/research-v2/WP07/NODE-primary-native-continuation-c33a84e/concrete-completion-audit.json",
+      "sha256": "a86d6e157385a082e26242f5b0b9c0acdacce39587a4297ccdc1e572c887d6fb"
+    },
+    {
+      "bytes": 9536,
+      "path": "artifacts/research-v2/WP07/primary-node-anchor-development-concrete-c98435e/plan.json",
+      "sha256": "acfe5bd73e1866ceba6d8c3065a4bf7a17a1c931332a1f4f52a3dff223eef250"
+    },
+    {
+      "bytes": 5464,
+      "path": "artifacts/research-v2/WP07/primary-node-anchor-development-concrete-c98435e/operator.py",
+      "sha256": "1610befd9f06ffc500da77ba286843214fdd1ec8cd06ad03a83f2cf1ae6d8bf8"
+    },
+    {
+      "bytes": 661,
+      "path": "artifacts/research-v2/WP07/primary-node-anchor-development-concrete-c98435e/invocation.json",
+      "sha256": "e8306a65d599a90f8ecbe87683da37a247a916d187c69bdd7950f68c50a63dc1"
+    },
+    {
+      "bytes": 8829,
+      "path": "artifacts/research-v2/WP07/primary-node-anchor-development-concrete-c98435e/scores.json",
+      "sha256": "f02e3345db2bac96d4df6cff508d833118d9da02f2229cd57f3d84a45f3bb82c"
+    },
+    {
+      "bytes": 114,
+      "path": "artifacts/research-v2/WP07/primary-node-anchor-development-concrete-c98435e/result.json",
+      "sha256": "0780f732c97bda45ea15d4051006da9db9c2bfb131cd98868b882840665436f5"
+    },
+    {
+      "bytes": 536,
+      "path": "artifacts/research-v2/WP07/primary-node-anchor-development-concrete-c98435e/launch.log",
+      "sha256": "8572d66ab80c0345a4948ec6a4d1e3636c7620a4e4ede1cfeca9d5ef5fefcfdf"
+    }
+  ],
+  "public_files": [
+    {
+      "bytes": 4436,
+      "path": "reports/research-v2-native-anchors-concrete.md",
+      "sha256": "6d04dc8246ede16406db852922f15258772a54b87cf07f8ba08a82d468b9e9f3"
+    },
+    {
+      "bytes": 909,
+      "path": "audit/research-v2/native-anchor-follow-up/concrete.csv",
+      "sha256": "43fe6a925090856d76e639e8044db2b38a4bd4be17fb1dce334bcddd6ab4bbca"
+    },
+    {
+      "bytes": 2918,
+      "path": "audit/research-v2/native-anchor-follow-up/concrete-summary.json",
+      "sha256": "c86874254673320d59b8551a9c2fdbbfa5c4a6e0eb558aa5894cd2fc6df6c010"
+    },
+    {
+      "bytes": 14155,
+      "path": "audit/research-v2/native-anchor-follow-up/concrete-reproduction/inputs.json",
+      "sha256": "75a3ae9f4d75b1c7e8e3f2a83f686d85da023fe429de7cada67c06cb547e50d3"
+    },
+    {
+      "bytes": 5296,
+      "path": "audit/research-v2/native-anchor-follow-up/concrete-reproduction/render.py",
+      "sha256": "f1a6e3afa9b7ab77f2a45f966e2565850260e5c2f1bb7a6f19ab7660aafe28e9"
+    }
+  ],
+  "quality_eligible": false,
+  "schema": "research/v2-NODE-Concrete-completion-development-receipt",
+  "scope": "One native anchor seed17 on primary Concrete grouped V, not protected/tuned-family/efficiency confirmation or independent retraining. Producer and coordinator identities separate; no model migration. M3GateB negative remains closed. Parkinsons/CCPP/Bike continue unchanged serial native queue.",
+  "scored_unique_followup_cells": 2,
+  "selected_step": 14800,
+  "status": "completed_fixed_development_followup",
+  "verification": [
+    "Native producer completion/replay/row-grid/window/patience audit completed under unchanged heldc33 source; training/RNG/weight updates not reexecuted",
+    "Complete five-cell tranche plan before newV; all native and original survey hashes checked before/after scoring",
+    "Strict terminal status and F/G/V-feature-only roles asserted unconditionally; old first-tranche assertion bytes preserved",
+    "Raw fsum reconstruction exactly agrees on all7metrics/Fvariance for Concrete and repeated Airfoil",
+    "Canonical report/two tables reproduce byte-identically with stdlib-only renderer from/private/tmp, no labels/repo imports"
+  ],
+  "wall_deadline_ns": null
+}

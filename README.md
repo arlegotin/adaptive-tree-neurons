@@ -36,11 +36,13 @@ all five observational validation splits. A static fully gated model leads the
 separate Energy simulation. These single-seed development results are distinct
 from the unfinished tuned benchmark and protected test evaluation.
 
-The [separate NODE follow-up](reports/research-v2-native-anchors-follow-up.md)
-now adds its completed Airfoil native anchor: validation error0.107493 versus
+The [Airfoil NODE follow-up](reports/research-v2-native-anchors-follow-up.md)
+adds its completed native anchor: validation error0.107493 versus
 the grown anchor's0.092186 and RealMLP's0.073302. All20Airfoil points remain
-visible. This is still one development split/seed;116of120native engineering
-anchors have completed, with the remaining four NODE fits running serially.
+visible. The [Concrete tranche](reports/research-v2-native-anchors-concrete.md)
+adds NODE at0.161727 versus grown0.209199 and CatBoost0.129860. These are single
+development splits/seeds;117of120native engineering anchors have completed.
+Parkinsons is running, followed by CCPP and Bike serially.
 
 The [B0 native-backbone screen](reports/research-v2-B0.md) completed 72 fits on
 four new synthetic problems. A small ordinary network beat the validation-selected

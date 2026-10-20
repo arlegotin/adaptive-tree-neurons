@@ -1,0 +1,84 @@
+{
+  "T_accessed": false,
+  "coordinator_source_sha256": "747e6747f523efd81db198d6468238c3d8b5bab275bb9a4d563bd2ab330db857",
+  "followup_plan_sha256": "acfe5bd73e1866ceba6d8c3065a4bf7a17a1c931332a1f4f52a3dff223eef250",
+  "native_engineering_completions": 117,
+  "native_producer_commit": "c33a84eda018d11b2dbe237dbc0b5b681c8e65c9",
+  "native_producer_sha256": "b680a26b2176c6c5cc0f59cf19192d7ee963826a7575cce5ec5ee695521a65cc",
+  "new_fits_for_scoring": 0,
+  "newly_scored_cells": [
+    "P12/native_anchor/concrete"
+  ],
+  "original_survey_plan_sha256": "88f028088b27f19df3f634a7bfaedf9fcf293a861f220899abd00e5fe93154fc",
+  "original_survey_unchanged": true,
+  "pending_followup_cells": 3,
+  "planned_native_anchors": 120,
+  "previous_Airfoil_tranche_unchanged": true,
+  "previous_tranche_plan_sha256": "af41ee1f4e253a7c01c68ea5baaa405b56a8992d044a905514b139f6f47820ec",
+  "prior_Airfoil_rechecked": true,
+  "quality_eligible": false,
+  "rows": [
+    {
+      "F_variance_discrepancy": 0.0,
+      "V_groups": 15,
+      "V_rows": 185,
+      "V_score": 0.10749333144874425,
+      "cell_id": "P12/native_anchor/airfoil",
+      "dataset": "airfoil",
+      "independent_max_absolute_discrepancy": 0.0,
+      "independent_metric_comparisons": 7,
+      "metrics": {
+        "normalized_risk": 0.10749333144874425,
+        "primary_MAE": 1.631171424748863,
+        "primary_MSE": 5.326018557892811,
+        "primary_RMSE": 2.307816838029572,
+        "row_MAE": 1.6126908625935834,
+        "row_MSE": 5.319676408460083,
+        "row_RMSE": 2.306442370504861
+      },
+      "quality_eligible": false,
+      "status": "completed_native_development_score"
+    },
+    {
+      "F_variance_discrepancy": 0.0,
+      "V_groups": 86,
+      "V_rows": 123,
+      "V_score": 0.1617271659432777,
+      "cell_id": "P12/native_anchor/concrete",
+      "dataset": "concrete",
+      "independent_max_absolute_discrepancy": 0.0,
+      "independent_metric_comparisons": 7,
+      "metrics": {
+        "normalized_risk": 0.1617271659432777,
+        "primary_MAE": 4.836271558829295,
+        "primary_MSE": 44.8906737915786,
+        "primary_RMSE": 6.700050282764943,
+        "row_MAE": 4.264762922094142,
+        "row_MSE": 35.687966506268204,
+        "row_RMSE": 5.9739406179060905
+      },
+      "quality_eligible": false,
+      "status": "completed_native_development_score"
+    },
+    {
+      "V_score": null,
+      "cell_id": "P12/native_anchor/ccpp",
+      "dataset": "ccpp",
+      "status": "pending_native_completion"
+    },
+    {
+      "V_score": null,
+      "cell_id": "P12/native_anchor/parkinsons",
+      "dataset": "parkinsons",
+      "status": "pending_native_completion"
+    },
+    {
+      "V_score": null,
+      "cell_id": "P12/native_anchor/bike",
+      "dataset": "bike",
+      "status": "pending_native_completion"
+    }
+  ],
+  "schema": "research/v2-native-anchor-Concrete-follow-up-summary",
+  "unique_followup_cells_scored": 2
+}

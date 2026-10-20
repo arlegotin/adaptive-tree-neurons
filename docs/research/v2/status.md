@@ -55,16 +55,19 @@ not a tuned or protected-test benchmark. P13 is the mean anchor in this survey.
 
 The [fixed NODE follow-up](../../../reports/research-v2-native-anchors-follow-up.md)
 adds Airfoil: V NMSE 0.107493, versus grown 0.092186 and RealMLP 0.073302.
-All twenty Airfoil anchors remain visible. Native engineering completions now
-number 116 of 120. Concrete is running, followed serially by Parkinsons, CCPP
-and Bike. The original survey and earlier receipts remain unchanged.
+All twenty Airfoil anchors remain visible. The [Concrete tranche](../../../reports/research-v2-native-anchors-concrete.md)
+adds NODE at 0.161727, versus grown 0.209199 and CatBoost 0.129860. All twenty
+Concrete coordinates are visible. Native engineering completions now number
+117 of 120. Parkinsons is running, followed by CCPP and Bike serially. The
+original survey and earlier receipts remain unchanged.
 
 The user prioritizes completed results over the original two-hour budget.
 Native anchors therefore run to their normal stopping rule with **no wall-time
 cap**. Time-budget prefixes are a separate comparison. The current NODE worker
 has a 4 GiB owned-process RSS guard, live admission checks and saved recovery
-state. Airfoil took about 5¼ hours at about 1.83 GiB sampled root RSS; Energy
-completed just beyond two hours. These contended measurements are not deployment
+state. Airfoil took about 5¼ hours at about 1.83 GiB sampled root RSS; Concrete
+about six hours at 1.66 GiB; Energy completed just beyond two hours. These
+contended measurements are not deployment
 benchmarks. [Execution amendment](results-first-native-execution.md).
 
 Actual [memory probes](../../../reports/research-v2-resource-probes.md) completed

@@ -1,0 +1,153 @@
+{
+  "T_accessed": false,
+  "V_labels_opened": false,
+  "fixed_cases": [
+    {
+      "cell_id": "P12/native_anchor/airfoil",
+      "completion_audit": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-primary-native-continuation-c33a84e/airfoil-completion-audit.json",
+      "dataset": "airfoil",
+      "evidence": [
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-primary-native-continuation-c33a84e/airfoil-completion-audit.json",
+          "sha256": "1e2539f0717e48948388ed59f20cac51e08eeaee0bf26ed4d5162769c50d78e9"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-airfoil-native-recoverable-c33a84e/input/request.json",
+          "sha256": "c96b9df4245eec293168a15bff2281ffd62e47b297ca04cd68785eaf5f22363d"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-airfoil-native-recoverable-c33a84e/attempt-000/worker/terminal.json",
+          "sha256": "8e258e45c4c9108cbad9e173ee5f328f2524c5401a95f31671465d35c88ee776"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-airfoil-native-recoverable-c33a84e/attempt-000/worker/predictions.npz",
+          "sha256": "1c2906cb30bd17e80fd37203c11330d0272dc008d60a9f9e7fd420a7d5150900"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-airfoil-native-recoverable-c33a84e/study.json",
+          "sha256": "d48a31743d0336ff6b54784533401678357e4e45619e38f7a47032fdbcbb8bff"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/prepared/airfoil/manifest.json",
+          "sha256": "faba96df4da23855b07c066eb29565243ccfe2d521d59db57bf105d9c24d8d64"
+        }
+      ],
+      "expected_manifest_sha256": "faba96df4da23855b07c066eb29565243ccfe2d521d59db57bf105d9c24d8d64",
+      "expected_prediction_sha256": "1c2906cb30bd17e80fd37203c11330d0272dc008d60a9f9e7fd420a7d5150900",
+      "fit_seed": 17,
+      "native_root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-airfoil-native-recoverable-c33a84e",
+      "outer_fold": 0,
+      "prediction_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-airfoil-native-recoverable-c33a84e/attempt-000/worker/predictions.npz",
+      "prepared_root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/prepared/airfoil",
+      "source_commit": "c33a84eda018d11b2dbe237dbc0b5b681c8e65c9",
+      "source_sha256": "b680a26b2176c6c5cc0f59cf19192d7ee963826a7575cce5ec5ee695521a65cc",
+      "status": "native_completed_and_audited_ready_for_primary_V"
+    },
+    {
+      "cell_id": "P12/native_anchor/concrete",
+      "completion_audit": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-primary-native-continuation-c33a84e/concrete-completion-audit.json",
+      "dataset": "concrete",
+      "evidence": [
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-primary-native-continuation-c33a84e/concrete-completion-audit.json",
+          "sha256": "a86d6e157385a082e26242f5b0b9c0acdacce39587a4297ccdc1e572c887d6fb"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-concrete-native-recoverable-c33a84e/input/request.json",
+          "sha256": "253b6b7f347c490a5d6cca93217364e08e160b9bb6b13647976c602009ca0de5"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-concrete-native-recoverable-c33a84e/attempt-000/worker/terminal.json",
+          "sha256": "3e96e2bd0dc70f47d2f853134555347352cd7f99eb5935b8c3df596df2b75d55"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-concrete-native-recoverable-c33a84e/attempt-000/worker/predictions.npz",
+          "sha256": "8662669e22132f762c0023cb24eb75675c0bfee7e69a04b57434398596beb7aa"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-concrete-native-recoverable-c33a84e/study.json",
+          "sha256": "b78983561cf33efb9433502c1ef6bfadab7653a970d1e14d43868687cff588b9"
+        },
+        {
+          "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/prepared/concrete/manifest.json",
+          "sha256": "401ab700fb22c65b78fbd88f1faf0f1a647e6a0d727ca3bf8e0123692669e821"
+        }
+      ],
+      "expected_manifest_sha256": "401ab700fb22c65b78fbd88f1faf0f1a647e6a0d727ca3bf8e0123692669e821",
+      "expected_prediction_sha256": "8662669e22132f762c0023cb24eb75675c0bfee7e69a04b57434398596beb7aa",
+      "fit_seed": 17,
+      "native_root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-concrete-native-recoverable-c33a84e",
+      "outer_fold": 0,
+      "prediction_path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-concrete-native-recoverable-c33a84e/attempt-000/worker/predictions.npz",
+      "prepared_root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/prepared/concrete",
+      "source_commit": "c33a84eda018d11b2dbe237dbc0b5b681c8e65c9",
+      "source_sha256": "b680a26b2176c6c5cc0f59cf19192d7ee963826a7575cce5ec5ee695521a65cc",
+      "status": "native_completed_and_audited_ready_for_primary_V"
+    },
+    {
+      "cell_id": "P12/native_anchor/ccpp",
+      "dataset": "ccpp",
+      "evidence": [],
+      "fit_seed": 17,
+      "native_root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-ccpp-native-recoverable-c33a84e",
+      "outer_fold": 0,
+      "source_commit": "c33a84eda018d11b2dbe237dbc0b5b681c8e65c9",
+      "source_sha256": "b680a26b2176c6c5cc0f59cf19192d7ee963826a7575cce5ec5ee695521a65cc",
+      "status": "pending_native_completion"
+    },
+    {
+      "cell_id": "P12/native_anchor/parkinsons",
+      "dataset": "parkinsons",
+      "evidence": [],
+      "fit_seed": 17,
+      "native_root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-parkinsons-native-recoverable-c33a84e",
+      "outer_fold": 0,
+      "source_commit": "c33a84eda018d11b2dbe237dbc0b5b681c8e65c9",
+      "source_sha256": "b680a26b2176c6c5cc0f59cf19192d7ee963826a7575cce5ec5ee695521a65cc",
+      "status": "pending_native_completion"
+    },
+    {
+      "cell_id": "P12/native_anchor/bike",
+      "dataset": "bike",
+      "evidence": [],
+      "fit_seed": 17,
+      "native_root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-bike-native-recoverable-c33a84e",
+      "outer_fold": 4,
+      "source_commit": "c33a84eda018d11b2dbe237dbc0b5b681c8e65c9",
+      "source_sha256": "b680a26b2176c6c5cc0f59cf19192d7ee963826a7575cce5ec5ee695521a65cc",
+      "status": "pending_native_completion"
+    }
+  ],
+  "original_survey_plan_sha256": "88f028088b27f19df3f634a7bfaedf9fcf293a861f220899abd00e5fe93154fc",
+  "original_survey_unchanged": true,
+  "prerequisites": [
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/primary-anchor-development-survey-0f1480b/plan.json",
+      "sha256": "88f028088b27f19df3f634a7bfaedf9fcf293a861f220899abd00e5fe93154fc"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/NODE-primary-native-continuation-c33a84e/plan.json",
+      "sha256": "fb2f25d9d58f64339a0931be2f2c89b120a2867384249702b294f2c6f5be8218"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/primary-node-anchor-development-96707ea/plan.json",
+      "sha256": "af41ee1f4e253a7c01c68ea5baaa405b56a8992d044a905514b139f6f47820ec"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/primary-node-anchor-development-96707ea/scores.json",
+      "sha256": "1c79964a02140edcc086585cbc1c366caf34b2b9a30c5412367fd46d880ebcdd"
+    },
+    {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/primary-node-anchor-development-96707ea/result.json",
+      "sha256": "0f639fb341be26bfeeb7d17205766a2f625a9f893b6403ba9b982d84f7431625"
+    }
+  ],
+  "previous_tranche_plan_sha256": "af41ee1f4e253a7c01c68ea5baaa405b56a8992d044a905514b139f6f47820ec",
+  "quality_eligible": false,
+  "schema": "research/v2-native-anchor-development-appendix-plan",
+  "selection": "Every completed audited fixed cell disclosed regardless of V; no seed/hyperparameter choice",
+  "serial_plan_sha256": "fb2f25d9d58f64339a0931be2f2c89b120a2867384249702b294f2c6f5be8218",
+  "source_commit": "c98435e9b4d0e83e00c3082b1653e54aae2715e4",
+  "source_sha256": "747e6747f523efd81db198d6468238c3d8b5bab275bb9a4d563bd2ab330db857",
+  "tranche": "Concrete completion, with prior Airfoil score rechecked; fixed five cells retained"
+}
