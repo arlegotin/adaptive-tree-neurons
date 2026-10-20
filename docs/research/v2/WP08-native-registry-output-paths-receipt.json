@@ -1,0 +1,124 @@
+{
+  "T_accessed": false,
+  "actual_full_qualified_success_executed": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-c",
+      "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"--tb=short\",\"--basetemp=artifacts/research-v2/WP11/registry-storage-roots-final-fixture\",\"tests/test_native_registry_storage_roots.py\",\"tests/test_native_qualification_registry_v2.py\",\"tests/test_primary_native_preparation_v2.py\",\"tests/test_qualified_native_trial_v2.py\",\"tests/test_qualified_primary_models_v2.py\",\"tests/test_primary_search_worker_v2.py\"]))"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "fixture_observation": {
+    "bytes": 73746,
+    "path": "artifacts/research-v2/WP11/registry-storage-roots-fixture-observation.json",
+    "sha256": "7481d71cab48c2ad5f4a81496f7415563c030c81973650ed587cb41333d90e7f"
+  },
+  "labels_read_in_metadata_capture": false,
+  "logs": [
+    {
+      "bytes": 9575,
+      "path": "artifacts/research-v2/WP11/registry-storage-roots-red.log",
+      "sha256": "4fcca0fc73dbe90959e32f7a3570493897d35055f791acecb60710d5426c67be"
+    },
+    {
+      "bytes": 7607,
+      "path": "artifacts/research-v2/WP11/registry-storage-roots-first.log",
+      "sha256": "3707a88c39d99c3e444566e13f9b70e9e766b2cd4b23f7037c396e78bac783be"
+    },
+    {
+      "bytes": 4856,
+      "path": "artifacts/research-v2/WP11/registry-storage-roots-seal-red.log",
+      "sha256": "a687c80f453818195114c5f940e323127936ccbcbf3c056d71c53eae900188dc"
+    },
+    {
+      "bytes": 181,
+      "path": "artifacts/research-v2/WP11/registry-storage-roots-final.log",
+      "sha256": "0fd85da25b218ee3df48014d237b5d7dd08f8472791525fff205f6c6ee2e2ca8"
+    }
+  ],
+  "native_models_fit_in_metadata_capture": 0,
+  "packages_installed_or_updated": false,
+  "parent_commit": "1c132a3",
+  "production_execution_authorized": false,
+  "quality_eligible": false,
+  "schema": "research/v2-native-registry-output-boundary-component-receipt",
+  "scientific_source_sha256": "96edffbeb99d17c046a6fe80e3b918ca8fc81cc719bef29265789f0f7e8038f3",
+  "scope": "Metadata output boundaries including registry itself, working data/proofs/current interpreter. No actual complete native qualification fabricated.",
+  "tested_files": [
+    {
+      "bytes": 15948,
+      "path": "src/treeneuron/research/native_qualification_registry_v2.py",
+      "sha256": "20f36f1d773a7106c7c9c8f57c841a08ff79485863ab192db1e8da6e053fdc74"
+    },
+    {
+      "bytes": 11337,
+      "path": "src/treeneuron/research/qualified_native_trial_v2.py",
+      "sha256": "48836d719aac6a3125bb01f254a886adc0553f1a53d6711ddcf58adad36da3e9"
+    },
+    {
+      "bytes": 12461,
+      "path": "src/treeneuron/research/primary_native_preparation_v2.py",
+      "sha256": "737faae98f4d626e7da6f11d92e8258abe8ae95741ccb29167072e4c4cfcf5ae"
+    },
+    {
+      "bytes": 20198,
+      "path": "src/treeneuron/research/primary_search_worker_v2.py",
+      "sha256": "5ca5168f4836b6073ac19e0f868028815acb92b7c3454f136ce02c85d39e6f03"
+    },
+    {
+      "bytes": 13030,
+      "path": "src/treeneuron/research/qualified_primary_models_v2.py",
+      "sha256": "95e1e60a0429cfd857ccf23861e75e0054c54344f44b961f3e3583fe970d2fb9"
+    },
+    {
+      "bytes": 3013,
+      "path": "tests/test_native_registry_storage_roots.py",
+      "sha256": "313d459bb02cdc90cb15df95f3da569c1f16c3aa8e7b25feeae17a7f77c6927a"
+    },
+    {
+      "bytes": 11672,
+      "path": "tests/test_native_qualification_registry_v2.py",
+      "sha256": "f56dec87fd13012ff699af49a86d3f6705cedd5c3255d4da70183ba0589ad964"
+    },
+    {
+      "bytes": 7494,
+      "path": "tests/test_primary_native_preparation_v2.py",
+      "sha256": "ccd2cdd5d97f54bd688b805224d004613fe7d5069788be13e23f936c97b53e3a"
+    },
+    {
+      "bytes": 6693,
+      "path": "tests/test_qualified_native_trial_v2.py",
+      "sha256": "59f8f92ac7b9e2f0e46f6e6dec8058895044b59e3d27f2357be96c7df8c7a6c7"
+    },
+    {
+      "bytes": 4847,
+      "path": "tests/test_qualified_primary_models_v2.py",
+      "sha256": "ac60c5746a4f15bf0a6e6cd17a2ea32c39faf2f41e0d7a37b8e7b32c0ff5dc9a"
+    },
+    {
+      "bytes": 14814,
+      "path": "tests/test_primary_search_worker_v2.py",
+      "sha256": "35c25bb4ab9e72fdd8ec32da491447c145ea5fa37800f20353d21e7aaa8927c7"
+    }
+  ],
+  "verification": [
+    "Missing helper:6failed before implementation",
+    "First expanded run7failed/76passed11.02s: helper misread _checked_inputs tuple; corrected unpacking",
+    "Publication regressions2failed/7passed1.13s; working data/interpreter now protected before component reads",
+    "Final6module suite105passed51.91s/session88450exit0",
+    "Initial standalone capture failed on a test-module sibling import before output; AST-extracted pure fixture then captured without top-level test imports or new models/labels"
+  ]
+}

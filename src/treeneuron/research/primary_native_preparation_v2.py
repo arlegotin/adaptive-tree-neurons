@@ -11,7 +11,7 @@ from .immutable_inputs import stage_immutable_file
 from .ledger import write_new_json
 from .method_worker import _ROOT, _sha, scientific_source_sha256
 from .native_anchor_v2 import load_native_anchor_execution
-from .native_qualification_registry_v2 import load_native_qualification_registry, _all_references
+from .native_qualification_registry_v2 import load_native_qualification_registry,native_registry_storage_roots
 from .primary_search_declaration_v2 import compile_primary_search_declaration
 from .qualified_native_trial_v2 import QualifiedNativeTrialBridge, _bind_procedure
 from .search_controller_v2 import SearchPlan, _checked_plan
@@ -93,6 +93,7 @@ class PreparedPrimaryNativeCallback:
 
 def _check_preparation_locations(*,output,search,working_roots,proof_roots,rss_limit_bytes):
     protected=[*(Path(p) for p in working_roots),*(Path(p) for p in proof_roots),
+        Path(sys.prefix).resolve(),
         *((_ROOT/p).resolve() for p in ('src','tests','configs','locks','protocol','environment','.git','.agents','.codex','.aws'))]
     if (not output.is_absolute() or output.resolve()!=output or output.exists() or output.is_symlink()
             or not search.is_absolute() or search.resolve()!=search or search.is_symlink()
@@ -119,8 +120,9 @@ def prepare_primary_native_callback(*,practical_plan,expected_practical_plan_has
     prepared=Path(registry['inputs']['prepared_roots'][dataset]);manifest=registry['preparation']['datasets'][dataset]['manifest_file_sha256']
     _bind_procedure(registry,dict(plan=plan,prepared_root=prepared,expected_manifest_sha256=manifest,outer_fold=job['outer_fold']))
     output=Path(output);search=Path(search_directory)
-    _check_preparation_locations(output=output,search=search,working_roots=registry['inputs']['prepared_roots'].values(),
-        proof_roots=[ref['root'] for ref in _all_references(registry['inputs'])],rss_limit_bytes=rss_limit_bytes)
+    roots=native_registry_storage_roots(inputs=registry['inputs'],registry_reference=qualification_reference)
+    _check_preparation_locations(output=output,search=search,working_roots=roots['working_roots'],
+        proof_roots=roots['proof_roots'],rss_limit_bytes=rss_limit_bytes)
     spec=family_search_spec(job['family_id'],dict(columns=TransferStore(prepared).manifest['feature_names'],
         categorical=TransferStore(prepared).manifest['categorical_features']))
     anchor=next(row for row in registry['anchors'] if row['dataset']==dataset and row['family_id']==job['family_id']

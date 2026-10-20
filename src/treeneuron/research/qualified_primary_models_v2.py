@@ -7,12 +7,13 @@ freeze global procedure semantics, qualify whole costs or release any labels.
 from dataclasses import dataclass
 import hashlib
 from pathlib import Path
+import sys
 import time
 
 from treeneuron.config import canonical_hash,canonical_json
 from .deployment_worker_v2 import _source
 from .ledger import write_new_json
-from .native_qualification_registry_v2 import load_native_qualification_registry,_all_references
+from .native_qualification_registry_v2 import load_native_qualification_registry,native_registry_storage_roots
 from .primary_selection_v2 import _primary,_ref,_digest
 from .qualified_search_audit_v2 import audit_primary_qualified_search
 from .workqueue import _inventory
@@ -47,11 +48,11 @@ def inspect_search_inventory_binding(*,search_directory,expected_inventory_sha25
         native_workload_qualified=False,protected_access_authorized=False)
 
 
-def _publication_location(output,registry,inventory):
+def _publication_location(output,registry,inventory,qualification_reference):
     from .method_worker import _ROOT
     output=Path(output)
-    protected=[*(Path(p) for p in registry['inputs']['prepared_roots'].values()),
-        *(Path(ref['root']) for ref in _all_references(registry['inputs'])),
+    roots=native_registry_storage_roots(inputs=registry['inputs'],registry_reference=qualification_reference)
+    protected=[*(Path(p) for p in roots['working_roots']+roots['proof_roots']),Path(sys.prefix).resolve(),
         *(Path(e['search_plan']['path']).parent for e in inventory['selections'].values()),
         *((_ROOT/name).resolve() for name in ('src','tests','configs','locks','environment','.git','.agents','.codex','.aws'))]
     if (not output.is_absolute() or output.resolve()!=output or output.is_symlink() or output.exists()
@@ -157,7 +158,7 @@ def seal_qualified_primary_models(*,practical_plan,expected_practical_plan_hash,
     inventory=load_primary_selection_inventory(primary_inventory_reference['path'],
         expected_file_sha256=primary_inventory_reference['sha256'],plan=practical_plan,
         expected_plan_hash=expected_practical_plan_hash).payload
-    output=Path(output);_publication_location(output,registry,inventory)
+    output=Path(output);_publication_location(output,registry,inventory,qualification_reference)
     write_new_json(output,dict(schema='research/v2-qualified-primary-models',payload=payload,payload_hash=canonical_hash(payload)))
     digest=hashlib.sha256(output.read_bytes()).hexdigest()
     _ref(dict(path=str(output),sha256=digest),{})

@@ -2201,3 +2201,20 @@ fake successful registry/cohort. [Contract](qualified-primary-models.md) and
 [receipt](WP08-qualified-primary-models-receipt.json). Global procedure semantics,
 production resource/launcher/complete cost and protected protocol remain separate
 unfinished gates. Heldc33NODEsource/env/serial operators remain unchanged.
+
+## 20 October: complete registry output boundaries
+
+The registry directory itself joins all working-data/proof roots in native
+callback, preparation, worker-body and model-seal output guards. The current
+interpreter is protected. New registry publication rejects working-data and
+interpreter locations before component reads. Completed fits stay unchanged.
+
+An initial helper mistake misread _checked_inputs' tuple return (seven failures,
+76passes); corrected unpacking and the original log are retained. Two further
+publication tests failed before their guards. Final affected suite105passed
+51.91s/session88450exit0. The initial standalone capture hit a test sibling-import
+error before output; AST-extracted pure metadata then captured without model,
+label or process access. [Receipt](WP08-native-registry-output-paths-receipt.json),
+[contract](native-registry-output-paths.md). Production launcher/control preflight
+and measured resource admission remain unfinished. Heldc33NODEsource/environment
+and serial operators remain unchanged; CCPP continues, Bike follows.

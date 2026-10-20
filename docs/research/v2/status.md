@@ -163,6 +163,9 @@ production launcher, full external-cost reconciliation and primary-model/protoco
 barriers remain unfinished. The [exact model-barrier component](qualified-primary-models.md)
 passed 74 affected checks; complete execution on 168 genuine qualified searches
 remains unrun and authorizes no secondary or protected access.
+[Registry output boundaries](native-registry-output-paths.md) then passed 105
+affected checks, protecting the registry itself, all working/proof inputs and
+the interpreter before future output creation.
 
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only

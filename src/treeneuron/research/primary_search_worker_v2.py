@@ -205,7 +205,7 @@ def _sampler_runtime(registry,job):
 
 def _prepare_qualified_episode(*,request,output):
     """Actual registry first; no supplied successful flag can reach staging."""
-    from .native_qualification_registry_v2 import load_native_qualification_registry,_all_references
+    from .native_qualification_registry_v2 import load_native_qualification_registry,native_registry_storage_roots
     registry=load_native_qualification_registry(request['qualification_reference'])
     from treeneuron.config import canonical_json
     from .deployment_worker_v2 import _source
@@ -214,9 +214,9 @@ def _prepare_qualified_episode(*,request,output):
     from .workload import PracticalPlan
     if request['source_sha256']!=_source():raise ValueError('Primary worker source changed')
     output=_path(str(output));search=_path(request['search_directory'])
+    roots=native_registry_storage_roots(inputs=registry['inputs'],registry_reference=request['qualification_reference'])
     _check_preparation_locations(output=output,search=search,
-        working_roots=registry['inputs']['prepared_roots'].values(),
-        proof_roots=[r['root'] for r in _all_references(registry['inputs'])],rss_limit_bytes=request['rss_limit_bytes'])
+        working_roots=roots['working_roots'],proof_roots=roots['proof_roots'],rss_limit_bytes=request['rss_limit_bytes'])
     path=_reference(request['practical_plan_reference'])
     if not path.is_file() or _sha(path)!=request['practical_plan_reference']['sha256']:
         raise ValueError('Practical plan file commitment changed')

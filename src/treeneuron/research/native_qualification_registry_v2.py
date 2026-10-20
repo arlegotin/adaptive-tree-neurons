@@ -5,6 +5,7 @@ still needs every current-source component proof, including official preparation
 """
 import copy
 from pathlib import Path
+import sys
 
 from treeneuron.config import canonical_hash
 from treeneuron.data.tabular import DATASETS
@@ -97,6 +98,14 @@ def _all_references(inputs):
     return [inputs['preparation_reference'],inputs['recovery_reference'],
         *inputs['profile_references'].values(),
         *(row['reference'] for kind in ('anchor','support') for row in inputs[kind+'_references'])]
+
+
+def native_registry_storage_roots(*,inputs,registry_reference):
+    """Metadata boundaries, not qualification; include the registry container."""
+    checked,_=_checked_inputs(inputs);_reference(registry_reference)
+    return dict(working_roots=sorted(set(checked['prepared_roots'].values())),
+        proof_roots=sorted({registry_reference['root'],*(r['root'] for r in _all_references(checked))}),
+        native_qualification_authenticated=False)
 
 
 def _resources(reference):
@@ -209,10 +218,12 @@ def seal_native_qualification_registry(*,preparation_reference,profile_reference
         anchor_references=anchor_references,support_references=support_references,recovery_reference=recovery_reference,
         prepared_roots=prepared_roots))
     root=Path(output)
+    protected=[Path(sys.prefix).resolve(),*(Path(p) for p in inputs['prepared_roots'].values()),
+        *(Path(ref['root']) for ref in _all_references(inputs)),
+        *((_ROOT/p).resolve() for p in ('src','tests','configs','locks','protocol','environment','.git','.agents','.codex','.aws'))]
     if (root.exists() or root.is_symlink()
-            or any(root.resolve().is_relative_to((_ROOT/p).resolve()) for p in ('src','tests','configs','locks','protocol'))
-            or any(root.resolve().is_relative_to(Path(ref['root'])) for ref in _all_references(inputs))):
-        raise ValueError('Fresh registry output must preserve all executable/proof inputs')
+            or any(root.resolve().is_relative_to(path) for path in protected)):
+        raise ValueError('Fresh registry output must preserve working data, interpreter and executable/proof inputs')
     body=_inspect(inputs,catalog)
     root=root.resolve();root.mkdir(parents=True,exist_ok=False);write_new_json(root/'manifest.json',body)
     return dict(body,reference=dict(root=str(root),inventory_sha256=canonical_hash(_inventory(root))))

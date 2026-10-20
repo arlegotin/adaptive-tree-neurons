@@ -2,6 +2,7 @@
 import copy
 import json
 from pathlib import Path
+import sys
 import time
 
 from treeneuron.config import canonical_hash, canonical_json
@@ -11,7 +12,7 @@ from .method_worker import _ROOT, _digest, _read_json, _sha, scientific_source_s
 from .native_anchor_v2 import _closed_reference
 from .native_inspection_reader_v2 import load_primary_native_inspection
 from .native_qualification_registry_v2 import (load_native_qualification_registry,
-    _all_references, _prepared_datasets)
+    _all_references, _prepared_datasets, native_registry_storage_roots)
 from .native_trial_bridge_v2 import InspectedNativeTrialBridge
 from .native_verification_v2 import verification_identity
 from .native_workload_v2 import inspect_native_workload
@@ -23,6 +24,16 @@ from .workqueue import _inventory
 
 _TRIAL={'plan_hash','source_sha256','candidate_id','candidate_origin','raw_configuration',
     'compiled_configuration','official_schedule_reference','native_hpo_seed','fit_seed'}
+
+
+def _check_search_location(registry,qualification_reference,search_directory):
+    roots=native_registry_storage_roots(inputs=registry['inputs'],registry_reference=qualification_reference)
+    search=Path(search_directory)
+    protected=[*(Path(p) for p in roots['working_roots']+roots['proof_roots']),Path(sys.prefix).resolve(),
+        *((_ROOT/name).resolve() for name in ('src','tests','configs','locks','protocol','environment','.git','.agents','.codex','.aws'))]
+    if (not search.is_absolute() or search.resolve()!=search or search.is_symlink()
+            or search.exists() and not search.is_dir() or any(search.is_relative_to(p) for p in protected)):
+        raise ValueError('Search must preserve registry, data, proof, interpreter and executable roots')
 
 
 def _check_references(references):
@@ -101,6 +112,7 @@ class QualifiedNativeTrialBridge:
         registry=load_native_qualification_registry(qualification_reference)
         # Keep this ordering: invalid registries cannot reach worker preparation.
         dataset=_bind_procedure(registry,native_arguments)
+        _check_search_location(registry,qualification_reference,native_arguments['search_directory'])
         inner=InspectedNativeTrialBridge(**native_arguments)
         binding=json.loads(inner._binding)
         self._inner=inner
