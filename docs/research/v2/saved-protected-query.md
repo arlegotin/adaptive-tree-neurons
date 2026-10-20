@@ -49,3 +49,11 @@ feature access, validate numerical commits against the owner journal, and enforc
 the final label barrier. Actual full-qualified public success, raw/model/access
 audit, deployment and whole-cost completion, CLI/readiness and final review remain
 unfinished before final-source qualification and production searches.
+
+An additional [test-isolation check](WP10-protected-query-test-isolation-receipt.json)
+reproduced a global-import assertion failure with Torch preloaded in the parent.
+That assertion now runs in a fresh P13 subprocess; numerical in-process checks
+remain independent of earlier tests' imports. All four targeted cases passed
+with parent Torch preloaded. The scientific source, recipes and predictions are
+unchanged. The earlier205-check command and the four-case follow-up overlap;
+they are not a new whole-suite result. Original test bytes remain archived.

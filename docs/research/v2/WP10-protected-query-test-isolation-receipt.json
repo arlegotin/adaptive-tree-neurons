@@ -1,0 +1,57 @@
+{
+  "T_accessed": false,
+  "actual_benchmark_label_archives_read": 0,
+  "actual_benchmark_models_fitted": 0,
+  "actual_complete_qualified_public_positive": false,
+  "correction": "Keep in-process numerical/state tests independent of prior imports; assert P13 import isolation in a genuinely fresh subprocess, alongside gated/NODE fresh fixtures.",
+  "current_tests": {
+    "bytes": 16017,
+    "path": "tests/test_protected_query_v2.py",
+    "sha256": "e39dff9dbc1759f44b202e0f9f6a46215c33e89fabde641668ea2e5c22adcde1"
+  },
+  "date": "2026-10-20",
+  "historical_binding": "The prior receipt test hash resolves to commit b3b0609 and the retained original_test_bytes, not the changed current test path.",
+  "implementation_changed": false,
+  "implementation_commit": "b3b0609",
+  "logs": [
+    {
+      "bytes": 2038,
+      "path": "artifacts/research-v2/WP10/protected-query-preloaded-torch-red.log",
+      "sha256": "6fa536a6cf05cb4e06e304faca2003b49fb2ace412063feee962cf8ad8f75fe0"
+    },
+    {
+      "bytes": 114,
+      "path": "artifacts/research-v2/WP10/protected-query-preloaded-torch-green.log",
+      "sha256": "1e3c6a838c6b8c3f842f0e33eb7ebdc250bbcb464b1b798e9fcffdf342467cf8"
+    }
+  ],
+  "original_test_bytes": {
+    "bytes": 16014,
+    "path": "artifacts/research-v2/WP10/protected-query-tests-b3b0609.py",
+    "sha256": "e275b8c414eef36c77b614d073698831907a3afac07cfd0667c07fe1c163db99"
+  },
+  "previous_receipt": {
+    "bytes": 6186,
+    "path": "docs/research/v2/WP10-protected-query-receipt.json",
+    "sha256": "0f452d981d00a489faea4472ec5f7c70bf04277afc61271425b8f60bcbacedec"
+  },
+  "protected_access_authorized": false,
+  "reproduced": "Preloading Torch before the in-process P13 test caused its global loaded-module assertion to fail even though P13 imported no Torch.",
+  "schema": "research/v2-protected-query-test-isolation-followup",
+  "scientific_source_sha256": "f2beafff63fdd018410fa36489290e1552ffd3b3f0d504f91db302b82aec9b29",
+  "scope": "Test-helper isolation correction only; no scientific recipe/model/prediction/production change. Earlier205-check command remains an earlier overlapping run, not repeated or pooled.",
+  "verification": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-c",
+      "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"tests/test_protected_query_v2.py\",\"-k\",\"private_forward or saved_forward_in_fresh_process\"]))"
+    ],
+    "exit_code": 0,
+    "green": "4 passed,28 deselected in26.79s with parent Torch explicitly preloaded",
+    "red": "1 failed in1.27s with parent Torch explicitly preloaded",
+    "session_id": 12933,
+    "whole_suite": false
+  }
+}

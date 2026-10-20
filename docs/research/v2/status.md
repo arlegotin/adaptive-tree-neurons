@@ -401,3 +401,9 @@ preflight compiles metadata without starting execution; private forward output
 grants no native/protected authority. The owned coordinator/worker handshake and
 actual numerical journal/label barrier remain unfinished. No new benchmark
 prediction or label access occurred.
+
+A subsequent test-isolation follow-up passed four targeted cases with parent
+Torch deliberately preloaded. P13 import isolation now runs in a fresh child;
+its in-process numerical test no longer mistakes prior imports for method
+imports. Scientific source and results are unchanged. The earlier205-check run
+is retained separately; this is not a whole-suite pass.

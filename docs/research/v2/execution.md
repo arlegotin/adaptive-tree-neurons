@@ -3013,3 +3013,11 @@ completion, CLI/readiness and final review remain before actual final-source
 qualification/HPO. No actual T inference or protected labels were accessed. The
 heldc33NODEsource/env/operators remain unchanged; latestCCPP14800/best14800,
 Bike queued,118of120native engineering completions. Overall work is unfinished.
+
+The saved-query test-isolation follow-up reproduced1failure with parent Torch
+preloaded, then passed4targeted cases in26.79s after moving the P13 import
+assertion to a fresh subprocess. Sourcef2beafff... is unchanged; this corrects a
+test-order assumption rather than native behavior. Original test bytes at
+b3b0609 are retained to resolve the earlier receipt's test hash. The
+[follow-up receipt](WP10-protected-query-test-isolation-receipt.json) preserves
+both runs. No expanded or whole-suite count is inferred.

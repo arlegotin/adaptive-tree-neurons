@@ -62,7 +62,6 @@ def test_private_forward_restores_actual_model_and_preserves_dtype_ids_without_t
     assert result['status']=='completed_ineligible' and result['finite_aligned_prediction_artifact'] is True
     assert result['logical_fit_seed']==2**61+17
     assert result['protected_access_authorized'] is result['native_qualification_authenticated'] is result['T_accessed'] is False
-    assert 'torch' not in result['loaded_heavy_modules']
     assert before==m._snapshot_inventory(Path(request['query']['model_binding']['snapshot_root']))
     with pytest.raises(ValueError):m._saved_query(request,output=tmp_path/'output')
 
@@ -157,8 +156,8 @@ def test_forward_does_not_call_fit_with_logical_large_seed(saved_query,tmp_path,
     assert out['logical_fit_seed']>2**32
 
 
-@pytest.mark.parametrize('family',['P00','P12'])
-def test_saved_neural_forward_in_fresh_process_keeps_native_snapshot_and_exact_values(tmp_path,family):
+@pytest.mark.parametrize('family',['P00','P12','P13'])
+def test_saved_forward_in_fresh_process_keeps_native_snapshot_and_exact_values(tmp_path,family):
     import os
     import subprocess
     project=Path(__file__).resolve().parents[1]
@@ -178,6 +177,7 @@ out=_saved_query(request,output=root/"output")
 with np.load(path.parent/"prediction.npz",allow_pickle=False) as expected,np.load(root/"output/prediction.npz",allow_pickle=False) as actual:
  for name in actual.files:assert actual[name].dtype==expected[name].dtype and np.array_equal(actual[name],expected[name])
 assert out["finite_aligned_prediction_artifact"] is True and out["protected_access_authorized"] is False
+if sys.argv[3]=="P13":assert out["loaded_heavy_modules"]==[]
 print(json.dumps(dict(family=sys.argv[3],query_rows=out["query_rows"],T_accessed=out["T_accessed"])))
 '''
     done=subprocess.run([sys.executable,'-P','-B','-c',code,str(Path(__file__).resolve()),str(tmp_path),family],
