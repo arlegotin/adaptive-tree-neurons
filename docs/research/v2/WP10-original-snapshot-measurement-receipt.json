@@ -1,0 +1,144 @@
+{
+  "T_accessed": false,
+  "actual_benchmark_models_fitted_or_measured": 0,
+  "actual_label_archives_read": 0,
+  "actual_native_controller_qualified": false,
+  "algorithm_rescue_or_budget_cut_or_new_protected_query_variant_admitted": false,
+  "artifact_inventory": {
+    "bytes": 11589,
+    "path": "artifacts/research-v2/WP10/native-measurement-software-inventory.json",
+    "sha256": "ffba4b796cd8bea7d28c039147eecad079a3fe3fe6f82a98762a045e9462031a"
+  },
+  "base_commit": "1db37e1",
+  "capture": {
+    "actual_known_fixture_fits": 2,
+    "actual_owned_measurement_processes": 2,
+    "batch_sizes": [
+      1,
+      1024
+    ],
+    "independent_direct_prediction_hashes_match": true,
+    "loaded_method_modules": [],
+    "logical_fit_seed": 2305843009213693969,
+    "model_copied_or_relocated": false,
+    "observed_root_elapsed_ns": 691997542,
+    "original_control_bytes_retained": true,
+    "original_model_path_preserved": true,
+    "resident_calls_per_batch": 32,
+    "saved_native_seed": 17,
+    "warmup_calls_per_batch": 3,
+    "wrong_rehashed_body_clock_rejected": true
+  },
+  "capture_script": {
+    "bytes": 3618,
+    "path": "artifacts/research-v2/WP10/capture_native_measurement.py",
+    "sha256": "96c22408ec5f268504f9e679bbe5ce837788e3c8fcce97c0e817901a363a04e4"
+  },
+  "cost_claim_authorized": false,
+  "date": "2026-10-21",
+  "dedicated_timing_qualified": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_native_deployment_worker_v2.py",
+      "tests/test_deployment_worker_v2.py",
+      "tests/test_deployment_blocks_v2.py",
+      "tests/test_protected_query_worker_v2.py",
+      "tests/test_cooperative_process_v2.py"
+    ],
+    "bytecode_disabled": true,
+    "exit_code": 0,
+    "process_observation": "Only fixture-owned PIDs/boot identity; scoped permission",
+    "pytest_plugin_autoload_disabled": true,
+    "result": "94 passed in112.10s",
+    "session_id": 26961,
+    "threads": 1
+  },
+  "limitations": [
+    "No actual complete-qualified production controller, paired30-block timing or deployment-quality/cost claim",
+    "Worker validates supplied F-query metadata only; actual original F-role derivation must be authenticated by controller against genuine frozen roles",
+    "Inputfloat32 measurement and nativefloat64 quality procedures cannot silently share a formal quality-cost claim without verified precision relationship",
+    "Full process clock includes measurement workload, not a single cold inference; own final publication/return and containing caller still need outer cost evidence",
+    "Existing engineering guards remain unchanged; actual controller/full-cost/report/CLI/readiness/final review still precede final-source qualification/HPO"
+  ],
+  "logs": [
+    {
+      "bytes": 16872,
+      "path": "artifacts/research-v2/WP10/native-measurement-software/test-logs/native-measurement-red.log",
+      "sha256": "6f5fedb848a0a3f7110ee577bddaecf9e04a04846049db8c29fdf330724ce55b"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/native-measurement-software/test-logs/native-measurement-first-green.log",
+      "sha256": "07ffe15e5542ce45485212ffdae0469489984a74fabd3f3c59337818a865783d"
+    },
+    {
+      "bytes": 6077,
+      "path": "artifacts/research-v2/WP10/native-measurement-software/test-logs/native-measurement-semantic-red.log",
+      "sha256": "caace4ff14f32b003d705912703b9aec21a18cfe492223f342e579b95e7a443f"
+    },
+    {
+      "bytes": 16588,
+      "path": "artifacts/research-v2/WP10/native-measurement-software/test-logs/native-measurement-all-semantic-red.log",
+      "sha256": "c726a45bfd041d6ee7e9d9bf179f339f2cc57694a6143b7c4bfd9c3cf43a7257"
+    },
+    {
+      "bytes": 191,
+      "path": "artifacts/research-v2/WP10/native-measurement-software/test-logs/native-measurement-final-affected.log",
+      "sha256": "6d9733abb702d8619dae29ee7ec1b339e8a8ab7766eba9a3e9f2fa1870857db6"
+    },
+    {
+      "bytes": 326,
+      "path": "artifacts/research-v2/WP10/native-measurement-software/test-logs/native-measurement-capture.log",
+      "sha256": "8b505a621cfec3b96b41ed81673b743838fb7ad78352bafd96efa944ac21a94c"
+    }
+  ],
+  "native_c33_source_environment_and_immutable_operator_plan_unchanged": true,
+  "native_models_authenticated": false,
+  "observation": {
+    "bytes": 1627,
+    "path": "artifacts/research-v2/WP10/native-measurement-software/observation.json",
+    "sha256": "81a3e024771bdaacff4b3f94ebb10212dcfcf78f19edcb81af3e18d6f5714efb"
+  },
+  "original_F_role_authenticated": false,
+  "quality_precision_equivalence_authenticated": false,
+  "schema": "research/v2-original-snapshot-measurement-software-receipt",
+  "source_file": {
+    "bytes": 19020,
+    "path": "src/treeneuron/research/native_deployment_worker_v2.py",
+    "sha256": "5a5362b0d67c537f28d2e0f1b263aee517a358187209abb0dc6757ab624fef67"
+  },
+  "source_sha256": "971e667141900755f98d747c9273ce213a1b50ead68b3b4408afeb9d326b7550",
+  "test_file": {
+    "bytes": 9701,
+    "path": "tests/test_native_deployment_worker_v2.py",
+    "sha256": "4df745ca23f2d8cad2bfd95957362697cc498ad176e80168009be0128fc26ca9"
+  },
+  "verification": [
+    {
+      "cause": "Missing measurement leaf; intended RED",
+      "result": "12 failed in.13s"
+    },
+    {
+      "result": "12 passed in7.40s",
+      "scope": "Initial owned/source/request/numerical checks"
+    },
+    {
+      "cause": "Consistently rehashed bad closure/body clock/saved seed accepted by preliminary inspector",
+      "result": "3 failed,12 deselected in4.04s"
+    },
+    {
+      "cause": "Expanded semantic RED includes extra fields/impossible nested clock/false input precision",
+      "result": "7 failed,12 deselected in8.56s"
+    },
+    {
+      "result": "94 passed in112.10s",
+      "scope": "Final five affected modules including19 new leaf tests; overlap, not whole-suite pass"
+    }
+  ]
+}

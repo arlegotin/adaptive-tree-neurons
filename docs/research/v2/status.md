@@ -26,6 +26,9 @@ views. Actual protected analysis and independent raw audit remain unrun.
 The [independent raw auditor](independent-raw-audit.md) is now fixture-tested
 with separate arithmetic and deliberate wrong-score detection. This adds
 software evidence; it has not inspected benchmark T or established a new win.
+The [original-snapshot measurement leaf](original-snapshot-measurement.md) also
+has fixture checks. Its actual native controller, timing qualification and
+complete containing costs remain pending; it grants no efficiency claim.
 
 ## The idea and present verdict
 

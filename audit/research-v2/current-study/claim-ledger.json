@@ -481,6 +481,11 @@
           "bytes": 6450,
           "path": "docs/research/v2/WP10-independent-raw-audit-receipt.json",
           "sha256": "48bad08e2b743a1bcc57518f4993637cc9bbfd9ea2ab293d38d49c46de136bbd"
+        },
+        {
+          "bytes": 5982,
+          "path": "docs/research/v2/WP10-original-snapshot-measurement-receipt.json",
+          "sha256": "400fee41a2726c20699cd81425e8e93ea5082d40c4eaa828cde402923b068beb"
         }
       ],
       "status": "supported_scoped_status",
