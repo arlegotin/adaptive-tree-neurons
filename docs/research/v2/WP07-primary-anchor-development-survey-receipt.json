@@ -1,0 +1,97 @@
+{
+  "Gate_D": false,
+  "T_accessed": false,
+  "V_labels_read_by_primary_coordinator": true,
+  "calibration_runs": 0,
+  "files": [
+    {
+      "bytes": 9003,
+      "path": "artifacts/research-v2/WP07/primary-anchor-development-survey-0f1480b/operator.py",
+      "sha256": "b94373d83255d3f82a9011c875263548fb3bdd083342f97363a777af2e6d87e5"
+    },
+    {
+      "bytes": 8621,
+      "path": "artifacts/research-v2/WP07/primary-anchor-development-survey-0f1480b/planning-attempt-0-operator.py",
+      "sha256": "d7f362966faaa0b7eb7c014d0977f0aed02a4df1eec294626dd18884216535d2"
+    },
+    {
+      "bytes": 499,
+      "path": "artifacts/research-v2/WP07/primary-anchor-development-survey-0f1480b/planning-attempt-0.log",
+      "sha256": "67797bcc2e0436245b878aa8f5930818f1d1fa7796415269e0849d8f125d4a65"
+    },
+    {
+      "bytes": 118,
+      "path": "artifacts/research-v2/WP07/primary-anchor-development-survey-0f1480b/planning-attempt-1.log",
+      "sha256": "197f2dec6ba17c33b22426b7e82fe82ab21f441c28fe58bdd00bceab0094acc4"
+    },
+    {
+      "bytes": 233634,
+      "path": "artifacts/research-v2/WP07/primary-anchor-development-survey-0f1480b/plan.json",
+      "sha256": "88f028088b27f19df3f634a7bfaedf9fcf293a861f220899abd00e5fe93154fc"
+    },
+    {
+      "bytes": 9343,
+      "path": "artifacts/research-v2/WP07/primary-anchor-development-survey-0f1480b/scoring.log",
+      "sha256": "e855b007c67b291decb4e290f68380b70a23d8a35485504bce1afcfb4387639a"
+    },
+    {
+      "bytes": 732565,
+      "path": "artifacts/research-v2/WP07/primary-anchor-development-survey-0f1480b/results.json",
+      "sha256": "b32ffa339507879758e3c87f3277156f6f6e688f770e443eb063c2a2d12fd517"
+    },
+    {
+      "bytes": 3922,
+      "path": "artifacts/research-v2/WP07/primary-anchor-development-survey-0f1480b/independent_arithmetic.py",
+      "sha256": "ae7881b50caf4ae287dde6590b315773a0dd889a32f877f099e04cde1ff86a7d"
+    },
+    {
+      "bytes": 56322,
+      "path": "artifacts/research-v2/WP07/primary-anchor-development-survey-0f1480b/independent-arithmetic.json",
+      "sha256": "6ceb58ae5b16728b0ddec91eed117f89fdfe5d71fb5a7d7995ea515036b1997f"
+    },
+    {
+      "bytes": 694,
+      "path": "artifacts/research-v2/WP07/primary-anchor-development-survey-0f1480b/independent-arithmetic.log",
+      "sha256": "2e6a7f1ddfe736643daba2ceea9801f6bf5e934dfee86caa4f971bd3a2c73258"
+    }
+  ],
+  "global_freeze": false,
+  "independent_arithmetic": {
+    "HPO_executed": false,
+    "T_accessed": false,
+    "V_labels_read_by_coordinator": true,
+    "cases": 115,
+    "confirmation_claim": false,
+    "elapsed_ns": 394782709,
+    "input_sha256": "b32ffa339507879758e3c87f3277156f6f6e688f770e443eb063c2a2d12fd517",
+    "maximum_absolute_metric_difference": 0.0,
+    "maximum_scaled_metric_difference": 0.0,
+    "method": "Independent original-unit fsum squared/absolute errors, equal-group/day means and population F variance; no shared metric helpers",
+    "metric_comparisons": 805,
+    "new_fits": 0,
+    "operator_sha256": "ae7881b50caf4ae287dde6590b315773a0dd889a32f877f099e04cde1ff86a7d",
+    "plan_sha256": "88f028088b27f19df3f634a7bfaedf9fcf293a861f220899abd00e5fe93154fc",
+    "status": "passed"
+  },
+  "missing_cells": [
+    "P12/native_anchor/airfoil",
+    "P12/native_anchor/concrete",
+    "P12/native_anchor/ccpp",
+    "P12/native_anchor/parkinsons",
+    "P12/native_anchor/bike"
+  ],
+  "new_model_fits": 0,
+  "note": "Airfoil NODE active at plan lock; four other full native NODE datasets not yet completed. Missing predictions never scored as losses. P13 survey is mean only, not full29-config family.",
+  "plan_sha256": "88f028088b27f19df3f634a7bfaedf9fcf293a861f220899abd00e5fe93154fc",
+  "planned_cells": 120,
+  "production_practical_searches": 0,
+  "qualification_status": "Previous native engineering completions/source identities retained; this survey grants no final common-source/support qualification or HPO authority",
+  "quality_eligible": false,
+  "results_sha256": "b32ffa339507879758e3c87f3277156f6f6e688f770e443eb063c2a2d12fd517",
+  "retained_planning_error": "Receipt raw_files was a count, not an inventory list. Planning stopped before any V labels, original operator/log retained; recovery verifies externally committed inventory.json and audit hashes.",
+  "schema": "research/v2-primary-anchor-development-survey-receipt",
+  "scored_cells": 115,
+  "seed": 17,
+  "status": "completed_development_arithmetic",
+  "unavailable_cells": 5
+}

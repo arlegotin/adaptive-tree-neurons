@@ -66,6 +66,18 @@ per-file allocation savings were12,096,417,792bytes; shared volume changes remai
 unattributed. Source/model/queue/predictions are unchanged. See
 [the completed maintenance receipt](WP04-M3-completed-log-storage-receipt.json).
 
+A subsequent primary native-anchor development survey scored115previously
+completed fits out of the fixed120cells, using fit seed17and only primary V.
+The plan/available predictions were committed before labels;805independent
+original-unit group/day and row metrics agree exactly. No new fits/HPO/refit,
+secondary development or T. Strong existing anchors beat the historical P00
+anchor on each observational V split; static full gating leads the small Energy
+simulation. This is development information, not a tuned or confirmed benchmark.
+Missing P12cells remain unavailable and old engineering eligibility is unchanged.
+See [the full survey](../../../reports/research-v2-primary-anchors.md),
+[its decision](primary-anchor-development-survey.md) and
+[receipt](WP07-primary-anchor-development-survey-receipt.json).
+
 The bounded-memory Energy NODE attempt finished at its old7200-second cap, with
 about1.49GiBsampled peak and no saved model. The user then explicitly prioritized
 completed results over that wall cap. The spec/plan amendment and

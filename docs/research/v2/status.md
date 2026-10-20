@@ -45,6 +45,19 @@ new recipe. Baseline qualification and the broader practical comparison continue
 See [the exact disposition](../../../audit/research-v2/M3/gate-B.json) and
 [completion receipt](WP04-M3-completion-receipt.json).
 
+The [first native-anchor V survey](../../../reports/research-v2-primary-anchors.md)
+now gives early real-data development scores from115existing fits across the
+fixed120-cell inventory. The adaptive historical anchor beats matched random
+on Airfoil, loses on Concrete and ties on the other four coordinates. Strong
+existing anchors have lower V error on each of the five observational tasks;
+a fully static gated anchor leads Energy, the separate small geometry simulation.
+Independent reconstruction agrees exactly on805metrics. These are single-seed,
+primary-split V results used for development, with five unfinished NODE cells
+unavailable. They are not a tuned benchmark or protected generalization result.
+No new fitting, HPO, best-seed choice, secondary development or T access occurred.
+Older qualification receipts' no-V-label statements describe their original fit/
+audit executions; the survey now explicitly records coordinator V access.
+
 The first full new control study has finished:256 planned fits, no missing or
 failed result. Independent arithmetic from512 retained V/E prediction vectors
 agrees with the producer's3,584 scalar comparisons to2.22e-16. The
@@ -152,7 +165,9 @@ exactly, checked all primary role/query hashes and MLP epoch coverage, and
 independently verified each mean from F targets. This brings ordinary native
 qualification to114distinct primary anchor completions across118attempts,
 including the two retained NODE stops. Controlled recovery fixtures are separate.
-There is still no V/T accuracy comparison or HPO result.
+At that qualification stage no V/T accuracy comparison or HPO had run.
+The later primary V survey above now supplies development scores; HPO and T
+evaluation remain unfinished.
 The [implementation contract](gated-practical-adapter-design.md) and
 [worker evidence](WP07-gated-worker-receipt.json) state the exact boundaries.
 

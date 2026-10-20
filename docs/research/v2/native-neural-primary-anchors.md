@@ -1,5 +1,10 @@
 # Native neural anchor execution checks
 
+A later [primary V development survey](../../../reports/research-v2-primary-anchors.md)
+now scores the completed anchors. The no-V-label statements below describe the
+original fitting/qualification executions; their source and eligibility records
+remain unchanged. The survey is separate from a tuned or protected benchmark.
+
 These are implementation/resource checks on the designated primary development
 splits, not a predictive benchmark. Workers read F/G labels and V features only.
 No V labels, secondary-fold development or protected T were released. Every

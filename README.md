@@ -27,6 +27,13 @@ averaged1.25%higher error than random. The tested selector branch is closed as a
 negative development result. The earlier [planted-control lead](reports/research-v2-small-joint.md)
 remains a separate, narrower finding; the practical comparison is unfinished.
 
+The [first native-anchor survey](reports/research-v2-primary-anchors.md) also now
+reports primary validation scores from115existing fits. Adaptive placement has
+one favorable real-data coordinate and one reversal; existing anchors lead on
+all five observational validation splits. A static fully gated model leads the
+separate Energy simulation. These single-seed development results are distinct
+from the unfinished tuned benchmark and protected test evaluation.
+
 ## The idea
 
 An ordinary hidden neuron applies ReLU to one affine response. A grown neuron adds a gated contrast before that same ReLU:

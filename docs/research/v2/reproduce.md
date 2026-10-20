@@ -291,3 +291,21 @@ retrain a model or replace the independent prediction audit. The new summary
 checks and retained-prediction tests passed24cases in17.61seconds.
 Both descriptive t and whole-teacher bootstrap intervals remain development
 quantities after the one predeclared extension, not confirmation guarantees.
+
+## Native-anchor validation survey
+
+[The fixed decision](primary-anchor-development-survey.md) was committed before
+reading V labels; the externally committed120-cell plan admitted115existing
+completed native predictions. No new fit was run. The local operational planning,
+scoring and independent original-unit fsum scripts/logs are bound in
+[the receipt](WP07-primary-anchor-development-survey-receipt.json).
+The planning attempt that confused an inventory count with its list stopped
+before label access; its source/error log remain retained. The corrected plan
+verifies the externally committed inventory and audit file hashes. Original
+native-generation sources remain explicit rather than migrating old models to
+current code. Primary-only V scoring uses the already-tested coordinator API;
+independent fsum reconstruction agrees on all805metrics for115predictions.
+The [complete table](../../../reports/research-v2-primary-anchors.md) and
+`audit/research-v2/primary-anchor-development/` retain every planned anchor/status
+and source/prediction commitment. This grants no engineering-to-production
+promotion, final Gate D, tuned-family result or protected claim. T remains sealed.

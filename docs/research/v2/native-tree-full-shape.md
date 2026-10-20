@@ -1,5 +1,10 @@
 # Native tree anchor execution qualification
 
+A later [primary V development survey](../../../reports/research-v2-primary-anchors.md)
+now scores the completed anchors. The no-V-label statements below describe the
+original fitting/qualification executions; their source and eligibility records
+remain unchanged. The survey is separate from a tuned or protected benchmark.
+
 The corrected worker completed the full CatBoost anchor on one retained primary
 synthetic development problem: F2306/G577 and577query features,16predictors,
 fit seed17. It executed10000 rounds and retained round9994. Reaching the native
