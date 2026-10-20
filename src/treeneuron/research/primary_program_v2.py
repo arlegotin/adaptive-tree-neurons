@@ -53,16 +53,19 @@ def build_primary_program_plan(*,practical_plan,practical_plan_reference,expecte
 
 
 def _request_binding(program,job):
-    return dict(schema='research/v2-primary-program-episode-request',source_sha256=program['source_sha256'],
+    secondary=program.get('schema')=='research/v2-secondary-program-plan'
+    value=dict(schema='research/v2-secondary-program-episode-request' if secondary else 'research/v2-primary-program-episode-request',source_sha256=program['source_sha256'],
         **{k:copy.deepcopy(program[k]) for k in ('practical_plan_reference','expected_practical_plan_hash','support_reference',
             'qualification_reference','resource_forecast_reference','procedure_reference','rss_limit_bytes')},
         job_id=job['job_id'],search_directory=str(Path(program['directory'])/'searches'/job['job_id']))
+    if secondary:value['global_barrier_reference']=copy.deepcopy(program['global_barrier_reference'])
+    return value
 
 
 def _closed_episode(program,job,episode_root,previous,unstarted,completion_reference):
     from .primary_caller_v2 import inspect_caller_boundary
     from .primary_search_worker_v2 import (_reference,_json,_checked_request,_job_binding,
-        _unstarted_episode_state,_previous_episode_state,_check_episode_invocation,_check_episode_journal_prefix)
+        _unstarted_episode_state,_previous_episode_state,_check_episode_invocation,_check_episode_journal_prefix,_body_schema)
     complete_path=_reference(completion_reference)
     if complete_path!=episode_root/'caller-complete.json' or _sha(complete_path)!=completion_reference['sha256']:
         raise ValueError('Exact local caller completion required')
@@ -84,7 +87,7 @@ def _closed_episode(program,job,episode_root,previous,unstarted,completion_refer
     if any(body_reference.get(k)!=v for k,v in base.items()) or _sha(control/'body-outcome.json')!=body_reference['body_outcome_sha256']:
         raise ValueError('Exact closed body reference required')
     body=_json((control/'body-outcome.json').read_bytes());start=_json((control/'started.json').read_bytes())
-    if (body.get('schema')!='research/v2-primary-search-body-outcome'
+    if (body.get('schema')!=_body_schema(request)
             or body.get('status')!='closed_search_body' or body.get('job_binding')!=_job_binding(request)
             or body.get('request_sha256')!=complete['request_reference']['sha256']
             or body.get('previous_episodes')!=previous or any(body.get(k) is not False for k in
@@ -153,7 +156,8 @@ def _run_program_queue(program,*,execute_episode,audit_terminal,expected_journal
     from .ledger import StudyLease,write_new_json
     from .primary_search_worker_v2 import _path,_json
     started=time.perf_counter_ns() if invocation_origin_ns is None else invocation_origin_ns
-    if (type(max_episode_starts) is not int or not 1<=max_episode_starts<=168
+    secondary=program.get('schema')=='research/v2-secondary-program-plan';limit=672 if secondary else 168
+    if (type(max_episode_starts) is not int or not 1<=max_episode_starts<=limit
             or type(started) is not int or not 0<started<=time.perf_counter_ns()
             or program.get('source_sha256')!=_source()
             or canonical_hash({k:v for k,v in program.items() if k!='program_hash'})!=program.get('program_hash')):
@@ -193,9 +197,9 @@ def _run_program_queue(program,*,execute_episode,audit_terminal,expected_journal
                 # them, and the strong model barrier still revalidates models.
                 progress=_progress(program,None)
                 if closed['kind']!='terminal':status=closed['stop_reason'];break
-            if progress['completed_jobs']==len(program['jobs']):status='primary_searches_terminal'
+            if progress['completed_jobs']==len(program['jobs']):status='secondary_searches_terminal' if secondary else 'primary_searches_terminal'
             if _source()!=program['source_sha256']:raise ValueError('Program source changed during invocation')
-            value=dict(schema='research/v2-primary-program-progress',status=status,
+            value=dict(schema='research/v2-secondary-program-progress' if secondary else 'research/v2-primary-program-progress',status=status,
                 program_hash=program['program_hash'],journal_sha256=_sha(journal),completed_jobs=progress['completed_jobs'],
                 known_observed_caller_ns=progress['known_observed_caller_ns'],
                 native_model_barrier_authenticated=False,whole_training_procedure_cost_authenticated=False,
@@ -203,7 +207,7 @@ def _run_program_queue(program,*,execute_episode,audit_terminal,expected_journal
                 scope='Closed serial episode queue with known caller clocks; actual model/global freeze and physical whole-cost remain separate')
         except BaseException as caught:error=caught
         finally:
-            receipt=dict(schema='research/v2-primary-program-invocation',source_sha256=program['source_sha256'],
+            receipt=dict(schema='research/v2-secondary-program-invocation' if secondary else 'research/v2-primary-program-invocation',source_sha256=program['source_sha256'],
                 program_hash=program['program_hash'],journal_sha256=_sha(journal),elapsed_ns=time.perf_counter_ns()-started,
                 result=value,error=None if error is None else dict(type=type(error).__name__,reason=str(error)),
                 whole_training_procedure_cost_authenticated=False,protected_access_authorized=False,T_accessed=False,

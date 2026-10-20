@@ -2731,3 +2731,29 @@ unrun. Next serial672 program and terminal audits, full840 model/Tonce/evaluator
 raw audit/cost/deployment/CLI/readiness/final review before final-source actual
 qualification and primary production. Scientific gates/claims and held c33
 source/runtime/operator settings remain unchanged; no new rescue/T root admitted.
+
+## 20 October: serial672 secondary program component
+
+Public global/native qualification precedes plan/forecast/output. Metadata
+builder takes exactly672 secondary jobs/R2 from the unchanged840 program;
+supplied metadata references grant no authority. The shared queue now keeps
+typed secondary request/global/body bindings, its own progress/invocation schema
+and672 administrative start limit; primary behavior remains168. Both are serial
+with immutable plans, external journal pins, leases and exact caller history.
+Actual terminal searches require the new genuine secondary native/HPO/V audit.
+
+First RED1failure3setupErrors0.09s included an omitted imported study fixture;
+correcting that import produced1failure3setupErrors2.93s for the missing module.
+Final five-module59passed11.70s. Real no-child denials pause/resume the same first
+secondary job, retain both known caller clocks and refuse a changed journal;
+driver interruption after caller close reopens without spawning. Capture's
+independent sum49742041ns matches known caller time exactly. Zero models/children/
+labels/T and no fabricated complete-q success. Actual positive/terminal public
+execution remains unrun. [Contract](secondary-program.md),
+[receipt](WP09-secondary-program-receipt.json).
+
+Terminal search counts do not imply complete selected models or whole-cost/T
+authority. Next full840 model seal, once-T/evaluator/raw audit, physical costs/
+deployment/CLI/readiness/final review before final-source actual qualification
+and primary production. Scientific branch closures and held c33 execution remain
+unchanged; no new protected root, remedy or budget cut.

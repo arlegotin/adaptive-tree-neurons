@@ -391,6 +391,11 @@
           "bytes": 6072,
           "path": "docs/research/v2/WP09-secondary-episode-receipt.json",
           "sha256": "d425c60e3c6ab70a08d0766e59d01ab3a8fd06fe04e1edf3555537f04ea69746"
+        },
+        {
+          "bytes": 4239,
+          "path": "docs/research/v2/WP09-secondary-program-receipt.json",
+          "sha256": "54e29f14e63ac1461db0f19ac90db672313437af325722b7119bfb0c6bd7197c"
         }
       ],
       "status": "supported_scoped_status",

@@ -6,6 +6,13 @@ changes and exact evidence boundaries.
 The [cross-study report](../../../reports/research-v2.md) links the scientific
 conclusions to their [evidence and counterevidence ledger](../../../audit/research-v2/current-study/claim-ledger.json).
 
+Current implementation work is the full840-model/protected-evaluation barrier,
+raw audit, physical costs/deployment, production CLI/readiness and final review.
+The primary and secondary program components are implemented and fixture-tested;
+complete-qualified production searches, global release and protected evaluation
+have not run. Two fixed old-source native engineering fits remain in progress
+or queued. These boundaries distinguish software progress from new results.
+
 ## The idea and present verdict
 
 Give selected neurons a switch between two affine rules. Insert it without
@@ -316,3 +323,9 @@ caller history and per-proposal resource advice are wired. New pin/failure tests
 caught and fixed two object-only JSON serialization mistakes before production.
 Actual qualified positive execution and trained secondary resume remain unrun;
 the serial672 queue, full840/protected evaluator, costs and final readiness remain.
+
+The [serial secondary program](secondary-program.md) is now implemented and
+passed59affected checks. It retains immutable672-job order and exact paused
+caller history, and requires actual native/HPO/V terminal audits. Metadata and
+no-child fixtures grant no actual native/global success. Complete-qualified
+public positive/terminal execution and the complete840/T/cost gates remain unrun.
