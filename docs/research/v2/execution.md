@@ -2158,3 +2158,27 @@ readable; no old record is rewritten. Fourteen tiny root episodes reopened
 without new processes. [Receipt](WP08-search-cold-origin-receipt.json).
 The actual primary search worker and authenticated cross-episode cost matching
 remain unfinished, rather than being inferred from this primitive.
+
+## 20 October: cold primary-search worker body
+
+The new stdlib bootstrap joins ready/grant before heavy imports. Its qualified
+body loads the actual complete registry before practical plans or role staging,
+derives the real primary job/factory and creates P06's official sampler inside
+the paid clock (reusing it on clean resume). Closed predecessors bind exact
+module command/environment/request, actual root clocks, immutable results and
+journal prefixes; the last complete qualified journal is audited before resume.
+Arbitrary outer interruption does not manufacture a closed model or free cost.
+
+Final affected suite: 132 passed in 14.45 seconds, session94639 exit zero,
+source `3dc3099d...c740`. Four actual cold roots cover generic constant-score
+controller execution, two-episode paid-tail resume and public rejection of
+false registry metadata before plan/data/output access. Capture spawned no
+process or model and read no labels. Complete qualified success and full native
+resume remain unrun; no stub or hand-filled success substitutes for them.
+[Contract](primary-search-worker.md), [receipt](WP08-primary-search-worker-receipt.json).
+The measured production launcher/forecast, all-primary model capability, global
+freeze and protected integration remain unfinished. The launcher must preflight
+its control directory before writing handshake files; the body protects its
+working/proof/executable locations after actual registry validation. Held c33
+NODE source/environment/serial operators remain unchanged; CCPP continues,
+Bike follows, and M3/B0 negative branches stay closed.

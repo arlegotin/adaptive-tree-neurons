@@ -1,0 +1,125 @@
+{
+  "T_accessed": false,
+  "actual_full_qualified_public_success_executed": false,
+  "actual_full_qualified_resume_executed": false,
+  "affected_suite_includes_existing_native_mean_and_failure_fixtures": true,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-c",
+      "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"--tb=short\",\"--basetemp=artifacts/research-v2/WP11/primary-search-worker-final-prefix-fixture\",\"tests/test_primary_search_worker_v2.py\",\"tests/test_primary_native_preparation_v2.py\",\"tests/test_search_controller_v2.py\",\"tests/test_cooperative_process_v2.py\",\"tests/test_qualified_search_audit_v2.py\"]))"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "fixture_observation": {
+    "bytes": 30534,
+    "path": "artifacts/research-v2/WP11/primary-search-worker-fixture-observation.json",
+    "sha256": "accc718fb5c25de73c258450d35a72357fa428d96705ee1d1e4971f9a4f675ac"
+  },
+  "logs": [
+    {
+      "bytes": 12306,
+      "path": "artifacts/research-v2/WP11/primary-search-worker-red.log",
+      "sha256": "2ad619c8ea68390f9d4451e73d8a9dd8683e0bd068da294befff471890a3fdcd"
+    },
+    {
+      "bytes": 98,
+      "path": "artifacts/research-v2/WP11/primary-search-worker-first.log",
+      "sha256": "fb8bec9fc58f3d954b791ced932a7ded6b6f9cc0a34884363a5d688f90a75235"
+    },
+    {
+      "bytes": 5800,
+      "path": "artifacts/research-v2/WP11/primary-search-worker-lineage-red.log",
+      "sha256": "90052de45b12e608cc2e2b8c4408ca4c5ddb60034fed44cfdd80fe9a3a13fb73"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP11/primary-search-worker-second.log",
+      "sha256": "e519f0ec4be6c9558326f082dc119f1ef87dc629e3f74d326327b2dbff567202"
+    },
+    {
+      "bytes": 3554,
+      "path": "artifacts/research-v2/WP11/primary-search-worker-resume-red.log",
+      "sha256": "7c05c8d31e6ea4c4a3a959db2f556463112e60306cc7e2e3c13656541db090df"
+    },
+    {
+      "bytes": 181,
+      "path": "artifacts/research-v2/WP11/primary-search-worker-final.log",
+      "sha256": "50371699373de4612e701ea87bf57bae65cfe05d669faa4ef0b4af618d1fcee4"
+    },
+    {
+      "bytes": 9873,
+      "path": "artifacts/research-v2/WP11/primary-search-worker-prefix-red.log",
+      "sha256": "a431c559ce888cce6605fbd7754eeead95f1531719d7813562cb6ca0eb3d71f7"
+    },
+    {
+      "bytes": 181,
+      "path": "artifacts/research-v2/WP11/primary-search-worker-final-prefix.log",
+      "sha256": "a7dc386a02f0cc58b9f8fc86935b7a4da282587cdacaff5f25adbc1b2674096e"
+    }
+  ],
+  "measured_whole_program_admission_implemented": false,
+  "parent_commit": "774402d",
+  "production_execution_authorized": false,
+  "production_queue_launcher_implemented": false,
+  "protected_access_authorized": false,
+  "quality_eligible": false,
+  "schema": "research/v2-primary-search-worker-component-receipt",
+  "scientific_source_sha256": "3dc3099d8b05bf311cf5cc5df2530db000205b1e74f54e8513f33f930666c740",
+  "scope": "Cold bootstrap and actual generic controller composition plus public rejection before actual qualification. Complete qualified success/full native resume are unrun; no forged/stub complete qualification.",
+  "tested_files": [
+    {
+      "bytes": 20131,
+      "path": "src/treeneuron/research/primary_search_worker_v2.py",
+      "sha256": "c20eed1124fd378d2eb7986b5d05fd4eebed56d4b3721c1a3083a7d0f0e49572"
+    },
+    {
+      "bytes": 14814,
+      "path": "tests/test_primary_search_worker_v2.py",
+      "sha256": "35c25bb4ab9e72fdd8ec32da491447c145ea5fa37800f20353d21e7aaa8927c7"
+    },
+    {
+      "bytes": 7494,
+      "path": "tests/test_primary_native_preparation_v2.py",
+      "sha256": "ccd2cdd5d97f54bd688b805224d004613fe7d5069788be13e23f936c97b53e3a"
+    },
+    {
+      "bytes": 19144,
+      "path": "tests/test_search_controller_v2.py",
+      "sha256": "372d22606d4476e554162c021c8d8cac09a5ee986e22074f3b50bc470fbf8539"
+    },
+    {
+      "bytes": 13690,
+      "path": "tests/test_cooperative_process_v2.py",
+      "sha256": "0d5d553634928d23dfe202c0710ed4a11cdfbb3a409bcf91b9bd6a337ea0eae2"
+    },
+    {
+      "bytes": 11565,
+      "path": "tests/test_qualified_search_audit_v2.py",
+      "sha256": "c49cd90290f86439cd8b4098f8b3564751865c60b4f1584200f9a4b4924c8332"
+    }
+  ],
+  "verification": [
+    "Initial missing API:9 failed .07s; first implementation passed9checks",
+    "Prior command-binding regressions:4 failed .05s before exact argv/environment/request validator;14checks passed1.11s",
+    "Actual two-cold-episode clean resume initially failed1case1.29s before exposing bounded invocation control; affected127 passed14.70s before prefix hardening",
+    "Exact prior closed journal prefix regressions:5 failed .19s; final5module suite132passed14.45s/session94639exit0",
+    "Readonly capture reopens4actualrootepisodes with process creation/probes forbidden; generic controller values are constant software fixtures, not predictive evidence",
+    "Initial capture assertion used an overlong pytest-directory prefix and found two rather than four rows; corrected to retained truncated directory names before output publication, with no new process/model/data access"
+  ],
+  "whole_training_procedure_cost_authenticated": false,
+  "worker_capture_labels_read": false,
+  "worker_capture_native_models_fit": false
+}

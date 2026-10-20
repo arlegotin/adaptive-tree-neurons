@@ -156,8 +156,11 @@ passed 71 affected checks, including actual nested cleanup and disk-publication
 failures. It supplies a cold-root clock and no native/production authority. Its
 [clock-origin extension](WP08-search-cold-origin-receipt.json) passed 110 affected
 checks, paying startup and declared prior closing tails before prefix eligibility.
-Composition with actual search execution, full external-cost reconciliation and
-primary-model/protocol barriers remain unfinished.
+The [cold primary worker body](primary-search-worker.md) passed 132 affected
+checks, including actual unqualified controller pause/resume and public rejection
+of false qualification. Complete qualified execution remains unrun. The measured
+production launcher, full external-cost reconciliation and primary-model/protocol
+barriers remain unfinished.
 
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only
