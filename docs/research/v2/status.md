@@ -155,8 +155,10 @@ unchanged native tree guard. No completed scientific seed or result changes.
 The [search auditor component](qualified-search-audit.md) then passed 93 scoped
 checks, including actual partial candidate, failure, replay and paid-retry
 records. Complete public qualified success awaits the actual final-source
-registry. The execution factory, whole external cost and primary-model/protocol
-barriers remain unfinished.
+registry. [Callback preparation](primary-native-preparation.md) then passed 61
+scoped checks, including byte-only role staging and validation-label exclusion.
+Its actual qualified-factory path is unrun. Whole execution/supervision, external
+cost and primary-model/protocol barriers remain unfinished.
 
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only

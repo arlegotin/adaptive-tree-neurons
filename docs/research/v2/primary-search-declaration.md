@@ -26,8 +26,8 @@ not authenticate official raw data; the sampler fits no model. Earlier failures,
 the pre-repair 74-check run and both source identities remain in the
 [component receipt](WP08-primary-search-declaration-receipt.json).
 
-No production support lock or native-quality search was emitted. The actual
-qualified execution factory, actual full-registry execution of the
-[paid-journal/candidate audit](qualified-search-audit.md), primary model barrier
-and final protocol integrations remain required. The original
+No production support lock or native-quality search was emitted. Actual
+full-registry execution of [callback preparation](primary-native-preparation.md)
+and the [paid-journal/candidate audit](qualified-search-audit.md), the primary
+model barrier and final protocol integrations remain required. The original
 scientific M3/B0 decisions are unchanged.

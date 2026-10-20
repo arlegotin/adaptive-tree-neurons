@@ -2095,3 +2095,17 @@ Its operators are byte-copied into a retained namespace; the held c33 source is
 unchanged. Any operational failure stops that queue for explicit recovery.
 The 117-of-120 completion count and all existing predictive results are unchanged
 at queue admission. Main production implementation remains in progress.
+
+### Exact primary callback preparation, 20 October
+
+The [preparation component](primary-native-preparation.md) passed 61 scoped
+checks. A real tiny sealed-role fixture stages F/G/V-features with array decoding
+forbidden; a self-rehashed validation-label sentinel and protected destination
+faults reject. Public factory construction requires actual qualification before
+staging and derives native imports from the qualified anchor, without borrowing
+test-only environment controls. The
+[receipt](WP08-primary-native-preparation-receipt.json) retains all failures and
+the reopened unqualified observation. Complete actual qualified-factory success
+is unrun; no production search, protected access or new predictive result is
+claimed. Whole external cost/cleanup and primary-model/protocol integration
+remain unfinished. Held-source native workers are unchanged.

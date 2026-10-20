@@ -1,0 +1,110 @@
+{
+  "T_accessed": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-c",
+      "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"--tb=short\",\"--basetemp=artifacts/research-v2/WP11/primary-native-preparation-final-fixture\",\"tests/test_primary_native_preparation_v2.py\",\"tests/test_primary_search_declaration_v2.py\",\"tests/test_qualified_native_trial_v2.py\",\"tests/test_immutable_input_staging.py\"]))"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "fixture_observation": {
+    "bytes": 5115,
+    "path": "artifacts/research-v2/WP11/primary-native-preparation-fixture-observation.json",
+    "sha256": "33608a393209c1c3f36972112a1537de0d5a7b9c9918e8b2333a423e0f0d1682"
+  },
+  "logs": [
+    {
+      "bytes": 12813,
+      "path": "artifacts/research-v2/WP11/primary-native-preparation-RED.log",
+      "sha256": "a14e73c496b6f67ab383522887eebd695517342e4098824e6994a4d107b25156"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP11/primary-native-preparation-first.log",
+      "sha256": "8d34dce37c27a3c4769b56bc43d98ab45ce99d5cdba361ac49363da850458329"
+    },
+    {
+      "bytes": 215,
+      "path": "artifacts/research-v2/WP11/primary-native-preparation-first-source.json",
+      "sha256": "2acdb543f0d5dd0b980e0b748e8da88a5424b2d53efe2da4e350e88de707b181"
+    },
+    {
+      "bytes": 8267,
+      "path": "artifacts/research-v2/WP11/primary-native-factory-paths-RED.log",
+      "sha256": "0cf0163e23bb70b843a8fc44fe6af1a599dad0a736649f463293def1b8ff455b"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP11/primary-native-preparation-paths.log",
+      "sha256": "1b047e485785765b3fe70bc7a3ef9e9430e796fd5e42df555bdfe356a9a913dc"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP11/primary-native-preparation-final-affected.log",
+      "sha256": "3432ddc1a3e320b39522c411e23b981888952ad2631d8a66b42ac40d387eec4a"
+    }
+  ],
+  "native_workload_qualified": false,
+  "new_model_fits_in_template_capture": 0,
+  "packages_installed_or_updated": false,
+  "parent_commit": "f1ba325",
+  "production_execution_authorized": false,
+  "protected_access_authorized": false,
+  "public_full_qualified_factory_executed": false,
+  "quality_eligible": false,
+  "schema": "research/v2-primary-native-preparation-component-receipt",
+  "scientific_source_sha256": "65553d01b9eefa929a932a3a1aa515f5d66d03f1c935bde4548a5f0107b040b8",
+  "scope": "Actual tiny primary template with NumPy archive decoding forbidden, V-label sentinel rejection, all-working/proof/executable-root metadata boundaries and false registry rejection. Fixture metadata is not official raw authentication. Public factory derives exact job/native runtime/imports from actual registry/anchor; complete qualified success is neither fabricated nor executed.",
+  "tested_files": [
+    {
+      "bytes": 12365,
+      "path": "src/treeneuron/research/primary_native_preparation_v2.py",
+      "sha256": "e0667508fbd57a9aa4ff9bd96e782ebbf3a5199c0dd60759cf9149b5a65e7594"
+    },
+    {
+      "bytes": 7494,
+      "path": "tests/test_primary_native_preparation_v2.py",
+      "sha256": "ccd2cdd5d97f54bd688b805224d004613fe7d5069788be13e23f936c97b53e3a"
+    },
+    {
+      "bytes": 5659,
+      "path": "tests/test_primary_search_declaration_v2.py",
+      "sha256": "684a2ec0417075479ce01cf1709f5013f026ddb3fa9b206b466d08011f9b9045"
+    },
+    {
+      "bytes": 6693,
+      "path": "tests/test_qualified_native_trial_v2.py",
+      "sha256": "59f8f92ac7b9e2f0e46f6e6dec8058895044b59e3d27f2357be96c7df8c7a6c7"
+    },
+    {
+      "bytes": 2306,
+      "path": "tests/test_immutable_input_staging.py",
+      "sha256": "91bfdccad9c547a2a6b594d46b92d196fc588391010ba6b0bf1620d354cdca5d"
+    }
+  ],
+  "verification": {
+    "all_root_boundary_RED_cases": 9,
+    "first_green_cases": 13,
+    "first_green_seconds": 1.09,
+    "initial_missing_API_failures": 13,
+    "passed": 61,
+    "second_green_cases": 22,
+    "second_green_seconds": 0.79,
+    "seconds": 23.2,
+    "whole_suite_or_final_source_qualified": false
+  },
+  "whole_external_process_cost_authenticated": false
+}

@@ -32,5 +32,6 @@ partial observations.
 The complete public qualified-success path has not been executed or simulated.
 It requires the final-source actual registry. These component tests are not
 production admission, a whole-suite pass or a new predictive result. The
-qualified primary execution factory, external cost supervision, all-primary
-model capability and final protocol integrations remain unfinished.
+actual full-registry [callback preparation](primary-native-preparation.md),
+external cost supervision, all-primary model capability and final protocol
+integrations remain required. Whole execution/supervision is still unfinished.

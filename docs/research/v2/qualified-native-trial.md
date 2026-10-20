@@ -15,8 +15,10 @@ complete search-space file identity. The [primary declaration compiler](primary-
 now binds these low-level plans to the full study's declared model and HPO seeds;
 RealMLP's 63-bit native seed is distinct from the generic 32-bit library seed.
 The [complete search auditor component](qualified-search-audit.md) now composes
-the retained evidence; its actual full-registry path and the qualified execution
-factory remain unrun/unfinished respectively.
+the retained evidence. [Primary callback preparation](primary-native-preparation.md)
+now stages the exact job inputs; its actual full-registry path remains unrun.
+The complete execution/supervision and global model/protocol barriers remain
+unfinished.
 
 After an actual native candidate completes, its raw and compiled proposal,
 request, immutable generation, full recorded workload, closed independent
