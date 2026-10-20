@@ -406,6 +406,11 @@
           "bytes": 6961,
           "path": "docs/research/v2/WP10-clock-records-receipt.json",
           "sha256": "d5e902a69c6da909db5844be6518b0cfff5bdad526f55836adb0ad00140eb6fa"
+        },
+        {
+          "bytes": 5919,
+          "path": "docs/research/v2/WP10-program-envelope-receipt.json",
+          "sha256": "eea585e2b685c3d08257a9b5c4daaeb6bd208b754e6c148cd36cd9db79e93c9a"
         }
       ],
       "status": "supported_scoped_status",

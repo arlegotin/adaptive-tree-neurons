@@ -2813,3 +2813,30 @@ final protected protocol/evaluator/raw audit/deployment/CLI/readiness and branch
 review. Existing inner records exclude their own final publication/return and
 cannot replace that evidence. Held native source/environment/operator plan and
 closed scientific branches remain unchanged.
+
+## 20 October: owned outer program process component
+
+The cold primary/secondary program worker and outer observer now bind strict
+source/argv/environment/request/clock evidence around actual public queues.
+Public native/global qualification precedes control output; after grant the
+worker repeats public gates before plans/data. Protected paths include working,
+proof, program and interpreter roots. Requests reject extra label/eligibility
+fields. Native fitting stays uncapped; post-authorization root pressure uses
+cooperative join without an outer hard kill.
+
+Initial10failed10setupErrors0.10s were the missing module. First20PASS1.69s;
+expanded twelve-module203PASS21.56s, exit0. The software capture has two actual
+cold failed native/global gates, code1/protocol closed/reaped, and a third
+prespawn denial with no worker. Containing elapsed intervals477788084ns,
+470536084ns and29587042ns. No model, real transfer labels or T; no complete-q
+success stub. [Contract](program-process-envelope.md),
+[receipt](WP10-program-envelope-receipt.json).
+
+The reader proves an operational outer clock only. It explicitly retains false
+nested-program/whole-cost/T authority; successful actual program execution and
+the pre-T cost auditor must join every queue, caller, native/HPO record and model.
+Own observer final publication/return remains operator overhead. That cost join,
+final protocol/once-only evaluator/raw audit/deployment/CLI/readiness and branch
+review still precede final-source qualification/primary production. Last observed
+held c33 CCPP update11100/best11100, Bike queued,118/120 anchors; no new prediction
+or research claim and no mutation of held source/environment/operator settings.

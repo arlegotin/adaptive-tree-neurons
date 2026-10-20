@@ -343,3 +343,10 @@ software captures verify exact caller sums and interval containment where the
 kernel identity is available. These records still exclude their own final
 publication/return; full outer process costs and the final protected evaluator,
 audit, deployment, CLI/readiness and branch review remain before production.
+
+The [owned program envelope](program-process-envelope.md) passed203affected
+checks. It measures cold queue-worker startup through return/reaping, preserving
+cooperative cleanup and uncapped native fitting. Actual cold failed gates and a
+prespawn denial are retained; full qualified success is unrun. Root closure
+still grants no nested-job, complete-cost or T authority. The pre-T cost join and
+remaining final evaluator/audit/deployment/CLI/readiness work are unfinished.
