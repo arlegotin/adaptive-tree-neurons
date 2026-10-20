@@ -52,3 +52,8 @@ claims. The [closed operational process reader](closed-process-receipts.md)
 now supplies the paid failure-record component without turning failures into
 prediction losses. No new scientific result or protected access follows from
 these checks.
+
+The [native outcome reader](native-outcome-reader.md) additionally joins that
+process evidence to its original native request/result and worker terminal.
+Exact paid search recovery lineage and complete journal/candidate composition
+remain separate requirements.

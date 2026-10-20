@@ -1,0 +1,51 @@
+{
+  "T_accessed": false,
+  "argv": [
+    ".superpowers/sdd/2026-10-18-research-v2/check-held-node-4000.py"
+  ],
+  "checkpoint_inventory_unchanged": true,
+  "checkpoint_step": 4000,
+  "elapsed_ns": 3958285667,
+  "evidence": [
+    {
+      "bytes": 860,
+      "path": "artifacts/research-v2/WP07/NODE-storage-interruption-20261020-checkpoint-read.json",
+      "sha256": "46e2c8af1445261b9e996f6f2c9fe6bf4b1ec901f23894ed44b3a0fef69ea34e"
+    },
+    {
+      "bytes": 1298,
+      "path": "artifacts/research-v2/WP07/NODE-storage-interruption-20261020-checkpoint-read.log",
+      "sha256": "11f2139d5d9fa498a6e6efc3525646e614bb8b5b572bfb61ea99997f59eab8dd"
+    }
+  ],
+  "execution_receipt": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      ".superpowers/sdd/2026-10-18-research-v2/check-held-node-4000.py"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/private/tmp/atn-research-v2-node-recovery/src",
+      "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "exit_code": 0,
+    "session_id": 93391
+  },
+  "loaded_under_original_source_runtime": true,
+  "model_predictions_executed": 0,
+  "operator_sha256": "b0c308ff5eb0d99a1f96d5205f3d3eca88df8d87a92c5a92dc7eab09413ae9d7",
+  "original_complete_checkpoint_loader_passed": true,
+  "parameter_updates_executed": 0,
+  "quality_eligible": false,
+  "schema": "research/v2-held-node-storage-checkpoint-read",
+  "scope": "Read-only original loader/schema/state/trace/config/seed/source/runtime validation. No resumed optimizer updates or independent training replay; admission and same-seed continuation remain pending.",
+  "source_sha256": "b680a26b2176c6c5cc0f59cf19192d7ee963826a7575cce5ec5ee695521a65cc"
+}

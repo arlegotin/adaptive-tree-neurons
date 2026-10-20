@@ -2041,3 +2041,20 @@ anchors. Recovery must validate the existing checkpoint and resume the same
 source/configuration/seed after storage admission, retaining the failed attempt
 and its available cost evidence. No new native fit is admitted while free disk
 is below the declared reserve.
+
+The separate [original-loader observation](WP07-NODE-storage-checkpoint-validation-receipt.json)
+passed at update 4,000 with unchanged checkpoint inventory. It executed no
+parameter updates or predictions. This establishes a valid saved state for
+later same-source/seed recovery, without repairing missing terminal/cost records
+or granting a completed-model result.
+
+### Native operational outcome component, 20 October
+
+The [native outcome reader](native-outcome-reader.md) passed 43 scoped checks,
+including actual tiny mean and owned RSS-stop records. It joins the existing
+closed process proof to the original native request/result/worker and preserves
+failures as availability outcomes. The
+[receipt](WP08-native-outcome-reader-receipt.json) retains initial failures,
+three reproduced semantic/type faults, final commands and read-only observations.
+Full qualified-search composition, recovery lineage and outer wall time remain
+unfinished. No predictive or protected result changed.

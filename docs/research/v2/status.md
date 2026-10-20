@@ -59,9 +59,12 @@ All twenty Airfoil anchors remain visible. The [Concrete tranche](../../../repor
 adds NODE at 0.161727, versus grown 0.209199 and CatBoost 0.129860. All twenty
 Concrete coordinates are visible. Native engineering completions now number
 117 of 120. Parkinsons stopped on a disk-full error; its published checkpoint
-pointer remains at update 4,000 with matching manifest/payload bytes. A full
-semantic checkpoint load and safe-storage admission are required before
-same-source/seed recovery. CCPP and Bike remain pending. The
+pointer remains at update 4,000. Its original complete checkpoint loader then
+passed under the unchanged source/runtime, validating model/optimizer state and
+sampling history without training or prediction. See the separate
+[checkpoint validation receipt](WP07-NODE-storage-checkpoint-validation-receipt.json).
+Safe-storage admission is still required before same-source/seed recovery.
+CCPP and Bike remain pending. The
 [interruption receipt](WP07-NODE-storage-interruption-2026-10-20-receipt.json)
 preserves missing terminal records and available error/cost evidence. The
 original survey and earlier receipts remain unchanged.
