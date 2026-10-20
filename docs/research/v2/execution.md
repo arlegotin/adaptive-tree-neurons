@@ -2918,3 +2918,34 @@ protected protocol/once-only feature->all-model-prediction->label evaluator,
 independent raw/model/access audit, deployment/CLI/readiness/final branch review
 before final-source actual qualification/primary production. Current science,
 held c33 native source/environment/operator plan and branch closures unchanged.
+
+## 20 October: final practical prediction-protocol component
+
+Public protocol seal/load reopen actual full840/native/global models, pre-T
+training costs and the required readiness loader before data/protocol binding.
+Readiness remains unimplemented and fails closed, never a dummy capability.
+The protocol derives exact native-completion/analysis rules from the pre-search
+declaration; no late caller policy is accepted. It binds T features separately
+from labels, keeps all3,360 views and explicitly grants no standalone label
+access. The future once journal must enforce all predictions before labels.
+
+Initial11RED1.72s→11GREEN4.75s. Output/readiness cases1FAIL1PASS0.22s exposed the
+missing pure guard; protection now includes complete model/program proof roots
+and permits fresh protocol outputs. Expanded102PASS19.97s included metadata-only
+toy role binding with all archive reads forbidden.
+
+Copied-content test1RED0.88s→first content-key run3FAIL100PASS21.28s: identical
+placeholder hashes across repetitions collapsed840metadata queries to420.
+Adding frozen job/fit-seed identity restricts reuse within a model job. Final
+seven-module103PASS21.44s, exit0. Preliminary and failing core source snapshots
+plus parent35245d2 are retained; their captures are not promoted as final-source
+evidence. [Contract](final-practical-protocol.md),
+[receipt](WP10-practical-T-protocol-receipt.json).
+
+Final capture1336B/SHAaf0f3a680253fd8a45886efaa4cc88ba777f0692bdf571186de620a0ce3c1fc0
+retains840native queries/3,360 views, duplicate-copy840 versus changed-content841,
+plus24-row raw-identity-false Energy metadata. No model files/fits, real labels
+or T; no fake qualified model/global/readiness success. Actual public positive
+and all production searches/protected evaluation remain unrun. Next once-only
+ownership/access/prediction engine and native T query workers, independent audit,
+deployment/CLI/readiness/final review before final-source actual qualification.

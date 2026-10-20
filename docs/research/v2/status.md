@@ -371,3 +371,11 @@ Positive fixtures remain partial/arithmetic; genuine complete-qualified public
 success is unrun. Whole-pipeline cost and T permission remain false. Final
 protected protocol/evaluator/auditor, deployment, CLI/readiness and final branch
 review still precede final-source qualification and production searches.
+
+The [final practical protocol component](final-practical-protocol.md) passed
+103affected checks. It derives unchanged pre-search rules and binds complete
+model/data/cost identities. Repetition-preserving duplicate-state reuse is
+checked on untrusted metadata. Actual public success remains unrun: production
+readiness is an explicit missing dependency, and the once-only evaluator, native
+T prediction, raw audit, deployment, CLI and final review remain unfinished.
+The protocol itself grants no label access.

@@ -1,0 +1,192 @@
+{
+  "T_accessed": false,
+  "actual_complete_qualified_public_positive": false,
+  "capture_scripts": [
+    {
+      "bytes": 3149,
+      "path": "artifacts/research-v2/WP10/capture_practical_T_protocol.py",
+      "sha256": "71a2b2000dd73e097c2ce400311cbe4e372e2ba13507ffba3a2524be57b1f7a6"
+    },
+    {
+      "bytes": 3860,
+      "path": "artifacts/research-v2/WP10/capture_practical_T_protocol_final.py",
+      "sha256": "dd72d5e43b7441ce9c1d3108648afa0cfd9db46823c58fd5fecd4c4010cb38f7"
+    }
+  ],
+  "failing_content_source": [
+    {
+      "bytes": 14846,
+      "path": "artifacts/research-v2/WP10/practical-T-dedup-failed-source/practical_T_protocol_v2.py",
+      "sha256": "32df907711a0caa3c6de53e3914596f3eae658fa5c4c9365d14def7f838695ce"
+    },
+    {
+      "bytes": 326,
+      "path": "artifacts/research-v2/WP10/practical-T-dedup-failed-source/source.json",
+      "sha256": "145c3de17b135c426258db9f0658ece69cc488f4ac4af2d8c9458c526c4ec4da"
+    }
+  ],
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_practical_T_protocol_v2.py",
+      "tests/test_practical_preT_costs_v2.py",
+      "tests/test_qualified_practical_models_v2.py",
+      "tests/test_practical_global_freeze_v2.py",
+      "tests/test_practical_procedure_v2.py",
+      "tests/test_released_transfer_v2.py",
+      "tests/test_transfer_access_v2.py"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "logs": [
+    {
+      "bytes": 24188,
+      "path": "artifacts/research-v2/WP10/practical-T-protocol-red.log",
+      "sha256": "c44cb9c0eb7f1a62c74a3c46915a2acd69c76ab84a28badcea12cc7ca60be2e8"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/practical-T-protocol-green-initial.log",
+      "sha256": "c9ae99dfd29a95225abfa5cba837bad1f4bf942ce38b6b4b308d9b4bd37e9720"
+    },
+    {
+      "bytes": 1296,
+      "path": "artifacts/research-v2/WP10/practical-T-output-red.log",
+      "sha256": "e70a62bbdfd462fe6e0c6c21a57dc77346c8d19c59cbe9908618eb6afb11ca26"
+    },
+    {
+      "bytes": 181,
+      "path": "artifacts/research-v2/WP10/practical-T-protocol-final.log",
+      "sha256": "15832cd242c3034077e92bb72dcbd5f462d6c5821bfb82a731d22ddb3b458d39"
+    },
+    {
+      "bytes": 1724,
+      "path": "artifacts/research-v2/WP10/practical-T-content-dedup-red.log",
+      "sha256": "0d6a04b1a864f9e9b685cd5f04748307fa5071afdd30f70219dc730bf038dee7"
+    },
+    {
+      "bytes": 4110,
+      "path": "artifacts/research-v2/WP10/practical-T-protocol-final-content.log",
+      "sha256": "780697eba6a79a60fd22b67bfb0bdb4bd6cd9b5f5d2e32eb1119ac24736ffcba"
+    },
+    {
+      "bytes": 181,
+      "path": "artifacts/research-v2/WP10/practical-T-protocol-final-corrected.log",
+      "sha256": "c66a66bfc3da25f3b21cb74dcd06757fd15a5e260eb4915b3ee6558de6eed4f2"
+    },
+    {
+      "bytes": 399,
+      "path": "artifacts/research-v2/WP10/practical-T-protocol-capture.log",
+      "sha256": "12144a2ac9b7c85b55ae9107215d8bfa38a58fe116374401f7e01c44a7c0f890"
+    },
+    {
+      "bytes": 405,
+      "path": "artifacts/research-v2/WP10/practical-T-protocol-final-capture.log",
+      "sha256": "88f365f77a19f44d64696a0031deeee4d2f89c37420839a277849f0a4961680a"
+    }
+  ],
+  "model_files_in_capture": 0,
+  "model_fits_in_capture": 0,
+  "observation": {
+    "bytes": 1336,
+    "path": "artifacts/research-v2/WP10/practical-T-protocol-final-software/observation.json",
+    "sha256": "af0f3a680253fd8a45886efaa4cc88ba777f0692bdf571186de620a0ce3c1fc0"
+  },
+  "once_only_evaluator_implemented": false,
+  "parent_commit": "35245d2",
+  "preliminary_observation": {
+    "bytes": 1247,
+    "path": "artifacts/research-v2/WP10/practical-T-protocol-software/observation.json",
+    "sha256": "509e617a99db516b94eceebdcd7c61ebf4f82c94ea746d32a4d575bf1a72b74a"
+  },
+  "preliminary_source": [
+    {
+      "bytes": 14180,
+      "path": "artifacts/research-v2/WP10/practical-T-preliminary-source/practical_T_protocol_v2.py",
+      "sha256": "db2c1bbcae1f43aadf34e2e3af1e41494ccbd8c3e47c694ea27bf9a05d1a1aef"
+    },
+    {
+      "bytes": 459,
+      "path": "artifacts/research-v2/WP10/practical-T-preliminary-source/source.json",
+      "sha256": "6175384b17d4161fe96cfa83137b9c23e26af6fe18f129d9ca642fd1fb2b083c"
+    }
+  ],
+  "production_readiness_implemented": false,
+  "protected_access_authorized": false,
+  "real_transfer_labels_read": false,
+  "remaining": [
+    "Once-only protected owner/access/prediction journal and native T feature query route",
+    "Independent raw/model/access audit, deployment, CLI/readiness and fresh branch review before final-source qualification/primary production"
+  ],
+  "schema": "research/v2-final-practical-protocol-component-receipt",
+  "scope": "Actual-gated final protocol wiring and metadata-only prediction compiler. Required production readiness/evaluator remain unimplemented; no actual full-qualified public positive or protected access.",
+  "source_sha256": "063339d97c5b844b6885fcf5fcbb11bfa3ea1c139485b95bf60e8277a67af372",
+  "tested_files": [
+    {
+      "bytes": 14912,
+      "path": "src/treeneuron/research/practical_T_protocol_v2.py",
+      "sha256": "51057b78e85db630379ae2743de916b5614de8353bc33935571b261b9125cff0"
+    },
+    {
+      "bytes": 8367,
+      "path": "tests/test_practical_T_protocol_v2.py",
+      "sha256": "980be9b858e3867c409aa5a4416caa2ef1e647325e1ce9d240fe7880f598f892"
+    },
+    {
+      "bytes": 7329,
+      "path": "tests/test_practical_preT_costs_v2.py",
+      "sha256": "255d4832a9db33cd8ce57742d33fe5cb3c5d8a4bcd1b4f8faa32e4a1b4896659"
+    },
+    {
+      "bytes": 6377,
+      "path": "tests/test_qualified_practical_models_v2.py",
+      "sha256": "33e7365c12fdb22543320c988ce3074ad20354d6ee7ca7a0dc3b3eb68c5033d2"
+    },
+    {
+      "bytes": 5929,
+      "path": "tests/test_practical_global_freeze_v2.py",
+      "sha256": "85ea4960511ab9a3c6444d4f46453a2f67350234ad837fa1ada02d0ca98f0a63"
+    },
+    {
+      "bytes": 7011,
+      "path": "tests/test_practical_procedure_v2.py",
+      "sha256": "d22569e868bca6a351139cb89739d7a375bf38cbb38b588d915acc83597f1f2f"
+    },
+    {
+      "bytes": 5228,
+      "path": "tests/test_released_transfer_v2.py",
+      "sha256": "ca4b8add15fb7d44b3dc7ce32abc344c7b0f5f1c784de76dc5da3ec5e246f39c"
+    },
+    {
+      "bytes": 6923,
+      "path": "tests/test_transfer_access_v2.py",
+      "sha256": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd"
+    }
+  ],
+  "verification": [
+    "Initial11missing-module failures1.72s",
+    "11passed4.75s",
+    "Output/readiness1failed1passed11deselected0.22s",
+    "Expanded102passed19.97s before content-key revision",
+    "Copied-root regression1failed14deselected0.88s",
+    "First content-key revision3failed100passed21.28s: missing per-job/fit-seed identity collapsed metadata840to420",
+    "Corrected per-job content key; final103passed21.44s exit0"
+  ],
+  "whole_repository_suite_passed": false,
+  "whole_training_procedure_cost_authenticated": false
+}

@@ -426,6 +426,11 @@
           "bytes": 9998,
           "path": "docs/research/v2/WP10-preT-costs-receipt.json",
           "sha256": "4785a8f22101c24a8d235f3c963728ee642fa6f16c0cf0a58ed01070b64f6c4c"
+        },
+        {
+          "bytes": 7455,
+          "path": "docs/research/v2/WP10-practical-T-protocol-receipt.json",
+          "sha256": "f3c68315218b73dba16445ac88765693f77b5b25da11da2e88d98055a28b5226"
         }
       ],
       "status": "supported_scoped_status",
