@@ -268,6 +268,13 @@ keeps unavailable prefixes explicit, and extends the actual search/model audits
 to all retained views. Complete-qualified public execution remains unrun; this
 adds no secondary/T permission or training time cutoff.
 
+The [global primary-model/procedure barrier](practical-global-barrier.md) passed
+90 affected checks. Actual execution requires the real qualified 168-model seal,
+all retained budget views and immutable global policy before it could authorize
+secondary development. It grants no final-test or cost authority. Actual public
+positive execution remains unrun; secondary fit/evaluator/readiness routes remain
+unfinished.
+
 The [reproduction guide](reproduce.md), [binding spec](../../superpowers/specs/2026-10-18-research-v2-design.md)
 and [implementation plan](../../superpowers/plans/2026-10-18-research-v2.md)
 separate implemented components from unrun studies. Historical source identities

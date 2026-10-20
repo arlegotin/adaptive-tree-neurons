@@ -29,5 +29,6 @@ unavailability and stable ties; their scores/times are not benchmark results.
 
 Actual complete-qualified search and 168-model positive execution remain unrun;
 no full registry success was fabricated. This completes a prerequisite for the
-pending post-search global protocol. It grants no secondary or T release and
+post-search [primary global barrier](practical-global-barrier.md), whose actual
+qualified execution remains unrun. This byte helper grants no secondary or T release and
 does not change native stopping or impose a two-hour training limit.

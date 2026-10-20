@@ -1,0 +1,118 @@
+{
+  "T_accessed": false,
+  "actual_complete_qualified_public_barrier": false,
+  "cost_claim_authorized": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_practical_global_freeze_v2.py",
+      "tests/test_transfer_access_prefix_v2.py",
+      "tests/test_transfer_access_v2.py",
+      "tests/test_qualified_primary_models_v2.py",
+      "tests/test_practical_procedure_v2.py",
+      "tests/test_primary_budget_models_v2.py",
+      "--basetemp=artifacts/research-v2/WP09/practical-global-freeze-source-final-tmp"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "logs": [
+    {
+      "bytes": 19024,
+      "path": "artifacts/research-v2/WP09/practical-global-freeze-RED.log",
+      "sha256": "bf325b8ea2c63c927966a506c44f6fdc3a8df5e035878ec82eadd34eb64179f4"
+    },
+    {
+      "bytes": 180,
+      "path": "artifacts/research-v2/WP09/practical-global-freeze-final.log",
+      "sha256": "b058cfe3fcdca6f50286fabc966e6d08033b65367f7ccc53b90579a0c403c7a1"
+    },
+    {
+      "bytes": 1298,
+      "path": "artifacts/research-v2/WP09/practical-global-publication-RED.log",
+      "sha256": "7e43fa2de60056fab56cf1f2dda6e5768d02d3cb888615cc952762ca29f956ef"
+    },
+    {
+      "bytes": 180,
+      "path": "artifacts/research-v2/WP09/practical-global-freeze-source-final.log",
+      "sha256": "3ecc39db543497525f028e8123103ae80945e95895615620d7914b685dd3ad7d"
+    }
+  ],
+  "native_models_fit": 0,
+  "observation": {
+    "bytes": 1027,
+    "path": "artifacts/research-v2/WP09/practical-global-freeze-software/observation.json",
+    "sha256": "25d2c37fee36b33295be90a2388e5f41ec14a14a2d97e26addf23109c3b52532"
+  },
+  "parent_commit": "015d6b3",
+  "production_readiness_authenticated": false,
+  "protected_access_authorized": false,
+  "real_labels_read": false,
+  "remaining": [
+    "Released secondary F/G/V and separately qualified workloads/adapters",
+    "Full post-secondary retained-model and once-only T barrier/evaluator",
+    "Raw artifact audit, physical costs, production CLI/readiness and final review before actual qualification/primary production"
+  ],
+  "schema": "research/v2-global-primary-barrier-component-receipt",
+  "scope": "Actual qualification/model/procedure global barrier implementation authorizing only secondary development after genuine168model evidence. Toy champion arithmetic and real context-exit failure fixture; public tests negative before data. Complete actual-qualified positive was not fabricated/executed.",
+  "source_sha256": "698b3f35c65e92d128000ec77836fd87afb887a6465d8996fa5d8f6a2f008e02",
+  "tested_files": [
+    {
+      "bytes": 14725,
+      "path": "src/treeneuron/research/practical_global_freeze_v2.py",
+      "sha256": "b598b46a29deb7326c3d12b622fc1b2b88af4f45df5e659400da123af66ab33e"
+    },
+    {
+      "bytes": 5929,
+      "path": "tests/test_practical_global_freeze_v2.py",
+      "sha256": "85ea4960511ab9a3c6444d4f46453a2f67350234ad837fa1ada02d0ca98f0a63"
+    },
+    {
+      "bytes": 4324,
+      "path": "tests/test_transfer_access_prefix_v2.py",
+      "sha256": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb"
+    },
+    {
+      "bytes": 6923,
+      "path": "tests/test_transfer_access_v2.py",
+      "sha256": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd"
+    },
+    {
+      "bytes": 4847,
+      "path": "tests/test_qualified_primary_models_v2.py",
+      "sha256": "ac60c5746a4f15bf0a6e6cd17a2ea32c39faf2f41e0d7a37b8e7b32c0ff5dc9a"
+    },
+    {
+      "bytes": 7011,
+      "path": "tests/test_practical_procedure_v2.py",
+      "sha256": "d22569e868bca6a351139cb89739d7a375bf38cbb38b588d915acc83597f1f2f"
+    },
+    {
+      "bytes": 4677,
+      "path": "tests/test_primary_budget_models_v2.py",
+      "sha256": "25b9ebdc9ce3388aa62f76e232c4e68ad51ea34cb439608985c606fdc677e577"
+    }
+  ],
+  "verification": [
+    "Initial12missing-module failures0.08s",
+    "First89passed10.36s",
+    "Publication-boundary missing-interface regression1failed12deselected0.04s",
+    "Final90passed10.35s/session30219exit0"
+  ],
+  "whole_repository_suite_passed": false,
+  "whole_training_procedure_cost_authenticated": false
+}

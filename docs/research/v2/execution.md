@@ -2565,3 +2565,31 @@ Post-search globalprotocol, secondaryrole/workload route, protected evaluator/
 fullaudit, cost/CLI/readiness/finalreview remain required before final-source
 qualification/primaryproduction. Heldc33fits/source/env/ops and predictive results
 are unchanged.
+
+## 20 October: actual primary global barrier, secondary development only
+
+Added qualification-first seal/load of the global pre-search policy and genuine
+168model seal, including all retained budget views and separately V-chosen
+P02-P13champions for each dataset/R2/view. Missing-prefixfamilies make the whole
+portfolio unavailable. Label-reading audits run before six primary access-log
+SHleases; underleases raw immutable model/search/qualification bytes and source/
+procedure are rechecked without calling label readers. Later valid primary
+audits may append beyond frozen prefixes; no secondary/T event enters that log.
+
+Actual success would freeze primary models/procedure and grant secondary
+development only. T/protected evaluation, secondary workload qualification,
+whole-cost and confirmation authority remain false and require later gates.
+The returned object is not an independent permission token; released readers
+must reload/validate the actual file. No actual global freeze has been executed.
+
+Initial12missing-module failures0.08s precede89passed10.36s. A publication-boundary
+regression failed0.04s before moving canonical publication after validation
+contexts exit; failed exit leaves no canonical file. Output guards use genuine
+validated model paths and protect all prefix snapshots. Final six-module90passed
+10.35s/session30219exit0. Toy V/model metadata capture only, no nativefit/real
+labels/T; public falseq tests fail before metadata/output. Complete-qualified
+positive was not stubbed or run. [Contract](practical-global-barrier.md),
+[receipt](WP09-practical-global-barrier-receipt.json). Released secondary fitting,
+full post-secondary/T/evaluator/auditor/cost/CLI/readiness/finalreview remain
+required before final-source qualification/primaryproduction. Heldc33CCPP7200+
+and source/env/ops remain unchanged; no new predictive outcome.

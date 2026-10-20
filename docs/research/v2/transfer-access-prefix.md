@@ -21,7 +21,9 @@ This authenticates recorded API history only. It opens no arrays, grants no
 secondary/protected access and cannot prove absence of unlogged filesystem
 access. The actual protocol must validate native/model prerequisites before
 holding log leases, avoiding an audit that tries to append while holding its
-own shared lease. Post-search global freeze implementation remains pending.
+own shared lease. The [primary global barrier](practical-global-barrier.md)
+now uses that ordering and grants no final-test permission. Its actual qualified
+execution and the full protected protocol remain pending.
 
 The affected four-module suite passed **67 checks in 10.64 seconds**. Thirteen
 missing-interface failures preceded the first 64-check run. Three further
