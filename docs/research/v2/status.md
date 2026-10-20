@@ -407,3 +407,10 @@ Torch deliberately preloaded. P13 import isolation now runs in a fresh child;
 its in-process numerical test no longer mistakes prior imports for method
 imports. Scientific source and results are unchanged. The earlier205-check run
 is retained separately; this is not a whole-suite pass.
+
+The [independent query-artifact reader](query-artifact-readback.md) passed202
+checks in86.25s on its distinct overlapping scope. It checks finite outputs,
+exact row/group/date alignment and complete source/model/feature commitments,
+without a second model prediction. Label filenames reject before byte access.
+Numerical readback alone grants no access authority: owned worker provenance and
+actual journal/label execution remain unfinished before production.

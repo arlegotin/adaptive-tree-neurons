@@ -446,6 +446,11 @@
           "bytes": 2786,
           "path": "docs/research/v2/WP10-protected-query-test-isolation-receipt.json",
           "sha256": "1d2b2bd04e0dc8dff6c417668bfd805bfa4409d1017ae7e2b025ae2e7e674b1d"
+        },
+        {
+          "bytes": 5099,
+          "path": "docs/research/v2/WP10-query-artifact-readback-receipt.json",
+          "sha256": "524c0c80682d4c617436754feeba4126519547bf8eaedb4c196fad06783b19c7"
         }
       ],
       "status": "supported_scoped_status",

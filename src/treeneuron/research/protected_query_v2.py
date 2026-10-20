@@ -199,3 +199,64 @@ def prepare_protected_query(reference,*,directory,query_id,episode_root,models_r
         episode_root=str(root),journal_sha256=state['journal_sha256'],genesis_sha256=state['binding']['genesis_sha256'],
         execution_implemented=False,**_FALSE,
         scope='Read-only draft only. Actual coordinator must reserve the query and bind owned nonce/request/journal before any worker feature access.')
+
+
+def inspect_saved_query_artifact(request,*,terminal_reference):
+    """Check numerical output/identities only; never fit, predict or read labels.
+
+    Actual protocol ownership and the containing process/body proof must still
+    be joined by the coordinator. Supplied references confer no such authority.
+    """
+    terminal_path=_path(terminal_reference['path'])
+    if terminal_path.name!='terminal.json':raise ValueError('Exact saved-query terminal metadata required')
+    _,terminal_raw=_reference(terminal_reference);value=_json(terminal_raw)
+    fields={'schema','status','request_sha256','adapter_import_started','finite_aligned_prediction_artifact','feature_query_read','labels_read',
+        'scope','query_id','family_id','logical_fit_seed','source_sha256','protocol_sha256','prediction_manifest_sha256','query_rows',
+        'feature_reference','model_binding','torch_threads','prediction_dtype','prediction_reference','loaded_heavy_modules','worker_body_ns','clock_scope',*_FALSE}
+    scope='Saved-byte/finite-output fixture primitive only; no native training, protocol/access or whole-cost authority'
+    clock_scope='Private core entry through prediction publication; own terminal publication/return and containing process excluded'
+    if (type(value) is not dict or set(value)!=fields or value['schema']!='research/v2-saved-feature-query-terminal'
+            or value['status']!='completed_ineligible' or value['request_sha256']!=_hash(request)
+            or value['adapter_import_started'] is not True or value['finite_aligned_prediction_artifact'] is not True
+            or value['feature_query_read'] is not True or value['labels_read'] is not False
+            or any(value[k] is not False for k in _FALSE) or value['scope']!=scope or value['clock_scope']!=clock_scope
+            or type(value['worker_body_ns']) is not int or value['worker_body_ns']<=0
+            or type(value['query_rows']) is not int or type(value['logical_fit_seed']) is not int):
+        raise ValueError('Strict successful saved-query metadata without invented authority required')
+    q,model,snapshot,inventory,arrays=_query_inputs(request)
+    expected=dict(query_id=q['query_id'],family_id=q['family_id'],logical_fit_seed=q['fit_seed'],source_sha256=request['source_sha256'],
+        protocol_sha256=request['protocol_sha256'],prediction_manifest_sha256=request['prediction_manifest_sha256'],
+        query_rows=len(arrays['X']),feature_reference=q['feature_reference'],model_binding=model)
+    if any(value[k]!=v for k,v in expected.items()):raise ValueError('Saved-query output differs from frozen request/model/feature identity')
+    threads=value['torch_threads'];neural=q['family_id'] in ('P00','P01','P02','P03','P04','P05','P06','P07','P12')
+    if (neural and (type(threads) is not dict or set(threads)!={'intra_op','inter_op'}
+            or any(type(t) is not int or t!=1 for t in threads.values())) or not neural and threads is not None):
+        raise ValueError('Recorded native query thread treatment differs')
+    modules=value['loaded_heavy_modules'];allowed={'torch','treeneuron.baselines._node_vendor','pytabkit','tabm','rtdl_num_embeddings','catboost','xgboost','lightgbm'}
+    if type(modules) is not list or any(type(s) is not str or s not in allowed for s in modules) or len(set(modules))!=len(modules):
+        raise ValueError('Explicit method import observation required')
+    reference=value['prediction_reference']
+    if type(reference) is not dict or reference.get('path')!=str(terminal_path.parent/'prediction.npz'):
+        raise ValueError('Committed prediction must belong to its exact saved-query output')
+    path,prediction_raw=_reference(reference);identities=[k for k in arrays if k!='X'];expected_fields=['prediction',*identities]
+    try:
+        with zipfile.ZipFile(io.BytesIO(prediction_raw)) as archive:
+            members=archive.infolist()
+            if (len(members)!=len(expected_fields) or {m.filename for m in members}!={k+'.npy' for k in expected_fields}
+                    or sum(m.file_size for m in members)>64*1024**2):raise ValueError('Bounded predictions/identities only; no label fields')
+    except zipfile.BadZipFile as error:raise ValueError('Invalid committed prediction archive') from error
+    import numpy as np
+    with np.load(io.BytesIO(prediction_raw),allow_pickle=False) as archive:predictions={k:archive[k].copy() for k in expected_fields}
+    pred=predictions['prediction']
+    if (pred.dtype not in (np.dtype('float32'),np.dtype('float64')) or str(pred.dtype)!=value['prediction_dtype']
+            or pred.shape!=(len(arrays['X']),) or not np.isfinite(pred).all()
+            or any(predictions[k].dtype!=arrays[k].dtype or not np.array_equal(predictions[k],arrays[k]) for k in identities)):
+        raise ValueError('Finite original-unit predictions must preserve exact row/group/time order and dtype')
+    _reference(q['feature_reference']);_reference(model['selected_metadata']);_reference(reference)
+    if (_source()!=request['source_sha256'] or _snapshot_inventory(snapshot)!=inventory
+            or _reference(terminal_reference)[1]!=terminal_raw):raise ValueError('Saved-query inputs/output/source changed during independent reading')
+    return dict(schema='research/v2-saved-query-artifact-readback',query_id=q['query_id'],source_sha256=request['source_sha256'],
+        protocol_sha256=request['protocol_sha256'],prediction_manifest_sha256=request['prediction_manifest_sha256'],
+        terminal_reference=copy.deepcopy(terminal_reference),prediction_reference=copy.deepcopy(reference),feature_reference=copy.deepcopy(q['feature_reference']),
+        model_binding=copy.deepcopy(model),query_rows=len(pred),prediction_dtype=str(pred.dtype),finite_aligned_prediction_artifact_checked=True,
+        labels_read=False,**_FALSE,scope='Numerical file/binding readback only; no model generation, owned-process, protected protocol/access or whole-cost authority')

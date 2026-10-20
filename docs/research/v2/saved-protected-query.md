@@ -57,3 +57,10 @@ remain independent of earlier tests' imports. All four targeted cases passed
 with parent Torch preloaded. The scientific source, recipes and predictions are
 unchanged. The earlier205-check command and the four-case follow-up overlap;
 they are not a new whole-suite result. Original test bytes remain archived.
+
+The [independent artifact checker](query-artifact-readback.md) now reopens the
+saved output and its complete feature/model binding without fitting, loading
+or predicting a model again. Its latest202-check scope includes shifted-date
+and forbidden-label sentinels. This supplies numerical/file evidence for the
+future owned coordinator; it does not authorize journal commits or label access
+by itself.

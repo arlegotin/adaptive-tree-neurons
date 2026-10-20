@@ -3021,3 +3021,21 @@ test-order assumption rather than native behavior. Original test bytes at
 b3b0609 are retained to resolve the earlier receipt's test hash. The
 [follow-up receipt](WP10-protected-query-test-isolation-receipt.json) preserves
 both runs. No expanded or whole-suite count is inferred.
+
+## Independent saved-query artifact reader,20October
+
+The [reader](query-artifact-readback.md) now verifies terminal/request/source,
+full snapshot/feature/output bytes, finite dtype/shape and exact row/group/date
+identities. No fit, model reload, prediction replay or label read occurs. It
+rejects label-role filenames before byte access. Actual owned process and
+protocol evidence remain separate and required for a genuine journal commit.
+
+Initial22missing-reader failures in15.22s became22passes in15.83s; the final
+10-module scope passed202checks in86.25s. Known ridge/spline fixture captures
+have37rows each and independent aligned readbacks, no benchmark labels/models.
+The [receipt](WP10-query-artifact-readback-receipt.json) retains source778e808152cd0e5f18d04bef366b1c6a206cfd9f9d58529f9ac7db0969ab0836,
+commands and boundaries. This does not finish the owned worker, actual test
+label evaluator, full raw/model/access audit, deployment/cost, CLI/readiness or
+final review. Production actual qualification/HPO/T remain unrun. Heldc33NODE
+source/environment/operator queue unchanged: CCPP15000/best15000latestobserved,
+Bike next,118of120 engineering anchors complete.
