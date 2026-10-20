@@ -1802,3 +1802,16 @@ explicit training-checkpoint arguments; non-NODE native budgets remain valid.
 58affected checks passed143.74s/31native warnings after3REDcases (including one
 obsolete P13expectation updated for the new contract). No unsafe full job or
 experimental prediction changed. See WP08-native-quality-NODE-entry-receipt.json.
+
+Task8/10candidate inspection component: generation/current-source receipt chain,
+fresh independent closed-model replay and logged primary V arithmetic are now
+composed. New output is external; old generation container is byte-unchanged.
+All validation-source hashes, original/staged models, fresh replay/process
+inventories and source are rechecked before completion. Actual controlled late
+V-label/replay-terminal replacements exposed then closed two assembly gaps.
+Final71affected checks passed65.91seconds with4retained native vendor warnings.
+This is fixture engineering and gives no additional real native-anchor count,
+production HPO eligibility, native workload/support qualification, global freeze
+or T access. See [the component contract](native-candidate-inspection.md) and
+[receipt](WP08-native-candidate-inspection-receipt.json). Native baseline holds/
+serial operators remain unchanged.

@@ -309,3 +309,12 @@ The [complete table](../../../reports/research-v2-primary-anchors.md) and
 `audit/research-v2/primary-anchor-development/` retain every planned anchor/status
 and source/prediction commitment. This grants no engineering-to-production
 promotion, final Gate D, tuned-family result or protected claim. T remains sealed.
+
+Candidate inspection fixtures: `tests/test_native_candidate_inspection.py`,
+`tests/test_native_generation_chain.py`, `tests/test_prediction_replay_v2.py`
+and `tests/test_validation_scoring_v2.py` exercise the composed primary inspection
+with real owned native/replay subprocesses. Numerical threads must be1before
+imports; native `/bin/ps` access is needed for the existing RSS supervisor.
+The71-case affected suite passed65.91seconds; initial failures and source/log
+hashes are retained inWP08-native-candidate-inspection-receipt.json. Synthetic
+sealed fixtures are not official acquisition or predictive evidence.

@@ -1,0 +1,70 @@
+{
+  "API": "inspect_primary_native_candidate(generation_arguments, immutable_generation_root, output, interpreter, extra_pythonpath=(), rss_limit_bytes=4GiB)",
+  "HPO_journal_authenticated": false,
+  "T_accessed": false,
+  "corrected_gap": "Final binding includes all scorer source hashes (especially V labels), fresh replay/process inventories and request, in addition to original container/source/roles and copied snapshot/query/predictions.",
+  "files": [
+    {
+      "bytes": 9042,
+      "path": "src/treeneuron/research/native_candidate_v2.py",
+      "sha256": "4866cd606b71d62bf4b5af1caf498f0a031b70183ee5126a594825bda9c71c9e"
+    },
+    {
+      "bytes": 5235,
+      "path": "tests/test_native_candidate_inspection.py",
+      "sha256": "cf748355e4be062b29396581e367ae0b03b27011bcbf5ade435fcb8fd38a89c2"
+    },
+    {
+      "bytes": 8670,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-candidate-inspection-red.log",
+      "sha256": "9d562e2b15be2f7cfb9b9bbac892c4483b4a22d375cb376df1492a25fc6c1d4e"
+    },
+    {
+      "bytes": 16778,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-candidate-inspection-green.log",
+      "sha256": "e8349c54fac3d727045bc1d36e8d765f21701bacf6579662afd271faa199086c"
+    },
+    {
+      "bytes": 98,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-candidate-inspection-native-green.log",
+      "sha256": "1381180f159ba5a7be072140efbba281cd5840baa7431baabd35ade72425f38a"
+    },
+    {
+      "bytes": 3589,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-candidate-late-cross-component-red.log",
+      "sha256": "a1d684e83b09bc1aab508af63eccaba177be5d93754c02e85e25dbc08c71a708"
+    },
+    {
+      "bytes": 2302,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-candidate-inspection-affected-green.log",
+      "sha256": "a43fbb1ffef62574c3742a9cf3c9059e1ccf842857a8eab81bef63c3001181d3"
+    }
+  ],
+  "final_green": "71 passed,4retained native vendor warnings in65.91s; inspection/generation/fresh replay/primary V boundaries",
+  "final_protocol_frozen": false,
+  "first_native_green": "6 passed in9.37s",
+  "late_controlled_red": "2 did-not-raise failures in4.97s: V label archive or fresh replay terminal changed after final generation verification",
+  "native_workload_qualified": false,
+  "new_real_data_native_anchor_completions": 0,
+  "pending": [
+    "Production native workload/support registry",
+    "Proposal journal and candidate/selected-model assembly",
+    "Final common-source qualification",
+    "Final protocol/protected evaluator readiness"
+  ],
+  "production_practical_searches": 0,
+  "quality_eligible": false,
+  "red": "6 missing-module failures in.77s",
+  "retained_environment_failure": "Sandboxed execution3failed/3passed2.21s: /bin/ps RSS probe denied before launching child. Those three argument-case passes were not accepted as valid fixture evidence; every fixture now asserts a completed, reaped native process first.",
+  "schema": "research/v2-native-candidate-inspection-receipt",
+  "source_sha256": "256113408b6a358688bc084d994f76a5c803db87946b1e6bc362a69e39a20614",
+  "status": "verified_fixture_component",
+  "verification": [
+    "Actual native P13 generation and independent fresh replay before primary V; old generation container unchanged",
+    "Wrong seed/overlapping output/wrong container reject before replay/V",
+    "Actual owned1-byte RSS replay stop reaps child and never reads V",
+    "Late originalG replacement after real V arithmetic rejects",
+    "Late V labels/replay terminal replacement rejects before successful inspection"
+  ],
+  "workload": "Synthetic sealed Energy-role fixtures with an explicitly fake acquisition reference; not official raw-data authentication, native anchor count or efficacy result"
+}

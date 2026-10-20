@@ -44,3 +44,10 @@ The verifier now rechecks every original F/G/V-feature hash at exit, following
 the independent V scorer's existing pattern. The regression failed before the
 repair;43affected checks then passed in23.49seconds. No real study data or model
 was affected. See [the repair receipt](WP08-native-generation-role-recheck-receipt.json).
+
+The later [candidate inspector](native-candidate-inspection.md) now composes this
+chain with fresh label-free inference and primary V arithmetic, preserving the
+original generation directory. It rechecks all components and V-label commitments
+at exit. The71-case affected suite passed. This still grants no native workload/
+support/HPO eligibility or global-freeze authority; production assembly remains
+pending. See [its receipt](WP08-native-candidate-inspection-receipt.json).
