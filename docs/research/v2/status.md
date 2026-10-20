@@ -229,6 +229,12 @@ The individual-family centered-bootstrap/Holm law is now explicit before any T;
 the primary champion percentile interval is unchanged. These are conditional
 arithmetic fixtures, with no native/model/V-choice or protected authority.
 
+[Practical family report projection](practical-family-report.md) passed 112
+affected checks. It renders all thirteen tests, per-task group/day counts and
+dependence limits with their own conditional bootstrap labels. Ordinary and
+teacher-family reports remain byte-identical. Full artifact/protocol/evaluator
+authentication and production readiness are still pending.
+
 The [reproduction guide](reproduce.md), [binding spec](../../superpowers/specs/2026-10-18-research-v2-design.md)
 and [implementation plan](../../superpowers/plans/2026-10-18-research-v2.md)
 separate implemented components from unrun studies. Historical source identities

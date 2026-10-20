@@ -331,6 +331,11 @@
           "bytes": 5632,
           "path": "docs/research/v2/WP08-practical-comparisons-receipt.json",
           "sha256": "56a99a087e4f3e2183c029a280459a04fb21d61efce94368c1ea103d82a0dba3"
+        },
+        {
+          "bytes": 3890,
+          "path": "docs/research/v2/WP10-practical-family-report-receipt.json",
+          "sha256": "a86f9ec1f28cd39870619b5fd58a89f776c2b1342855c05e7f4ae21fb6863dde"
         }
       ],
       "status": "supported_scoped_status",

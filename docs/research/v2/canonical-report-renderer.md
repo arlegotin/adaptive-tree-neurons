@@ -47,3 +47,9 @@ and binds the actual secondary-inference source bytes. Rehashed policy edits or
 changed source fail loading. All115affected checks passed; these remain sentinels,
 without a complete raw-artifact auditor, protected protocol or production report.
 See [evidence](WP11-secondary-region-report-receipt.json).
+
+The [practical family projection](practical-family-report.md) now adds a second
+explicit construction. It preserves conditional bootstrap assumptions, all
+thirteen tests, per-task group/day counts and Bike blocks. Teacher-family
+rendering remains byte-identical. Full artifact/protected authentication still
+belongs to the unfinished production evaluator/auditor.

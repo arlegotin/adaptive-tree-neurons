@@ -1,0 +1,105 @@
+{
+  "T_accessed": false,
+  "claim_authorized": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_practical_family_report_v2.py",
+      "tests/test_report_v2.py",
+      "tests/test_practical_comparisons_v2.py",
+      "tests/test_practical_v2.py",
+      "tests/test_primary_v2.py",
+      "tests/test_holm_compatible_bounds.py",
+      "--basetemp=artifacts/research-v2/WP10/practical-family-report-GREEN-tmp"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "logs": [
+    {
+      "bytes": 19873,
+      "path": "artifacts/research-v2/WP10/practical-family-report-RED.log",
+      "sha256": "cd2142036e38e35b19130c0bf44b5eb178de44a81b1e833ff814df5ca10d7a72"
+    },
+    {
+      "bytes": 180,
+      "path": "artifacts/research-v2/WP10/practical-family-report-GREEN.log",
+      "sha256": "738680aad700161bc731ec0c449078664d7162a395d57503ca6a6d692facf306"
+    }
+  ],
+  "native_models_fit": 0,
+  "observation": {
+    "bytes": 1411,
+    "path": "artifacts/research-v2/WP10/practical-family-report-software/observation.json",
+    "sha256": "41d875cc472a3179e64a254f0a46507233c7d83729d4c63c42c2d673cfbd988e"
+  },
+  "parent_commit": "764f37d",
+  "production_readiness_authenticated": false,
+  "protected_access_authorized": false,
+  "raw_labels_read": false,
+  "remaining": [
+    "Production queue/physical whole-cost audit",
+    "Global semantic protocol and actual final-source qualification",
+    "Secondary release and protected evaluator/full artifact audit"
+  ],
+  "schema": "research/v2-practical-family-report-component-receipt",
+  "scope": "Canonical projection/rendering of supplied paired-bootstrap family arithmetic with all13hypotheses, per-task group/day counts, calendar block and dependence assumptions; no raw/protocol/model authentication.",
+  "source_sha256": "72642d6aac5388322358a51b1ab79b530b3e297b78e1dfb66df16c5c7eff176c",
+  "tested_files": [
+    {
+      "bytes": 24329,
+      "path": "src/treeneuron/analysis/report_v2.py",
+      "sha256": "671b3165f6d3cac9d2270008f11b838b0e04accddb0edc9bea873d97229bae7f"
+    },
+    {
+      "bytes": 4312,
+      "path": "tests/test_practical_family_report_v2.py",
+      "sha256": "cd7d3b3695fb0eeecf7ba7abd44100b0e788cd46651485ce6563df88accfc62d"
+    },
+    {
+      "bytes": 8192,
+      "path": "tests/test_report_v2.py",
+      "sha256": "fe1f385741ae47892d0ced1a1ac624e2a7b3a81f352aa8af474757e06c0ee16f"
+    },
+    {
+      "bytes": 9158,
+      "path": "tests/test_practical_comparisons_v2.py",
+      "sha256": "f410650f4710bc03e3952479fc13bd7c491b2c34d8a3a58a8e9a346e48bf5324"
+    },
+    {
+      "bytes": 9921,
+      "path": "tests/test_practical_v2.py",
+      "sha256": "2a7da2af3c1fed9881f424a1c4c576f521887b17d2261f2810138d709fb54f43"
+    },
+    {
+      "bytes": 7763,
+      "path": "tests/test_primary_v2.py",
+      "sha256": "74abb9313834d68e0036593e4973893a77de82050fa4a3738477e0f32bc92cdc"
+    },
+    {
+      "bytes": 5891,
+      "path": "tests/test_holm_compatible_bounds.py",
+      "sha256": "8ded14dafbd462b1e2e76d052299dd6c11683cb31fda7a62d31a23fbf2c6aa45"
+    }
+  ],
+  "verification": [
+    "Initial14missing-interface failures0.76s",
+    "Final112passed1.99s/session38889exit0",
+    "Independent old/new renderer comparison: ordinary and teacher-family bytes unchanged; practical bytes stable"
+  ],
+  "whole_repository_suite_passed": false
+}

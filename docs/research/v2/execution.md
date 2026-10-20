@@ -2431,3 +2431,23 @@ Raw artificial loss and all bootstrap-draw arrays are retained; no native fit,
 real label or T. [Contract](practical-comparisons.md),
 [receipt](WP08-practical-comparisons-receipt.json). Canonical practical-family
 report/protocol/evaluator and production queue/readiness remain unfinished.
+
+## 20 October: canonical practical-family report projection
+
+The canonical renderer now accepts an explicit paired-bootstrap construction in
+its optional family records. All13rows survive unavailable families; per-task
+group/daycounts, Bikeblock/iterations and exact dependence assumptions remain
+visible. It cannot relabel fixed tasks as independent teachers, collapse cluster
+counts into a single n, or turn an open margin endpoint into a numeric effectgap.
+Projection checks shared resampling metadata across every family/champion; the
+existing common probability/endpoint checks remain. Teacher report behavior is
+unchanged. Pure formatting authenticates no raw evidence/model/Vchoice/protocol.
+
+Initial14missing-interface failures0.76s precede final six-module112passed1.99s/
+session38889exit0. A read-only format comparison loads the prior renderer from
+764f37d: ordinary and teacher-family reports are byte-identical; new practical
+reports are byte-stable. Artificial losses only, no nativefit/reallabel/T.
+[Contract](practical-family-report.md),
+[receipt](WP10-practical-family-report-receipt.json). Globalsemanticprotocol,
+productionqueue/physicalcost, actualqualification and protected evaluator/full
+artifact audit remain required. Heldc33CCPP/serialsource/env/ops unchanged.

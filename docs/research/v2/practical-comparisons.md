@@ -58,5 +58,6 @@ implemented behavior on their first run. See the
 loss/draw commitments. No new models, real labels or T were used.
 
 Production queue/readiness, global semantic protocol, secondary release,
-protected evaluation and canonical practical-family report integration remain
-unfinished. This component supplies arithmetic for those stages.
+protected evaluation remain unfinished. [Canonical practical-family report
+projection](practical-family-report.md) is now implemented; it does not perform
+those authentication or execution stages.

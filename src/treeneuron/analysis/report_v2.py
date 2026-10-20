@@ -133,10 +133,15 @@ def _secondary_families(values):
     if type(values) is not list:raise ValueError('Explicit secondary family list required')
     seen=set();result=[]
     for f in values:
-        _keys(f,('family_id','construction','planned_hypotheses','independent_unit','n_units','alpha','margin','status','unavailable_reason','rows'))
+        practical=type(f) is dict and f.get('construction')=='paired_group_bootstrap_guilbaud2008_choice2_strict'
+        fields={'family_id','construction','planned_hypotheses','independent_unit','n_units','alpha','margin','status','unavailable_reason','rows'}
+        _keys(f,fields|({'bike_block_days','iterations','dataset_assumptions'} if practical else set()))
         _text(f['family_id']);planned=_names(f['planned_hypotheses']);_number(f['margin']);_number(f['alpha'])
-        if (f['family_id'] in seen or not planned or f['construction']!='teacher_t_guilbaud2008_choice2_strict'
-                or f['independent_unit']!='teacher' or type(f['n_units']) is not int or f['n_units']<2
+        if practical:_practical_family_units(f)
+        elif (f['construction']!='teacher_t_guilbaud2008_choice2_strict' or f['independent_unit']!='teacher'
+                or type(f['n_units']) is not int or f['n_units']<2):
+            raise ValueError('Invalid teacher family construction or independent units')
+        if (f['family_id'] in seen or not planned
                 or f['alpha'] is None or not 0<f['alpha']<1 or f['margin'] is None
                 or f['status'] not in ('completed','unavailable_family') or type(f['rows']) is not list):
             raise ValueError('Invalid secondary family, construction or independent units')
@@ -175,6 +180,25 @@ def _secondary_families(values):
     return result
 
 
+def _practical_family_units(value):
+    from .practical_v2 import OBSERVATIONAL,FAMILIES
+    if (value['independent_unit']!='held_out_groups_or_days_within_fixed_tasks'
+            or type(value['n_units']) is not dict or set(value['n_units'])!=set(OBSERVATIONAL)
+            or any(type(n) is not int or n<2 for n in value['n_units'].values())
+            or value['planned_hypotheses']!=list(FAMILIES[1:])
+            or type(value['iterations']) is not int or value['iterations']<2
+            or type(value['bike_block_days']) is not int or value['bike_block_days'] not in (3,7,14)
+            or value['n_units']['bike']<value['bike_block_days']
+            or type(value['dataset_assumptions']) is not dict or set(value['dataset_assumptions'])!=set(OBSERVATIONAL)):
+        raise ValueError('Exact practical family and per-task group/day sampling units required')
+    for name in OBSERVATIONAL:
+        expected=['fixed_fitted_models','local_dependence_covered_by_declared_calendar_block'] if name=='bike' else ['fixed_fitted_models','held_out_groups_exchangeable']
+        if name=='ccpp':expected.append('unverified_exchangeability')
+        if name=='parkinsons':expected.append('few_subject_clusters; resample_count_does_not_increase_units')
+        assumptions=_names(value['dataset_assumptions'][name])
+        if assumptions!=expected:raise ValueError('Practical conditional/dependence assumptions changed')
+
+
 def teacher_family_report_record(family_id,result):
     """Project supplied teacher arithmetic; authenticate no data or protocol."""
     _text(family_id)
@@ -197,6 +221,45 @@ def teacher_family_report_record(family_id,result):
     value=dict(family_id=family_id,construction='teacher_t_guilbaud2008_choice2_strict',
         planned_hypotheses=list(planned),independent_unit='teacher',n_units=len(teachers),
         alpha=result['alpha'],margin=result['margin'],status=result['status'],unavailable_reason=reason,rows=rows)
+    _secondary_families([value])
+    return value
+
+
+def practical_family_report_record(family_id,result):
+    """Project supplied paired bootstrap arithmetic, granting no authentication."""
+    from .practical_v2 import FAMILIES
+    _text(family_id)
+    if type(result) is not dict or result.get('schema')!='research/v2-complete-practical-comparison-arithmetic':
+        raise ValueError('Complete practical comparison arithmetic required')
+    family=result['multiplicity'];champion=result['champion'];comparisons=result['family_comparisons']
+    planned=list(FAMILIES[1:]);statuses=('completed','undefined_family','insufficient_resampling_resolution')
+    if (type(family) is not dict or family.get('schema')!='research/v2-practical-bootstrap-margin-family'
+            or family.get('planned_hypotheses')!=planned or family.get('family_size')!=13
+            or family.get('status') not in statuses or type(comparisons) is not dict or set(comparisons)!=set(planned)):
+        raise ValueError('All thirteen unchanged practical family hypotheses required')
+    keys=('iterations','bike_block_days','pairing_index_sha256','resampling_units','dataset_assumptions')
+    for name in planned:
+        if any(comparisons[name].get(key)!=champion.get(key) for key in keys):
+            raise ValueError('Practical family resampling pairing or units differ')
+    available=family['status']=='completed';rows=[]
+    if available and (type(family.get('holm')) is not dict or type(family.get('bounds')) is not dict
+            or set(family['bounds'])!=set(planned) or family['holm'].get('planned_hypotheses')!=planned
+            or family['holm'].get('family_size')!=13):
+        raise ValueError('Complete Holm and compatible-region records required')
+    for name in planned:
+        bound=family['bounds'][name] if available else None
+        rows.append(dict(hypothesis_id=name,raw_p=family['holm']['raw_p'][name] if available else None,
+            adjusted_p=family['holm']['adjusted_p'][name] if available else None,
+            lower=bound['lower'] if available else None,
+            lower_endpoint_excluded=bound['lower_endpoint_excluded'] if available else None,
+            rejected=bound['rejects_margin_null'] if available else None))
+    value=dict(family_id=family_id,construction='paired_group_bootstrap_guilbaud2008_choice2_strict',
+        planned_hypotheses=planned,independent_unit='held_out_groups_or_days_within_fixed_tasks',
+        n_units=dict(champion['resampling_units']),alpha=family['alpha'],margin=family['margin'],
+        status='completed' if available else 'unavailable_family',
+        unavailable_reason=None if available else 'Unavailable complete family: '+family['status']+'; '+str(family['unavailable_hypotheses']),
+        rows=rows,bike_block_days=champion['bike_block_days'],iterations=champion['iterations'],
+        dataset_assumptions={k:list(v) for k,v in champion['dataset_assumptions'].items()})
     _secondary_families([value])
     return value
 
@@ -233,10 +296,20 @@ def render_report(audit):
             _text(row['independent_unit']),'unavailable' if row['n_units'] is None else str(row['n_units']),_text(row['explanation'])]
         lines.append('| '+' | '.join(cells)+' |')
     for family,rows in _secondary_families(audit.get('secondary_families',[])):
+        practical=family['construction']=='paired_group_bootstrap_guilbaud2008_choice2_strict'
+        if practical:
+            from .practical_v2 import OBSERVATIONAL
+            unit_text='; '.join(name+'='+str(family['n_units'][name]) for name in OBSERVATIONAL)
+            explanation=['Construction: '+family['construction']+'. Held-out groups/days by fixed task: '+unit_text+'.',
+                str(family['iterations'])+' bootstrap draws; Bike calendar-day block: '+str(family['bike_block_days'])+'.',
+                'Approximate conditional sampling for fixed fitted models; not retraining or dataset-population uncertainty. Valid marginal bootstrap and dependence assumptions are required. Supplied calculations do not authenticate data or protocol.']
+            explanation+=['Assumptions for '+name+': '+', '.join(_text(s) for s in family['dataset_assumptions'][name])+'.' for name in OBSERVATIONAL]
+        else:explanation=['Construction: '+family['construction']+'. Independent units: teacher; count '+str(family['n_units'])+'.',
+            'Conditional on valid marginal teacher t inference. Supplied calculations do not authenticate data or protocol.']
         lines+=['','## Secondary family: '+_text(family['family_id']),'',
-            'Construction: '+family['construction']+'. Independent units: teacher; count '+str(family['n_units'])+'.',
+            explanation[0],
             'Family alpha: '+_number(family['alpha'])+'. Margin: '+_number(family['margin'])+'.',
-            'Conditional on valid marginal teacher t inference. Supplied calculations do not authenticate data or protocol.',
+            *explanation[1:],
             'No numeric gap beyond the margin is established by an open endpoint equal to that margin.','',
             '| Hypothesis | Raw p | Holm adjusted p | Lower assertion | Margin null test |',
             '| --- | ---: | ---: | --- | --- |']

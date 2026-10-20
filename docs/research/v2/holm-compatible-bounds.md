@@ -37,4 +37,7 @@ Canonical report projection is implemented. The provisional method policy record
 the construction and endpoint rule and binds the inference source before data.
 The renderer validates the complete family and preserves open versus included
 endpoints without relaxing the primary confidence gate. Raw-artifact/protected
-protocol authentication and practical bootstrap-family integration remain pending.
+protocol authentication remain pending. Separate [practical bootstrap-family
+arithmetic](practical-comparisons.md) and [report projection](practical-family-report.md)
+now use their own marginal law, units and dependence assumptions; the teacher
+procedure is unchanged.
