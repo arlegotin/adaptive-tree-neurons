@@ -30,3 +30,13 @@ metadata, not official acquisition evidence. They forbid NumPy/pandas decoding
 while exercising all six identities and180declared role archives. See
 [the source/log receipt](WP07-prepared-data-lineage-receipt.json). Any real
 retained-suite audit is recorded separately; test counts are not that audit.
+
+The real retained-suite audit has now completed under commit`1efc095`:
+six exact raw assets,180sealed role archives and194consumed file references
+matched. The recorded82-file preparation package matches commit
+`12d8086139eba56d8dff83ca5e14e6e0499f6dc3` and its original source hash.
+The audit took0.331577208seconds, an operational containing timer rather than
+a hardware benchmark. Thirty protected-label archives were hashed opaquely;
+no arrays/labels were decoded, models fit or protected metrics computed. See
+[the actual audit receipt](WP07-retained-data-lineage-audit-receipt.json).
+The original fixture receipt's pending status describes the earlier step.

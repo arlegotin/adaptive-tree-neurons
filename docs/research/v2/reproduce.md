@@ -374,3 +374,10 @@ Prepared-source/raw/sealed-byte integrity uses
 52affected cases passed2.44seconds. Protected archives are hashed opaquely with
 no NumPy/pandas decoding or metrics. This is distinct from protected evaluation
 and does not rerun historical preparation. See prepared-data-lineage.md.
+
+The actual retained-suite integrity replay is in
+`artifacts/research-v2/WP07/prepared-lineage-1efc095/`: operator, invocation,
+audit and result hashes are recorded inWP07-retained-data-lineage-audit-receipt.json.
+It verifies the exact original suite/acquisition hashes and retained preparation
+commit without numerical decoding. It does not grant the remaining native/
+workload/protocol authority.

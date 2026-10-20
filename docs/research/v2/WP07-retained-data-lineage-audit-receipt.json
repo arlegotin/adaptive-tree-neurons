@@ -1,0 +1,54 @@
+{
+  "arrays_or_labels_decoded": false,
+  "artifact_references": 194,
+  "data_content_rederived": false,
+  "earlier_pending_fixture_receipt": "docs/research/v2/WP07-prepared-data-lineage-receipt.json",
+  "elapsed_ns": 331577208,
+  "expected_acquisition_sha256": "0ef5199e064f079b0802a31a4e022fd469d1661fb56835f8d4ef3638bc0db4cf",
+  "expected_suite_sha256": "cec155231b82e2f79112e807a427a22f3a57bbf9f872b86715eaed2358955933",
+  "files": [
+    {
+      "bytes": 1901,
+      "path": "artifacts/research-v2/WP07/prepared-lineage-1efc095/operator.py",
+      "sha256": "6ea0f727946cfada3f9ba002267f7dd60068d8b086cd3e8d8b7a99e8019ebff1"
+    },
+    {
+      "bytes": 556,
+      "path": "artifacts/research-v2/WP07/prepared-lineage-1efc095/invocation.json",
+      "sha256": "2f6678625d3b667085ba65ec51ce36e8355e29451b5dd45545e2773b174b65de"
+    },
+    {
+      "bytes": 47132,
+      "path": "artifacts/research-v2/WP07/prepared-lineage-1efc095/audit.json",
+      "sha256": "c85299c6509a84a904eda74af28493fa975c7a39c706f7b7589593116fd66efc"
+    },
+    {
+      "bytes": 187,
+      "path": "artifacts/research-v2/WP07/prepared-lineage-1efc095/result.json",
+      "sha256": "4b80a732af176394f0c8bb94592249d64fe363b241abae6168b435ef73a86ae9"
+    },
+    {
+      "bytes": 180,
+      "path": "artifacts/research-v2/WP07/prepared-lineage-1efc095/launch.log",
+      "sha256": "ee3ab5d879a5f02cf37167be78f824319be673292dfb9310cd80c239de77b6a2"
+    }
+  ],
+  "models_fit": 0,
+  "native_workload_qualified": false,
+  "preparation_runtime_independently_authenticated": false,
+  "preparation_source": {
+    "commit": "12d8086139eba56d8dff83ca5e14e6e0499f6dc3",
+    "python_files": 82,
+    "source_sha256": "9f43940702c95240ce41cbcb1d18b18a5d89441ae01165f28c3bbdde739fde71"
+  },
+  "production_practical_searches": 0,
+  "protected_label_archives_hashed": 30,
+  "protected_metrics_computed": 0,
+  "raw_assets_hashed": 6,
+  "role_archives_hashed": 180,
+  "schema": "research/v2-retained-data-lineage-audit-receipt",
+  "scope": "Consistency of trusted recorded preparation, retained commit and actual raw/sealed byte commitments. Opaque protected archives are hashed, never decoded; no fresh raw-to-row content reconstruction, modeling, native qualification or protected evaluation.",
+  "source_commit": "1efc095d5a35c25f0c5276731c6616a6feac6181",
+  "source_sha256": "637fe8d3ff3a9f9b3c31f9b3eee6598fe4710f09e5ecac875cf52112a8b7f079",
+  "status": "completed"
+}

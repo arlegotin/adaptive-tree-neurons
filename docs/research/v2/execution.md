@@ -1904,3 +1904,12 @@ no test metric and grants no native/frozen authority. Fixtures are substituted
 metadata/raw-byte examples, not real acquisition evidence; real-suite execution
 is recorded separately. See [contract](prepared-data-lineage.md) and
 [receipt](WP07-prepared-data-lineage-receipt.json).
+
+Actual retained-data lineage audit is now complete under`1efc095`:
+all6fixed raw assets/180sealed role archives/194file references match, with
+82preparation Python files exactly matching retained commit`12d8086` and
+source`9f439407...fde71`. Operational elapsed0.331577208seconds, no decoding,
+fits, protected metrics, native/HPO promotion or dataset changes. Protected
+archives were checked only as opaque bytes. The earlier fixture receipt's
+pending field remains historical; this execution has its separate
+[receipt](WP07-retained-data-lineage-audit-receipt.json).
