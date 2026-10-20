@@ -2883,3 +2883,38 @@ The actual pre-T cost module is next. Its newly written arithmetic/false-gate
 tests initially failed15cases0.09s for the missing module and remain WIP; this is
 not a whole-repository green state. No production search, new scientific arm,
 budget change, protected root or source migration is admitted by this work.
+
+## 20 October: practical pre-T training/search cost component
+
+Public seal/load reopen actual complete840/native/global model gates FIRST,
+then bind exact primary168/secondary672 queues/model search roots, all closed
+caller/call/invocation/outer records and paid HPO totals. Source/byte/clock
+containment, missing/orphan/unknown closure and serial overlap are checked.
+Standalone full calls, nested caller time, common program overhead and cross-boot
+elapsed sums remain separate. Combined spans require one observed domain. No
+whole-pipeline/efficiency/T authority is granted.
+
+Initial15RED0.09s and expanded17RED2.51s were missing module. Helper phase
+15PASS2FAIL2.75s had public seal absent and collector nested-vs-flat job fields;
+the public actual-model gate and flattened call records produced17PASS2.90s.
+Review found the owned worker did not retain a failed queue's published clock.
+Marker regression1RED1.90s→1GREEN1.91s; the original exception now carries the
+committed reference and the worker verifies it before recording it. Pre-queue
+exceptions do not read program metadata. Three substitution cases are covered.
+
+Final affected14-module237PASS36.74s and separate6-module111PASS24.03s, both
+exit0, same source. Counts overlap and are not a monolithic suite pass. Actual
+complete-qualified public success remains unrun/no simulated native gate.
+Capture3113B/SHA6d87bf64e1f2a30e34a82ca99d7f55075b507257ea4270d433060adc5c9fad5f
+checks explicit arithmetic and real partial denial/failed-driver evidence,
+zero model workers/fits/real transfer labels/T. [Contract](practical-preT-costs.md),
+[receipt](WP10-preT-costs-receipt.json).
+
+The new public proof, if genuinely executed, qualifies training/search execution
+only. Data acquisition/engineering qualification, observer/operator costs and
+post-T prediction/evaluation/deployment stay separate and never zero-imputed.
+Final whole-pipeline cost can qualify only after all required stages. Next final
+protected protocol/once-only feature->all-model-prediction->label evaluator,
+independent raw/model/access audit, deployment/CLI/readiness/final branch review
+before final-source actual qualification/primary production. Current science,
+held c33 native source/environment/operator plan and branch closures unchanged.

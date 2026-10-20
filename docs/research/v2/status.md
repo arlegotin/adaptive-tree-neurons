@@ -362,3 +362,12 @@ The [clock byte-binding revision](WP10-call-clock-binding-receipt.json) passed
 and readback rejects changed bytes. No native or cost permission follows.
 The actual pre-T cost module is in progress; its15initial missing-module
 failures are retained separately from the passing prerequisite suite.
+
+The [practical training/search cost join](practical-preT-costs.md) is now
+implemented as a component. Its affected commands passed237 and111checks
+separately; they overlap. Actual full840/native/global gates precede all cost
+inputs, with full caller/queue/outer/HPO reconciliation and retained failures.
+Positive fixtures remain partial/arithmetic; genuine complete-qualified public
+success is unrun. Whole-pipeline cost and T permission remain false. Final
+protected protocol/evaluator/auditor, deployment, CLI/readiness and final branch
+review still precede final-source qualification and production searches.

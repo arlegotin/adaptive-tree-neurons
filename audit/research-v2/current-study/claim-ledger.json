@@ -421,6 +421,11 @@
           "bytes": 6543,
           "path": "docs/research/v2/WP10-call-clock-binding-receipt.json",
           "sha256": "071e30764991370684332e28e209cded69d9a4d9ecfcf917e31dfdc43af0ee26"
+        },
+        {
+          "bytes": 9998,
+          "path": "docs/research/v2/WP10-preT-costs-receipt.json",
+          "sha256": "4785a8f22101c24a8d235f3c963728ee642fa6f16c0cf0a58ed01070b64f6c4c"
         }
       ],
       "status": "supported_scoped_status",

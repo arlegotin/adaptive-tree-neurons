@@ -136,6 +136,31 @@ def test_unclosed_unknown_episode_cannot_be_replaced_or_assigned_a_zero_tail(dec
     assert journal.read_bytes()==before
 
 
+def test_failed_driver_carries_its_committed_clock_to_the_owned_worker(declared):
+    module=api();program,args=declared
+    def interrupted(**kw):no_child_episode(**kw);raise RuntimeError('driver after closed caller')
+    with pytest.raises(RuntimeError) as caught:module._run_program_queue(program,execute_episode=interrupted,audit_terminal=lambda **kw:None)
+    from treeneuron.research.program_process_v2 import _failed_program_invocation_references
+    reference=caught.value.program_invocation_reference
+    request=dict(source_sha256=program['source_sha256'],arguments=dict(directory=program['directory']))
+    assert _failed_program_invocation_references(caught.value,request)==[reference]
+    assert Path(reference['path']).is_relative_to(args['directory']/'invocations')
+    assert _failed_program_invocation_references(RuntimeError('before actual qualification'),request)==[]
+
+
+@pytest.mark.parametrize('fault',['foreign','hash','source'])
+def test_failed_invocation_marker_cannot_substitute_clock_or_source(declared,fault):
+    module=api();program,args=declared
+    def interrupted(**kw):no_child_episode(**kw);raise RuntimeError('driver after caller')
+    with pytest.raises(RuntimeError) as caught:module._run_program_queue(program,execute_episode=interrupted,audit_terminal=lambda **kw:None)
+    from treeneuron.research.program_process_v2 import _failed_program_invocation_references
+    request=dict(source_sha256=program['source_sha256'],arguments=dict(directory=program['directory']))
+    if fault=='foreign':caught.value.program_invocation_reference['path']=str(args['directory']/'foreign.json')
+    elif fault=='hash':caught.value.program_invocation_reference['sha256']='0'*64
+    else:request['source_sha256']='0'*64
+    with pytest.raises(ValueError):_failed_program_invocation_references(caught.value,request)
+
+
 def test_output_root_cannot_contain_working_or_qualified_proof_inputs(tmp_path):
     module=api();working=tmp_path/'working';working.mkdir();proof=tmp_path/'proof';proof.mkdir()
     for root in (working/'program',proof/'program',tmp_path):

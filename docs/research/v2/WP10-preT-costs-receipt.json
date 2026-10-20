@@ -1,0 +1,266 @@
+{
+  "T_accessed": false,
+  "actual_complete_qualified_public_positive": false,
+  "actual_preT_training_cost_qualification": false,
+  "capture_script": {
+    "bytes": 3528,
+    "path": "artifacts/research-v2/WP10/capture_preT_costs.py",
+    "sha256": "de2548a87e803fc0228a4a014f15f05568c63d36f17a5dac0a4c40d87e159767"
+  },
+  "final_commands": [
+    {
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+        "-P",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_practical_preT_costs_v2.py",
+        "tests/test_program_call_clock_v2.py",
+        "tests/test_program_process_v2.py",
+        "tests/test_execution_clock_v2.py",
+        "tests/test_primary_caller_v2.py",
+        "tests/test_primary_caller_boundary_v2.py",
+        "tests/test_primary_program_v2.py",
+        "tests/test_secondary_program_v2.py",
+        "tests/test_cooperative_process_v2.py",
+        "tests/test_primary_resource_binding_v2.py",
+        "tests/test_secondary_resource_v2.py",
+        "tests/test_primary_search_worker_v2.py",
+        "tests/test_secondary_episode_v2.py",
+        "tests/test_primary_invocation_v2.py"
+      ],
+      "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+      "environment_overrides": {
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+        "VECLIB_MAXIMUM_THREADS": "1"
+      },
+      "owned_test_process_inspection": true
+    },
+    {
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+        "-P",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_practical_preT_costs_v2.py",
+        "tests/test_cost_v2.py",
+        "tests/test_qualified_practical_models_v2.py",
+        "tests/test_practical_global_freeze_v2.py",
+        "tests/test_practical_procedure_v2.py",
+        "tests/test_qualified_search_audit_v2.py"
+      ],
+      "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+      "environment_overrides": {
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+        "VECLIB_MAXIMUM_THREADS": "1"
+      },
+      "owned_test_process_inspection": true
+    }
+  ],
+  "logs": [
+    {
+      "bytes": 33799,
+      "path": "artifacts/research-v2/WP10/preT-costs-red.log",
+      "sha256": "53fd583b60677914f0d33de869eb0bca699e1b19ac8235addc62bac0efe1ef65"
+    },
+    {
+      "bytes": 36388,
+      "path": "artifacts/research-v2/WP10/preT-costs-expanded-red.log",
+      "sha256": "9d169d5f295fb9971c06040bd3b2dafc00e5bcf5102e4c39cc8d413eaf3277bf"
+    },
+    {
+      "bytes": 2786,
+      "path": "artifacts/research-v2/WP10/preT-costs-helpers.log",
+      "sha256": "e21916106a29af0d5cd85dfd0dc124e40489138820b57107fd081f6c143a51ec"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/preT-costs-green-initial.log",
+      "sha256": "053538d73cf4eb653e789316a822e5370aeb4991c6bce82c30eff24fed0da55a"
+    },
+    {
+      "bytes": 1478,
+      "path": "artifacts/research-v2/WP10/preT-failed-invocation-red.log",
+      "sha256": "fc34d6d4b941f70e7f4cadf96da4c39b39b6d543ebc993a46dd59d8b5f131afa"
+    },
+    {
+      "bytes": 112,
+      "path": "artifacts/research-v2/WP10/preT-failed-invocation-green.log",
+      "sha256": "bd3d07f7bbfad8fee219e4d375d46dd86d2bc0dd88b5d9632598e36ed59958ef"
+    },
+    {
+      "bytes": 341,
+      "path": "artifacts/research-v2/WP10/preT-costs-affected-initial.log",
+      "sha256": "ad28dace9c538f5f3cc6fde1f4ba9152c54df3a80f33f7169dfd1e6571dafff7"
+    },
+    {
+      "bytes": 181,
+      "path": "artifacts/research-v2/WP10/preT-costs-model-regression.log",
+      "sha256": "13198598080a8e6d10c7a956c15905683c05756565feecd403a961303a76ae17"
+    },
+    {
+      "bytes": 364,
+      "path": "artifacts/research-v2/WP10/preT-costs-capture.log",
+      "sha256": "bf968b7c45225caa79d16fd19eca1e33fea07c9876de580636bb96516623ef47"
+    }
+  ],
+  "model_fits_in_capture": 0,
+  "new_predictive_study_fits": 0,
+  "observation": {
+    "bytes": 3113,
+    "path": "artifacts/research-v2/WP10/preT-costs-software/observation.json",
+    "sha256": "6d87bf64e1f2a30e34a82ca99d7f55075b507257ea4270d433060adc5c9fad5f"
+  },
+  "owned_model_workers_in_capture": 0,
+  "parent_commit": "ca24962",
+  "production_readiness_authenticated": false,
+  "protected_access_authorized": false,
+  "real_transfer_labels_read_in_capture": false,
+  "remaining": [
+    "Final protected protocol and once-only frozen model prediction/evaluation",
+    "Independent raw/model/access audit, deployment, CLI/readiness and whole-branch review before final-source qualification/primary production",
+    "Future actual pre-T proof, protected execution and final whole-pipeline cost evidence"
+  ],
+  "schema": "research/v2-practical-preT-cost-component-receipt",
+  "scope": "Actual-model-first public pre-T training/search cost composition plus private partial-byte/arithmetic fixtures. Genuine full qualified public success unrun.",
+  "source_sha256": "2dbc59c398f3a5dd78dd278d1b85523c004b366a9804f8bee443c20cd1074365",
+  "tested_files": [
+    {
+      "bytes": 20298,
+      "path": "src/treeneuron/research/practical_preT_costs_v2.py",
+      "sha256": "bac78f3769daddfd2786a71cb87f972f58ed71f20ee84d7eea49da23eb23223a"
+    },
+    {
+      "bytes": 20807,
+      "path": "src/treeneuron/research/primary_program_v2.py",
+      "sha256": "b57b0f97cc9a8372cd558c141517c65f0366a6b277563ff716f0e45d6fed84f1"
+    },
+    {
+      "bytes": 17447,
+      "path": "src/treeneuron/research/program_process_v2.py",
+      "sha256": "a9acec111a940cc89005135119964bb6b3b1236f4e3cdb4d0c707b57ff668461"
+    },
+    {
+      "bytes": 7329,
+      "path": "tests/test_practical_preT_costs_v2.py",
+      "sha256": "255d4832a9db33cd8ce57742d33fe5cb3c5d8a4bcd1b4f8faa32e4a1b4896659"
+    },
+    {
+      "bytes": 5494,
+      "path": "tests/test_program_call_clock_v2.py",
+      "sha256": "86bd7df1773a5207bc0f2dcfaaba8e683f44b9c7883e3f0aa80cea97e47939b5"
+    },
+    {
+      "bytes": 7578,
+      "path": "tests/test_program_process_v2.py",
+      "sha256": "7291a99c5acb5582976bbba4d0ebc3471847733c81ee8e31d03bf0d208a60490"
+    },
+    {
+      "bytes": 10794,
+      "path": "tests/test_execution_clock_v2.py",
+      "sha256": "430106fb50fc293f8f1174a3e2c57d895f822432c694660f1e035fe485227c74"
+    },
+    {
+      "bytes": 9297,
+      "path": "tests/test_primary_caller_v2.py",
+      "sha256": "fe226777480fc218ab2dc07631e478bbd9df10a81994591e84beb6b20ae6270a"
+    },
+    {
+      "bytes": 8327,
+      "path": "tests/test_primary_caller_boundary_v2.py",
+      "sha256": "c6270991c8226dae6008997811a602a2504e42ffd601c7ccbba28074bea57ec7"
+    },
+    {
+      "bytes": 11126,
+      "path": "tests/test_primary_program_v2.py",
+      "sha256": "c5830901182ae0f37ab6c12734496560ea26e3883fef8a554c93f25658262a12"
+    },
+    {
+      "bytes": 6859,
+      "path": "tests/test_secondary_program_v2.py",
+      "sha256": "73bd1f5c064cb7cfd6811213e394dc3da8848dc9030d451bac6a1bb974fc9f3b"
+    },
+    {
+      "bytes": 13690,
+      "path": "tests/test_cooperative_process_v2.py",
+      "sha256": "0d5d553634928d23dfe202c0710ed4a11cdfbb3a409bcf91b9bd6a337ea0eae2"
+    },
+    {
+      "bytes": 9809,
+      "path": "tests/test_primary_resource_binding_v2.py",
+      "sha256": "006b48a7096724d108a770f533a5aae254887e530bddbd2ba73cf101e1d2b74f"
+    },
+    {
+      "bytes": 3472,
+      "path": "tests/test_secondary_resource_v2.py",
+      "sha256": "c4881955e10f44e69de77e9573cbcda4378651011ccf3c00842dd522b103755e"
+    },
+    {
+      "bytes": 14814,
+      "path": "tests/test_primary_search_worker_v2.py",
+      "sha256": "35c25bb4ab9e72fdd8ec32da491447c145ea5fa37800f20353d21e7aaa8927c7"
+    },
+    {
+      "bytes": 9069,
+      "path": "tests/test_secondary_episode_v2.py",
+      "sha256": "c420e09d1fd8bb475812494b4f94ac1e9970e81daf59e87e266d4da1f5edf8ad"
+    },
+    {
+      "bytes": 8020,
+      "path": "tests/test_primary_invocation_v2.py",
+      "sha256": "2e9f2bb51f2c1bb4ed93a8586b67e26451295c13f106f66d541e7a590b135bb3"
+    },
+    {
+      "bytes": 5770,
+      "path": "tests/test_cost_v2.py",
+      "sha256": "e7c45480aeb75d92b03664706dedaa57d039b7f61f38815c406655a12f0a2004"
+    },
+    {
+      "bytes": 6377,
+      "path": "tests/test_qualified_practical_models_v2.py",
+      "sha256": "33e7365c12fdb22543320c988ce3074ad20354d6ee7ca7a0dc3b3eb68c5033d2"
+    },
+    {
+      "bytes": 5929,
+      "path": "tests/test_practical_global_freeze_v2.py",
+      "sha256": "85ea4960511ab9a3c6444d4f46453a2f67350234ad837fa1ada02d0ca98f0a63"
+    },
+    {
+      "bytes": 7011,
+      "path": "tests/test_practical_procedure_v2.py",
+      "sha256": "d22569e868bca6a351139cb89739d7a375bf38cbb38b588d915acc83597f1f2f"
+    },
+    {
+      "bytes": 11565,
+      "path": "tests/test_qualified_search_audit_v2.py",
+      "sha256": "c49cd90290f86439cd8b4098f8b3564751865c60b4f1584200f9a4b4924c8332"
+    }
+  ],
+  "verification": [
+    "15missing-module failures0.09s",
+    "Expanded17missing-module failures2.51s",
+    "15passed2failed2.75s: public seal absent and nested-vs-flat collector job field",
+    "17passed2.90s after actual public gate and collector field correction",
+    "Failed-driver marker1failed7deselected1.90s ->1passed7deselected1.91s",
+    "Final affected237passed36.74s exit0",
+    "Separate model/procedure/search111passed24.03s exit0; overlapping counts not pooled"
+  ],
+  "whole_repository_suite_passed": false,
+  "whole_training_procedure_cost_authenticated": false
+}

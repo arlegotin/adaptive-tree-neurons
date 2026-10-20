@@ -41,8 +41,11 @@ adds its completed native anchor: validation error0.107493 versus
 the grown anchor's0.092186 and RealMLP's0.073302. All20Airfoil points remain
 visible. The [Concrete tranche](reports/research-v2-native-anchors-concrete.md)
 adds NODE at0.161727 versus grown0.209199 and CatBoost0.129860. These are single
-development splits/seeds;117of120native engineering anchors have completed.
-Parkinsons is running, followed by CCPP and Bike serially.
+development splits/seeds. The [Parkinsons tranche](reports/research-v2-native-anchors-parkinsons.md)
+adds NODE at 1.311088 versus grown 1.246646 and CatBoost 0.738719.
+**118 of 120 native engineering anchors have completed**; CCPP is running, with
+Bike queued afterward. Native fitting uses each method's stopping rule.
+The full tuned benchmark and protected evaluation remain unfinished.
 
 The [B0 native-backbone screen](reports/research-v2-B0.md) completed 72 fits on
 four new synthetic problems. A small ordinary network beat the validation-selected

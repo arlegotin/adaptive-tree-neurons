@@ -81,6 +81,18 @@ def _command(path,digest):
         '--request',str(path),'--expected-request-sha256',digest],cwd=str(_ROOT),environment_overrides=_episode_environment())
 
 
+def _failed_program_invocation_references(error,request):
+    """A published driver clock is metadata, never a qualification capability."""
+    reference=getattr(error,'program_invocation_reference',None)
+    if reference is None:return []  # Before an actual queue: no program/plan read.
+    path=_reference(reference);directory=_path(request['arguments']['directory'])
+    if path.parent!=directory/'invocations' or request['source_sha256']!=_source():
+        raise ValueError('Failed invocation marker must belong to this exact current program')
+    from .execution_clock_v2 import inspect_program_invocation_clock
+    inspect_program_invocation_clock(reference,program_reference=_file_reference(directory/'plan.json'))
+    return [copy.deepcopy(reference)]
+
+
 def _operational_location(output,request,*,working_roots=(),proof_roots=()):
     from .primary_program_v2 import _check_program_location
     args=request['arguments'];inputs=[]
@@ -218,6 +230,9 @@ def main(argv=None):
             outcome.update(program_progress=progress,program_invocation_references=references,status='program_returned');code=0
         except BaseException as error:
             outcome.update(error_type=type(error).__name__,reason=str(error),traceback=traceback.format_exc())
+            try:outcome['program_invocation_references']=_failed_program_invocation_references(error,request)
+            except (ValueError,OSError,KeyError,TypeError) as evidence_error:
+                outcome['reason']+=f'; failed invocation evidence unavailable: {type(evidence_error).__name__}: {evidence_error}'
         finally:
             outcome['end_ns']=time.perf_counter_ns();_write(Path(os.environ['ATN_SEARCH_CONTROL_ROOT'])/'body-outcome.json',outcome)
     return code

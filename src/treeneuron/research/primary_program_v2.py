@@ -218,7 +218,9 @@ def _run_program_queue(program,*,execute_episode,audit_terminal,expected_journal
                 result=value,error=None if error is None else dict(type=type(error).__name__,reason=str(error)),
                 whole_training_procedure_cost_authenticated=False,protected_access_authorized=False,T_accessed=False,
                 clock_scope=PROGRAM_CLOCK_SCOPE)
-            write_new_json(root/'invocations'/(uuid.uuid4().hex+'.json'),receipt)
+            invocation_path=root/'invocations'/(uuid.uuid4().hex+'.json')
+            write_new_json(invocation_path,receipt)
+            if error is not None:error.program_invocation_reference=dict(path=str(invocation_path),sha256=_sha(invocation_path))
         if error is not None:raise error
     return value
 
