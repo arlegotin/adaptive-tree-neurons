@@ -296,6 +296,11 @@
           "bytes": 5345,
           "path": "docs/research/v2/WP08-primary-invocation-preflight-receipt.json",
           "sha256": "d17c90e8abbaee9623dabe96d4db598f59d5b20593bdfcdabf3405a232ba2325"
+        },
+        {
+          "bytes": 3969,
+          "path": "docs/research/v2/WP08-native-resource-forecast-receipt.json",
+          "sha256": "2fb3d11d2cc2dc8d8c512acc0fde133cd1da152d8812cd4184549f8e77b3c327"
         }
       ],
       "status": "supported_scoped_status",

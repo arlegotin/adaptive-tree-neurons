@@ -2244,3 +2244,35 @@ software result, no model, labels, T or genuine full-qualified success stub.
 preflight success, resource forecast/admission, production launcher, complete
 cost, global semantic freeze and protected integration remain unfinished.
 Heldc33NODEsource/environment/serial operators remain unchanged.
+
+## 20 October: measured resource forecast component
+
+Added actual-registry-first read-only native resource forecasting for all840
+jobs/168primary/672secondary, with source/runtime/support/split binding. Pure
+reducers explicitly retain false qualification/authority. Native anchor maximum
+duration times32paid slots is a heuristic projection, not a quantile, upper
+bound or deadline; short supports contribute measured root RSS and logical
+storage only. P13's29no-retry configurations remain distinct from32paid slots.
+
+Ruling: available measurements do not establish statistical timing quantiles or
+unseen-configuration resource bounds. Disclose heuristic measured envelopes and
+live next-attempt admission, preserve worker RSS/exact NODE transaction checks
+and the same paid recovery rules. No arbitrary time ceiling or20GiB free-RAM
+gate. If the envelope misses a later workload, preserve its paid operational
+failure/pause rather than changing its data/recipe/seed or imputing poor risk.
+
+Source inspection showed native anchor qualification can store the large
+generation outside its small proof directory. Footprints now include both,
+deduplicating nested files and checking exact closed inventories. Reserves are
+disclosed proxies:2xlargest observed complete footprint+64MiB transaction,
+one footprint recovery copy, >=1GiB free margin; memory1.25xsampledroot+512MiB.
+Secondary projections cannot admit secondary execution. Host observation does
+not enumerate unrelated processes. No projection is a hard safety guarantee.
+
+Initial15missing-interface failures0.81s; first15passed1.95s; external-footprint
+helper regression one failed0.37s before implementation; final four modules85
+passed3.48s/session16463exit0. No model or labels needed for the new reducer
+fixtures, no full-qualified public success was fabricated. Actual forecasting,
+per-candidate live pause integration, production launcher and complete cost
+remain pending. [Contract](native-resource-forecast.md),
+[receipt](WP08-native-resource-forecast-receipt.json).

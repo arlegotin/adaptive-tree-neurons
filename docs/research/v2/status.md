@@ -174,6 +174,13 @@ the cold-worker clock. Its complete qualified-success path remains unrun;
 measured resource admission, production launch and complete cost are still
 required. No protected or secondary access is authorized.
 
+The [resource forecast component](native-resource-forecast.md) passed 85 affected
+checks. It separates native anchor durations from short-probe memory/storage
+measurements, includes external model files, and preserves no-cap native
+training with advisory RAM/disk pauses. Its reducer fixtures are unqualified
+metadata, not a measured forecast for this machine. Actual qualified forecasting,
+per-candidate live admission and production launch remain unrun/unfinished.
+
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only
 the branches their gates authorize. The native/support/workload qualification
