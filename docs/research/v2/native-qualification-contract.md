@@ -34,11 +34,15 @@ The simple profile was exercised end to end in this implementation slice;
 execution of the other six profiles under the final source is still required.
 Earlier individual native fixture receipts retain their own source and scope.
 
-Level2 and the registry are still proposed, not existing completed APIs:
+The first interface now supplies the
+[joined anchor execution proof](native-anchor-execution.md). Its raw-acquisition,
+complete-workload and production flags remain false. The registry interface is
+still proposed:
 
 ```python
 qualify_native_anchor(..., implementation_reference, generation_arguments,
                       immutable_generation_root, ...)
+# Proposed; not implemented yet:
 seal_native_qualification_registry(..., profile_references, anchor_references,
                                   workload_references, data_bindings, output)
 ```

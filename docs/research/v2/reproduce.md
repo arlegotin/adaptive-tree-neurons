@@ -362,3 +362,9 @@ Immutable read-only staging and its native integration are covered by
 checkpoint-supervision tests. The44-case affected suite passed59.93seconds.
 Training recovery uses separate copies; same-device inference/input sharing is
 explicitly recorded. See immutable-input-staging.md for storage/cost scope.
+
+Joined anchor execution checks are in`tests/test_native_anchor_execution.py`.
+The32-case affected suite with software-verification, native inspection and
+generation checks passed75.49seconds. Its actual software/native P13 fixture
+does not authenticate official data. See native-anchor-execution.md; the complete
+raw-data/support/workload registry and production admission are still required.

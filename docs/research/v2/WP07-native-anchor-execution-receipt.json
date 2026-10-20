@@ -1,0 +1,50 @@
+{
+  "T_accessed": false,
+  "files": [
+    {
+      "bytes": 5577,
+      "path": "src/treeneuron/research/native_anchor_v2.py",
+      "sha256": "269bee1cf67d58d36d9ba9d97e9e921c981f586f8336f7ccd3fed877373af62a"
+    },
+    {
+      "bytes": 4124,
+      "path": "tests/test_native_anchor_execution.py",
+      "sha256": "7615e2d2bdb90854c86d8756d5a4aa7d20df5a2e0a3bc7f8422c8ef123ec00b2"
+    },
+    {
+      "bytes": 8776,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-anchor-execution-red.log",
+      "sha256": "d014501d467496d52e313b67e8dc3dbc6bd644d3df2e73d7a5b4669cdb7f8ee7"
+    },
+    {
+      "bytes": 99,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-anchor-execution-green.log",
+      "sha256": "8adf8a19b53c2f9fb4af60236a782db4ca6e37e7d27d2f17e0202aa9dc84d1c4"
+    },
+    {
+      "bytes": 110,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-anchor-execution-affected-green.log",
+      "sha256": "ea565b2c36a999042e889440e01f01030a8abdafba535e94f88c0fbf7014551e"
+    }
+  ],
+  "final_green": "32 passed in75.49s",
+  "first_green": "6 passed in25.98s",
+  "native_workload_qualified": false,
+  "new_real_data_anchor_completions": 0,
+  "positive": "Actual current-source P13 software verification plus native fit/fresh replay/primary V on synthetic sealed Energy roles; no official acquisition or real native-anchor count",
+  "production_practical_searches": 0,
+  "quality_eligible": false,
+  "raw_acquisition_authenticated": false,
+  "red": "6 missing-interface failures in.27s",
+  "schema": "research/v2-native-anchor-execution-receipt",
+  "scope": "Authenticates exact declared native anchor execution and matching software/replay facts only",
+  "source_sha256": "0bd9420e604b7c499af320eb8ab9aa8496a3d8723b9a3af48fd094114b1b4aaa",
+  "status": "verified_fixture_component",
+  "verification": [
+    "Successful returned inspection equals its published result",
+    "Wrong software/seed and genuine allowed HPO-only P13 ridge reject before new V access/output",
+    "Actual owned replay memory stop retains failure without successful qualification or V labels; legitimate F/G audit accesses remain logged",
+    "Output cannot modify original generation",
+    "Original model/data bytes remain unchanged"
+  ]
+}

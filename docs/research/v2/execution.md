@@ -1881,3 +1881,15 @@ altered; actual full-study disk forecasting/admission remains mandatory. See
 [storage policy](immutable-input-staging.md) and
 [receipt](WP08-immutable-input-staging-receipt.json). No real fit/quality/HPO/T count
 increased and no model efficiency or volume-free saving is claimed.
+
+The anchor execution join now binds the matching current software profile,
+exact declared native anchor/seed17, managed generation and fresh replay/V
+packet. Six new cases passed25.98seconds;32affected checks passed75.49seconds.
+It rejects a valid HPO-only ridge configuration as a required mean anchor,
+wrong source/seed evidence and old-container output paths before V. A real
+replay RSS stop supplies no successful execution or V read. Only execution/
+software/replay facts qualify here; raw data, full support/workload registry,
+production quality and protected access remain pending. Actual native P13
+fixture data are synthetic, so real anchor/HPO/T counts stay unchanged. See
+[contract](native-anchor-execution.md) and
+[receipt](WP07-native-anchor-execution-receipt.json).
