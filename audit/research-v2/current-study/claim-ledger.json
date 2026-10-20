@@ -411,6 +411,11 @@
           "bytes": 5919,
           "path": "docs/research/v2/WP10-program-envelope-receipt.json",
           "sha256": "eea585e2b685c3d08257a9b5c4daaeb6bd208b754e6c148cd36cd9db79e93c9a"
+        },
+        {
+          "bytes": 6322,
+          "path": "docs/research/v2/WP10-program-call-clock-receipt.json",
+          "sha256": "c2ae22882ee14f8f3bb17cd9d15038b2ae6c363cdff613d03c254b7753cd07ea"
         }
       ],
       "status": "supported_scoped_status",

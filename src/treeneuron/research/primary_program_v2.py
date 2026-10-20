@@ -156,6 +156,7 @@ def _run_program_queue(program,*,execute_episode,audit_terminal,expected_journal
     from .ledger import StudyLease,write_new_json
     from .primary_search_worker_v2 import _path,_json
     from .execution_clock_v2 import observe_clock_domain,PROGRAM_CLOCK_SCOPE
+    from .program_call_clock_v2 import observe_program_episode
     started=time.perf_counter_ns() if invocation_origin_ns is None else invocation_origin_ns
     clock_domain=observe_clock_domain()
     secondary=program.get('schema')=='research/v2-secondary-program-plan';limit=672 if secondary else 168
@@ -183,9 +184,9 @@ def _run_program_queue(program,*,execute_episode,audit_terminal,expected_journal
                     if starts>=max_episode_starts:break
                     if path.exists() or path.is_symlink():raise ValueError('Uncommitted episode output cannot be overwritten')
                     _append(root,'start_episode',job,index,path,None);starts+=1
-                    execute_episode(program=program,job=copy.deepcopy(job),episode_root=path,
-                        previous_episodes=copy.deepcopy(progress['previous_episodes']),
-                        previous_unstarted_episodes=copy.deepcopy(progress['previous_unstarted_episodes']))
+                    observe_program_episode(program=program,job=job,index=index,episode_root=path,
+                        previous_episodes=progress['previous_episodes'],previous_unstarted_episodes=progress['previous_unstarted_episodes'],
+                        execute_episode=execute_episode,clock_domain=clock_domain)
                 completion=path/'caller-complete.json'
                 if not completion.is_file():raise PermissionError('Started episode lacks closed caller evidence; no automatic refit')
                 reference=dict(path=str(completion),sha256=_sha(completion))

@@ -1,0 +1,168 @@
+{
+  "T_accessed": false,
+  "actual_complete_qualified_public_positive": false,
+  "capture_script": {
+    "bytes": 2727,
+    "path": "artifacts/research-v2/WP10/capture_program_call_clock.py",
+    "sha256": "220aedb8a5de11c8bffa4f748711a39c44358e2002aa916d1a99e272b5a0b121"
+  },
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_program_call_clock_v2.py",
+      "tests/test_program_process_v2.py",
+      "tests/test_execution_clock_v2.py",
+      "tests/test_primary_caller_v2.py",
+      "tests/test_primary_caller_boundary_v2.py",
+      "tests/test_primary_program_v2.py",
+      "tests/test_secondary_program_v2.py",
+      "tests/test_cooperative_process_v2.py",
+      "tests/test_primary_resource_binding_v2.py",
+      "tests/test_secondary_resource_v2.py",
+      "tests/test_primary_search_worker_v2.py",
+      "tests/test_secondary_episode_v2.py",
+      "tests/test_primary_invocation_v2.py"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "owned_test_process_inspection": true
+  },
+  "logs": [
+    {
+      "bytes": 12575,
+      "path": "artifacts/research-v2/WP10/program-call-clock-red.log",
+      "sha256": "95573cfafeeb03d9eff1d6b2e78e1c78bf14eaea91817f7359aa697b744de117"
+    },
+    {
+      "bytes": 29815,
+      "path": "artifacts/research-v2/WP10/program-call-clock-green-initial.log",
+      "sha256": "41123066aedadb1a906783c05a64bd16fbe3630f6db964feeeeec5260c18081c"
+    },
+    {
+      "bytes": 261,
+      "path": "artifacts/research-v2/WP10/program-call-clock-final.log",
+      "sha256": "d37b42e960e9ff336b33b6015f579356e579b396961d1fc959757a7d611020c2"
+    },
+    {
+      "bytes": 410,
+      "path": "artifacts/research-v2/WP10/program-call-clock-capture.log",
+      "sha256": "4653a54817421f940862b600a650286eb4b305d9a2d09241de850a608be4bac1"
+    }
+  ],
+  "models_fit": 0,
+  "observation": {
+    "bytes": 5734,
+    "path": "artifacts/research-v2/WP10/program-call-clock-software/observation.json",
+    "sha256": "273a859186b0cbf71ac292a8f65c31096f1450c1fddf4539e66f680e604c2268"
+  },
+  "owned_model_workers_in_capture": 0,
+  "parent_commit": "63b0264",
+  "production_readiness_authenticated": false,
+  "protected_access_authorized": false,
+  "real_transfer_labels_read": false,
+  "remaining": [
+    "Actual pre-T cost join of full840 models/queues/callers/calls/outer processes and paid HPO",
+    "Final protected protocol, once-only evaluator, raw audit, deployment, CLI/readiness and whole-branch review before final-source qualification/primary searches"
+  ],
+  "schema": "research/v2-program-call-clock-component-receipt",
+  "scope": "Observed full private/public queue callback span, readonly linked caller evidence and metadata fixtures only. No complete qualified success or cost/T capability.",
+  "source_sha256": "8a5e50283988fd8ef9e07ddd5e0ddf465d481dea548a74d3a09967c4f8fe47a2",
+  "tested_files": [
+    {
+      "bytes": 6642,
+      "path": "src/treeneuron/research/program_call_clock_v2.py",
+      "sha256": "8dff1de953eeb2d38aa721f9eb824ca197002a5fb8877038153b1390cb5c3ddc"
+    },
+    {
+      "bytes": 20467,
+      "path": "src/treeneuron/research/primary_program_v2.py",
+      "sha256": "d1f87e1ae50d0a9a33fde9ccbff7da038f5058badd88f560b93ad654b5ce9f82"
+    },
+    {
+      "bytes": 5494,
+      "path": "tests/test_program_call_clock_v2.py",
+      "sha256": "86bd7df1773a5207bc0f2dcfaaba8e683f44b9c7883e3f0aa80cea97e47939b5"
+    },
+    {
+      "bytes": 7578,
+      "path": "tests/test_program_process_v2.py",
+      "sha256": "7291a99c5acb5582976bbba4d0ebc3471847733c81ee8e31d03bf0d208a60490"
+    },
+    {
+      "bytes": 9912,
+      "path": "tests/test_execution_clock_v2.py",
+      "sha256": "8873b4490c5314036aad76f708f2a9eba19806d5af62b9228c3a838d74249898"
+    },
+    {
+      "bytes": 9297,
+      "path": "tests/test_primary_caller_v2.py",
+      "sha256": "fe226777480fc218ab2dc07631e478bbd9df10a81994591e84beb6b20ae6270a"
+    },
+    {
+      "bytes": 8327,
+      "path": "tests/test_primary_caller_boundary_v2.py",
+      "sha256": "c6270991c8226dae6008997811a602a2504e42ffd601c7ccbba28074bea57ec7"
+    },
+    {
+      "bytes": 9289,
+      "path": "tests/test_primary_program_v2.py",
+      "sha256": "c80b0b43e6f6d9956768a9642950f84fd7c111ece1af143dd3705a110278a16d"
+    },
+    {
+      "bytes": 6859,
+      "path": "tests/test_secondary_program_v2.py",
+      "sha256": "73bd1f5c064cb7cfd6811213e394dc3da8848dc9030d451bac6a1bb974fc9f3b"
+    },
+    {
+      "bytes": 13690,
+      "path": "tests/test_cooperative_process_v2.py",
+      "sha256": "0d5d553634928d23dfe202c0710ed4a11cdfbb3a409bcf91b9bd6a337ea0eae2"
+    },
+    {
+      "bytes": 9809,
+      "path": "tests/test_primary_resource_binding_v2.py",
+      "sha256": "006b48a7096724d108a770f533a5aae254887e530bddbd2ba73cf101e1d2b74f"
+    },
+    {
+      "bytes": 3472,
+      "path": "tests/test_secondary_resource_v2.py",
+      "sha256": "c4881955e10f44e69de77e9573cbcda4378651011ccf3c00842dd522b103755e"
+    },
+    {
+      "bytes": 14814,
+      "path": "tests/test_primary_search_worker_v2.py",
+      "sha256": "35c25bb4ab9e72fdd8ec32da491447c145ea5fa37800f20353d21e7aaa8927c7"
+    },
+    {
+      "bytes": 9069,
+      "path": "tests/test_secondary_episode_v2.py",
+      "sha256": "c420e09d1fd8bb475812494b4f94ac1e9970e81daf59e87e266d4da1f5edf8ad"
+    },
+    {
+      "bytes": 8020,
+      "path": "tests/test_primary_invocation_v2.py",
+      "sha256": "2e9f2bb51f2c1bb4ed93a8586b67e26451295c13f106f66d541e7a590b135bb3"
+    }
+  ],
+  "verification": [
+    "Missing module1failed9setupErrors7.15s",
+    "First implementation1failed9setupErrors8.32s: missing publication parent directory",
+    "Parent mkdir during post-call publication; final214passed30.15s exit0"
+  ],
+  "whole_repository_suite_passed": false,
+  "whole_training_procedure_cost_authenticated": false
+}

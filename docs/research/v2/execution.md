@@ -2840,3 +2840,27 @@ final protocol/once-only evaluator/raw audit/deployment/CLI/readiness and branch
 review still precede final-source qualification/primary production. Last observed
 held c33 CCPP update11100/best11100, Bike queued,118/120 anchors; no new prediction
 or research claim and no mutation of held source/environment/operator settings.
+
+## 20 October: full method-call return component
+
+The queue observes `execute_episode` through actual return or exception and
+publishes source/program/job/index/domain/bounds/error/closed-caller references
+under separate `call-clocks`. Full call includes caller final publication/return;
+own clock publication and queue bookkeeping are separate common program overhead
+contained by the outer observer. No recipe, HPO, margin or prefix winner changes.
+
+Initial1failed9setupErrors7.15s were missing module. First implementation still
+had1failed9setupErrors8.32s: atomic `_write` does not create parents. Creating the
+parent during post-call publication fixed it. Final thirteen-module214PASS30.15s,
+exit0. Real no-child denials, delayed return, raised driver after caller closure,
+exact no-spawn recovery and exception before any caller are covered. Altered
+source/hash/bounds/domain/caller/job/authority are rejected.
+
+Capture5734B/SHA273a859186b0cbf71ac292a8f65c31096f1450c1fddf4539e66f680e604c2268
+contains returned/raised/raised paths, with30,839,208ns after the inner boundary
+in the delayed case and no invented before-caller closure. No model worker,
+fit, real labels or T. [Contract](program-call-clocks.md),
+[receipt](WP10-program-call-clock-receipt.json). Full-qualified execution remains
+unrun and all cost/T authority stays false. Next the actual complete pre-T cost
+join, followed by final protocol/once-only evaluator/raw audit/deployment/CLI/
+readiness/final review before final-source qualification and primary production.

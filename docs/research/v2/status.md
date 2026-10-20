@@ -350,3 +350,9 @@ cooperative cleanup and uncapped native fitting. Actual cold failed gates and a
 prespawn denial are retained; full qualified success is unrun. Root closure
 still grants no nested-job, complete-cost or T authority. The pre-T cost join and
 remaining final evaluator/audit/deployment/CLI/readiness work are unfinished.
+
+[Full method-call clocks](program-call-clocks.md) passed214affected checks.
+They include each caller's final publication/return and retain driver-exception
+paths without replacing a closed worker. Unknown closure stays missing. These
+observations still grant no complete-cost or T permission; the actual pre-T cost
+join and final evaluation/readiness work remain unfinished.
