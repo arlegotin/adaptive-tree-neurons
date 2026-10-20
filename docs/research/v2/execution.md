@@ -2451,3 +2451,26 @@ reports are byte-stable. Artificial losses only, no nativefit/reallabel/T.
 [receipt](WP10-practical-family-report-receipt.json). Globalsemanticprotocol,
 productionqueue/physicalcost, actualqualification and protected evaluator/full
 artifact audit remain required. Heldc33CCPP/serialsource/env/ops unchanged.
+
+## 20 October: pre-search practical semantic declaration
+
+Added exact seal/load of current native-quality plan/source/core/adapter/support
+and full practical policy. P00 remains cheap Adam placement, P01 matched random;
+no failed M3 joint/pruning/residual lead is admitted. Negative M3/B0 closures are
+byte-bound. The policy fixes information roles/no silent refit, native stopping
+without a wall cap, paid32attempts/P13finite29, Vties, R2/champion/13-family
+analysis/seed/dependence limits, missingness, costs and168/672barrier. All execution,
+native/secondary/T/post-search-freeze authorities remain false. The strong actual
+primary-model assembler loads this declaration after real qualification and
+inventory, before native audits, then rechecks it at the end.
+
+Initial16missing-module failures1.90s; first71passed39.27s. A private negative
+metadata assembler regression failed1.97s before rejecting arbitrary procedure
+JSON. Expanded sandbox run100passed4failed40.04s; all5owned starts were denied
+by/bin/ps PermissionError before child creation. Unchanged source with owned PID
+inspection allowed:104passed39.96s/session56561exit0. No full-qualified positive
+was stubbed; full actual168sealing is still unrun. Capture uses artificial
+manifest commitments and current support law, no role reader/process/nativefit/T.
+[Contract](practical-procedure.md), [receipt](WP09-practical-procedure-receipt.json).
+Production queue/readiness, physical whole-cost, post-search global freeze and
+protected evaluator/full audit remain unfinished. Heldc33source/env/ops unchanged.

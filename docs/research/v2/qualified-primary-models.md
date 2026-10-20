@@ -14,9 +14,12 @@ inventory. Complete search inventories are pinned before each audit, checked
 after it and checked again at the end, including losing evidence and unexpected
 files. Source, qualification and the older primary inventory are rechecked.
 
-Successful execution would establish the fact that all 168 primary models have
-the required qualified search evidence. It would still grant no global-procedure
-semantic freeze, secondary label release, protected evaluation or complete cost
+The barrier also now requires the exact [pre-search practical procedure](practical-procedure.md),
+after actual qualification and inventory validation, and rechecks its semantics
+at the end. An arbitrary JSON procedure is insufficient. Successful execution
+would establish the fact that all 168 primary models have the required qualified
+search evidence and that pre-search declaration. It would still grant no post-search
+global-procedure freeze, secondary label release, protected evaluation or complete cost
 claim. Loading the resulting artifact repeats the genuine validations; a
 self-rehashed payload or success flag cannot substitute for them.
 

@@ -76,6 +76,9 @@ def _assemble(*,registry,practical_plan,expected_practical_plan_hash,support_ref
     if (plan.get('budget_policy')!='native_quality' or inventory['source_sha256']!=plan['source_sha256']
             or type(support_reference) is not dict or support_reference.get('sha256')!=plan['support_lock_sha256']):
         raise ValueError('Actual primary source/support/native-quality scope differs')
+    from .practical_procedure_v2 import load_practical_procedure
+    procedure=load_practical_procedure(inventory['global_procedure'],practical_plan=practical_plan,
+        expected_practical_plan_hash=expected_practical_plan_hash,support_reference=support_reference)
     model_rows={row['job_id']:row for row in inventory['models']}
     for job in jobs:
         name=job['job_id'];entry=inventory['selections'][name];proof=search_proofs[name]
@@ -125,12 +128,15 @@ def _assemble(*,registry,practical_plan,expected_practical_plan_hash,support_ref
     for bound in searches:
         inspect_search_inventory_binding(search_directory=Path(bound['search_directory']),
             expected_inventory_sha256=bound['inventory_sha256'])
+    if load_practical_procedure(inventory['global_procedure'],practical_plan=practical_plan,
+            expected_practical_plan_hash=expected_practical_plan_hash,support_reference=support_reference)!=procedure:
+        raise ValueError('Pre-search practical semantics changed during primary model sealing')
     return dict(schema='research/v2-qualified-primary-model-payload',created_utc_ns=created_utc_ns,
         plan_hash=expected_practical_plan_hash,source_sha256=plan['source_sha256'],support_reference=support_reference,
         qualification_reference=qualification_reference,primary_inventory_reference=primary_inventory_reference,
         global_procedure=inventory['global_procedure'],search_proofs=search_proofs,models=models,
-        qualified_primary_168_models_complete=True,**{flag:False for flag in _FALSE},
-        scope='Actual complete primary native searches and precise winning metadata/full snapshots. Global procedure semantics, complete costs, secondary release and protected authorization remain separate.')
+        qualified_primary_168_models_complete=True,presearch_procedure_semantics_authenticated=True,**{flag:False for flag in _FALSE},
+        scope='Actual complete primary native searches, precise winning metadata/full snapshots and exact pre-search semantic declaration. Post-search global freeze, complete costs, secondary release and protected authorization remain separate.')
 
 
 @dataclass(frozen=True)

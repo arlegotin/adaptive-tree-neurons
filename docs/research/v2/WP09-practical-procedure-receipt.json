@@ -1,0 +1,175 @@
+{
+  "T_accessed": false,
+  "execution_authorized": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_practical_procedure_v2.py",
+      "tests/test_practical_support_lock_v2.py",
+      "tests/test_primary_selection_inventory_v2.py",
+      "tests/test_qualified_primary_models_v2.py",
+      "tests/test_primary_resource_binding_v2.py",
+      "tests/test_primary_search_worker_v2.py",
+      "--basetemp=artifacts/research-v2/WP09/practical-procedure-owned-final-tmp"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "owned_fixture_process_inspection_authorized": true
+  },
+  "global_postsearch_freeze_authenticated": false,
+  "logs": [
+    {
+      "bytes": 27761,
+      "path": "artifacts/research-v2/WP09/practical-procedure-RED.log",
+      "sha256": "5da2dbd1f513bd645a5c1137b095792524c3e7b830d21ecab71ad884e3987958"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP09/practical-procedure-GREEN.log",
+      "sha256": "25235cf1dc90694caca72f7f572873c7939d8db2ce579f7cb659cd651cc7e260"
+    },
+    {
+      "bytes": 3137,
+      "path": "artifacts/research-v2/WP09/practical-procedure-barrier-RED.log",
+      "sha256": "ef4a2e18dbc3939e30c90906a1e140104d0f2996c80f6b9712c731399009bb8c"
+    },
+    {
+      "bytes": 11875,
+      "path": "artifacts/research-v2/WP09/practical-procedure-final.log",
+      "sha256": "cf8140d428ee8068a65e17b1192792e9cf5a97a70085d34792223fdbf9e133c8"
+    },
+    {
+      "bytes": 181,
+      "path": "artifacts/research-v2/WP09/practical-procedure-owned-final.log",
+      "sha256": "dd5c5c8be5963d973ad747bea5134075a0a2cbfdacc4200744c014525631a8cf"
+    }
+  ],
+  "native_models_fit_in_capture": 0,
+  "native_workload_qualified": false,
+  "observations": [
+    {
+      "bytes": 8281,
+      "path": "artifacts/research-v2/WP09/practical-procedure-software/observation.json",
+      "sha256": "5be336a86a6c816602cba567a8338aa0754294dabe96348dcb15188c8a17f2ad"
+    },
+    {
+      "bytes": 1441588,
+      "path": "artifacts/research-v2/WP09/practical-procedure-software/software-plan.json",
+      "sha256": "f687ae07c07f3f65121084e1b67ab483c4fd20664320805f7968d7a45b212e58"
+    },
+    {
+      "bytes": 210931,
+      "path": "artifacts/research-v2/WP09/practical-procedure-software/software-support.json",
+      "sha256": "869a94e4b93876d2ec17968527d1d90afad3673d90f52b7903b56442f83f5467"
+    },
+    {
+      "bytes": 7691,
+      "path": "artifacts/research-v2/WP09/practical-procedure-software/software-procedure.json",
+      "sha256": "9a7b2a9a534cd1643171de44eb3944dc2ab1415b04954643e01cd71eb9705961"
+    }
+  ],
+  "parent_commit": "89e60d6",
+  "protected_access_authorized": false,
+  "remaining": [
+    "Actual final-source native qualification and production readiness/queue",
+    "Physical whole-cost audit",
+    "Post-search global freeze/secondary release",
+    "Protected evaluator and complete artifact audit"
+  ],
+  "role_arrays_opened_in_capture": false,
+  "sandbox_failure_evidence": [
+    {
+      "bytes": 1613,
+      "path": "artifacts/research-v2/WP09/practical-procedure-final-tmp/test_actual_cold_controller_ob0/control/process.json",
+      "sha256": "7c06093729f46d92ddf1b10624fcb6e10d88d3d7d63cef357ba2438fbbc2dbb3"
+    },
+    {
+      "bytes": 1613,
+      "path": "artifacts/research-v2/WP09/practical-procedure-final-tmp/test_actual_public_worker_reje0/process/process.json",
+      "sha256": "5a5f4b94555c45b527e5e89c3a9350738f8f25d52d871eb5951cc6aac9f66262"
+    },
+    {
+      "bytes": 1613,
+      "path": "artifacts/research-v2/WP09/practical-procedure-final-tmp/test_real_cold_controller_body0/episode/process/process.json",
+      "sha256": "4589b5e90d26e2de033e15f342659ef301be56be88a46edd2802a89334892c3e"
+    },
+    {
+      "bytes": 1613,
+      "path": "artifacts/research-v2/WP09/practical-procedure-final-tmp/test_two_actual_cold_controlle0/episode0/process/process.json",
+      "sha256": "48ba00b3bc3d51751b23e53866d67f94cf9938dfe9bb3a0dac4e2dc4e201fd63"
+    },
+    {
+      "bytes": 1613,
+      "path": "artifacts/research-v2/WP09/practical-procedure-final-tmp/test_two_actual_cold_controlle0/episode1/process/process.json",
+      "sha256": "d9405b09ef83e5cba41df6196369e04871f073563a4fb8e9a769b979c8e0ed69"
+    }
+  ],
+  "schema": "research/v2-presearch-practical-procedure-component-receipt",
+  "scope": "Actual source/support/plan semantic declaration on artificial manifest metadata, strict loader and negative strong-barrier check. No role reads/process starts in capture; no complete-qualified public or all168-model positive fabricated.",
+  "source_sha256": "dd270120402a5c73be2ff3e4bbdc54fd8d0f5d57e537d126bc73774eb734f26e",
+  "tested_files": [
+    {
+      "bytes": 10838,
+      "path": "src/treeneuron/research/practical_procedure_v2.py",
+      "sha256": "30a083596faa2b871d4915b4a43c187fd0fe68290955196527b72bb89527ef47"
+    },
+    {
+      "bytes": 13693,
+      "path": "src/treeneuron/research/qualified_primary_models_v2.py",
+      "sha256": "888e714654328f5d3307b70f18a8b5ab07dad29414714fe75b45023fa17aebc4"
+    },
+    {
+      "bytes": 7011,
+      "path": "tests/test_practical_procedure_v2.py",
+      "sha256": "d22569e868bca6a351139cb89739d7a375bf38cbb38b588d915acc83597f1f2f"
+    },
+    {
+      "bytes": 3345,
+      "path": "tests/test_practical_support_lock_v2.py",
+      "sha256": "9f4154fba04b2231dc07225ebfa533ccf8dcbfd9db8e09795ef8c4709a0dfa79"
+    },
+    {
+      "bytes": 12540,
+      "path": "tests/test_primary_selection_inventory_v2.py",
+      "sha256": "9319a4d7e24733ea8052cd4aeb014345ea2465fd164a90bb35d36ad065840ef7"
+    },
+    {
+      "bytes": 4847,
+      "path": "tests/test_qualified_primary_models_v2.py",
+      "sha256": "ac60c5746a4f15bf0a6e6cd17a2ea32c39faf2f41e0d7a37b8e7b32c0ff5dc9a"
+    },
+    {
+      "bytes": 9809,
+      "path": "tests/test_primary_resource_binding_v2.py",
+      "sha256": "006b48a7096724d108a770f533a5aae254887e530bddbd2ba73cf101e1d2b74f"
+    },
+    {
+      "bytes": 14814,
+      "path": "tests/test_primary_search_worker_v2.py",
+      "sha256": "35c25bb4ab9e72fdd8ec32da491447c145ea5fa37800f20353d21e7aaa8927c7"
+    }
+  ],
+  "verification": [
+    "Initial16missing-module failures1.90s",
+    "First71passed39.27s",
+    "Strong arbitrary-procedure negative regression1failed16deselected1.97s before semantic barrier integration",
+    "Sandbox expanded run100passed4failed40.04s; all5owned worker starts denied by /bin/ps PermissionError before child creation",
+    "Unchanged source, owned PID inspection allowed: final104passed39.96s/session56561exit0"
+  ],
+  "whole_repository_suite_passed": false,
+  "whole_training_procedure_cost_authenticated": false
+}

@@ -235,6 +235,13 @@ dependence limits with their own conditional bootstrap labels. Ordinary and
 teacher-family reports remain byte-identical. Full artifact/protocol/evaluator
 authentication and production readiness are still pending.
 
+The [pre-search practical procedure](practical-procedure.md) passed 104 affected
+checks. It fixes the unchanged cheap-score reference, all comparison rules,
+native completion budgets, information roles and negative branch dispositions.
+The strong primary-model barrier now rejects arbitrary procedure JSON. The new
+declaration grants no execution or data-release authority; actual qualification,
+post-search freeze, whole-cost and protected evaluation remain separate gates.
+
 The [reproduction guide](reproduce.md), [binding spec](../../superpowers/specs/2026-10-18-research-v2-design.md)
 and [implementation plan](../../superpowers/plans/2026-10-18-research-v2.md)
 separate implemented components from unrun studies. Historical source identities

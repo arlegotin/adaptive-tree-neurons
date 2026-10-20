@@ -336,6 +336,11 @@
           "bytes": 3890,
           "path": "docs/research/v2/WP10-practical-family-report-receipt.json",
           "sha256": "a86f9ec1f28cd39870619b5fd58a89f776c2b1342855c05e7f4ae21fb6863dde"
+        },
+        {
+          "bytes": 7165,
+          "path": "docs/research/v2/WP09-practical-procedure-receipt.json",
+          "sha256": "61821edb19b36a3943a4482b1ce9b689dd30defed77869c7967a3227d0110edd"
         }
       ],
       "status": "supported_scoped_status",
