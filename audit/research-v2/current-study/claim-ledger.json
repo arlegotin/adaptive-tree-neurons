@@ -386,6 +386,11 @@
           "bytes": 4049,
           "path": "docs/research/v2/WP09-secondary-resource-receipt.json",
           "sha256": "bdf1f1c2ae978a6fb5fb818ee8a4afb0d535d1b4f43257ee9dc83f1758cb9359"
+        },
+        {
+          "bytes": 6072,
+          "path": "docs/research/v2/WP09-secondary-episode-receipt.json",
+          "sha256": "d425c60e3c6ab70a08d0766e59d01ab3a8fd06fe04e1edf3555537f04ea69746"
         }
       ],
       "status": "supported_scoped_status",

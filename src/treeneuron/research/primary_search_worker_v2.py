@@ -56,17 +56,29 @@ def _checked_request(path,expected):
     return _validate_request(_json(path.read_bytes()))
 
 
+def _is_secondary(value):
+    return type(value) is dict and value.get('schema')=='research/v2-secondary-program-episode-request'
+
+
+def _episode_purpose(value):return 'secondary_search_episode' if _is_secondary(value) else 'primary_search_episode'
+
+
+def _body_schema(value):return 'research/v2-secondary-search-body-outcome' if _is_secondary(value) else 'research/v2-primary-search-body-outcome'
+
+
 def _validate_request(value):
     """Validate metadata before publication as well as after byte loading."""
     fields={'schema','source_sha256','practical_plan_reference','expected_practical_plan_hash',
         'job_id','support_reference','qualification_reference','search_directory','rss_limit_bytes','previous_episodes'}
-    program=type(value) is dict and value.get('schema')=='research/v2-primary-program-episode-request'
+    secondary=_is_secondary(value)
+    program=secondary or type(value) is dict and value.get('schema')=='research/v2-primary-program-episode-request'
     resource=program or type(value) is dict and value.get('schema')=='research/v2-primary-search-resource-episode-request'
     if resource:fields=fields|{'resource_forecast_reference'}
     if program:fields=fields|{'procedure_reference'}
+    if secondary:fields=fields|{'global_barrier_reference'}
     if resource and 'previous_unstarted_episodes' in value:fields=fields|{'previous_unstarted_episodes'}
     if (type(value) is not dict or set(value)!=fields
-            or value['schema'] not in ('research/v2-primary-search-episode-request','research/v2-primary-search-resource-episode-request','research/v2-primary-program-episode-request')
+            or value['schema'] not in ('research/v2-primary-search-episode-request','research/v2-primary-search-resource-episode-request','research/v2-primary-program-episode-request','research/v2-secondary-program-episode-request')
             or not _digest(value['source_sha256']) or not _digest(value['expected_practical_plan_hash'])
             or type(value['job_id']) is not str or not value['job_id'] or len(value['job_id'])>230
             or type(value['rss_limit_bytes']) is not int or not 0<value['rss_limit_bytes']<=16*1024**3
@@ -75,6 +87,7 @@ def _validate_request(value):
     _reference(value['practical_plan_reference']);_reference(value['support_reference']);_path(value['search_directory'])
     if resource:_reference(value['resource_forecast_reference'])
     if program:_reference(value['procedure_reference'])
+    if secondary:_reference(value['global_barrier_reference'])
     q=value['qualification_reference']
     if type(q) is not dict or set(q)!={'root','inventory_sha256'} or not _digest(q['inventory_sha256']):
         raise ValueError('Actual native qualification inventory reference required')
@@ -102,7 +115,7 @@ def _validate_request(value):
 def primary_worker_identity(request_path,expected_request_sha256):
     """Read only the strict command request, without imports, plans or arrays."""
     value=_checked_request(request_path,expected_request_sha256)
-    return dict(purpose='primary_search_episode',request_sha256=expected_request_sha256,
+    return dict(purpose=_episode_purpose(value),request_sha256=expected_request_sha256,
         source_sha256=value['source_sha256'])
 
 
@@ -221,11 +234,11 @@ def _previous_episode_state(request):
         if (proof['returncode']!=0 or not proof['worker_protocol_closed']
                 or not proof['shared_monotonic_clock_observed']
                 or type(body) is not dict or set(body)!=closed_fields
-                or body.get('schema')!='research/v2-primary-search-body-outcome'
+                or body.get('schema')!=_body_schema(request)
                 or body.get('status')!='closed_search_body'
                 or body.get('job_binding')!=_job_binding(request)
                 or body.get('previous_episodes')!=previous[:index]
-                or start['identity']!=dict(purpose='primary_search_episode',
+                or start['identity']!=dict(purpose=_episode_purpose(request),
                     request_sha256=body.get('request_sha256'),source_sha256=request['source_sha256'])
                 or any(not _digest(body.get(k)) for k in ('request_sha256','search_plan_sha256','journal_sha256','journal_hash'))
                 or any(body.get(k) is not False for k in ('quality_eligible','protected_access_authorized',
@@ -280,6 +293,9 @@ def _sampler_runtime(registry,job):
 
 def _prepare_qualified_episode(*,request,output):
     """Actual registry first; no supplied successful flag can reach staging."""
+    if _is_secondary(request):
+        from .secondary_episode_v2 import _prepare_secondary_episode
+        return _prepare_secondary_episode(request=request,output=output)
     from .native_qualification_registry_v2 import load_native_qualification_registry,native_registry_storage_roots
     registry=load_native_qualification_registry(request['qualification_reference'])
     from treeneuron.config import canonical_json
@@ -348,10 +364,16 @@ def _make_resource_gate(context,*,search_directory,observe=None):
     # Freeze the declared metadata against caller mutation. This helper itself
     # grants no qualification; the actual public loader is mandatory above.
     context=_json(json.dumps(context))
-    identity=dict(schema='research/v2-primary-resource-admission-policy',forecast_reference=context['reference'],
+    secondary='global_barrier_reference' in context
+    identity=dict(schema='research/v2-secondary-resource-admission-policy' if secondary else 'research/v2-primary-resource-admission-policy',forecast_reference=context['reference'],
         forecast_hash=context['forecast']['forecast_hash'],job_sha256=canonical_hash(context['job']))
+    if secondary:identity['global_barrier_reference']=context['global_barrier_reference']
     def gate():
-        return native_resource_decision(forecast=context['forecast'],job=context['job'],live=observer(search_directory))
+        decision=native_resource_decision
+        if secondary:
+            from .secondary_resource_v2 import _secondary_resource_decision
+            decision=_secondary_resource_decision
+        return decision(forecast=context['forecast'],job=context['job'],live=observer(search_directory))
     return gate,identity
 
 
@@ -390,7 +412,7 @@ def main(argv=None):
     from .cooperative_process_v2 import cooperative_worker,_write
     with cooperative_worker(identity=identity):
         request=_checked_request(args.request,args.expected_request_sha256)
-        outcome=dict(schema='research/v2-primary-search-body-outcome',status='body_failed',
+        outcome=dict(schema=_body_schema(request),status='body_failed',
             request_sha256=args.expected_request_sha256,job_binding=_job_binding(request),
             previous_episodes=request['previous_episodes'],quality_eligible=False,
             protected_access_authorized=False,T_accessed=False,whole_training_procedure_cost_authenticated=False)

@@ -130,3 +130,16 @@ def test_public_secondary_entry_refuses_false_global_qualification_before_prepar
         else:module.audit_secondary_qualified_search(**kwargs,search_directory=tmp_path/'forbidden-search',expected_search_plan_sha256='c'*64,
             result_path=tmp_path/'forbidden-result.json',expected_result_sha256='d'*64,expected_journal_sha256='e'*64)
     assert list(tmp_path.iterdir())==[]
+
+
+def test_untrusted_missing_component_metadata_can_describe_a_paid_resource_pause_without_qualification():
+    module=api();qref=dict(root='/unqualified-only',inventory_sha256='a'*64);gref=dict(path='/unqualified-only.json',sha256='b'*64)
+    trial=dict(source_sha256='c'*64,plan_hash='d'*64,candidate_id='anchor-0')
+    outcome=dict(candidate_component=None,inspected_V_score=None,expected_trial=trial,status='interrupted_recoverable',callback_body_ns=5)
+    packet=dict(schema='research/v2-qualified-secondary-native-candidate-admission',qualification_reference=qref,global_barrier_reference=gref,
+        **trial,upstream_status='interrupted_recoverable',status='interrupted_recoverable',V_score=None,component=None,
+        native_workload_qualified=False,quality_eligible=False,HPO_journal_authenticated=False,protected_access_authorized=False,T_accessed=False,
+        callback_body_before_publication_ns=8,clock_scope=module._ADMISSION_CLOCK,scope=module._ADMISSION_SCOPE)
+    assert module._check_secondary_admission(packet,outcome,qualification_reference=qref,barrier_reference=gref,charged_ns=10) is None
+    for fault in (dict(quality_eligible=True),dict(V_score=0.),dict(component={}),dict(callback_body_before_publication_ns=11)):
+        with pytest.raises(ValueError):module._check_secondary_admission(dict(packet,**fault),outcome,qualification_reference=qref,barrier_reference=gref,charged_ns=10)

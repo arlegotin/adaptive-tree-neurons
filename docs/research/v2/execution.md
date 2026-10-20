@@ -2699,3 +2699,35 @@ Next owned secondary request/cold worker/caller/program/resource/recovery wiring
 per the durable program brief, then full840/model/Tonce/evaluator/rawaudit/cost/
 deployment/CLI/readiness/finalreview before final-source qualification or primary
 production. No change to scientific outcomes or the held c33 native study.
+
+## 20 October: owned secondary cold-worker/caller episodes
+
+Added a strict secondary program-request subtype with mandatory actual global,
+plan/support/procedure/native/resource pins. Public preflight derives the pins
+from the genuine barrier before data/output; the cold worker reopens and checks
+them after its stdlib-only ready/grant phase. Distinct purpose/body schema binds
+secondary history while retaining the existing generic caller record format.
+Old primary schemas reject an added barrier. Prior closed/unstarted clocks,
+official sampler, TPE queue and recovery paths reuse the checked shared machinery.
+Secondary resource advice is bound to the frozen global reference per proposal.
+
+Initial8RED0.25s→first100GREEN9.15s. Additional actual cold and positive pure pin
+tests found6failures/115passes16.46s: canonical_json requires a mapping, but the
+new pin join passed hash strings. An independently added nullable native-component
+test failed1case0.38s on the same mistake with None in a resource-failure
+companion. Wrapping each compared value in an object fixes both; final affected
+eight-module122passed16.03s. No historical result or live held fit changed.
+Earlier100/107 scoped passes did not cover these two cases and are not replaced.
+
+The actual owned cold negative closes with code1/body_failed before plan/roles/
+search output, all model/T authority false. Captured root clock449010291ns is
+not a full caller/study cost. Capture initially looked for identity in terminal
+process metadata; it belongs to started.json. The already retained proof is
+unchanged and its corrected observation is in a fresh directory.
+[Contract](secondary-episodes.md), [receipt](WP09-secondary-episode-receipt.json).
+
+Complete-qualified public positive and trained secondary-episode resume remain
+unrun. Next serial672 program and terminal audits, full840 model/Tonce/evaluator/
+raw audit/cost/deployment/CLI/readiness/final review before final-source actual
+qualification and primary production. Scientific gates/claims and held c33
+source/runtime/operator settings remain unchanged; no new rescue/T root admitted.

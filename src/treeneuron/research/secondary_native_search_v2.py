@@ -112,7 +112,7 @@ def _check_secondary_admission(packet,outcome,*,qualification_reference,barrier_
             or any(packet[k]!=trial[k] for k in ('source_sha256','plan_hash','candidate_id'))
             or packet['upstream_status']!=outcome['status'] or packet['status']!=('completed_eligible' if admitted else outcome['status'])
             or type(packet['V_score']) is not type(score if admitted else None) or packet['V_score']!=(score if admitted else None)
-            or canonical_json(packet['component'])!=canonical_json(component)
+            or canonical_json(dict(value=packet['component']))!=canonical_json(dict(value=component))
             or any(type(packet[k]) is not bool or packet[k]!=admitted for k in ('quality_eligible','native_workload_qualified'))
             or any(packet[k] is not False for k in ('HPO_journal_authenticated','protected_access_authorized','T_accessed'))
             or packet['clock_scope']!=_ADMISSION_CLOCK or packet['scope']!=_ADMISSION_SCOPE

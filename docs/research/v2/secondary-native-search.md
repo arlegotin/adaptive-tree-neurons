@@ -38,6 +38,11 @@ runs, exact commands and bytes are retained in the
 both actual toy native attempts; neither is promoted. This is not a
 whole-repository or production-qualification pass.
 
+Later [episode integration](secondary-episodes.md) added a nullable-component
+resource-failure regression. It exposed an object-only JSON helper being called
+on `None`; that boundary is now fixed and included in its122-check run. The
+earlier107-check pass covered nonempty components and is retained as recorded.
+
 The owned secondary worker/program/resource route, complete post-secondary
 model/T barrier, protected evaluator and raw auditor, physical costs/deployment,
 production CLI/readiness and final branch review remain before final-source

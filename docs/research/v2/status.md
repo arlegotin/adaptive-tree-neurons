@@ -309,3 +309,10 @@ uses the same advisory memory/disk proxies without a blanket20GiB requirement.
 Positive fixtures use artificial observations, not real workload qualification.
 Owned secondary worker/program wiring remains next; protected evaluation and
 production readiness remain unfinished.
+
+[Owned secondary episodes](secondary-episodes.md) passed 122 affected checks.
+The strict request/body identity, actual-global-first preflight, cold worker,
+caller history and per-proposal resource advice are wired. New pin/failure tests
+caught and fixed two object-only JSON serialization mistakes before production.
+Actual qualified positive execution and trained secondary resume remain unrun;
+the serial672 queue, full840/protected evaluator, costs and final readiness remain.
