@@ -1,0 +1,121 @@
+{
+  "T_accessed": false,
+  "actual_full_qualified_public_success_executed": false,
+  "actual_generic_caller_episodes": 5,
+  "caller_additional_interval_routed_into_search": false,
+  "direct_prespawn_denial_checks": 2,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_primary_caller_v2.py",
+      "tests/test_cooperative_process_v2.py",
+      "tests/test_unstarted_primary_cost_v2.py",
+      "tests/test_primary_resource_binding_v2.py",
+      "tests/test_primary_invocation_v2.py",
+      "tests/test_primary_search_worker_v2.py",
+      "--basetemp=artifacts/research-v2/WP08/primary-caller-final-tmp"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "fixture_observation": {
+    "bytes": 31311,
+    "path": "artifacts/research-v2/WP08/primary-caller-software-observation.json",
+    "sha256": "456bd6d3f90a0ce227ebb59c31bec32fbfa8ceabedadad66775ccd76cf0dd50e"
+  },
+  "logs": [
+    {
+      "bytes": 4627,
+      "path": "artifacts/research-v2/WP08/primary-caller-RED.log",
+      "sha256": "dce8a0861c5cc1f9cbc3cc22810809db3d9f6f0e222b352e10d944b5a5d52903"
+    },
+    {
+      "bytes": 98,
+      "path": "artifacts/research-v2/WP08/primary-caller-GREEN.log",
+      "sha256": "fc99c56adf2cb5702a4564ceead9e104cf6db01c3cd1a15756b5c9630e644ce6"
+    },
+    {
+      "bytes": 5261,
+      "path": "artifacts/research-v2/WP08/primary-caller-regressions.log",
+      "sha256": "fab12b00bb165b2227651730b32376567295e1dd0a69c6dcee286df57b9e813b"
+    },
+    {
+      "bytes": 180,
+      "path": "artifacts/research-v2/WP08/primary-caller-final.log",
+      "sha256": "8d8ec6428069507c48c0e81802da8b24c60d9c419f346ddd56e59d34d8263884"
+    }
+  ],
+  "native_models_fit_in_capture": 0,
+  "packages_installed_or_updated": false,
+  "parent_commit": "f555023",
+  "plan_or_role_arrays_read_in_capture": false,
+  "production_readiness_authenticated": false,
+  "protected_access_authorized": false,
+  "schema": "research/v2-primary-caller-component-receipt",
+  "scientific_source_sha256": "59ab2379516c40c39229b8281e0bef73ed4e03fc07b740a628d32dbb037ddfa1",
+  "scope": "One exact owned caller episode and optional pre-spawn host/admission check, followed by existing pregrant/per-trial gates. Actual partial generic/primary-denial fixtures only; no complete-qualified public success stub. Additional caller cost routing, queue/readiness, global procedure and protected integration remain required.",
+  "secondary_release_authorized": false,
+  "tested_files": [
+    {
+      "bytes": 7540,
+      "path": "src/treeneuron/research/primary_caller_v2.py",
+      "sha256": "7648f521676e2ebfaefe70b0e3c3eba7f3c56feda224bf56c9c8251775ddd9a8"
+    },
+    {
+      "bytes": 29279,
+      "path": "src/treeneuron/research/cooperative_process_v2.py",
+      "sha256": "e6a2255c515751ce05d95d9b346b4256821584c8c3a885fc1a86f24a3a13be8f"
+    },
+    {
+      "bytes": 9297,
+      "path": "tests/test_primary_caller_v2.py",
+      "sha256": "fe226777480fc218ab2dc07631e478bbd9df10a81994591e84beb6b20ae6270a"
+    },
+    {
+      "bytes": 13690,
+      "path": "tests/test_cooperative_process_v2.py",
+      "sha256": "0d5d553634928d23dfe202c0710ed4a11cdfbb3a409bcf91b9bd6a337ea0eae2"
+    },
+    {
+      "bytes": 6009,
+      "path": "tests/test_unstarted_primary_cost_v2.py",
+      "sha256": "86cc6100a1a175a8173827d19dc256147b0a66760ffb169e11f187c5f0ab6f4b"
+    },
+    {
+      "bytes": 9809,
+      "path": "tests/test_primary_resource_binding_v2.py",
+      "sha256": "006b48a7096724d108a770f533a5aae254887e530bddbd2ba73cf101e1d2b74f"
+    },
+    {
+      "bytes": 8020,
+      "path": "tests/test_primary_invocation_v2.py",
+      "sha256": "2e9f2bb51f2c1bb4ed93a8586b67e26451295c13f106f66d541e7a590b135bb3"
+    },
+    {
+      "bytes": 14814,
+      "path": "tests/test_primary_search_worker_v2.py",
+      "sha256": "35c25bb4ab9e72fdd8ec32da491447c145ea5fa37800f20353d21e7aaa8927c7"
+    }
+  ],
+  "verification": [
+    "Initial3missing-interface failures0.04s",
+    "First3passed0.39s",
+    "Clock/decision regressions4failed8passed1.25s before fixes",
+    "Final123passed7.85s/session77313exit0"
+  ],
+  "whole_training_procedure_cost_authenticated": false
+}

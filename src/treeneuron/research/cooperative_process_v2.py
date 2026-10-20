@@ -137,7 +137,7 @@ is retained as an operational failure, never a resumable search by assumption.
 def supervise_cooperative_process(*, argv, cwd, env_overrides, output, identity,
         admission_identity, admission_check, rss_pause_bytes, poll_interval_ns=100_000_000,
         handshake_timeout_ns=10_000_000_000, pause_after_ns=None,
-        log_limit_bytes=64*1024**2,invocation_origin_ns=None):
+        log_limit_bytes=64*1024**2,invocation_origin_ns=None,admit_before_spawn=False):
     """Retain one owned cold-worker episode, without automatic restart.
 
 ``pause_after_ns`` is an optional cooperative operational limit; None supplies
@@ -161,7 +161,7 @@ enforcing a hard outer memory bound. Admission runs after ready, before grant.
     if (not isinstance(identity, dict) or not identity or not isinstance(admission_identity, dict)
             or not admission_identity or not callable(admission_check)
             or any(not _positive(v) for v in (rss_pause_bytes,poll_interval_ns,handshake_timeout_ns,log_limit_bytes))
-            or pause_after_ns is not None and not _positive(pause_after_ns)):
+            or pause_after_ns is not None and not _positive(pause_after_ns) or type(admit_before_spawn) is not bool):
         raise ValueError('Invalid cooperative ownership/admission contract')
     identity_json = _canonical(identity)
     if output.exists() or output.is_symlink():
@@ -176,6 +176,7 @@ enforcing a hard outer memory bound. Admission runs after ready, before grant.
         log_limit_bytes=log_limit_bytes)
     if invocation_origin_ns is not None:
         start.update(supervisor_entered_monotonic_ns=entered,caller_preparation_ns=entered-started)
+    if admit_before_spawn:start['pre_spawn_admission_required']=True
     _write(output/'started.json', start)
     start_sha = _sha((output/'started.json').read_bytes())
     environment = dict(os.environ)
@@ -231,14 +232,23 @@ enforcing a hard outer memory bound. Admission runs after ready, before grant.
     with (output/'stdout.log').open('xb') as stdout, (output/'stderr.log').open('xb') as stderr, \
             (output/'resource-samples.jsonl').open('x') as observations:
         try:
-            root_rss_bytes(os.getpid(), 250_000_000)
-            spawn_requested = time.perf_counter_ns()-started
-            proc = subprocess.Popen(argv,cwd=cwd,env=environment,stdin=subprocess.DEVNULL,
-                stdout=stdout,stderr=stderr,start_new_session=True)
-            spawn_elapsed = time.perf_counter_ns()-started
-            _write(output/'spawned.json', dict(schema='research/v2-cooperative-owned-root',
-                child_pid=proc.pid, child_pgid=proc.pid, new_session=True))
-            while True:
+            proceed=True
+            if admit_before_spawn:
+                admission=admission_check()
+                if type(admission) is not dict or type(admission.get('admitted')) is not bool:
+                    raise ValueError('Pre-spawn admission requires an explicit boolean')
+                _write(output/'pre-spawn-admission.json',admission)
+                proceed=admission['admitted']
+                if not proceed:status,reason='resource_exhausted','prespawn_admission_denied'
+            if proceed:
+                root_rss_bytes(os.getpid(), 250_000_000)
+                spawn_requested = time.perf_counter_ns()-started
+                proc = subprocess.Popen(argv,cwd=cwd,env=environment,stdin=subprocess.DEVNULL,
+                    stdout=stdout,stderr=stderr,start_new_session=True)
+                spawn_elapsed = time.perf_counter_ns()-started
+                _write(output/'spawned.json', dict(schema='research/v2-cooperative-owned-root',
+                    child_pid=proc.pid, child_pgid=proc.pid, new_session=True))
+            while proc is not None:
                 elapsed = time.perf_counter_ns()-started
                 if proc.poll() is not None:
                     if status == 'input_or_dependency_failure' and reason == 'before_spawn':
@@ -379,6 +389,24 @@ def inspect_cooperative_process(*, root, expected_receipt_sha256, expected_start
         path = root/ref['path']
         if path.is_symlink() or not path.is_file() or _canonical(_ref(path)) != _canonical(ref):
             raise ValueError('Cooperative raw file commitment changed')
+    prespawn='pre_spawn_admission_required' in start
+    if prespawn:
+        if start['pre_spawn_admission_required'] is not True:raise ValueError('Explicit pre-spawn policy required')
+        if 'pre-spawn-admission.json' in names:
+            decision,_=_read(root/'pre-spawn-admission.json')
+            if type(decision) is not dict or type(decision.get('admitted')) is not bool:
+                raise ValueError('Strict pre-spawn decision required')
+            if decision['admitted'] and receipt.get('stop_reason')=='prespawn_admission_denied':
+                raise ValueError('Admitted pre-spawn record contradicts denial disposition')
+            if not decision['admitted'] and (receipt.get('child_started') is not False
+                    or receipt.get('grant_publication_started') is not False
+                    or receipt['execution_status']!='resource_exhausted' or receipt.get('stop_reason')!='prespawn_admission_denied'):
+                raise ValueError('Denied pre-spawn decision cannot authorize a process')
+        elif (receipt['execution_status']!='input_or_dependency_failure' or receipt.get('child_started') is not False
+                or receipt.get('grant_publication_started') is not False):
+            raise ValueError('Missing pre-spawn observation cannot authorize execution')
+    elif 'pre-spawn-admission.json' in names:
+        raise ValueError('Pre-spawn decision requires its explicit start policy')
     samples = [json.loads(line) for line in (root/'resource-samples.jsonl').read_text().splitlines()]
     last = 0
     for sample in samples:

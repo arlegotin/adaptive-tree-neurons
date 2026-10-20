@@ -192,13 +192,20 @@ The [resource-bound worker component](primary-resource-binding.md) passed 98
 affected checks. Its new request schema authenticates the cached forecast and
 connects fresh host observations to the pre-proposal hook. A real cold-worker
 shortage fixture closes with zero fits; full qualified public execution remains
-unrun. The production caller and complete outer-cost/protocol gates are pending.
+unrun. The caller component described below composes these pieces; complete
+outer-cost/protocol gates are pending.
 
 [Never-authorized root accounting](unstarted-primary-cost.md) passed 111 affected
 checks. It retains startup costs without consuming a fit slot and rejects
-authorized bodies from that retry path. The production caller still needs to
-route these immutable operational references. Complete-qualified execution and
-whole outer-cost/protocol gates remain pending.
+authorized bodies from that retry path. The caller component emits and accepts
+these immutable operational references. Complete-qualified execution and whole
+outer-cost/protocol gates remain pending.
+
+The [owned caller component](primary-caller.md) passed 123 affected checks. It
+performs actual preflight before output and checks resources before worker
+start and before grant. No native models were fit by its new fixtures. Full
+qualified public execution, production queue/readiness, additional caller-cost
+routing, global procedure and protected evaluation remain unrun/unfinished.
 
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only

@@ -39,7 +39,8 @@ success was stubbed or run. The mixed complete-qualified search/unstarted-cost
 chain still awaits actual qualification; its existing exact body-prefix checks
 remain required.
 
-The production caller still needs to collect and route these references. Whole
-outer-cost reconciliation, final procedure freeze and protected evaluation
-remain unfinished. Existing scientific results and held-source jobs are
+The [owned caller component](primary-caller.md) now emits and accepts these
+references. Complete-qualified execution, additional caller-cost routing,
+production queue/readiness, final procedure freeze and protected evaluation
+remain unrun/unfinished. Existing scientific results and held-source jobs are
 unchanged.

@@ -33,7 +33,9 @@ are not a measured native forecast. Pure metadata tests grant no qualification.
 No complete actual-qualified public success was stubbed or executed.
 
 The [receipt](WP08-primary-resource-binding-receipt.json) retains the evidence.
-Production caller launch, complete outer-cost reconciliation, final executable
-readiness/global procedure freeze and protected evaluation remain unfinished.
+The [owned caller component](primary-caller.md) now composes this binding and
+retains pre-spawn/pregrant denials. Complete-qualified public execution, outer-
+cost reconciliation, final executable readiness/global procedure freeze and
+protected evaluation remain unrun/unfinished.
 This binding does not authorize secondary folds or T. Existing scientific
 results and held-source NODE jobs are unchanged.

@@ -2352,3 +2352,34 @@ body/unstarted integration and production caller are unrun/unfinished, with no
 full qualification stub. [Contract](unstarted-primary-cost.md),
 [receipt](WP08-unstarted-primary-cost-receipt.json). Heldc33jobs/source/env/ops
 unchanged; no HPO/calibration/T access.
+
+## 20 October: owned primary caller and admission before spawn
+
+Added one-episode caller composition: actual qualification/resource preflight
+before any output, exact request hash/command/core environment, original caller
+origin, immutable operational references and no automatic retry/deadline.
+The generic observer optionally checks admission before Popen, retaining a
+closed measured no-child denial, then keeps its existing ready/pregrant check
+when a worker starts. Default observer records remain unchanged. Caller
+distinguishes never-authorized roots, closed primary bodies and failed/missing
+authorized outcomes. Generic outputs never promote native/quality authority.
+
+Ruling: put initial resource denial inside the owned observer rather than an
+unmeasured caller-only path. Its no-child root is an existing never-authorized
+cost reference and can be paid once before eventual fitting. A changed resource
+check before grant preserves the same guarantee. Cost if wrong is lost startup
+cost or unsafe authorization; phase/raw-decision checks and tests cover both.
+
+Initial3missing-interface failures0.04s; first3passed; regression run4failed/
+8passed1.25s exposed invalid caller origins publishing output and contradictory
+pre-spawn decisions. Fixed before final six-module123passed7.85s/session77313
+exit0. Five actual generic caller episodes plus two direct pre-spawn fixtures,
+zero native fits. Complete-qualified public success remains unrun/no stub.
+
+Root clock includes preflight through child/reap/log hashing; caller also
+retains observer-return/readback interval with its own final publication
+explicitly excluded. Additional caller interval still needs future-prefix/
+standalone routing and study-clock bookkeeping coverage; full-cost authority
+stays false. Production queue/readiness/global procedure/protected integration
+remain unfinished. [Contract](primary-caller.md),
+[receipt](WP08-primary-caller-receipt.json). Heldc33NODEjobs/source/env/ops unchanged.
