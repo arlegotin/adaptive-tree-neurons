@@ -1,0 +1,224 @@
+{
+  "created_utc": "2026-10-20T06:30:48.565664+00:00",
+  "environment": {
+    "bytecode": false,
+    "copied_tree_files": 2922,
+    "copied_tree_logical_bytes": 205272152,
+    "numerical_threads": 1,
+    "pytest_external_plugins": false,
+    "qualified_interpreter": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+    "tree_overlay": "environment/research-v2-tree-site",
+    "version_or_resolution_change": false
+  },
+  "existing_scientific_sources_changed": false,
+  "implementation_base_commit": "61221f4982d554af4cf3d1e14088fde5b66a9bcc",
+  "implementation_worktree": "/private/tmp/atn-research-v2-support-reader-61221f4",
+  "limitations": [
+    "Reader verifies available byte/request/process/resource/row consistency; original training/reload is trusted rather than independently recreated.",
+    "RSS is sampled root-worker memory, not strict peak or aggregate descendant RAM.",
+    "Short full-geometry probes do not replace native anchors, optimization coverage/gradient evidence, recovery, acquisition lineage or the complete qualification registry.",
+    "The final production source and complete protocol remain unfinished. Old held-source geometry results are not silently promoted."
+  ],
+  "logs": [
+    {
+      "bytes": 507,
+      "path": "artifacts/research-v2/WP07/support-reader-61221f4/initial-baseline-failure.json",
+      "sha256": "5984e1b2b5fd7436f1f28d3804905b10e4ac1b67ccffb88d32fe5ea9a213bfc9"
+    },
+    {
+      "bytes": 113,
+      "path": "artifacts/research-v2/WP07/support-reader-61221f4/sandbox-rss-preflight.json",
+      "sha256": "e8c10dac573c416ea232b3f4d871e48d106825f866473b8236b5db955037c5fb"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP07/support-reader-61221f4/baseline-recovery.log",
+      "sha256": "83bff0ee82aa2a02fae8c4cf6e6171e40bf99111ae424853114c93d166b4722d"
+    },
+    {
+      "bytes": 17584,
+      "path": "artifacts/research-v2/WP07/support-reader-61221f4/RED-missing-reader.log",
+      "sha256": "6e625a74f31ab86835a4b9f2d0379805723020998eb00415657fd5c1ae88bdce"
+    },
+    {
+      "bytes": 2638,
+      "path": "artifacts/research-v2/WP07/support-reader-61221f4/GREEN-reader-first.log",
+      "sha256": "17ccdd4a1814eff0f4b57bcfe23825dfb471e06604139389c584e2c2ef6778d1"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP07/support-reader-61221f4/GREEN-reader.log",
+      "sha256": "809ceee53bded3e0b4f40680eff76fb61bed27dcccc3c5a9cebe996d2de8bc3b"
+    },
+    {
+      "bytes": 3026,
+      "path": "artifacts/research-v2/WP07/support-reader-61221f4/RED-cross-records.log",
+      "sha256": "dc828511bb8c07a29cfff4b672f12f0478a97cf2d307362b76919f5e315e7936"
+    },
+    {
+      "bytes": 1124,
+      "path": "artifacts/research-v2/WP07/support-reader-61221f4/GREEN-reader-cross-records.log",
+      "sha256": "a87c8be482e2a0ea0e9fd3dd7b778b3205cd53c8607257220674735e7063d59f"
+    },
+    {
+      "bytes": 4859,
+      "path": "artifacts/research-v2/WP07/support-reader-61221f4/zero-RSS-observation.json",
+      "sha256": "855079a6b6a8e1fcde74d43874d81ad4fc42e81755a30d50f1694b4281f8a33c"
+    },
+    {
+      "bytes": 1120,
+      "path": "artifacts/research-v2/WP07/support-reader-61221f4/RED-zero-RSS.log",
+      "sha256": "07ae10bcaaba1b7c97969fe376f8b6d5dc026a9467c9434f8ecac66452bcbda2"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP07/support-reader-61221f4/GREEN-reader-final.log",
+      "sha256": "eb94ac0c18d1dca443afbc2d5148f08cd1136fc2e0fd09084915ce7b9bad6f70"
+    },
+    {
+      "bytes": 190,
+      "path": "artifacts/research-v2/WP07/support-reader-61221f4/affected-final.log",
+      "sha256": "0cc497d73eb0a19e0f9b813dab89f3cfff9c2962954da80a0374b5fe198bfab1"
+    },
+    {
+      "bytes": 508711,
+      "path": "artifacts/research-v2/WP07/support-reader-61221f4/tree-overlay-copy.json",
+      "sha256": "c66f4e559d1c76324b65ff42dac9e3f5312dde228a418289603ff04983a15f40"
+    },
+    {
+      "bytes": 114,
+      "path": "artifacts/research-v2/WP07/support-reader-61221f4/geometry-branches.log",
+      "sha256": "72c74a95b6caabc107c5e6a5fecb02faf26c49ff02601464b17e750ddd9e2d84"
+    }
+  ],
+  "schema": "research/v2-support-geometry-reader-verification",
+  "scientific_source_sha256": "563ce93a488eee28df69cffd81ee065803daea7f8bba62319f85889a076e8613",
+  "scope": {
+    "HPO_journal_authenticated": false,
+    "NODE_geometry": {
+      "depth": 6,
+      "short_budget": "ceil(nF/512)+1 updates",
+      "trees": 2048
+    },
+    "T_accessed": false,
+    "V_labels_read": false,
+    "all_training_rows_visited_authenticated": false,
+    "complete_input_rows_checked": true,
+    "full_native_training": false,
+    "full_native_workload_qualified": false,
+    "independent_new_inference": false,
+    "linear_tree_snapshot": "state.json",
+    "managed_same_worker_reload_records_checked": true,
+    "original_managed_records_trusted": true,
+    "original_source_or_roles_unchanged": true,
+    "protected_access_authorized": false,
+    "quality_eligible": false,
+    "real_test_fixture_families": [
+      "P13",
+      "P02",
+      "P12",
+      "P11"
+    ],
+    "saved_primary_query_rows_checked": true
+  },
+  "status": "software_component_verified",
+  "test_source": {
+    "dirty_source_admitted_for_TDD": true,
+    "files": [
+      {
+        "bytes": 25867,
+        "path": "src/treeneuron/research/support_probes_v2.py",
+        "sha256": "8293fbebf580b15b56e70a5c0d4da16eacff363bceac8986d96d31800cf092bc"
+      },
+      {
+        "bytes": 11694,
+        "path": "tests/test_native_support_probe_reader.py",
+        "sha256": "0e0aa421112ecc24261742de84ea3b5aa3210a5df4457a6d3144e7a0587ea3d8"
+      }
+    ]
+  },
+  "verification": [
+    {
+      "cause": "Owned /bin/ps observation denied; direct preflight reproduced PermissionError, no code fix",
+      "failed": 4,
+      "passed": 19,
+      "seconds": 1.02,
+      "stage": "unchanged_baseline_sandbox"
+    },
+    {
+      "failed": 0,
+      "passed": 23,
+      "seconds": 8.22,
+      "stage": "unchanged_baseline_observation_permission"
+    },
+    {
+      "failed": 17,
+      "seconds": 0.33,
+      "stage": "missing_reader_RED"
+    },
+    {
+      "cause": "Missing inventory-helper import",
+      "failed": 3,
+      "passed": 14,
+      "seconds": 21.36,
+      "stage": "initial_reader"
+    },
+    {
+      "failed": 0,
+      "passed": 17,
+      "seconds": 21.18,
+      "stage": "reader_GREEN"
+    },
+    {
+      "deselected": 17,
+      "failed": 5,
+      "seconds": 5.65,
+      "stage": "cross_record_RED"
+    },
+    {
+      "cause": "Legitimate zero RSS sample during worker exit incorrectly rejected",
+      "failed": 1,
+      "passed": 21,
+      "seconds": 26.55,
+      "stage": "cross_record_guards"
+    },
+    {
+      "deselected": 22,
+      "failed": 1,
+      "seconds": 1.43,
+      "stage": "zero_RSS_regression_RED"
+    },
+    {
+      "failed": 0,
+      "passed": 23,
+      "seconds": 27.02,
+      "stage": "reader_GREEN_with_zero_transition"
+    },
+    {
+      "failed": 0,
+      "modules": [
+        "test_native_support_probe_reader.py",
+        "test_native_support_probes.py",
+        "test_native_generation_chain.py",
+        "test_native_anchor_reader.py",
+        "test_native_candidate_inspection.py"
+      ],
+      "passed": 73,
+      "seconds": 96.91,
+      "stage": "affected_GREEN"
+    },
+    {
+      "deselected": 23,
+      "failed": 0,
+      "passed": 2,
+      "seconds": 21.7,
+      "stage": "additional_real_NODE_and_linear_tree_paths"
+    }
+  ],
+  "whole_repository_suite": {
+    "green_claim": false,
+    "root": "artifacts/research-v2/WP11/whole-suite-61221f4",
+    "source_includes_new_reader": false,
+    "status": "running_separately_on_unchanged_base"
+  }
+}

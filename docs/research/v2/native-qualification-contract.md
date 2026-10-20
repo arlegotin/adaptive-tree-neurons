@@ -82,6 +82,13 @@ the recorded source/raw/sealed-byte consistency component. It hashes opaque
 protected archives without decoding targets and grants no modeling authority.
 The complete registry and raw-to-model joins are still required.
 
+The [closed geometry reader](native-support-probes.md#reopening-a-closed-exercise)
+now reopens a short probe's source/configuration/process/input/query records and
+raw RSS summary through an externally committed inventory. It grants no full
+native/workload/support qualification. The registry must consume these checked
+records alongside complete native anchors rather than treating an unchecked
+short-run result flag as authority.
+
 [Full-geometry short probes](native-support-probes.md) now provide an explicit
 engineering catalog and owned worker for wider/deeper support shapes. Only
 synthetic ridge and128-unit ordinary-growth cases exercised the runner during

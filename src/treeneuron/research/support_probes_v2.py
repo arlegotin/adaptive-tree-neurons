@@ -9,6 +9,7 @@ import math
 import os
 from pathlib import Path
 import signal
+import sys
 import time
 
 from treeneuron.config import canonical_hash
@@ -22,6 +23,7 @@ from .search_supports_v2 import _config, _parse, family_search_spec
 from .transfer import TransferStore
 from .trial_bridge_v2 import EngineeringTrialBridge
 from .workload import _checked_manifest
+from .workqueue import _inventory
 
 
 def support_probe_cases(family, feature_schema):
@@ -212,3 +214,146 @@ def run_support_probe(*, plan, case_id, output, interpreter, extra_pythonpath=()
         result['elapsed_ns'] = time.perf_counter_ns()-started
         result['clock_scope'] = 'Function entry through result preparation; caller pays final publication/return. Process time is nested.'
         write_new_json(output/'result.json', result)
+
+
+def load_support_probe(reference, *, prepared_root, expected_manifest_sha256,
+        expected_family, expected_case_id):
+    """Check a closed short probe; no new fit, inference or quality promotion.
+
+    Original managed training/reload receipts remain trusted. Complete input
+    inclusion does not imply every row was visited during short optimization.
+    """
+    import numpy as np
+    from .native_anchor_v2 import _closed_reference, _bound_json
+    from .deployment_worker_v2 import _json
+
+    reference = copy.deepcopy(reference)
+    root, inventory = _closed_reference(reference)
+    plan = plan_support_probes(prepared_root=prepared_root,
+        expected_manifest_sha256=expected_manifest_sha256, family=expected_family)
+    choices = [c for c in plan['cases'] if c['case_id'] == expected_case_id]
+    if len(choices) != 1 or _bound_json(root, inventory, 'plan.json') != plan:
+        raise ValueError('Closed geometry plan/source/case differs')
+    result = _bound_json(root, inventory, 'result.json')
+    expected_identity = dict(source_sha256=plan['source_sha256'], plan_sha256=plan['plan_sha256'],
+        family_id=expected_family, case_id=expected_case_id, dataset=plan['dataset'], outer_fold=plan['outer_fold'])
+    if (result.get('schema') != 'research/v2-support-probe-result'
+            or result.get('status') != 'completed_ineligible'
+            or any(result.get(k) != v for k, v in expected_identity.items())
+            or any(result.get(k) is not True for k in ('snapshot_reload_exact', 'query_predictions_finite', 'child_reaped'))
+            or any(result.get(k) is not False for k in ('full_native_training', 'native_workload_qualified',
+                'quality_eligible', 'V_labels_read', 'T_accessed'))):
+        raise ValueError('Only a passed, unqualified short-geometry record is admitted')
+    request_path = root/'input/request.json'
+    request_sha = result.get('request_sha256')
+    if not _digest(request_sha) or _sha(request_path) != request_sha:
+        raise ValueError('Original geometry request commitment differs')
+    request = _bound_json(root, inventory, 'input/request.json')
+    store = TransferStore(Path(prepared_root)); manifest = store.manifest; fold = plan['outer_fold']
+    files = {}; originals = {}
+    for role in ('F', 'G', 'V_features'):
+        relative = f'outer-{fold}/'+('V-features.npz' if role == 'V_features' else role+'.npz')
+        path = Path(prepared_root)/relative; digest = manifest['files'][relative]['sha256']
+        if path.resolve() != path or path.is_symlink() or _sha(path) != digest:
+            raise ValueError('Original primary geometry role bytes differ')
+        originals[path] = digest
+        files[role] = dict(path=role+'.npz', sha256=digest)
+    # The reader is a new, permitted F/G/features access, never a V scorer.
+    store._access(fold, ['F_labels', 'G_labels', 'V_features'])
+    is_node = expected_family == 'P12'
+    _, arrays = _validate_request(request_path, request_sha, recoverable_training=is_node)
+    counts = {role:len(a['X']) for role, a in arrays.items()}
+    probe = engineering_probe_configuration(choices[0]['native_config'], fit_rows=counts['F'])
+    expected_request = dict(schema='research/v2-method-worker-request', purpose='engineering_qualification',
+        job_id='support-probe/'+expected_case_id, family_id=expected_family, fit_seed=17,
+        scientific_source_sha256=plan['source_sha256'], config=probe['configuration'], budget=probe['budget'],
+        observation_identity=dict(dataset=plan['dataset'], split_kind='temporal' if plan['dataset']=='bike' else 'grouped',
+            split_sha256=plan['split_sha256']), files=files)
+    if (request != expected_request or result.get('probe') != probe
+            or counts['F'] != result.get('fit_rows') or counts['G'] != result.get('select_rows')
+            or counts['V_features'] != result.get('query_rows')
+            or counts['F'] != store._split(fold)['actual_rows']['F']):
+        raise ValueError('Geometry configuration, short budget or complete primary input counts differ')
+    process = _bound_json(root, inventory, 'process/process.json')
+    argv = process.get('argv', []); env = process.get('environment_overrides', {})
+    paths = env.get('PYTHONPATH', '').split(os.pathsep)
+    expected_argv = ['-B', '-m', 'treeneuron.research.method_worker', '--request', str(request_path),
+        '--expected-request-sha256', request_sha, '--output', str(root/'worker')]
+    if is_node: expected_argv += ['--training-checkpoints', str(root/'training-checkpoints')]
+    if (process.get('schema') != 'research/v2-process-receipt' or process.get('execution_status') != 'exited'
+            or process.get('returncode') != 0 or process.get('child_started') is not True
+            or process.get('child_reaped') is not True or process.get('timeout_ns') is not None
+            or any(process.get(k) is not False for k in ('eligible_model', 'protected_access_authorized',
+                'native_recipe_runtime_qualified', 'whole_process_cost_authenticated', 'strict_peak_memory_limit_qualified'))
+            or process.get('cwd') != str(_ROOT) or not argv
+            or Path(argv[0]).resolve() != Path(sys.executable).resolve() or argv[1:] != expected_argv
+            or process.get('identity') != dict(plan_sha256=plan['plan_sha256'], case_id=expected_case_id,
+                request_sha256=request_sha, source_sha256=plan['source_sha256'])
+            or any(env.get(k) != '1' for k in (*_THREADS, 'PYTHONDONTWRITEBYTECODE'))
+            or env.get('KMP_DUPLICATE_LIB_OK') is not None or env.get('PYTORCH_ENABLE_MPS_FALLBACK') != '0'
+            or not paths or paths[0] != str(_ROOT/'src')
+            or any(not Path(p).resolve().is_relative_to((_ROOT/'environment').resolve()) for p in paths[1:])
+            or result.get('process_receipt_sha256') != _sha(root/'process/process.json')
+            or result.get('process_stop_reason') != process.get('stop_reason')):
+        raise ValueError('Owned geometry process/source/environment proof differs')
+    started = _bound_json(root, inventory, 'process/started.json')
+    if (started.get('schema') != 'research/v2-process-start'
+            or any(process.get(k) != v for k, v in started.items() if k != 'schema')):
+        raise ValueError('Process start and terminal records differ')
+    refs = process.get('files', [])
+    if len(refs) != 5 or {r.get('path') for r in refs} != {
+            'started.json', 'spawned.json', 'stdout.log', 'stderr.log', 'resource-samples.jsonl'}:
+        raise ValueError('Complete owned-process evidence inventory required')
+    for ref in refs:
+        path = root/'process'/ref['path']
+        if _sha(path) != ref.get('sha256') or path.stat().st_size != ref.get('bytes'):
+            raise ValueError('Process evidence commitment differs')
+    spawned = _bound_json(root, inventory, 'process/spawned.json')
+    if (spawned.get('schema') != 'research/v2-owned-process' or spawned.get('new_session') is not True
+            or type(process.get('child_pid')) is not int or process['child_pid'] <= 0
+            or spawned.get('child_pid') != process['child_pid'] or spawned.get('child_pgid') != process['child_pid']):
+        raise ValueError('Owned geometry process group differs')
+    samples = [_json(line) for line in (root/'process/resource-samples.jsonl').read_bytes().splitlines()]
+    elapsed = process.get('elapsed_ns'); limit = process.get('rss_limit_bytes')
+    if (not samples or type(elapsed) is not int or elapsed <= 0 or type(limit) is not int or limit <= 0
+            or process.get('rss_sample_count') != len(samples)
+            or any(type(s) is not dict or set(s) != {'elapsed_ns', 'root_rss_bytes'}
+                or type(s['elapsed_ns']) is not int or not 0 <= s['elapsed_ns'] <= elapsed
+                or type(s['root_rss_bytes']) is not int or not 0 <= s['root_rss_bytes'] <= limit for s in samples)
+            or any(a['elapsed_ns'] >= b['elapsed_ns'] for a, b in zip(samples, samples[1:]))
+            or max(s['root_rss_bytes'] for s in samples) <= 0
+            or process.get('observed_peak_root_rss_bytes') != max(s['root_rss_bytes'] for s in samples)):
+        raise ValueError('Sampled geometry RSS/process summary differs from raw observations')
+    worker = EngineeringTrialBridge._worker_terminal(root/'worker', request, request_sha)
+    native = request['budget'] == {'native_stopping':True}
+    expected_budget = dict(requested=request['budget'], adapter={} if native and not is_node else request['budget'],
+        policy='native_stopping' if native else 'explicit_training_recovery')
+    snapshot_name = 'state.json' if expected_family in ('P08', 'P09', 'P10', 'P11') else 'manifest.json'
+    snapshot = root/'worker/snapshot'/snapshot_name
+    if (worker.get('status') != 'completed_ineligible' or worker.get('snapshot_reload_exact') is not True
+            or worker.get('request_path') != str(request_path)
+            or worker.get('budget_resolution') != expected_budget
+            or result.get('worker_terminal_sha256') != _sha(root/'worker/terminal.json')
+            or worker.get('snapshot_commitment') != dict(path='snapshot/'+snapshot_name, sha256=_sha(snapshot))
+            or worker.get('snapshot_state_sha256' if snapshot_name == 'state.json' else 'snapshot_manifest_sha256') != _sha(snapshot)
+            or worker.get('prediction_rows') != counts['V_features']):
+        raise ValueError('Closed worker budget/reload/snapshot proof differs')
+    query = arrays['V_features']; ids = ['row_id', 'group_id']+(['timestamps'] if 'timestamps' in query else [])
+    with np.load(root/'worker/predictions.npz', allow_pickle=False) as saved:
+        if (set(saved.files) != {'prediction', *ids} or len(saved.files) != len(ids)+1
+                or any(saved[k].dtype != query[k].dtype or not np.array_equal(saved[k], query[k]) for k in ids)
+                or saved['prediction'].dtype not in (np.dtype('float32'), np.dtype('float64'))
+                or saved['prediction'].shape != query['row_id'].shape or not np.isfinite(saved['prediction']).all()):
+            raise ValueError('Geometry query prediction rows/dtype/finiteness differ')
+    if (plan_support_probes(prepared_root=prepared_root, expected_manifest_sha256=expected_manifest_sha256,
+            family=expected_family) != plan or _inventory(root) != inventory
+            or any(path.is_symlink() or path.resolve() != path or _sha(path) != digest for path, digest in originals.items())):
+        raise ValueError('Geometry proof or original source/primary roles changed during reading')
+    return dict(schema='research/v2-authenticated-support-geometry', status='authenticated_short_geometry_evidence',
+        reference=copy.deepcopy(reference), **expected_identity, complete_input_rows=counts,
+        native_configuration=copy.deepcopy(choices[0]['native_config']), engineering_configuration=probe['configuration'],
+        budget=probe['budget'], query_predictions_finite=True, managed_snapshot_reload_record_checked=True,
+        full_native_training=False, native_workload_qualified=False, quality_eligible=False,
+        all_training_rows_visited_authenticated=False, independent_new_inference=False, HPO_journal_authenticated=False,
+        protected_access_authorized=False, V_labels_read=False, T_accessed=False,
+        scope='Current-source primary input, geometry request, managed process, closed worker/reload records and finite saved queries. Original fitting/reload is trusted; no full native training, row-visit, independent inference, complete workload/support registry or production/protected authority.')

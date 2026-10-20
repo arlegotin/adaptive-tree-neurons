@@ -54,3 +54,28 @@ The remaining production registry must join final-source software verification,
 all native anchors, actual support/workload results and acquisition/data facts.
 Neither a declared catalog entry nor a successful short exercise supplies that
 authority. Held-source native runs and original public results remain unchanged.
+
+## Reopening a closed exercise
+
+`load_support_probe(reference, prepared_root=..., expected_manifest_sha256=...,
+expected_family=..., expected_case_id=...)` accepts an externally committed
+`{root, inventory_sha256}` reference. It reconstructs the exact current-source,
+lock-bound primary plan and engineering budget, reopens the managed process and
+closed-worker records, checks original/staged input and query identities, and
+validates finite saved predictions. It launches no fitting or inference and
+reads no V labels or T arrays. Its F/G-label and V-feature access is logged.
+
+The reader joins request and snapshot pointers, process start/terminal records,
+thread/overlay/argv identity and the full byte inventory. It independently
+recomputes the observed RSS peak from the retained samples; a zero sample during
+worker exit is allowed when positive observations remain. Sampling is not a
+strict peak-memory guarantee or aggregate descendant-memory measurement.
+Late source/role/proof changes prevent a checked return. A resource-stopped or
+otherwise unsuccessful exercise cannot supply a passed geometry proof.
+
+The returned record explicitly leaves full native training, complete row-visit
+authentication, workload/quality eligibility, HPO and protected authority false.
+Original managed training and same-worker snapshot reload are trusted records,
+not newly executed or independently replayed by this reader. It supplies one
+checked input to the future qualification registry. Old held-source geometry
+measurements cannot silently become current-source proofs after a core change.
