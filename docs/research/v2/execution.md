@@ -2678,3 +2678,24 @@ evaluation/raw audit/cost/deployment/CLI/readiness/final review before final-sou
 qualification and primary production. No M3/B0 rescue, budget cut, new protected
 root or changed scientific result. Held c33 native fit passed8700 updates at the
 last observation; serial source/environment/operator settings stay unchanged.
+
+## 20 October: secondary resource advice prerequisite
+
+Added actual-global-first secondary resource advice that binds its exact frozen
+job/forecast/source/support before applying the existing reserve heuristics.
+Private shared arithmetic retains primary public refusal. Insufficient/unknown
+memory or insufficient disk recommends pausing the same job; no20GiB blanket
+floor, wall-time cutoff, data/model change or resource guarantee is introduced.
+This is operational advice, not qualification of the secondary workload.
+
+Initial6missing-module failures0.37s. A first verification command named a
+nonexistent test file and ran no tests(exit4); the corrected four-module command
+passed43checks3.66s. Capture has four artificial RAM/disk cases, same frozen job,
+explicit false authority and no models/real resources/labels/T. Actual complete
+qualified public positive remains unrun. [Contract](secondary-resource.md),
+[receipt](WP09-secondary-resource-receipt.json).
+
+Next owned secondary request/cold worker/caller/program/resource/recovery wiring
+per the durable program brief, then full840/model/Tonce/evaluator/rawaudit/cost/
+deployment/CLI/readiness/finalreview before final-source qualification or primary
+production. No change to scientific outcomes or the held c33 native study.

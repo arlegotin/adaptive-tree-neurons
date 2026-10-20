@@ -302,3 +302,10 @@ route, preserving primary guards. Positive engineering tests use a toy table;
 complete-qualified public positive execution remains unrun. The owned secondary
 program/resource route, full840 protected-evaluation barrier, final evaluator,
 raw audit, costs/deployment, CLI/readiness and final review are still unfinished.
+
+[Secondary resource advice](secondary-resource.md) passed 43 affected checks.
+It requires the actual global barrier publicly, preserves primary refusal and
+uses the same advisory memory/disk proxies without a blanket20GiB requirement.
+Positive fixtures use artificial observations, not real workload qualification.
+Owned secondary worker/program wiring remains next; protected evaluation and
+production readiness remain unfinished.

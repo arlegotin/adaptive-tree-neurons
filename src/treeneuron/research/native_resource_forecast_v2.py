@@ -176,13 +176,18 @@ def load_native_practical_resource_forecast(reference,*,practical_plan,expected_
 
 def native_resource_decision(*,forecast,job,live):
     """Pure advisory decision; callers must separately authenticate every input."""
+    return _native_resource_decision(forecast=forecast,job=job,live=live,expected_tranche='primary')
+
+
+def _native_resource_decision(*,forecast,job,live,expected_tranche):
+    if expected_tranche not in ('primary','secondary'):raise ValueError('Exact advisory resource tranche required')
     if (type(forecast) is not dict or forecast.get('schema')!='research/v2-native-practical-resource-forecast'
             or forecast.get('forecast_hash')!=canonical_hash({k:v for k,v in forecast.items() if k!='forecast_hash'})
             or forecast.get('source_sha256')!=_source() or forecast.get('elapsed_time_cutoff_ns') is not None
             or type(job) is not dict):raise ValueError('Exact unchanged current-source resource forecast required')
     matches=[r for r in forecast['jobs'] if r['job']==job]
     if len(matches)!=1:raise ValueError('Resource job differs from the complete forecast')
-    if job['tranche']!='primary':raise PermissionError('Secondary projection is not frozen workload admission')
+    if job['tranche']!=expected_tranche:raise PermissionError('Resource projection does not admit a different tranche')
     if (type(live) is not dict or not _positive(live.get('observed_utc_ns'))
             or type(live.get('free_disk_bytes')) is not int or live['free_disk_bytes']<0
             or live.get('available_memory_bytes') is not None and (type(live['available_memory_bytes']) is not int or live['available_memory_bytes']<0)

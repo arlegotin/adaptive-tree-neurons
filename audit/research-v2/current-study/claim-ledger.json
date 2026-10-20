@@ -381,6 +381,11 @@
           "bytes": 6605,
           "path": "docs/research/v2/WP09-secondary-native-search-receipt.json",
           "sha256": "f1f5751bbf3d6f94bddff83f71ac3fa86c90559c8abd3116872ffcc609b0162b"
+        },
+        {
+          "bytes": 4049,
+          "path": "docs/research/v2/WP09-secondary-resource-receipt.json",
+          "sha256": "bdf1f1c2ae978a6fb5fb818ee8a4afb0d535d1b4f43257ee9dc83f1758cb9359"
         }
       ],
       "status": "supported_scoped_status",
