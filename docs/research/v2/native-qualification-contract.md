@@ -73,7 +73,11 @@ same-state/same-seed recovery and lower concurrency, with all earlier cost paid.
 
 The future production callback must consume this registry, preserve the native
 sampler preparation cost, and authenticate every candidate before passing its
-score to selection. The final168primary-model seal must then bind the complete
+score to selection. The [generic closed inspection reader](native-inspection-reader.md)
+now supplies the reopened anchor/search generation, saved independent inference
+and exact primary V arithmetic component. Its flags remain unqualified; every
+candidate still needs the complete registry and its own full workload check.
+The final168primary-model seal must then bind the complete
 paid journals, qualified model/validation proofs and global procedure before any
 secondary-fold development or protected evaluation. The current implementation
 does not yet provide that release capability. M3's negative Gate B stays closed;

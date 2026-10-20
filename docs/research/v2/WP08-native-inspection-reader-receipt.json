@@ -1,0 +1,80 @@
+{
+  "T_accessed": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-c",
+      "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"--tb=short\",\"--basetemp=artifacts/research-v2/WP11/native-inspection-reader-final-fixture\",\"tests/test_native_inspection_reader_v2.py\",\"tests/test_native_candidate_inspection.py\",\"tests/test_native_trial_bridge.py\",\"tests/test_validation_scoring_v2.py\"]))"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "final_source_qualified": false,
+  "fixture_observation": {
+    "bytes": 36861,
+    "path": "artifacts/research-v2/WP11/native-inspection-reader-fixture-observation.json",
+    "sha256": "c40a52f231100de668e447b34a52a8f8de464dabaad677dc0f579d1e91acf9e3"
+  },
+  "generic_search_inspection_reader_implemented": true,
+  "held_scientific_workers_changed": false,
+  "limitation": "Saved replay is trusted original managed execution, with byte/config/row/runtime/process joins. Reader does not independently refit or repeat predictions. Actual complete native registry, qualified callback, HPO journals and final protocol remain required. Manipulated receipt acceptance is not observed ordinary training damage.",
+  "logs": [
+    {
+      "bytes": 10588,
+      "path": "artifacts/research-v2/WP11/native-inspection-reader-RED.log",
+      "sha256": "b171f5e05907ad555e6dd8f821d38c83dc403bc6aa34183364a73dba6688d51a"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP11/native-inspection-reader-first-GREEN.log",
+      "sha256": "62d2e4f5314833446c7835bf825662bc1e50433ee57f1ad4fa5ff031802c0e55"
+    },
+    {
+      "bytes": 1359,
+      "path": "artifacts/research-v2/WP11/native-inspection-reader-adversarial.log",
+      "sha256": "b98fbfcd21794a8f87817604aae2daf9771bac08c6323a812455b40444558935"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP11/native-inspection-reader-final-affected.log",
+      "sha256": "f2f659c4c4ae3f64f3f46d137c816e75ce6ea95d295e7b92cc4e27f85bb5089b"
+    }
+  ],
+  "packages_installed_or_updated": false,
+  "parent_commit": "77e1097e29d82af0342f1cbd0d606993a1ce6cc6",
+  "production_candidate_admission_implemented": false,
+  "protected_access_authorized": false,
+  "quality_eligible": false,
+  "schema": "research/v2-closed-primary-native-inspection-reader-receipt",
+  "scientific_source_sha256": "20bcddeb7cc7c499f87af820d05c934f733eefac70bb092627d6866ae72a16f0",
+  "scope": "Closed generic native anchor/search generations, saved independent inference, raw process observations and exact primary V arithmetic. No new fitting/inference or whole registry/paid-search/protected authority.",
+  "tested_files": [
+    {
+      "bytes": 10399,
+      "path": "src/treeneuron/research/native_inspection_reader_v2.py",
+      "sha256": "fd4f7d3d09d15d3fe3e116082dca6c80f35f860df5392733ba41f8bd75ab7c59"
+    },
+    {
+      "bytes": 9991,
+      "path": "tests/test_native_inspection_reader_v2.py",
+      "sha256": "e4e3e8a115ef47679a4362ae80f0e1777d9b67044eaf1496327fee471a2aa9b1"
+    }
+  ],
+  "verification": [
+    "Missing API:10failed0.06s",
+    "First actual anchor+nonanchor search and controlled records:10passed6.27s/session68799exit0",
+    "False replay dtype claims accepted despite unchanged correct arrays:2failed12passed8.09s/session43158exit1",
+    "Actual bounded NPY shape/dtype/byte headers joined to replay claims; final54passed34.62s/session47207exit0"
+  ]
+}

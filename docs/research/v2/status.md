@@ -126,6 +126,12 @@ pinned overlay. A real access-log test preserves immutable preparation while
 checking every working-copy role file. The complete actual registry is unrun,
 so this grants no Gate D or search eligibility.
 
+The [generic candidate reader](native-inspection-reader.md) passed 54 affected
+checks on actual small grouped and temporal native records. It reopens searched
+configurations as well as anchors, checks saved replay evidence and recomputes
+primary V arithmetic. It grants no selection eligibility. The separate
+registry-qualified production callback remains the next connection.
+
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only
 the branches their gates authorize. The native/support/workload qualification

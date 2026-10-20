@@ -1968,3 +1968,14 @@ execution, production admission and protected evaluation remain pending. The
 [recovery receipt](WP07-native-recovery-proof-receipt.json) bind exact source,
 commands, failures and retained observations. The held c33 native queue continues
 under its original source.
+
+### Generic native search inspection reader, 20 October
+
+The [closed generic reader](native-inspection-reader.md) passed 54 affected
+checks. It accepts actual grouped anchor/search and temporal-primary engineering
+records, without new fitting or inference. Contradictory replay dtype claims
+first failed the adversarial checks, then rejected after actual NPY headers
+were joined. Late label-byte replacement also rejects. The
+[receipt](WP08-native-inspection-reader-receipt.json) retains all logs and
+independently reopened fixture observations. This connects candidate evidence;
+it does not qualify a full registry or produce a selected practical model.
