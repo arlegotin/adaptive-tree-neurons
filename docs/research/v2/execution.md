@@ -2408,3 +2408,26 @@ execution remain unrun. Production queue/readiness/global procedure/protected
 integration still required. [Contract](caller-cost-boundary.md),
 [receipt](WP08-caller-cost-boundary-receipt.json). Heldc33source/env/serialops and
 existing predictive outcomes are unchanged.
+
+## 20 October: complete practical comparison arithmetic
+
+Added complete P00-versus-P01–P13 and per-repeat V-champion loss assembly with
+common bootstrap group/day indices across methods and R2. Risks average before
+logs, five observational tasks weight equally, Energy stays descriptive. The
+primary champion retains95%percentile/2%margin/both-repeat/heterogeneity rules.
+Individual-family inference now has an explicit pre-T centered-error plus-one
+bootstrap location approximation, strict Holm13 and discrete-inverted compatible
+regions. Guilbaud's underlying marginal-inference assumptions remain required;
+no exact bootstrap coverage or dataset-population claim. Missing/undefined
+members block family inference, insufficient resampling resolution stays visible.
+
+Initial14missing-interface REDs0.14s; first expanded72passed1failed1.96s. The one
+failure was a fixture's intended tie lost by one ULP after adding/subtracting48
+at the log margin; diagnosed hex values retained in execution tool evidence.
+Exactly representable integer fixture corrected the intended boundary without
+changing the production rule/tolerance. Intermediate112passed1.98s; four more
+boundary checks passed existing behavior, final116passed1.98s/session38977exit0.
+Raw artificial loss and all bootstrap-draw arrays are retained; no native fit,
+real label or T. [Contract](practical-comparisons.md),
+[receipt](WP08-practical-comparisons-receipt.json). Canonical practical-family
+report/protocol/evaluator and production queue/readiness remain unfinished.

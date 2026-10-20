@@ -326,6 +326,11 @@
           "bytes": 6096,
           "path": "docs/research/v2/WP08-caller-cost-boundary-receipt.json",
           "sha256": "59a54a438db2ddde08c4bd4707be5ee010a3e411771968feeea05f52d6052ef5"
+        },
+        {
+          "bytes": 5632,
+          "path": "docs/research/v2/WP08-practical-comparisons-receipt.json",
+          "sha256": "56a99a087e4f3e2183c029a280459a04fb21d61efce94368c1ea103d82a0dba3"
         }
       ],
       "status": "supported_scoped_status",

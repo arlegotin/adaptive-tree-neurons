@@ -222,6 +222,13 @@ protocol/evaluator integration and final source freeze remain unfinished.
 There is no permission to treat engineering
 flags as production eligibility or to open T while those prerequisites are absent.
 
+[Complete practical comparison arithmetic](practical-comparisons.md) passed 116
+affected checks. It retains all thirteen family comparisons, the V-selected
+champion, shared group/day resampling and both repetitions, with Energy separate.
+The individual-family centered-bootstrap/Holm law is now explicit before any T;
+the primary champion percentile interval is unchanged. These are conditional
+arithmetic fixtures, with no native/model/V-choice or protected authority.
+
 The [reproduction guide](reproduce.md), [binding spec](../../superpowers/specs/2026-10-18-research-v2-design.md)
 and [implementation plan](../../superpowers/plans/2026-10-18-research-v2.md)
 separate implemented components from unrun studies. Historical source identities

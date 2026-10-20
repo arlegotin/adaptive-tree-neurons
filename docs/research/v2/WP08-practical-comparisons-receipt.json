@@ -1,0 +1,141 @@
+{
+  "T_accessed": false,
+  "claim_authorized": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_practical_comparisons_v2.py",
+      "tests/test_practical_v2.py",
+      "tests/test_primary_v2.py",
+      "tests/test_holm_compatible_bounds.py",
+      "tests/test_cost_v2.py",
+      "tests/test_report_v2.py",
+      "--basetemp=artifacts/research-v2/WP08/practical-comparisons-source-final-tmp"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "fixture_arithmetic": {
+    "bootstrap_iterations": 20000,
+    "point_effects_independently_recomputed_with_stdlib": true,
+    "retained_draw_arrays": 84
+  },
+  "logs": [
+    {
+      "bytes": 20679,
+      "path": "artifacts/research-v2/WP08/practical-comparisons-RED.log",
+      "sha256": "67c434225caab4539fb82676e4f8b5e1fe44acfc0eebf179256bb9ee8ae77cb7"
+    },
+    {
+      "bytes": 1301,
+      "path": "artifacts/research-v2/WP08/practical-comparisons-GREEN.log",
+      "sha256": "d55aed85bc7ebfad0f6cf5d907b1e0d0765b60b9f92d2bf365d10dbfbe69ea0d"
+    },
+    {
+      "bytes": 180,
+      "path": "artifacts/research-v2/WP08/practical-comparisons-final.log",
+      "sha256": "15c1d8479a174eaacc4f40f22166dfef68d9ff81aab3f0eb17ffa3d732595e64"
+    },
+    {
+      "bytes": 180,
+      "path": "artifacts/research-v2/WP08/practical-comparisons-source-final.log",
+      "sha256": "effd062178c5cb8cd52f1cd454f1923e62157b916beb4077f1d14548dc629f7e"
+    }
+  ],
+  "native_models_fit": 0,
+  "observations": [
+    {
+      "bytes": 20457,
+      "path": "artifacts/research-v2/WP08/practical-comparisons-software/inputs.npz",
+      "sha256": "39dd3e7277dbe754c59769cf31d7fd7ac9dda9ee2390448637ff5083999bd930"
+    },
+    {
+      "bytes": 563134,
+      "path": "artifacts/research-v2/WP08/practical-comparisons-software/bootstrap-draws.npz",
+      "sha256": "df073915c7eae19426511e817c57852b6b335f5f7b43dffee93631bc590b3b38"
+    },
+    {
+      "bytes": 78256,
+      "path": "artifacts/research-v2/WP08/practical-comparisons-software/observation.json",
+      "sha256": "902e65825d3a8900cba647f561e5fe20f1660fbb0e9e878d9bfd8c3997bacb4d"
+    }
+  ],
+  "parent_commit": "dbc12e2",
+  "production_readiness_authenticated": false,
+  "protected_access_authorized": false,
+  "raw_labels_read": false,
+  "remaining": [
+    "Global semantic protocol and actual final-source qualification",
+    "Production queue/physical whole-cost audit",
+    "Secondary release and protected evaluator",
+    "Canonical practical-family report integration"
+  ],
+  "schema": "research/v2-practical-comparison-arithmetic-receipt",
+  "source_sha256": "765b2f4156d4b6696d26cfb44b1a79a04a2ba066f31557c84c2405b5515ef3b5",
+  "statistical_policy": {
+    "coverage": "Approximate conditional sampling under valid marginal bootstrap/dependence assumptions; no exact/distributionfree/retraining/datasetpopulation guarantee",
+    "individual": "Centered-error paired bootstrap location approximation; p=(1+count(error>=point-margin))/(B+1); strict Holm13 at.025; discrete-inverted marginal bounds and Guilbaud Choice2 compatible regions",
+    "pre_T_choice": true,
+    "primary": "Existing V-champion two-sided95percentile interval; strict2percentmargin; pairedR2risk averages beforelogs; fivefixedobservationaltasks; Energyseparate",
+    "primary_paper": "https://www.aub.edu/SHARP/PublishingImages/Pages/publications/Simultaneous-Confidence-Regions.pdf",
+    "read_scope": "Underlying marginal validity assumptions, equations18/22 and Choice2; no claim this paper validates this marginal bootstrap"
+  },
+  "tested_files": [
+    {
+      "bytes": 10851,
+      "path": "src/treeneuron/analysis/practical_comparisons_v2.py",
+      "sha256": "1e71ec01623f9226ec1b043e38de3e8103006752ceb91dec18c021a5de401200"
+    },
+    {
+      "bytes": 9158,
+      "path": "tests/test_practical_comparisons_v2.py",
+      "sha256": "f410650f4710bc03e3952479fc13bd7c491b2c34d8a3a58a8e9a346e48bf5324"
+    },
+    {
+      "bytes": 9921,
+      "path": "tests/test_practical_v2.py",
+      "sha256": "2a7da2af3c1fed9881f424a1c4c576f521887b17d2261f2810138d709fb54f43"
+    },
+    {
+      "bytes": 7763,
+      "path": "tests/test_primary_v2.py",
+      "sha256": "74abb9313834d68e0036593e4973893a77de82050fa4a3738477e0f32bc92cdc"
+    },
+    {
+      "bytes": 5891,
+      "path": "tests/test_holm_compatible_bounds.py",
+      "sha256": "8ded14dafbd462b1e2e76d052299dd6c11683cb31fda7a62d31a23fbf2c6aa45"
+    },
+    {
+      "bytes": 5770,
+      "path": "tests/test_cost_v2.py",
+      "sha256": "e7c45480aeb75d92b03664706dedaa57d039b7f61f38815c406655a12f0a2004"
+    },
+    {
+      "bytes": 8192,
+      "path": "tests/test_report_v2.py",
+      "sha256": "fe1f385741ae47892d0ced1a1ac624e2a7b3a81f352aa8af474757e06c0ee16f"
+    }
+  ],
+  "verification": [
+    "Initial14missing-interface failures0.14s",
+    "First72passed1failed1.96s: intended floating tie lost oneULP in fixture, integer fixture correction only",
+    "Intermediate112passed1.98s",
+    "Final116passed1.98s/session38977exit0; four additional boundary checks passed existing behavior"
+  ],
+  "whole_repository_suite_passed": false
+}
