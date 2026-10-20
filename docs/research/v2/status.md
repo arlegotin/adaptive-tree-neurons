@@ -94,10 +94,13 @@ The [follow-up receipt](WP11-software-follow-up-receipt.json) preserves the
 original failures and exact scope. Production guards remain intact.
 
 The [recorded native training reader](native-training-observation.md) now checks
-closed-form references, the four own-model families, MLP, ResNet and both TabM
-variants, including full native stage/epoch records and raw process observations.
-Its latest combined check passed 40 cases. Six other families and the complete
-qualification registry remain pending; this is not production model eligibility.
+all mandatory families except NODE, with native stage/epoch/round records and
+raw process observations. RealMLP's dropped partial batches and the tree
+adapters' unexposed internal traces remain explicit. The latest combined run
+passed 48 cases with two corruption-fixture failures; after the fixture's actual
+snapshot filename was respected, fifteen affected checks passed. NODE's reader
+and the complete qualification registry remain pending; this is not production
+model eligibility.
 
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only

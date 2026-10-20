@@ -1,0 +1,105 @@
+{
+  "T_accessed": false,
+  "fault_controls": [
+    "RealMLP contradictory omitted row",
+    "RealMLP duplicated initialization root position",
+    "LightGBMlinear wrong fullF feature commitment",
+    "XGBoost negative native G-round loss",
+    "Inflated NPY header reaches no NumPy materialization"
+  ],
+  "final_source_qualified": false,
+  "final_targeted_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-c",
+      "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"--tb=short\",\"tests/test_native_workload_external.py::test_self_recommitted_external_content_cannot_supply_native_workload_evidence[P11-input_features]\",\"tests/test_native_workload_external.py::test_self_recommitted_external_content_cannot_supply_native_workload_evidence[P09-stopping_history]\",\"tests/test_native_workload_observation.py\",\"tests/test_native_workload_tensor_bounds.py\"]))"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "held_scientific_models_modified": false,
+  "logs": [
+    {
+      "bytes": 5101,
+      "path": "artifacts/research-v2/WP11/native-workload-external-RED.log",
+      "sha256": "d67bf33e5967f78cad33bd21a91a02758dc62f4a3cc1346dfd095edee531942d"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP11/native-workload-external-first-GREEN.log",
+      "sha256": "87cf2de3782d84fd48a7e5d727f75a64c5fd10822494ecdb0bd0bf49232b030b"
+    },
+    {
+      "bytes": 1193,
+      "path": "artifacts/research-v2/WP11/native-workload-tensor-header-RED.log",
+      "sha256": "0a711bc685a9bdae3c560c819d5c8eb7a8050566f7ecb77983ba7724b6468a5c"
+    },
+    {
+      "bytes": 98,
+      "path": "artifacts/research-v2/WP11/native-workload-tensor-header-GREEN.log",
+      "sha256": "a132c74d7b7c74739e7571fb00cd0a8be848d9686b936586ce31a93451c151b2"
+    },
+    {
+      "bytes": 3181,
+      "path": "artifacts/research-v2/WP11/native-workload-thirteen-families-GREEN.log",
+      "sha256": "adcb79cf9de89a37774124edec20c1130bcc75a0662dbf4ef2308ace1878caed"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP11/native-workload-external-fixture-recovery.log",
+      "sha256": "a42ec282b88c9aa6d0c93192f68d6db854801978b355de19e5a8873c2c0e5791"
+    }
+  ],
+  "method_scope": {
+    "RealMLP": "F325/G130/native256epochs;256admitted+69omitted per epoch, cumulativeF325; fixed native drop-last and latest-best RMSE. Original float32 inputs/ordinal vocabulary, initialization mappings and finite closed graph/recipe checked. Norm trajectory not retained; source hooks remain trusted. Official factory parameters bound, not independently re-extracted.",
+    "trees": "Full native stopping at original anchors on synthetic Energy-schema F325/G130; exact F-derived native scaling/vocabulary/full F/G commitments, actual dimensions, round histories/native G stopping and closed model bytes. Native internal gradients and sampled row visits are not exposed."
+  },
+  "native_workload_qualified": false,
+  "parent_commit": "3e97997",
+  "production_registry_complete": false,
+  "quality_eligible": false,
+  "schema": "research/v2-recorded-native-workload-external-receipt",
+  "scientific_source_sha256": "f17cd4797e23a3dc9889ee14bc88b10b5a69d834931c6461f29155b63bf0b61a",
+  "scope": "Managed native software fixtures and read-only recorded evidence checks; not official transfer acquisition, predictive study, independent optimization reproduction or a monolithic green repository suite. No source/adapter/native recipe changes to held scientific workers.",
+  "status": "thirteen_families_implemented_NODE_reader_pending",
+  "tested_files": [
+    {
+      "bytes": 50784,
+      "path": "src/treeneuron/research/native_workload_v2.py",
+      "sha256": "d22f86acdab3023e4e7c6eb5a5005986c45b94d44ed4fcb9470ca3db923a03ff"
+    },
+    {
+      "bytes": 3812,
+      "path": "tests/test_native_workload_external.py",
+      "sha256": "1229ac128468509e9bff546c161374e32ed3b8f433ffce31328c4e1e8a39f872"
+    },
+    {
+      "bytes": 1078,
+      "path": "tests/test_native_workload_tensor_bounds.py",
+      "sha256": "34368a51cbaee417c2c4c76fd8670e9d2e86ee1994f67f24ffe26d67266202e0"
+    },
+    {
+      "bytes": 9306,
+      "path": "tests/test_native_workload_observation.py",
+      "sha256": "5d4f241c027fd87bf7d3853a5d4f72ab8b800de5ca52e441eb0621b94d755bba"
+    }
+  ],
+  "verification": [
+    "5missing-family failures32.35s after full native fitting",
+    "5passed33.12s: nativeRealMLP256epochs and all4native tree families",
+    "Inflated NPY header1failed0.54s before allocation guard;1passed0.29s afterward; actual oversized allocation forbidden",
+    "Combined50cases48passed2failed231.95s/session74504exit1: both failures hardcoded manifest.json in corruption-test helper for state.json tree snapshots",
+    "Corrected only snapshot-pointer/hash-field test helper;2tree faults+12prior helper checks+header check15passed21.74s/session93216exit0; no production changes after combined48pass"
+  ]
+}

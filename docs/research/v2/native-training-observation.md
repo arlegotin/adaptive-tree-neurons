@@ -6,11 +6,9 @@ fit, its primary F/G and feature-only V roles, and its externally committed
 closed output inventory. It reads no V labels or protected arrays. It does not
 fit a model, solve coefficients or make new predictions.
 
-The current implemented families are **P00, P01, P02, P03, P04, P05, P07 and P13**:
-grown, random growth, warm ordinary growth, MLP, ResNet, static gates, TabM and
-closed-form references.
-Other families fail explicitly before workload observation. Their training checks
-and the complete native qualification registry remain unfinished.
+The current implementation covers **P00–P11 and P13**. NODE/P12 still fails
+explicitly before workload observation. Its training checks and the complete
+native qualification registry remain unfinished.
 
 The reader captures mutable proposal inputs, hashes metadata buffers before
 decoding, and rechecks the full generation/inventory at exit. It joins the
@@ -59,11 +57,25 @@ refitting their quantiles. Scalar F-target statistics are recomputed using the
 native convention. The original quantile fit and optimizer execution remain
 trusted managed evidence. This does not establish persistent training recovery.
 
-Remaining family checks follow the approved Task7 contract:
-RealMLP's native admitted/omitted rows; native tree round/selection records;
-and NODE's actual updates, rows, gradients and selected/current recovery state.
-Their own native stopping and row policies must be preserved. A short geometry
-probe does not substitute for a complete native procedure.
+RealMLP's reader preserves all 256 native epochs and its dropped final partial
+batch. It checks admitted and omitted F rows, cumulative visits, native last-best
+selection, initialization mapping records, original float32 input commitments
+and the closed inference graph's finite tensors/recipe. Its recorded evidence has
+no gradient-norm trajectory: nonfinite-gradient rejection remains a trusted native
+source hook. The reader binds the extracted official factory parameters without
+re-extracting them in the coordinator.
+
+The four native tree readers check full F-derived scaling/vocabularies, F/G input
+commitments, transformed dimensions, native selected/executed round histories
+and stopping rules, and the closed native model bytes. Native internal gradients
+and sampled row visits are not exposed by these adapters. They are labeled as
+unexposed rather than treated as independently checked traces.
+
+Every implemented tensor-payload reader checks NPY headers and declared/actual
+byte lengths before NumPy materialization. A small archive with an inflated shape
+cannot authorize an oversized allocation. NODE's actual updates, rows, gradients
+and selected/current recovery state remain the next family check. A short
+geometry probe does not substitute for a complete native procedure.
 
 Implementation verification uses real closed fits and controlled re-committed
 content faults, not hand-filled success records. The exact receipt distinguishes
@@ -84,3 +96,11 @@ The [epoch receipt](WP07-native-training-epochs-receipt.json) records a later
 consistently recommitted duplicate-row, negative-gradient, boolean-epoch and
 false-selected-epoch faults. This count includes the earlier components' cases;
 it is not an additional forty independent studies.
+The [external-family receipt](WP07-native-training-external-receipt.json) retains
+five missing-family failures, five passing full native procedures, and the
+subsequent 48-pass/two-failure combined run. Both failures came from a corruption
+test helper assuming every snapshot used `manifest.json`; tree snapshots use
+`state.json`. After correcting only that helper, fifteen affected checks passed,
+including both tree content faults. No whole-suite pass follows from this split
+verification. The inflated-header check also failed before its allocation guard
+and passed afterward without allocating the declared oversized array.

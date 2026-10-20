@@ -96,8 +96,9 @@ def recommit_closed_records(args,attempt):
     terminal=json.loads((worker/'terminal.json').read_text())
     for ref in terminal['files']:
         p=worker/ref['path'];ref.update(bytes=p.stat().st_size,sha256=hashlib.sha256(p.read_bytes()).hexdigest())
-    metadata=worker/'snapshot/manifest.json';digest=hashlib.sha256(metadata.read_bytes()).hexdigest()
-    terminal['snapshot_commitment']['sha256']=digest;terminal['snapshot_manifest_sha256']=digest
+    metadata=worker/terminal['snapshot_commitment']['path'];digest=hashlib.sha256(metadata.read_bytes()).hexdigest()
+    terminal['snapshot_commitment']['sha256']=digest
+    terminal['snapshot_state_sha256' if metadata.name=='state.json' else 'snapshot_manifest_sha256']=digest
     (worker/'terminal.json').write_text(json.dumps(terminal))
     process=json.loads((root/'process/process.json').read_text())
     for ref in process['files']:

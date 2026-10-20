@@ -61,6 +61,30 @@ def _process_observation(root,read,refs):
         scope='Root worker samples only; no aggregate-descendant or strict peak guarantee')
 
 
+def _bounded_tensor_archive(source,payload,limit):
+    """Check NPY declarations before np.load can allocate their arrays."""
+    if type(payload) is not dict or not payload or len(payload)>2048:
+        raise ValueError('Native tensor allocation metadata differs')
+    with zipfile.ZipFile(source) as archive:
+        members=archive.infolist()
+        if (len(members)!=len(payload) or {m.filename for m in members}!={k+'.npy' for k in payload}
+                or sum(m.file_size for m in members)>limit):raise ValueError('Native tensor archive allocation differs')
+        for member in members:
+            expected=payload[member.filename[:-4]]
+            with archive.open(member) as stream:
+                version=np.lib.format.read_magic(stream)
+                if version==(1,0):shape,fortran,dtype=np.lib.format.read_array_header_1_0(stream)
+                elif version==(2,0):shape,fortran,dtype=np.lib.format.read_array_header_2_0(stream)
+                else:raise ValueError('Unsupported native tensor header')
+                size=math.prod(shape)*dtype.itemsize
+                if (dtype not in (np.dtype('float32'),np.dtype('float64'),np.dtype('int64'),np.dtype('bool'))
+                        or any(type(v) is not int or v<0 for v in shape)
+                        or type(expected) is not dict or canonical_hash(dict(dtype=expected.get('dtype'),shape=expected.get('shape')))
+                            !=canonical_hash(dict(dtype=str(dtype),shape=list(shape)))
+                        or size>limit or member.file_size!=stream.tell()+size):
+                    raise ValueError('Native tensor header geometry or allocation differs')
+
+
 def _inspect_p13(root,read,request,arrays):
     # Replay F-derived arithmetic, never a fit/least-squares solve or inference.
     import pandas as pd
@@ -97,6 +121,7 @@ def _inspect_p13(root,read,request,arrays):
     if hashlib.sha256(raw).hexdigest()!=reference['sha256']:raise ValueError('P13 array payload bytes differ')
     names={'coefficients','knots','knot_offsets'}
     try:
+        _bounded_tensor_archive(io.BytesIO(raw),state['arrays'],8*1024**2)
         with zipfile.ZipFile(io.BytesIO(raw)) as archive:
             members=archive.infolist()
             if (len(members)!=3 or {m.filename for m in members}!={k+'.npy' for k in names}
@@ -160,6 +185,7 @@ def _gated_payload(root,state,recipe,summary):
     if path.is_symlink() or path.stat().st_size>8*1024**2:raise ValueError('Gated tensor payload allocation differs')
     raw=path.read_bytes()
     if hashlib.sha256(raw).hexdigest()!=state['weights_sha256']:raise ValueError('Gated tensor payload bytes differ')
+    _bounded_tensor_archive(io.BytesIO(raw),expected,8*1024**2)
     with zipfile.ZipFile(io.BytesIO(raw)) as archive:
         members=archive.infolist()
         if (len(members)!=len(expected) or {m.filename for m in members}!={k+'.npy' for k in expected}
@@ -323,6 +349,7 @@ def _epoch_payload(root,state,summary,family):
             or path.stat().st_size>limit):raise ValueError('Native epoch tensor allocation differs')
     raw=path.read_bytes()
     if hashlib.sha256(raw).hexdigest()!=state['weights_sha256']:raise ValueError('Native epoch tensor bytes differ')
+    _bounded_tensor_archive(io.BytesIO(raw),payload,limit)
     with zipfile.ZipFile(io.BytesIO(raw)) as archive:
         members=archive.infolist()
         if (len(members)!=len(payload) or {m.filename for m in members}!={k+'.npy' for k in payload}
@@ -429,13 +456,173 @@ def _inspect_epochs(root,read,refs,request,arrays):
         scope='Recorded native epochs, complete row permutations, transformed inputs, gradients, tensor payload and native G selection; managed optimization and fitted quantiles remain trusted')
 
 
+def _inspect_trees(root,read,request,arrays):
+    import pandas as pd
+    from . import native_trees as native
+    family=request['family_id'];config=native.NativeTreeConfig.parse(family,request['config'])
+    envelope=read('worker/snapshot/state.json');state=envelope['payload'];summary=state['resources']
+    worker=read('worker/terminal.json');inputs=read('worker/fit/manifest.json')
+    if (envelope.get('sha256')!=native._canonical(state) or state.get('schema')!='research/v2-native-tree-snapshot'
+            or state.get('family')!=family or canonical_hash(state.get('config'))!=canonical_hash(config.to_state())
+            or type(state.get('seed')) is not int or state['seed']!=request['fit_seed']
+            or state.get('source')!=native._source() or config.mode not in ('native_anchor','search')
+            or canonical_hash(worker['adapter_resources'])!=canonical_hash(summary)
+            or canonical_hash(read('worker/fit/attempt.json'))!=canonical_hash(summary)
+            or summary.get('time_limit_exceeded') is not False or summary.get('budget')!={}
+            or summary.get('accessed_roles')!=['F','G']):raise ValueError('Native boosting snapshot/input identity differs')
+    native._validate_checkpoint_contract(config,request['fit_seed'],summary)
+    frames={k:pd.DataFrame(arrays[k]['X'],columns=config.feature_schema['columns']) for k in ('F','G')}
+    transform=native.FeatureTransform.from_state(state['transform'])
+    if canonical_hash(transform.to_state())!=canonical_hash(native.FeatureTransform.fit(frames['F'],config.feature_schema,linear=family=='P11').to_state()):
+        raise ValueError('Native boosting preprocessing is not derived from full F')
+    F=transform.transform(frames['F'],family);G=transform.transform(frames['G'],family)
+    yF=arrays['F']['y'].astype(np.float64);yG=arrays['G']['y'].astype(np.float64)
+    if (any(type(summary.get(k)) is not int for k in ('F_rows','G_rows','transformed_dimensions'))
+            or summary['F_rows']!=len(yF) or summary['G_rows']!=len(yG) or summary['transformed_dimensions']!=F.shape[1]
+            or not _finite_number(summary['G_applied_rmse'])
+            or not math.isclose(summary['G_applied_rmse'],summary['G_rmse_history'][summary['selected_rounds']-1],rel_tol=1e-6,abs_tol=1e-6)):
+        raise ValueError('Native boosting complete F/G dimensions or selected risk differ')
+    before=copy.deepcopy(state['dependencies']);context=before.get('openmp_environment_context',{})
+    early=inputs.get('dependencies',{}).get('openmp_environment_context',{})
+    if not early or any(context.get(k)!=v for k,v in early.items()):raise ValueError('Native boosting import phase identity differs')
+    before['openmp_environment_context']=early
+    if type(inputs.get('started_utc_ns')) is not int or inputs['started_utc_ns']>=summary['finished_utc_ns']:
+        raise ValueError('Native boosting input/finish counters differ')
+    expected=dict(schema='research/v2-native-tree-attempt',family=family,config=config.to_state(),seed=request['fit_seed'],
+        budget={},source=state['source'],dependencies=before,F_rows=len(F),G_rows=len(G),
+        F_target_sha256=hashlib.sha256(yF.tobytes()).hexdigest(),G_target_sha256=hashlib.sha256(yG.tobytes()).hexdigest(),
+        F_features_sha256=native._canonical(F.astype(object).where(F.notna(),None).values.tolist()),
+        G_features_sha256=native._canonical(G.astype(object).where(G.notna(),None).values.tolist()),
+        accessed_roles=['F','G'],transform=transform.to_state(),started_utc_ns=inputs['started_utc_ns'])
+    if canonical_hash(inputs)!=canonical_hash(expected):raise ValueError('Native boosting full input commitments differ')
+    name='model.cbm' if family=='P08' else 'model.ubj' if family=='P09' else 'model.txt'
+    path=root/'worker/snapshot'/name
+    if state['model_file']!=name or path.is_symlink() or native._sha(path)!=state['model_sha256']:
+        raise ValueError('Native boosting selected model bytes differ')
+    return dict(procedure='native_boosting',F_context_rows=len(F),G_context_rows=len(G),encoded_width=F.shape[1],
+        selected_rounds=summary['selected_rounds'],executed_rounds=summary['executed_rounds'],native_stop=summary['native_stop'],
+        full_F_input_commitment_checked=True,gradient_trace='not_exposed_by_native_adapter',
+        training_row_visit_trace='not_exposed_by_native_adapter',actual_optimization_independently_reexecuted=False,
+        persistent_training_resume=False,scope='Full native F/G inputs, F-derived scaling/vocabulary, selected-round history and closed model bytes; native internal gradients, sampled rows and optimization remain trusted')
+
+
+def _realmlp_initialization(observation,n):
+    def mapping(rows):return hashlib.sha256(np.asarray(rows,dtype='<i8').tobytes()).hexdigest()
+    if (observation.get('schema')!='research/v2-realmlp-initialization' or observation.get('scope')!='native_creator'
+            or type(observation.get('fit_rows')) is not int or observation['fit_rows']!=n
+            or type(observation.get('creator_calls')) is not int or observation['creator_calls']!=1
+            or observation.get('status')!='completed' or observation.get('quality_eligible') is not False
+            or canonical_hash(dict(rows=observation.get('root_F_positions')))!=canonical_hash(dict(rows=list(range(n))))):
+        raise ValueError('Native RealMLP initialization root differs from full F')
+    known={mapping(range(n)):list(range(n))}
+    for row in observation['subsamples']:
+        source=known.get(row['input_mapping_sha256']);indices=row['input_indices']
+        if (source is None or type(row['input_rows']) is not int or row['input_rows']!=len(source)
+                or type(indices) is not list or any(type(i) is not int or not 0<=i<len(source) for i in indices)
+                or len(set(indices))!=len(indices)):
+            raise ValueError('Native RealMLP initialization subsample lineage differs')
+        result=[source[i] for i in indices]
+        if (canonical_hash(dict(rows=row['F_positions']))!=canonical_hash(dict(rows=result))
+                or type(row['output_rows']) is not int or row['output_rows']!=len(result)
+                or row['output_mapping_sha256']!=mapping(result)):
+            raise ValueError('Native RealMLP initialization subsample mapping differs')
+        known[mapping(result)]=result
+    calls=observation['calls']
+    if type(calls) is not list or not calls:raise ValueError('Missing native RealMLP initialization calls')
+    for index,row in enumerate(calls):
+        if (type(row['id']) is not int or row['id']!=index or row['status']!='completed'
+                or row['parent_call_id'] is not None and (type(row['parent_call_id']) is not int or not 0<=row['parent_call_id']<index)
+                or any(row.get(side+'_mapping_sha256') not in known or type(row.get(side+'_rows')) is not int
+                    or row[side+'_rows']!=len(known[row[side+'_mapping_sha256']]) for side in ('input','output'))):
+            raise ValueError('Native RealMLP initialization call/mapping differs')
+    return len(observation['subsamples'])
+
+
+def _inspect_realmlp(root,read,refs,request,arrays):
+    import pandas as pd
+    from . import realmlp_native as native
+    from .realmlp_snapshot import validate_recipe
+    config=native.RealMLPConfig.parse(request['config']);state=read('worker/snapshot/manifest.json')
+    summary=state['resources'];inputs=read('worker/fit/input-manifest.json')
+    if (state.get('schema')!='research/v2-realmlp-inference-snapshot' or state.get('family')!='P06'
+            or canonical_hash(state.get('config'))!=canonical_hash(config.to_state())
+            or state.get('source')!=native._source() or summary.get('source')!=state['source']
+            or canonical_hash(read('worker/terminal.json')['adapter_resources'])!=canonical_hash(summary)
+            or canonical_hash(read('worker/fit/attempt.json'))!=canonical_hash(summary)
+            or config.mode not in ('native_anchor','search') or summary.get('time_limit_exceeded') is not False
+            or type(summary.get('seed')) is not int or summary['seed']!=request['fit_seed']):
+        raise ValueError('Native RealMLP snapshot/input identity differs')
+    native._validate_summary(config,summary)
+    frames={k:native.native_frame(pd.DataFrame(arrays[k]['X'],columns=config.feature_schema['columns']),config.feature_schema) for k in ('F','G')}
+    nF=len(frames['F']);nG=len(frames['G']);vocabulary=state['state']['vocabulary']
+    numeric=[name for name in config.feature_schema['columns'] if name not in config.feature_schema['categorical']]
+    categorical=[name for name in config.feature_schema['columns'] if name in config.feature_schema['categorical']]
+    categories=[sorted(set(frames['F'][name].dropna())) for name in categorical]
+    missing=[bool(frames['F'][name].isna().any()) for name in categorical];cards=[len(c)+1 for c in categories]
+    expected_vocabulary=dict(schema=config.feature_schema,categories=categories,F_missing=missing,cardinalities=cards)
+    if (canonical_hash(vocabulary)!=canonical_hash(expected_vocabulary)
+            or any(type(summary.get(k)) is not int for k in ('fit_rows','select_rows','native_epochs_executed','selected_epoch','applied_updates','native_subseed'))
+            or summary['fit_rows']!=nF or summary['select_rows']!=nG
+            or summary['native_subseed']!=int(np.random.RandomState(request['fit_seed']).randint(0,2**31-1))):
+        raise ValueError('Native RealMLP full F/G/vocabulary context differs')
+    identities={}
+    for role,frame in frames.items():
+        cat=np.empty((len(frame),len(categorical)),np.int64)
+        for i,(name,values) in enumerate(zip(categorical,categories,strict=True)):
+            codes={v:index+1 for index,v in enumerate(values)};cat[:,i]=[codes.get(v,0) for v in frame[name]]
+        tensors=dict(x_cont=frame[numeric].to_numpy(dtype=np.float32),x_cat=cat,y=arrays[role]['y'].astype(np.float32)[:,None])
+        identities[role]=native._canonical({k:hashlib.sha256(v.tobytes()).hexdigest() for k,v in tensors.items()})
+    expected=dict(schema='research/v2-realmlp-attempt',source=state['source'],dependencies=summary['dependencies'],
+        config=config.to_state(),native_parameters=summary['native_parameters'],seed=request['fit_seed'],
+        native_subseed=summary['native_subseed'],fit_rows=nF,select_rows=nG,cardinalities=cards,
+        target_precision='float32',accessed_roles=['F','G'],budget={},F_data_sha256=identities['F'],G_data_sha256=identities['G'])
+    if canonical_hash(inputs)!=canonical_hash(expected):raise ValueError('Native RealMLP full input commitments differ')
+    for i,row in enumerate(summary['history'],1):
+        if type(row['epoch']) is not int or row['epoch']!=i or type(row['applied_updates']) is not int:
+            raise ValueError('Native RealMLP epoch/update counter type differs')
+    active=summary['admitted_row_ids'];omitted=summary['omitted_row_ids'];visited=set(i for row in active for i in row)
+    count=nF//min(nF,256)*min(nF,256)
+    if (summary.get('sampler')!='native_drop_last_true_adjust_bs_false'
+            or type(summary.get('epoch_rows_admitted')) is not int or summary['epoch_rows_admitted']!=nF
+            or type(summary.get('rows_per_epoch')) is not int or summary['rows_per_epoch']!=count
+            or type(summary.get('cumulative_visited_rows')) is not int or summary['cumulative_visited_rows']!=len(visited)
+            or any(type(v) is not int for row in omitted for v in row)):
+        raise ValueError('Native RealMLP declared drop-last exposure differs')
+    subsamples=_realmlp_initialization(summary['initialization_observation'],nF)
+    graph=state['state'];payload=graph['payload'];path=root/'worker/snapshot/weights.npz';limit=128*1024**2
+    if (path.is_symlink() or path.stat().st_size>limit or native._sha(path)!=state['weights_sha256']
+            or native._canonical(graph)!=summary['selected_inference_state_sha256']):
+        raise ValueError('Native RealMLP graph or selected payload bytes differ')
+    _bounded_tensor_archive(path,payload,limit)
+    with zipfile.ZipFile(path) as archive:
+        members=archive.infolist()
+        if (len(members)!=len(payload) or {m.filename for m in members}!={k+'.npy' for k in payload}
+                or sum(m.file_size for m in members)>limit):raise ValueError('Native RealMLP tensor allocation differs')
+    with np.load(path,allow_pickle=False) as saved:
+        values={k:saved[k].copy() for k in saved.files}
+    if (any(v.dtype!=np.dtype('float32') or not np.isfinite(v).all() for v in values.values())
+            or canonical_hash(payload)!=canonical_hash({k:dict(dtype=str(v.dtype),shape=list(v.shape),sha256=hashlib.sha256(v.tobytes()).hexdigest()) for k,v in values.items()})):
+        raise ValueError('Native RealMLP tensor dtype, shape or values differ')
+    validate_recipe(graph['model'],graph['static'],values,summary['native_parameters'],vocabulary)
+    if any(summary[key]!=refs.get(name) for key,name in (('diagnostic_state_sha256','worker/fit/diagnostic-state.npz'),('native_graph_sha256','worker/fit/native-graph-inspection.json'))):
+        raise ValueError('Native RealMLP graph diagnostic commitments differ')
+    return dict(procedure='native_realmlp_fixed_epochs',F_context_rows=nF,G_context_rows=nG,
+        executed_epochs=summary['native_epochs_executed'],selected_epoch=summary['selected_epoch'],
+        rows_per_epoch=count,omitted_rows_per_epoch=nF-count,cumulative_visited_F_rows=len(visited),
+        native_drop_last_preserved=True,gradient_norm_trace_checked=False,
+        finite_gradient_enforcement='Pinned native observation hooks reject nonfinite gradients; no retained norm trajectory',
+        initialization_subsamples=subsamples,finite_tensor_payload_checked=True,
+        native_factory_parameters_rederived=False,actual_optimization_independently_reexecuted=False,persistent_training_resume=False,
+        scope='Native fixed epochs/last-best selection, admitted and omitted F rows, initialization mappings, full raw inputs and closed graph tensors; official factory and optimization remain trusted')
+
+
 def inspect_native_workload(*,request_path,expected_request_sha256,native_reference,prepared_root,
         expected_manifest_sha256,outer_fold,expected_fit_seed,expected_configuration):
     args=copy.deepcopy(dict(request_path=request_path,expected_request_sha256=expected_request_sha256,
         native_reference=native_reference,prepared_root=prepared_root,expected_manifest_sha256=expected_manifest_sha256,
         outer_fold=outer_fold,expected_fit_seed=expected_fit_seed,expected_configuration=expected_configuration))
     config=args['expected_configuration'];family=config.get('family') if type(config) is dict else None
-    if family not in ('P00','P01','P02','P03','P04','P05','P07','P13'):raise ValueError('Recorded native workload observation for this family is not implemented')
+    if family not in ('P00','P01','P02','P03','P04','P05','P06','P07','P08','P09','P10','P11','P13'):raise ValueError('Recorded native workload observation for this family is not implemented')
     generation=audit_native_generation(**args);root=Path(args['native_reference']['root'])
     inventory=_inventory(root)
     if canonical_hash(inventory)!=args['native_reference']['inventory_sha256']:
@@ -444,6 +631,8 @@ def inspect_native_workload(*,request_path,expected_request_sha256,native_refere
     from .method_worker import _validate_request
     request,arrays=_validate_request(Path(args['request_path']),args['expected_request_sha256'])
     if family=='P13':training=_inspect_p13(root,read,request,arrays)
+    elif family=='P06':training=_inspect_realmlp(root,read,refs,request,arrays)
+    elif family in ('P08','P09','P10','P11'):training=_inspect_trees(root,read,request,arrays)
     elif family in ('P03','P04','P07'):training=_inspect_epochs(root,read,refs,request,arrays)
     else:training=_inspect_gated(root,read,refs,request,arrays)
     if audit_native_generation(**args)!=generation or _inventory(root)!=inventory:
