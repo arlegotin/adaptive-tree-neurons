@@ -61,7 +61,7 @@ def _process_observation(root,read,refs):
         scope='Root worker samples only; no aggregate-descendant or strict peak guarantee')
 
 
-def _bounded_tensor_archive(source,payload,limit):
+def _bounded_tensor_archive(source,payload,limit,*,allowed_dtypes=('float32','float64','int64','bool')):
     """Check NPY declarations before np.load can allocate their arrays."""
     if type(payload) is not dict or not payload or len(payload)>2048:
         raise ValueError('Native tensor allocation metadata differs')
@@ -77,7 +77,7 @@ def _bounded_tensor_archive(source,payload,limit):
                 elif version==(2,0):shape,fortran,dtype=np.lib.format.read_array_header_2_0(stream)
                 else:raise ValueError('Unsupported native tensor header')
                 size=math.prod(shape)*dtype.itemsize
-                if (dtype not in (np.dtype('float32'),np.dtype('float64'),np.dtype('int64'),np.dtype('bool'))
+                if (dtype not in tuple(np.dtype(t) for t in allowed_dtypes)
                         or any(type(v) is not int or v<0 for v in shape)
                         or type(expected) is not dict or canonical_hash(dict(dtype=expected.get('dtype'),shape=expected.get('shape')))
                             !=canonical_hash(dict(dtype=str(dtype),shape=list(shape)))
@@ -622,17 +622,20 @@ def inspect_native_workload(*,request_path,expected_request_sha256,native_refere
         native_reference=native_reference,prepared_root=prepared_root,expected_manifest_sha256=expected_manifest_sha256,
         outer_fold=outer_fold,expected_fit_seed=expected_fit_seed,expected_configuration=expected_configuration))
     config=args['expected_configuration'];family=config.get('family') if type(config) is dict else None
-    if family not in ('P00','P01','P02','P03','P04','P05','P06','P07','P08','P09','P10','P11','P13'):raise ValueError('Recorded native workload observation for this family is not implemented')
+    if family not in tuple(f'P{i:02}' for i in range(14)):raise ValueError('Recorded native workload observation for this family is not implemented')
     generation=audit_native_generation(**args);root=Path(args['native_reference']['root'])
     inventory=_inventory(root)
     if canonical_hash(inventory)!=args['native_reference']['inventory_sha256']:
         raise ValueError('Native workload inventory changed')
     read,refs=_bound_reader(root,inventory);process=_process_observation(root,read,refs)
     from .method_worker import _validate_request
-    request,arrays=_validate_request(Path(args['request_path']),args['expected_request_sha256'])
+    request,arrays=_validate_request(Path(args['request_path']),args['expected_request_sha256'],recoverable_training=family=='P12')
     if family=='P13':training=_inspect_p13(root,read,request,arrays)
     elif family=='P06':training=_inspect_realmlp(root,read,refs,request,arrays)
     elif family in ('P08','P09','P10','P11'):training=_inspect_trees(root,read,request,arrays)
+    elif family=='P12':
+        from .native_node_workload_v2 import inspect_node_records
+        training=inspect_node_records(root,read,request,arrays)
     elif family in ('P03','P04','P07'):training=_inspect_epochs(root,read,refs,request,arrays)
     else:training=_inspect_gated(root,read,refs,request,arrays)
     if audit_native_generation(**args)!=generation or _inventory(root)!=inventory:

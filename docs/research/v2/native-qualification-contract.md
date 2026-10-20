@@ -82,6 +82,14 @@ the recorded source/raw/sealed-byte consistency component. It hashes opaque
 protected archives without decoding targets and grants no modeling authority.
 The complete registry and raw-to-model joins are still required.
 
+The [recorded native workload reader](native-training-observation.md) now covers
+all fourteen families and raw process observations. It preserves each method's
+native stopping/row policy and labels unexposed internal traces. All 57 combined
+software checks passed at its recorded source, including complete native
+procedures on synthetic role fixtures. Its workload/quality authority remains
+false until this registry joins actual official-data executions, acquisition,
+full support and recovery evidence under the final source.
+
 The [closed geometry reader](native-support-probes.md#reopening-a-closed-exercise)
 now reopens a short probe's source/configuration/process/input/query records and
 raw RSS summary through an externally committed inventory. It grants no full

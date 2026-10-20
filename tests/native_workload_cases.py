@@ -35,7 +35,7 @@ def actual_native_family(tmp_path,family,*,variant=None):
     if family=='P12':
         # A full native stopping procedure at a declared search geometry, not
         # a shortened update budget or a substitute for the 2048-tree anchor.
-        config['mode']='search';config['parameters'].update(trees=512,depth=4)
+        config['mode']='search';config['parameters'].update(trees=512,depth=4,lr_multiplier=1)
     attempt=tmp_path/'generation';inputs=attempt/'input';inputs.mkdir(parents=True)
     store._access(0,['F_labels','G_labels','V_features']);files={}
     for role in ('F','G','V_features'):

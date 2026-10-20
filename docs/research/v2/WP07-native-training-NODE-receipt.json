@@ -1,0 +1,159 @@
+{
+  "NODE_fixture": {
+    "F_rows": 10,
+    "G_rows": 4,
+    "actual_partial_batch": 10,
+    "configured_batch": 512,
+    "depth": 4,
+    "executed_updates": 9001,
+    "execution": "bounded_memory_v1",
+    "mode": "search",
+    "patience": 5000,
+    "report_frequency": 100,
+    "rolling_checkpoints": 5,
+    "scope": "Software record parser at a declared search geometry, not the2048tree real-data anchor. One full native fixture supplies seven final checks; six controlled mutations each restore exact original bytes and inventory.",
+    "selected_step": 4000,
+    "trees": 512,
+    "wall_cap": null
+  },
+  "T_accessed": false,
+  "checks": [
+    "Current source/generation and full F/G transform/target/init prefix",
+    "All paid update rows/losses/gradient norms, strict G-grid/window/selection/patience",
+    "Exact current sampler order/schema/endpoint and fitted receipt counters",
+    "Native tensor geometry/initialization flags/bin codes, streamed numeric identity/finiteness",
+    "Raw and selected QHAdam groups/moment geometry/applied ages/nonnegative second moments",
+    "Prediction-state transform/model binding without model construction or inference"
+  ],
+  "fault_controls": [
+    "Rotated valid saved permutation",
+    "Duplicate applied F row",
+    "Negative QHAdam second moment",
+    "False selected step",
+    "Undeclared sampler field",
+    "Contradictory separate receipt executed counter"
+  ],
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-c",
+      "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"--tb=short\",\"tests/test_native_workload_node.py\",\"tests/test_native_workload_external.py\",\"tests/test_native_workload_epochs.py\",\"tests/test_native_workload_gated.py\",\"tests/test_native_workload_observation.py\",\"tests/test_native_workload_tensor_bounds.py\",\"tests/test_native_generation_chain.py\"]))"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "final_source_qualified": false,
+  "held_scientific_models_modified": false,
+  "limits": [
+    "Actual optimizer/averaging/RNG transitions and fitted quantile computation remain trusted managed execution evidence",
+    "Persistent native checkpoint/recovery qualification separate",
+    "Only bounded transform/sampler arrays materialized; full model-state arrays streamed in1MiB blocks,1GiB archive preflight ceiling",
+    "Synthetic Energy-schema fixture does not authenticate official acquisition",
+    "All14 families have record readers; final-source software/native120anchor/support/acquisition/registry/production protocol remain pending"
+  ],
+  "logs": [
+    {
+      "bytes": 1299,
+      "path": "artifacts/research-v2/WP11/native-workload-NODE-RED.log",
+      "sha256": "b36626597772b5f9fb8de56d319ccde77e276fcf3749da6f825767915973fd32"
+    },
+    {
+      "bytes": 109,
+      "path": "artifacts/research-v2/WP11/native-workload-NODE-first-GREEN.log",
+      "sha256": "ef4f3b6440f8424cdb5bfe57eee576640afc40591b65213685eae0f2a94370d0"
+    },
+    {
+      "bytes": 832,
+      "path": "artifacts/research-v2/WP11/native-workload-NODE-adversarial.log",
+      "sha256": "825217ee960e470ead6732f954b3596f0403dc4fadf8d5235b23476c6a3b4b39"
+    },
+    {
+      "bytes": 1439,
+      "path": "artifacts/research-v2/WP11/native-workload-NODE-record-joins-RED.log",
+      "sha256": "71701f1965ea3a3c3c2615dd5bbc468e5ff1674ddada9a2a9dda0480e66933db"
+    },
+    {
+      "bytes": 111,
+      "path": "artifacts/research-v2/WP11/native-workload-all-families-final.log",
+      "sha256": "e40dac8863650728ce5d1ff83e7f30bca633b2a99dccf61873db9a999441ce87"
+    }
+  ],
+  "native_workload_qualified": false,
+  "parent_commit": "746f176",
+  "production_registry_complete": false,
+  "quality_eligible": false,
+  "schema": "research/v2-recorded-native-workload-NODE-receipt",
+  "scientific_source_sha256": "58e858fa5c793d20c5f804d208223054d6c82ea4da9a8737c44bb85b124b9765",
+  "status": "all_fourteen_family_record_readers_implemented_qualification_registry_pending",
+  "tested_files": [
+    {
+      "bytes": 50950,
+      "path": "src/treeneuron/research/native_workload_v2.py",
+      "sha256": "101272e893caa595bc2e542261eda404f879844cd093cd31e49f160942f89a55"
+    },
+    {
+      "bytes": 17836,
+      "path": "src/treeneuron/research/native_node_workload_v2.py",
+      "sha256": "4afb7efa575f97f693fb0ef5e9a502cc3786673f595ba7713d4fc813a02d4e2e"
+    },
+    {
+      "bytes": 3833,
+      "path": "tests/native_workload_cases.py",
+      "sha256": "c6f495b761d50df9075cdac6011b1adf5fdd4f7293251c1b7fafe7f26f3dbc06"
+    },
+    {
+      "bytes": 5473,
+      "path": "tests/test_native_workload_node.py",
+      "sha256": "59cb5b007b4308cc6a02d134b0c4c4812bad47e8b105659128d50a8746ff22f8"
+    },
+    {
+      "bytes": 3812,
+      "path": "tests/test_native_workload_external.py",
+      "sha256": "1229ac128468509e9bff546c161374e32ed3b8f433ffce31328c4e1e8a39f872"
+    },
+    {
+      "bytes": 3817,
+      "path": "tests/test_native_workload_epochs.py",
+      "sha256": "e264a2634028491965cd4a457ea64ab18274139ca4acce712c34151aae68f64f"
+    },
+    {
+      "bytes": 4012,
+      "path": "tests/test_native_workload_gated.py",
+      "sha256": "43cd091d80fc431131c82f237b5d785cde6170a4238953168e26d33e30f3f512"
+    },
+    {
+      "bytes": 9306,
+      "path": "tests/test_native_workload_observation.py",
+      "sha256": "5d4f241c027fd87bf7d3853a5d4f72ab8b800de5ca52e441eb0621b94d755bba"
+    },
+    {
+      "bytes": 1078,
+      "path": "tests/test_native_workload_tensor_bounds.py",
+      "sha256": "34368a51cbaee417c2c4c76fd8670e9d2e86ee1994f67f24ffe26d67266202e0"
+    },
+    {
+      "bytes": 5904,
+      "path": "tests/test_native_generation_chain.py",
+      "sha256": "3b4b8f0f66417cc13ae4afe84c72d7474c8ffba8a6f3116209f22208be5b27be"
+    }
+  ],
+  "verification": [
+    "Expected unimplemented-family RED1failed75.39s after actual full native fit",
+    "First native positive1passed77.22s",
+    "One native fixture reused for content faults:1failed/4passed86.89s; rotated saved sampler incorrectly accepted when compared as sets",
+    "Unknown sampler field and separate receipt counter2failed/5deselected84.19s; harmless extra misspelled PYTHTHONDONTWRITEBYTECODE variable in that retained command alongside correct variable",
+    "Corrected ordered epoch prefix/exact sampler and endpoint schema/strict receipt counter joins",
+    "Final57passed326.25s/session47686exit0; all seven modules in one unchanged-source run"
+  ]
+}
