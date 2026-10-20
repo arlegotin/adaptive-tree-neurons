@@ -291,6 +291,11 @@
           "bytes": 3703,
           "path": "docs/research/v2/WP08-practical-support-lock-receipt.json",
           "sha256": "c9e6891dce67c97832be9dc961da5cb3f2cd61c8b6b6fd2fae89321b2f455e88"
+        },
+        {
+          "bytes": 5345,
+          "path": "docs/research/v2/WP08-primary-invocation-preflight-receipt.json",
+          "sha256": "d17c90e8abbaee9623dabe96d4db598f59d5b20593bdfcdabf3405a232ba2325"
         }
       ],
       "status": "supported_scoped_status",

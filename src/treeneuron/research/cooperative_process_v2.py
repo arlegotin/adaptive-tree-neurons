@@ -22,6 +22,7 @@ import time
 _ROOT = 'ATN_SEARCH_CONTROL_ROOT'
 _START = 'ATN_SEARCH_CONTROL_START_SHA256'
 _CLOCK_SCOPE = 'Supervisor entry through root reap, log closure and file hashing; final receipt publication and caller overhead excluded'
+_CALLER_CLOCK_SCOPE = 'Declared caller origin through preflight, root reap, log closure and file hashing; final receipt publication and subsequent caller overhead excluded'
 _FALSE = ('eligible_model', 'native_recipe_runtime_qualified', 'protected_access_authorized',
           'strict_peak_memory_limit_qualified', 'aggregate_descendant_memory_measured',
           'whole_training_procedure_cost_authenticated')
@@ -136,14 +137,17 @@ is retained as an operational failure, never a resumable search by assumption.
 def supervise_cooperative_process(*, argv, cwd, env_overrides, output, identity,
         admission_identity, admission_check, rss_pause_bytes, poll_interval_ns=100_000_000,
         handshake_timeout_ns=10_000_000_000, pause_after_ns=None,
-        log_limit_bytes=64*1024**2):
+        log_limit_bytes=64*1024**2,invocation_origin_ns=None):
     """Retain one owned cold-worker episode, without automatic restart.
 
 ``pause_after_ns`` is an optional cooperative operational limit; None supplies
 no wall cap. Root RSS is sampled, and excess requests cleanup rather than
 enforcing a hard outer memory bound. Admission runs after ready, before grant.
 """
-    started = time.perf_counter_ns()
+    entered=time.perf_counter_ns()
+    if invocation_origin_ns is not None and (not _positive(invocation_origin_ns) or invocation_origin_ns>entered):
+        raise ValueError('Caller monotonic origin must precede supervisor entry')
+    started=entered if invocation_origin_ns is None else invocation_origin_ns
     from .process_supervision_v2 import root_rss_bytes
     output, cwd = Path(output).absolute(), Path(cwd).resolve()
     if (not isinstance(argv, list) or not argv or any(type(v) is not str or not v or '\0' in v for v in argv)
@@ -170,6 +174,8 @@ enforcing a hard outer memory bound. Admission runs after ready, before grant.
         rss_pause_bytes=rss_pause_bytes, poll_interval_ns=poll_interval_ns,
         handshake_timeout_ns=handshake_timeout_ns, pause_after_ns=pause_after_ns,
         log_limit_bytes=log_limit_bytes)
+    if invocation_origin_ns is not None:
+        start.update(supervisor_entered_monotonic_ns=entered,caller_preparation_ns=entered-started)
     _write(output/'started.json', start)
     start_sha = _sha((output/'started.json').read_bytes())
     environment = dict(os.environ)
@@ -327,7 +333,8 @@ enforcing a hard outer memory bound. Admission runs after ready, before grant.
         stop_publication_error=stop_publication_error,
         cooperative_stop_requested=(output/'request-stop.json').exists(),worker_protocol_closed=closed,
         rss_sample_count=len(samples),observed_peak_root_rss_bytes=max((s['root_rss_bytes'] for s in samples),default=None),
-        files=files,elapsed_ns=time.perf_counter_ns()-started,clock_scope=_CLOCK_SCOPE,
+        files=files,elapsed_ns=time.perf_counter_ns()-started,
+        clock_scope=_CLOCK_SCOPE if invocation_origin_ns is None else _CALLER_CLOCK_SCOPE,
         **{key:False for key in _FALSE})
     if _canonical(identity) != identity_json:
         raise ValueError('Cooperative process identity mutated')
@@ -345,11 +352,20 @@ def inspect_cooperative_process(*, root, expected_receipt_sha256, expected_start
         raise ValueError('Cooperative process external commitment changed')
     if (receipt.get('schema') != 'research/v2-cooperative-process-receipt'
             or start.get('schema') != 'research/v2-cooperative-start'
-            or receipt.get('clock_scope') != _CLOCK_SCOPE
+            or receipt.get('clock_scope') not in (_CLOCK_SCOPE,_CALLER_CLOCK_SCOPE)
             or any(receipt.get(k) is not False for k in _FALSE)
             or not _positive(receipt.get('elapsed_ns'))
             or receipt.get('execution_status') not in ('exited','input_or_dependency_failure','resource_exhausted','interrupted_recoverable')):
         raise ValueError('Invalid cooperative process receipt')
+    caller_origin=receipt['clock_scope']==_CALLER_CLOCK_SCOPE
+    if caller_origin:
+        entered=start.get('supervisor_entered_monotonic_ns');origin=start.get('supervisor_started_monotonic_ns')
+        preparation=start.get('caller_preparation_ns')
+        if (not _positive(entered) or not _positive(origin) or type(preparation) is not int
+                or not 0<=preparation<receipt['elapsed_ns'] or entered-origin!=preparation):
+            raise ValueError('Invalid caller preflight clock commitment')
+    elif any(k in start for k in ('supervisor_entered_monotonic_ns','caller_preparation_ns')):
+        raise ValueError('Caller clock requires its explicit scope')
     files = receipt.get('files')
     if not isinstance(files,list) or any(not isinstance(r,dict) for r in files):
         raise ValueError('Cooperative file commitments required')
@@ -451,6 +467,7 @@ def inspect_cooperative_process(*, root, expected_receipt_sha256, expected_start
     if receipt['execution_status'] == 'exited' and (not granted or not closure_present):
         raise ValueError('Exited protocol requires closed granted worker')
     return dict(receipt,root_process_clock_authenticated=True,
+        caller_preparation_clock_observed=caller_origin,
         shared_monotonic_clock_observed=shared_clock,
         nested_cleanup_independently_authenticated=False,
         scope='Closed root clock and handshake only; caller must authenticate native nested closure, search history, model and source')

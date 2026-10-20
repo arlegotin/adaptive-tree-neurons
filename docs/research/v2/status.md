@@ -167,6 +167,13 @@ remains unrun and authorizes no secondary or protected access.
 affected checks, protecting the registry itself, all working/proof inputs and
 the interpreter before future output creation.
 
+The [primary invocation preflight](primary-invocation-preflight.md) passed 138
+affected checks. It authenticates actual qualification before plan reads or
+output, protects all invocation paths and preserves paid parent setup time in
+the cold-worker clock. Its complete qualified-success path remains unrun;
+measured resource admission, production launch and complete cost are still
+required. No protected or secondary access is authorized.
+
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only
 the branches their gates authorize. The native/support/workload qualification

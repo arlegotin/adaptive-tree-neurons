@@ -53,7 +53,11 @@ def _checked_request(path,expected):
     path=_path(str(path))
     if not _digest(expected) or not path.is_file() or _sha(path)!=expected:
         raise ValueError('Primary-worker request commitment changed')
-    value=_json(path.read_bytes())
+    return _validate_request(_json(path.read_bytes()))
+
+
+def _validate_request(value):
+    """Validate metadata before publication as well as after byte loading."""
     fields={'schema','source_sha256','practical_plan_reference','expected_practical_plan_hash',
         'job_id','support_reference','qualification_reference','search_directory','rss_limit_bytes','previous_episodes'}
     if (type(value) is not dict or set(value)!=fields

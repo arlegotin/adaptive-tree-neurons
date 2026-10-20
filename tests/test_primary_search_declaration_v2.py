@@ -84,3 +84,15 @@ def test_P06_cannot_substitute_generic_support_without_official_sampler(study):
     with pytest.raises(ValueError):
         module.compile_primary_search_declaration(practical_plan=plan,expected_practical_plan_hash=plan.to_dict()['plan_hash'],
             job_id='airfoil/outer-0/repeat-0/P06',support_reference=support)
+
+
+def test_P06_preflight_can_bind_job_without_running_its_sampler(study,monkeypatch):
+    module=api();plan,support=study
+    from treeneuron.research import native_schedule_v2
+    def forbidden(*args,**kwargs):raise AssertionError('Preflight cannot start or load a native sampler')
+    monkeypatch.setattr(native_schedule_v2,'prepare_realmlp_native_schedule',forbidden)
+    monkeypatch.setattr(native_schedule_v2,'load_realmlp_native_schedule',forbidden)
+    value,job,spec=module._bound_primary_job(practical_plan=plan,expected_practical_plan_hash=plan.to_dict()['plan_hash'],
+        job_id='airfoil/outer-0/repeat-0/P06',support_reference=support)
+    assert job['family_id']=='P06' and job['hpo_seed']!=job['hpo_seed32']
+    assert value['budget_policy']=='native_quality' and spec['anchors']

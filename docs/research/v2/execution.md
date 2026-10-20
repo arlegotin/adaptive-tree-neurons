@@ -2218,3 +2218,29 @@ label or process access. [Receipt](WP08-native-registry-output-paths-receipt.jso
 [contract](native-registry-output-paths.md). Production launcher/control preflight
 and measured resource admission remain unfinished. Heldc33NODEsource/environment
 and serial operators remain unchanged; CCPP continues, Bike follows.
+
+## 20 October: primary invocation preflight and parent setup clock
+
+Added actual-registry-first read-only invocation preparation, disjoint protected
+request/control/worker/search paths and actual prior-episode audit before clean
+resume. The shared primary metadata join also binds P06 without executing its
+official sampler outside the paid worker. Strict request validation is reusable
+before publication. No outputs/processes are created by this component.
+
+The cooperative observer accepts an optional explicit parent origin and records
+actual observer entry/setup duration under a distinct clock scope. Its reader
+checks that relation; existing default receipts retain their original scope.
+The actual generic worker/controller fixture pays delayed parent preparation
+before prefix selection. Final receipt publication/caller tail remains outside
+this clock; whole-procedure cost authority remains false.
+
+Initial36missing-interface failures0.41s; then35passed/one sandbox ps restriction
+0.78s (no worker started), unchanged owned-process recovery36passed. Expanded
+137passed26.45s; prior-command-helper missing regression one failed0.40s;
+final five-module138passed25.38s/session6269exit0. The fixture uses a constant
+software result, no model, labels, T or genuine full-qualified success stub.
+[Contract](primary-invocation-preflight.md),
+[receipt](WP08-primary-invocation-preflight-receipt.json). Actual full-qualified
+preflight success, resource forecast/admission, production launcher, complete
+cost, global semantic freeze and protected integration remain unfinished.
+Heldc33NODEsource/environment/serial operators remain unchanged.

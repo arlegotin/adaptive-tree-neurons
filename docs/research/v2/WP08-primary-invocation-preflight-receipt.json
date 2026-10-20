@@ -1,0 +1,135 @@
+{
+  "T_accessed": false,
+  "actual_full_qualified_success_executed": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_primary_invocation_v2.py",
+      "tests/test_primary_search_declaration_v2.py",
+      "tests/test_primary_search_worker_v2.py",
+      "tests/test_cooperative_process_v2.py",
+      "tests/test_search_controller_v2.py",
+      "--basetemp=artifacts/research-v2/WP08/invocation-final-tmp"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "fixture_observation": {
+    "bytes": 7396,
+    "path": "artifacts/research-v2/WP08/primary-invocation-fixture-observation.json",
+    "sha256": "482b4573eefb543d4b67d602e48207d76b987c65d3d8fe7b22c05ebb80e989f6"
+  },
+  "labels_read_in_capture": false,
+  "logs": [
+    {
+      "bytes": 52194,
+      "path": "artifacts/research-v2/WP08/primary-invocation-RED.log",
+      "sha256": "fd004b6440aa8395aa752c232c867d91d3404d2f1aec48ceb8195beabe915f3d"
+    },
+    {
+      "bytes": 2684,
+      "path": "artifacts/research-v2/WP08/primary-invocation-GREEN.log",
+      "sha256": "44acbc97871e03c3493021940ff35a8751807221178e3555059d3c749f073b46"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP08/primary-invocation-GREEN-owned.log",
+      "sha256": "1a4cd323b7455656b6fa525c766c28ade7d47ebd23ecf52b5cdd520c480fad7d"
+    },
+    {
+      "bytes": 181,
+      "path": "artifacts/research-v2/WP08/primary-invocation-expanded.log",
+      "sha256": "39ccf7913d646a27174a18c8734a8c249b33ff34133f45cf210bcd27758f38ba"
+    },
+    {
+      "bytes": 1539,
+      "path": "artifacts/research-v2/WP08/primary-invocation-prior-RED.log",
+      "sha256": "62d11829b0121505a8ec6e8a3988f023266e367224e352497f4cc1651d234bc5"
+    },
+    {
+      "bytes": 181,
+      "path": "artifacts/research-v2/WP08/primary-invocation-final.log",
+      "sha256": "e95308cd64b44cbb574162c0c73684e723fc03e1e47097ed1094024fce3712b6"
+    }
+  ],
+  "native_models_fit_in_capture": 0,
+  "packages_installed_or_updated": false,
+  "parent_commit": "2fe3f2f",
+  "production_execution_authorized": false,
+  "production_resource_admission_authenticated": false,
+  "protected_access_authorized": false,
+  "schema": "research/v2-primary-invocation-preflight-component-receipt",
+  "scientific_source_sha256": "5fabe2903590f6ccda25d3f857d35b1a46cee0d1679b3daec5d8d53cccbb79bd",
+  "scope": "Read-only actual-qualified invocation preparation and explicit parent preflight clock. Actual public complete-qualified success unrun; no qualification stub, production launch, protected access or whole-procedure cost authority.",
+  "test_fixture_correction": "Changed a new fixture assertion from nonexistent prefix_results to the existing prefixes mapping after inspecting the controller interface.",
+  "tested_files": [
+    {
+      "bytes": 7353,
+      "path": "src/treeneuron/research/primary_invocation_v2.py",
+      "sha256": "c0352c9fca70ceb2f5dc3af1fefe34f78ee00e2761953362768d679a7310dd68"
+    },
+    {
+      "bytes": 27142,
+      "path": "src/treeneuron/research/cooperative_process_v2.py",
+      "sha256": "3275437131ac6e783ce183e29087df78d09a7440ebd13b54b2cd4d71df7664fb"
+    },
+    {
+      "bytes": 20328,
+      "path": "src/treeneuron/research/primary_search_worker_v2.py",
+      "sha256": "1658cbf633847339edb69ee1366ed29f6725d3fd9afbe22cc4f7b8b82716d9d0"
+    },
+    {
+      "bytes": 5153,
+      "path": "src/treeneuron/research/primary_search_declaration_v2.py",
+      "sha256": "85fed0a35774550ddd9682f6a6e90637c3061bef7ff3fda11d9e101272b0e605"
+    },
+    {
+      "bytes": 8020,
+      "path": "tests/test_primary_invocation_v2.py",
+      "sha256": "2e9f2bb51f2c1bb4ed93a8586b67e26451295c13f106f66d541e7a590b135bb3"
+    },
+    {
+      "bytes": 6457,
+      "path": "tests/test_primary_search_declaration_v2.py",
+      "sha256": "588c71efdee0d97dc162a93dea1aba8eae4ec412f9d479dd0c5091e3a0971c95"
+    },
+    {
+      "bytes": 14814,
+      "path": "tests/test_primary_search_worker_v2.py",
+      "sha256": "35c25bb4ab9e72fdd8ec32da491447c145ea5fa37800f20353d21e7aaa8927c7"
+    },
+    {
+      "bytes": 13690,
+      "path": "tests/test_cooperative_process_v2.py",
+      "sha256": "0d5d553634928d23dfe202c0710ed4a11cdfbb3a409bcf91b9bd6a337ea0eae2"
+    },
+    {
+      "bytes": 19144,
+      "path": "tests/test_search_controller_v2.py",
+      "sha256": "372d22606d4476e554162c021c8d8cac09a5ee986e22074f3b50bc470fbf8539"
+    }
+  ],
+  "verification": [
+    "36 missing-interface failures in 0.41s before implementation",
+    "35 passed/one sandbox ps error in 0.78s; no worker started",
+    "Unchanged owned-process recovery36passed",
+    "Expanded137passed26.45s",
+    "Prior-command helper regression one failure0.40s before implementation",
+    "Final138passed25.38s; session6269exit0"
+  ],
+  "whole_training_procedure_cost_authenticated": false
+}

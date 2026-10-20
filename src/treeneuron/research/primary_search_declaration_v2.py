@@ -9,14 +9,8 @@ from .qualify import qualification_locks_sha256
 from .search_controller_v2 import make_search_plan
 
 
-def compile_primary_search_declaration(*,practical_plan,expected_practical_plan_hash,
-        job_id,support_reference,official_schedule_reference=None):
-    """Bind full study/job seeds and actual supports without reading data.
-
-    In particular, native RealMLP uses the job's 63-bit HPO namespace, while
-    generic library replay retains the distinct collision-managed 32-bit seed.
-    Qualification, resources, worker execution and final freeze remain separate.
-    """
+def _bound_primary_job(*,practical_plan,expected_practical_plan_hash,job_id,support_reference):
+    """Shared metadata join, including P06 before its paid sampler runs."""
     value,jobs=_primary(practical_plan,expected_practical_plan_hash)
     matches=[job for job in jobs if job['job_id']==job_id]
     if len(matches)!=1:raise ValueError('Exactly one declared primary job required; no secondary release')
@@ -25,7 +19,24 @@ def compile_primary_search_declaration(*,practical_plan,expected_practical_plan_
             or value['source_sha256']!=law['source_sha256'] or value['runtime_sha256']!=law['core_manifest_sha256']
             or value['lock_sha256']!=locks):
         raise ValueError('Native-quality study source/support/core/runtime/adapter lock pins differ')
-    job=matches[0];family=job['family_id'];spec=law['families'][job['dataset']][family]
+    job=matches[0];spec=law['families'][job['dataset']][job['family_id']]
+    if (load_practical_support_lock(support_reference)!=law or qualification_locks_sha256()!=locks
+            or scientific_source_sha256()!=value['source_sha256']):
+        raise ValueError('Primary declaration source/support/lock changed during compilation')
+    return value,job,spec
+
+
+def compile_primary_search_declaration(*,practical_plan,expected_practical_plan_hash,
+        job_id,support_reference,official_schedule_reference=None):
+    """Bind full study/job seeds and actual supports without reading data.
+
+    In particular, native RealMLP uses the job's 63-bit HPO namespace, while
+    generic library replay retains the distinct collision-managed 32-bit seed.
+    Qualification, resources, worker execution and final freeze remain separate.
+    """
+    value,job,spec=_bound_primary_job(practical_plan=practical_plan,
+        expected_practical_plan_hash=expected_practical_plan_hash,job_id=job_id,support_reference=support_reference)
+    locks=value['lock_sha256'];family=job['family_id']
     anchors=[row['config'] for row in spec['anchors']];candidates=[];mode=spec['search_kind'];support=spec['support']
     native_seed=None;minimum=0
     if family=='P06':
@@ -46,7 +57,8 @@ def compile_primary_search_declaration(*,practical_plan,expected_practical_plan_
         split_sha256=job['split_hash']),fit_seed=job['fit_seed'],hpo_seed32=job['hpo_seed32'],
         anchors=anchors,mode=mode,support=support,candidates=candidates,max_attempts=budget['max_attempts'],
         deadline_ns=budget['deadline_ns'],prefixes_ns=budget['descriptive_prefixes_ns'])
-    if (load_practical_support_lock(support_reference)!=law or qualification_locks_sha256()!=locks
+    if (_bound_primary_job(practical_plan=practical_plan,expected_practical_plan_hash=expected_practical_plan_hash,
+            job_id=job_id,support_reference=support_reference)!=(value,job,spec) or qualification_locks_sha256()!=locks
             or scientific_source_sha256()!=value['source_sha256']):
         raise ValueError('Primary declaration source/support/lock changed during compilation')
     body=dict(schema='research/v2-primary-search-declaration',practical_plan_hash=expected_practical_plan_hash,
