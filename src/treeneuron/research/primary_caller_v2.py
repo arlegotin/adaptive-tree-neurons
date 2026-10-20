@@ -172,7 +172,7 @@ def _run_prepared_episode(*,prepared,episode_root,identity,admission_identity,ad
 
 def run_primary_search_episode(*,practical_plan_reference,expected_practical_plan_hash,job_id,support_reference,
         qualification_reference,resource_forecast_reference,episode_root,search_directory,
-        previous_episodes=None,previous_unstarted_episodes=None,rss_limit_bytes=4*1024**3):
+        previous_episodes=None,previous_unstarted_episodes=None,rss_limit_bytes=4*1024**3,procedure_reference=None):
     """Run one exact owned episode, or retain resource denial; never auto-retry.
 
     Actual complete qualified success remains separate from component fixtures.
@@ -190,7 +190,7 @@ def run_primary_search_episode(*,practical_plan_reference,expected_practical_pla
         request_path=root/'request.json',worker_output=root/'worker',control_output=root/'process',
         search_directory=search_directory,previous_episodes=previous_episodes,
         previous_unstarted_episodes=[] if previous_unstarted_episodes is None else previous_unstarted_episodes,
-        rss_limit_bytes=rss_limit_bytes)
+        rss_limit_bytes=rss_limit_bytes,procedure_reference=procedure_reference)
     if root.exists() or root.is_symlink():raise ValueError('Fresh canonical caller root required')
     gate,admission_identity=_make_resource_gate(prepared['resource_context'],search_directory=search_directory)
     identity=dict(purpose='primary_search_episode',request_sha256=prepared['request_sha256'],

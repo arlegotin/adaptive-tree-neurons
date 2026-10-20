@@ -52,7 +52,8 @@ def _prior_input_locations(previous):
 
 def prepare_primary_invocation(*,practical_plan_reference,expected_practical_plan_hash,job_id,
         support_reference,qualification_reference,request_path,worker_output,control_output,search_directory,
-        previous_episodes=None,rss_limit_bytes=4*1024**3,resource_forecast_reference=None,previous_unstarted_episodes=None):
+        previous_episodes=None,rss_limit_bytes=4*1024**3,resource_forecast_reference=None,previous_unstarted_episodes=None,
+        procedure_reference=None):
     """Authenticate prerequisites before reading plan bytes or writing anything.
 
     The returned request bytes/hash and command are exact, but not permission to
@@ -75,6 +76,10 @@ def prepare_primary_invocation(*,practical_plan_reference,expected_practical_pla
         request.update(schema='research/v2-primary-search-resource-episode-request',
             resource_forecast_reference=copy.deepcopy(resource_forecast_reference))
         extra_inputs.append(_reference(resource_forecast_reference))
+    if procedure_reference is not None:
+        if resource_forecast_reference is None:raise ValueError('Program procedure requires the resource-bound schema')
+        request.update(schema='research/v2-primary-program-episode-request',procedure_reference=copy.deepcopy(procedure_reference))
+        extra_inputs.append(_reference(procedure_reference))
     if previous_unstarted_episodes is not None:
         if resource_forecast_reference is None:raise ValueError('Unstarted operational costs require the explicit resource episode schema')
         request['previous_unstarted_episodes']=copy.deepcopy(previous_unstarted_episodes)
@@ -90,6 +95,10 @@ def prepare_primary_invocation(*,practical_plan_reference,expected_practical_pla
     plan=PracticalPlan(canonical_json(_json(raw)))
     value,job,spec=_bound_primary_job(practical_plan=plan,expected_practical_plan_hash=expected_practical_plan_hash,
         job_id=job_id,support_reference=support_reference)
+    if procedure_reference is not None:
+        from .practical_procedure_v2 import load_practical_procedure
+        load_practical_procedure(procedure_reference,practical_plan=plan,
+            expected_practical_plan_hash=expected_practical_plan_hash,support_reference=support_reference)
     dataset=job['dataset'];record=registry['preparation']['datasets'][dataset]
     if (registry['identity']['scientific_source_sha256']!=value['source_sha256']
             or registry['identity']['test_and_lock_files']['locks/research-v2/core.json']!=value['runtime_sha256']

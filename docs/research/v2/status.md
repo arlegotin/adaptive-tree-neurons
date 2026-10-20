@@ -242,6 +242,12 @@ The strong primary-model barrier now rejects arbitrary procedure JSON. The new
 declaration grants no execution or data-release authority; actual qualification,
 post-search freeze, whole-cost and protected evaluation remain separate gates.
 
+[Procedure caller/worker binding](procedure-worker-binding.md) passed 120 affected
+checks. Its explicit program-request subtype requires the exact declaration and
+resource references, preserving them in recovery identity. Actual qualification
+still comes first. Its real cold negative fit zero models; complete qualified
+public execution and production queue/readiness remain unrun/unfinished.
+
 The [reproduction guide](reproduce.md), [binding spec](../../superpowers/specs/2026-10-18-research-v2-design.md)
 and [implementation plan](../../superpowers/plans/2026-10-18-research-v2.md)
 separate implemented components from unrun studies. Historical source identities

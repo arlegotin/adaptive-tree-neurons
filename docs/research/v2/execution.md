@@ -2474,3 +2474,22 @@ manifest commitments and current support law, no role reader/process/nativefit/T
 [Contract](practical-procedure.md), [receipt](WP09-practical-procedure-receipt.json).
 Production queue/readiness, physical whole-cost, post-search global freeze and
 protected evaluator/full audit remain unfinished. Heldc33source/env/ops unchanged.
+
+## 20 October: procedure identity in caller/worker requests
+
+An explicit program-request subtype now requires practical procedure and resource
+references. Strict legacy schemas reject the additional field. The procedure
+stays in job/recovery identity; actual qualification still precedes policy/data
+reads. Preflight protects/validates it before output, and the cold worker checks
+it before worker output or callback preparation. Caller forwards it unchanged.
+
+Initial4missing-interface failures/7already-valid negatives1.09s; final seven-
+module120passed7.03s/session78623exit0 with owned process inspection. Real cold
+program-subtype negative rejects false qualification before procedure/plan/roles
+or search/model output. Read-only capture initially matched pytest's current
+symlink as well as the canonical directory; canonical filtering recovered before
+any output, without native re-execution/source change. No full-qualified public
+positive was stubbed or run. [Contract](procedure-worker-binding.md),
+[receipt](WP09-procedure-worker-binding-receipt.json). Production queue/readiness,
+physical whole-cost, global post-search freeze and secondary/protected evaluator
+remain unfinished. Heldc33source/env/ops and predictive outcomes unchanged.

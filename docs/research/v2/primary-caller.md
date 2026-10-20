@@ -44,3 +44,9 @@ Full actual-qualified public success remains **unrun**. It was not replaced by
 a fake registry. Production queue/readiness, complete outer-cost audit, global
 procedure freeze, secondary release and protected evaluation remain unfinished.
 No existing scientific result or held-source job changes.
+
+The optional [program-request binding](procedure-worker-binding.md) now carries
+the exact practical semantic declaration through this caller and preflight.
+It creates a separate strict subtype requiring measured resources as well.
+The future production queue must require that subtype; this component alone
+still grants no production, secondary or protected authority.

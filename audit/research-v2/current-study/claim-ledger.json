@@ -341,6 +341,11 @@
           "bytes": 7165,
           "path": "docs/research/v2/WP09-practical-procedure-receipt.json",
           "sha256": "61821edb19b36a3943a4482b1ce9b689dd30defed77869c7967a3227d0110edd"
+        },
+        {
+          "bytes": 4578,
+          "path": "docs/research/v2/WP09-procedure-worker-binding-receipt.json",
+          "sha256": "1b560778ab3110f7dac3014a2df014b4ae25e1438ce182cddd3d0bd195427348"
         }
       ],
       "status": "supported_scoped_status",

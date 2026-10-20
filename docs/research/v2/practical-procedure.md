@@ -46,3 +46,8 @@ source passed when that owned-process inspection was permitted. The
 denial records. The capture uses artificial manifest commitments and starts no
 process or role reader; its support/plan files are software fixtures, not
 production declarations or native qualification.
+
+[Caller/worker binding](procedure-worker-binding.md) now carries this exact
+reference in an explicit program-request subtype, checked after actual
+qualification and before worker output or fit preparation. The production
+queue/readiness and post-search release stages remain unfinished.

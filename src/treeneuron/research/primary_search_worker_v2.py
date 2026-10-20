@@ -60,11 +60,13 @@ def _validate_request(value):
     """Validate metadata before publication as well as after byte loading."""
     fields={'schema','source_sha256','practical_plan_reference','expected_practical_plan_hash',
         'job_id','support_reference','qualification_reference','search_directory','rss_limit_bytes','previous_episodes'}
-    resource=type(value) is dict and value.get('schema')=='research/v2-primary-search-resource-episode-request'
+    program=type(value) is dict and value.get('schema')=='research/v2-primary-program-episode-request'
+    resource=program or type(value) is dict and value.get('schema')=='research/v2-primary-search-resource-episode-request'
     if resource:fields=fields|{'resource_forecast_reference'}
+    if program:fields=fields|{'procedure_reference'}
     if resource and 'previous_unstarted_episodes' in value:fields=fields|{'previous_unstarted_episodes'}
     if (type(value) is not dict or set(value)!=fields
-            or value['schema'] not in ('research/v2-primary-search-episode-request','research/v2-primary-search-resource-episode-request')
+            or value['schema'] not in ('research/v2-primary-search-episode-request','research/v2-primary-search-resource-episode-request','research/v2-primary-program-episode-request')
             or not _digest(value['source_sha256']) or not _digest(value['expected_practical_plan_hash'])
             or type(value['job_id']) is not str or not value['job_id'] or len(value['job_id'])>230
             or type(value['rss_limit_bytes']) is not int or not 0<value['rss_limit_bytes']<=16*1024**3
@@ -72,6 +74,7 @@ def _validate_request(value):
         raise ValueError('Strict primary-worker request required')
     _reference(value['practical_plan_reference']);_reference(value['support_reference']);_path(value['search_directory'])
     if resource:_reference(value['resource_forecast_reference'])
+    if program:_reference(value['procedure_reference'])
     q=value['qualification_reference']
     if type(q) is not dict or set(q)!={'root','inventory_sha256'} or not _digest(q['inventory_sha256']):
         raise ValueError('Actual native qualification inventory reference required')
@@ -297,6 +300,10 @@ def _prepare_qualified_episode(*,request,output):
     matches=[job for job in jobs if job['job_id']==request['job_id']]
     if len(matches)!=1:raise ValueError('Only the exact declared primary job may run')
     job=matches[0];prior=_previous_episode_state(request);resources=None
+    if 'procedure_reference' in request:
+        from .practical_procedure_v2 import load_practical_procedure
+        load_practical_procedure(request['procedure_reference'],practical_plan=plan,
+            expected_practical_plan_hash=request['expected_practical_plan_hash'],support_reference=request['support_reference'])
     if 'resource_forecast_reference' in request:
         from .native_resource_forecast_v2 import load_native_practical_resource_forecast
         forecast=load_native_practical_resource_forecast(request['resource_forecast_reference'],practical_plan=plan,
