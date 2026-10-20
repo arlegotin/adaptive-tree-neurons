@@ -60,14 +60,17 @@ def _validate_request(value):
     """Validate metadata before publication as well as after byte loading."""
     fields={'schema','source_sha256','practical_plan_reference','expected_practical_plan_hash',
         'job_id','support_reference','qualification_reference','search_directory','rss_limit_bytes','previous_episodes'}
+    resource=type(value) is dict and value.get('schema')=='research/v2-primary-search-resource-episode-request'
+    if resource:fields=fields|{'resource_forecast_reference'}
     if (type(value) is not dict or set(value)!=fields
-            or value['schema']!='research/v2-primary-search-episode-request'
+            or value['schema'] not in ('research/v2-primary-search-episode-request','research/v2-primary-search-resource-episode-request')
             or not _digest(value['source_sha256']) or not _digest(value['expected_practical_plan_hash'])
             or type(value['job_id']) is not str or not value['job_id'] or len(value['job_id'])>230
             or type(value['rss_limit_bytes']) is not int or not 0<value['rss_limit_bytes']<=16*1024**3
             or type(value['previous_episodes']) is not list or len(value['previous_episodes'])>32):
         raise ValueError('Strict primary-worker request required')
     _reference(value['practical_plan_reference']);_reference(value['support_reference']);_path(value['search_directory'])
+    if resource:_reference(value['resource_forecast_reference'])
     q=value['qualification_reference']
     if type(q) is not dict or set(q)!={'root','inventory_sha256'} or not _digest(q['inventory_sha256']):
         raise ValueError('Actual native qualification inventory reference required')
@@ -228,7 +231,13 @@ def _prepare_qualified_episode(*,request,output):
     _,jobs=_primary(plan,request['expected_practical_plan_hash'])
     matches=[job for job in jobs if job['job_id']==request['job_id']]
     if len(matches)!=1:raise ValueError('Only the exact declared primary job may run')
-    job=matches[0];prior=_previous_episode_state(request)
+    job=matches[0];prior=_previous_episode_state(request);resources=None
+    if 'resource_forecast_reference' in request:
+        from .native_resource_forecast_v2 import load_native_practical_resource_forecast
+        forecast=load_native_practical_resource_forecast(request['resource_forecast_reference'],practical_plan=plan,
+            expected_practical_plan_hash=request['expected_practical_plan_hash'],support_reference=request['support_reference'],
+            qualification_reference=request['qualification_reference'])
+        resources=dict(forecast=forecast,job=job,reference=request['resource_forecast_reference'])
     output.mkdir(parents=True,exist_ok=False)
     official=prior['official_schedule_reference']
     if job['family_id']=='P06' and not request['previous_episodes']:
@@ -256,11 +265,26 @@ def _prepare_qualified_episode(*,request,output):
         support_reference=request['support_reference'],qualification_reference=request['qualification_reference'],
         output=output/'preparation',search_directory=search,official_schedule_reference=official,
         rss_limit_bytes=request['rss_limit_bytes'])
-    return prepared,prior,official
+    return prepared,prior,official,resources
+
+
+def _make_resource_gate(context,*,search_directory,observe=None):
+    """Compose pure gate arithmetic; the public episode authenticates context."""
+    from treeneuron.config import canonical_hash
+    from .native_resource_forecast_v2 import native_resource_decision,observe_native_host_resources
+    observer=observe_native_host_resources if observe is None else observe
+    # Freeze the declared metadata against caller mutation. This helper itself
+    # grants no qualification; the actual public loader is mandatory above.
+    context=_json(json.dumps(context))
+    identity=dict(schema='research/v2-primary-resource-admission-policy',forecast_reference=context['reference'],
+        forecast_hash=context['forecast']['forecast_hash'],job_sha256=canonical_hash(context['job']))
+    def gate():
+        return native_resource_decision(forecast=context['forecast'],job=context['job'],live=observer(search_directory))
+    return gate,identity
 
 
 def _run_prepared_search(*,plan,callback,search_directory,output,previous_outer_tail_ns,
-        resume,expected_journal_hash,max_attempts_this_invocation=32):
+        resume,expected_journal_hash,max_attempts_this_invocation=32,resource_context=None):
     """Compose a generic paid controller; the public worker supplies qualification."""
     from .cooperative_process_v2 import _read,_grant_expected,_canonical
     from .search_controller_v2 import run_search
@@ -274,10 +298,11 @@ def _run_prepared_search(*,plan,callback,search_directory,output,previous_outer_
             or not 0<start['supervisor_started_monotonic_ns']<=ready.get('worker_ready_monotonic_ns',0)<=time.perf_counter_ns()):
         raise ValueError('Paid controller requires its current granted cold-worker clock')
     output=Path(output);output.mkdir(parents=True,exist_ok=False)
+    gate,gate_identity=(None,None) if resource_context is None else _make_resource_gate(resource_context,search_directory=search_directory)
     result=run_search(search_directory,plan=plan,evaluate_trial=callback,resume=resume,
         expected_journal_hash=expected_journal_hash,invocation_preparation_ns=previous_outer_tail_ns,
         invocation_origin_ns=start['supervisor_started_monotonic_ns'],
-        max_attempts_this_invocation=max_attempts_this_invocation)
+        max_attempts_this_invocation=max_attempts_this_invocation,trial_admission=gate,trial_admission_identity=gate_identity)
     path=output/'search-result.json';write_new_json(path,result)
     return dict(search_result_reference=dict(path=str(path.resolve()),sha256=_sha(path)),
         search_plan_sha256=_sha(Path(search_directory)/'plan.json'),
@@ -301,11 +326,11 @@ def main(argv=None):
         try:
             if not sys.dont_write_bytecode or any(os.environ.get(k)!=v for k,v in _episode_environment().items()):
                 raise ValueError('Cold primary worker requires its declared core-only environment')
-            prepared,prior,official=_prepare_qualified_episode(request=request,output=Path(args.output))
+            prepared,prior,official,resources=_prepare_qualified_episode(request=request,output=Path(args.output))
             saved=_run_prepared_search(plan=prepared.plan,callback=prepared.callback,
                 search_directory=Path(request['search_directory']),output=Path(args.output)/'body',
                 previous_outer_tail_ns=prior['previous_outer_tail_ns'],resume=bool(request['previous_episodes']),
-                expected_journal_hash=None if prior['last'] is None else prior['last']['body']['journal_hash'])
+                expected_journal_hash=None if prior['last'] is None else prior['last']['body']['journal_hash'],resource_context=resources)
             if _checked_request(args.request,args.expected_request_sha256)!=request:
                 raise ValueError('Primary episode request changed during execution')
             outcome.update(saved,status='closed_search_body',official_schedule_reference=official)

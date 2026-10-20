@@ -48,7 +48,7 @@ def _prior_input_locations(previous):
 
 def prepare_primary_invocation(*,practical_plan_reference,expected_practical_plan_hash,job_id,
         support_reference,qualification_reference,request_path,worker_output,control_output,search_directory,
-        previous_episodes=None,rss_limit_bytes=4*1024**3):
+        previous_episodes=None,rss_limit_bytes=4*1024**3,resource_forecast_reference=None):
     """Authenticate prerequisites before reading plan bytes or writing anything.
 
     The returned request bytes/hash and command are exact, but not permission to
@@ -66,11 +66,16 @@ def prepare_primary_invocation(*,practical_plan_reference,expected_practical_pla
         practical_plan_reference=copy.deepcopy(practical_plan_reference),expected_practical_plan_hash=expected_practical_plan_hash,
         job_id=job_id,support_reference=copy.deepcopy(support_reference),qualification_reference=copy.deepcopy(qualification_reference),
         search_directory=str(search_directory),rss_limit_bytes=rss_limit_bytes,previous_episodes=previous)
+    extra_inputs=[]
+    if resource_forecast_reference is not None:
+        request.update(schema='research/v2-primary-search-resource-episode-request',
+            resource_forecast_reference=copy.deepcopy(resource_forecast_reference))
+        extra_inputs.append(_reference(resource_forecast_reference))
     from .primary_search_worker_v2 import _validate_request,_previous_episode_state
     _validate_request(request)
     prior=_previous_episode_state(request)
     _check_invocation_locations(paths=paths,working_roots=roots['working_roots'],proof_roots=roots['proof_roots'],
-        input_files=[plan_path,support_path,*_prior_input_locations(previous)],resume=bool(previous))
+        input_files=[plan_path,support_path,*extra_inputs,*_prior_input_locations(previous)],resume=bool(previous))
     raw=plan_path.read_bytes()
     if hashlib.sha256(raw).hexdigest()!=practical_plan_reference['sha256']:
         raise ValueError('Practical plan file commitment changed')
@@ -82,6 +87,13 @@ def prepare_primary_invocation(*,practical_plan_reference,expected_practical_pla
             or registry['identity']['test_and_lock_files']['locks/research-v2/core.json']!=value['runtime_sha256']
             or record['split_hashes'][str(job['outer_fold'])]!=job['split_hash']):
         raise ValueError('Actual qualified source/runtime/primary split differs from declared job')
+    resources=None
+    if resource_forecast_reference is not None:
+        from .native_resource_forecast_v2 import load_native_practical_resource_forecast
+        forecast=load_native_practical_resource_forecast(resource_forecast_reference,practical_plan=plan,
+            expected_practical_plan_hash=expected_practical_plan_hash,support_reference=support_reference,
+            qualification_reference=qualification_reference)
+        resources=dict(forecast=forecast,job=job,reference=copy.deepcopy(resource_forecast_reference))
     if prior['last'] is not None:
         from .qualified_search_audit_v2 import audit_primary_qualified_search
         body=prior['last']['body']
@@ -100,5 +112,6 @@ def prepare_primary_invocation(*,practical_plan_reference,expected_practical_pla
             '--request',str(request_path),'--expected-request-sha256',sha,'--output',str(worker_output)],
         cwd=str(_ROOT),environment_overrides=_episode_environment(),control_output=str(control_output),
         invocation_origin_ns=started,preflight_elapsed_ns=time.perf_counter_ns()-started,
+        resource_context=resources,
         native_qualification_authenticated=True,resource_admission_authenticated=False,
         execution_implemented=False,protected_access_authorized=False,T_accessed=False)

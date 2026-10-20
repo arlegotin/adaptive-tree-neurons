@@ -306,6 +306,11 @@
           "bytes": 4915,
           "path": "docs/research/v2/WP08-search-resource-pauses-receipt.json",
           "sha256": "a760e9555a2e7a1521288f37099bb1de39ed224dff4d3befb38dc7678b821746"
+        },
+        {
+          "bytes": 4353,
+          "path": "docs/research/v2/WP08-primary-resource-binding-receipt.json",
+          "sha256": "23bc073f432c1b9398dbe3d9fe85431c2249ef1262bee13c499e0a227ff39ea4"
         }
       ],
       "status": "supported_scoped_status",

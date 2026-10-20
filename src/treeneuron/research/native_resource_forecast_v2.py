@@ -11,8 +11,8 @@ import subprocess
 import sys
 import time
 
-from treeneuron.config import canonical_hash
-from .deployment_worker_v2 import _source
+from treeneuron.config import canonical_hash,canonical_json
+from .deployment_worker_v2 import _source,_json
 from .native_anchor_v2 import _closed_reference,_bound_json
 from .native_qualification_registry_v2 import load_native_qualification_registry
 from .practical_support_lock_v2 import load_practical_support_lock
@@ -132,6 +132,46 @@ def forecast_native_practical_resources(*,practical_plan,expected_practical_plan
         resource_observations=observations,forecast_preparation_ns=time.perf_counter_ns()-started)
     result['forecast_hash']=canonical_hash(result)
     return result
+
+
+def _match_cached_forecast(saved,actual):
+    """Metadata equality only; recomputed public qualification is separate."""
+    for value in (saved,actual):
+        if (type(value) is not dict or not _positive(value.get('forecast_preparation_ns'))
+                or value.get('forecast_hash')!=canonical_hash({k:v for k,v in value.items() if k!='forecast_hash'})):
+            raise ValueError('Exact cached resource forecast/hash/declared clock required')
+    ignored={'forecast_hash','forecast_preparation_ns'}
+    if canonical_json({k:v for k,v in saved.items() if k not in ignored})!=canonical_json({k:v for k,v in actual.items() if k not in ignored}):
+        raise ValueError('Cached resource source, proof, policy or measured observations differ')
+
+
+def load_native_practical_resource_forecast(reference,*,practical_plan,expected_practical_plan_hash,
+        support_reference,qualification_reference):
+    """Recompute genuine prerequisites before opening a cached forecast.
+
+    The saved planning duration is an observation, not a cost authority; the
+    current caller pays this entire revalidation using its outer clock.
+    """
+    actual=forecast_native_practical_resources(practical_plan=practical_plan,
+        expected_practical_plan_hash=expected_practical_plan_hash,support_reference=support_reference,
+        qualification_reference=qualification_reference)
+    from .primary_search_worker_v2 import _reference,_sha
+    path=_reference(reference)
+    raw=path.read_bytes()
+    import hashlib
+    if hashlib.sha256(raw).hexdigest()!=reference['sha256']:raise ValueError('Resource forecast file commitment changed')
+    saved=_json(raw)
+    # The actual comparison uses the cache's declared margin only after basic
+    # byte/structure checks, then revalidates the full policy and observations.
+    if (type(saved) is not dict or type(saved.get('free_disk_margin_bytes')) is not int
+            or saved['free_disk_margin_bytes']<1024**3):raise ValueError('Declared resource margin required')
+    if saved['free_disk_margin_bytes']!=actual['free_disk_margin_bytes']:
+        actual=forecast_native_practical_resources(practical_plan=practical_plan,
+            expected_practical_plan_hash=expected_practical_plan_hash,support_reference=support_reference,
+            qualification_reference=qualification_reference,free_disk_margin_bytes=saved['free_disk_margin_bytes'])
+    _match_cached_forecast(saved,actual)
+    if _sha(path)!=reference['sha256']:raise ValueError('Cached forecast changed during revalidation')
+    return saved
 
 
 def native_resource_decision(*,forecast,job,live):

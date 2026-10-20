@@ -187,6 +187,12 @@ same-state recovery on resume. Actual forecast/host-observation binding in the
 production worker and launcher remains pending; the hook alone grants no
 qualification or execution authority.
 
+The [resource-bound worker component](primary-resource-binding.md) passed 98
+affected checks. Its new request schema authenticates the cached forecast and
+connects fresh host observations to the pre-proposal hook. A real cold-worker
+shortage fixture closes with zero fits; full qualified public execution remains
+unrun. The production caller and complete outer-cost/protocol gates are pending.
+
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only
 the branches their gates authorize. The native/support/workload qualification

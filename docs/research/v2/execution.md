@@ -2297,3 +2297,28 @@ host binding, production launch and whole-cost/protected integration remain
 unfinished. [Contract](search-resource-pauses.md),
 [receipt](WP08-search-resource-pauses-receipt.json). Heldc33NODEsource/environment
 and active serial operators remain unchanged.
+
+## 20 October: actual resource forecast/worker binding
+
+An explicit resource-episode request schema pins its immutable forecast; the
+old ungated engineering component cannot silently substitute. Cache validation
+recomputes genuine qualification, all current source/core/support/split pins,
+resource observations and policy before cache access. Only historical planning
+duration differs; it is never a cost authority. Actual revalidation time stays
+inside the paid parent/child clock. Custom disk margins are recomputed.
+
+Preflight protects/validates the forecast before output. Worker preparation
+validates it before worker output, then passes a frozen context with fresh host
+observation to every pre-proposal check. Complete decisions and exact forecast
+and job identities enter the journal. Resource pauses retain the existing
+same-state/TPE contract. No native stopping/count/seed/data policy changes.
+
+Initial8failed/3passed0.43s for missing reader/bootstrap/gate; then27passed2.00s.
+Final five-module98passed5.42s/session78249exit0, including an actual cold worker
+with a deliberately impossible unqualified storage envelope and real host
+observation, zero model fits, closed resource pause and joined root. No complete
+qualified public positive was fabricated or executed. Caller launch/whole cost,
+global procedure and protected integration remain pending.
+[Contract](primary-resource-binding.md),
+[receipt](WP08-primary-resource-binding-receipt.json). Heldc33NODEsource/env/serial
+operators remain unchanged.
