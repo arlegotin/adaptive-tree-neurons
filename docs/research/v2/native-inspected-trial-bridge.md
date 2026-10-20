@@ -9,8 +9,11 @@ The constructor binds the current source, native template, paired fit seed,
 prepared primary split, original F/G/V-feature bytes and exact semantic family
 support/anchor order. It creates no search directory. Generic TPE draws compile
 through the existing strict family compiler; P13 follows its exhaustive29-model
-support. P06 still needs its separate official-sampler schedule bridge and is
-explicitly rejected here. Its native distribution must not become generic TPE.
+support. P06 now requires the separately authenticated
+[official native schedule](native-official-schedule-worker.md) and fixed native
+HPO seed; its exact32configurations are bound and rechecked. Its native
+distribution never becomes generic TPE. Missing or changed schedule evidence
+rejects before fitting.
 
 Each paid attempt creates a separate generation container with verified input
 copies. The owned fit has no wall deadline and retains its RSS guard. Successful
@@ -40,3 +43,6 @@ checks the actual committed result, without changing that controller contract.
 Final verification passed104affected checks with7retained native vendor warnings
 in43.89seconds. No real-data anchor or practical HPO count increased. See
 [the source/log receipt](WP08-native-inspected-trial-bridge-receipt.json).
+That receipt predates P06 schedule integration; the later97-case result and
+actual full native P06 fixture are recorded in
+[the follow-up receipt](WP08-native-official-schedule-worker-receipt.json).

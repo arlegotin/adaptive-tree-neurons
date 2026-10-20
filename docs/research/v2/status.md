@@ -10,8 +10,10 @@ The full2048-tree recovery proof now matches uninterrupted training exactly at
 about1.18GiBsampled peak RSS. The uncapped same-data/seed17 Energy native fit completed its normal stopping
 rule at5701updates, selecting700, after7362.48seconds (just over two hours)
 and1.64GiBsampled peak RSS. Independent saved-prediction replay is exact and
-the57native validation checks/row coverage agree. This qualifies one full native
-anchor workload, without a predictive comparison or protected T access. See
+the57native validation checks/row coverage agree. That completion establishes one
+full native anchor execution/replay under its held source. Its receipt predates
+the V survey below; final common-source Gate D remains pending and no protected
+T was opened. See
 [the completion receipt](WP07-NODE-uncapped-completion-receipt.json).
 
 Start with a small neural network. Give selected neurons a learned switch between

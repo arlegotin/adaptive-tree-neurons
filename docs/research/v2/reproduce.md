@@ -341,3 +341,11 @@ Use native owned-process inspection permissions and the qualified interpreter;
 the actual tiny fits grant no native workload or acquisition qualification.
 P06 official scheduling is not implemented by this bridge; it must retain its
 separate pinned sampler. See native-inspected-trial-bridge.md.
+
+The follow-up P06 sampler connection is now implemented. Run
+`tests/test_native_schedule_worker.py` and the pinned `tests/test_realmlp_search.py`
+official-parity checks with the native-process permissions and existing private
+overlay. The97-case affected result also covers trial/journal/controller/support
+checks. Its actual full native P06 model uses synthetic sealed fixtures only.
+See native-official-schedule-worker.md and its source/log receipt; production
+qualification, primary selection and final protocol are still required.

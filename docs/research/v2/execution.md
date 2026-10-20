@@ -1846,3 +1846,15 @@ quality promotion is possible. P06's official-sampler schedule bridge, productio
 qualification registry and final protocol remain pending. See
 [contract](native-inspected-trial-bridge.md) and
 [receipt](WP08-native-inspected-trial-bridge-receipt.json).
+
+P06 official-sampler integration now passes97affected checks in84.53seconds,
+after6missing-module REDs and6new GREENs41.67seconds. The owned label-free
+sampler prepares its native anchor/31official choices; an externally committed
+source/seed/schema/managed-process inventory binds that finite schedule into
+the native bridge. The actual tiny P06 fixture completes256native epochs,
+fresh replay and coordinator V while remaining engineering-ineligible. P06
+never becomes generic TPE. Preparation's entire caller-measured span is paid
+once, with helper lower-bound and nested clocks disclosed. Real data, HPO,
+final qualification/freeze/T counts stay unchanged. See
+[contract](native-official-schedule-worker.md) and
+[receipt](WP08-native-official-schedule-worker-receipt.json).

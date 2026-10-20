@@ -22,7 +22,7 @@ from .trial_bridge_v2 import EngineeringTrialBridge
 class InspectedNativeTrialBridge:
     def __init__(self,*,plan,template_path,expected_template_sha256,prepared_root,
             expected_manifest_sha256,outer_fold,search_directory,interpreter,
-            extra_pythonpath=(),rss_limit_bytes=4*1024**3):
+            extra_pythonpath=(),rss_limit_bytes=4*1024**3,official_schedule_reference=None,native_hpo_seed=None):
         started=time.perf_counter_ns();plan=_checked_plan(plan)
         template_path=Path(template_path).resolve();family=plan['identity']['family_id']
         template,_=_validate_request(template_path,expected_template_sha256,recoverable_training=family=='P12')
@@ -31,19 +31,31 @@ class InspectedNativeTrialBridge:
         store=TransferStore(prepared_root);split=store._split(outer_fold)
         spec=family_search_spec(family,template['config']['feature_schema']);identity=plan['identity']
         expected_candidates=spec['finite_configurations'][1:] if family=='P13' else []
+        expected_mode=spec['search_kind'];self.native_sampler_minimum_prerequisite_ns=0
+        if family=='P06':
+            from .native_schedule_v2 import load_realmlp_native_schedule
+            official=load_realmlp_native_schedule(official_schedule_reference,
+                expected_hpo_seed=native_hpo_seed,expected_feature_schema=spec['feature_schema'])
+            if official['configurations'][:1]!=[a['config'] for a in spec['anchors']]:raise ValueError('Official P06 anchor differs')
+            expected_candidates=official['configurations'][1:];expected_mode='finite'
+            # The caller must charge its measured whole preparation call once,
+            # including publication/return. This recorded span is a lower bound.
+            self.native_sampler_minimum_prerequisite_ns=official['paid_preparation_ns']
+        elif official_schedule_reference is not None or native_hpo_seed is not None:
+            raise ValueError('Official native sampler reference belongs only to P06')
         if (plan['deadline_ns'] is not None or template['budget']!={'native_stopping':True}
                 or family!=template['family_id'] or identity['source_sha256']!=template['scientific_source_sha256']
                 or identity['source_sha256']!=scientific_source_sha256()
                 or identity['split_sha256']!=split['split_hash'] or plan['fit_seed']!=template['fit_seed']
                 or identity['support_sha256']!=spec['support_hash'] or len(identity['job_id'])>230
-                or spec['search_kind'] not in ('finite','tpe') or plan['mode']!=spec['search_kind']
+                or expected_mode not in ('finite','tpe') or plan['mode']!=expected_mode
                 or plan['support']!=spec['support'] or plan['candidates']!=expected_candidates
                 or plan['anchors']!=[a['config'] for a in spec['anchors']]
                 or template['config']!=spec['anchors'][0]['config']
                 or template['observation_identity']!=dict(dataset=store.manifest['dataset'],
                     split_kind='temporal' if store.manifest['dataset']=='bike' else 'grouped',split_sha256=split['split_hash'])
                 or spec['feature_schema']!=dict(columns=store.manifest['feature_names'],categorical=store.manifest['categorical_features'])):
-            raise ValueError('Native bridge requires exact current primary source/seed/support/anchor; official P06 schedule remains separate')
+            raise ValueError('Native bridge requires exact current primary source/seed/support/anchor/native schedule')
         interpreter=Path(interpreter)
         if (not interpreter.is_absolute() or not interpreter.is_file() or type(rss_limit_bytes) is not int
                 or rss_limit_bytes<=0 or not isinstance(extra_pythonpath,(list,tuple))):
@@ -58,7 +70,8 @@ class InspectedNativeTrialBridge:
             template_sha256=expected_template_sha256,prepared_root=str(prepared_root),
             expected_manifest_sha256=expected_manifest_sha256,outer_fold=outer_fold,
             search_directory=str(Path(search_directory).resolve()),interpreter=str(interpreter),
-            extra_pythonpath=overlays,rss_limit_bytes=rss_limit_bytes,spec=spec))
+            extra_pythonpath=overlays,rss_limit_bytes=rss_limit_bytes,spec=spec,
+            official_schedule_reference=official_schedule_reference,native_hpo_seed=native_hpo_seed))
         self._unchanged(json.loads(self._binding))
         self.preparation_ns=time.perf_counter_ns()-started
 
@@ -69,6 +82,11 @@ class InspectedNativeTrialBridge:
                 or _sha(prepared/'manifest.json')!=binding['expected_manifest_sha256']):
             raise ValueError('Native bridge template/source/prepared manifest changed')
         manifest=TransferStore(prepared).manifest;fold=binding['outer_fold']
+        if binding['official_schedule_reference'] is not None:
+            from .native_schedule_v2 import load_realmlp_native_schedule
+            official=load_realmlp_native_schedule(binding['official_schedule_reference'],
+                expected_hpo_seed=binding['native_hpo_seed'],expected_feature_schema=binding['spec']['feature_schema'])
+            if binding['plan']['candidates']!=official['configurations'][1:]:raise ValueError('Official P06 schedule changed')
         for role,ref in template['files'].items():
             relative=f'outer-{fold}/'+('V-features.npz' if role=='V_features' else role+'.npz')
             original=path.parent/ref['path'];sealed=prepared/relative
@@ -152,6 +170,7 @@ class InspectedNativeTrialBridge:
         write_new_json(attempt/'bridge.json',dict(schema='research/v2-inspected-native-trial',plan_hash=plan['plan_hash'],
             source_sha256=template['scientific_source_sha256'],candidate_id=request['candidate_id'],
             candidate_origin=request['candidate_origin'],raw_configuration=request['config'],compiled_configuration=compiled,
+            official_schedule_reference=binding['official_schedule_reference'],native_hpo_seed=binding['native_hpo_seed'],
             fit_seed=plan['fit_seed'],native_request_sha256=request_sha,status=status,reason=reason,
             inspected_V_score=inspection['validation']['score'] if inspection and inspection['validation'] else None,
             compilation_ns=compilation_ns,inspection_span_ns=inspection_span,callback_body_ns=time.perf_counter_ns()-started,

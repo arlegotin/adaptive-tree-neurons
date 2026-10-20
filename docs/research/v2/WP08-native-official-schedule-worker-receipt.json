@@ -1,0 +1,56 @@
+{
+  "T_accessed": false,
+  "actual_P06_fixture": "One full256-epoch native model with fresh closed replay and primary V arithmetic on synthetic sealed Energy roles; engineering-ineligible, not an official acquisition/workload qualification",
+  "counterexamples": [
+    "Wrong seed/schema/inventory rejects",
+    "Real one-byte RSS stop reaped without usable schedule",
+    "Unknown fields, labels/data files and stale source rejected before private imports"
+  ],
+  "files": [
+    {
+      "bytes": 12168,
+      "path": "src/treeneuron/research/native_schedule_v2.py",
+      "sha256": "b71adb527d506281857732b86836c94fd3ad6378dc67500fd5614d0b02447af0"
+    },
+    {
+      "bytes": 14804,
+      "path": "src/treeneuron/research/native_trial_bridge_v2.py",
+      "sha256": "c54d8f5689ba362100a583b3ba3ff6c2fe0bec4eb6951e25b30b66f0e17b38be"
+    },
+    {
+      "bytes": 5383,
+      "path": "tests/test_native_schedule_worker.py",
+      "sha256": "18ba1b3c6af29e12ac6055650ea60d5ef1b133db1bb97447f7e4ad9bbc055fd1"
+    },
+    {
+      "bytes": 8107,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-schedule-worker-red.log",
+      "sha256": "be1b0b59d3e41ac87027c1dc4f382e2e712af27ab5022ce3fc67856bef9be511"
+    },
+    {
+      "bytes": 99,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-schedule-worker-green.log",
+      "sha256": "1ddb89a3d9f1a32798f29fe35349d58ec86736388992f25339ef07cfcd5f1a93"
+    },
+    {
+      "bytes": 190,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-schedule-worker-affected-green.log",
+      "sha256": "1fe7899b5cd5c69dcbe8ab2f5b6001ccfd5f90806d3e9e646832e19d7b14af19"
+    }
+  ],
+  "final_green": "97 passed in84.53s",
+  "final_protocol_frozen": false,
+  "first_green": "6 passed in41.67s",
+  "native_sampler_configurations": 32,
+  "native_workload_qualified": false,
+  "new_real_data_anchor_completions": 0,
+  "official_draws_after_anchor": 31,
+  "paid_clock": "Caller externally measures and charges the whole preparation call once; helper span excludes final publication/inventory/return and is an explicitly named lower bound",
+  "preparation_model_fits": 0,
+  "production_practical_searches": 0,
+  "quality_eligible": false,
+  "red": "6 missing-module failures in.32s",
+  "schema": "research/v2-native-official-schedule-worker-receipt",
+  "source_sha256": "b8dbf240d9abd5a269266078b8c9c08dcff953f1df83a73e48ef8c484a588162",
+  "status": "verified_fixture_component"
+}
