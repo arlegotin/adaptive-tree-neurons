@@ -67,7 +67,8 @@ After disk recovered, the unchanged launcher admitted a same-source/seed
 continuation; its first newly observed published checkpoint is update 4,100.
 The [resume receipt](WP07-NODE-storage-resume-receipt.json) retains admission and
 the original failed attempt. This is ongoing training, not another completion.
-CCPP and Bike remain pending. The
+CCPP and Bike remain pending; a [separate serial controller](native-storage-continuation.md)
+will admit them after the resumed Parkinsons completion audit. The
 [interruption receipt](WP07-NODE-storage-interruption-2026-10-20-receipt.json)
 preserves missing terminal records and available error/cost evidence. The
 original survey and earlier receipts remain unchanged.

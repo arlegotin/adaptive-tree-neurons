@@ -1,0 +1,199 @@
+{
+  "T_accessed": false,
+  "V_labels_read": false,
+  "closed_predecessor": {
+    "T_accessed": false,
+    "model_or_prediction_read": false,
+    "native_workload_qualified": false,
+    "operator_sha256": "c80888f8559115188c5a2a7589f2b5a9f35806a9d6d50e900b991e65cdd235b4",
+    "prior": {
+      "attempt_index": 0,
+      "exact_terminal_cost_tail_available": false,
+      "historical_checkpoint_payload_retention": "Original rolling-two-payload policy may trim old arrays; immutable manifests/history and the separately validated starting-state observation remain retained",
+      "last_resource_sample_elapsed_ns": 8794918028041,
+      "observed_peak_root_rss_bytes": 1777958912,
+      "original_terminal_backfilled": false,
+      "status": "resource_exhausted_missing_producer_terminal"
+    },
+    "quality_eligible": false,
+    "schema": "research/v2-NODE-closed-predecessor-check",
+    "source_sha256": "b680a26b2176c6c5cc0f59cf19192d7ee963826a7575cce5ec5ee695521a65cc",
+    "status": "checked_closed_predecessor_only"
+  },
+  "completed_native_anchors": 117,
+  "differential": {
+    "T_accessed": false,
+    "V_labels_read": false,
+    "actual_process_elapsed_ns": 11994531500,
+    "baseline_operator_sha256": "5c85b17fc6e6999aa5ba3f2c94dba82f2159fedbd0bcc4591b79e936fc9acff3",
+    "common_fields_compared": 33,
+    "held_source_unchanged": true,
+    "ignored_fields": [
+      "audit_elapsed_ns",
+      "operator_sha256"
+    ],
+    "new_fields": [
+      "all_attempt_terminal_receipts_available",
+      "attempt_index",
+      "containing_clock_scope",
+      "model_training_independently_reexecuted",
+      "old_pid_probed",
+      "prior_external_references",
+      "prior_interruption_observations",
+      "whole_training_procedure_cost_authenticated"
+    ],
+    "new_fits": 0,
+    "new_operator_sha256": "c80888f8559115188c5a2a7589f2b5a9f35806a9d6d50e900b991e65cdd235b4",
+    "observed_peak_root_rss_bytes": 1099677696,
+    "status": "passed"
+  },
+  "existing_resume_owned_worker_pid": 55320,
+  "existing_resume_session": 32249,
+  "files": [
+    {
+      "bytes": 15227,
+      "path": "docs/research/v2/scripts/audit_resumed_node_completion.py",
+      "sha256": "c80888f8559115188c5a2a7589f2b5a9f35806a9d6d50e900b991e65cdd235b4"
+    },
+    {
+      "bytes": 7520,
+      "path": "docs/research/v2/scripts/continue_native_node_after_storage.py",
+      "sha256": "34a6d608087f6d2415c6024c750721a70ee5b070490236b62d5404e8d3a06ca8"
+    },
+    {
+      "bytes": 3570,
+      "path": "docs/research/v2/scripts/native_node_trace_reference.py",
+      "sha256": "2a071ef73e74957d7d6acf14a0ad771ec850dc8357864bc6a8fb3a98f0ad0a1c"
+    },
+    {
+      "bytes": 512,
+      "path": "artifacts/research-v2/WP07/resumed-node-audit-final-qualification-7448c75/invocation.json",
+      "sha256": "81b1cefb3e5e4b3a9a8d71b9ba680cb03481f8aa5fa3da3660fc8e1c2e045618"
+    },
+    {
+      "bytes": 912,
+      "path": "artifacts/research-v2/WP07/resumed-node-audit-final-qualification-7448c75/admission.json",
+      "sha256": "8e5734fdb23e877a27f623f5b7387817d83d297accb05766f71abe96eaa2f9b5"
+    },
+    {
+      "bytes": 822,
+      "path": "artifacts/research-v2/WP07/resumed-node-audit-final-qualification-7448c75/differential.json",
+      "sha256": "555d1e3bbeb6b69cc2e01615e094ea14be46f158488286501d1e57922bcc1357"
+    },
+    {
+      "bytes": 2420,
+      "path": "artifacts/research-v2/WP07/resumed-node-audit-final-qualification-7448c75/baseline-concrete.json",
+      "sha256": "4055a4d644addb38f4404be3bc292c1cf47ef66e5660059fe1aceb6e7ee3140e"
+    },
+    {
+      "bytes": 2868,
+      "path": "artifacts/research-v2/WP07/resumed-node-audit-final-qualification-7448c75/process/process.json",
+      "sha256": "9705e77ca3561428c2b37438a6be713bea6b50f600ff38a86df6e1e8eef35c3c"
+    },
+    {
+      "bytes": 832,
+      "path": "artifacts/research-v2/WP07/resumed-node-audit-final-qualification-7448c75/predecessor.json",
+      "sha256": "8a226af5d598891adb0717fffa4f05e294230d8c1933e474e2e38469f4e847f3"
+    },
+    {
+      "bytes": 1810,
+      "path": "artifacts/research-v2/WP07/resumed-node-audit-final-qualification-7448c75/predecessor-invocation.json",
+      "sha256": "e49794f69748dad3d2088970d5b9364834e6914d5ac716e57bfc508f34e6adbf"
+    },
+    {
+      "bytes": 0,
+      "path": "artifacts/research-v2/WP07/resumed-node-audit-final-qualification-7448c75/predecessor.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1868,
+      "path": "artifacts/research-v2/WP07/resumed-node-audit-final-qualification-7448c75/active-producer-rejection.json",
+      "sha256": "1344927c19dded136390d5f774e03f69437fbd537333b63266722be852584ab9"
+    },
+    {
+      "bytes": 1359,
+      "path": "artifacts/research-v2/WP07/resumed-node-audit-final-qualification-7448c75/active-producer-rejection.log",
+      "sha256": "b6fc5c5f624e5302f2468c2df58bd2bea48dfa6107b875220d040ff379045306"
+    },
+    {
+      "bytes": 5916,
+      "path": "artifacts/research-v2/WP07/NODE-storage-serial-continuation-c33a84e/plan.json",
+      "sha256": "583973438988cbc97f17355874c036f810d6c60bbe65d3a1f8837855a4a568db"
+    },
+    {
+      "bytes": 60,
+      "path": "artifacts/research-v2/WP07/NODE-storage-serial-continuation-c33a84e/validated-plan.log",
+      "sha256": "d2eb819235a0abc8149181f913ad8159c2ae79e87e4abf9411aaa5671c36f8f4"
+    },
+    {
+      "bytes": 421,
+      "path": "artifacts/research-v2/WP07/NODE-storage-serial-continuation-c33a84e/wrong-plan.log",
+      "sha256": "a4441175a1a0744138fe1ac53ab52b7d34cdfe5f791ad19d82f472aa277e27c1"
+    },
+    {
+      "bytes": 1186,
+      "path": "artifacts/research-v2/WP07/NODE-storage-serial-continuation-c33a84e/execution/invocation.json",
+      "sha256": "177c30b07dda1cd981ab2a189186bd838693aafc6a8ef001c748b204baa55853"
+    },
+    {
+      "bytes": 220,
+      "path": "artifacts/research-v2/WP07/resumed-node-audit-interface-RED.log",
+      "sha256": "10fdc407e75975398b1629f12d19ee98175dd838b78ade563d43826b352114c7"
+    },
+    {
+      "bytes": 945,
+      "path": "artifacts/research-v2/WP07/resumed-node-audit-predecessor-interface-RED.log",
+      "sha256": "d078ae1f81f3e41184de34da7fea0a864b25b3a40cfb2e990e4fec1ad29bd697"
+    },
+    {
+      "bytes": 400,
+      "path": "artifacts/research-v2/WP07/resumed-node-audit-bad-reference.log",
+      "sha256": "837eb4beba52222fa7c44e98e85993ed458624d71d7856b752489daae1913dfa"
+    },
+    {
+      "bytes": 210,
+      "path": "artifacts/research-v2/WP07/node-storage-queue-interface-RED.log",
+      "sha256": "ee184d22a5c8ff57ab2f96209e84ed1b29b98a9a211716dddd6e5e19fffafa12"
+    },
+    {
+      "bytes": 2851,
+      "path": "artifacts/research-v2/WP07/resumed-node-audit-qualification-7448c75/process/process.json",
+      "sha256": "82ff11384094eaab372b4c61182e1114c172bea4639e3b83fda141d2615d7043"
+    },
+    {
+      "bytes": 316,
+      "path": "artifacts/research-v2/WP07/resumed-node-audit-qualification-7448c75/process/stderr.log",
+      "sha256": "b1ec3863ab38e034f0a9e7d5f06abd3318201bd4d4995c5cbff5483c779d8e6c"
+    },
+    {
+      "bytes": 822,
+      "path": "artifacts/research-v2/WP07/resumed-node-audit-qualification-retry-7448c75/differential.json",
+      "sha256": "15ae0bf0088b7dc2ac532acf6a5275e8a79867289f51000add29da050c7d90f0"
+    }
+  ],
+  "held_source_commit": "c33a84eda018d11b2dbe237dbc0b5b681c8e65c9",
+  "held_source_sha256": "b680a26b2176c6c5cc0f59cf19192d7ee963826a7575cce5ec5ee695521a65cc",
+  "initial_failure": "New -P launcher hid the original bare sibling helper import; 126ms owned process exited1 before model/prediction access. Fixed by explicit pinned-file import; both failures and retries retained.",
+  "maximum_simultaneous_native_fits": 1,
+  "negative_checks": [
+    "old audit rejects new attempt-index interface",
+    "bad external hash rejects before native imports",
+    "final operator rejects active native producer",
+    "new serial driver rejects wrong plan hash",
+    "new predecessor-only interface failed before implementation"
+  ],
+  "new_method_fits_for_qualification": 0,
+  "observed_utc_ns": 1792500895029598000,
+  "operators_byte_copied_to_immutable_control_namespace": true,
+  "original_failed_cost_tail_not_imputed": true,
+  "original_native_model_seed_data_and_stopping_unchanged": true,
+  "parent_work_commit": "7448c75",
+  "planned_native_anchors": 120,
+  "production_qualification_granted": false,
+  "quality_eligible": false,
+  "schema": "research/v2-resumed-NODE-operational-audit-receipt",
+  "serial_execution_session": 63857,
+  "status": "operators_checked_serial_continuation_waiting_for_Parkinsons",
+  "validation_scope": "Actual existing-Concrete selected prediction replay and33 common endpoint/model/row/stopping/resource fields; actual immutable failed-predecessor metadata check; plan-only source/operator/reference/manifest checks. Complete resumed endpoint and future CCPP/Bike fits/audits remain unrun.",
+  "wall_deadline": null
+}

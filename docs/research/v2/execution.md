@@ -2078,3 +2078,20 @@ partial observations. No full-registry public success is simulated or claimed.
 The qualified execution factory, external whole-process accounting,
 all-primary-model barrier and final protocol/evaluator integration remain
 unfinished. Scientific M3/B0 decisions and protected-data status are unchanged.
+
+### Serial native inventory after the storage interruption, 20 October
+
+The [versioned storage-continuation operators](native-storage-continuation.md)
+retain the failed predecessor and keep its unavailable terminal cost explicit.
+The new audit matched all 33 shared Concrete endpoint fields and passed a
+read-only check of the actual interrupted predecessor. Its initial `-P` import
+failure and subsequent successful replay are retained. An active producer is
+refused. No new fit or query-label reading occurred during qualification.
+
+The [operator receipt](WP07-NODE-storage-continuation-operator-receipt.json)
+pins a new controller waiting for Parkinsons attempt001, then admitting CCPP
+and Bike serially under their original full native model and resource guards.
+Its operators are byte-copied into a retained namespace; the held c33 source is
+unchanged. Any operational failure stops that queue for explicit recovery.
+The 117-of-120 completion count and all existing predictive results are unchanged
+at queue admission. Main production implementation remains in progress.
