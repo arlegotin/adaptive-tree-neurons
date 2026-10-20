@@ -12,6 +12,14 @@ screen would justify measuring residual conditional structure before deciding
 whether the already-described M6 residual branch is admissible. It would not
 admit M6/C2 automatically, establish gated capacity value or change P00/P01.
 
+The one-layer grid below uses native quantile preprocessing. A backbone win
+against that grid does not establish that the F-standardized competent
+ordinary continuation used in M3 has reached its ceiling. Before any M6
+admission, the separately fixed follow-up must include that ordinary treatment
+on the same B0 data, as well as the required residual-structure measurement.
+This safeguard is declared before B0 teacher creation; it adds no B0 fits and
+does not reopen M3 placement selection.
+
 Use exactly four fresh development teachers, two paired training repetitions
 and nine fixed configurations:72 native fits, with no effect-triggered expansion
 or additional tuning. Generate the existing primary d16 teacher through
