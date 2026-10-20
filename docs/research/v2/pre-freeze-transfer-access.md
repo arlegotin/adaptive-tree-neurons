@@ -45,3 +45,12 @@ history at that endpoint; it does not prove the absence of unlogged access,
 count135fits, or complete any readiness gate. The active native fit and M2
 producer retain their separate source identities. See
 [the receipt](WP09-pre-freeze-transfer-access-receipt.json).
+
+A subsequent post-survey snapshot holds all six shared leases together during
+publication and audits381recorded API events. All stay on the designated primary
+folds, with no protected/secondary roles. Exactly121V-label events correspond to
+115survey scores and six independent dataset reconstructions. The audit opens no
+observation/target array; it verifies the allowed primary V-coordinator access,
+not its absence. This is neither381fits nor proof against unlogged filesystem
+access or final-freeze readiness. See
+[the new snapshot receipt](WP09-post-survey-primary-access-receipt.json).
