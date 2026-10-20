@@ -456,6 +456,11 @@
           "bytes": 7221,
           "path": "docs/research/v2/WP10-owned-saved-query-leaf-receipt.json",
           "sha256": "75272b23f451d37fa3ec41e0a3d1ce15fe123b2569aed694fb27dcd8cec8d8c2"
+        },
+        {
+          "bytes": 8702,
+          "path": "docs/research/v2/WP10-protected-prediction-queue-receipt.json",
+          "sha256": "3e5f3c658b20831cc62112bc719970f4d5c9f9e812c52918a4b06fb9d386dcd6"
         }
       ],
       "status": "supported_scoped_status",

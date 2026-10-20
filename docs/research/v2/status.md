@@ -1,6 +1,6 @@
 # Research v2: current result and next work
 
-Updated 20 October 2026. This page summarizes the current state; the
+Updated 21 October 2026. This page summarizes the current state; the
 [execution ledger](execution.md) retains earlier snapshots, failures, source
 changes and exact evidence boundaries.
 The [cross-study report](../../../reports/research-v2.md) links the scientific
@@ -422,3 +422,14 @@ and malformed-input paths produce no prediction. The same observed proof remains
 readable from its historical journal prefix after a private commit. Production
 coordinator scheduling/admission and genuine protocol commits remain unfinished.
 No actual protected benchmark inference or labels were accessed.
+
+
+The [prediction queue component](protected-prediction-queue.md) passed160
+checks in60.94s. It connects protocol-first admission, witnessed query order,
+owned workers, independent numerical commits and accounting for successful and
+failed attempts. Private fixtures verify exact-state resource resume, bounded
+dependency retry, no repeat prediction after a valid commit and a final context
+barrier. They confer no native/protected authority. A read-only complete queue/
+invocation gate and the actual label evaluator remain unfinished, along with
+full audit/deployment/cost/CLI/readiness and final review. No protected benchmark
+prediction or label access occurred.

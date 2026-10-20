@@ -1,0 +1,244 @@
+{
+  "T_accessed": false,
+  "actual_benchmark_label_archives_read": 0,
+  "actual_benchmark_models_fitted": 0,
+  "actual_complete_qualified_public_positive": false,
+  "actual_protected_inference": false,
+  "artifact_inventory": {
+    "bytes": 74106,
+    "path": "artifacts/research-v2/WP10/protected-prediction-queue-software-inventory.json",
+    "sha256": "f59225f4356017a28eb6fbb16823ef7e852dcf008344200ab12324a7dc785bb6"
+  },
+  "base_commit": "5eac3ef9a34725cf47a98a25b78ed7c80f55f63a",
+  "capture_cases": [
+    {
+      "case": "pause_resume_no_repeat",
+      "completed_queries": [
+        1,
+        2,
+        2
+      ],
+      "known_paid_call_ns": 1390583084,
+      "phase": "all_predictions_committed",
+      "statuses": [
+        "operator_pause",
+        "all_predictions_committed",
+        "all_predictions_committed"
+      ]
+    },
+    {
+      "case": "resource_retry",
+      "completed_queries": [
+        0,
+        2
+      ],
+      "known_paid_call_ns": 1409892499,
+      "phase": "all_predictions_committed",
+      "statuses": [
+        "resource_pause",
+        "all_predictions_committed"
+      ]
+    },
+    {
+      "case": "final_guard_failure",
+      "completed_queries": [
+        2
+      ],
+      "known_paid_call_ns": 1379480751,
+      "phase": "owners_ready",
+      "statuses": [
+        "blocked_coordinator_failure"
+      ]
+    },
+    {
+      "case": "bounded_dependency_failure",
+      "completed_queries": [
+        0,
+        0,
+        0
+      ],
+      "known_paid_call_ns": 24512042,
+      "phase": "owners_ready",
+      "statuses": [
+        "blocked_query_failure",
+        "blocked_query_failure",
+        "blocked_terminal_query_failure"
+      ]
+    }
+  ],
+  "capture_script": {
+    "bytes": 4721,
+    "path": "artifacts/research-v2/WP10/capture_protected_prediction_queue.py",
+    "sha256": "3c9cf56bb1c65ee5cec82affcb79d3caa72c156f48fc598508adbdd2d18b9970"
+  },
+  "date": "2026-10-21",
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_protected_prediction_queue_v2.py",
+      "tests/test_protected_journal_v2.py",
+      "tests/test_protected_query_worker_v2.py",
+      "tests/test_protected_query_artifact_v2.py",
+      "tests/test_practical_T_protocol_v2.py",
+      "tests/test_cooperative_process_v2.py",
+      "tests/test_transfer_access_v2.py"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "permission_scope": "Observe only child PIDs owned by fixture supervisors"
+  },
+  "implementation_files": [
+    {
+      "bytes": 26868,
+      "path": "src/treeneuron/research/protected_prediction_queue_v2.py",
+      "sha256": "57f25d1e7ae476bdbf209a6b7b12a6fa30e2c7173ae82c901d2e9c66b6323bc2"
+    },
+    {
+      "bytes": 21184,
+      "path": "src/treeneuron/research/protected_journal_v2.py",
+      "sha256": "d3e3d6f99d9241d1c92926512e36c2089963b909e4e2080635afcabaf98e0a76"
+    },
+    {
+      "bytes": 15953,
+      "path": "tests/test_protected_prediction_queue_v2.py",
+      "sha256": "db062e27b0e8f5b9ecec9f1280812f9a67b802421059539f94142092e71bb02f"
+    },
+    {
+      "bytes": 18425,
+      "path": "tests/test_protected_journal_v2.py",
+      "sha256": "50f1577726a114626cd8b6cafb44689896b0633f4dceebb8a2236f34ac845609"
+    }
+  ],
+  "limitations": [
+    "Private fixture contexts/admission are not genuine native/protected qualification; no true public gate was mocked.",
+    "All-predictions metadata and flags alone do not authorize labels.",
+    "Read-only complete invocation/commit/access auditing and actual label evaluation are still required.",
+    "Invocation clock excludes its final publication/return and is not complete pipeline cost authority.",
+    "Readiness and actual full-qualified public success, production searches and protected metrics remain unavailable/unrun.",
+    "Earlier commands overlap this scope; no pooled or whole-suite pass is claimed."
+  ],
+  "logs": [
+    {
+      "bytes": 2716,
+      "path": "artifacts/research-v2/WP10/protected-prediction-queue-red.log",
+      "sha256": "874d900806bb571fa98ebbcf2890e087e5b06c78781941b8b76c1aa64a7e772c"
+    },
+    {
+      "bytes": 5292,
+      "path": "artifacts/research-v2/WP10/protected-prediction-queue-expanded-red.log",
+      "sha256": "26af991eef91adc027a4f5eaabd153405674c5443d30f04d2fffa4bb379aa467"
+    },
+    {
+      "bytes": 98,
+      "path": "artifacts/research-v2/WP10/protected-prediction-queue-first.log",
+      "sha256": "ddbd0712af33e863d4366889aff9628df09ba730f737868ac9a237842c8813ae"
+    },
+    {
+      "bytes": 98,
+      "path": "artifacts/research-v2/WP10/protected-prediction-queue-owned-first.log",
+      "sha256": "887a6c3c1d6fc484dfaffe58792e4f85ac32eca9bd1640d60488a51464567a2a"
+    },
+    {
+      "bytes": 2800,
+      "path": "artifacts/research-v2/WP10/protected-prediction-queue-cost-red.log",
+      "sha256": "81f1b33736e6cd84bc479b86773dac409c2175696f67ec28d46e54c06d2d149c"
+    },
+    {
+      "bytes": 3483,
+      "path": "artifacts/research-v2/WP10/protected-prediction-evidenced-failure-red.log",
+      "sha256": "49a20199ac5214c14552d58fd8ced361a159929bd60738fd105390cc3362e0bf"
+    },
+    {
+      "bytes": 113,
+      "path": "artifacts/research-v2/WP10/protected-prediction-evidenced-failure-green.log",
+      "sha256": "28e4a85ac22b20ad9af46e670791c635f2c95eb34c5f81f460bad9965b0276e9"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP10/protected-prediction-queue-cost-green.log",
+      "sha256": "d22c16ed43af519b38770341e50a1530c2465cd787196528afe353af0473e089"
+    },
+    {
+      "bytes": 1603,
+      "path": "artifacts/research-v2/WP10/protected-prediction-queue-classification-red.log",
+      "sha256": "7fc3763acce758ebf790f7d091567fecde19524b46c8fec519725b8736748767"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP10/protected-prediction-queue-classification-green.log",
+      "sha256": "e7bcd8e9350e75f1c4745a29aee8c53e1482189f3020ccf0cba283b991aefa58"
+    },
+    {
+      "bytes": 271,
+      "path": "artifacts/research-v2/WP10/protected-prediction-queue-expanded.log",
+      "sha256": "054d9dd5ed7e4ec7de3878fa7df5b0fc6d95b1453b3ed42ddc0f50deea521589"
+    }
+  ],
+  "native_qualification_authenticated": false,
+  "next": "Read-only complete prediction/commit/invocation/access gate, then actual label evaluator, independent raw/metric/model audit, deployment/full-cost/report/CLI/readiness and final review before final-source qualification and HPO.",
+  "observation": {
+    "bytes": 5675,
+    "path": "artifacts/research-v2/WP10/protected-prediction-queue-software/observation.json",
+    "sha256": "82d57aaf78484c766fdd4c0e0bb17ef867a5c76545c586bd739a88fcd4725b4a"
+  },
+  "protected_access_authorized": false,
+  "red_green": [
+    {
+      "outcome": "2 failed in0.04s then4 failed in0.08s",
+      "stage": "missing coordinator"
+    },
+    {
+      "outcome": "4 passed in1.74s then6 passed in8.17s",
+      "stage": "initial implementation"
+    },
+    {
+      "outcome": "1 failed,1 passed in5.18s; failed attempt costs were not reconciled before retry",
+      "stage": "failed-cost semantic case"
+    },
+    {
+      "outcome": "1 failed in0.33s then1 passed in0.25s; immutable failure evidence reference",
+      "stage": "evidenced failure kind"
+    },
+    {
+      "outcome": "52 passed in18.11s",
+      "stage": "all-attempt cost reconciliation"
+    },
+    {
+      "outcome": "1 failed in1.40s; dependency failure incorrectly reported as resource pause",
+      "stage": "launch failure classification"
+    },
+    {
+      "outcome": "53 passed in20.32s",
+      "stage": "actual owned failure classification"
+    },
+    {
+      "outcome": "160 passed in60.94s",
+      "stage": "expanded compatibility"
+    }
+  ],
+  "schema": "research/v2-protected-prediction-queue-component-receipt",
+  "scope": "Genuine protocol-first public entry plus private owned queue/process/numerical/accounting composition; no label reader or complete pipeline cost authority",
+  "source_sha256": "bbebae6e172cb6fff2bed53c2fc8b1bc4c0654ac72b1bacc09bfaca0214fddba",
+  "verification": {
+    "exit_code": 0,
+    "final_failed": 0,
+    "final_passed": 160,
+    "final_seconds": 60.94,
+    "session_id": 61526,
+    "whole_suite": false
+  }
+}

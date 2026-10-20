@@ -3062,3 +3062,28 @@ No genuine native/protected public gate was mocked. The actual production
 coordinator, policy admission, numerical commit and all-predictions/label barrier
 remain unfinished, along with label/audit/deployment/cost/CLI/readiness/final
 review before actual final-source qualification/HPO. No actual T inference ran.
+
+## Prediction queue component,21October
+
+The [component](protected-prediction-queue.md) now connects actual protocol-first
+public entry to an immutable in-invocation context and private owned query
+execution. It preserves frozen order, validates completed predictions before
+reuse, retains resource pauses and one dependency rerun, and denies the final
+barrier after context validation failure. It never opens labels.
+
+The final seven-module command passed160checks in60.94s. The internally
+consistent failed-cost regression required witnessed attempt-evidence references
+and all-attempt reconciliation, rather than successful commits alone. A separate
+pre-launch classification test corrected a dependency failure misreported as
+resource pressure. Both failures and exact fixes are in the
+[receipt](WP10-protected-prediction-queue-receipt.json), sourcebbebae6e172cb6fff2bed53c2fc8b1bc4c0654ac72b1bacc09bfaca0214fddba.
+The new query_failed_with_evidence kind extends pre-production metadata; legacy
+unqualified fixtures remain distinct and do not grant actual accounting.
+
+Four known local P13 fixture cases retain real owned process evidence for
+pause/resume/no-repeat, resource retry, failed final context and bounded
+dependency failure. The public false-qualification call creates no output.
+Actual complete-qualified public success, full queue/invocation/access audit,
+once-only labels, final raw/metric/model audit, deployment/full-cost/CLI/readiness
+and final review remain before production. No actual T metrics exist. Invocation
+clock publication/return is excluded and awaits containing cost evidence.

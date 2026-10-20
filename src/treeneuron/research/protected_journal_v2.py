@@ -20,7 +20,7 @@ _FALSE=dict(protected_access_authorized=False,native_qualification_authenticated
 _BINDING_FIELDS={'schema','source_sha256','protocol_sha256','prediction_manifest_sha256','query_ids','assets',
     'study_directory','owner_root','genesis','genesis_sha256'}
 _ACTORS={'prepared':'coordinator','owners_ready':'coordinator','query_started':'coordinator',
-    'query_committed':'prediction_worker','query_failed':'prediction_worker','all_predictions_committed':'coordinator',
+    'query_committed':'prediction_worker','query_failed':'prediction_worker','query_failed_with_evidence':'prediction_worker','all_predictions_committed':'coordinator',
     'labels_started':'evaluator','metrics_committed':'evaluator'}
 _FAILURES={'resource_pause','interrupted_recoverable','input_or_dependency_failure','numerical_failure','irrecoverable_missing'}
 
@@ -200,14 +200,16 @@ def _transition(state,event,binding):
             state['reruns'][q]=1
         else:raise ValueError('Terminal/ambiguous query failure cannot be rerun or hidden')
         state['attempts'][q]=index+1;state['active']=(q,index)
-    elif kind in ('query_committed','query_failed'):
+    elif kind in ('query_committed','query_failed','query_failed_with_evidence'):
         fields=('query_id','attempt_index','prediction_reference','elapsed_ns') if kind=='query_committed' else (
             'query_id','attempt_index','status','error','elapsed_ns','recovery_reference')
+        if kind=='query_failed_with_evidence':fields=(*fields,'evidence_reference')
         detail=_details(event,fields);q=detail['query_id'];index=detail['attempt_index']
         if type(index) is not int or phase!='owners_ready' or state['active']!=(q,index):raise ValueError('Query outcome requires its exact active attempt')
         if kind=='query_committed':
             _reference(detail['prediction_reference']);state['committed_queries'].append(q)
         else:
+            if kind=='query_failed_with_evidence':_reference(detail['evidence_reference'])
             status=detail['status']
             if status not in _FAILURES or type(detail['error']) is not str or not detail['error']:
                 raise ValueError('Explicit protected failure classification/reason required')

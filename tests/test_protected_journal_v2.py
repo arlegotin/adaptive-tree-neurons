@@ -320,3 +320,14 @@ def test_witnesses_commit_entire_binding_not_just_protocol_and_genesis(tmp_path,
     m,root,_,binding=create(tmp_path,metadata);ready(m,root)
     changed=dict(binding,**{field:value});(root/'binding.json').write_text(json.dumps(changed)+'\n')
     with pytest.raises(ValueError,match='binding|journal|witness|owner'):m._read_metadata_study(root)
+
+
+def test_evidenced_failure_retains_immutable_attempt_proof(tmp_path,metadata):
+    m,root,_,_=create(tmp_path,metadata);ready(m,root);start(m,root)
+    checkpoint=tmp_path/'checkpoint.json';checkpoint.write_text('{}\n')
+    evidence=tmp_path/'attempt-clock.json';evidence.write_text('{"fixture":true}\n')
+    event(m,root,'query_failed_with_evidence',query_id='a'*64,attempt_index=0,status='resource_pause',
+        error='shared machine pressure',elapsed_ns=5,recovery_reference=ref(checkpoint),evidence_reference=ref(evidence))
+    assert m._read_metadata_study(root)['known_paid_ns']==5
+    evidence.write_text('{"changed":true}\n')
+    with pytest.raises(ValueError):m._read_metadata_study(root)
