@@ -48,7 +48,7 @@ def _prior_input_locations(previous):
 
 def prepare_primary_invocation(*,practical_plan_reference,expected_practical_plan_hash,job_id,
         support_reference,qualification_reference,request_path,worker_output,control_output,search_directory,
-        previous_episodes=None,rss_limit_bytes=4*1024**3,resource_forecast_reference=None):
+        previous_episodes=None,rss_limit_bytes=4*1024**3,resource_forecast_reference=None,previous_unstarted_episodes=None):
     """Authenticate prerequisites before reading plan bytes or writing anything.
 
     The returned request bytes/hash and command are exact, but not permission to
@@ -71,11 +71,15 @@ def prepare_primary_invocation(*,practical_plan_reference,expected_practical_pla
         request.update(schema='research/v2-primary-search-resource-episode-request',
             resource_forecast_reference=copy.deepcopy(resource_forecast_reference))
         extra_inputs.append(_reference(resource_forecast_reference))
+    if previous_unstarted_episodes is not None:
+        if resource_forecast_reference is None:raise ValueError('Unstarted operational costs require the explicit resource episode schema')
+        request['previous_unstarted_episodes']=copy.deepcopy(previous_unstarted_episodes)
     from .primary_search_worker_v2 import _validate_request,_previous_episode_state
     _validate_request(request)
     prior=_previous_episode_state(request)
     _check_invocation_locations(paths=paths,working_roots=roots['working_roots'],proof_roots=roots['proof_roots'],
-        input_files=[plan_path,support_path,*extra_inputs,*_prior_input_locations(previous)],resume=bool(previous))
+        input_files=[plan_path,support_path,*extra_inputs,*_prior_input_locations(previous),
+            *_prior_input_locations(request.get('previous_unstarted_episodes',[]))],resume=bool(previous))
     raw=plan_path.read_bytes()
     if hashlib.sha256(raw).hexdigest()!=practical_plan_reference['sha256']:
         raise ValueError('Practical plan file commitment changed')

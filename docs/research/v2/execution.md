@@ -2322,3 +2322,33 @@ global procedure and protected integration remain pending.
 [Contract](primary-resource-binding.md),
 [receipt](WP08-primary-resource-binding-receipt.json). Heldc33NODEsource/env/serial
 operators remain unchanged.
+
+## 20 October: known costs of never-authorized primary roots
+
+Resource episodes may retain immutable previous_unstarted_episodes, with exact
+primary command/source/job/environment and chronological prefix checks. Owned
+closed roots whose grant publication never began contribute startup/root time
+once and zero model slots. Authorized, body-entered, ambiguous, duplicated or
+wrong-lineage roots cannot enter that retry path. Original ungated schema is
+unchanged; missing optional resource history means empty history.
+
+Ruling: a resource denial before authorization is safe to retry with unchanged
+model/data/seed, but its known startup cost must enter the eventual controller
+prefix. Do not manufacture a closed body or zero cost. The explicit grant-
+publication phase is decisive even when the grant file is absent. Cost if wrong
+is lost/double-charged startup or unsafe retry after possible fitting.
+
+Each prior closed-body endpoint uses only the unstarted-history prefix in its
+actual request. The next tail includes all known unique unstarted plus closed
+root clocks minus the last controller total. Preflight protects those old
+commands/control/intended-worker paths. Final observer publication/caller
+overhead remains outside its declared root clock; full-cost authority is false.
+
+Initial7missing-API setup errors0.07s; first two-module27passed2.55s; final five
+modules111passed7.19s/session18962exit0. Actual fixtures:2pregrant-denied roots,
+1authorized false-qualification body failure, zero native models/plan/data
+access. Readonly reader forbids process creation/probes. Mixed complete-qualified
+body/unstarted integration and production caller are unrun/unfinished, with no
+full qualification stub. [Contract](unstarted-primary-cost.md),
+[receipt](WP08-unstarted-primary-cost-receipt.json). Heldc33jobs/source/env/ops
+unchanged; no HPO/calibration/T access.

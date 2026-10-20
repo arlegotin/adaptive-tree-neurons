@@ -62,6 +62,7 @@ def _validate_request(value):
         'job_id','support_reference','qualification_reference','search_directory','rss_limit_bytes','previous_episodes'}
     resource=type(value) is dict and value.get('schema')=='research/v2-primary-search-resource-episode-request'
     if resource:fields=fields|{'resource_forecast_reference'}
+    if resource and 'previous_unstarted_episodes' in value:fields=fields|{'previous_unstarted_episodes'}
     if (type(value) is not dict or set(value)!=fields
             or value['schema'] not in ('research/v2-primary-search-episode-request','research/v2-primary-search-resource-episode-request')
             or not _digest(value['source_sha256']) or not _digest(value['expected_practical_plan_hash'])
@@ -81,6 +82,14 @@ def _validate_request(value):
                 or any(not _digest(episode[k]) for k in episode if k!='process_root')):
             raise ValueError('Exact closed prior episode commitments required')
         _path(episode['process_root'])
+    unstarted=value.get('previous_unstarted_episodes',[])
+    if type(unstarted) is not list or len(unstarted)>32:
+        raise ValueError('Bounded unstarted episode history required')
+    for episode in unstarted:
+        if (type(episode) is not dict or set(episode)!={'process_root','process_receipt_sha256','process_started_sha256'}
+                or any(not _digest(episode[k]) for k in episode if k!='process_root')):
+            raise ValueError('Exact unstarted root commitments required')
+        _path(episode['process_root'])
     return value
 
 
@@ -92,7 +101,7 @@ def primary_worker_identity(request_path,expected_request_sha256):
 
 
 def _job_binding(request):
-    return {k:v for k,v in request.items() if k!='previous_episodes'}
+    return {k:v for k,v in request.items() if k not in ('previous_episodes','previous_unstarted_episodes')}
 
 
 def _episode_environment():
@@ -100,23 +109,62 @@ def _episode_environment():
     return value|dict(PYTHONPATH=str(_ROOT/'src'),PYTORCH_ENABLE_MPS_FALLBACK='0',KMP_DUPLICATE_LIB_OK=None)
 
 
-def _check_episode_invocation(start,body,previous_prefix):
-    """A real script/module invocation is required in addition to success flags."""
+def _check_episode_command(start,expected_binding):
+    """Exact command metadata only; owned closure and qualification are separate."""
     argv=start.get('argv')
     if (type(argv) is not list or len(argv)!=11 or any(type(v) is not str for v in argv)
             or not Path(argv[0]).is_absolute() or Path(argv[0]).resolve()!=Path(sys.executable).resolve()
             or argv[1:6]!=['-P','-B','-m','treeneuron.research.primary_search_worker_v2','--request']
             or argv[7]!='--expected-request-sha256' or argv[9]!='--output'
-            or argv[8]!=body.get('request_sha256') or start.get('cwd')!=str(_ROOT)
+            or start.get('cwd')!=str(_ROOT)
             or start.get('environment_overrides')!=_episode_environment()):
         raise ValueError('Prior episode must be the exact owned primary worker invocation')
     request=_checked_request(argv[6],argv[8])
-    if (request['previous_episodes']!=previous_prefix or _job_binding(request)!=body.get('job_binding')
+    if (_job_binding(request)!=expected_binding
             or start.get('identity')!=primary_worker_identity(argv[6],argv[8])):
+        raise ValueError('Prior command request/job/lineage differs')
+    return request
+
+
+def _check_episode_invocation(start,body,previous_prefix):
+    """A real script/module invocation is required in addition to success flags."""
+    request=_check_episode_command(start,body.get('job_binding'));argv=start['argv']
+    if request['previous_episodes']!=previous_prefix or argv[8]!=body.get('request_sha256'):
         raise ValueError('Prior command request/job/lineage differs')
     result=body.get('search_result_reference')
     if (type(result) is not dict or _reference(result)!=_path(argv[10])/'body/search-result.json'):
         raise ValueError('Prior immutable search result differs from its actual output argument')
+
+
+def _unstarted_episode_state(request):
+    """Known ungranted root clocks only; never infer an absent body was safe."""
+    from .cooperative_process_v2 import inspect_cooperative_process
+    previous=request.get('previous_unstarted_episodes',[])
+    if type(previous) is not list or len(previous)>32:raise ValueError('Bounded unstarted history required')
+    total=0;seen=set();closed={row['process_root'] for row in request.get('previous_episodes',[])}
+    for index,reference in enumerate(previous):
+        if (type(reference) is not dict or set(reference)!={'process_root','process_receipt_sha256','process_started_sha256'}
+                or any(not _digest(reference[k]) for k in reference if k!='process_root')):
+            raise ValueError('Exact unstarted root commitments required')
+        root=_path(reference['process_root'])
+        if str(root) in closed or root in seen:raise ValueError('Unstarted root cannot overlap or be charged twice')
+        seen.add(root)
+        proof=inspect_cooperative_process(root=root,expected_receipt_sha256=reference['process_receipt_sha256'],
+            expected_started_sha256=reference['process_started_sha256'])
+        if (proof['grant_publication_started'] is not False or proof['grant_issued'] is not False
+                or (root/'body-outcome.json').exists()):
+            raise ValueError('Only never-authorized roots can enter unstarted cost history')
+        if (root/'worker-closure.json').exists() and _json((root/'worker-closure.json').read_bytes()).get('body_entered') is not False:
+            raise ValueError('An entered or ambiguous body is not an unstarted operational attempt')
+        start=_json((root/'started.json').read_bytes());prior=_check_episode_command(start,_job_binding(request))
+        prior_closed=prior['previous_episodes'];prior_unstarted=prior.get('previous_unstarted_episodes',[])
+        if (prior_unstarted!=previous[:index]
+                or prior_closed!=request['previous_episodes'][:len(prior_closed)]):
+            raise ValueError('Unstarted episode chronology differs from exact operational prefixes')
+        total+=proof['elapsed_ns']
+    return dict(elapsed_ns=total,episodes=len(previous),model_attempts_paid=0,
+        native_qualification_authenticated=False,whole_training_procedure_cost_authenticated=False,
+        scope='Closed never-authorized owned root clocks only; no fitting, qualification, model attempt or missing-tail imputation. Supervisor final publication and caller work remain outside this measured root boundary.')
 
 
 def _check_episode_journal_prefix(search,body,result):
@@ -142,6 +190,7 @@ def _previous_episode_state(request):
     """Authenticate closed root costs/lineage; native journal audit is separate."""
     from .cooperative_process_v2 import inspect_cooperative_process
     previous=request['previous_episodes'];total=0;last=None;seen=set();last_prefix=0
+    unstarted=_unstarted_episode_state(request)
     for index,reference in enumerate(previous):
         root=_path(reference['process_root'])
         if root in seen:raise ValueError('Duplicate prior root cannot be charged twice')
@@ -172,6 +221,10 @@ def _previous_episode_state(request):
                     'T_accessed','whole_training_procedure_cost_authenticated'))):
             raise ValueError('Prior closed episode source/job/lineage/ownership differs')
         _check_episode_invocation(start,body,previous[:index])
+        prior_request=_checked_request(start['argv'][6],start['argv'][8])
+        prior_unstarted=prior_request.get('previous_unstarted_episodes',[])
+        if prior_unstarted!=request.get('previous_unstarted_episodes',[])[:len(prior_unstarted)]:
+            raise ValueError('A paid prior unstarted episode disappeared from the current lineage')
         result_path=_reference(body['search_result_reference'])
         if not result_path.is_file() or _sha(result_path)!=body['search_result_reference']['sha256']:
             raise ValueError('Prior immutable search result changed')
@@ -185,10 +238,11 @@ def _previous_episode_state(request):
         if prefix<=last_prefix:raise ValueError('Prior episodes must advance the exact closed journal')
         last_prefix=prefix
         total+=proof['elapsed_ns']
-        if result['total_charged_ns']>total:
+        if result['total_charged_ns']>total+_unstarted_episode_state(prior_request)['elapsed_ns']:
             raise ValueError('Controller cost exceeds its complete closed outer episodes')
         last=dict(body=body,result=result)
-    return dict(previous_outer_tail_ns=0 if last is None else total-last['result']['total_charged_ns'],
+    total+=unstarted['elapsed_ns']
+    return dict(previous_outer_tail_ns=total if last is None else total-last['result']['total_charged_ns'],
         last=last,total_prior_outer_ns=total,
         official_schedule_reference=None if last is None else last['body']['official_schedule_reference'])
 

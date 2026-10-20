@@ -311,6 +311,11 @@
           "bytes": 4353,
           "path": "docs/research/v2/WP08-primary-resource-binding-receipt.json",
           "sha256": "23bc073f432c1b9398dbe3d9fe85431c2249ef1262bee13c499e0a227ff39ea4"
+        },
+        {
+          "bytes": 4064,
+          "path": "docs/research/v2/WP08-unstarted-primary-cost-receipt.json",
+          "sha256": "39a3a8b3756ab8d0bd8950bfa8223533fe480abfdf70f9e30f8214587b46d505"
         }
       ],
       "status": "supported_scoped_status",

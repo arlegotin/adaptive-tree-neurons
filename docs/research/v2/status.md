@@ -194,6 +194,12 @@ connects fresh host observations to the pre-proposal hook. A real cold-worker
 shortage fixture closes with zero fits; full qualified public execution remains
 unrun. The production caller and complete outer-cost/protocol gates are pending.
 
+[Never-authorized root accounting](unstarted-primary-cost.md) passed 111 affected
+checks. It retains startup costs without consuming a fit slot and rejects
+authorized bodies from that retry path. The production caller still needs to
+route these immutable operational references. Complete-qualified execution and
+whole outer-cost/protocol gates remain pending.
+
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only
 the branches their gates authorize. The native/support/workload qualification
