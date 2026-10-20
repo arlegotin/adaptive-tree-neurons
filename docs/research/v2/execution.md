@@ -2493,3 +2493,32 @@ positive was stubbed or run. [Contract](procedure-worker-binding.md),
 [receipt](WP09-procedure-worker-binding-receipt.json). Production queue/readiness,
 physical whole-cost, global post-search freeze and secondary/protected evaluator
 remain unfinished. Heldc33source/env/ops and predictive outcomes unchanged.
+
+## 20 October: serial primary program and closed-caller recovery
+
+Added actual qualification-first Python program composition: exact procedure/
+resource references, protected output root, immutable168primaryjobs/R2 order,
+exclusive lease, externally pinned hash-chain episode journal. Every real public
+terminal search requires the genuine native/HPO/V audit before advancement.
+Saved terminal searches are re-audited at invocation entry; repeated per-close
+metadata checks do not redundantly repeat the same native audit within that
+invocation. Final168models/globalfreeze remain separate. Nativequalitynocap and
+existing32attempt/recovery rules are unchanged; an administrative return bound
+does not shorten fits. Resourcepause returns the same job with exact history.
+
+Initial2missing-module failures/3setup errors0.73s, first5passed3.20s. Two added
+driver interruption checks passed implemented behavior; expanded127passed10.71s.
+After closed-body schema/authority checks and reduction of redundant native audit
+replay, final eight-module127passed10.73s/session26974exit0. Closed caller after
+driver interruption is recovered without replacement; unknown/unclosed attempt
+fails closed without zero tail. Read-only capture reopens two actual no-child
+program denials,0fits/registry/cache/roles. Actual full-qualified public/terminal
+native paths remain unrun and were not stubbed.
+
+Unique known caller clocks and separate containing invocation receipts are
+retained. Final own receipt publication/return remain excluded; physical whole-
+cost authority is false. [Contract](primary-program.md),
+[receipt](WP08-primary-program-receipt.json). Readiness, production CLI dispatch,
+remaining full evaluator/auditor, post-search globalfreeze andsecondary/Trelease
+must precede actual final-source qualification/production searches. Heldc33fits/
+source/env/ops and prior predictive outcomes are unchanged.

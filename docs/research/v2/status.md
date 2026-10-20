@@ -248,6 +248,14 @@ resource references, preserving them in recovery identity. Actual qualification
 still comes first. Its real cold negative fit zero models; complete qualified
 public execution and production queue/readiness remain unrun/unfinished.
 
+The [serial primary program](primary-program.md) passed 127 affected checks.
+It composes actual qualification, semantic/resource checks, fixed primary job
+order and exact episode resume. Real no-child fixtures retain resource denials;
+interrupted-driver recovery reopens a closed caller without retraining. The
+actual complete-qualified public program/terminal paths remain unrun. Readiness,
+physical whole-cost, final evaluator/auditor, global freeze and CLI dispatch are
+still pending before production searches or secondary/protected access.
+
 The [reproduction guide](reproduce.md), [binding spec](../../superpowers/specs/2026-10-18-research-v2-design.md)
 and [implementation plan](../../superpowers/plans/2026-10-18-research-v2.md)
 separate implemented components from unrun studies. Historical source identities

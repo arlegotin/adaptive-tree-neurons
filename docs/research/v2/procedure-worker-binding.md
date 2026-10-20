@@ -23,5 +23,7 @@ and that raw owned process evidence.
 
 This request binding does not complete the production program queue, physical
 whole-cost audit, readiness, post-search freeze or secondary/protected evaluator.
-The future production queue must require this subtype. Legacy component requests
-are not production authorization. No native result or held-source job changes.
+The [serial primary program](primary-program.md) now requires this subtype.
+Complete-qualified execution/readiness and CLI dispatch remain pending. Legacy
+component requests are not production authorization. No native result or
+held-source job changes.

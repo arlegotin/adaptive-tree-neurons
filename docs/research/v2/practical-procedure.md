@@ -50,4 +50,5 @@ production declarations or native qualification.
 [Caller/worker binding](procedure-worker-binding.md) now carries this exact
 reference in an explicit program-request subtype, checked after actual
 qualification and before worker output or fit preparation. The production
-queue/readiness and post-search release stages remain unfinished.
+[serial program](primary-program.md) is implemented; actual execution/readiness
+and post-search release stages remain unfinished.

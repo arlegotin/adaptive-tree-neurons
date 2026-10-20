@@ -1,0 +1,131 @@
+{
+  "T_accessed": false,
+  "actual_complete_qualified_public_success": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_primary_program_v2.py",
+      "tests/test_procedure_worker_binding_v2.py",
+      "tests/test_primary_caller_boundary_v2.py",
+      "tests/test_primary_caller_v2.py",
+      "tests/test_unstarted_primary_cost_v2.py",
+      "tests/test_primary_search_worker_v2.py",
+      "tests/test_primary_resource_binding_v2.py",
+      "tests/test_primary_invocation_v2.py",
+      "--basetemp=artifacts/research-v2/WP08/primary-program-source-final-tmp"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "environment_overrides": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "owned_fixture_process_inspection_authorized": true
+  },
+  "logs": [
+    {
+      "bytes": 7024,
+      "path": "artifacts/research-v2/WP08/primary-program-RED.log",
+      "sha256": "991a3be0528f79285b74b4a1c5b12cb717fde3a33b47f0b646068d2c11662f8d"
+    },
+    {
+      "bytes": 98,
+      "path": "artifacts/research-v2/WP08/primary-program-GREEN.log",
+      "sha256": "d2fca3d85516531be3a2b46b51e49fba99f8c768a7a5ebb0e2964734ca656184"
+    },
+    {
+      "bytes": 181,
+      "path": "artifacts/research-v2/WP08/primary-program-final.log",
+      "sha256": "8aef99636956c33327ab12bfa87fd1457796e3706e8742ee68d97e8228cf0e0d"
+    },
+    {
+      "bytes": 181,
+      "path": "artifacts/research-v2/WP08/primary-program-source-final.log",
+      "sha256": "59e5839dcd8789c0dccfd8321345a5034b67653b7ed0ed6ac0030a4c38d86ec7"
+    }
+  ],
+  "native_models_fit_in_capture": 0,
+  "observation": {
+    "bytes": 2100,
+    "path": "artifacts/research-v2/WP08/primary-program-software-observation.json",
+    "sha256": "9c03a4add81df06ffe3d1c414f43b54f5a4a594cd06d4640ca530dc3b7ef9182"
+  },
+  "parent_commit": "909f61b",
+  "production_readiness_authenticated": false,
+  "protected_access_authorized": false,
+  "registry_forecast_or_role_arrays_opened_in_capture": false,
+  "remaining": [
+    "Final evaluator/auditor and production CLI dispatch/readiness",
+    "Actual final-source complete native qualification",
+    "Physical whole-cost audit",
+    "Post-search global freeze/secondary/protected release"
+  ],
+  "schema": "research/v2-primary-program-component-receipt",
+  "scope": "Actual serial Python composition, pure metadata plan and real no-child private queue pause/resume/recovery fixtures. Genuine complete-qualified public program and terminal native paths remain unrun; no registry success stubbed.",
+  "source_sha256": "ff4a22f9ab5b7b6ccd143ca6b783769473a078ac63a43fd7815e4cd737e8f162",
+  "tested_files": [
+    {
+      "bytes": 19677,
+      "path": "src/treeneuron/research/primary_program_v2.py",
+      "sha256": "0f160f5d16456806d308eccd2c65aaca9ca35f41ae9fa5501a457fb29d1e466b"
+    },
+    {
+      "bytes": 9060,
+      "path": "tests/test_primary_program_v2.py",
+      "sha256": "e6b3bf72fa1dfadf59ead9f07d67556894c85165b7da4dc2078fed9065b6b0fa"
+    },
+    {
+      "bytes": 4918,
+      "path": "tests/test_procedure_worker_binding_v2.py",
+      "sha256": "7eac5c9994e0a18c594090eaa6106408155c406849d9729504d0de2374d1ec76"
+    },
+    {
+      "bytes": 8327,
+      "path": "tests/test_primary_caller_boundary_v2.py",
+      "sha256": "c6270991c8226dae6008997811a602a2504e42ffd601c7ccbba28074bea57ec7"
+    },
+    {
+      "bytes": 9297,
+      "path": "tests/test_primary_caller_v2.py",
+      "sha256": "fe226777480fc218ab2dc07631e478bbd9df10a81994591e84beb6b20ae6270a"
+    },
+    {
+      "bytes": 6009,
+      "path": "tests/test_unstarted_primary_cost_v2.py",
+      "sha256": "86cc6100a1a175a8173827d19dc256147b0a66760ffb169e11f187c5f0ab6f4b"
+    },
+    {
+      "bytes": 14814,
+      "path": "tests/test_primary_search_worker_v2.py",
+      "sha256": "35c25bb4ab9e72fdd8ec32da491447c145ea5fa37800f20353d21e7aaa8927c7"
+    },
+    {
+      "bytes": 9809,
+      "path": "tests/test_primary_resource_binding_v2.py",
+      "sha256": "006b48a7096724d108a770f533a5aae254887e530bddbd2ba73cf101e1d2b74f"
+    },
+    {
+      "bytes": 8020,
+      "path": "tests/test_primary_invocation_v2.py",
+      "sha256": "2e9f2bb51f2c1bb4ed93a8586b67e26451295c13f106f66d541e7a590b135bb3"
+    }
+  ],
+  "verification": [
+    "Initial2missing-module failures3setup errors0.73s",
+    "First5passed3.20s",
+    "Two additional interruption checks passed existing behavior; expanded127passed10.71s",
+    "Final body-authority checks/native-audit repetition reduction:127passed10.73s/session26974exit0"
+  ],
+  "whole_repository_suite_passed": false,
+  "whole_training_procedure_cost_authenticated": false
+}
