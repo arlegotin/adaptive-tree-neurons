@@ -31,8 +31,9 @@ commands named nonexistent files and ran no tests; the corrected initial
 three-module run passed 61 checks. All attempts are retained in the
 [receipt](WP08-search-resource-pauses-receipt.json).
 
-This is the controller hook and replay contract. Binding the actual qualified
-resource forecast/host observation into the production worker and launcher is
-still required. A caller-supplied admission flag is no native qualification,
+This is the controller hook and replay contract. The
+[resource-bound worker](primary-resource-binding.md) now supplies the actual
+forecast/host composition; complete-qualified public success remains unrun and
+the production caller is still required. A caller-supplied admission flag is no native qualification,
 resource guarantee, whole-procedure cost or protected-access capability. No
 existing scientific result or held-source job changed.

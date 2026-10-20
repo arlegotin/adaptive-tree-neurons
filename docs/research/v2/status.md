@@ -178,14 +178,15 @@ The [resource forecast component](native-resource-forecast.md) passed 85 affecte
 checks. It separates native anchor durations from short-probe memory/storage
 measurements, includes external model files, and preserves no-cap native
 training with advisory RAM/disk pauses. Its reducer fixtures are unqualified
-metadata, not a measured forecast for this machine. Actual qualified forecasting,
-per-candidate live admission and production launch remain unrun/unfinished.
+metadata, not a measured forecast for this machine. Actual complete-qualified
+forecasting/admission/search execution remains unrun; production launch is
+still unfinished.
 
 The [search pause hook](search-resource-pauses.md) passed 112 affected checks.
 It can close a paid resource pause before a proposal or fit, preserving TPE and
-same-state recovery on resume. Actual forecast/host-observation binding in the
-production worker and launcher remains pending; the hook alone grants no
-qualification or execution authority.
+same-state recovery on resume. The following resource-bound worker connects
+the forecast and host observation; the hook itself grants no qualification or
+execution authority. The production caller remains pending.
 
 The [resource-bound worker component](primary-resource-binding.md) passed 98
 affected checks. Its new request schema authenticates the cached forecast and

@@ -42,3 +42,8 @@ release, protected evaluation and complete pipeline cost remain unfinished.
 The [receipt](WP08-primary-invocation-preflight-receipt.json) records source,
 commands, fixtures and these limits. This work changes no completed scientific
 result, HPO support, seed, fit stopping rule or native-quality budget.
+
+The later [resource-bound variant](primary-resource-binding.md) adds a strict
+forecast reference, protects that file and validates it before output. It keeps
+the same parent clock and read-only preflight boundary. The caller/whole-cost
+and full-qualified execution limits above remain.

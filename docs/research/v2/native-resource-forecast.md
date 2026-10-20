@@ -40,6 +40,8 @@ synthetic resource values are not an observed forecast for this computer.
 Full public execution with genuine current-source qualification remains unrun.
 
 The [receipt](WP08-native-resource-forecast-receipt.json) retains source and test
-evidence. Production launcher/per-candidate admission integration, whole outer
-cost and final protocol remain unfinished. Existing completed experiments and
+evidence. The [resource-bound worker](primary-resource-binding.md) now connects
+the forecast to per-trial host observations on fixtures; complete-qualified
+public success remains unrun. Production launch, whole outer cost and final
+protocol remain unfinished. Existing completed experiments and
 the active held-source NODE sequence are unchanged.

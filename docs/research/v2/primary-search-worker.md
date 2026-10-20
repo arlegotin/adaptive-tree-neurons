@@ -48,3 +48,10 @@ readiness. Body/factory guards protect working/proof/executable roots after
 actual registry loading. The root clock still excludes its own final receipt
 publication and unmeasured caller work; full procedure cost authority remains
 false until the complete launcher and audit reconcile those boundaries.
+
+The subsequent [resource-bound episode](primary-resource-binding.md) uses an
+explicit request schema, revalidates the actual cached forecast before worker
+output and connects fresh host observations before each proposal. It preserves
+closed resource pauses and the original ungated engineering component. This
+addition does not remove the complete-qualified execution, caller/whole-cost
+or protected-access limits above.
