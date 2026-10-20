@@ -166,6 +166,7 @@ class _Cursor:
 
 def _read_events(directory,plan,cursor):
     events=[];previous='0'*64;total=0;session=False;active=None;records=[]
+    admission_identity=None;admission_permission=None
     fields={'kind','total_charged_ns','previous_hash','event_hash','payload'}
     for line in (directory/'events.jsonl').read_text().splitlines():
         event=json.loads(line)
@@ -175,14 +176,26 @@ def _read_events(directory,plan,cursor):
             raise ValueError('Search event commitment or paid clock changed')
         row=event['payload'];kind=event['kind']
         if kind=='session_started':
-            if (session or set(row)!={'plan_hash','sampler_dependencies','invocation_preparation_ns'}
+            base={'plan_hash','sampler_dependencies','invocation_preparation_ns'}
+            if (session or set(row) not in (base,base|{'trial_admission_identity'})
                     or row['plan_hash']!=plan['plan_hash'] or not _integer(row['invocation_preparation_ns'])
                     or canonical_json(dict(value=row['sampler_dependencies']))!=canonical_json(dict(value=cursor.dependencies))):
                 raise ValueError('Search session plan or sampler dependencies changed')
+            admission_identity=row.get('trial_admission_identity');admission_permission=None
+            if 'trial_admission_identity' in row and (type(admission_identity) is not dict or not admission_identity):
+                raise ValueError('Explicit trial admission identity required')
             session=True
+        elif kind=='trial_admission':
+            if (not session or active is not None or admission_identity is None or admission_permission is not None
+                    or set(row)!={'identity_sha256','decision'} or row['identity_sha256']!=canonical_hash(admission_identity)
+                    or type(row['decision']) is not dict or type(row['decision'].get('admitted')) is not bool):
+                raise ValueError('Invalid pre-proposal resource admission event')
+            admission_permission=row['decision']['admitted']
         elif kind=='attempt_started':
-            if not session or active is not None or len(records)>=plan['max_attempts']:
+            if (not session or active is not None or len(records)>=plan['max_attempts']
+                    or admission_identity is not None and admission_permission is not True):
                 raise ValueError('Invalid outer attempt transition')
+            admission_permission=None
             expected=cursor.take()
             request=dict(**expected,attempt_index=len(records),fit_seed=plan['fit_seed'],
                 budget_remaining_ns=_remaining(plan,event['total_charged_ns'])) if expected is not None else None
@@ -200,6 +213,8 @@ def _read_events(directory,plan,cursor):
         elif kind=='session_finished':
             if not session or active is not None or set(row)!={'stop_reason'}:
                 raise ValueError('Invalid search session completion')
+            if ((row['stop_reason']=='resource_pause')!=(admission_permission is False)):
+                raise ValueError('Resource pause requires the exact denied pre-proposal decision')
             session=False
         else:raise ValueError('Unknown search journal event')
         events.append(event);previous=event['event_hash'];total=event['total_charged_ns']
@@ -222,7 +237,7 @@ def _record(plan,request,result,total,records):
 
 def run_search(directory,*,plan,evaluate_trial,resume=False,clock_ns=time.perf_counter_ns,
                max_attempts_this_invocation=32,invocation_preparation_ns=0,expected_journal_hash=None,
-               invocation_origin_ns=None):
+               invocation_origin_ns=None,trial_admission=None,trial_admission_identity=None):
     """Execute serial callback attempts, or identical recovery after a clean pause.
 
     An unclosed process-death journal fails closed: its unmeasured tail cannot be
@@ -236,6 +251,11 @@ def run_search(directory,*,plan,evaluate_trial,resume=False,clock_ns=time.perf_c
     if (not _integer(started) or not _integer(max_attempts_this_invocation,1,32)
             or not _integer(invocation_preparation_ns) or type(resume) is not bool or not callable(evaluate_trial)):
         raise ValueError('Invalid search invocation')
+    if ((trial_admission is None)!=(trial_admission_identity is None)
+            or trial_admission is not None and (not callable(trial_admission)
+                or type(trial_admission_identity) is not dict or not trial_admission_identity)):
+        raise ValueError('Paired resource admission callback and explicit identity required')
+    if trial_admission_identity is not None:trial_admission_identity=_copy(trial_admission_identity)
     if invocation_origin_ns is not None:
         if not _integer(invocation_origin_ns,0,started):
             raise ValueError('Invalid or future invocation clock origin')
@@ -252,7 +272,7 @@ def run_search(directory,*,plan,evaluate_trial,resume=False,clock_ns=time.perf_c
         if resume and (not events or type(expected_journal_hash) is not str
                 or events[-1]['event_hash']!=expected_journal_hash):
             raise ValueError('Resume requires the externally retained search journal commitment')
-        if events and events[-1]['payload']['stop_reason'] not in ('operator_pause','interrupted_recoverable'):
+        if events and events[-1]['payload']['stop_reason'] not in ('operator_pause','interrupted_recoverable','resource_pause'):
             raise ValueError('Search is terminal; no additional attempts are permitted')
         def now():
             value=clock_ns()
@@ -269,14 +289,22 @@ def run_search(directory,*,plan,evaluate_trial,resume=False,clock_ns=time.perf_c
                 import os
                 os.fsync(stream.fileno())
             events.append(event)
-        append('session_started',dict(plan_hash=plan['plan_hash'],sampler_dependencies=cursor.dependencies,
-            invocation_preparation_ns=invocation_preparation_ns))
+        session_payload=dict(plan_hash=plan['plan_hash'],sampler_dependencies=cursor.dependencies,
+            invocation_preparation_ns=invocation_preparation_ns)
+        if trial_admission is not None:session_payload['trial_admission_identity']=_copy(trial_admission_identity)
+        append('session_started',session_payload)
         count=0
         while True:
             total=now()
             if _expired(plan,total):reason='deadline';break
             if len(records)>=plan['max_attempts']:reason='attempt_limit';break
             if count>=max_attempts_this_invocation:reason='operator_pause';break
+            if trial_admission is not None:
+                decision=trial_admission()
+                if type(decision) is not dict or type(decision.get('admitted')) is not bool:
+                    raise ValueError('Resource admission must retain a strict boolean decision')
+                append('trial_admission',dict(identity_sha256=canonical_hash(trial_admission_identity),decision=decision))
+                if not decision['admitted']:reason='resource_pause';break
             candidate=cursor.take()
             if candidate is None:reason='support_exhausted';break
             # Candidate generation/replay/preparation is paid before admission.

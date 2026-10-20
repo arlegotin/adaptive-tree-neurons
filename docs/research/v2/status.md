@@ -181,6 +181,12 @@ training with advisory RAM/disk pauses. Its reducer fixtures are unqualified
 metadata, not a measured forecast for this machine. Actual qualified forecasting,
 per-candidate live admission and production launch remain unrun/unfinished.
 
+The [search pause hook](search-resource-pauses.md) passed 112 affected checks.
+It can close a paid resource pause before a proposal or fit, preserving TPE and
+same-state recovery on resume. Actual forecast/host-observation binding in the
+production worker and launcher remains pending; the hook alone grants no
+qualification or execution authority.
+
 Next: finish the fixed native NODE inventory, audit each completion and publish
 all fixed follow-up statuses. Preserve negative mechanism results and close only
 the branches their gates authorize. The native/support/workload qualification

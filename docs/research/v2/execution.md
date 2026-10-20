@@ -2276,3 +2276,24 @@ fixtures, no full-qualified public success was fabricated. Actual forecasting,
 per-candidate live pause integration, production launcher and complete cost
 remain pending. [Contract](native-resource-forecast.md),
 [receipt](WP08-native-resource-forecast-receipt.json).
+
+## 20 October: pre-proposal resource pauses
+
+The generic outer controller now supports optional identity-bound admission
+before proposing/fitting. Strict denial closes resource_pause, including before
+the first trial, without a model slot or attempt directory. Checking time stays
+paid. Exact replay preserves pending interrupted-fit recovery and unasked TPE
+suggestions. Native-quality no-cap training and fixed attempt ceilings remain.
+Independent native journal and prior cold-episode readers accept these closed
+pauses. Ungated defaults stay unchanged. Identity is snapshotted; explicit null
+identities cannot pass as legacy; denied decisions cannot authorize attempts.
+
+Seven missing-interface failures0.24s. Two commands used nonexistent test paths
+and ran no tests; corrected three-module61passed1.24s. Two additional strict-null
+and caller-mutation regressions failed0.14s before fixes. Final five-module112
+passed11.37s/session31503exit0. Fixtures use software results and supplied test
+clocks, not physical timing or new native models. Actual qualified forecast/live
+host binding, production launch and whole-cost/protected integration remain
+unfinished. [Contract](search-resource-pauses.md),
+[receipt](WP08-search-resource-pauses-receipt.json). Heldc33NODEsource/environment
+and active serial operators remain unchanged.

@@ -24,7 +24,7 @@ def _inactive(root):
 
 def _stops(events,plan):
     records=[];finishes=[];previous_total=0
-    for event in events:
+    for index,event in enumerate(events):
         if (event['kind']=='session_started'
                 and event['total_charged_ns']-previous_total<event['payload']['invocation_preparation_ns']):
             raise ValueError('Declared search preparation exceeds its charged session clock')
@@ -48,6 +48,10 @@ def _stops(events,plan):
         elif reason=='operator_pause':
             valid=(0<count<plan['max_attempts'] and last['status']!='interrupted_recoverable'
                 and last['unexpected_exception'] is False)
+        elif reason=='resource_pause':
+            before=events[index-1] if index>0 else None
+            valid=(count<plan['max_attempts'] and before is not None and before['kind']=='trial_admission'
+                and before['payload']['decision']['admitted'] is False)
         elif reason in ('interrupted_recoverable','recovery_budget_exhausted'):
             valid=(last is not None and last['status']=='interrupted_recoverable' and last['retry_index']==0
                 and (count<plan['max_attempts'])==(reason=='interrupted_recoverable'))
@@ -61,10 +65,10 @@ def _stops(events,plan):
             elif last['status']=='interrupted_recoverable':
                 required=('recovery_exhausted' if last['retry_index']==1 else
                     'recovery_budget_exhausted' if count==plan['max_attempts'] else 'interrupted_recoverable')
-        if required is not None and reason!=required:
+        if required is not None and reason not in (required,'resource_pause'):
             raise ValueError('Native stop bypasses its required exception/recovery disposition')
         finishes.append(reason)
-    if (not finishes or any(reason not in ('operator_pause','interrupted_recoverable') for reason in finishes[:-1])):
+    if (not finishes or any(reason not in ('operator_pause','interrupted_recoverable','resource_pause') for reason in finishes[:-1])):
         raise ValueError('A terminal native search was illegally continued')
     return finishes
 

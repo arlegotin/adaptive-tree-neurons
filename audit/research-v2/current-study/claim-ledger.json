@@ -301,6 +301,11 @@
           "bytes": 3969,
           "path": "docs/research/v2/WP08-native-resource-forecast-receipt.json",
           "sha256": "2fb3d11d2cc2dc8d8c512acc0fde133cd1da152d8812cd4184549f8e77b3c327"
+        },
+        {
+          "bytes": 4915,
+          "path": "docs/research/v2/WP08-search-resource-pauses-receipt.json",
+          "sha256": "a760e9555a2e7a1521288f37099bb1de39ed224dff4d3befb38dc7678b821746"
         }
       ],
       "status": "supported_scoped_status",

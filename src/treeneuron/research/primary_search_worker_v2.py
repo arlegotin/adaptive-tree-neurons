@@ -173,7 +173,7 @@ def _previous_episode_state(request):
         if not result_path.is_file() or _sha(result_path)!=body['search_result_reference']['sha256']:
             raise ValueError('Prior immutable search result changed')
         result=_json(result_path.read_bytes())
-        if (result.get('stop_reason') not in ('operator_pause','interrupted_recoverable')
+        if (result.get('stop_reason') not in ('operator_pause','interrupted_recoverable','resource_pause')
                 or result.get('journal_hash')!=body.get('journal_hash')
                 or type(result.get('total_charged_ns')) is not int or result['total_charged_ns']<0
                 or last is not None and result['total_charged_ns']<last['result']['total_charged_ns']):
