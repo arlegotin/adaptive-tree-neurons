@@ -1,0 +1,72 @@
+{
+  "API": "audit_native_search_journal(search_directory, expected_plan_sha256, result_path, expected_result_sha256, expected_journal_sha256)",
+  "T_accessed": false,
+  "V_arithmetic_authenticated": false,
+  "exception_red": "Initially passed through an unrelated output discrepancy; rebuilding compatible prefix outputs isolated 1 DID NOT RAISE in .16s",
+  "files": [
+    {
+      "bytes": 8743,
+      "path": "src/treeneuron/research/search_audit_v2.py",
+      "sha256": "8566f9c7d96bfe1496231615ae6b5a873ff8bd1b10aa2edd3a527ddf13ab6a86"
+    },
+    {
+      "bytes": 9073,
+      "path": "tests/test_native_search_audit.py",
+      "sha256": "98d046604b296029aa8f296c400109d236b2a1d3314696c78302394f40e48328"
+    },
+    {
+      "bytes": 20855,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-search-audit-red.log",
+      "sha256": "ab27f6747b0770e227263ad60f322074bfde11f44cd54cd9f8115e297dec07c9"
+    },
+    {
+      "bytes": 99,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-search-audit-green.log",
+      "sha256": "4edebd2346b0b31a4e14ae82f83ce15fae0caafe958e185fb1c337e3861e88b3"
+    },
+    {
+      "bytes": 5880,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-search-audit-transition-red.log",
+      "sha256": "faee99826406fdb3acb15db4058914e06d26980e0f480d969e478f274e5d7609"
+    },
+    {
+      "bytes": 99,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-search-audit-affected-green.log",
+      "sha256": "720914d4ff4a6bb74a1c76f0b4b269f7e66de7cc0e5dabbaa674d8fefecb1d75"
+    },
+    {
+      "bytes": 113,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-search-audit-exception-status-red.log",
+      "sha256": "2f00c05f3f0c2eaf92e089b57530a03e1bd3acbfc4a2615c580f0d152f411860"
+    },
+    {
+      "bytes": 3061,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-search-audit-exception-status-isolated-red.log",
+      "sha256": "299b8c99b050b104eadf477f48e11e9b6b8a9f05b85a4500ddcf20aaca1e41bc"
+    },
+    {
+      "bytes": 99,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/native-search-audit-final-green.log",
+      "sha256": "9e372c12ef555743566d3c639bcdd69631ab6610463289d1e34344820ef018f1"
+    }
+  ],
+  "final_green": "67 passed in 1.09s",
+  "model_generation_authenticated": false,
+  "native_workload_qualified": false,
+  "new_fits": 0,
+  "pending": [
+    "Production native workload/support registry",
+    "Complete candidate/selected-model assembly",
+    "Final common-source qualification",
+    "Final protocol/protected evaluator readiness"
+  ],
+  "production_practical_searches": 0,
+  "protected_access_authorized": false,
+  "red": "15 missing-module failures in .16s",
+  "schema": "research/v2-native-search-journal-audit-receipt",
+  "search_journal_authenticated": "Only for successfully replayed supplied journals; toy fixtures here",
+  "source_sha256": "930e1a00fd8caeb72639003d8da7c2dd25415464f5834fb106bc505c422442fb",
+  "status": "verified_fixture_component",
+  "transition_red": "3 controlled transition failures/1 pass in .54s",
+  "whole_process_cost_authenticated": false
+}

@@ -326,3 +326,10 @@ M3/qualification metadata identities. The collection script/input commitments,
 sorted-registry loader check and dual identity arithmetic are retained in
 WP09-M3-teacher-exclusion-extension-receipt.json. Raw observation arrays were not
 opened for this update. Completeness/confirmation authority remain false.
+
+Search-journal fixtures: run `tests/test_native_search_audit.py`,
+`tests/test_search_controller_v2.py` and `tests/test_search_v2.py` with the
+qualified interpreter and pinned search overlay. The67-case affected result
+is recorded inWP08-native-search-journal-audit-receipt.json. This exact declared
+journal replay does not grant native-quality eligibility or T access; compose
+the separate qualification, generation, validation and protocol evidence first.

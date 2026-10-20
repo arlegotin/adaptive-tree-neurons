@@ -1826,3 +1826,13 @@ roots were not generated/read. Full historical/test/calibration closure remains
 unqualified, so no confirmation capability follows. Future protocols must use
 [the current version index](../../../protocol/research-v2/exclusions/current-known-exclusions.json).
 See [the extension receipt](WP09-M3-teacher-exclusion-extension-receipt.json).
+
+Task8 native search-journal reader is now fixture-verified:67affected checks in
+1.09seconds, including exact locked TPE and paid same-candidate recovery. It
+authenticates declared source/bytes/proposals/costs/winners only; native fit,
+support qualification, V arithmetic and protected authority remain separate.
+The actual controller's normal records were correct; manipulated rehashed
+fixtures exposed missing reader checks, now rejected. No production search or
+new fit ran. See [contract](native-search-journal-audit.md) and
+[receipt](WP08-native-search-journal-audit-receipt.json). The held long native
+worker and serial continuation source remain unchanged.
