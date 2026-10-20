@@ -19,34 +19,31 @@ two affine rules, preserving predictions when that flexibility is inserted.
 Then ask whether growth helps, whether a chooser beats random placement, and
 whether the complete procedure is competitive with strong existing methods.
 
-The present verdict is cautious about useful capacity, disappointing for the
-current chooser, and unresolved for practical competitiveness. The completed
-[M2 diagnostic](../../../reports/research-v2-M2.md) strengthens the case for
-competent ordinary training and permits one bounded joint-selector test.
+The latest result is negative for the current growth procedure. The completed
+[M3 joint-placement study](../../../reports/research-v2-M3.md) tested sixteen
+fresh primary synthetic problems, two training repetitions and ten final roles:
+320 models, without a failed or missing entry. Continuing the ordinary network
+had lower evaluation error than joint growth on all sixteen problem averages,
+about15.6%lower arithmetic mean error. Joint growth averaged1.25%higher error
+than matched random placement. No tested gated role achieved a2%evaluation gain
+over competent keep on any of the sixteen problem averages.
 
-The new selector now passes a full h64/d16/F2306/count16 engineering check at
-about.76GiB observed root RSS, including its small training fixture and dense
-solve. Predictions and inherited optimizer state survive insertion exactly.
-This is a memory/correctness result, not a predictive comparison.
+This means the current added complexity has not earned its place in this regime.
+It does not invalidate exact insertion or the ability to learn planted gates.
+The [earlier small-control lead](../../../reports/research-v2-small-joint.md)
+did not transfer to a reliable primary-population benefit under the stronger
+ordinary training treatment. Independent arithmetic checked640saved V/E
+prediction vectors and7680metrics to5.55e-17. All data remain development;
+there was no protected confirmation.
 
-The [small-oracle reanalysis](../../../reports/research-v2-small-joint.md) uses
-the already completed four planted M2d bases, without fitting another model.
-The new local scores choose the generating pair0/2 instead of duplicate0/1.
-Mean E NMSE is.04510 versus.04622 for cheap and.04713 for matched random, with
-mixed individual effects. Every new local/joint variant chooses the same IDs,
-so this does not credit joint selection for the quality difference. Joint gain
-predicts finite V pair outcomes better than summed singleton scores on3of4bases,
-passing the prewritten small-control screen; two correlations remain negative.
-Independent raw-prediction arithmetic agrees. Fresh primary M3 evidence remains
-pending. The fresh eight-teacher/R2 comparison is now launched under the
-[locked stronger common treatment](M3-development-recipe.md). Full native
-qualification authenticated76model checkpoints in273.61seconds at.94GiBsampled
-peak RSS. No fresh result or Gate B decision follows from that engineering pass.
-See [the qualification/launch receipt](WP04-M3-native-qualification-launch-receipt.json).
-The initial eight teachers are complete and the single predeclared uncertainty
-extension is running. This is development sampling under the stored rule, not
-confirmation or permission to keep adding teachers. Wait for the full admitted
-queue and independent raw-prediction audit before the final M3 interpretation.
+Gate B closes this selector branch as negative. The optional regularization
+correction is declined because useful gated capacity beyond competent
+continuation is unsupported here; no extra correction fits were run. The one
+predeclared8-to-16precision extension is exhausted. Temporary local solves show
+small-step signal and severe full-step mismatch, but do not establish a working
+new recipe. Baseline qualification and the broader practical comparison continue.
+See [the exact disposition](../../../audit/research-v2/M3/gate-B.json) and
+[completion receipt](WP04-M3-completion-receipt.json).
 
 The first full new control study has finished:256 planned fits, no missing or
 failed result. Independent arithmetic from512 retained V/E prediction vectors
@@ -106,7 +103,7 @@ discrepancy5.55e-17. Gate A passes its development screen, permitting bounded
 joint-selector research with competent ordinary controls. Gated growth clears
 the2%screen on two primary teachers in one coordinate, versus five for an
 ordinary-capacity coordinate. This is no average or confirmatory placement win.
-The complementary-group selector has not been trained or confirmed.
+The later M3 joint-selector study completed and failed Gate B, as reported above; no protected confirmation followed.
 
 At19October17:56UTC, all3,853planned queue entries are terminal:2,989eligible
 and864ineligible entries. These include preparation/evaluation and nominal skips,

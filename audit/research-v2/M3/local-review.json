@@ -1,0 +1,4668 @@
+{
+  "Gate_B_decided": false,
+  "T_accessed": false,
+  "by_role": {
+    "joint": [
+      {
+        "F": {
+          "linear_improving_teachers": 16,
+          "mean_ReLU_mask_changed_fraction": 0.007386683177038162,
+          "mean_gate_saturation_fraction": 0.010841283607979185,
+          "mean_teacher_linear_relative_reduction": 0.0626568804770706,
+          "mean_teacher_nonlinear_relative_reduction": 0.05058904386122828,
+          "nonlinear_improving_teachers": 16
+        },
+        "G": {
+          "linear_improving_teachers": 16,
+          "mean_ReLU_mask_changed_fraction": 0.007160894172443674,
+          "mean_gate_saturation_fraction": 0.010733725086655113,
+          "mean_teacher_linear_relative_reduction": 0.007616722391351451,
+          "mean_teacher_nonlinear_relative_reduction": 0.006578216200420824,
+          "nonlinear_improving_teachers": 16
+        },
+        "fraction": 0.0625
+      },
+      {
+        "F": {
+          "linear_improving_teachers": 16,
+          "mean_ReLU_mask_changed_fraction": 0.02624331736502602,
+          "mean_gate_saturation_fraction": 0.2092037415980052,
+          "mean_teacher_linear_relative_reduction": 0.2294716053534886,
+          "mean_teacher_nonlinear_relative_reduction": 0.08682327452481396,
+          "nonlinear_improving_teachers": 16
+        },
+        "G": {
+          "linear_improving_teachers": 13,
+          "mean_ReLU_mask_changed_fraction": 0.02590598597270364,
+          "mean_gate_saturation_fraction": 0.21062608318890816,
+          "mean_teacher_linear_relative_reduction": 0.013872691062919947,
+          "mean_teacher_nonlinear_relative_reduction": 0.0005552731255384288,
+          "nonlinear_improving_teachers": 5
+        },
+        "fraction": 0.25
+      },
+      {
+        "F": {
+          "linear_improving_teachers": 16,
+          "mean_ReLU_mask_changed_fraction": 0.08809749871259757,
+          "mean_gate_saturation_fraction": 0.6159000975715525,
+          "mean_teacher_linear_relative_reduction": 0.5793917565372552,
+          "mean_teacher_nonlinear_relative_reduction": -1.4938113725634226,
+          "nonlinear_improving_teachers": 0
+        },
+        "G": {
+          "linear_improving_teachers": 0,
+          "mean_ReLU_mask_changed_fraction": 0.08809033795493934,
+          "mean_gate_saturation_fraction": 0.6175023017764298,
+          "mean_teacher_linear_relative_reduction": -0.21001641178809538,
+          "mean_teacher_nonlinear_relative_reduction": -0.5912926640303967,
+          "nonlinear_improving_teachers": 0
+        },
+        "fraction": 1
+      }
+    ],
+    "local_singleton": [
+      {
+        "F": {
+          "linear_improving_teachers": 16,
+          "mean_ReLU_mask_changed_fraction": 0.00726662443083261,
+          "mean_gate_saturation_fraction": 0.008647617627927146,
+          "mean_teacher_linear_relative_reduction": 0.06052771552095578,
+          "mean_teacher_nonlinear_relative_reduction": 0.050292286269159124,
+          "nonlinear_improving_teachers": 16
+        },
+        "G": {
+          "linear_improving_teachers": 16,
+          "mean_ReLU_mask_changed_fraction": 0.0068917894280762565,
+          "mean_gate_saturation_fraction": 0.008841529462738302,
+          "mean_teacher_linear_relative_reduction": 0.007399651725856049,
+          "mean_teacher_nonlinear_relative_reduction": 0.006741632392660152,
+          "nonlinear_improving_teachers": 16
+        },
+        "fraction": 0.0625
+      },
+      {
+        "F": {
+          "linear_improving_teachers": 16,
+          "mean_ReLU_mask_changed_fraction": 0.025699347490242844,
+          "mean_gate_saturation_fraction": 0.16065935331743278,
+          "mean_teacher_linear_relative_reduction": 0.22158054982034078,
+          "mean_teacher_nonlinear_relative_reduction": 0.09998031074092856,
+          "nonlinear_improving_teachers": 16
+        },
+        "G": {
+          "linear_improving_teachers": 12,
+          "mean_ReLU_mask_changed_fraction": 0.025227300422443675,
+          "mean_gate_saturation_fraction": 0.16196043652512998,
+          "mean_teacher_linear_relative_reduction": 0.013899010545289879,
+          "mean_teacher_nonlinear_relative_reduction": 0.005206570673878648,
+          "nonlinear_improving_teachers": 8
+        },
+        "fraction": 0.25
+      },
+      {
+        "F": {
+          "linear_improving_teachers": 16,
+          "mean_ReLU_mask_changed_fraction": 0.08616512460700347,
+          "mean_gate_saturation_fraction": 0.5737800168039896,
+          "mean_teacher_linear_relative_reduction": 0.5578372030656459,
+          "mean_teacher_nonlinear_relative_reduction": -1.36020571111649,
+          "nonlinear_improving_teachers": 0
+        },
+        "G": {
+          "linear_improving_teachers": 0,
+          "mean_ReLU_mask_changed_fraction": 0.08627176532712305,
+          "mean_gate_saturation_fraction": 0.5750074469237435,
+          "mean_teacher_linear_relative_reduction": -0.1955974995489886,
+          "mean_teacher_nonlinear_relative_reduction": -0.5345022835353408,
+          "nonlinear_improving_teachers": 0
+        },
+        "fraction": 1
+      }
+    ],
+    "pure_span": [
+      {
+        "F": {
+          "linear_improving_teachers": 16,
+          "mean_ReLU_mask_changed_fraction": 0.009557057336838681,
+          "mean_gate_saturation_fraction": 0.014822914408065916,
+          "mean_teacher_linear_relative_reduction": 0.07406220966339476,
+          "mean_teacher_nonlinear_relative_reduction": 0.03582748056698118,
+          "nonlinear_improving_teachers": 15
+        },
+        "G": {
+          "linear_improving_teachers": 16,
+          "mean_ReLU_mask_changed_fraction": 0.009361121642114384,
+          "mean_gate_saturation_fraction": 0.014998781412478335,
+          "mean_teacher_linear_relative_reduction": 0.015689656588006896,
+          "mean_teacher_nonlinear_relative_reduction": 0.0022791559179318327,
+          "nonlinear_improving_teachers": 15
+        },
+        "fraction": 0.0625
+      },
+      {
+        "F": {
+          "linear_improving_teachers": 16,
+          "mean_ReLU_mask_changed_fraction": 0.034856420750216825,
+          "mean_gate_saturation_fraction": 0.22587729699696443,
+          "mean_teacher_linear_relative_reduction": 0.2686516204234173,
+          "mean_teacher_nonlinear_relative_reduction": -5.860637987522522,
+          "nonlinear_improving_teachers": 11
+        },
+        "G": {
+          "linear_improving_teachers": 16,
+          "mean_ReLU_mask_changed_fraction": 0.034832139568890814,
+          "mean_gate_saturation_fraction": 0.2271244042461005,
+          "mean_teacher_linear_relative_reduction": 0.034349809479035404,
+          "mean_teacher_nonlinear_relative_reduction": -2.7144270262686687,
+          "nonlinear_improving_teachers": 7
+        },
+        "fraction": 0.25
+      },
+      {
+        "F": {
+          "linear_improving_teachers": 16,
+          "mean_ReLU_mask_changed_fraction": 0.11721121530789246,
+          "mean_gate_saturation_fraction": 0.6375564085537728,
+          "mean_teacher_linear_relative_reduction": 0.6330509900110849,
+          "mean_teacher_nonlinear_relative_reduction": -1003.5775122307905,
+          "nonlinear_improving_teachers": 0
+        },
+        "G": {
+          "linear_improving_teachers": 0,
+          "mean_ReLU_mask_changed_fraction": 0.11734236216421144,
+          "mean_gate_saturation_fraction": 0.6389494421577123,
+          "mean_teacher_linear_relative_reduction": -0.31714183205173574,
+          "mean_teacher_nonlinear_relative_reduction": -449.1922686833504,
+          "nonlinear_improving_teachers": 0
+        },
+        "fraction": 1
+      }
+    ],
+    "unconditioned": [
+      {
+        "F": {
+          "linear_improving_teachers": 16,
+          "mean_ReLU_mask_changed_fraction": 0.0007847225986556809,
+          "mean_gate_saturation_fraction": 0.004311104184735472,
+          "mean_teacher_linear_relative_reduction": 0.02647458623404405,
+          "mean_teacher_nonlinear_relative_reduction": 0.023599259076444584,
+          "nonlinear_improving_teachers": 16
+        },
+        "G": {
+          "linear_improving_teachers": 16,
+          "mean_ReLU_mask_changed_fraction": 0.0006913791702772964,
+          "mean_gate_saturation_fraction": 0.004254901429809359,
+          "mean_teacher_linear_relative_reduction": 0.004416791063527166,
+          "mean_teacher_nonlinear_relative_reduction": 0.003943776585585666,
+          "nonlinear_improving_teachers": 16
+        },
+        "fraction": 0.0625
+      },
+      {
+        "F": {
+          "linear_improving_teachers": 16,
+          "mean_ReLU_mask_changed_fraction": 0.0019082353100607111,
+          "mean_gate_saturation_fraction": 0.08037964820034692,
+          "mean_teacher_linear_relative_reduction": 0.09610858418466663,
+          "mean_teacher_nonlinear_relative_reduction": 0.060667728941057986,
+          "nonlinear_improving_teachers": 16
+        },
+        "G": {
+          "linear_improving_teachers": 15,
+          "mean_ReLU_mask_changed_fraction": 0.001771183113084922,
+          "mean_gate_saturation_fraction": 0.08095821598786829,
+          "mean_teacher_linear_relative_reduction": 0.01333595123951286,
+          "mean_teacher_nonlinear_relative_reduction": 0.008511613386087004,
+          "nonlinear_improving_teachers": 14
+        },
+        "fraction": 0.25
+      },
+      {
+        "F": {
+          "linear_improving_teachers": 16,
+          "mean_ReLU_mask_changed_fraction": 0.0029815647360147443,
+          "mean_gate_saturation_fraction": 0.42536538513660016,
+          "mean_teacher_linear_relative_reduction": 0.22779816471451378,
+          "mean_teacher_nonlinear_relative_reduction": 0.07396131451650821,
+          "nonlinear_improving_teachers": 16
+        },
+        "G": {
+          "linear_improving_teachers": 5,
+          "mean_ReLU_mask_changed_fraction": 0.002779056542461005,
+          "mean_gate_saturation_fraction": 0.42537505415944543,
+          "mean_teacher_linear_relative_reduction": -0.01595560327548,
+          "mean_teacher_nonlinear_relative_reduction": -0.0007628592018660493,
+          "nonlinear_improving_teachers": 10
+        },
+        "fraction": 1
+      }
+    ]
+  },
+  "fresh_nonlinear_replay": false,
+  "local_diagnostic_count": 128,
+  "max_saved_direct_Schur_objective_error": 3.0531133177191805e-16,
+  "record_file_authentication_performed": false,
+  "repetitions": 2,
+  "schema": "research/v2-M3-saved-local-review",
+  "scope": "Saved producer diagnostics only. Repetition losses averaged before teacher relative changes; all fixed fractions reported. Temporary joint parent/gate updates are separate from Adam continuation and from placement efficacy.",
+  "teacher_rows": [
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.004946335646140504,
+        "gate_saturation_fraction": 0.00012196444058976583,
+        "linear_relative_reduction": 0.05768158533103518,
+        "linearized_MSE": 0.01190306035157817,
+        "nonlinear_MSE": 0.011990489797898324,
+        "nonlinear_relative_reduction": 0.0507601403565191,
+        "parent_MSE": 0.01263167541489646
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0046441724436741775,
+        "gate_saturation_fraction": 5.4159445407279026e-05,
+        "linear_relative_reduction": 0.0018419414983363858,
+        "linearized_MSE": 0.04578743275013597,
+        "nonlinear_MSE": 0.04581176626619094,
+        "nonlinear_relative_reduction": 0.0013114750868541414,
+        "parent_MSE": 0.04587192615452862
+      },
+      "fraction": 0.0625,
+      "role": "local_singleton",
+      "teacher_index": 0
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.007300926929748482,
+        "gate_saturation_fraction": 0.023227450130095403,
+        "linear_relative_reduction": 0.06195676919177606,
+        "linearized_MSE": 0.029221587301719636,
+        "nonlinear_MSE": 0.029528496487630774,
+        "nonlinear_relative_reduction": 0.05210466631508315,
+        "parent_MSE": 0.03115164242115167
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.006634532062391681,
+        "gate_saturation_fraction": 0.024046793760831887,
+        "linear_relative_reduction": 0.0038301690067743532,
+        "linearized_MSE": 0.08622180718991128,
+        "nonlinear_MSE": 0.08618119968371776,
+        "nonlinear_relative_reduction": 0.004299330740913709,
+        "parent_MSE": 0.08655332103758281
+      },
+      "fraction": 0.0625,
+      "role": "local_singleton",
+      "teacher_index": 1
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.007080713356461404,
+        "gate_saturation_fraction": 0.004404271465741544,
+        "linear_relative_reduction": 0.06408899756320541,
+        "linearized_MSE": 0.010205783255921103,
+        "nonlinear_MSE": 0.010283394885400863,
+        "nonlinear_relative_reduction": 0.05697170179807998,
+        "parent_MSE": 0.010904651435177819
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0070001083188908145,
+        "gate_saturation_fraction": 0.004170277296360486,
+        "linear_relative_reduction": 0.007782469428591954,
+        "linearized_MSE": 0.025741352084097224,
+        "nonlinear_MSE": 0.02575450595361051,
+        "nonlinear_relative_reduction": 0.00727544478267228,
+        "parent_MSE": 0.02594325467044816
+      },
+      "fraction": 0.0625,
+      "role": "local_singleton",
+      "teacher_index": 2
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.006674165221162185,
+        "gate_saturation_fraction": 0.0017210537727666956,
+        "linear_relative_reduction": 0.059257663383287085,
+        "linearized_MSE": 0.03168475925521689,
+        "nonlinear_MSE": 0.0319675080924954,
+        "nonlinear_relative_reduction": 0.05086265555903646,
+        "parent_MSE": 0.03368059246612415
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.006444974003466205,
+        "gate_saturation_fraction": 0.002058058925476603,
+        "linear_relative_reduction": 0.006039729360862056,
+        "linearized_MSE": 0.09011211160887034,
+        "nonlinear_MSE": 0.09024148238388936,
+        "nonlinear_relative_reduction": 0.004612735716446714,
+        "parent_MSE": 0.09065967148860618
+      },
+      "fraction": 0.0625,
+      "role": "local_singleton",
+      "teacher_index": 3
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.011064885082393755,
+        "gate_saturation_fraction": 0.0216148091934085,
+        "linear_relative_reduction": 0.07394037442830614,
+        "linearized_MSE": 0.03687008551974829,
+        "nonlinear_MSE": 0.037505284864568306,
+        "nonlinear_relative_reduction": 0.05798618123522714,
+        "parent_MSE": 0.039813943402388266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.011183925476603119,
+        "gate_saturation_fraction": 0.022042894280762566,
+        "linear_relative_reduction": 0.017923676346416006,
+        "linearized_MSE": 0.0968205110492888,
+        "nonlinear_MSE": 0.09683862693207329,
+        "nonlinear_relative_reduction": 0.017739922104965333,
+        "parent_MSE": 0.09858756261335255
+      },
+      "fraction": 0.0625,
+      "role": "local_singleton",
+      "teacher_index": 4
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0060101366001734605,
+        "gate_saturation_fraction": 0.0018159150043365135,
+        "linear_relative_reduction": 0.0567875887040038,
+        "linearized_MSE": 0.022144250041978446,
+        "nonlinear_MSE": 0.02236018157577309,
+        "nonlinear_relative_reduction": 0.047590198759472124,
+        "parent_MSE": 0.023477479491127266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.005700281629116118,
+        "gate_saturation_fraction": 0.002707972270363951,
+        "linear_relative_reduction": 0.0023346360147553646,
+        "linearized_MSE": 0.063343822912168,
+        "nonlinear_MSE": 0.06329840617668528,
+        "nonlinear_relative_reduction": 0.003049949708392452,
+        "parent_MSE": 0.0634920537474977
+      },
+      "fraction": 0.0625,
+      "role": "local_singleton",
+      "teacher_index": 5
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.006382805724197745,
+        "gate_saturation_fraction": 0.011830550737207285,
+        "linear_relative_reduction": 0.05253291220482126,
+        "linearized_MSE": 0.011281940092575955,
+        "nonlinear_MSE": 0.01137853527772371,
+        "nonlinear_relative_reduction": 0.04442076500177006,
+        "parent_MSE": 0.011907474399801905
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.006120017331022531,
+        "gate_saturation_fraction": 0.011427642980935874,
+        "linear_relative_reduction": 0.010867341402434838,
+        "linearized_MSE": 0.0275007011223214,
+        "nonlinear_MSE": 0.02754359391566491,
+        "nonlinear_relative_reduction": 0.009324593000281989,
+        "parent_MSE": 0.027802844121346752
+      },
+      "fraction": 0.0625,
+      "role": "local_singleton",
+      "teacher_index": 6
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.007819275802254987,
+        "gate_saturation_fraction": 0.0010841283607979184,
+        "linear_relative_reduction": 0.056875618836654374,
+        "linearized_MSE": 0.011510352534984593,
+        "nonlinear_MSE": 0.011647629408134508,
+        "nonlinear_relative_reduction": 0.04562755622136572,
+        "parent_MSE": 0.012204490483838995
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.008069757365684577,
+        "gate_saturation_fraction": 0.0009748700173310225,
+        "linear_relative_reduction": 0.015353072459987516,
+        "linearized_MSE": 0.0377121958003555,
+        "nonlinear_MSE": 0.03773329427139452,
+        "nonlinear_relative_reduction": 0.014802201733861264,
+        "parent_MSE": 0.038300221882145685
+      },
+      "fraction": 0.0625,
+      "role": "local_singleton",
+      "teacher_index": 7
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.009211703165654814,
+        "gate_saturation_fraction": 0.024907849089332176,
+        "linear_relative_reduction": 0.06753982256284863,
+        "linearized_MSE": 0.027905088121427328,
+        "nonlinear_MSE": 0.028514464313059665,
+        "nonlinear_relative_reduction": 0.04717726254143262,
+        "parent_MSE": 0.029926305483762232
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.00834055459272097,
+        "gate_saturation_fraction": 0.025725736568457537,
+        "linear_relative_reduction": 0.0076463534201124395,
+        "linearized_MSE": 0.07680548896615555,
+        "nonlinear_MSE": 0.07693479613574881,
+        "nonlinear_relative_reduction": 0.005975659788680088,
+        "parent_MSE": 0.07739729604548036
+      },
+      "fraction": 0.0625,
+      "role": "local_singleton",
+      "teacher_index": 8
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.005762819817866435,
+        "gate_saturation_fraction": 0.0,
+        "linear_relative_reduction": 0.060258823596914146,
+        "linearized_MSE": 0.01545359840248262,
+        "nonlinear_MSE": 0.015584845861712212,
+        "nonlinear_relative_reduction": 0.052277598866982244,
+        "parent_MSE": 0.016444526206281788
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.005172227036395147,
+        "gate_saturation_fraction": 0.0,
+        "linear_relative_reduction": 0.004485898350208517,
+        "linearized_MSE": 0.038509659160115235,
+        "nonlinear_MSE": 0.03851522518048987,
+        "nonlinear_relative_reduction": 0.004342011027031134,
+        "parent_MSE": 0.03868318800938735
+      },
+      "fraction": 0.0625,
+      "role": "local_singleton",
+      "teacher_index": 9
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.006799517562879445,
+        "gate_saturation_fraction": 0.004241652211621857,
+        "linear_relative_reduction": 0.05903697270338337,
+        "linearized_MSE": 0.031740419615569906,
+        "nonlinear_MSE": 0.032115990814186646,
+        "nonlinear_relative_reduction": 0.047902948128532685,
+        "parent_MSE": 0.03373184566747539
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.005510723570190642,
+        "gate_saturation_fraction": 0.003737001733102253,
+        "linear_relative_reduction": 0.007763009910100704,
+        "linearized_MSE": 0.08996931225881069,
+        "nonlinear_MSE": 0.09007460654826605,
+        "nonlinear_relative_reduction": 0.006601759632425042,
+        "parent_MSE": 0.09067320928104004
+      },
+      "fraction": 0.0625,
+      "role": "local_singleton",
+      "teacher_index": 10
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.006382805724197745,
+        "gate_saturation_fraction": 0.013998807458803122,
+        "linear_relative_reduction": 0.05792853466229031,
+        "linearized_MSE": 0.009482791164883743,
+        "nonlinear_MSE": 0.009563754320423485,
+        "nonlinear_relative_reduction": 0.049885219434581685,
+        "parent_MSE": 0.01006589363311667
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.00614709705372617,
+        "gate_saturation_fraction": 0.013214904679376083,
+        "linear_relative_reduction": 0.005854411642317925,
+        "linearized_MSE": 0.03044319590379047,
+        "nonlinear_MSE": 0.030477539448906892,
+        "nonlinear_relative_reduction": 0.004732897200340314,
+        "parent_MSE": 0.030622472463094973
+      },
+      "fraction": 0.0625,
+      "role": "local_singleton",
+      "teacher_index": 11
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.011017454466608846,
+        "gate_saturation_fraction": 0.016329683434518648,
+        "linear_relative_reduction": 0.06021933016819636,
+        "linearized_MSE": 0.020067429808186175,
+        "nonlinear_MSE": 0.020351299897264443,
+        "nonlinear_relative_reduction": 0.046925369506110814,
+        "parent_MSE": 0.021353311950731785
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.010209055459272098,
+        "gate_saturation_fraction": 0.018035095320623917,
+        "linear_relative_reduction": 0.004706361007677962,
+        "linearized_MSE": 0.04961898764340529,
+        "nonlinear_MSE": 0.04971394821052215,
+        "nonlinear_relative_reduction": 0.0028015730848417464,
+        "parent_MSE": 0.04985361676142297
+      },
+      "fraction": 0.0625,
+      "role": "local_singleton",
+      "teacher_index": 12
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0066640015177797055,
+        "gate_saturation_fraction": 0.010949696444058975,
+        "linear_relative_reduction": 0.054707120158685396,
+        "linearized_MSE": 0.02175940999293268,
+        "nonlinear_MSE": 0.02201715308883257,
+        "nonlinear_relative_reduction": 0.043510000684326644,
+        "parent_MSE": 0.023018696593362063
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.005781520797227036,
+        "gate_saturation_fraction": 0.010886048526863085,
+        "linear_relative_reduction": 0.005105994338229003,
+        "linearized_MSE": 0.05419096381620159,
+        "nonlinear_MSE": 0.05425358556823242,
+        "nonlinear_relative_reduction": 0.00395631916487682,
+        "parent_MSE": 0.0544690826437893
+      },
+      "fraction": 0.0625,
+      "role": "local_singleton",
+      "teacher_index": 13
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.00664028620988725,
+        "gate_saturation_fraction": 0.0019107762359063315,
+        "linear_relative_reduction": 0.061629313505511374,
+        "linearized_MSE": 0.02289766939510353,
+        "nonlinear_MSE": 0.023072925643747237,
+        "nonlinear_relative_reduction": 0.05444712725264267,
+        "parent_MSE": 0.02440151821093573
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.006878249566724437,
+        "gate_saturation_fraction": 0.002058058925476603,
+        "linear_relative_reduction": 0.008568955615703922,
+        "linearized_MSE": 0.05957994408816205,
+        "nonlinear_MSE": 0.059571990329690114,
+        "nonlinear_relative_reduction": 0.008701308930049834,
+        "parent_MSE": 0.06009489457248407
+      },
+      "fraction": 0.0625,
+      "role": "local_singleton",
+      "teacher_index": 14
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.006508158065915004,
+        "gate_saturation_fraction": 0.00020327406764960972,
+        "linear_relative_reduction": 0.0640020213343736,
+        "linearized_MSE": 0.02012386968857384,
+        "nonlinear_MSE": 0.020291027869948082,
+        "nonlinear_relative_reduction": 0.0562271886453829,
+        "parent_MSE": 0.021499907208413792
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.006431434142114384,
+        "gate_saturation_fraction": 0.0003249566724436742,
+        "linear_relative_reduction": 0.008290407811187839,
+        "linearized_MSE": 0.05701395866268452,
+        "nonlinear_MSE": 0.057011168715671016,
+        "nonlinear_relative_reduction": 0.008338936579929568,
+        "parent_MSE": 0.05749057900796184
+      },
+      "fraction": 0.0625,
+      "role": "local_singleton",
+      "teacher_index": 15
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.018196416955767562,
+        "gate_saturation_fraction": 0.08971162185602775,
+        "linear_relative_reduction": 0.21143000801471923,
+        "linearized_MSE": 0.009960960180685569,
+        "nonlinear_MSE": 0.01121251724240693,
+        "nonlinear_relative_reduction": 0.11234916397676942,
+        "parent_MSE": 0.01263167541489646
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.017534120450606587,
+        "gate_saturation_fraction": 0.09071707105719237,
+        "linear_relative_reduction": -0.00459442375654584,
+        "linearized_MSE": 0.0460826812218115,
+        "nonlinear_MSE": 0.04625151763789723,
+        "nonlinear_relative_reduction": -0.008275028218563962,
+        "parent_MSE": 0.04587192615452862
+      },
+      "fraction": 0.25,
+      "role": "local_singleton",
+      "teacher_index": 0
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.02552783499566349,
+        "gate_saturation_fraction": 0.16482816565481354,
+        "linear_relative_reduction": 0.22710293490868982,
+        "linearized_MSE": 0.02407701300008208,
+        "nonlinear_MSE": 0.027614631274248305,
+        "nonlinear_relative_reduction": 0.11354172274723362,
+        "parent_MSE": 0.03115164242115167
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.02408741334488735,
+        "gate_saturation_fraction": 0.16827339688041595,
+        "linear_relative_reduction": -0.00038234247596125037,
+        "linearized_MSE": 0.086586414048651,
+        "nonlinear_MSE": 0.08732096750750075,
+        "nonlinear_relative_reduction": -0.008869058526184137,
+        "parent_MSE": 0.08655332103758281
+      },
+      "fraction": 0.25,
+      "role": "local_singleton",
+      "teacher_index": 1
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.02649677471812663,
+        "gate_saturation_fraction": 0.1269785342584562,
+        "linear_relative_reduction": 0.2340140397908238,
+        "linearized_MSE": 0.008352809900321053,
+        "nonlinear_MSE": 0.009385801312951716,
+        "nonlinear_relative_reduction": 0.13928460999004277,
+        "parent_MSE": 0.010904651435177819
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.027052642980935876,
+        "gate_saturation_fraction": 0.12570407279029464,
+        "linear_relative_reduction": 0.014497782887838206,
+        "linearized_MSE": 0.025567134996832108,
+        "nonlinear_MSE": 0.02606118627049738,
+        "nonlinear_relative_reduction": -0.0045457519323339746,
+        "parent_MSE": 0.02594325467044816
+      },
+      "fraction": 0.25,
+      "role": "local_singleton",
+      "teacher_index": 2
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.024132019731136167,
+        "gate_saturation_fraction": 0.15841825672159585,
+        "linear_relative_reduction": 0.2172157966697038,
+        "linearized_MSE": 0.02636463574128737,
+        "nonlinear_MSE": 0.029975288663740676,
+        "nonlinear_relative_reduction": 0.11001302325991613,
+        "parent_MSE": 0.03368059246612415
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.023302101386481804,
+        "gate_saturation_fraction": 0.16085355285961872,
+        "linear_relative_reduction": 0.006839026025363348,
+        "linearized_MSE": 0.09003964763584471,
+        "nonlinear_MSE": 0.09073779733828674,
+        "nonlinear_relative_reduction": -0.0008617486518289752,
+        "parent_MSE": 0.09065967148860618
+      },
+      "fraction": 0.25,
+      "role": "local_singleton",
+      "teacher_index": 3
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0353662998699046,
+        "gate_saturation_fraction": 0.1904678013876843,
+        "linear_relative_reduction": 0.26982449830590105,
+        "linearized_MSE": 0.029071166098259313,
+        "nonlinear_MSE": 0.03609406784611862,
+        "nonlinear_relative_reduction": 0.09343147747697123,
+        "parent_MSE": 0.039813943402388266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.03615142980935875,
+        "gate_saturation_fraction": 0.18625433275563258,
+        "linear_relative_reduction": 0.05248367098241824,
+        "linearized_MSE": 0.0934133254141948,
+        "nonlinear_MSE": 0.09452930515856767,
+        "nonlinear_relative_reduction": 0.04116399013434213,
+        "parent_MSE": 0.09858756261335255
+      },
+      "fraction": 0.25,
+      "role": "local_singleton",
+      "teacher_index": 4
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.021323449696444056,
+        "gate_saturation_fraction": 0.18090036860364267,
+        "linear_relative_reduction": 0.2082155501522538,
+        "linearized_MSE": 0.018589103182693946,
+        "nonlinear_MSE": 0.021235821967019067,
+        "nonlinear_relative_reduction": 0.09548118335937117,
+        "parent_MSE": 0.023477479491127266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.02128466204506066,
+        "gate_saturation_fraction": 0.18425043327556326,
+        "linear_relative_reduction": -0.0038550321848862534,
+        "linearized_MSE": 0.06373681765817883,
+        "nonlinear_MSE": 0.06342105324008909,
+        "nonlinear_relative_reduction": 0.0011182581633123467,
+        "parent_MSE": 0.0634920537474977
+      },
+      "fraction": 0.25,
+      "role": "local_singleton",
+      "teacher_index": 5
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.023295208152645273,
+        "gate_saturation_fraction": 0.16226691240242844,
+        "linear_relative_reduction": 0.19227647501334744,
+        "linearized_MSE": 0.00961794719589632,
+        "nonlinear_MSE": 0.010948209004079452,
+        "nonlinear_relative_reduction": 0.08055993769244729,
+        "parent_MSE": 0.011907474399801905
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.022950064991334486,
+        "gate_saturation_fraction": 0.1655112651646447,
+        "linear_relative_reduction": 0.02865470657740521,
+        "linearized_MSE": 0.027006161781032226,
+        "nonlinear_MSE": 0.027611515348587204,
+        "nonlinear_relative_reduction": 0.006881625920157175,
+        "parent_MSE": 0.027802844121346752
+      },
+      "fraction": 0.25,
+      "role": "local_singleton",
+      "teacher_index": 6
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.026940589765828277,
+        "gate_saturation_fraction": 0.14361990459670426,
+        "linear_relative_reduction": 0.20821593638864044,
+        "linearized_MSE": 0.009663321069600207,
+        "nonlinear_MSE": 0.011400942712363731,
+        "nonlinear_relative_reduction": 0.06584033741837148,
+        "parent_MSE": 0.012204490483838995
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.02624025129982669,
+        "gate_saturation_fraction": 0.14715121317157714,
+        "linear_relative_reduction": 0.04738746388750936,
+        "linearized_MSE": 0.03648527150082191,
+        "nonlinear_MSE": 0.036741074025634424,
+        "nonlinear_relative_reduction": 0.040708585483106186,
+        "parent_MSE": 0.038300221882145685
+      },
+      "fraction": 0.25,
+      "role": "local_singleton",
+      "teacher_index": 7
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.03274406439722463,
+        "gate_saturation_fraction": 0.2597300520381613,
+        "linear_relative_reduction": 0.24702278720142457,
+        "linearized_MSE": 0.02253382609252201,
+        "nonlinear_MSE": 0.028715224984817718,
+        "nonlinear_relative_reduction": 0.04046876082320405,
+        "parent_MSE": 0.029926305483762232
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.03164265597920277,
+        "gate_saturation_fraction": 0.2615901213171577,
+        "linear_relative_reduction": 0.013807889697301512,
+        "linearized_MSE": 0.07632860271881498,
+        "nonlinear_MSE": 0.07811077106091492,
+        "nonlinear_relative_reduction": -0.009218345496402103,
+        "parent_MSE": 0.07739729604548036
+      },
+      "fraction": 0.25,
+      "role": "local_singleton",
+      "teacher_index": 8
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.021174382046834347,
+        "gate_saturation_fraction": 0.09732762359063313,
+        "linear_relative_reduction": 0.22064353933428438,
+        "linearized_MSE": 0.012816147741452382,
+        "nonlinear_MSE": 0.014326325131146744,
+        "nonlinear_relative_reduction": 0.12880888440105343,
+        "parent_MSE": 0.016444526206281788
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.020418110918544195,
+        "gate_saturation_fraction": 0.10165727902946273,
+        "linear_relative_reduction": 0.0007276757300976877,
+        "linearized_MSE": 0.038655039192310114,
+        "nonlinear_MSE": 0.03858285860801802,
+        "nonlinear_relative_reduction": 0.002593617706611484,
+        "parent_MSE": 0.03868318800938735
+      },
+      "fraction": 0.25,
+      "role": "local_singleton",
+      "teacher_index": 9
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.023512033824804858,
+        "gate_saturation_fraction": 0.1574425411968777,
+        "linear_relative_reduction": 0.21645920211190628,
+        "linearized_MSE": 0.026430277268531706,
+        "nonlinear_MSE": 0.030332417597014126,
+        "nonlinear_relative_reduction": 0.10077800378824309,
+        "parent_MSE": 0.03373184566747539
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.022652188041594454,
+        "gate_saturation_fraction": 0.1503466204506066,
+        "linear_relative_reduction": 0.017374632159124825,
+        "linearized_MSE": 0.08909779562309462,
+        "nonlinear_MSE": 0.08989710901714332,
+        "nonlinear_relative_reduction": 0.008559311731111352,
+        "parent_MSE": 0.09067320928104004
+      },
+      "fraction": 0.25,
+      "role": "local_singleton",
+      "teacher_index": 10
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.022529542497831744,
+        "gate_saturation_fraction": 0.14334887250650477,
+        "linear_relative_reduction": 0.2116461359509988,
+        "linearized_MSE": 0.007935486140773766,
+        "nonlinear_MSE": 0.008964260201176473,
+        "nonlinear_relative_reduction": 0.10944218885006252,
+        "parent_MSE": 0.01006589363311667
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.02238139081455806,
+        "gate_saturation_fraction": 0.14157279029462738,
+        "linear_relative_reduction": 0.010375102128295066,
+        "linearized_MSE": 0.03030476118386946,
+        "nonlinear_MSE": 0.03066364946922524,
+        "nonlinear_relative_reduction": -0.001344666279964546,
+        "parent_MSE": 0.030622472463094973
+      },
+      "fraction": 0.25,
+      "role": "local_singleton",
+      "teacher_index": 11
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.03720593018213356,
+        "gate_saturation_fraction": 0.22310006504770163,
+        "linear_relative_reduction": 0.22057946625777103,
+        "linearized_MSE": 0.016643209797803683,
+        "nonlinear_MSE": 0.01963658707751148,
+        "nonlinear_relative_reduction": 0.08039618758819622,
+        "parent_MSE": 0.021353311950731785
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.03602957105719237,
+        "gate_saturation_fraction": 0.22746967071057192,
+        "linear_relative_reduction": -0.0014819090245778987,
+        "linearized_MSE": 0.049927495286009566,
+        "nonlinear_MSE": 0.05051605108209739,
+        "nonlinear_relative_reduction": -0.013287588016823948,
+        "parent_MSE": 0.04985361676142297
+      },
+      "fraction": 0.25,
+      "role": "local_singleton",
+      "teacher_index": 12
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.02348493061578491,
+        "gate_saturation_fraction": 0.18122560711188204,
+        "linear_relative_reduction": 0.20075766467644274,
+        "linearized_MSE": 0.018397516821383107,
+        "nonlinear_MSE": 0.0213305566934075,
+        "nonlinear_relative_reduction": 0.07333777102050931,
+        "parent_MSE": 0.023018696593362063
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.023180242634315423,
+        "gate_saturation_fraction": 0.18652512998266896,
+        "linear_relative_reduction": 0.005116895430348101,
+        "linearized_MSE": 0.05419037004371404,
+        "nonlinear_MSE": 0.054748704480277605,
+        "nonlinear_relative_reduction": -0.005133588136905898,
+        "parent_MSE": 0.0544690826437893
+      },
+      "fraction": 0.25,
+      "role": "local_singleton",
+      "teacher_index": 13
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.024504688855160453,
+        "gate_saturation_fraction": 0.14351149176062444,
+        "linear_relative_reduction": 0.225550492269187,
+        "linearized_MSE": 0.018897743766343646,
+        "nonlinear_MSE": 0.02118472486926967,
+        "nonlinear_relative_reduction": 0.13182759014660128,
+        "parent_MSE": 0.02440151821093573
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.02457484835355286,
+        "gate_saturation_fraction": 0.13956889081455806,
+        "linear_relative_reduction": 0.019932320817149907,
+        "linearized_MSE": 0.058897063854392515,
+        "nonlinear_MSE": 0.059042132243111306,
+        "nonlinear_relative_reduction": 0.017518332245395007,
+        "parent_MSE": 0.06009489457248407
+      },
+      "fraction": 0.25,
+      "role": "local_singleton",
+      "teacher_index": 14
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.024755393538594968,
+        "gate_saturation_fraction": 0.14767183434518646,
+        "linear_relative_reduction": 0.23433427007935836,
+        "linearized_MSE": 0.01646174214595621,
+        "nonlinear_MSE": 0.018831249945797567,
+        "nonlinear_relative_reduction": 0.12412412931586381,
+        "parent_MSE": 0.021499907208413792
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.024155112651646445,
+        "gate_saturation_fraction": 0.153921143847487,
+        "linear_relative_reduction": 0.015500709843757843,
+        "linearized_MSE": 0.05659943422400979,
+        "nonlinear_MSE": 0.0565536444258295,
+        "nonlinear_relative_reduction": 0.016297184657030228,
+        "parent_MSE": 0.05749057900796184
+      },
+      "fraction": 0.25,
+      "role": "local_singleton",
+      "teacher_index": 15
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0658879011274935,
+        "gate_saturation_fraction": 0.5417524934952298,
+        "linear_relative_reduction": 0.5369786991081285,
+        "linearized_MSE": 0.005848734783049231,
+        "nonlinear_MSE": 0.02368222452215268,
+        "nonlinear_relative_reduction": -0.8748284565818065,
+        "parent_MSE": 0.01263167541489646
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.06427372183708839,
+        "gate_saturation_fraction": 0.5412694974003467,
+        "linear_relative_reduction": -0.20977273102445904,
+        "linearized_MSE": 0.0554946053813164,
+        "nonlinear_MSE": 0.057630827182177095,
+        "nonlinear_relative_reduction": -0.25634199418695225,
+        "parent_MSE": 0.04587192615452862
+      },
+      "fraction": 1,
+      "role": "local_singleton",
+      "teacher_index": 0
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.08522265286209887,
+        "gate_saturation_fraction": 0.49821118820468346,
+        "linear_relative_reduction": 0.5768254699001324,
+        "linearized_MSE": 0.01318258164340996,
+        "nonlinear_MSE": 0.09409970740634016,
+        "nonlinear_relative_reduction": -2.020698110686047,
+        "parent_MSE": 0.03115164242115167
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.08515218804159447,
+        "gate_saturation_fraction": 0.49842937608318894,
+        "linear_relative_reduction": -0.2527776659527796,
+        "linearized_MSE": 0.10843206750992461,
+        "nonlinear_MSE": 0.16551568606652642,
+        "nonlinear_relative_reduction": -0.9122973455248113,
+        "parent_MSE": 0.08655332103758281
+      },
+      "fraction": 1,
+      "role": "local_singleton",
+      "teacher_index": 1
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.08846148633998266,
+        "gate_saturation_fraction": 0.5781656548135299,
+        "linear_relative_reduction": 0.5785849517713351,
+        "linearized_MSE": 0.00459538421047224,
+        "nonlinear_MSE": 0.021308265572102317,
+        "nonlinear_relative_reduction": -0.9540528827325006,
+        "parent_MSE": 0.010904651435177819
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0899859185441941,
+        "gate_saturation_fraction": 0.5765814558058926,
+        "linear_relative_reduction": -0.20812238567311714,
+        "linearized_MSE": 0.03134262672458707,
+        "nonlinear_MSE": 0.041419238351573934,
+        "nonlinear_relative_reduction": -0.596532080408338,
+        "parent_MSE": 0.02594325467044816
+      },
+      "fraction": 1,
+      "role": "local_singleton",
+      "teacher_index": 2
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.08310860255854294,
+        "gate_saturation_fraction": 0.596379011274935,
+        "linear_relative_reduction": 0.5518254768636965,
+        "linearized_MSE": 0.015094783467453365,
+        "nonlinear_MSE": 0.07288071979970637,
+        "nonlinear_relative_reduction": -1.1638787937893196,
+        "parent_MSE": 0.03368059246612415
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.08500324956672445,
+        "gate_saturation_fraction": 0.5958622183708839,
+        "linear_relative_reduction": -0.24976215858790152,
+        "linearized_MSE": 0.1133030267364705,
+        "nonlinear_MSE": 0.14182931474986338,
+        "nonlinear_relative_reduction": -0.5644146114922557,
+        "parent_MSE": 0.09065967148860618
+      },
+      "fraction": 1,
+      "role": "local_singleton",
+      "teacher_index": 3
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.11380637467476148,
+        "gate_saturation_fraction": 0.5999024284475282,
+        "linear_relative_reduction": 0.6643060027064269,
+        "linearized_MSE": 0.013365301808767797,
+        "nonlinear_MSE": 0.11740318907902064,
+        "nonlinear_relative_reduction": -1.9487957998146483,
+        "parent_MSE": 0.039813943402388266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.11496696273830156,
+        "gate_saturation_fraction": 0.5993825823223571,
+        "linear_relative_reduction": -0.09744186652226716,
+        "linearized_MSE": 0.10819411873027851,
+        "nonlinear_MSE": 0.16036840738986702,
+        "nonlinear_relative_reduction": -0.6266596225612231,
+        "parent_MSE": 0.09858756261335255
+      },
+      "fraction": 1,
+      "role": "local_singleton",
+      "teacher_index": 4
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.07303298460537727,
+        "gate_saturation_fraction": 0.5810250433651345,
+        "linear_relative_reduction": 0.5299053259888287,
+        "linearized_MSE": 0.011036638067985431,
+        "nonlinear_MSE": 0.04246321340150899,
+        "nonlinear_relative_reduction": -0.8086785430930485,
+        "parent_MSE": 0.023477479491127266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.07119259098786829,
+        "gate_saturation_fraction": 0.5861135181975736,
+        "linear_relative_reduction": -0.2265173486420713,
+        "linearized_MSE": 0.07787410542222076,
+        "nonlinear_MSE": 0.08579455871064037,
+        "nonlinear_relative_reduction": -0.35126450708048873,
+        "parent_MSE": 0.0634920537474977
+      },
+      "fraction": 1,
+      "role": "local_singleton",
+      "teacher_index": 5
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.07726786101474414,
+        "gate_saturation_fraction": 0.5691131830008673,
+        "linear_relative_reduction": 0.4834231191584001,
+        "linearized_MSE": 0.0061511259841508705,
+        "nonlinear_MSE": 0.027675880855339917,
+        "nonlinear_relative_reduction": -1.3242444137272584,
+        "parent_MSE": 0.011907474399801905
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.07965500433275563,
+        "gate_saturation_fraction": 0.5689991334488735,
+        "linear_relative_reduction": -0.1224157182077279,
+        "linearized_MSE": 0.03120634925267892,
+        "nonlinear_MSE": 0.04422352547214922,
+        "nonlinear_relative_reduction": -0.590611567619977,
+        "parent_MSE": 0.027802844121346752
+      },
+      "fraction": 1,
+      "role": "local_singleton",
+      "teacher_index": 6
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0887968885516045,
+        "gate_saturation_fraction": 0.5878279488291414,
+        "linear_relative_reduction": 0.5242791222269254,
+        "linearized_MSE": 0.005805930925745023,
+        "nonlinear_MSE": 0.04869773165056491,
+        "nonlinear_relative_reduction": -2.9901486846214285,
+        "parent_MSE": 0.012204490483838995
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.08745396447140381,
+        "gate_saturation_fraction": 0.5907170710571924,
+        "linear_relative_reduction": -0.034847359689012425,
+        "linearized_MSE": 0.0396348834902418,
+        "nonlinear_MSE": 0.06578565900647802,
+        "nonlinear_relative_reduction": -0.7176312766257147,
+        "parent_MSE": 0.038300221882145685
+      },
+      "fraction": 1,
+      "role": "local_singleton",
+      "teacher_index": 7
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.10886681483087599,
+        "gate_saturation_fraction": 0.6325617953165654,
+        "linear_relative_reduction": 0.617907100006186,
+        "linearized_MSE": 0.011434628848391491,
+        "nonlinear_MSE": 0.11226661028740649,
+        "nonlinear_relative_reduction": -2.7514356841783036,
+        "parent_MSE": 0.029926305483762232
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.10723570190641249,
+        "gate_saturation_fraction": 0.6341529462738302,
+        "linear_relative_reduction": -0.213208824941161,
+        "linearized_MSE": 0.0938990825889604,
+        "nonlinear_MSE": 0.15381913130527916,
+        "nonlinear_relative_reduction": -0.9873967071781375,
+        "parent_MSE": 0.07739729604548036
+      },
+      "fraction": 1,
+      "role": "local_singleton",
+      "teacher_index": 8
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.07551292823070252,
+        "gate_saturation_fraction": 0.46766587163920215,
+        "linear_relative_reduction": 0.5563060764831735,
+        "linearized_MSE": 0.007296336352840439,
+        "nonlinear_MSE": 0.02610443818667836,
+        "nonlinear_relative_reduction": -0.5874241592139333,
+        "parent_MSE": 0.016444526206281788
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.07529516897746967,
+        "gate_saturation_fraction": 0.47167461005199307,
+        "linear_relative_reduction": -0.2725439798113878,
+        "linearized_MSE": 0.049226058021257936,
+        "nonlinear_MSE": 0.05356410745018367,
+        "nonlinear_relative_reduction": -0.3846869972863953,
+        "parent_MSE": 0.03868318800938735
+      },
+      "fraction": 1,
+      "role": "local_singleton",
+      "teacher_index": 9
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.08020517129228101,
+        "gate_saturation_fraction": 0.5481352992194276,
+        "linear_relative_reduction": 0.5508177892215953,
+        "linearized_MSE": 0.01515174501055255,
+        "nonlinear_MSE": 0.06397538863651202,
+        "nonlinear_relative_reduction": -0.8965872566587063,
+        "parent_MSE": 0.03373184566747539
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.07872075389948008,
+        "gate_saturation_fraction": 0.5430567590987868,
+        "linear_relative_reduction": -0.14933999106395213,
+        "linearized_MSE": 0.10421434554481043,
+        "nonlinear_MSE": 0.11972761758379238,
+        "nonlinear_relative_reduction": -0.3204299101479766,
+        "parent_MSE": 0.09067320928104004
+      },
+      "fraction": 1,
+      "role": "local_singleton",
+      "teacher_index": 10
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.07684776127493495,
+        "gate_saturation_fraction": 0.5965280789245446,
+        "linear_relative_reduction": 0.5254965006333845,
+        "linearized_MSE": 0.004776301753165994,
+        "nonlinear_MSE": 0.0259116311183242,
+        "nonlinear_relative_reduction": -1.574200767736631,
+        "parent_MSE": 0.01006589363311667
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.07728552859618718,
+        "gate_saturation_fraction": 0.6000324956672444,
+        "linear_relative_reduction": -0.16718030254244143,
+        "linearized_MSE": 0.03574194667407277,
+        "nonlinear_MSE": 0.04800071234136656,
+        "nonlinear_relative_reduction": -0.5674995674896981,
+        "parent_MSE": 0.030622472463094973
+      },
+      "fraction": 1,
+      "role": "local_singleton",
+      "teacher_index": 11
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.110150829358196,
+        "gate_saturation_fraction": 0.6499756071118821,
+        "linear_relative_reduction": 0.5575521943908471,
+        "linearized_MSE": 0.009447726015088977,
+        "nonlinear_MSE": 0.048108555983374796,
+        "nonlinear_relative_reduction": -1.2529786524158424,
+        "parent_MSE": 0.021353311950731785
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.11189341421143847,
+        "gate_saturation_fraction": 0.6519172443674177,
+        "linear_relative_reduction": -0.33084528498294463,
+        "linearized_MSE": 0.06634745080628646,
+        "nonlinear_MSE": 0.07891909898059489,
+        "nonlinear_relative_reduction": -0.5830165213141159,
+        "parent_MSE": 0.04985361676142297
+      },
+      "fraction": 1,
+      "role": "local_singleton",
+      "teacher_index": 12
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.07909732762359063,
+        "gate_saturation_fraction": 0.6167470728534259,
+        "linear_relative_reduction": 0.5138976033729865,
+        "linearized_MSE": 0.011189443581263371,
+        "nonlinear_MSE": 0.04345940416231288,
+        "nonlinear_relative_reduction": -0.888004561250672,
+        "parent_MSE": 0.023018696593362063
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.07931650779896014,
+        "gate_saturation_fraction": 0.6185008665511266,
+        "linear_relative_reduction": -0.22444572903968862,
+        "linearized_MSE": 0.06669443560789765,
+        "nonlinear_MSE": 0.07472921578382853,
+        "nonlinear_relative_reduction": -0.37195656979454084,
+        "parent_MSE": 0.0544690826437893
+      },
+      "fraction": 1,
+      "role": "local_singleton",
+      "teacher_index": 13
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.08514473113616652,
+        "gate_saturation_fraction": 0.5373617736339982,
+        "linear_relative_reduction": 0.566733781031025,
+        "linearized_MSE": 0.010572353532354712,
+        "nonlinear_MSE": 0.042322282654362976,
+        "nonlinear_relative_reduction": -0.7344118627584375,
+        "parent_MSE": 0.02440151821093573
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.08551776429809359,
+        "gate_saturation_fraction": 0.5387240034662045,
+        "linear_relative_reduction": -0.14976674306204596,
+        "linearized_MSE": 0.06909511120726203,
+        "nonlinear_MSE": 0.08068579781068907,
+        "nonlinear_relative_reduction": -0.3426398096658456,
+        "parent_MSE": 0.06009489457248407
+      },
+      "fraction": 1,
+      "role": "local_singleton",
+      "teacher_index": 14
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.08723167823070252,
+        "gate_saturation_fraction": 0.5791278187337381,
+        "linear_relative_reduction": 0.5905560361872633,
+        "linearized_MSE": 0.008803007229018976,
+        "nonlinear_MSE": 0.04284765416854998,
+        "nonlinear_relative_reduction": -0.9929227486052563,
+        "parent_MSE": 0.021499907208413792
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.08739980502599654,
+        "gate_saturation_fraction": 0.5847053726169844,
+        "linear_relative_reduction": -0.22057190304086016,
+        "linearized_MSE": 0.07017138542666891,
+        "nonlinear_MSE": 0.07925981495002377,
+        "nonlinear_relative_reduction": -0.3786574481889826,
+        "parent_MSE": 0.05749057900796184
+      },
+      "fraction": 1,
+      "role": "local_singleton",
+      "teacher_index": 15
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.00502086947094536,
+        "gate_saturation_fraction": 0.0010434735472679966,
+        "linear_relative_reduction": 0.06051279850488789,
+        "linearized_MSE": 0.011867297385735684,
+        "nonlinear_MSE": 0.011958245003463992,
+        "nonlinear_relative_reduction": 0.053312833754285305,
+        "parent_MSE": 0.01263167541489646
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.004874350086655113,
+        "gate_saturation_fraction": 0.0006499133448873483,
+        "linear_relative_reduction": 0.002442830602859547,
+        "linearized_MSE": 0.04575986880950622,
+        "nonlinear_MSE": 0.04576413165112721,
+        "nonlinear_relative_reduction": 0.0023499013980421424,
+        "parent_MSE": 0.04587192615452862
+      },
+      "fraction": 0.0625,
+      "role": "joint",
+      "teacher_index": 0
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.007226393104943625,
+        "gate_saturation_fraction": 0.024636816999132696,
+        "linear_relative_reduction": 0.063401621996372,
+        "linearized_MSE": 0.029176577763799665,
+        "nonlinear_MSE": 0.02951432447688654,
+        "nonlinear_relative_reduction": 0.05255960254453251,
+        "parent_MSE": 0.03115164242115167
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.006905329289428076,
+        "gate_saturation_fraction": 0.025617417677642983,
+        "linear_relative_reduction": 0.0033850191397708507,
+        "linearized_MSE": 0.08626033638925987,
+        "nonlinear_MSE": 0.08618937476458631,
+        "nonlinear_relative_reduction": 0.004204879357991076,
+        "parent_MSE": 0.08655332103758281
+      },
+      "fraction": 0.0625,
+      "role": "joint",
+      "teacher_index": 1
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.007375460754553339,
+        "gate_saturation_fraction": 0.011749241110147442,
+        "linear_relative_reduction": 0.0653898791773243,
+        "linearized_MSE": 0.010191597595360705,
+        "nonlinear_MSE": 0.010278537581012381,
+        "nonlinear_relative_reduction": 0.05741713597058473,
+        "parent_MSE": 0.010904651435177819
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.007311525129982669,
+        "gate_saturation_fraction": 0.011265164644714038,
+        "linear_relative_reduction": 0.008305984932354349,
+        "linearized_MSE": 0.025727770388059186,
+        "nonlinear_MSE": 0.02575354117455837,
+        "nonlinear_relative_reduction": 0.007312632832683574,
+        "parent_MSE": 0.02594325467044816
+      },
+      "fraction": 0.0625,
+      "role": "joint",
+      "teacher_index": 2
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.006653837814397224,
+        "gate_saturation_fraction": 0.005637467476149176,
+        "linear_relative_reduction": 0.06060617316549188,
+        "linearized_MSE": 0.03163934064680587,
+        "nonlinear_MSE": 0.03204475047088733,
+        "nonlinear_relative_reduction": 0.04856927611597517,
+        "parent_MSE": 0.03368059246612415
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.005957538994800693,
+        "gate_saturation_fraction": 0.006011698440207973,
+        "linear_relative_reduction": 0.006101443132423556,
+        "linearized_MSE": 0.09010651665861424,
+        "nonlinear_MSE": 0.09025689848207619,
+        "nonlinear_relative_reduction": 0.004442692102415324,
+        "parent_MSE": 0.09065967148860618
+      },
+      "fraction": 0.0625,
+      "role": "joint",
+      "teacher_index": 3
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.011241055941023417,
+        "gate_saturation_fraction": 0.0048785776235906325,
+        "linear_relative_reduction": 0.07578646247746579,
+        "linearized_MSE": 0.03679658547464322,
+        "nonlinear_MSE": 0.037441889469770055,
+        "nonlinear_relative_reduction": 0.059578472512620384,
+        "parent_MSE": 0.039813943402388266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.01164428076256499,
+        "gate_saturation_fraction": 0.004657712305025997,
+        "linear_relative_reduction": 0.01765208910767524,
+        "linearized_MSE": 0.09684728617319315,
+        "nonlinear_MSE": 0.09693368676763275,
+        "nonlinear_relative_reduction": 0.01677570478343282,
+        "parent_MSE": 0.09858756261335255
+      },
+      "fraction": 0.0625,
+      "role": "joint",
+      "teacher_index": 4
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.006342150910667823,
+        "gate_saturation_fraction": 0.0037537944492627923,
+        "linear_relative_reduction": 0.05859376344855205,
+        "linearized_MSE": 0.022101845611455923,
+        "nonlinear_MSE": 0.022378503329333867,
+        "nonlinear_relative_reduction": 0.046809801802136786,
+        "parent_MSE": 0.023477479491127266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.005998158578856152,
+        "gate_saturation_fraction": 0.004061958405545928,
+        "linear_relative_reduction": 0.004533852672440553,
+        "linearized_MSE": 0.06320419012993586,
+        "nonlinear_MSE": 0.06323656549994763,
+        "nonlinear_relative_reduction": 0.004023940516495461,
+        "parent_MSE": 0.0634920537474977
+      },
+      "fraction": 0.0625,
+      "role": "joint",
+      "teacher_index": 5
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.006992627927146574,
+        "gate_saturation_fraction": 0.03424490459670425,
+        "linear_relative_reduction": 0.05623770042887821,
+        "linearized_MSE": 0.011237825421641309,
+        "nonlinear_MSE": 0.011372458582443734,
+        "nonlinear_relative_reduction": 0.044931091127693,
+        "parent_MSE": 0.011907474399801905
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.006878249566724436,
+        "gate_saturation_fraction": 0.03428292894280763,
+        "linear_relative_reduction": 0.010816179234871992,
+        "linearized_MSE": 0.02750212357609106,
+        "nonlinear_MSE": 0.027593995987683875,
+        "nonlinear_relative_reduction": 0.007511754292163442,
+        "parent_MSE": 0.027802844121346752
+      },
+      "fraction": 0.0625,
+      "role": "joint",
+      "teacher_index": 6
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.008019161968777104,
+        "gate_saturation_fraction": 0.012209995663486557,
+        "linear_relative_reduction": 0.059313621667036354,
+        "linearized_MSE": 0.011480597952641624,
+        "nonlinear_MSE": 0.011670728897467935,
+        "nonlinear_relative_reduction": 0.04373485210856276,
+        "parent_MSE": 0.012204490483838995
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.008002058058925477,
+        "gate_saturation_fraction": 0.012348353552859619,
+        "linear_relative_reduction": 0.015192670492237825,
+        "linearized_MSE": 0.03771833923131065,
+        "nonlinear_MSE": 0.03780446366502387,
+        "nonlinear_relative_reduction": 0.012944003787949798,
+        "parent_MSE": 0.038300221882145685
+      },
+      "fraction": 0.0625,
+      "role": "joint",
+      "teacher_index": 7
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.009045696010407632,
+        "gate_saturation_fraction": 0.021818083261058108,
+        "linear_relative_reduction": 0.06907444790597317,
+        "linearized_MSE": 0.02785916245460586,
+        "nonlinear_MSE": 0.028547774763948257,
+        "nonlinear_relative_reduction": 0.04606417990894185,
+        "parent_MSE": 0.029926305483762232
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.008557192374350087,
+        "gate_saturation_fraction": 0.02074306759098787,
+        "linear_relative_reduction": 0.007400232775829574,
+        "linearized_MSE": 0.07682453803852402,
+        "nonlinear_MSE": 0.07687565649439246,
+        "nonlinear_relative_reduction": 0.006739764536236148,
+        "parent_MSE": 0.07739729604548036
+      },
+      "fraction": 0.0625,
+      "role": "joint",
+      "teacher_index": 8
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.005911887467476149,
+        "gate_saturation_fraction": 0.0017346053772766695,
+        "linear_relative_reduction": 0.0630173249119198,
+        "linearized_MSE": 0.015408236155317948,
+        "nonlinear_MSE": 0.015559261644088232,
+        "nonlinear_relative_reduction": 0.05383338814926675,
+        "parent_MSE": 0.016444526206281788
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.005388864818024263,
+        "gate_saturation_fraction": 0.002112218370883882,
+        "linear_relative_reduction": 0.004579135682950319,
+        "linearized_MSE": 0.03850605244284329,
+        "nonlinear_MSE": 0.038519109992799117,
+        "nonlinear_relative_reduction": 0.004241584652961317,
+        "parent_MSE": 0.03868318800938735
+      },
+      "fraction": 0.0625,
+      "role": "joint",
+      "teacher_index": 9
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.006904542497831744,
+        "gate_saturation_fraction": 0.002114050303555941,
+        "linear_relative_reduction": 0.061444470796307216,
+        "linearized_MSE": 0.03165921026145466,
+        "nonlinear_MSE": 0.03206616556215441,
+        "nonlinear_relative_reduction": 0.04938004643271121,
+        "parent_MSE": 0.03373184566747539
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.006241876083188908,
+        "gate_saturation_fraction": 0.0012456672443674178,
+        "linear_relative_reduction": 0.007902675347715604,
+        "linearized_MSE": 0.08995664834535651,
+        "nonlinear_MSE": 0.08997993925579786,
+        "nonlinear_relative_reduction": 0.007645808841875268,
+        "parent_MSE": 0.09067320928104004
+      },
+      "fraction": 0.0625,
+      "role": "joint",
+      "teacher_index": 10
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.006396357328707719,
+        "gate_saturation_fraction": 0.015719861231569817,
+        "linear_relative_reduction": 0.059364655644772446,
+        "linearized_MSE": 0.00946833532382979,
+        "nonlinear_MSE": 0.009559077450718635,
+        "nonlinear_relative_reduction": 0.05034984481960103,
+        "parent_MSE": 0.01006589363311667
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.006241876083188908,
+        "gate_saturation_fraction": 0.0144605719237435,
+        "linear_relative_reduction": 0.004650648671421398,
+        "linearized_MSE": 0.030480058102218842,
+        "nonlinear_MSE": 0.03050895111626369,
+        "nonlinear_relative_reduction": 0.003707125444168402,
+        "parent_MSE": 0.030622472463094973
+      },
+      "fraction": 0.0625,
+      "role": "joint",
+      "teacher_index": 11
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.01101067866435386,
+        "gate_saturation_fraction": 0.014174978317432784,
+        "linear_relative_reduction": 0.06416155154491066,
+        "linearized_MSE": 0.019983250325350352,
+        "nonlinear_MSE": 0.020277418982553436,
+        "nonlinear_relative_reduction": 0.05038529716892359,
+        "parent_MSE": 0.021353311950731785
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.010588171577123051,
+        "gate_saturation_fraction": 0.015164644714038127,
+        "linear_relative_reduction": 0.004669537243447541,
+        "linearized_MSE": 0.049620823441234946,
+        "nonlinear_MSE": 0.049702045196112724,
+        "nonlinear_relative_reduction": 0.0030403323802082882,
+        "parent_MSE": 0.04985361676142297
+      },
+      "fraction": 0.0625,
+      "role": "joint",
+      "teacher_index": 12
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.006775802254986991,
+        "gate_saturation_fraction": 0.01650585429314831,
+        "linear_relative_reduction": 0.056666584433212486,
+        "linearized_MSE": 0.02171430567931181,
+        "nonlinear_MSE": 0.022067178941428282,
+        "nonlinear_relative_reduction": 0.04133673025640261,
+        "parent_MSE": 0.023018696593362063
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.005862759965337955,
+        "gate_saturation_fraction": 0.015868717504332757,
+        "linear_relative_reduction": 0.007437720712459184,
+        "linearized_MSE": 0.05406395681962094,
+        "nonlinear_MSE": 0.054226783266645165,
+        "nonlinear_relative_reduction": 0.004448383658830823,
+        "parent_MSE": 0.0544690826437893
+      },
+      "fraction": 0.0625,
+      "role": "joint",
+      "teacher_index": 13
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.006680941023417173,
+        "gate_saturation_fraction": 0.0025477016478751085,
+        "linear_relative_reduction": 0.06361202862456494,
+        "linearized_MSE": 0.022849288136018844,
+        "nonlinear_MSE": 0.023063609290545472,
+        "nonlinear_relative_reduction": 0.05482892125091887,
+        "parent_MSE": 0.02440151821093573
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0072167461005199305,
+        "gate_saturation_fraction": 0.002166377816291161,
+        "linear_relative_reduction": 0.007667051753155629,
+        "linearized_MSE": 0.0596341439056964,
+        "nonlinear_MSE": 0.05965601421178131,
+        "nonlinear_relative_reduction": 0.007303122234009418,
+        "parent_MSE": 0.06009489457248407
+      },
+      "fraction": 0.0625,
+      "role": "joint",
+      "teacher_index": 14
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0065894676929748475,
+        "gate_saturation_fraction": 0.000691131830008673,
+        "linear_relative_reduction": 0.06532700290546045,
+        "linearized_MSE": 0.020095382707742613,
+        "nonlinear_MSE": 0.020288748036748697,
+        "nonlinear_relative_reduction": 0.05633322785649597,
+        "parent_MSE": 0.021499907208413792
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.006905329289428077,
+        "gate_saturation_fraction": 0.0010831889081455806,
+        "linear_relative_reduction": 0.009130486760010048,
+        "linearized_MSE": 0.05696566203750433,
+        "nonlinear_MSE": 0.05699846951776891,
+        "nonlinear_relative_reduction": 0.008559828387269874,
+        "parent_MSE": 0.05749057900796184
+      },
+      "fraction": 0.0625,
+      "role": "joint",
+      "teacher_index": 15
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.01887060928013877,
+        "gate_saturation_fraction": 0.1560873807458803,
+        "linear_relative_reduction": 0.22190356450624038,
+        "linearized_MSE": 0.009828661614645092,
+        "nonlinear_MSE": 0.0112402145755119,
+        "nonlinear_relative_reduction": 0.11015647518488458,
+        "parent_MSE": 0.01263167541489646
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.01863084922010399,
+        "gate_saturation_fraction": 0.15327123050259966,
+        "linear_relative_reduction": -0.0027069423684209504,
+        "linearized_MSE": 0.04599609881495739,
+        "nonlinear_MSE": 0.046101728243661974,
+        "nonlinear_relative_reduction": -0.005009645515194228,
+        "parent_MSE": 0.04587192615452862
+      },
+      "fraction": 0.25,
+      "role": "joint",
+      "teacher_index": 0
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.02582258239375542,
+        "gate_saturation_fraction": 0.2112559627059844,
+        "linear_relative_reduction": 0.23239887455868968,
+        "linearized_MSE": 0.023912035781821286,
+        "nonlinear_MSE": 0.027717384531791456,
+        "nonlinear_relative_reduction": 0.11024323671063918,
+        "parent_MSE": 0.03115164242115167
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.025224761698440207,
+        "gate_saturation_fraction": 0.21452556325823224,
+        "linear_relative_reduction": -0.003133085166750149,
+        "linearized_MSE": 0.08682449996385863,
+        "nonlinear_MSE": 0.08723668869309414,
+        "nonlinear_relative_reduction": -0.007895337201614616,
+        "parent_MSE": 0.08655332103758281
+      },
+      "fraction": 0.25,
+      "role": "joint",
+      "teacher_index": 1
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.026449344102341718,
+        "gate_saturation_fraction": 0.2081255420641804,
+        "linear_relative_reduction": 0.23885584941987892,
+        "linearized_MSE": 0.00830001165400072,
+        "nonlinear_MSE": 0.00949540092522311,
+        "nonlinear_relative_reduction": 0.12923388870629493,
+        "parent_MSE": 0.010904651435177819
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.02694432409012132,
+        "gate_saturation_fraction": 0.2100303292894281,
+        "linear_relative_reduction": 0.015840275879437482,
+        "linearized_MSE": 0.025532306359257757,
+        "nonlinear_MSE": 0.026077164162723956,
+        "nonlinear_relative_reduction": -0.005161630411327334,
+        "parent_MSE": 0.02594325467044816
+      },
+      "fraction": 0.25,
+      "role": "joint",
+      "teacher_index": 2
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.023867763443191675,
+        "gate_saturation_fraction": 0.21654108846487424,
+        "linear_relative_reduction": 0.2223579483091418,
+        "linearized_MSE": 0.026191445027520445,
+        "nonlinear_MSE": 0.03125175924725086,
+        "nonlinear_relative_reduction": 0.07211373200504712,
+        "parent_MSE": 0.03368059246612415
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.023748916811091855,
+        "gate_saturation_fraction": 0.21327989601386482,
+        "linear_relative_reduction": 0.00569376345642536,
+        "linearized_MSE": 0.09014347676411283,
+        "nonlinear_MSE": 0.09180599113792298,
+        "nonlinear_relative_reduction": -0.01264420696098445,
+        "parent_MSE": 0.09065967148860618
+      },
+      "fraction": 0.25,
+      "role": "joint",
+      "teacher_index": 3
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.03615906873373807,
+        "gate_saturation_fraction": 0.18202515177797052,
+        "linear_relative_reduction": 0.27665133056182467,
+        "linearized_MSE": 0.02879936298520437,
+        "nonlinear_MSE": 0.03577361758798267,
+        "nonlinear_relative_reduction": 0.10148017174714807,
+        "parent_MSE": 0.039813943402388266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.03730231802426343,
+        "gate_saturation_fraction": 0.18284228769497402,
+        "linear_relative_reduction": 0.05000890074831554,
+        "linearized_MSE": 0.09365730697960306,
+        "nonlinear_MSE": 0.09423309203061098,
+        "nonlinear_relative_reduction": 0.044168559068847646,
+        "parent_MSE": 0.09858756261335255
+      },
+      "fraction": 0.25,
+      "role": "joint",
+      "teacher_index": 4
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.02232965633130963,
+        "gate_saturation_fraction": 0.23555398959236773,
+        "linear_relative_reduction": 0.21501603972831684,
+        "linearized_MSE": 0.0184294448281423,
+        "nonlinear_MSE": 0.021745990998371614,
+        "nonlinear_relative_reduction": 0.07375103845410769,
+        "parent_MSE": 0.023477479491127266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.022042894280762566,
+        "gate_saturation_fraction": 0.24572140381282498,
+        "linear_relative_reduction": 0.004351774628469696,
+        "linearized_MSE": 0.0632157506388899,
+        "nonlinear_MSE": 0.06367487128878291,
+        "nonlinear_relative_reduction": -0.002879376717159987,
+        "parent_MSE": 0.0634920537474977
+      },
+      "fraction": 0.25,
+      "role": "joint",
+      "teacher_index": 5
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.025524447094535992,
+        "gate_saturation_fraction": 0.2743115784908933,
+        "linear_relative_reduction": 0.20607794517450162,
+        "linearized_MSE": 0.009453606543272746,
+        "nonlinear_MSE": 0.011136800615045978,
+        "nonlinear_relative_reduction": 0.06472185107269657,
+        "parent_MSE": 0.011907474399801905
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.025008123916811092,
+        "gate_saturation_fraction": 0.276971403812825,
+        "linear_relative_reduction": 0.02645230891128847,
+        "linearized_MSE": 0.02706739470003649,
+        "nonlinear_MSE": 0.028072408939056513,
+        "nonlinear_relative_reduction": -0.00969558425509387,
+        "parent_MSE": 0.027802844121346752
+      },
+      "fraction": 0.25,
+      "role": "joint",
+      "teacher_index": 6
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.027814668256721596,
+        "gate_saturation_fraction": 0.24382046834345186,
+        "linear_relative_reduction": 0.21734834212952325,
+        "linearized_MSE": 0.009551864710641046,
+        "nonlinear_MSE": 0.011714403177267012,
+        "nonlinear_relative_reduction": 0.04015631027128497,
+        "parent_MSE": 0.012204490483838995
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.027120342287694974,
+        "gate_saturation_fraction": 0.24236351819757362,
+        "linear_relative_reduction": 0.04567475948168909,
+        "linearized_MSE": 0.03655086845958336,
+        "nonlinear_MSE": 0.03725423861277399,
+        "nonlinear_relative_reduction": 0.027310109915036684,
+        "parent_MSE": 0.038300221882145685
+      },
+      "fraction": 0.25,
+      "role": "joint",
+      "teacher_index": 7
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.03232735255854293,
+        "gate_saturation_fraction": 0.2486854943625325,
+        "linear_relative_reduction": 0.25265945525190303,
+        "linearized_MSE": 0.022365141442532828,
+        "nonlinear_MSE": 0.029731515071118916,
+        "nonlinear_relative_reduction": 0.00650900301572499,
+        "parent_MSE": 0.029926305483762232
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.03134477902946274,
+        "gate_saturation_fraction": 0.24913344887348354,
+        "linear_relative_reduction": 0.012584399479229402,
+        "linearized_MSE": 0.07642329755343186,
+        "nonlinear_MSE": 0.07856881114882788,
+        "nonlinear_relative_reduction": -0.015136382835120088,
+        "parent_MSE": 0.07739729604548036
+      },
+      "fraction": 0.25,
+      "role": "joint",
+      "teacher_index": 8
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.021912944492627928,
+        "gate_saturation_fraction": 0.11501246747614918,
+        "linear_relative_reduction": 0.23094740968881855,
+        "linearized_MSE": 0.012646705475381114,
+        "nonlinear_MSE": 0.014383964247768815,
+        "nonlinear_relative_reduction": 0.12530382041203725,
+        "parent_MSE": 0.016444526206281788
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.020715987868284227,
+        "gate_saturation_fraction": 0.11963821490467938,
+        "linear_relative_reduction": 9.189069621950985e-05,
+        "linearized_MSE": 0.03867963338430918,
+        "nonlinear_MSE": 0.03878241011531573,
+        "nonlinear_relative_reduction": -0.0025649929862114895,
+        "parent_MSE": 0.03868318800938735
+      },
+      "fraction": 0.25,
+      "role": "joint",
+      "teacher_index": 9
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.02485025477016479,
+        "gate_saturation_fraction": 0.20788161318300086,
+        "linear_relative_reduction": 0.22542423630876895,
+        "linearized_MSE": 0.026127870118599496,
+        "nonlinear_MSE": 0.030660244078650492,
+        "nonlinear_relative_reduction": 0.09105939885722203,
+        "parent_MSE": 0.03373184566747539
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.023694757365684577,
+        "gate_saturation_fraction": 0.20808058925476602,
+        "linear_relative_reduction": 0.015837333521551256,
+        "linearized_MSE": 0.08923718742418679,
+        "nonlinear_MSE": 0.08935850162137496,
+        "nonlinear_relative_reduction": 0.014499405834309531,
+        "parent_MSE": 0.09067320928104004
+      },
+      "fraction": 0.25,
+      "role": "joint",
+      "teacher_index": 10
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.022543094102341718,
+        "gate_saturation_fraction": 0.17313529921942758,
+        "linear_relative_reduction": 0.21688874885039255,
+        "linearized_MSE": 0.007882714556968862,
+        "nonlinear_MSE": 0.009044125620390198,
+        "nonlinear_relative_reduction": 0.10150792865174607,
+        "parent_MSE": 0.01006589363311667
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.02284174610051993,
+        "gate_saturation_fraction": 0.17309358752166376,
+        "linear_relative_reduction": 0.005989740732870619,
+        "linearized_MSE": 0.030439051792441565,
+        "nonlinear_MSE": 0.030799238884069845,
+        "nonlinear_relative_reduction": -0.005772441176586929,
+        "parent_MSE": 0.030622472463094973
+      },
+      "fraction": 0.25,
+      "role": "joint",
+      "teacher_index": 11
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0378123644839549,
+        "gate_saturation_fraction": 0.26891803989592367,
+        "linear_relative_reduction": 0.23496830199771246,
+        "linearized_MSE": 0.016335960499640877,
+        "nonlinear_MSE": 0.019591425505675556,
+        "nonlinear_relative_reduction": 0.0825111556053415,
+        "parent_MSE": 0.021353311950731785
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.03787099220103986,
+        "gate_saturation_fraction": 0.2736135181975736,
+        "linear_relative_reduction": -0.0024581970799903985,
+        "linearized_MSE": 0.04997616677657286,
+        "nonlinear_MSE": 0.05054985091551184,
+        "nonlinear_relative_reduction": -0.013965569587874427,
+        "parent_MSE": 0.04985361676142297
+      },
+      "fraction": 0.25,
+      "role": "joint",
+      "teacher_index": 12
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.02378984171725932,
+        "gate_saturation_fraction": 0.24522983521248914,
+        "linear_relative_reduction": 0.20794631174804767,
+        "linearized_MSE": 0.018232043535525072,
+        "nonlinear_MSE": 0.022012244008382243,
+        "nonlinear_relative_reduction": 0.043723265602712336,
+        "parent_MSE": 0.023018696593362063
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.02296360485268631,
+        "gate_saturation_fraction": 0.24523396880415946,
+        "linear_relative_reduction": 0.012803867971005967,
+        "linearized_MSE": 0.05377166770111641,
+        "nonlinear_MSE": 0.05510852357521667,
+        "nonlinear_relative_reduction": -0.011739520850922336,
+        "parent_MSE": 0.0544690826437893
+      },
+      "fraction": 0.25,
+      "role": "joint",
+      "teacher_index": 13
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.025080632046834344,
+        "gate_saturation_fraction": 0.18080550737207285,
+        "linear_relative_reduction": 0.23288459395920613,
+        "linearized_MSE": 0.01871878055039379,
+        "nonlinear_MSE": 0.021497417403089292,
+        "nonlinear_relative_reduction": 0.11901311970600847,
+        "parent_MSE": 0.02440151821093573
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.024805025996533794,
+        "gate_saturation_fraction": 0.1782387348353553,
+        "linear_relative_reduction": 0.015809790797890688,
+        "linearized_MSE": 0.0591448068612718,
+        "nonlinear_MSE": 0.05969017810877286,
+        "nonlinear_relative_reduction": 0.006734623075560164,
+        "parent_MSE": 0.06009489457248407
+      },
+      "fraction": 0.25,
+      "role": "joint",
+      "teacher_index": 14
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.024738454032957505,
+        "gate_saturation_fraction": 0.17987044666088464,
+        "linear_relative_reduction": 0.239216733462851,
+        "linearized_MSE": 0.01635676963626264,
+        "nonlinear_MSE": 0.01896962620639591,
+        "nonlinear_relative_reduction": 0.11768799639412764,
+        "parent_MSE": 0.021499907208413792
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.024236351819757366,
+        "gate_saturation_fraction": 0.18397963604852685,
+        "linear_relative_reduction": 0.019122475317487564,
+        "linearized_MSE": 0.05639121682989402,
+        "nonlinear_MSE": 0.05699406963580175,
+        "nonlinear_relative_reduction": 0.008636360612950589,
+        "parent_MSE": 0.05749057900796184
+      },
+      "fraction": 0.25,
+      "role": "joint",
+      "teacher_index": 15
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0685372398091934,
+        "gate_saturation_fraction": 0.5630827189939289,
+        "linear_relative_reduction": 0.5652521858119872,
+        "linearized_MSE": 0.005491593276158694,
+        "nonlinear_MSE": 0.024833986254176776,
+        "nonlinear_relative_reduction": -0.9660088973542025,
+        "parent_MSE": 0.01263167541489646
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.06810550259965338,
+        "gate_saturation_fraction": 0.5610918544194108,
+        "linear_relative_reduction": -0.21048000595144112,
+        "linearized_MSE": 0.055527049444537874,
+        "nonlinear_MSE": 0.05771278685970459,
+        "nonlinear_relative_reduction": -0.2581287008809636,
+        "parent_MSE": 0.04587192615452862
+      },
+      "fraction": 1,
+      "role": "joint",
+      "teacher_index": 0
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.08639147875108413,
+        "gate_saturation_fraction": 0.5548704466608847,
+        "linear_relative_reduction": 0.5902736834059836,
+        "linearized_MSE": 0.012763647705072378,
+        "nonlinear_MSE": 0.09187204572161828,
+        "nonlinear_relative_reduction": -1.949187862378583,
+        "parent_MSE": 0.03115164242115167
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.08547714471403814,
+        "gate_saturation_fraction": 0.5554592720970537,
+        "linear_relative_reduction": -0.2793029282803339,
+        "linearized_MSE": 0.11072791705576751,
+        "nonlinear_MSE": 0.16188341348807753,
+        "nonlinear_relative_reduction": -0.8703316238759367,
+        "parent_MSE": 0.08655332103758281
+      },
+      "fraction": 1,
+      "role": "joint",
+      "teacher_index": 1
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.08857667497831744,
+        "gate_saturation_fraction": 0.6592042497831743,
+        "linear_relative_reduction": 0.5921647210488293,
+        "linearized_MSE": 0.004447301559931029,
+        "nonlinear_MSE": 0.023788848474598175,
+        "nonlinear_relative_reduction": -1.1815322219155608,
+        "parent_MSE": 0.010904651435177819
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.08994529896013864,
+        "gate_saturation_fraction": 0.659932842287695,
+        "linear_relative_reduction": -0.2147775180819247,
+        "linearized_MSE": 0.03151528251953432,
+        "nonlinear_MSE": 0.042624330210839036,
+        "nonlinear_relative_reduction": -0.6429831473455105,
+        "parent_MSE": 0.02594325467044816
+      },
+      "fraction": 1,
+      "role": "joint",
+      "teacher_index": 2
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0829121042931483,
+        "gate_saturation_fraction": 0.6053501734605378,
+        "linear_relative_reduction": 0.5683638835913472,
+        "linearized_MSE": 0.01453776013042036,
+        "nonlinear_MSE": 0.08832366566458469,
+        "nonlinear_relative_reduction": -1.6223904984278525,
+        "parent_MSE": 0.03368059246612415
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.08465121317157712,
+        "gate_saturation_fraction": 0.6060441941074524,
+        "linear_relative_reduction": -0.27661709134661727,
+        "linearized_MSE": 0.11573768611822427,
+        "nonlinear_MSE": 0.1605720612688316,
+        "nonlinear_relative_reduction": -0.7711520308013888,
+        "parent_MSE": 0.09065967148860618
+      },
+      "fraction": 1,
+      "role": "joint",
+      "teacher_index": 3
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.11756016912402428,
+        "gate_saturation_fraction": 0.6120853209019947,
+        "linear_relative_reduction": 0.6826930126786841,
+        "linearized_MSE": 0.012633242434393205,
+        "nonlinear_MSE": 0.08919221284485267,
+        "nonlinear_relative_reduction": -1.2402255396661466,
+        "parent_MSE": 0.039813943402388266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.11789157279029464,
+        "gate_saturation_fraction": 0.611026863084922,
+        "linear_relative_reduction": -0.12955568792489514,
+        "linearized_MSE": 0.11136014210856413,
+        "nonlinear_MSE": 0.12962778898985838,
+        "nonlinear_relative_reduction": -0.3148493131759582,
+        "parent_MSE": 0.09858756261335255
+      },
+      "fraction": 1,
+      "role": "joint",
+      "teacher_index": 4
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.07540790329575023,
+        "gate_saturation_fraction": 0.6591635949696444,
+        "linear_relative_reduction": 0.5503199338590019,
+        "linearized_MSE": 0.010557354530394036,
+        "nonlinear_MSE": 0.05095914431144359,
+        "nonlinear_relative_reduction": -1.1705543105980496,
+        "parent_MSE": 0.023477479491127266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.07392764298093588,
+        "gate_saturation_fraction": 0.6658362218370883,
+        "linear_relative_reduction": -0.2031310784668212,
+        "linearized_MSE": 0.07638926309930028,
+        "nonlinear_MSE": 0.0942623619369143,
+        "nonlinear_relative_reduction": -0.48463242836319975,
+        "parent_MSE": 0.0634920537474977
+      },
+      "fraction": 1,
+      "role": "joint",
+      "teacher_index": 5
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.08280030355594102,
+        "gate_saturation_fraction": 0.6222625758889853,
+        "linear_relative_reduction": 0.5223460760418259,
+        "linearized_MSE": 0.0056876518714968835,
+        "nonlinear_MSE": 0.027883106521496896,
+        "nonlinear_relative_reduction": -1.3416474044202662,
+        "parent_MSE": 0.011907474399801905
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.08500324956672443,
+        "gate_saturation_fraction": 0.6247833622183709,
+        "linear_relative_reduction": -0.1631892928060381,
+        "linearized_MSE": 0.03233997059150584,
+        "nonlinear_MSE": 0.04735870490193717,
+        "nonlinear_relative_reduction": -0.7033762695369579,
+        "parent_MSE": 0.027802844121346752
+      },
+      "fraction": 1,
+      "role": "joint",
+      "teacher_index": 6
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0901520490026019,
+        "gate_saturation_fraction": 0.679125108412836,
+        "linear_relative_reduction": 0.5508950559001468,
+        "linearized_MSE": 0.0054810970165117025,
+        "nonlinear_MSE": 0.05159934820706713,
+        "nonlinear_relative_reduction": -3.2278985980934003,
+        "parent_MSE": 0.012204490483838995
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.09017547660311959,
+        "gate_saturation_fraction": 0.6806759098786828,
+        "linear_relative_reduction": -0.05883572186945574,
+        "linearized_MSE": 0.04055364308434205,
+        "nonlinear_MSE": 0.06953399471121412,
+        "nonlinear_relative_reduction": -0.8154984826244205,
+        "parent_MSE": 0.038300221882145685
+      },
+      "fraction": 1,
+      "role": "joint",
+      "teacher_index": 7
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.10932756938421509,
+        "gate_saturation_fraction": 0.6487559627059845,
+        "linear_relative_reduction": 0.6324244390557787,
+        "linearized_MSE": 0.011000178525182027,
+        "nonlinear_MSE": 0.13140879770891192,
+        "nonlinear_relative_reduction": -3.3910798738659294,
+        "parent_MSE": 0.029926305483762232
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.10581401646447139,
+        "gate_saturation_fraction": 0.6522963604852686,
+        "linear_relative_reduction": -0.22192690806850113,
+        "linearized_MSE": 0.09457383864971625,
+        "nonlinear_MSE": 0.17539786764562126,
+        "nonlinear_relative_reduction": -1.2662014903279517,
+        "parent_MSE": 0.07739729604548036
+      },
+      "fraction": 1,
+      "role": "joint",
+      "teacher_index": 8
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.07696294991326974,
+        "gate_saturation_fraction": 0.4632344969644406,
+        "linear_relative_reduction": 0.5858393994135136,
+        "linearized_MSE": 0.006810674849953879,
+        "nonlinear_MSE": 0.028840050107942126,
+        "nonlinear_relative_reduction": -0.7537781110972517,
+        "parent_MSE": 0.016444526206281788
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.07663561525129983,
+        "gate_saturation_fraction": 0.4718912478336222,
+        "linear_relative_reduction": -0.2912268697844198,
+        "linearized_MSE": 0.04994877176664343,
+        "nonlinear_MSE": 0.056945242597418136,
+        "nonlinear_relative_reduction": -0.47209280123445563,
+        "parent_MSE": 0.03868318800938735
+      },
+      "fraction": 1,
+      "role": "joint",
+      "teacher_index": 9
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.08345078057241978,
+        "gate_saturation_fraction": 0.621354618386817,
+        "linear_relative_reduction": 0.5760385952117221,
+        "linearized_MSE": 0.014301000675284253,
+        "nonlinear_MSE": 0.06601807476078203,
+        "nonlinear_relative_reduction": -0.9571438637417153,
+        "parent_MSE": 0.03373184566747539
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.08109022963604853,
+        "gate_saturation_fraction": 0.6175259965337955,
+        "linear_relative_reduction": -0.18902455182277045,
+        "linearized_MSE": 0.10781267202772091,
+        "nonlinear_MSE": 0.1185117834756704,
+        "nonlinear_relative_reduction": -0.30702094273894276,
+        "parent_MSE": 0.09067320928104004
+      },
+      "fraction": 1,
+      "role": "joint",
+      "teacher_index": 10
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.07777604618386816,
+        "gate_saturation_fraction": 0.6271547051170858,
+        "linear_relative_reduction": 0.5384370157424039,
+        "linearized_MSE": 0.004646043904520867,
+        "nonlinear_MSE": 0.023127773415703747,
+        "nonlinear_relative_reduction": -1.297637374153612,
+        "parent_MSE": 0.01006589363311667
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.07651375649913345,
+        "gate_saturation_fraction": 0.6260290294627383,
+        "linear_relative_reduction": -0.17784670031355287,
+        "linearized_MSE": 0.03606857814609905,
+        "nonlinear_MSE": 0.04648622454730855,
+        "nonlinear_relative_reduction": -0.5180428230715846,
+        "parent_MSE": 0.030622472463094973
+      },
+      "fraction": 1,
+      "role": "joint",
+      "teacher_index": 11
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.11429084453599306,
+        "gate_saturation_fraction": 0.6987884865568084,
+        "linear_relative_reduction": 0.5930267410799601,
+        "linearized_MSE": 0.00869022695332555,
+        "nonlinear_MSE": 0.05723207747321357,
+        "nonlinear_relative_reduction": -1.6802435896250842,
+        "parent_MSE": 0.021353311950731785
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.11595537261698441,
+        "gate_saturation_fraction": 0.6959488734835355,
+        "linear_relative_reduction": -0.3480143251804484,
+        "linearized_MSE": 0.06720338955645427,
+        "nonlinear_MSE": 0.08558053320762082,
+        "nonlinear_relative_reduction": -0.7166364000664354,
+        "parent_MSE": 0.04985361676142297
+      },
+      "fraction": 1,
+      "role": "joint",
+      "teacher_index": 12
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.08033391153512576,
+        "gate_saturation_fraction": 0.6383347788378144,
+        "linear_relative_reduction": 0.5322648312353565,
+        "linearized_MSE": 0.010766653935838328,
+        "nonlinear_MSE": 0.05053440840109627,
+        "nonlinear_relative_reduction": -1.1953635904679745,
+        "parent_MSE": 0.023018696593362063
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.08113084922010398,
+        "gate_saturation_fraction": 0.6378357885615251,
+        "linear_relative_reduction": -0.2199367661772782,
+        "linearized_MSE": 0.06644883653710723,
+        "nonlinear_MSE": 0.08212506442210671,
+        "nonlinear_relative_reduction": -0.5077372416785289,
+        "parent_MSE": 0.0544690826437893
+      },
+      "fraction": 1,
+      "role": "joint",
+      "teacher_index": 13
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0869775856461405,
+        "gate_saturation_fraction": 0.6113806374674762,
+        "linear_relative_reduction": 0.5865220472119799,
+        "linearized_MSE": 0.010089489794777296,
+        "nonlinear_MSE": 0.042292078202729025,
+        "nonlinear_relative_reduction": -0.733174052415128,
+        "parent_MSE": 0.02440151821093573
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.08861839254766031,
+        "gate_saturation_fraction": 0.6139514731369151,
+        "linear_relative_reduction": -0.17449549624414562,
+        "linearized_MSE": 0.07058118302264929,
+        "nonlinear_MSE": 0.08029954593629429,
+        "nonlinear_relative_reduction": -0.3362124437948748,
+        "parent_MSE": 0.06009489457248407
+      },
+      "fraction": 1,
+      "role": "joint",
+      "teacher_index": 14
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.08810236882046835,
+        "gate_saturation_fraction": 0.5902536860364267,
+        "linear_relative_reduction": 0.6034064833075615,
+        "linearized_MSE": 0.008526723808345934,
+        "nonlinear_MSE": 0.0471517942123427,
+        "nonlinear_relative_reduction": -1.1931161727940052,
+        "parent_MSE": 0.021499907208413792
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.08851007365684575,
+        "gate_saturation_fraction": 0.5997075389948007,
+        "linear_relative_reduction": -0.20190164629088225,
+        "linearized_MSE": 0.06909802155588537,
+        "nonlinear_MSE": 0.08484381951300624,
+        "nonlinear_relative_reduction": -0.4757864849692375,
+        "parent_MSE": 0.05749057900796184
+      },
+      "fraction": 1,
+      "role": "joint",
+      "teacher_index": 15
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0005014093668690373,
+        "gate_saturation_fraction": 0.0,
+        "linear_relative_reduction": 0.02589956467430299,
+        "linearized_MSE": 0.012304520520543545,
+        "nonlinear_MSE": 0.01231386067600658,
+        "nonlinear_relative_reduction": 0.025160141347131404,
+        "parent_MSE": 0.01263167541489646
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.00048743500866551127,
+        "gate_saturation_fraction": 0.0,
+        "linear_relative_reduction": 0.002142649169994848,
+        "linearized_MSE": 0.045773638710027556,
+        "nonlinear_MSE": 0.04577202160638336,
+        "nonlinear_relative_reduction": 0.0021779017477641105,
+        "parent_MSE": 0.04587192615452862
+      },
+      "fraction": 0.0625,
+      "role": "unconditioned",
+      "teacher_index": 0
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.00076566565481353,
+        "gate_saturation_fraction": 0.012995988725065048,
+        "linear_relative_reduction": 0.025223851252064167,
+        "linearized_MSE": 0.030365878026463046,
+        "nonlinear_MSE": 0.030455464662677713,
+        "nonlinear_relative_reduction": 0.022348027402922965,
+        "parent_MSE": 0.03115164242115167
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0005686741767764298,
+        "gate_saturation_fraction": 0.012564991334488735,
+        "linear_relative_reduction": 9.599204143106999e-05,
+        "linearized_MSE": 0.08654501260760378,
+        "nonlinear_MSE": 0.08649107438574383,
+        "nonlinear_relative_reduction": 0.0007191711547608337,
+        "parent_MSE": 0.08655332103758281
+      },
+      "fraction": 0.0625,
+      "role": "unconditioned",
+      "teacher_index": 1
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0008198720728534259,
+        "gate_saturation_fraction": 0.0014635732870771898,
+        "linear_relative_reduction": 0.029623047472141506,
+        "linearized_MSE": 0.01058162242804639,
+        "nonlinear_MSE": 0.010608056965323371,
+        "nonlinear_relative_reduction": 0.027198895041949722,
+        "parent_MSE": 0.010904651435177819
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0006092937608318891,
+        "gate_saturation_fraction": 0.0012456672443674176,
+        "linear_relative_reduction": 0.007436004131177398,
+        "linearized_MSE": 0.02575034052154252,
+        "nonlinear_MSE": 0.02575683533278312,
+        "nonlinear_relative_reduction": 0.007185657313744542,
+        "parent_MSE": 0.02594325467044816
+      },
+      "fraction": 0.0625,
+      "role": "unconditioned",
+      "teacher_index": 2
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0008300357762359063,
+        "gate_saturation_fraction": 0.0008944058976582827,
+        "linear_relative_reduction": 0.024203573371922915,
+        "linearized_MSE": 0.03286540177516048,
+        "nonlinear_MSE": 0.03293848111137333,
+        "nonlinear_relative_reduction": 0.022033797519958376,
+        "parent_MSE": 0.03368059246612415
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0006769930675909878,
+        "gate_saturation_fraction": 0.0010831889081455806,
+        "linear_relative_reduction": 0.003910486994953444,
+        "linearized_MSE": 0.09030514802228323,
+        "nonlinear_MSE": 0.0903385350973123,
+        "nonlinear_relative_reduction": 0.0035422187839523334,
+        "parent_MSE": 0.09065967148860618
+      },
+      "fraction": 0.0625,
+      "role": "unconditioned",
+      "teacher_index": 3
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0009384486123156981,
+        "gate_saturation_fraction": 0.012738508239375541,
+        "linear_relative_reduction": 0.03456560407549025,
+        "linearized_MSE": 0.03843775039805734,
+        "nonlinear_MSE": 0.03865427648376594,
+        "nonlinear_relative_reduction": 0.029127155451593945,
+        "parent_MSE": 0.039813943402388266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0008800909878682842,
+        "gate_saturation_fraction": 0.012456672443674177,
+        "linear_relative_reduction": 0.008049595254150277,
+        "linearized_MSE": 0.09779397263722187,
+        "nonlinear_MSE": 0.09792755311296368,
+        "nonlinear_relative_reduction": 0.006694652782697763,
+        "parent_MSE": 0.09858756261335255
+      },
+      "fraction": 0.0625,
+      "role": "unconditioned",
+      "teacher_index": 4
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.000677580225498699,
+        "gate_saturation_fraction": 5.420641803989592e-05,
+        "linear_relative_reduction": 0.023296014042476054,
+        "linearized_MSE": 0.022930547799220023,
+        "nonlinear_MSE": 0.022983327978686123,
+        "nonlinear_relative_reduction": 0.02104789454199696,
+        "parent_MSE": 0.023477479491127266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.00055513431542461,
+        "gate_saturation_fraction": 0.0,
+        "linear_relative_reduction": 0.004039096436547096,
+        "linearized_MSE": 0.06323560321945712,
+        "nonlinear_MSE": 0.06325305281524723,
+        "nonlinear_relative_reduction": 0.003764265260672528,
+        "parent_MSE": 0.0634920537474977
+      },
+      "fraction": 0.0625,
+      "role": "unconditioned",
+      "teacher_index": 5
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.00069790763226366,
+        "gate_saturation_fraction": 0.011518863833477883,
+        "linear_relative_reduction": 0.025484192708548514,
+        "linearized_MSE": 0.011604022027525245,
+        "nonlinear_MSE": 0.011629829692941952,
+        "nonlinear_relative_reduction": 0.02331684264335454,
+        "parent_MSE": 0.011907474399801905
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0006769930675909878,
+        "gate_saturation_fraction": 0.011427642980935876,
+        "linear_relative_reduction": 0.006119069638840013,
+        "linearized_MSE": 0.027632716582010417,
+        "nonlinear_MSE": 0.027646008708247995,
+        "nonlinear_relative_reduction": 0.005640984512744196,
+        "parent_MSE": 0.027802844121346752
+      },
+      "fraction": 0.0625,
+      "role": "unconditioned",
+      "teacher_index": 6
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0007351745446660884,
+        "gate_saturation_fraction": 0.0,
+        "linear_relative_reduction": 0.02503760491982243,
+        "linearized_MSE": 0.011898919272856901,
+        "nonlinear_MSE": 0.011932446872209148,
+        "nonlinear_relative_reduction": 0.02229045218971515,
+        "parent_MSE": 0.012204490483838995
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0007582322357019064,
+        "gate_saturation_fraction": 0.0,
+        "linear_relative_reduction": 0.006970669476357938,
+        "linearized_MSE": 0.03803324369453408,
+        "nonlinear_MSE": 0.038049632066076734,
+        "nonlinear_relative_reduction": 0.006542777136906541,
+        "parent_MSE": 0.038300221882145685
+      },
+      "fraction": 0.0625,
+      "role": "unconditioned",
+      "teacher_index": 7
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.001026534041630529,
+        "gate_saturation_fraction": 0.004878577623590633,
+        "linear_relative_reduction": 0.028261379532416808,
+        "linearized_MSE": 0.02908054680648258,
+        "nonlinear_MSE": 0.029239774128445757,
+        "nonlinear_relative_reduction": 0.02294073204889857,
+        "parent_MSE": 0.029926305483762232
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0009613301559792027,
+        "gate_saturation_fraction": 0.004549393414211438,
+        "linear_relative_reduction": 0.0014931921574340423,
+        "linearized_MSE": 0.07728172701001865,
+        "nonlinear_MSE": 0.07737245457775044,
+        "nonlinear_relative_reduction": 0.00032096040816886884,
+        "parent_MSE": 0.07739729604548036
+      },
+      "fraction": 0.0625,
+      "role": "unconditioned",
+      "teacher_index": 8
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.00069790763226366,
+        "gate_saturation_fraction": 0.0,
+        "linear_relative_reduction": 0.028895864829773243,
+        "linearized_MSE": 0.015969347399835406,
+        "nonlinear_MSE": 0.016017216997020734,
+        "nonlinear_relative_reduction": 0.02598489028512252,
+        "parent_MSE": 0.016444526206281788
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0006905329289428077,
+        "gate_saturation_fraction": 0.0,
+        "linear_relative_reduction": 0.004380064495903002,
+        "linearized_MSE": 0.03851375315099909,
+        "nonlinear_MSE": 0.03852662996689703,
+        "nonlinear_relative_reduction": 0.004047185626281147,
+        "parent_MSE": 0.03868318800938735
+      },
+      "fraction": 0.0625,
+      "role": "unconditioned",
+      "teacher_index": 9
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0008029325672159584,
+        "gate_saturation_fraction": 0.00018972246313963574,
+        "linear_relative_reduction": 0.024648421460097714,
+        "linearized_MSE": 0.032900408918836485,
+        "nonlinear_MSE": 0.03305825401588025,
+        "nonlinear_relative_reduction": 0.019969012613046067,
+        "parent_MSE": 0.03373184566747539
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0005957538994800693,
+        "gate_saturation_fraction": 0.0001624783362218371,
+        "linear_relative_reduction": 0.004534445122375219,
+        "linearized_MSE": 0.09026205658948552,
+        "nonlinear_MSE": 0.09033867009775605,
+        "nonlinear_relative_reduction": 0.0036895041648641325,
+        "parent_MSE": 0.09067320928104004
+      },
+      "fraction": 0.0625,
+      "role": "unconditioned",
+      "teacher_index": 10
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0006809681266261925,
+        "gate_saturation_fraction": 0.00459399392888118,
+        "linear_relative_reduction": 0.02821284334193419,
+        "linearized_MSE": 0.009781906152948976,
+        "nonlinear_MSE": 0.0098029353120717,
+        "nonlinear_relative_reduction": 0.02612369359634792,
+        "parent_MSE": 0.01006589363311667
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0006769930675909878,
+        "gate_saturation_fraction": 0.004386915077989602,
+        "linear_relative_reduction": 0.0038566340430556956,
+        "linearized_MSE": 0.030504372793311266,
+        "nonlinear_MSE": 0.03052066213048927,
+        "nonlinear_relative_reduction": 0.003324693416849378,
+        "parent_MSE": 0.030622472463094973
+      },
+      "fraction": 0.0625,
+      "role": "unconditioned",
+      "teacher_index": 11
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0011112315698178664,
+        "gate_saturation_fraction": 0.01954141370338248,
+        "linear_relative_reduction": 0.024815597906606923,
+        "linearized_MSE": 0.02082341674738808,
+        "nonlinear_MSE": 0.0209214863894092,
+        "nonlinear_relative_reduction": 0.020222884502363425,
+        "parent_MSE": 0.021353311950731785
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0010425693240901212,
+        "gate_saturation_fraction": 0.02009315424610052,
+        "linear_relative_reduction": 0.0028988285479520925,
+        "linearized_MSE": 0.049709099673936295,
+        "nonlinear_MSE": 0.04974809232438614,
+        "nonlinear_relative_reduction": 0.0021166856868545247,
+        "parent_MSE": 0.04985361676142297
+      },
+      "fraction": 0.0625,
+      "role": "unconditioned",
+      "teacher_index": 12
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0008266478751084128,
+        "gate_saturation_fraction": 5.420641803989592e-05,
+        "linear_relative_reduction": 0.022093858775435016,
+        "linearized_MSE": 0.022510124761633735,
+        "nonlinear_MSE": 0.022551347858220036,
+        "nonlinear_relative_reduction": 0.020303006004119162,
+        "parent_MSE": 0.023018696593362063
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0006769930675909878,
+        "gate_saturation_fraction": 0.0,
+        "linear_relative_reduction": 0.006026652105065811,
+        "linearized_MSE": 0.05414081643221311,
+        "nonlinear_MSE": 0.05417840836595711,
+        "nonlinear_relative_reduction": 0.00533650033603672,
+        "parent_MSE": 0.0544690826437893
+      },
+      "fraction": 0.0625,
+      "role": "unconditioned",
+      "teacher_index": 13
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0006267617085862966,
+        "gate_saturation_fraction": 0.0,
+        "linear_relative_reduction": 0.027986509545154914,
+        "linearized_MSE": 0.023718604888609107,
+        "nonlinear_MSE": 0.02375730694513021,
+        "nonlinear_relative_reduction": 0.026400458374627456,
+        "parent_MSE": 0.02440151821093573
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.00055513431542461,
+        "gate_saturation_fraction": 0.0,
+        "linear_relative_reduction": 0.005725111319456744,
+        "linearized_MSE": 0.059750844611325585,
+        "nonlinear_MSE": 0.059769100544056784,
+        "nonlinear_relative_reduction": 0.005421326233201462,
+        "parent_MSE": 0.06009489457248407
+      },
+      "fraction": 0.0625,
+      "role": "unconditioned",
+      "teacher_index": 14
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0008164841717259323,
+        "gate_saturation_fraction": 5.420641803989592e-05,
+        "linear_relative_reduction": 0.025345451836517152,
+        "linearized_MSE": 0.02095498234577335,
+        "nonlinear_MSE": 0.021002823728090293,
+        "nonlinear_relative_reduction": 0.02312026165996517,
+        "parent_MSE": 0.021499907208413792
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0006499133448873484,
+        "gate_saturation_fraction": 0.00010831889081455805,
+        "linear_relative_reduction": 0.0029901660817399645,
+        "linearized_MSE": 0.05731867262859264,
+        "nonlinear_MSE": 0.05734248667965703,
+        "nonlinear_relative_reduction": 0.002575940803871579,
+        "parent_MSE": 0.05749057900796184
+      },
+      "fraction": 0.0625,
+      "role": "unconditioned",
+      "teacher_index": 15
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0015550466175195143,
+        "gate_saturation_fraction": 0.027225173460537724,
+        "linear_relative_reduction": 0.09412640802491234,
+        "linearized_MSE": 0.011442701180755662,
+        "nonlinear_MSE": 0.01168577693985568,
+        "nonlinear_relative_reduction": 0.07488305739120615,
+        "parent_MSE": 0.01263167541489646
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0014216854419410745,
+        "gate_saturation_fraction": 0.02410095320623917,
+        "linear_relative_reduction": 0.005867221623306884,
+        "linearized_MSE": 0.04560278539749203,
+        "nonlinear_MSE": 0.04567126240049073,
+        "nonlinear_relative_reduction": 0.0043744348855532245,
+        "parent_MSE": 0.04587192615452862
+      },
+      "fraction": 0.25,
+      "role": "unconditioned",
+      "teacher_index": 0
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0017142779705117085,
+        "gate_saturation_fraction": 0.0832339549002602,
+        "linear_relative_reduction": 0.09158907512070047,
+        "linearized_MSE": 0.02829849230330761,
+        "nonlinear_MSE": 0.029308377684613827,
+        "nonlinear_relative_reduction": 0.05917070797160551,
+        "parent_MSE": 0.03115164242115167
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0014623050259965338,
+        "gate_saturation_fraction": 0.08698006932409012,
+        "linear_relative_reduction": -0.0037395046621058192,
+        "linearized_MSE": 0.0868769875851236,
+        "nonlinear_MSE": 0.08665026746028702,
+        "nonlinear_relative_reduction": -0.0011200774452329032,
+        "parent_MSE": 0.08655332103758281
+      },
+      "fraction": 0.25,
+      "role": "unconditioned",
+      "teacher_index": 1
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.001934491543798786,
+        "gate_saturation_fraction": 0.08700130095403295,
+        "linear_relative_reduction": 0.1074238554099427,
+        "linearized_MSE": 0.009733231736109453,
+        "nonlinear_MSE": 0.010084532174924592,
+        "nonlinear_relative_reduction": 0.0752082049690801,
+        "parent_MSE": 0.010904651435177819
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0017195623916811092,
+        "gate_saturation_fraction": 0.08698006932409012,
+        "linear_relative_reduction": 0.024794683774826298,
+        "linearized_MSE": 0.025299999874804614,
+        "nonlinear_MSE": 0.025477475630415358,
+        "nonlinear_relative_reduction": 0.017953762777627502,
+        "parent_MSE": 0.02594325467044816
+      },
+      "fraction": 0.25,
+      "role": "unconditioned",
+      "teacher_index": 2
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0018701214223764092,
+        "gate_saturation_fraction": 0.07462868603642672,
+        "linear_relative_reduction": 0.08799151451853493,
+        "linearized_MSE": 0.030716986125148327,
+        "nonlinear_MSE": 0.031627610880366315,
+        "nonlinear_relative_reduction": 0.0609544380141982,
+        "parent_MSE": 0.03368059246612415
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0017466421143847487,
+        "gate_saturation_fraction": 0.07560658578856153,
+        "linear_relative_reduction": 0.011763356415943615,
+        "linearized_MSE": 0.08959320946033335,
+        "nonlinear_MSE": 0.0897188972913705,
+        "nonlinear_relative_reduction": 0.010376986611449479,
+        "parent_MSE": 0.09065967148860618
+      },
+      "fraction": 0.25,
+      "role": "unconditioned",
+      "teacher_index": 3
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.001981922159583695,
+        "gate_saturation_fraction": 0.15158824804856896,
+        "linear_relative_reduction": 0.12545097886868395,
+        "linearized_MSE": 0.03481924522993628,
+        "nonlinear_MSE": 0.037083529561264476,
+        "nonlinear_relative_reduction": 0.06857933698072227,
+        "parent_MSE": 0.039813943402388266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0019632798960138647,
+        "gate_saturation_fraction": 0.15570840554592721,
+        "linear_relative_reduction": 0.026388316226490627,
+        "linearized_MSE": 0.09598600283511247,
+        "nonlinear_MSE": 0.09711132527528862,
+        "nonlinear_relative_reduction": 0.014973869917583205,
+        "parent_MSE": 0.09858756261335255
+      },
+      "fraction": 0.25,
+      "role": "unconditioned",
+      "teacher_index": 4
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.001704114267129228,
+        "gate_saturation_fraction": 0.06434301821335646,
+        "linear_relative_reduction": 0.08464056859668445,
+        "linearized_MSE": 0.021490332277781257,
+        "nonlinear_MSE": 0.0222141478768342,
+        "nonlinear_relative_reduction": 0.053810359615925174,
+        "parent_MSE": 0.023477479491127266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0018820407279029462,
+        "gate_saturation_fraction": 0.06596620450606586,
+        "linear_relative_reduction": 0.012569575900732821,
+        "linearized_MSE": 0.06269398555882512,
+        "nonlinear_MSE": 0.06298945632100167,
+        "nonlinear_relative_reduction": 0.007915910682221972,
+        "parent_MSE": 0.0634920537474977
+      },
+      "fraction": 0.25,
+      "role": "unconditioned",
+      "teacher_index": 5
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0018091392020815264,
+        "gate_saturation_fraction": 0.1217747181266262,
+        "linear_relative_reduction": 0.09247991305697423,
+        "linearized_MSE": 0.010806272202580078,
+        "nonlinear_MSE": 0.011174738374139426,
+        "nonlinear_relative_reduction": 0.06153580524806068,
+        "parent_MSE": 0.011907474399801905
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.001557084055459272,
+        "gate_saturation_fraction": 0.12283362218370884,
+        "linear_relative_reduction": 0.01930926761615659,
+        "linearized_MSE": 0.02726599156371738,
+        "nonlinear_MSE": 0.027446394268528237,
+        "nonlinear_relative_reduction": 0.012820625518122353,
+        "parent_MSE": 0.027802844121346752
+      },
+      "fraction": 0.25,
+      "role": "unconditioned",
+      "teacher_index": 6
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0018091392020815264,
+        "gate_saturation_fraction": 0.05813638334778838,
+        "linear_relative_reduction": 0.09094522758874368,
+        "linearized_MSE": 0.011094550319181601,
+        "nonlinear_MSE": 0.011536205437957196,
+        "nonlinear_relative_reduction": 0.054757308120870096,
+        "parent_MSE": 0.012204490483838995
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.001895580589254766,
+        "gate_saturation_fraction": 0.05973786828422877,
+        "linear_relative_reduction": 0.024085062052789707,
+        "linearized_MSE": 0.03737775866147859,
+        "nonlinear_MSE": 0.03764029400989958,
+        "nonlinear_relative_reduction": 0.017230392927664595,
+        "parent_MSE": 0.038300221882145685
+      },
+      "fraction": 0.25,
+      "role": "unconditioned",
+      "teacher_index": 7
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.002266505854293148,
+        "gate_saturation_fraction": 0.11417226799653078,
+        "linear_relative_reduction": 0.10264916977336924,
+        "linearized_MSE": 0.026854395071469812,
+        "nonlinear_MSE": 0.02836148761748965,
+        "nonlinear_relative_reduction": 0.05228904273271018,
+        "parent_MSE": 0.029926305483762232
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0020445190641247835,
+        "gate_saturation_fraction": 0.1136265164644714,
+        "linear_relative_reduction": 0.001617139789698352,
+        "linearized_MSE": 0.07727213379843015,
+        "nonlinear_MSE": 0.07740385209441289,
+        "nonlinear_relative_reduction": -8.470643378388765e-05,
+        "parent_MSE": 0.07739729604548036
+      },
+      "fraction": 0.25,
+      "role": "unconditioned",
+      "teacher_index": 8
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0018836730268863835,
+        "gate_saturation_fraction": 0.03980106244579358,
+        "linear_relative_reduction": 0.10493563156036734,
+        "linearized_MSE": 0.014718909463114598,
+        "nonlinear_MSE": 0.015342527998421483,
+        "nonlinear_relative_reduction": 0.06701307134281209,
+        "parent_MSE": 0.016444526206281788
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0018143414211438474,
+        "gate_saturation_fraction": 0.04072790294627383,
+        "linear_relative_reduction": 0.011951253135699225,
+        "linearized_MSE": 0.03822087543739132,
+        "nonlinear_MSE": 0.03838056452491698,
+        "nonlinear_relative_reduction": 0.007823126790815094,
+        "parent_MSE": 0.03868318800938735
+      },
+      "fraction": 0.25,
+      "role": "unconditioned",
+      "teacher_index": 9
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.001893836730268864,
+        "gate_saturation_fraction": 0.07312445793581959,
+        "linear_relative_reduction": 0.08944197309157009,
+        "linearized_MSE": 0.030714802834956062,
+        "nonlinear_MSE": 0.03213843077910454,
+        "nonlinear_relative_reduction": 0.04723770243936687,
+        "parent_MSE": 0.03373184566747539
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0016654029462738302,
+        "gate_saturation_fraction": 0.07067807625649913,
+        "linear_relative_reduction": 0.014194246430907942,
+        "linearized_MSE": 0.08938617140382367,
+        "nonlinear_MSE": 0.08989169074990944,
+        "nonlinear_relative_reduction": 0.008619067719422002,
+        "parent_MSE": 0.09067320928104004
+      },
+      "fraction": 0.25,
+      "role": "unconditioned",
+      "teacher_index": 10
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.001975146357328708,
+        "gate_saturation_fraction": 0.06324533824804857,
+        "linear_relative_reduction": 0.10222916474368093,
+        "linearized_MSE": 0.009036865734604417,
+        "nonlinear_MSE": 0.009392906096505716,
+        "nonlinear_relative_reduction": 0.06685820068640824,
+        "parent_MSE": 0.01006589363311667
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.001773721837088388,
+        "gate_saturation_fraction": 0.06407062391681109,
+        "linear_relative_reduction": 0.011665564910106174,
+        "linearized_MSE": 0.0302652440228688,
+        "nonlinear_MSE": 0.030458489786001443,
+        "nonlinear_relative_reduction": 0.005354978350985751,
+        "parent_MSE": 0.030622472463094973
+      },
+      "fraction": 0.25,
+      "role": "unconditioned",
+      "teacher_index": 11
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0024765557241977453,
+        "gate_saturation_fraction": 0.1521845186470078,
+        "linear_relative_reduction": 0.08998072102967258,
+        "linearized_MSE": 0.019431925545033413,
+        "nonlinear_MSE": 0.02039213252779396,
+        "nonlinear_relative_reduction": 0.045013130757211806,
+        "parent_MSE": 0.021353311950731785
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.00224761698440208,
+        "gate_saturation_fraction": 0.1521338821490468,
+        "linear_relative_reduction": 0.006342828233511177,
+        "linearized_MSE": 0.04953740383348597,
+        "nonlinear_MSE": 0.04980366143920208,
+        "nonlinear_relative_reduction": 0.0010020400818652186,
+        "parent_MSE": 0.04985361676142297
+      },
+      "fraction": 0.25,
+      "role": "unconditioned",
+      "teacher_index": 12
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.002039516478751084,
+        "gate_saturation_fraction": 0.07003469210754554,
+        "linear_relative_reduction": 0.08019950172559487,
+        "linearized_MSE": 0.021172608596201778,
+        "nonlinear_MSE": 0.021841022487762873,
+        "nonlinear_relative_reduction": 0.05116163292837339,
+        "parent_MSE": 0.023018696593362063
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0018143414211438474,
+        "gate_saturation_fraction": 0.06964904679376083,
+        "linear_relative_reduction": 0.020162036700435926,
+        "linearized_MSE": 0.053370875000486144,
+        "nonlinear_MSE": 0.05387324882965974,
+        "nonlinear_relative_reduction": 0.010938936093822682,
+        "parent_MSE": 0.0544690826437893
+      },
+      "fraction": 0.25,
+      "role": "unconditioned",
+      "teacher_index": 13
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0018091392020815264,
+        "gate_saturation_fraction": 0.034976691240242844,
+        "linear_relative_reduction": 0.10163409201271412,
+        "linearized_MSE": 0.02192149206383557,
+        "nonlinear_MSE": 0.022703932430976636,
+        "nonlinear_relative_reduction": 0.06956885900641663,
+        "parent_MSE": 0.02440151821093573
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0015841637781629117,
+        "gate_saturation_fraction": 0.03282062391681109,
+        "linear_relative_reduction": 0.018473853972334142,
+        "linearized_MSE": 0.058984710265669184,
+        "nonlinear_MSE": 0.059221568000004665,
+        "nonlinear_relative_reduction": 0.014532458683757743,
+        "parent_MSE": 0.06009489457248407
+      },
+      "fraction": 0.25,
+      "role": "unconditioned",
+      "teacher_index": 14
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0018091392020815264,
+        "gate_saturation_fraction": 0.07060385949696443,
+        "linear_relative_reduction": 0.09201955183252009,
+        "linearized_MSE": 0.019521495382654786,
+        "nonlinear_MSE": 0.02015309271682187,
+        "nonlinear_relative_reduction": 0.06264280485196039,
+        "parent_MSE": 0.021499907208413792
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0017466421143847487,
+        "gate_saturation_fraction": 0.07371100519930676,
+        "linear_relative_reduction": 0.007930317711372092,
+        "linearized_MSE": 0.05703466045101796,
+        "nonlinear_MSE": 0.057290856333161985,
+        "nonlinear_relative_reduction": 0.0034740070155180325,
+        "parent_MSE": 0.05749057900796184
+      },
+      "fraction": 0.25,
+      "role": "unconditioned",
+      "teacher_index": 15
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0027340362098872504,
+        "gate_saturation_fraction": 0.31395002168256725,
+        "linear_relative_reduction": 0.22495602134285597,
+        "linearized_MSE": 0.009790103970666982,
+        "nonlinear_MSE": 0.011436746001655198,
+        "nonlinear_relative_reduction": 0.09459785610324412,
+        "parent_MSE": 0.01263167541489646
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.002342396013864818,
+        "gate_saturation_fraction": 0.3085463604852686,
+        "linear_relative_reduction": -0.019785114413536586,
+        "linearized_MSE": 0.046779507461865266,
+        "nonlinear_MSE": 0.04653895232327581,
+        "nonlinear_relative_reduction": -0.01454105429321162,
+        "parent_MSE": 0.04587192615452862
+      },
+      "fraction": 1,
+      "role": "unconditioned",
+      "teacher_index": 0
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.002845836947094536,
+        "gate_saturation_fraction": 0.36944384215091064,
+        "linear_relative_reduction": 0.2174550222819014,
+        "linearized_MSE": 0.02437756132434231,
+        "nonlinear_MSE": 0.028691495260855973,
+        "nonlinear_relative_reduction": 0.07897327296699064,
+        "parent_MSE": 0.03115164242115167
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0025590337954939342,
+        "gate_saturation_fraction": 0.3737543327556326,
+        "linear_relative_reduction": -0.08093358389369909,
+        "linearized_MSE": 0.09355839150705629,
+        "nonlinear_MSE": 0.08946636944602471,
+        "nonlinear_relative_reduction": -0.03365611363632137,
+        "parent_MSE": 0.08655332103758281
+      },
+      "fraction": 1,
+      "role": "unconditioned",
+      "teacher_index": 1
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0030389473113616654,
+        "gate_saturation_fraction": 0.4139744145706852,
+        "linear_relative_reduction": 0.2526020699817959,
+        "linearized_MSE": 0.00815011391022194,
+        "nonlinear_MSE": 0.009627640765838618,
+        "nonlinear_relative_reduction": 0.11710696824472844,
+        "parent_MSE": 0.010904651435177819
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0028162911611785096,
+        "gate_saturation_fraction": 0.40776646447140386,
+        "linear_relative_reduction": 0.019989411101170917,
+        "linearized_MSE": 0.0254246642875382,
+        "nonlinear_MSE": 0.025377228341244264,
+        "nonlinear_relative_reduction": 0.021817861189508125,
+        "parent_MSE": 0.02594325467044816
+      },
+      "fraction": 1,
+      "role": "unconditioned",
+      "teacher_index": 2
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.002947473980919341,
+        "gate_saturation_fraction": 0.39287456634865564,
+        "linear_relative_reduction": 0.21080159456762204,
+        "linearized_MSE": 0.02658066986828294,
+        "nonlinear_MSE": 0.03075876925199522,
+        "nonlinear_relative_reduction": 0.08675094468922095,
+        "parent_MSE": 0.03368059246612415
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0027621317157712306,
+        "gate_saturation_fraction": 0.39368500866551126,
+        "linear_relative_reduction": -0.015004039358155419,
+        "linearized_MSE": 0.09201993276781867,
+        "nonlinear_MSE": 0.08986724312315042,
+        "nonlinear_relative_reduction": 0.008740693104710262,
+        "parent_MSE": 0.09065967148860618
+      },
+      "fraction": 1,
+      "role": "unconditioned",
+      "teacher_index": 3
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0027713031222896794,
+        "gate_saturation_fraction": 0.5612397007805724,
+        "linear_relative_reduction": 0.296820916542301,
+        "linearized_MSE": 0.02799633223052808,
+        "nonlinear_MSE": 0.03618069287258444,
+        "nonlinear_relative_reduction": 0.0912557315180661,
+        "parent_MSE": 0.039813943402388266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0028704506065857886,
+        "gate_saturation_fraction": 0.5662911611785095,
+        "linear_relative_reduction": 0.012592228264197591,
+        "linearized_MSE": 0.09734612552091435,
+        "nonlinear_MSE": 0.09703165868787003,
+        "nonlinear_relative_reduction": 0.015781949408614215,
+        "parent_MSE": 0.09858756261335255
+      },
+      "fraction": 1,
+      "role": "unconditioned",
+      "teacher_index": 4
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0028085700346921075,
+        "gate_saturation_fraction": 0.31462760190806593,
+        "linear_relative_reduction": 0.20186647321522821,
+        "linearized_MSE": 0.018738163506270555,
+        "nonlinear_MSE": 0.022636485535281983,
+        "nonlinear_relative_reduction": 0.03582130510062276,
+        "parent_MSE": 0.023477479491127266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0029787694974003466,
+        "gate_saturation_fraction": 0.3174826689774697,
+        "linear_relative_reduction": -0.00711065392437682,
+        "linearized_MSE": 0.06394352376864408,
+        "nonlinear_MSE": 0.0642910018787268,
+        "nonlinear_relative_reduction": -0.012583434998125087,
+        "parent_MSE": 0.0634920537474977
+      },
+      "fraction": 1,
+      "role": "unconditioned",
+      "teacher_index": 5
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0029576376843018217,
+        "gate_saturation_fraction": 0.4202352558542931,
+        "linear_relative_reduction": 0.2186099277923722,
+        "linearized_MSE": 0.00930438228107169,
+        "nonlinear_MSE": 0.011091514477438683,
+        "nonlinear_relative_reduction": 0.0685250200812354,
+        "parent_MSE": 0.011907474399801905
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0024777946273830155,
+        "gate_saturation_fraction": 0.4219562391681109,
+        "linear_relative_reduction": -0.005435104562626192,
+        "linearized_MSE": 0.02795395548628467,
+        "nonlinear_MSE": 0.02778668361557446,
+        "nonlinear_relative_reduction": 0.0005812536912324084,
+        "parent_MSE": 0.027802844121346752
+      },
+      "fraction": 1,
+      "role": "unconditioned",
+      "teacher_index": 6
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0026899934952298353,
+        "gate_saturation_fraction": 0.46194709453599303,
+        "linear_relative_reduction": 0.21649783690623015,
+        "linearized_MSE": 0.009562244693545182,
+        "nonlinear_MSE": 0.01148416816706588,
+        "nonlinear_relative_reduction": 0.059021088813740796,
+        "parent_MSE": 0.012204490483838995
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0026402729636048525,
+        "gate_saturation_fraction": 0.46604202772963604,
+        "linear_relative_reduction": 0.035578394568886895,
+        "linearized_MSE": 0.03693756147594679,
+        "nonlinear_MSE": 0.037646636201895844,
+        "nonlinear_relative_reduction": 0.017064801406660335,
+        "parent_MSE": 0.038300221882145685
+      },
+      "fraction": 1,
+      "role": "unconditioned",
+      "teacher_index": 7
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.003282876192541197,
+        "gate_saturation_fraction": 0.5153404163052906,
+        "linear_relative_reduction": 0.24425510539271733,
+        "linearized_MSE": 0.022616652583811233,
+        "nonlinear_MSE": 0.02802161129341639,
+        "nonlinear_relative_reduction": 0.06364615209115321,
+        "parent_MSE": 0.029926305483762232
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0028433708838821493,
+        "gate_saturation_fraction": 0.5097487001733103,
+        "linear_relative_reduction": -0.063221502281809,
+        "linearized_MSE": 0.08229046937402555,
+        "nonlinear_MSE": 0.07739187152343222,
+        "nonlinear_relative_reduction": 7.008671265407163e-05,
+        "parent_MSE": 0.07739729604548036
+      },
+      "fraction": 1,
+      "role": "unconditioned",
+      "teacher_index": 8
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0031575238508239375,
+        "gate_saturation_fraction": 0.36207176929748486,
+        "linear_relative_reduction": 0.24937728210186327,
+        "linearized_MSE": 0.012343634955506371,
+        "nonlinear_MSE": 0.015210428053567168,
+        "nonlinear_relative_reduction": 0.07504613615703903,
+        "parent_MSE": 0.016444526206281788
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0033037261698440207,
+        "gate_saturation_fraction": 0.36303076256499134,
+        "linear_relative_reduction": -0.041299065023805426,
+        "linearized_MSE": 0.04028076750631513,
+        "nonlinear_MSE": 0.03892782190770969,
+        "nonlinear_relative_reduction": -0.006324036639973052,
+        "parent_MSE": 0.03868318800938735
+      },
+      "fraction": 1,
+      "role": "unconditioned",
+      "teacher_index": 9
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0030965416305290547,
+        "gate_saturation_fraction": 0.39012359063313096,
+        "linear_relative_reduction": 0.2113404883851443,
+        "linearized_MSE": 0.02660294092997883,
+        "nonlinear_MSE": 0.0323181619001617,
+        "nonlinear_relative_reduction": 0.04190946980042598,
+        "parent_MSE": 0.03373184566747539
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0025048743500866552,
+        "gate_saturation_fraction": 0.3865901213171577,
+        "linear_relative_reduction": -0.006319559213853632,
+        "linearized_MSE": 0.09124622399620172,
+        "nonlinear_MSE": 0.08989866823759202,
+        "nonlinear_relative_reduction": 0.00854211568763763,
+        "parent_MSE": 0.09067320928104004
+      },
+      "fraction": 1,
+      "role": "unconditioned",
+      "teacher_index": 10
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.003120256938421509,
+        "gate_saturation_fraction": 0.44981840849956634,
+        "linear_relative_reduction": 0.2389613209898429,
+        "linearized_MSE": 0.007660534393603861,
+        "nonlinear_MSE": 0.009222359390410413,
+        "nonlinear_relative_reduction": 0.0838012275364245,
+        "parent_MSE": 0.01006589363311667
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0030193890814558056,
+        "gate_saturation_fraction": 0.44903596187175043,
+        "linear_relative_reduction": -0.013513280553431928,
+        "linearized_MSE": 0.03103628252472852,
+        "nonlinear_MSE": 0.03056067137500275,
+        "nonlinear_relative_reduction": 0.002018161275733177,
+        "parent_MSE": 0.030622472463094973
+      },
+      "fraction": 1,
+      "role": "unconditioned",
+      "teacher_index": 11
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.003377737424111015,
+        "gate_saturation_fraction": 0.5456147007805725,
+        "linear_relative_reduction": 0.21141615457059315,
+        "linearized_MSE": 0.01683887685076178,
+        "nonlinear_MSE": 0.020185546604040615,
+        "nonlinear_relative_reduction": 0.05468778564119414,
+        "parent_MSE": 0.021353311950731785
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0032089471403812823,
+        "gate_saturation_fraction": 0.5520472270363952,
+        "linear_relative_reduction": -0.058668462398702825,
+        "linearized_MSE": 0.052778451801829857,
+        "nonlinear_MSE": 0.05044224350018026,
+        "nonlinear_relative_reduction": -0.011807102011759607,
+        "parent_MSE": 0.04985361676142297
+      },
+      "fraction": 1,
+      "role": "unconditioned",
+      "teacher_index": 12
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0031812391587163922,
+        "gate_saturation_fraction": 0.45888443191673894,
+        "linear_relative_reduction": 0.18998307288406135,
+        "linearized_MSE": 0.018645533880769262,
+        "nonlinear_MSE": 0.021658167611366342,
+        "nonlinear_relative_reduction": 0.05910538750434979,
+        "parent_MSE": 0.023018696593362063
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0026673526863084922,
+        "gate_saturation_fraction": 0.45916377816291165,
+        "linear_relative_reduction": 0.017534999284511188,
+        "linearized_MSE": 0.05351396731860247,
+        "nonlinear_MSE": 0.054435764685462976,
+        "nonlinear_relative_reduction": 0.000611685688635788,
+        "parent_MSE": 0.0544690826437893
+      },
+      "fraction": 1,
+      "role": "unconditioned",
+      "teacher_index": 13
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.002967801387684302,
+        "gate_saturation_fraction": 0.40990893321769295,
+        "linear_relative_reduction": 0.2415452293643775,
+        "linearized_MSE": 0.018507447897836225,
+        "nonlinear_MSE": 0.022457049292874745,
+        "nonlinear_relative_reduction": 0.0796863908733989,
+        "parent_MSE": 0.02440151821093573
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.002707972270363951,
+        "gate_saturation_fraction": 0.40467937608318894,
+        "linear_relative_reduction": 0.0030699550014688937,
+        "linearized_MSE": 0.059910405950328524,
+        "nonlinear_MSE": 0.05945371136218887,
+        "nonlinear_relative_reduction": 0.01066951219161938,
+        "parent_MSE": 0.06009489457248407
+      },
+      "fraction": 1,
+      "role": "unconditioned",
+      "teacher_index": 14
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0027272604076322635,
+        "gate_saturation_fraction": 0.42579141370338247,
+        "linear_relative_reduction": 0.21828211911331363,
+        "linearized_MSE": 0.016806861902221623,
+        "nonlinear_MSE": 0.019490820533884366,
+        "nonlinear_relative_reduction": 0.09344629514229663,
+        "parent_MSE": 0.021499907208413792
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0027621317157712306,
+        "gate_saturation_fraction": 0.4261806759098787,
+        "linear_relative_reduction": -0.03276427500391854,
+        "linearized_MSE": 0.0593742161487132,
+        "nonlinear_MSE": 0.05859394544452513,
+        "nonlinear_relative_reduction": -0.019192126007471444,
+        "parent_MSE": 0.05749057900796184
+      },
+      "fraction": 1,
+      "role": "unconditioned",
+      "teacher_index": 15
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.006609795099739809,
+        "gate_saturation_fraction": 0.0011247831743278404,
+        "linear_relative_reduction": 0.0723344871476127,
+        "linearized_MSE": 0.011717969651944816,
+        "nonlinear_MSE": 0.011879549050381466,
+        "nonlinear_relative_reduction": 0.05954288246102457,
+        "parent_MSE": 0.01263167541489646
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.006417894280762565,
+        "gate_saturation_fraction": 0.0010831889081455806,
+        "linear_relative_reduction": 0.009068929021902483,
+        "linearized_MSE": 0.04545591691213525,
+        "nonlinear_MSE": 0.04547285024099461,
+        "nonlinear_relative_reduction": 0.008699785402288218,
+        "parent_MSE": 0.04587192615452862
+      },
+      "fraction": 0.0625,
+      "role": "pure_span",
+      "teacher_index": 0
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.009547105377276668,
+        "gate_saturation_fraction": 0.026832176929748482,
+        "linear_relative_reduction": 0.07488069538830544,
+        "linearized_MSE": 0.028818985774168,
+        "nonlinear_MSE": 0.02926122377751015,
+        "nonlinear_relative_reduction": 0.060684397248921385,
+        "parent_MSE": 0.03115164242115167
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.009085246967071057,
+        "gate_saturation_fraction": 0.028758665511265165,
+        "linear_relative_reduction": 0.011887252092204426,
+        "linearized_MSE": 0.08552443989099157,
+        "nonlinear_MSE": 0.08531857849077508,
+        "nonlinear_relative_reduction": 0.014265686538724398,
+        "parent_MSE": 0.08655332103758281
+      },
+      "fraction": 0.0625,
+      "role": "pure_span",
+      "teacher_index": 1
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.009638578707718993,
+        "gate_saturation_fraction": 0.016275477016478752,
+        "linear_relative_reduction": 0.07266307270596684,
+        "linearized_MSE": 0.010112285955110267,
+        "nonlinear_MSE": 0.010265469041265584,
+        "nonlinear_relative_reduction": 0.058615573153513845,
+        "parent_MSE": 0.010904651435177819
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.00996533795493934,
+        "gate_saturation_fraction": 0.0167894280762565,
+        "linear_relative_reduction": 0.011852885479774922,
+        "linearized_MSE": 0.025635752243866702,
+        "nonlinear_MSE": 0.025667414303916627,
+        "nonlinear_relative_reduction": 0.010632450324197018,
+        "parent_MSE": 0.02594325467044816
+      },
+      "fraction": 0.0625,
+      "role": "pure_span",
+      "teacher_index": 2
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.008720457502168256,
+        "gate_saturation_fraction": 0.005000542064180398,
+        "linear_relative_reduction": 0.07323832265986085,
+        "linearized_MSE": 0.03121388236771487,
+        "nonlinear_MSE": 0.031629125427649674,
+        "nonlinear_relative_reduction": 0.06090947006166336,
+        "parent_MSE": 0.03368059246612415
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.008245775563258232,
+        "gate_saturation_fraction": 0.005903379549393414,
+        "linear_relative_reduction": 0.016415500390353555,
+        "linearized_MSE": 0.08917144761589564,
+        "nonlinear_MSE": 0.0892578429606827,
+        "nonlinear_relative_reduction": 0.01546253703444811,
+        "parent_MSE": 0.09065967148860618
+      },
+      "fraction": 0.0625,
+      "role": "pure_span",
+      "teacher_index": 3
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.013514337597571553,
+        "gate_saturation_fraction": 0.006138876843018213,
+        "linear_relative_reduction": 0.08312219091315143,
+        "linearized_MSE": 0.03650452119788954,
+        "nonlinear_MSE": 0.037447851485289736,
+        "nonlinear_relative_reduction": 0.05942872558955303,
+        "parent_MSE": 0.039813943402388266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.014298093587521665,
+        "gate_saturation_fraction": 0.006065857885615251,
+        "linear_relative_reduction": 0.0237328347140201,
+        "linearized_MSE": 0.09624780028499175,
+        "nonlinear_MSE": 0.09645663328797191,
+        "nonlinear_relative_reduction": 0.021614585743821135,
+        "parent_MSE": 0.09858756261335255
+      },
+      "fraction": 0.0625,
+      "role": "pure_span",
+      "teacher_index": 4
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.007897197528187338,
+        "gate_saturation_fraction": 0.011695034692107545,
+        "linear_relative_reduction": 0.07668665000939501,
+        "linearized_MSE": 0.02167707023828844,
+        "nonlinear_MSE": 0.02192771606181622,
+        "nonlinear_relative_reduction": 0.06601063925523787,
+        "parent_MSE": 0.023477479491127266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.007284445407279029,
+        "gate_saturation_fraction": 0.013756499133448872,
+        "linear_relative_reduction": 0.023115455965026066,
+        "linearized_MSE": 0.06202440597496835,
+        "nonlinear_MSE": 0.06200182578179128,
+        "nonlinear_relative_reduction": 0.02347109406214709,
+        "parent_MSE": 0.0634920537474977
+      },
+      "fraction": 0.0625,
+      "role": "pure_span",
+      "teacher_index": 5
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.009032144405897658,
+        "gate_saturation_fraction": 0.02301062445793582,
+        "linear_relative_reduction": 0.06404045487058563,
+        "linearized_MSE": 0.011144914322878736,
+        "nonlinear_MSE": 0.011356051016254719,
+        "nonlinear_relative_reduction": 0.04630901272870758,
+        "parent_MSE": 0.011907474399801905
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.009207105719237435,
+        "gate_saturation_fraction": 0.023234402079722702,
+        "linear_relative_reduction": 0.01082654534376215,
+        "linearized_MSE": 0.02750183536878144,
+        "nonlinear_MSE": 0.027623797090612558,
+        "nonlinear_relative_reduction": 0.006439881831971417,
+        "parent_MSE": 0.027802844121346752
+      },
+      "fraction": 0.0625,
+      "role": "pure_span",
+      "teacher_index": 6
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.01079724089332177,
+        "gate_saturation_fraction": 0.041481461405030354,
+        "linear_relative_reduction": 0.06638769334713812,
+        "linearized_MSE": 0.011394262512139826,
+        "nonlinear_MSE": 0.011712183284899596,
+        "nonlinear_relative_reduction": 0.04033820171282898,
+        "parent_MSE": 0.012204490483838995
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.010344454072790294,
+        "gate_saturation_fraction": 0.040565424610052,
+        "linear_relative_reduction": 0.016354028667911247,
+        "linearized_MSE": 0.03767385895549771,
+        "nonlinear_MSE": 0.037837823466223205,
+        "nonlinear_relative_reduction": 0.012072995747787973,
+        "parent_MSE": 0.038300221882145685
+      },
+      "fraction": 0.0625,
+      "role": "pure_span",
+      "teacher_index": 7
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.011539191240242845,
+        "gate_saturation_fraction": 0.01726474414570685,
+        "linear_relative_reduction": 0.07758668979284977,
+        "linearized_MSE": 0.027604422503547513,
+        "nonlinear_MSE": 0.028501252832932755,
+        "nonlinear_relative_reduction": 0.047618729669210214,
+        "parent_MSE": 0.029926305483762232
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.01115684575389948,
+        "gate_saturation_fraction": 0.017872616984402078,
+        "linear_relative_reduction": 0.008679951660295226,
+        "linearized_MSE": 0.07672549125716803,
+        "nonlinear_MSE": 0.07680872388242121,
+        "nonlinear_relative_reduction": 0.007604557176174254,
+        "parent_MSE": 0.07739729604548036
+      },
+      "fraction": 0.0625,
+      "role": "pure_span",
+      "teacher_index": 8
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.007405951864700781,
+        "gate_saturation_fraction": 0.0008808542931483087,
+        "linear_relative_reduction": 0.07729686261036928,
+        "linearized_MSE": 0.015173415923422208,
+        "nonlinear_MSE": 0.01538553941362298,
+        "nonlinear_relative_reduction": 0.06439752531479292,
+        "parent_MSE": 0.016444526206281788
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.006973028596187175,
+        "gate_saturation_fraction": 0.0013539861351819756,
+        "linear_relative_reduction": 0.014664686286466444,
+        "linearized_MSE": 0.038115911192669286,
+        "nonlinear_MSE": 0.03815272500108494,
+        "nonlinear_relative_reduction": 0.013713011662163987,
+        "parent_MSE": 0.03868318800938735
+      },
+      "fraction": 0.0625,
+      "role": "pure_span",
+      "teacher_index": 9
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.009143945143104943,
+        "gate_saturation_fraction": 0.010597354726799653,
+        "linear_relative_reduction": 0.07857183495008258,
+        "linearized_MSE": 0.031081472657128857,
+        "nonlinear_MSE": 0.03162430477036862,
+        "nonlinear_relative_reduction": 0.06247926419095662,
+        "parent_MSE": 0.03373184566747539
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.00838117417677643,
+        "gate_saturation_fraction": 0.009640381282495667,
+        "linear_relative_reduction": 0.02110875204126006,
+        "linearized_MSE": 0.08875921098954129,
+        "nonlinear_MSE": 0.08898513217356152,
+        "nonlinear_relative_reduction": 0.01861715407300024,
+        "parent_MSE": 0.09067320928104004
+      },
+      "fraction": 0.0625,
+      "role": "pure_span",
+      "teacher_index": 10
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.008188557025151777,
+        "gate_saturation_fraction": 0.019189071986123157,
+        "linear_relative_reduction": 0.06461513894494497,
+        "linearized_MSE": 0.009415484517407799,
+        "nonlinear_MSE": 0.009543696904686441,
+        "nonlinear_relative_reduction": 0.0518778309669603,
+        "parent_MSE": 0.01006589363311667
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.008042677642980936,
+        "gate_saturation_fraction": 0.01776429809358752,
+        "linear_relative_reduction": 0.006610091722897948,
+        "linearized_MSE": 0.030420055111332,
+        "nonlinear_MSE": 0.030487361017355177,
+        "nonlinear_relative_reduction": 0.004412166453986566,
+        "parent_MSE": 0.030622472463094973
+      },
+      "fraction": 0.0625,
+      "role": "pure_span",
+      "teacher_index": 11
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.014178366218560279,
+        "gate_saturation_fraction": 0.03034204249783174,
+        "linear_relative_reduction": 0.0780450053809515,
+        "linearized_MSE": 0.019686792604635787,
+        "nonlinear_MSE": 0.02011594864659569,
+        "nonlinear_relative_reduction": 0.05794713752091685,
+        "parent_MSE": 0.021353311950731785
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.013878357885615252,
+        "gate_saturation_fraction": 0.031087521663778164,
+        "linear_relative_reduction": 0.01786764242554495,
+        "linearized_MSE": 0.04896285016350971,
+        "nonlinear_MSE": 0.049123014084895285,
+        "nonlinear_relative_reduction": 0.014654958335801771,
+        "parent_MSE": 0.04985361676142297
+      },
+      "fraction": 0.0625,
+      "role": "pure_span",
+      "teacher_index": 12
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.009154108846487425,
+        "gate_saturation_fraction": 0.014649284475281875,
+        "linear_relative_reduction": 0.07249260440262995,
+        "linearized_MSE": 0.0213500113273553,
+        "nonlinear_MSE": 0.029708218824099075,
+        "nonlinear_relative_reduction": -0.2906125550421512,
+        "parent_MSE": 0.023018696593362063
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.008543652512998268,
+        "gate_saturation_fraction": 0.014243934142114384,
+        "linear_relative_reduction": 0.021272753276828538,
+        "linearized_MSE": 0.05331037528749279,
+        "nonlinear_MSE": 0.0639914170813431,
+        "nonlinear_relative_reduction": -0.17482090711581955,
+        "parent_MSE": 0.0544690826437893
+      },
+      "fraction": 0.0625,
+      "role": "pure_span",
+      "teacher_index": 13
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.008998265394622723,
+        "gate_saturation_fraction": 0.0043229618386817,
+        "linear_relative_reduction": 0.07743062550102342,
+        "linearized_MSE": 0.022512093392688365,
+        "nonlinear_MSE": 0.02280559985043048,
+        "nonlinear_relative_reduction": 0.0654024207309375,
+        "parent_MSE": 0.02440151821093573
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.009098786828422877,
+        "gate_saturation_fraction": 0.0034662045060658577,
+        "linear_relative_reduction": 0.019457160239121585,
+        "linearized_MSE": 0.05892561857923413,
+        "nonlinear_MSE": 0.058791359361562476,
+        "nonlinear_relative_reduction": 0.02169128043563373,
+        "parent_MSE": 0.06009489457248407
+      },
+      "fraction": 0.0625,
+      "role": "pure_span",
+      "teacher_index": 14
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.008547674544666088,
+        "gate_saturation_fraction": 0.008361339982653947,
+        "linear_relative_reduction": 0.07560302598944868,
+        "linearized_MSE": 0.01987444916496535,
+        "nonlinear_MSE": 0.020160668668006483,
+        "nonlinear_relative_reduction": 0.062290433508625065,
+        "parent_MSE": 0.021499907208413792
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.008855069324090121,
+        "gate_saturation_fraction": 0.00839471403812825,
+        "linear_relative_reduction": 0.018120036080740642,
+        "linearized_MSE": 0.0564488476420349,
+        "nonlinear_MSE": 0.05645947069949154,
+        "nonlinear_relative_reduction": 0.01793525698058296,
+        "parent_MSE": 0.05749057900796184
+      },
+      "fraction": 0.0625,
+      "role": "pure_span",
+      "teacher_index": 15
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.025117898959236773,
+        "gate_saturation_fraction": 0.18966825672159585,
+        "linear_relative_reduction": 0.2624933331868021,
+        "linearized_MSE": 0.009315944831506506,
+        "nonlinear_MSE": 0.011744180952350285,
+        "nonlinear_relative_reduction": 0.0702594417126613,
+        "parent_MSE": 0.01263167541489646
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.02494042461005199,
+        "gate_saturation_fraction": 0.18695840554592721,
+        "linear_relative_reduction": 0.015609878875573413,
+        "linearized_MSE": 0.04515587094346718,
+        "nonlinear_MSE": 0.04562549479166857,
+        "nonlinear_relative_reduction": 0.0053721607858780995,
+        "parent_MSE": 0.04587192615452862
+      },
+      "fraction": 0.25,
+      "role": "pure_span",
+      "teacher_index": 0
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.03446511816999133,
+        "gate_saturation_fraction": 0.22408933217692972,
+        "linear_relative_reduction": 0.2715953373964579,
+        "linearized_MSE": 0.02269100158732517,
+        "nonlinear_MSE": 0.03107493922631742,
+        "nonlinear_relative_reduction": 0.002462252031442458,
+        "parent_MSE": 0.03115164242115167
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.03370071490467938,
+        "gate_saturation_fraction": 0.22839038128249567,
+        "linear_relative_reduction": 0.02045894397783521,
+        "linearized_MSE": 0.08478253149137932,
+        "nonlinear_MSE": 0.08790484686104108,
+        "nonlinear_relative_reduction": -0.015614950498218372,
+        "parent_MSE": 0.08655332103758281
+      },
+      "fraction": 0.25,
+      "role": "pure_span",
+      "teacher_index": 1
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.034824235689505635,
+        "gate_saturation_fraction": 0.23633998265394623,
+        "linear_relative_reduction": 0.26362827400142264,
+        "linearized_MSE": 0.008029876998734755,
+        "nonlinear_MSE": 0.010014893532619376,
+        "nonlinear_relative_reduction": 0.0815943460318348,
+        "parent_MSE": 0.010904651435177819
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.03527133882149047,
+        "gate_saturation_fraction": 0.23597270363951472,
+        "linear_relative_reduction": 0.01844610759066656,
+        "linearized_MSE": 0.02546470260354501,
+        "nonlinear_MSE": 0.026067686784067602,
+        "nonlinear_relative_reduction": -0.004796318549853407,
+        "parent_MSE": 0.02594325467044816
+      },
+      "fraction": 0.25,
+      "role": "pure_span",
+      "teacher_index": 2
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.03196823503902862,
+        "gate_saturation_fraction": 0.19362532523850823,
+        "linear_relative_reduction": 0.26565109543358356,
+        "linearized_MSE": 0.024733306182646166,
+        "nonlinear_MSE": 0.030075998540664617,
+        "nonlinear_relative_reduction": 0.10702287761371843,
+        "parent_MSE": 0.03368059246612415
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.03230610918544194,
+        "gate_saturation_fraction": 0.19724870017331023,
+        "linear_relative_reduction": 0.03170382268074745,
+        "linearized_MSE": 0.0877854133394366,
+        "nonlinear_MSE": 0.08867658997771755,
+        "nonlinear_relative_reduction": 0.021873910177778066,
+        "parent_MSE": 0.09065967148860618
+      },
+      "fraction": 0.25,
+      "role": "pure_span",
+      "teacher_index": 3
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.04566213139635733,
+        "gate_saturation_fraction": 0.22497018647007805,
+        "linear_relative_reduction": 0.3012819392963182,
+        "linearized_MSE": 0.027818721323082878,
+        "nonlinear_MSE": 0.03960291230246518,
+        "nonlinear_relative_reduction": 0.005300432006703049,
+        "parent_MSE": 0.039813943402388266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0459813691507799,
+        "gate_saturation_fraction": 0.22633232235701906,
+        "linear_relative_reduction": 0.06353118478564934,
+        "linearized_MSE": 0.09232417795539688,
+        "nonlinear_MSE": 0.09591487260451417,
+        "nonlinear_relative_reduction": 0.027109809168528898,
+        "parent_MSE": 0.09858756261335255
+      },
+      "fraction": 0.25,
+      "role": "pure_span",
+      "teacher_index": 4
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.029163052905464008,
+        "gate_saturation_fraction": 0.19858521248915872,
+        "linear_relative_reduction": 0.2780576530908371,
+        "linearized_MSE": 0.01694938664333616,
+        "nonlinear_MSE": 0.021495488629224846,
+        "nonlinear_relative_reduction": 0.08442093891090241,
+        "parent_MSE": 0.023477479491127266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.02877220537261698,
+        "gate_saturation_fraction": 0.20179809358752165,
+        "linear_relative_reduction": 0.06396613075173552,
+        "linearized_MSE": 0.05943071273578904,
+        "nonlinear_MSE": 0.059972879150625685,
+        "nonlinear_relative_reduction": 0.055427008407500256,
+        "parent_MSE": 0.0634920537474977
+      },
+      "fraction": 0.25,
+      "role": "pure_span",
+      "teacher_index": 5
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.03318449154379879,
+        "gate_saturation_fraction": 0.2753821552471813,
+        "linear_relative_reduction": 0.23266729506439532,
+        "linearized_MSE": 0.00913699454015146,
+        "nonlinear_MSE": 0.011593211901636882,
+        "nonlinear_relative_reduction": 0.026392036431357013,
+        "parent_MSE": 0.011907474399801905
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.033592396013864816,
+        "gate_saturation_fraction": 0.27702556325823224,
+        "linear_relative_reduction": 0.01673627006467404,
+        "linearized_MSE": 0.02733752821356586,
+        "nonlinear_MSE": 0.028423076827009022,
+        "nonlinear_relative_reduction": -0.022308246701497003,
+        "parent_MSE": 0.027802844121346752
+      },
+      "fraction": 0.25,
+      "role": "pure_span",
+      "teacher_index": 6
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.03623360255854293,
+        "gate_saturation_fraction": 0.2283445359930616,
+        "linear_relative_reduction": 0.24117282713463006,
+        "linearized_MSE": 0.009261099010113856,
+        "nonlinear_MSE": 0.013396382411265027,
+        "nonlinear_relative_reduction": -0.09766011362820248,
+        "parent_MSE": 0.012204490483838995
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0361108102253033,
+        "gate_saturation_fraction": 0.22768630849220103,
+        "linear_relative_reduction": 0.041664123527961006,
+        "linearized_MSE": 0.03670447670649965,
+        "nonlinear_MSE": 0.03861413355499915,
+        "nonlinear_relative_reduction": -0.008196079746467522,
+        "parent_MSE": 0.038300221882145685
+      },
+      "fraction": 0.25,
+      "role": "pure_span",
+      "teacher_index": 7
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.04244362532523851,
+        "gate_saturation_fraction": 0.25207339549002605,
+        "linear_relative_reduction": 0.28144922551902996,
+        "linearized_MSE": 0.021503569982711454,
+        "nonlinear_MSE": 0.032908452888598685,
+        "nonlinear_relative_reduction": -0.09964970137909424,
+        "parent_MSE": 0.029926305483762232
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.04254224436741768,
+        "gate_saturation_fraction": 0.24902512998266899,
+        "linear_relative_reduction": 0.006753214408503738,
+        "linearized_MSE": 0.0768746155106468,
+        "nonlinear_MSE": 0.08152456987968255,
+        "nonlinear_relative_reduction": -0.053325814273626815,
+        "parent_MSE": 0.07739729604548036
+      },
+      "fraction": 0.25,
+      "role": "pure_span",
+      "teacher_index": 8
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.02845159366869037,
+        "gate_saturation_fraction": 0.15561307458803122,
+        "linear_relative_reduction": 0.28036520922919494,
+        "linearized_MSE": 0.011834053175782615,
+        "nonlinear_MSE": 0.014774645356237863,
+        "nonlinear_relative_reduction": 0.10154630356002792,
+        "parent_MSE": 0.016444526206281788
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.028745125649913342,
+        "gate_saturation_fraction": 0.15863301559792026,
+        "linear_relative_reduction": 0.028216210942360154,
+        "linearized_MSE": 0.0375916950165915,
+        "nonlinear_MSE": 0.038256950692618114,
+        "nonlinear_relative_reduction": 0.011018670867194325,
+        "parent_MSE": 0.03868318800938735
+      },
+      "fraction": 0.25,
+      "role": "pure_span",
+      "teacher_index": 9
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0331235093235039,
+        "gate_saturation_fraction": 0.23528295750216827,
+        "linear_relative_reduction": 0.2847424688291148,
+        "linearized_MSE": 0.02412695665395577,
+        "nonlinear_MSE": 0.03276431730834954,
+        "nonlinear_relative_reduction": 0.028682935664523956,
+        "parent_MSE": 0.03373184566747539
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0325498266897747,
+        "gate_saturation_fraction": 0.2354311091854419,
+        "linear_relative_reduction": 0.058589432158511534,
+        "linearized_MSE": 0.08536071743727403,
+        "nonlinear_MSE": 0.08960383834190254,
+        "nonlinear_relative_reduction": 0.011793681370899867,
+        "parent_MSE": 0.09067320928104004
+      },
+      "fraction": 0.25,
+      "role": "pure_span",
+      "teacher_index": 10
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.029037700563746747,
+        "gate_saturation_fraction": 0.19267671292281005,
+        "linear_relative_reduction": 0.23479167359763353,
+        "linearized_MSE": 0.007702505620741443,
+        "nonlinear_MSE": 0.009415099963947175,
+        "nonlinear_relative_reduction": 0.06465334255355049,
+        "parent_MSE": 0.01006589363311667
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.02962521663778163,
+        "gate_saturation_fraction": 0.19773613518197575,
+        "linear_relative_reduction": 0.007176724320658967,
+        "linearized_MSE": 0.03040270342021037,
+        "nonlinear_MSE": 0.03137961147304978,
+        "nonlinear_relative_reduction": -0.024724947042316092,
+        "parent_MSE": 0.030622472463094973
+      },
+      "fraction": 0.25,
+      "role": "pure_span",
+      "teacher_index": 11
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.04974455225498699,
+        "gate_saturation_fraction": 0.31221541630529054,
+        "linear_relative_reduction": 0.2828032538221712,
+        "linearized_MSE": 0.015314525851184983,
+        "nonlinear_MSE": 0.0259919408920587,
+        "nonlinear_relative_reduction": -0.21723229408297695,
+        "parent_MSE": 0.021353311950731785
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.04885181975736569,
+        "gate_saturation_fraction": 0.31639948006932406,
+        "linear_relative_reduction": 0.036924981318746886,
+        "linearized_MSE": 0.04801277289383546,
+        "nonlinear_MSE": 0.0555355854095616,
+        "nonlinear_relative_reduction": -0.11397304783983842,
+        "parent_MSE": 0.04985361676142297
+      },
+      "fraction": 0.25,
+      "role": "pure_span",
+      "teacher_index": 12
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.03662998699045967,
+        "gate_saturation_fraction": 0.23768159150043366,
+        "linear_relative_reduction": 0.2630054451369569,
+        "linearized_MSE": 0.01696465404935232,
+        "nonlinear_MSE": 2.171415559061402,
+        "nonlinear_relative_reduction": -93.33268952715493,
+        "parent_MSE": 0.023018696593362063
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.0371398396880416,
+        "gate_saturation_fraction": 0.2381390814558059,
+        "linear_relative_reduction": 0.04868860769374084,
+        "linearized_MSE": 0.051817058847507896,
+        "nonlinear_MSE": 2.40184510471435,
+        "nonlinear_relative_reduction": -43.095567395942076,
+        "parent_MSE": 0.0544690826437893
+      },
+      "fraction": 0.25,
+      "role": "pure_span",
+      "teacher_index": 13
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.034441402862098874,
+        "gate_saturation_fraction": 0.20429043798785776,
+        "linear_relative_reduction": 0.2806538430511495,
+        "linearized_MSE": 0.017553138348754008,
+        "nonlinear_MSE": 0.04064869483271137,
+        "nonlinear_relative_reduction": -0.6658264654407586,
+        "parent_MSE": 0.02440151821093573
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.03399859185441941,
+        "gate_saturation_fraction": 0.2019605719237435,
+        "linear_relative_reduction": 0.048514353605500715,
+        "linearized_MSE": 0.05717942960730929,
+        "nonlinear_MSE": 0.07480611762318704,
+        "nonlinear_relative_reduction": -0.2447998811772416,
+        "parent_MSE": 0.06009489457248407
+      },
+      "fraction": 0.25,
+      "role": "pure_span",
+      "teacher_index": 14
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.033211594752818735,
+        "gate_saturation_fraction": 0.25319817866435385,
+        "linear_relative_reduction": 0.27406705298497924,
+        "linearized_MSE": 0.015607491000353312,
+        "nonlinear_MSE": 0.019983832763258037,
+        "nonlinear_relative_reduction": 0.07051539480888802,
+        "parent_MSE": 0.021499907208413792
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.033186200173310226,
+        "gate_saturation_fraction": 0.25525346620450606,
+        "linear_relative_reduction": 0.04261696496170109,
+        "linearized_MSE": 0.055040505016751624,
+        "nonlinear_MSE": 0.05634772259811462,
+        "nonlinear_relative_reduction": 0.0198790206946593,
+        "parent_MSE": 0.05749057900796184
+      },
+      "fraction": 0.25,
+      "role": "pure_span",
+      "teacher_index": 15
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.09091771465741544,
+        "gate_saturation_fraction": 0.6610879228100607,
+        "linear_relative_reduction": 0.6204594862888276,
+        "linearized_MSE": 0.004794232576002588,
+        "nonlinear_MSE": 0.0467746810434239,
+        "nonlinear_relative_reduction": -2.7029673029963073,
+        "parent_MSE": 0.01263167541489646
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.08979636048526862,
+        "gate_saturation_fraction": 0.6590662911611785,
+        "linear_relative_reduction": -0.26821387989029066,
+        "linearized_MSE": 0.05817541344647564,
+        "nonlinear_MSE": 0.07373570257161,
+        "nonlinear_relative_reduction": -0.6074254724603618,
+        "parent_MSE": 0.04587192615452862
+      },
+      "fraction": 1,
+      "role": "pure_span",
+      "teacher_index": 0
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.11711974197745013,
+        "gate_saturation_fraction": 0.5505881396357328,
+        "linear_relative_reduction": 0.6395422430776142,
+        "linearized_MSE": 0.01122885115157657,
+        "nonlinear_MSE": 0.959949886510814,
+        "nonlinear_relative_reduction": -29.815386024687328,
+        "parent_MSE": 0.03115164242115167
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.1156710355285962,
+        "gate_saturation_fraction": 0.5554592720970537,
+        "linear_relative_reduction": -0.3516052543443735,
+        "linearized_MSE": 0.11698592349535233,
+        "nonlinear_MSE": 0.9990347522279253,
+        "nonlinear_relative_reduction": -10.54241963510711,
+        "parent_MSE": 0.08655332103758281
+      },
+      "fraction": 1,
+      "role": "pure_span",
+      "teacher_index": 1
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.11392833911535125,
+        "gate_saturation_fraction": 0.700495988725065,
+        "linear_relative_reduction": 0.6221288268465771,
+        "linearized_MSE": 0.004120553430639799,
+        "nonlinear_MSE": 0.03814759236926071,
+        "nonlinear_relative_reduction": -2.4982862676562623,
+        "parent_MSE": 0.010904651435177819
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.11510236135181975,
+        "gate_saturation_fraction": 0.6978444540727904,
+        "linear_relative_reduction": -0.3896625188922629,
+        "linearized_MSE": 0.03605236863359845,
+        "nonlinear_MSE": 0.05445981362888419,
+        "nonlinear_relative_reduction": -1.0991897246770317,
+        "parent_MSE": 0.02594325467044816
+      },
+      "fraction": 1,
+      "role": "pure_span",
+      "teacher_index": 2
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.11227165546400694,
+        "gate_saturation_fraction": 0.6241055941023417,
+        "linear_relative_reduction": 0.6257692584405788,
+        "linearized_MSE": 0.012604313094758294,
+        "nonlinear_MSE": 0.16162689269731534,
+        "nonlinear_relative_reduction": -3.798813823120221,
+        "parent_MSE": 0.03368059246612415
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.1145201473136915,
+        "gate_saturation_fraction": 0.6194215771230502,
+        "linear_relative_reduction": -0.4165155713676769,
+        "linearized_MSE": 0.12842083635868887,
+        "nonlinear_MSE": 0.234504869550883,
+        "nonlinear_relative_reduction": -1.5866503341604856,
+        "parent_MSE": 0.09065967148860618
+      },
+      "fraction": 1,
+      "role": "pure_span",
+      "teacher_index": 3
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.14481583369470946,
+        "gate_saturation_fraction": 0.6561009323503904,
+        "linear_relative_reduction": 0.7058185674846698,
+        "linearized_MSE": 0.011712522904198861,
+        "nonlinear_MSE": 0.5021326569015937,
+        "nonlinear_relative_reduction": -11.611979974620473,
+        "parent_MSE": 0.039813943402388266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.1463794410745234,
+        "gate_saturation_fraction": 0.6565749566724437,
+        "linear_relative_reduction": -0.24827772598429454,
+        "linearized_MSE": 0.12306465846932998,
+        "nonlinear_MSE": 0.5359306680936287,
+        "nonlinear_relative_reduction": -4.436088020509019,
+        "parent_MSE": 0.09858756261335255
+      },
+      "fraction": 1,
+      "role": "pure_span",
+      "teacher_index": 4
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.0997906277103209,
+        "gate_saturation_fraction": 0.5683542931483088,
+        "linear_relative_reduction": 0.6532074612154606,
+        "linearized_MSE": 0.008141814716989982,
+        "nonlinear_MSE": 0.41210303999473075,
+        "nonlinear_relative_reduction": -16.553121072919048,
+        "parent_MSE": 0.023477479491127266
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.10056055025996534,
+        "gate_saturation_fraction": 0.572032062391681,
+        "linear_relative_reduction": -0.200066566726963,
+        "linearized_MSE": 0.07619469095520337,
+        "nonlinear_MSE": 0.4488812795964594,
+        "nonlinear_relative_reduction": -6.069881238707771,
+        "parent_MSE": 0.0634920537474977
+      },
+      "fraction": 1,
+      "role": "pure_span",
+      "teacher_index": 5
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.10661724848222029,
+        "gate_saturation_fraction": 0.66667118386817,
+        "linear_relative_reduction": 0.5547567895704261,
+        "linearized_MSE": 0.005301722129875764,
+        "nonlinear_MSE": 0.06345138585355102,
+        "nonlinear_relative_reduction": -4.3287022691064205,
+        "parent_MSE": 0.011907474399801905
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.10849490901213171,
+        "gate_saturation_fraction": 0.6701148180242635,
+        "linear_relative_reduction": -0.3581735007072959,
+        "linearized_MSE": 0.037761086129908784,
+        "nonlinear_MSE": 0.08340865327253044,
+        "nonlinear_relative_reduction": -2.000004348781357,
+        "parent_MSE": 0.027802844121346752
+      },
+      "fraction": 1,
+      "role": "pure_span",
+      "teacher_index": 6
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.11753645381613184,
+        "gate_saturation_fraction": 0.6356244579358197,
+        "linear_relative_reduction": 0.5746441684757491,
+        "linearized_MSE": 0.005191251198083144,
+        "nonlinear_MSE": 0.17140497483902775,
+        "nonlinear_relative_reduction": -13.044418738004644,
+        "parent_MSE": 0.012204490483838995
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.11515652079722705,
+        "gate_saturation_fraction": 0.6404354419410745,
+        "linear_relative_reduction": -0.2133753641871139,
+        "linearized_MSE": 0.04647254567469579,
+        "nonlinear_MSE": 0.18481039185458806,
+        "nonlinear_relative_reduction": -3.8253086476436478,
+        "parent_MSE": 0.038300221882145685
+      },
+      "fraction": 1,
+      "role": "pure_span",
+      "teacher_index": 7
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.14299314288811796,
+        "gate_saturation_fraction": 0.6648417172593235,
+        "linear_relative_reduction": 0.6634363636382218,
+        "linearized_MSE": 0.010072106196488441,
+        "nonlinear_MSE": 0.35107156238648,
+        "nonlinear_relative_reduction": -10.731202923694292,
+        "parent_MSE": 0.029926305483762232
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.14108535528596186,
+        "gate_saturation_fraction": 0.6603119584055459,
+        "linear_relative_reduction": -0.42045261808882417,
+        "linearized_MSE": 0.10993919180079838,
+        "nonlinear_MSE": 0.38124341389808525,
+        "nonlinear_relative_reduction": -3.9257975843763093,
+        "parent_MSE": 0.07739729604548036
+      },
+      "fraction": 1,
+      "role": "pure_span",
+      "teacher_index": 8
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.10185724739809193,
+        "gate_saturation_fraction": 0.5518213356461406,
+        "linear_relative_reduction": 0.6603049775202666,
+        "linearized_MSE": 0.005586123699311457,
+        "nonlinear_MSE": 0.11648169339584316,
+        "nonlinear_relative_reduction": -6.083311001769531,
+        "parent_MSE": 0.016444526206281788
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.10173851819757365,
+        "gate_saturation_fraction": 0.5584380415944541,
+        "linear_relative_reduction": -0.37421570348665556,
+        "linearized_MSE": 0.053159044423426796,
+        "nonlinear_MSE": 0.13741772991042672,
+        "nonlinear_relative_reduction": -2.5523889571117873,
+        "parent_MSE": 0.03868318800938735
+      },
+      "fraction": 1,
+      "role": "pure_span",
+      "teacher_index": 9
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.11165166955767564,
+        "gate_saturation_fraction": 0.6429694275802255,
+        "linear_relative_reduction": 0.6662519397770184,
+        "linearized_MSE": 0.011257938059260897,
+        "nonlinear_MSE": 0.8209427587310377,
+        "nonlinear_relative_reduction": -23.337321082984783,
+        "parent_MSE": 0.03373184566747539
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.10960517764298094,
+        "gate_saturation_fraction": 0.6487218370883883,
+        "linear_relative_reduction": -0.17917148747041245,
+        "linearized_MSE": 0.10691926306163999,
+        "nonlinear_MSE": 0.8461175131528889,
+        "nonlinear_relative_reduction": -8.331505081400199,
+        "parent_MSE": 0.09067320928104004
+      },
+      "fraction": 1,
+      "role": "pure_span",
+      "teacher_index": 10
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.09965849956634865,
+        "gate_saturation_fraction": 0.6383618820468344,
+        "linear_relative_reduction": 0.5604645794762051,
+        "linearized_MSE": 0.0044243167909797255,
+        "nonlinear_MSE": 0.03594405131660455,
+        "nonlinear_relative_reduction": -2.570875336726096,
+        "parent_MSE": 0.01006589363311667
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.09915240467937608,
+        "gate_saturation_fraction": 0.6420060658578857,
+        "linear_relative_reduction": -0.27951138385228713,
+        "linearized_MSE": 0.0391818021182332,
+        "nonlinear_MSE": 0.05924933295287273,
+        "nonlinear_relative_reduction": -0.934831781603453,
+        "parent_MSE": 0.030622472463094973
+      },
+      "fraction": 1,
+      "role": "pure_span",
+      "teacher_index": 11
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.1517339277970512,
+        "gate_saturation_fraction": 0.6810629878577623,
+        "linear_relative_reduction": 0.6611847320625346,
+        "linearized_MSE": 0.007234828109939471,
+        "nonlinear_MSE": 1.558765726840934,
+        "nonlinear_relative_reduction": -71.99878025654539,
+        "parent_MSE": 0.021353311950731785
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.15354202772963604,
+        "gate_saturation_fraction": 0.6813799826689775,
+        "linear_relative_reduction": -0.40502948885994705,
+        "linearized_MSE": 0.0700458016761218,
+        "nonlinear_MSE": 1.4930872765041858,
+        "nonlinear_relative_reduction": -28.949427413650472,
+        "parent_MSE": 0.04985361676142297
+      },
+      "fraction": 1,
+      "role": "pure_span",
+      "teacher_index": 12
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.11983683868169992,
+        "gate_saturation_fraction": 0.6384838464874241,
+        "linear_relative_reduction": 0.6205822209708306,
+        "linearized_MSE": 0.008733702737599741,
+        "nonlinear_MSE": 361.0286540373546,
+        "nonlinear_relative_reduction": -15683.148430083787,
+        "parent_MSE": 0.023018696593362063
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.12254928509532062,
+        "gate_saturation_fraction": 0.6387023396880416,
+        "linear_relative_reduction": -0.38768405584221677,
+        "linearized_MSE": 0.07558587752113843,
+        "nonlinear_MSE": 383.7617195965649,
+        "nonlinear_relative_reduction": -7044.496288348494,
+        "parent_MSE": 0.0544690826437893
+      },
+      "fraction": 1,
+      "role": "pure_span",
+      "teacher_index": 13
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.12787632805724197,
+        "gate_saturation_fraction": 0.632277211621856,
+        "linear_relative_reduction": 0.6575168289575042,
+        "linearized_MSE": 0.00835710933513248,
+        "nonlinear_MSE": 4.1335365631555945,
+        "nonlinear_relative_reduction": -168.3966960343934,
+        "parent_MSE": 0.02440151821093573
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.12700389948006932,
+        "gate_saturation_fraction": 0.6273830155979203,
+        "linear_relative_reduction": -0.27497118319377023,
+        "linearized_MSE": 0.0766192588369849,
+        "nonlinear_MSE": 3.984321352118434,
+        "nonlinear_relative_reduction": -65.30049658066551,
+        "parent_MSE": 0.06009489457248407
+      },
+      "fraction": 1,
+      "role": "pure_span",
+      "teacher_index": 14
+    },
+    {
+      "F": {
+        "ReLU_mask_changed_fraction": 0.1167741760624458,
+        "gate_saturation_fraction": 0.6880556157849089,
+        "linear_relative_reduction": 0.6427473963748745,
+        "linearized_MSE": 0.00768089782790443,
+        "nonlinear_MSE": 0.16382721817925466,
+        "nonlinear_relative_reduction": -6.619903499636612,
+        "parent_MSE": 0.021499907208413792
+      },
+      "G": {
+        "ReLU_mask_changed_fraction": 0.1171198006932409,
+        "gate_saturation_fraction": 0.6952989601386481,
+        "linear_relative_reduction": -0.30734300993338715,
+        "linearized_MSE": 0.07515990660308203,
+        "nonlinear_MSE": 0.19653704988136145,
+        "nonlinear_relative_reduction": -2.418595764258056,
+        "parent_MSE": 0.05749057900796184
+      },
+      "fraction": 1,
+      "role": "pure_span",
+      "teacher_index": 15
+    }
+  ],
+  "teachers": 16
+}

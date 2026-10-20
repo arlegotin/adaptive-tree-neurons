@@ -16,14 +16,16 @@ foundations and transfer-data split preparation are verified. Native diagnostic
 controls now include a complete256-fit study with independent raw-prediction
 arithmetic. Growth helps the planted tasks, while the present chooser has not
 established an advantage over random; see the [plain status](docs/research/v2/status.md)
-and [M1 results](reports/research-v2-M1.md). The new selector, strong-baseline
-benchmark and confirmation have not been completed.
+and [M1 results](reports/research-v2-M1.md). The strong-baseline benchmark and protected confirmation remain unfinished.
 The completed [M2 diagnostic](reports/research-v2-M2.md) finds substantial ordinary
 training headroom and admits a bounded test of joint allocation. It does not
 establish a win for the present chooser.
-The [small-oracle check](reports/research-v2-small-joint.md) now gives a modest
-lead for new local scores on known planted controls; a fresh main-family study
-and the practical comparison remain pending.
+The completed [M3 study](reports/research-v2-M3.md) is more discouraging: across
+16fresh primary synthetic problems, ordinary continuation beat the new joint-grown
+model on all16problem averages, with about15.6%lower mean error. Joint placement
+averaged1.25%higher error than random. The tested selector branch is closed as a
+negative development result. The earlier [planted-control lead](reports/research-v2-small-joint.md)
+remains a separate, narrower finding; the practical comparison is unfinished.
 
 ## The idea
 
@@ -42,7 +44,7 @@ Soft affine trees and gated units are established model families. The research t
 
 ## Results
 
-The published long-probe diagnostic tested **8 fresh independently generated regression problems, with 2 paired training repetitions per problem**. Each problem had 262,144 held-out evaluation observations. Short search tried every single-neuron insertion for 320 updates; long search allowed up to 8,000 updates with the normal validation stopping rule. Both then restarted the joint grown model from the original parent. The newer v2 control study and active opportunity diagnostic are tracked separately in the [current status](docs/research/v2/status.md).
+The published long-probe diagnostic tested **8 fresh independently generated regression problems, with 2 paired training repetitions per problem**. Each problem had 262,144 held-out evaluation observations. Short search tried every single-neuron insertion for 320 updates; long search allowed up to 8,000 updates with the normal validation stopping rule. Both then restarted the joint grown model from the original parent. The newer v2 studies are tracked separately in the [current status](docs/research/v2/status.md); their recipes and teachers differ from these historical results.
 
 Lower normalized evaluation MSE is better: each problem's squared prediction error is divided by its fitting-target variance. Repetitions are averaged within each problem, then all 8 problems receive equal weight.
 

@@ -67,3 +67,77 @@ def summarize_joint_predictions(audit):
         Gate_B_decided=False,confirmatory_claim=False,T_accessed=False,
         remaining_gate_inputs=['Held-out local prediction and selection review','Complete standalone and physical resource accounting',
             'Penalty-sharing/additional-span and ordinary-control attribution','Bounded correction/admission disposition'])
+
+
+def summarize_joint_local_checks(rows,*,teacher_ids):
+    """Describe every saved F-solved probe, without re-solving or choosing on G.
+
+    The caller authenticates the retained records. These are temporary joint
+    parent/gate updates, not the Adam trajectory or a gate-only causal effect.
+    """
+    roles=('local_singleton','joint','unconditioned','pure_span');fractions=(1/16,1/4,1)
+    if (type(rows) is not list or teacher_ids not in (list(range(8)),list(range(16)))):
+        raise ValueError('Complete eight/sixteen-teacher local-probe inventory required')
+    seen={};max_error=0.
+    for row in rows:
+        if type(row) is not dict:raise ValueError('Invalid local diagnostic record')
+        t=row.get('teacher_index');r=row.get('repetition');role=row.get('role');d=row.get('diagnostic',{})
+        key=(t,r,role)
+        if (type(t) is not int or t not in teacher_ids or type(r) is not int or r not in (0,1)
+                or role not in roles or key in seen or type(d) is not dict
+                or d.get('fractions')!=list(fractions) or d.get('fraction_selected_on_G') is not False
+                or d.get('local_updates_applied_to_parent') is not False):
+            raise ValueError('Changed/unpaired local probe or a G-selected/applied fraction')
+        evaluations=d.get('evaluations')
+        if (type(evaluations) is not list or len(evaluations)!=3
+                or [v.get('fraction') for v in evaluations]!=list(fractions)):
+            raise ValueError('All three prescribed fractions must remain recorded')
+        def number(value,*,positive=False,probability=False):
+            if (type(value) not in (int,float) or not math.isfinite(value) or value<0
+                    or positive and value==0 or probability and value>1):
+                raise ValueError('Finite valid local loss/fraction/solve residual required')
+            return value
+        error=number(d.get('linear_solve',{}).get('matched_Schur_objective_error'))
+        max_error=max(max_error,error)
+        for target in ('F','G'):
+            number(d.get('current_parent_MSE',{}).get(target),positive=True)
+            for evaluation in evaluations:
+                values=evaluation.get(target,{})
+                for name in ('linearized_MSE','nonlinear_MSE'):number(values.get(name))
+                for name in ('ReLU_mask_changed_fraction','gate_saturation_fraction'):
+                    number(values.get(name),probability=True)
+        seen[key]=d
+    if set(seen)!={(t,r,k) for t in teacher_ids for r in (0,1) for k in roles}:
+        raise ValueError('Every paired local-probe record must remain in the review')
+    teacher_rows=[];by_role={}
+    for role in roles:
+        aggregates=[]
+        for index,fraction in enumerate(fractions):
+            grouped=[]
+            for t in teacher_ids:
+                data=dict(teacher_index=t,role=role,fraction=fraction)
+                for target in ('F','G'):
+                    base=_mean([seen[t,r,role]['current_parent_MSE'][target] for r in (0,1)])
+                    values={name:_mean([seen[t,r,role]['evaluations'][index][target][name] for r in (0,1)])
+                        for name in ('linearized_MSE','nonlinear_MSE','ReLU_mask_changed_fraction','gate_saturation_fraction')}
+                    data[target]=dict(parent_MSE=base,**values,
+                        nonlinear_relative_reduction=1-values['nonlinear_MSE']/base,
+                        linear_relative_reduction=1-values['linearized_MSE']/base)
+                grouped.append(data);teacher_rows.append(data)
+            aggregate=dict(fraction=fraction)
+            for target in ('F','G'):
+                v=[d[target] for d in grouped]
+                aggregate[target]={
+                    'mean_teacher_nonlinear_relative_reduction':_mean([d['nonlinear_relative_reduction'] for d in v]),
+                    'mean_teacher_linear_relative_reduction':_mean([d['linear_relative_reduction'] for d in v]),
+                    'nonlinear_improving_teachers':sum(d['nonlinear_relative_reduction']>0 for d in v),
+                    'linear_improving_teachers':sum(d['linear_relative_reduction']>0 for d in v),
+                    'mean_ReLU_mask_changed_fraction':_mean([d['ReLU_mask_changed_fraction'] for d in v]),
+                    'mean_gate_saturation_fraction':_mean([d['gate_saturation_fraction'] for d in v])}
+            aggregates.append(aggregate)
+        by_role[role]=aggregates
+    return dict(schema='research/v2-M3-saved-local-review',teachers=len(teacher_ids),repetitions=2,
+        local_diagnostic_count=len(rows),by_role=by_role,teacher_rows=teacher_rows,
+        max_saved_direct_Schur_objective_error=max_error,Gate_B_decided=False,T_accessed=False,
+        fresh_nonlinear_replay=False,record_file_authentication_performed=False,
+        scope='Saved producer diagnostics only. Repetition losses averaged before teacher relative changes; all fixed fractions reported. Temporary joint parent/gate updates are separate from Adam continuation and from placement efficacy.')

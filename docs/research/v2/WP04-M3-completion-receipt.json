@@ -1,0 +1,138 @@
+{
+  "Gate_B": "closed_negative_development",
+  "T_accessed": false,
+  "auditor_commit": "654a2cc",
+  "auditor_source_sha256": "4dbf2141ca1215b4edc12aaad8d8fa9934f3b10fcf99cbc59fb87335ebc360b6",
+  "checkpoint_tensor_chain_authenticated": false,
+  "compact_public_directory": "audit/research-v2/M3",
+  "confirmatory_claim": false,
+  "costs": {
+    "cohort_charged_job_ns": 8860237775275,
+    "development_only_charged_job_ns": 134163102621,
+    "timing_scope": "Nested inside containing process; do not add. Contended experiment/archive clocks, not deployment benchmarking"
+  },
+  "counts": {
+    "completed_eligible": 3089,
+    "failed": 0,
+    "final_models": 320,
+    "parent_procedures": 32,
+    "prediction_vectors": 640,
+    "queue_entries": 3089,
+    "repetitions": 2,
+    "scalar_metric_comparisons": 7680,
+    "short_probes_including_keep": 2080,
+    "teachers": 16,
+    "temporary_local_checks": 128
+  },
+  "files": [
+    {
+      "bytes": 3434,
+      "path": "artifacts/research-v2/M3-joint-53bd029/attempt-000/process/process.json",
+      "sha256": "e1468d7683892b7532b31d11d921fa061d2c0326d9f9476cc8218ffc94361156"
+    },
+    {
+      "bytes": 2347,
+      "path": "artifacts/research-v2/WP04/M3-delayed-audit-654a2cc/analysis/invocation.json",
+      "sha256": "ef52a2f3a91f88e07f625df3ee555c4e2e9f2dd75a698bd2b8ed9c83da5ffa54"
+    },
+    {
+      "bytes": 1385223,
+      "path": "artifacts/research-v2/WP04/M3-delayed-audit-654a2cc/analysis/audit.json",
+      "sha256": "e8b5f1138d74f0d0c09c6b0158dfa86cb78fb2e447cf4bedf91dbd225035d1c8"
+    },
+    {
+      "bytes": 54522,
+      "path": "artifacts/research-v2/WP04/M3-delayed-audit-654a2cc/analysis/development-summary.json",
+      "sha256": "beefb09a320b795e7caa7e3f189053693ce2033a2bc196160ff04d222b7fe8e5"
+    },
+    {
+      "bytes": 2128647,
+      "path": "artifacts/research-v2/WP04/M3-delayed-audit-654a2cc/analysis/experimental-costs.json",
+      "sha256": "972f4db734d9dd3f762b5f7aef9441b255ef044d7146ea9ff6603f582bac0cd7"
+    },
+    {
+      "bytes": 1050844,
+      "path": "artifacts/research-v2/WP04/M3-complete-development-review-0f1480b/input.json",
+      "sha256": "500db4212c81d30eccbeae4db75a2b40b863d6ecd6ef8bad11b467587e26fd0b"
+    },
+    {
+      "bytes": 235508,
+      "path": "artifacts/research-v2/WP04/M3-complete-development-review-0f1480b/review.json",
+      "sha256": "219634f278a2c73983845c24cef68d0d72ecd3d2fddbcc87022f12eb1f516491"
+    },
+    {
+      "bytes": 1267,
+      "path": "artifacts/research-v2/WP04/M3-complete-development-review-0f1480b/invocation.json",
+      "sha256": "bb20caff950c9afe78fe5278ba3a5ca8dd665683847e7c18d19725679633b7db"
+    },
+    {
+      "bytes": 19478,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/M3-local-review-red.log",
+      "sha256": "6d3754a18f673995887219bb29d6f79313bd23dcadbc2e194ea1e9e4c0b3b1aa"
+    },
+    {
+      "bytes": 100,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/M3-local-review-green.log",
+      "sha256": "390d828049ee369558113292123609d7f38654a468d51ead9eb0cfc6ad23812a"
+    },
+    {
+      "bytes": 88,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/M3-final-affected-tests.log",
+      "sha256": "4c0e95d33b168e3e878ac00d39dab1be6e4e5c08438c117f5d689fc37a050161"
+    },
+    {
+      "bytes": 2169,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/M3-final-affected-tests-recovery.log",
+      "sha256": "c2cbbd77d96f4ca8c9eaa0b5d31135317bab808fbcdae36c77807caf339107b1"
+    },
+    {
+      "bytes": 98,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/M3-admission-test-isolation-green.log",
+      "sha256": "55c1c7f57e634a2b3613f65f80bdfa4b31f2b56968feee4e2cfd3dc45d5af019"
+    },
+    {
+      "bytes": 192,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/M3-final-affected-tests-qualified.log",
+      "sha256": "cb444df21eb6225375cac343335cbf28c041569ec2300475d76e98c2da143b8b"
+    }
+  ],
+  "final_affected_verification": {
+    "recovery": "Make missing-admission fixture explicit in temporary config; targeted1passed4.29s, then full affected129passed134.47s; production execution guards unchanged",
+    "result": "129 passed in 134.47 s",
+    "retained_failures": [
+      "Initial command exit4 for misnamed test paths; no tests ran",
+      "Broad first attempt128passed/1failed: missing-admission fixture depended on actual old artifacts, while real guard correctly refused stale source"
+    ],
+    "scope": "Joint selector/Jacobian/allocation/plan/graph/native workers/resources/qualification/prediction/cost/local-update tests; not full repository suite"
+  },
+  "independent_audit_process": {
+    "elapsed_ns": 169236009333,
+    "observed_peak_root_rss_bytes": 402030592
+  },
+  "ledger_event_hash": "5dd4a99d0fb0e7b991c03cfc34b067fcaf99efc3c47db37e463410d828508e79",
+  "local_review_verification": {
+    "green": "24 passed in 17.61 s; affected local-review and prediction-audit tests",
+    "note": "New arithmetic summary only; saved temporary nonlinear diagnostics not independently reexecuted",
+    "red": "10 failed: missing local-review function"
+  },
+  "maximum_absolute_metric_difference": 5.551115123125783e-17,
+  "modern_baseline_quality_comparison": false,
+  "process": {
+    "child_reaped": true,
+    "elapsed_ns": 8997627309125,
+    "observed_peak_root_rss_bytes": 1047101440,
+    "returncode": 0
+  },
+  "producer_commit": "53bd029752a2ef033a1932367854eb6637bfe539",
+  "producer_source_sha256": "e78e027ffd7b0c1f4f4596b9e7ae8eee6c6a55e0f92e297a5d93e519cf1391a9",
+  "queue_plan_hash": "23ab57c782e1474985356d3216fbc00ba0a0b8294001b66b22511305d6dbb6c5",
+  "review_helper_files": {
+    "docs/research/v2/scripts/review_m3_development.py": "f6ed54496adbdd793b089f3d14c43d1d3c78114020e1e18857e0bacfbcd87f3c",
+    "src/treeneuron/research/joint_analysis.py": "f57165b5ac0ed2d5f2aa55becb99d4b2de32ad84d79ad7759e1c423f34cf870b",
+    "tests/test_joint_local_review.py": "97e05f92560917654ede9bed133cc1a60bf10ecd474ccc7c7876a72f4f18cd73",
+    "tests/test_joint_plan.py": "5a8b7ad4256a945e5bc963faca1c1ce777406e17a2dc9a16690c4cd03b4b9085"
+  },
+  "schema": "research/v2-M3-completion-receipt",
+  "status": "completed_independent_prediction_arithmetic_and_development_review",
+  "teacher_or_model_training_independently_reexecuted": false
+}

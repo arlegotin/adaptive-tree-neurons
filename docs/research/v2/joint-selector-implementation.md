@@ -1,9 +1,16 @@
 # Exact joint selector implementation
 
-The full fresh M3 study is now running under its held source and competent
-treatment. Its first eight teachers completed and triggered the single admitted
-extension; a final predictive result and Gate B decision remain pending. Earlier
-implementation entries below record their own historical verification stages.
+The full fresh M3 study and independent prediction arithmetic have completed.
+Sixteen teachers/R2/ten roles produced320final models, without a failed or missing
+entry. **Gate B closes negative:** joint allocation has negative mean V log
+benefit versus matched random, and ordinary continuation beats joint on every
+teacher E average. The optional ridge correction is not admitted because useful
+added gated capacity beyond competent continuation is unsupported in this regime.
+See [the complete report](../../../reports/research-v2-M3.md),
+[completion receipt](WP04-M3-completion-receipt.json) and
+[branch disposition](../../../audit/research-v2/M3/gate-B.json).
+Earlier implementation entries below describe their own historical stages; their
+then-pending checks do not override this completed result.
 
 The separate `research.joint_costs` collector distinguishes standalone
 experimental dependencies from the containing shared cohort. It charges each
@@ -17,8 +24,8 @@ file inventories and an externally committed ledger endpoint. These contended
 archive clocks are not deployment timings or an efficiency claim.
 Five initial missing-feature failures preceded17passing cost/queue checks.
 The final32affected checks passed in37.12seconds, including an actual small
-native ten-role queue and all nine nominal singleton/keep probes. No real M3
-scientific costs have yet been collected. See
+native ten-role queue and all nine nominal singleton/keep probes. The subsequent independent collection includes full scientific costs, reported
+in the completion receipt. For the earlier implementation tests see
 [the implementation receipt](WP04-M3-cost-implementation-receipt.json).
 
 Gate A passed after the complete M2 collection and independent raw arithmetic;

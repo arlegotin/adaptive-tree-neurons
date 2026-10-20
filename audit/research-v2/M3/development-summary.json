@@ -1,0 +1,2968 @@
+{
+  "Gate_B_decided": false,
+  "T_accessed": false,
+  "confirmatory_claim": false,
+  "contrasts": {
+    "fresh_upper_over_joint": {
+      "E": {
+        "mean_log_risk_ratio": -0.028996380605896876,
+        "signs": {
+          "negative": 10,
+          "positive": 6,
+          "zero": 0
+        },
+        "teacher_effects": [
+          {
+            "joint_risk": 0.04892341876153259,
+            "log_risk_ratio": 0.02469785722201845,
+            "reference_risk": 0.05014676723120364,
+            "teacher_index": 0
+          },
+          {
+            "joint_risk": 0.09069011699972793,
+            "log_risk_ratio": 0.0911609840560228,
+            "reference_risk": 0.09934606607848245,
+            "teacher_index": 1
+          },
+          {
+            "joint_risk": 0.030539926875500886,
+            "log_risk_ratio": -0.051770132602615426,
+            "reference_risk": 0.028999099355596032,
+            "teacher_index": 2
+          },
+          {
+            "joint_risk": 0.08818984421809195,
+            "log_risk_ratio": -0.04534222190129,
+            "reference_risk": 0.08428042145382905,
+            "teacher_index": 3
+          },
+          {
+            "joint_risk": 0.10385291581174211,
+            "log_risk_ratio": -0.1438046856627042,
+            "reference_risk": 0.08994253275235256,
+            "teacher_index": 4
+          },
+          {
+            "joint_risk": 0.06659763702288972,
+            "log_risk_ratio": 0.0823235446889492,
+            "reference_risk": 0.07231218446619175,
+            "teacher_index": 5
+          },
+          {
+            "joint_risk": 0.029139787024449693,
+            "log_risk_ratio": -0.05230234038018855,
+            "reference_risk": 0.027654878545380943,
+            "teacher_index": 6
+          },
+          {
+            "joint_risk": 0.028974853802195,
+            "log_risk_ratio": -0.103453438321083,
+            "reference_risk": 0.026127147431418377,
+            "teacher_index": 7
+          },
+          {
+            "joint_risk": 0.07123971888213956,
+            "log_risk_ratio": -0.25145068309529206,
+            "reference_risk": 0.055401121057902944,
+            "teacher_index": 8
+          },
+          {
+            "joint_risk": 0.047394213736758894,
+            "log_risk_ratio": 0.10457464157436824,
+            "reference_risk": 0.0526188694265909,
+            "teacher_index": 9
+          },
+          {
+            "joint_risk": 0.08895476956457607,
+            "log_risk_ratio": -0.060758726943332064,
+            "reference_risk": 0.08371090924590047,
+            "teacher_index": 10
+          },
+          {
+            "joint_risk": 0.0310409075421344,
+            "log_risk_ratio": -0.1187636847874094,
+            "reference_risk": 0.02756487308786328,
+            "teacher_index": 11
+          },
+          {
+            "joint_risk": 0.048397409558947245,
+            "log_risk_ratio": -0.02088609003908104,
+            "reference_risk": 0.04739705996591667,
+            "teacher_index": 12
+          },
+          {
+            "joint_risk": 0.0570093263519775,
+            "log_risk_ratio": 0.055947301248304715,
+            "reference_risk": 0.06028975422272982,
+            "teacher_index": 13
+          },
+          {
+            "joint_risk": 0.07025870895463998,
+            "log_risk_ratio": -0.029955403328080443,
+            "reference_risk": 0.06818529106716584,
+            "teacher_index": 14
+          },
+          {
+            "joint_risk": 0.06132510254591225,
+            "log_risk_ratio": 0.05584098857706277,
+            "reference_risk": 0.06484697417797033,
+            "teacher_index": 15
+          }
+        ]
+      },
+      "V": {
+        "mean_log_risk_ratio": -0.016275007059668445,
+        "signs": {
+          "negative": 10,
+          "positive": 6,
+          "zero": 0
+        },
+        "teacher_effects": [
+          {
+            "joint_risk": 0.047015581518390206,
+            "log_risk_ratio": 0.15038041061881557,
+            "reference_risk": 0.05464509617129272,
+            "teacher_index": 0
+          },
+          {
+            "joint_risk": 0.08927808692085824,
+            "log_risk_ratio": 0.025541981399796132,
+            "reference_risk": 0.09158779788510646,
+            "teacher_index": 1
+          },
+          {
+            "joint_risk": 0.028388317970350567,
+            "log_risk_ratio": -0.08708465457363213,
+            "reference_risk": 0.026020718000943382,
+            "teacher_index": 2
+          },
+          {
+            "joint_risk": 0.09225524680704597,
+            "log_risk_ratio": -0.062132771771940654,
+            "reference_risk": 0.08669761593033917,
+            "teacher_index": 3
+          },
+          {
+            "joint_risk": 0.1161935080544389,
+            "log_risk_ratio": -0.23940204858766423,
+            "reference_risk": 0.09145572044133646,
+            "teacher_index": 4
+          },
+          {
+            "joint_risk": 0.0530423158873613,
+            "log_risk_ratio": 0.10649923913728232,
+            "reference_risk": 0.059003056467417,
+            "teacher_index": 5
+          },
+          {
+            "joint_risk": 0.028760294221953253,
+            "log_risk_ratio": -0.07621513750503706,
+            "reference_risk": 0.02664977280791552,
+            "teacher_index": 6
+          },
+          {
+            "joint_risk": 0.029545098604167576,
+            "log_risk_ratio": -0.08748180459485821,
+            "reference_risk": 0.027070269455963296,
+            "teacher_index": 7
+          },
+          {
+            "joint_risk": 0.06315342806432293,
+            "log_risk_ratio": -0.09513399989797477,
+            "reference_risk": 0.057422323099585025,
+            "teacher_index": 8
+          },
+          {
+            "joint_risk": 0.042999565807028975,
+            "log_risk_ratio": 0.115023887267788,
+            "reference_risk": 0.048241223043282475,
+            "teacher_index": 9
+          },
+          {
+            "joint_risk": 0.08774050916414441,
+            "log_risk_ratio": -0.07886050273771383,
+            "reference_risk": 0.08108704409054751,
+            "teacher_index": 10
+          },
+          {
+            "joint_risk": 0.03067376528137457,
+            "log_risk_ratio": -0.01480025314149147,
+            "reference_risk": 0.030223128783399514,
+            "teacher_index": 11
+          },
+          {
+            "joint_risk": 0.04828406330496324,
+            "log_risk_ratio": -0.014159562756937749,
+            "reference_risk": 0.047605199629106476,
+            "teacher_index": 12
+          },
+          {
+            "joint_risk": 0.06319623637069258,
+            "log_risk_ratio": 0.11502916234555016,
+            "reference_risk": 0.07090024652613844,
+            "teacher_index": 13
+          },
+          {
+            "joint_risk": 0.07077145846396327,
+            "log_risk_ratio": -0.020019318061641034,
+            "reference_risk": 0.06936874961163611,
+            "teacher_index": 14
+          },
+          {
+            "joint_risk": 0.06626516207163217,
+            "log_risk_ratio": 0.002415259904963829,
+            "reference_risk": 0.06642540309464183,
+            "teacher_index": 15
+          }
+        ]
+      }
+    },
+    "keep_over_joint": {
+      "E": {
+        "mean_log_risk_ratio": -0.14614967592249684,
+        "signs": {
+          "negative": 16,
+          "positive": 0,
+          "zero": 0
+        },
+        "teacher_effects": [
+          {
+            "joint_risk": 0.04892341876153259,
+            "log_risk_ratio": -0.07026439161203912,
+            "reference_risk": 0.04560383443656067,
+            "teacher_index": 0
+          },
+          {
+            "joint_risk": 0.09069011699972793,
+            "log_risk_ratio": -0.16982542658889077,
+            "reference_risk": 0.07652541906310073,
+            "teacher_index": 1
+          },
+          {
+            "joint_risk": 0.030539926875500886,
+            "log_risk_ratio": -0.07193167076150209,
+            "reference_risk": 0.028420287383719364,
+            "teacher_index": 2
+          },
+          {
+            "joint_risk": 0.08818984421809195,
+            "log_risk_ratio": -0.2257525377796612,
+            "reference_risk": 0.07036804639444386,
+            "teacher_index": 3
+          },
+          {
+            "joint_risk": 0.10385291581174211,
+            "log_risk_ratio": -0.3812534161567842,
+            "reference_risk": 0.07093203825280098,
+            "teacher_index": 4
+          },
+          {
+            "joint_risk": 0.06659763702288972,
+            "log_risk_ratio": -0.09242330189493808,
+            "reference_risk": 0.0607183400470529,
+            "teacher_index": 5
+          },
+          {
+            "joint_risk": 0.029139787024449693,
+            "log_risk_ratio": -0.06990915252379093,
+            "reference_risk": 0.027172225750978506,
+            "teacher_index": 6
+          },
+          {
+            "joint_risk": 0.028974853802195,
+            "log_risk_ratio": -0.07623229898106176,
+            "reference_risk": 0.02684812656966116,
+            "teacher_index": 7
+          },
+          {
+            "joint_risk": 0.07123971888213956,
+            "log_risk_ratio": -0.39017988609267373,
+            "reference_risk": 0.04822466567949178,
+            "teacher_index": 8
+          },
+          {
+            "joint_risk": 0.047394213736758894,
+            "log_risk_ratio": -0.05018451727144724,
+            "reference_risk": 0.045074452875060844,
+            "teacher_index": 9
+          },
+          {
+            "joint_risk": 0.08895476956457607,
+            "log_risk_ratio": -0.20706503902532525,
+            "reference_risk": 0.07231727201827337,
+            "teacher_index": 10
+          },
+          {
+            "joint_risk": 0.0310409075421344,
+            "log_risk_ratio": -0.10028193259637863,
+            "reference_risk": 0.028079057116390454,
+            "teacher_index": 11
+          },
+          {
+            "joint_risk": 0.048397409558947245,
+            "log_risk_ratio": -0.053808951560432305,
+            "reference_risk": 0.04586202071824004,
+            "teacher_index": 12
+          },
+          {
+            "joint_risk": 0.0570093263519775,
+            "log_risk_ratio": -0.07905448865663933,
+            "reference_risk": 0.052676023291001,
+            "teacher_index": 13
+          },
+          {
+            "joint_risk": 0.07025870895463998,
+            "log_risk_ratio": -0.11717110440705136,
+            "reference_risk": 0.06249041387680324,
+            "teacher_index": 14
+          },
+          {
+            "joint_risk": 0.06132510254591225,
+            "log_risk_ratio": -0.18305669885133335,
+            "reference_risk": 0.05106669704239851,
+            "teacher_index": 15
+          }
+        ]
+      },
+      "V": {
+        "mean_log_risk_ratio": -0.12839266722112844,
+        "signs": {
+          "negative": 15,
+          "positive": 1,
+          "zero": 0
+        },
+        "teacher_effects": [
+          {
+            "joint_risk": 0.047015581518390206,
+            "log_risk_ratio": 0.010538874271885934,
+            "reference_risk": 0.04751369297751294,
+            "teacher_index": 0
+          },
+          {
+            "joint_risk": 0.08927808692085824,
+            "log_risk_ratio": -0.1274291218393273,
+            "reference_risk": 0.07859648267141545,
+            "teacher_index": 1
+          },
+          {
+            "joint_risk": 0.028388317970350567,
+            "log_risk_ratio": -0.041989535704774816,
+            "reference_risk": 0.0272209850699857,
+            "teacher_index": 2
+          },
+          {
+            "joint_risk": 0.09225524680704597,
+            "log_risk_ratio": -0.21985489319759077,
+            "reference_risk": 0.07404731376271759,
+            "teacher_index": 3
+          },
+          {
+            "joint_risk": 0.1161935080544389,
+            "log_risk_ratio": -0.41842355211807813,
+            "reference_risk": 0.07646502310897854,
+            "teacher_index": 4
+          },
+          {
+            "joint_risk": 0.0530423158873613,
+            "log_risk_ratio": -0.047633242639427475,
+            "reference_risk": 0.050574968758106714,
+            "teacher_index": 5
+          },
+          {
+            "joint_risk": 0.028760294221953253,
+            "log_risk_ratio": -0.05515745504198577,
+            "reference_risk": 0.027216905555444502,
+            "teacher_index": 6
+          },
+          {
+            "joint_risk": 0.029545098604167576,
+            "log_risk_ratio": -0.05626467314522232,
+            "reference_risk": 0.02792865406095544,
+            "teacher_index": 7
+          },
+          {
+            "joint_risk": 0.06315342806432293,
+            "log_risk_ratio": -0.306915636842787,
+            "reference_risk": 0.0464627768860867,
+            "teacher_index": 8
+          },
+          {
+            "joint_risk": 0.042999565807028975,
+            "log_risk_ratio": -0.08410050271620095,
+            "reference_risk": 0.03953117161172519,
+            "teacher_index": 9
+          },
+          {
+            "joint_risk": 0.08774050916414441,
+            "log_risk_ratio": -0.1768317657267442,
+            "reference_risk": 0.07351959233631568,
+            "teacher_index": 10
+          },
+          {
+            "joint_risk": 0.03067376528137457,
+            "log_risk_ratio": -0.07718383647146432,
+            "reference_risk": 0.02839530747294878,
+            "teacher_index": 11
+          },
+          {
+            "joint_risk": 0.04828406330496324,
+            "log_risk_ratio": -0.04049047301641995,
+            "reference_risk": 0.04636807023734496,
+            "teacher_index": 12
+          },
+          {
+            "joint_risk": 0.06319623637069258,
+            "log_risk_ratio": -0.0928291707749862,
+            "reference_risk": 0.05759383769449075,
+            "teacher_index": 13
+          },
+          {
+            "joint_risk": 0.07077145846396327,
+            "log_risk_ratio": -0.11929180496024161,
+            "reference_risk": 0.06281312104078597,
+            "teacher_index": 14
+          },
+          {
+            "joint_risk": 0.06626516207163217,
+            "log_risk_ratio": -0.2004258856146901,
+            "reference_risk": 0.05423022525412653,
+            "teacher_index": 15
+          }
+        ]
+      }
+    },
+    "local_singleton_over_joint": {
+      "E": {
+        "mean_log_risk_ratio": -0.007838076715888459,
+        "signs": {
+          "negative": 8,
+          "positive": 6,
+          "zero": 2
+        },
+        "teacher_effects": [
+          {
+            "joint_risk": 0.04892341876153259,
+            "log_risk_ratio": -0.04980434987109206,
+            "reference_risk": 0.04654650141132339,
+            "teacher_index": 0
+          },
+          {
+            "joint_risk": 0.09069011699972793,
+            "log_risk_ratio": -0.004307315663278022,
+            "reference_risk": 0.09030032611710553,
+            "teacher_index": 1
+          },
+          {
+            "joint_risk": 0.030539926875500886,
+            "log_risk_ratio": -0.001827751824264201,
+            "reference_risk": 0.03048415844938792,
+            "teacher_index": 2
+          },
+          {
+            "joint_risk": 0.08818984421809195,
+            "log_risk_ratio": 0.04047747716779293,
+            "reference_risk": 0.09183277762455261,
+            "teacher_index": 3
+          },
+          {
+            "joint_risk": 0.10385291581174211,
+            "log_risk_ratio": -0.011193858230133635,
+            "reference_risk": 0.10269688329850889,
+            "teacher_index": 4
+          },
+          {
+            "joint_risk": 0.06659763702288972,
+            "log_risk_ratio": -0.023014619287818228,
+            "reference_risk": 0.06508242070482531,
+            "teacher_index": 5
+          },
+          {
+            "joint_risk": 0.029139787024449693,
+            "log_risk_ratio": 0.002708146327767391,
+            "reference_risk": 0.02921880878462086,
+            "teacher_index": 6
+          },
+          {
+            "joint_risk": 0.028974853802195,
+            "log_risk_ratio": 0.00498262320610765,
+            "reference_risk": 0.029119584851856,
+            "teacher_index": 7
+          },
+          {
+            "joint_risk": 0.07123971888213956,
+            "log_risk_ratio": -0.03733298384076722,
+            "reference_risk": 0.06862916076898917,
+            "teacher_index": 8
+          },
+          {
+            "joint_risk": 0.047394213736758894,
+            "log_risk_ratio": 0.0,
+            "reference_risk": 0.047394213736758894,
+            "teacher_index": 9
+          },
+          {
+            "joint_risk": 0.08895476956457607,
+            "log_risk_ratio": -0.01038254300339192,
+            "reference_risk": 0.08803597083153966,
+            "teacher_index": 10
+          },
+          {
+            "joint_risk": 0.0310409075421344,
+            "log_risk_ratio": -0.06759841402983824,
+            "reference_risk": 0.029011941430142983,
+            "teacher_index": 11
+          },
+          {
+            "joint_risk": 0.048397409558947245,
+            "log_risk_ratio": 0.0,
+            "reference_risk": 0.048397409558947245,
+            "teacher_index": 12
+          },
+          {
+            "joint_risk": 0.0570093263519775,
+            "log_risk_ratio": 0.009150097315567152,
+            "reference_risk": 0.057533361064101986,
+            "teacher_index": 13
+          },
+          {
+            "joint_risk": 0.07025870895463998,
+            "log_risk_ratio": 0.0015710718013148828,
+            "reference_risk": 0.07036917718511426,
+            "teacher_index": 14
+          },
+          {
+            "joint_risk": 0.06132510254591225,
+            "log_risk_ratio": 0.02116319247781817,
+            "reference_risk": 0.06263676805418053,
+            "teacher_index": 15
+          }
+        ]
+      },
+      "V": {
+        "mean_log_risk_ratio": 0.010054458286449047,
+        "signs": {
+          "negative": 5,
+          "positive": 9,
+          "zero": 2
+        },
+        "teacher_effects": [
+          {
+            "joint_risk": 0.047015581518390206,
+            "log_risk_ratio": -0.030141556010200965,
+            "reference_risk": 0.04561960290564655,
+            "teacher_index": 0
+          },
+          {
+            "joint_risk": 0.08927808692085824,
+            "log_risk_ratio": -0.009472484523616487,
+            "reference_risk": 0.08843639437760088,
+            "teacher_index": 1
+          },
+          {
+            "joint_risk": 0.028388317970350567,
+            "log_risk_ratio": -0.0022309410916823147,
+            "reference_risk": 0.02832505589848307,
+            "teacher_index": 2
+          },
+          {
+            "joint_risk": 0.09225524680704597,
+            "log_risk_ratio": 0.035211118334739666,
+            "reference_risk": 0.09556152449398253,
+            "teacher_index": 3
+          },
+          {
+            "joint_risk": 0.1161935080544389,
+            "log_risk_ratio": -0.02380564186252565,
+            "reference_risk": 0.11346011123324228,
+            "teacher_index": 4
+          },
+          {
+            "joint_risk": 0.0530423158873613,
+            "log_risk_ratio": 0.021336871740131436,
+            "reference_risk": 0.05418623339057919,
+            "teacher_index": 5
+          },
+          {
+            "joint_risk": 0.028760294221953253,
+            "log_risk_ratio": 0.028045715854135622,
+            "reference_risk": 0.0295783146275563,
+            "teacher_index": 6
+          },
+          {
+            "joint_risk": 0.029545098604167576,
+            "log_risk_ratio": 0.07651637865485972,
+            "reference_risk": 0.0318945210420005,
+            "teacher_index": 7
+          },
+          {
+            "joint_risk": 0.06315342806432293,
+            "log_risk_ratio": 0.0795325469986028,
+            "reference_risk": 0.06838131937619568,
+            "teacher_index": 8
+          },
+          {
+            "joint_risk": 0.042999565807028975,
+            "log_risk_ratio": 0.0,
+            "reference_risk": 0.042999565807028975,
+            "teacher_index": 9
+          },
+          {
+            "joint_risk": 0.08774050916414441,
+            "log_risk_ratio": 0.0062105791720039605,
+            "reference_risk": 0.08828712418385895,
+            "teacher_index": 10
+          },
+          {
+            "joint_risk": 0.03067376528137457,
+            "log_risk_ratio": -0.05372638072987801,
+            "reference_risk": 0.02906926287729356,
+            "teacher_index": 11
+          },
+          {
+            "joint_risk": 0.04828406330496324,
+            "log_risk_ratio": 0.0,
+            "reference_risk": 0.04828406330496324,
+            "teacher_index": 12
+          },
+          {
+            "joint_risk": 0.06319623637069258,
+            "log_risk_ratio": 0.003298322594162073,
+            "reference_risk": 0.06340502207700585,
+            "teacher_index": 13
+          },
+          {
+            "joint_risk": 0.07077145846396327,
+            "log_risk_ratio": 0.0247313779587075,
+            "reference_risk": 0.07254355704876492,
+            "teacher_index": 14
+          },
+          {
+            "joint_risk": 0.06626516207163217,
+            "log_risk_ratio": 0.005365425493745413,
+            "reference_risk": 0.06662165838353061,
+            "teacher_index": 15
+          }
+        ]
+      }
+    },
+    "pure_span_over_joint": {
+      "E": {
+        "mean_log_risk_ratio": 0.0025476785566790894,
+        "signs": {
+          "negative": 7,
+          "positive": 8,
+          "zero": 1
+        },
+        "teacher_effects": [
+          {
+            "joint_risk": 0.04892341876153259,
+            "log_risk_ratio": -0.00579349648956029,
+            "reference_risk": 0.04864080057092475,
+            "teacher_index": 0
+          },
+          {
+            "joint_risk": 0.09069011699972793,
+            "log_risk_ratio": -0.02106055499081405,
+            "reference_risk": 0.08880010501279924,
+            "teacher_index": 1
+          },
+          {
+            "joint_risk": 0.030539926875500886,
+            "log_risk_ratio": -0.006834548835191967,
+            "reference_risk": 0.03033191190779068,
+            "teacher_index": 2
+          },
+          {
+            "joint_risk": 0.08818984421809195,
+            "log_risk_ratio": 0.04150028197665456,
+            "reference_risk": 0.09192675268199595,
+            "teacher_index": 3
+          },
+          {
+            "joint_risk": 0.10385291581174211,
+            "log_risk_ratio": -0.002181763424919936,
+            "reference_risk": 0.10362658031349015,
+            "teacher_index": 4
+          },
+          {
+            "joint_risk": 0.06659763702288972,
+            "log_risk_ratio": 0.011569322328218501,
+            "reference_risk": 0.06737260081082737,
+            "teacher_index": 5
+          },
+          {
+            "joint_risk": 0.029139787024449693,
+            "log_risk_ratio": 0.002892615784821917,
+            "reference_risk": 0.029224199259586844,
+            "teacher_index": 6
+          },
+          {
+            "joint_risk": 0.028974853802195,
+            "log_risk_ratio": 0.03164195618759491,
+            "reference_risk": 0.02990633406940204,
+            "teacher_index": 7
+          },
+          {
+            "joint_risk": 0.07123971888213956,
+            "log_risk_ratio": -0.02836075096634927,
+            "reference_risk": 0.06924768821820887,
+            "teacher_index": 8
+          },
+          {
+            "joint_risk": 0.047394213736758894,
+            "log_risk_ratio": 0.04120424946596346,
+            "reference_risk": 0.04938784778374251,
+            "teacher_index": 9
+          },
+          {
+            "joint_risk": 0.08895476956457607,
+            "log_risk_ratio": -0.014548507966491986,
+            "reference_risk": 0.08766997894557349,
+            "teacher_index": 10
+          },
+          {
+            "joint_risk": 0.0310409075421344,
+            "log_risk_ratio": -0.07824247840176346,
+            "reference_risk": 0.028704774112423673,
+            "teacher_index": 11
+          },
+          {
+            "joint_risk": 0.048397409558947245,
+            "log_risk_ratio": 0.0,
+            "reference_risk": 0.048397409558947245,
+            "teacher_index": 12
+          },
+          {
+            "joint_risk": 0.0570093263519775,
+            "log_risk_ratio": 0.05289528752292583,
+            "reference_risk": 0.060106029573031614,
+            "teacher_index": 13
+          },
+          {
+            "joint_risk": 0.07025870895463998,
+            "log_risk_ratio": 0.014923248995425187,
+            "reference_risk": 0.07131505965036522,
+            "teacher_index": 14
+          },
+          {
+            "joint_risk": 0.06132510254591225,
+            "log_risk_ratio": 0.001157995720352023,
+            "reference_risk": 0.061396157885159786,
+            "teacher_index": 15
+          }
+        ]
+      },
+      "V": {
+        "mean_log_risk_ratio": 0.02299587186400126,
+        "signs": {
+          "negative": 5,
+          "positive": 10,
+          "zero": 1
+        },
+        "teacher_effects": [
+          {
+            "joint_risk": 0.047015581518390206,
+            "log_risk_ratio": 0.06343597668938639,
+            "reference_risk": 0.050094691536725605,
+            "teacher_index": 0
+          },
+          {
+            "joint_risk": 0.08927808692085824,
+            "log_risk_ratio": -0.0058791314042316856,
+            "reference_risk": 0.0887547492093139,
+            "teacher_index": 1
+          },
+          {
+            "joint_risk": 0.028388317970350567,
+            "log_risk_ratio": -0.0006103163899724429,
+            "reference_risk": 0.028370997400660937,
+            "teacher_index": 2
+          },
+          {
+            "joint_risk": 0.09225524680704597,
+            "log_risk_ratio": 0.055172087957644056,
+            "reference_risk": 0.09748819026867578,
+            "teacher_index": 3
+          },
+          {
+            "joint_risk": 0.1161935080544389,
+            "log_risk_ratio": 0.01594771428458941,
+            "reference_risk": 0.11806138350679976,
+            "teacher_index": 4
+          },
+          {
+            "joint_risk": 0.0530423158873613,
+            "log_risk_ratio": 0.049320847473657725,
+            "reference_risk": 0.05572399563061442,
+            "teacher_index": 5
+          },
+          {
+            "joint_risk": 0.028760294221953253,
+            "log_risk_ratio": 0.04858124138979791,
+            "reference_risk": 0.030192000477421363,
+            "teacher_index": 6
+          },
+          {
+            "joint_risk": 0.029545098604167576,
+            "log_risk_ratio": 0.05201587040429656,
+            "reference_risk": 0.031122584103868693,
+            "teacher_index": 7
+          },
+          {
+            "joint_risk": 0.06315342806432293,
+            "log_risk_ratio": 0.014683759939906338,
+            "reference_risk": 0.06408759963203733,
+            "teacher_index": 8
+          },
+          {
+            "joint_risk": 0.042999565807028975,
+            "log_risk_ratio": 0.0725653741212029,
+            "reference_risk": 0.04623584634974228,
+            "teacher_index": 9
+          },
+          {
+            "joint_risk": 0.08774050916414441,
+            "log_risk_ratio": -0.0019950572986133785,
+            "reference_risk": 0.087565636319628,
+            "teacher_index": 10
+          },
+          {
+            "joint_risk": 0.03067376528137457,
+            "log_risk_ratio": -0.051501212407337515,
+            "reference_risk": 0.029134018900013672,
+            "teacher_index": 11
+          },
+          {
+            "joint_risk": 0.04828406330496324,
+            "log_risk_ratio": 0.0,
+            "reference_risk": 0.04828406330496324,
+            "teacher_index": 12
+          },
+          {
+            "joint_risk": 0.06319623637069258,
+            "log_risk_ratio": 0.05518256831144486,
+            "reference_risk": 0.06678158150795387,
+            "teacher_index": 13
+          },
+          {
+            "joint_risk": 0.07077145846396327,
+            "log_risk_ratio": 0.05496203751530926,
+            "reference_risk": 0.07477008171503638,
+            "teacher_index": 14
+          },
+          {
+            "joint_risk": 0.06626516207163217,
+            "log_risk_ratio": -0.05394781076306021,
+            "reference_risk": 0.06278501870592426,
+            "teacher_index": 15
+          }
+        ]
+      }
+    },
+    "random_over_joint": {
+      "E": {
+        "mean_log_risk_ratio": -0.013307138032745996,
+        "signs": {
+          "negative": 9,
+          "positive": 5,
+          "zero": 2
+        },
+        "teacher_effects": [
+          {
+            "joint_risk": 0.04892341876153259,
+            "log_risk_ratio": -0.01708312018480962,
+            "reference_risk": 0.04809475237529692,
+            "teacher_index": 0
+          },
+          {
+            "joint_risk": 0.09069011699972793,
+            "log_risk_ratio": -0.02106055499081405,
+            "reference_risk": 0.08880010501279924,
+            "teacher_index": 1
+          },
+          {
+            "joint_risk": 0.030539926875500886,
+            "log_risk_ratio": 0.011265517034908079,
+            "reference_risk": 0.030885920179477826,
+            "teacher_index": 2
+          },
+          {
+            "joint_risk": 0.08818984421809195,
+            "log_risk_ratio": 0.08139818131456744,
+            "reference_risk": 0.09566858630327016,
+            "teacher_index": 3
+          },
+          {
+            "joint_risk": 0.10385291581174211,
+            "log_risk_ratio": -0.09028416410403839,
+            "reference_risk": 0.09488745100279228,
+            "teacher_index": 4
+          },
+          {
+            "joint_risk": 0.06659763702288972,
+            "log_risk_ratio": 0.011641821803933361,
+            "reference_risk": 0.06737748546612904,
+            "teacher_index": 5
+          },
+          {
+            "joint_risk": 0.029139787024449693,
+            "log_risk_ratio": 0.002002886881948829,
+            "reference_risk": 0.02919820920860656,
+            "teacher_index": 6
+          },
+          {
+            "joint_risk": 0.028974853802195,
+            "log_risk_ratio": -0.005741605370882308,
+            "reference_risk": 0.028808968306226396,
+            "teacher_index": 7
+          },
+          {
+            "joint_risk": 0.07123971888213956,
+            "log_risk_ratio": -0.06675594583136268,
+            "reference_risk": 0.06663930485886549,
+            "teacher_index": 8
+          },
+          {
+            "joint_risk": 0.047394213736758894,
+            "log_risk_ratio": 0.0,
+            "reference_risk": 0.047394213736758894,
+            "teacher_index": 9
+          },
+          {
+            "joint_risk": 0.08895476956457607,
+            "log_risk_ratio": -0.007513859170742432,
+            "reference_risk": 0.08828888078366078,
+            "teacher_index": 10
+          },
+          {
+            "joint_risk": 0.0310409075421344,
+            "log_risk_ratio": -0.113018535035045,
+            "reference_risk": 0.02772369319747032,
+            "teacher_index": 11
+          },
+          {
+            "joint_risk": 0.048397409558947245,
+            "log_risk_ratio": 0.0,
+            "reference_risk": 0.048397409558947245,
+            "teacher_index": 12
+          },
+          {
+            "joint_risk": 0.0570093263519775,
+            "log_risk_ratio": 0.038756446543894096,
+            "reference_risk": 0.059262179567107234,
+            "teacher_index": 13
+          },
+          {
+            "joint_risk": 0.07025870895463998,
+            "log_risk_ratio": -0.017089737868537735,
+            "reference_risk": 0.0690682076875074,
+            "teacher_index": 14
+          },
+          {
+            "joint_risk": 0.06132510254591225,
+            "log_risk_ratio": -0.019431539546955534,
+            "reference_risk": 0.06014496447365707,
+            "teacher_index": 15
+          }
+        ]
+      },
+      "V": {
+        "mean_log_risk_ratio": -0.004847684037388056,
+        "signs": {
+          "negative": 6,
+          "positive": 8,
+          "zero": 2
+        },
+        "teacher_effects": [
+          {
+            "joint_risk": 0.047015581518390206,
+            "log_risk_ratio": 0.005780431562718125,
+            "reference_risk": 0.047288138860348106,
+            "teacher_index": 0
+          },
+          {
+            "joint_risk": 0.08927808692085824,
+            "log_risk_ratio": -0.0058791314042316856,
+            "reference_risk": 0.0887547492093139,
+            "teacher_index": 1
+          },
+          {
+            "joint_risk": 0.028388317970350567,
+            "log_risk_ratio": 0.015437767325994667,
+            "reference_risk": 0.028829970511179186,
+            "teacher_index": 2
+          },
+          {
+            "joint_risk": 0.09225524680704597,
+            "log_risk_ratio": 0.09234246267547919,
+            "reference_risk": 0.10118005171028704,
+            "teacher_index": 3
+          },
+          {
+            "joint_risk": 0.1161935080544389,
+            "log_risk_ratio": -0.12658663432493178,
+            "reference_risk": 0.10237784582257714,
+            "teacher_index": 4
+          },
+          {
+            "joint_risk": 0.0530423158873613,
+            "log_risk_ratio": 0.07413715865886417,
+            "reference_risk": 0.05712416126283898,
+            "teacher_index": 5
+          },
+          {
+            "joint_risk": 0.028760294221953253,
+            "log_risk_ratio": -0.023398384444912157,
+            "reference_risk": 0.028095161660223567,
+            "teacher_index": 6
+          },
+          {
+            "joint_risk": 0.029545098604167576,
+            "log_risk_ratio": -0.026053093584744946,
+            "reference_risk": 0.02878529794076276,
+            "teacher_index": 7
+          },
+          {
+            "joint_risk": 0.06315342806432293,
+            "log_risk_ratio": 0.012442927860183417,
+            "reference_risk": 0.06394415086519396,
+            "teacher_index": 8
+          },
+          {
+            "joint_risk": 0.042999565807028975,
+            "log_risk_ratio": 0.0,
+            "reference_risk": 0.042999565807028975,
+            "teacher_index": 9
+          },
+          {
+            "joint_risk": 0.08774050916414441,
+            "log_risk_ratio": 0.01325189571811336,
+            "reference_risk": 0.0889109755621483,
+            "teacher_index": 10
+          },
+          {
+            "joint_risk": 0.03067376528137457,
+            "log_risk_ratio": -0.10838367672049154,
+            "reference_risk": 0.027523056220979066,
+            "teacher_index": 11
+          },
+          {
+            "joint_risk": 0.04828406330496324,
+            "log_risk_ratio": 0.0,
+            "reference_risk": 0.04828406330496324,
+            "teacher_index": 12
+          },
+          {
+            "joint_risk": 0.06319623637069258,
+            "log_risk_ratio": 0.02321621810329111,
+            "reference_risk": 0.0646805777034692,
+            "teacher_index": 13
+          },
+          {
+            "joint_risk": 0.07077145846396327,
+            "log_risk_ratio": 0.026513931208887342,
+            "reference_risk": 0.07267298512410855,
+            "teacher_index": 14
+          },
+          {
+            "joint_risk": 0.06626516207163217,
+            "log_risk_ratio": -0.05038481723242816,
+            "reference_risk": 0.06300912032061641,
+            "teacher_index": 15
+          }
+        ]
+      }
+    },
+    "short_singleton_over_joint": {
+      "E": {
+        "mean_log_risk_ratio": -0.009148241034108662,
+        "signs": {
+          "negative": 8,
+          "positive": 7,
+          "zero": 1
+        },
+        "teacher_effects": [
+          {
+            "joint_risk": 0.04892341876153259,
+            "log_risk_ratio": -0.03241258462268348,
+            "reference_risk": 0.047363107766641876,
+            "teacher_index": 0
+          },
+          {
+            "joint_risk": 0.09069011699972793,
+            "log_risk_ratio": -0.015049202960945696,
+            "reference_risk": 0.08933552138012177,
+            "teacher_index": 1
+          },
+          {
+            "joint_risk": 0.030539926875500886,
+            "log_risk_ratio": -0.03122359257390972,
+            "reference_risk": 0.029601093784587956,
+            "teacher_index": 2
+          },
+          {
+            "joint_risk": 0.08818984421809195,
+            "log_risk_ratio": 0.05079744785499285,
+            "reference_risk": 0.09278539624124457,
+            "teacher_index": 3
+          },
+          {
+            "joint_risk": 0.10385291581174211,
+            "log_risk_ratio": -0.016961982312099444,
+            "reference_risk": 0.10210622007985451,
+            "teacher_index": 4
+          },
+          {
+            "joint_risk": 0.06659763702288972,
+            "log_risk_ratio": 0.005988207236542031,
+            "reference_risk": 0.06699763391170135,
+            "teacher_index": 5
+          },
+          {
+            "joint_risk": 0.029139787024449693,
+            "log_risk_ratio": 0.010292659483446265,
+            "reference_risk": 0.029441261756607415,
+            "teacher_index": 6
+          },
+          {
+            "joint_risk": 0.028974853802195,
+            "log_risk_ratio": -0.010201035835555317,
+            "reference_risk": 0.028680782745034494,
+            "teacher_index": 7
+          },
+          {
+            "joint_risk": 0.07123971888213956,
+            "log_risk_ratio": -0.09789617007553364,
+            "reference_risk": 0.06459611969027544,
+            "teacher_index": 8
+          },
+          {
+            "joint_risk": 0.047394213736758894,
+            "log_risk_ratio": 0.0,
+            "reference_risk": 0.047394213736758894,
+            "teacher_index": 9
+          },
+          {
+            "joint_risk": 0.08895476956457607,
+            "log_risk_ratio": 0.006043367081983497,
+            "reference_risk": 0.0894939835837652,
+            "teacher_index": 10
+          },
+          {
+            "joint_risk": 0.0310409075421344,
+            "log_risk_ratio": -0.09330660236173172,
+            "reference_risk": 0.02827560250002046,
+            "teacher_index": 11
+          },
+          {
+            "joint_risk": 0.048397409558947245,
+            "log_risk_ratio": -0.01144946699195426,
+            "reference_risk": 0.04784644515888939,
+            "teacher_index": 12
+          },
+          {
+            "joint_risk": 0.0570093263519775,
+            "log_risk_ratio": 0.059667700190636275,
+            "reference_risk": 0.06051447392484223,
+            "teacher_index": 13
+          },
+          {
+            "joint_risk": 0.07025870895463998,
+            "log_risk_ratio": 0.0023136298745236594,
+            "reference_risk": 0.070421449791059,
+            "teacher_index": 14
+          },
+          {
+            "joint_risk": 0.06132510254591225,
+            "log_risk_ratio": 0.02702576946655011,
+            "reference_risk": 0.06300505944269177,
+            "teacher_index": 15
+          }
+        ]
+      },
+      "V": {
+        "mean_log_risk_ratio": -0.006571451605083073,
+        "signs": {
+          "negative": 7,
+          "positive": 8,
+          "zero": 1
+        },
+        "teacher_effects": [
+          {
+            "joint_risk": 0.047015581518390206,
+            "log_risk_ratio": 0.017490396314817858,
+            "reference_risk": 0.0478451361441154,
+            "teacher_index": 0
+          },
+          {
+            "joint_risk": 0.08927808692085824,
+            "log_risk_ratio": -0.05704868925093676,
+            "reference_risk": 0.08432744548972063,
+            "teacher_index": 1
+          },
+          {
+            "joint_risk": 0.028388317970350567,
+            "log_risk_ratio": -0.03729529971308221,
+            "reference_risk": 0.027349067186471315,
+            "teacher_index": 2
+          },
+          {
+            "joint_risk": 0.09225524680704597,
+            "log_risk_ratio": 0.02601223036004141,
+            "reference_risk": 0.09468649555244509,
+            "teacher_index": 3
+          },
+          {
+            "joint_risk": 0.1161935080544389,
+            "log_risk_ratio": -0.013027678986249569,
+            "reference_risk": 0.11468959385726354,
+            "teacher_index": 4
+          },
+          {
+            "joint_risk": 0.0530423158873613,
+            "log_risk_ratio": 0.057251720151850094,
+            "reference_risk": 0.05616769267178858,
+            "teacher_index": 5
+          },
+          {
+            "joint_risk": 0.028760294221953253,
+            "log_risk_ratio": 0.014949343870612086,
+            "reference_risk": 0.02919347154116857,
+            "teacher_index": 6
+          },
+          {
+            "joint_risk": 0.029545098604167576,
+            "log_risk_ratio": -0.030446167789001777,
+            "reference_risk": 0.0286591193498016,
+            "teacher_index": 7
+          },
+          {
+            "joint_risk": 0.06315342806432293,
+            "log_risk_ratio": 0.010679965753068732,
+            "reference_risk": 0.06383151906221932,
+            "teacher_index": 8
+          },
+          {
+            "joint_risk": 0.042999565807028975,
+            "log_risk_ratio": 0.0,
+            "reference_risk": 0.042999565807028975,
+            "teacher_index": 9
+          },
+          {
+            "joint_risk": 0.08774050916414441,
+            "log_risk_ratio": 0.013109757755010332,
+            "reference_risk": 0.08889833883528495,
+            "teacher_index": 10
+          },
+          {
+            "joint_risk": 0.03067376528137457,
+            "log_risk_ratio": -0.11669518512295385,
+            "reference_risk": 0.027295246142076866,
+            "teacher_index": 11
+          },
+          {
+            "joint_risk": 0.04828406330496324,
+            "log_risk_ratio": -0.026856847266393036,
+            "reference_risk": 0.047004564154607076,
+            "teacher_index": 12
+          },
+          {
+            "joint_risk": 0.06319623637069258,
+            "log_risk_ratio": 0.04672112039206855,
+            "reference_risk": 0.06621889655592576,
+            "teacher_index": 13
+          },
+          {
+            "joint_risk": 0.07077145846396327,
+            "log_risk_ratio": 0.011628036827998844,
+            "reference_risk": 0.07159919473670208,
+            "teacher_index": 14
+          },
+          {
+            "joint_risk": 0.06626516207163217,
+            "log_risk_ratio": -0.021615928978179877,
+            "reference_risk": 0.06484814923331837,
+            "teacher_index": 15
+          }
+        ]
+      }
+    },
+    "top_over_joint": {
+      "E": {
+        "mean_log_risk_ratio": 0.006597812541405512,
+        "signs": {
+          "negative": 5,
+          "positive": 10,
+          "zero": 1
+        },
+        "teacher_effects": [
+          {
+            "joint_risk": 0.04892341876153259,
+            "log_risk_ratio": -0.05486810885297988,
+            "reference_risk": 0.04631139690537535,
+            "teacher_index": 0
+          },
+          {
+            "joint_risk": 0.09069011699972793,
+            "log_risk_ratio": -0.02106055499081405,
+            "reference_risk": 0.08880010501279924,
+            "teacher_index": 1
+          },
+          {
+            "joint_risk": 0.030539926875500886,
+            "log_risk_ratio": -0.010650432267754972,
+            "reference_risk": 0.030216389418017738,
+            "teacher_index": 2
+          },
+          {
+            "joint_risk": 0.08818984421809195,
+            "log_risk_ratio": 0.08954094213345476,
+            "reference_risk": 0.09645077297704546,
+            "teacher_index": 3
+          },
+          {
+            "joint_risk": 0.10385291581174211,
+            "log_risk_ratio": 0.023523891667031283,
+            "reference_risk": 0.10632490192613653,
+            "teacher_index": 4
+          },
+          {
+            "joint_risk": 0.06659763702288972,
+            "log_risk_ratio": 0.004579990350370267,
+            "reference_risk": 0.0669033531117811,
+            "teacher_index": 5
+          },
+          {
+            "joint_risk": 0.029139787024449693,
+            "log_risk_ratio": 0.008313399928285392,
+            "reference_risk": 0.029383047487538186,
+            "teacher_index": 6
+          },
+          {
+            "joint_risk": 0.028974853802195,
+            "log_risk_ratio": 0.03955057822092689,
+            "reference_risk": 0.030143789697703448,
+            "teacher_index": 7
+          },
+          {
+            "joint_risk": 0.07123971888213956,
+            "log_risk_ratio": 0.025622884289713266,
+            "reference_risk": 0.0730886725619572,
+            "teacher_index": 8
+          },
+          {
+            "joint_risk": 0.047394213736758894,
+            "log_risk_ratio": 0.043138864096422314,
+            "reference_risk": 0.04948348671904429,
+            "teacher_index": 9
+          },
+          {
+            "joint_risk": 0.08895476956457607,
+            "log_risk_ratio": 0.007722853154025433,
+            "reference_risk": 0.08964441377006752,
+            "teacher_index": 10
+          },
+          {
+            "joint_risk": 0.0310409075421344,
+            "log_risk_ratio": -0.0929999134000048,
+            "reference_risk": 0.02828427564510435,
+            "teacher_index": 11
+          },
+          {
+            "joint_risk": 0.048397409558947245,
+            "log_risk_ratio": 0.0,
+            "reference_risk": 0.048397409558947245,
+            "teacher_index": 12
+          },
+          {
+            "joint_risk": 0.0570093263519775,
+            "log_risk_ratio": 0.02345539703127031,
+            "reference_risk": 0.05836230806908117,
+            "teacher_index": 13
+          },
+          {
+            "joint_risk": 0.07025870895463998,
+            "log_risk_ratio": -0.017789226099252264,
+            "reference_risk": 0.06901991218215141,
+            "teacher_index": 14
+          },
+          {
+            "joint_risk": 0.06132510254591225,
+            "log_risk_ratio": 0.03748443540179425,
+            "reference_risk": 0.06366746621919683,
+            "teacher_index": 15
+          }
+        ]
+      },
+      "V": {
+        "mean_log_risk_ratio": 0.021419339298735435,
+        "signs": {
+          "negative": 4,
+          "positive": 11,
+          "zero": 1
+        },
+        "teacher_effects": [
+          {
+            "joint_risk": 0.047015581518390206,
+            "log_risk_ratio": -0.026806791475338265,
+            "reference_risk": 0.045771987481632664,
+            "teacher_index": 0
+          },
+          {
+            "joint_risk": 0.08927808692085824,
+            "log_risk_ratio": -0.0058791314042316856,
+            "reference_risk": 0.0887547492093139,
+            "teacher_index": 1
+          },
+          {
+            "joint_risk": 0.028388317970350567,
+            "log_risk_ratio": 0.005425176906498574,
+            "reference_risk": 0.02854274814415137,
+            "teacher_index": 2
+          },
+          {
+            "joint_risk": 0.09225524680704597,
+            "log_risk_ratio": 0.09819976599367486,
+            "reference_risk": 0.10177443299931796,
+            "teacher_index": 3
+          },
+          {
+            "joint_risk": 0.1161935080544389,
+            "log_risk_ratio": 0.022969414899348006,
+            "reference_risk": 0.11889329248579009,
+            "teacher_index": 4
+          },
+          {
+            "joint_risk": 0.0530423158873613,
+            "log_risk_ratio": 0.028732246632555025,
+            "reference_risk": 0.05458844632509314,
+            "teacher_index": 5
+          },
+          {
+            "joint_risk": 0.028760294221953253,
+            "log_risk_ratio": 0.03205648739287703,
+            "reference_risk": 0.029697184711054134,
+            "teacher_index": 6
+          },
+          {
+            "joint_risk": 0.029545098604167576,
+            "log_risk_ratio": 0.06607459780041047,
+            "reference_risk": 0.031563218149103484,
+            "teacher_index": 7
+          },
+          {
+            "joint_risk": 0.06315342806432293,
+            "log_risk_ratio": 0.16851338832900353,
+            "reference_risk": 0.0747448654382934,
+            "teacher_index": 8
+          },
+          {
+            "joint_risk": 0.042999565807028975,
+            "log_risk_ratio": 0.05404626208838925,
+            "reference_risk": 0.045387479279683396,
+            "teacher_index": 9
+          },
+          {
+            "joint_risk": 0.08774050916414441,
+            "log_risk_ratio": 0.039547211639292534,
+            "reference_risk": 0.0912799274240691,
+            "teacher_index": 10
+          },
+          {
+            "joint_risk": 0.03067376528137457,
+            "log_risk_ratio": -0.12092741915058314,
+            "reference_risk": 0.027179970381626187,
+            "teacher_index": 11
+          },
+          {
+            "joint_risk": 0.04828406330496324,
+            "log_risk_ratio": 0.0,
+            "reference_risk": 0.04828406330496324,
+            "teacher_index": 12
+          },
+          {
+            "joint_risk": 0.06319623637069258,
+            "log_risk_ratio": 0.01934254886891207,
+            "reference_risk": 0.06443051118973162,
+            "teacher_index": 13
+          },
+          {
+            "joint_risk": 0.07077145846396327,
+            "log_risk_ratio": 0.01009452413224432,
+            "reference_risk": 0.07148948060807297,
+            "teacher_index": 14
+          },
+          {
+            "joint_risk": 0.06626516207163217,
+            "log_risk_ratio": -0.04867885387328563,
+            "reference_risk": 0.06311670331140368,
+            "teacher_index": 15
+          }
+        ]
+      }
+    },
+    "unconditioned_over_joint": {
+      "E": {
+        "mean_log_risk_ratio": 0.003141034352601796,
+        "signs": {
+          "negative": 8,
+          "positive": 7,
+          "zero": 1
+        },
+        "teacher_effects": [
+          {
+            "joint_risk": 0.04892341876153259,
+            "log_risk_ratio": -0.030090778673079743,
+            "reference_risk": 0.047473203473020725,
+            "teacher_index": 0
+          },
+          {
+            "joint_risk": 0.09069011699972793,
+            "log_risk_ratio": -0.000953453777754909,
+            "reference_risk": 0.09060368937399008,
+            "teacher_index": 1
+          },
+          {
+            "joint_risk": 0.030539926875500886,
+            "log_risk_ratio": 0.016437525774140926,
+            "reference_risk": 0.031046076235816806,
+            "teacher_index": 2
+          },
+          {
+            "joint_risk": 0.08818984421809195,
+            "log_risk_ratio": 0.08834309808218244,
+            "reference_risk": 0.09633530916002339,
+            "teacher_index": 3
+          },
+          {
+            "joint_risk": 0.10385291581174211,
+            "log_risk_ratio": -0.015496319643403034,
+            "reference_risk": 0.10225598307907616,
+            "teacher_index": 4
+          },
+          {
+            "joint_risk": 0.06659763702288972,
+            "log_risk_ratio": -0.034007001286389116,
+            "reference_risk": 0.06437092754164053,
+            "teacher_index": 5
+          },
+          {
+            "joint_risk": 0.029139787024449693,
+            "log_risk_ratio": 0.0013848375730218798,
+            "reference_risk": 0.029180168851072788,
+            "teacher_index": 6
+          },
+          {
+            "joint_risk": 0.028974853802195,
+            "log_risk_ratio": 0.05899919544090659,
+            "reference_risk": 0.03073578278867084,
+            "teacher_index": 7
+          },
+          {
+            "joint_risk": 0.07123971888213956,
+            "log_risk_ratio": -0.0012394733874492303,
+            "reference_risk": 0.07115147384643997,
+            "teacher_index": 8
+          },
+          {
+            "joint_risk": 0.047394213736758894,
+            "log_risk_ratio": -0.008296820131386884,
+            "reference_risk": 0.047002619211142335,
+            "teacher_index": 9
+          },
+          {
+            "joint_risk": 0.08895476956457607,
+            "log_risk_ratio": -0.012464201885035386,
+            "reference_risk": 0.08785290058196782,
+            "teacher_index": 10
+          },
+          {
+            "joint_risk": 0.0310409075421344,
+            "log_risk_ratio": -0.05729263248674199,
+            "reference_risk": 0.02931247813349449,
+            "teacher_index": 11
+          },
+          {
+            "joint_risk": 0.048397409558947245,
+            "log_risk_ratio": 0.0,
+            "reference_risk": 0.048397409558947245,
+            "teacher_index": 12
+          },
+          {
+            "joint_risk": 0.0570093263519775,
+            "log_risk_ratio": 0.01902909138237341,
+            "reference_risk": 0.058104549535057476,
+            "teacher_index": 13
+          },
+          {
+            "joint_risk": 0.07025870895463998,
+            "log_risk_ratio": 0.006514106716577928,
+            "reference_risk": 0.07071787558909552,
+            "teacher_index": 14
+          },
+          {
+            "joint_risk": 0.06132510254591225,
+            "log_risk_ratio": 0.019389375943665854,
+            "reference_risk": 0.06252576040207097,
+            "teacher_index": 15
+          }
+        ]
+      },
+      "V": {
+        "mean_log_risk_ratio": 0.016483681579631648,
+        "signs": {
+          "negative": 6,
+          "positive": 9,
+          "zero": 1
+        },
+        "teacher_effects": [
+          {
+            "joint_risk": 0.047015581518390206,
+            "log_risk_ratio": 0.038009788829706626,
+            "reference_risk": 0.048837031010137116,
+            "teacher_index": 0
+          },
+          {
+            "joint_risk": 0.08927808692085824,
+            "log_risk_ratio": -0.0161031639024527,
+            "reference_risk": 0.08785194080452459,
+            "teacher_index": 1
+          },
+          {
+            "joint_risk": 0.028388317970350567,
+            "log_risk_ratio": 0.034287161612938544,
+            "reference_risk": 0.029378551964207668,
+            "teacher_index": 2
+          },
+          {
+            "joint_risk": 0.09225524680704597,
+            "log_risk_ratio": 0.11601262342045171,
+            "reference_risk": 0.10360356917010657,
+            "teacher_index": 3
+          },
+          {
+            "joint_risk": 0.1161935080544389,
+            "log_risk_ratio": -0.004717372258323138,
+            "reference_risk": 0.1156466708543554,
+            "teacher_index": 4
+          },
+          {
+            "joint_risk": 0.0530423158873613,
+            "log_risk_ratio": -0.009496565874962393,
+            "reference_risk": 0.0525409802913632,
+            "teacher_index": 5
+          },
+          {
+            "joint_risk": 0.028760294221953253,
+            "log_risk_ratio": 0.04397927819642922,
+            "reference_risk": 0.03005337721670949,
+            "teacher_index": 6
+          },
+          {
+            "joint_risk": 0.029545098604167576,
+            "log_risk_ratio": 0.07514502031446657,
+            "reference_risk": 0.03185081220164808,
+            "teacher_index": 7
+          },
+          {
+            "joint_risk": 0.06315342806432293,
+            "log_risk_ratio": 0.033858777119490036,
+            "reference_risk": 0.06532833802990284,
+            "teacher_index": 8
+          },
+          {
+            "joint_risk": 0.042999565807028975,
+            "log_risk_ratio": -0.00402685657649382,
+            "reference_risk": 0.04282676088649875,
+            "teacher_index": 9
+          },
+          {
+            "joint_risk": 0.08774050916414441,
+            "log_risk_ratio": 0.0015138407971670986,
+            "reference_risk": 0.08787343491530819,
+            "teacher_index": 10
+          },
+          {
+            "joint_risk": 0.03067376528137457,
+            "log_risk_ratio": -0.09935772859002245,
+            "reference_risk": 0.027772602400094742,
+            "teacher_index": 11
+          },
+          {
+            "joint_risk": 0.04828406330496324,
+            "log_risk_ratio": 0.0,
+            "reference_risk": 0.04828406330496324,
+            "teacher_index": 12
+          },
+          {
+            "joint_risk": 0.06319623637069258,
+            "log_risk_ratio": -0.009291335564793002,
+            "reference_risk": 0.06261177833463846,
+            "teacher_index": 13
+          },
+          {
+            "joint_risk": 0.07077145846396327,
+            "log_risk_ratio": 0.012934622448300459,
+            "reference_risk": 0.07169280635745144,
+            "teacher_index": 14
+          },
+          {
+            "joint_risk": 0.06626516207163217,
+            "log_risk_ratio": 0.05099081530220362,
+            "reference_risk": 0.06973170660750715,
+            "teacher_index": 15
+          }
+        ]
+      }
+    },
+    "warm_upper_over_joint": {
+      "E": {
+        "mean_log_risk_ratio": -0.08838517187031536,
+        "signs": {
+          "negative": 16,
+          "positive": 0,
+          "zero": 0
+        },
+        "teacher_effects": [
+          {
+            "joint_risk": 0.04892341876153259,
+            "log_risk_ratio": -0.11824655495978753,
+            "reference_risk": 0.043467330726522646,
+            "teacher_index": 0
+          },
+          {
+            "joint_risk": 0.09069011699972793,
+            "log_risk_ratio": -0.05534686113752807,
+            "reference_risk": 0.08580708050241978,
+            "teacher_index": 1
+          },
+          {
+            "joint_risk": 0.030539926875500886,
+            "log_risk_ratio": -0.0895061261550496,
+            "reference_risk": 0.027925179678207866,
+            "teacher_index": 2
+          },
+          {
+            "joint_risk": 0.08818984421809195,
+            "log_risk_ratio": -0.04535237276175774,
+            "reference_risk": 0.08427956593937283,
+            "teacher_index": 3
+          },
+          {
+            "joint_risk": 0.10385291581174211,
+            "log_risk_ratio": -0.2884264924030493,
+            "reference_risk": 0.07783172579827244,
+            "teacher_index": 4
+          },
+          {
+            "joint_risk": 0.06659763702288972,
+            "log_risk_ratio": -0.010434266655986235,
+            "reference_risk": 0.0659063523159132,
+            "teacher_index": 5
+          },
+          {
+            "joint_risk": 0.029139787024449693,
+            "log_risk_ratio": -0.025301220510847156,
+            "reference_risk": 0.028411763624304386,
+            "teacher_index": 6
+          },
+          {
+            "joint_risk": 0.028974853802195,
+            "log_risk_ratio": -0.08698548875227452,
+            "reference_risk": 0.02656097025981404,
+            "teacher_index": 7
+          },
+          {
+            "joint_risk": 0.07123971888213956,
+            "log_risk_ratio": -0.29245689653344265,
+            "reference_risk": 0.05317527942080337,
+            "teacher_index": 8
+          },
+          {
+            "joint_risk": 0.047394213736758894,
+            "log_risk_ratio": -0.0241737876780852,
+            "reference_risk": 0.046262253088212135,
+            "teacher_index": 9
+          },
+          {
+            "joint_risk": 0.08895476956457607,
+            "log_risk_ratio": -0.06683227051911977,
+            "reference_risk": 0.08320402823094114,
+            "teacher_index": 10
+          },
+          {
+            "joint_risk": 0.0310409075421344,
+            "log_risk_ratio": -0.13586001869930442,
+            "reference_risk": 0.02709762034858433,
+            "teacher_index": 11
+          },
+          {
+            "joint_risk": 0.048397409558947245,
+            "log_risk_ratio": -0.04677644952406501,
+            "reference_risk": 0.04618568221347706,
+            "teacher_index": 12
+          },
+          {
+            "joint_risk": 0.0570093263519775,
+            "log_risk_ratio": -0.029250335611139544,
+            "reference_risk": 0.05536593644594555,
+            "teacher_index": 13
+          },
+          {
+            "joint_risk": 0.07025870895463998,
+            "log_risk_ratio": -0.054504212718683664,
+            "reference_risk": 0.06653180198560615,
+            "teacher_index": 14
+          },
+          {
+            "joint_risk": 0.06132510254591225,
+            "log_risk_ratio": -0.04470939530492535,
+            "reference_risk": 0.058643683260719184,
+            "teacher_index": 15
+          }
+        ]
+      },
+      "V": {
+        "mean_log_risk_ratio": -0.061884859650586904,
+        "signs": {
+          "negative": 14,
+          "positive": 2,
+          "zero": 0
+        },
+        "teacher_effects": [
+          {
+            "joint_risk": 0.047015581518390206,
+            "log_risk_ratio": -0.09689468313908423,
+            "reference_risk": 0.042673767419438846,
+            "teacher_index": 0
+          },
+          {
+            "joint_risk": 0.08927808692085824,
+            "log_risk_ratio": 0.0012600308952297468,
+            "reference_risk": 0.08939065097084291,
+            "teacher_index": 1
+          },
+          {
+            "joint_risk": 0.028388317970350567,
+            "log_risk_ratio": -0.022491863792808875,
+            "reference_risk": 0.027756938852634867,
+            "teacher_index": 2
+          },
+          {
+            "joint_risk": 0.09225524680704597,
+            "log_risk_ratio": -0.02108012888444133,
+            "reference_risk": 0.09033084885434758,
+            "teacher_index": 3
+          },
+          {
+            "joint_risk": 0.1161935080544389,
+            "log_risk_ratio": -0.3310236799801385,
+            "reference_risk": 0.08344880200428431,
+            "teacher_index": 4
+          },
+          {
+            "joint_risk": 0.0530423158873613,
+            "log_risk_ratio": 0.03268791874292498,
+            "reference_risk": 0.05480480796549945,
+            "teacher_index": 5
+          },
+          {
+            "joint_risk": 0.028760294221953253,
+            "log_risk_ratio": -0.052906074178459495,
+            "reference_risk": 0.027278250204949877,
+            "teacher_index": 6
+          },
+          {
+            "joint_risk": 0.029545098604167576,
+            "log_risk_ratio": -0.029542904534100245,
+            "reference_risk": 0.02868501777401474,
+            "teacher_index": 7
+          },
+          {
+            "joint_risk": 0.06315342806432293,
+            "log_risk_ratio": -0.12110222342716037,
+            "reference_risk": 0.05595036219958075,
+            "teacher_index": 8
+          },
+          {
+            "joint_risk": 0.042999565807028975,
+            "log_risk_ratio": -0.046405248923511166,
+            "reference_risk": 0.04104975096311777,
+            "teacher_index": 9
+          },
+          {
+            "joint_risk": 0.08774050916414441,
+            "log_risk_ratio": -0.047694903708383585,
+            "reference_risk": 0.08365396240042063,
+            "teacher_index": 10
+          },
+          {
+            "joint_risk": 0.03067376528137457,
+            "log_risk_ratio": -0.11435729084259671,
+            "reference_risk": 0.027359134194569954,
+            "teacher_index": 11
+          },
+          {
+            "joint_risk": 0.04828406330496324,
+            "log_risk_ratio": -0.057778586669412046,
+            "reference_risk": 0.045573343228465624,
+            "teacher_index": 12
+          },
+          {
+            "joint_risk": 0.06319623637069258,
+            "log_risk_ratio": -0.04242174071124305,
+            "reference_risk": 0.06057141048450293,
+            "teacher_index": 13
+          },
+          {
+            "joint_risk": 0.07077145846396327,
+            "log_risk_ratio": -0.019255645910333907,
+            "reference_risk": 0.06942174482679497,
+            "teacher_index": 14
+          },
+          {
+            "joint_risk": 0.06626516207163217,
+            "log_risk_ratio": -0.0211507293458717,
+            "reference_risk": 0.06487832358650239,
+            "teacher_index": 15
+          }
+        ]
+      }
+    }
+  },
+  "inactive_teachers": [],
+  "ledger_event_hash": "5dd4a99d0fb0e7b991c03cfc34b067fcaf99efc3c47db37e463410d828508e79",
+  "queue_plan_hash": "23ab57c782e1474985356d3216fbc00ba0a0b8294001b66b22511305d6dbb6c5",
+  "remaining_gate_inputs": [
+    "Held-out local prediction and selection review",
+    "Complete standalone and physical resource accounting",
+    "Penalty-sharing/additional-span and ordinary-control attribution",
+    "Bounded correction/admission disposition"
+  ],
+  "repetitions": 2,
+  "role_means": {
+    "fresh_upper": {
+      "E": 0.05867649684790594,
+      "V": 0.05840021031491571
+    },
+    "joint": {
+      "E": 0.06015804110332599,
+      "V": 0.05984766490704301
+    },
+    "keep": {
+      "E": 0.050773682532248586,
+      "V": 0.05115488303118384
+    },
+    "local_singleton": {
+      "E": 0.0598305914919972,
+      "V": 0.06041583318923332
+    },
+    "pure_span": {
+      "E": 0.06037838939714184,
+      "V": 0.06121577741058622
+    },
+    "random": {
+      "E": 0.059415020732410805,
+      "V": 0.0596537419928774
+    },
+    "short_singleton": {
+      "E": 0.05986614784338102,
+      "V": 0.05972584351999613
+    },
+    "top": {
+      "E": 0.060905106328871694,
+      "V": 0.06159369127770627
+    },
+    "unconditioned": {
+      "E": 0.06044163796009545,
+      "V": 0.06099277652183856
+    },
+    "warm_upper": {
+      "E": 0.05479101586494476,
+      "V": 0.05580169474562297
+    }
+  },
+  "schema": "research/v2-M3-development-summary",
+  "scope": "Development description; repeat-average risks before teacher log ratios; no population confirmation",
+  "teacher_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "teacher_risks": [
+    {
+      "E": 0.04560383443656067,
+      "V": 0.04751369297751294,
+      "role": "keep",
+      "teacher_index": 0
+    },
+    {
+      "E": 0.04631139690537535,
+      "V": 0.045771987481632664,
+      "role": "top",
+      "teacher_index": 0
+    },
+    {
+      "E": 0.04809475237529692,
+      "V": 0.047288138860348106,
+      "role": "random",
+      "teacher_index": 0
+    },
+    {
+      "E": 0.047363107766641876,
+      "V": 0.0478451361441154,
+      "role": "short_singleton",
+      "teacher_index": 0
+    },
+    {
+      "E": 0.04654650141132339,
+      "V": 0.04561960290564655,
+      "role": "local_singleton",
+      "teacher_index": 0
+    },
+    {
+      "E": 0.04892341876153259,
+      "V": 0.047015581518390206,
+      "role": "joint",
+      "teacher_index": 0
+    },
+    {
+      "E": 0.047473203473020725,
+      "V": 0.048837031010137116,
+      "role": "unconditioned",
+      "teacher_index": 0
+    },
+    {
+      "E": 0.04864080057092475,
+      "V": 0.050094691536725605,
+      "role": "pure_span",
+      "teacher_index": 0
+    },
+    {
+      "E": 0.043467330726522646,
+      "V": 0.042673767419438846,
+      "role": "warm_upper",
+      "teacher_index": 0
+    },
+    {
+      "E": 0.05014676723120364,
+      "V": 0.05464509617129272,
+      "role": "fresh_upper",
+      "teacher_index": 0
+    },
+    {
+      "E": 0.07652541906310073,
+      "V": 0.07859648267141545,
+      "role": "keep",
+      "teacher_index": 1
+    },
+    {
+      "E": 0.08880010501279924,
+      "V": 0.0887547492093139,
+      "role": "top",
+      "teacher_index": 1
+    },
+    {
+      "E": 0.08880010501279924,
+      "V": 0.0887547492093139,
+      "role": "random",
+      "teacher_index": 1
+    },
+    {
+      "E": 0.08933552138012177,
+      "V": 0.08432744548972063,
+      "role": "short_singleton",
+      "teacher_index": 1
+    },
+    {
+      "E": 0.09030032611710553,
+      "V": 0.08843639437760088,
+      "role": "local_singleton",
+      "teacher_index": 1
+    },
+    {
+      "E": 0.09069011699972793,
+      "V": 0.08927808692085824,
+      "role": "joint",
+      "teacher_index": 1
+    },
+    {
+      "E": 0.09060368937399008,
+      "V": 0.08785194080452459,
+      "role": "unconditioned",
+      "teacher_index": 1
+    },
+    {
+      "E": 0.08880010501279924,
+      "V": 0.0887547492093139,
+      "role": "pure_span",
+      "teacher_index": 1
+    },
+    {
+      "E": 0.08580708050241978,
+      "V": 0.08939065097084291,
+      "role": "warm_upper",
+      "teacher_index": 1
+    },
+    {
+      "E": 0.09934606607848245,
+      "V": 0.09158779788510646,
+      "role": "fresh_upper",
+      "teacher_index": 1
+    },
+    {
+      "E": 0.028420287383719364,
+      "V": 0.0272209850699857,
+      "role": "keep",
+      "teacher_index": 2
+    },
+    {
+      "E": 0.030216389418017738,
+      "V": 0.02854274814415137,
+      "role": "top",
+      "teacher_index": 2
+    },
+    {
+      "E": 0.030885920179477826,
+      "V": 0.028829970511179186,
+      "role": "random",
+      "teacher_index": 2
+    },
+    {
+      "E": 0.029601093784587956,
+      "V": 0.027349067186471315,
+      "role": "short_singleton",
+      "teacher_index": 2
+    },
+    {
+      "E": 0.03048415844938792,
+      "V": 0.02832505589848307,
+      "role": "local_singleton",
+      "teacher_index": 2
+    },
+    {
+      "E": 0.030539926875500886,
+      "V": 0.028388317970350567,
+      "role": "joint",
+      "teacher_index": 2
+    },
+    {
+      "E": 0.031046076235816806,
+      "V": 0.029378551964207668,
+      "role": "unconditioned",
+      "teacher_index": 2
+    },
+    {
+      "E": 0.03033191190779068,
+      "V": 0.028370997400660937,
+      "role": "pure_span",
+      "teacher_index": 2
+    },
+    {
+      "E": 0.027925179678207866,
+      "V": 0.027756938852634867,
+      "role": "warm_upper",
+      "teacher_index": 2
+    },
+    {
+      "E": 0.028999099355596032,
+      "V": 0.026020718000943382,
+      "role": "fresh_upper",
+      "teacher_index": 2
+    },
+    {
+      "E": 0.07036804639444386,
+      "V": 0.07404731376271759,
+      "role": "keep",
+      "teacher_index": 3
+    },
+    {
+      "E": 0.09645077297704546,
+      "V": 0.10177443299931796,
+      "role": "top",
+      "teacher_index": 3
+    },
+    {
+      "E": 0.09566858630327016,
+      "V": 0.10118005171028704,
+      "role": "random",
+      "teacher_index": 3
+    },
+    {
+      "E": 0.09278539624124457,
+      "V": 0.09468649555244509,
+      "role": "short_singleton",
+      "teacher_index": 3
+    },
+    {
+      "E": 0.09183277762455261,
+      "V": 0.09556152449398253,
+      "role": "local_singleton",
+      "teacher_index": 3
+    },
+    {
+      "E": 0.08818984421809195,
+      "V": 0.09225524680704597,
+      "role": "joint",
+      "teacher_index": 3
+    },
+    {
+      "E": 0.09633530916002339,
+      "V": 0.10360356917010657,
+      "role": "unconditioned",
+      "teacher_index": 3
+    },
+    {
+      "E": 0.09192675268199595,
+      "V": 0.09748819026867578,
+      "role": "pure_span",
+      "teacher_index": 3
+    },
+    {
+      "E": 0.08427956593937283,
+      "V": 0.09033084885434758,
+      "role": "warm_upper",
+      "teacher_index": 3
+    },
+    {
+      "E": 0.08428042145382905,
+      "V": 0.08669761593033917,
+      "role": "fresh_upper",
+      "teacher_index": 3
+    },
+    {
+      "E": 0.07093203825280098,
+      "V": 0.07646502310897854,
+      "role": "keep",
+      "teacher_index": 4
+    },
+    {
+      "E": 0.10632490192613653,
+      "V": 0.11889329248579009,
+      "role": "top",
+      "teacher_index": 4
+    },
+    {
+      "E": 0.09488745100279228,
+      "V": 0.10237784582257714,
+      "role": "random",
+      "teacher_index": 4
+    },
+    {
+      "E": 0.10210622007985451,
+      "V": 0.11468959385726354,
+      "role": "short_singleton",
+      "teacher_index": 4
+    },
+    {
+      "E": 0.10269688329850889,
+      "V": 0.11346011123324228,
+      "role": "local_singleton",
+      "teacher_index": 4
+    },
+    {
+      "E": 0.10385291581174211,
+      "V": 0.1161935080544389,
+      "role": "joint",
+      "teacher_index": 4
+    },
+    {
+      "E": 0.10225598307907616,
+      "V": 0.1156466708543554,
+      "role": "unconditioned",
+      "teacher_index": 4
+    },
+    {
+      "E": 0.10362658031349015,
+      "V": 0.11806138350679976,
+      "role": "pure_span",
+      "teacher_index": 4
+    },
+    {
+      "E": 0.07783172579827244,
+      "V": 0.08344880200428431,
+      "role": "warm_upper",
+      "teacher_index": 4
+    },
+    {
+      "E": 0.08994253275235256,
+      "V": 0.09145572044133646,
+      "role": "fresh_upper",
+      "teacher_index": 4
+    },
+    {
+      "E": 0.0607183400470529,
+      "V": 0.050574968758106714,
+      "role": "keep",
+      "teacher_index": 5
+    },
+    {
+      "E": 0.0669033531117811,
+      "V": 0.05458844632509314,
+      "role": "top",
+      "teacher_index": 5
+    },
+    {
+      "E": 0.06737748546612904,
+      "V": 0.05712416126283898,
+      "role": "random",
+      "teacher_index": 5
+    },
+    {
+      "E": 0.06699763391170135,
+      "V": 0.05616769267178858,
+      "role": "short_singleton",
+      "teacher_index": 5
+    },
+    {
+      "E": 0.06508242070482531,
+      "V": 0.05418623339057919,
+      "role": "local_singleton",
+      "teacher_index": 5
+    },
+    {
+      "E": 0.06659763702288972,
+      "V": 0.0530423158873613,
+      "role": "joint",
+      "teacher_index": 5
+    },
+    {
+      "E": 0.06437092754164053,
+      "V": 0.0525409802913632,
+      "role": "unconditioned",
+      "teacher_index": 5
+    },
+    {
+      "E": 0.06737260081082737,
+      "V": 0.05572399563061442,
+      "role": "pure_span",
+      "teacher_index": 5
+    },
+    {
+      "E": 0.0659063523159132,
+      "V": 0.05480480796549945,
+      "role": "warm_upper",
+      "teacher_index": 5
+    },
+    {
+      "E": 0.07231218446619175,
+      "V": 0.059003056467417,
+      "role": "fresh_upper",
+      "teacher_index": 5
+    },
+    {
+      "E": 0.027172225750978506,
+      "V": 0.027216905555444502,
+      "role": "keep",
+      "teacher_index": 6
+    },
+    {
+      "E": 0.029383047487538186,
+      "V": 0.029697184711054134,
+      "role": "top",
+      "teacher_index": 6
+    },
+    {
+      "E": 0.02919820920860656,
+      "V": 0.028095161660223567,
+      "role": "random",
+      "teacher_index": 6
+    },
+    {
+      "E": 0.029441261756607415,
+      "V": 0.02919347154116857,
+      "role": "short_singleton",
+      "teacher_index": 6
+    },
+    {
+      "E": 0.02921880878462086,
+      "V": 0.0295783146275563,
+      "role": "local_singleton",
+      "teacher_index": 6
+    },
+    {
+      "E": 0.029139787024449693,
+      "V": 0.028760294221953253,
+      "role": "joint",
+      "teacher_index": 6
+    },
+    {
+      "E": 0.029180168851072788,
+      "V": 0.03005337721670949,
+      "role": "unconditioned",
+      "teacher_index": 6
+    },
+    {
+      "E": 0.029224199259586844,
+      "V": 0.030192000477421363,
+      "role": "pure_span",
+      "teacher_index": 6
+    },
+    {
+      "E": 0.028411763624304386,
+      "V": 0.027278250204949877,
+      "role": "warm_upper",
+      "teacher_index": 6
+    },
+    {
+      "E": 0.027654878545380943,
+      "V": 0.02664977280791552,
+      "role": "fresh_upper",
+      "teacher_index": 6
+    },
+    {
+      "E": 0.02684812656966116,
+      "V": 0.02792865406095544,
+      "role": "keep",
+      "teacher_index": 7
+    },
+    {
+      "E": 0.030143789697703448,
+      "V": 0.031563218149103484,
+      "role": "top",
+      "teacher_index": 7
+    },
+    {
+      "E": 0.028808968306226396,
+      "V": 0.02878529794076276,
+      "role": "random",
+      "teacher_index": 7
+    },
+    {
+      "E": 0.028680782745034494,
+      "V": 0.0286591193498016,
+      "role": "short_singleton",
+      "teacher_index": 7
+    },
+    {
+      "E": 0.029119584851856,
+      "V": 0.0318945210420005,
+      "role": "local_singleton",
+      "teacher_index": 7
+    },
+    {
+      "E": 0.028974853802195,
+      "V": 0.029545098604167576,
+      "role": "joint",
+      "teacher_index": 7
+    },
+    {
+      "E": 0.03073578278867084,
+      "V": 0.03185081220164808,
+      "role": "unconditioned",
+      "teacher_index": 7
+    },
+    {
+      "E": 0.02990633406940204,
+      "V": 0.031122584103868693,
+      "role": "pure_span",
+      "teacher_index": 7
+    },
+    {
+      "E": 0.02656097025981404,
+      "V": 0.02868501777401474,
+      "role": "warm_upper",
+      "teacher_index": 7
+    },
+    {
+      "E": 0.026127147431418377,
+      "V": 0.027070269455963296,
+      "role": "fresh_upper",
+      "teacher_index": 7
+    },
+    {
+      "E": 0.04822466567949178,
+      "V": 0.0464627768860867,
+      "role": "keep",
+      "teacher_index": 8
+    },
+    {
+      "E": 0.0730886725619572,
+      "V": 0.0747448654382934,
+      "role": "top",
+      "teacher_index": 8
+    },
+    {
+      "E": 0.06663930485886549,
+      "V": 0.06394415086519396,
+      "role": "random",
+      "teacher_index": 8
+    },
+    {
+      "E": 0.06459611969027544,
+      "V": 0.06383151906221932,
+      "role": "short_singleton",
+      "teacher_index": 8
+    },
+    {
+      "E": 0.06862916076898917,
+      "V": 0.06838131937619568,
+      "role": "local_singleton",
+      "teacher_index": 8
+    },
+    {
+      "E": 0.07123971888213956,
+      "V": 0.06315342806432293,
+      "role": "joint",
+      "teacher_index": 8
+    },
+    {
+      "E": 0.07115147384643997,
+      "V": 0.06532833802990284,
+      "role": "unconditioned",
+      "teacher_index": 8
+    },
+    {
+      "E": 0.06924768821820887,
+      "V": 0.06408759963203733,
+      "role": "pure_span",
+      "teacher_index": 8
+    },
+    {
+      "E": 0.05317527942080337,
+      "V": 0.05595036219958075,
+      "role": "warm_upper",
+      "teacher_index": 8
+    },
+    {
+      "E": 0.055401121057902944,
+      "V": 0.057422323099585025,
+      "role": "fresh_upper",
+      "teacher_index": 8
+    },
+    {
+      "E": 0.045074452875060844,
+      "V": 0.03953117161172519,
+      "role": "keep",
+      "teacher_index": 9
+    },
+    {
+      "E": 0.04948348671904429,
+      "V": 0.045387479279683396,
+      "role": "top",
+      "teacher_index": 9
+    },
+    {
+      "E": 0.047394213736758894,
+      "V": 0.042999565807028975,
+      "role": "random",
+      "teacher_index": 9
+    },
+    {
+      "E": 0.047394213736758894,
+      "V": 0.042999565807028975,
+      "role": "short_singleton",
+      "teacher_index": 9
+    },
+    {
+      "E": 0.047394213736758894,
+      "V": 0.042999565807028975,
+      "role": "local_singleton",
+      "teacher_index": 9
+    },
+    {
+      "E": 0.047394213736758894,
+      "V": 0.042999565807028975,
+      "role": "joint",
+      "teacher_index": 9
+    },
+    {
+      "E": 0.047002619211142335,
+      "V": 0.04282676088649875,
+      "role": "unconditioned",
+      "teacher_index": 9
+    },
+    {
+      "E": 0.04938784778374251,
+      "V": 0.04623584634974228,
+      "role": "pure_span",
+      "teacher_index": 9
+    },
+    {
+      "E": 0.046262253088212135,
+      "V": 0.04104975096311777,
+      "role": "warm_upper",
+      "teacher_index": 9
+    },
+    {
+      "E": 0.0526188694265909,
+      "V": 0.048241223043282475,
+      "role": "fresh_upper",
+      "teacher_index": 9
+    },
+    {
+      "E": 0.07231727201827337,
+      "V": 0.07351959233631568,
+      "role": "keep",
+      "teacher_index": 10
+    },
+    {
+      "E": 0.08964441377006752,
+      "V": 0.0912799274240691,
+      "role": "top",
+      "teacher_index": 10
+    },
+    {
+      "E": 0.08828888078366078,
+      "V": 0.0889109755621483,
+      "role": "random",
+      "teacher_index": 10
+    },
+    {
+      "E": 0.0894939835837652,
+      "V": 0.08889833883528495,
+      "role": "short_singleton",
+      "teacher_index": 10
+    },
+    {
+      "E": 0.08803597083153966,
+      "V": 0.08828712418385895,
+      "role": "local_singleton",
+      "teacher_index": 10
+    },
+    {
+      "E": 0.08895476956457607,
+      "V": 0.08774050916414441,
+      "role": "joint",
+      "teacher_index": 10
+    },
+    {
+      "E": 0.08785290058196782,
+      "V": 0.08787343491530819,
+      "role": "unconditioned",
+      "teacher_index": 10
+    },
+    {
+      "E": 0.08766997894557349,
+      "V": 0.087565636319628,
+      "role": "pure_span",
+      "teacher_index": 10
+    },
+    {
+      "E": 0.08320402823094114,
+      "V": 0.08365396240042063,
+      "role": "warm_upper",
+      "teacher_index": 10
+    },
+    {
+      "E": 0.08371090924590047,
+      "V": 0.08108704409054751,
+      "role": "fresh_upper",
+      "teacher_index": 10
+    },
+    {
+      "E": 0.028079057116390454,
+      "V": 0.02839530747294878,
+      "role": "keep",
+      "teacher_index": 11
+    },
+    {
+      "E": 0.02828427564510435,
+      "V": 0.027179970381626187,
+      "role": "top",
+      "teacher_index": 11
+    },
+    {
+      "E": 0.02772369319747032,
+      "V": 0.027523056220979066,
+      "role": "random",
+      "teacher_index": 11
+    },
+    {
+      "E": 0.02827560250002046,
+      "V": 0.027295246142076866,
+      "role": "short_singleton",
+      "teacher_index": 11
+    },
+    {
+      "E": 0.029011941430142983,
+      "V": 0.02906926287729356,
+      "role": "local_singleton",
+      "teacher_index": 11
+    },
+    {
+      "E": 0.0310409075421344,
+      "V": 0.03067376528137457,
+      "role": "joint",
+      "teacher_index": 11
+    },
+    {
+      "E": 0.02931247813349449,
+      "V": 0.027772602400094742,
+      "role": "unconditioned",
+      "teacher_index": 11
+    },
+    {
+      "E": 0.028704774112423673,
+      "V": 0.029134018900013672,
+      "role": "pure_span",
+      "teacher_index": 11
+    },
+    {
+      "E": 0.02709762034858433,
+      "V": 0.027359134194569954,
+      "role": "warm_upper",
+      "teacher_index": 11
+    },
+    {
+      "E": 0.02756487308786328,
+      "V": 0.030223128783399514,
+      "role": "fresh_upper",
+      "teacher_index": 11
+    },
+    {
+      "E": 0.04586202071824004,
+      "V": 0.04636807023734496,
+      "role": "keep",
+      "teacher_index": 12
+    },
+    {
+      "E": 0.048397409558947245,
+      "V": 0.04828406330496324,
+      "role": "top",
+      "teacher_index": 12
+    },
+    {
+      "E": 0.048397409558947245,
+      "V": 0.04828406330496324,
+      "role": "random",
+      "teacher_index": 12
+    },
+    {
+      "E": 0.04784644515888939,
+      "V": 0.047004564154607076,
+      "role": "short_singleton",
+      "teacher_index": 12
+    },
+    {
+      "E": 0.048397409558947245,
+      "V": 0.04828406330496324,
+      "role": "local_singleton",
+      "teacher_index": 12
+    },
+    {
+      "E": 0.048397409558947245,
+      "V": 0.04828406330496324,
+      "role": "joint",
+      "teacher_index": 12
+    },
+    {
+      "E": 0.048397409558947245,
+      "V": 0.04828406330496324,
+      "role": "unconditioned",
+      "teacher_index": 12
+    },
+    {
+      "E": 0.048397409558947245,
+      "V": 0.04828406330496324,
+      "role": "pure_span",
+      "teacher_index": 12
+    },
+    {
+      "E": 0.04618568221347706,
+      "V": 0.045573343228465624,
+      "role": "warm_upper",
+      "teacher_index": 12
+    },
+    {
+      "E": 0.04739705996591667,
+      "V": 0.047605199629106476,
+      "role": "fresh_upper",
+      "teacher_index": 12
+    },
+    {
+      "E": 0.052676023291001,
+      "V": 0.05759383769449075,
+      "role": "keep",
+      "teacher_index": 13
+    },
+    {
+      "E": 0.05836230806908117,
+      "V": 0.06443051118973162,
+      "role": "top",
+      "teacher_index": 13
+    },
+    {
+      "E": 0.059262179567107234,
+      "V": 0.0646805777034692,
+      "role": "random",
+      "teacher_index": 13
+    },
+    {
+      "E": 0.06051447392484223,
+      "V": 0.06621889655592576,
+      "role": "short_singleton",
+      "teacher_index": 13
+    },
+    {
+      "E": 0.057533361064101986,
+      "V": 0.06340502207700585,
+      "role": "local_singleton",
+      "teacher_index": 13
+    },
+    {
+      "E": 0.0570093263519775,
+      "V": 0.06319623637069258,
+      "role": "joint",
+      "teacher_index": 13
+    },
+    {
+      "E": 0.058104549535057476,
+      "V": 0.06261177833463846,
+      "role": "unconditioned",
+      "teacher_index": 13
+    },
+    {
+      "E": 0.060106029573031614,
+      "V": 0.06678158150795387,
+      "role": "pure_span",
+      "teacher_index": 13
+    },
+    {
+      "E": 0.05536593644594555,
+      "V": 0.06057141048450293,
+      "role": "warm_upper",
+      "teacher_index": 13
+    },
+    {
+      "E": 0.06028975422272982,
+      "V": 0.07090024652613844,
+      "role": "fresh_upper",
+      "teacher_index": 13
+    },
+    {
+      "E": 0.06249041387680324,
+      "V": 0.06281312104078597,
+      "role": "keep",
+      "teacher_index": 14
+    },
+    {
+      "E": 0.06901991218215141,
+      "V": 0.07148948060807297,
+      "role": "top",
+      "teacher_index": 14
+    },
+    {
+      "E": 0.0690682076875074,
+      "V": 0.07267298512410855,
+      "role": "random",
+      "teacher_index": 14
+    },
+    {
+      "E": 0.070421449791059,
+      "V": 0.07159919473670208,
+      "role": "short_singleton",
+      "teacher_index": 14
+    },
+    {
+      "E": 0.07036917718511426,
+      "V": 0.07254355704876492,
+      "role": "local_singleton",
+      "teacher_index": 14
+    },
+    {
+      "E": 0.07025870895463998,
+      "V": 0.07077145846396327,
+      "role": "joint",
+      "teacher_index": 14
+    },
+    {
+      "E": 0.07071787558909552,
+      "V": 0.07169280635745144,
+      "role": "unconditioned",
+      "teacher_index": 14
+    },
+    {
+      "E": 0.07131505965036522,
+      "V": 0.07477008171503638,
+      "role": "pure_span",
+      "teacher_index": 14
+    },
+    {
+      "E": 0.06653180198560615,
+      "V": 0.06942174482679497,
+      "role": "warm_upper",
+      "teacher_index": 14
+    },
+    {
+      "E": 0.06818529106716584,
+      "V": 0.06936874961163611,
+      "role": "fresh_upper",
+      "teacher_index": 14
+    },
+    {
+      "E": 0.05106669704239851,
+      "V": 0.05423022525412653,
+      "role": "keep",
+      "teacher_index": 15
+    },
+    {
+      "E": 0.06366746621919683,
+      "V": 0.06311670331140368,
+      "role": "top",
+      "teacher_index": 15
+    },
+    {
+      "E": 0.06014496447365707,
+      "V": 0.06300912032061641,
+      "role": "random",
+      "teacher_index": 15
+    },
+    {
+      "E": 0.06300505944269177,
+      "V": 0.06484814923331837,
+      "role": "short_singleton",
+      "teacher_index": 15
+    },
+    {
+      "E": 0.06263676805418053,
+      "V": 0.06662165838353061,
+      "role": "local_singleton",
+      "teacher_index": 15
+    },
+    {
+      "E": 0.06132510254591225,
+      "V": 0.06626516207163217,
+      "role": "joint",
+      "teacher_index": 15
+    },
+    {
+      "E": 0.06252576040207097,
+      "V": 0.06973170660750715,
+      "role": "unconditioned",
+      "teacher_index": 15
+    },
+    {
+      "E": 0.061396157885159786,
+      "V": 0.06278501870592426,
+      "role": "pure_span",
+      "teacher_index": 15
+    },
+    {
+      "E": 0.058643683260719184,
+      "V": 0.06487832358650239,
+      "role": "warm_upper",
+      "teacher_index": 15
+    },
+    {
+      "E": 0.06484697417797033,
+      "V": 0.06642540309464183,
+      "role": "fresh_upper",
+      "teacher_index": 15
+    }
+  ],
+  "teachers": 16
+}

@@ -28,29 +28,43 @@ reads. A real64-key boundary test failed, the minimal trace normalization repair
 passed55affected checks, and the original qualification remains retained. A fresh
 source-bound full qualification then passed:258terminal entries,76native model
 checkpoints and35workload classes,273.61seconds/.94GiBsampled peak RSS. Fresh
-M3 science is launched from held53bd029/e78e under its measured admission,
-with no wall deadline; no Gate B result or protected T. The full raw forecast is
+M3 science ran from held53bd029/e78e under its measured admission,
+with no wall deadline. Its completed negative Gate B result is recorded below;
+there was no protected T. The full raw forecast is
 30.71GBinitial/61.42GBmaximum, so inactive byte-preserving compression and exact
 queue resumption may be needed as other processes use disk. See
 WP04-M3-native-qualification-launch-receipt.json, WP04-M3-trace-roundtrip-fix-receipt.json,
 WP04-M3-execution-implementation-receipt.json and M3-resource-execution-design.md.
-The first eight teachers have completed and the one predeclared uncertainty
-extension is active. Partial outcomes have not been used to change the method,
-treatment or teacher inventory. Independently audit the complete admitted queue
-before interpreting M3 or deciding Gate B.
-An independent auditor is pinned at654a2cc/package4dbf2141. The operational
-waiter checks the producer lease without opening partial outcomes and invokes
-the verified prediction/teacher/cost analysis only after the admitted queue is
-complete and inactive. Raw waiting/analysis outputs are under
-`artifacts/research-v2/WP04/M3-delayed-audit-654a2cc`. See
-[its launch receipt](WP04-M3-delayed-audit-launch-receipt.json).
-As shared free disk approached6GiB, qualified lossless maintenance compressed
-1,967completed event logs while M3 continued. An independent streaming check
-verified every original logical byte hash/size, all1,967result markers and the
-original ledger prefix. Reported per-file allocation decreased by2,472,423,424
-bytes; shared volume changes are not attributed solely to this work. Active
-logs, all checkpoint histories, parameters, data and the fixed queue were
-unchanged. See [the maintenance receipt](WP04-M3-active-event-storage-receipt.json).
+M3 is now complete:16fresh teachers/R2/10roles,320final models,
+2080short probes and3089eligible terminal queue entries. Independent arithmetic
+checked640prediction vectors/7680metrics with maximum difference5.55e-17;
+no failed/missing result or protected T. The sole8-to-16extension was triggered
+by its declared V precision rule and is exhausted. Keep beats joint on all16
+teacher E averages; joint has negative mean V log benefit versus random.
+**Gate B is closed negative.** No regularization correction, direction/newborn
+grid, pruning or residual redesign is admitted by this result. The optional
+correction is declined due lack of gated capacity beyond competent keep, not
+because a wall-time limit expired. Its hypothetical results remain unknown.
+The [M3 report](../../../reports/research-v2-M3.md),
+[compact evidence](../../../audit/research-v2/M3/development-summary.json),
+[Gate B disposition](../../../audit/research-v2/M3/gate-B.json) and
+[completion receipt](WP04-M3-completion-receipt.json) bind the result and limits.
+The held scientific source53bd029/e78e and independent auditor654a2cc/4dbf remain
+unchanged. Scientific process8997.63seconds/.975GiBsampled root peak;
+separate audit169.24seconds. Contended experimental clocks establish no deployment
+or quality-cost advantage. The unchanged method remains an explicit possible
+practical reference; no new research selector proceeds to confirmation.
+
+As shared disk approached6GiBduring M3, lossless maintenance first compressed
+1967completed event logs with independent original-byte/hash verification,
+saving2472423424reported per-file allocation bytes. After both producer and
+auditor finished, a second qualified operation began compressing completed
+histories and remaining events. It completed12096files, preserving25,009,400,817
+logical bytes. Independent streaming checks verified original hashes/sizes,
+2432committed result markers and the complete ledger endpoint. Reported additional
+per-file allocation savings were12,096,417,792bytes; shared volume changes remain
+unattributed. Source/model/queue/predictions are unchanged. See
+[the completed maintenance receipt](WP04-M3-completed-log-storage-receipt.json).
 
 The bounded-memory Energy NODE attempt finished at its old7200-second cap, with
 about1.49GiBsampled peak and no saved model. The user then explicitly prioritized
@@ -114,8 +128,8 @@ effective batch and stopping rules, and verify numerical agreement first.
 |WP00|qualified|97228c6; references passed;89 passed/1 skipped; arithmetic error1.39e-17; tracked WP00 receipt|
 |WP01|verified|220 targeted passed;19 reference arrays byte-identical; WP01-receipt.json; broad integration still pending|
 |WP02|M1 complete; M0 partial|256M1 fits and independent512-vector arithmetic; M1 sensitivity passes; full M0 remains pending|
-|WP03|M2 scientific queue running|53native resource classes qualified under e1b1018; live per-job admission; full227GiBprojection exceeds current free disk; Gate A pending|
-|WP04|pending Gate A|joint selector numerical and trained evidence; Gate B|
+|WP03|M2 complete; Gate A passed|3853 terminal entries, independent5472-vector arithmetic; full M2 report|
+|WP04|M3 complete; Gate B closed negative|320final models/16teachers; independent640-vector arithmetic; no added-capacity or placement lead; optional correction declined|
 |WP05|not admitted|measured geometry/newborn trigger|
 |WP06|not admitted|measured retention/family ceiling; at most one redesign|
 |WP07|data and adapter engineering|six raw pins/30 splits audited; tiny native adapters checked; full native workload/quality qualification and Gate D pending|

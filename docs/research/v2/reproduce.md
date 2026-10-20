@@ -271,3 +271,23 @@ retained artifact namespace and reject an existing destination before launching.
 This avoids pytest cleanup of earlier evidence and a second physical copy of
 large temporary archives. Preserve original failures and same-source recovery
 records; do not weaken native memory/backend guards under host contention.
+
+## Completed M3 development study
+
+See [the M3 report](../../../reports/research-v2-M3.md) and
+[completion receipt](WP04-M3-completion-receipt.json). Scientific source53bd029
+(e78e027f…) and auditor654a2cc(4dbf2141…) are held separately; their
+original immutable raw queues are external study outputs, not included in a clone.
+The pinned auditor command remains in the recorded invocation.
+The complete sixteen-teacher/R2 study has320final models and640V/Eprediction
+vectors, all reconstructed arithmetically. Gate B closes negative; no correction
+or confirmation was run. The compact tracked evidence is under
+`audit/research-v2/M3/`, including all teacher/procedure risks, all temporary
+fractions, descriptive uncertainty, selected stages/sets and the branch decision.
+`docs/research/v2/scripts/review_m3_development.py` exports the review from the
+exact queue/audit commitments in its recorded invocation. It rehashes consumed
+job/selection metadata and summarizes saved local diagnostics; it does not
+retrain a model or replace the independent prediction audit. The new summary
+checks and retained-prediction tests passed24cases in17.61seconds.
+Both descriptive t and whole-teacher bootstrap intervals remain development
+quantities after the one predeclared extension, not confirmation guarantees.

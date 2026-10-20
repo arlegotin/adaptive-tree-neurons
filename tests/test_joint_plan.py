@@ -82,8 +82,14 @@ def test_public_plan_reports_unadmitted_M3_and_run_cannot_start_scientific_work(
     import json
     import subprocess
     import sys
+    from pathlib import Path
+    # A completed local study may leave its historical admission at the public
+    # locator. Exercise missing admission explicitly, independently of artifacts.
+    raw=json.loads(Path('configs/research/v2/M3-joint.json').read_text())
+    raw['resource_admission']=str(tmp_path/'missing-M3-admission.json')
+    config_path=tmp_path/'M3-unadmitted.json';config_path.write_text(json.dumps(raw))
     args=[sys.executable,'-B','-m','treeneuron.research.cli','plan','--config',
-        'configs/research/v2/M3-joint.json','--output',str(tmp_path/'plan.json')]
+        str(config_path),'--output',str(tmp_path/'plan.json')]
     planned=subprocess.run(args,capture_output=True,text=True)
     assert planned.returncode==0,planned.stderr
     assert len(json.loads((tmp_path/'plan.json').read_text())['attempts'])==160

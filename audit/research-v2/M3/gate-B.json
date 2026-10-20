@@ -1,0 +1,31 @@
+{
+  "T_accessed": false,
+  "advancement_rule": "Positive equal-teacher mean V log benefit over matched random and repeatable >=2% improvement on multiple teachers, plus predictive/cost requirements",
+  "confirmation_admitted": false,
+  "decision": "Do not advance default joint selector to calibration or protected confirmation",
+  "direction_and_newborn_grids": {
+    "reason": "Temporary local-update saturation does not establish deficient newborn participation or saturation in actual Adam continuation; no actual-trajectory trigger established",
+    "status": "not_admitted"
+  },
+  "final_fits": 320,
+  "observed_mean_V_log_benefit": -0.004847684037388056,
+  "practical_candidate": "Unchanged historical reference may be evaluated explicitly; no new selector/pruning/residual candidate admitted",
+  "protected_calibration_admitted": false,
+  "redesign": {
+    "reason": "No useful joint-capacity/retention evidence or measured strong-backbone ceiling admitting a Gate C branch yet",
+    "status": "not_admitted"
+  },
+  "regularization_correction": {
+    "attempts": 0,
+    "reason": "Optional permission, not mandatory rescue. Default joint has negative mean V placement benefit; keep beats joint on all sixteen teacher E averages and no tested gated role reaches a 2% E gain over keep on any teacher. Capacity beyond competent continuation is not supported in this regime. Small temporary F-solved updates do not isolate added capacity from parent updates.",
+    "status": "not_admitted"
+  },
+  "repetitions": 2,
+  "schema": "research/v2-M3-Gate-B-disposition",
+  "scope": "A scoped development retirement, not a proof against all gated models or real-data usefulness; no confirmatory effect or universal impossibility claim",
+  "short_probe_entries": 2080,
+  "status": "closed_negative_development",
+  "teachers": 16,
+  "terminal_queue_entries": 3089,
+  "trigger": "Final complete admitted M3 cohort; one allowed eight-to-sixteen precision extension exhausted"
+}

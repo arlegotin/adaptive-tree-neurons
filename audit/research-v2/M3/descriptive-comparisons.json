@@ -1,0 +1,1280 @@
+{
+  "fresh_upper": {
+    "E": {
+      "baseline_role": "fresh_upper",
+      "bootstrap_index_sha256": "bc8d49e1cedc1efb99d941570489333154ec95f8617782a7f6a29126aa9136ea",
+      "bootstrap_interval": [
+        -0.07573433275784328,
+        0.015648417319299886
+      ],
+      "bootstrap_iterations": 20000,
+      "bootstrap_scope": "Percentile sensitivity only; cannot replace the primary t interval",
+      "bootstrap_seed": 4694770902820049286,
+      "bootstrap_unit": "whole teacher with both repetition risks averaged first",
+      "claim_authorized": false,
+      "confirmation_count_valid": false,
+      "declared_cell_count": 64,
+      "input_risks_sha256": "94f8a04cca2d0ff680221a7f9ed2e956479e607ab8c906310a9c1100bee1390e",
+      "mean_log_benefit": -0.028996380605896876,
+      "median_log_benefit": -0.03764881261468522,
+      "missing_or_failed_cells": [],
+      "observed_cell_count": 64,
+      "one_sided_margin_p": 0.9698938433304239,
+      "planned_teacher_ids": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "primary_procedure": "Two-sided95% Student-t; useful lower bound strictly exceeds log(1/.98)",
+      "protected_access_authorized": false,
+      "raw_metrics_authenticated": false,
+      "repetition_count": 2,
+      "schema": "research/v2-teacher-comparison",
+      "scope": "Descriptive development intervals after the one declared precision extension; no confirmatory error-control claim",
+      "standard_error": 0.02420747497245118,
+      "status": "completed",
+      "student_t_df": 15,
+      "student_t_interval": [
+        -0.08059339213507759,
+        0.022600630923283835
+      ],
+      "teacher_count": 16,
+      "teacher_log_benefit_quantiles": [
+        -0.17071618502085117,
+        0.09451439843560916
+      ],
+      "teacher_log_benefit_range": [
+        -0.25145068309529206,
+        0.10457464157436824
+      ],
+      "teacher_sd": 0.09682989988980471,
+      "teacher_signs": {
+        "negative": 10,
+        "positive": 6,
+        "zero": 0
+      },
+      "uncertainty_unit": "Independent teacher; repetition risks averaged before log ratio",
+      "useful_margin": 0.02020270731751947,
+      "useful_margin_decision": "inconclusive"
+    },
+    "V": {
+      "baseline_role": "fresh_upper",
+      "bootstrap_index_sha256": "b0e8beea1dddf0468203af177d5db2519cd33f2715314786b311ede4387a3f39",
+      "bootstrap_interval": [
+        -0.06494296744133517,
+        0.03138556747364615
+      ],
+      "bootstrap_iterations": 20000,
+      "bootstrap_scope": "Percentile sensitivity only; cannot replace the primary t interval",
+      "bootstrap_seed": 2797892462500187168,
+      "bootstrap_unit": "whole teacher with both repetition risks averaged first",
+      "claim_authorized": false,
+      "confirmation_count_valid": false,
+      "declared_cell_count": 64,
+      "input_risks_sha256": "3367270beecaac2b1e4c103f1d46739b542f5c485e2cddb8b21908aa69fa5c40",
+      "mean_log_benefit": -0.016275007059668445,
+      "median_log_benefit": -0.017409785601566252,
+      "missing_or_failed_cells": [],
+      "observed_cell_count": 64,
+      "one_sided_margin_p": 0.914053002440571,
+      "planned_teacher_ids": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "primary_procedure": "Two-sided95% Student-t; useful lower bound strictly exceeds log(1/.98)",
+      "protected_access_authorized": false,
+      "raw_metrics_authenticated": false,
+      "repetition_count": 2,
+      "schema": "research/v2-teacher-comparison",
+      "scope": "Descriptive development intervals after the one declared precision extension; no confirmatory error-control claim",
+      "standard_error": 0.025425374013760764,
+      "status": "completed",
+      "student_t_df": 15,
+      "student_t_interval": [
+        -0.07046790894698615,
+        0.03791789482764927
+      ],
+      "teacher_count": 16,
+      "teacher_log_benefit_quantiles": [
+        -0.13120101207039714,
+        0.12386697441386652
+      ],
+      "teacher_log_benefit_range": [
+        -0.23940204858766423,
+        0.15038041061881557
+      ],
+      "teacher_sd": 0.10170149605504306,
+      "teacher_signs": {
+        "negative": 10,
+        "positive": 6,
+        "zero": 0
+      },
+      "uncertainty_unit": "Independent teacher; repetition risks averaged before log ratio",
+      "useful_margin": 0.02020270731751947,
+      "useful_margin_decision": "inconclusive"
+    }
+  },
+  "keep": {
+    "E": {
+      "baseline_role": "keep",
+      "bootstrap_index_sha256": "ffffbbe8686526dc459f019bdb038c8837be7dc92708c0b921b1cc0756940cd8",
+      "bootstrap_interval": [
+        -0.20181824605651777,
+        -0.09933151216065225
+      ],
+      "bootstrap_iterations": 20000,
+      "bootstrap_scope": "Percentile sensitivity only; cannot replace the primary t interval",
+      "bootstrap_seed": 3843654530251884931,
+      "bootstrap_unit": "whole teacher with both repetition risks averaged first",
+      "claim_authorized": false,
+      "confirmation_count_valid": false,
+      "declared_cell_count": 64,
+      "input_risks_sha256": "4ae2133664f159a95a2ed96a55f24490945c58800e67cbea506bf0330d35bb0a",
+      "mean_log_benefit": -0.14614967592249684,
+      "median_log_benefit": -0.09635261724565836,
+      "missing_or_failed_cells": [],
+      "observed_cell_count": 64,
+      "one_sided_margin_p": 0.9999903457849703,
+      "planned_teacher_ids": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "primary_procedure": "Two-sided95% Student-t; useful lower bound strictly exceeds log(1/.98)",
+      "protected_access_authorized": false,
+      "raw_metrics_authenticated": false,
+      "repetition_count": 2,
+      "schema": "research/v2-teacher-comparison",
+      "scope": "Descriptive development intervals after the one declared precision extension; no confirmatory error-control claim",
+      "standard_error": 0.027143940419863424,
+      "status": "completed",
+      "student_t_df": 15,
+      "student_t_interval": [
+        -0.20400561539511636,
+        -0.08829373644987731
+      ],
+      "teacher_count": 16,
+      "teacher_log_benefit_quantiles": [
+        -0.3834850336407566,
+        -0.05290284298818604
+      ],
+      "teacher_log_benefit_range": [
+        -0.39017988609267373,
+        -0.05018451727144724
+      ],
+      "teacher_sd": 0.1085757616794537,
+      "teacher_signs": {
+        "negative": 16,
+        "positive": 0,
+        "zero": 0
+      },
+      "uncertainty_unit": "Independent teacher; repetition risks averaged before log ratio",
+      "useful_margin": 0.02020270731751947,
+      "useful_margin_decision": "below_useful_margin"
+    },
+    "V": {
+      "baseline_role": "keep",
+      "bootstrap_index_sha256": "9b26fb1f2f287b31335ca710fc2d91b1ad32c4e47f162f0ce38bebdad9412f1c",
+      "bootstrap_interval": [
+        -0.18581783566394217,
+        -0.07967953453678528
+      ],
+      "bootstrap_iterations": 20000,
+      "bootstrap_scope": "Percentile sensitivity only; cannot replace the primary t interval",
+      "bootstrap_seed": 1896169771303751176,
+      "bootstrap_unit": "whole teacher with both repetition risks averaged first",
+      "claim_authorized": false,
+      "confirmation_count_valid": false,
+      "declared_cell_count": 64,
+      "input_risks_sha256": "437164d1cc30d9f8782de32257739425f448c8c42dfc09c0162cb48f42f43bbd",
+      "mean_log_benefit": -0.12839266722112844,
+      "median_log_benefit": -0.08846483674559358,
+      "missing_or_failed_cells": [],
+      "observed_cell_count": 64,
+      "one_sided_margin_p": 0.9999545800094477,
+      "planned_teacher_ids": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "primary_procedure": "Two-sided95% Student-t; useful lower bound strictly exceeds log(1/.98)",
+      "protected_access_authorized": false,
+      "raw_metrics_authenticated": false,
+      "repetition_count": 2,
+      "schema": "research/v2-teacher-comparison",
+      "scope": "Descriptive development intervals after the one declared precision extension; no confirmatory error-control claim",
+      "standard_error": 0.028092384024581717,
+      "status": "completed",
+      "student_t_df": 15,
+      "student_t_interval": [
+        -0.18827016638401384,
+        -0.06851516805824304
+      ],
+      "teacher_count": 16,
+      "teacher_log_benefit_quantiles": [
+        -0.3347926156616098,
+        -0.027733136194343477
+      ],
+      "teacher_log_benefit_range": [
+        -0.41842355211807813,
+        0.010538874271885934
+      ],
+      "teacher_sd": 0.11236953609832687,
+      "teacher_signs": {
+        "negative": 15,
+        "positive": 1,
+        "zero": 0
+      },
+      "uncertainty_unit": "Independent teacher; repetition risks averaged before log ratio",
+      "useful_margin": 0.02020270731751947,
+      "useful_margin_decision": "below_useful_margin"
+    }
+  },
+  "local_singleton": {
+    "E": {
+      "baseline_role": "local_singleton",
+      "bootstrap_index_sha256": "10b8dfa48411bd978228620ec1199f39e2cbf81d832d4b8a86d062ba6006ac56",
+      "bootstrap_interval": [
+        -0.02082314593007095,
+        0.004227975598548988
+      ],
+      "bootstrap_iterations": 20000,
+      "bootstrap_scope": "Percentile sensitivity only; cannot replace the primary t interval",
+      "bootstrap_seed": 7845756799527339697,
+      "bootstrap_unit": "whole teacher with both repetition risks averaged first",
+      "claim_authorized": false,
+      "confirmation_count_valid": false,
+      "declared_cell_count": 64,
+      "input_risks_sha256": "98aeef2b16db3cba63d591b1b7d17d257216419b8e22f8a64803ed6b9eeb48e9",
+      "mean_log_benefit": -0.007838076715888459,
+      "median_log_benefit": -0.0009138759121321005,
+      "missing_or_failed_cells": [],
+      "observed_cell_count": 64,
+      "one_sided_margin_p": 0.9996502630490655,
+      "planned_teacher_ids": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "primary_procedure": "Two-sided95% Student-t; useful lower bound strictly exceeds log(1/.98)",
+      "protected_access_authorized": false,
+      "raw_metrics_authenticated": false,
+      "repetition_count": 2,
+      "schema": "research/v2-teacher-comparison",
+      "scope": "Descriptive development intervals after the one declared precision extension; no confirmatory error-control claim",
+      "standard_error": 0.006598651819749946,
+      "status": "completed",
+      "student_t_df": 15,
+      "student_t_interval": [
+        -0.02190277013840167,
+        0.0062266167066247526
+      ],
+      "teacher_count": 16,
+      "teacher_log_benefit_quantiles": [
+        -0.0542528659107786,
+        0.02599176365031186
+      ],
+      "teacher_log_benefit_range": [
+        -0.06759841402983824,
+        0.04047747716779293
+      ],
+      "teacher_sd": 0.026394607278999786,
+      "teacher_signs": {
+        "negative": 8,
+        "positive": 6,
+        "zero": 2
+      },
+      "uncertainty_unit": "Independent teacher; repetition risks averaged before log ratio",
+      "useful_margin": 0.02020270731751947,
+      "useful_margin_decision": "below_useful_margin"
+    },
+    "V": {
+      "baseline_role": "local_singleton",
+      "bootstrap_index_sha256": "48f116efe4a21e1b7fad0b5464de4e1b72700db65a0504b97c9bb9c787f12ca4",
+      "bootstrap_interval": [
+        -0.006053095964379113,
+        0.026945606309889784
+      ],
+      "bootstrap_iterations": 20000,
+      "bootstrap_scope": "Percentile sensitivity only; cannot replace the primary t interval",
+      "bootstrap_seed": 3824827896103516453,
+      "bootstrap_unit": "whole teacher with both repetition risks averaged first",
+      "claim_authorized": false,
+      "confirmation_count_valid": false,
+      "declared_cell_count": 64,
+      "input_risks_sha256": "f0c2cfa52e122c4a7621f400a529bafb3b2f34517ca995e97d280488af81bc29",
+      "mean_log_benefit": 0.010054458286449047,
+      "median_log_benefit": 0.004331874043953743,
+      "missing_or_failed_cells": [],
+      "observed_cell_count": 64,
+      "one_sided_margin_p": 0.8690234858513008,
+      "planned_teacher_ids": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "primary_procedure": "Two-sided95% Student-t; useful lower bound strictly exceeds log(1/.98)",
+      "protected_access_authorized": false,
+      "raw_metrics_authenticated": false,
+      "repetition_count": 2,
+      "schema": "research/v2-teacher-comparison",
+      "scope": "Descriptive development intervals after the one declared precision extension; no confirmatory error-control claim",
+      "standard_error": 0.008706004958790467,
+      "status": "completed",
+      "student_t_df": 15,
+      "student_t_interval": [
+        -0.00850195202660605,
+        0.028610868599504145
+      ],
+      "teacher_count": 16,
+      "teacher_log_benefit_quantiles": [
+        -0.036037762190120226,
+        0.07727042074079549
+      ],
+      "teacher_log_benefit_range": [
+        -0.05372638072987801,
+        0.0795325469986028
+      ],
+      "teacher_sd": 0.03482401983516187,
+      "teacher_signs": {
+        "negative": 5,
+        "positive": 9,
+        "zero": 2
+      },
+      "uncertainty_unit": "Independent teacher; repetition risks averaged before log ratio",
+      "useful_margin": 0.02020270731751947,
+      "useful_margin_decision": "inconclusive"
+    }
+  },
+  "pure_span": {
+    "E": {
+      "baseline_role": "pure_span",
+      "bootstrap_index_sha256": "6b123d39f609a7cba13b8f7b16835c3bdc5a42bfd51fa5e2650782861aef583d",
+      "bootstrap_interval": [
+        -0.012929583320217708,
+        0.016802228166517868
+      ],
+      "bootstrap_iterations": 20000,
+      "bootstrap_scope": "Percentile sensitivity only; cannot replace the primary t interval",
+      "bootstrap_seed": 7661050737763910565,
+      "bootstrap_unit": "whole teacher with both repetition risks averaged first",
+      "claim_authorized": false,
+      "confirmation_count_valid": false,
+      "declared_cell_count": 64,
+      "input_risks_sha256": "49caaaa40edbb2fea8d8368908eb50224d5251a905b25862dd9c3c14491e4a6a",
+      "mean_log_benefit": 0.0025476785566790894,
+      "median_log_benefit": 0.0005789978601760115,
+      "missing_or_failed_cells": [],
+      "observed_cell_count": 64,
+      "one_sided_margin_p": 0.9789665477099686,
+      "planned_teacher_ids": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "primary_procedure": "Two-sided95% Student-t; useful lower bound strictly exceeds log(1/.98)",
+      "protected_access_authorized": false,
+      "raw_metrics_authenticated": false,
+      "repetition_count": 2,
+      "schema": "research/v2-teacher-comparison",
+      "scope": "Descriptive development intervals after the one declared precision extension; no confirmatory error-control claim",
+      "standard_error": 0.007944615039061381,
+      "status": "completed",
+      "student_t_df": 15,
+      "student_t_interval": [
+        -0.014385867557975652,
+        0.01948122467133383
+      ],
+      "teacher_count": 16,
+      "teacher_log_benefit_quantiles": [
+        -0.040831182825202816,
+        0.04434903336322238
+      ],
+      "teacher_log_benefit_range": [
+        -0.07824247840176346,
+        0.05289528752292583
+      ],
+      "teacher_sd": 0.031778460156245525,
+      "teacher_signs": {
+        "negative": 7,
+        "positive": 8,
+        "zero": 1
+      },
+      "uncertainty_unit": "Independent teacher; repetition risks averaged before log ratio",
+      "useful_margin": 0.02020270731751947,
+      "useful_margin_decision": "below_useful_margin"
+    },
+    "V": {
+      "baseline_role": "pure_span",
+      "bootstrap_index_sha256": "56fb859a8c629004ad38d549daa487975db1b628eab0e86b5d378974a7c92a94",
+      "bootstrap_interval": [
+        0.0034078117308541365,
+        0.04082731135307259
+      ],
+      "bootstrap_iterations": 20000,
+      "bootstrap_scope": "Percentile sensitivity only; cannot replace the primary t interval",
+      "bootstrap_seed": 179304727233337458,
+      "bootstrap_unit": "whole teacher with both repetition risks averaged first",
+      "claim_authorized": false,
+      "confirmation_count_valid": false,
+      "declared_cell_count": 64,
+      "input_risks_sha256": "c488c04470617a7b09d1b03fd8ae7b462a381cd23c9e8a2395f0f89cd29d2d88",
+      "mean_log_benefit": 0.02299587186400126,
+      "median_log_benefit": 0.03226447783719366,
+      "missing_or_failed_cells": [],
+      "observed_cell_count": 64,
+      "one_sided_margin_p": 0.39081584703174177,
+      "planned_teacher_ids": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "primary_procedure": "Two-sided95% Student-t; useful lower bound strictly exceeds log(1/.98)",
+      "protected_access_authorized": false,
+      "raw_metrics_authenticated": false,
+      "repetition_count": 2,
+      "schema": "research/v2-teacher-comparison",
+      "scope": "Descriptive development intervals after the one declared precision extension; no confirmatory error-control claim",
+      "standard_error": 0.009897122829142574,
+      "status": "completed",
+      "student_t_df": 15,
+      "student_t_interval": [
+        0.0019006539074760374,
+        0.04409108982052648
+      ],
+      "teacher_count": 16,
+      "teacher_log_benefit_quantiles": [
+        -0.05211286199626819,
+        0.06571832604734051
+      ],
+      "teacher_log_benefit_range": [
+        -0.05394781076306021,
+        0.0725653741212029
+      ],
+      "teacher_sd": 0.039588491316570294,
+      "teacher_signs": {
+        "negative": 5,
+        "positive": 10,
+        "zero": 1
+      },
+      "uncertainty_unit": "Independent teacher; repetition risks averaged before log ratio",
+      "useful_margin": 0.02020270731751947,
+      "useful_margin_decision": "inconclusive"
+    }
+  },
+  "random": {
+    "E": {
+      "baseline_role": "random",
+      "bootstrap_index_sha256": "ccb720f797746288795d500b43282e58752eec005125c946eb64cc3a4a32f2ac",
+      "bootstrap_interval": [
+        -0.035888238806252255,
+        0.008208877801813048
+      ],
+      "bootstrap_iterations": 20000,
+      "bootstrap_scope": "Percentile sensitivity only; cannot replace the primary t interval",
+      "bootstrap_seed": 7484805174118596719,
+      "bootstrap_unit": "whole teacher with both repetition risks averaged first",
+      "claim_authorized": false,
+      "confirmation_count_valid": false,
+      "declared_cell_count": 64,
+      "input_risks_sha256": "382a790ff94069d441dff093ab323e2b074eaf18d4986b097752c096cf32dd20",
+      "mean_log_benefit": -0.013307138032745996,
+      "median_log_benefit": -0.00662773227081237,
+      "missing_or_failed_cells": [],
+      "observed_cell_count": 64,
+      "one_sided_margin_p": 0.9943037080134521,
+      "planned_teacher_ids": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "primary_procedure": "Two-sided95% Student-t; useful lower bound strictly exceeds log(1/.98)",
+      "protected_access_authorized": false,
+      "raw_metrics_authenticated": false,
+      "repetition_count": 2,
+      "schema": "research/v2-teacher-comparison",
+      "scope": "Descriptive development intervals after the one declared precision extension; no confirmatory error-control claim",
+      "standard_error": 0.011625425898901403,
+      "status": "completed",
+      "student_t_df": 15,
+      "student_t_interval": [
+        -0.03808614678189824,
+        0.011471870716406249
+      ],
+      "teacher_count": 16,
+      "teacher_log_benefit_quantiles": [
+        -0.09596775683679004,
+        0.04941688023656243
+      ],
+      "teacher_log_benefit_range": [
+        -0.113018535035045,
+        0.08139818131456744
+      ],
+      "teacher_sd": 0.04650170359560561,
+      "teacher_signs": {
+        "negative": 9,
+        "positive": 5,
+        "zero": 2
+      },
+      "uncertainty_unit": "Independent teacher; repetition risks averaged before log ratio",
+      "useful_margin": 0.02020270731751947,
+      "useful_margin_decision": "below_useful_margin"
+    },
+    "V": {
+      "baseline_role": "random",
+      "bootstrap_index_sha256": "ea9cc377b91d4c64143f5482364575c397bebdc2d6e16c58e703aeace7d63b91",
+      "bootstrap_interval": [
+        -0.03210421835416667,
+        0.021019388911846366
+      ],
+      "bootstrap_iterations": 20000,
+      "bootstrap_scope": "Percentile sensitivity only; cannot replace the primary t interval",
+      "bootstrap_seed": 2594734626509698448,
+      "bootstrap_unit": "whole teacher with both repetition risks averaged first",
+      "claim_authorized": false,
+      "confirmation_count_valid": false,
+      "declared_cell_count": 64,
+      "input_risks_sha256": "da7966f754b0babecc1c2c2da47145ff492522154ede75691dda8ca7fa547dab",
+      "mean_log_benefit": -0.004847684037388056,
+      "median_log_benefit": 0.0028902157813590623,
+      "missing_or_failed_cells": [],
+      "observed_cell_count": 64,
+      "one_sided_margin_p": 0.9530791184990397,
+      "planned_teacher_ids": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "primary_procedure": "Two-sided95% Student-t; useful lower bound strictly exceeds log(1/.98)",
+      "protected_access_authorized": false,
+      "raw_metrics_authenticated": false,
+      "repetition_count": 2,
+      "schema": "research/v2-teacher-comparison",
+      "scope": "Descriptive development intervals after the one declared precision extension; no confirmatory error-control claim",
+      "standard_error": 0.014003310036588465,
+      "status": "completed",
+      "student_t_df": 15,
+      "student_t_interval": [
+        -0.03469503285120719,
+        0.024999664776431077
+      ],
+      "teacher_count": 16,
+      "teacher_log_benefit_quantiles": [
+        -0.1129344161216016,
+        0.07868848466301792
+      ],
+      "teacher_log_benefit_range": [
+        -0.12658663432493178,
+        0.09234246267547919
+      ],
+      "teacher_sd": 0.05601324014635386,
+      "teacher_signs": {
+        "negative": 6,
+        "positive": 8,
+        "zero": 2
+      },
+      "uncertainty_unit": "Independent teacher; repetition risks averaged before log ratio",
+      "useful_margin": 0.02020270731751947,
+      "useful_margin_decision": "inconclusive"
+    }
+  },
+  "short_singleton": {
+    "E": {
+      "baseline_role": "short_singleton",
+      "bootstrap_index_sha256": "4c61d48743f811d33bb816a173956ef975d22a01ac430ee0b6c1e86897c18b4d",
+      "bootstrap_interval": [
+        -0.029603534074733116,
+        0.010114348802806395
+      ],
+      "bootstrap_iterations": 20000,
+      "bootstrap_scope": "Percentile sensitivity only; cannot replace the primary t interval",
+      "bootstrap_seed": 463730858663211002,
+      "bootstrap_unit": "whole teacher with both repetition risks averaged first",
+      "claim_authorized": false,
+      "confirmation_count_valid": false,
+      "declared_cell_count": 64,
+      "input_risks_sha256": "372033013acbf4cf521a15ed8e264db02d58571b150a3830a0eccd91c45b76b9",
+      "mean_log_benefit": -0.009148241034108662,
+      "median_log_benefit": -0.005100517917777658,
+      "missing_or_failed_cells": [],
+      "observed_cell_count": 64,
+      "one_sided_margin_p": 0.9929728843831894,
+      "planned_teacher_ids": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "primary_procedure": "Two-sided95% Student-t; useful lower bound strictly exceeds log(1/.98)",
+      "protected_access_authorized": false,
+      "raw_metrics_authenticated": false,
+      "repetition_count": 2,
+      "schema": "research/v2-teacher-comparison",
+      "scope": "Descriptive development intervals after the one declared precision extension; no confirmatory error-control claim",
+      "standard_error": 0.010563349432264417,
+      "status": "completed",
+      "student_t_df": 15,
+      "student_t_interval": [
+        -0.03166348738109777,
+        0.013367005312880445
+      ],
+      "teacher_count": 16,
+      "teacher_log_benefit_quantiles": [
+        -0.0944539942901822,
+        0.053015010938903706
+      ],
+      "teacher_log_benefit_range": [
+        -0.09789617007553364,
+        0.059667700190636275
+      ],
+      "teacher_sd": 0.042253397729057666,
+      "teacher_signs": {
+        "negative": 8,
+        "positive": 7,
+        "zero": 1
+      },
+      "uncertainty_unit": "Independent teacher; repetition risks averaged before log ratio",
+      "useful_margin": 0.02020270731751947,
+      "useful_margin_decision": "below_useful_margin"
+    },
+    "V": {
+      "baseline_role": "short_singleton",
+      "bootstrap_index_sha256": "2d4ac729caa4a7dbc8fc1dba0bc2b0c5643492af68fb91317d9ddce26170d939",
+      "bootstrap_interval": [
+        -0.0275597341589663,
+        0.012814330698803039
+      ],
+      "bootstrap_iterations": 20000,
+      "bootstrap_scope": "Percentile sensitivity only; cannot replace the primary t interval",
+      "bootstrap_seed": 810637230529724845,
+      "bootstrap_unit": "whole teacher with both repetition risks averaged first",
+      "claim_authorized": false,
+      "confirmation_count_valid": false,
+      "declared_cell_count": 64,
+      "input_risks_sha256": "b554daa3404c254255b2348c3dd6d12f3fc8b7952d7fa643d92b0c8bcb9d0960",
+      "mean_log_benefit": -0.006571451605083073,
+      "median_log_benefit": 0.005339982876534366,
+      "missing_or_failed_cells": [],
+      "observed_cell_count": 64,
+      "one_sided_margin_p": 0.9883803150941012,
+      "planned_teacher_ids": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "primary_procedure": "Two-sided95% Student-t; useful lower bound strictly exceeds log(1/.98)",
+      "protected_access_authorized": false,
+      "raw_metrics_authenticated": false,
+      "repetition_count": 2,
+      "schema": "research/v2-teacher-comparison",
+      "scope": "Descriptive development intervals after the one declared precision extension; no confirmatory error-control claim",
+      "standard_error": 0.01059585951037063,
+      "status": "completed",
+      "student_t_df": 15,
+      "student_t_interval": [
+        -0.029155991543277783,
+        0.016013088333111637
+      ],
+      "teacher_count": 16,
+      "teacher_log_benefit_quantiles": [
+        -0.07196031321894103,
+        0.049353770332013935
+      ],
+      "teacher_log_benefit_range": [
+        -0.11669518512295385,
+        0.057251720151850094
+      ],
+      "teacher_sd": 0.04238343804148252,
+      "teacher_signs": {
+        "negative": 7,
+        "positive": 8,
+        "zero": 1
+      },
+      "uncertainty_unit": "Independent teacher; repetition risks averaged before log ratio",
+      "useful_margin": 0.02020270731751947,
+      "useful_margin_decision": "below_useful_margin"
+    }
+  },
+  "top": {
+    "E": {
+      "baseline_role": "top",
+      "bootstrap_index_sha256": "8dc23dc7e817bf398e53805d7b3e84c2f3b86fea535e585cbf38b076317a5251",
+      "bootstrap_interval": [
+        -0.013829857915545404,
+        0.02591635013152616
+      ],
+      "bootstrap_iterations": 20000,
+      "bootstrap_scope": "Percentile sensitivity only; cannot replace the primary t interval",
+      "bootstrap_seed": 7530560999563806238,
+      "bootstrap_unit": "whole teacher with both repetition risks averaged first",
+      "claim_authorized": false,
+      "confirmation_count_valid": false,
+      "declared_cell_count": 64,
+      "input_risks_sha256": "1368b2d8cf99e05234c6158a16edbc7a1851a86636e226e5cce04485bb324479",
+      "mean_log_benefit": 0.006597812541405512,
+      "median_log_benefit": 0.008018126541155413,
+      "missing_or_failed_cells": [],
+      "observed_cell_count": 64,
+      "one_sided_margin_p": 0.8921186415078881,
+      "planned_teacher_ids": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "primary_procedure": "Two-sided95% Student-t; useful lower bound strictly exceeds log(1/.98)",
+      "protected_access_authorized": false,
+      "raw_metrics_authenticated": false,
+      "repetition_count": 2,
+      "schema": "research/v2-teacher-comparison",
+      "scope": "Descriptive development intervals after the one declared precision extension; no confirmatory error-control claim",
+      "standard_error": 0.010526572763191099,
+      "status": "completed",
+      "student_t_df": 15,
+      "student_t_interval": [
+        -0.01583904619100007,
+        0.029034671273811093
+      ],
+      "teacher_count": 16,
+      "teacher_log_benefit_quantiles": [
+        -0.06440105998973611,
+        0.054739383605680425
+      ],
+      "teacher_log_benefit_range": [
+        -0.0929999134000048,
+        0.08954094213345476
+      ],
+      "teacher_sd": 0.042106291052764394,
+      "teacher_signs": {
+        "negative": 5,
+        "positive": 10,
+        "zero": 1
+      },
+      "uncertainty_unit": "Independent teacher; repetition risks averaged before log ratio",
+      "useful_margin": 0.02020270731751947,
+      "useful_margin_decision": "inconclusive"
+    },
+    "V": {
+      "baseline_role": "top",
+      "bootstrap_index_sha256": "c90f1132c485409caa3f079ca17e146f56843845771cdab366c421ade7c07a19",
+      "bootstrap_interval": [
+        -0.008677991840791134,
+        0.0513880854970145
+      ],
+      "bootstrap_iterations": 20000,
+      "bootstrap_scope": "Percentile sensitivity only; cannot replace the primary t interval",
+      "bootstrap_seed": 8426942720097516409,
+      "bootstrap_unit": "whole teacher with both repetition risks averaged first",
+      "claim_authorized": false,
+      "confirmation_count_valid": false,
+      "declared_cell_count": 64,
+      "input_risks_sha256": "8a57c1d71d715b17ea6a77edc7ada98bf152c3fee2be9e5294cbb84ec39e789e",
+      "mean_log_benefit": 0.021419339298735435,
+      "median_log_benefit": 0.021155981884130037,
+      "missing_or_failed_cells": [],
+      "observed_cell_count": 64,
+      "one_sided_margin_p": 0.4698872171456218,
+      "planned_teacher_ids": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "primary_procedure": "Two-sided95% Student-t; useful lower bound strictly exceeds log(1/.98)",
+      "protected_access_authorized": false,
+      "raw_metrics_authenticated": false,
+      "repetition_count": 2,
+      "schema": "research/v2-teacher-comparison",
+      "scope": "Descriptive development intervals after the one declared precision extension; no confirmatory error-control claim",
+      "standard_error": 0.015835434915640913,
+      "status": "completed",
+      "student_t_df": 15,
+      "student_t_interval": [
+        -0.012333091255948794,
+        0.055171769853419664
+      ],
+      "teacher_count": 16,
+      "teacher_log_benefit_quantiles": [
+        -0.06674099519261001,
+        0.11577817157750703
+      ],
+      "teacher_log_benefit_range": [
+        -0.12092741915058314,
+        0.16851338832900353
+      ],
+      "teacher_sd": 0.06334173966256365,
+      "teacher_signs": {
+        "negative": 4,
+        "positive": 11,
+        "zero": 1
+      },
+      "uncertainty_unit": "Independent teacher; repetition risks averaged before log ratio",
+      "useful_margin": 0.02020270731751947,
+      "useful_margin_decision": "inconclusive"
+    }
+  },
+  "unconditioned": {
+    "E": {
+      "baseline_role": "unconditioned",
+      "bootstrap_index_sha256": "2297c1babbacac0ede938855c8dcca7775f3c024c5046d2440e1ee8c13c2ba50",
+      "bootstrap_interval": [
+        -0.012616999802692014,
+        0.020227216808276327
+      ],
+      "bootstrap_iterations": 20000,
+      "bootstrap_scope": "Percentile sensitivity only; cannot replace the primary t interval",
+      "bootstrap_seed": 8161333896151318973,
+      "bootstrap_unit": "whole teacher with both repetition risks averaged first",
+      "claim_authorized": false,
+      "confirmation_count_valid": false,
+      "declared_cell_count": 64,
+      "input_risks_sha256": "238e89164b304f94770036fe7973b2015e861cb0a0d3ea9d5965554b0bb1ab90",
+      "mean_log_benefit": 0.003141034352601796,
+      "median_log_benefit": -0.0004767268888774545,
+      "missing_or_failed_cells": [],
+      "observed_cell_count": 64,
+      "one_sided_margin_p": 0.9662423897943747,
+      "planned_teacher_ids": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "primary_procedure": "Two-sided95% Student-t; useful lower bound strictly exceeds log(1/.98)",
+      "protected_access_authorized": false,
+      "raw_metrics_authenticated": false,
+      "repetition_count": 2,
+      "schema": "research/v2-teacher-comparison",
+      "scope": "Descriptive development intervals after the one declared precision extension; no confirmatory error-control claim",
+      "standard_error": 0.00865816089126964,
+      "status": "completed",
+      "student_t_df": 15,
+      "student_t_interval": [
+        -0.0153133987444783,
+        0.021595467449681893
+      ],
+      "teacher_count": 16,
+      "teacher_log_benefit_quantiles": [
+        -0.039828409086477334,
+        0.06633517110122555
+      ],
+      "teacher_log_benefit_range": [
+        -0.05729263248674199,
+        0.08834309808218244
+      ],
+      "teacher_sd": 0.03463264356507856,
+      "teacher_signs": {
+        "negative": 8,
+        "positive": 7,
+        "zero": 1
+      },
+      "uncertainty_unit": "Independent teacher; repetition risks averaged before log ratio",
+      "useful_margin": 0.02020270731751947,
+      "useful_margin_decision": "inconclusive"
+    },
+    "V": {
+      "baseline_role": "unconditioned",
+      "bootstrap_index_sha256": "8ab27cf434ce9bd6d2e7286cc130a891d9860667c7de6753bee6c13486b98b60",
+      "bootstrap_interval": [
+        -0.006527636344700551,
+        0.03837794347062772
+      ],
+      "bootstrap_iterations": 20000,
+      "bootstrap_scope": "Percentile sensitivity only; cannot replace the primary t interval",
+      "bootstrap_seed": 7440786122190321760,
+      "bootstrap_unit": "whole teacher with both repetition risks averaged first",
+      "claim_authorized": false,
+      "confirmation_count_valid": false,
+      "declared_cell_count": 64,
+      "input_risks_sha256": "56ebed97f1fb6b857e381d1a1f59ff1fc18850cae3a13413a74ee667e3cf7a77",
+      "mean_log_benefit": 0.016483681579631648,
+      "median_log_benefit": 0.007224231622733779,
+      "missing_or_failed_cells": [],
+      "observed_cell_count": 64,
+      "one_sided_margin_p": 0.6212377152643775,
+      "planned_teacher_ids": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "primary_procedure": "Two-sided95% Student-t; useful lower bound strictly exceeds log(1/.98)",
+      "protected_access_authorized": false,
+      "raw_metrics_authenticated": false,
+      "repetition_count": 2,
+      "schema": "research/v2-teacher-comparison",
+      "scope": "Descriptive development intervals after the one declared precision extension; no confirmatory error-control claim",
+      "standard_error": 0.011827787607205938,
+      "status": "completed",
+      "student_t_df": 15,
+      "student_t_interval": [
+        -0.008726650940724997,
+        0.0416940140999883
+      ],
+      "teacher_count": 16,
+      "teacher_log_benefit_quantiles": [
+        -0.03691680507434514,
+        0.08536192109096286
+      ],
+      "teacher_log_benefit_range": [
+        -0.09935772859002245,
+        0.11601262342045171
+      ],
+      "teacher_sd": 0.04731115042882375,
+      "teacher_signs": {
+        "negative": 6,
+        "positive": 9,
+        "zero": 1
+      },
+      "uncertainty_unit": "Independent teacher; repetition risks averaged before log ratio",
+      "useful_margin": 0.02020270731751947,
+      "useful_margin_decision": "inconclusive"
+    }
+  },
+  "warm_upper": {
+    "E": {
+      "baseline_role": "warm_upper",
+      "bootstrap_index_sha256": "34881635143b509d60949790a22ce0e99a97bcb0aa9491496e0d5efafd4c1d2e",
+      "bootstrap_interval": [
+        -0.13294237724455926,
+        -0.05245787933479813
+      ],
+      "bootstrap_iterations": 20000,
+      "bootstrap_scope": "Percentile sensitivity only; cannot replace the primary t interval",
+      "bootstrap_seed": 3490111542603007564,
+      "bootstrap_unit": "whole teacher with both repetition risks averaged first",
+      "claim_authorized": false,
+      "confirmation_count_valid": false,
+      "declared_cell_count": 64,
+      "input_risks_sha256": "36740dd9bfd8b646757a82a3b86b9c97ef92430b95da820fc6d21fae9ee3a3e1",
+      "mean_log_benefit": -0.08838517187031536,
+      "median_log_benefit": -0.05492553692810587,
+      "missing_or_failed_cells": [],
+      "observed_cell_count": 64,
+      "one_sided_margin_p": 0.999929013002953,
+      "planned_teacher_ids": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "primary_procedure": "Two-sided95% Student-t; useful lower bound strictly exceeds log(1/.98)",
+      "protected_access_authorized": false,
+      "raw_metrics_authenticated": false,
+      "repetition_count": 2,
+      "schema": "research/v2-teacher-comparison",
+      "scope": "Descriptive development intervals after the one declared precision extension; no confirmatory error-control claim",
+      "standard_error": 0.021474907341782392,
+      "status": "completed",
+      "student_t_df": 15,
+      "student_t_interval": [
+        -0.13415785336489572,
+        -0.04261249037573499
+      ],
+      "teacher_count": 16,
+      "teacher_log_benefit_quantiles": [
+        -0.28943409343564763,
+        -0.02073890742256046
+      ],
+      "teacher_log_benefit_range": [
+        -0.29245689653344265,
+        -0.010434266655986235
+      ],
+      "teacher_sd": 0.08589962936712957,
+      "teacher_signs": {
+        "negative": 16,
+        "positive": 0,
+        "zero": 0
+      },
+      "uncertainty_unit": "Independent teacher; repetition risks averaged before log ratio",
+      "useful_margin": 0.02020270731751947,
+      "useful_margin_decision": "below_useful_margin"
+    },
+    "V": {
+      "baseline_role": "warm_upper",
+      "bootstrap_index_sha256": "6e54707f1068b4b5f0630e83f9cd2aee61bd8d12defc5b2d2d6d0e59159fa81e",
+      "bootstrap_interval": [
+        -0.10631637266259376,
+        -0.02897777719332435
+      ],
+      "bootstrap_iterations": 20000,
+      "bootstrap_scope": "Percentile sensitivity only; cannot replace the primary t interval",
+      "bootstrap_seed": 7236868604115614870,
+      "bootstrap_unit": "whole teacher with both repetition risks averaged first",
+      "claim_authorized": false,
+      "confirmation_count_valid": false,
+      "declared_cell_count": 64,
+      "input_risks_sha256": "ec74276d043363f4fcaf09f7396fd4222637d49d06d1f6483545b04df821c490",
+      "mean_log_benefit": -0.061884859650586904,
+      "median_log_benefit": -0.04441349481737711,
+      "missing_or_failed_cells": [],
+      "observed_cell_count": 64,
+      "one_sided_margin_p": 0.9994101636841262,
+      "planned_teacher_ids": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "primary_procedure": "Two-sided95% Student-t; useful lower bound strictly exceeds log(1/.98)",
+      "protected_access_authorized": false,
+      "raw_metrics_authenticated": false,
+      "repetition_count": 2,
+      "schema": "research/v2-teacher-comparison",
+      "scope": "Descriptive development intervals after the one declared precision extension; no confirmatory error-control claim",
+      "standard_error": 0.020565885375547405,
+      "status": "completed",
+      "student_t_df": 15,
+      "student_t_interval": [
+        -0.10572000668833187,
+        -0.018049712612841946
+      ],
+      "teacher_count": 16,
+      "teacher_log_benefit_quantiles": [
+        -0.1735825875654049,
+        0.009117002857153556
+      ],
+      "teacher_log_benefit_range": [
+        -0.3310236799801385,
+        0.03268791874292498
+      ],
+      "teacher_sd": 0.08226354150218962,
+      "teacher_signs": {
+        "negative": 14,
+        "positive": 2,
+        "zero": 0
+      },
+      "uncertainty_unit": "Independent teacher; repetition risks averaged before log ratio",
+      "useful_margin": 0.02020270731751947,
+      "useful_margin_decision": "below_useful_margin"
+    }
+  }
+}
