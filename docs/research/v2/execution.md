@@ -1893,3 +1893,14 @@ production quality and protected access remain pending. Actual native P13
 fixture data are synthetic, so real anchor/HPO/T counts stay unchanged. See
 [contract](native-anchor-execution.md) and
 [receipt](WP07-native-anchor-execution-receipt.json).
+
+Prepared-data byte/source auditing now checks the trusted six-dataset suite,
+acquisition/raw hashes, exact retained preparation commit, semantic/fold/row
+metadata and all180role-archive hashes without numerical decoding. Seven
+missing-interface REDs preceded seven GREENs1.78seconds; a controlled late
+manifest replacement then exposed and closed a decoded-buffer/hash gap. Final
+52affected checks passed2.44seconds. Opaque protected archive hashing computes
+no test metric and grants no native/frozen authority. Fixtures are substituted
+metadata/raw-byte examples, not real acquisition evidence; real-suite execution
+is recorded separately. See [contract](prepared-data-lineage.md) and
+[receipt](WP07-prepared-data-lineage-receipt.json).

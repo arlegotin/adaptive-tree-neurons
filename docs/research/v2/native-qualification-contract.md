@@ -69,3 +69,8 @@ paid journals, qualified model/validation proofs and global procedure before any
 secondary-fold development or protected evaluation. The current implementation
 does not yet provide that release capability. M3's negative Gate B stays closed;
 an explicitly unchanged legacy practical reference is the remaining candidate.
+
+The [prepared-data byte/source reader](prepared-data-lineage.md) now supplies
+the recorded source/raw/sealed-byte consistency component. It hashes opaque
+protected archives without decoding targets and grants no modeling authority.
+The complete registry and raw-to-model joins are still required.

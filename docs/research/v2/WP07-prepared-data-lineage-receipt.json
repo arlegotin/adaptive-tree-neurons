@@ -1,0 +1,52 @@
+{
+  "arrays_or_labels_decoded": false,
+  "files": [
+    {
+      "bytes": 9921,
+      "path": "src/treeneuron/research/prepared_lineage_v2.py",
+      "sha256": "278105d0d6aed73232cb6309f6d98206523cd04290ce9109f4fdab8c3cd10fef"
+    },
+    {
+      "bytes": 7396,
+      "path": "tests/test_prepared_data_lineage.py",
+      "sha256": "9421623013efd686cb65b38678fb98a636e52f592119ab01b6ad65b48f98c1eb"
+    },
+    {
+      "bytes": 10880,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/prepared-data-lineage-red.log",
+      "sha256": "c1c00baac1b1545b26fed1d9a41e01840a4b0e2fa9842f2f33c6af65d160540b"
+    },
+    {
+      "bytes": 98,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/prepared-data-lineage-green.log",
+      "sha256": "794d7f611f06970d5be19f2e2e4cd00d25b4f6879944318664e4cd697b23d4bd"
+    },
+    {
+      "bytes": 1764,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/prepared-data-lineage-late-metadata-red.log",
+      "sha256": "886da61e9733eeea0f63f0edbef02197114a3cdce6c35a8944b7ee97dc8886a0"
+    },
+    {
+      "bytes": 99,
+      "path": ".superpowers/sdd/2026-10-18-research-v2/prepared-data-lineage-affected-green.log",
+      "sha256": "28ddbbb18266ed4883de93e9b4ee45c64037d8ae1935caf070b9da87f8f997c8"
+    }
+  ],
+  "final_green": "52 passed in2.44s",
+  "first_green": "7 passed in1.78s",
+  "fix": "Consume/hash one metadata buffer, recheck its original digest, and retain that digest; all referenced files/source checked again at exit",
+  "fixture": "Substituted opaque six-dataset raw hashes/metadata and180role archives; not official acquisition authentication",
+  "late_red": "1 DID NOT RAISE in.59s: changed manifest after JSON decoding bound old values to new hash",
+  "models_fit": 0,
+  "native_workload_qualified": false,
+  "production_practical_searches": 0,
+  "protected_archive_bytes_hashed": true,
+  "protected_labels_decoded": false,
+  "protected_metrics_computed": 0,
+  "real_retained_suite_audit": "Pending separate execution under this committed reader",
+  "red": "7 missing-interface failures in.18s",
+  "schema": "research/v2-prepared-data-lineage-receipt",
+  "scope": "Recorded preparation source and actual raw/sealed opaque byte consistency, conditional on original trusted records; no preparation/runtime/content reexecution",
+  "source_sha256": "637fe8d3ff3a9f9b3c31f9b3eee6598fe4710f09e5ecac875cf52112a8b7f079",
+  "status": "verified_fixture_component"
+}

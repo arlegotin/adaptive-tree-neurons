@@ -368,3 +368,9 @@ The32-case affected suite with software-verification, native inspection and
 generation checks passed75.49seconds. Its actual software/native P13 fixture
 does not authenticate official data. See native-anchor-execution.md; the complete
 raw-data/support/workload registry and production admission are still required.
+
+Prepared-source/raw/sealed-byte integrity uses
+`tests/test_prepared_data_lineage.py` plus transfer/access/workload regressions;
+52affected cases passed2.44seconds. Protected archives are hashed opaquely with
+no NumPy/pandas decoding or metrics. This is distinct from protected evaluation
+and does not rerun historical preparation. See prepared-data-lineage.md.
