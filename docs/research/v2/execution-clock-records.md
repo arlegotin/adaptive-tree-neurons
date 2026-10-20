@@ -35,3 +35,12 @@ respective program intervals. Its independent caller sum is 67,125,458 ns,
 exactly matching the queue's known total. No native/global success is fabricated;
 actual complete-qualified program execution remains unrun. Scientific results
 and the ongoing held-source native baseline treatment are unchanged.
+
+The subsequent call-clock binding revision uses program invocation schema
+`*-clock-2` and commits every current full-call clock file by path/hash. Its
+reader verifies those bytes, so the containing invocation/body/outer proof chain
+also covers the final-return records. Caller completion remains `*-clock-1`.
+Earlier records and their source identities remain unchanged. The affected
+command passed215checks in32.64seconds; the new changed-call-byte test was first
+observed failing. This is still a clock-integrity prerequisite, not the actual
+pre-T cost audit. See its [receipt](WP10-call-clock-binding-receipt.json).

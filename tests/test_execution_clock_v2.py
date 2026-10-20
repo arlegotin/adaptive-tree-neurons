@@ -168,3 +168,19 @@ def test_failed_driver_records_known_interval_without_inventing_nested_closure(d
     proof=module.inspect_program_invocation_clock(ref(path),program_reference=ref(root/'plan.json'))
     assert proof['elapsed_ns']>0 and value['error']['type']=='RuntimeError' and value['result'] is None
     assert proof['whole_training_procedure_cost_authenticated'] is False
+
+
+def test_invocation_commits_call_clock_bytes_before_outer_worker_can_return(declared):
+    module=api()
+    from treeneuron.research import primary_program_v2
+    program,args=declared
+    primary_program_v2._run_program_queue(program,execute_episode=no_child_episode,audit_terminal=lambda **kw:None)
+    root=args['directory'];path=next((root/'invocations').glob('*.json'));value=json.loads(path.read_bytes())
+    call=next((root/'call-clocks').rglob('*.json'));before=call.read_bytes()
+    ref=lambda p:dict(path=str(p),sha256=hashlib.sha256(p.read_bytes()).hexdigest())
+    assert value['call_clock_references']==[ref(call)]
+    value_ref=ref(path);plan_ref=ref(root/'plan.json')
+    call.write_bytes(before+b' ')
+    try:
+        with pytest.raises(ValueError):module.inspect_program_invocation_clock(value_ref,program_reference=plan_ref)
+    finally:call.write_bytes(before)

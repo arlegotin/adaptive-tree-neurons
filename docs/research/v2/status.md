@@ -356,3 +356,9 @@ They include each caller's final publication/return and retain driver-exception
 paths without replacing a closed worker. Unknown closure stays missing. These
 observations still grant no complete-cost or T permission; the actual pre-T cost
 join and final evaluation/readiness work remain unfinished.
+
+The [clock byte-binding revision](WP10-call-clock-binding-receipt.json) passed
+215affected checks. Program invocations now commit every full-call clock hash,
+and readback rejects changed bytes. No native or cost permission follows.
+The actual pre-T cost module is in progress; its15initial missing-module
+failures are retained separately from the passing prerequisite suite.

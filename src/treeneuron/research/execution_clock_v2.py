@@ -105,17 +105,24 @@ def inspect_program_invocation_clock(reference,*,program_reference):
         separators=(',',':'),ensure_ascii=False,allow_nan=False).encode('utf-8')
     if hashlib.sha256(declared).hexdigest()!=program['program_hash']:raise ValueError('Program metadata identity changed')
     secondary=program['schema']=='research/v2-secondary-program-plan'
-    schema='research/v2-secondary-program-invocation-clock-1' if secondary else 'research/v2-primary-program-invocation-clock-1'
+    schema='research/v2-secondary-program-invocation-clock-2' if secondary else 'research/v2-primary-program-invocation-clock-2'
     if path.parent!=saved.parent/'invocations' or not re.fullmatch(r'[0-9a-f]{32}\.json',path.name):
         raise ValueError('Exact local program invocation required')
     fields={'schema','source_sha256','program_hash','journal_sha256','origin_ns','end_ns','elapsed_ns',
-        'clock_domain','result','error','clock_scope',*_FLAGS}
+        'clock_domain','call_clock_references','result','error','clock_scope',*_FLAGS}
     if (type(value) is not dict or set(value)!=fields or value['schema']!=schema
             or value['source_sha256']!=program['source_sha256'] or value['program_hash']!=program['program_hash']
             or not _digest(value['journal_sha256']) or value['clock_scope']!=PROGRAM_CLOCK_SCOPE
             or any(value[k] is not False for k in _FLAGS)):
         raise ValueError('Program clock source/schema/authority differs')
     validate_clock_domain(value['clock_domain'])
+    references=value['call_clock_references'];seen=set()
+    if type(references) is not list:raise ValueError('Explicit full-call byte commitments required')
+    for call_reference in references:
+        call_path,_,_=_read_reference(call_reference)
+        if not call_path.is_relative_to(saved.parent/'call-clocks') or call_path in seen:
+            raise ValueError('Unique local full-call byte commitments required')
+        seen.add(call_path)
     if (any(type(value[k]) is not int for k in ('origin_ns','end_ns','elapsed_ns'))
             or value['origin_ns']<=0 or value['end_ns']<value['origin_ns']
             or value['elapsed_ns']!=value['end_ns']-value['origin_ns']):raise ValueError('Strict closed program interval required')

@@ -416,6 +416,11 @@
           "bytes": 6322,
           "path": "docs/research/v2/WP10-program-call-clock-receipt.json",
           "sha256": "c2ae22882ee14f8f3bb17cd9d15038b2ae6c363cdff613d03c254b7753cd07ea"
+        },
+        {
+          "bytes": 6543,
+          "path": "docs/research/v2/WP10-call-clock-binding-receipt.json",
+          "sha256": "071e30764991370684332e28e209cded69d9a4d9ecfcf917e31dfdc43af0ee26"
         }
       ],
       "status": "supported_scoped_status",

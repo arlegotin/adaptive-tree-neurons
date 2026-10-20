@@ -210,10 +210,11 @@ def _run_program_queue(program,*,execute_episode,audit_terminal,expected_journal
                 scope='Closed serial episode queue with known caller clocks; actual model/global freeze and physical whole-cost remain separate')
         except BaseException as caught:error=caught
         finally:
+            call_clock_references=[dict(path=str(p),sha256=_sha(p)) for p in sorted((root/'call-clocks').rglob('*.json'))]
             journal_sha256=_sha(journal);end=time.perf_counter_ns()
-            receipt=dict(schema='research/v2-secondary-program-invocation-clock-1' if secondary else 'research/v2-primary-program-invocation-clock-1',source_sha256=program['source_sha256'],
+            receipt=dict(schema='research/v2-secondary-program-invocation-clock-2' if secondary else 'research/v2-primary-program-invocation-clock-2',source_sha256=program['source_sha256'],
                 program_hash=program['program_hash'],journal_sha256=journal_sha256,origin_ns=started,end_ns=end,
-                elapsed_ns=end-started,clock_domain=clock_domain,
+                elapsed_ns=end-started,clock_domain=clock_domain,call_clock_references=call_clock_references,
                 result=value,error=None if error is None else dict(type=type(error).__name__,reason=str(error)),
                 whole_training_procedure_cost_authenticated=False,protected_access_authorized=False,T_accessed=False,
                 clock_scope=PROGRAM_CLOCK_SCOPE)

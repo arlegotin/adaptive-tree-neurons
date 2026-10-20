@@ -29,3 +29,9 @@ model worker, fit, real transfer labels or T is used; no native/global success
 is fabricated. Actual complete-qualified execution and the pre-T cost join,
 final protected evaluator/audit, deployment, CLI/readiness and branch review
 remain before production.
+
+Containing program invocations now also commit all full-call file hashes under
+the new `*-invocation-clock-2` schema. This closes the byte chain from a call's
+return measurement through the invocation and owned worker body. The separate
+binding regression passed215affected checks after its initial failure. Actual
+complete cost qualification is still unfinished.

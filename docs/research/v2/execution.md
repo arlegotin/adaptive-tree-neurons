@@ -2864,3 +2864,22 @@ fit, real labels or T. [Contract](program-call-clocks.md),
 unrun and all cost/T authority stays false. Next the actual complete pre-T cost
 join, followed by final protocol/once-only evaluator/raw audit/deployment/CLI/
 readiness/final review before final-source qualification and primary production.
+
+## 20 October: bind complete-call clocks into the outer proof chain
+
+During pre-T cost-join design, full-call files had not yet been committed by the
+containing invocation. New program invocation `*-clock-2` records retain all
+current call-clock path/hash references, and readback verifies each unique local
+file. That links return-tail bytes to the invocation/body/owned-worker chain.
+Earlier `*-clock-1` records remain historical under their original source.
+
+New regression1RED2.00s(KeyError missing commitment)→1GREEN1.75s→final215PASS
+32.64s, exit0. The software capture binds2actual prespawn-denied call records
+across2invocations, with3hash-reference occurrences, all independently checked.
+No model worker, fit, real labels or T; no full-q positive. Source and all cost/T
+authority remain separate. [Receipt](WP10-call-clock-binding-receipt.json).
+
+The actual pre-T cost module is next. Its newly written arithmetic/false-gate
+tests initially failed15cases0.09s for the missing module and remain WIP; this is
+not a whole-repository green state. No production search, new scientific arm,
+budget change, protected root or source migration is admitted by this work.
