@@ -35,8 +35,9 @@ outcome blocks completion. A committed query cannot silently run again.
 
 These private state-machine fixtures **do not authenticate numerical predictions
 or authorize any data access**, even when their symbolic phase is
-`labels_started` or `metrics_committed`. The actual finite/aligned prediction
-validator, native query worker and label reader are the next implementation.
+`labels_started` or `metrics_committed`. The [saved-state forward primitive](saved-protected-query.md) is now checked
+separately. The actual owned query worker, finite/aligned journal validator and
+label reader remain the next implementation.
 The preparation/inspection return values deliberately retain false native,
 protected-access and T-access flags. A genuine protocol by itself also grants
 no label access.

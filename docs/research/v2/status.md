@@ -388,6 +388,16 @@ and random genesis; immutable event witnesses reject history truncation and
 changed query inventories. Private fixtures exercise interruption, retained
 costs and the all-predictions-before-labels stage but grant no numerical or data
 permission. Public false qualification fails before output; genuine complete
-qualified success remains unrun. Actual saved-state T inference and independent
-prediction/label validation are next. No new predictive result accompanies
+qualified success remains unrun. Saved-state forward primitives are described below; owned actual T execution
+and independent prediction/label validation remain next. No new predictive result accompanies
 this implementation.
+
+
+The [saved-state feature-query primitives](saved-protected-query.md) passed205
+affected checks in107.81s, including fresh gated/NODE restoration and nonconstant
+ridge/spline predictions with unchanged dtype, IDs and timestamps. Four existing
+small-NODE/vendor warnings remain in the log. An actual protocol/owner-gated
+preflight compiles metadata without starting execution; private forward output
+grants no native/protected authority. The owned coordinator/worker handshake and
+actual numerical journal/label barrier remain unfinished. No new benchmark
+prediction or label access occurred.

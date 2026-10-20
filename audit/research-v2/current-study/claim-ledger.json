@@ -436,6 +436,11 @@
           "bytes": 6849,
           "path": "docs/research/v2/WP10-protected-journal-receipt.json",
           "sha256": "0255583f93719002445ca08ecf3acf521499c5218b83d86743beaa4678577932"
+        },
+        {
+          "bytes": 6186,
+          "path": "docs/research/v2/WP10-protected-query-receipt.json",
+          "sha256": "0f452d981d00a489faea4472ec5f7c70bf04277afc61271425b8f60bcbacedec"
         }
       ],
       "status": "supported_scoped_status",

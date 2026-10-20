@@ -2982,3 +2982,34 @@ deployment/cost completion, CLI and final branch review remain before production
 The heldc33NODE queue is unchanged: CCPP14300/best14300last observed, Bike next,
 118of120engineering anchors complete. No overall completion or new scientific
 benefit is claimed.
+
+
+## Saved-state feature-query primitives,20October
+
+The [component](saved-protected-query.md) adds genuine-protocol/owner readonly
+preflight and private method-specific saved-state prediction. It preserves the
+explicit T-feature archive role, full chosen snapshot inventory, fitted native
+preprocessing, output dtype and row/group/date alignment. Logical63bitjobseeds
+are identities only; native loaders restore their saved seeds/configurations.
+No fit/refit or T-based initialization occurs in the forward path. Completed
+prediction archives publish exclusively after serialization/fsync; a disk-full
+write retains pending bytes and a failure rather than a partial final archive.
+
+The ten-module final command passed205checks in107.81s with four retained
+small-NODE/vendor warnings. Initial23missing-module failures, two isolated test
+helper import-path failures and one disk-full publication failure/fix are in the
+[receipt](WP10-protected-query-receipt.json). Fresh-process gated and NODE fixtures
+reproduce saved predictions exactly. Separate known ridge/spline fixtures each
+predict37rows, including an unseen category and temporal identities; savedseed17
+and logicalseed2305843009213693969 remain distinct. Neither imports a tracked
+heavy model namespace. These are local software fixtures, not benchmark results.
+The real public false-qualification preflight fails before output.
+
+Sourcef2beafff63fdd018410fa36489290e1552ffd3b3f0d504f91db302b82aec9b29.
+Preflight starts no worker and private forward output grants no access authority.
+Owned genuine-coordinator reservation/nonce/handshake, actual prediction journal
+commits and label evaluator, independent raw/model/access audit, deployment/cost
+completion, CLI/readiness and final review remain before actual final-source
+qualification/HPO. No actual T inference or protected labels were accessed. The
+heldc33NODEsource/env/operators remain unchanged; latestCCPP14800/best14800,
+Bike queued,118of120native engineering completions. Overall work is unfinished.
