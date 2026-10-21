@@ -167,6 +167,15 @@ prediction replay and primary-V arithmetic. The [execution-start receipt](WP07-f
 records an explicit observation time and queue counts, rather than asserting
 that the continuously changing queue is complete.
 
+The current-source [full-size recovery proof](WP07-final-source-recovery-receipt.json)
+passed for2,048 depth-six trees and effective batch512. The uninterrupted105-update
+state matched interruption at102 updates, restoration at100 and continuation to
+105. All212 paid applied updates remain counted. The independently loaded
+state comparison excludes elapsed clocks; prediction equality comes from the
+pinned managed operator. Sampled root RSS peaked at1,151,025,152 bytes, about
+1.07GiB, over331 seconds. This short engineering proof is not native stopping
+or a predictive result. The fixed258 full-shape support checks are also running.
+
 Remaining work is sequential:
 
 1. Complete and audit the current-source120 native anchors, then the258 support

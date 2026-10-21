@@ -1,0 +1,65 @@
+{
+  "T_accessed": false,
+  "actual_readonly_loader": {
+    "bytes": 1424,
+    "path": "artifacts/research-v2/WP07/final-qualification-c042b1f/fullsize-node-recovery-loaded.json",
+    "sha256": "1ec5a1d61667230a534cc00af4754f0493331844cc758075ea64347cf367f632"
+  },
+  "admission": {
+    "bytes": 946,
+    "path": "artifacts/research-v2/WP07/final-qualification-c042b1f/fullsize-node-recovery-admission.json",
+    "sha256": "5cbbfedfce4da2e1f996d4809ac97fd25a1183c774b0668fa5a8bcd2edd42082"
+  },
+  "created_utc": "2026-10-21T06:36:27.848582+00:00",
+  "full_model": {
+    "F_rows": 1025,
+    "G_rows": 65,
+    "depth": 6,
+    "effective_batch": 512,
+    "features": 16,
+    "trees": 2048
+  },
+  "managed_recovery_reference": {
+    "inventory_sha256": "a80c25e9fda4dc2ed509d1b81ccf115e348230b5a036c5efd91cccb1001124f4",
+    "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/final-qualification-c042b1f/fullsize-node-recovery"
+  },
+  "native_workload_qualified": false,
+  "numerical_check": {
+    "actual_updates_independently_reexecuted_by_reader": false,
+    "additional_unapplied_gradient_attempts": 1,
+    "closed_prediction_equality_scope": "Trusted pinned managed operator execution; reader independently streams/compares recorded states, excluding elapsed clocks.",
+    "interrupted_applied_updates": 102,
+    "new_model_prediction_by_reader": false,
+    "paid_attempts": 3,
+    "reference_updates": 105,
+    "resume_step": 100,
+    "resumed_new_updates": 5,
+    "state_bytes_independently_compared": true,
+    "total_paid_applied_updates": 212
+  },
+  "operator": {
+    "bytes": 4252,
+    "path": "docs/research/v2/scripts/check_node_training_recovery.py",
+    "sha256": "4cebc763d182013b9f6c11816bb00d8cbd18c158c24c89c450bd3ad1e8a4a060"
+  },
+  "pinned_commit": "c042b1fc4606b896c7604e1674aa09f7432e74d1",
+  "process_observation": {
+    "observed_peak_root_rss_bytes": 1151025152,
+    "process_elapsed_ns": 330888655125,
+    "rss_limit_bytes": 4294967296,
+    "sample_count": 2829,
+    "scope": "Root worker samples only; no aggregate-descendant or strict peak guarantee"
+  },
+  "production_source_ready": false,
+  "protected_access_authorized": false,
+  "quality_eligible": false,
+  "recovery_qualified": true,
+  "returned": {
+    "bytes": 746,
+    "path": "artifacts/research-v2/WP07/final-qualification-c042b1f/fullsize-node-recovery-returned.json",
+    "sha256": "a46ade351078c250807f11850894a37cf37e8d050d21f7ade1de4bbb955b8de1"
+  },
+  "schema": "research/v2-final-source-recovery-receipt",
+  "scope": "Full-size105-update engineering recovery under the final source. Not native convergence, real-dataset quality, a new teacher or full native-registry qualification. Costs include the interrupted work and rollback replay.",
+  "source_sha256": "6ca3cd4ec41ecc8222fc9e8add58ceb0ae07b5fd9c86d1fa1cd87fae0933bbac"
+}

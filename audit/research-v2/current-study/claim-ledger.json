@@ -545,6 +545,11 @@
           "bytes": 4640,
           "path": "docs/research/v2/WP07-final-source-qualification-start-receipt.json",
           "sha256": "26385ac0fd28b840d5a45a48d630838e6ca6e09e14b5c8e5bf0fa8e09bd943a8"
+        },
+        {
+          "bytes": 2868,
+          "path": "docs/research/v2/WP07-final-source-recovery-receipt.json",
+          "sha256": "46293e57b831909f2c492527e7068559137b0a861f11d5b886d2a66a06007ae4"
         }
       ],
       "status": "supported_scoped_status",
