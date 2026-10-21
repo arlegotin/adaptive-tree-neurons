@@ -3269,3 +3269,19 @@ arithmetic. Successful engineering fit status remains `completed_ineligible`
 until the separately checked prerequisites join. Full native registry/HPO/T
 authority remains absent. The exact current start observation and artifact
 references are in [the receipt](WP07-final-source-qualification-start-receipt.json).
+
+
+### 21 October:108 current native endpoints reproduce exactly
+
+The first108 final-source native fits passed actual source/generation/reload/
+primary-V and recorded-workload checks. Comparing their saved arrays against
+the original survey at matched configurations, role hashes and fit seed17 gives
+108 exact prediction/identity matches and zero score difference. Source and
+containing-budget identities stay distinct; no earlier model gains current
+qualification by this comparison. This is same-data endpoint consistency, not
+108 independent scientific replications. See the
+[receipt](WP07-final-source-anchor-replay-receipt.json). Current-source full-size
+recovery also passed; the fixed258 support probes and six long NODE fits remain
+active. Automatic followers audit newly closed fits and invoke only the genuine
+native/readiness join once every actual prerequisite is present. They grant
+no HPO or protected-data access and stop on failures requiring disposition.

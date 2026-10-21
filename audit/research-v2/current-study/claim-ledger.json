@@ -598,6 +598,11 @@
           "bytes": 16559,
           "path": "audit/research-v2/software/whole-suite-6ca3cd4/NODE-isolation-followup.json",
           "sha256": "f96857143dd6a0e4ab65ea0199a13a25a94ade21ddb317b7ceb202b6704db674"
+        },
+        {
+          "bytes": 1597,
+          "path": "docs/research/v2/WP07-final-source-anchor-replay-receipt.json",
+          "sha256": "cfbaee9a8854bf08972f04126d38ef87316ae0c9af873f9ee00197112f69b767"
         }
       ],
       "status": "supported",
@@ -625,9 +630,9 @@
   "new_raw_label_access": false,
   "protected_confirmation": false,
   "report": {
-    "bytes": 16456,
+    "bytes": 17738,
     "path": "reports/research-v2.md",
-    "sha256": "6585b7625fb6a3a3e8f5372614e4c96511f5b31314def828174c5f80d8bb57a9"
+    "sha256": "a940fe41a13c866aebff89066edc5f6e529bcb0c2ee376402a5c800619c0c45f"
   },
   "review_fix_status": "committed_c042b1f_actual_execution_package_and_review_delta_bound_complete_suite_non_green",
   "schema": "research/v2-current-cross-study-claim-ledger",

@@ -176,6 +176,15 @@ pinned managed operator. Sampled root RSS peaked at1,151,025,152 bytes, about
 1.07GiB, over331 seconds. This short engineering proof is not native stopping
 or a predictive result. The fixed258 full-shape support checks are also running.
 
+The first108 current-source anchor fits now passed independent reload and
+recorded-workload audits. Their saved predictions and row identities reproduce
+the earlier same-data/configuration/seed endpoints exactly, with zero maximum
+prediction or validation-score difference. The [comparison receipt](WP07-final-source-anchor-replay-receipt.json)
+retains every coordinate and both source identities. This supports unchanged
+valid-run behavior after the corrections; it supplies no extra independent
+problems or protected evidence. The six long NODE fits are running serially,
+followed by the six mean anchors in the fixed queue.
+
 Remaining work is sequential:
 
 1. Complete and audit the current-source120 native anchors, then the258 support

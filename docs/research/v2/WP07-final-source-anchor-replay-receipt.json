@@ -1,0 +1,29 @@
+{
+  "T_accessed": false,
+  "compared_native_reruns": 108,
+  "comparison": {
+    "bytes": 151701,
+    "path": "audit/research-v2/software/final-native-endpoint-comparison-6ca3cd4.json",
+    "sha256": "102cdb1f0a549668af81825dda641179495b9211cef7cbf24c4335bd4f9fc640"
+  },
+  "created_utc": "2026-10-21T06:58:19.303790+00:00",
+  "exact_configuration_F_G_V_feature_archives_and_seed_matches": 108,
+  "exact_prediction_and_row_identity_matches": 108,
+  "maximum_absolute_prediction_difference": 0.0,
+  "maximum_absolute_validation_score_difference": 0.0,
+  "native_workload_qualified": false,
+  "new_fits_by_comparison": 0,
+  "new_label_array_access_by_comparison": 0,
+  "new_model_inference_by_comparison": 0,
+  "operator": {
+    "bytes": 4247,
+    "path": "artifacts/research-v2/WP07/compare_final_anchor_endpoints.py",
+    "sha256": "b6a660509802abd36b53a5b58d595646e1f6dd482193cf70f3deab4aeba1bad0"
+  },
+  "pinned_commit": "c042b1fc4606b896c7604e1674aa09f7432e74d1",
+  "protected_access_authorized": false,
+  "quality_eligible": false,
+  "schema": "research/v2-final-source-anchor-replay-receipt",
+  "scope": "Same-data/config/seed endpoint agreement after reviewed-source reruns; all108 have separate actual anchor and recorded-workload audits. Source/containing-budget identities remain distinct. No independent task replication, protected result, whole historical-raw authentication, qualification migration or complete registry. The native reruns themselves are paid training; this comparison adds none.",
+  "source_sha256": "6ca3cd4ec41ecc8222fc9e8add58ceb0ae07b5fd9c86d1fa1cd87fae0933bbac"
+}

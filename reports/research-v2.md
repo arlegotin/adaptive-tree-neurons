@@ -113,15 +113,28 @@ coupled state and predictions exactly. These checks overlap and are not summed.
 All seven fixed native software profiles passed202 checks in fresh processes
 under the corrected source. A separate three-case follow-up, together with the
 77-case NODE profile, covers all58 original NODE failures with passing identical
-case IDs. No dependency files, guard or recipe changed. Full current-source
-native workload qualification and protected outcomes remain unrun.
+case IDs. No dependency files, guard or recipe changed. The complete current-source
+native registry remains unfinished; protected outcomes remain unrun.
 The [review/fix receipt](../docs/research/v2/WP09-final-review-fix-receipt.json)
 retains original failures and the scope of each recovery. The complete run is
 not green, and no guard or historical expectation was weakened.
 
+The corrections are committed at `c042b1f`; actual package/review-delta binding
+passed. Current-source official preparation and the first108 native anchor
+fits, independent reloads and recorded-workload audits completed. All108
+saved prediction/identity endpoints and validation scores match the earlier
+same-data/configuration/seed runs exactly. They are reruns, not independent
+scientific replication or source migration. See the
+[endpoint comparison](../docs/research/v2/WP07-final-source-anchor-replay-receipt.json).
+The full-size2,048-tree recovery check also passed under this source, with
+212 paid applied updates across reference/interrupted/resumed work. The six
+long NODE fits and258 full-shape support checks continue; the six mean anchors
+follow NODE in the fixed queue. Full registry/readiness, HPO and protected
+evaluation remain pending. [Recovery evidence](../docs/research/v2/WP07-final-source-recovery-receipt.json).
+
 Raw arrays, recoverable states and append-only ledgers are retained locally with source-bound inventories. Historical missing raw archives remain missing. Reproduction does not depend on remembering a conversation; [commands, exact identities and portability limits](../docs/research/v2/reproduce.md) are versioned. Each study’s held source is immutable, and old reports and expected historical hashes remain intact.
 
-The user removed the two-hour native quality limit. Current native runs use normal stopping, one serial NODE worker, live resource admission, a 4 GiB owned-root RSS guard and saved recovery state. Completed Airfoil NODE took about 5¼ hours at 1.83 GiB sampled root RSS. The largest measured TabM engineering shape used about 3 GiB; an initial 2 GiB stop and exact-request retry are retained. Available-memory proxies are heuristic and the checks are not whole-machine RAM guarantees. No model, F sample or effective batch was shrunk. [Memory evidence](research-v2-resource-probes.md).
+The user removed the two-hour native quality limit. Current native runs use normal stopping, live resource admission, a 4 GiB owned-root RSS guard and saved recovery state. The held-source follow-up and final-source qualification are separate queues, each running its NODE fits serially; their measured workers currently overlap. Completed Airfoil NODE took about 5¼ hours at 1.83 GiB sampled root RSS. The largest measured TabM engineering shape used about 3 GiB; an initial 2 GiB stop and exact-request retry are retained. Available-memory proxies are heuristic and the checks are not whole-machine RAM guarantees. No model, F sample or effective batch was shrunk. [Memory evidence](research-v2-resource-probes.md).
 
 M3’s containing scientific run took about 2½ hours; B0’s enclosing jobs about 24.67 minutes. These contended clocks, candidate work and shared infrastructure are not a formal deployment or search-cost win. Soft gating evaluates both branches and supplies no automatic conditional-compute saving. Formal quality–cost and hard-routing claims remain unsupported.
 
@@ -131,4 +144,4 @@ Function-preserving growth, parent-tangent geometry and overgrow/prune ideas hav
 
 The mechanism result is a scoped negative development result. The primary selector and B0 remedy screens are closed; their finite allowances are exhausted or failed, rather than extended until favorable. A future method would need a named new falsifiable question, a new finite design and fresh affected protected evidence.
 
-The remaining fixed native baseline inventory continues. Production practical comparison and protected confirmation remain pending their explicit prerequisites; neither is called complete here. This report is a curated cross-study account backed by the linked canonical inputs and receipts. Complete production protocol/audit/report integration and final whole-branch review are still outstanding. [Current status](../docs/research/v2/status.md), [execution record](../docs/research/v2/execution.md), [implementation plan](../docs/superpowers/plans/2026-10-18-research-v2.md).
+The remaining fixed native baseline inventory continues. Production practical comparison and protected confirmation remain pending their explicit prerequisites; neither is called complete here. This report is a curated cross-study account backed by the linked canonical inputs and receipts. Production protocol/audit/report code is implemented and fixture-tested; the fresh whole-branch review, its correction pass and committed source binding are complete at the stated scopes. Actual production execution and final audit/report generation remain pending their native and frozen-study prerequisites. [Current status](../docs/research/v2/status.md), [execution record](../docs/research/v2/execution.md), [implementation plan](../docs/superpowers/plans/2026-10-18-research-v2.md).
