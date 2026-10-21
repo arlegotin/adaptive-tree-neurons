@@ -45,7 +45,7 @@ def _number(value):
 
 def _validated(value):
     if type(value) is not dict:raise ValueError('Canonical audit record required')
-    _keys(value,_FIELDS|({'secondary_families'} if 'secondary_families' in value else set()))
+    _keys(value,_FIELDS|{k for k in ('secondary_families','attempt_resolutions') if k in value})
     _secondary_families(value.get('secondary_families',[]))
     if (value['schema']!='research/v2-canonical-audit'
             or value['status'] not in ('completed','estimation','retired','blocked')
@@ -86,12 +86,19 @@ def _validated(value):
         predictions[identifier]=p
     if set(predictions)!=set(planned):raise ValueError('Every planned prediction must have an explicit status record')
     if type(value['attempts']) is not list:raise ValueError('Paid attempt inventory required')
-    attempts=set()
+    attempts={}
     for row in value['attempts']:
         _keys(row,('attempt_id','status'));name=row['attempt_id'];_text(name)
         if name in attempts or row['status'] not in TERMINAL|{'absent','running'}:raise ValueError('Duplicate or invalid attempt')
-        attempts.add(name)
-        if value['status']=='completed' and row['status'] in ('absent','running','interrupted_recoverable'):
+        attempts[name]=row['status']
+    resolutions=value.get('attempt_resolutions',{})
+    if (type(resolutions) is not dict or any(type(a) is not str or type(b) is not str or a==b
+            or attempts.get(a)!='interrupted_recoverable' or b not in attempts
+            or attempts[b] not in TERMINAL-{'interrupted_recoverable'} for a,b in resolutions.items())
+            or len(set(resolutions.values()))!=len(resolutions)):
+        raise ValueError('Explicit interrupted attempt resolutions require distinct closed terminal successors')
+    for name,status in attempts.items():
+        if value['status']=='completed' and (status in ('absent','running') or status=='interrupted_recoverable' and name not in resolutions):
             raise ValueError('A completed study cannot retain an unfinished planned attempt')
     missing=any(p['status']!='completed_eligible' or p['normalized_risk'] is None for p in predictions.values())
     if type(value['comparisons']) is not list:raise ValueError('Explicit comparison decisions required')
@@ -321,6 +328,9 @@ def render_report(audit):
             lines.append('| '+' | '.join([_text(row['hypothesis_id']),_number(row['raw_p']),_number(row['adjusted_p']),assertion,test])+' |')
     lines+=['','## Attempt inventory','','| Attempt | Status |','| --- | --- |']
     for row in audit['attempts']:lines.append(f'| {_text(row["attempt_id"])} | {row["status"]} |')
+    if audit.get('attempt_resolutions'):
+        lines+=['','Resolved historical interruptions (original statuses retained):']
+        lines.extend('- '+_text(a)+' → '+_text(b) for a,b in audit['attempt_resolutions'].items())
     costs=audit['costs'];lines+=['','## Resources','']
     for key,label in [('physical_elapsed_ns','Containing physical seconds'),('standalone_attributed_ns','Standalone attributed seconds')]:
         amount=costs[key];lines.append(label+': '+('unavailable' if amount is None else f'{amount/1e9:.6f}')+'.')

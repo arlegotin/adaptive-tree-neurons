@@ -516,6 +516,10 @@
         {
           "path": "docs/research/v2/WP10-pipeline-costs-receipt.json",
           "sha256": "5785971a9c7866bc6b565b2e15a0d80f2a54a9e48e4bc619d8b47061d7e10c9a"
+        },
+        {
+          "path": "docs/research/v2/WP10-protected-practical-report-receipt.json",
+          "sha256": "666e374fb1250ca3d452b5d2fac4a6f580181518511d105dc47e24d90a204d2c"
         }
       ],
       "status": "supported_scoped_status",

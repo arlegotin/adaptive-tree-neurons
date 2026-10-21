@@ -144,3 +144,23 @@ def test_an_empty_confirmation_inventory_cannot_support_a_positive_decision(empt
     if empty=='predictions':value['planned_prediction_ids']=[];value['predictions']=[]
     else:value['attempts']=[]
     with pytest.raises(ValueError):api().render_report(value)
+
+
+def test_completed_report_retains_explicitly_resolved_historical_interruption():
+    value=audit();value['status']='completed'
+    value['attempts']=[dict(attempt_id='initial',status='interrupted_recoverable'),dict(attempt_id='resume',status='completed_eligible')]
+    value['attempt_resolutions']={'initial':'resume'}
+    text=api().render_report(value)
+    assert 'interrupted_recoverable' in text and 'initial' in text and 'resume' in text
+    assert 'Resolved' in text or 'resolved' in text
+    value['attempt_resolutions']={'initial':'missing'}
+    with pytest.raises(ValueError):api().render_report(value)
+
+
+def test_resolution_cannot_hide_a_running_or_unresolved_attempt():
+    value=audit();value['status']='completed'
+    value['attempts']=[dict(attempt_id='initial',status='interrupted_recoverable'),dict(attempt_id='resume',status='running')]
+    value['attempt_resolutions']={'initial':'resume'}
+    with pytest.raises(ValueError):api().render_report(value)
+    value['attempts'][1]['status']='interrupted_recoverable'
+    with pytest.raises(ValueError):api().render_report(value)
