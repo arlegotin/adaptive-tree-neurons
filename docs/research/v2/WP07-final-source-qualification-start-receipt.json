@@ -1,0 +1,95 @@
+{
+  "T_accessed": false,
+  "execution_package_sha256": "9433e4ed6d0d403aa16a9b69e848ad1a30a84f0340ecd9214a95e0475e69d860",
+  "first_anchor_audit": {
+    "V_score_used_for_qualification": false,
+    "control": {
+      "bytes": 69498,
+      "path": "artifacts/research-v2/WP07/final-qualification-c042b1f/anchor-audits/c395eb88bcc1c28d8db7cb0595bc0cb44a069c6dc89ac0ae3a3a48966389b94d-loaded.json",
+      "sha256": "f9f1a1c3d0b7bd45f37d9ea6a279d6b3355658908cc951ca028e5dff8a46ee64"
+    },
+    "independent_prediction_reload_exact": true,
+    "job_id": "P00/native_anchor/airfoil/primary",
+    "native_anchor_execution_authenticated": true,
+    "primary_V_labels_read_by_coordinator": true,
+    "reference": {
+      "inventory_sha256": "faf8d143b200a4c7509d495800e36edf706023f045ac5ecc0f2c5f6dbe4f3af2",
+      "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/final-qualification-c042b1f/anchor-audits/c395eb88bcc1c28d8db7cb0595bc0cb44a069c6dc89ac0ae3a3a48966389b94d"
+    }
+  },
+  "native_queue": {
+    "configuration": {
+      "bytes": 2617,
+      "path": "artifacts/research-v2/WP07/final-qualification-c042b1f/native-anchors-config.json",
+      "sha256": "a0d2fd3736c650f4644934d31627cee4717994ecfa6111ce866b1a5f74fc6c35"
+    },
+    "expanded_plan": {
+      "bytes": 130189,
+      "path": "artifacts/research-v2/WP07/final-qualification-c042b1f/native-anchors-expanded-plan.json",
+      "sha256": "983ae77421ec484411476d779857f174adb02241c01daaef0bedf485c26b155d"
+    },
+    "memory_admission_proxy_bytes": 5905580032,
+    "minimum_free_disk_bytes": 1610612736,
+    "native_stopping": true,
+    "observed_latest_states": {
+      "completed_ineligible": 70,
+      "running": 1
+    },
+    "plan_hash": "1c56f39e19ee0e5a67fb2009b168292160502ca17e64f1ae88a7802572847e34",
+    "planned_attempts": 120,
+    "root": "artifacts/research-v2/WP07/final-qualification-c042b1f/native-anchors",
+    "running": [
+      "P06/native_anchor/bike/primary"
+    ],
+    "sampled_root_rss_limit_bytes": 4294967296,
+    "wall_cap": null
+  },
+  "native_software_profiles": {
+    "bytes": 4096,
+    "path": "audit/research-v2/software/whole-suite-6ca3cd4/isolated-native-profiles.json",
+    "sha256": "4958e03ec581e107eeb71c7638ec2f733b227928cb6c486899f5ff8c920923ce"
+  },
+  "native_workload_qualified": false,
+  "observed_utc": "2026-10-21T06:22:21.511804+00:00",
+  "pinned_commit": "c042b1fc4606b896c7604e1674aa09f7432e74d1",
+  "preparation": {
+    "byte_comparison": {
+      "bytes": 3342,
+      "path": "artifacts/research-v2/WP07/final-qualification-c042b1f/preparation-byte-comparison.json",
+      "sha256": "e5f30f19fdc75813f9f2e46ef51c7df4a9b50f5b5929fb644bef367c74d1ba6c"
+    },
+    "loaded": {
+      "bytes": 6272,
+      "path": "artifacts/research-v2/WP07/final-qualification-c042b1f/preparation-loaded.json",
+      "sha256": "5a74fb5e69e4ff039bc37764c5864793beac72c27118f0440ec9512cb9027ecc"
+    },
+    "protected_labels_read_for_modeling": false,
+    "reference": {
+      "inventory_sha256": "9231768d53247bff121440718ff441b565cbbf5c49cd555bfa663f2d81305885",
+      "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/final-qualification-c042b1f/preparation"
+    },
+    "role_archives_equal_to_earlier_preparation": 180,
+    "target_or_feature_arrays_decoded_for_byte_comparison": false
+  },
+  "production_review_record": {
+    "bytes": 3061,
+    "path": "audit/research-v2/final-review/production-branch-review-c042b1f.json",
+    "sha256": "f784f88d0aea71e0e02c1aa800c2cce2161e19c6edca4f8fc120aeabcfd63303"
+  },
+  "production_source_ready": false,
+  "protected_access_authorized": false,
+  "quality_eligible": false,
+  "review_binding": {
+    "bytes": 2847,
+    "path": "audit/research-v2/final-review/source-binding-check-c042b1f.json",
+    "sha256": "06dc9c6dd77c6d02b15fa1c14d69aaefb9fc5dffa9409e232cb2d9fef9dae8f0"
+  },
+  "schema": "research/v2-final-source-qualification-start-receipt",
+  "scope": "Execution-start observation, not a completed registry or predictive comparison. completed_ineligible is the deliberate terminal status of successful engineering fits before their separate audit; it is not a predictive failure. The older 118/120 survey retains its own source. No HPO or protected T access has started.",
+  "source_sha256": "6ca3cd4ec41ecc8222fc9e8add58ceb0ae07b5fd9c86d1fa1cd87fae0933bbac",
+  "working_data_materialization": {
+    "bytes": 76472,
+    "path": "artifacts/research-v2/WP07/final-qualification-c042b1f/working-data-materialization.json",
+    "sha256": "0d445a812129cbbd1757f5f7a39c6285297e4d90a189cb9322907b55dc7fc9bb"
+  }
+}

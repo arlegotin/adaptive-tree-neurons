@@ -3247,3 +3247,25 @@ or efficiency/population claim is inferred.
 21 October2026: the committed783cb2d package passed the existing Git/index/working-byte inspection (780execution files, package30fcf368a21cfe412b5c74bace4442c09a89f580a0101662daf421e23dd4658e). One fresh independent whole-branch review then returned R1/R2Important, noCritical/Minor. The retained response covers its limits and all declined judgments. The single material fix pass is in progress: shared sampler/options validation for current AND best before checkpoint publication/load, and immutable private prerequisite reuse confined to one real public invocation. R1 seventeen focused checks passed after the observed failures; R2 initial seven checks failed before implementation, then broader sandboxed verification passed88 with2failures/6setup errors caused by owned-process observation denial. Scoped owned-worker verification is running; these failures are preserved. Full new-source profiles, review-disposition binding, native qualification and protected positive results remain pending. No native/scientific evidence was silently migrated. Main scientific conclusions and the heldc33 native queue are unchanged.
 
 21 October2026, final review fix verification: source6ca3cd4 passed98 affected checks, all four source-bound production profiles (777 cases/46files), and all seven native software profiles (202 cases) in separate runs. All actual proof loaders reopened their retained process/JUnit/source evidence. The complete unfiltered suite finished3181passed/106failed/459setup errors/6skips in3531.56seconds; it is not green.421cases have direct retained memory-pressure2 evidence (420setup plusdoctor),58NODEmetadata cases all pass by exact ID in fresh processes (Node77profile plus3-case follow-up), and86backend/aggregate cases lack original detailed producer returns. Six optional review assets were unavailable. Every name/trace and its classification limit is retained underaudit/research-v2/software/whole-suite-6ca3cd4/. No guard, installed dependency or native recipe was weakened. Current report/status and claim-ledger references reflect these software results, with no new predictive result. The two Important review fixes are verified within the one fix pass; source commit and exact reviewed-to-final package binding follow. Actual full native workload qualification, primary/secondary searches and protected outcomes remain unrun.
+
+
+### 21 October: committed review binding and current-source native execution
+
+The correction pass is committed at `c042b1f` (core `6ca3cd4…`). The actual
+package check covers783 execution files, digest `9433e4ed…`; the actual review
+binding verifies the exact eleven-file delta from reviewed `783cb2d`. This
+completes the review/fix/source-binding step, while retaining the non-green
+complete-suite result. It is not a final readiness seal.
+
+Managed preparation and its actual loader completed for all six official
+datasets. All180 role archives and30 split hashes match the previous
+preparation; only source provenance changed. Opaque byte comparison decoded
+no target or feature arrays. Working clones sit outside immutable preparation.
+The fixed120 native-anchor executions now use this committed source, full
+native stopping, a4GiB owned-root guard and live admission, without a wall cap.
+The first actual per-anchor audit and read-only loader authenticated managed
+generation, exact independent prediction replay and coordinator-only primary-V
+arithmetic. Successful engineering fit status remains `completed_ineligible`
+until the separately checked prerequisites join. Full native registry/HPO/T
+authority remains absent. The exact current start observation and artifact
+references are in [the receipt](WP07-final-source-qualification-start-receipt.json).

@@ -69,8 +69,11 @@ review found two Important issues; its one correction pass passed 98 affected
 checks and777 fixed-profile cases. The complete suite finished non-green; all seven isolated native profiles
 passed202 cases under the corrected source. See the current software inventory
 for failures and original-producer-detail limits.
-Final source qualification and production primary searches follow the committed
-verified revision; neither has run yet.
+Final source qualification is executing under committed `c042b1f`: official
+preparation and the seven current software profiles completed, and the fixed120
+full anchors and their independent audits are running. The complete native
+registry and production primary searches remain pending. See the
+[execution-start receipt](WP07-final-source-qualification-start-receipt.json).
 Existing held-source executions remain useful development evidence and workload
 forecasts; they cannot silently become current-source qualified models. No
 compatibility migration has been admitted. Resource pressure permits declared

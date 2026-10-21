@@ -258,9 +258,9 @@
           "sha256": "e8d4142f9e8c129fe55287675bc834e9d10a1299940f149f2c51cd9fc052b255"
         },
         {
-          "bytes": 9281,
+          "bytes": 9536,
           "path": "docs/research/v2/native-qualification-contract.md",
-          "sha256": "1a18924e7745767ff2ada006c6728528be165220faaae66cb61ea9395e050b33"
+          "sha256": "4047c16c14ae2faaaf5b408206f4013cc6aa597092f2416b115696ea07903d8e"
         },
         {
           "bytes": 6678,
@@ -530,6 +530,21 @@
           "bytes": 16030,
           "path": "docs/research/v2/WP09-production-readiness-implementation-receipt.json",
           "sha256": "c92c399844aad3094fdae92eb50b487f3cd773d54dc971d6a666e7da4db3d7e8"
+        },
+        {
+          "bytes": 3061,
+          "path": "audit/research-v2/final-review/production-branch-review-c042b1f.json",
+          "sha256": "f784f88d0aea71e0e02c1aa800c2cce2161e19c6edca4f8fc120aeabcfd63303"
+        },
+        {
+          "bytes": 2847,
+          "path": "audit/research-v2/final-review/source-binding-check-c042b1f.json",
+          "sha256": "06dc9c6dd77c6d02b15fa1c14d69aaefb9fc5dffa9409e232cb2d9fef9dae8f0"
+        },
+        {
+          "bytes": 4640,
+          "path": "docs/research/v2/WP07-final-source-qualification-start-receipt.json",
+          "sha256": "26385ac0fd28b840d5a45a48d630838e6ca6e09e14b5c8e5bf0fa8e09bd943a8"
         }
       ],
       "status": "supported_scoped_status",
@@ -560,9 +575,9 @@
           "sha256": "8af9b0c913aabd7838ed7a323b0ebddd3fd7166f46b8145e9cc2bdd1ac9c92b2"
         },
         {
-          "bytes": 9369,
+          "bytes": 10055,
           "path": "docs/research/v2/WP09-final-review-fix-receipt.json",
-          "sha256": "cae8661ac357d0c79a306eb6059ee6220b60a25e5ee112f356c11bdf57b8d69a"
+          "sha256": "40985b9671b8689caa192a099f332c202abb33fc25e25e0153e858bc39183674"
         },
         {
           "bytes": 2812,
@@ -599,7 +614,7 @@
     }
   ],
   "created_utc": "2026-10-20T06:05:41.912084+00:00",
-  "final_branch_review_complete": false,
+  "final_branch_review_complete": true,
   "fresh_review_received": true,
   "new_fit_or_inference": false,
   "new_raw_label_access": false,
@@ -609,7 +624,7 @@
     "path": "reports/research-v2.md",
     "sha256": "6585b7625fb6a3a3e8f5372614e4c96511f5b31314def828174c5f80d8bb57a9"
   },
-  "review_fix_status": "98_affected_777_production_and202_native_profile_cases_passed_complete_suite_non_green_pending_commit_binding",
+  "review_fix_status": "committed_c042b1f_actual_execution_package_and_review_delta_bound_complete_suite_non_green",
   "schema": "research/v2-current-cross-study-claim-ledger",
   "scope": "Curated evidence-linked report assembly from compact inputs and prior audit receipts. The no-new-fit/inference/raw-label flags describe assembly only; separate fixed native V scoring is disclosed below. Not a new whole-raw/model-generation audit or completed production report path.",
   "status": "development_negative_with_practical_work_pending"

@@ -1,0 +1,55 @@
+{
+  "T_accessed": false,
+  "changed_execution_files": [
+    "src/treeneuron/checkpoint.py",
+    "src/treeneuron/research/native_qualification_registry_v2.py",
+    "src/treeneuron/research/practical_global_freeze_v2.py",
+    "src/treeneuron/research/production_verification_v2.py",
+    "src/treeneuron/research/qualified_practical_models_v2.py",
+    "src/treeneuron/research/qualified_primary_models_v2.py",
+    "src/treeneuron/research/secondary_native_search_v2.py",
+    "src/treeneuron/research/validation_invocation_v2.py",
+    "src/treeneuron/train.py",
+    "tests/test_snapshot_boundary_v2.py",
+    "tests/test_validation_composition_v2.py"
+  ],
+  "execution_files": 783,
+  "execution_sha256": "9433e4ed6d0d403aa16a9b69e848ad1a30a84f0340ecd9214a95e0475e69d860",
+  "native_workload_qualified": false,
+  "pinned_commit": "c042b1fc4606b896c7604e1674aa09f7432e74d1",
+  "production_source_ready": false,
+  "protected_access_authorized": false,
+  "review_binding": {
+    "changed_execution_files": [
+      "src/treeneuron/checkpoint.py",
+      "src/treeneuron/research/native_qualification_registry_v2.py",
+      "src/treeneuron/research/practical_global_freeze_v2.py",
+      "src/treeneuron/research/production_verification_v2.py",
+      "src/treeneuron/research/qualified_practical_models_v2.py",
+      "src/treeneuron/research/qualified_primary_models_v2.py",
+      "src/treeneuron/research/secondary_native_search_v2.py",
+      "src/treeneuron/research/validation_invocation_v2.py",
+      "src/treeneuron/train.py",
+      "tests/test_snapshot_boundary_v2.py",
+      "tests/test_validation_composition_v2.py"
+    ],
+    "deferred_minor_ids": [],
+    "final_commit": "c042b1fc4606b896c7604e1674aa09f7432e74d1",
+    "production_source_ready": false,
+    "protected_access_authorized": false,
+    "reviewed_commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+    "scope": "Review metadata arithmetic only; actual source/native/software/reference checks remain separate",
+    "unresolved_material_findings": 0
+  },
+  "review_reference": {
+    "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/audit/research-v2/final-review/production-branch-review-c042b1f.json",
+    "sha256": "f784f88d0aea71e0e02c1aa800c2cce2161e19c6edca4f8fc120aeabcfd63303"
+  },
+  "schema": "research/v2-actual-review-source-binding-check",
+  "scope": "Actual committed Git/index/working-source and review/fix-reference check. Full genuine native registry and final readiness remain separate prerequisites.",
+  "snapshot_reference": {
+    "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP09/production-execution-snapshot-c042b1f.json",
+    "sha256": "d4206bc8e97e9f6e8e3df7d8bca26a8bc7af53c6e18b777e3b51af26d75c419d"
+  },
+  "source_sha256": "6ca3cd4ec41ecc8222fc9e8add58ceb0ae07b5fd9c86d1fa1cd87fae0933bbac"
+}

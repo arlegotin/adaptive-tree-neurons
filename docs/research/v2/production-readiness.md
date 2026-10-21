@@ -105,8 +105,10 @@ fixes, with all four actual loaders reopened. The complete repository suite fini
 459 setup errors and six skips. The current inventory retains all names and
 cause limits; all seven native software profiles subsequently passed202 cases in fresh
 processes. The58 NODE failures also pass by exact case ID under isolation. The [fix receipt](WP09-final-review-fix-receipt.json) preserves initial
-failures and the98-case affected recovery. Native qualification and protected
-results remain unrun.
+failures and the98-case affected recovery. The verified correction is committed at `c042b1f`; its783-file package and
+review-to-final delta passed the actual binding check. Current-source native
+preparation completed and the120-anchor executions/audits are running. The
+complete registry, readiness seal and protected results remain pending.
 
 The known-fixture profiles include small model fits and sentinel arrays. They
 do not fit or inspect outcomes on the actual protected benchmark. Root worker

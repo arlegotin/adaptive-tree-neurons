@@ -17,6 +17,9 @@
   "current_complete_suite_passed": false,
   "deferred_minors": [],
   "distinct_profile_files": 46,
+  "execution_files": 783,
+  "execution_package_sha256": "9433e4ed6d0d403aa16a9b69e848ad1a30a84f0340ecd9214a95e0475e69d860",
+  "final_commit": "c042b1fc4606b896c7604e1674aa09f7432e74d1",
   "findings": [
     {
       "behavior": "Four sampler/options corruptions reject before current/best publication and before reconstruction; prior pointer, files and process RNG remain intact. Valid local roundtrip remains exact.",
@@ -32,7 +35,7 @@
         "path": "audit/research-v2/final-review/fix-evidence/final-R1-red-observed.log",
         "sha256": "a0127679d523baa702cf4c364d88a23fb6ca5f56e74bdf31a8e9c1848d71a9f1"
       },
-      "resolution": "fixed_in_working_source",
+      "resolution": "fixed_and_committed_with_RED_GREEN_evidence",
       "severity": "Important"
     },
     {
@@ -54,7 +57,7 @@
         "path": "audit/research-v2/final-review/fix-evidence/final-R2-red.log",
         "sha256": "843292c796a3c0333ad4bfb529f3b1b506a21324ea4a5912cf0e360590b7a64f"
       },
-      "resolution": "fixed_in_working_source",
+      "resolution": "fixed_and_committed_with_RED_GREEN_evidence",
       "severity": "Important",
       "source_derived_original_primary_audit_lower_bound": 225792
     }
@@ -91,6 +94,11 @@
     "bytes": 3138,
     "path": "audit/research-v2/final-review/fix-evidence/retained-files.json",
     "sha256": "15518d4a1e72a853cbacc4b343a5dbbae7680fc49a1a178ce4be360f075c7fa4"
+  },
+  "production_review_record": {
+    "bytes": 3061,
+    "path": "audit/research-v2/final-review/production-branch-review-c042b1f.json",
+    "sha256": "f784f88d0aea71e0e02c1aa800c2cce2161e19c6edca4f8fc120aeabcfd63303"
   },
   "production_source_ready": false,
   "profile_cases": 777,
@@ -136,6 +144,11 @@
     "path": "audit/research-v2/final-review/review-request-783cb2d.md",
     "sha256": "fdc0741c14873974d12fa710b4fb591fcf717f473b57c9ce66e0c3f1ccdae2c4"
   },
+  "review_source_binding": {
+    "bytes": 2847,
+    "path": "audit/research-v2/final-review/source-binding-check-c042b1f.json",
+    "sha256": "06dc9c6dd77c6d02b15fa1c14d69aaefb9fc5dffa9409e232cb2d9fef9dae8f0"
+  },
   "reviewed_commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
   "reviewed_package": {
     "bytes": 3807245,
@@ -149,9 +162,9 @@
   },
   "schema": "research/v2-final-review-fix-receipt",
   "scientific_source_sha256": "6ca3cd4ec41ecc8222fc9e8add58ceb0ae07b5fd9c86d1fa1cd87fae0933bbac",
-  "scope": "Software fix evidence only, including known fixture models. Full current-source native prerequisite registry, production searches and protected comparison remain unrun. Older native fits and earlier whole-suite failures retain their original identities.",
+  "scope": "Committed software fix evidence, with actual Git/package and reviewed-to-final delta binding. Complete suite remains non-green. Current-source native preparation and fit/audit work is executing separately; complete native registry, production searches and protected comparison remain unfinished.",
   "second_review_performed": false,
-  "status": "material_fixes_verified_complete_suite_non_green_isolated_followup_passed_pending_commit_binding",
+  "status": "material_fixes_committed_source_and_review_delta_bound_complete_suite_non_green",
   "trained_local_replay": {
     "log": {
       "bytes": 768,

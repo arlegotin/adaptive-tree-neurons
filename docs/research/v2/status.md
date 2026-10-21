@@ -154,13 +154,26 @@ run. The [execution ledger](execution.md) and
 [status at the reviewed commit](../../../audit/research-v2/final-review/status-at-reviewed-783cb2d.md)
 retain the earlier component milestones and source boundaries.
 
+The corrections are committed at `c042b1f`. Actual Git/package inspection
+bound783 execution files and package `9433e4ed…` to the reviewed-to-final
+eleven-file correction delta. The [binding check](../../../audit/research-v2/final-review/source-binding-check-c042b1f.json)
+grants no native or protected authority.
+
+Current-source official preparation completed and its actual loader passed. All
+180 role archives and30 split hashes match the earlier prepared data byte for
+byte; this comparison decoded no arrays. The fixed120-anchor native queue is
+running with native stopping and no wall cap. Its first model passed independent
+prediction replay and primary-V arithmetic. The [execution-start receipt](WP07-final-source-qualification-start-receipt.json)
+records an explicit observation time and queue counts, rather than asserting
+that the continuously changing queue is complete.
+
 Remaining work is sequential:
 
-1. Commit the verified source,
-   and bind its actual package snapshot and the review's explicit fix delta.
-2. Execute current-source official preparation, all seven native software
-   profiles,120 full anchors, 258 support checks and the recovery proof. Earlier
-   held-source engineering fits cannot silently satisfy this registry.
+1. Complete and audit the current-source120 native anchors, then the258 support
+   checks and full-size recovery proof, using the seven completed current-source
+   software profiles and authenticated preparation. Earlier held-source
+   engineering fits cannot silently satisfy this registry.
+2. Seal and reopen the actual native registry and final production readiness.
 3. Measure the full workload forecast and admit the fixed 168 primary searches.
    Freeze the global procedure and selected primary models before 672 secondary
    searches. The full programme remains840 searches across 14 families, six

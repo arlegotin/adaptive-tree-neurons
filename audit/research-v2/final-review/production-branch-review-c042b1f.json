@@ -1,0 +1,64 @@
+{
+  "final_commit": "c042b1fc4606b896c7604e1674aa09f7432e74d1",
+  "final_execution_sha256": "9433e4ed6d0d403aa16a9b69e848ad1a30a84f0340ecd9214a95e0475e69d860",
+  "findings": [
+    {
+      "changed_files": [
+        "src/treeneuron/checkpoint.py",
+        "src/treeneuron/train.py",
+        "tests/test_snapshot_boundary_v2.py",
+        "src/treeneuron/research/production_verification_v2.py"
+      ],
+      "finding_id": "R1",
+      "green_reference": {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/audit/research-v2/final-review/fix-evidence/final-R1-green.log",
+        "sha256": "3332b4f331a4b71126dce11c4b766aacd6e0e651ceba3bc833e4e1ace9fe749c"
+      },
+      "red_reference": {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/audit/research-v2/final-review/fix-evidence/final-R1-red-observed.log",
+        "sha256": "a0127679d523baa702cf4c364d88a23fb6ca5f56e74bdf31a8e9c1848d71a9f1"
+      },
+      "resolution": "fixed",
+      "severity": "Important"
+    },
+    {
+      "changed_files": [
+        "src/treeneuron/research/native_qualification_registry_v2.py",
+        "src/treeneuron/research/practical_global_freeze_v2.py",
+        "src/treeneuron/research/production_verification_v2.py",
+        "src/treeneuron/research/qualified_practical_models_v2.py",
+        "src/treeneuron/research/qualified_primary_models_v2.py",
+        "src/treeneuron/research/secondary_native_search_v2.py",
+        "src/treeneuron/research/validation_invocation_v2.py",
+        "tests/test_validation_composition_v2.py"
+      ],
+      "finding_id": "R2",
+      "green_reference": {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/audit/research-v2/final-review/fix-evidence/software-observation-6ca3cd4.json",
+        "sha256": "968ef7d2e2f3bfc10b76ef83efb7d51cc0072419b34f13821aecd855b8621cd9"
+      },
+      "red_reference": {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/audit/research-v2/final-review/fix-evidence/final-R2-red.log",
+        "sha256": "843292c796a3c0333ad4bfb529f3b1b506a21324ea4a5912cf0e360590b7a64f"
+      },
+      "resolution": "fixed",
+      "severity": "Important"
+    }
+  ],
+  "review_package_reference": {
+    "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/audit/research-v2/final-review/review-230e657..783cb2d.diff.gz",
+    "sha256": "43e12b8bfc04a4b8354819ad998b0973b5f81162f3a90f7c71e04e491899733a"
+  },
+  "review_response_reference": {
+    "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/audit/research-v2/final-review/review-response-783cb2d.md",
+    "sha256": "5ac767280566477c840d216780c6dc54f5ec353fcc4e6c0b8d66e3dd1933b916"
+  },
+  "reviewed_commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+  "reviewer": {
+    "agent_id": "/root/final_source_review",
+    "model": "gpt-6-astra",
+    "reasoning_effort": "xhigh"
+  },
+  "schema": "research/v2-production-branch-review",
+  "source_sha256": "6ca3cd4ec41ecc8222fc9e8add58ceb0ae07b5fd9c86d1fa1cd87fae0933bbac"
+}
