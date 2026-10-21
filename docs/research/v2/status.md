@@ -174,7 +174,12 @@ state matched interruption at102 updates, restoration at100 and continuation to
 state comparison excludes elapsed clocks; prediction equality comes from the
 pinned managed operator. Sampled root RSS peaked at1,151,025,152 bytes, about
 1.07GiB, over331 seconds. This short engineering proof is not native stopping
-or a predictive result. The fixed258 full-shape support checks are also running.
+or a predictive result. The [fixed258 full-shape support checks](WP07-final-source-support-receipt.json)
+all completed and passed their actual loaders:43 cases per dataset across all14
+families. The largest sampled root-worker RSS was2,358,116,352 bytes, about
+2.20GiB. These short geometry checks preserve the original inputs, models and
+effective batches; they do not replace native convergence or guarantee every
+hyperparameter combination.
 
 The first108 current-source anchor fits now passed independent reload and
 recorded-workload audits. Their saved predictions and row identities reproduce

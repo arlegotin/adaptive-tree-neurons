@@ -127,9 +127,11 @@ same-data/configuration/seed runs exactly. They are reruns, not independent
 scientific replication or source migration. See the
 [endpoint comparison](../docs/research/v2/WP07-final-source-anchor-replay-receipt.json).
 The full-size2,048-tree recovery check also passed under this source, with
-212 paid applied updates across reference/interrupted/resumed work. The six
-long NODE fits and258 full-shape support checks continue; the six mean anchors
-follow NODE in the fixed queue. Full registry/readiness, HPO and protected
+212 paid applied updates across reference/interrupted/resumed work. All258 fixed full-shape support checks
+also passed their genuine loaders, with largest sampled root RSS about2.20GiB.
+They are short geometry checks, not native convergence. The six long NODE fits
+continue, with the six mean anchors afterward in the fixed queue.
+[Support evidence](../docs/research/v2/WP07-final-source-support-receipt.json). Full registry/readiness, HPO and protected
 evaluation remain pending. [Recovery evidence](../docs/research/v2/WP07-final-source-recovery-receipt.json).
 
 Raw arrays, recoverable states and append-only ledgers are retained locally with source-bound inventories. Historical missing raw archives remain missing. Reproduction does not depend on remembering a conversation; [commands, exact identities and portability limits](../docs/research/v2/reproduce.md) are versioned. Each study’s held source is immutable, and old reports and expected historical hashes remain intact.

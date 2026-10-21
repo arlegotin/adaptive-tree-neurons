@@ -1,0 +1,58 @@
+{
+  "T_accessed": false,
+  "capture_operator": {
+    "bytes": 2992,
+    "path": "artifacts/research-v2/WP07/capture_final_support_catalogue.py",
+    "sha256": "7a9ff8f109b2257b098d4004226fb6f53162b0fe8cff11b580a87fc315fdab3d"
+  },
+  "cases": 258,
+  "counts_by_dataset": {
+    "airfoil": 43,
+    "bike": 43,
+    "ccpp": 43,
+    "concrete": 43,
+    "energy": 43,
+    "parkinsons": 43
+  },
+  "counts_by_family": {
+    "P00": 12,
+    "P01": 12,
+    "P02": 24,
+    "P03": 24,
+    "P04": 12,
+    "P05": 48,
+    "P06": 72,
+    "P07": 12,
+    "P08": 6,
+    "P09": 6,
+    "P10": 6,
+    "P11": 6,
+    "P12": 6,
+    "P13": 12
+  },
+  "created_utc": "2026-10-21T07:20:59.587966+00:00",
+  "datasets": 6,
+  "expanded_fixed_plan": {
+    "bytes": 193075,
+    "path": "artifacts/research-v2/WP07/final-qualification-c042b1f/support-probe-expanded-plan.json",
+    "sha256": "0a32f90ab64d43cca1a34227e849ac2005b4ed7a0dab211404506dee9c3dd26e"
+  },
+  "families": 14,
+  "full_native_training": false,
+  "largest_sampled_root_rss_bytes": 2358116352,
+  "native_workload_qualified": false,
+  "new_model_work_by_capture": false,
+  "observation": {
+    "bytes": 268821,
+    "path": "audit/research-v2/software/final-short-support-catalogue-6ca3cd4.json",
+    "sha256": "7b9bd7fcf7c8a22a52f9732ea58ac35c981e6215961f6f01ed5fbdf6621e6588"
+  },
+  "pinned_commit": "c042b1fc4606b896c7604e1674aa09f7432e74d1",
+  "production_source_ready": false,
+  "protected_access_authorized": false,
+  "quality_eligible": false,
+  "schema": "research/v2-final-source-support-catalogue-receipt",
+  "scope": "Every fixed short full-shape case ran through the real API and its genuine loader. Capture rechecks closed inventories and process samples. All original F/G inputs and declared model geometries/effective batches retained. Short optimization is not native convergence or all-Cartesian-support coverage. Root RSS excludes parent/descendant aggregate RAM; nested process clocks are not enclosing wall time. The complete registry still requires all120 native anchors.",
+  "source_sha256": "6ca3cd4ec41ecc8222fc9e8add58ceb0ae07b5fd9c86d1fa1cd87fae0933bbac",
+  "summed_nested_process_elapsed_ns": 2870933504392
+}

@@ -237,6 +237,11 @@
           "bytes": 3480,
           "path": "reports/research-v2-resource-probes.md",
           "sha256": "b3979bff0c00fce9a5e7c95c6cc0e4466abf89afaac7e9dbe2d84a0be0648077"
+        },
+        {
+          "bytes": 2166,
+          "path": "docs/research/v2/WP07-final-source-support-receipt.json",
+          "sha256": "8fad5548be7e7b67ab7441706bbd0dbf500e80c65989dee512725293390bf9b7"
         }
       ],
       "status": "supported_engineering",
@@ -630,9 +635,9 @@
   "new_raw_label_access": false,
   "protected_confirmation": false,
   "report": {
-    "bytes": 17738,
+    "bytes": 17962,
     "path": "reports/research-v2.md",
-    "sha256": "a940fe41a13c866aebff89066edc5f6e529bcb0c2ee376402a5c800619c0c45f"
+    "sha256": "721e3f76d2e491ac1cb9d5b7798bc2c32a1a6f4dbeb915820b600c2b5a8c6e59"
   },
   "review_fix_status": "committed_c042b1f_actual_execution_package_and_review_delta_bound_complete_suite_non_green",
   "schema": "research/v2-current-cross-study-claim-ledger",

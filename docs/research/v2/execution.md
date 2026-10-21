@@ -3285,3 +3285,19 @@ recovery also passed; the fixed258 support probes and six long NODE fits remain
 active. Automatic followers audit newly closed fits and invoke only the genuine
 native/readiness join once every actual prerequisite is present. They grant
 no HPO or protected-data access and stop on failures requiring disposition.
+
+
+### 21 October: complete258-case shape catalog passed
+
+All258 declared support cases (43 per dataset,14 families) executed under
+core6ca3cd4 and passed their real closed-state/prediction loaders. The retained
+aggregate rechecks opaque proof inventories and process observations without
+fitting, inference or label-array decoding. Largest sampled root RSS was
+2,358,116,352 bytes (about2.20GiB); the process clocks sum to2,870,933,504,392ns
+and remain nested, not an enclosing scientific wall time. No original F/G
+inputs, model geometry or effective batch was reduced. These short runs
+qualify geometry evidence, not native convergence, every Cartesian support
+combination or the full native registry. The current-source six long NODE
+anchors remain active, with mean anchors afterward; qualification/readiness
+followers continue under the real public gates. See the
+[complete support receipt](WP07-final-source-support-receipt.json).
