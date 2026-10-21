@@ -1,0 +1,135 @@
+{
+  "T_accessed": false,
+  "actual_benchmark_labels_read": 0,
+  "actual_benchmark_models_fitted_or_measured": 0,
+  "actual_complete_qualified_public_positive": false,
+  "algorithm_rescue_budget_cut_or_source_migration_admitted": false,
+  "artifact_inventory": {
+    "bytes": 23837,
+    "path": "artifacts/research-v2/WP10/raw-audit-readback-software-inventory.json",
+    "sha256": "4c4a25c9d5d02ea87c314335273acd2f8999e962253d314e407669ee68657857"
+  },
+  "base_commit": "e7179f0",
+  "capture": {
+    "bytes": 5227,
+    "path": "artifacts/research-v2/WP10/raw-audit-readback-software/observation.json",
+    "sha256": "a33507995d388e7998c547c9dba18879cbe71f0e689ccdcc4cc4f90150048c1d"
+  },
+  "capture_script": {
+    "bytes": 3634,
+    "path": "artifacts/research-v2/WP10/capture_raw_audit_readback.py",
+    "sha256": "ef0d650cf94cb5107ce953959421e4ed016f2186a5910a47a833e3e163e1324a"
+  },
+  "changes": [
+    "Genuine public analysis/metrics/native/protocol/timing-plan gates precede bound-audit file reads; True flags alone never suffice",
+    "Read-only exact start/terminal/source/protocol/owner/metric/fold/access/clock verification and independent retained summary reconstruction",
+    "All records/roles/folds required; orphan files, unknown fields, wrong actors/roles, inconsistent clocks and failures reject",
+    "Actual metric/analysis/audit readers now require genuine witnessed pre-label native timing plan before and after readback",
+    "No third target decoding, independent-arithmetic rerun or model load/fit/forward in private evidence readback; public admission may hash opaque archives"
+  ],
+  "claim_authorized": false,
+  "date": "2026-10-21",
+  "final_command": [
+    ".venv-research-v2/bin/python",
+    "-P",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_raw_audit_readback_v2.py",
+    "tests/test_independent_raw_audit_v2.py",
+    "tests/test_frozen_practical_analysis_v2.py",
+    "tests/test_native_deployment_plan_v2.py",
+    "tests/test_protected_label_evaluator_v2.py",
+    "tests/test_protected_prediction_gate_v2.py",
+    "tests/test_practical_T_protocol_v2.py"
+  ],
+  "limitations": [
+    "Private fixtures grant no native/protected/full-cost authority; complete-qualified public positive remains unrun",
+    "Declared corruption is software fault injection, not an observed research defect or predictive improvement",
+    "Audit clock excludes its terminal publication/return and containing observer",
+    "Full post-T observation/cost join, canonical report/CLI/readiness/final review remain before production",
+    "Prior whole-suite failures remain separate; no whole-suite success claim"
+  ],
+  "logs": [
+    {
+      "bytes": 21753,
+      "path": "artifacts/research-v2/WP10/raw-audit-readback-software/test-logs/raw-audit-readback-red.log",
+      "sha256": "13e71088598c791fa9974d906e9dac3e008bca758ee596c2d8d2d050ee0d16b5"
+    },
+    {
+      "bytes": 100,
+      "path": "artifacts/research-v2/WP10/raw-audit-readback-software/test-logs/raw-audit-readback-first-green.log",
+      "sha256": "a218fd50efcd9fe3d4b3b5664e340527ee5b1136821371156d3923b132179e8e"
+    },
+    {
+      "bytes": 2849,
+      "path": "artifacts/research-v2/WP10/raw-audit-readback-software/test-logs/raw-audit-readback-orphan-red.log",
+      "sha256": "5124deb82fc691ac27f4b0aaa4576ceac923a81cf994dc2f7b3cc4fca8969e75"
+    },
+    {
+      "bytes": 192,
+      "path": "artifacts/research-v2/WP10/raw-audit-readback-software/test-logs/raw-audit-readback-affected.log",
+      "sha256": "0e545e6baf77a746f5bf3131d83988a8d78f786c1490d94c5d58fc5216d01240"
+    },
+    {
+      "bytes": 336,
+      "path": "artifacts/research-v2/WP10/raw-audit-readback-software/test-logs/raw-audit-readback-capture.log",
+      "sha256": "5de9685770fc9e9cd9961aeb6109586f737b5e01d53be8a10a543b43fd66e81e"
+    }
+  ],
+  "native_c33_source_environment_and_immutable_operator_plan_unchanged": true,
+  "native_models_authenticated": false,
+  "observation": {
+    "deliberately_wrong_rehashed_reconstruction_rejected": true,
+    "disposable_originals_restored_exactly": true,
+    "independent_numeric_comparisons": 35,
+    "known_P13_fixture_fits": 1,
+    "max_absolute_difference": 0.0,
+    "owned_known_queries": 2,
+    "readonly_model_or_target_decode_calls": 0
+  },
+  "schema": "research/v2-raw-audit-readback-software-receipt",
+  "source_files": [
+    {
+      "bytes": 27944,
+      "path": "src/treeneuron/research/independent_raw_audit_v2.py",
+      "sha256": "d4e63b6ecf0b962d56ad771b7d0eb2c3df67994fbb6f5f4501b5dc1420c20137"
+    },
+    {
+      "bytes": 16567,
+      "path": "src/treeneuron/research/native_deployment_plan_v2.py",
+      "sha256": "6e8cc71968ab1684b2d6afccebcbd477326d380591434551e4f5562bdcdb59ed"
+    },
+    {
+      "bytes": 18786,
+      "path": "src/treeneuron/research/frozen_practical_analysis_v2.py",
+      "sha256": "0ac89b3627ca65bc24c6bd99b7314fe6ab0cb488edbdcc158eec78a63b72843b"
+    }
+  ],
+  "source_sha256": "53726ec922039ca2dd90b12f1ac2927cc5d6c650258cbaa139f3fe74bd035609",
+  "test_file": {
+    "bytes": 5963,
+    "path": "tests/test_raw_audit_readback_v2.py",
+    "sha256": "1b67a561d75a720b84eb015c8d887a934bf6e5232f779840695e1168828ab305"
+  },
+  "verification": [
+    {
+      "cause": "Missing readback/public loader/required witness validator; intended RED",
+      "result": "13 failed in0.17s"
+    },
+    {
+      "result": "13 passed in52.08s",
+      "scope": "Initial new readback tests"
+    },
+    {
+      "cause": "Orphan root artifact accepted; missing reconstruction rejected correctly",
+      "result": "1 failed,1 passed,13 deselected in10.24s"
+    },
+    {
+      "result": "114 passed in162.31s",
+      "scope": "Final seven affected modules including15 new reader checks; overlapping scopes, not whole-suite pass"
+    }
+  ],
+  "whole_training_procedure_cost_authenticated": false
+}

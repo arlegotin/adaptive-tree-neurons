@@ -174,9 +174,13 @@ def _actual_metrics(reference,stage_reference,directory,kwargs):
     protocol=_actual_protocol(reference,kwargs)
     stage=load_protected_prediction_stage(stage_reference,protocol_reference=reference,directory=directory,**kwargs)
     root,owners=_public_locations(directory,protocol)
+    from .native_deployment_plan_v2 import _required_plan_reference,load_native_deployment_plan
+    plan_reference=_required_plan_reference(_read_metadata_study(root))
+    timing_plan=load_native_deployment_plan(plan_reference,protocol_reference=reference,directory=root,**kwargs)
     with StudyLease(root):
         state=_read_metadata_study(root)
-        if state['phase']!='metrics_committed':raise ValueError('Frozen witnessed metric completion required; analysis cannot start label scoring')
+        if state['phase']!='metrics_committed' or _required_plan_reference(state)!=plan_reference:
+            raise ValueError('Frozen witnessed metric completion and timing plan required; analysis cannot start label scoring')
         inspection=_inspect_complete_stage(protocol_payload=protocol.payload,protocol_reference=reference,directory=root,owner_root=owners)
         cases=_label_cases(protocol.payload,inspection)
         events=[_json(line) for line in (root/'events.jsonl').read_bytes().splitlines()]
@@ -185,7 +189,8 @@ def _actual_metrics(reference,stage_reference,directory,kwargs):
         if event['details']['elapsed_ns']!=elapsed:raise ValueError('Witnessed metric cost differs')
         _,raw=_reference(completion_ref);completion=_json(raw);_,raw=_reference(completion['metrics_reference']);metrics=_json(raw)
         if (_canonical(_actual_protocol(reference,kwargs).payload)!=_canonical(protocol.payload)
-                or load_protected_prediction_stage(stage_reference,protocol_reference=reference,directory=root,**kwargs).payload!=stage.payload):
+                or load_protected_prediction_stage(stage_reference,protocol_reference=reference,directory=root,**kwargs).payload!=stage.payload
+                or load_native_deployment_plan(plan_reference,protocol_reference=reference,directory=root,**kwargs).payload!=timing_plan.payload):
             raise ValueError('Actual frozen analysis context changed')
     return protocol,stage,metrics,completion_ref
 

@@ -500,6 +500,10 @@
         {
           "path": "docs/research/v2/WP10-native-timing-execution-receipt.json",
           "sha256": "ed3d5c04eed748e7924c28785031ef9dbbadde3218f1a4217e8309ba84029444"
+        },
+        {
+          "path": "docs/research/v2/WP10-raw-audit-readback-receipt.json",
+          "sha256": "b16d78be5415948885e7818d50df4378974407f1b028c1dab9236373b9151760"
         }
       ],
       "status": "supported_scoped_status",

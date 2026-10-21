@@ -37,6 +37,7 @@ the actual protocol and a pre-label witness. Its9,360 measurement jobs are
 coded, not run or resource-admitted. The actual executor, complete costs and
 final production integration remain pending.
 The [timing executor and reader](native-timing-execution.md) are now fixture-tested with a full known30-pair/60-process rehearsal, exact resume and retained failures. Actual native timing, complete containing costs and final production integration remain unrun.
+The [raw-audit reader](raw-audit-readback.md) now verifies retained arithmetic/access/clock records without decoding targets again. Actual metric and audit readers also require the genuine witnessed timing plan. Complete-qualified production audit remains unrun.
 
 ## The idea and present verdict
 

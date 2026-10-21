@@ -182,3 +182,114 @@ def audit_protected_raw_predictions(reference,*,analysis_reference,prediction_st
     _write_new(root/'bound-audit.json',bound)
     return dict(result,bound_audit_reference=_ref(root/'bound-audit.json'),genuine_frozen_raw_audit_authenticated=True,
         native_models_authenticated=True,raw_model_provenance_authenticated=True,T_accessed=True)
+
+
+def _inspect_raw_audit_evidence(*,protocol_payload,protocol_reference,inspection,metrics,completion_reference,raw_reference,terminal_reference):
+    """Read retained audit records only; supplied metadata grants no authority."""
+    from .protected_journal_v2 import _path
+    from .execution_clock_v2 import validate_clock_domain
+    payload=protocol_payload;_check_audit_policy(payload)
+    raw_path,raw_bytes=_reference(raw_reference);root=raw_path.parent
+    terminal_path,terminal_bytes=_reference(terminal_reference);audit=_json(raw_bytes);terminal=_json(terminal_bytes)
+    if raw_path!=root/'audit.json' or terminal_path!=root/'terminal.json':raise ValueError('One exact original audit directory required')
+    required={'start.json','audit.json','terminal.json','accesses'};entries={p.name for p in root.iterdir()}
+    if entries not in (required,required|{'bound-audit.json'}):raise ValueError('Unknown/partial audit artifacts cannot be omitted from completed evidence')
+    for path in root.iterdir():
+        _path(path)
+        if not (path.is_dir() if path.name=='accesses' else path.is_file()):raise ValueError('Ordinary audit files/access directory required')
+    start_reference=terminal.get('start_reference');start_path,start_bytes=_reference(start_reference);start=_json(start_bytes)
+    source=payload['source_sha256'];genesis=inspection['genesis_sha256'];cases=metrics['cases']
+    start_fields={'schema','actor','source_sha256','protocol_reference','metrics_completion_reference','genesis_sha256','origin_ns','clock_domain','standalone_authority'}
+    terminal_fields={'schema','status','actor','start_reference','origin_ns','end_ns','elapsed_ns','clock_domain','error','audit_reference','scope',*_FALSE}
+    if (type(start) is not dict or set(start)!=start_fields or start_path!=root/'start.json'
+            or start['schema']!='research/v2-independent-raw-audit-start' or start['actor']!='auditor'
+            or start['source_sha256']!=source or start['protocol_reference']!=protocol_reference
+            or start['metrics_completion_reference']!=completion_reference or start['genesis_sha256']!=genesis or start['standalone_authority'] is not False
+            or type(terminal) is not dict or set(terminal)!=terminal_fields or terminal['schema']!='research/v2-independent-raw-audit-terminal'
+            or terminal['status']!='matched_raw_metrics' or terminal['actor']!='auditor' or terminal['error'] is not None
+            or terminal['audit_reference']!=raw_reference or any(terminal[k] is not False for k in _FALSE)
+            or any(type(terminal[k]) is not int or terminal[k]<=0 for k in ('origin_ns','end_ns','elapsed_ns'))
+            or terminal['origin_ns']!=start['origin_ns'] or terminal['end_ns']-terminal['origin_ns']!=terminal['elapsed_ns']
+            or terminal['clock_domain']!=start['clock_domain']
+            or terminal['scope']!='Audit entry through arithmetic/full final guard/output; own terminal publication/return and containing observer excluded'):
+        raise ValueError('Strict completed source/protocol/owner/metric/clock audit evidence required')
+    validate_clock_domain(start['clock_domain'])
+    fields={'schema','status','source_sha256','protocol_reference','metrics_completion_reference','metric_inputs_sha256','genesis_sha256',
+        'query_count','fold_count','access_references','numeric_comparisons','max_absolute_difference','reconstructions','raw_arithmetic_checked','scope',*_FALSE}
+    if (type(audit) is not dict or set(audit)!=fields or audit['schema']!='research/v2-independent-raw-arithmetic'
+            or audit['status']!='matched_raw_metrics' or audit['source_sha256']!=source or audit['protocol_reference']!=protocol_reference
+            or audit['metrics_completion_reference']!=completion_reference or audit['metric_inputs_sha256']!=_hash(metrics)
+            or audit['genesis_sha256']!=genesis or type(audit['query_count']) is not int or audit['query_count']!=len(inspection['commits'])
+            or type(audit['fold_count']) is not int or audit['fold_count']!=len(cases) or audit['raw_arithmetic_checked'] is not True
+            or any(audit[k] is not False for k in _FALSE)):
+        raise ValueError('Exact independent raw arithmetic and frozen metric inputs required')
+    planned=[(case,role) for case in cases for role in ('F','T_labels')];accesses=audit['access_references']
+    if type(accesses) is not list or len(accesses)!=len(planned):raise ValueError('All auditor role accesses required')
+    refs=[raw_reference,terminal_reference,start_reference];expected_files=set();previous=start['origin_ns']
+    for index,(reference,(case,role)) in enumerate(zip(accesses,planned)):
+        end_path,end_bytes=_reference(reference);end=_json(end_bytes);access_ref=end.get('start_reference');path,content=_reference(access_ref);access=_json(content)
+        access_fields={'schema','actor','source_sha256','protocol_sha256','genesis_sha256','dataset','outer_fold','role','reference','origin_ns','standalone_authority'}
+        end_fields={'schema','start_reference','status','error','bytes_read','end_ns','elapsed_ns','standalone_authority'}
+        if (end_path!=root/'accesses'/f'{index:04}-end.json' or path!=root/'accesses'/f'{index:04}-start.json'
+                or set(access)!=access_fields or access['schema']!='research/v2-frozen-label-role-access-start' or access['actor']!='auditor'
+                or access['source_sha256']!=source or access['protocol_sha256']!=protocol_reference['sha256'] or access['genesis_sha256']!=genesis
+                or any(access[k]!=case[k] for k in ('dataset','outer_fold')) or access['role']!=role or access['reference']!=case[role]['reference']
+                or set(end)!=end_fields or end['schema']!='research/v2-frozen-label-role-access-end' or end['status']!='read_and_decoded'
+                or end['error'] is not None or type(end['bytes_read']) is not int or end['bytes_read']!=case[role]['bytes']
+                or access['standalone_authority'] is not False or end['standalone_authority'] is not False
+                or any(type(v) is not int or v<=0 for v in (access['origin_ns'],end['end_ns'],end['elapsed_ns']))
+                or end['elapsed_ns']!=end['end_ns']-access['origin_ns'] or not previous<=access['origin_ns']<end['end_ns']<=terminal['end_ns']):
+            raise ValueError('Auditor actor/role/source/owner/access clock differs from the fixed raw read')
+        previous=end['end_ns'];expected_files.update((path.name,end_path.name));refs.extend((reference,access_ref))
+    if {p.name for p in (root/'accesses').iterdir()}!=expected_files:raise ValueError('Orphaned or missing auditor access cannot be ignored')
+    metric_folds={(f['dataset'],f['outer_fold']):f for f in metrics['folds']};reconstructions=audit['reconstructions']
+    if type(reconstructions) is not list or len(reconstructions)!=len(cases):raise ValueError('All fixed independent fold reconstructions required')
+    comparisons=[]
+    for case,row in zip(cases,reconstructions):
+        key=(case['dataset'],case['outer_fold'])
+        fields={'dataset','outer_fold','split_hash','F_target_variance','methods','group_ids','normalized_group_losses','F_targets_sha256',
+            'evaluation_targets_sha256','row_ids_sha256','group_ids_sha256','timestamps_sha256','prediction_hashes'}
+        if type(row) is not dict or set(row)!=fields or any(row[k]!=case[k] for k in ('dataset','outer_fold','split_hash')):
+            raise ValueError('Independent reconstruction substituted or omitted a fixed fold')
+        comparisons.append(_compare_reconstruction(metric_folds[key],row))
+    count=sum(v['numeric_comparisons'] for v in comparisons);difference=max(v['max_absolute_difference'] for v in comparisons)
+    if (type(audit['numeric_comparisons']) is not int or audit['numeric_comparisons']!=count
+            or type(audit['max_absolute_difference']) not in (int,float) or audit['max_absolute_difference']!=difference):
+        raise ValueError('Independent comparison summary differs from its retained reconstructions')
+    if _source()!=source:raise ValueError('Raw audit source changed during readback')
+    for reference in refs:_reference(reference)
+    return dict(schema='research/v2-independent-raw-audit-readback',raw_reference=raw_reference,terminal_reference=terminal_reference,
+        source_sha256=source,protocol_reference=protocol_reference,metrics_completion_reference=completion_reference,metric_inputs_sha256=_hash(metrics),
+        raw_arithmetic_evidence_checked=True,numeric_comparisons=count,max_absolute_difference=difference,auditor_role_reads=len(planned),
+        observed_audit_elapsed_ns=terminal['elapsed_ns'],clock_domain=terminal['clock_domain'],evidence_references=refs,**_FALSE,
+        scope='Retained raw-auditor arithmetic/access/clock join only; no third target decoding, model operation or native/protected/whole-cost capability')
+
+
+def load_protected_raw_audit(reference,*,protocol_reference,analysis_reference,prediction_stage_reference,directory,
+        models_reference,global_barrier_reference,qualification_reference,preT_costs_reference,readiness_reference):
+    from .frozen_practical_analysis_v2 import load_protected_practical_analysis,_actual_metrics
+    kwargs=dict(models_reference=models_reference,global_barrier_reference=global_barrier_reference,qualification_reference=qualification_reference,
+        preT_costs_reference=preT_costs_reference,readiness_reference=readiness_reference)
+    analysis=load_protected_practical_analysis(analysis_reference,protocol_reference=protocol_reference,prediction_stage_reference=prediction_stage_reference,directory=directory,**kwargs)
+    protocol,stage,metrics,completion=_actual_metrics(protocol_reference,prediction_stage_reference,directory,kwargs)
+    bound_path,raw=_reference(reference);bound=_json(raw)
+    fields={'schema','analysis_reference','prediction_stage_reference','protocol_reference','raw_audit_reference','terminal_reference',
+        'genuine_frozen_raw_audit_authenticated','native_models_authenticated','raw_model_provenance_authenticated','T_accessed',
+        'protected_access_authorized','whole_training_procedure_cost_authenticated','claim_authorized','scope'}
+    if (type(bound) is not dict or set(bound)!=fields or bound['schema']!='research/v2-bound-independent-raw-audit'
+            or bound_path.name!='bound-audit.json' or bound['analysis_reference']!=analysis_reference
+            or bound['prediction_stage_reference']!=prediction_stage_reference or bound['protocol_reference']!=protocol_reference
+            or any(bound[k] is not True for k in ('genuine_frozen_raw_audit_authenticated','native_models_authenticated','raw_model_provenance_authenticated','T_accessed'))
+            or any(bound[k] is not False for k in ('protected_access_authorized','whole_training_procedure_cost_authenticated','claim_authorized'))
+            or bound['raw_audit_reference']['path']!=str(bound_path.parent/'audit.json') or bound['terminal_reference']['path']!=str(bound_path.parent/'terminal.json')
+            or analysis.payload['analysis']['metric_inputs_sha256']!=_hash(metrics)):
+        raise ValueError('Exact actual bound raw-audit/model/protocol/analysis evidence required')
+    result=_inspect_raw_audit_evidence(protocol_payload=protocol.payload,protocol_reference=protocol_reference,inspection=stage.payload['inspection'],
+        metrics=metrics,completion_reference=completion,raw_reference=bound['raw_audit_reference'],terminal_reference=bound['terminal_reference'])
+    again=load_protected_practical_analysis(analysis_reference,protocol_reference=protocol_reference,prediction_stage_reference=prediction_stage_reference,directory=directory,**kwargs)
+    actual,new_stage,new_metrics,new_completion=_actual_metrics(protocol_reference,prediction_stage_reference,directory,kwargs)
+    if (again.payload!=analysis.payload or actual.payload!=protocol.payload or new_stage.payload!=stage.payload or _hash(new_metrics)!=_hash(metrics)
+            or new_completion!=completion):raise ValueError('Actual raw-audit context changed during readback')
+    _reference(reference)
+    return dict(result,bound_audit_reference=reference,genuine_frozen_raw_audit_authenticated=True,native_models_authenticated=True,
+        raw_model_provenance_authenticated=True,T_accessed=True,scope='Actual frozen native/model/protocol/timing-plan/metrics and independent retained audit evidence; costs/dependence/report claims remain separate')

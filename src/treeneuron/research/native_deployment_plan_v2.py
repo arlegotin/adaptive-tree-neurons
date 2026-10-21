@@ -122,6 +122,15 @@ def _request(payload,q,projection):
 def _ref(path):return dict(path=str(path),sha256=hashlib.sha256(path.read_bytes()).hexdigest())
 
 
+def _required_plan_reference(state):
+    """A byte reference only, never a native or protected capability."""
+    reference=state.get('deployment_plan_reference')
+    if reference is None:raise ValueError('A witnessed pre-label native timing plan is required')
+    path,_=_reference(reference)
+    if path.name!='deployment-plan.json':raise ValueError('Exact witnessed timing plan filename required')
+    return copy.deepcopy(reference)
+
+
 def _inspect_plan_files(saved,*,protocol,root,owners,state):
     """Full actual context is supplied only by public actual loaders."""
     from .deployment_query_v2 import inspect_F_workload_query
