@@ -17,6 +17,7 @@ from .native_qualification_registry_v2 import load_native_qualification_registry
 from .primary_selection_v2 import _primary,_ref,_digest
 from .qualified_search_audit_v2 import audit_primary_qualified_search
 from .workqueue import _inventory
+from .validation_invocation_v2 import _within_validation, _recheck_validation
 
 
 _FALSE=('global_procedure_semantics_authenticated','secondary_release_authorized',
@@ -163,6 +164,7 @@ class QualifiedPrimaryModels:
         return json.loads(self._payload_json)
 
 
+@_within_validation
 def seal_qualified_primary_models(*,practical_plan,expected_practical_plan_hash,support_reference,
         qualification_reference,primary_inventory_reference,search_proofs,output):
     registry=load_native_qualification_registry(qualification_reference)
@@ -177,12 +179,14 @@ def seal_qualified_primary_models(*,practical_plan,expected_practical_plan_hash,
         expected_file_sha256=primary_inventory_reference['sha256'],plan=practical_plan,
         expected_plan_hash=expected_practical_plan_hash).payload
     output=Path(output);_publication_location(output,registry,inventory,qualification_reference)
+    _recheck_validation()
     write_new_json(output,dict(schema='research/v2-qualified-primary-models',payload=payload,payload_hash=canonical_hash(payload)))
     digest=hashlib.sha256(output.read_bytes()).hexdigest()
     _ref(dict(path=str(output),sha256=digest),{})
     return QualifiedPrimaryModels(output,digest,canonical_json(payload))
 
 
+@_within_validation
 def load_qualified_primary_models(*,practical_plan,expected_practical_plan_hash,support_reference,
         qualification_reference,path,expected_file_sha256):
     registry=load_native_qualification_registry(qualification_reference)

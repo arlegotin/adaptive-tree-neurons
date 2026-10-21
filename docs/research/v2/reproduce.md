@@ -73,10 +73,11 @@ admission. The native-anchor engineering `qualify` command and its strict
 qualification-plan dispatch now pass fixture checks and an independently audited
 real P13 primary-split command check; see the
 [command contract](native-qualification-runner.md). They grant no Gate D or
-production-quality eligibility. Freeze/confirm/general-report entry points still
-require their remaining production implementations and prerequisites. Separate native adapter,
-provisional method/seed and pure analysis APIs are documented in their component
-contracts; they do not make those CLI stages complete. The WP07 prepare-data slice
+production-quality eligibility. Freeze, confirm and report now have implemented, fixture-tested production
+entry points; see the [practical CLI](practical-cli.md). They still require the
+actual complete native/model/source/protocol evidence before production use.
+Separate native adapter, provisional method/seed and analysis APIs remain
+distinct evidence levels; fixture checks do not make their studies complete. The WP07 prepare-data slice
 below is implemented independently of baseline qualification. Native trainer
 checkpoints resume exactly. The outer legacy reference
 graph uses one declared deterministic same-seed infrastructure rerun under

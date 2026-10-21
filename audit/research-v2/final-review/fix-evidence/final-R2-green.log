@@ -1,0 +1,178 @@
+......................................................................F. [ 75%]
+.................FEEEEEE                                                 [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of test_one_actual_anchor_joins_its_own_native_workload_without_qualifying_the_suite _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x10a92c470>, _basetemp=PosixPath.../q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3921'), _retention_count=3, _retention_policy='all')
+native_anchor_evidence = <function evidence.<locals>.get at 0x114b5f600>
+
+    @pytest.fixture(scope='module')
+    def partial_anchor(tmp_path_factory,native_anchor_evidence):
+        from test_native_anchor_execution import qualify
+        from treeneuron.research import native_anchor_v2
+        from treeneuron.research.native_verification_v2 import load_native_implementation_verification
+        from treeneuron.research.workqueue import _inventory
+        from treeneuron.config import canonical_hash
+>       args,old,software=native_anchor_evidence();root=tmp_path_factory.mktemp('registry-actual-anchor')/'anchor'
+                          ^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_native_qualification_registry_v2.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def get():
+        if not saved:
+            from treeneuron.research.native_verification_v2 import verify_native_implementation
+            root=tmp_path_factory.mktemp('native-anchor-evidence')
+            with pytest.MonkeyPatch.context() as patch:args,old=actual(root,patch)
+            proof=verify_native_implementation(profile='simple',output=root/'software',interpreter=sys.executable)
+>           assert proof['software_verified'] is True
+E           assert False is True
+
+tests/test_native_anchor_execution.py:27: AssertionError
+_ ERROR at setup of test_a_different_valid_native_generation_cannot_supply_an_anchors_workload _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x10a92c470>, _basetemp=PosixPath.../q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3921'), _retention_count=3, _retention_policy='all')
+native_anchor_evidence = <function evidence.<locals>.get at 0x114b5f600>
+
+    @pytest.fixture(scope='module')
+    def partial_anchor(tmp_path_factory,native_anchor_evidence):
+        from test_native_anchor_execution import qualify
+        from treeneuron.research import native_anchor_v2
+        from treeneuron.research.native_verification_v2 import load_native_implementation_verification
+        from treeneuron.research.workqueue import _inventory
+        from treeneuron.config import canonical_hash
+>       args,old,software=native_anchor_evidence();root=tmp_path_factory.mktemp('registry-actual-anchor')/'anchor'
+                          ^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_native_qualification_registry_v2.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def get():
+        if not saved:
+            from treeneuron.research.native_verification_v2 import verify_native_implementation
+            root=tmp_path_factory.mktemp('native-anchor-evidence')
+            with pytest.MonkeyPatch.context() as patch:args,old=actual(root,patch)
+            proof=verify_native_implementation(profile='simple',output=root/'software',interpreter=sys.executable)
+>           assert proof['software_verified'] is True
+E           assert False is True
+
+tests/test_native_anchor_execution.py:27: AssertionError
+_ ERROR at setup of test_working_access_logs_do_not_mutate_the_immutable_official_preparation _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x10a92c470>, _basetemp=PosixPath.../q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3921'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module')
+    def actual_preparation(tmp_path_factory):
+        module=api();root=tmp_path_factory.mktemp('managed-preparation');path,digest=copied_acquisition(root)
+        result=module.run_managed_preparation(path,expected_config_sha256=digest,output=root/'execution',
+            interpreter=sys.executable,data_overlay=ROOT/'environment/research-v2-data-site')
+>       assert result['status']=='completed_preparation',result
+E       AssertionError: {'schema': 'research/v2-managed-preparation-result', 'status': 'preparation_failed', 'request_sha256': '62e17bcba1c0f7...cb379afa8e1dcae4430e608347', 'process_sha256': '8c5b48c5adcf2ab43589983502390a29f7c9f497cbbcba1c91059f96b318fb10', ...}
+E       assert 'preparation_failed' == 'completed_preparation'
+E         
+E         - completed_preparation
+E         + preparation_failed
+
+tests/test_preparation_execution_v2.py:42: AssertionError
+_ ERROR at setup of test_separate_working_data_needs_identical_manifest_and_every_opaque_role[protected_bytes] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x10a92c470>, _basetemp=PosixPath.../q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3921'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module')
+    def actual_preparation(tmp_path_factory):
+        module=api();root=tmp_path_factory.mktemp('managed-preparation');path,digest=copied_acquisition(root)
+        result=module.run_managed_preparation(path,expected_config_sha256=digest,output=root/'execution',
+            interpreter=sys.executable,data_overlay=ROOT/'environment/research-v2-data-site')
+>       assert result['status']=='completed_preparation',result
+E       AssertionError: {'schema': 'research/v2-managed-preparation-result', 'status': 'preparation_failed', 'request_sha256': '62e17bcba1c0f7...cb379afa8e1dcae4430e608347', 'process_sha256': '8c5b48c5adcf2ab43589983502390a29f7c9f497cbbcba1c91059f96b318fb10', ...}
+E       assert 'preparation_failed' == 'completed_preparation'
+E         
+E         - completed_preparation
+E         + preparation_failed
+
+tests/test_preparation_execution_v2.py:42: AssertionError
+_ ERROR at setup of test_separate_working_data_needs_identical_manifest_and_every_opaque_role[manifest] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x10a92c470>, _basetemp=PosixPath.../q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3921'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module')
+    def actual_preparation(tmp_path_factory):
+        module=api();root=tmp_path_factory.mktemp('managed-preparation');path,digest=copied_acquisition(root)
+        result=module.run_managed_preparation(path,expected_config_sha256=digest,output=root/'execution',
+            interpreter=sys.executable,data_overlay=ROOT/'environment/research-v2-data-site')
+>       assert result['status']=='completed_preparation',result
+E       AssertionError: {'schema': 'research/v2-managed-preparation-result', 'status': 'preparation_failed', 'request_sha256': '62e17bcba1c0f7...cb379afa8e1dcae4430e608347', 'process_sha256': '8c5b48c5adcf2ab43589983502390a29f7c9f497cbbcba1c91059f96b318fb10', ...}
+E       assert 'preparation_failed' == 'completed_preparation'
+E         
+E         - completed_preparation
+E         + preparation_failed
+
+tests/test_preparation_execution_v2.py:42: AssertionError
+_ ERROR at setup of test_separate_working_data_needs_identical_manifest_and_every_opaque_role[root_alias] _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x10a92c470>, _basetemp=PosixPath.../q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3921'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module')
+    def actual_preparation(tmp_path_factory):
+        module=api();root=tmp_path_factory.mktemp('managed-preparation');path,digest=copied_acquisition(root)
+        result=module.run_managed_preparation(path,expected_config_sha256=digest,output=root/'execution',
+            interpreter=sys.executable,data_overlay=ROOT/'environment/research-v2-data-site')
+>       assert result['status']=='completed_preparation',result
+E       AssertionError: {'schema': 'research/v2-managed-preparation-result', 'status': 'preparation_failed', 'request_sha256': '62e17bcba1c0f7...cb379afa8e1dcae4430e608347', 'process_sha256': '8c5b48c5adcf2ab43589983502390a29f7c9f497cbbcba1c91059f96b318fb10', ...}
+E       assert 'preparation_failed' == 'completed_preparation'
+E         
+E         - completed_preparation
+E         + preparation_failed
+
+tests/test_preparation_execution_v2.py:42: AssertionError
+=================================== FAILURES ===================================
+_ test_real_two_candidate_secondary_search_preserves_native_proposals_and_no_promotion _
+
+toy = (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3921/test_real_two_...3d8a4f3a62f5df0dd09440e7368edd88249354af50bd8f7ee', <treeneuron.research.transfer.TransferStore object at 0x114106240>)
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3921/test_real_two_candidate_second0')
+
+    def test_real_two_candidate_secondary_search_preserves_native_proposals_and_no_promotion(toy,tmp_path):
+        module=api();roles,events,plan,staged,spec=setup(toy,tmp_path)
+        from treeneuron.research.search_controller_v2 import run_search
+        search=tmp_path/'search'
+        callback=module._SecondaryInspectedBridge(role_store=roles,plan=plan,template_path=Path(staged['request_path']),
+            expected_template_sha256=staged['request_sha256'],prepared_root=toy[0],expected_manifest_sha256=toy[1],outer_fold=1,
+            search_directory=search,interpreter=sys.executable)
+        result=run_search(search,plan=plan,evaluate_trial=callback,invocation_preparation_ns=callback.preparation_ns)
+        assert result['attempts_paid']==2 and result['winner'] is None
+>       assert [r['status'] for r in result['records']]==['completed_ineligible','completed_ineligible']
+E       AssertionError: assert ['input_or_de...ency_failure'] == ['completed_i...d_ineligible']
+E         
+E         At index 0 diff: 'input_or_dependency_failure' != 'completed_ineligible'
+E         Use -v to get more diff
+
+tests/test_secondary_native_search_v2.py:65: AssertionError
+_ test_actual_official_preparation_alone_cannot_promote_missing_native_proofs __
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3921/test_actual_official_preparati0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x114b2f6b0>
+
+    def test_actual_official_preparation_alone_cannot_promote_missing_native_proofs(tmp_path,monkeypatch):
+        from test_preparation_execution_v2 import copied_acquisition
+        from treeneuron.research.preparation_execution_v2 import run_managed_preparation
+        import sys
+        module=api();path,digest=copied_acquisition(tmp_path)
+        actual=run_managed_preparation(path,expected_config_sha256=digest,output=tmp_path/'actual-data-proof',
+            interpreter=sys.executable,data_overlay=Path(__file__).resolve().parents[1]/'environment/research-v2-data-site')
+>       assert actual['status']=='completed_preparation'
+E       AssertionError: assert 'preparation_failed' == 'completed_preparation'
+E         
+E         - completed_preparation
+E         + preparation_failed
+
+tests/test_native_qualification_registry_v2.py:99: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_secondary_native_search_v2.py::test_real_two_candidate_secondary_search_preserves_native_proposals_and_no_promotion
+FAILED tests/test_native_qualification_registry_v2.py::test_actual_official_preparation_alone_cannot_promote_missing_native_proofs
+ERROR tests/test_native_qualification_registry_v2.py::test_one_actual_anchor_joins_its_own_native_workload_without_qualifying_the_suite
+ERROR tests/test_native_qualification_registry_v2.py::test_a_different_valid_native_generation_cannot_supply_an_anchors_workload
+ERROR tests/test_native_qualification_registry_v2.py::test_working_access_logs_do_not_mutate_the_immutable_official_preparation
+ERROR tests/test_native_qualification_registry_v2.py::test_separate_working_data_needs_identical_manifest_and_every_opaque_role[protected_bytes]
+ERROR tests/test_native_qualification_registry_v2.py::test_separate_working_data_needs_identical_manifest_and_every_opaque_role[manifest]
+ERROR tests/test_native_qualification_registry_v2.py::test_separate_working_data_needs_identical_manifest_and_every_opaque_role[root_alias]
+2 failed, 88 passed, 6 errors in 82.29s (0:01:22)

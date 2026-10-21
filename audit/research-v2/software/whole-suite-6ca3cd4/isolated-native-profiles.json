@@ -1,0 +1,89 @@
+{
+  "T_accessed": false,
+  "all_seven_software_profiles_passed": true,
+  "native_workload_qualified": false,
+  "profiles": [
+    {
+      "identity_sha256": "f4031b74b14fc6847d23907d426c6f1717642537de2476af6bad66e0bac89305",
+      "observed_peak_root_rss_bytes": 340377600,
+      "process_elapsed_ns": 72694648209,
+      "profile": "gated",
+      "reference": {
+        "inventory_sha256": "52359e92e9a27fb2e72c8a4a35c7ae031d1e92992bad8232522ea2ce911bbee1",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/native-profiles-6ca3cd4/gated"
+      },
+      "test_cases": 48
+    },
+    {
+      "identity_sha256": "f4031b74b14fc6847d23907d426c6f1717642537de2476af6bad66e0bac89305",
+      "observed_peak_root_rss_bytes": 88408064,
+      "process_elapsed_ns": 25795753042,
+      "profile": "native_trees",
+      "reference": {
+        "inventory_sha256": "070c116f442abbe77f16c5f27c2c4c8853e2168a307e8acdb7aa0e2ac4dcbdaf",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/native-profiles-6ca3cd4/native_trees"
+      },
+      "test_cases": 8
+    },
+    {
+      "identity_sha256": "f4031b74b14fc6847d23907d426c6f1717642537de2476af6bad66e0bac89305",
+      "observed_peak_root_rss_bytes": 468942848,
+      "process_elapsed_ns": 228309196875,
+      "profile": "node",
+      "reference": {
+        "inventory_sha256": "1625eae885c330aef861e45d697a17ecab6e083cc244b0a7ef559bc7842ce86a",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/native-profiles-6ca3cd4/node"
+      },
+      "test_cases": 77
+    },
+    {
+      "identity_sha256": "f4031b74b14fc6847d23907d426c6f1717642537de2476af6bad66e0bac89305",
+      "observed_peak_root_rss_bytes": 250445824,
+      "process_elapsed_ns": 88959812459,
+      "profile": "ordinary_neural",
+      "reference": {
+        "inventory_sha256": "f92994aae21fc2f23d45aba1596c83f2b12c3b4bbbadf653891c11e550c57c44",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/native-profiles-6ca3cd4/ordinary_neural"
+      },
+      "test_cases": 5
+    },
+    {
+      "identity_sha256": "f4031b74b14fc6847d23907d426c6f1717642537de2476af6bad66e0bac89305",
+      "observed_peak_root_rss_bytes": 247988224,
+      "process_elapsed_ns": 228488007500,
+      "profile": "realmlp",
+      "reference": {
+        "inventory_sha256": "3631e86eaf9ff32e5a01ed2d0fc98b49b53c789dc25d697ecd75a88a0ce07b54",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/native-profiles-6ca3cd4/realmlp"
+      },
+      "test_cases": 12
+    },
+    {
+      "identity_sha256": "f4031b74b14fc6847d23907d426c6f1717642537de2476af6bad66e0bac89305",
+      "observed_peak_root_rss_bytes": 106528768,
+      "process_elapsed_ns": 23564904542,
+      "profile": "simple",
+      "reference": {
+        "inventory_sha256": "4dc499944e18848a8a43bc53cb6ee26c1ac776256dbf0b9cd1b772bbe2308b4b",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/native-profiles-6ca3cd4/simple"
+      },
+      "test_cases": 48
+    },
+    {
+      "identity_sha256": "f4031b74b14fc6847d23907d426c6f1717642537de2476af6bad66e0bac89305",
+      "observed_peak_root_rss_bytes": 260112384,
+      "process_elapsed_ns": 84374283916,
+      "profile": "tabm",
+      "reference": {
+        "inventory_sha256": "279573b4241e2d8bca8e21c2f1c837356140425c38aa919e148edec0bab86741",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/native-profiles-6ca3cd4/tabm"
+      },
+      "test_cases": 4
+    }
+  ],
+  "quality_eligible": false,
+  "schema": "research/v2-fixed-native-profile-summary",
+  "scope": "Seven genuine fixed source/test/lock-bound software proofs reopened under the corrected source. No full-suite green, full real workload registry or predictive outcome.",
+  "source_sha256": "6ca3cd4ec41ecc8222fc9e8add58ceb0ae07b5fd9c86d1fa1cd87fae0933bbac",
+  "total_cases": 202
+}

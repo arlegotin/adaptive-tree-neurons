@@ -23,6 +23,7 @@ from .secondary_native_evidence_v2 import _candidate,_inspection,_workload
 from .search_controller_v2 import SearchPlan
 from .search_supports_v2 import family_search_spec
 from .trial_bridge_v2 import EngineeringTrialBridge
+from .validation_invocation_v2 import _within_validation
 
 
 _ADMISSION_CLOCK=('Whole global/native prerequisite checks, fitting, replay, workload and V arithmetic are paid here; '
@@ -136,6 +137,7 @@ class _QualifiedSecondaryCallback:
         if canonical_json(current)!=canonical_json(declaration):raise ValueError('Frozen secondary procedure changed')
         return frozen,barrier
 
+    @_within_validation
     def __call__(self,request):
         started=time.perf_counter_ns();frozen,_=self._unchanged()
         result=self._inner(request);attempt=Path(request['attempt_directory']);search=Path(request['search_directory'])
@@ -172,6 +174,7 @@ class PreparedSecondaryNativeCallback:
     native_sampler_minimum_prerequisite_ns:int
 
 
+@_within_validation
 def prepare_secondary_native_callback(*,barrier_reference,qualification_reference,job_id,output,search_directory,
         official_schedule_reference=None,rss_limit_bytes=4*1024**3):
     started=time.perf_counter_ns()
@@ -234,6 +237,7 @@ def prepare_secondary_native_callback(*,barrier_reference,qualification_referenc
         callback.native_sampler_minimum_prerequisite_ns)
 
 
+@_within_validation
 def audit_secondary_qualified_search(*,barrier_reference,qualification_reference,job_id,search_directory,
         expected_search_plan_sha256,result_path,expected_result_sha256,expected_journal_sha256,official_schedule_reference=None):
     """Reopen real gates, native outcomes, paid HPO law and every retained view."""

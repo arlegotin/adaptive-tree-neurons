@@ -7,6 +7,7 @@ import math
 from pathlib import Path
 import sys
 import time
+from .validation_invocation_v2 import _within_validation, _recheck_validation
 
 
 _VIEWS={'native_quality':None,'600000000000':600000000000,'1800000000000':1800000000000,'7200000000000':7200000000000}
@@ -195,6 +196,7 @@ class QualifiedPracticalModels:
     def payload(self):return json.loads(self._payload_json)
 
 
+@_within_validation
 def seal_qualified_practical_models(*,global_barrier_reference,qualification_reference,secondary_search_proofs,output):
     barrier=_frozen(global_barrier_reference,qualification_reference)
     payload=_assemble(barrier=barrier,global_barrier_reference=global_barrier_reference,qualification_reference=qualification_reference,
@@ -204,10 +206,12 @@ def seal_qualified_practical_models(*,global_barrier_reference,qualification_ref
     if _source()!=payload['source_sha256']:raise ValueError('Source changed before complete model publication')
     from treeneuron.config import canonical_hash,canonical_json
     from .ledger import write_new_json
+    _recheck_validation()
     write_new_json(output,dict(schema='research/v2-qualified-practical-models',payload=payload,payload_hash=canonical_hash(payload)))
     return QualifiedPracticalModels(dict(path=str(output),sha256=hashlib.sha256(output.read_bytes()).hexdigest()),canonical_json(payload))
 
 
+@_within_validation
 def load_qualified_practical_models(reference,*,global_barrier_reference,qualification_reference):
     barrier=_frozen(global_barrier_reference,qualification_reference)
     from treeneuron.config import canonical_hash,canonical_json

@@ -1,0 +1,33 @@
+.F                                                                       [100%]
+=================================== FAILURES ===================================
+___________ test_valid_publication_can_recheck_inputs_before_writing ___________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3923/test_valid_publication_can_rec0')
+
+    def test_valid_publication_can_recheck_inputs_before_writing(tmp_path):
+        module = api(); path = tmp_path/'metadata.json'; visits = []
+        path.write_text(json.dumps({'native_workload_qualified': False, 'rows': 168}))
+        load = reader(module, path, visits); output = tmp_path/'published.json'
+        @module._within_validation
+        def publish():
+            value = load(); module._recheck_validation()
+            output.write_text(json.dumps(value))
+>       publish()
+
+tests/test_validation_composition_v2.py:118: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/research/validation_invocation_v2.py:54: in invoke
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    @module._within_validation
+    def publish():
+>       value = load(); module._recheck_validation()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'treeneuron.research.validation_invocation_v2' has no attribute '_recheck_validation'. Did you mean: '_within_validation'?
+
+tests/test_validation_composition_v2.py:116: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_validation_composition_v2.py::test_valid_publication_can_recheck_inputs_before_writing
+1 failed, 1 passed, 7 deselected in 0.18s

@@ -1,0 +1,689 @@
+{
+  "architecture": {
+    "process": "arm64",
+    "uname": {
+      "command": [
+        "uname",
+        "-m"
+      ],
+      "reason": null,
+      "returncode": 0,
+      "value": "arm64"
+    }
+  },
+  "backend_probes": {
+    "comparison_blocks": [],
+    "decision": null,
+    "probes": {
+      "cpu": {
+        "batch_sizes": [
+          16,
+          32,
+          64,
+          128
+        ],
+        "check": "actual_backend_kernels_and_batches",
+        "device": "cpu",
+        "environment": {
+          "architecture": "arm64",
+          "dtype": "torch.float32",
+          "fallback_env": "0",
+          "interop_threads": 1,
+          "mps_available": true,
+          "platform": "macOS-26.7.1-arm64-arm-64bit",
+          "python": "3.12.13",
+          "threads": 1,
+          "torch": "2.14.1"
+        },
+        "environment_sha256": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "exclusions": [
+          "float64 MPS forbidden; signed eigendecomposition CPU64 only",
+          "No implicit fallback; unsupported indispensable training op excludes whole backend"
+        ],
+        "fallback_disabled_before_import": true,
+        "implementation_sha256": "6f702a34dda4b260fbef75d800ef183fcfeb1f716f266b8895bef50d07189401",
+        "lock_sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "magnitudes": [
+          0.1,
+          1.0,
+          10.0
+        ],
+        "operations": {
+          "adamw_resumed_step": {
+            "status": "not_run",
+            "trials": []
+          },
+          "adamw_step": {
+            "status": "not_run",
+            "trials": []
+          },
+          "gemm": {
+            "status": "not_run",
+            "trials": []
+          },
+          "index_copy": {
+            "status": "not_run",
+            "trials": []
+          },
+          "index_select": {
+            "status": "not_run",
+            "trials": []
+          },
+          "input_gradient": {
+            "status": "not_run",
+            "trials": []
+          },
+          "layer_output": {
+            "status": "not_run",
+            "trials": []
+          },
+          "loss": {
+            "status": "not_run",
+            "trials": []
+          },
+          "parameter_gradients": {
+            "status": "not_run",
+            "trials": []
+          },
+          "prediction": {
+            "status": "not_run",
+            "trials": []
+          },
+          "relu": {
+            "status": "not_run",
+            "trials": []
+          },
+          "resumed_update": {
+            "status": "not_run",
+            "trials": []
+          },
+          "serialization": {
+            "status": "not_run",
+            "trials": []
+          },
+          "sigmoid": {
+            "status": "not_run",
+            "trials": []
+          },
+          "tanh": {
+            "status": "not_run",
+            "trials": []
+          }
+        },
+        "reason": "RuntimeError: Resource guard: memory pressure level 2",
+        "reference": {
+          "device": "cpu",
+          "dtype": "torch.float64"
+        },
+        "resources_before": {
+          "initial_reservation_bytes": 9663676416,
+          "mps_memory_bytes": {
+            "current_allocated_memory": {
+              "reason": null,
+              "value": 0
+            },
+            "driver_allocated_memory": {
+              "reason": null,
+              "value": 475136
+            },
+            "recommended_max_memory": {
+              "reason": null,
+              "value": 30150672384
+            }
+          },
+          "observations": {
+            "physical": {
+              "command": [
+                "sysctl",
+                "-n",
+                "hw.memsize"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "38654705664"
+            },
+            "power": {
+              "command": [
+                "pmset",
+                "-g",
+                "batt"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=redacted)\t79%; AC attached; not charging present: true"
+            },
+            "pressure": {
+              "command": [
+                "memory_pressure",
+                "-Q"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 38%"
+            },
+            "pressure_level": {
+              "command": [
+                "sysctl",
+                "-n",
+                "kern.memorystatus_vm_pressure_level"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "2"
+            },
+            "rss": {
+              "command": [
+                "ps",
+                "-o",
+                "rss=",
+                "-p",
+                "46549"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "202416"
+            },
+            "swap": {
+              "command": [
+                "sysctl",
+                "-n",
+                "vm.swapusage"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "total = 11776.00M  used = 10951.81M  free = 824.19M  (encrypted)"
+            },
+            "vm_stat": {
+              "command": [
+                "vm_stat"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     3993.\nPages active:                                 442965.\nPages inactive:                               440705.\nPages speculative:                               791.\nPages throttled:                                   0.\nPages wired down:                             216321.\nPages purgeable:                                   4.\n\"Translation faults\":                     9218377636.\nPages copy-on-write:                       632825957.\nPages zero filled:                        8052537446.\nPages reactivated:                         214521651.\nPages purged:                               88499178.\nFile-backed pages:                            313156.\nAnonymous pages:                              571305.\nPages stored in compressor:                  2825523.\nPages occupied by compressor:                1195684.\nDecompressions:                            207083729.\nCompressions:                              270782798.\nPageins:                                   205507276.\nPageouts:                                    1170103.\nSwapins:                                     3465149.\nSwapouts:                                    6076034."
+            }
+          },
+          "peak_rss_bytes": 208584704,
+          "pressure_headroom_bytes": {
+            "interpretation": "coarse memory_pressure free percentage times physical; not free VM pages",
+            "reason": null,
+            "value": 14688788152
+          },
+          "rss_bytes": {
+            "reason": null,
+            "value": 207273984
+          },
+          "swap_used_bytes": {
+            "reason": null,
+            "value": 11483805122
+          },
+          "unified_memory_counters_overlap": true,
+          "utc": "2026-10-21T04:46:14.666806+00:00"
+        },
+        "schema_version": 1,
+        "seeds": [
+          1602030,
+          1602031,
+          1602032
+        ],
+        "status": "failed",
+        "tolerance": {
+          "atol": 7.62939453125e-06,
+          "rtol": 3.0517578125e-05
+        },
+        "tolerance_basis": "64 eps absolute +256 eps relative, binary32 eps; short d<=16,h<=64 reductions. Fixed before native results; all errors recorded including CPU32 baseline, no MPS allowance.",
+        "utc": "2026-10-21T04:46:14.620692+00:00"
+      },
+      "mps": {
+        "batch_sizes": [
+          16,
+          32,
+          64,
+          128
+        ],
+        "check": "actual_backend_kernels_and_batches",
+        "device": "mps",
+        "environment": {
+          "architecture": "arm64",
+          "dtype": "torch.float32",
+          "fallback_env": "0",
+          "interop_threads": 1,
+          "mps_available": true,
+          "platform": "macOS-26.7.1-arm64-arm-64bit",
+          "python": "3.12.13",
+          "threads": 1,
+          "torch": "2.14.1"
+        },
+        "environment_sha256": "af9618d1f31b7f55bd414c489f0cf65b3f96547df5b9c57128207a50b7871b68",
+        "exclusions": [
+          "float64 MPS forbidden; signed eigendecomposition CPU64 only",
+          "No implicit fallback; unsupported indispensable training op excludes whole backend"
+        ],
+        "fallback_disabled_before_import": true,
+        "implementation_sha256": "6f702a34dda4b260fbef75d800ef183fcfeb1f716f266b8895bef50d07189401",
+        "lock_sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5",
+        "magnitudes": [
+          0.1,
+          1.0,
+          10.0
+        ],
+        "operations": {
+          "adamw_resumed_step": {
+            "status": "not_run",
+            "trials": []
+          },
+          "adamw_step": {
+            "status": "not_run",
+            "trials": []
+          },
+          "gemm": {
+            "status": "not_run",
+            "trials": []
+          },
+          "index_copy": {
+            "status": "not_run",
+            "trials": []
+          },
+          "index_select": {
+            "status": "not_run",
+            "trials": []
+          },
+          "input_gradient": {
+            "status": "not_run",
+            "trials": []
+          },
+          "layer_output": {
+            "status": "not_run",
+            "trials": []
+          },
+          "loss": {
+            "status": "not_run",
+            "trials": []
+          },
+          "parameter_gradients": {
+            "status": "not_run",
+            "trials": []
+          },
+          "prediction": {
+            "status": "not_run",
+            "trials": []
+          },
+          "relu": {
+            "status": "not_run",
+            "trials": []
+          },
+          "resumed_update": {
+            "status": "not_run",
+            "trials": []
+          },
+          "serialization": {
+            "status": "not_run",
+            "trials": []
+          },
+          "sigmoid": {
+            "status": "not_run",
+            "trials": []
+          },
+          "tanh": {
+            "status": "not_run",
+            "trials": []
+          }
+        },
+        "reason": "RuntimeError: Resource guard: memory pressure level 2",
+        "reference": {
+          "device": "cpu",
+          "dtype": "torch.float64"
+        },
+        "resources_before": {
+          "initial_reservation_bytes": 9663676416,
+          "mps_memory_bytes": {
+            "current_allocated_memory": {
+              "reason": null,
+              "value": 0
+            },
+            "driver_allocated_memory": {
+              "reason": null,
+              "value": 475136
+            },
+            "recommended_max_memory": {
+              "reason": null,
+              "value": 30150672384
+            }
+          },
+          "observations": {
+            "physical": {
+              "command": [
+                "sysctl",
+                "-n",
+                "hw.memsize"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "38654705664"
+            },
+            "power": {
+              "command": [
+                "pmset",
+                "-g",
+                "batt"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=redacted)\t79%; AC attached; not charging present: true"
+            },
+            "pressure": {
+              "command": [
+                "memory_pressure",
+                "-Q"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 38%"
+            },
+            "pressure_level": {
+              "command": [
+                "sysctl",
+                "-n",
+                "kern.memorystatus_vm_pressure_level"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "2"
+            },
+            "rss": {
+              "command": [
+                "ps",
+                "-o",
+                "rss=",
+                "-p",
+                "46568"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "201792"
+            },
+            "swap": {
+              "command": [
+                "sysctl",
+                "-n",
+                "vm.swapusage"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "total = 11776.00M  used = 10951.81M  free = 824.19M  (encrypted)"
+            },
+            "vm_stat": {
+              "command": [
+                "vm_stat"
+              ],
+              "reason": null,
+              "returncode": 0,
+              "value": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    11302.\nPages active:                                 439702.\nPages inactive:                               437156.\nPages speculative:                              1668.\nPages throttled:                                   0.\nPages wired down:                             215059.\nPages purgeable:                                   4.\n\"Translation faults\":                     9218410952.\nPages copy-on-write:                       632828919.\nPages zero filled:                        8052548390.\nPages reactivated:                         214521651.\nPages purged:                               88499178.\nFile-backed pages:                            313729.\nAnonymous pages:                              564797.\nPages stored in compressor:                  2825512.\nPages occupied by compressor:                1195682.\nDecompressions:                            207083764.\nCompressions:                              270782798.\nPageins:                                   205507304.\nPageouts:                                    1170103.\nSwapins:                                     3465149.\nSwapouts:                                    6076034."
+            }
+          },
+          "peak_rss_bytes": 207962112,
+          "pressure_headroom_bytes": {
+            "interpretation": "coarse memory_pressure free percentage times physical; not free VM pages",
+            "reason": null,
+            "value": 14688788152
+          },
+          "rss_bytes": {
+            "reason": null,
+            "value": 206635008
+          },
+          "swap_used_bytes": {
+            "reason": null,
+            "value": 11483805122
+          },
+          "unified_memory_counters_overlap": true,
+          "utc": "2026-10-21T04:46:15.320162+00:00"
+        },
+        "schema_version": 1,
+        "seeds": [
+          1602030,
+          1602031,
+          1602032
+        ],
+        "status": "failed",
+        "tolerance": {
+          "atol": 7.62939453125e-06,
+          "rtol": 3.0517578125e-05
+        },
+        "tolerance_basis": "64 eps absolute +256 eps relative, binary32 eps; short d<=16,h<=64 reductions. Fixed before native results; all errors recorded including CPU32 baseline, no MPS allowance.",
+        "utc": "2026-10-21T04:46:15.277906+00:00"
+      }
+    },
+    "reason": "CPU backend did not pass mandatory actual probes",
+    "schema_version": 1,
+    "status": "failed"
+  },
+  "command_errors": [
+    {
+      "command": [
+        "system_profiler",
+        "SPHardwareDataType",
+        "-detailLevel",
+        "mini"
+      ],
+      "reason": "2026-10-21 06:46:12.779 system_profiler[46520:28813224] hw.cpufamily: 0x72015832",
+      "returncode": 0,
+      "value": "Hardware:\n\n    Hardware Overview:\n\n      Model Name: MacBook Pro\n      Model Identifier: Mac15,11\n      Model Number: MRW33N/A\n      Chip: Apple M3 Max\n      Total Number of Cores: 14 (10 Performance and 4 Efficiency)\n      Memory: 36 GB\n      System Firmware Version: 20457.1.29\n      OS Loader Version: 18000.161.10.701.1"
+    }
+  ],
+  "cpu": {
+    "hardware": {
+      "command": [
+        "system_profiler",
+        "SPHardwareDataType",
+        "-detailLevel",
+        "mini"
+      ],
+      "reason": "2026-10-21 06:46:12.779 system_profiler[46520:28813224] hw.cpufamily: 0x72015832",
+      "returncode": 0,
+      "value": "Hardware:\n\n    Hardware Overview:\n\n      Model Name: MacBook Pro\n      Model Identifier: Mac15,11\n      Model Number: MRW33N/A\n      Chip: Apple M3 Max\n      Total Number of Cores: 14 (10 Performance and 4 Efficiency)\n      Memory: 36 GB\n      System Firmware Version: 20457.1.29\n      OS Loader Version: 18000.161.10.701.1"
+    },
+    "logical_cpus": {
+      "command": [
+        "sysctl",
+        "-n",
+        "hw.logicalcpu"
+      ],
+      "reason": null,
+      "returncode": 0,
+      "value": 14
+    }
+  },
+  "cpu_ready": true,
+  "disk": {
+    "free_bytes": 193839374336,
+    "observation": {
+      "command": [
+        "df",
+        "-h",
+        "."
+      ],
+      "reason": null,
+      "returncode": 0,
+      "value": "Filesystem      Size    Used   Avail Capacity iused ifree %iused  Mounted on\n/dev/disk3s5   867Gi   654Gi   181Gi    79%     10M  1.9G    1%   /System/Volumes/Data"
+    },
+    "reason": null,
+    "total_bytes": 930662584320,
+    "used_bytes": 736823209984
+  },
+  "environment": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+    "PYTORCH_MPS_HIGH_WATERMARK_RATIO": null,
+    "PYTORCH_MPS_LOW_WATERMARK_RATIO": null
+  },
+  "lock": {
+    "reason": null,
+    "sha256": "13e693201df7368be782d81f8fc386e6c291da2efb819a97a0524f9563cb19b5"
+  },
+  "memory": {
+    "initial_reservation_bytes": {
+      "reason": null,
+      "value": 9663676416
+    },
+    "physical_bytes": {
+      "command": [
+        "sysctl",
+        "-n",
+        "hw.memsize"
+      ],
+      "reason": null,
+      "returncode": 0,
+      "value": 38654705664
+    },
+    "pressure": {
+      "command": [
+        "memory_pressure",
+        "-Q"
+      ],
+      "reason": null,
+      "returncode": 0,
+      "value": "The system has 38654705664 (2359296 pages with a page size of 16384).\nSystem-wide memory free percentage: 38%"
+    },
+    "swap": {
+      "command": [
+        "sysctl",
+        "-n",
+        "vm.swapusage"
+      ],
+      "reason": null,
+      "returncode": 0,
+      "value": "total = 11776.00M  used = 10951.81M  free = 824.19M  (encrypted)"
+    },
+    "vm_stat": {
+      "command": [
+        "vm_stat"
+      ],
+      "reason": null,
+      "returncode": 0,
+      "value": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    21963.\nPages active:                                 432808.\nPages inactive:                               428505.\nPages speculative:                              5439.\nPages throttled:                                   0.\nPages wired down:                             216154.\nPages purgeable:                               18588.\n\"Translation faults\":                     9218251930.\nPages copy-on-write:                       632819320.\nPages zero filled:                        8052446101.\nPages reactivated:                         214521374.\nPages purged:                               88483554.\nFile-backed pages:                            323434.\nAnonymous pages:                              543318.\nPages stored in compressor:                  2825552.\nPages occupied by compressor:                1195684.\nDecompressions:                            207083613.\nCompressions:                              270782798.\nPageins:                                   205507167.\nPageouts:                                    1170070.\nSwapins:                                     3465141.\nSwapouts:                                    6076034."
+    }
+  },
+  "os": {
+    "observation": {
+      "command": [
+        "sw_vers"
+      ],
+      "reason": null,
+      "returncode": 0,
+      "value": "ProductName:\t\tmacOS\nProductVersion:\t\t26.7.1\nBuildVersion:\t\t25G241"
+    },
+    "release": "25.6.0",
+    "system": "Darwin"
+  },
+  "packages": {
+    "PyYAML": {
+      "import_ok": true,
+      "reason": null,
+      "version": "6.0.3"
+    },
+    "numpy": {
+      "import_ok": true,
+      "reason": null,
+      "version": "2.5.4"
+    },
+    "pandas": {
+      "import_ok": true,
+      "reason": null,
+      "version": "3.0.6"
+    },
+    "pytest": {
+      "import_ok": true,
+      "reason": null,
+      "version": "9.1.1"
+    },
+    "scikit-learn": {
+      "import_ok": true,
+      "reason": null,
+      "version": "1.9.1"
+    },
+    "scipy": {
+      "import_ok": true,
+      "reason": null,
+      "version": "1.18.1"
+    },
+    "torch": {
+      "import_ok": true,
+      "reason": null,
+      "version": "2.14.1"
+    }
+  },
+  "power": {
+    "command": [
+      "pmset",
+      "-g",
+      "batt"
+    ],
+    "reason": null,
+    "returncode": 0,
+    "value": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=redacted)\t79%; AC attached; not charging present: true"
+  },
+  "python": {
+    "implementation": "CPython",
+    "version": "3.12.13"
+  },
+  "schema_version": 1,
+  "sources": {
+    "novelty_status": "provisional; R12 PDF retrieved, focused algorithm comparison pending",
+    "reason": null,
+    "sha256": "bcbc6046180a1cbdf57dc2934cd791a805b6c992f3d3db19b7fdef7562dea50f",
+    "status": "recorded"
+  },
+  "tools": {
+    "git": {
+      "command": [
+        "git",
+        "--version"
+      ],
+      "reason": null,
+      "returncode": 0,
+      "value": "git version 2.49.0"
+    },
+    "uv": {
+      "command": [
+        "uv",
+        "--version"
+      ],
+      "reason": null,
+      "returncode": 0,
+      "value": "uv 0.11.29 (901092ee1 2026-07-15 aarch64-apple-darwin)"
+    },
+    "xcode": {
+      "command": [
+        "xcode-select",
+        "-p"
+      ],
+      "reason": null,
+      "returncode": 0,
+      "value": "/Applications/Xcode.app/Contents/Developer"
+    }
+  },
+  "torch": {
+    "cpu_threads": 1,
+    "interop_threads": 14,
+    "kernel_gate": "failed",
+    "memory_bytes": {
+      "current_allocated_memory": {
+        "reason": null,
+        "value": 0
+      },
+      "driver_allocated_memory": {
+        "reason": null,
+        "value": 475136
+      },
+      "recommended_max_memory": {
+        "reason": null,
+        "value": 30150672384
+      }
+    },
+    "mps_available": true,
+    "mps_built": true,
+    "reason": null,
+    "version": "2.14.1"
+  },
+  "utc": "2026-10-21T04:46:14.090102+00:00"
+}

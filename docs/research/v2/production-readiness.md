@@ -9,9 +9,15 @@ required; no genuine readiness seal or protected outcome exists yet.
 `production_readiness_v2.seal_production_readiness` and
 `load_production_readiness` reopen the **actual native registry first**, before
 reading caller-provided review, software or source references. The existing
-registry independently checks its seven native implementation profiles, all120
-anchors,258 support qualifications, recovery and official prepared-data evidence.
-No caller Boolean or cached success replaces those checks.
+registry independently checks its seven native implementation profiles, all 120
+anchors, 258 support qualifications, recovery and official prepared-data evidence.
+No caller Boolean or persistent cached success replaces those checks. Within a
+single real public validation call, a private context may retain the immutable
+JSON returned by the actual native/global loaders. Nested searches reuse those
+prerequisites; source guards, checks of each selected search/model, and complete
+retained-input guards at the end remain required. The context is discarded at
+return or failure. It cannot be supplied through a public function argument.
+Immutable publications finish the retained-input guards before writing output.
 
 The separate `production_verification_v2` profiles exercise the practical search,
 protection, pipeline and reporting contracts. They use the existing process
@@ -77,14 +83,30 @@ from these supplied-metadata checks. The historical whole-suite failures and
 current legacy memory-pressure setup errors remain disclosed; a scoped fixture
 profile does not relabel them a monolithic green run.
 
-The final four supervised profiles passed **751 cases across44 distinct test
-files**: search257, protection197, pipeline159 and reporting138. All four actual
+At the reviewed commit `783cb2d`, four supervised profiles passed **751 cases across44 distinct test
+files**: search257, protection 197, pipeline 159 and reporting 138. All four actual
 loaders reopened their immutable process/JUnit/source evidence. The
 [implementation receipt](WP09-production-readiness-implementation-receipt.json)
 retains initial RED runs, a prior source's four failed legacy clock-metadata
 checks, the4-case correction, prior proofs and exact reconstructable source
-snapshots. These are software results; actual final-source native qualification,
-committed package inspection and fresh branch review remain separate.
+snapshots. Its committed package inspection also passed780 execution files.
+These are historical software/package results for that exact revision; they
+do not migrate through the subsequent review fixes.
+
+The fresh whole-branch review returned two Important findings and no Critical
+or Minor findings. R1 reproduced four sampler/serialized-optimizer corruptions
+accepted before checkpoint publication, including latent embedded-best defects.
+R2 established a conservative225,792 repeated primary-search audits in one
+all 840 reconstruction; it did not measure production wall time. The single
+material fix pass adds shared current/best snapshot validation and private
+in-call prerequisite reuse. The review response and exact fix evidence are
+retained under `audit/research-v2/final-review/`. New source-bound verification passed 777 checks across 46 files after these
+fixes, with all four actual loaders reopened. The complete repository suite finished non-green:3,181 passed, 106 failed,
+459 setup errors and six skips. The current inventory retains all names and
+cause limits; all seven native software profiles subsequently passed202 cases in fresh
+processes. The58 NODE failures also pass by exact case ID under isolation. The [fix receipt](WP09-final-review-fix-receipt.json) preserves initial
+failures and the98-case affected recovery. Native qualification and protected
+results remain unrun.
 
 The known-fixture profiles include small model fits and sentinel arrays. They
 do not fit or inspect outcomes on the actual protected benchmark. Root worker

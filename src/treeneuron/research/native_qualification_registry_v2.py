@@ -20,6 +20,7 @@ from .preparation_execution_v2 import load_preparation_execution
 from .search_supports_v2 import family_search_spec
 from .support_probes_v2 import support_probe_cases, load_support_probe
 from .workqueue import _inventory
+from .validation_invocation_v2 import _within_validation, _load_once
 
 
 _INPUTS={'preparation_reference','profile_references','anchor_references',
@@ -229,7 +230,19 @@ def seal_native_qualification_registry(*,preparation_reference,profile_reference
     return dict(body,reference=dict(root=str(root),inventory_sha256=canonical_hash(_inventory(root))))
 
 
+@_within_validation
 def load_native_qualification_registry(reference):
+    """Load real prerequisites once within this checked public invocation."""
+    reference = copy.deepcopy(reference)
+    def guard(value):
+        from .qualified_native_trial_v2 import QualifiedNativeTrialBridge
+        QualifiedNativeTrialBridge._unchanged(dict(registry=value, qualification_reference=reference))
+    return _load_once('native_registry', reference,
+        lambda: _load_native_qualification_registry(reference), guard=guard,
+        check=lambda value: _closed_reference(reference))
+
+
+def _load_native_qualification_registry(reference):
     """Reopen every prerequisite; no hand-filled authority or source migration."""
     reference=copy.deepcopy(reference);root,inventory=_closed_reference(reference)
     if {r['path'] for r in inventory['files']}!={'manifest.json'}:raise ValueError('Exact registry manifest inventory required')

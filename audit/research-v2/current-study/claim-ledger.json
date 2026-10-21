@@ -258,9 +258,9 @@
           "sha256": "e8d4142f9e8c129fe55287675bc834e9d10a1299940f149f2c51cd9fc052b255"
         },
         {
-          "bytes": 8849,
+          "bytes": 9281,
           "path": "docs/research/v2/native-qualification-contract.md",
-          "sha256": "897359b5a37368fbf80d4881f4c2c4188e1473611173d77e229dd9905ea5e8d9"
+          "sha256": "1a18924e7745767ff2ada006c6728528be165220faaae66cb61ea9395e050b33"
         },
         {
           "bytes": 6678,
@@ -550,7 +550,7 @@
       "strongest_counterevidence_or_limit": "Close conceptual prior art exists; a useful implementation or negative result is not a general novelty claim."
     },
     {
-      "claim": "The complete repository software run failed; seven separate native profiles passed 202 source-bound checks. No final-source or whole-suite green is claimed.",
+      "claim": "Complete repository attempts remain non-green. Current source passed777 fixed production and202 native profile cases, in separate scoped runs.",
       "claim_id": "software_scope",
       "evidence_kind": "executed_software_and_complete_failure_inventory",
       "sources": [
@@ -558,10 +558,30 @@
           "bytes": 1477,
           "path": "docs/research/v2/WP11-whole-suite-verification-receipt.json",
           "sha256": "8af9b0c913aabd7838ed7a323b0ebddd3fd7166f46b8145e9cc2bdd1ac9c92b2"
+        },
+        {
+          "bytes": 9369,
+          "path": "docs/research/v2/WP09-final-review-fix-receipt.json",
+          "sha256": "cae8661ac357d0c79a306eb6059ee6220b60a25e5ee112f356c11bdf57b8d69a"
+        },
+        {
+          "bytes": 2812,
+          "path": "audit/research-v2/software/whole-suite-6ca3cd4/summary.json",
+          "sha256": "3ea8c7a578dd791427aca886198535e757502d094f6c13a78642577e31b7df6e"
+        },
+        {
+          "bytes": 4096,
+          "path": "audit/research-v2/software/whole-suite-6ca3cd4/isolated-native-profiles.json",
+          "sha256": "4958e03ec581e107eeb71c7638ec2f733b227928cb6c486899f5ff8c920923ce"
+        },
+        {
+          "bytes": 16559,
+          "path": "audit/research-v2/software/whole-suite-6ca3cd4/NODE-isolation-followup.json",
+          "sha256": "f96857143dd6a0e4ab65ea0199a13a25a94ade21ddb317b7ceb202b6704db674"
         }
       ],
       "status": "supported",
-      "strongest_counterevidence_or_limit": "Original detailed probe bytes for three backend aggregate failures were not recovered from pytest temporary files; timing follow-up and final-source verification remain incomplete. Separate profiles are not a monolithic pass."
+      "strongest_counterevidence_or_limit": "Current whole suite3181passed/106failed/459errors/6skips is retained. All58 NODE failures pass by identical case ID under isolation;421pressure refusals and86backend/aggregate cases remain disclosed, with original detail unavailable for86. Scoped runs are not a monolithic green suite or native predictive qualification."
     },
     {
       "claim": "Reproduced test-launcher contamination and fake-model timing resource coupling have scoped verified corrections; production/native guards and historical whole-suite results remain unchanged.",
@@ -580,14 +600,16 @@
   ],
   "created_utc": "2026-10-20T06:05:41.912084+00:00",
   "final_branch_review_complete": false,
+  "fresh_review_received": true,
   "new_fit_or_inference": false,
   "new_raw_label_access": false,
   "protected_confirmation": false,
   "report": {
-    "bytes": 14691,
+    "bytes": 16456,
     "path": "reports/research-v2.md",
-    "sha256": "24f1d7a91ddcab5d6fb106fbaf2172b68a21979c63fa883531d1c61129cde1c2"
+    "sha256": "6585b7625fb6a3a3e8f5372614e4c96511f5b31314def828174c5f80d8bb57a9"
   },
+  "review_fix_status": "98_affected_777_production_and202_native_profile_cases_passed_complete_suite_non_green_pending_commit_binding",
   "schema": "research/v2-current-cross-study-claim-ledger",
   "scope": "Curated evidence-linked report assembly from compact inputs and prior audit receipts. The no-new-fit/inference/raw-label flags describe assembly only; separate fixed native V scoring is disclosed below. Not a new whole-raw/model-generation audit or completed production report path.",
   "status": "development_negative_with_practical_work_pending"

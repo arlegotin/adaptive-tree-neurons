@@ -1,0 +1,123 @@
+{
+  "T_accessed": false,
+  "affected_cases_passed": 98,
+  "complete_repository_suite_pending": true,
+  "distinct_profile_files": 46,
+  "genuine_profile_loaders_reopened": true,
+  "material_fix_passes": 1,
+  "native_workload_qualified": false,
+  "production_source_ready": false,
+  "profiles": {
+    "pipeline": {
+      "files": [
+        "tests/test_program_process_v2.py",
+        "tests/test_cold_confirmation_process_v2.py",
+        "tests/test_confirm_programme_v2.py",
+        "tests/test_deployment_query_v2.py",
+        "tests/test_native_deployment_worker_v2.py",
+        "tests/test_native_deployment_plan_v2.py",
+        "tests/test_native_deployment_execution_v2.py",
+        "tests/test_practical_pipeline_costs_v2.py",
+        "tests/test_practical_preT_costs_v2.py"
+      ],
+      "identity_sha256": "f4031b74b14fc6847d23907d426c6f1717642537de2476af6bad66e0bac89305",
+      "observed_peak_root_rss_bytes": 316063744,
+      "process_elapsed_ns": 56581581083,
+      "reference": {
+        "inventory_sha256": "af183fca8b4c09e900e8f93d544dae44a5dad995126e57f29d13164f64e92811",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/production-pipeline-6ca3cd4"
+      },
+      "rss_scope": "Observed root worker RSS samples; descendants and unobserved peaks are not measured",
+      "test_cases": 159
+    },
+    "protection": {
+      "files": [
+        "tests/test_protected_journal_v2.py",
+        "tests/test_protected_query_v2.py",
+        "tests/test_protected_query_worker_v2.py",
+        "tests/test_protected_query_artifact_v2.py",
+        "tests/test_protected_prediction_queue_v2.py",
+        "tests/test_protected_prediction_gate_v2.py",
+        "tests/test_protected_label_evaluator_v2.py",
+        "tests/test_independent_raw_audit_v2.py",
+        "tests/test_raw_audit_readback_v2.py"
+      ],
+      "identity_sha256": "f4031b74b14fc6847d23907d426c6f1717642537de2476af6bad66e0bac89305",
+      "observed_peak_root_rss_bytes": 332922880,
+      "process_elapsed_ns": 248308379292,
+      "reference": {
+        "inventory_sha256": "f86e216d4f5531870b1e18d011fdcdd89b479c35eb563abfc5d39f74af9ee466",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/production-protection-6ca3cd4"
+      },
+      "rss_scope": "Observed root worker RSS samples; descendants and unobserved peaks are not measured",
+      "test_cases": 197
+    },
+    "reporting": {
+      "files": [
+        "tests/test_report_v2.py",
+        "tests/test_frozen_practical_analysis_v2.py",
+        "tests/test_practical_comparisons_v2.py",
+        "tests/test_practical_family_report_v2.py",
+        "tests/test_protected_practical_report_v2.py",
+        "tests/test_practical_cli_v2.py",
+        "tests/test_practical_T_protocol_v2.py",
+        "tests/test_production_verification_v2.py",
+        "tests/test_production_readiness_v2.py"
+      ],
+      "identity_sha256": "f4031b74b14fc6847d23907d426c6f1717642537de2476af6bad66e0bac89305",
+      "observed_peak_root_rss_bytes": 379764736,
+      "process_elapsed_ns": 21080130167,
+      "reference": {
+        "inventory_sha256": "56554fa60052b79f9337b8f2ddabe96bcd870f356e2ce244e341e8a5596270a5",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/production-reporting-6ca3cd4"
+      },
+      "rss_scope": "Observed root worker RSS samples; descendants and unobserved peaks are not measured",
+      "test_cases": 138
+    },
+    "search": {
+      "files": [
+        "tests/test_practical_workload.py",
+        "tests/test_practical_support_lock_v2.py",
+        "tests/test_practical_procedure_v2.py",
+        "tests/test_primary_search_declaration_v2.py",
+        "tests/test_primary_search_worker_v2.py",
+        "tests/test_primary_caller_boundary_v2.py",
+        "tests/test_primary_resource_binding_v2.py",
+        "tests/test_primary_invocation_v2.py",
+        "tests/test_primary_program_v2.py",
+        "tests/test_qualified_primary_models_v2.py",
+        "tests/test_practical_global_freeze_v2.py",
+        "tests/test_secondary_resource_v2.py",
+        "tests/test_secondary_program_v2.py",
+        "tests/test_secondary_native_search_v2.py",
+        "tests/test_qualified_practical_models_v2.py",
+        "tests/test_native_resource_forecast_v2.py",
+        "tests/test_native_qualification_registry_v2.py",
+        "tests/test_validation_composition_v2.py",
+        "tests/test_snapshot_boundary_v2.py"
+      ],
+      "identity_sha256": "f4031b74b14fc6847d23907d426c6f1717642537de2476af6bad66e0bac89305",
+      "observed_peak_root_rss_bytes": 406683648,
+      "process_elapsed_ns": 175272151333,
+      "reference": {
+        "inventory_sha256": "66b2444786e24962304decfca95358a963214eb75a1ccc28ee3d946ce8982e87",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/production-search-6ca3cd4"
+      },
+      "rss_scope": "Observed root worker RSS samples; descendants and unobserved peaks are not measured",
+      "test_cases": 283
+    }
+  },
+  "protected_access_authorized": false,
+  "quality_eligible": false,
+  "review_findings": [
+    "R1",
+    "R2"
+  ],
+  "reviewed_commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+  "schema": "research/v2-final-review-fix-software-observation",
+  "scope": "Actual fixed production software profiles and explicit local regression tests. The R2 toy composition count is structural evidence, not timed native production or a successful native qualification gate. Actual native/public protected-positive evidence remains unrun.",
+  "second_review_performed": false,
+  "software_fix_verification": true,
+  "source_sha256": "6ca3cd4ec41ecc8222fc9e8add58ceb0ae07b5fd9c86d1fa1cd87fae0933bbac",
+  "total_profile_cases": 777
+}

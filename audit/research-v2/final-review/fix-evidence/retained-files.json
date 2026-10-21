@@ -1,0 +1,63 @@
+{
+  "T_accessed": false,
+  "files": [
+    {
+      "bytes": 30327,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/audit/research-v2/final-review/fix-evidence/final-R1-red.log",
+      "sha256": "899990276de70c6b286cc51d18f1e6d2c7ceed99dd0a38e45390cde11edde5ca"
+    },
+    {
+      "bytes": 45117,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/audit/research-v2/final-review/fix-evidence/final-R1-red-corrected.log",
+      "sha256": "cfd05b2ea750adf3147a2bd71a29da9d0124aeb3b6c57926c75f0a66d31e6d38"
+    },
+    {
+      "bytes": 39101,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/audit/research-v2/final-review/fix-evidence/final-R1-red-observed.log",
+      "sha256": "a0127679d523baa702cf4c364d88a23fb6ca5f56e74bdf31a8e9c1848d71a9f1"
+    },
+    {
+      "bytes": 99,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/audit/research-v2/final-review/fix-evidence/final-R1-green.log",
+      "sha256": "3332b4f331a4b71126dce11c4b766aacd6e0e651ceba3bc833e4e1ace9fe749c"
+    },
+    {
+      "bytes": 11073,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/audit/research-v2/final-review/fix-evidence/final-R2-red.log",
+      "sha256": "843292c796a3c0333ad4bfb529f3b1b506a21324ea4a5912cf0e360590b7a64f"
+    },
+    {
+      "bytes": 12931,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/audit/research-v2/final-review/fix-evidence/final-R2-green.log",
+      "sha256": "fbe039156c126b26b48c272444ce56967a35a59a53af68f6c7c0bf2962a1e4f6"
+    },
+    {
+      "bytes": 112,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/audit/research-v2/final-review/fix-evidence/final-R2-publication-red.log",
+      "sha256": "dd84153f6ce13048fb99e9291064ea9a7bdeb7d8ddcc9365fd26a3a9dff69299"
+    },
+    {
+      "bytes": 1833,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/audit/research-v2/final-review/fix-evidence/final-R2-publication-red-observed.log",
+      "sha256": "09830b82fab416d5141fb5882a080ca0522f46914300a138b664885e3eeb69bd"
+    },
+    {
+      "bytes": 191,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/audit/research-v2/final-review/fix-evidence/final-fixes-affected-green.log",
+      "sha256": "b5a656d7aec43edd1b55cd03382a1bdc524656fd3cfd1a01bae53d3f2d7e8bda"
+    },
+    {
+      "bytes": 60529,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/audit/research-v2/final-review/fix-evidence/reviewed-train.py",
+      "sha256": "14f9455ccb329b6f5b1ad4e3795fdb268dfe71402f295aa8c4dcdf7ad3352cc8"
+    },
+    {
+      "bytes": 13044,
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/audit/research-v2/final-review/fix-evidence/reviewed-checkpoint.py",
+      "sha256": "3cf8d20a270e478dfcb59ac63f18b6a911fc6eef5dfd488b39cbf1758ead7b95"
+    }
+  ],
+  "native_workload_qualified": false,
+  "schema": "research/v2-final-review-fix-evidence-inventory",
+  "source_sha256": "6ca3cd4ec41ecc8222fc9e8add58ceb0ae07b5fd9c86d1fa1cd87fae0933bbac"
+}

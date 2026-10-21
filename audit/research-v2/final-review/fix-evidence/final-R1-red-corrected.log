@@ -1,0 +1,735 @@
+EEEEEEEEEEEEEEEEE                                                        [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of test_invalid_snapshot_preserves_existing_pointer_and_rng[current-order_dtype] _
+
+    @pytest.fixture
+    def snapshot():
+        """An untrained local software state, with no backend qualification claim."""
+        from treeneuron import train
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.transforms import FittedTransform
+        from treeneuron.data.types import DevelopmentData, ObservationSet
+        config = resolve_experiment({'study_id': 'snapshot-boundary', 'model': {'d': 2, 'h': 4},
+            'data': {'n_fit': 13, 'n_growth': 7, 'n_validation': 5},
+            'training': {'batch_size': 4, 'base_updates': 6, 'continuation_updates': 6,
+                         'validation_interval': 2}, 'backend': {'cpu_threads': 1}})
+        rng = np.random.default_rng(83)
+        def rows(n, start):
+            x = rng.normal(size=(n, 2)); ids = np.arange(start, start+n, dtype=np.int64)
+            return ObservationSet(x, 7+3*x[:, 0]-x[:, 1], ids, ids)
+        data = DevelopmentData(rows(13, 0), rows(7, 100), rows(5, 200), 'local-fixture')
+        transform = FittedTransform.fit(data.F.X, data.F.y)
+        model = train.SelectiveRegressor(2, 4).float().eval()
+        optimizer = train._optimizer(model, config)
+        schedule = train.UpdateSchedule(optimizer, kind=config.training.scheduler, horizon=12,
+            min_lr=config.training.min_learning_rate, base_lrs=[config.training.learning_rate])
+>       policy = train.TrainingPolicy.from_config(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_snapshot_boundary_v2.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.train.TrainingPolicy'>
+config = ExperimentConfig(study_id='snapshot-boundary', phase='exploratory', model=ModelConfig(d=2, h=4, depth=1, tau=1.0, acti...xecution=ExecutionConfig(backend_report='environment/report.json', artifacts_root='artifacts/exploratory'), pilot=None)
+continuation = False
+
+    @classmethod
+    def from_config(cls, config: ExperimentConfig, *, continuation: bool = False):
+        t = config.training
+        for name in ('base_updates', 'continuation_updates', 'validation_interval', 'patience'):
+            if getattr(t, name) is None:
+>               raise ValueError(f'training.{name} must be supplied before training')
+E               ValueError: training.patience must be supplied before training
+
+src/treeneuron/train.py:120: ValueError
+_ ERROR at setup of test_invalid_snapshot_preserves_existing_pointer_and_rng[current-order_duplicates] _
+
+    @pytest.fixture
+    def snapshot():
+        """An untrained local software state, with no backend qualification claim."""
+        from treeneuron import train
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.transforms import FittedTransform
+        from treeneuron.data.types import DevelopmentData, ObservationSet
+        config = resolve_experiment({'study_id': 'snapshot-boundary', 'model': {'d': 2, 'h': 4},
+            'data': {'n_fit': 13, 'n_growth': 7, 'n_validation': 5},
+            'training': {'batch_size': 4, 'base_updates': 6, 'continuation_updates': 6,
+                         'validation_interval': 2}, 'backend': {'cpu_threads': 1}})
+        rng = np.random.default_rng(83)
+        def rows(n, start):
+            x = rng.normal(size=(n, 2)); ids = np.arange(start, start+n, dtype=np.int64)
+            return ObservationSet(x, 7+3*x[:, 0]-x[:, 1], ids, ids)
+        data = DevelopmentData(rows(13, 0), rows(7, 100), rows(5, 200), 'local-fixture')
+        transform = FittedTransform.fit(data.F.X, data.F.y)
+        model = train.SelectiveRegressor(2, 4).float().eval()
+        optimizer = train._optimizer(model, config)
+        schedule = train.UpdateSchedule(optimizer, kind=config.training.scheduler, horizon=12,
+            min_lr=config.training.min_learning_rate, base_lrs=[config.training.learning_rate])
+>       policy = train.TrainingPolicy.from_config(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_snapshot_boundary_v2.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.train.TrainingPolicy'>
+config = ExperimentConfig(study_id='snapshot-boundary', phase='exploratory', model=ModelConfig(d=2, h=4, depth=1, tau=1.0, acti...xecution=ExecutionConfig(backend_report='environment/report.json', artifacts_root='artifacts/exploratory'), pilot=None)
+continuation = False
+
+    @classmethod
+    def from_config(cls, config: ExperimentConfig, *, continuation: bool = False):
+        t = config.training
+        for name in ('base_updates', 'continuation_updates', 'validation_interval', 'patience'):
+            if getattr(t, name) is None:
+>               raise ValueError(f'training.{name} must be supplied before training')
+E               ValueError: training.patience must be supplied before training
+
+src/treeneuron/train.py:120: ValueError
+_ ERROR at setup of test_invalid_snapshot_preserves_existing_pointer_and_rng[current-generator] _
+
+    @pytest.fixture
+    def snapshot():
+        """An untrained local software state, with no backend qualification claim."""
+        from treeneuron import train
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.transforms import FittedTransform
+        from treeneuron.data.types import DevelopmentData, ObservationSet
+        config = resolve_experiment({'study_id': 'snapshot-boundary', 'model': {'d': 2, 'h': 4},
+            'data': {'n_fit': 13, 'n_growth': 7, 'n_validation': 5},
+            'training': {'batch_size': 4, 'base_updates': 6, 'continuation_updates': 6,
+                         'validation_interval': 2}, 'backend': {'cpu_threads': 1}})
+        rng = np.random.default_rng(83)
+        def rows(n, start):
+            x = rng.normal(size=(n, 2)); ids = np.arange(start, start+n, dtype=np.int64)
+            return ObservationSet(x, 7+3*x[:, 0]-x[:, 1], ids, ids)
+        data = DevelopmentData(rows(13, 0), rows(7, 100), rows(5, 200), 'local-fixture')
+        transform = FittedTransform.fit(data.F.X, data.F.y)
+        model = train.SelectiveRegressor(2, 4).float().eval()
+        optimizer = train._optimizer(model, config)
+        schedule = train.UpdateSchedule(optimizer, kind=config.training.scheduler, horizon=12,
+            min_lr=config.training.min_learning_rate, base_lrs=[config.training.learning_rate])
+>       policy = train.TrainingPolicy.from_config(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_snapshot_boundary_v2.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.train.TrainingPolicy'>
+config = ExperimentConfig(study_id='snapshot-boundary', phase='exploratory', model=ModelConfig(d=2, h=4, depth=1, tau=1.0, acti...xecution=ExecutionConfig(backend_report='environment/report.json', artifacts_root='artifacts/exploratory'), pilot=None)
+continuation = False
+
+    @classmethod
+    def from_config(cls, config: ExperimentConfig, *, continuation: bool = False):
+        t = config.training
+        for name in ('base_updates', 'continuation_updates', 'validation_interval', 'patience'):
+            if getattr(t, name) is None:
+>               raise ValueError(f'training.{name} must be supplied before training')
+E               ValueError: training.patience must be supplied before training
+
+src/treeneuron/train.py:120: ValueError
+_ ERROR at setup of test_invalid_snapshot_preserves_existing_pointer_and_rng[current-optimizer_options] _
+
+    @pytest.fixture
+    def snapshot():
+        """An untrained local software state, with no backend qualification claim."""
+        from treeneuron import train
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.transforms import FittedTransform
+        from treeneuron.data.types import DevelopmentData, ObservationSet
+        config = resolve_experiment({'study_id': 'snapshot-boundary', 'model': {'d': 2, 'h': 4},
+            'data': {'n_fit': 13, 'n_growth': 7, 'n_validation': 5},
+            'training': {'batch_size': 4, 'base_updates': 6, 'continuation_updates': 6,
+                         'validation_interval': 2}, 'backend': {'cpu_threads': 1}})
+        rng = np.random.default_rng(83)
+        def rows(n, start):
+            x = rng.normal(size=(n, 2)); ids = np.arange(start, start+n, dtype=np.int64)
+            return ObservationSet(x, 7+3*x[:, 0]-x[:, 1], ids, ids)
+        data = DevelopmentData(rows(13, 0), rows(7, 100), rows(5, 200), 'local-fixture')
+        transform = FittedTransform.fit(data.F.X, data.F.y)
+        model = train.SelectiveRegressor(2, 4).float().eval()
+        optimizer = train._optimizer(model, config)
+        schedule = train.UpdateSchedule(optimizer, kind=config.training.scheduler, horizon=12,
+            min_lr=config.training.min_learning_rate, base_lrs=[config.training.learning_rate])
+>       policy = train.TrainingPolicy.from_config(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_snapshot_boundary_v2.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.train.TrainingPolicy'>
+config = ExperimentConfig(study_id='snapshot-boundary', phase='exploratory', model=ModelConfig(d=2, h=4, depth=1, tau=1.0, acti...xecution=ExecutionConfig(backend_report='environment/report.json', artifacts_root='artifacts/exploratory'), pilot=None)
+continuation = False
+
+    @classmethod
+    def from_config(cls, config: ExperimentConfig, *, continuation: bool = False):
+        t = config.training
+        for name in ('base_updates', 'continuation_updates', 'validation_interval', 'patience'):
+            if getattr(t, name) is None:
+>               raise ValueError(f'training.{name} must be supplied before training')
+E               ValueError: training.patience must be supplied before training
+
+src/treeneuron/train.py:120: ValueError
+_ ERROR at setup of test_invalid_snapshot_preserves_existing_pointer_and_rng[best-order_dtype] _
+
+    @pytest.fixture
+    def snapshot():
+        """An untrained local software state, with no backend qualification claim."""
+        from treeneuron import train
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.transforms import FittedTransform
+        from treeneuron.data.types import DevelopmentData, ObservationSet
+        config = resolve_experiment({'study_id': 'snapshot-boundary', 'model': {'d': 2, 'h': 4},
+            'data': {'n_fit': 13, 'n_growth': 7, 'n_validation': 5},
+            'training': {'batch_size': 4, 'base_updates': 6, 'continuation_updates': 6,
+                         'validation_interval': 2}, 'backend': {'cpu_threads': 1}})
+        rng = np.random.default_rng(83)
+        def rows(n, start):
+            x = rng.normal(size=(n, 2)); ids = np.arange(start, start+n, dtype=np.int64)
+            return ObservationSet(x, 7+3*x[:, 0]-x[:, 1], ids, ids)
+        data = DevelopmentData(rows(13, 0), rows(7, 100), rows(5, 200), 'local-fixture')
+        transform = FittedTransform.fit(data.F.X, data.F.y)
+        model = train.SelectiveRegressor(2, 4).float().eval()
+        optimizer = train._optimizer(model, config)
+        schedule = train.UpdateSchedule(optimizer, kind=config.training.scheduler, horizon=12,
+            min_lr=config.training.min_learning_rate, base_lrs=[config.training.learning_rate])
+>       policy = train.TrainingPolicy.from_config(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_snapshot_boundary_v2.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.train.TrainingPolicy'>
+config = ExperimentConfig(study_id='snapshot-boundary', phase='exploratory', model=ModelConfig(d=2, h=4, depth=1, tau=1.0, acti...xecution=ExecutionConfig(backend_report='environment/report.json', artifacts_root='artifacts/exploratory'), pilot=None)
+continuation = False
+
+    @classmethod
+    def from_config(cls, config: ExperimentConfig, *, continuation: bool = False):
+        t = config.training
+        for name in ('base_updates', 'continuation_updates', 'validation_interval', 'patience'):
+            if getattr(t, name) is None:
+>               raise ValueError(f'training.{name} must be supplied before training')
+E               ValueError: training.patience must be supplied before training
+
+src/treeneuron/train.py:120: ValueError
+_ ERROR at setup of test_invalid_snapshot_preserves_existing_pointer_and_rng[best-order_duplicates] _
+
+    @pytest.fixture
+    def snapshot():
+        """An untrained local software state, with no backend qualification claim."""
+        from treeneuron import train
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.transforms import FittedTransform
+        from treeneuron.data.types import DevelopmentData, ObservationSet
+        config = resolve_experiment({'study_id': 'snapshot-boundary', 'model': {'d': 2, 'h': 4},
+            'data': {'n_fit': 13, 'n_growth': 7, 'n_validation': 5},
+            'training': {'batch_size': 4, 'base_updates': 6, 'continuation_updates': 6,
+                         'validation_interval': 2}, 'backend': {'cpu_threads': 1}})
+        rng = np.random.default_rng(83)
+        def rows(n, start):
+            x = rng.normal(size=(n, 2)); ids = np.arange(start, start+n, dtype=np.int64)
+            return ObservationSet(x, 7+3*x[:, 0]-x[:, 1], ids, ids)
+        data = DevelopmentData(rows(13, 0), rows(7, 100), rows(5, 200), 'local-fixture')
+        transform = FittedTransform.fit(data.F.X, data.F.y)
+        model = train.SelectiveRegressor(2, 4).float().eval()
+        optimizer = train._optimizer(model, config)
+        schedule = train.UpdateSchedule(optimizer, kind=config.training.scheduler, horizon=12,
+            min_lr=config.training.min_learning_rate, base_lrs=[config.training.learning_rate])
+>       policy = train.TrainingPolicy.from_config(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_snapshot_boundary_v2.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.train.TrainingPolicy'>
+config = ExperimentConfig(study_id='snapshot-boundary', phase='exploratory', model=ModelConfig(d=2, h=4, depth=1, tau=1.0, acti...xecution=ExecutionConfig(backend_report='environment/report.json', artifacts_root='artifacts/exploratory'), pilot=None)
+continuation = False
+
+    @classmethod
+    def from_config(cls, config: ExperimentConfig, *, continuation: bool = False):
+        t = config.training
+        for name in ('base_updates', 'continuation_updates', 'validation_interval', 'patience'):
+            if getattr(t, name) is None:
+>               raise ValueError(f'training.{name} must be supplied before training')
+E               ValueError: training.patience must be supplied before training
+
+src/treeneuron/train.py:120: ValueError
+_ ERROR at setup of test_invalid_snapshot_preserves_existing_pointer_and_rng[best-generator] _
+
+    @pytest.fixture
+    def snapshot():
+        """An untrained local software state, with no backend qualification claim."""
+        from treeneuron import train
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.transforms import FittedTransform
+        from treeneuron.data.types import DevelopmentData, ObservationSet
+        config = resolve_experiment({'study_id': 'snapshot-boundary', 'model': {'d': 2, 'h': 4},
+            'data': {'n_fit': 13, 'n_growth': 7, 'n_validation': 5},
+            'training': {'batch_size': 4, 'base_updates': 6, 'continuation_updates': 6,
+                         'validation_interval': 2}, 'backend': {'cpu_threads': 1}})
+        rng = np.random.default_rng(83)
+        def rows(n, start):
+            x = rng.normal(size=(n, 2)); ids = np.arange(start, start+n, dtype=np.int64)
+            return ObservationSet(x, 7+3*x[:, 0]-x[:, 1], ids, ids)
+        data = DevelopmentData(rows(13, 0), rows(7, 100), rows(5, 200), 'local-fixture')
+        transform = FittedTransform.fit(data.F.X, data.F.y)
+        model = train.SelectiveRegressor(2, 4).float().eval()
+        optimizer = train._optimizer(model, config)
+        schedule = train.UpdateSchedule(optimizer, kind=config.training.scheduler, horizon=12,
+            min_lr=config.training.min_learning_rate, base_lrs=[config.training.learning_rate])
+>       policy = train.TrainingPolicy.from_config(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_snapshot_boundary_v2.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.train.TrainingPolicy'>
+config = ExperimentConfig(study_id='snapshot-boundary', phase='exploratory', model=ModelConfig(d=2, h=4, depth=1, tau=1.0, acti...xecution=ExecutionConfig(backend_report='environment/report.json', artifacts_root='artifacts/exploratory'), pilot=None)
+continuation = False
+
+    @classmethod
+    def from_config(cls, config: ExperimentConfig, *, continuation: bool = False):
+        t = config.training
+        for name in ('base_updates', 'continuation_updates', 'validation_interval', 'patience'):
+            if getattr(t, name) is None:
+>               raise ValueError(f'training.{name} must be supplied before training')
+E               ValueError: training.patience must be supplied before training
+
+src/treeneuron/train.py:120: ValueError
+_ ERROR at setup of test_invalid_snapshot_preserves_existing_pointer_and_rng[best-optimizer_options] _
+
+    @pytest.fixture
+    def snapshot():
+        """An untrained local software state, with no backend qualification claim."""
+        from treeneuron import train
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.transforms import FittedTransform
+        from treeneuron.data.types import DevelopmentData, ObservationSet
+        config = resolve_experiment({'study_id': 'snapshot-boundary', 'model': {'d': 2, 'h': 4},
+            'data': {'n_fit': 13, 'n_growth': 7, 'n_validation': 5},
+            'training': {'batch_size': 4, 'base_updates': 6, 'continuation_updates': 6,
+                         'validation_interval': 2}, 'backend': {'cpu_threads': 1}})
+        rng = np.random.default_rng(83)
+        def rows(n, start):
+            x = rng.normal(size=(n, 2)); ids = np.arange(start, start+n, dtype=np.int64)
+            return ObservationSet(x, 7+3*x[:, 0]-x[:, 1], ids, ids)
+        data = DevelopmentData(rows(13, 0), rows(7, 100), rows(5, 200), 'local-fixture')
+        transform = FittedTransform.fit(data.F.X, data.F.y)
+        model = train.SelectiveRegressor(2, 4).float().eval()
+        optimizer = train._optimizer(model, config)
+        schedule = train.UpdateSchedule(optimizer, kind=config.training.scheduler, horizon=12,
+            min_lr=config.training.min_learning_rate, base_lrs=[config.training.learning_rate])
+>       policy = train.TrainingPolicy.from_config(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_snapshot_boundary_v2.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.train.TrainingPolicy'>
+config = ExperimentConfig(study_id='snapshot-boundary', phase='exploratory', model=ModelConfig(d=2, h=4, depth=1, tau=1.0, acti...xecution=ExecutionConfig(backend_report='environment/report.json', artifacts_root='artifacts/exploratory'), pilot=None)
+continuation = False
+
+    @classmethod
+    def from_config(cls, config: ExperimentConfig, *, continuation: bool = False):
+        t = config.training
+        for name in ('base_updates', 'continuation_updates', 'validation_interval', 'patience'):
+            if getattr(t, name) is None:
+>               raise ValueError(f'training.{name} must be supplied before training')
+E               ValueError: training.patience must be supplied before training
+
+src/treeneuron/train.py:120: ValueError
+_ ERROR at setup of test_loader_rejects_bad_snapshot_before_optimizer_or_rng_restoration[current-order_dtype] _
+
+    @pytest.fixture
+    def snapshot():
+        """An untrained local software state, with no backend qualification claim."""
+        from treeneuron import train
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.transforms import FittedTransform
+        from treeneuron.data.types import DevelopmentData, ObservationSet
+        config = resolve_experiment({'study_id': 'snapshot-boundary', 'model': {'d': 2, 'h': 4},
+            'data': {'n_fit': 13, 'n_growth': 7, 'n_validation': 5},
+            'training': {'batch_size': 4, 'base_updates': 6, 'continuation_updates': 6,
+                         'validation_interval': 2}, 'backend': {'cpu_threads': 1}})
+        rng = np.random.default_rng(83)
+        def rows(n, start):
+            x = rng.normal(size=(n, 2)); ids = np.arange(start, start+n, dtype=np.int64)
+            return ObservationSet(x, 7+3*x[:, 0]-x[:, 1], ids, ids)
+        data = DevelopmentData(rows(13, 0), rows(7, 100), rows(5, 200), 'local-fixture')
+        transform = FittedTransform.fit(data.F.X, data.F.y)
+        model = train.SelectiveRegressor(2, 4).float().eval()
+        optimizer = train._optimizer(model, config)
+        schedule = train.UpdateSchedule(optimizer, kind=config.training.scheduler, horizon=12,
+            min_lr=config.training.min_learning_rate, base_lrs=[config.training.learning_rate])
+>       policy = train.TrainingPolicy.from_config(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_snapshot_boundary_v2.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.train.TrainingPolicy'>
+config = ExperimentConfig(study_id='snapshot-boundary', phase='exploratory', model=ModelConfig(d=2, h=4, depth=1, tau=1.0, acti...xecution=ExecutionConfig(backend_report='environment/report.json', artifacts_root='artifacts/exploratory'), pilot=None)
+continuation = False
+
+    @classmethod
+    def from_config(cls, config: ExperimentConfig, *, continuation: bool = False):
+        t = config.training
+        for name in ('base_updates', 'continuation_updates', 'validation_interval', 'patience'):
+            if getattr(t, name) is None:
+>               raise ValueError(f'training.{name} must be supplied before training')
+E               ValueError: training.patience must be supplied before training
+
+src/treeneuron/train.py:120: ValueError
+_ ERROR at setup of test_loader_rejects_bad_snapshot_before_optimizer_or_rng_restoration[current-order_duplicates] _
+
+    @pytest.fixture
+    def snapshot():
+        """An untrained local software state, with no backend qualification claim."""
+        from treeneuron import train
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.transforms import FittedTransform
+        from treeneuron.data.types import DevelopmentData, ObservationSet
+        config = resolve_experiment({'study_id': 'snapshot-boundary', 'model': {'d': 2, 'h': 4},
+            'data': {'n_fit': 13, 'n_growth': 7, 'n_validation': 5},
+            'training': {'batch_size': 4, 'base_updates': 6, 'continuation_updates': 6,
+                         'validation_interval': 2}, 'backend': {'cpu_threads': 1}})
+        rng = np.random.default_rng(83)
+        def rows(n, start):
+            x = rng.normal(size=(n, 2)); ids = np.arange(start, start+n, dtype=np.int64)
+            return ObservationSet(x, 7+3*x[:, 0]-x[:, 1], ids, ids)
+        data = DevelopmentData(rows(13, 0), rows(7, 100), rows(5, 200), 'local-fixture')
+        transform = FittedTransform.fit(data.F.X, data.F.y)
+        model = train.SelectiveRegressor(2, 4).float().eval()
+        optimizer = train._optimizer(model, config)
+        schedule = train.UpdateSchedule(optimizer, kind=config.training.scheduler, horizon=12,
+            min_lr=config.training.min_learning_rate, base_lrs=[config.training.learning_rate])
+>       policy = train.TrainingPolicy.from_config(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_snapshot_boundary_v2.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.train.TrainingPolicy'>
+config = ExperimentConfig(study_id='snapshot-boundary', phase='exploratory', model=ModelConfig(d=2, h=4, depth=1, tau=1.0, acti...xecution=ExecutionConfig(backend_report='environment/report.json', artifacts_root='artifacts/exploratory'), pilot=None)
+continuation = False
+
+    @classmethod
+    def from_config(cls, config: ExperimentConfig, *, continuation: bool = False):
+        t = config.training
+        for name in ('base_updates', 'continuation_updates', 'validation_interval', 'patience'):
+            if getattr(t, name) is None:
+>               raise ValueError(f'training.{name} must be supplied before training')
+E               ValueError: training.patience must be supplied before training
+
+src/treeneuron/train.py:120: ValueError
+_ ERROR at setup of test_loader_rejects_bad_snapshot_before_optimizer_or_rng_restoration[current-generator] _
+
+    @pytest.fixture
+    def snapshot():
+        """An untrained local software state, with no backend qualification claim."""
+        from treeneuron import train
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.transforms import FittedTransform
+        from treeneuron.data.types import DevelopmentData, ObservationSet
+        config = resolve_experiment({'study_id': 'snapshot-boundary', 'model': {'d': 2, 'h': 4},
+            'data': {'n_fit': 13, 'n_growth': 7, 'n_validation': 5},
+            'training': {'batch_size': 4, 'base_updates': 6, 'continuation_updates': 6,
+                         'validation_interval': 2}, 'backend': {'cpu_threads': 1}})
+        rng = np.random.default_rng(83)
+        def rows(n, start):
+            x = rng.normal(size=(n, 2)); ids = np.arange(start, start+n, dtype=np.int64)
+            return ObservationSet(x, 7+3*x[:, 0]-x[:, 1], ids, ids)
+        data = DevelopmentData(rows(13, 0), rows(7, 100), rows(5, 200), 'local-fixture')
+        transform = FittedTransform.fit(data.F.X, data.F.y)
+        model = train.SelectiveRegressor(2, 4).float().eval()
+        optimizer = train._optimizer(model, config)
+        schedule = train.UpdateSchedule(optimizer, kind=config.training.scheduler, horizon=12,
+            min_lr=config.training.min_learning_rate, base_lrs=[config.training.learning_rate])
+>       policy = train.TrainingPolicy.from_config(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_snapshot_boundary_v2.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.train.TrainingPolicy'>
+config = ExperimentConfig(study_id='snapshot-boundary', phase='exploratory', model=ModelConfig(d=2, h=4, depth=1, tau=1.0, acti...xecution=ExecutionConfig(backend_report='environment/report.json', artifacts_root='artifacts/exploratory'), pilot=None)
+continuation = False
+
+    @classmethod
+    def from_config(cls, config: ExperimentConfig, *, continuation: bool = False):
+        t = config.training
+        for name in ('base_updates', 'continuation_updates', 'validation_interval', 'patience'):
+            if getattr(t, name) is None:
+>               raise ValueError(f'training.{name} must be supplied before training')
+E               ValueError: training.patience must be supplied before training
+
+src/treeneuron/train.py:120: ValueError
+_ ERROR at setup of test_loader_rejects_bad_snapshot_before_optimizer_or_rng_restoration[current-optimizer_options] _
+
+    @pytest.fixture
+    def snapshot():
+        """An untrained local software state, with no backend qualification claim."""
+        from treeneuron import train
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.transforms import FittedTransform
+        from treeneuron.data.types import DevelopmentData, ObservationSet
+        config = resolve_experiment({'study_id': 'snapshot-boundary', 'model': {'d': 2, 'h': 4},
+            'data': {'n_fit': 13, 'n_growth': 7, 'n_validation': 5},
+            'training': {'batch_size': 4, 'base_updates': 6, 'continuation_updates': 6,
+                         'validation_interval': 2}, 'backend': {'cpu_threads': 1}})
+        rng = np.random.default_rng(83)
+        def rows(n, start):
+            x = rng.normal(size=(n, 2)); ids = np.arange(start, start+n, dtype=np.int64)
+            return ObservationSet(x, 7+3*x[:, 0]-x[:, 1], ids, ids)
+        data = DevelopmentData(rows(13, 0), rows(7, 100), rows(5, 200), 'local-fixture')
+        transform = FittedTransform.fit(data.F.X, data.F.y)
+        model = train.SelectiveRegressor(2, 4).float().eval()
+        optimizer = train._optimizer(model, config)
+        schedule = train.UpdateSchedule(optimizer, kind=config.training.scheduler, horizon=12,
+            min_lr=config.training.min_learning_rate, base_lrs=[config.training.learning_rate])
+>       policy = train.TrainingPolicy.from_config(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_snapshot_boundary_v2.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.train.TrainingPolicy'>
+config = ExperimentConfig(study_id='snapshot-boundary', phase='exploratory', model=ModelConfig(d=2, h=4, depth=1, tau=1.0, acti...xecution=ExecutionConfig(backend_report='environment/report.json', artifacts_root='artifacts/exploratory'), pilot=None)
+continuation = False
+
+    @classmethod
+    def from_config(cls, config: ExperimentConfig, *, continuation: bool = False):
+        t = config.training
+        for name in ('base_updates', 'continuation_updates', 'validation_interval', 'patience'):
+            if getattr(t, name) is None:
+>               raise ValueError(f'training.{name} must be supplied before training')
+E               ValueError: training.patience must be supplied before training
+
+src/treeneuron/train.py:120: ValueError
+_ ERROR at setup of test_loader_rejects_bad_snapshot_before_optimizer_or_rng_restoration[best-order_dtype] _
+
+    @pytest.fixture
+    def snapshot():
+        """An untrained local software state, with no backend qualification claim."""
+        from treeneuron import train
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.transforms import FittedTransform
+        from treeneuron.data.types import DevelopmentData, ObservationSet
+        config = resolve_experiment({'study_id': 'snapshot-boundary', 'model': {'d': 2, 'h': 4},
+            'data': {'n_fit': 13, 'n_growth': 7, 'n_validation': 5},
+            'training': {'batch_size': 4, 'base_updates': 6, 'continuation_updates': 6,
+                         'validation_interval': 2}, 'backend': {'cpu_threads': 1}})
+        rng = np.random.default_rng(83)
+        def rows(n, start):
+            x = rng.normal(size=(n, 2)); ids = np.arange(start, start+n, dtype=np.int64)
+            return ObservationSet(x, 7+3*x[:, 0]-x[:, 1], ids, ids)
+        data = DevelopmentData(rows(13, 0), rows(7, 100), rows(5, 200), 'local-fixture')
+        transform = FittedTransform.fit(data.F.X, data.F.y)
+        model = train.SelectiveRegressor(2, 4).float().eval()
+        optimizer = train._optimizer(model, config)
+        schedule = train.UpdateSchedule(optimizer, kind=config.training.scheduler, horizon=12,
+            min_lr=config.training.min_learning_rate, base_lrs=[config.training.learning_rate])
+>       policy = train.TrainingPolicy.from_config(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_snapshot_boundary_v2.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.train.TrainingPolicy'>
+config = ExperimentConfig(study_id='snapshot-boundary', phase='exploratory', model=ModelConfig(d=2, h=4, depth=1, tau=1.0, acti...xecution=ExecutionConfig(backend_report='environment/report.json', artifacts_root='artifacts/exploratory'), pilot=None)
+continuation = False
+
+    @classmethod
+    def from_config(cls, config: ExperimentConfig, *, continuation: bool = False):
+        t = config.training
+        for name in ('base_updates', 'continuation_updates', 'validation_interval', 'patience'):
+            if getattr(t, name) is None:
+>               raise ValueError(f'training.{name} must be supplied before training')
+E               ValueError: training.patience must be supplied before training
+
+src/treeneuron/train.py:120: ValueError
+_ ERROR at setup of test_loader_rejects_bad_snapshot_before_optimizer_or_rng_restoration[best-order_duplicates] _
+
+    @pytest.fixture
+    def snapshot():
+        """An untrained local software state, with no backend qualification claim."""
+        from treeneuron import train
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.transforms import FittedTransform
+        from treeneuron.data.types import DevelopmentData, ObservationSet
+        config = resolve_experiment({'study_id': 'snapshot-boundary', 'model': {'d': 2, 'h': 4},
+            'data': {'n_fit': 13, 'n_growth': 7, 'n_validation': 5},
+            'training': {'batch_size': 4, 'base_updates': 6, 'continuation_updates': 6,
+                         'validation_interval': 2}, 'backend': {'cpu_threads': 1}})
+        rng = np.random.default_rng(83)
+        def rows(n, start):
+            x = rng.normal(size=(n, 2)); ids = np.arange(start, start+n, dtype=np.int64)
+            return ObservationSet(x, 7+3*x[:, 0]-x[:, 1], ids, ids)
+        data = DevelopmentData(rows(13, 0), rows(7, 100), rows(5, 200), 'local-fixture')
+        transform = FittedTransform.fit(data.F.X, data.F.y)
+        model = train.SelectiveRegressor(2, 4).float().eval()
+        optimizer = train._optimizer(model, config)
+        schedule = train.UpdateSchedule(optimizer, kind=config.training.scheduler, horizon=12,
+            min_lr=config.training.min_learning_rate, base_lrs=[config.training.learning_rate])
+>       policy = train.TrainingPolicy.from_config(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_snapshot_boundary_v2.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.train.TrainingPolicy'>
+config = ExperimentConfig(study_id='snapshot-boundary', phase='exploratory', model=ModelConfig(d=2, h=4, depth=1, tau=1.0, acti...xecution=ExecutionConfig(backend_report='environment/report.json', artifacts_root='artifacts/exploratory'), pilot=None)
+continuation = False
+
+    @classmethod
+    def from_config(cls, config: ExperimentConfig, *, continuation: bool = False):
+        t = config.training
+        for name in ('base_updates', 'continuation_updates', 'validation_interval', 'patience'):
+            if getattr(t, name) is None:
+>               raise ValueError(f'training.{name} must be supplied before training')
+E               ValueError: training.patience must be supplied before training
+
+src/treeneuron/train.py:120: ValueError
+_ ERROR at setup of test_loader_rejects_bad_snapshot_before_optimizer_or_rng_restoration[best-generator] _
+
+    @pytest.fixture
+    def snapshot():
+        """An untrained local software state, with no backend qualification claim."""
+        from treeneuron import train
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.transforms import FittedTransform
+        from treeneuron.data.types import DevelopmentData, ObservationSet
+        config = resolve_experiment({'study_id': 'snapshot-boundary', 'model': {'d': 2, 'h': 4},
+            'data': {'n_fit': 13, 'n_growth': 7, 'n_validation': 5},
+            'training': {'batch_size': 4, 'base_updates': 6, 'continuation_updates': 6,
+                         'validation_interval': 2}, 'backend': {'cpu_threads': 1}})
+        rng = np.random.default_rng(83)
+        def rows(n, start):
+            x = rng.normal(size=(n, 2)); ids = np.arange(start, start+n, dtype=np.int64)
+            return ObservationSet(x, 7+3*x[:, 0]-x[:, 1], ids, ids)
+        data = DevelopmentData(rows(13, 0), rows(7, 100), rows(5, 200), 'local-fixture')
+        transform = FittedTransform.fit(data.F.X, data.F.y)
+        model = train.SelectiveRegressor(2, 4).float().eval()
+        optimizer = train._optimizer(model, config)
+        schedule = train.UpdateSchedule(optimizer, kind=config.training.scheduler, horizon=12,
+            min_lr=config.training.min_learning_rate, base_lrs=[config.training.learning_rate])
+>       policy = train.TrainingPolicy.from_config(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_snapshot_boundary_v2.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.train.TrainingPolicy'>
+config = ExperimentConfig(study_id='snapshot-boundary', phase='exploratory', model=ModelConfig(d=2, h=4, depth=1, tau=1.0, acti...xecution=ExecutionConfig(backend_report='environment/report.json', artifacts_root='artifacts/exploratory'), pilot=None)
+continuation = False
+
+    @classmethod
+    def from_config(cls, config: ExperimentConfig, *, continuation: bool = False):
+        t = config.training
+        for name in ('base_updates', 'continuation_updates', 'validation_interval', 'patience'):
+            if getattr(t, name) is None:
+>               raise ValueError(f'training.{name} must be supplied before training')
+E               ValueError: training.patience must be supplied before training
+
+src/treeneuron/train.py:120: ValueError
+_ ERROR at setup of test_loader_rejects_bad_snapshot_before_optimizer_or_rng_restoration[best-optimizer_options] _
+
+    @pytest.fixture
+    def snapshot():
+        """An untrained local software state, with no backend qualification claim."""
+        from treeneuron import train
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.transforms import FittedTransform
+        from treeneuron.data.types import DevelopmentData, ObservationSet
+        config = resolve_experiment({'study_id': 'snapshot-boundary', 'model': {'d': 2, 'h': 4},
+            'data': {'n_fit': 13, 'n_growth': 7, 'n_validation': 5},
+            'training': {'batch_size': 4, 'base_updates': 6, 'continuation_updates': 6,
+                         'validation_interval': 2}, 'backend': {'cpu_threads': 1}})
+        rng = np.random.default_rng(83)
+        def rows(n, start):
+            x = rng.normal(size=(n, 2)); ids = np.arange(start, start+n, dtype=np.int64)
+            return ObservationSet(x, 7+3*x[:, 0]-x[:, 1], ids, ids)
+        data = DevelopmentData(rows(13, 0), rows(7, 100), rows(5, 200), 'local-fixture')
+        transform = FittedTransform.fit(data.F.X, data.F.y)
+        model = train.SelectiveRegressor(2, 4).float().eval()
+        optimizer = train._optimizer(model, config)
+        schedule = train.UpdateSchedule(optimizer, kind=config.training.scheduler, horizon=12,
+            min_lr=config.training.min_learning_rate, base_lrs=[config.training.learning_rate])
+>       policy = train.TrainingPolicy.from_config(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_snapshot_boundary_v2.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.train.TrainingPolicy'>
+config = ExperimentConfig(study_id='snapshot-boundary', phase='exploratory', model=ModelConfig(d=2, h=4, depth=1, tau=1.0, acti...xecution=ExecutionConfig(backend_report='environment/report.json', artifacts_root='artifacts/exploratory'), pilot=None)
+continuation = False
+
+    @classmethod
+    def from_config(cls, config: ExperimentConfig, *, continuation: bool = False):
+        t = config.training
+        for name in ('base_updates', 'continuation_updates', 'validation_interval', 'patience'):
+            if getattr(t, name) is None:
+>               raise ValueError(f'training.{name} must be supplied before training')
+E               ValueError: training.patience must be supplied before training
+
+src/treeneuron/train.py:120: ValueError
+_ ERROR at setup of test_complete_snapshot_roundtrip_preserves_permutation_generator_and_options _
+
+    @pytest.fixture
+    def snapshot():
+        """An untrained local software state, with no backend qualification claim."""
+        from treeneuron import train
+        from treeneuron.config import resolve_experiment
+        from treeneuron.data.transforms import FittedTransform
+        from treeneuron.data.types import DevelopmentData, ObservationSet
+        config = resolve_experiment({'study_id': 'snapshot-boundary', 'model': {'d': 2, 'h': 4},
+            'data': {'n_fit': 13, 'n_growth': 7, 'n_validation': 5},
+            'training': {'batch_size': 4, 'base_updates': 6, 'continuation_updates': 6,
+                         'validation_interval': 2}, 'backend': {'cpu_threads': 1}})
+        rng = np.random.default_rng(83)
+        def rows(n, start):
+            x = rng.normal(size=(n, 2)); ids = np.arange(start, start+n, dtype=np.int64)
+            return ObservationSet(x, 7+3*x[:, 0]-x[:, 1], ids, ids)
+        data = DevelopmentData(rows(13, 0), rows(7, 100), rows(5, 200), 'local-fixture')
+        transform = FittedTransform.fit(data.F.X, data.F.y)
+        model = train.SelectiveRegressor(2, 4).float().eval()
+        optimizer = train._optimizer(model, config)
+        schedule = train.UpdateSchedule(optimizer, kind=config.training.scheduler, horizon=12,
+            min_lr=config.training.min_learning_rate, base_lrs=[config.training.learning_rate])
+>       policy = train.TrainingPolicy.from_config(config)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_snapshot_boundary_v2.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'treeneuron.train.TrainingPolicy'>
+config = ExperimentConfig(study_id='snapshot-boundary', phase='exploratory', model=ModelConfig(d=2, h=4, depth=1, tau=1.0, acti...xecution=ExecutionConfig(backend_report='environment/report.json', artifacts_root='artifacts/exploratory'), pilot=None)
+continuation = False
+
+    @classmethod
+    def from_config(cls, config: ExperimentConfig, *, continuation: bool = False):
+        t = config.training
+        for name in ('base_updates', 'continuation_updates', 'validation_interval', 'patience'):
+            if getattr(t, name) is None:
+>               raise ValueError(f'training.{name} must be supplied before training')
+E               ValueError: training.patience must be supplied before training
+
+src/treeneuron/train.py:120: ValueError
+=========================== short test summary info ============================
+ERROR tests/test_snapshot_boundary_v2.py::test_invalid_snapshot_preserves_existing_pointer_and_rng[current-order_dtype]
+ERROR tests/test_snapshot_boundary_v2.py::test_invalid_snapshot_preserves_existing_pointer_and_rng[current-order_duplicates]
+ERROR tests/test_snapshot_boundary_v2.py::test_invalid_snapshot_preserves_existing_pointer_and_rng[current-generator]
+ERROR tests/test_snapshot_boundary_v2.py::test_invalid_snapshot_preserves_existing_pointer_and_rng[current-optimizer_options]
+ERROR tests/test_snapshot_boundary_v2.py::test_invalid_snapshot_preserves_existing_pointer_and_rng[best-order_dtype]
+ERROR tests/test_snapshot_boundary_v2.py::test_invalid_snapshot_preserves_existing_pointer_and_rng[best-order_duplicates]
+ERROR tests/test_snapshot_boundary_v2.py::test_invalid_snapshot_preserves_existing_pointer_and_rng[best-generator]
+ERROR tests/test_snapshot_boundary_v2.py::test_invalid_snapshot_preserves_existing_pointer_and_rng[best-optimizer_options]
+ERROR tests/test_snapshot_boundary_v2.py::test_loader_rejects_bad_snapshot_before_optimizer_or_rng_restoration[current-order_dtype]
+ERROR tests/test_snapshot_boundary_v2.py::test_loader_rejects_bad_snapshot_before_optimizer_or_rng_restoration[current-order_duplicates]
+ERROR tests/test_snapshot_boundary_v2.py::test_loader_rejects_bad_snapshot_before_optimizer_or_rng_restoration[current-generator]
+ERROR tests/test_snapshot_boundary_v2.py::test_loader_rejects_bad_snapshot_before_optimizer_or_rng_restoration[current-optimizer_options]
+ERROR tests/test_snapshot_boundary_v2.py::test_loader_rejects_bad_snapshot_before_optimizer_or_rng_restoration[best-order_dtype]
+ERROR tests/test_snapshot_boundary_v2.py::test_loader_rejects_bad_snapshot_before_optimizer_or_rng_restoration[best-order_duplicates]
+ERROR tests/test_snapshot_boundary_v2.py::test_loader_rejects_bad_snapshot_before_optimizer_or_rng_restoration[best-generator]
+ERROR tests/test_snapshot_boundary_v2.py::test_loader_rejects_bad_snapshot_before_optimizer_or_rng_restoration[best-optimizer_options]
+ERROR tests/test_snapshot_boundary_v2.py::test_complete_snapshot_roundtrip_preserves_permutation_generator_and_options
+17 errors in 1.56s

@@ -1,0 +1,212 @@
+{
+  "T_accessed": false,
+  "affected_elapsed_seconds": 125.43,
+  "affected_log": {
+    "bytes": 191,
+    "path": "audit/research-v2/final-review/fix-evidence/final-fixes-affected-green.log",
+    "sha256": "b5a656d7aec43edd1b55cd03382a1bdc524656fd3cfd1a01bae53d3f2d7e8bda"
+  },
+  "affected_passing_cases": 98,
+  "changed_execution_files": {
+    "bytes": 2272,
+    "path": "audit/research-v2/final-review/fix-evidence/changed-execution-files-6ca3cd4.json",
+    "sha256": "1c00d0722b15247e5bdcd58703569b37a1900d16cf71cead0f905b43c801ac89"
+  },
+  "created_utc": "2026-10-21T04:41:37.182588+00:00",
+  "critical_findings": 0,
+  "current_complete_suite_passed": false,
+  "deferred_minors": [],
+  "distinct_profile_files": 46,
+  "findings": [
+    {
+      "behavior": "Four sampler/options corruptions reject before current/best publication and before reconstruction; prior pointer, files and process RNG remain intact. Valid local roundtrip remains exact.",
+      "finding_id": "R1",
+      "focused_passing_cases": 17,
+      "green": {
+        "bytes": 99,
+        "path": "audit/research-v2/final-review/fix-evidence/final-R1-green.log",
+        "sha256": "3332b4f331a4b71126dce11c4b766aacd6e0e651ceba3bc833e4e1ace9fe749c"
+      },
+      "red": {
+        "bytes": 39101,
+        "path": "audit/research-v2/final-review/fix-evidence/final-R1-red-observed.log",
+        "sha256": "a0127679d523baa702cf4c364d88a23fb6ca5f56e74bdf31a8e9c1848d71a9f1"
+      },
+      "resolution": "fixed_in_working_source",
+      "severity": "Important"
+    },
+    {
+      "behavior": "Actual native/global loaders populate immutable private in-call entries once; every public invocation starts fresh. Source/ref guards, final retained-input checks and selected-search/model validation remain. Publication checks finish before writing seals.",
+      "finding_id": "R2",
+      "green": {
+        "bytes": 191,
+        "path": "audit/research-v2/final-review/fix-evidence/final-fixes-affected-green.log",
+        "sha256": "b5a656d7aec43edd1b55cd03382a1bdc524656fd3cfd1a01bae53d3f2d7e8bda"
+      },
+      "production_runtime_speedup_measured": false,
+      "publication_red": {
+        "bytes": 1833,
+        "path": "audit/research-v2/final-review/fix-evidence/final-R2-publication-red-observed.log",
+        "sha256": "09830b82fab416d5141fb5882a080ca0522f46914300a138b664885e3eeb69bd"
+      },
+      "red": {
+        "bytes": 11073,
+        "path": "audit/research-v2/final-review/fix-evidence/final-R2-red.log",
+        "sha256": "843292c796a3c0333ad4bfb529f3b1b506a21324ea4a5912cf0e360590b7a64f"
+      },
+      "resolution": "fixed_in_working_source",
+      "severity": "Important",
+      "source_derived_original_primary_audit_lower_bound": 225792
+    }
+  ],
+  "fixed_profile_observation": {
+    "bytes": 5817,
+    "path": "audit/research-v2/final-review/fix-evidence/software-observation-6ca3cd4.json",
+    "sha256": "968ef7d2e2f3bfc10b76ef83efb7d51cc0072419b34f13821aecd855b8621cd9"
+  },
+  "material_fix_passes": 1,
+  "native_isolated_followup": {
+    "additional_exact_followup_cases": 3,
+    "exact_NODE_comparison": {
+      "bytes": 16559,
+      "path": "audit/research-v2/software/whole-suite-6ca3cd4/NODE-isolation-followup.json",
+      "sha256": "f96857143dd6a0e4ab65ea0199a13a25a94ade21ddb317b7ceb202b6704db674"
+    },
+    "full_suite_NODE_cases_passed_in_fresh_processes": 58,
+    "profile_summary": {
+      "bytes": 4096,
+      "path": "audit/research-v2/software/whole-suite-6ca3cd4/isolated-native-profiles.json",
+      "sha256": "4958e03ec581e107eeb71c7638ec2f733b227928cb6c486899f5ff8c920923ce"
+    },
+    "profiles": 7,
+    "purpose": "Fresh fixed software profiles; no dependency files, resource guards or native recipes changed.",
+    "root": "artifacts/research-v2/WP07/native-profiles-6ca3cd4",
+    "source_sha256": "6ca3cd4ec41ecc8222fc9e8add58ceb0ae07b5fd9c86d1fa1cd87fae0933bbac",
+    "status": "completed_software_verification",
+    "test_cases": 202
+  },
+  "native_workload_qualified": false,
+  "overlapping_suites_must_not_be_added": true,
+  "preserved_initial_evidence": {
+    "bytes": 3138,
+    "path": "audit/research-v2/final-review/fix-evidence/retained-files.json",
+    "sha256": "15518d4a1e72a853cbacc4b343a5dbbae7680fc49a1a178ce4be360f075c7fa4"
+  },
+  "production_source_ready": false,
+  "profile_cases": 777,
+  "profiles": {
+    "pipeline": {
+      "reference": {
+        "inventory_sha256": "af183fca8b4c09e900e8f93d544dae44a5dad995126e57f29d13164f64e92811",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/production-pipeline-6ca3cd4"
+      },
+      "test_cases": 159
+    },
+    "protection": {
+      "reference": {
+        "inventory_sha256": "f86e216d4f5531870b1e18d011fdcdd89b479c35eb563abfc5d39f74af9ee466",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/production-protection-6ca3cd4"
+      },
+      "test_cases": 197
+    },
+    "reporting": {
+      "reference": {
+        "inventory_sha256": "56554fa60052b79f9337b8f2ddabe96bcd870f356e2ce244e341e8a5596270a5",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/production-reporting-6ca3cd4"
+      },
+      "test_cases": 138
+    },
+    "search": {
+      "reference": {
+        "inventory_sha256": "66b2444786e24962304decfca95358a963214eb75a1ccc28ee3d946ce8982e87",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/production-search-6ca3cd4"
+      },
+      "test_cases": 283
+    }
+  },
+  "protected_access_authorized": false,
+  "quality_eligible": false,
+  "review": {
+    "bytes": 8586,
+    "path": "audit/research-v2/final-review/review-response-783cb2d.md",
+    "sha256": "5ac767280566477c840d216780c6dc54f5ec353fcc4e6c0b8d66e3dd1933b916"
+  },
+  "review_request": {
+    "bytes": 7803,
+    "path": "audit/research-v2/final-review/review-request-783cb2d.md",
+    "sha256": "fdc0741c14873974d12fa710b4fb591fcf717f473b57c9ce66e0c3f1ccdae2c4"
+  },
+  "reviewed_commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+  "reviewed_package": {
+    "bytes": 3807245,
+    "path": "audit/research-v2/final-review/review-230e657..783cb2d.diff.gz",
+    "sha256": "43e12b8bfc04a4b8354819ad998b0973b5f81162f3a90f7c71e04e491899733a"
+  },
+  "reviewer": {
+    "agent_id": "/root/final_source_review",
+    "model": "gpt-6-astra",
+    "reasoning_effort": "xhigh"
+  },
+  "schema": "research/v2-final-review-fix-receipt",
+  "scientific_source_sha256": "6ca3cd4ec41ecc8222fc9e8add58ceb0ae07b5fd9c86d1fa1cd87fae0933bbac",
+  "scope": "Software fix evidence only, including known fixture models. Full current-source native prerequisite registry, production searches and protected comparison remain unrun. Older native fits and earlier whole-suite failures retain their original identities.",
+  "second_review_performed": false,
+  "status": "material_fixes_verified_complete_suite_non_green_isolated_followup_passed_pending_commit_binding",
+  "trained_local_replay": {
+    "log": {
+      "bytes": 768,
+      "path": "audit/research-v2/final-review/fix-evidence/final-trained-replay.log",
+      "sha256": "5015bf5048f47bad0fb2c9e69d163cbd84885ece6769c0be5e349ab5d7ef5303"
+    },
+    "maximum_prediction_difference": 0.0,
+    "result": {
+      "bytes": 798,
+      "path": "artifacts/research-v2/WP10/final-review-trained-replay-6ca3cd4/result.json",
+      "sha256": "2edad58c9dd6b66438487977e5351478d22a104265a90de48141cdd3a1c961e0"
+    },
+    "resumed_update": 4,
+    "saved_sampler_cursor": 12,
+    "saved_update": 3,
+    "scope": "Actual local numerical software check; no backend/native/scientific qualification.",
+    "script": {
+      "bytes": 2914,
+      "path": "artifacts/research-v2/WP10/check_final_review_trained_replay.py",
+      "sha256": "20383bfc4c7012159ee8bcdf24d2a352918d2c17435897db13c221ae75a01c1d"
+    }
+  },
+  "whole_repository_attempt": {
+    "all_case_records": {
+      "bytes": 1181750,
+      "path": "audit/research-v2/software/whole-suite-6ca3cd4/all-cases.jsonl",
+      "sha256": "ea41c8ac7e4a7b0a34b43dc9c8968a9ef5ee14c3fa3227fd67014d750aa2baab"
+    },
+    "classified_summary": {
+      "bytes": 2812,
+      "path": "audit/research-v2/software/whole-suite-6ca3cd4/summary.json",
+      "sha256": "3ea8c7a578dd791427aca886198535e757502d094f6c13a78642577e31b7df6e"
+    },
+    "collected": 3752,
+    "errors": 459,
+    "failed": 106,
+    "nonpassing_cases": {
+      "bytes": 335215,
+      "path": "audit/research-v2/software/whole-suite-6ca3cd4/nonpassing-cases.csv",
+      "sha256": "c7c48d4aef24ae40f95bb09b6320c09dba1fdf7291c40b372ae0f2ea9d3af42e"
+    },
+    "passed": 3181,
+    "prior_launcher_error": {
+      "bytes": 380,
+      "path": "artifacts/research-v2/WP11/whole-suite-6ca3cd4/launch-failure.json",
+      "sha256": "bb95e43e7b0c444fba9494c3adace2c47ab8de3fdea0e9245c303a90dde5eb54"
+    },
+    "process_elapsed_ns": 3533205681125,
+    "pytest_elapsed_seconds": 3531.56,
+    "root": "artifacts/research-v2/WP11/whole-suite-6ca3cd4-attempt-001",
+    "root_only_observed_peak_rss_bytes": 751239168,
+    "root_rss_limit_bytes": 4294967296,
+    "scope": "Complete unfiltered pytest suite; persistent temporary evidence, logs and JUnit. Prior launcher failed before any worker or test.",
+    "skipped": 6,
+    "status": "completed_with_failures",
+    "wall_cap": null
+  }
+}

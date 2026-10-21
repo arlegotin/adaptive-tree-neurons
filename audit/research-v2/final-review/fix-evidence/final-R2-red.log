@@ -1,0 +1,217 @@
+FFFFFFF                                                                  [100%]
+=================================== FAILURES ===================================
+________ test_672_nested_searches_do_not_reconstruct_168_rows_each_time ________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3920/test_672_nested_searches_do_no0')
+
+    def test_672_nested_searches_do_not_reconstruct_168_rows_each_time(tmp_path):
+>       module = api(); path = tmp_path/'metadata.json'; visits = []
+                 ^^^^^
+
+tests/test_validation_composition_v2.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_validation_composition_v2.py:10: in api
+    return importlib.import_module('treeneuron.research.validation_invocation_v2')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'treeneuron.research.validation_invocation_v2'
+import_ = <function _gcd_import at 0x1012000e0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'treeneuron.research.validation_invocation_v2'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+________ test_returned_metadata_cannot_mutate_saved_invocation_context _________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3920/test_returned_metadata_cannot_0')
+
+    def test_returned_metadata_cannot_mutate_saved_invocation_context(tmp_path):
+>       module = api(); path = tmp_path/'metadata.json'; visits = []
+                 ^^^^^
+
+tests/test_validation_composition_v2.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_validation_composition_v2.py:10: in api
+    return importlib.import_module('treeneuron.research.validation_invocation_v2')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'treeneuron.research.validation_invocation_v2'
+import_ = <function _gcd_import at 0x1012000e0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'treeneuron.research.validation_invocation_v2'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+______ test_final_input_guard_runs_after_success_and_body_failure[False] _______
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3920/test_final_input_guard_runs_af0')
+raise_body = False
+
+    @pytest.mark.parametrize('raise_body', [False, True])
+    def test_final_input_guard_runs_after_success_and_body_failure(tmp_path, raise_body):
+>       module = api(); path = tmp_path/'metadata.json'; visits = []
+                 ^^^^^
+
+tests/test_validation_composition_v2.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_validation_composition_v2.py:10: in api
+    return importlib.import_module('treeneuron.research.validation_invocation_v2')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'treeneuron.research.validation_invocation_v2'
+import_ = <function _gcd_import at 0x1012000e0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'treeneuron.research.validation_invocation_v2'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+_______ test_final_input_guard_runs_after_success_and_body_failure[True] _______
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3920/test_final_input_guard_runs_af1')
+raise_body = True
+
+    @pytest.mark.parametrize('raise_body', [False, True])
+    def test_final_input_guard_runs_after_success_and_body_failure(tmp_path, raise_body):
+>       module = api(); path = tmp_path/'metadata.json'; visits = []
+                 ^^^^^
+
+tests/test_validation_composition_v2.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_validation_composition_v2.py:10: in api
+    return importlib.import_module('treeneuron.research.validation_invocation_v2')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'treeneuron.research.validation_invocation_v2'
+import_ = <function _gcd_import at 0x1012000e0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'treeneuron.research.validation_invocation_v2'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+_________ test_source_change_is_rejected_before_reusing_a_prerequisite _________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3920/test_source_change_is_rejected0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x106858dd0>
+
+    def test_source_change_is_rejected_before_reusing_a_prerequisite(tmp_path, monkeypatch):
+>       module = api(); path = tmp_path/'metadata.json'; visits = []
+                 ^^^^^
+
+tests/test_validation_composition_v2.py:68: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_validation_composition_v2.py:10: in api
+    return importlib.import_module('treeneuron.research.validation_invocation_v2')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'treeneuron.research.validation_invocation_v2'
+import_ = <function _gcd_import at 0x1012000e0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'treeneuron.research.validation_invocation_v2'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+____________________ test_failed_validation_is_never_reused ____________________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3920/test_failed_validation_is_neve0')
+
+    def test_failed_validation_is_never_reused(tmp_path):
+>       module = api(); calls = []
+                 ^^^^^
+
+tests/test_validation_composition_v2.py:80: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_validation_composition_v2.py:10: in api
+    return importlib.import_module('treeneuron.research.validation_invocation_v2')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'treeneuron.research.validation_invocation_v2'
+import_ = <function _gcd_import at 0x1012000e0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'treeneuron.research.validation_invocation_v2'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+__________ test_private_reuse_cannot_be_started_by_supplied_metadata ___________
+
+    def test_private_reuse_cannot_be_started_by_supplied_metadata():
+>       module = api()
+                 ^^^^^
+
+tests/test_validation_composition_v2.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_validation_composition_v2.py:10: in api
+    return importlib.import_module('treeneuron.research.validation_invocation_v2')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'treeneuron.research.validation_invocation_v2'
+import_ = <function _gcd_import at 0x1012000e0>
+
+>   ???
+E   ModuleNotFoundError: No module named 'treeneuron.research.validation_invocation_v2'
+
+<frozen importlib._bootstrap>:1324: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_validation_composition_v2.py::test_672_nested_searches_do_not_reconstruct_168_rows_each_time
+FAILED tests/test_validation_composition_v2.py::test_returned_metadata_cannot_mutate_saved_invocation_context
+FAILED tests/test_validation_composition_v2.py::test_final_input_guard_runs_after_success_and_body_failure[False]
+FAILED tests/test_validation_composition_v2.py::test_final_input_guard_runs_after_success_and_body_failure[True]
+FAILED tests/test_validation_composition_v2.py::test_source_change_is_rejected_before_reusing_a_prerequisite
+FAILED tests/test_validation_composition_v2.py::test_failed_validation_is_never_reused
+FAILED tests/test_validation_composition_v2.py::test_private_reuse_cannot_be_started_by_supplied_metadata
+7 failed in 0.07s

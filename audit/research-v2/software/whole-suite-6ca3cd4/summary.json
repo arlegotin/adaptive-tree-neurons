@@ -1,0 +1,60 @@
+{
+  "T_accessed": false,
+  "cause_counts": {
+    "aggregate_backend_gate_failed_original_probe_detail_not_retained": 3,
+    "direct_legacy_memory_pressure_2": 420,
+    "direct_legacy_memory_pressure_2_retained_doctor": 1,
+    "duplicate_NODE_dependency_metadata": 58,
+    "failed_or_incomplete_legacy_backend_fixture_original_detail_not_retained": 83,
+    "optional_locked_review_snapshot_unavailable": 6
+  },
+  "classification_status": "classified_with_explicit_original_detail_limits",
+  "collected": 3752,
+  "counts": {
+    "error": 459,
+    "failed": 106,
+    "passed": 3181,
+    "skipped": 6
+  },
+  "exact_NODE_isolation_comparison": {
+    "bytes": 16559,
+    "path": "audit/research-v2/software/whole-suite-6ca3cd4/NODE-isolation-followup.json",
+    "sha256": "f96857143dd6a0e4ab65ea0199a13a25a94ade21ddb317b7ceb202b6704db674"
+  },
+  "junit_sha256": "71f229a50ade7d43e789adc1255f124d15747dc458f5914c28da088f8996a8f3",
+  "limitations": [
+    "83backend fixture failures and3aggregate verification failures do not retain the original underlying numerical-producer return; do not assign them a more specific cause.",
+    "Full-suite duplicate NODE metadata errors require isolated same-source follow-up; they are not native fitting losses.",
+    "The whole suite failed. Scoped profile success cannot erase this result."
+  ],
+  "native_isolated_followup": "all_seven_fixed_profiles_202passed_and_three_exact_NODE_followup_cases_passed",
+  "native_profile_summary": {
+    "bytes": 4096,
+    "path": "audit/research-v2/software/whole-suite-6ca3cd4/isolated-native-profiles.json",
+    "sha256": "4958e03ec581e107eeb71c7638ec2f733b227928cb6c486899f5ff8c920923ce"
+  },
+  "native_workload_qualified": false,
+  "new_mathematical_or_predictive_failure_established": false,
+  "original_backend_fixture_reports_retained": false,
+  "original_raw_root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP11/whole-suite-6ca3cd4-attempt-001",
+  "process_elapsed_ns": 3533205681125,
+  "process_returncode": 1,
+  "protected_access_authorized": false,
+  "quality_eligible": false,
+  "retained_producer_reports": [
+    {
+      "bytes": 22928,
+      "path": "audit/research-v2/software/whole-suite-6ca3cd4/retained-producer-reports/doctor.json",
+      "sha256": "0be2ec7f08eaf749f8818eab1fe8839da91ba5836dca39cf5022801ef28b8463"
+    },
+    {
+      "bytes": 9294,
+      "path": "audit/research-v2/software/whole-suite-6ca3cd4/retained-producer-reports/math-aggregate.json",
+      "sha256": "dd3a395c4aaf2b958f1a6f9d90ad38911520e20f9daa370512718ba7e6dcef9f"
+    }
+  ],
+  "root_only_observed_peak_rss_bytes": 751239168,
+  "schema": "research/v2-complete-software-attempt-summary",
+  "source_sha256": "6ca3cd4ec41ecc8222fc9e8add58ceb0ae07b5fd9c86d1fa1cd87fae0933bbac",
+  "suite_passed": false
+}

@@ -70,7 +70,7 @@ All fourteen mandatory families remain in the inventory: grown, matched random, 
 
 | Evidence level | Established here | Limit |
 |---|---|---|
-| Software/numerical reference | Insertion, gradients, optimizer/state checks and exact local ridge references; source-specific test receipts. | No implication of predictive benefit; whole-program software review is still underway. |
+| Software/numerical reference | Insertion, gradients, optimizer/state checks and exact local ridge references; source-specific test receipts. | No implication of predictive benefit; the fresh review found two Important issues now corrected in scoped checks; actual qualified production remains unrun. |
 | Public arithmetic/report reproduction | Compact M3 tables and B0 canonical report inputs/operators are versioned; B0 report and four tables replay byte for byte with the standard library. | Saved scalars do not authenticate missing raw history. |
 | New raw prediction arithmetic | M3: 640 V/E vectors, 7,680 metrics, max discrepancy 5.55e-17. B0: 288 F/G/V/E vectors, 1,440 metrics plus 72 F variances, max 1.11e-16. Original survey: 115 vectors, 805 metrics, exact agreement. | Available source/byte records are authenticated at the named audit scope; training and inference are not independently repeated by an arithmetic audit. |
 | Protected confirmation | None. | Synthetic T/root and C0 were not created; prepared transfer T remains sealed. Recorded API-access audits do not prove cryptographic filesystem nonaccess. |
@@ -95,6 +95,29 @@ labeled guard-counter inputs; fourteen checks passed, including rejection under
 simulated pressure. The actual hardware-dependent training test and production
 guard remain unchanged. These scoped recoveries do not replace the original
 whole-suite result. [Follow-up receipt](../docs/research/v2/WP11-software-follow-up-receipt.json).
+
+The current-source complete run at `6ca3cd4` finished with **3,181 passed, 106
+failed, 459 setup errors and six skips** in 3,531.56 seconds. Of 565 failures/errors,
+420 setup errors explicitly report the legacy memory-pressure level 2 guard and
+one retained doctor report has the same cause.58 cases report duplicate NODE
+dependency metadata.83 backend-fixture failures and three aggregate backend-gate
+failures lack their original detailed producer report; no more specific cause is
+claimed for those 86 cases. The six skips require optional locked review assets.
+All names and traces are retained in the [current inventory](../audit/research-v2/software/whole-suite-6ca3cd4/summary.json).
+
+A fresh independent whole-branch review found two Important defects: checkpoint
+sampler/options validation and multiplicative global/native audits. The single
+fix pass passed 98 affected cases and four genuine source-bound profiles totaling
+777 cases across 46 files. A local trained save/resume check also matched all
+coupled state and predictions exactly. These checks overlap and are not summed.
+All seven fixed native software profiles passed202 checks in fresh processes
+under the corrected source. A separate three-case follow-up, together with the
+77-case NODE profile, covers all58 original NODE failures with passing identical
+case IDs. No dependency files, guard or recipe changed. Full current-source
+native workload qualification and protected outcomes remain unrun.
+The [review/fix receipt](../docs/research/v2/WP09-final-review-fix-receipt.json)
+retains original failures and the scope of each recovery. The complete run is
+not green, and no guard or historical expectation was weakened.
 
 Raw arrays, recoverable states and append-only ledgers are retained locally with source-bound inventories. Historical missing raw archives remain missing. Reproduction does not depend on remembering a conversation; [commands, exact identities and portability limits](../docs/research/v2/reproduce.md) are versioned. Each study’s held source is immutable, and old reports and expected historical hashes remain intact.
 

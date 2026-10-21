@@ -1,0 +1,435 @@
+{
+  "T_accessed": false,
+  "cases": [
+    {
+      "classname": "tests.test_native_fit_supervision",
+      "fresh_process_outcome": "passed",
+      "name": "test_copied_real_NODE_checkpoint_resumes_the_exact_uninterrupted_state",
+      "origin": "three_case_followup",
+      "original_outcome": "failed"
+    },
+    {
+      "classname": "tests.test_node_bounded_memory",
+      "fresh_process_outcome": "passed",
+      "name": "test_fitted_policy_bounds_query_override_and_closed_reload",
+      "origin": "three_case_followup",
+      "original_outcome": "failed"
+    },
+    {
+      "classname": "tests.test_node_training_recovery",
+      "fresh_process_outcome": "passed",
+      "name": "test_same_runtime_interruption_resume_matches_every_training_state",
+      "origin": "fixed_node_profile",
+      "original_outcome": "failed"
+    },
+    {
+      "classname": "tests.test_node_training_recovery",
+      "fresh_process_outcome": "passed",
+      "name": "test_resume_rejects_changed_identity[seed]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "failed"
+    },
+    {
+      "classname": "tests.test_node_training_recovery",
+      "fresh_process_outcome": "passed",
+      "name": "test_resume_rejects_changed_identity[F]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "failed"
+    },
+    {
+      "classname": "tests.test_node_training_recovery",
+      "fresh_process_outcome": "passed",
+      "name": "test_resume_rejects_changed_identity[G]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "failed"
+    },
+    {
+      "classname": "tests.test_node_training_recovery",
+      "fresh_process_outcome": "passed",
+      "name": "test_resume_rejects_changed_identity[config]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "failed"
+    },
+    {
+      "classname": "tests.test_node_training_recovery",
+      "fresh_process_outcome": "passed",
+      "name": "test_resume_rejects_changed_identity[budget]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "failed"
+    },
+    {
+      "classname": "tests.test_node_training_recovery",
+      "fresh_process_outcome": "passed",
+      "name": "test_incomplete_publication_keeps_previous_recoverable_prefix",
+      "origin": "fixed_node_profile",
+      "original_outcome": "failed"
+    },
+    {
+      "classname": "tests.test_node_training_recovery",
+      "fresh_process_outcome": "passed",
+      "name": "test_corrupt_training_state_is_rejected_before_pointer_publication[negative_moment]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_training_recovery",
+      "fresh_process_outcome": "passed",
+      "name": "test_corrupt_training_state_is_rejected_before_pointer_publication[moment_age]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_training_recovery",
+      "fresh_process_outcome": "passed",
+      "name": "test_corrupt_training_state_is_rejected_before_pointer_publication[dtype]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_training_recovery",
+      "fresh_process_outcome": "passed",
+      "name": "test_corrupt_training_state_is_rejected_before_pointer_publication[averaged_raw]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_training_recovery",
+      "fresh_process_outcome": "passed",
+      "name": "test_corrupt_training_state_is_rejected_before_pointer_publication[rng]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_training_recovery",
+      "fresh_process_outcome": "passed",
+      "name": "test_valid_looking_changed_F_commitment_still_rejects_binding",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_training_recovery",
+      "fresh_process_outcome": "passed",
+      "name": "test_recovery_store_refuses_a_second_writer",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_training_recovery",
+      "fresh_process_outcome": "passed",
+      "name": "test_checkpoint_payload_retention_keeps_two_and_all_row_history",
+      "origin": "fixed_node_profile",
+      "original_outcome": "failed"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_direct_official_init_training_rolling_selection_and_full_rows",
+      "origin": "fixed_node_profile",
+      "original_outcome": "failed"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_actual_native_100_report_has_no_added_cap_report",
+      "origin": "fixed_node_profile",
+      "original_outcome": "failed"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_short_cap_is_raw_unselected_and_native_patience_boundary_is_strict",
+      "origin": "fixed_node_profile",
+      "original_outcome": "failed"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_G_changes_do_not_fit_transform_or_initialize_and_caller_rng_is_restored",
+      "origin": "fixed_node_profile",
+      "original_outcome": "failed"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_failed_partial_fit_preserves_previous_model_and_original_error_receipt",
+      "origin": "fixed_node_profile",
+      "original_outcome": "failed"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_portable_exact_reload_without_quantile_fit_or_data_initialization",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_external_manifest_hash_is_required_before_any_native_payload",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_resealed_structured_endpoint_corruption_is_rejected[unknown]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_resealed_structured_endpoint_corruption_is_rejected[config]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_resealed_structured_endpoint_corruption_is_rejected[runtime]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_resealed_structured_endpoint_corruption_is_rejected[source]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_resealed_structured_endpoint_corruption_is_rejected[quantile_dtype]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_resealed_structured_endpoint_corruption_is_rejected[selected_dtype]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_resealed_structured_endpoint_corruption_is_rejected[initialization]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_resealed_structured_endpoint_corruption_is_rejected[selected_average]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_resealed_structured_endpoint_corruption_is_rejected[optimizer_dtype]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_resealed_structured_endpoint_corruption_is_rejected[optimizer_negative]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_resealed_structured_endpoint_corruption_is_rejected[optimizer_age]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_resealed_structured_endpoint_corruption_is_rejected[report_missing]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_resealed_structured_endpoint_corruption_is_rejected[report_negative]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_resealed_structured_endpoint_corruption_is_rejected[selected_step]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_resealed_structured_endpoint_corruption_is_rejected[trace_rows]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_resealed_structured_endpoint_corruption_is_rejected[trace_time]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_resealed_structured_endpoint_corruption_is_rejected[F_identity]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_resealed_structured_endpoint_corruption_is_rejected[extra_array]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_same_seed_short_native_patience_matches_direct_source_and_stops_after_strict_boundary",
+      "origin": "fixed_node_profile",
+      "original_outcome": "failed"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_fit_identity_drift_retains_prior_prediction_and_failed_paid_trace[source]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_fit_identity_drift_retains_prior_prediction_and_failed_paid_trace[runtime]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_retained_prediction_binding_rejects_valid_geometry_transform_or_role_substitution[target_mean]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_retained_prediction_binding_rejects_valid_geometry_transform_or_role_substitution[quantile_values]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_retained_prediction_binding_rejects_valid_geometry_transform_or_role_substitution[G_role_identity]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_failure_after_partial_parameter_mutation_is_explicitly_indeterminate",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_portable_snapshot_loads_in_fresh_one_thread_process",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_resealed_identical_arrays_preserve_scalar_geometry_and_load",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_mixed_missing_unknown_and_constant_target_native_path_roundtrips",
+      "origin": "fixed_node_profile",
+      "original_outcome": "failed"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_cpu_node_fit_does_not_touch_other_device_rngs",
+      "origin": "fixed_node_profile",
+      "original_outcome": "failed"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_non_native_caller_defaults_reject_before_constructor_draws[float64]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_non_native_caller_defaults_reject_before_constructor_draws[meta]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_same_step_selected_and_raw_optimizer_moments_must_be_byte_identical[exp_avg]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_node_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_same_step_selected_and_raw_optimizer_moments_must_be_byte_identical[exp_avg_sq]",
+      "origin": "fixed_node_profile",
+      "original_outcome": "error"
+    },
+    {
+      "classname": "tests.test_prediction_replay_v2",
+      "fresh_process_outcome": "passed",
+      "name": "test_actual_fresh_replay_preserves_native_query_precision_and_method_isolation[P12-False]",
+      "origin": "three_case_followup",
+      "original_outcome": "failed"
+    }
+  ],
+  "exact_original_case_ids_passed_in_isolation": 58,
+  "fixed_profile_cases": 77,
+  "followup_junit": {
+    "bytes": 713,
+    "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP11/node-isolation-followup-6ca3cd4/junit.xml",
+    "sha256": "85302bf2ea96a83c6242844df955d6dc810d602ce998e3961225729a1d11d83c"
+  },
+  "followup_result": {
+    "bytes": 4554,
+    "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP11/node-isolation-followup-6ca3cd4/result.json",
+    "sha256": "ffabb554f9486b2d0951ad7cf60bb73679ad062db727e53aac68c8995591a5ae"
+  },
+  "native_workload_qualified": false,
+  "node_profile_reference": {
+    "inventory_sha256": "1625eae885c330aef861e45d697a17ecab6e083cc244b0a7ef559bc7842ce86a",
+    "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP07/native-profiles-6ca3cd4/node"
+  },
+  "original_failed_or_error_case_count": 58,
+  "quality_eligible": false,
+  "schema": "research/v2-exact-NODE-software-isolation-comparison",
+  "scope": "Same58 failing full-suite NODE case IDs pass under the identical source in fresh processes. This supports imported metadata/process contamination; it does not erase the original full-suite failures or qualify full predictive workloads.",
+  "separate_followup_cases": 3,
+  "source_dependency_guard_or_recipe_changed": false,
+  "source_sha256": "6ca3cd4ec41ecc8222fc9e8add58ceb0ae07b5fd9c86d1fa1cd87fae0933bbac"
+}

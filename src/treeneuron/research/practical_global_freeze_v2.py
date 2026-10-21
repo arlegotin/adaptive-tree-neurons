@@ -12,6 +12,7 @@ import math
 from pathlib import Path
 import sys
 import time
+from .validation_invocation_v2 import _within_validation, _load_once, _recheck_validation
 
 
 _DATASETS=('airfoil','concrete','ccpp','parkinsons','bike','energy')
@@ -169,6 +170,7 @@ class GlobalPrimaryBarrier:
     def payload(self):return json.loads(self._payload_json)
 
 
+@_within_validation
 def seal_global_primary_barrier(*,practical_plan_reference,expected_practical_plan_hash,support_reference,
         procedure_reference,qualification_reference,qualified_primary_models_reference,output):
     from .native_qualification_registry_v2 import load_native_qualification_registry
@@ -182,13 +184,45 @@ def seal_global_primary_barrier(*,practical_plan_reference,expected_practical_pl
             [practical_plan_reference,support_reference,procedure_reference,qualified_primary_models_reference])
         from .deployment_worker_v2 import _source
         if _source()!=payload['source_sha256']:raise ValueError('Source changed after validation contexts closed')
+        _recheck_validation()
         return payload
     payload=_publish_after_validating(output,prepare)
     from treeneuron.config import canonical_json
     return GlobalPrimaryBarrier(dict(path=str(output),sha256=hashlib.sha256(output.read_bytes()).hexdigest()),canonical_json(payload))
 
 
+def _guard_global_context(value):
+    """Recheck retained bytes/prefixes; semantic reconstruction already ran."""
+    from .primary_selection_v2 import _ref
+    from .native_anchor_v2 import _closed_reference
+    from .transfer_access_v2 import frozen_primary_access_prefix
+    payload = value['payload']
+    _ref(value['reference'], {})
+    _closed_reference(payload['qualification_reference'])
+    for key in ('practical_plan_reference', 'support_reference', 'procedure_reference', 'qualified_primary_models_reference'):
+        _ref(payload[key], {})
+    _model_bytes(dict(models=payload['primary_models']))
+    for dataset, entry in payload['prepared_datasets'].items():
+        with frozen_primary_access_prefix(Path(entry['root']),
+                expected_manifest_sha256=entry['manifest_file_sha256'],
+                prefix=payload['frozen_primary_access_prefixes'][dataset]):
+            pass
+
+
+@_within_validation
 def load_global_primary_barrier(reference,*,qualification_reference):
+    from .primary_selection_v2 import _ref
+    from treeneuron.config import canonical_json
+    reference = copy.deepcopy(reference); qualification_reference = copy.deepcopy(qualification_reference)
+    def load():
+        barrier = _load_global_primary_barrier(reference, qualification_reference=qualification_reference)
+        return dict(reference=barrier.reference, payload=barrier.payload)
+    value = _load_once('global_primary', dict(reference=reference, qualification_reference=qualification_reference),
+        load, guard=_guard_global_context, check=lambda value: _ref(reference, {}))
+    return GlobalPrimaryBarrier(copy.deepcopy(value['reference']), canonical_json(value['payload']))
+
+
+def _load_global_primary_barrier(reference,*,qualification_reference):
     from .native_qualification_registry_v2 import load_native_qualification_registry
     registry=load_native_qualification_registry(qualification_reference)
     from treeneuron.config import canonical_json,canonical_hash

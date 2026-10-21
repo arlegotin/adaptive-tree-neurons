@@ -447,8 +447,7 @@ def pack_state(state: TrainingState) -> dict[str, Any]:
     snapshot = {'metadata': copy.deepcopy(metadata), 'tensors': _tensor_copy({
         'model': state.model.state_dict(), 'optimizer': optimizer,
         'order': state.order, 'sampler_generator': state.sampler_generator.get_state(), 'rng_states': state.rng_states})}
-    validate_tensor_state(snapshot['tensors'])
-    validate_saved_adam_history(metadata, snapshot['tensors'])
+    validate_saved_training_state(metadata, snapshot['tensors'])
     return snapshot
 
 
@@ -616,11 +615,37 @@ def validate_tensor_state(tensors):
     finite(tensors, 'state')
 
 
+def validate_saved_training_state(meta, tensors):
+    """Validate complete saved numerical state without altering process RNG.
+
+    Call after metadata validation, for current and embedded-best snapshots,
+    before publishing or reconstructing either state.
+    """
+    validate_tensor_state(tensors)
+    validate_saved_adam_history(meta, tensors)
+    for source, expected in zip(tensors['optimizer']['param_groups'], meta['optimizer_groups'], strict=True):
+        options = {k: v for k, v in source.items() if k not in ('params', 'param_names')}
+        if canonical_json(options) != canonical_json(expected['options']):
+            raise ValueError('Saved optimizer options mismatch')
+    order = tensors['order']
+    if (not isinstance(order, torch.Tensor) or order.device.type != 'cpu'
+            or order.dtype != torch.int64 or order.shape != (meta['n_fit'],)
+            or not torch.equal(order.sort().values, torch.arange(meta['n_fit'], device='cpu'))):
+        raise ValueError('Invalid saved sampler permutation')
+    generator_state = tensors['sampler_generator']
+    if (not isinstance(generator_state, torch.Tensor) or generator_state.device.type != 'cpu'
+            or generator_state.dtype != torch.uint8 or generator_state.ndim != 1):
+        raise ValueError('Invalid saved sampler generator state')
+    try:
+        torch.Generator(device='cpu').set_state(generator_state)
+    except (RuntimeError, TypeError) as error:
+        raise ValueError('Invalid saved sampler generator state') from error
+
+
 def unpack_state(snapshot, *, expected_hashes, device):
     meta, tensors = snapshot['metadata'], snapshot['tensors']
     config, preprocessing = validate_metadata(meta, expected_hashes, device)
-    validate_tensor_state(tensors)
-    validate_saved_adam_history(meta, tensors)
+    validate_saved_training_state(meta, tensors)
     # Rebuilding Linear modules consumes RNG; never let it alter paired streams.
     before = capture_rng()
     try:
@@ -650,12 +675,6 @@ def unpack_state(snapshot, *, expected_hashes, device):
         optimizer = torch.optim.AdamW(groups, foreach=False)
         saved = tensors['optimizer']
         if len(saved['param_groups']) != len(groups): raise ValueError('Optimizer group mismatch')
-        for source, expected in zip(saved['param_groups'], meta['optimizer_groups']):
-            if source.get('param_names') != expected['names']:
-                raise ValueError('Saved optimizer parameter names mismatch')
-            actual = {k: v for k, v in source.items() if k not in ('params', 'param_names')}
-            if canonical_json(actual) != canonical_json(expected['options']):
-                raise ValueError('Saved optimizer options mismatch')
         if 'causal_cpu_evidence' in meta['backend']:
             # Adam.load_state_dict casts moments to the parameter dtype. Check
             # the saved values first so malformed float64 state cannot pass by
@@ -680,9 +699,6 @@ def unpack_state(snapshot, *, expected_hashes, device):
         optimizer.load_state_dict(_tensor_copy(saved))
         scheduler = UpdateSchedule(optimizer, **meta['scheduler'])
         order = tensors['order']
-        if (order.dtype != torch.int64 or order.shape != (meta['n_fit'],)
-                or not torch.equal(order.sort().values, torch.arange(meta['n_fit']))):
-            raise ValueError('Invalid saved sampler permutation')
         generator = torch.Generator().set_state(tensors['sampler_generator'])
         state = TrainingState(model, optimizer, scheduler, meta['update'], meta['epoch'], order.clone(),
             meta['cursor'], generator, _tensor_copy(tensors['rng_states']), preprocessing,

@@ -1,0 +1,295 @@
+{
+  "backend_probes": {
+    "decision": null,
+    "probes": {},
+    "reason": "CPU backend did not pass mandatory actual probes",
+    "status": "failed"
+  },
+  "complete": false,
+  "gates": {
+    "cpu_backend": {
+      "reason": "CPU backend did not pass mandatory actual probes",
+      "status": "failed"
+    },
+    "mps_backend": {
+      "reason": "No validated MPS evidence",
+      "status": "unavailable"
+    },
+    "package_layer_math": {
+      "reason": null,
+      "report": {
+        "check": "package_layer_math",
+        "constants": {
+          "error_threshold": 1e-10,
+          "tau": 0.7
+        },
+        "environment": {
+          "architecture": "arm64",
+          "device": "cpu",
+          "dtype": "torch.float64",
+          "platform": "macOS-26.7.1-arm64-arm-64bit",
+          "python": "3.12.13",
+          "threads": 1,
+          "torch": "2.14.1"
+        },
+        "results": {
+          "base_parameter_count": 1153,
+          "bypass_max_abs": 2.6645352591003757e-15,
+          "collapse_max_abs": 3.552713678800501e-15,
+          "contrast_gradient_norm": 0.0,
+          "dead_gradient_norm": 0.0,
+          "forward_max_abs": 3.552713678800501e-15,
+          "gate_gradient_formula_max_abs": 8.326672684688674e-17,
+          "gate_gradient_norm": 0.8719377874983594,
+          "grown_parameter_count": 1697,
+          "growth_preservation_max_abs": 0.0,
+          "leafwise_relu": 1.0,
+          "post_mixture_relu": 0.0,
+          "relu_bound_max_violation": 4.969982758673552e-16,
+          "shared_gradient_max_abs": 2.4424906541753444e-15,
+          "soft_hard_gap_max_abs": 3.209238430557093e-15
+        },
+        "schema_version": 1,
+        "seed": 1602028,
+        "shapes": {
+          "d": 3,
+          "h": 4,
+          "n": 13
+        },
+        "status": "passed"
+      },
+      "returncode": 0,
+      "script": "src/treeneuron/layer_checks.py",
+      "script_sha256": "c342d27db7c007ecd9d6e5533eb0437494a8c10ba94af6627a3eb652809c049a",
+      "status": "passed"
+    },
+    "package_score_math": {
+      "reason": null,
+      "report": {
+        "check": "package_score_math",
+        "constants": {
+          "adam_epsilon": 1e-08,
+          "adam_relative_error_threshold": 0.0001,
+          "epsilon": 0.05,
+          "error_threshold": 1e-10,
+          "learning_rate": 1e-07,
+          "tau": 1.0
+        },
+        "environment": {
+          "architecture": "arm64",
+          "device": "cpu",
+          "dtype": "torch.float64",
+          "platform": "macOS-26.7.1-arm64-arm-64bit",
+          "python": "3.12.13",
+          "threads": 1,
+          "torch": "2.14.1"
+        },
+        "results": {
+          "adam_prediction_relative_error": 1.3567314304246556e-07,
+          "batch_contrast_max_abs": 4.5102810375396984e-17,
+          "batch_score_max_abs": 4.336808689942018e-19,
+          "effective_count": 3,
+          "gate_gradient_max_abs": 4.336808689942018e-19,
+          "normalization_max_abs": 6.938893903907228e-18,
+          "observed_loss_decrease": 2.895539141789527e-09,
+          "permuted_score_max_abs": 6.505213034913027e-19,
+          "predicted_loss_decrease": 2.8955387489426842e-09,
+          "random_contrast_max_abs": 0.0,
+          "rescaled_score_max_abs": 8.673617379884035e-19
+        },
+        "schema_version": 1,
+        "seed": 1602029,
+        "shapes": {
+          "d": 3,
+          "h": 5,
+          "n": 29
+        },
+        "status": "passed"
+      },
+      "returncode": 0,
+      "script": "src/treeneuron/score_checks.py",
+      "script_sha256": "65df787589e59cc1d093832afa8a2a43becb85fa5f9397ff5c744cad69c3c913",
+      "status": "passed"
+    },
+    "reference_cpu": {
+      "status": "passed"
+    }
+  },
+  "implemented_checks_passed": false,
+  "reference_checks": {
+    "appendix_a": {
+      "reason": null,
+      "report": {
+        "check": "appendix_a",
+        "constants": {
+          "epsilon": 0.05,
+          "error_threshold": 1e-12,
+          "tau": 1,
+          "unit": 2
+        },
+        "environment": {
+          "architecture": "arm64",
+          "device": "cpu",
+          "dtype": "torch.float64",
+          "platform": "macOS-26.7.1-arm64-arm-64bit",
+          "python": "3.12.13",
+          "threads": 1,
+          "torch": "2.14.1"
+        },
+        "results": {
+          "collapse_max_abs": 1.7763568394002505e-15,
+          "contrast_gradient_norm": 0.0,
+          "forward_max_abs": 8.881784197001252e-16,
+          "gate_gradient_formula_max_abs": 2.7755575615628914e-17,
+          "gate_gradient_norm": 0.4451935794578945,
+          "gate_step_size": 6.919488255511828e-05,
+          "growth_preservation_max_abs": 0.0,
+          "loss_after": 18.735468175897527,
+          "loss_before": 18.735481890132764,
+          "relu_bound_max_violation": 6.661338147750939e-16,
+          "shared_gradient_max_abs": 1.3322676295501878e-15,
+          "soft_hard_gap_max_abs": 8.881784197001252e-16
+        },
+        "schema_version": 1,
+        "seed": 1602026,
+        "shapes": {
+          "d": 7,
+          "h": 5,
+          "n": 37
+        },
+        "status": "passed"
+      },
+      "returncode": 0,
+      "script": "tests/reference_math_checks.py",
+      "script_sha256": "e14dc49d6654223033a511ad1605df0c2b7ff5f70715b3f2d9be31f8e772fb22",
+      "status": "passed"
+    },
+    "appendix_b": {
+      "reason": null,
+      "report": {
+        "check": "appendix_b",
+        "constants": {
+          "adam_epsilon": 1e-08,
+          "adam_relative_error_threshold": 0.0001,
+          "epsilon": 0.05,
+          "error_threshold": 1e-12,
+          "learning_rate": 1e-06,
+          "tau": 1,
+          "weight_decay": 0.0
+        },
+        "environment": {
+          "architecture": "arm64",
+          "device": "cpu",
+          "dtype": "torch.float64",
+          "platform": "macOS-26.7.1-arm64-arm-64bit",
+          "python": "3.12.13",
+          "threads": 1,
+          "torch": "2.14.1"
+        },
+        "results": {
+          "adam_prediction_relative_error": 8.167754798008742e-08,
+          "adam_scores": [
+            0.07451097148355178,
+            0.025443309656467832,
+            0.024415936392544867,
+            0.005581747049736592
+          ],
+          "contrast_norm": 0.12533186496102378,
+          "contrasts": [
+            [
+              -0.020473132196549598,
+              -0.0071249500887689545,
+              0.08355695446981458,
+              0.02069125883684711,
+              0.03676387936427766,
+              0.08047786441294415
+            ],
+            [
+              -0.014783601232306542,
+              -0.022870162580007583,
+              0.047116119689808306,
+              -0.0033490635494323622,
+              0.11544627772698919,
+              -0.04469841953353591
+            ],
+            [
+              -0.004916996860628027,
+              0.006769289530338319,
+              0.07941463158583582,
+              -0.03950956816149462,
+              0.019420092408985828,
+              0.06583899542629293
+            ],
+            [
+              -0.02561199965650877,
+              -0.014385429631896736,
+              0.06886260326549211,
+              0.027781826691056548,
+              0.012583531380947047,
+              0.06567214586439961
+            ]
+          ],
+          "gate_gradient_formula_max_abs": 5.551115123125783e-17,
+          "gate_gradient_norm": 0.4498939250427178,
+          "gate_gradients": [
+            [
+              -0.07349079026860836,
+              -0.0255758722027042,
+              0.2999378188677795,
+              0.07427378229055216,
+              0.13196840238622082,
+              0.2888850517867482
+            ],
+            [
+              -0.018181179235560247,
+              -0.028126200002260602,
+              0.05794438063524944,
+              -0.004118747773745998,
+              0.14197822536269644,
+              -0.054971042868063646
+            ],
+            [
+              0.006673646774756849,
+              -0.00918769088572645,
+              -0.10778636126353429,
+              0.05362478553612836,
+              -0.026358128903534513,
+              -0.08936068334682437
+            ],
+            [
+              0.00798295786439689,
+              0.004483768551960539,
+              -0.021463660302736297,
+              -0.008659267329574548,
+              -0.003922138144097925,
+              -0.020469232403991493
+            ]
+          ],
+          "loss_after": 6.973685882251051,
+          "loss_before": 6.973686776382635,
+          "observed_loss_decrease": 8.941315847721398e-07,
+          "permuted_score_max_abs": 2.0816681711721685e-17,
+          "predicted_loss_decrease": 8.941316578026212e-07,
+          "rescaled_gradient_max_abs": 1.6653345369377348e-16,
+          "rescaled_score_max_abs": 1.734723475976807e-17,
+          "selected_unit": 0
+        },
+        "schema_version": 1,
+        "seed": 1602027,
+        "shapes": {
+          "d": 5,
+          "h": 4,
+          "n": 41
+        },
+        "status": "passed"
+      },
+      "returncode": 0,
+      "script": "tests/reference_score_checks.py",
+      "script_sha256": "f75f7308970aeace6ab614ffc8bf0736db4e698a7bc784b9f5557701fb3810e2",
+      "status": "passed"
+    }
+  },
+  "reference_checks_passed": true,
+  "schema_version": 1,
+  "scope": "reference_package_and_backend_gates"
+}

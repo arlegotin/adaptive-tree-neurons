@@ -64,8 +64,13 @@ target tables for modeling. A V value cannot determine technical inclusion.
 Use the original fixed anchor inventory; unavailable mandatory anchors remain
 unavailable and block a full-suite claim. Do not drop a slow or strong model.
 
-All production WP09–WP11 code must still be complete and fixture-tested before
-production primary searches. Final source qualification follows that revision.
+The WP09–WP11 production paths are implemented and fixture-tested. The fresh
+review found two Important issues; its one correction pass passed 98 affected
+checks and777 fixed-profile cases. The complete suite finished non-green; all seven isolated native profiles
+passed202 cases under the corrected source. See the current software inventory
+for failures and original-producer-detail limits.
+Final source qualification and production primary searches follow the committed
+verified revision; neither has run yet.
 Existing held-source executions remain useful development evidence and workload
 forecasts; they cannot silently become current-source qualified models. No
 compatibility migration has been admitted. Resource pressure permits declared
@@ -80,8 +85,8 @@ and exact primary V arithmetic component. Its flags remain unqualified; every
 candidate still needs the complete registry and its own full workload check.
 The final168primary-model seal must then bind the complete
 paid journals, qualified model/validation proofs and global procedure before any
-secondary-fold development or protected evaluation. The current implementation
-does not yet provide that release capability. M3's negative Gate B stays closed;
+secondary-fold development or protected evaluation. The global primary barrier and secondary release paths are now implemented
+and fixture-tested. Their actual complete-qualified release remains unrun. M3's negative Gate B stays closed;
 an explicitly unchanged legacy practical reference is the remaining candidate.
 
 The [prepared-data byte/source reader](prepared-data-lineage.md) now supplies

@@ -1,0 +1,63 @@
+{
+  "committed_final_snapshot_pending": true,
+  "files": [
+    {
+      "bytes": 12819,
+      "path": "src/treeneuron/checkpoint.py",
+      "sha256": "9fa0a1e7d4e312f02dc8cc1f9d53f09be73912b366465a35d0b290704d55699f"
+    },
+    {
+      "bytes": 16596,
+      "path": "src/treeneuron/research/native_qualification_registry_v2.py",
+      "sha256": "586280c6c95add91bdf17bce6ff24a4806ba34e3b2f9a2376b6b5afc272ad097"
+    },
+    {
+      "bytes": 16790,
+      "path": "src/treeneuron/research/practical_global_freeze_v2.py",
+      "sha256": "79e334b70a0281689e09c1f4adef077053a67363fd7bd9b8d9d022e5ed5d7dd1"
+    },
+    {
+      "bytes": 11835,
+      "path": "src/treeneuron/research/production_verification_v2.py",
+      "sha256": "fec9ac85000a8fed8e6ff0709bc7c47ffea66c1fad11fbb5b517d534ef02f32f"
+    },
+    {
+      "bytes": 17420,
+      "path": "src/treeneuron/research/qualified_practical_models_v2.py",
+      "sha256": "0cff65b2f6a37d3777911616a6ebd77b87b70c3d5a3fa6365d60b525729e2e56"
+    },
+    {
+      "bytes": 14827,
+      "path": "src/treeneuron/research/qualified_primary_models_v2.py",
+      "sha256": "3acf7a824d49dd6dcf23a17beda18b8ca47aa552d1621003c3a1891d81589c3b"
+    },
+    {
+      "bytes": 19759,
+      "path": "src/treeneuron/research/secondary_native_search_v2.py",
+      "sha256": "b6a0d995c54f04de5d034537f6aaefc9b626551421e05be735eff6004628c49c"
+    },
+    {
+      "bytes": 2826,
+      "path": "src/treeneuron/research/validation_invocation_v2.py",
+      "sha256": "422678c61924896057012c3c18953e8c28eb31e42e707ad5d34bc6f410ad4250"
+    },
+    {
+      "bytes": 61280,
+      "path": "src/treeneuron/train.py",
+      "sha256": "8aec8eadfb01f157a5ba12932696bc8b5f47f0420f89e9091fa1ab1ead2f04f1"
+    },
+    {
+      "bytes": 5849,
+      "path": "tests/test_snapshot_boundary_v2.py",
+      "sha256": "772750d7cab34b0d0386170b4d76e01b1ef6e134fcf090f0bd22c363520aa9f8"
+    },
+    {
+      "bytes": 4848,
+      "path": "tests/test_validation_composition_v2.py",
+      "sha256": "2f94bf1db7e89c7c76d19f64681d1c0a0f08c908a9e10f60719f6966544b0b34"
+    }
+  ],
+  "reviewed_commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+  "schema": "research/v2-final-review-fix-execution-delta",
+  "source_sha256": "6ca3cd4ec41ecc8222fc9e8add58ceb0ae07b5fd9c86d1fa1cd87fae0933bbac"
+}
