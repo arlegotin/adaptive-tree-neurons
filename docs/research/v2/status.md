@@ -36,6 +36,7 @@ The [native timing plan](native-timing-plan.md) now binds that preparation to
 the actual protocol and a pre-label witness. Its9,360 measurement jobs are
 coded, not run or resource-admitted. The actual executor, complete costs and
 final production integration remain pending.
+The [timing executor and reader](native-timing-execution.md) are now fixture-tested with a full known30-pair/60-process rehearsal, exact resume and retained failures. Actual native timing, complete containing costs and final production integration remain unrun.
 
 ## The idea and present verdict
 
