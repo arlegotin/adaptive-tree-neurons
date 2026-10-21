@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software or its reported results, please cite this repository and record the commit used."
 type: software
-title: "Adaptive tree-neurons: selective conditional growth with matched allocation controls"
+title: "Adaptive tree-neurons: function-preserving growth and controlled capacity allocation"
 authors:
   - family-names: Legotin
     given-names: Artem
@@ -15,23 +15,23 @@ license:
 abstract: >-
   Research software for allocating affine specialists to selected individual
   neurons through function-preserving centered-gate insertion. The implementation
-  includes a residual-weighted moment score, compact PyTorch layers, matched
-  random placement, ordinary growth and static gated controls, complete-state
-  checkpoint recovery, source-bound experiment records and paired analysis.
-  A 16-problem exploratory pilot did not establish a cheap-score advantage.
-  A separate eight-problem diagnostic with two repetitions per problem found
-  normalized evaluation MSE of 0.063378 for longer validation selection,
-  0.063850 for random placement and 0.063125 for shorter selection. The
-  descriptive interval for longer selection's mean benefit over random spans
-  gains and losses. Independent prediction arithmetic and representative
-  training replays agree exactly. These synthetic diagnostic results do not
-  establish practical superiority, independent confirmation or model-family
-  novelty. Full raw-result authentication requires the retained external
-  experimental archive.
+  includes compact PyTorch layers, first-step scoring and exact parent-conditioned
+  joint ridge scoring with greedy selection, matched random and ordinary-capacity
+  controls,
+  complete-state checkpoint recovery, native tabular baseline adapters and
+  source-bound paired experiments. Planted controls demonstrate learnable
+  added capacity. In the completed sixteen-problem development study with two
+  paired repeats per problem, ordinary continuation beat joint growth on every
+  problem average and had 15.6 percent lower mean exploratory evaluation error.
+  Joint growth had 1.25 percent higher mean error than matched random placement.
+  The tested selector branch closed negative. Native validation surveys are
+  exploratory; the full tuned benchmark and protected evaluation are unfinished.
+  No practical superiority, independent confirmation or model-family novelty is
+  claimed. Full raw-result authentication requires retained external archives.
 keywords:
   - neural network growth
-  - conditional computation
+  - affine stumps
   - capacity allocation
   - gated linear units
   - reproducible research
-  - inconclusive results
+  - negative results

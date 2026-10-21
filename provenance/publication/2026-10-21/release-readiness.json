@@ -1,0 +1,198 @@
+{
+  "base_commit": "a3c0414ee796a23d9cdc766fbaa04ae30fb58104",
+  "citation": {
+    "file": {
+      "bytes": 1795,
+      "path": "CITATION.cff",
+      "sha256": "dbada0bfcc57636cf187cf22bca6e6cb78dc204c3bd14fc041076a6fc628b1cc"
+    },
+    "new_release_or_doi_invented": false,
+    "original_date_released": "2026-10-18",
+    "schema": {
+      "bytes": 63763,
+      "path": "environment/publication-20261018/cff-1.2.0-schema.json",
+      "sha256": "0b8d22140da702d766df318dcff3a91af2f39521298dcf36d76315fd99cc169b"
+    },
+    "schema_url": "https://github.com/citation-file-format/citation-file-format/blob/1.2.0/schema.json",
+    "schema_valid": true,
+    "validator": "jsonschema 4.26.0",
+    "version": "0.1.0"
+  },
+  "date": "2026-10-21",
+  "fresh_review": "Independent publication review: no Critical; one Important AUC Mu MIT notice fixed and verified; exact-vs-greedy wording clarified; no second review claimed.",
+  "github_already_public": true,
+  "headline_arithmetic": {
+    "joint_percent_higher_than_random": 1.2505598108962124,
+    "means": {
+      "fresh_upper": 0.05867649684790594,
+      "joint": 0.06015804110332599,
+      "keep": 0.050773682532248586,
+      "local_singleton": 0.0598305914919972,
+      "pure_span": 0.06037838939714184,
+      "random": 0.059415020732410805,
+      "short_singleton": 0.05986614784338102,
+      "top": 0.060905106328871694,
+      "unconditioned": 0.06044163796009545,
+      "warm_upper": 0.05479101586494476
+    },
+    "ordinary_percent_lower_than_joint": 15.599508226936877,
+    "ordinary_wins": 16,
+    "protected_confirmation": false,
+    "source": {
+      "bytes": 8629,
+      "path": "audit/research-v2/M3/teacher-risks.csv",
+      "sha256": "e6eec9cf5e5f94a01af99f1d0ca50b2099573d2b8405481181a61b0e7e86bcc4"
+    },
+    "teachers": 16
+  },
+  "history_scan": {
+    "classifications": {
+      "bytes": 101461,
+      "path": "provenance/publication/2026-10-21/history-classifications.json",
+      "sha256": "ebf7451cae60c6ad1dec82a839533cfa0e728b4299dac68d8a6956a82e18ba17"
+    },
+    "ignore_policy": "Only exact immutable fingerprints; no rule/path/value-pattern bypass",
+    "initial_findings": 122,
+    "initial_redacted_report": {
+      "bytes": 123714,
+      "path": "provenance/publication/2026-10-21/history-initial-redacted.json",
+      "sha256": "bfb6e3ad5ee3ee5cf5c7b43c170ed25f617fba12828679e01913b52e70e14160"
+    },
+    "post_disposition_log": {
+      "bytes": 116,
+      "path": "provenance/publication/2026-10-21/history-after-review.log",
+      "sha256": "6e4bc4f33356402685c72c3e61005c1384bcdfa63cb4242832d19bc576aff8af"
+    },
+    "reachable_commits": 350,
+    "reviewed_context_hash_occurrences": 14,
+    "reviewed_test_count_prose_occurrences": 4,
+    "scanner": "gitleaks8.30.1 retained checksum-verified original binary",
+    "unique_fingerprints": 66,
+    "unresolved_findings": 0,
+    "verified_file_hash_occurrences": 104
+  },
+  "licensing": {
+    "decision": "Retain AGPL-3.0-only code and CC-BY-4.0 original prose; preserve MIT/Apache/BSD and external terms",
+    "license": {
+      "bytes": 34523,
+      "path": "LICENSE",
+      "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    "license_texts_unchanged": true,
+    "nested_auc_mu_mit_notice": {
+      "exact_upstream_bytes": true,
+      "file": {
+        "bytes": 1056,
+        "path": "licenses/AUC-Mu-MIT.txt",
+        "sha256": "ce568e3be417c57d6d999e460636a5ca9af0c2f1aec986bdd42da69eca520341"
+      },
+      "scientific_source_lock_unchanged": true,
+      "url": "https://github.com/kleimanr/auc_mu/blob/8586753cb225424c63310983b10858a30cde769a/LICENSE.md"
+    },
+    "prose_license": {
+      "bytes": 18657,
+      "path": "licenses/CC-BY-4.0.txt",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+    },
+    "recent_owner_repositories_checked": [
+      "customer-pilot-evidence-pack",
+      "outcome-aware-context-allocation",
+      "reasoning-allocation"
+    ]
+  },
+  "previously_stopped_pid_check": {
+    "command": [
+      "ps",
+      "-p",
+      "12398,50919,68217,68222,59339,37895,54914",
+      "-o",
+      "pid=,stat=,comm="
+    ],
+    "exit_code": 1,
+    "interpretation": "None of the recorded stopped PIDs exists; no job restarted",
+    "output": "",
+    "pids": [
+      12398,
+      50919,
+      68217,
+      68222,
+      59339,
+      37895,
+      54914
+    ]
+  },
+  "publication": "pending",
+  "publish_authorized_by_owner": true,
+  "remote_main_before": "230e6575149c9fee440ca301fa3782a85751bac8",
+  "research_paused": true,
+  "schema": "publication/continuation-refresh/v1",
+  "scientific_execution_package": {
+    "files": 783,
+    "pinned_commit": "c042b1fc4606b896c7604e1674aa09f7432e74d1",
+    "sha256": "9433e4ed6d0d403aa16a9b69e848ad1a30a84f0340ecd9214a95e0475e69d860",
+    "verified_unchanged_in_this_session": true
+  },
+  "scope": "Documentation/provenance-only public continuation; no resumed scientific execution",
+  "tracked_material": {
+    "already_tracked_software_artifact_bytes": 3983949,
+    "already_tracked_software_artifact_files": 155,
+    "full_raw_research_archives_or_installed_environments_added": false,
+    "root": "artifacts/research-v2/WP10",
+    "scope_disclosed": true
+  },
+  "verification": {
+    "existing_broad_suite": "3181 passed,106 failed,459 setup errors,6 skips; source-specific failures and scoped recoveries remain disclosed",
+    "focused_tests": {
+      "argv": [
+        ".venv-research-v2/bin/python",
+        "-c",
+        "import torch,pytest; torch.set_num_threads(1); torch.set_num_interop_threads(1); raise SystemExit(pytest.main([\"-q\",\"tests/test_algebra.py\",\"tests/test_growth.py\",\"tests/test_score.py\",\"tests/test_probe_diagnostic.py\"]))"
+      ],
+      "environment_overrides": {
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "PYTORCH_ENABLE_MPS_FALLBACK": "0",
+        "VECLIB_MAXIMUM_THREADS": "1"
+      },
+      "failed": 0,
+      "log": {
+        "bytes": 191,
+        "path": "provenance/publication/2026-10-21/focused-fresh-process.log",
+        "sha256": "41f8942d83e50a576aec27bf921408d6d2bddec74ff2a4aac4d0d3d915264521"
+      },
+      "passed": 89,
+      "seconds": 18.74,
+      "skipped": 1
+    },
+    "initial_shared_process_attempt": {
+      "failed": 2,
+      "finding": "Reference scripts set global torch default dtype to float64; running references then pytest in one interpreter contaminates the test process. Documented separate-process pytest passes without source changes.",
+      "log": {
+        "bytes": 7646,
+        "path": "provenance/publication/2026-10-21/shared-process-check-initial.log",
+        "sha256": "ebd9ffc31aa82036154ad56e687fdca2665afb0c60ff9c3e0555ed3409a4e0b4"
+      },
+      "passed": 87,
+      "seconds": 17.94,
+      "skipped": 1
+    },
+    "local_links": {
+      "checked": 129,
+      "missing": 0
+    },
+    "readme_example_and_both_references": "passed in fresh processes from a public source export with project imports verified",
+    "source_export": {
+      "bytes": 2652,
+      "path": "provenance/publication/2026-10-21/source-export-checks.json",
+      "sha256": "7f2f8b65ab4c676ac2f47c3e6aeb426d23959a62ff0aac041408f73d35f287fa"
+    },
+    "whole_suite_rerun": false
+  },
+  "writing_skill": {
+    "reader_facing_prose_only": true,
+    "upstream": "https://github.com/arlegotin/write-like-me/blob/main/skills/write-like-me/SKILL.md",
+    "voice_revision_anti_slop_read": true
+  }
+}

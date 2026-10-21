@@ -1,0 +1,2188 @@
+{
+  "scanner": "gitleaks 8.30.1",
+  "scan": "reachable HEAD history with the existing exact historical .gitleaksignore",
+  "findings": 122,
+  "unique_fingerprints": 66,
+  "verified_file_hash_occurrences": 104,
+  "rows": [
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-pipeline-eeeeb85/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-pipeline-eeeeb85/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-pipeline-eeeeb85/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-pipeline-eeeeb85/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-pipeline-eeeeb85/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-pipeline-eeeeb85/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-pipeline-eeeeb85/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-pipeline-eeeeb85/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-pipeline-eeeeb85/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-pipeline-eeeeb85/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-pipeline-eeeeb85/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-pipeline-eeeeb85/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-pipeline-a60f507/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-pipeline-a60f507/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-pipeline-a60f507/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-pipeline-a60f507/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-pipeline-a60f507/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-pipeline-a60f507/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-pipeline-a60f507/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-pipeline-a60f507/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-pipeline-a60f507/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-pipeline-a60f507/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-pipeline-a60f507/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-pipeline-a60f507/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-pipeline-eeeeb85/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-pipeline-eeeeb85/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-pipeline-eeeeb85/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-pipeline-eeeeb85/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-pipeline-eeeeb85/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-pipeline-eeeeb85/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-protection-a60f507/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-protection-a60f507/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-protection-a60f507/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-protection-a60f507/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-protection-a60f507/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-protection-a60f507/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-pipeline-a60f507/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-pipeline-a60f507/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-pipeline-a60f507/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-pipeline-a60f507/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-pipeline-a60f507/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-pipeline-a60f507/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-protection-eeeeb85/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-protection-eeeeb85/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-protection-eeeeb85/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-protection-eeeeb85/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-protection-eeeeb85/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-protection-eeeeb85/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-protection-a60f507/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-protection-a60f507/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-protection-a60f507/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-protection-a60f507/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-protection-a60f507/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-protection-a60f507/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-readiness-software/test-logs/production-reporting-profile.log:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-reporting-profile.log",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\": \"REDACTED\"",
+      "context_prefix": "test_access.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-readiness-software/test-logs/production-reporting-profile.log:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-reporting-profile.log",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\": \"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-readiness-software/test-logs/production-reporting-profile.log:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-reporting-profile.log",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\": \"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-protection-eeeeb85/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-protection-eeeeb85/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-protection-eeeeb85/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-protection-eeeeb85/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-protection-eeeeb85/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-protection-eeeeb85/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-protection-eeeeb85/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-protection-eeeeb85/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-protection-eeeeb85/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-protection-eeeeb85/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-protection-eeeeb85/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-protection-eeeeb85/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-protection-a60f507/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-protection-a60f507/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-protection-a60f507/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-protection-a60f507/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-protection-a60f507/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-protection-a60f507/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-eeeeb85/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-eeeeb85/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-eeeeb85/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-eeeeb85/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-eeeeb85/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-eeeeb85/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-e4028dd/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-e4028dd/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-e4028dd/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-e4028dd/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-e4028dd/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-e4028dd/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-e4028dd/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-e4028dd/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-e4028dd/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-e4028dd/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-e4028dd/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-e4028dd/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-a60f507/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-a60f507/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-a60f507/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-a60f507/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-a60f507/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-a60f507/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-eeeeb85/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-eeeeb85/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-eeeeb85/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-eeeeb85/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-eeeeb85/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-eeeeb85/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-a60f507/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-a60f507/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-a60f507/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-a60f507/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-a60f507/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-a60f507/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-eeeeb85/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-eeeeb85/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-eeeeb85/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-eeeeb85/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-eeeeb85/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-eeeeb85/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-e4028dd/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-e4028dd/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-e4028dd/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-e4028dd/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-e4028dd/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-e4028dd/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-search-eeeeb85/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-search-eeeeb85/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-search-eeeeb85/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-search-eeeeb85/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-search-eeeeb85/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-search-eeeeb85/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-search-eeeeb85/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-search-eeeeb85/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-search-eeeeb85/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-search-eeeeb85/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-search-eeeeb85/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-search-eeeeb85/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-a60f507/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-a60f507/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-a60f507/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-a60f507/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-reporting-a60f507/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-reporting-a60f507/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-search-a60f507/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-search-a60f507/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-search-a60f507/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-search-a60f507/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-search-a60f507/result.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-search-a60f507/result.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-search-eeeeb85/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-search-eeeeb85/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-search-eeeeb85/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-search-eeeeb85/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-search-eeeeb85/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-search-eeeeb85/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-search-a60f507/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-search-a60f507/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-search-a60f507/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-search-a60f507/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-search-a60f507/request.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-search-a60f507/request.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-search-a60f507/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-search-a60f507/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "0ca7bc4af9c451fcf63e738e07e540953abffc461b1ce9be6f7f2030a26369a6",
+      "redacted_match": "test_access.py\":\"REDACTED\"",
+      "context_prefix": "test_access.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "bf38cfe9a9af3ba2b0bd8c8945860d1916e2f54b",
+          "path": "tests/test_access.py",
+          "bytes": 3803
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-search-a60f507/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-search-a60f507/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "19c8a9667d2bdabf309c1174c9ba3eb034a92137f9e8ea6c569c817072ea1fdb",
+      "redacted_match": "test_transfer_access_prefix_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_prefix_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "6dbb59df1a2d413068b113e1387e6869b779736e",
+          "path": "tests/test_transfer_access_prefix_v2.py",
+          "bytes": 4324
+        }
+      ]
+    },
+    {
+      "fingerprint": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c:artifacts/research-v2/WP10/production-search-a60f507/worker/terminal.json:generic-api-key:1",
+      "commit": "783cb2d85d99abbd8e99b156ab7a5ed5ca69266c",
+      "path": "artifacts/research-v2/WP10/production-search-a60f507/worker/terminal.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "d43203e58107c32fe5b331e711ef6b0a47f6065abd584e3f2b1dc1c40a34cbfd",
+      "redacted_match": "test_transfer_access_v2.py\":\"REDACTED\"",
+      "context_prefix": "test_transfer_access_v2.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "129364b4fa8991e3a620497cc0a320025b4cecf5",
+          "path": "tests/test_transfer_access_v2.py",
+          "bytes": 6923
+        }
+      ]
+    },
+    {
+      "fingerprint": "c042b1fc4606b896c7604e1674aa09f7432e74d1:audit/research-v2/final-review/execution-ledger-at-783cb2d.md:generic-api-key:133",
+      "commit": "c042b1fc4606b896c7604e1674aa09f7432e74d1",
+      "path": "audit/research-v2/final-review/execution-ledger-at-783cb2d.md",
+      "line": 133,
+      "rule": "generic-api-key",
+      "digest": null,
+      "redacted_match": "2missingAPIRED->REDACTED;",
+      "context_prefix": "Historical test-status prose or six-dataset event counts; original exact location and redacted match retained above.",
+      "disposition": "false_positive_reviewed_test_status_or_dataset_count_prose"
+    },
+    {
+      "fingerprint": "c042b1fc4606b896c7604e1674aa09f7432e74d1:audit/research-v2/final-review/execution-ledger-at-783cb2d.md:generic-api-key:264",
+      "commit": "c042b1fc4606b896c7604e1674aa09f7432e74d1",
+      "path": "audit/research-v2/final-review/execution-ledger-at-783cb2d.md",
+      "line": 264,
+      "rule": "generic-api-key",
+      "digest": null,
+      "redacted_match": "Retainedrealcommandvalidatedall6manifestsand135APIevents underSHleases:REDACTED;",
+      "context_prefix": "Historical test-status prose or six-dataset event counts; original exact location and redacted match retained above.",
+      "disposition": "false_positive_reviewed_test_status_or_dataset_count_prose"
+    },
+    {
+      "fingerprint": "4afbed614bf7dea98a1da24ce0a10f0efe7e57d1:docs/research/v2/WP08-primary-search-declaration-receipt.json:generic-api-key:127",
+      "commit": "4afbed614bf7dea98a1da24ce0a10f0efe7e57d1",
+      "path": "docs/research/v2/WP08-primary-search-declaration-receipt.json",
+      "line": 127,
+      "rule": "generic-api-key",
+      "digest": null,
+      "redacted_match": "API:REDACTED\"",
+      "context_prefix": "Historical test-status prose or six-dataset event counts; original exact location and redacted match retained above.",
+      "disposition": "false_positive_reviewed_test_status_or_dataset_count_prose"
+    },
+    {
+      "fingerprint": "77e1097e29d82af0342f1cbd0d606993a1ce6cc6:docs/research/v2/WP07-native-qualification-registry-receipt.json:generic-api-key:124",
+      "commit": "77e1097e29d82af0342f1cbd0d606993a1ce6cc6",
+      "path": "docs/research/v2/WP07-native-qualification-registry-receipt.json",
+      "line": 124,
+      "rule": "generic-api-key",
+      "digest": null,
+      "redacted_match": "API:REDACTED\"",
+      "context_prefix": "Historical test-status prose or six-dataset event counts; original exact location and redacted match retained above.",
+      "disposition": "false_positive_reviewed_test_status_or_dataset_count_prose"
+    },
+    {
+      "fingerprint": "4ab4f5206d25876305962cf56e8b61d132038a2f:docs/research/v2/WP09-post-survey-primary-access-receipt.json:generic-api-key:12",
+      "commit": "4ab4f5206d25876305962cf56e8b61d132038a2f",
+      "path": "docs/research/v2/WP09-post-survey-primary-access-receipt.json",
+      "line": 12,
+      "rule": "generic-api-key",
+      "digest": "4dc6d868d5badd7ace460a5983f09a8843a4b1fb3ca7273214b0a05efd2ce23d",
+      "redacted_match": "access_event_hash\": \"REDACTED\"",
+      "context_prefix": "ccess_event_hash\": \"",
+      "disposition": "false_positive_reviewed_access_audit_digest",
+      "context_review": {
+        "dataset": "airfoil",
+        "json_key": "access_event_hash",
+        "schema": "research/v2-pre-freeze-transfer-access-audit",
+        "event_count": 76,
+        "numeric_hash_string": true,
+        "raw_local_log_reconstruction": false
+      }
+    },
+    {
+      "fingerprint": "4ab4f5206d25876305962cf56e8b61d132038a2f:docs/research/v2/WP09-post-survey-primary-access-receipt.json:generic-api-key:13",
+      "commit": "4ab4f5206d25876305962cf56e8b61d132038a2f",
+      "path": "docs/research/v2/WP09-post-survey-primary-access-receipt.json",
+      "line": 13,
+      "rule": "generic-api-key",
+      "digest": "9ce5ece095b3ea664de3b279fe539d2c6af161e2bda13c727756756d45f077ae",
+      "redacted_match": "access_file_sha256\": \"REDACTED\"",
+      "context_prefix": "ccess_file_sha256\": \"",
+      "disposition": "false_positive_reviewed_access_audit_digest",
+      "context_review": {
+        "dataset": "airfoil",
+        "json_key": "access_file_sha256",
+        "schema": "research/v2-pre-freeze-transfer-access-audit",
+        "event_count": 76,
+        "numeric_hash_string": true,
+        "raw_local_log_reconstruction": false
+      }
+    },
+    {
+      "fingerprint": "4ab4f5206d25876305962cf56e8b61d132038a2f:docs/research/v2/WP09-post-survey-primary-access-receipt.json:generic-api-key:38",
+      "commit": "4ab4f5206d25876305962cf56e8b61d132038a2f",
+      "path": "docs/research/v2/WP09-post-survey-primary-access-receipt.json",
+      "line": 38,
+      "rule": "generic-api-key",
+      "digest": "1a9ef4192404da8833dbcdf43a290d83695aeec106a410982a255dc76c9d8dad",
+      "redacted_match": "access_event_hash\": \"REDACTED\"",
+      "context_prefix": "ccess_event_hash\": \"",
+      "disposition": "false_positive_reviewed_access_audit_digest",
+      "context_review": {
+        "dataset": "concrete",
+        "json_key": "access_event_hash",
+        "schema": "research/v2-pre-freeze-transfer-access-audit",
+        "event_count": 59,
+        "numeric_hash_string": true,
+        "raw_local_log_reconstruction": false
+      }
+    },
+    {
+      "fingerprint": "4ab4f5206d25876305962cf56e8b61d132038a2f:docs/research/v2/WP09-post-survey-primary-access-receipt.json:generic-api-key:39",
+      "commit": "4ab4f5206d25876305962cf56e8b61d132038a2f",
+      "path": "docs/research/v2/WP09-post-survey-primary-access-receipt.json",
+      "line": 39,
+      "rule": "generic-api-key",
+      "digest": "b0c83e1d9bbf59013f01d18e3b7f01cbb054496b42b56c8012718e6d35eee18d",
+      "redacted_match": "access_file_sha256\": \"REDACTED\"",
+      "context_prefix": "ccess_file_sha256\": \"",
+      "disposition": "false_positive_reviewed_access_audit_digest",
+      "context_review": {
+        "dataset": "concrete",
+        "json_key": "access_file_sha256",
+        "schema": "research/v2-pre-freeze-transfer-access-audit",
+        "event_count": 59,
+        "numeric_hash_string": true,
+        "raw_local_log_reconstruction": false
+      }
+    },
+    {
+      "fingerprint": "4ab4f5206d25876305962cf56e8b61d132038a2f:docs/research/v2/WP09-post-survey-primary-access-receipt.json:generic-api-key:64",
+      "commit": "4ab4f5206d25876305962cf56e8b61d132038a2f",
+      "path": "docs/research/v2/WP09-post-survey-primary-access-receipt.json",
+      "line": 64,
+      "rule": "generic-api-key",
+      "digest": "92d8a16ddc5230260478c62b9ef997cefc91695c715ce9f45e83f1853032670b",
+      "redacted_match": "access_event_hash\": \"REDACTED\"",
+      "context_prefix": "ccess_event_hash\": \"",
+      "disposition": "false_positive_reviewed_access_audit_digest",
+      "context_review": {
+        "dataset": "ccpp",
+        "json_key": "access_event_hash",
+        "schema": "research/v2-pre-freeze-transfer-access-audit",
+        "event_count": 60,
+        "numeric_hash_string": true,
+        "raw_local_log_reconstruction": false
+      }
+    },
+    {
+      "fingerprint": "4ab4f5206d25876305962cf56e8b61d132038a2f:docs/research/v2/WP09-post-survey-primary-access-receipt.json:generic-api-key:65",
+      "commit": "4ab4f5206d25876305962cf56e8b61d132038a2f",
+      "path": "docs/research/v2/WP09-post-survey-primary-access-receipt.json",
+      "line": 65,
+      "rule": "generic-api-key",
+      "digest": "053d77b677009b7c64a5136778e79621104b3439cbffeb882fe81030d6f02e31",
+      "redacted_match": "access_file_sha256\": \"REDACTED\"",
+      "context_prefix": "ccess_file_sha256\": \"",
+      "disposition": "false_positive_reviewed_access_audit_digest",
+      "context_review": {
+        "dataset": "ccpp",
+        "json_key": "access_file_sha256",
+        "schema": "research/v2-pre-freeze-transfer-access-audit",
+        "event_count": 60,
+        "numeric_hash_string": true,
+        "raw_local_log_reconstruction": false
+      }
+    },
+    {
+      "fingerprint": "4ab4f5206d25876305962cf56e8b61d132038a2f:docs/research/v2/WP09-post-survey-primary-access-receipt.json:generic-api-key:90",
+      "commit": "4ab4f5206d25876305962cf56e8b61d132038a2f",
+      "path": "docs/research/v2/WP09-post-survey-primary-access-receipt.json",
+      "line": 90,
+      "rule": "generic-api-key",
+      "digest": "d4ebbdefb4bed45884ddb13a3bc16641aed753fffaf956a8fde79f4cf43086ea",
+      "redacted_match": "access_event_hash\": \"REDACTED\"",
+      "context_prefix": "ccess_event_hash\": \"",
+      "disposition": "false_positive_reviewed_access_audit_digest",
+      "context_review": {
+        "dataset": "parkinsons",
+        "json_key": "access_event_hash",
+        "schema": "research/v2-pre-freeze-transfer-access-audit",
+        "event_count": 59,
+        "numeric_hash_string": true,
+        "raw_local_log_reconstruction": false
+      }
+    },
+    {
+      "fingerprint": "4ab4f5206d25876305962cf56e8b61d132038a2f:docs/research/v2/WP09-post-survey-primary-access-receipt.json:generic-api-key:91",
+      "commit": "4ab4f5206d25876305962cf56e8b61d132038a2f",
+      "path": "docs/research/v2/WP09-post-survey-primary-access-receipt.json",
+      "line": 91,
+      "rule": "generic-api-key",
+      "digest": "e843462a1ae405934281d0e7bc6b948e79020b88adc9a41bc04fc225e79e1364",
+      "redacted_match": "access_file_sha256\": \"REDACTED\"",
+      "context_prefix": "ccess_file_sha256\": \"",
+      "disposition": "false_positive_reviewed_access_audit_digest",
+      "context_review": {
+        "dataset": "parkinsons",
+        "json_key": "access_file_sha256",
+        "schema": "research/v2-pre-freeze-transfer-access-audit",
+        "event_count": 59,
+        "numeric_hash_string": true,
+        "raw_local_log_reconstruction": false
+      }
+    },
+    {
+      "fingerprint": "4ab4f5206d25876305962cf56e8b61d132038a2f:docs/research/v2/WP09-post-survey-primary-access-receipt.json:generic-api-key:116",
+      "commit": "4ab4f5206d25876305962cf56e8b61d132038a2f",
+      "path": "docs/research/v2/WP09-post-survey-primary-access-receipt.json",
+      "line": 116,
+      "rule": "generic-api-key",
+      "digest": "9508145dbeb130bcfb087de0a3ceda85d0760251f28b9fb6d5190763267543d3",
+      "redacted_match": "access_event_hash\": \"REDACTED\"",
+      "context_prefix": "ccess_event_hash\": \"",
+      "disposition": "false_positive_reviewed_access_audit_digest",
+      "context_review": {
+        "dataset": "bike",
+        "json_key": "access_event_hash",
+        "schema": "research/v2-pre-freeze-transfer-access-audit",
+        "event_count": 60,
+        "numeric_hash_string": true,
+        "raw_local_log_reconstruction": false
+      }
+    },
+    {
+      "fingerprint": "4ab4f5206d25876305962cf56e8b61d132038a2f:docs/research/v2/WP09-post-survey-primary-access-receipt.json:generic-api-key:117",
+      "commit": "4ab4f5206d25876305962cf56e8b61d132038a2f",
+      "path": "docs/research/v2/WP09-post-survey-primary-access-receipt.json",
+      "line": 117,
+      "rule": "generic-api-key",
+      "digest": "57ec6328d4e047b9fed2530176946df25297a22c77144bbc6c9994c72976bd2e",
+      "redacted_match": "access_file_sha256\": \"REDACTED\"",
+      "context_prefix": "ccess_file_sha256\": \"",
+      "disposition": "false_positive_reviewed_access_audit_digest",
+      "context_review": {
+        "dataset": "bike",
+        "json_key": "access_file_sha256",
+        "schema": "research/v2-pre-freeze-transfer-access-audit",
+        "event_count": 60,
+        "numeric_hash_string": true,
+        "raw_local_log_reconstruction": false
+      }
+    },
+    {
+      "fingerprint": "4ab4f5206d25876305962cf56e8b61d132038a2f:docs/research/v2/WP09-post-survey-primary-access-receipt.json:generic-api-key:142",
+      "commit": "4ab4f5206d25876305962cf56e8b61d132038a2f",
+      "path": "docs/research/v2/WP09-post-survey-primary-access-receipt.json",
+      "line": 142,
+      "rule": "generic-api-key",
+      "digest": "06c43bc97fbf1061e1be614ad7be16e28b74ee2f2d4f447a8cec1e4d7b175068",
+      "redacted_match": "access_event_hash\": \"REDACTED\"",
+      "context_prefix": "ccess_event_hash\": \"",
+      "disposition": "false_positive_reviewed_access_audit_digest",
+      "context_review": {
+        "dataset": "energy",
+        "json_key": "access_event_hash",
+        "schema": "research/v2-pre-freeze-transfer-access-audit",
+        "event_count": 67,
+        "numeric_hash_string": true,
+        "raw_local_log_reconstruction": false
+      }
+    },
+    {
+      "fingerprint": "4ab4f5206d25876305962cf56e8b61d132038a2f:docs/research/v2/WP09-post-survey-primary-access-receipt.json:generic-api-key:143",
+      "commit": "4ab4f5206d25876305962cf56e8b61d132038a2f",
+      "path": "docs/research/v2/WP09-post-survey-primary-access-receipt.json",
+      "line": 143,
+      "rule": "generic-api-key",
+      "digest": "3027f654dd644a2ce59def340e76c9493477804e323150743f14f34b0b73801b",
+      "redacted_match": "access_file_sha256\": \"REDACTED\"",
+      "context_prefix": "ccess_file_sha256\": \"",
+      "disposition": "false_positive_reviewed_access_audit_digest",
+      "context_review": {
+        "dataset": "energy",
+        "json_key": "access_file_sha256",
+        "schema": "research/v2-pre-freeze-transfer-access-audit",
+        "event_count": 67,
+        "numeric_hash_string": true,
+        "raw_local_log_reconstruction": false
+      }
+    },
+    {
+      "fingerprint": "c5a86ad01a57083fd5c7d4d180b363741efae8de:docs/research/v2/WP08-bootstrap-preparation-receipt.json:generic-api-key:12",
+      "commit": "c5a86ad01a57083fd5c7d4d180b363741efae8de",
+      "path": "docs/research/v2/WP08-bootstrap-preparation-receipt.json",
+      "line": 12,
+      "rule": "generic-api-key",
+      "digest": "46ca99b06d34baea7f062044b8a99bd808490bff0060e31a06bde87b0221f692",
+      "redacted_match": "missing-api-red.log\": \"REDACTED\"",
+      "context_prefix": "issing-api-red.log\": \"",
+      "disposition": "false_positive_reviewed_test_log_digest",
+      "context_review": {
+        "json_key": "logs.missing-api-red.log",
+        "numeric_hash_string": true,
+        "original_log_bytes_reconstructed": false
+      }
+    },
+    {
+      "fingerprint": "1848431ac7f9953c06a875ade39bf97a70b25bfd:docs/research/v2/WP08-metric-preparation-receipt.json:generic-api-key:11",
+      "commit": "1848431ac7f9953c06a875ade39bf97a70b25bfd",
+      "path": "docs/research/v2/WP08-metric-preparation-receipt.json",
+      "line": 11,
+      "rule": "generic-api-key",
+      "digest": "c503c28685b272127078875bbb982c0da1dfd8252e00a58f7a71335ec6650c7b",
+      "redacted_match": "missing-api-red.log\": \"REDACTED\"",
+      "context_prefix": "issing-api-red.log\": \"",
+      "disposition": "false_positive_reviewed_test_log_digest",
+      "context_review": {
+        "json_key": "logs.missing-api-red.log",
+        "numeric_hash_string": true,
+        "original_log_bytes_reconstructed": false
+      }
+    },
+    {
+      "fingerprint": "e1b1018dc348991d25ac51b9be47c57837220ee4:docs/research/v2/NODE-v2-integration-receipt.json:generic-api-key:62",
+      "commit": "e1b1018dc348991d25ac51b9be47c57837220ee4",
+      "path": "docs/research/v2/NODE-v2-integration-receipt.json",
+      "line": 62,
+      "rule": "generic-api-key",
+      "digest": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+      "redacted_match": "api.py\": \"REDACTED\"",
+      "context_prefix": "pi.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "e6b88ebdced355ebda857ce5384312c4d30d8d46",
+          "path": "src/treeneuron/baselines/api.py",
+          "bytes": 664
+        }
+      ]
+    },
+    {
+      "fingerprint": "1073997a42320f889499b203b2895e60f8d2f361:docs/research/v2/NODE-v2-evidence/final-source-identity.json:generic-api-key:46",
+      "commit": "1073997a42320f889499b203b2895e60f8d2f361",
+      "path": "docs/research/v2/NODE-v2-evidence/final-source-identity.json",
+      "line": 46,
+      "rule": "generic-api-key",
+      "digest": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+      "redacted_match": "api.py\": \"REDACTED\"",
+      "context_prefix": "pi.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "e6b88ebdced355ebda857ce5384312c4d30d8d46",
+          "path": "src/treeneuron/baselines/api.py",
+          "bytes": 664
+        }
+      ]
+    },
+    {
+      "fingerprint": "4604604647c0007f51cb52b561ab29ae2f73aaf6:docs/research/v2/NODE-v2-evidence/source-identity.json:generic-api-key:46",
+      "commit": "4604604647c0007f51cb52b561ab29ae2f73aaf6",
+      "path": "docs/research/v2/NODE-v2-evidence/source-identity.json",
+      "line": 46,
+      "rule": "generic-api-key",
+      "digest": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+      "redacted_match": "api.py\": \"REDACTED\"",
+      "context_prefix": "pi.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "e6b88ebdced355ebda857ce5384312c4d30d8d46",
+          "path": "src/treeneuron/baselines/api.py",
+          "bytes": 664
+        }
+      ]
+    },
+    {
+      "fingerprint": "f3270e2092243c5927d423df49269b923bd373e2:docs/research/v2/realmlp-integration-receipt.json:generic-api-key:101",
+      "commit": "f3270e2092243c5927d423df49269b923bd373e2",
+      "path": "docs/research/v2/realmlp-integration-receipt.json",
+      "line": 101,
+      "rule": "generic-api-key",
+      "digest": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+      "redacted_match": "api.py\": \"REDACTED\"",
+      "context_prefix": "pi.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "e6b88ebdced355ebda857ce5384312c4d30d8d46",
+          "path": "src/treeneuron/baselines/api.py",
+          "bytes": 664
+        }
+      ]
+    },
+    {
+      "fingerprint": "1073997a42320f889499b203b2895e60f8d2f361:docs/research/v2/NODE-v2-evidence/final-actual-100-report-receipt.json:generic-api-key:1",
+      "commit": "1073997a42320f889499b203b2895e60f8d2f361",
+      "path": "docs/research/v2/NODE-v2-evidence/final-actual-100-report-receipt.json",
+      "line": 1,
+      "rule": "generic-api-key",
+      "digest": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+      "redacted_match": "api.py\":\"REDACTED\"",
+      "context_prefix": "api.py\":\"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "e6b88ebdced355ebda857ce5384312c4d30d8d46",
+          "path": "src/treeneuron/baselines/api.py",
+          "bytes": 664
+        }
+      ]
+    },
+    {
+      "fingerprint": "67590ef2ce03221fd85161d4fc50133c92747629:docs/research/v2/P13-integration-receipt.json:generic-api-key:36",
+      "commit": "67590ef2ce03221fd85161d4fc50133c92747629",
+      "path": "docs/research/v2/P13-integration-receipt.json",
+      "line": 36,
+      "rule": "generic-api-key",
+      "digest": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+      "redacted_match": "api.py\": \"REDACTED\"",
+      "context_prefix": "pi.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "e6b88ebdced355ebda857ce5384312c4d30d8d46",
+          "path": "src/treeneuron/baselines/api.py",
+          "bytes": 664
+        }
+      ]
+    },
+    {
+      "fingerprint": "59f7a544f0fd16e5a1217519f611f330a564866b:docs/research/v2/P13-integration-receipt.json:generic-api-key:35",
+      "commit": "59f7a544f0fd16e5a1217519f611f330a564866b",
+      "path": "docs/research/v2/P13-integration-receipt.json",
+      "line": 35,
+      "rule": "generic-api-key",
+      "digest": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+      "redacted_match": "api.py\": \"REDACTED\"",
+      "context_prefix": "pi.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "e6b88ebdced355ebda857ce5384312c4d30d8d46",
+          "path": "src/treeneuron/baselines/api.py",
+          "bytes": 664
+        }
+      ]
+    },
+    {
+      "fingerprint": "4604604647c0007f51cb52b561ab29ae2f73aaf6:docs/research/v2/NODE-v2-evidence/actual-100-report-receipt.json:generic-api-key:255",
+      "commit": "4604604647c0007f51cb52b561ab29ae2f73aaf6",
+      "path": "docs/research/v2/NODE-v2-evidence/actual-100-report-receipt.json",
+      "line": 255,
+      "rule": "generic-api-key",
+      "digest": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+      "redacted_match": "api.py\": \"REDACTED\"",
+      "context_prefix": "pi.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "e6b88ebdced355ebda857ce5384312c4d30d8d46",
+          "path": "src/treeneuron/baselines/api.py",
+          "bytes": 664
+        }
+      ]
+    },
+    {
+      "fingerprint": "79d768d7ba42c742f20a8c72cd0331acdeda0364:docs/research/v2/WP07-TabM-primary-anchor-receipt.json:generic-api-key:66",
+      "commit": "79d768d7ba42c742f20a8c72cd0331acdeda0364",
+      "path": "docs/research/v2/WP07-TabM-primary-anchor-receipt.json",
+      "line": 66,
+      "rule": "generic-api-key",
+      "digest": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+      "redacted_match": "api.py\": \"REDACTED\"",
+      "context_prefix": "pi.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "e6b88ebdced355ebda857ce5384312c4d30d8d46",
+          "path": "src/treeneuron/baselines/api.py",
+          "bytes": 664
+        }
+      ]
+    },
+    {
+      "fingerprint": "79d768d7ba42c742f20a8c72cd0331acdeda0364:docs/research/v2/WP07-TabM-primary-anchor-receipt.json:generic-api-key:237",
+      "commit": "79d768d7ba42c742f20a8c72cd0331acdeda0364",
+      "path": "docs/research/v2/WP07-TabM-primary-anchor-receipt.json",
+      "line": 237,
+      "rule": "generic-api-key",
+      "digest": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+      "redacted_match": "api.py\": \"REDACTED\"",
+      "context_prefix": "pi.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "e6b88ebdced355ebda857ce5384312c4d30d8d46",
+          "path": "src/treeneuron/baselines/api.py",
+          "bytes": 664
+        }
+      ]
+    },
+    {
+      "fingerprint": "79d768d7ba42c742f20a8c72cd0331acdeda0364:docs/research/v2/WP07-TabM-primary-anchor-receipt.json:generic-api-key:408",
+      "commit": "79d768d7ba42c742f20a8c72cd0331acdeda0364",
+      "path": "docs/research/v2/WP07-TabM-primary-anchor-receipt.json",
+      "line": 408,
+      "rule": "generic-api-key",
+      "digest": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+      "redacted_match": "api.py\": \"REDACTED\"",
+      "context_prefix": "pi.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "e6b88ebdced355ebda857ce5384312c4d30d8d46",
+          "path": "src/treeneuron/baselines/api.py",
+          "bytes": 664
+        }
+      ]
+    },
+    {
+      "fingerprint": "79d768d7ba42c742f20a8c72cd0331acdeda0364:docs/research/v2/WP07-TabM-primary-anchor-receipt.json:generic-api-key:579",
+      "commit": "79d768d7ba42c742f20a8c72cd0331acdeda0364",
+      "path": "docs/research/v2/WP07-TabM-primary-anchor-receipt.json",
+      "line": 579,
+      "rule": "generic-api-key",
+      "digest": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+      "redacted_match": "api.py\": \"REDACTED\"",
+      "context_prefix": "pi.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "e6b88ebdced355ebda857ce5384312c4d30d8d46",
+          "path": "src/treeneuron/baselines/api.py",
+          "bytes": 664
+        }
+      ]
+    },
+    {
+      "fingerprint": "79d768d7ba42c742f20a8c72cd0331acdeda0364:docs/research/v2/WP07-TabM-primary-anchor-receipt.json:generic-api-key:750",
+      "commit": "79d768d7ba42c742f20a8c72cd0331acdeda0364",
+      "path": "docs/research/v2/WP07-TabM-primary-anchor-receipt.json",
+      "line": 750,
+      "rule": "generic-api-key",
+      "digest": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+      "redacted_match": "api.py\": \"REDACTED\"",
+      "context_prefix": "pi.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "e6b88ebdced355ebda857ce5384312c4d30d8d46",
+          "path": "src/treeneuron/baselines/api.py",
+          "bytes": 664
+        }
+      ]
+    },
+    {
+      "fingerprint": "79d768d7ba42c742f20a8c72cd0331acdeda0364:docs/research/v2/WP07-TabM-primary-anchor-receipt.json:generic-api-key:921",
+      "commit": "79d768d7ba42c742f20a8c72cd0331acdeda0364",
+      "path": "docs/research/v2/WP07-TabM-primary-anchor-receipt.json",
+      "line": 921,
+      "rule": "generic-api-key",
+      "digest": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+      "redacted_match": "api.py\": \"REDACTED\"",
+      "context_prefix": "pi.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "e6b88ebdced355ebda857ce5384312c4d30d8d46",
+          "path": "src/treeneuron/baselines/api.py",
+          "bytes": 664
+        }
+      ]
+    },
+    {
+      "fingerprint": "79d768d7ba42c742f20a8c72cd0331acdeda0364:docs/research/v2/WP07-TabM-primary-anchor-receipt.json:generic-api-key:1092",
+      "commit": "79d768d7ba42c742f20a8c72cd0331acdeda0364",
+      "path": "docs/research/v2/WP07-TabM-primary-anchor-receipt.json",
+      "line": 1092,
+      "rule": "generic-api-key",
+      "digest": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+      "redacted_match": "api.py\": \"REDACTED\"",
+      "context_prefix": "pi.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "e6b88ebdced355ebda857ce5384312c4d30d8d46",
+          "path": "src/treeneuron/baselines/api.py",
+          "bytes": 664
+        }
+      ]
+    },
+    {
+      "fingerprint": "79d768d7ba42c742f20a8c72cd0331acdeda0364:docs/research/v2/WP07-TabM-primary-anchor-receipt.json:generic-api-key:1263",
+      "commit": "79d768d7ba42c742f20a8c72cd0331acdeda0364",
+      "path": "docs/research/v2/WP07-TabM-primary-anchor-receipt.json",
+      "line": 1263,
+      "rule": "generic-api-key",
+      "digest": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+      "redacted_match": "api.py\": \"REDACTED\"",
+      "context_prefix": "pi.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "e6b88ebdced355ebda857ce5384312c4d30d8d46",
+          "path": "src/treeneuron/baselines/api.py",
+          "bytes": 664
+        }
+      ]
+    },
+    {
+      "fingerprint": "79d768d7ba42c742f20a8c72cd0331acdeda0364:docs/research/v2/WP07-TabM-primary-anchor-receipt.json:generic-api-key:1434",
+      "commit": "79d768d7ba42c742f20a8c72cd0331acdeda0364",
+      "path": "docs/research/v2/WP07-TabM-primary-anchor-receipt.json",
+      "line": 1434,
+      "rule": "generic-api-key",
+      "digest": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+      "redacted_match": "api.py\": \"REDACTED\"",
+      "context_prefix": "pi.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "e6b88ebdced355ebda857ce5384312c4d30d8d46",
+          "path": "src/treeneuron/baselines/api.py",
+          "bytes": 664
+        }
+      ]
+    },
+    {
+      "fingerprint": "79d768d7ba42c742f20a8c72cd0331acdeda0364:docs/research/v2/WP07-TabM-primary-anchor-receipt.json:generic-api-key:1605",
+      "commit": "79d768d7ba42c742f20a8c72cd0331acdeda0364",
+      "path": "docs/research/v2/WP07-TabM-primary-anchor-receipt.json",
+      "line": 1605,
+      "rule": "generic-api-key",
+      "digest": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+      "redacted_match": "api.py\": \"REDACTED\"",
+      "context_prefix": "pi.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "e6b88ebdced355ebda857ce5384312c4d30d8d46",
+          "path": "src/treeneuron/baselines/api.py",
+          "bytes": 664
+        }
+      ]
+    },
+    {
+      "fingerprint": "79d768d7ba42c742f20a8c72cd0331acdeda0364:docs/research/v2/WP07-TabM-primary-anchor-receipt.json:generic-api-key:1776",
+      "commit": "79d768d7ba42c742f20a8c72cd0331acdeda0364",
+      "path": "docs/research/v2/WP07-TabM-primary-anchor-receipt.json",
+      "line": 1776,
+      "rule": "generic-api-key",
+      "digest": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+      "redacted_match": "api.py\": \"REDACTED\"",
+      "context_prefix": "pi.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "e6b88ebdced355ebda857ce5384312c4d30d8d46",
+          "path": "src/treeneuron/baselines/api.py",
+          "bytes": 664
+        }
+      ]
+    },
+    {
+      "fingerprint": "79d768d7ba42c742f20a8c72cd0331acdeda0364:docs/research/v2/WP07-TabM-primary-anchor-receipt.json:generic-api-key:1947",
+      "commit": "79d768d7ba42c742f20a8c72cd0331acdeda0364",
+      "path": "docs/research/v2/WP07-TabM-primary-anchor-receipt.json",
+      "line": 1947,
+      "rule": "generic-api-key",
+      "digest": "46bcafa74fe4f543a5c5c6345af42395aa467cf20bfa9c98589c8bc82b7435e1",
+      "redacted_match": "api.py\": \"REDACTED\"",
+      "context_prefix": "pi.py\": \"",
+      "disposition": "false_positive_verified_file_sha256",
+      "verified_reachable_blobs": [
+        {
+          "git_blob": "e6b88ebdced355ebda857ce5384312c4d30d8d46",
+          "path": "src/treeneuron/baselines/api.py",
+          "bytes": 664
+        }
+      ]
+    }
+  ],
+  "reviewed_context_hash_occurrences": 14,
+  "reviewed_prose_occurrences": 4,
+  "unresolved_findings": 0
+}

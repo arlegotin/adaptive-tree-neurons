@@ -1,0 +1,9 @@
+usage: cli.py [-h] {plan,run,prepare-data,qualify,freeze,confirm,report} ...
+
+Research/v2 command boundary; future commands fail with owning prerequisites.
+
+positional arguments:
+  {plan,run,prepare-data,qualify,freeze,confirm,report}
+
+options:
+  -h, --help            show this help message and exit

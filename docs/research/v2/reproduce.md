@@ -1,5 +1,9 @@
 # Research v2 reproduction and continuation
 
+Research execution is paused at the owner’s request. The commands and later
+chronological implementation snapshots below are documentation, not running jobs.
+Consult [current status](status.md) before any new execution.
+
 Start with the spec, plan and execution ledger linked from this directory. The
 ledger is authoritative for which packages and scientific gates have completed.
 Historical reproduction is still documented in the root REPRODUCE.md.

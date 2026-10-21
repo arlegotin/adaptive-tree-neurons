@@ -1,5 +1,7 @@
 # Research v2: current result and next work
 
+**Paused at the user’s request on 21 October 2026. All owned background jobs and automatic followers have stopped. Existing results and committed checkpoints are retained. Do not resume execution without a new user request.**
+
 Updated 21 October 2026. This page summarizes the current state; the
 [execution ledger](execution.md) retains earlier snapshots, failures, source
 changes and exact evidence boundaries.
@@ -32,7 +34,7 @@ retains coverage limits and the findings; no second review or fabricated
 successful qualification gate is used.
 
 The held old-source native survey remains at 118 of 120 completed anchors:
-CCPP is running, followed by Bike. These fits retain their own source and cannot
+CCPP and Bike are incomplete; the CCPP run was stopped with its checkpoint retained. These fits retain their own source and cannot
 silently become final-source production evidence. No 20 GiB-free-memory condition
 or two-hour fit cutoff is imposed. Serial execution, exact-state recovery and
 resource-aware admission accommodate other applications on the machine.
@@ -93,15 +95,15 @@ adds NODE at 1.311088, versus grown 1.246646 and CatBoost 0.738719. Its same-sta
 continuation after the disk-full interruption finished normally; native stopping
 and selected predictions passed the original-source audit. All twenty coordinates,
 both attempts and the unavailable original terminal cost tail remain visible.
-Native engineering completions now number 118 of 120. CCPP is running and Bike
-follows through the [serial controller](native-storage-continuation.md). The
+Native engineering completions now number 118 of 120. CCPP is paused and Bike
+remains incomplete in the stopped [serial controller](native-storage-continuation.md). The
 original survey, earlier tranches and [interruption receipt](WP07-NODE-storage-interruption-2026-10-20-receipt.json)
 remain unchanged. No complete total-cost claim is made for interrupted Parkinsons.
 
 The user prioritizes completed results over the original two-hour budget.
 Native anchors therefore run to their normal stopping rule with **no wall-time
-cap**. Time-budget prefixes are a separate comparison. The current NODE worker
-has a 4 GiB owned-process RSS guard, live admission checks and saved recovery
+cap**. Time-budget prefixes are a separate comparison. The paused NODE worker
+is configured with a 4 GiB owned-process RSS guard, live admission checks and saved recovery
 state. Airfoil took about 5¼ hours at about 1.83 GiB sampled root RSS; Concrete
 about six hours at 1.66 GiB; Energy completed just beyond two hours. These
 contended measurements are not deployment
@@ -162,7 +164,7 @@ grants no native or protected authority.
 Current-source official preparation completed and its actual loader passed. All
 180 role archives and30 split hashes match the earlier prepared data byte for
 byte; this comparison decoded no arrays. The fixed120-anchor native queue is
-running with native stopping and no wall cap. Its first model passed independent
+paused with recovery state retained; it uses native stopping and no wall cap. Its first model passed independent
 prediction replay and primary-V arithmetic. The [execution-start receipt](WP07-final-source-qualification-start-receipt.json)
 records an explicit observation time and queue counts, rather than asserting
 that the continuously changing queue is complete.
@@ -187,14 +189,14 @@ the earlier same-data/configuration/seed endpoints exactly, with zero maximum
 prediction or validation-score difference. The [comparison receipt](WP07-final-source-anchor-replay-receipt.json)
 retains every coordinate and both source identities. This supports unchanged
 valid-run behavior after the corrections; it supplies no extra independent
-problems or protected evidence. The six long NODE fits are running serially,
-followed by the six mean anchors in the fixed queue.
+problems or protected evidence. The current queue stopped during its first long
+NODE fit; the remaining NODE fits and six mean anchors are incomplete.
 
 Remaining work is sequential:
 
-1. Complete and audit the current-source120 native anchors, then the258 support
-   checks and full-size recovery proof, using the seven completed current-source
-   software profiles and authenticated preparation. Earlier held-source
+1. If research resumes, complete and audit the current-source 120 native anchors,
+   retaining the completed 258 support checks, full-size recovery proof, seven
+   current-source software profiles and authenticated preparation. Earlier held-source
    engineering fits cannot silently satisfy this registry.
 2. Seal and reopen the actual native registry and final production readiness.
 3. Measure the full workload forecast and admit the fixed 168 primary searches.

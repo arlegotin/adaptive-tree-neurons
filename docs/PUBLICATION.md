@@ -1,5 +1,39 @@
 # Public release scope
 
+## Continuation update, 21 October 2026
+
+The owner requested a public refresh after the research continuation. The
+repository was already public at the older October 18 source. This update
+publishes the continuation and rewrites the README around the working growth
+mechanism, reusable experiment infrastructure and completed negative result.
+Code remains AGPL-3.0-only, original prose/result presentation CC BY 4.0, with
+third-party terms retained in [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md).
+The citation describes the current work while retaining the actual software
+version 0.1.0 and its original release date; no new version or DOI is invented.
+
+The completed M1/M2/M3 and B0 development studies, 118 completed old-source native
+engineering anchors, 108 exact current-source anchor reruns and 258 short
+full-shape support checks have different scopes. They are documented in the
+[current report](../reports/research-v2.md), not pooled into a confirmation.
+The broad suite has recorded failures and source-specific scoped recoveries.
+The full tuned practical benchmark and protected evaluation remain unfinished.
+Research jobs and automatic followers are stopped at the owner's request;
+checkpoints remain local. Publication does not resume them.
+
+The continuation adds source, tests, native-adapter source/license records,
+compact results and selected audit evidence. Installed environments, downloaded
+data/weights, full raw predictions and training checkpoints remain outside Git.
+Raw local archives are required for the corresponding complete authentication.
+Selected software-profile requests, results and logs are deliberately tracked
+under `artifacts/research-v2/WP10/`, despite the general artifact-directory ignore
+rule. They are software evidence, distinct from full scientific run archives.
+Historical machine paths and selected small engineering fixtures remain public
+provenance. License texts, scientific inputs, historical reports and failure
+records are preserved. Publication checks and the public-state receipt for this
+refresh are retained in [provenance/publication/2026-10-21](../provenance/publication/2026-10-21).
+
+## Original release, 18 October 2026
+
 This release starts from research handoff `7af00e8`. It prepares the presentation,
 licensing, citation and package metadata for public use. It does not rerun the
 scientific cohort, change the allocation score or architecture, rebind historical

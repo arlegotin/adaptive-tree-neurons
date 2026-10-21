@@ -4,12 +4,20 @@ There are three distinct tasks: check the implementation, authenticate the saved
 research, or run a new experiment. A successful software check does not establish
 the allocation hypothesis.
 
-The active [research v2 continuation](docs/research/v2/reproduce.md) has its own
+The paused [research v2 continuation](docs/research/v2/reproduce.md) has its own
 strict schemas, seeds, output namespace and [execution ledger](docs/research/v2/execution.md).
 New training metadata is version2 with explicit parameter births and stricter
 tensor/Adam validation. Historical schema1 checkpoints load under their original
 source; this branch does not silently migrate their source identities. New native
 runner fixtures are software checks, not completed research cohorts.
+
+Start with the [current report](reports/research-v2.md) for completed M1/M2/M3
+and B0 studies and the unfinished native validation survey. The latest broad
+software run was not green: 3,181 passed, 106 failed, 459 setup errors and six
+skips. Its [case inventory](audit/research-v2/software/whole-suite-6ca3cd4/summary.json)
+and [scoped recoveries](docs/research/v2/WP09-final-review-fix-receipt.json)
+remain separate evidence. The software checks below do not restart the paused
+research queues, run a benchmark or access protected labels.
 
 ## Install the measured core
 

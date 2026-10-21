@@ -1,0 +1,58 @@
+{
+  "base_commit": "a3c0414ee796a23d9cdc766fbaa04ae30fb58104",
+  "export": "git archive HEAD plus listed publication files",
+  "dependencies": "existing qualified local Python/dependencies; not a fresh install or second platform",
+  "research_raw_archives_available": false,
+  "commands": [
+    {
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+        "-c",
+        "from pathlib import Path;import treeneuron;print(treeneuron.__file__);assert Path(treeneuron.__file__).resolve().is_relative_to(Path.cwd()/'src')\nimport torch\nfrom treeneuron.models.units import SelectiveAffineLayer\n\ntorch.manual_seed(42)\nlayer = SelectiveAffineLayer(d=16, h=64)\nx = torch.randn(32, 16)\nbefore = layer(x).detach()\n\n# Contrast rows contain 16 weights and a bias. New gates start at zero.\nmanifest = layer.grow(torch.arange(16), 0.05 * torch.randn(16, 17))\nafter = layer(x)\n\ntorch.testing.assert_close(after, before, rtol=0, atol=0)\nprint(manifest.added_parameter_count)  # 544\nprint(after.relu().shape)             # torch.Size([32, 64])\n"
+      ],
+      "cwd": "/private/tmp/atn-publication-lwlhqa9c",
+      "exit_code": 0,
+      "log": "provenance/publication/2026-10-21/source-export-check-0.log"
+    },
+    {
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+        "tests/reference_math_checks.py"
+      ],
+      "cwd": "/private/tmp/atn-publication-lwlhqa9c",
+      "exit_code": 0,
+      "log": "provenance/publication/2026-10-21/source-export-check-1.log"
+    },
+    {
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+        "tests/reference_score_checks.py"
+      ],
+      "cwd": "/private/tmp/atn-publication-lwlhqa9c",
+      "exit_code": 0,
+      "log": "provenance/publication/2026-10-21/source-export-check-2.log"
+    },
+    {
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+        "-m",
+        "treeneuron.cli",
+        "--help"
+      ],
+      "cwd": "/private/tmp/atn-publication-lwlhqa9c",
+      "exit_code": 0,
+      "log": "provenance/publication/2026-10-21/source-export-check-3.log"
+    },
+    {
+      "argv": [
+        "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+        "-m",
+        "treeneuron.research.cli",
+        "--help"
+      ],
+      "cwd": "/private/tmp/atn-publication-lwlhqa9c",
+      "exit_code": 0,
+      "log": "provenance/publication/2026-10-21/source-export-check-4.log"
+    }
+  ]
+}

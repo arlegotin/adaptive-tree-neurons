@@ -12,6 +12,7 @@
     },
     "secondary_development_accessed": false
   },
+  "background_jobs_running": false,
   "claims": [
     {
       "claim": "Function-preserving insertion is supported in the implemented one-growth setting.",
@@ -629,18 +630,24 @@
     }
   ],
   "created_utc": "2026-10-20T06:05:41.912084+00:00",
+  "execution_status": "paused_by_explicit_user_request",
   "final_branch_review_complete": true,
   "fresh_review_received": true,
   "new_fit_or_inference": false,
   "new_raw_label_access": false,
   "protected_confirmation": false,
   "report": {
-    "bytes": 17962,
+    "bytes": 18143,
     "path": "reports/research-v2.md",
-    "sha256": "721e3f76d2e491ac1cb9d5b7798bc2c32a1a6f4dbeb915820b600c2b5a8c6e59"
+    "sha256": "652504f6ac3f5f4e6ffbd54774e4c28713df5d5ae976e2d2c7947d0eb3a07ec6"
   },
   "review_fix_status": "committed_c042b1f_actual_execution_package_and_review_delta_bound_complete_suite_non_green",
   "schema": "research/v2-current-cross-study-claim-ledger",
   "scope": "Curated evidence-linked report assembly from compact inputs and prior audit receipts. The no-new-fit/inference/raw-label flags describe assembly only; separate fixed native V scoring is disclosed below. Not a new whole-raw/model-generation audit or completed production report path.",
-  "status": "development_negative_with_practical_work_pending"
+  "status": "development_negative_with_practical_work_pending",
+  "user_stop_record": {
+    "bytes": 1413,
+    "path": "artifacts/research-v2/user-stop-2026-10-21/verified.json",
+    "sha256": "98526acd18c0f08b6ef9dfd360a1e8f8cda5f5e13921f1c1ad965b563348c6e1"
+  }
 }
