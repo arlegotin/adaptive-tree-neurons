@@ -486,6 +486,11 @@
           "bytes": 5982,
           "path": "docs/research/v2/WP10-original-snapshot-measurement-receipt.json",
           "sha256": "400fee41a2726c20699cd81425e8e93ea5082d40c4eaa828cde402923b068beb"
+        },
+        {
+          "bytes": 4750,
+          "path": "docs/research/v2/WP10-F-deployment-projection-receipt.json",
+          "sha256": "e046a23e6340a0a26762f0a5dedeeac3574f07f4f700611b4cf518df8b08c085"
         }
       ],
       "status": "supported_scoped_status",

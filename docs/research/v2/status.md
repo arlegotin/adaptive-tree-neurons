@@ -29,6 +29,9 @@ software evidence; it has not inspected benchmark T or established a new win.
 The [original-snapshot measurement leaf](original-snapshot-measurement.md) also
 has fixture checks. Its actual native controller, timing qualification and
 complete containing costs remain pending; it grants no efficiency claim.
+The [F-only timing-input projection](F-deployment-projection.md) now has
+independent numeric readback and target-access sentinels. Connecting it to the
+genuine frozen model/F-role controller remains implementation work.
 
 ## The idea and present verdict
 
