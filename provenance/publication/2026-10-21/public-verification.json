@@ -1,0 +1,72 @@
+{
+  "already_public_before_refresh": true,
+  "anonymous_requests": true,
+  "authorization_header_sent": false,
+  "default_branch": "main",
+  "default_branch_commit": "a7283b30ba43373e27aec501dd5f98fdfa1ca374",
+  "description": "Function-preserving neuron growth in PyTorch, exact training-state recovery, and controlled capacity-allocation experiments with scoped negative results.",
+  "files": [
+    {
+      "bytes": 7523,
+      "matches_local": true,
+      "path": "README.md",
+      "sha256": "4faa74ddcbe88a221eff18650b33bc5b03957e558ea682947b6fdbe62f4964fc",
+      "url": "https://raw.githubusercontent.com/arlegotin/adaptive-tree-neurons/a7283b30ba43373e27aec501dd5f98fdfa1ca374/README.md"
+    },
+    {
+      "bytes": 1795,
+      "matches_local": true,
+      "path": "CITATION.cff",
+      "sha256": "dbada0bfcc57636cf187cf22bca6e6cb78dc204c3bd14fc041076a6fc628b1cc",
+      "url": "https://raw.githubusercontent.com/arlegotin/adaptive-tree-neurons/a7283b30ba43373e27aec501dd5f98fdfa1ca374/CITATION.cff"
+    },
+    {
+      "bytes": 34523,
+      "matches_local": true,
+      "path": "LICENSE",
+      "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+      "url": "https://raw.githubusercontent.com/arlegotin/adaptive-tree-neurons/a7283b30ba43373e27aec501dd5f98fdfa1ca374/LICENSE"
+    },
+    {
+      "bytes": 3267,
+      "matches_local": true,
+      "path": "LICENSING.md",
+      "sha256": "85d9568458c8e21233ad379c5c3c44be6cf01f69997f1e620686762555af6427",
+      "url": "https://raw.githubusercontent.com/arlegotin/adaptive-tree-neurons/a7283b30ba43373e27aec501dd5f98fdfa1ca374/LICENSING.md"
+    },
+    {
+      "bytes": 6039,
+      "matches_local": true,
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "55f04702799b07e2839513cb9140dd8b72737c852dd6892211365110bb07da6f",
+      "url": "https://raw.githubusercontent.com/arlegotin/adaptive-tree-neurons/a7283b30ba43373e27aec501dd5f98fdfa1ca374/THIRD_PARTY_NOTICES.md"
+    },
+    {
+      "bytes": 1056,
+      "matches_local": true,
+      "path": "licenses/AUC-Mu-MIT.txt",
+      "sha256": "ce568e3be417c57d6d999e460636a5ca9af0c2f1aec986bdd42da69eca520341",
+      "url": "https://raw.githubusercontent.com/arlegotin/adaptive-tree-neurons/a7283b30ba43373e27aec501dd5f98fdfa1ca374/licenses/AUC-Mu-MIT.txt"
+    }
+  ],
+  "github_recognized_license": "AGPL-3.0",
+  "public": true,
+  "published_preparation_commit": "a7283b30ba43373e27aec501dd5f98fdfa1ca374",
+  "repository": "https://github.com/arlegotin/adaptive-tree-neurons",
+  "research_jobs_resumed": false,
+  "schema": "publication/public-verification/v1",
+  "topics": [
+    "capacity-allocation",
+    "conditional-computation",
+    "machine-learning",
+    "negative-results",
+    "neural-network-growth",
+    "neural-networks",
+    "pytorch",
+    "regression",
+    "reproducible-research",
+    "tabular-data"
+  ],
+  "verified_at": "2026-10-21T08:23:16.085497+00:00",
+  "whole_benchmark_or_full_suite_success_claimed": false
+}

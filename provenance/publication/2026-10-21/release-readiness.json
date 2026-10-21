@@ -20,6 +20,11 @@
   },
   "date": "2026-10-21",
   "fresh_review": "Independent publication review: no Critical; one Important AUC Mu MIT notice fixed and verified; exact-vs-greedy wording clarified; no second review claimed.",
+  "fresh_review_record": {
+    "bytes": 2897,
+    "path": "provenance/publication/2026-10-21/independent-review.md",
+    "sha256": "548aae5a4787abecfcdeed92fd429ed1556d8466be4038756acca6afedead914"
+  },
   "github_already_public": true,
   "headline_arithmetic": {
     "joint_percent_higher_than_random": 1.2505598108962124,
@@ -62,6 +67,25 @@
       "bytes": 116,
       "path": "provenance/publication/2026-10-21/history-after-review.log",
       "sha256": "6e4bc4f33356402685c72c3e61005c1384bcdfa63cb4242832d19bc576aff8af"
+    },
+    "prepared_commit_scan": {
+      "commits": 351,
+      "exit_code": 0,
+      "findings": 0,
+      "log": {
+        "bytes": 116,
+        "path": "provenance/publication/2026-10-21/committed-final-scan.log",
+        "sha256": "fde55cc5f8ba289d66de3fc7923f6d487e87917a3368e1a3a28569fcd758caaf"
+      }
+    },
+    "prepared_staged_scan": {
+      "exit_code": 0,
+      "findings": 0,
+      "log": {
+        "bytes": 110,
+        "path": "provenance/publication/2026-10-21/staged-final-scan.log",
+        "sha256": "8f88039cb1a38831499ff732618671f0c4f06e97eee84737b0f8cba19cdda55b"
+      }
     },
     "reachable_commits": 350,
     "reviewed_context_hash_occurrences": 14,
@@ -121,7 +145,15 @@
       54914
     ]
   },
-  "publication": "pending",
+  "publication": {
+    "prepared_source_commit": "a7283b30ba43373e27aec501dd5f98fdfa1ca374",
+    "receipt": {
+      "bytes": 2963,
+      "path": "provenance/publication/2026-10-21/public-verification.json",
+      "sha256": "b685818a11dd2c5775adaaaed5d115657fcdb939e4b27907299b6d2d0f13bab2"
+    },
+    "status": "published_and_anonymously_verified"
+  },
   "publish_authorized_by_owner": true,
   "remote_main_before": "230e6575149c9fee440ca301fa3782a85751bac8",
   "research_paused": true,

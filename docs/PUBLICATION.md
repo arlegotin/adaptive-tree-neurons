@@ -32,6 +32,13 @@ provenance. License texts, scientific inputs, historical reports and failure
 records are preserved. Publication checks and the public-state receipt for this
 refresh are retained in [provenance/publication/2026-10-21](../provenance/publication/2026-10-21).
 
+Public main was fast-forwarded to preparation commit `a7283b3` on 21 October.
+Anonymous requests verified public visibility, the main commit, six exact file
+bodies (including README, citation and license) and GitHub’s AGPL recognition.
+The [public verification receipt](../provenance/publication/2026-10-21/public-verification.json)
+records that preparation commit; later receipt-only publication commits preserve
+its README, citation, license and scientific input bytes.
+
 ## Original release, 18 October 2026
 
 This release starts from research handoff `7af00e8`. It prepares the presentation,

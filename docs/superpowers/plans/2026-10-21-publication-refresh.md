@@ -42,9 +42,9 @@
 
 ## Task 3: Publish and verify
 
-- [ ] Commit selected changes; check remote main ancestry and fast-forward without forcing.
-- [ ] Update GitHub description/topics; retain public visibility.
-- [ ] Verify anonymous repository/default-branch/README/citation/license bytes and record receipt.
+- [x] Commit selected changes; check remote main ancestry and fast-forward without forcing.
+- [x] Update GitHub description/topics; retain public visibility.
+- [x] Verify anonymous repository/default-branch/README/citation/license bytes and record receipt.
 
 ## Execution rulings
 
@@ -61,3 +61,9 @@ Task 2 complete: 89 focused passes/one skip, fresh-process references/example,
 CFF schema, local links, canonical M3 arithmetic, unchanged execution package,
 reviewed history findings and independent publication review. Initial contaminated
 shared-process check and its failure are retained; no scientific code changed.
+
+Task 3 complete: a7283b3 fast-forwarded public main; anonymous API confirmed
+main and public visibility, and six public file bodies matched local bytes exactly.
+GitHub recognizes AGPL-3.0. Receipt-only follow-up retains this verification;
+no research queue restarted, branch or external worktree removed, or full-suite
+success inferred from publication.
