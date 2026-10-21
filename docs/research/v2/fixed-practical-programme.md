@@ -39,3 +39,8 @@ production report/CLI/readiness and final review still precede production.
 Call and invocation clocks nest; own final publication/return and common cold
 startup remain explicit exclusions, never zero-imputed. Dedicated timing and
 float32 deployment-quality equivalence remain unqualified.
+
+The subsequent [cold observer](cold-confirmation-observer.md) also retains
+original failed-invocation markers. Opaque execution/invocation access metadata
+now uses `T_accessed: null` rather than inferring no target access from a status;
+its authority flags remain false. Actual access logs remain decisive.

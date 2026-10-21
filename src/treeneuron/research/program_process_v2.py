@@ -42,10 +42,21 @@ def _file_reference(path):return dict(path=str(path),sha256=hashlib.sha256(path.
 def _validate_request(value):
     fields={'schema','source_sha256','tranche','arguments','clock_domain','invocation_origin_ns'}
     if (type(value) is not dict or set(value)!=fields or value['schema']!='research/v2-owned-program-request'
-            or not _digest(value['source_sha256']) or value['tranche'] not in ('primary','secondary')
+            or not _digest(value['source_sha256']) or value['tranche'] not in ('primary','secondary','confirmation')
             or type(value['invocation_origin_ns']) is not int or value['invocation_origin_ns']<=0):
         raise ValueError('Strict owned program request required')
     validate_clock_domain(value['clock_domain'])
+    if value['tranche']=='confirmation':
+        args=value['arguments'];refs={'programme_reference','protocol_reference','models_reference','global_barrier_reference','preT_costs_reference','readiness_reference'}
+        if type(args) is not dict or set(args)!=refs|{'qualification_reference','directory','max_step_starts'}:
+            raise ValueError('Exact fixed confirmation arguments required; no role paths or method selection')
+        for key in refs:_reference(args[key])
+        q=args['qualification_reference']
+        if type(q) is not dict or set(q)!={'root','inventory_sha256'} or not _digest(q['inventory_sha256']):raise ValueError('Exact confirmation qualification inventory required')
+        _path(q['root']);_path(args['directory'])
+        if args['max_step_starts'] is not None and (type(args['max_step_starts']) is not int or not 1<=args['max_step_starts']<=7):
+            raise ValueError('Only an operational prefix of the seven fixed steps is permitted')
+        return value
     common={'qualification_reference','resource_forecast_reference','directory','rss_limit_bytes','expected_journal_sha256','max_episode_starts'}
     primary={'practical_plan_reference','expected_practical_plan_hash','support_reference','procedure_reference'}
     args=value['arguments'];secondary=value['tranche']=='secondary'
@@ -83,6 +94,12 @@ def _command(path,digest):
 
 def _failed_program_invocation_references(error,request):
     """A published driver clock is metadata, never a qualification capability."""
+    if request['tranche']=='confirmation':
+        reference=getattr(error,'confirmation_invocation_reference',None)
+        if reference is None:return []
+        refs=_confirmation_invocation_references(request)
+        if reference not in refs:raise ValueError('Failed confirmation marker is foreign to its exact programme')
+        return [copy.deepcopy(reference)]
     reference=getattr(error,'program_invocation_reference',None)
     if reference is None:return []  # Before an actual queue: no program/plan read.
     path=_reference(reference);directory=_path(request['arguments']['directory'])
@@ -91,6 +108,18 @@ def _failed_program_invocation_references(error,request):
     from .execution_clock_v2 import inspect_program_invocation_clock
     inspect_program_invocation_clock(reference,program_reference=_file_reference(directory/'plan.json'))
     return [copy.deepcopy(reference)]
+
+
+def _confirmation_invocation_references(request):
+    """Source/byte-bound metadata only; not a qualification shortcut."""
+    from .confirm_v2 import _checked_programme,_call_history,_invocation_history
+    args=request['arguments'];reference=args['programme_reference'];_,_,plan=_read_reference(reference)
+    if (request['source_sha256']!=_source() or plan.get('directory')!=args['directory']
+            or plan.get('protocol_reference')!=args['protocol_reference']
+            or plan.get('inputs')!={k:args[k] for k in ('models_reference','global_barrier_reference','qualification_reference','preT_costs_reference','readiness_reference')}):
+        raise ValueError('Exact current confirmation programme and frozen input bindings required')
+    _checked_programme(reference,plan)
+    return [r['reference'] for r in _invocation_history(reference,plan,_call_history(reference,plan))]
 
 
 def _operational_location(output,request,*,working_roots=(),proof_roots=()):
@@ -122,7 +151,7 @@ def _run_program_envelope(*,request,output,admission_identity,admission_check,ro
         process_reference=process_reference,**command,clock_domain=request['clock_domain'],origin_ns=request['invocation_origin_ns'],
         end_ns=request['invocation_origin_ns']+result['elapsed_ns'],elapsed_ns=result['elapsed_ns'],scope=_SCOPE,
         body_reference=_file_reference(root/'process/body-outcome.json') if (root/'process/body-outcome.json').is_file() else None,
-        **{key:False for key in _FLAGS})
+        **{key:(None if key=='T_accessed' and request['tranche']=='confirmation' and result['child_started'] else False) for key in _FLAGS})
     _write(root/'envelope.json',envelope)
     return dict(result,envelope_reference=_file_reference(root/'envelope.json'))
 
@@ -139,6 +168,17 @@ def run_program_process(*,tranche,arguments,output,admission_identity,admission_
         from .secondary_episode_v2 import _proof_roots
         barrier=load_global_primary_barrier(arguments['barrier_reference'],qualification_reference=arguments['qualification_reference'])
         working,proofs=_proof_roots(barrier.payload,registry,arguments['qualification_reference'],arguments['barrier_reference'])
+    elif tranche=='confirmation':
+        from .confirm_v2 import _actual_protocol,_checked_programme
+        inputs={k:arguments[k] for k in ('models_reference','global_barrier_reference','qualification_reference','preT_costs_reference','readiness_reference')}
+        protocol=_actual_protocol(arguments['protocol_reference'],inputs)
+        _,_,plan=_read_reference(arguments['programme_reference']);_checked_programme(arguments['programme_reference'],plan)
+        if plan['inputs']!=inputs or plan['protocol_reference']!=protocol.reference or plan['directory']!=arguments['directory']:
+            raise ValueError('Actual confirmation observer programme binding changed')
+        from .protected_journal_v2 import _public_locations
+        from .protected_prediction_gate_v2 import _publication_location
+        study,owners=_public_locations(plan['protected_study_directory'],protocol)
+        _publication_location(output,protocol=protocol,inspection=dict(study_directory=str(study),owner_root=str(owners),invocation_references=[]))
     _operational_location(output,request,working_roots=working,proof_roots=proofs)
     return _run_program_envelope(request=request,output=output,admission_identity=admission_identity,
         admission_check=admission_check,root_rss_pause_bytes=root_rss_pause_bytes)
@@ -152,9 +192,12 @@ def inspect_program_process(reference):
         'clock_domain','origin_ns','end_ns','elapsed_ns','scope','body_reference',*_FLAGS}
     if (path.name!='envelope.json' or type(value) is not dict or set(value)!=fields
             or value['schema']!='research/v2-owned-program-envelope' or value['source_sha256']!=_source()
-            or value['scope']!=_SCOPE or any(value[k] is not False for k in _FLAGS)):
+            or value['scope']!=_SCOPE or any(value[k] is not False for k in _FLAGS if k!='T_accessed')):
         raise ValueError('Program envelope source/schema/authority differs')
     request_path,request_raw,request=_read_reference(value['request_reference']);_validate_request(request)
+    expected_T=None if request['tranche']=='confirmation' else False
+    if value['T_accessed'] is not expected_T and not (request['tranche']=='confirmation' and value['T_accessed'] is False):
+        raise ValueError('Opaque confirmation access is unknown, never certified by a clock')
     if (request_path!=root/'request.json' or request['source_sha256']!=value['source_sha256']
             or request['clock_domain']!=value['clock_domain'] or request['invocation_origin_ns']!=value['origin_ns']):
         raise ValueError('Program envelope changed its request/clock identity')
@@ -165,6 +208,8 @@ def inspect_program_process(reference):
     proof=inspect_cooperative_process(root=root/'process',expected_receipt_sha256=process['process_receipt_sha256'],
         expected_started_sha256=process['process_started_sha256'])
     start=_json((root/'process/started.json').read_bytes());command=_command(request_path,value['request_reference']['sha256'])
+    if value['T_accessed'] is not (None if request['tranche']=='confirmation' and proof['child_started'] else False):
+        raise ValueError('Confirmation access metadata must match actual worker-start uncertainty')
     if (any(value[k]!=command[k] or start.get(k)!=command[k] for k in command)
             or start.get('identity')!=program_worker_identity(request_path,value['request_reference']['sha256'])
             or any(type(value[k]) is not int for k in ('origin_ns','end_ns','elapsed_ns'))
@@ -179,7 +224,7 @@ def inspect_program_process(reference):
         if (body_path!=root/'process/body-outcome.json' or type(outcome) is not dict or set(outcome)!=body_fields
                 or outcome['schema']!='research/v2-owned-program-body' or outcome['status'] not in ('program_failed','program_returned')
                 or outcome['request_sha256']!=value['request_reference']['sha256'] or outcome['source_sha256']!=value['source_sha256']
-                or any(outcome[k] is not False for k in _FLAGS)
+                or any(outcome[k] is not False for k in _FLAGS if k!='T_accessed') or outcome['T_accessed'] is not expected_T
                 or type(outcome['program_invocation_references']) is not list
                 or any(type(outcome[k]) is not int for k in ('origin_ns','end_ns')) or outcome['end_ns']<outcome['origin_ns']):
             raise ValueError('Owned program body identity/schema differs')
@@ -190,13 +235,18 @@ def inspect_program_process(reference):
                 or type(outcome['program_progress']) is not dict or not outcome['program_invocation_references'])
                 or outcome['status']=='program_failed' and outcome['program_progress'] is not None):
             raise ValueError('Owned program body contradicts its closed disposition')
+        if request['tranche']=='confirmation' and outcome['program_invocation_references']:
+            actual=_confirmation_invocation_references(request);seen=set()
+            for ref in outcome['program_invocation_references']:
+                if ref not in actual or ref['path'] in seen:raise ValueError('Confirmation body substituted or duplicated its programme invocation')
+                seen.add(ref['path'])
     elif (root/'process/body-outcome.json').exists():raise ValueError('Envelope omitted a retained owned program body')
     if path.read_bytes()!=raw or request_path.read_bytes()!=request_raw or _source()!=value['source_sha256']:
         raise ValueError('Program envelope inputs changed while reading')
     return dict(origin_ns=value['origin_ns'],end_ns=value['end_ns'],elapsed_ns=value['elapsed_ns'],clock_domain=value['clock_domain'],
         owned_program_root_clock_checked=True,shared_observed_worker_clock_domain=shared,
         worker_protocol_closed=proof['worker_protocol_closed'],child_started=proof['child_started'],returncode=proof['returncode'],
-        scope=_SCOPE,**{key:False for key in _FLAGS})
+        scope=_SCOPE,**{key:value[key] for key in _FLAGS})
 
 
 def main(argv=None):
@@ -209,7 +259,8 @@ def main(argv=None):
         origin=time.perf_counter_ns()
         outcome=dict(schema='research/v2-owned-program-body',status='program_failed',request_sha256=args.expected_request_sha256,
             source_sha256=request['source_sha256'],clock_domain=observe_clock_domain(),origin_ns=origin,end_ns=None,
-            program_progress=None,program_invocation_references=[],error_type=None,reason=None,traceback=None,**{k:False for k in _FLAGS})
+            program_progress=None,program_invocation_references=[],error_type=None,reason=None,traceback=None,
+            **{k:(None if k=='T_accessed' and request['tranche']=='confirmation' else False) for k in _FLAGS})
         code=1
         try:
             from .primary_search_worker_v2 import _episode_environment
@@ -219,13 +270,18 @@ def main(argv=None):
             if request['tranche']=='primary':
                 from .primary_program_v2 import run_primary_program
                 progress=run_primary_program(**request['arguments'])
+            elif request['tranche']=='confirmation':
+                from .confirm_v2 import run_practical_confirmation
+                args=request['arguments']
+                progress=run_practical_confirmation(args['programme_reference'],**{k:v for k,v in args.items() if k not in ('programme_reference','directory')})
             else:
                 from .secondary_program_v2 import run_secondary_program
                 progress=run_secondary_program(**request['arguments'])
             if _read_reference(dict(path=args.request,sha256=args.expected_request_sha256))[2]!=request or _source()!=request['source_sha256']:
                 raise ValueError('Program source/request changed during execution')
             directory=Path(request['arguments']['directory'])
-            references=[_file_reference(p) for p in sorted((directory/'invocations').glob('*.json'))]
+            references=(_confirmation_invocation_references(request) if request['tranche']=='confirmation' else
+                [_file_reference(p) for p in sorted((directory/'invocations').glob('*.json'))])
             if not references:raise ValueError('Returned program lacks an invocation receipt')
             outcome.update(program_progress=progress,program_invocation_references=references,status='program_returned');code=0
         except BaseException as error:

@@ -169,3 +169,26 @@ def test_programme_cannot_be_claimed_after_other_protected_work_started(tmp_path
         path=tmp_path/'deployment-plan.json';path.write_text('{}\n');event(m,root,'deployment_plan_frozen',plan_reference=ref(path))
     else:start(m,root)
     with pytest.raises(ValueError):event(m,root,'programme_frozen',programme_reference=dict(path=str(tmp_path/'programme.json'),sha256='f'*64))
+
+
+def test_opaque_execution_status_does_not_certify_zero_target_access(tmp_path):
+    module,plan,reference=fixture(tmp_path);execute,resolve=known_operations(plan)
+    result=module._run_fixed_steps(reference,plan,execute_step=execute,resolve_completed=resolve,guard=lambda:None,max_step_starts=1)
+    assert result['T_accessed'] is None
+    end=next((Path(plan['directory'])/'invocations').glob('*-end.json'))
+    assert json.loads(end.read_text())['T_accessed'] is None
+    assert result['protected_access_authorized'] is result['native_qualification_authenticated'] is False
+
+
+def test_original_failure_carries_exact_published_invocation_to_outer_observer(tmp_path):
+    module,plan,reference=fixture(tmp_path);execute,resolve=known_operations(plan)
+    def fail(step):raise FloatingPointError('Original failure stays the propagated error')
+    with pytest.raises(FloatingPointError) as caught:
+        module._run_fixed_steps(reference,plan,execute_step=fail,resolve_completed=resolve,guard=lambda:None)
+    marker=getattr(caught.value,'confirmation_invocation_reference',None)
+    assert marker is not None,'Containing observer lost the failed invocation boundary'
+    path=Path(marker['path']);assert path.parent==Path(plan['directory'])/'invocations' and path.name.endswith('-end.json')
+    from treeneuron.research.protected_journal_v2 import _reference
+    _,raw=_reference(marker);assert json.loads(raw)['error']['type']=='FloatingPointError'
+    records=module._invocation_history(reference,plan,module._call_history(reference,plan))
+    assert [r['reference'] for r in records]==[marker]

@@ -120,7 +120,8 @@ def _invocation_history(reference,plan,calls):
                 or set(end)!=end_fields or end['schema']!='research/v2-fixed-protected-invocation-end' or end['start_reference']!=start_ref
                 or end['origin_ns']!=start['origin_ns'] or end['clock_domain']!=start['clock_domain']
                 or any(type(end[k]) is not int or end[k]<=0 for k in ('origin_ns','end_ns','elapsed_ns'))
-                or end['end_ns']-end['origin_ns']!=end['elapsed_ns'] or any(end[k] is not False for k in _FALSE)
+                or end['end_ns']-end['origin_ns']!=end['elapsed_ns'] or any(end[k] is not False for k in _FALSE if k!='T_accessed')
+                or end['T_accessed'] is not None
                 or end['clock_scope']!='Invocation through fixed steps/full context guard; own end publication/return and outer observation excluded'
                 or type(end['completed_steps']) is not list or end['completed_steps']!=list(_STEPS[:len(end['completed_steps'])])
                 or type(end['call_references']) is not list or end['status'] not in ('completed','operator_pause','blocked','interrupted_or_failed')
@@ -148,7 +149,7 @@ def _run_fixed_steps(reference,plan,*,execute_step,resolve_completed,guard,max_s
     if max_step_starts is not None and (type(max_step_starts) is not int or max_step_starts<=0):raise ValueError('Positive operational step prefix required')
     from .ledger import StudyLease
     from .execution_clock_v2 import observe_clock_domain
-    root=_path(plan['directory']);completed=[];call_refs=[];status='blocked';error=None;started=0
+    root=_path(plan['directory']);completed=[];call_refs=[];status='blocked';error=None;escaped=None;started=0
     with StudyLease(root):
         _invocation_history(reference,plan,_call_history(reference,plan))
         invocations=root/'invocations';identity=secrets.token_hex(16);domain=observe_clock_domain();origin=time.perf_counter_ns()
@@ -180,15 +181,17 @@ def _run_fixed_steps(reference,plan,*,execute_step,resolve_completed,guard,max_s
                 completed.append(step)
             else:status='completed'
             guard();_checked_programme(reference,plan);_call_history(reference,plan)
-            return dict(status=status,completed_steps=completed,started_steps=started,programme_reference=reference,**_FALSE,
+            return dict(status=status,completed_steps=completed,started_steps=started,programme_reference=reference,**dict(_FALSE,T_accessed=None),
                 scope='Private fixed-step execution only; actual operation/protocol/native/owner/cost qualification remains separate')
         except BaseException as caught:
-            error=dict(type=type(caught).__name__,reason=str(caught));status='interrupted_or_failed';raise
+            escaped=caught;error=dict(type=type(caught).__name__,reason=str(caught));status='interrupted_or_failed';raise
         finally:
             end=time.perf_counter_ns()
-            _write_new(invocations/f'{identity}-end.json',dict(schema='research/v2-fixed-protected-invocation-end',start_reference=_ref(start_file),
+            final=invocations/f'{identity}-end.json'
+            _write_new(final,dict(schema='research/v2-fixed-protected-invocation-end',start_reference=_ref(start_file),
                 origin_ns=origin,end_ns=end,elapsed_ns=end-origin,clock_domain=domain,status=status,error=error,completed_steps=completed,
-                call_references=call_refs,clock_scope='Invocation through fixed steps/full context guard; own end publication/return and outer observation excluded',**_FALSE))
+                call_references=call_refs,clock_scope='Invocation through fixed steps/full context guard; own end publication/return and outer observation excluded',**dict(_FALSE,T_accessed=None)))
+            if escaped is not None:escaped.confirmation_invocation_reference=_ref(final)
 
 
 def _actual_protocol(reference,kwargs):

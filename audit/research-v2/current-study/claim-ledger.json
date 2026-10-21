@@ -508,6 +508,10 @@
         {
           "path": "docs/research/v2/WP10-confirm-programme-receipt.json",
           "sha256": "c9d0985ff8afacb2daf4cd8c9ece713f91995830beabb285ae3218add662f362"
+        },
+        {
+          "path": "docs/research/v2/WP10-cold-confirmation-receipt.json",
+          "sha256": "3095951d8b5695bf3f4cdf4e49a236626575832ceceef7effadf8f72f0476675"
         }
       ],
       "status": "supported_scoped_status",

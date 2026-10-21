@@ -38,7 +38,7 @@ coded, not run or resource-admitted. The actual executor, complete costs and
 final production integration remain pending.
 The [timing executor and reader](native-timing-execution.md) are now fixture-tested with a full known30-pair/60-process rehearsal, exact resume and retained failures. Actual native timing, complete containing costs and final production integration remain unrun.
 The [raw-audit reader](raw-audit-readback.md) now verifies retained arithmetic/access/clock records without decoding targets again. Actual metric and audit readers also require the genuine witnessed timing plan. Complete-qualified production audit remains unrun.
-The [fixed practical dispatcher](fixed-practical-programme.md) now connects the seven public operations and preserves programme ownership and call history. Its positive fixture uses known-file callbacks; the actual protected chain and cold containing cost observer remain unrun.
+The [fixed practical dispatcher](fixed-practical-programme.md) now connects the seven public operations and preserves programme ownership and call history. Its positive fixture uses known-file callbacks; the actual protected chain remains unrun. The [cold observer](cold-confirmation-observer.md) now has owned negative-integration checks; complete actual costs and qualified production execution remain pending.
 
 ## The idea and present verdict
 

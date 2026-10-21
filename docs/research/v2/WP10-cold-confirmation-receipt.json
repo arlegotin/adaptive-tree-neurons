@@ -1,0 +1,149 @@
+{
+  "T_accessed": false,
+  "actual_benchmark_labels_read": 0,
+  "actual_benchmark_models_fitted_or_measured": 0,
+  "actual_complete_qualified_public_positive": false,
+  "actual_dispatch_chain_executed": false,
+  "algorithm_rescue_budget_cut_or_source_migration_admitted": false,
+  "artifact_inventory": {
+    "bytes": 8252,
+    "path": "artifacts/research-v2/WP10/cold-confirmation-software-inventory.json",
+    "sha256": "bccb51a117d847c672d467c3080ffd14ed8317a92ac930cbd783782e92a1d7dc"
+  },
+  "base_commit": "0d89b6e",
+  "capture": {
+    "bytes": 4585,
+    "path": "artifacts/research-v2/WP10/cold-confirmation-software/observation.json",
+    "sha256": "5c91d99cbc1449709f1e3949bea4c2d646efd3826ba505052118a54348e240c5"
+  },
+  "capture_script": {
+    "bytes": 3642,
+    "path": "artifacts/research-v2/WP10/capture_cold_confirmation.py",
+    "sha256": "264854703bfeb113196f1a4718893c08fe1aee8f427db62ec750a325cba8cb75"
+  },
+  "changes": [
+    "Explicit typed confirmation tranche reuses existing owned cold-program wrapper and cooperative supervisor; no alternative process harness",
+    "Public native registry/full frozen protocol/programme/input and output guards precede control output; worker repeats actual public programme gates after grant",
+    "Cold containing root includes preparation/imports/internal publication/return and awaited nested work; own observer publication/return remains excluded",
+    "Original propagated confirmation failure carries exact published invocation; worker/readback retain source/byte-bound original failed boundary",
+    "Confirmation owned-body invocation references must belong to the exact programme; unrelated/duplicate evidence rejects",
+    "Opaque fixed execution and started confirmation worker clocks report T_accessed=None; no protected/native/cost authority. Pure plans and pre-T primary/secondary preserveFalse"
+  ],
+  "date": "2026-10-21",
+  "final_command": [
+    ".venv-research-v2/bin/python",
+    "-P",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_cold_confirmation_process_v2.py",
+    "tests/test_confirm_programme_v2.py",
+    "tests/test_program_process_v2.py",
+    "tests/test_program_call_clock_v2.py",
+    "tests/test_practical_preT_costs_v2.py",
+    "tests/test_cooperative_process_v2.py"
+  ],
+  "limitations": [
+    "Positive capture is owned negative actual qualification plus known-file failure metadata; no successful native/protected programme",
+    "Actual complete-qualified public positive and all benchmark T/native timing execution remain unrun",
+    "Opaque access None is not a capability or actual T access finding; authoritative scorer/auditor access logs remain required",
+    "Nested root/call/invocation/queue clocks must not be added; full post-T/pre-T physical/standalone join still pending",
+    "Observer final publication/return/common cold parent startup and qualification overhead remain explicit separate accounting",
+    "Canonical production report/CLI/readiness/final review precede final-source qualification/production HPO",
+    "Dedicated timing/float32 quality equivalence and formal efficiency claim remain unsupported"
+  ],
+  "logs": [
+    {
+      "bytes": 2187,
+      "path": "artifacts/research-v2/WP10/cold-confirmation-software/test-logs/cold-confirmation-metadata-red.log",
+      "sha256": "d1833efb93f8e65cb3df2fc9af2b50a80d800999f9c104a2a9287028b9835524"
+    },
+    {
+      "bytes": 21722,
+      "path": "artifacts/research-v2/WP10/cold-confirmation-software/test-logs/cold-confirmation-process-red.log",
+      "sha256": "b5924db8023099d9ef78b8103d6076b01377b65439c56fd13c0b5962b96471ca"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/cold-confirmation-software/test-logs/cold-confirmation-first-green.log",
+      "sha256": "00436eecbd71e1bd5299e2f7c2d675b047051f1b6af7e788a0912c526c148b59"
+    },
+    {
+      "bytes": 2425,
+      "path": "artifacts/research-v2/WP10/cold-confirmation-software/test-logs/cold-confirmation-foreign-invocation-red.log",
+      "sha256": "9f54070749c8160886d28fc2b97524733cf9ba33bd1d2cf1c2bd5c89bbee811c"
+    },
+    {
+      "bytes": 181,
+      "path": "artifacts/research-v2/WP10/cold-confirmation-software/test-logs/cold-confirmation-affected.log",
+      "sha256": "620b0aaac05c4bc7eafeb1243748401d1094d82706c6a8e84fcad2d9d274fd7a"
+    },
+    {
+      "bytes": 335,
+      "path": "artifacts/research-v2/WP10/cold-confirmation-software/test-logs/cold-confirmation-capture.log",
+      "sha256": "040223e97171b37943a14dc6248b52d110b3e3d075fb5bcff9bada32a37a75da"
+    }
+  ],
+  "native_c33_source_environment_and_immutable_operator_plan_unchanged": true,
+  "native_qualification_authenticated": false,
+  "observation": {
+    "actual_benchmark_labels_read": 0,
+    "denied_case_child_started": false,
+    "granted_case_child_started": true,
+    "granted_case_genuine_failed_native_gate": true,
+    "granted_case_owned_protocol_closed": true,
+    "model_fits": 0,
+    "model_forwards": 0,
+    "original_failed_metadata_invocation_retained": true
+  },
+  "schema": "research/v2-cold-confirmation-software-receipt",
+  "source_files": [
+    {
+      "bytes": 24538,
+      "path": "src/treeneuron/research/confirm_v2.py",
+      "sha256": "61179a4a76b31b1359026d7cbce8ce8cec3d8ab5ce92490123311696f5d96b43"
+    },
+    {
+      "bytes": 22391,
+      "path": "src/treeneuron/research/program_process_v2.py",
+      "sha256": "b104ef210345fcc4cdb2667f86a92636cce20cc9716313499d58fd7340eb80f3"
+    }
+  ],
+  "source_sha256": "d62d98c7f9b5d3a3a8f8d30fb6d37046c427a46e59a3d09e7a28813a58bd0e0c",
+  "test_files": [
+    {
+      "bytes": 7581,
+      "path": "tests/test_cold_confirmation_process_v2.py",
+      "sha256": "2be22edabfe5c95f849b874df7dba4f7b52210b5e4b1a293c5e43b80c75dd9a0"
+    },
+    {
+      "bytes": 12868,
+      "path": "tests/test_confirm_programme_v2.py",
+      "sha256": "b04d57a50b3f00c9f9846cb5b361a6fbcca8e1b4f31a56f0ab19fc191008b0a3"
+    }
+  ],
+  "verification": [
+    {
+      "cause": "Opaque execution incorrectly asserted no target access; original failure lacked containing invocation marker",
+      "result": "2 failed,13 deselected in0.32s"
+    },
+    {
+      "cause": "Explicit confirmation tranche absent, including module-fixture errors from request rejection; intended RED",
+      "result": "7 failed,1 passed,3 errors in0.40s"
+    },
+    {
+      "result": "26 passed in3.72s",
+      "scope": "Initial confirmation and programme checks"
+    },
+    {
+      "cause": "Rehashed owned body could substitute an unrelated confirmation invocation",
+      "result": "1 failed,11 deselected in0.60s"
+    },
+    {
+      "result": "105 passed in18.56s",
+      "scope": "Final six affected modules, including12 cold checks and2 new programme reporting/marker checks; overlaps earlier scopes, not whole-suite green"
+    }
+  ],
+  "whole_training_procedure_cost_authenticated": false
+}
