@@ -1,0 +1,160 @@
+{
+  "files": [
+    {
+      "bytes": 2234,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/airfoil-known-manifest.json",
+      "sha256": "4f440fb9f7c7063818363f173a6b825e483410c4f9f3003c002d8b1a63e2e4cb"
+    },
+    {
+      "bytes": 2216,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/bike-known-manifest.json",
+      "sha256": "a7f9adcfe6061693db13fbec1a94737dc34a4ffc363d44121b5f73d5e707a842"
+    },
+    {
+      "bytes": 2216,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/ccpp-known-manifest.json",
+      "sha256": "29b259978d434e8c84bf885c3c65496c1b125353b848fbe3837574370e5b9258"
+    },
+    {
+      "bytes": 604,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/command-plan.json",
+      "sha256": "7153b0dca51045de96cbd507f57b5eec302eda78ba097ada8cd66261bcb5ff63"
+    },
+    {
+      "bytes": 5198,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/commands.json",
+      "sha256": "371346e534d760f6a6cd820572a567893f9412a206578f6fc1deb9fab2ef0522"
+    },
+    {
+      "bytes": 2240,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/concrete-known-manifest.json",
+      "sha256": "02ac7022832d63e3a0090b3777fa979ef80554f026769ea03d3da0fe1a0277ee"
+    },
+    {
+      "bytes": 2228,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/energy-known-manifest.json",
+      "sha256": "14511fba6f6dea8c4aec06efebd87cff40176a12c705644b47507bc38e3321dd"
+    },
+    {
+      "bytes": 1617,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/known-unqualified-protocol.json",
+      "sha256": "4964275840662877ef09c8e2064e97c1e10a8bf4dcae53202809e29174313246"
+    },
+    {
+      "bytes": 846,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/observation.json",
+      "sha256": "7ab6931a11b59999422bfd0d596b8168e64722f78ab59d5ec13b7794643d2fd9"
+    },
+    {
+      "bytes": 2252,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/parkinsons-known-manifest.json",
+      "sha256": "e4f6628470a8ab063c046ac3afb49cc4b01e4b0a7d2d133594510bbe8cabe791"
+    },
+    {
+      "bytes": 2202,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/plan-control.json",
+      "sha256": "589553504dbdf19e0e39710960d7d82423f0b946c31c2793b7bc26447f8e49e7"
+    },
+    {
+      "bytes": 1102219,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/practical-plan.json",
+      "sha256": "494f9bd0980d269a1eb017641b36a0781b493c197d2038cf6f3cdb7ae1301e9d"
+    },
+    {
+      "bytes": 821,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/procedure-control.json",
+      "sha256": "6ac4dc1c051b3969d9cbe59e6f52f359765873d3912f47db939213a7ef64e7b7"
+    },
+    {
+      "bytes": 8515,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/procedure.json",
+      "sha256": "0f3e74316563b4e5481469e14ebe8e01ad4ce174423d9165b5c6a5eb3771f37b"
+    },
+    {
+      "bytes": 185,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/support-control.json",
+      "sha256": "e48dc1bfea3834474062f5ce37e112de77c8fff925f95b90450ea2f7bfa20b0b"
+    },
+    {
+      "bytes": 210931,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/supports.json",
+      "sha256": "3b17bb01ffd0d4f355b1f40b31e88e59f8f1b944b2b2fd7edd3958fb17db2cde"
+    },
+    {
+      "bytes": 113,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/confirmation-namespace-green.log",
+      "sha256": "9fc9f3b1753d2750f96f9b1ea5c983b39592a5992ead30b1fff564e609cfe9f6"
+    },
+    {
+      "bytes": 6649,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/confirmation-namespace-red.log",
+      "sha256": "dd365942429253ad962c4f5a860113c06a22ee5200c5a2831386c06bd994ce51"
+    },
+    {
+      "bytes": 191,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-affected-final.log",
+      "sha256": "e79e67111670f66dfd88569ee8634c648dcca736c3f576c5c475bf1e5923a59b"
+    },
+    {
+      "bytes": 48102,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-affected-first.log",
+      "sha256": "6c33409dd1b912f12892070a21866a4d66a49b17894a441bbb8eb826306cf29a"
+    },
+    {
+      "bytes": 8755,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-affected-qualified.log",
+      "sha256": "7aa7134f8d0864563916c83167a7d34c1dc735918d95d60586c64d3a914bb632"
+    },
+    {
+      "bytes": 219,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-capture.log",
+      "sha256": "f4993b092cc1b45a2e3883f7dc73d6fb78f49d2726e9e5ca157bc6da38f4fb35"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-first-green.log",
+      "sha256": "6622cb39373344f7460c04f6794a98ed8d74324109763f6ae63a1147e46e769a"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-integration-green.log",
+      "sha256": "f7c0b4fd95db0cf73439a22b6459470b6772cbc015691d64b6cc2d269362a6ad"
+    },
+    {
+      "bytes": 2984,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-integration-red.log",
+      "sha256": "b7cffb2269cd5366c246b6d5e9f7236f7f9fce969d384548c4c80dfffdef3f32"
+    },
+    {
+      "bytes": 1567,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-preparation-status-red.log",
+      "sha256": "ed26904108021760f259cad15f616741d20360d67e05f687fb2bd51d83ed681f"
+    },
+    {
+      "bytes": 4682,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-red.log",
+      "sha256": "6c1250f6f97086fcea8bf746d03900ff2c638968e24831b0a36b2155f84049d2"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-resume-green.log",
+      "sha256": "554c142df8104854dcf0f12226e07dff70aa5a704992f318e278922579d0fbb2"
+    },
+    {
+      "bytes": 4298,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-resume-red.log",
+      "sha256": "0e130df2b0e729376befbb312f1f53a2af8aefd9b87876221b02e650858a17b3"
+    },
+    {
+      "bytes": 113,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-output-types-green.log",
+      "sha256": "e57508b0489408fa38fba5aa86b5ac33dafce6ffbe37f05c6631dde14d937b2f"
+    },
+    {
+      "bytes": 3018,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-output-types-red.log",
+      "sha256": "3c9de6b9b61d94bb9e7843dbbbc942f3040862c75f557820a7942cf42fdd8019"
+    }
+  ],
+  "schema": "research/v2-exact-software-capture-inventory"
+}

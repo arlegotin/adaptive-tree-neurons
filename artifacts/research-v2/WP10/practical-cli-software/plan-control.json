@@ -1,0 +1,38 @@
+{
+  "arguments": {
+    "data_manifest_references": {
+      "airfoil": {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/airfoil-known-manifest.json",
+        "sha256": "4f440fb9f7c7063818363f173a6b825e483410c4f9f3003c002d8b1a63e2e4cb"
+      },
+      "bike": {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/bike-known-manifest.json",
+        "sha256": "a7f9adcfe6061693db13fbec1a94737dc34a4ffc363d44121b5f73d5e707a842"
+      },
+      "ccpp": {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/ccpp-known-manifest.json",
+        "sha256": "29b259978d434e8c84bf885c3c65496c1b125353b848fbe3837574370e5b9258"
+      },
+      "concrete": {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/concrete-known-manifest.json",
+        "sha256": "02ac7022832d63e3a0090b3777fa979ef80554f026769ea03d3da0fe1a0277ee"
+      },
+      "energy": {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/energy-known-manifest.json",
+        "sha256": "14511fba6f6dea8c4aec06efebd87cff40176a12c705644b47507bc38e3321dd"
+      },
+      "parkinsons": {
+        "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/parkinsons-known-manifest.json",
+        "sha256": "e4f6628470a8ab063c046ac3afb49cc4b01e4b0a7d2d133594510bbe8cabe791"
+      }
+    },
+    "lock_sha256": "5735d5ccd959af2c5bb20bc4db9fecb0bfa63ba8c3e7566d1f12b2ca4ba2cafe",
+    "support_reference": {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/supports.json",
+      "sha256": "3b17bb01ffd0d4f355b1f40b31e88e59f8f1b944b2b2fd7edd3958fb17db2cde"
+    }
+  },
+  "operation": "practical_plan",
+  "schema": "research/v2-practical-command",
+  "source_sha256": "ce21a107400e54b84ab9ea70f92b77ae5d151a13a2609848d516befd1089b713"
+}

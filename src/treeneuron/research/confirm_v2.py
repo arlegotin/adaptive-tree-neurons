@@ -207,7 +207,7 @@ def seal_practical_confirmation_programme(reference,*,directory,output,models_re
     from .protected_journal_v2 import _public_locations
     from .protected_prediction_gate_v2 import _publication_location
     study,owners=_public_locations(directory,protocol)
-    root=_publication_location(output,protocol=protocol,inspection=dict(study_directory=str(study),owner_root=str(owners),invocation_references=[]))
+    root=_publication_location(output,protocol=protocol,inspection=dict(study_directory=str(study),owner_root=str(owners),invocation_references=[]),kind='directory',fresh=False)
     plan=_make_fixed_programme(protocol.payload,reference,inputs,directory=study,output=root,rss_limit_bytes=rss_limit_bytes);path=root/'programme.json'
     if path.exists():
         _checked_programme(_ref(path),plan);return dict(reference=_ref(path),**_FALSE)
@@ -291,7 +291,7 @@ def run_practical_confirmation(reference,*,protocol_reference,models_reference,g
     from .protected_journal_v2 import _public_locations
     from .protected_prediction_gate_v2 import _publication_location
     study,owners=_public_locations(plan['protected_study_directory'],protocol)
-    _publication_location(plan['directory'],protocol=protocol,inspection=dict(study_directory=str(study),owner_root=str(owners),invocation_references=[]))
+    _publication_location(plan['directory'],protocol=protocol,inspection=dict(study_directory=str(study),owner_root=str(owners),invocation_references=[]),kind='directory',fresh=False)
     from .native_deployment_plan_v2 import _study
     from .protected_journal_v2 import _read_metadata_study,_append_metadata_event
     from .ledger import StudyLease

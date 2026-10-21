@@ -1,0 +1,105 @@
+{
+  "dataset": "parkinsons",
+  "files": {},
+  "manifest_hash": "d3d620071e5f3fce97e2ba056edaf70a8bc1fe00daf9d4f3cc20d29458f51b92",
+  "protected_labels_read_for_modeling": false,
+  "raw_identity_verified": true,
+  "schema": "research/v2-sealed-transfer",
+  "splits": [
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "parkinsons",
+      "outer_fold": 0,
+      "primary": true,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "2a652a2bbf514ffb9f62fbd099c1a1bef7840af69dfef9a6dbad88bbe8bcabc5"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "parkinsons",
+      "outer_fold": 1,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "aab8747a7526c324f557a29e490204495e9c5eed1b4bb39b06919cfff76a87dd"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "parkinsons",
+      "outer_fold": 2,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "7ea6091a1ab27caeb763935c5e42ec540ba1a6068246ee571e4e1ee688472d18"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "parkinsons",
+      "outer_fold": 3,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "57240d435dddd1e8e1ccc2ff1de2d80b270cd67c66fc8d55b5781adde8548acd"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "parkinsons",
+      "outer_fold": 4,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "c16f2c1642c5a51821875f078d82bb691e6ee659563525be25f71ee17cf334b8"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "T_accessed": false,
+  "actual_benchmark_models_fit_or_predicted": 0,
+  "actual_complete_qualified_public_positive": false,
+  "actual_immutable_support_and_procedure_published": true,
+  "actual_unqualified_confirmation_rejected_before_output": true,
+  "benchmark_labels_read": 0,
+  "elapsed_ns": 1365670917,
+  "manifest_inputs_are_artificial_metadata": true,
+  "metadata_commands": 6,
+  "metadata_jobs": 840,
+  "overwrite_rejected_without_mutation": true,
+  "primary_metadata_jobs": 168,
+  "protected_access_authorized": false,
+  "role_arrays_exist": false,
+  "schema": "research/v2-practical-cli-software-capture",
+  "scope": "CLI metadata and genuine native denial only; no protected evaluation or predictive result",
+  "secondary_metadata_jobs": 672,
+  "source_sha256": "ce21a107400e54b84ab9ea70f92b77ae5d151a13a2609848d516befd1089b713"
+}

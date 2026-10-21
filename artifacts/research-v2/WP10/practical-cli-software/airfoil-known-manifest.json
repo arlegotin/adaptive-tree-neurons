@@ -1,0 +1,105 @@
+{
+  "dataset": "airfoil",
+  "files": {},
+  "manifest_hash": "167aaeafe996744cb8d536fda06b41b2ff54ca84c0826e3c57556d2d4778b55a",
+  "protected_labels_read_for_modeling": false,
+  "raw_identity_verified": true,
+  "schema": "research/v2-sealed-transfer",
+  "splits": [
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "airfoil",
+      "outer_fold": 0,
+      "primary": true,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "65fb0e008935f66f92281608721b11a9c16e169cd929266b417e0abb9e644f15"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "airfoil",
+      "outer_fold": 1,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "833c660dd041a82d7cc9113ac6b37d99d9959cb5efe033be77a19faec265e10e"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "airfoil",
+      "outer_fold": 2,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "949166ae577b0a0906ea1464ba043e657e70d85a832b58690193a3046deac5e6"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "airfoil",
+      "outer_fold": 3,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "787a64fc009a86cbf73a4e94b0e300e019d2aef9edd054b7811a09a5a2a5b62f"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "airfoil",
+      "outer_fold": 4,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "85bdea4026cabaabb707b3145529706cff787c3235cbc0ae7b894aa5084c9c6e"
+    }
+  ]
+}

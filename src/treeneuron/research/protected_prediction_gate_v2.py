@@ -162,18 +162,22 @@ class ProtectedPredictionStage:
 
 
 
-def _check_stage_output(output,*,inspection,protocol_payload,protected_roots,input_files):
+def _check_stage_output(output,*,inspection,protocol_payload,protected_roots,input_files,kind='json',fresh=True):
     """Path-only guard, never a qualification or label capability."""
     from .primary_program_v2 import _check_program_location
     working=[inspection['study_directory'],inspection['owner_root'],*(v['root'] for v in protocol_payload['data'].values()),
         *(q['model_binding']['snapshot_root'] for q in protocol_payload['prediction_manifest']['queries'])]
     path=_check_program_location(output,working_roots=working,proof_roots=protected_roots,
         input_files=[*input_files,*(r['path'] for r in inspection['invocation_references'])])
-    if path.exists() or path.suffix!='.json':raise ValueError('Fresh complete stage JSON required')
+    if kind not in ('json','markdown','directory') or type(fresh) is not bool:
+        raise ValueError('Explicit typed publication output required')
+    if (fresh and path.exists() or kind=='directory' and path.exists() and not path.is_dir()
+            or kind!='directory' and path.suffix!=('.json' if kind=='json' else '.md')):
+        raise ValueError('Publication output type/freshness differs; preserve existing artifacts')
     return path
 
 
-def _publication_location(output,*,protocol,inspection):
+def _publication_location(output,*,protocol,inspection,kind='json',fresh=True):
     from .native_qualification_registry_v2 import load_native_qualification_registry,native_registry_storage_roots
     payload=protocol.payload;q=payload['qualification_reference'];registry=load_native_qualification_registry(q)
     roots=native_registry_storage_roots(inputs=registry['inputs'],registry_reference=q)
@@ -181,7 +185,7 @@ def _publication_location(output,*,protocol,inspection):
     files=[protocol.reference['path'],*(payload[k]['path'] for k in ('models_reference','global_barrier_reference','preT_costs_reference',
         'readiness_reference','practical_plan_reference','procedure_reference'))]
     return _check_stage_output(output,inspection=inspection,protocol_payload=payload,
-        protected_roots=[*roots['working_roots'],*roots['proof_roots'],*costs['proof_roots']],input_files=files)
+        protected_roots=[*roots['working_roots'],*roots['proof_roots'],*costs['proof_roots']],input_files=files,kind=kind,fresh=fresh)
 
 
 def seal_protected_prediction_stage(reference,*,directory,output,models_reference,global_barrier_reference,qualification_reference,preT_costs_reference,readiness_reference):

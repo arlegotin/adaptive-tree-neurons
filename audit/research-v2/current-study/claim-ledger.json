@@ -520,6 +520,11 @@
         {
           "path": "docs/research/v2/WP10-protected-practical-report-receipt.json",
           "sha256": "666e374fb1250ca3d452b5d2fac4a6f580181518511d105dc47e24d90a204d2c"
+        },
+        {
+          "bytes": 11856,
+          "path": "docs/research/v2/WP10-practical-cli-receipt.json",
+          "sha256": "c3c1418b1be18425f8e33d37c8a5653a12a15b613becfbb612ab963d65cfe7b7"
         }
       ],
       "status": "supported_scoped_status",

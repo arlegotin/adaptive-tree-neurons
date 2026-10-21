@@ -314,7 +314,7 @@ def run_native_deployment_measurements(reference,*,protocol_reference,directory,
     from .native_deployment_plan_v2 import _actual_protocol
     from .protected_prediction_gate_v2 import _publication_location
     protocol=_actual_protocol(protocol_reference,kwargs)
-    target=_publication_location(output,protocol=protocol,inspection=dict(study_directory=plan.payload['study_directory'],owner_root=plan.payload['owner_root'],invocation_references=[]))
+    target=_publication_location(output,protocol=protocol,inspection=dict(study_directory=plan.payload['study_directory'],owner_root=plan.payload['owner_root'],invocation_references=[]),kind='directory',fresh=not resume)
     protected=_path(reference['path']).parent
     if target.is_relative_to(protected) or protected.is_relative_to(target):raise ValueError('Timing output must preserve its original immutable plan')
     queue=_make_execution_queue(reference,plan.payload,rss_limit_bytes=rss_limit_bytes)

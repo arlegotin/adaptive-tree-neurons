@@ -86,6 +86,25 @@ def test_stage_output_preserves_models_data_proofs_study_and_owner_archive(tmp_p
         protected_roots=[str(proof)],input_files=[])==tmp_path/'release/stage.json'
 
 
+@pytest.mark.parametrize('kind',['directory','markdown'])
+def test_publication_guard_accepts_actual_programme_and_report_output_types_without_weakening_inputs(tmp_path,kind):
+    module=api();study=tmp_path/'protected-study';owners=tmp_path/'owners';proof=tmp_path/'model-proof'
+    inspection=dict(study_directory=str(study),owner_root=str(owners),invocation_references=[])
+    payload=dict(data={},prediction_manifest=dict(queries=[]))
+    kwargs=dict(inspection=inspection,protocol_payload=payload,protected_roots=[str(proof)],input_files=[])
+    target=tmp_path/('programme' if kind=='directory' else 'report.md')
+    assert module._check_stage_output(target,kind=kind,**kwargs)==target
+    if kind=='directory':target.mkdir()
+    else:target.write_text('unchanged report')
+    with pytest.raises(ValueError):module._check_stage_output(target,kind=kind,**kwargs)
+    if kind=='directory':
+        assert module._check_stage_output(target,kind=kind,fresh=False,**kwargs)==target
+    for root in (study,owners,proof):
+        with pytest.raises(ValueError):
+            module._check_stage_output(root/target.name,kind=kind,fresh=False,**kwargs)
+    with pytest.raises(ValueError):module._check_stage_output(target,**kwargs)
+
+
 def test_readonly_complete_gate_never_loads_fits_or_predicts_again(tmp_path,monkeypatch):
     module=api();payload,reference,root,seen=local_complete_stage(tmp_path)
     from treeneuron.research.p13_simple import P13Predictor

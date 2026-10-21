@@ -160,7 +160,7 @@ def write_protected_practical_report(reference,*,programme_reference,analysis_re
     from .protected_prediction_gate_v2 import _publication_location
     from .practical_pipeline_costs_v2 import _cost_output_location
     protocol=inputs[0];_,raw=_reference(programme_reference);programme=_json(raw)
-    path=_publication_location(output,protocol=protocol,inspection=inputs[1].payload['inspection']);_cost_output_location(path,programme,programme_reference)
+    path=_publication_location(output,protocol=protocol,inspection=inputs[1].payload['inspection'],kind='markdown');_cost_output_location(path,programme,programme_reference)
     if path.suffix!='.md':raise ValueError('Canonical practical report requires a fresh Markdown path')
     supplemental=path.with_suffix('.supplement.json');manifest=path.with_suffix('.manifest.json')
     for target in (supplemental,manifest):

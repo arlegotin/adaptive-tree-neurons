@@ -1,0 +1,105 @@
+{
+  "dataset": "concrete",
+  "files": {},
+  "manifest_hash": "bd09245daf3f2d06f128e2d1a6c1a328f5bcd8a6c5aa4b24ade637aa41eae237",
+  "protected_labels_read_for_modeling": false,
+  "raw_identity_verified": true,
+  "schema": "research/v2-sealed-transfer",
+  "splits": [
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "concrete",
+      "outer_fold": 0,
+      "primary": true,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "2b345a68767dd1639f63e67bbb37bceebe947dae8eaa0e12d04f38a501de9e1f"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "concrete",
+      "outer_fold": 1,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "e19a222a4a6431f81320b94d9b8704f853ec50899374fc797bcdc9c501a196e0"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "concrete",
+      "outer_fold": 2,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "11d5f4aebe504b39f63029473536f6a7dc002afcd5bedfe3361e31e0f3a824a2"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "concrete",
+      "outer_fold": 3,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "2475ef8ad52a884cdcee8a5d1678a10d4a3f37db01168bf94f6ca8d9a6b4b5b5"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "concrete",
+      "outer_fold": 4,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "6973973b4090a4173776fc44b64b892a54e88812eed0a36dd4f4ba7fd1203e0b"
+    }
+  ]
+}

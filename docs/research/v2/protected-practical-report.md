@@ -47,3 +47,11 @@ data/proof/programme/observer inputs. The actual production chain and benchmark
 remain unrun. Production CLI/readiness and final review still precede
 final-source qualification and primary searches. Existing development reporting
 continues to support completed, estimation, retired and blocked records.
+
+Later on21October, the [practical CLI](practical-cli.md) connected these public
+operations. Its integration checks exposed the JSON-only publication guard
+being used for the Markdown report; typed output validation now preserves the
+same source/model/data/proof boundaries for Markdown and directories. The
+historical100-check receipt above predates that correction and does not stand
+in for genuine qualified positive execution. Readiness and final review remain
+required before final-source qualification and production HPO.

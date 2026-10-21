@@ -20,6 +20,21 @@ def main(argv=None):
             cmd.add_argument('--repository-root',type=Path)
     args = parser.parse_args(argv)
     try:
+        if args.command in ('plan','run','freeze'):
+            from .deployment_worker_v2 import _json
+            metadata=_json(args.config.read_bytes())
+            if isinstance(metadata,dict) and metadata.get('schema')=='research/v2-practical-command':
+                from .practical_cli_v2 import plan_practical_command,execute_practical_command,practical_command_exit_code
+                if args.command=='plan':
+                    result=plan_practical_command(args.config,output=args.output)
+                else:
+                    result=execute_practical_command(args.config,output=args.output,
+                        command=args.command,resume=getattr(args,'resume',False))
+                reference=getattr(result,'reference',None)
+                if reference is None and hasattr(result,'file_sha256'):
+                    reference=dict(path=str(result.path),sha256=result.file_sha256)
+                print(json.dumps(reference if reference is not None else result,sort_keys=True))
+                return practical_command_exit_code(result)
         if args.command in ('plan', 'run'):
             if args.command=='plan':
                 from .method_worker import _read_json
@@ -67,6 +82,14 @@ def main(argv=None):
             audit=audit_development_study(args.study/'development-manifest.json',
                 expected_manifest_sha256=args.development_manifest_sha256,repository_root=root)
             print(json.dumps(write_report(audit,args.output),sort_keys=True))
+        elif args.command=='confirm':
+            from .practical_cli_v2 import confirm_practical_protocol
+            result=confirm_practical_protocol(args.protocol,output=args.output)
+            print(json.dumps(result,sort_keys=True))
+            return 0 if result['status']=='completed' else 3 if result['status']=='paused' else 4
+        elif args.command=='report':
+            from .practical_cli_v2 import report_practical_study
+            print(json.dumps(report_practical_study(args.study,output=args.output),sort_keys=True))
         else:
             owners = {'prepare-data': 'WP07', 'qualify': 'WP07', 'freeze': 'WP09',
                       'confirm': 'WP10', 'report': 'WP11'}

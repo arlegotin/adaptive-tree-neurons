@@ -195,7 +195,7 @@ def run_program_process(*,tranche,arguments,output,admission_identity,admission_
         from .protected_journal_v2 import _public_locations
         from .protected_prediction_gate_v2 import _publication_location
         study,owners=_public_locations(plan['protected_study_directory'],protocol)
-        _publication_location(output,protocol=protocol,inspection=dict(study_directory=str(study),owner_root=str(owners),invocation_references=[]))
+        _publication_location(output,protocol=protocol,inspection=dict(study_directory=str(study),owner_root=str(owners),invocation_references=[]),kind='directory')
     _operational_location(output,request,working_roots=working,proof_roots=proofs)
     if tranche=='confirmation':
         with _confirmation_observer_slot(plan,output):
@@ -293,8 +293,9 @@ def main(argv=None):
                 progress=run_primary_program(**request['arguments'])
             elif request['tranche']=='confirmation':
                 from .confirm_v2 import run_practical_confirmation
-                args=request['arguments']
-                progress=run_practical_confirmation(args['programme_reference'],**{k:v for k,v in args.items() if k not in ('programme_reference','directory')})
+                confirmation_args=request['arguments']
+                progress=run_practical_confirmation(confirmation_args['programme_reference'],
+                    **{k:v for k,v in confirmation_args.items() if k not in ('programme_reference','directory')})
             else:
                 from .secondary_program_v2 import run_secondary_program
                 progress=run_secondary_program(**request['arguments'])

@@ -1,0 +1,146 @@
+........................................................................ [ 47%]
+...............................................................E.EE.EE.E [ 95%]
+.....E.                                                                  [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of test_exact_snapshot_is_actual_update_and_observer_cannot_change_state _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x11053dfa0>, _basetemp=PosixPath.../q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3897'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='session')
+    def cpu_training_evidence(tmp_path_factory):
+        # Actual numerical producer evidence, independent of an ignored local doctor
+        # artifact or native MPS access. A one-batch probe measures the exact whole
+        # physical=logical recipe and makes no batch-selection comparison claim.
+        from treeneuron.backend import probe_backend, select_backend
+        probe = probe_backend('cpu', seed=1602030, batch_sizes=(128,))
+>       assert probe['status'] == 'passed', probe.get('reason')
+E       AssertionError: RuntimeError: Resource guard: memory pressure level 2
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_train.py:22: AssertionError
+___ ERROR at setup of test_fit_worker_view_never_exposes_validation_targets ____
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x11053dfa0>, _basetemp=PosixPath.../q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3897'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='session')
+    def cpu_training_evidence(tmp_path_factory):
+        # Actual numerical producer evidence, independent of an ignored local doctor
+        # artifact or native MPS access. A one-batch probe measures the exact whole
+        # physical=logical recipe and makes no batch-selection comparison claim.
+        from treeneuron.backend import probe_backend, select_backend
+        probe = probe_backend('cpu', seed=1602030, batch_sizes=(128,))
+>       assert probe['status'] == 'passed', probe.get('reason')
+E       AssertionError: RuntimeError: Resource guard: memory pressure level 2
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_train.py:22: AssertionError
+_ ERROR at setup of test_runner_executes_small_finite_fixture_with_raw_evidence _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x11053dfa0>, _basetemp=PosixPath.../q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3897'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='session')
+    def cpu_training_evidence(tmp_path_factory):
+        # Actual numerical producer evidence, independent of an ignored local doctor
+        # artifact or native MPS access. A one-batch probe measures the exact whole
+        # physical=logical recipe and makes no batch-selection comparison claim.
+        from treeneuron.backend import probe_backend, select_backend
+        probe = probe_backend('cpu', seed=1602030, batch_sizes=(128,))
+>       assert probe['status'] == 'passed', probe.get('reason')
+E       AssertionError: RuntimeError: Resource guard: memory pressure level 2
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_train.py:22: AssertionError
+_______ ERROR at setup of test_planted_parent_is_unfitted_with_age_zero ________
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x11053dfa0>, _basetemp=PosixPath.../q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3897'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='session')
+    def cpu_training_evidence(tmp_path_factory):
+        # Actual numerical producer evidence, independent of an ignored local doctor
+        # artifact or native MPS access. A one-batch probe measures the exact whole
+        # physical=logical recipe and makes no batch-selection comparison claim.
+        from treeneuron.backend import probe_backend, select_backend
+        probe = probe_backend('cpu', seed=1602030, batch_sizes=(128,))
+>       assert probe['status'] == 'passed', probe.get('reason')
+E       AssertionError: RuntimeError: Resource guard: memory pressure level 2
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_train.py:22: AssertionError
+_ ERROR at setup of test_native_planted_forks_retain_all_oracles_and_raw_score_table _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x11053dfa0>, _basetemp=PosixPath.../q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3897'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='session')
+    def cpu_training_evidence(tmp_path_factory):
+        # Actual numerical producer evidence, independent of an ignored local doctor
+        # artifact or native MPS access. A one-batch probe measures the exact whole
+        # physical=logical recipe and makes no batch-selection comparison claim.
+        from treeneuron.backend import probe_backend, select_backend
+        probe = probe_backend('cpu', seed=1602030, batch_sizes=(128,))
+>       assert probe['status'] == 'passed', probe.get('reason')
+E       AssertionError: RuntimeError: Resource guard: memory pressure level 2
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_train.py:22: AssertionError
+_ ERROR at setup of test_new_stream_immediately_replaces_permutation_and_retains_adam _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x11053dfa0>, _basetemp=PosixPath.../q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3897'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='session')
+    def cpu_training_evidence(tmp_path_factory):
+        # Actual numerical producer evidence, independent of an ignored local doctor
+        # artifact or native MPS access. A one-batch probe measures the exact whole
+        # physical=logical recipe and makes no batch-selection comparison claim.
+        from treeneuron.backend import probe_backend, select_backend
+        probe = probe_backend('cpu', seed=1602030, batch_sizes=(128,))
+>       assert probe['status'] == 'passed', probe.get('reason')
+E       AssertionError: RuntimeError: Resource guard: memory pressure level 2
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_train.py:22: AssertionError
+_ ERROR at setup of test_control_coordinator_passes_only_restricted_worker_inputs _
+
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x11053dfa0>, _basetemp=PosixPath.../q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3897'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='session')
+    def cpu_training_evidence(tmp_path_factory):
+        # Actual numerical producer evidence, independent of an ignored local doctor
+        # artifact or native MPS access. A one-batch probe measures the exact whole
+        # physical=logical recipe and makes no batch-selection comparison claim.
+        from treeneuron.backend import probe_backend, select_backend
+        probe = probe_backend('cpu', seed=1602030, batch_sizes=(128,))
+>       assert probe['status'] == 'passed', probe.get('reason')
+E       AssertionError: RuntimeError: Resource guard: memory pressure level 2
+E       assert 'failed' == 'passed'
+E         
+E         - passed
+E         + failed
+
+tests/test_train.py:22: AssertionError
+=========================== short test summary info ============================
+ERROR tests/test_research_runner.py::test_exact_snapshot_is_actual_update_and_observer_cannot_change_state
+ERROR tests/test_research_runner.py::test_fit_worker_view_never_exposes_validation_targets
+ERROR tests/test_research_runner.py::test_runner_executes_small_finite_fixture_with_raw_evidence
+ERROR tests/test_research_runner.py::test_planted_parent_is_unfitted_with_age_zero
+ERROR tests/test_research_runner.py::test_native_planted_forks_retain_all_oracles_and_raw_score_table
+ERROR tests/test_research_runner.py::test_new_stream_immediately_replaces_permutation_and_retains_adam
+ERROR tests/test_research_runner.py::test_control_coordinator_passes_only_restricted_worker_inputs
+144 passed, 7 errors in 93.56s (0:01:33)

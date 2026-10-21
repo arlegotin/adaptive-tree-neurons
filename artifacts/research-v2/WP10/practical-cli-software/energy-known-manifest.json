@@ -1,0 +1,105 @@
+{
+  "dataset": "energy",
+  "files": {},
+  "manifest_hash": "2f261354b021f905cec6760b0253c4d3070b7490d2ea0ffe58a0282e8c36e6fb",
+  "protected_labels_read_for_modeling": false,
+  "raw_identity_verified": true,
+  "schema": "research/v2-sealed-transfer",
+  "splits": [
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "energy",
+      "outer_fold": 0,
+      "primary": true,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "8b6c7feae73c2140ccd4c149ae01cca58b33d340f7f380cc4b57a929ad5a27f6"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "energy",
+      "outer_fold": 1,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "df747b9783dac3a4005bbd3c686f8620f5377e5f1db13187ed201fe38dd3ec63"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "energy",
+      "outer_fold": 2,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "daff70f37ea37de4704d441468f1529c9c4738d632cfe3d5e90651decc5905bb"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "energy",
+      "outer_fold": 3,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "59d8aeafb6b222e1e2daec7c6eb3e13119e52814f8a37671076c619fb9d75bfd"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "energy",
+      "outer_fold": 4,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "eaa7d73155b15a98f074296c53f2ec9b2ae886ba4296e6ff7f7bff0d7674459c"
+    }
+  ]
+}

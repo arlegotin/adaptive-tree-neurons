@@ -1,0 +1,277 @@
+{
+  "T_accessed": false,
+  "actual_complete_qualified_public_positive": false,
+  "actual_confirmation_or_report_chain_executed": false,
+  "algorithm_support_analysis_or_budget_change": false,
+  "artifact_inventory": {
+    "bytes": 6763,
+    "path": "artifacts/research-v2/WP10/practical-cli-software-inventory.json",
+    "sha256": "a0344ca8bd5621c51c82c299057ea41d46cc2d7e53e91707eefec4bd2d884fec"
+  },
+  "base_commit": "7dd9766",
+  "capture": {
+    "bytes": 846,
+    "path": "artifacts/research-v2/WP10/practical-cli-software/observation.json",
+    "sha256": "7ab6931a11b59999422bfd0d596b8168e64722f78ab59d5ec13b7794643d2fd9"
+  },
+  "capture_script": {
+    "bytes": 4272,
+    "path": "artifacts/research-v2/WP10/capture_practical_cli.py",
+    "sha256": "b68c3b82127ef7306e9696aa1c236237430f33c870e749bd82862299bd29565a"
+  },
+  "changes": [
+    "Versioned source-bound metadata control whitelist dispatches actual public practical stages; no caller-selected module or label capability",
+    "Native gates precede plan materialization and publication; commands preserve runtime/source/proof inputs and immutable outputs",
+    "Primary/secondary use existing owned cold observer and live resource proxies; no training wall cap",
+    "Confirmation resumes fixed programme and complete observed archive; complete cost seals reuse read-only proofs without new observer or target calls",
+    "Report dispatch invokes actual full native/raw/metric/cost/readiness gates",
+    "Fixed reproduced confirmation argparse shadowing after successful inert programme return",
+    "Typed JSON/Markdown/directory output guards preserve protected roots and identity-checked directory resume",
+    "Distinct complete/pause/blocked/invalid/preparation-failed exit statuses"
+  ],
+  "claim_authorized": false,
+  "date": "2026-10-21",
+  "final_command": {
+    "flags": [
+      "-P",
+      "-B"
+    ],
+    "interpreter": ".venv-research-v2/bin/python",
+    "launcher": "Set Torch intra/inter-op1 before pytest.main",
+    "owned_PID_permission": "Scoped /bin/ps only for owned local fixture children",
+    "pytest_argv": [
+      "-q",
+      "tests/test_practical_cli_v2.py",
+      "tests/test_cold_confirmation_process_v2.py",
+      "tests/test_program_process_v2.py",
+      "tests/test_confirm_programme_v2.py",
+      "tests/test_protected_prediction_gate_v2.py",
+      "tests/test_native_deployment_execution_v2.py",
+      "tests/test_protected_practical_report_v2.py",
+      "tests/test_practical_pipeline_costs_v2.py",
+      "tests/test_research_runner.py::test_plan_cli_does_not_fit_or_open_labels"
+    ],
+    "source_unchanged_during_final_checks": true
+  },
+  "limitations": [
+    "Actual final-source native qualification,840 searches and protected results remain unrun",
+    "Readiness and fresh final branch review still required; no fake successful native gate was used",
+    "Known metadata worker tests replace only ownership context/expensive programme callback, grant no native authority and never fit/predict/read targets",
+    "Seven legacy numerical-producer fixtures currently blocked by live memory-pressure guard; guard unchanged and failures retained",
+    "Complete historical whole-suite failure remains separately recorded; this is a scoped software verification",
+    "Actual remaining initial native fits continue under their distinct immutable held source"
+  ],
+  "logs": [
+    {
+      "bytes": 4682,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-red.log",
+      "sha256": "6c1250f6f97086fcea8bf746d03900ff2c638968e24831b0a36b2155f84049d2"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-first-green.log",
+      "sha256": "6622cb39373344f7460c04f6794a98ed8d74324109763f6ae63a1147e46e769a"
+    },
+    {
+      "bytes": 6649,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/confirmation-namespace-red.log",
+      "sha256": "dd365942429253ad962c4f5a860113c06a22ee5200c5a2831386c06bd994ce51"
+    },
+    {
+      "bytes": 113,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/confirmation-namespace-green.log",
+      "sha256": "9fc9f3b1753d2750f96f9b1ea5c983b39592a5992ead30b1fff564e609cfe9f6"
+    },
+    {
+      "bytes": 3018,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-output-types-red.log",
+      "sha256": "3c9de6b9b61d94bb9e7843dbbbc942f3040862c75f557820a7942cf42fdd8019"
+    },
+    {
+      "bytes": 113,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-output-types-green.log",
+      "sha256": "e57508b0489408fa38fba5aa86b5ac33dafce6ffbe37f05c6631dde14d937b2f"
+    },
+    {
+      "bytes": 2984,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-integration-red.log",
+      "sha256": "b7cffb2269cd5366c246b6d5e9f7236f7f9fce969d384548c4c80dfffdef3f32"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-integration-green.log",
+      "sha256": "f7c0b4fd95db0cf73439a22b6459470b6772cbc015691d64b6cc2d269362a6ad"
+    },
+    {
+      "bytes": 4298,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-resume-red.log",
+      "sha256": "0e130df2b0e729376befbb312f1f53a2af8aefd9b87876221b02e650858a17b3"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-resume-green.log",
+      "sha256": "554c142df8104854dcf0f12226e07dff70aa5a704992f318e278922579d0fbb2"
+    },
+    {
+      "bytes": 48102,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-affected-first.log",
+      "sha256": "6c33409dd1b912f12892070a21866a4d66a49b17894a441bbb8eb826306cf29a"
+    },
+    {
+      "bytes": 8755,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-affected-qualified.log",
+      "sha256": "7aa7134f8d0864563916c83167a7d34c1dc735918d95d60586c64d3a914bb632"
+    },
+    {
+      "bytes": 1567,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-preparation-status-red.log",
+      "sha256": "ed26904108021760f259cad15f616741d20360d67e05f687fb2bd51d83ed681f"
+    },
+    {
+      "bytes": 191,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-affected-final.log",
+      "sha256": "e79e67111670f66dfd88569ee8634c648dcca736c3f576c5c475bf1e5923a59b"
+    },
+    {
+      "bytes": 219,
+      "path": "artifacts/research-v2/WP10/practical-cli-software/test-logs/practical-cli-capture.log",
+      "sha256": "f4993b092cc1b45a2e3883f7dc73d6fb78f49d2726e9e5ca157bc6da38f4fb35"
+    }
+  ],
+  "native_c33_source_environment_and_immutable_operator_plan_unchanged": true,
+  "native_qualification_authenticated": false,
+  "observation": {
+    "T_accessed": false,
+    "actual_benchmark_models_fit_or_predicted": 0,
+    "actual_complete_qualified_public_positive": false,
+    "actual_immutable_support_and_procedure_published": true,
+    "actual_unqualified_confirmation_rejected_before_output": true,
+    "benchmark_labels_read": 0,
+    "elapsed_ns": 1365670917,
+    "manifest_inputs_are_artificial_metadata": true,
+    "metadata_commands": 6,
+    "metadata_jobs": 840,
+    "overwrite_rejected_without_mutation": true,
+    "primary_metadata_jobs": 168,
+    "protected_access_authorized": false,
+    "role_arrays_exist": false,
+    "schema": "research/v2-practical-cli-software-capture",
+    "scope": "CLI metadata and genuine native denial only; no protected evaluation or predictive result",
+    "secondary_metadata_jobs": 672,
+    "source_sha256": "ce21a107400e54b84ab9ea70f92b77ae5d151a13a2609848d516befd1089b713"
+  },
+  "schema": "research/v2-practical-cli-software-receipt",
+  "source_files": [
+    {
+      "bytes": 6210,
+      "path": "src/treeneuron/research/cli.py",
+      "sha256": "63d84413c47c73e8d7e4826038b4166b2fa24d1ea4756330a75fcba073b69c31"
+    },
+    {
+      "bytes": 17581,
+      "path": "src/treeneuron/research/practical_cli_v2.py",
+      "sha256": "bd72e7208f0a78a235f6bedca35bf4d84635c11156e501862d22e6f80932e19c"
+    },
+    {
+      "bytes": 24660,
+      "path": "src/treeneuron/research/confirm_v2.py",
+      "sha256": "e9b6850f336bd2c4340565c77ebf6a3736dd5adeaeffc4583605aaa2a90b0040"
+    },
+    {
+      "bytes": 23625,
+      "path": "src/treeneuron/research/program_process_v2.py",
+      "sha256": "c962ab2f6331dc959853d63de396273a3cc656ab0e092fb7e453e127854cd137"
+    },
+    {
+      "bytes": 17443,
+      "path": "src/treeneuron/research/protected_prediction_gate_v2.py",
+      "sha256": "0df99b34de8bff1f77f920525937a64d50cb56dcef4fe40a3f6e260fd58ddf81"
+    },
+    {
+      "bytes": 26615,
+      "path": "src/treeneuron/research/native_deployment_execution_v2.py",
+      "sha256": "7b3c6941fa6b97cb526789a6c4f73dd6ba6d8f51067bee990bf867b38c0a905c"
+    },
+    {
+      "bytes": 18753,
+      "path": "src/treeneuron/research/practical_report_v2.py",
+      "sha256": "b9e1e73c08f72aff0431fabaa90da99e85206bf49b6b4ffc1fe312c2b9131cc3"
+    }
+  ],
+  "source_sha256": "ce21a107400e54b84ab9ea70f92b77ae5d151a13a2609848d516befd1089b713",
+  "test_files": [
+    {
+      "bytes": 10237,
+      "path": "tests/test_practical_cli_v2.py",
+      "sha256": "932fef468588f201d8910d017b4dcdc2340c2ebfa68ac0f1982d49a52c74afd4"
+    },
+    {
+      "bytes": 9992,
+      "path": "tests/test_cold_confirmation_process_v2.py",
+      "sha256": "e4bd8c857956573933102372477c0641427f5ea29b57c414c6473dbe72cede78"
+    },
+    {
+      "bytes": 9320,
+      "path": "tests/test_protected_prediction_gate_v2.py",
+      "sha256": "4c211f969ae5f7bbc973bde46e119cc53563c36e98177fba7d01c37da7f0032f"
+    }
+  ],
+  "verification": [
+    {
+      "cause": "Missing practical dispatcher; actual old negative gates already reject",
+      "result": "3 failed,7 passed in1.27s"
+    },
+    {
+      "result": "10 passed in1.80s",
+      "scope": "Initial real CLI metadata and denial integration"
+    },
+    {
+      "cause": "Inert successful/partial worker returns reproduced AttributeError: dict has no attribute request",
+      "result": "2 failed,12 deselected in0.73s"
+    },
+    {
+      "result": "2 passed,12 deselected in0.67s",
+      "scope": "Worker namespace regression"
+    },
+    {
+      "cause": "Output guard lacked typed directory/Markdown support",
+      "result": "2 failed,17 deselected in0.07s"
+    },
+    {
+      "result": "2 passed,17 deselected in0.07s",
+      "scope": "Typed output and protected-root guard"
+    },
+    {
+      "cause": "Missing confirm/report commands and runtime output protection",
+      "result": "3 failed,11 passed in2.23s"
+    },
+    {
+      "result": "14 passed in2.05s",
+      "scope": "Extended real CLI/negative native gates"
+    },
+    {
+      "cause": "Read-only history and operational exit status handling missing",
+      "result": "4 failed,14 deselected in0.14s"
+    },
+    {
+      "result": "18 passed in2.56s",
+      "scope": "Known metadata exact-prefix/resume and exits"
+    },
+    {
+      "cause": "26 owned-process fixtures blocked before child launch by sandbox /bin/ps; one live Torch interop setting mismatch",
+      "result": "27 failed,124 passed in61.18s"
+    },
+    {
+      "cause": "Scoped owned-PID permission and declared threads recover process cases; seven legacy training fixtures reject live memory pressure level2",
+      "result": "144 passed,7 errors in93.56s"
+    },
+    {
+      "cause": "Failed managed preparation incorrectly returned success exit status",
+      "result": "1 failed,18 deselected in0.06s"
+    },
+    {
+      "result": "133 passed in92.25s",
+      "scope": "Final eight affected modules and legacy CLI-only case; legacy numerical producer tests excluded with failures retained, not a whole-suite pass"
+    }
+  ]
+}

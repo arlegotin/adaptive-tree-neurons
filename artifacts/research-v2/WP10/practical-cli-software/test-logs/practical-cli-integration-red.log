@@ -1,0 +1,45 @@
+...........FFF                                                           [100%]
+=================================== FAILURES ===================================
+____________ test_practical_control_cannot_write_into_runtime_tree _____________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3892/test_practical_control_cannot_0')
+
+    def test_practical_control_cannot_write_into_runtime_tree(tmp_path):
+        from treeneuron.research.deployment_worker_v2 import _ROOT
+        command=control(tmp_path,'support_lock',{})
+>       with pytest.raises(ValueError,match='preserve|executable|runtime'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_practical_cli_v2.py:119: Failed
+_ test_confirm_bootstrap_metadata_cannot_grant_native_authority_or_create_study _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3892/test_confirm_bootstrap_metadat0')
+
+    def test_confirm_bootstrap_metadata_cannot_grant_native_authority_or_create_study(tmp_path):
+        from treeneuron.config import canonical_hash
+        from treeneuron.research.deployment_worker_v2 import _source
+        module=api()
+>       assert hasattr(module,'confirm_practical_protocol'),'Missing actual-protocol confirmation CLI'
+E       AssertionError: Missing actual-protocol confirmation CLI
+E       assert False
+E        +  where False = hasattr(<module 'treeneuron.research.practical_cli_v2' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/research/practical_cli_v2.py'>, 'confirm_practical_protocol')
+
+tests/test_practical_cli_v2.py:127: AssertionError
+____ test_report_cli_requires_genuine_frozen_inputs_before_any_publication _____
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3892/test_report_cli_requires_genui0')
+
+    def test_report_cli_requires_genuine_frozen_inputs_before_any_publication(tmp_path):
+        module=api()
+>       assert hasattr(module,'report_practical_study'),'Missing protected practical report CLI'
+E       AssertionError: Missing protected practical report CLI
+E       assert False
+E        +  where False = hasattr(<module 'treeneuron.research.practical_cli_v2' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/research/practical_cli_v2.py'>, 'report_practical_study')
+
+tests/test_practical_cli_v2.py:142: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_practical_cli_v2.py::test_practical_control_cannot_write_into_runtime_tree
+FAILED tests/test_practical_cli_v2.py::test_confirm_bootstrap_metadata_cannot_grant_native_authority_or_create_study
+FAILED tests/test_practical_cli_v2.py::test_report_cli_requires_genuine_frozen_inputs_before_any_publication
+3 failed, 11 passed in 2.23s

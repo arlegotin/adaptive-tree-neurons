@@ -1,0 +1,83 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_ test_confirmation_worker_preserves_cli_request_after_known_metadata_programme_returns[None] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3888/test_confirmation_worker_prese0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1075caab0>
+limit = None
+
+    @pytest.mark.parametrize('limit',[None,2])
+    def test_confirmation_worker_preserves_cli_request_after_known_metadata_programme_returns(tmp_path,monkeypatch,limit):
+        # Exercise the real main/metadata/checksum/history code, with only the
+        # ownership context and expensive protected operation replaced.  The
+        # callback writes seven known inert JSON files, grants no qualification,
+        # and never reads labels, fits or predicts a model.
+        from contextlib import nullcontext
+        from test_confirm_programme_v2 import fixture,known_operations
+        from treeneuron.research import cooperative_process_v2,primary_search_worker_v2
+        programme,plan,reference=fixture(tmp_path/'known')
+        execute,resolve=known_operations(plan);module=api()
+        def known_run(bound_reference,**kwargs):
+            assert bound_reference==reference
+            assert kwargs['protocol_reference']==plan['protocol_reference']
+            return programme._run_fixed_steps(reference,plan,execute_step=execute,
+                resolve_completed=resolve,guard=lambda:None,max_step_starts=kwargs['max_step_starts'])
+        monkeypatch.setattr(programme,'run_practical_confirmation',known_run)
+        monkeypatch.setattr(cooperative_process_v2,'cooperative_worker',lambda identity:nullcontext())
+        for key,value in primary_search_worker_v2._episode_environment().items():
+            if value is None:monkeypatch.delenv(key,raising=False)
+            else:monkeypatch.setenv(key,value)
+        process=tmp_path/'known-process';process.mkdir()
+        monkeypatch.setenv('ATN_SEARCH_CONTROL_ROOT',str(process))
+        request=module._make_request('confirmation',dict(programme_reference=reference,
+            protocol_reference=plan['protocol_reference'],directory=plan['directory'],
+            max_step_starts=limit,**plan['inputs']),time.perf_counter_ns())
+        path=tmp_path/'request.json';path.write_text(json.dumps(request))
+>       assert module.main(['--request',str(path),'--expected-request-sha256',hashlib.sha256(path.read_bytes()).hexdigest()])==0
+E       AssertionError: assert 1 == 0
+E        +  where 1 = <function main at 0x1076dfd80>(['--request', '/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3888/test_confir..._prese0/request.json', '--expected-request-sha256', '0799c2555b7c8a52d531dd27a0ebbc74e60e94a0c3f71903d1c4c52934cdc1a9'])
+E        +    where <function main at 0x1076dfd80> = <module 'treeneuron.research.program_process_v2' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/research/program_process_v2.py'>.main
+
+tests/test_cold_confirmation_process_v2.py:55: AssertionError
+_ test_confirmation_worker_preserves_cli_request_after_known_metadata_programme_returns[2] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3888/test_confirmation_worker_prese1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1076bf680>, limit = 2
+
+    @pytest.mark.parametrize('limit',[None,2])
+    def test_confirmation_worker_preserves_cli_request_after_known_metadata_programme_returns(tmp_path,monkeypatch,limit):
+        # Exercise the real main/metadata/checksum/history code, with only the
+        # ownership context and expensive protected operation replaced.  The
+        # callback writes seven known inert JSON files, grants no qualification,
+        # and never reads labels, fits or predicts a model.
+        from contextlib import nullcontext
+        from test_confirm_programme_v2 import fixture,known_operations
+        from treeneuron.research import cooperative_process_v2,primary_search_worker_v2
+        programme,plan,reference=fixture(tmp_path/'known')
+        execute,resolve=known_operations(plan);module=api()
+        def known_run(bound_reference,**kwargs):
+            assert bound_reference==reference
+            assert kwargs['protocol_reference']==plan['protocol_reference']
+            return programme._run_fixed_steps(reference,plan,execute_step=execute,
+                resolve_completed=resolve,guard=lambda:None,max_step_starts=kwargs['max_step_starts'])
+        monkeypatch.setattr(programme,'run_practical_confirmation',known_run)
+        monkeypatch.setattr(cooperative_process_v2,'cooperative_worker',lambda identity:nullcontext())
+        for key,value in primary_search_worker_v2._episode_environment().items():
+            if value is None:monkeypatch.delenv(key,raising=False)
+            else:monkeypatch.setenv(key,value)
+        process=tmp_path/'known-process';process.mkdir()
+        monkeypatch.setenv('ATN_SEARCH_CONTROL_ROOT',str(process))
+        request=module._make_request('confirmation',dict(programme_reference=reference,
+            protocol_reference=plan['protocol_reference'],directory=plan['directory'],
+            max_step_starts=limit,**plan['inputs']),time.perf_counter_ns())
+        path=tmp_path/'request.json';path.write_text(json.dumps(request))
+>       assert module.main(['--request',str(path),'--expected-request-sha256',hashlib.sha256(path.read_bytes()).hexdigest()])==0
+E       AssertionError: assert 1 == 0
+E        +  where 1 = <function main at 0x1076dfd80>(['--request', '/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3888/test_confir..._prese1/request.json', '--expected-request-sha256', 'a2be908a469a75f31dba5ad204cc2f802df3fac978e49988cc6a9dca3f9e73ea'])
+E        +    where <function main at 0x1076dfd80> = <module 'treeneuron.research.program_process_v2' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/research/program_process_v2.py'>.main
+
+tests/test_cold_confirmation_process_v2.py:55: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_cold_confirmation_process_v2.py::test_confirmation_worker_preserves_cli_request_after_known_metadata_programme_returns[None]
+FAILED tests/test_cold_confirmation_process_v2.py::test_confirmation_worker_preserves_cli_request_after_known_metadata_programme_returns[2]
+2 failed, 12 deselected in 0.73s

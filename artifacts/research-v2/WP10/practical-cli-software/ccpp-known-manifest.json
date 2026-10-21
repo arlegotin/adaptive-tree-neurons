@@ -1,0 +1,105 @@
+{
+  "dataset": "ccpp",
+  "files": {},
+  "manifest_hash": "5ddd385e19fb12087f1bab080f0f4069c077ec71096d70c40d24c64732adf1e8",
+  "protected_labels_read_for_modeling": false,
+  "raw_identity_verified": true,
+  "schema": "research/v2-sealed-transfer",
+  "splits": [
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "ccpp",
+      "outer_fold": 0,
+      "primary": true,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "42a7ca11aed181c746654b309f0c301f04e141995163fa4bd96fd79357521903"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "ccpp",
+      "outer_fold": 1,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "fa106e153bd415e40c87dd131e0f1d293b45bc79f2e50257f316a5add0107305"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "ccpp",
+      "outer_fold": 2,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "b9ad465ace963b4f4a2d92c02b090d478d75e5d2ddf714da639ed249d82aa04f"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "ccpp",
+      "outer_fold": 3,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "e6014eb296c5529444a7bd38ac5f91750c51efe3eb0428018547866e34f66615"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "ccpp",
+      "outer_fold": 4,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "d60f72f20d205810bebb8b5fae426171b045c1999c54502ad62fa2ecd24e57af"
+    }
+  ]
+}

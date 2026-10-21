@@ -1,0 +1,16 @@
+{
+  "arguments": {
+    "expected_practical_plan_hash": "883a5d7b31dbd735a793e6a76257b4c3199b5d29d12d6863929cf8b9fced94c5",
+    "practical_plan_reference": {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/practical-plan.json",
+      "sha256": "494f9bd0980d269a1eb017641b36a0781b493c197d2038cf6f3cdb7ae1301e9d"
+    },
+    "support_reference": {
+      "path": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/supports.json",
+      "sha256": "3b17bb01ffd0d4f355b1f40b31e88e59f8f1b944b2b2fd7edd3958fb17db2cde"
+    }
+  },
+  "operation": "procedure",
+  "schema": "research/v2-practical-command",
+  "source_sha256": "ce21a107400e54b84ab9ea70f92b77ae5d151a13a2609848d516befd1089b713"
+}

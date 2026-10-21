@@ -1,0 +1,105 @@
+{
+  "dataset": "bike",
+  "files": {},
+  "manifest_hash": "ac516a6e0e455f544fdf4cb8ae654082c614b7085a03296b84c7fe0a2a12a2d6",
+  "protected_labels_read_for_modeling": false,
+  "raw_identity_verified": true,
+  "schema": "research/v2-sealed-transfer",
+  "splits": [
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "bike",
+      "outer_fold": 0,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "bb852427fb4dd978497dfebde1491f279b81ff1721158e8dd0bff8f08f726927"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "bike",
+      "outer_fold": 1,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "09813c6c91a67a6c22d3fcd37ba569a04bbe68849d9c02b96165dfe98e2a2c7b"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "bike",
+      "outer_fold": 2,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "cf9b279b9767c6b1541df137f4afedb5e57e27a170938b7e37e304e7c552207a"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "bike",
+      "outer_fold": 3,
+      "primary": false,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "fbffbff9a5acd1e4bcd67c894d2c9a81fc6651f1c69fda806bf4e6be6be634b1"
+    },
+    {
+      "actual_rows": {
+        "F": 1,
+        "G": 1,
+        "T": 1,
+        "V": 1
+      },
+      "dataset": "bike",
+      "outer_fold": 4,
+      "primary": true,
+      "roles": [
+        "F",
+        "G",
+        "V",
+        "T"
+      ],
+      "schema": "research/v2-transfer-split",
+      "split_hash": "bf22907df8cf72c7f700436ec3c40aa7eec1f7a88a0c9c416654be1ba48a032e"
+    }
+  ]
+}

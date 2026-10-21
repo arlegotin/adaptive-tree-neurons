@@ -1,0 +1,64 @@
+FF.......F                                                               [100%]
+=================================== FAILURES ===================================
+__ test_cli_support_lock_is_real_immutable_and_planning_confers_no_authority ___
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3886/test_cli_support_lock_is_real_0')
+
+    def test_cli_support_lock_is_real_immutable_and_planning_confers_no_authority(tmp_path):
+        from treeneuron.research.cli import main
+        from treeneuron.research.practical_support_lock_v2 import load_practical_support_lock
+        command=control(tmp_path,'support_lock',{});path=tmp_path/'support.json';plan=tmp_path/'plan.json'
+>       assert main(['plan','--config',str(command),'--output',str(plan)])==0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = <function main at 0x109835260>(['plan', '--config', '/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3886/test...ders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3886/test_cli_support_lock_is_real_0/plan.json'])
+
+tests/test_practical_cli_v2.py:33: AssertionError
+----------------------------- Captured stderr call -----------------------------
+research/v2: Invalid research/v2 fields/schema
+______ test_cli_procedure_keeps_native_completion_policy_and_all840_jobs _______
+
+study = (PracticalPlan(resolved_json='{"budget_policy":"native_quality","data_manifest_hashes":{"airfoil":"167aaeafe996744cb8d...i_procedure_keeps_nativ0/supports.json', 'sha256': '136f89eff4f0fb127f87df9724950e60f1a21504fce61cf0b002d8b0ffa522f1'})
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3886/test_cli_procedure_keeps_nativ0')
+
+    def test_cli_procedure_keeps_native_completion_policy_and_all840_jobs(study,tmp_path):
+        from treeneuron.research.cli import main
+        from treeneuron.research.practical_procedure_v2 import load_practical_procedure
+        plan,support=study;plan_path=tmp_path/'workload.json';plan_path.write_text(plan.resolved_json)
+        command=control(tmp_path,'procedure',dict(practical_plan_reference=ref(plan_path),
+            expected_practical_plan_hash=plan.to_dict()['plan_hash'],support_reference=support))
+        output=tmp_path/'procedure.json'
+>       assert main(['freeze','--config',str(command),'--output',str(output)])==0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = <function main at 0x109835260>(['freeze', '--config', '/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3886/te...q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3886/test_cli_procedure_keeps_nativ0/procedure.json'])
+
+tests/test_practical_cli_v2.py:52: AssertionError
+----------------------------- Captured stderr call -----------------------------
+research/v2: freeze requires WP09 implementation and qualification
+__________ test_command_planner_cannot_publish_into_scientific_source __________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3886/test_command_planner_cannot_pu0')
+
+    def test_command_planner_cannot_publish_into_scientific_source(tmp_path):
+        from treeneuron.research.deployment_worker_v2 import _ROOT
+        command=control(tmp_path,'support_lock',{})
+        with pytest.raises(ValueError,match='output|executable|preserve'):
+>           api().plan_practical_command(command,output=_ROOT/'src/never-practical-output.json')
+            ^^^^^
+
+tests/test_practical_cli_v2.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.practical_cli_v2'), 'Missing practical command boundary'
+E       AssertionError: Missing practical command boundary
+E       assert None
+E        +  where None = <function find_spec at 0x108bd5c60>('treeneuron.research.practical_cli_v2')
+E        +    where <function find_spec at 0x108bd5c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_practical_cli_v2.py:24: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_practical_cli_v2.py::test_cli_support_lock_is_real_immutable_and_planning_confers_no_authority
+FAILED tests/test_practical_cli_v2.py::test_cli_procedure_keeps_native_completion_policy_and_all840_jobs
+FAILED tests/test_practical_cli_v2.py::test_command_planner_cannot_publish_into_scientific_source
+3 failed, 7 passed in 1.27s

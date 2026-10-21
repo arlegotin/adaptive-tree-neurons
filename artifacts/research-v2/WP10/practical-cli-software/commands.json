@@ -1,0 +1,98 @@
+[
+  {
+    "argv": [
+      "plan",
+      "--config",
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/support-control.json",
+      "--output",
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/command-plan.json"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "elapsed_ns": 705739959,
+    "exit_status": 0,
+    "interpreter": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+    "invocation_mode": "in_process_research_cli_main",
+    "stderr": "",
+    "stdout": "{\"path\": \"/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/command-plan.json\", \"sha256\": \"7153b0dca51045de96cbd507f57b5eec302eda78ba097ada8cd66261bcb5ff63\"}\n"
+  },
+  {
+    "argv": [
+      "run",
+      "--config",
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/support-control.json",
+      "--output",
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/supports.json"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "elapsed_ns": 125737791,
+    "exit_status": 0,
+    "interpreter": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+    "invocation_mode": "in_process_research_cli_main",
+    "stderr": "",
+    "stdout": "{\"path\": \"/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/supports.json\", \"sha256\": \"3b17bb01ffd0d4f355b1f40b31e88e59f8f1b944b2b2fd7edd3958fb17db2cde\"}\n"
+  },
+  {
+    "argv": [
+      "run",
+      "--config",
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/support-control.json",
+      "--output",
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/supports.json"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "elapsed_ns": 23471750,
+    "exit_status": 2,
+    "interpreter": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+    "invocation_mode": "in_process_research_cli_main",
+    "stderr": "research/v2: Fresh JSON support lock required; no overwrite or executable output\n",
+    "stdout": ""
+  },
+  {
+    "argv": [
+      "run",
+      "--config",
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/plan-control.json",
+      "--output",
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/practical-plan.json"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "elapsed_ns": 144168250,
+    "exit_status": 0,
+    "interpreter": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+    "invocation_mode": "in_process_research_cli_main",
+    "stderr": "",
+    "stdout": "{\"path\": \"/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/practical-plan.json\", \"sha256\": \"494f9bd0980d269a1eb017641b36a0781b493c197d2038cf6f3cdb7ae1301e9d\"}\n"
+  },
+  {
+    "argv": [
+      "freeze",
+      "--config",
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/procedure-control.json",
+      "--output",
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/procedure.json"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "elapsed_ns": 286049000,
+    "exit_status": 0,
+    "interpreter": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+    "invocation_mode": "in_process_research_cli_main",
+    "stderr": "",
+    "stdout": "{\"path\": \"/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/procedure.json\", \"sha256\": \"0f3e74316563b4e5481469e14ebe8e01ad4ce174423d9165b5c6a5eb3771f37b\"}\n"
+  },
+  {
+    "argv": [
+      "confirm",
+      "--protocol",
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/known-unqualified-protocol.json",
+      "--output",
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/practical-cli-software/never-study"
+    ],
+    "cwd": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons",
+    "elapsed_ns": 40327625,
+    "exit_status": 2,
+    "interpreter": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+    "invocation_mode": "in_process_research_cli_main",
+    "stderr": "research/v2: Ordinary immutable native proof directory required\n",
+    "stdout": ""
+  }
+]

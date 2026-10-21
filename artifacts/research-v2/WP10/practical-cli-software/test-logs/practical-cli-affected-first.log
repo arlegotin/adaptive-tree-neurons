@@ -1,0 +1,703 @@
+..........................F.F..F.........FF............................F [ 47%]
+FFFFFFFFFF...FFF..FFF..F...F....F.................F............F........ [ 95%]
+.......                                                                  [100%]
+=================================== FAILURES ===================================
+_ test_granted_cold_worker_stops_at_genuine_native_gate_without_programme_or_target_read _
+
+episodes = {False: (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/cold-c...7d15e379da1ddeb29bf1f', 'execution_status': 'input_or_dependency_failure', 'stop_reason': 'supervision_failure', ...})}
+
+    def test_granted_cold_worker_stops_at_genuine_native_gate_without_programme_or_target_read(episodes):
+        root,request,result=episodes[True]
+>       assert result['child_started'] and result['worker_protocol_closed'] and result['returncode']==1
+E       assert (False)
+
+tests/test_cold_confirmation_process_v2.py:101: AssertionError
+_ test_cold_confirmation_readback_is_readonly_and_does_not_certify_target_access_from_clock _
+
+episodes = {False: (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/cold-c...7d15e379da1ddeb29bf1f', 'execution_status': 'input_or_dependency_failure', 'stop_reason': 'supervision_failure', ...})}
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x112fc6690>
+
+    def test_cold_confirmation_readback_is_readonly_and_does_not_certify_target_access_from_clock(episodes,monkeypatch):
+        def forbidden(*args,**kwargs):pytest.fail('Read-only cold envelope check started a process')
+        monkeypatch.setattr(subprocess,'Popen',forbidden)
+        root,request,result=episodes[True];proof=api().inspect_program_process(result['envelope_reference'])
+>       assert proof['T_accessed'] is None and proof['whole_training_procedure_cost_authenticated'] is False
+E       assert (False is None)
+
+tests/test_cold_confirmation_process_v2.py:119: AssertionError
+_ test_rehashed_owned_body_cannot_substitute_unrelated_confirmation_invocation _
+
+episodes = {False: (PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/cold-c...7d15e379da1ddeb29bf1f', 'execution_status': 'input_or_dependency_failure', 'stop_reason': 'supervision_failure', ...})}
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_rehashed_owned_body_canno0')
+
+    def test_rehashed_owned_body_cannot_substitute_unrelated_confirmation_invocation(episodes,tmp_path):
+>       root,request,result=episodes[True];body_path=root/'process/body-outcome.json';original=body_path.read_bytes()
+                                                                                               ^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_cold_confirmation_process_v2.py:145: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/pathlib.py:1019: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/cold-confirmation-process0/granted/process/body-outcome.json')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/cold-confirmation-process0/granted/process/body-outcome.json'
+
+.uv-python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/pathlib.py:1013: FileNotFoundError
+_ test_actual_cold_program_worker_records_failed_gate_before_any_plan_or_data[primary] _
+
+episodes = {'primary': {'root': PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest...test-of-artemlegotin/pytest-3896/owned-program-process0/uncreated-program', 'rss_limit_bytes': 4294967296, ...}, ...}}}
+tranche = 'primary'
+
+    @pytest.mark.parametrize('tranche',['primary','secondary'])
+    def test_actual_cold_program_worker_records_failed_gate_before_any_plan_or_data(episodes,tranche):
+        row=episodes[tranche];value=row['result'];root=row['root']
+>       assert value['returncode']==1 and value['worker_protocol_closed'] is True
+E       assert (None == 1)
+
+tests/test_program_process_v2.py:70: AssertionError
+_ test_actual_cold_program_worker_records_failed_gate_before_any_plan_or_data[secondary] _
+
+episodes = {'primary': {'root': PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest...test-of-artemlegotin/pytest-3896/owned-program-process0/uncreated-program', 'rss_limit_bytes': 4294967296, ...}, ...}}}
+tranche = 'secondary'
+
+    @pytest.mark.parametrize('tranche',['primary','secondary'])
+    def test_actual_cold_program_worker_records_failed_gate_before_any_plan_or_data(episodes,tranche):
+        row=episodes[tranche];value=row['result'];root=row['root']
+>       assert value['returncode']==1 and value['worker_protocol_closed'] is True
+E       assert (None == 1)
+
+tests/test_program_process_v2.py:70: AssertionError
+_ test_private_complete_stage_recomputes_all_commits_and_closed_invocations_without_labels _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_private_complete_stage_re0')
+
+    def test_private_complete_stage_recomputes_all_commits_and_closed_invocations_without_labels(tmp_path):
+>       module=api();payload,reference,root,seen=local_complete_stage(tmp_path)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_protected_prediction_gate_v2.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_private_complete_stage_re0')
+
+    def local_complete_stage(tmp_path):
+        from test_protected_prediction_queue_v2 import local_protocol,owned_fixture_executor
+        from treeneuron.research.protected_prediction_queue_v2 import _run_prediction_queue
+        payload,reference=local_protocol(tmp_path);seen=[];root=tmp_path/'study'
+        result=_run_prediction_queue(protocol_payload=payload,protocol_reference=reference,directory=root,owner_root=tmp_path/'owners',
+            execute_episode=owned_fixture_executor(seen),guard=lambda:None,rss_limit_bytes=1024**3)
+>       assert result['status']=='all_predictions_committed',result
+E       AssertionError: {'schema': 'research/v2-protected-prediction-queue-progress', 'status': 'blocked_query_failure', 'completed_queries': 0, 'planned_queries': 2, ...}
+E       assert 'blocked_query_failure' == 'all_predictions_committed'
+E         
+E         - all_predictions_committed
+E         + blocked_query_failure
+
+tests/test_protected_prediction_gate_v2.py:38: AssertionError
+_ test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence[missing_end] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_complete_stage_rejects_mi0')
+fault = 'missing_end'
+
+    @pytest.mark.parametrize('fault',['missing_end','missing_start','partial_end','unknown_end_field','wrong_genesis','wrong_duration',
+        'missing_call','duplicated_call','wrong_call_hash','orphan_call'])
+    def test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence(tmp_path,fault):
+        import json
+>       module=api();payload,reference,root,seen=local_complete_stage(tmp_path)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_protected_prediction_gate_v2.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_complete_stage_rejects_mi0')
+
+    def local_complete_stage(tmp_path):
+        from test_protected_prediction_queue_v2 import local_protocol,owned_fixture_executor
+        from treeneuron.research.protected_prediction_queue_v2 import _run_prediction_queue
+        payload,reference=local_protocol(tmp_path);seen=[];root=tmp_path/'study'
+        result=_run_prediction_queue(protocol_payload=payload,protocol_reference=reference,directory=root,owner_root=tmp_path/'owners',
+            execute_episode=owned_fixture_executor(seen),guard=lambda:None,rss_limit_bytes=1024**3)
+>       assert result['status']=='all_predictions_committed',result
+E       AssertionError: {'schema': 'research/v2-protected-prediction-queue-progress', 'status': 'blocked_query_failure', 'completed_queries': 0, 'planned_queries': 2, ...}
+E       assert 'blocked_query_failure' == 'all_predictions_committed'
+E         
+E         - all_predictions_committed
+E         + blocked_query_failure
+
+tests/test_protected_prediction_gate_v2.py:38: AssertionError
+_ test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence[missing_start] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_complete_stage_rejects_mi1')
+fault = 'missing_start'
+
+    @pytest.mark.parametrize('fault',['missing_end','missing_start','partial_end','unknown_end_field','wrong_genesis','wrong_duration',
+        'missing_call','duplicated_call','wrong_call_hash','orphan_call'])
+    def test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence(tmp_path,fault):
+        import json
+>       module=api();payload,reference,root,seen=local_complete_stage(tmp_path)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_protected_prediction_gate_v2.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_complete_stage_rejects_mi1')
+
+    def local_complete_stage(tmp_path):
+        from test_protected_prediction_queue_v2 import local_protocol,owned_fixture_executor
+        from treeneuron.research.protected_prediction_queue_v2 import _run_prediction_queue
+        payload,reference=local_protocol(tmp_path);seen=[];root=tmp_path/'study'
+        result=_run_prediction_queue(protocol_payload=payload,protocol_reference=reference,directory=root,owner_root=tmp_path/'owners',
+            execute_episode=owned_fixture_executor(seen),guard=lambda:None,rss_limit_bytes=1024**3)
+>       assert result['status']=='all_predictions_committed',result
+E       AssertionError: {'schema': 'research/v2-protected-prediction-queue-progress', 'status': 'blocked_query_failure', 'completed_queries': 0, 'planned_queries': 2, ...}
+E       assert 'blocked_query_failure' == 'all_predictions_committed'
+E         
+E         - all_predictions_committed
+E         + blocked_query_failure
+
+tests/test_protected_prediction_gate_v2.py:38: AssertionError
+_ test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence[partial_end] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_complete_stage_rejects_mi2')
+fault = 'partial_end'
+
+    @pytest.mark.parametrize('fault',['missing_end','missing_start','partial_end','unknown_end_field','wrong_genesis','wrong_duration',
+        'missing_call','duplicated_call','wrong_call_hash','orphan_call'])
+    def test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence(tmp_path,fault):
+        import json
+>       module=api();payload,reference,root,seen=local_complete_stage(tmp_path)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_protected_prediction_gate_v2.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_complete_stage_rejects_mi2')
+
+    def local_complete_stage(tmp_path):
+        from test_protected_prediction_queue_v2 import local_protocol,owned_fixture_executor
+        from treeneuron.research.protected_prediction_queue_v2 import _run_prediction_queue
+        payload,reference=local_protocol(tmp_path);seen=[];root=tmp_path/'study'
+        result=_run_prediction_queue(protocol_payload=payload,protocol_reference=reference,directory=root,owner_root=tmp_path/'owners',
+            execute_episode=owned_fixture_executor(seen),guard=lambda:None,rss_limit_bytes=1024**3)
+>       assert result['status']=='all_predictions_committed',result
+E       AssertionError: {'schema': 'research/v2-protected-prediction-queue-progress', 'status': 'blocked_query_failure', 'completed_queries': 0, 'planned_queries': 2, ...}
+E       assert 'blocked_query_failure' == 'all_predictions_committed'
+E         
+E         - all_predictions_committed
+E         + blocked_query_failure
+
+tests/test_protected_prediction_gate_v2.py:38: AssertionError
+_ test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence[unknown_end_field] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_complete_stage_rejects_mi3')
+fault = 'unknown_end_field'
+
+    @pytest.mark.parametrize('fault',['missing_end','missing_start','partial_end','unknown_end_field','wrong_genesis','wrong_duration',
+        'missing_call','duplicated_call','wrong_call_hash','orphan_call'])
+    def test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence(tmp_path,fault):
+        import json
+>       module=api();payload,reference,root,seen=local_complete_stage(tmp_path)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_protected_prediction_gate_v2.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_complete_stage_rejects_mi3')
+
+    def local_complete_stage(tmp_path):
+        from test_protected_prediction_queue_v2 import local_protocol,owned_fixture_executor
+        from treeneuron.research.protected_prediction_queue_v2 import _run_prediction_queue
+        payload,reference=local_protocol(tmp_path);seen=[];root=tmp_path/'study'
+        result=_run_prediction_queue(protocol_payload=payload,protocol_reference=reference,directory=root,owner_root=tmp_path/'owners',
+            execute_episode=owned_fixture_executor(seen),guard=lambda:None,rss_limit_bytes=1024**3)
+>       assert result['status']=='all_predictions_committed',result
+E       AssertionError: {'schema': 'research/v2-protected-prediction-queue-progress', 'status': 'blocked_query_failure', 'completed_queries': 0, 'planned_queries': 2, ...}
+E       assert 'blocked_query_failure' == 'all_predictions_committed'
+E         
+E         - all_predictions_committed
+E         + blocked_query_failure
+
+tests/test_protected_prediction_gate_v2.py:38: AssertionError
+_ test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence[wrong_genesis] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_complete_stage_rejects_mi4')
+fault = 'wrong_genesis'
+
+    @pytest.mark.parametrize('fault',['missing_end','missing_start','partial_end','unknown_end_field','wrong_genesis','wrong_duration',
+        'missing_call','duplicated_call','wrong_call_hash','orphan_call'])
+    def test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence(tmp_path,fault):
+        import json
+>       module=api();payload,reference,root,seen=local_complete_stage(tmp_path)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_protected_prediction_gate_v2.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_complete_stage_rejects_mi4')
+
+    def local_complete_stage(tmp_path):
+        from test_protected_prediction_queue_v2 import local_protocol,owned_fixture_executor
+        from treeneuron.research.protected_prediction_queue_v2 import _run_prediction_queue
+        payload,reference=local_protocol(tmp_path);seen=[];root=tmp_path/'study'
+        result=_run_prediction_queue(protocol_payload=payload,protocol_reference=reference,directory=root,owner_root=tmp_path/'owners',
+            execute_episode=owned_fixture_executor(seen),guard=lambda:None,rss_limit_bytes=1024**3)
+>       assert result['status']=='all_predictions_committed',result
+E       AssertionError: {'schema': 'research/v2-protected-prediction-queue-progress', 'status': 'blocked_query_failure', 'completed_queries': 0, 'planned_queries': 2, ...}
+E       assert 'blocked_query_failure' == 'all_predictions_committed'
+E         
+E         - all_predictions_committed
+E         + blocked_query_failure
+
+tests/test_protected_prediction_gate_v2.py:38: AssertionError
+_ test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence[wrong_duration] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_complete_stage_rejects_mi5')
+fault = 'wrong_duration'
+
+    @pytest.mark.parametrize('fault',['missing_end','missing_start','partial_end','unknown_end_field','wrong_genesis','wrong_duration',
+        'missing_call','duplicated_call','wrong_call_hash','orphan_call'])
+    def test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence(tmp_path,fault):
+        import json
+>       module=api();payload,reference,root,seen=local_complete_stage(tmp_path)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_protected_prediction_gate_v2.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_complete_stage_rejects_mi5')
+
+    def local_complete_stage(tmp_path):
+        from test_protected_prediction_queue_v2 import local_protocol,owned_fixture_executor
+        from treeneuron.research.protected_prediction_queue_v2 import _run_prediction_queue
+        payload,reference=local_protocol(tmp_path);seen=[];root=tmp_path/'study'
+        result=_run_prediction_queue(protocol_payload=payload,protocol_reference=reference,directory=root,owner_root=tmp_path/'owners',
+            execute_episode=owned_fixture_executor(seen),guard=lambda:None,rss_limit_bytes=1024**3)
+>       assert result['status']=='all_predictions_committed',result
+E       AssertionError: {'schema': 'research/v2-protected-prediction-queue-progress', 'status': 'blocked_query_failure', 'completed_queries': 0, 'planned_queries': 2, ...}
+E       assert 'blocked_query_failure' == 'all_predictions_committed'
+E         
+E         - all_predictions_committed
+E         + blocked_query_failure
+
+tests/test_protected_prediction_gate_v2.py:38: AssertionError
+_ test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence[missing_call] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_complete_stage_rejects_mi6')
+fault = 'missing_call'
+
+    @pytest.mark.parametrize('fault',['missing_end','missing_start','partial_end','unknown_end_field','wrong_genesis','wrong_duration',
+        'missing_call','duplicated_call','wrong_call_hash','orphan_call'])
+    def test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence(tmp_path,fault):
+        import json
+>       module=api();payload,reference,root,seen=local_complete_stage(tmp_path)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_protected_prediction_gate_v2.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_complete_stage_rejects_mi6')
+
+    def local_complete_stage(tmp_path):
+        from test_protected_prediction_queue_v2 import local_protocol,owned_fixture_executor
+        from treeneuron.research.protected_prediction_queue_v2 import _run_prediction_queue
+        payload,reference=local_protocol(tmp_path);seen=[];root=tmp_path/'study'
+        result=_run_prediction_queue(protocol_payload=payload,protocol_reference=reference,directory=root,owner_root=tmp_path/'owners',
+            execute_episode=owned_fixture_executor(seen),guard=lambda:None,rss_limit_bytes=1024**3)
+>       assert result['status']=='all_predictions_committed',result
+E       AssertionError: {'schema': 'research/v2-protected-prediction-queue-progress', 'status': 'blocked_query_failure', 'completed_queries': 0, 'planned_queries': 2, ...}
+E       assert 'blocked_query_failure' == 'all_predictions_committed'
+E         
+E         - all_predictions_committed
+E         + blocked_query_failure
+
+tests/test_protected_prediction_gate_v2.py:38: AssertionError
+_ test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence[duplicated_call] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_complete_stage_rejects_mi7')
+fault = 'duplicated_call'
+
+    @pytest.mark.parametrize('fault',['missing_end','missing_start','partial_end','unknown_end_field','wrong_genesis','wrong_duration',
+        'missing_call','duplicated_call','wrong_call_hash','orphan_call'])
+    def test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence(tmp_path,fault):
+        import json
+>       module=api();payload,reference,root,seen=local_complete_stage(tmp_path)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_protected_prediction_gate_v2.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_complete_stage_rejects_mi7')
+
+    def local_complete_stage(tmp_path):
+        from test_protected_prediction_queue_v2 import local_protocol,owned_fixture_executor
+        from treeneuron.research.protected_prediction_queue_v2 import _run_prediction_queue
+        payload,reference=local_protocol(tmp_path);seen=[];root=tmp_path/'study'
+        result=_run_prediction_queue(protocol_payload=payload,protocol_reference=reference,directory=root,owner_root=tmp_path/'owners',
+            execute_episode=owned_fixture_executor(seen),guard=lambda:None,rss_limit_bytes=1024**3)
+>       assert result['status']=='all_predictions_committed',result
+E       AssertionError: {'schema': 'research/v2-protected-prediction-queue-progress', 'status': 'blocked_query_failure', 'completed_queries': 0, 'planned_queries': 2, ...}
+E       assert 'blocked_query_failure' == 'all_predictions_committed'
+E         
+E         - all_predictions_committed
+E         + blocked_query_failure
+
+tests/test_protected_prediction_gate_v2.py:38: AssertionError
+_ test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence[wrong_call_hash] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_complete_stage_rejects_mi8')
+fault = 'wrong_call_hash'
+
+    @pytest.mark.parametrize('fault',['missing_end','missing_start','partial_end','unknown_end_field','wrong_genesis','wrong_duration',
+        'missing_call','duplicated_call','wrong_call_hash','orphan_call'])
+    def test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence(tmp_path,fault):
+        import json
+>       module=api();payload,reference,root,seen=local_complete_stage(tmp_path)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_protected_prediction_gate_v2.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_complete_stage_rejects_mi8')
+
+    def local_complete_stage(tmp_path):
+        from test_protected_prediction_queue_v2 import local_protocol,owned_fixture_executor
+        from treeneuron.research.protected_prediction_queue_v2 import _run_prediction_queue
+        payload,reference=local_protocol(tmp_path);seen=[];root=tmp_path/'study'
+        result=_run_prediction_queue(protocol_payload=payload,protocol_reference=reference,directory=root,owner_root=tmp_path/'owners',
+            execute_episode=owned_fixture_executor(seen),guard=lambda:None,rss_limit_bytes=1024**3)
+>       assert result['status']=='all_predictions_committed',result
+E       AssertionError: {'schema': 'research/v2-protected-prediction-queue-progress', 'status': 'blocked_query_failure', 'completed_queries': 0, 'planned_queries': 2, ...}
+E       assert 'blocked_query_failure' == 'all_predictions_committed'
+E         
+E         - all_predictions_committed
+E         + blocked_query_failure
+
+tests/test_protected_prediction_gate_v2.py:38: AssertionError
+_ test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence[orphan_call] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_complete_stage_rejects_mi9')
+fault = 'orphan_call'
+
+    @pytest.mark.parametrize('fault',['missing_end','missing_start','partial_end','unknown_end_field','wrong_genesis','wrong_duration',
+        'missing_call','duplicated_call','wrong_call_hash','orphan_call'])
+    def test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence(tmp_path,fault):
+        import json
+>       module=api();payload,reference,root,seen=local_complete_stage(tmp_path)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_protected_prediction_gate_v2.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_complete_stage_rejects_mi9')
+
+    def local_complete_stage(tmp_path):
+        from test_protected_prediction_queue_v2 import local_protocol,owned_fixture_executor
+        from treeneuron.research.protected_prediction_queue_v2 import _run_prediction_queue
+        payload,reference=local_protocol(tmp_path);seen=[];root=tmp_path/'study'
+        result=_run_prediction_queue(protocol_payload=payload,protocol_reference=reference,directory=root,owner_root=tmp_path/'owners',
+            execute_episode=owned_fixture_executor(seen),guard=lambda:None,rss_limit_bytes=1024**3)
+>       assert result['status']=='all_predictions_committed',result
+E       AssertionError: {'schema': 'research/v2-protected-prediction-queue-progress', 'status': 'blocked_query_failure', 'completed_queries': 0, 'planned_queries': 2, ...}
+E       assert 'blocked_query_failure' == 'all_predictions_committed'
+E         
+E         - all_predictions_committed
+E         + blocked_query_failure
+
+tests/test_protected_prediction_gate_v2.py:38: AssertionError
+________ test_readonly_complete_gate_never_loads_fits_or_predicts_again ________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_readonly_complete_gate_ne0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x112fb0320>
+
+    def test_readonly_complete_gate_never_loads_fits_or_predicts_again(tmp_path,monkeypatch):
+>       module=api();payload,reference,root,seen=local_complete_stage(tmp_path)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_protected_prediction_gate_v2.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_readonly_complete_gate_ne0')
+
+    def local_complete_stage(tmp_path):
+        from test_protected_prediction_queue_v2 import local_protocol,owned_fixture_executor
+        from treeneuron.research.protected_prediction_queue_v2 import _run_prediction_queue
+        payload,reference=local_protocol(tmp_path);seen=[];root=tmp_path/'study'
+        result=_run_prediction_queue(protocol_payload=payload,protocol_reference=reference,directory=root,owner_root=tmp_path/'owners',
+            execute_episode=owned_fixture_executor(seen),guard=lambda:None,rss_limit_bytes=1024**3)
+>       assert result['status']=='all_predictions_committed',result
+E       AssertionError: {'schema': 'research/v2-protected-prediction-queue-progress', 'status': 'blocked_query_failure', 'completed_queries': 0, 'planned_queries': 2, ...}
+E       assert 'blocked_query_failure' == 'all_predictions_committed'
+E         
+E         - all_predictions_committed
+E         + blocked_query_failure
+
+tests/test_protected_prediction_gate_v2.py:38: AssertionError
+__ test_prediction_stage_is_stable_after_later_private_metadata_metrics_event __
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_prediction_stage_is_stabl0')
+
+    def test_prediction_stage_is_stable_after_later_private_metadata_metrics_event(tmp_path):
+>       module=api();payload,reference,root,seen=local_complete_stage(tmp_path)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_protected_prediction_gate_v2.py:118: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_prediction_stage_is_stabl0')
+
+    def local_complete_stage(tmp_path):
+        from test_protected_prediction_queue_v2 import local_protocol,owned_fixture_executor
+        from treeneuron.research.protected_prediction_queue_v2 import _run_prediction_queue
+        payload,reference=local_protocol(tmp_path);seen=[];root=tmp_path/'study'
+        result=_run_prediction_queue(protocol_payload=payload,protocol_reference=reference,directory=root,owner_root=tmp_path/'owners',
+            execute_episode=owned_fixture_executor(seen),guard=lambda:None,rss_limit_bytes=1024**3)
+>       assert result['status']=='all_predictions_committed',result
+E       AssertionError: {'schema': 'research/v2-protected-prediction-queue-progress', 'status': 'blocked_query_failure', 'completed_queries': 0, 'planned_queries': 2, ...}
+E       assert 'blocked_query_failure' == 'all_predictions_committed'
+E         
+E         - all_predictions_committed
+E         + blocked_query_failure
+
+tests/test_protected_prediction_gate_v2.py:38: AssertionError
+_________ test_invocation_bytes_changed_during_readback_are_not_sealed _________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_invocation_bytes_changed_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1131b49b0>
+
+    def test_invocation_bytes_changed_during_readback_are_not_sealed(tmp_path,monkeypatch):
+>       module=api();payload,reference,root,seen=local_complete_stage(tmp_path)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_protected_prediction_gate_v2.py:132: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_invocation_bytes_changed_0')
+
+    def local_complete_stage(tmp_path):
+        from test_protected_prediction_queue_v2 import local_protocol,owned_fixture_executor
+        from treeneuron.research.protected_prediction_queue_v2 import _run_prediction_queue
+        payload,reference=local_protocol(tmp_path);seen=[];root=tmp_path/'study'
+        result=_run_prediction_queue(protocol_payload=payload,protocol_reference=reference,directory=root,owner_root=tmp_path/'owners',
+            execute_episode=owned_fixture_executor(seen),guard=lambda:None,rss_limit_bytes=1024**3)
+>       assert result['status']=='all_predictions_committed',result
+E       AssertionError: {'schema': 'research/v2-protected-prediction-queue-progress', 'status': 'blocked_query_failure', 'completed_queries': 0, 'planned_queries': 2, ...}
+E       assert 'blocked_query_failure' == 'all_predictions_committed'
+E         
+E         - all_predictions_committed
+E         + blocked_query_failure
+
+tests/test_protected_prediction_gate_v2.py:38: AssertionError
+______ test_known_owned_pair_prefix_resume_never_remeasures_committed_job ______
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_known_owned_pair_prefix_r0')
+
+    def test_known_owned_pair_prefix_resume_never_remeasures_committed_job(tmp_path):
+        module,queue=make(tmp_path);output=tmp_path/'execution'
+        first=module._run_measurement_queue(queue,output,admission_check=allow,max_jobs_this_invocation=1)
+        assert first['status']=='paused_before_job'
+>       before=list(output.rglob('measurement.json'));assert len(before)==1
+                                                      ^^^^^^^^^^^^^^^^^^^^^
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests/test_native_deployment_execution_v2.py:67: AssertionError
+_ test_pre_start_memory_denial_can_resume_without_consuming_measurement_retry __
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_pre_start_memory_denial_c0')
+
+    def test_pre_start_memory_denial_can_resume_without_consuming_measurement_retry(tmp_path):
+        module,queue=make(tmp_path);output=tmp_path/'execution'
+        denied=module._run_measurement_queue(queue,output,admission_check=lambda *args:dict(admitted=False,reason='other processes need RAM'))
+        assert denied['status']=='paused_before_job' and not list(output.rglob('started.json'))
+        assert (output/'events.jsonl').read_bytes()==b''
+        module._run_measurement_queue(queue,output,resume=True,admission_check=allow,max_jobs_this_invocation=1)
+>       assert len(list(output.rglob('measurement.json')))==1
+E       AssertionError: assert 0 == 1
+E        +  where 0 = len([])
+E        +    where [] = list(<generator object Path.rglob at 0x11317bde0>)
+E        +      where <generator object Path.rglob at 0x11317bde0> = rglob('measurement.json')
+E        +        where rglob = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_pre_start_memory_denial_c0/execution').rglob
+
+tests/test_native_deployment_execution_v2.py:90: AssertionError
+_______ test_template_mutation_blocks_resume_before_another_measurement ________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_template_mutation_blocks_0')
+
+    def test_template_mutation_blocks_resume_before_another_measurement(tmp_path):
+        module,queue=make(tmp_path);output=tmp_path/'execution'
+        module._run_measurement_queue(queue,output,admission_check=allow,max_jobs_this_invocation=1)
+        template=Path(queue['identity']['measurement_plan_reference']['path'])
+        template.write_bytes(template.read_bytes()+b' ')
+        with pytest.raises(ValueError):module._run_measurement_queue(queue,output,resume=True,admission_check=allow)
+>       assert len(list(output.rglob('measurement.json')))==1
+E       AssertionError: assert 0 == 1
+E        +  where 0 = len([])
+E        +    where [] = list(<generator object Path.rglob at 0x11317a350>)
+E        +      where <generator object Path.rglob at 0x11317a350> = rglob('measurement.json')
+E        +        where rglob = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_template_mutation_blocks_0/execution').rglob
+
+tests/test_native_deployment_execution_v2.py:100: AssertionError
+____________ test_readonly_collection_does_not_call_predictor_again ____________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_readonly_collection_does_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x112ebc920>
+
+    def test_readonly_collection_does_not_call_predictor_again(tmp_path,monkeypatch):
+        module,queue=make(tmp_path);output=tmp_path/'execution'
+        module._run_measurement_queue(queue,output,admission_check=allow,max_jobs_this_invocation=1)
+        from treeneuron.research.p13_simple import P13Predictor
+        def forbidden(*args,**kwargs):pytest.fail('Read-only collection called the model')
+        monkeypatch.setattr(P13Predictor,'predict',forbidden)
+>       assert module._collect_measurement_queue(queue,output)['completed_measurements']==1
+E       assert 0 == 1
+
+tests/test_native_deployment_execution_v2.py:131: AssertionError
+_______ test_closed_measurement_recovers_without_a_second_model_process ________
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_closed_measurement_recove0')
+
+    def test_closed_measurement_recovers_without_a_second_model_process(tmp_path):
+        module,queue=make(tmp_path);output=tmp_path/'execution'
+        def closed_then_interrupted(**kwargs):
+            module._execute_owned_measurement(**kwargs)
+            raise KeyboardInterrupt('closure published before coordinator interruption')
+        with pytest.raises(KeyboardInterrupt):
+            module._run_measurement_queue(queue,output,admission_check=allow,execute_episode=closed_then_interrupted)
+>       assert len(list(output.rglob('measurement.json')))==1
+E       AssertionError: assert 0 == 1
+E        +  where 0 = len([])
+E        +    where [] = list(<generator object Path.rglob at 0x11317b120>)
+E        +      where <generator object Path.rglob at 0x11317b120> = rglob('measurement.json')
+E        +        where rglob = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_closed_measurement_recove0/execution').rglob
+
+tests/test_native_deployment_execution_v2.py:147: AssertionError
+_ test_failed_final_context_guard_is_recorded_as_failure_not_a_clean_completion _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_failed_final_context_guar0')
+
+    def test_failed_final_context_guard_is_recorded_as_failure_not_a_clean_completion(tmp_path):
+        module,queue=make(tmp_path);output=tmp_path/'execution';calls=0
+        def guard():
+            nonlocal calls
+            calls+=1
+            if calls>1:raise ValueError('Actual frozen context changed')
+        with pytest.raises(ValueError,match='Actual frozen context changed'):
+            module._run_measurement_queue(queue,output,admission_check=allow,max_jobs_this_invocation=1,guard=guard)
+        ends=sorted(output.glob('context-*.json'))
+        assert ends, 'Final context outcome was not retained alongside the inner queue receipt'
+        last=json.loads(ends[-1].read_text())
+        assert last['status']=='interrupted_or_failed' and last['error']['type']=='ValueError'
+>       assert len(list(output.rglob('measurement.json')))==1
+E       AssertionError: assert 0 == 1
+E        +  where 0 = len([])
+E        +    where [] = list(<generator object Path.rglob at 0x1100b99c0>)
+E        +      where <generator object Path.rglob at 0x1100b99c0> = rglob('measurement.json')
+E        +        where rglob = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_failed_final_context_guar0/execution').rglob
+
+tests/test_native_deployment_execution_v2.py:181: AssertionError
+_ test_discovery_includes_denied_and_failed_owned_frames_without_a_caller_filter _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_discovery_includes_denied0')
+
+    def test_discovery_includes_denied_and_failed_owned_frames_without_a_caller_filter(tmp_path):
+        module=api();plan,reference,root=archived_negative_frames(tmp_path)
+        result=module._discover_confirmation_envelopes(reference,plan)
+        assert len(result['frames'])==2
+        assert result['frames'][0]['proof']['child_started'] is False
+>       assert result['frames'][1]['proof']['child_started'] is True
+E       assert False is True
+
+tests/test_practical_pipeline_costs_v2.py:92: AssertionError
+____ test_exact_snapshot_is_actual_update_and_observer_cannot_change_state _____
+
+training_case = (DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.0...c4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_exact_snapshot_is_actual_0/d3fc8c02de8f40b8a569e62d2407d85a')))
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3896/test_exact_snapshot_is_actual_0')
+
+    def test_exact_snapshot_is_actual_update_and_observer_cannot_change_state(training_case, tmp_path):
+        from treeneuron import train
+        from treeneuron.artifacts import create_run
+        data, config, paths = training_case
+>       baseline = train.fit_parent(data, config, paths)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_research_runner.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/treeneuron/train.py:750: in fit_parent
+    backend = _backend_evidence(config, data, causal_model=causal)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+config = ExperimentConfig(study_id='training-contract', phase='exploratory', model=ModelConfig(d=2, h=4, depth=1, tau=1.0, acti...xecution=ExecutionConfig(backend_report='environment/report.json', artifacts_root='artifacts/exploratory'), pilot=None)
+data = DevelopmentData(F=ObservationSet(X=array([[-1.46692975, -0.4196381 ],
+       [-0.04056875,  0.39279744],
+       [-1.03...5e963805b6069de886ace15ee6f9', feature_schema_hash='91cf515874508c7c7e4cbf868bc528b478e1f5a81a14481b90c81bc2601e73ab'))
+causal_model = None
+
+    def _backend_evidence(config, data, *, causal_model=None):
+        from .locators import locate
+        path = locate(BACKEND_REPORT_PATH,producer=True)
+        document = json.loads(path.read_text())
+        report = document['backend_probes']
+        for probe in report['probes'].values():
+            if probe.get('status') == 'passed': validate_backend_report(probe)
+        decision = select_backend(report['probes'], comparison_blocks=report['comparison_blocks'])
+        if decision != report['decision']:
+            raise ValueError('Backend decision differs from validated numerical evidence')
+        b = config.backend
+        if b.device != decision['selected_backend']:
+            raise ValueError('Requested backend differs from validated selected backend recipe')
+        if b.cpu_threads not in (None, 1):
+            raise ValueError('Backend evidence requires one CPU thread')
+        if b.interop_threads not in (None, torch.get_num_interop_threads()):
+            raise ValueError('Requested interop threads differ from live runtime; configure before training')
+        interop = report['probes'][b.device]['environment'].get('interop_threads')
+        if interop is not None and torch.get_num_interop_threads() != interop:
+>           raise ValueError('Live interop threads differ from backend evidence')
+E           ValueError: Live interop threads differ from backend evidence
+
+src/treeneuron/train.py:288: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_cold_confirmation_process_v2.py::test_granted_cold_worker_stops_at_genuine_native_gate_without_programme_or_target_read
+FAILED tests/test_cold_confirmation_process_v2.py::test_cold_confirmation_readback_is_readonly_and_does_not_certify_target_access_from_clock
+FAILED tests/test_cold_confirmation_process_v2.py::test_rehashed_owned_body_cannot_substitute_unrelated_confirmation_invocation
+FAILED tests/test_program_process_v2.py::test_actual_cold_program_worker_records_failed_gate_before_any_plan_or_data[primary]
+FAILED tests/test_program_process_v2.py::test_actual_cold_program_worker_records_failed_gate_before_any_plan_or_data[secondary]
+FAILED tests/test_protected_prediction_gate_v2.py::test_private_complete_stage_recomputes_all_commits_and_closed_invocations_without_labels
+FAILED tests/test_protected_prediction_gate_v2.py::test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence[missing_end]
+FAILED tests/test_protected_prediction_gate_v2.py::test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence[missing_start]
+FAILED tests/test_protected_prediction_gate_v2.py::test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence[partial_end]
+FAILED tests/test_protected_prediction_gate_v2.py::test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence[unknown_end_field]
+FAILED tests/test_protected_prediction_gate_v2.py::test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence[wrong_genesis]
+FAILED tests/test_protected_prediction_gate_v2.py::test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence[wrong_duration]
+FAILED tests/test_protected_prediction_gate_v2.py::test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence[missing_call]
+FAILED tests/test_protected_prediction_gate_v2.py::test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence[duplicated_call]
+FAILED tests/test_protected_prediction_gate_v2.py::test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence[wrong_call_hash]
+FAILED tests/test_protected_prediction_gate_v2.py::test_complete_stage_rejects_missing_or_inconsistent_invocation_evidence[orphan_call]
+FAILED tests/test_protected_prediction_gate_v2.py::test_readonly_complete_gate_never_loads_fits_or_predicts_again
+FAILED tests/test_protected_prediction_gate_v2.py::test_prediction_stage_is_stable_after_later_private_metadata_metrics_event
+FAILED tests/test_protected_prediction_gate_v2.py::test_invocation_bytes_changed_during_readback_are_not_sealed
+FAILED tests/test_native_deployment_execution_v2.py::test_known_owned_pair_prefix_resume_never_remeasures_committed_job
+FAILED tests/test_native_deployment_execution_v2.py::test_pre_start_memory_denial_can_resume_without_consuming_measurement_retry
+FAILED tests/test_native_deployment_execution_v2.py::test_template_mutation_blocks_resume_before_another_measurement
+FAILED tests/test_native_deployment_execution_v2.py::test_readonly_collection_does_not_call_predictor_again
+FAILED tests/test_native_deployment_execution_v2.py::test_closed_measurement_recovers_without_a_second_model_process
+FAILED tests/test_native_deployment_execution_v2.py::test_failed_final_context_guard_is_recorded_as_failure_not_a_clean_completion
+FAILED tests/test_practical_pipeline_costs_v2.py::test_discovery_includes_denied_and_failed_owned_frames_without_a_caller_filter
+FAILED tests/test_research_runner.py::test_exact_snapshot_is_actual_update_and_observer_cannot_change_state
+27 failed, 124 passed in 61.18s (0:01:01)

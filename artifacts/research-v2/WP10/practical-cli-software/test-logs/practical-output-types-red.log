@@ -1,0 +1,40 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_ test_publication_guard_accepts_actual_programme_and_report_output_types_without_weakening_inputs[directory] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3890/test_publication_guard_accepts0')
+kind = 'directory'
+
+    @pytest.mark.parametrize('kind',['directory','markdown'])
+    def test_publication_guard_accepts_actual_programme_and_report_output_types_without_weakening_inputs(tmp_path,kind):
+        module=api();study=tmp_path/'protected-study';owners=tmp_path/'owners';proof=tmp_path/'model-proof'
+        inspection=dict(study_directory=str(study),owner_root=str(owners),invocation_references=[])
+        payload=dict(data={},prediction_manifest=dict(queries=[]))
+        kwargs=dict(inspection=inspection,protocol_payload=payload,protected_roots=[str(proof)],input_files=[])
+        target=tmp_path/('programme' if kind=='directory' else 'report.md')
+>       assert module._check_stage_output(target,kind=kind,**kwargs)==target
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: _check_stage_output() got an unexpected keyword argument 'kind'
+
+tests/test_protected_prediction_gate_v2.py:96: TypeError
+_ test_publication_guard_accepts_actual_programme_and_report_output_types_without_weakening_inputs[markdown] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3890/test_publication_guard_accepts1')
+kind = 'markdown'
+
+    @pytest.mark.parametrize('kind',['directory','markdown'])
+    def test_publication_guard_accepts_actual_programme_and_report_output_types_without_weakening_inputs(tmp_path,kind):
+        module=api();study=tmp_path/'protected-study';owners=tmp_path/'owners';proof=tmp_path/'model-proof'
+        inspection=dict(study_directory=str(study),owner_root=str(owners),invocation_references=[])
+        payload=dict(data={},prediction_manifest=dict(queries=[]))
+        kwargs=dict(inspection=inspection,protocol_payload=payload,protected_roots=[str(proof)],input_files=[])
+        target=tmp_path/('programme' if kind=='directory' else 'report.md')
+>       assert module._check_stage_output(target,kind=kind,**kwargs)==target
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: _check_stage_output() got an unexpected keyword argument 'kind'
+
+tests/test_protected_prediction_gate_v2.py:96: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_protected_prediction_gate_v2.py::test_publication_guard_accepts_actual_programme_and_report_output_types_without_weakening_inputs[directory]
+FAILED tests/test_protected_prediction_gate_v2.py::test_publication_guard_accepts_actual_programme_and_report_output_types_without_weakening_inputs[markdown]
+2 failed, 17 deselected in 0.07s

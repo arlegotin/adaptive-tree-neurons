@@ -25,6 +25,41 @@ def arguments(root):
         directory=str(root/'forbidden-programme-root'),max_step_starts=1)
 
 
+@pytest.mark.parametrize('limit',[None,2])
+def test_confirmation_worker_preserves_cli_request_after_known_metadata_programme_returns(tmp_path,monkeypatch,limit):
+    # Exercise the real main/metadata/checksum/history code, with only the
+    # ownership context and expensive protected operation replaced.  The
+    # callback writes seven known inert JSON files, grants no qualification,
+    # and never reads labels, fits or predicts a model.
+    from contextlib import nullcontext
+    from test_confirm_programme_v2 import fixture,known_operations
+    from treeneuron.research import cooperative_process_v2,primary_search_worker_v2
+    programme,plan,reference=fixture(tmp_path/'known')
+    execute,resolve=known_operations(plan);module=api()
+    def known_run(bound_reference,**kwargs):
+        assert bound_reference==reference
+        assert kwargs['protocol_reference']==plan['protocol_reference']
+        return programme._run_fixed_steps(reference,plan,execute_step=execute,
+            resolve_completed=resolve,guard=lambda:None,max_step_starts=kwargs['max_step_starts'])
+    monkeypatch.setattr(programme,'run_practical_confirmation',known_run)
+    monkeypatch.setattr(cooperative_process_v2,'cooperative_worker',lambda identity:nullcontext())
+    for key,value in primary_search_worker_v2._episode_environment().items():
+        if value is None:monkeypatch.delenv(key,raising=False)
+        else:monkeypatch.setenv(key,value)
+    process=tmp_path/'known-process';process.mkdir()
+    monkeypatch.setenv('ATN_SEARCH_CONTROL_ROOT',str(process))
+    request=module._make_request('confirmation',dict(programme_reference=reference,
+        protocol_reference=plan['protocol_reference'],directory=plan['directory'],
+        max_step_starts=limit,**plan['inputs']),time.perf_counter_ns())
+    path=tmp_path/'request.json';path.write_text(json.dumps(request))
+    assert module.main(['--request',str(path),'--expected-request-sha256',hashlib.sha256(path.read_bytes()).hexdigest()])==0
+    outcome=json.loads((process/'body-outcome.json').read_bytes())
+    assert outcome['status']=='program_returned' and outcome['error_type'] is None
+    assert outcome['program_progress']['status']==('completed' if limit is None else 'operator_pause')
+    assert len(outcome['program_invocation_references'])==1
+    assert outcome['native_qualification_authenticated'] is outcome['protected_access_authorized'] is False
+
+
 def test_confirmation_request_names_only_fixed_programme_and_frozen_inputs(tmp_path):
     m=api();value=m._make_request('confirmation',arguments(tmp_path),time.perf_counter_ns())
     assert value['tranche']=='confirmation' and value['arguments']['max_step_starts']==1
