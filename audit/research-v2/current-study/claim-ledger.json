@@ -512,6 +512,10 @@
         {
           "path": "docs/research/v2/WP10-cold-confirmation-receipt.json",
           "sha256": "3095951d8b5695bf3f4cdf4e49a236626575832ceceef7effadf8f72f0476675"
+        },
+        {
+          "path": "docs/research/v2/WP10-pipeline-costs-receipt.json",
+          "sha256": "5785971a9c7866bc6b565b2e15a0d80f2a54a9e48e4bc619d8b47061d7e10c9a"
         }
       ],
       "status": "supported_scoped_status",

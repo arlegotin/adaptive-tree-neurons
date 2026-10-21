@@ -38,7 +38,7 @@ def _make_fixed_programme(payload,reference,inputs,*,directory,output,rss_limit_
         analysis=str(root/'analysis.json'),raw_audit=str(root/'raw-audit/bound-audit.json'),native_measurements=str(root/'native-measurements'))
     value=dict(schema='research/v2-fixed-practical-confirmation-programme',source_sha256=_source(),protocol_reference=reference,
         protocol_payload_sha256=_hash(payload),inputs=copy.deepcopy(inputs),protected_study_directory=str(directory),directory=str(root),
-        outputs=outputs,steps=list(_STEPS),rss_limit_bytes=rss_limit_bytes,pause_after_ns=None,worker_concurrency=1,
+        outputs=outputs,observer_directory=str(root.parent/(root.name+'-observations')),steps=list(_STEPS),rss_limit_bytes=rss_limit_bytes,pause_after_ns=None,worker_concurrency=1,
         required_memory_proxy_bytes=(5*rss_limit_bytes+3)//4+512*1024**2,required_disk_proxy_bytes=512*1024**2,**_FALSE)
     value['programme_hash']=_hash(value)
     return value

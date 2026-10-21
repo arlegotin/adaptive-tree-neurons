@@ -6,6 +6,7 @@ cleanup only; nested supervisors must join their own workers before returning.
 """
 import argparse
 import copy
+from contextlib import contextmanager
 import hashlib
 import json
 import os
@@ -131,6 +132,22 @@ def _operational_location(output,request,*,working_roots=(),proof_roots=()):
         proof_roots=[*proof_roots,args['qualification_reference']['root']],input_files=inputs)
 
 
+@contextmanager
+def _confirmation_observer_slot(plan,output):
+    """Serial immutable metadata slots only; genuine admission is external."""
+    from .ledger import StudyLease
+    base=_path(plan['observer_directory']);output=_path(str(output))
+    if output.parent!=base:raise ValueError('Confirmation observer must use its bound complete archive')
+    base.mkdir(parents=True,exist_ok=True)
+    with StudyLease(base):
+        paths=sorted(p for p in base.iterdir() if p.name!='worker-lease.json')
+        if ([p.name for p in paths]!=[f'episode-{i:04}' for i in range(len(paths))]
+                or any(p.is_symlink() or not p.is_dir() for p in paths)
+                or output!=base/f'episode-{len(paths):04}'):
+            raise ValueError('Only the next contiguous original observer slot may execute')
+        yield output
+
+
 def _run_program_envelope(*,request,output,admission_identity,admission_check,root_rss_pause_bytes=4*1024**3):
     """Owned composition only; private fixtures cannot grant real qualification."""
     from .cooperative_process_v2 import supervise_cooperative_process,_write
@@ -180,6 +197,10 @@ def run_program_process(*,tranche,arguments,output,admission_identity,admission_
         study,owners=_public_locations(plan['protected_study_directory'],protocol)
         _publication_location(output,protocol=protocol,inspection=dict(study_directory=str(study),owner_root=str(owners),invocation_references=[]))
     _operational_location(output,request,working_roots=working,proof_roots=proofs)
+    if tranche=='confirmation':
+        with _confirmation_observer_slot(plan,output):
+            return _run_program_envelope(request=request,output=output,admission_identity=admission_identity,
+                admission_check=admission_check,root_rss_pause_bytes=root_rss_pause_bytes)
     return _run_program_envelope(request=request,output=output,admission_identity=admission_identity,
         admission_check=admission_check,root_rss_pause_bytes=root_rss_pause_bytes)
 

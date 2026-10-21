@@ -1,0 +1,190 @@
+{
+  "T_accessed": false,
+  "actual_benchmark_labels_read": 0,
+  "actual_benchmark_models_fitted_or_measured": 0,
+  "actual_complete_qualified_public_positive": false,
+  "actual_pipeline_cost_authenticated": false,
+  "algorithm_rescue_budget_cut_or_source_migration_admitted": false,
+  "artifact_inventory": {
+    "bytes": 9072,
+    "path": "artifacts/research-v2/WP10/pipeline-costs-software-inventory.json",
+    "sha256": "7e64602f9bfb07b36afcf73fad3f2c741d8e6d29f46f4905ae5daaf4af227897"
+  },
+  "base_commit": "7910119",
+  "capture": {
+    "bytes": 7446,
+    "path": "artifacts/research-v2/WP10/pipeline-costs-software/observation.json",
+    "sha256": "86e5bdb01837801be35b4941b8b1ce4387c2a33f4826157370c6af474d5d3066"
+  },
+  "capture_script": {
+    "bytes": 3382,
+    "path": "artifacts/research-v2/WP10/capture_pipeline_costs.py",
+    "sha256": "d5e3b7d56197ed418a8f0f10c1a0e58461d549499f28d899b9289b43fa00b65e"
+  },
+  "changes": [
+    "Fixed programme binds deterministic sibling observer archive; public confirmation uses its locked contiguous slots",
+    "Readonly discovery includes every denied/failed/granted outer frame and rejects missing/orphaned/unknown evidence; no caller-selected frame subset",
+    "Closed observed-domain routing binds programme invocations/full step calls to exactly one original physical frame; overlap and missing steps reject",
+    "Actual full frozen raw/native/model/metric/timing/programme-owner/pre-test-cost gates precede pipeline seal/load; complete-qualified public success remains unrun",
+    "All successful/failed query calls attributed once to their frozen query/job; aliased views reuse a query, no missing planned call becomes zero",
+    "Public reconstruction combines pre-test and post-test physical frames while keeping standalone training/all-frozen-query costs and common stage overhead separate",
+    "Cost publication preserves programme/observer/source/model/data/proof inputs; sealed outputs recompute through actual gates on load"
+  ],
+  "cost_claim_authorized": false,
+  "date": "2026-10-21",
+  "final_command": [
+    ".venv-research-v2/bin/python",
+    "-P",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_practical_pipeline_costs_v2.py",
+    "tests/test_cold_confirmation_process_v2.py",
+    "tests/test_confirm_programme_v2.py",
+    "tests/test_program_process_v2.py",
+    "tests/test_practical_preT_costs_v2.py",
+    "tests/test_native_deployment_execution_v2.py"
+  ],
+  "limitations": [
+    "No genuine full-qualified public pipeline positive or actual complete seven-operation benchmark programme has run",
+    "All hand intervals/query costs are software arithmetic, not measured method performance",
+    "Managed negative frames verify ownership/coverage only, not native effectiveness or complete scientific cost",
+    "Physical and standalone/nested views cannot be added; engineering/data-acquisition/qualification work and final observer/cost/report administration remain separately reported, not zero-imputed",
+    "Formal efficiency claims remain disabled without dedicated timing and verified native-float64/float32 deployment-quality equivalence",
+    "Canonical production report/CLI/readiness and final review remain before final-source qualification/production HPO"
+  ],
+  "logs": [
+    {
+      "bytes": 21381,
+      "path": "artifacts/research-v2/WP10/pipeline-costs-software/test-logs/pipeline-costs-red.log",
+      "sha256": "2bab01c6213f3fd2910d0d37d9775becc568eb431f76a96375db50a4d96e059c"
+    },
+    {
+      "bytes": 4058,
+      "path": "artifacts/research-v2/WP10/pipeline-costs-software/test-logs/pipeline-costs-archive-red.log",
+      "sha256": "a7636f6ae829cb560ec25ec9b66ae33fbdaa6952e953a321e02de15a0bcc3191"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/pipeline-costs-software/test-logs/pipeline-costs-first-green.log",
+      "sha256": "4e3dd62acf4424df204642cef0d8f838082b3600241ab68c9a91096ef337d8bf"
+    },
+    {
+      "bytes": 3230,
+      "path": "artifacts/research-v2/WP10/pipeline-costs-software/test-logs/pipeline-costs-join-red.log",
+      "sha256": "bab4451e44df88e4857ef258ee423a4826e2f7e95be5d662179b9e46c01fd307"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/pipeline-costs-software/test-logs/pipeline-costs-join-green.log",
+      "sha256": "2c48d770b59b33dce30b1cd6f49854e2cbca3cd438c52f76a61bc284ab8bf7a5"
+    },
+    {
+      "bytes": 2071,
+      "path": "artifacts/research-v2/WP10/pipeline-costs-software/test-logs/pipeline-costs-output-red.log",
+      "sha256": "2e30ac375054c24025e4caebbbf3435269459058eb0f214d235cb8fa10028809"
+    },
+    {
+      "bytes": 181,
+      "path": "artifacts/research-v2/WP10/pipeline-costs-software/test-logs/pipeline-costs-affected.log",
+      "sha256": "0a1ca0cca6e8111efd09cdb71820dece27e9ffcd300e15657b8c6434201629ee"
+    },
+    {
+      "bytes": 1078,
+      "path": "artifacts/research-v2/WP10/pipeline-costs-software/test-logs/pipeline-costs-overlap-red.log",
+      "sha256": "8f80bde9da02b29917858a61fcf5d197a492dd8f8c1ee1947ca5aef20f31493e"
+    },
+    {
+      "bytes": 181,
+      "path": "artifacts/research-v2/WP10/pipeline-costs-software/test-logs/pipeline-costs-final-affected.log",
+      "sha256": "cdf10a5ebe738f7036764d27f2a6e92a4b7b19aa539ba1dc24de42a445ebafdd"
+    },
+    {
+      "bytes": 332,
+      "path": "artifacts/research-v2/WP10/pipeline-costs-software/test-logs/pipeline-costs-capture.log",
+      "sha256": "9353277dab538d983aa6fad10527f4513d978ef13b633ddccde837768c85650e"
+    }
+  ],
+  "native_c33_source_environment_and_immutable_operator_plan_unchanged": true,
+  "native_qualification_authenticated": false,
+  "observation": {
+    "denied_frame_included": true,
+    "failed_frame_included": true,
+    "hand_arithmetic_common_overhead_ns": 125,
+    "hand_arithmetic_full_call_ns": 35,
+    "hand_arithmetic_nested_invocation_ns": 130,
+    "hand_arithmetic_physical_ns": 160,
+    "hand_arithmetic_query_job_A_ns": 22,
+    "hand_arithmetic_query_job_B_ns": 3,
+    "incomplete_programme_not_promoted": true,
+    "invented_values_are_not_benchmark_timings": true,
+    "missing_terminal_rejected": true,
+    "model_fits": 0,
+    "model_forwards": 0,
+    "real_owned_negative_frames": 2
+  },
+  "schema": "research/v2-pipeline-costs-software-receipt",
+  "source_files": [
+    {
+      "bytes": 24418,
+      "path": "src/treeneuron/research/practical_pipeline_costs_v2.py",
+      "sha256": "9be5940f0b4cc55a105a1bef0f2d6cc95164b456efcc83de69305a517686c233"
+    },
+    {
+      "bytes": 24602,
+      "path": "src/treeneuron/research/confirm_v2.py",
+      "sha256": "568e98267666973235239c58d5e7021deb544a2ec4390cb2a582edda71a6301a"
+    },
+    {
+      "bytes": 23548,
+      "path": "src/treeneuron/research/program_process_v2.py",
+      "sha256": "c7bf0d144de0c4ec9ccc1054ce6336a2de226170b05e02309303f99a920340dd"
+    }
+  ],
+  "source_sha256": "1fa2c534cc833c6c9dcec777158daf97d09a2ab59d43519597c195a5176d42cc",
+  "test_file": {
+    "bytes": 9890,
+    "path": "tests/test_practical_pipeline_costs_v2.py",
+    "sha256": "6909408b5e5659d662699722413ca4075ba11ce778942e49c5aec52bced4e5e3"
+  },
+  "verification": [
+    {
+      "cause": "Missing pipeline module; intended RED",
+      "result": "12 failed in0.11s"
+    },
+    {
+      "cause": "Missing archive discovery/ownership support; intended RED",
+      "result": "3 failed,12 deselected in0.07s"
+    },
+    {
+      "result": "15 passed in2.33s",
+      "scope": "Initial metadata/owned-negative checks; not final implementation"
+    },
+    {
+      "cause": "Missing query attribution/full collector/public loader",
+      "result": "3 failed,15 deselected in0.08s"
+    },
+    {
+      "result": "18 passed in2.86s",
+      "scope": "Joined implementation boundary checks"
+    },
+    {
+      "cause": "Cost output-path guard absent and unreported outer artifact accepted",
+      "result": "2 failed,18 deselected in0.77s"
+    },
+    {
+      "result": "104 passed in30.97s",
+      "scope": "Earlier affected scope"
+    },
+    {
+      "cause": "Overlapping invocations could be added as serial work",
+      "result": "1 failed,20 deselected in0.08s"
+    },
+    {
+      "result": "105 passed in31.38s",
+      "scope": "Final six affected modules including21 new checks; overlaps earlier counts, not whole-suite pass"
+    }
+  ],
+  "whole_training_procedure_cost_authenticated": false
+}
