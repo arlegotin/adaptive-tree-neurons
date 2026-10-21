@@ -1,8 +1,12 @@
 # Research v2 reproduction and continuation
 
-Research execution is paused at the owner’s request. The commands and later
-chronological implementation snapshots below are documentation, not running jobs.
-Consult [current status](status.md) before any new execution.
+The project was sunset at the owner’s request on 21 October 2026. Local raw
+archives, checkpoints, environments, caches and auxiliary worktrees have been
+removed. The commands and chronological snapshots below document the historical
+procedure. Fresh software installation remains possible; raw authentication and
+resume commands need original assets that are no longer retained locally.
+Consult [final status](status.md) and the
+[sunset record](../../../provenance/sunset/2026-10-21/README.md).
 
 Start with the spec, plan and execution ledger linked from this directory. The
 ledger is authoritative for which packages and scientific gates have completed.

@@ -8,6 +8,8 @@ The gates learn useful planted structure. The tested placement rules haven't ear
 
 [Results](#results) · [Try the layer](#try-the-layer) · [Research report](reports/research-v2.md) · [Reproduction](REPRODUCE.md) · [Citation](CITATION.cff)
 
+**Project status:** sunset on 21 October 2026. Public source, reports and selected audit evidence remain; project-local raw archives, checkpoints and environments have been removed.
+
 ## What you can reuse
 
 - **Function-preserving growth.** Add gates to selected units with exactly unchanged initial predictions. Existing parameters keep their Adam history; new parameters get fresh state.
@@ -47,7 +49,7 @@ There are useful positive findings around that result. In [256 planted and negat
 
 The earlier [16-problem pilot](reports/final.md) and [eight-problem longer-search diagnostic](reports/long-probe-diagnostic.md) likewise didn't establish a reliable placement advantage. The new joint-selector branch closed after its declared experiment. It wasn't extended until a favorable result appeared.
 
-On real data, **118 of 120 native engineering anchors completed** across six datasets. Existing methods lead the grown anchor on all five observational validation splits examined. A static fully gated model leads the separate Energy simulation, a narrow representation result with few geometry groups. This [survey](reports/research-v2-primary-anchors.md) and its NODE follow-ups use one seed per split. The full tuned benchmark and protected test evaluation are unfinished. Research jobs are paused, with checkpoints retained; see [current status](docs/research/v2/status.md).
+On real data, **118 of 120 native engineering anchors completed** across six datasets. Existing methods lead the grown anchor on all five observational validation splits examined. A static fully gated model leads the separate Energy simulation, a narrow representation result with few geometry groups. This [survey](reports/research-v2-primary-anchors.md) and its NODE follow-ups use one seed per split. The full tuned benchmark and protected test evaluation are unfinished. The project is sunset; see [final status](docs/research/v2/status.md).
 
 ## Try the layer
 
@@ -87,7 +89,7 @@ uv run --frozen python tests/reference_math_checks.py
 uv run --frozen python tests/reference_score_checks.py
 ```
 
-[REPRODUCE.md](REPRODUCE.md) gives focused test commands, optional dependencies and source-specific test status. The complete suite is not green; its failures and scoped recoveries are retained. Source, tests, compact result tables and selected audit records are public. Full raw training archives remain external, so a clone alone cannot authenticate every saved prediction. [Publication scope](docs/PUBLICATION.md) defines that boundary.
+[REPRODUCE.md](REPRODUCE.md) gives focused test commands, optional dependencies and source-specific test status. The complete suite is not green; its failures and scoped recoveries are retained. Source, tests, compact result tables and selected audit records are public. Full raw training archives were never bundled; project-local copies have now been removed. A clone alone cannot authenticate every saved prediction. [Publication scope](docs/PUBLICATION.md) defines that boundary.
 
 ## License and citation
 

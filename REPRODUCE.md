@@ -1,10 +1,18 @@
 # Reproduction
 
+**Project sunset, 21 October 2026:** project-local raw archives, checkpoints,
+environments, caches and auxiliary worktrees have been removed at the owner’s
+request. Public source, compact results and selected audit evidence remain.
+Software checks can be run after a fresh installation. Later historical archive
+restoration commands require the original bytes, which are no longer available
+in this local project; inventories and hashes cannot reconstruct them.
+See the [sunset record](provenance/sunset/2026-10-21/README.md).
+
 There are three distinct tasks: check the implementation, authenticate the saved
 research, or run a new experiment. A successful software check does not establish
 the allocation hypothesis.
 
-The paused [research v2 continuation](docs/research/v2/reproduce.md) has its own
+The sunset [research v2 continuation](docs/research/v2/reproduce.md) has its own
 strict schemas, seeds, output namespace and [execution ledger](docs/research/v2/execution.md).
 New training metadata is version2 with explicit parameter births and stricter
 tensor/Adam validation. Historical schema1 checkpoints load under their original

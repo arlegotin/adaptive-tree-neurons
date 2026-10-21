@@ -1,0 +1,187 @@
+{
+  "all_previously_tracked_file_hashes_unchanged": true,
+  "authorized_by": "Explicit owner request to sunset the project and remove its local artifacts, worktrees and cache",
+  "auxiliary_worktrees_removed": 17,
+  "available_bytes_after": 261303328768,
+  "available_space_before_rounded_df_gib": 172,
+  "available_space_observation_limit": "Whole-volume readings are affected by concurrent processes, filesystem sharing and rounding; not a guaranteed reclaim estimate",
+  "cleanup_temporary_workspace_removed": true,
+  "completed_at": "2026-10-21T09:00:41.021013+00:00",
+  "date": "2026-10-21",
+  "final_verified_at": "2026-10-21T09:02:50.896010+00:00",
+  "follow_up_verification": "Repeated after nested cleanup completed: no ignored files remain; all original tracked file hashes match",
+  "ignored_cleanup_mode": [
+    "git",
+    "clean",
+    "-fdX"
+  ],
+  "initial_cleanup_protected_nested_test_repositories": true,
+  "initial_worktree_removal_elapsed_seconds": 22.803,
+  "local_env_cache_directories_removed": true,
+  "main_checkout_retained": true,
+  "nested_repository_follow_up": [
+    "git",
+    "clean",
+    "-ffdX",
+    "--",
+    "artifacts/research-v2/WP09",
+    "artifacts/research-v2/WP11"
+  ],
+  "previously_tracked_files_preserved": 2580,
+  "project_temp_entries_planned": 213,
+  "project_temp_entries_removed": 213,
+  "public_source_before_cleanup": "44cdd8e294af0068973466f9da6f8d8440f71422",
+  "remaining_ignored_cleanup_entries": 0,
+  "remaining_worktrees": 1,
+  "schema": "project-sunset/cleanup/v1",
+  "shared_caches_and_other_projects_touched": false,
+  "status": "completed",
+  "sunset_documentation_verification": {
+    "citation_schema": "CFF1.2.0",
+    "citation_schema_sha256": "0b8d22140da702d766df318dcff3a91af2f39521298dcf36d76315fd99cc169b",
+    "citation_valid": true,
+    "local_links_checked": 136,
+    "main_checkout_kib_after_cleanup": 118248,
+    "missing_links": 0,
+    "new_training_or_protected_evaluation": false,
+    "source_tests_configs_locks_changed": false
+  },
+  "worktree_results": [
+    {
+      "discarded_untracked_entries": 0,
+      "exit_code": 0,
+      "head": "84e103088e5e14be165656f514a7bd434954b050",
+      "location": "private_tmp",
+      "name": "atn-native-adapters-next",
+      "removed": true
+    },
+    {
+      "discarded_untracked_entries": 0,
+      "exit_code": 0,
+      "head": "80afc0dd9966e74e8e6d251bc8a976335bcd72d5",
+      "location": "private_tmp",
+      "name": "atn-research-v2-backbone-screen-80afc0d",
+      "removed": true
+    },
+    {
+      "discarded_untracked_entries": 2,
+      "exit_code": 0,
+      "head": "604cffb967d6bb90b96dbae72d1a069b48d0ec09",
+      "location": "private_tmp",
+      "name": "atn-research-v2-M1-run",
+      "removed": true
+    },
+    {
+      "discarded_untracked_entries": 2,
+      "exit_code": 0,
+      "head": "132b2501aa880768b093436fff1318835e927f5e",
+      "location": "private_tmp",
+      "name": "atn-research-v2-M1-scientific",
+      "removed": true
+    },
+    {
+      "discarded_untracked_entries": 0,
+      "exit_code": 0,
+      "head": "e1b1018dc348991d25ac51b9be47c57837220ee4",
+      "location": "private_tmp",
+      "name": "atn-research-v2-M2-run",
+      "removed": true
+    },
+    {
+      "discarded_untracked_entries": 0,
+      "exit_code": 0,
+      "head": "654a2ccae71bcd26376c2d5ed41fa8899e1b434b",
+      "location": "private_tmp",
+      "name": "atn-research-v2-M3-audit-654a2cc",
+      "removed": true
+    },
+    {
+      "discarded_untracked_entries": 0,
+      "exit_code": 0,
+      "head": "53bd029752a2ef033a1932367854eb6637bfe539",
+      "location": "private_tmp",
+      "name": "atn-research-v2-M3-recovery",
+      "removed": true
+    },
+    {
+      "discarded_untracked_entries": 0,
+      "exit_code": 0,
+      "head": "0b84d637af19bfdeef3ba4037c0d7802a2b4b573",
+      "location": "private_tmp",
+      "name": "atn-research-v2-M3-run",
+      "removed": true
+    },
+    {
+      "discarded_untracked_entries": 0,
+      "exit_code": 0,
+      "head": "5c55fa99d63f9b79e64cc9cd0b3333ce56e419f6",
+      "location": "private_tmp",
+      "name": "atn-research-v2-measured-reference",
+      "removed": true
+    },
+    {
+      "discarded_untracked_entries": 0,
+      "exit_code": 0,
+      "head": "b84872601b11ccf21163ea8eb8088184953f20f2",
+      "location": "private_tmp",
+      "name": "atn-research-v2-next",
+      "removed": true
+    },
+    {
+      "discarded_untracked_entries": 0,
+      "exit_code": 0,
+      "head": "ea3993ae6dc6edc0244a3bded266f9ad00412820",
+      "location": "private_tmp",
+      "name": "atn-research-v2-node-memory",
+      "removed": true
+    },
+    {
+      "discarded_untracked_entries": 0,
+      "exit_code": 0,
+      "head": "c33a84eda018d11b2dbe237dbc0b5b681c8e65c9",
+      "location": "private_tmp",
+      "name": "atn-research-v2-node-recovery",
+      "removed": true
+    },
+    {
+      "discarded_untracked_entries": 0,
+      "exit_code": 0,
+      "head": "fb651cd3d25bc1b331ef5031d6e8304fb066d3c2",
+      "location": "private_tmp",
+      "name": "atn-research-v2-support-reader-61221f4",
+      "removed": true
+    },
+    {
+      "discarded_untracked_entries": 0,
+      "exit_code": 0,
+      "head": "663f6714d39c193a5795d61eb763911285a98520",
+      "location": "codex_project_worktree",
+      "name": "adaptive-tree-neurons",
+      "removed": true
+    },
+    {
+      "discarded_untracked_entries": 0,
+      "exit_code": 0,
+      "head": "f5378d5acf964d25084f53d142408b479e1fa99c",
+      "location": "codex_project_worktree",
+      "name": "adaptive-tree-neurons",
+      "removed": true
+    },
+    {
+      "discarded_untracked_entries": 0,
+      "exit_code": 0,
+      "head": "a828fc7a76a2fc8d30e0d7fb664c30300bde6223",
+      "location": "codex_project_worktree",
+      "name": "adaptive-tree-neurons",
+      "removed": true
+    },
+    {
+      "discarded_untracked_entries": 0,
+      "exit_code": 0,
+      "head": "a56ae0897d62adb04eabbf11bc09dae24ca18e2f",
+      "location": "codex_project_worktree",
+      "name": "adaptive-tree-neurons",
+      "removed": true
+    }
+  ]
+}

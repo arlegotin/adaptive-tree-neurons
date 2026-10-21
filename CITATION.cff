@@ -25,9 +25,11 @@ abstract: >-
   problem average and had 15.6 percent lower mean exploratory evaluation error.
   Joint growth had 1.25 percent higher mean error than matched random placement.
   The tested selector branch closed negative. Native validation surveys are
-  exploratory; the full tuned benchmark and protected evaluation are unfinished.
+  exploratory; the full tuned benchmark and protected evaluation were unfinished
+  at project sunset on 21 October 2026.
   No practical superiority, independent confirmation or model-family novelty is
-  claimed. Full raw-result authentication requires retained external archives.
+  claimed. Public source, reports and selected audit evidence remain; project-local
+  raw archives were removed at sunset, limiting full raw-result authentication.
 keywords:
   - neural network growth
   - affine stumps

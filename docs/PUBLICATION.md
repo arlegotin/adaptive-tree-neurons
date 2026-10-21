@@ -1,5 +1,20 @@
 # Public release scope
 
+## Project sunset, 21 October 2026
+
+The owner ended the project and requested removal of local artifacts, worktrees
+and project-specific caches. The main source checkout and the public Git history,
+reports, compact results and selected audit evidence are retained. Local raw
+experiment archives, checkpoints, environments and auxiliary worktrees have been
+removed. No new scientific run, protected evaluation or upgraded result follows
+from this cleanup. The incomplete practical benchmark remains incomplete.
+
+Historical publication receipts and inventories describe their original checks
+and retention state. They are preserved, while current documentation records
+that the project-local raw bytes are no longer available. Full raw authentication
+cannot be performed from hashes and compact tables alone. The
+[cleanup record](../provenance/sunset/2026-10-21/README.md) identifies the scope.
+
 ## Continuation update, 21 October 2026
 
 The owner requested a public refresh after the research continuation. The

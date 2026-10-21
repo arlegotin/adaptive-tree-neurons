@@ -629,22 +629,29 @@
       "strongest_counterevidence_or_limit": "Real legacy hardware qualification remains resource-dependent; whole-program source/protocol qualification and final branch review are unfinished. Test-only counter fixtures grant no native or predictive authority."
     }
   ],
+  "cleanup_record": {
+    "bytes": 6035,
+    "path": "provenance/sunset/2026-10-21/cleanup.json",
+    "sha256": "3ceb5dc827ecc3c1cf7f2da390c3d0a1e6d5a26b29b8e1b0d0e1ae37292eec0e"
+  },
   "created_utc": "2026-10-20T06:05:41.912084+00:00",
-  "execution_status": "paused_by_explicit_user_request",
+  "execution_status": "sunset_by_explicit_user_request",
   "final_branch_review_complete": true,
   "fresh_review_received": true,
+  "local_checkpoints_available": false,
+  "local_raw_archives_available": false,
   "new_fit_or_inference": false,
   "new_raw_label_access": false,
   "protected_confirmation": false,
   "report": {
-    "bytes": 18143,
+    "bytes": 18712,
     "path": "reports/research-v2.md",
-    "sha256": "652504f6ac3f5f4e6ffbd54774e4c28713df5d5ae976e2d2c7947d0eb3a07ec6"
+    "sha256": "e20581c509fc074a6fad11dc25bebf9b5de104d86954f6c00d8fd2ea8ae129bd"
   },
   "review_fix_status": "committed_c042b1f_actual_execution_package_and_review_delta_bound_complete_suite_non_green",
   "schema": "research/v2-current-cross-study-claim-ledger",
   "scope": "Curated evidence-linked report assembly from compact inputs and prior audit receipts. The no-new-fit/inference/raw-label flags describe assembly only; separate fixed native V scoring is disclosed below. Not a new whole-raw/model-generation audit or completed production report path.",
-  "status": "development_negative_with_practical_work_pending",
+  "status": "sunset_negative_development_and_incomplete_practical_benchmark",
   "user_stop_record": {
     "bytes": 1413,
     "path": "artifacts/research-v2/user-stop-2026-10-21/verified.json",

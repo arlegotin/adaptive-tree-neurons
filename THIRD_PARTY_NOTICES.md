@@ -66,7 +66,8 @@ The public release excludes installed environments and dependency binaries.
 
 The controlled mechanism studies use this project's generated synthetic inputs.
 Small selected engineering arrays and checkpoint fixtures are versioned; full
-training archives and final-study checkpoints are external. No pretrained
+training archives and final-study checkpoints were kept outside Git; project-local
+copies were removed at sunset. No pretrained
 third-party model weights are bundled.
 
 The native-anchor development survey also fits official UCI Airfoil, Concrete,
@@ -74,8 +75,10 @@ Combined Cycle Power Plant, Parkinsons Telemonitoring, Bike Sharing and Energy
 Efficiency data. Acquisition/license records, exact raw hashes and split
 contracts are described in the [v2 reproduction guide](docs/research/v2/reproduce.md).
 Raw datasets are not bundled in this repository. Their dataset-specific terms
-remain with the original providers. The prepared test labels remain sealed;
-completed validation fits are distinct from the unfinished tuned/test benchmark.
+remain with the original providers. The prepared test labels were not used for
+protected predictive evaluation; project-local prepared data was removed at
+sunset. Completed validation fits are distinct from the unfinished tuned/test
+benchmark.
 
 Cited papers, external packages, optional pretrained models and weights retain
 their own terms. A discussed or planned method is not thereby an executed

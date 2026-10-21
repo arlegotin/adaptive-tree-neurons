@@ -1,8 +1,15 @@
 # Research v2: negative growth result and unfinished practical comparison
 
+**Project sunset, 21 October 2026.** This report and its public supporting evidence
+are retained. The owner requested removal of local raw archives, checkpoints,
+environments, caches and auxiliary worktrees. The audits below describe checks
+performed before removal, not a raw archive available from this repository.
+The unfinished practical comparison will not continue under this project.
+[Sunset record](../provenance/sunset/2026-10-21/README.md).
+
 The tested growth chooser has not delivered a reproducible advantage over matched random placement. In the completed sixteen-problem joint-selector study, competent ordinary continuation performed better on every problem average. A separate native-backbone screen supplies no reason to move this synthetic study to a stronger parent. Those finite mechanism branches close negative.
 
-The broader practical comparison remains unfinished. Existing strong anchors lead the grown model on all five observational validation splits examined so far, but these development scores do not establish a tuned or protected-test ranking. Native baseline runs are paused at the owner’s request, with checkpoints retained; no two-hour native fit cap was imposed. This is a current development report, not a completed confirmation or full-program release.
+The broader practical comparison remains unfinished. Existing strong anchors lead the grown model on all five observational validation splits examined so far, but these development scores do not establish a tuned or protected-test ranking. Native baseline runs ended at the owner’s sunset request, and local checkpoints have been removed; no two-hour native fit cap was imposed. This is a current development report, not a completed confirmation or full-program release.
 
 ## What the evidence supports
 
@@ -50,7 +57,7 @@ Native quantile preprocessing and fixed presets are part of this comparison. The
 
 ## Native practical anchors: development only
 
-The original fixed survey contains 115 completed cells out of 120 planned, using one seed on the designated primary V splits. Separate fixed follow-up tranches add completed Airfoil, Concrete and Parkinsons NODE anchors, bringing native engineering completions to 118. CCPP is paused with recovery state retained; Bike has not completed. No missing prediction is scored as a model loss. The original survey and prior follow-up tranches remain separate immutable records.
+The original fixed survey contains 115 completed cells out of 120 planned, using one seed on the designated primary V splits. Separate fixed follow-up tranches add completed Airfoil, Concrete and Parkinsons NODE anchors, bringing native engineering completions to 118. CCPP and Bike were incomplete when the project ended. No missing prediction is scored as a model loss. The original survey and prior follow-up tranches remain separate immutable records.
 
 | Observational primary V split | Grown cheap | Matched random | Lowest observed existing anchor | Existing-anchor NMSE |
 |---|---:|---:|---|---:|
@@ -129,14 +136,14 @@ scientific replication or source migration. See the
 The full-size2,048-tree recovery check also passed under this source, with
 212 paid applied updates across reference/interrupted/resumed work. All258 fixed full-shape support checks
 also passed their genuine loaders, with largest sampled root RSS about2.20GiB.
-They are short geometry checks, not native convergence. The current queue is paused during its first long NODE fit, with the remaining
+They are short geometry checks, not native convergence. The final queue ended during its first long NODE fit, with the remaining
 NODE fits and six mean anchors still incomplete.
 [Support evidence](../docs/research/v2/WP07-final-source-support-receipt.json). Full registry/readiness, HPO and protected
 evaluation remain pending. [Recovery evidence](../docs/research/v2/WP07-final-source-recovery-receipt.json).
 
-Raw arrays, recoverable states and append-only ledgers are retained locally with source-bound inventories. Historical missing raw archives remain missing. Reproduction does not depend on remembering a conversation; [commands, exact identities and portability limits](../docs/research/v2/reproduce.md) are versioned. Each study’s held source is immutable, and old reports and expected historical hashes remain intact.
+Raw arrays, recoverable states and append-only ledgers were retained locally for the recorded audits, then removed at the owner’s sunset request. Public source-bound inventories remain; they do not restore those bytes. Historical missing raw archives remain missing. Reproduction does not depend on remembering a conversation; [commands, exact identities and portability limits](../docs/research/v2/reproduce.md) are versioned. Each study’s held source is immutable, and old reports and expected historical hashes remain intact.
 
-The user removed the two-hour native quality limit. The paused native runs use normal stopping, live resource admission, a 4 GiB owned-root RSS guard and saved recovery state. The held-source follow-up and final-source qualification are separate queues, each running its NODE fits serially; their measured workers overlapped before the explicit user stop. Completed Airfoil NODE took about 5¼ hours at 1.83 GiB sampled root RSS. The largest measured TabM engineering shape used about 3 GiB; an initial 2 GiB stop and exact-request retry are retained. Available-memory proxies are heuristic and the checks are not whole-machine RAM guarantees. No model, F sample or effective batch was shrunk. [Memory evidence](research-v2-resource-probes.md).
+The user removed the two-hour native quality limit. Before sunset, native runs used normal stopping, live resource admission, a 4 GiB owned-root RSS guard and saved recovery state. The held-source follow-up and final-source qualification are separate queues, each running its NODE fits serially; their measured workers overlapped before the explicit user stop. Completed Airfoil NODE took about 5¼ hours at 1.83 GiB sampled root RSS. The largest measured TabM engineering shape used about 3 GiB; an initial 2 GiB stop and exact-request retry are retained. Available-memory proxies are heuristic and the checks are not whole-machine RAM guarantees. No model, F sample or effective batch was shrunk. [Memory evidence](research-v2-resource-probes.md).
 
 M3’s containing scientific run took about 2½ hours; B0’s enclosing jobs about 24.67 minutes. These contended clocks, candidate work and shared infrastructure are not a formal deployment or search-cost win. Soft gating evaluates both branches and supplies no automatic conditional-compute saving. Formal quality–cost and hard-routing claims remain unsupported.
 
@@ -146,4 +153,4 @@ Function-preserving growth, parent-tangent geometry and overgrow/prune ideas hav
 
 The mechanism result is a scoped negative development result. The primary selector and B0 remedy screens are closed; their finite allowances are exhausted or failed, rather than extended until favorable. A future method would need a named new falsifiable question, a new finite design and fresh affected protected evidence.
 
-The remaining fixed native baseline inventory is paused at the owner’s request. Production practical comparison and protected confirmation remain pending their explicit prerequisites; neither is called complete here. This report is a curated cross-study account backed by the linked canonical inputs and receipts. Production protocol/audit/report code is implemented and fixture-tested; the fresh whole-branch review, its correction pass and committed source binding are complete at the stated scopes. Actual production execution and final audit/report generation remain pending their native and frozen-study prerequisites. [Current status](../docs/research/v2/status.md), [execution record](../docs/research/v2/execution.md), [implementation plan](../docs/superpowers/plans/2026-10-18-research-v2.md).
+The remaining fixed native baseline inventory ended at the owner’s sunset request. Production practical comparison and protected confirmation remain pending their explicit prerequisites; neither is called complete here. This report is a curated cross-study account backed by the linked canonical inputs and receipts. Production protocol/audit/report code is implemented and fixture-tested; the fresh whole-branch review, its correction pass and committed source binding are complete at the stated scopes. Actual production execution and final audit/report generation remain pending their native and frozen-study prerequisites. [Current status](../docs/research/v2/status.md), [execution record](../docs/research/v2/execution.md), [implementation plan](../docs/superpowers/plans/2026-10-18-research-v2.md).

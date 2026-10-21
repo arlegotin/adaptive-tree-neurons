@@ -1,6 +1,13 @@
-# Research v2: current result and next work
+# Research v2: final status at sunset
 
-**Paused at the user’s request on 21 October 2026. All owned background jobs and automatic followers have stopped. Existing results and committed checkpoints are retained. Do not resume execution without a new user request.**
+**Sunset at the owner’s request on 21 October 2026. Project-local raw archives,
+checkpoints, environments, caches and all 17 auxiliary worktrees have been
+removed. Public source, reports and selected audit evidence remain. No research
+execution is scheduled. [Cleanup record](../../../provenance/sunset/2026-10-21/README.md).**
+
+The milestones below describe completed work and the unfinished programme as it
+stood before cleanup. Local recovery paths are historical locators; deleted raw
+assets cannot be recovered from their public hashes.
 
 Updated 21 October 2026. This page summarizes the current state; the
 [execution ledger](execution.md) retains earlier snapshots, failures, source
@@ -192,7 +199,7 @@ valid-run behavior after the corrections; it supplies no extra independent
 problems or protected evidence. The current queue stopped during its first long
 NODE fit; the remaining NODE fits and six mean anchors are incomplete.
 
-Remaining work is sequential:
+Unfinished at sunset (not scheduled):
 
 1. If research resumes, complete and audit the current-source 120 native anchors,
    retaining the completed 258 support checks, full-size recovery proof, seven
