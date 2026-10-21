@@ -22,8 +22,8 @@ The [native baseline adapters](docs/research/v2/native-qualification-runner.md) 
 An ordinary neuron computes an affine rule followed by ReLU. A grown neuron blends two affine rules **before** ReLU. In centered form, with the bias included in $X=[x,1]$:
 
 $$
-z_j=b_j^\top X+\tanh\!\left(\frac{a_j^\top X}{2\tau}\right)c_j^\top X,
-\qquad h_j=\operatorname{ReLU}(z_j).
+z_j=b_j^\top X+\tanh\left(\frac{a_j^\top X}{2\tau}\right)c_j^\top X,
+\qquad h_j=\max(0,z_j).
 $$
 
 Start the gate at $a_j=0$, with a nonzero contrast $c_j$. The added term is exactly zero, so insertion preserves the parent function. The gate can receive a gradient immediately; the contrast starts learning after the gate moves.
