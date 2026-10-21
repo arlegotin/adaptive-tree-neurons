@@ -491,6 +491,11 @@
           "bytes": 4750,
           "path": "docs/research/v2/WP10-F-deployment-projection-receipt.json",
           "sha256": "e046a23e6340a0a26762f0a5dedeeac3574f07f4f700611b4cf518df8b08c085"
+        },
+        {
+          "bytes": 6707,
+          "path": "docs/research/v2/WP10-native-timing-plan-receipt.json",
+          "sha256": "735490fd4a5b3d7180ec468b2728d55a0cb81bfbf6f35b8f54fcdc239a55ad74"
         }
       ],
       "status": "supported_scoped_status",

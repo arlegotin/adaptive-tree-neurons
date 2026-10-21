@@ -90,6 +90,12 @@ def _policy(study_id):
             portfolio='12_family_quality_comparison_not_equal_total_cost',
             deployment=dict(primary='CPU_float32_one_declared_thread_batch1_with_native_preprocessing',
                 secondary_batch=1024,paired_blocks_minimum=30,
+                primary_models=168,paired_comparisons=156,cold_measurement_jobs=9360,
+                comparisons='Primary6tasks_R2_P00_versus_each_P01_P13; Energy_separate',
+                query='F_only_original_order_cycle_to1024_float32; workloadIDs0_to1023; no_target_decoding',
+                warmup_calls=3,resident_calls_per_batch=32,plan_frozen_before_test_labels=True,
+                order_seed='seed64(2026101802,protocolSHA,deployment,dataset,str(repeat),baselinefamily)',
+                precision_qualification='Nativefloat64_quality_and_float32_input_timing_not_automatically_equivalent',
                 savings_gate='Lower95bound_savings_fraction_strictly_above_.20_and_positive_paired_savings_interval',
                 quality_gate='Upper_risk_ratio_bound_strictly_below_1.02',
                 cold_imports='method_specific_separate_from_common_harness')))

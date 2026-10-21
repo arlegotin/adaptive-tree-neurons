@@ -259,10 +259,16 @@ def evaluate_protected_labels(reference,*,prediction_stage_reference,directory,m
     protocol=_actual_protocol(reference,kwargs)
     stage=load_protected_prediction_stage(prediction_stage_reference,protocol_reference=reference,directory=directory,**kwargs)
     root,owners=_public_locations(directory,protocol);payload=protocol.payload
+    from .native_deployment_plan_v2 import load_native_deployment_plan
+    timing_reference=_read_metadata_study(root)['deployment_plan_reference']
+    if timing_reference is None:raise ValueError('Actual pre-test witnessed native measurement plan required before labels')
+    timing=load_native_deployment_plan(timing_reference,protocol_reference=reference,directory=root,**kwargs)
     def guard():
         actual=_actual_protocol(reference,kwargs)
         current=load_protected_prediction_stage(prediction_stage_reference,protocol_reference=reference,directory=root,**kwargs)
-        if _canonical(actual.payload)!=_canonical(payload) or current.payload!=stage.payload:raise ValueError('Genuine frozen protocol/prediction evidence changed before label commit')
+        current_timing=load_native_deployment_plan(timing_reference,protocol_reference=reference,directory=root,**kwargs)
+        if (_canonical(actual.payload)!=_canonical(payload) or current.payload!=stage.payload or current_timing.payload!=timing.payload):
+            raise ValueError('Genuine frozen protocol/prediction/timing-plan evidence changed before label commit')
     result=_evaluate_label_stage(protocol_payload=payload,protocol_reference=protocol.reference,directory=root,owner_root=owners,guard=guard)
     return dict(result,native_qualification_authenticated=True,T_accessed=True,genuine_frozen_label_stage_authenticated=True,
         T_labels_accessed_this_call=result['label_roles_read_this_call']>0,

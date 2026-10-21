@@ -1,0 +1,152 @@
+{
+  "T_accessed": false,
+  "actual_benchmark_labels_read": 0,
+  "actual_benchmark_models_fitted_or_measured": 0,
+  "actual_complete_qualified_public_positive": false,
+  "actual_native_timing_jobs_executed": 0,
+  "algorithm_rescue_budget_cut_or_source_migration_admitted": false,
+  "artifact_inventory": {
+    "bytes": 20445,
+    "path": "artifacts/research-v2/WP10/native-timing-plan-software-inventory.json",
+    "sha256": "266e3b69f1791adf15a8b87add59dae62c19808ccee57173cdc88c53cb3a2aca"
+  },
+  "base_commit": "acb2647",
+  "capture": {
+    "actual_known_fixture_fits": 1,
+    "actual_owned_local_queries": 2,
+    "actual_public_invalid_qualification_rejected_before_output": true,
+    "duplicate_freeze_rejected": true,
+    "private_timing_witness_preserves_complete_prediction_proof": true,
+    "untrusted_metadata_cold_jobs": 9360,
+    "untrusted_metadata_comparisons": 156,
+    "untrusted_metadata_models": 168
+  },
+  "capture_script": {
+    "bytes": 3955,
+    "path": "artifacts/research-v2/WP10/capture_native_timing_plan.py",
+    "sha256": "9c50c73bc0066b08bd70fbb41c9214886a45b5126bad5178e517d0aafe30c28d"
+  },
+  "changes": [
+    "Actual public seal/load bind complete protocol/native models and independently checked genuine primary F descriptors/request templates",
+    "Strict once-only deployment_plan_frozen coordinator witness before label phase, no active query, immutable ref/readback; generic witness grants no authority",
+    "Presearch policy explicitly records156comparisons/9360jobs/3warm32resident/F-only derivation and fixed order seed, before any actual production search",
+    "Public label scorer requires actual witnessed native timing-plan loader before target access; private known-label fixtures remain false-authority"
+  ],
+  "cost_claim_authorized": false,
+  "date": "2026-10-21",
+  "dedicated_timing_qualified": false,
+  "execution_authorized": false,
+  "final_command": {
+    "argv": [
+      "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/.venv-research-v2/bin/python",
+      "-P",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_native_deployment_plan_v2.py",
+      "tests/test_protected_journal_v2.py",
+      "tests/test_practical_procedure_v2.py",
+      "tests/test_protected_label_evaluator_v2.py",
+      "tests/test_frozen_practical_analysis_v2.py",
+      "tests/test_protected_prediction_gate_v2.py",
+      "tests/test_practical_T_protocol_v2.py"
+    ],
+    "bytecode_disabled": true,
+    "exit_code": 0,
+    "process_observation": "Only fixture-owned PIDs/boot identity; scoped permission",
+    "pytest_plugin_autoload_disabled": true,
+    "result": "147 passed in105.72s",
+    "session_id": 18268,
+    "threads": 1
+  },
+  "limitations": [
+    "Full schedule is coded metadata; actual native/F bindings public positive and workload/resource admission remain unrun",
+    "Actual cold-job executor/observed invocation/physical-cost collector and final report integration/readiness/branch review remain before production",
+    "Fixed nativefloat64 quality and float32 feature timing do not automatically support a formal efficiency claim; no new protected query variant admitted",
+    "Preparation/freeze publication/return and all failures must be retained in containing costs; no zero-imputation or standalone flag capability",
+    "Actual metric/audit/report readers must consistently join the timing witness; no public actual-source proof is implied by generic fixture records"
+  ],
+  "logs": [
+    {
+      "bytes": 19360,
+      "path": "artifacts/research-v2/WP10/native-timing-plan-software/test-logs/native-timing-plan-red.log",
+      "sha256": "574f6b321560046831a2ecaec95eaad1c87f793af03de82b8eff5447d2fdb33a"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/native-timing-plan-software/test-logs/native-timing-plan-first-green.log",
+      "sha256": "3eb20307f7f4edc3b2468d0abb3b92cb1efdef5cac81bca02bb6362fd76af951"
+    },
+    {
+      "bytes": 272,
+      "path": "artifacts/research-v2/WP10/native-timing-plan-software/test-logs/native-timing-plan-affected.log",
+      "sha256": "d18f5285a4a72ff765780e9ab8bb9301dfacc08f3a12c6c9769c053acf93fbe6"
+    },
+    {
+      "bytes": 272,
+      "path": "artifacts/research-v2/WP10/native-timing-plan-software/test-logs/native-timing-plan-final-affected.log",
+      "sha256": "23cd54cb1cbf0fb7f13bb4095c3de37671b78a1de0f0fcb398b837a288624efe"
+    },
+    {
+      "bytes": 326,
+      "path": "artifacts/research-v2/WP10/native-timing-plan-software/test-logs/native-timing-plan-capture.log",
+      "sha256": "af9403d63ba62f5677f6ee4bd94e383bd8a3f7e124ed57f642ef74cab3942149"
+    }
+  ],
+  "native_c33_source_environment_and_immutable_operator_plan_unchanged": true,
+  "native_models_authenticated": false,
+  "observation": {
+    "bytes": 1247,
+    "path": "artifacts/research-v2/WP10/native-timing-plan-software/observation.json",
+    "sha256": "58012f74648face4922b78f501642bbafe1183b21cc5e4dc05a6ae6a19df2bab"
+  },
+  "quality_precision_equivalence_authenticated": false,
+  "schema": "research/v2-native-timing-plan-software-receipt",
+  "source_files": [
+    {
+      "bytes": 16128,
+      "path": "src/treeneuron/research/native_deployment_plan_v2.py",
+      "sha256": "d0f0702fec14fec96d6b3040e95c198de26735e1ebcd2ef90ab70e709d3c9f71"
+    },
+    {
+      "bytes": 21894,
+      "path": "src/treeneuron/research/protected_journal_v2.py",
+      "sha256": "7987a573f23311a652db71f248b14cff7723ba70ae76f1568d46e693345843a3"
+    },
+    {
+      "bytes": 11846,
+      "path": "src/treeneuron/research/practical_procedure_v2.py",
+      "sha256": "3874408d42b1344c5d7067f965c1ec30d3407e91bd4c68750ac7b5088cfc10b2"
+    },
+    {
+      "bytes": 21995,
+      "path": "src/treeneuron/research/protected_label_evaluator_v2.py",
+      "sha256": "34297052dfa1a2dc568048638332aa6f403d0ed07854dc68f07897899e3b7c98"
+    }
+  ],
+  "source_sha256": "fff74234a6e1679e3eec56663213eb35ca41b8c37db07e5c85ca523d08895981",
+  "test_file": {
+    "bytes": 7440,
+    "path": "tests/test_native_deployment_plan_v2.py",
+    "sha256": "ae7f234e18ee645756843aeda242ac64591d215572ac75e98c29f2e7b17d00f4"
+  },
+  "verification": [
+    {
+      "cause": "Missing timing compiler/public routes and witness event; intended RED",
+      "result": "12 failed,4 passed in1.26s"
+    },
+    {
+      "result": "16 passed in2.12s",
+      "scope": "Initial schedule/FSM/public rejection checks"
+    },
+    {
+      "result": "146 passed in103.19s",
+      "scope": "Seven affected modules"
+    },
+    {
+      "result": "147 passed in105.72s",
+      "scope": "Final seven affected modules including17 new timing-plan checks; added real owned-history compatibility. Counts overlap, not whole-suite pass"
+    }
+  ]
+}

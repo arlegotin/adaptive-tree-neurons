@@ -32,6 +32,10 @@ complete containing costs remain pending; it grants no efficiency claim.
 The [F-only timing-input projection](F-deployment-projection.md) now has
 independent numeric readback and target-access sentinels. Connecting it to the
 genuine frozen model/F-role controller remains implementation work.
+The [native timing plan](native-timing-plan.md) now binds that preparation to
+the actual protocol and a pre-label witness. Its9,360 measurement jobs are
+coded, not run or resource-admitted. The actual executor, complete costs and
+final production integration remain pending.
 
 ## The idea and present verdict
 
