@@ -166,8 +166,25 @@ def test_confirmation_resume_detects_actual_closed_history_without_starting_anot
     assert before=={str(p):p.read_bytes() for p in (tmp_path/'known/programme').rglob('*.json')}
 
 
-@pytest.mark.parametrize('status,expected',[('completed',0),('paused',3),('blocked',4),('preparation_failed',4)])
+@pytest.mark.parametrize('status,expected',[('completed',0),('paused',3),('blocked',4),('preparation_failed',4),
+    ('software_verification_failed',4),('resource_exhausted',3),('interrupted_recoverable',3)])
 def test_native_command_exit_status_distinguishes_completion_from_safe_pause_and_failure(status,expected):
     module=api()
     assert hasattr(module,'practical_command_exit_code'),'Missing operational exit status handling'
     assert module.practical_command_exit_code(dict(status=status))==expected
+
+
+@pytest.mark.parametrize('operation',['production_verification','readiness'])
+def test_cli_plans_required_production_gates_without_treating_metadata_as_authority(tmp_path,operation):
+    import sys
+    from treeneuron.research.cli import main
+    if operation=='production_verification':arguments=dict(profile='reporting',interpreter=sys.executable)
+    else:
+        arguments=dict(qualification_reference=dict(root=str(tmp_path/'unqualified'),inventory_sha256='b'*64),
+            verification_references={},review_reference=dict(path=str(tmp_path/'absent-review'),sha256='c'*64),pinned_commit='d'*40)
+    command=control(tmp_path,operation,arguments);output=tmp_path/'metadata-plan.json'
+    assert main(['plan','--config',str(command),'--output',str(output)])==0
+    value=json.loads(output.read_bytes())
+    assert value['operation']==operation and value['arguments']==arguments
+    assert value['execution_authorized'] is value['protected_access_authorized'] is False
+    assert not (tmp_path/'unqualified').exists() and not (tmp_path/'absent-review').exists()

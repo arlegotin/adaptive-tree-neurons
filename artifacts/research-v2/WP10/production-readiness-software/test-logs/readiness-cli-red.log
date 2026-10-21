@@ -1,0 +1,99 @@
+FFFFF                                                                    [100%]
+=================================== FAILURES ===================================
+_ test_native_command_exit_status_distinguishes_completion_from_safe_pause_and_failure[software_verification_failed-4] _
+
+status = 'software_verification_failed', expected = 4
+
+    @pytest.mark.parametrize('status,expected',[('completed',0),('paused',3),('blocked',4),('preparation_failed',4),
+        ('software_verification_failed',4),('resource_exhausted',3),('interrupted_recoverable',3)])
+    def test_native_command_exit_status_distinguishes_completion_from_safe_pause_and_failure(status,expected):
+        module=api()
+        assert hasattr(module,'practical_command_exit_code'),'Missing operational exit status handling'
+>       assert module.practical_command_exit_code(dict(status=status))==expected
+E       AssertionError: assert 0 == 4
+E        +  where 0 = <function practical_command_exit_code at 0x10aa3afc0>({'status': 'software_verification_failed'})
+E        +    where <function practical_command_exit_code at 0x10aa3afc0> = <module 'treeneuron.research.practical_cli_v2' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/research/practical_cli_v2.py'>.practical_command_exit_code
+E        +    and   {'status': 'software_verification_failed'} = dict(status='software_verification_failed')
+
+tests/test_practical_cli_v2.py:174: AssertionError
+_ test_native_command_exit_status_distinguishes_completion_from_safe_pause_and_failure[resource_exhausted-3] _
+
+status = 'resource_exhausted', expected = 3
+
+    @pytest.mark.parametrize('status,expected',[('completed',0),('paused',3),('blocked',4),('preparation_failed',4),
+        ('software_verification_failed',4),('resource_exhausted',3),('interrupted_recoverable',3)])
+    def test_native_command_exit_status_distinguishes_completion_from_safe_pause_and_failure(status,expected):
+        module=api()
+        assert hasattr(module,'practical_command_exit_code'),'Missing operational exit status handling'
+>       assert module.practical_command_exit_code(dict(status=status))==expected
+E       AssertionError: assert 0 == 3
+E        +  where 0 = <function practical_command_exit_code at 0x10aa3afc0>({'status': 'resource_exhausted'})
+E        +    where <function practical_command_exit_code at 0x10aa3afc0> = <module 'treeneuron.research.practical_cli_v2' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/research/practical_cli_v2.py'>.practical_command_exit_code
+E        +    and   {'status': 'resource_exhausted'} = dict(status='resource_exhausted')
+
+tests/test_practical_cli_v2.py:174: AssertionError
+_ test_native_command_exit_status_distinguishes_completion_from_safe_pause_and_failure[interrupted_recoverable-3] _
+
+status = 'interrupted_recoverable', expected = 3
+
+    @pytest.mark.parametrize('status,expected',[('completed',0),('paused',3),('blocked',4),('preparation_failed',4),
+        ('software_verification_failed',4),('resource_exhausted',3),('interrupted_recoverable',3)])
+    def test_native_command_exit_status_distinguishes_completion_from_safe_pause_and_failure(status,expected):
+        module=api()
+        assert hasattr(module,'practical_command_exit_code'),'Missing operational exit status handling'
+>       assert module.practical_command_exit_code(dict(status=status))==expected
+E       AssertionError: assert 0 == 3
+E        +  where 0 = <function practical_command_exit_code at 0x10aa3afc0>({'status': 'interrupted_recoverable'})
+E        +    where <function practical_command_exit_code at 0x10aa3afc0> = <module 'treeneuron.research.practical_cli_v2' from '/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/src/treeneuron/research/practical_cli_v2.py'>.practical_command_exit_code
+E        +    and   {'status': 'interrupted_recoverable'} = dict(status='interrupted_recoverable')
+
+tests/test_practical_cli_v2.py:174: AssertionError
+_ test_cli_plans_required_production_gates_without_treating_metadata_as_authority[production_verification] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3903/test_cli_plans_required_produc0')
+operation = 'production_verification'
+
+    @pytest.mark.parametrize('operation',['production_verification','readiness'])
+    def test_cli_plans_required_production_gates_without_treating_metadata_as_authority(tmp_path,operation):
+        import sys
+        from treeneuron.research.cli import main
+        if operation=='production_verification':arguments=dict(profile='reporting',interpreter=sys.executable)
+        else:
+            arguments=dict(qualification_reference=dict(root=str(tmp_path/'unqualified'),inventory_sha256='b'*64),
+                verification_references={},review_reference=dict(path=str(tmp_path/'absent-review'),sha256='c'*64),pinned_commit='d'*40)
+        command=control(tmp_path,operation,arguments);output=tmp_path/'metadata-plan.json'
+>       assert main(['plan','--config',str(command),'--output',str(output)])==0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = <function main at 0x10a9b8ea0>(['plan', '--config', '/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3903/test...m7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3903/test_cli_plans_required_produc0/metadata-plan.json'])
+
+tests/test_practical_cli_v2.py:186: AssertionError
+----------------------------- Captured stderr call -----------------------------
+research/v2: Exact current-source practical command and known operation required
+_ test_cli_plans_required_production_gates_without_treating_metadata_as_authority[readiness] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3903/test_cli_plans_required_produc1')
+operation = 'readiness'
+
+    @pytest.mark.parametrize('operation',['production_verification','readiness'])
+    def test_cli_plans_required_production_gates_without_treating_metadata_as_authority(tmp_path,operation):
+        import sys
+        from treeneuron.research.cli import main
+        if operation=='production_verification':arguments=dict(profile='reporting',interpreter=sys.executable)
+        else:
+            arguments=dict(qualification_reference=dict(root=str(tmp_path/'unqualified'),inventory_sha256='b'*64),
+                verification_references={},review_reference=dict(path=str(tmp_path/'absent-review'),sha256='c'*64),pinned_commit='d'*40)
+        command=control(tmp_path,operation,arguments);output=tmp_path/'metadata-plan.json'
+>       assert main(['plan','--config',str(command),'--output',str(output)])==0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = <function main at 0x10a9b8ea0>(['plan', '--config', '/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3903/test...m7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3903/test_cli_plans_required_produc1/metadata-plan.json'])
+
+tests/test_practical_cli_v2.py:186: AssertionError
+----------------------------- Captured stderr call -----------------------------
+research/v2: Exact current-source practical command and known operation required
+=========================== short test summary info ============================
+FAILED tests/test_practical_cli_v2.py::test_native_command_exit_status_distinguishes_completion_from_safe_pause_and_failure[software_verification_failed-4]
+FAILED tests/test_practical_cli_v2.py::test_native_command_exit_status_distinguishes_completion_from_safe_pause_and_failure[resource_exhausted-3]
+FAILED tests/test_practical_cli_v2.py::test_native_command_exit_status_distinguishes_completion_from_safe_pause_and_failure[interrupted_recoverable-3]
+FAILED tests/test_practical_cli_v2.py::test_cli_plans_required_production_gates_without_treating_metadata_as_authority[production_verification]
+FAILED tests/test_practical_cli_v2.py::test_cli_plans_required_production_gates_without_treating_metadata_as_authority[readiness]
+5 failed, 19 deselected in 0.16s

@@ -30,7 +30,8 @@ def main(argv=None):
                 else:
                     result=execute_practical_command(args.config,output=args.output,
                         command=args.command,resume=getattr(args,'resume',False))
-                reference=getattr(result,'reference',None)
+                reference=({k:result[k] for k in ('status','profile','reference') if k in result}
+                    if isinstance(result,dict) and 'reference' in result else getattr(result,'reference',None))
                 if reference is None and hasattr(result,'file_sha256'):
                     reference=dict(path=str(result.path),sha256=result.file_sha256)
                 print(json.dumps(reference if reference is not None else result,sort_keys=True))

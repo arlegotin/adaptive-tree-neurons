@@ -1,0 +1,131 @@
+........................................................................ [ 28%]
+........................................................................ [ 56%]
+..........FFFF.......................................................... [ 84%]
+.........................................                                [100%]
+=================================== FAILURES ===================================
+______ test_failed_driver_carries_its_committed_clock_to_the_owned_worker ______
+
+declared = ({'schema': 'research/v2-primary-program-plan', 'source_sha256': 'a60f50740c1d1d61770757cccb2c0cec50a84c7044429f19b80e...iver_carries_its0/procedure.json', 'sha256': 'bb729340d8cb2c3a9e406bb68fef97e6bd11118169d63d9030b5498c44b49807'}, ...})
+
+    def test_failed_driver_carries_its_committed_clock_to_the_owned_worker(declared):
+        module=api();program,args=declared
+        def interrupted(**kw):no_child_episode(**kw);raise RuntimeError('driver after closed caller')
+        with pytest.raises(RuntimeError) as caught:module._run_program_queue(program,execute_episode=interrupted,audit_terminal=lambda **kw:None)
+        from treeneuron.research.program_process_v2 import _failed_program_invocation_references
+        reference=caught.value.program_invocation_reference
+        request=dict(source_sha256=program['source_sha256'],arguments=dict(directory=program['directory']))
+>       assert _failed_program_invocation_references(caught.value,request)==[reference]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_primary_program_v2.py:146: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+error = RuntimeError('driver after closed caller')
+request = {'source_sha256': 'a60f50740c1d1d61770757cccb2c0cec50a84c7044429f19b80e163c055e5bd3', 'arguments': {'directory': '/pri...lders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3909/test_failed_driver_carries_its0/program'}}
+
+    def _failed_program_invocation_references(error,request):
+        """A published driver clock is metadata, never a qualification capability."""
+>       if request['tranche']=='confirmation':
+           ^^^^^^^^^^^^^^^^^^
+E       KeyError: 'tranche'
+
+src/treeneuron/research/program_process_v2.py:98: KeyError
+___ test_failed_invocation_marker_cannot_substitute_clock_or_source[foreign] ___
+
+declared = ({'schema': 'research/v2-primary-program-plan', 'source_sha256': 'a60f50740c1d1d61770757cccb2c0cec50a84c7044429f19b80e...vocation_marker_0/procedure.json', 'sha256': '0de516f80bec554db98c3f3b1f2770420043007cb56a2b716df955a9632013b5'}, ...})
+fault = 'foreign'
+
+    @pytest.mark.parametrize('fault',['foreign','hash','source'])
+    def test_failed_invocation_marker_cannot_substitute_clock_or_source(declared,fault):
+        module=api();program,args=declared
+        def interrupted(**kw):no_child_episode(**kw);raise RuntimeError('driver after caller')
+        with pytest.raises(RuntimeError) as caught:module._run_program_queue(program,execute_episode=interrupted,audit_terminal=lambda **kw:None)
+        from treeneuron.research.program_process_v2 import _failed_program_invocation_references
+        request=dict(source_sha256=program['source_sha256'],arguments=dict(directory=program['directory']))
+        if fault=='foreign':caught.value.program_invocation_reference['path']=str(args['directory']/'foreign.json')
+        elif fault=='hash':caught.value.program_invocation_reference['sha256']='0'*64
+        else:request['source_sha256']='0'*64
+>       with pytest.raises(ValueError):_failed_program_invocation_references(caught.value,request)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_primary_program_v2.py:161: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+error = RuntimeError('driver after caller')
+request = {'source_sha256': 'a60f50740c1d1d61770757cccb2c0cec50a84c7044429f19b80e163c055e5bd3', 'arguments': {'directory': '/pri...lders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3909/test_failed_invocation_marker_0/program'}}
+
+    def _failed_program_invocation_references(error,request):
+        """A published driver clock is metadata, never a qualification capability."""
+>       if request['tranche']=='confirmation':
+           ^^^^^^^^^^^^^^^^^^
+E       KeyError: 'tranche'
+
+src/treeneuron/research/program_process_v2.py:98: KeyError
+____ test_failed_invocation_marker_cannot_substitute_clock_or_source[hash] _____
+
+declared = ({'schema': 'research/v2-primary-program-plan', 'source_sha256': 'a60f50740c1d1d61770757cccb2c0cec50a84c7044429f19b80e...vocation_marker_1/procedure.json', 'sha256': '91cbb364dfe250e44d74b9f9ab403d00c0633fd4e7571ea4da83e34419e3bf32'}, ...})
+fault = 'hash'
+
+    @pytest.mark.parametrize('fault',['foreign','hash','source'])
+    def test_failed_invocation_marker_cannot_substitute_clock_or_source(declared,fault):
+        module=api();program,args=declared
+        def interrupted(**kw):no_child_episode(**kw);raise RuntimeError('driver after caller')
+        with pytest.raises(RuntimeError) as caught:module._run_program_queue(program,execute_episode=interrupted,audit_terminal=lambda **kw:None)
+        from treeneuron.research.program_process_v2 import _failed_program_invocation_references
+        request=dict(source_sha256=program['source_sha256'],arguments=dict(directory=program['directory']))
+        if fault=='foreign':caught.value.program_invocation_reference['path']=str(args['directory']/'foreign.json')
+        elif fault=='hash':caught.value.program_invocation_reference['sha256']='0'*64
+        else:request['source_sha256']='0'*64
+>       with pytest.raises(ValueError):_failed_program_invocation_references(caught.value,request)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_primary_program_v2.py:161: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+error = RuntimeError('driver after caller')
+request = {'source_sha256': 'a60f50740c1d1d61770757cccb2c0cec50a84c7044429f19b80e163c055e5bd3', 'arguments': {'directory': '/pri...lders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3909/test_failed_invocation_marker_1/program'}}
+
+    def _failed_program_invocation_references(error,request):
+        """A published driver clock is metadata, never a qualification capability."""
+>       if request['tranche']=='confirmation':
+           ^^^^^^^^^^^^^^^^^^
+E       KeyError: 'tranche'
+
+src/treeneuron/research/program_process_v2.py:98: KeyError
+___ test_failed_invocation_marker_cannot_substitute_clock_or_source[source] ____
+
+declared = ({'schema': 'research/v2-primary-program-plan', 'source_sha256': 'a60f50740c1d1d61770757cccb2c0cec50a84c7044429f19b80e...vocation_marker_2/procedure.json', 'sha256': '15a27bc85ab1a6b6574980bec06feead5504f63ed302524231a9c6aa0ae0bdf6'}, ...})
+fault = 'source'
+
+    @pytest.mark.parametrize('fault',['foreign','hash','source'])
+    def test_failed_invocation_marker_cannot_substitute_clock_or_source(declared,fault):
+        module=api();program,args=declared
+        def interrupted(**kw):no_child_episode(**kw);raise RuntimeError('driver after caller')
+        with pytest.raises(RuntimeError) as caught:module._run_program_queue(program,execute_episode=interrupted,audit_terminal=lambda **kw:None)
+        from treeneuron.research.program_process_v2 import _failed_program_invocation_references
+        request=dict(source_sha256=program['source_sha256'],arguments=dict(directory=program['directory']))
+        if fault=='foreign':caught.value.program_invocation_reference['path']=str(args['directory']/'foreign.json')
+        elif fault=='hash':caught.value.program_invocation_reference['sha256']='0'*64
+        else:request['source_sha256']='0'*64
+>       with pytest.raises(ValueError):_failed_program_invocation_references(caught.value,request)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_primary_program_v2.py:161: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+error = RuntimeError('driver after caller')
+request = {'source_sha256': '0000000000000000000000000000000000000000000000000000000000000000', 'arguments': {'directory': '/pri...lders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3909/test_failed_invocation_marker_2/program'}}
+
+    def _failed_program_invocation_references(error,request):
+        """A published driver clock is metadata, never a qualification capability."""
+>       if request['tranche']=='confirmation':
+           ^^^^^^^^^^^^^^^^^^
+E       KeyError: 'tranche'
+
+src/treeneuron/research/program_process_v2.py:98: KeyError
+=========================== short test summary info ============================
+FAILED tests/test_primary_program_v2.py::test_failed_driver_carries_its_committed_clock_to_the_owned_worker
+FAILED tests/test_primary_program_v2.py::test_failed_invocation_marker_cannot_substitute_clock_or_source[foreign]
+FAILED tests/test_primary_program_v2.py::test_failed_invocation_marker_cannot_substitute_clock_or_source[hash]
+FAILED tests/test_primary_program_v2.py::test_failed_invocation_marker_cannot_substitute_clock_or_source[source]
+4 failed, 253 passed in 97.05s (0:01:37)

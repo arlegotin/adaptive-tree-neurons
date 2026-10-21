@@ -1,0 +1,171 @@
+FFFFFFF                                                                  [100%]
+=================================== FAILURES ===================================
+_ test_junit_requires_every_fixed_input_file_and_rejects_unrelated_passing_cases _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3899/test_junit_requires_every_fixe0')
+
+    def test_junit_requires_every_fixed_input_file_and_rejects_unrelated_passing_cases(tmp_path):
+>       module=api();path=tmp_path/'junit.xml';files=['tests/test_alpha.py','tests/test_beta.py']
+               ^^^^^
+
+tests/test_production_verification_v2.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.production_verification_v2'),'Missing production fixture qualification'
+E       AssertionError: Missing production fixture qualification
+E       assert None
+E        +  where None = <function find_spec at 0x106079c60>('treeneuron.research.production_verification_v2')
+E        +    where <function find_spec at 0x106079c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_production_verification_v2.py:9: AssertionError
+_ test_public_verifier_rejects_caller_selected_tests_before_any_output[tests/test_production_verification_v2.py] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3899/test_public_verifier_rejects_c0')
+profile = 'tests/test_production_verification_v2.py'
+
+    @pytest.mark.parametrize('profile',['tests/test_production_verification_v2.py','user-selected','',True])
+    def test_public_verifier_rejects_caller_selected_tests_before_any_output(tmp_path,profile):
+        import sys
+        with pytest.raises(ValueError):
+>           api().verify_production_implementation(profile=profile,output=tmp_path/'never',interpreter=Path(sys.executable))
+            ^^^^^
+
+tests/test_production_verification_v2.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.production_verification_v2'),'Missing production fixture qualification'
+E       AssertionError: Missing production fixture qualification
+E       assert None
+E        +  where None = <function find_spec at 0x106079c60>('treeneuron.research.production_verification_v2')
+E        +    where <function find_spec at 0x106079c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_production_verification_v2.py:9: AssertionError
+_ test_public_verifier_rejects_caller_selected_tests_before_any_output[user-selected] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3899/test_public_verifier_rejects_c1')
+profile = 'user-selected'
+
+    @pytest.mark.parametrize('profile',['tests/test_production_verification_v2.py','user-selected','',True])
+    def test_public_verifier_rejects_caller_selected_tests_before_any_output(tmp_path,profile):
+        import sys
+        with pytest.raises(ValueError):
+>           api().verify_production_implementation(profile=profile,output=tmp_path/'never',interpreter=Path(sys.executable))
+            ^^^^^
+
+tests/test_production_verification_v2.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.production_verification_v2'),'Missing production fixture qualification'
+E       AssertionError: Missing production fixture qualification
+E       assert None
+E        +  where None = <function find_spec at 0x106079c60>('treeneuron.research.production_verification_v2')
+E        +    where <function find_spec at 0x106079c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_production_verification_v2.py:9: AssertionError
+____ test_public_verifier_rejects_caller_selected_tests_before_any_output[] ____
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3899/test_public_verifier_rejects_c2')
+profile = ''
+
+    @pytest.mark.parametrize('profile',['tests/test_production_verification_v2.py','user-selected','',True])
+    def test_public_verifier_rejects_caller_selected_tests_before_any_output(tmp_path,profile):
+        import sys
+        with pytest.raises(ValueError):
+>           api().verify_production_implementation(profile=profile,output=tmp_path/'never',interpreter=Path(sys.executable))
+            ^^^^^
+
+tests/test_production_verification_v2.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.production_verification_v2'),'Missing production fixture qualification'
+E       AssertionError: Missing production fixture qualification
+E       assert None
+E        +  where None = <function find_spec at 0x106079c60>('treeneuron.research.production_verification_v2')
+E        +    where <function find_spec at 0x106079c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_production_verification_v2.py:9: AssertionError
+__ test_public_verifier_rejects_caller_selected_tests_before_any_output[True] __
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3899/test_public_verifier_rejects_c3')
+profile = True
+
+    @pytest.mark.parametrize('profile',['tests/test_production_verification_v2.py','user-selected','',True])
+    def test_public_verifier_rejects_caller_selected_tests_before_any_output(tmp_path,profile):
+        import sys
+        with pytest.raises(ValueError):
+>           api().verify_production_implementation(profile=profile,output=tmp_path/'never',interpreter=Path(sys.executable))
+            ^^^^^
+
+tests/test_production_verification_v2.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.production_verification_v2'),'Missing production fixture qualification'
+E       AssertionError: Missing production fixture qualification
+E       assert None
+E        +  where None = <function find_spec at 0x106079c60>('treeneuron.research.production_verification_v2')
+E        +    where <function find_spec at 0x106079c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_production_verification_v2.py:9: AssertionError
+_ test_green_junit_without_actual_supervised_profile_receipts_is_not_qualification _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3899/test_green_junit_without_actua0')
+
+    def test_green_junit_without_actual_supervised_profile_receipts_is_not_qualification(tmp_path):
+        root=tmp_path/'invented';root.mkdir();junit(root/'junit.xml',[('tests.test_alpha','pass','')])
+        with pytest.raises((ValueError,FileNotFoundError)):
+>           api().load_production_verification(dict(root=str(root),inventory_sha256='a'*64),expected_profile='protection')
+            ^^^^^
+
+tests/test_production_verification_v2.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.production_verification_v2'),'Missing production fixture qualification'
+E       AssertionError: Missing production fixture qualification
+E       assert None
+E        +  where None = <function find_spec at 0x106079c60>('treeneuron.research.production_verification_v2')
+E        +    where <function find_spec at 0x106079c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_production_verification_v2.py:9: AssertionError
+______ test_changed_source_or_profile_request_fails_before_worker_output _______
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3899/test_changed_source_or_profile0')
+
+    def test_changed_source_or_profile_request_fails_before_worker_output(tmp_path):
+        import hashlib,json
+        from treeneuron.research.native_verification_v2 import verification_identity
+>       module=api();identity=verification_identity();identity['scientific_source_sha256']='0'*64
+               ^^^^^
+
+tests/test_production_verification_v2.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.production_verification_v2'),'Missing production fixture qualification'
+E       AssertionError: Missing production fixture qualification
+E       assert None
+E        +  where None = <function find_spec at 0x106079c60>('treeneuron.research.production_verification_v2')
+E        +    where <function find_spec at 0x106079c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_production_verification_v2.py:9: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_production_verification_v2.py::test_junit_requires_every_fixed_input_file_and_rejects_unrelated_passing_cases
+FAILED tests/test_production_verification_v2.py::test_public_verifier_rejects_caller_selected_tests_before_any_output[tests/test_production_verification_v2.py]
+FAILED tests/test_production_verification_v2.py::test_public_verifier_rejects_caller_selected_tests_before_any_output[user-selected]
+FAILED tests/test_production_verification_v2.py::test_public_verifier_rejects_caller_selected_tests_before_any_output[]
+FAILED tests/test_production_verification_v2.py::test_public_verifier_rejects_caller_selected_tests_before_any_output[True]
+FAILED tests/test_production_verification_v2.py::test_green_junit_without_actual_supervised_profile_receipts_is_not_qualification
+FAILED tests/test_production_verification_v2.py::test_changed_source_or_profile_request_fails_before_worker_output
+7 failed in 0.23s

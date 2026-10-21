@@ -1,0 +1,122 @@
+{
+  "T_accessed": false,
+  "actual_benchmark_labels_read": 0,
+  "actual_benchmark_models_fit_or_predicted": 0,
+  "actual_native_readiness_positive": false,
+  "actual_supervised_software_positive": true,
+  "all_actual_profile_loaders_reopened": true,
+  "fixed_test_files": 44,
+  "formal_efficiency_claim": false,
+  "fresh_final_branch_review_complete": false,
+  "known_fixture_models_and_sentinel_arrays_used": true,
+  "passing_cases": 751,
+  "previous_sources_reconstructed": true,
+  "production_source_ready": false,
+  "profiles": {
+    "pipeline": {
+      "files": [
+        "tests/test_program_process_v2.py",
+        "tests/test_cold_confirmation_process_v2.py",
+        "tests/test_confirm_programme_v2.py",
+        "tests/test_deployment_query_v2.py",
+        "tests/test_native_deployment_worker_v2.py",
+        "tests/test_native_deployment_plan_v2.py",
+        "tests/test_native_deployment_execution_v2.py",
+        "tests/test_practical_pipeline_costs_v2.py",
+        "tests/test_practical_preT_costs_v2.py"
+      ],
+      "identity_sha256": "1bf6f9ff785dbfbf342e605db948ad42ff8b0f30948b15cccdf3cc1322c61f89",
+      "junit_sha256": "98167829490ee6175921b9ad8f080afde1bec06090478d3d8e1ec34471b35cf9",
+      "observed_peak_root_rss_bytes": 341377024,
+      "process_elapsed_ns": 55669850666,
+      "reference": {
+        "inventory_sha256": "a57753bd08642a5f558c3d40f55ba5a7ae1c8ce6857c54051ec3651162463e56",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/production-pipeline-eeeeb85"
+      },
+      "root_only_memory_scope": "Observed root worker RSS samples; descendants and unobserved peaks are not measured",
+      "test_cases": 159
+    },
+    "protection": {
+      "files": [
+        "tests/test_protected_journal_v2.py",
+        "tests/test_protected_query_v2.py",
+        "tests/test_protected_query_worker_v2.py",
+        "tests/test_protected_query_artifact_v2.py",
+        "tests/test_protected_prediction_queue_v2.py",
+        "tests/test_protected_prediction_gate_v2.py",
+        "tests/test_protected_label_evaluator_v2.py",
+        "tests/test_independent_raw_audit_v2.py",
+        "tests/test_raw_audit_readback_v2.py"
+      ],
+      "identity_sha256": "1bf6f9ff785dbfbf342e605db948ad42ff8b0f30948b15cccdf3cc1322c61f89",
+      "junit_sha256": "105999f50cbb3b2ebe5621f2c123d69f6fbb0221b00370665c2e69debc8c9d0e",
+      "observed_peak_root_rss_bytes": 297648128,
+      "process_elapsed_ns": 246881359375,
+      "reference": {
+        "inventory_sha256": "689695d375a9c37449906059c270ade1dfd22adf8267d5c78ecf446752f826f6",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/production-protection-eeeeb85"
+      },
+      "root_only_memory_scope": "Observed root worker RSS samples; descendants and unobserved peaks are not measured",
+      "test_cases": 197
+    },
+    "reporting": {
+      "files": [
+        "tests/test_report_v2.py",
+        "tests/test_frozen_practical_analysis_v2.py",
+        "tests/test_practical_comparisons_v2.py",
+        "tests/test_practical_family_report_v2.py",
+        "tests/test_protected_practical_report_v2.py",
+        "tests/test_practical_cli_v2.py",
+        "tests/test_practical_T_protocol_v2.py",
+        "tests/test_production_verification_v2.py",
+        "tests/test_production_readiness_v2.py"
+      ],
+      "identity_sha256": "1bf6f9ff785dbfbf342e605db948ad42ff8b0f30948b15cccdf3cc1322c61f89",
+      "junit_sha256": "a50e58d18e5c239452ae976d7b6ff4152aeeb7c00a1128e36546701b4afff905",
+      "observed_peak_root_rss_bytes": 378372096,
+      "process_elapsed_ns": 20857831833,
+      "reference": {
+        "inventory_sha256": "52099d41555aaae2c32f851e9d53f7acd36a1f545fb65f6f182e846e5f0a3858",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/production-reporting-eeeeb85"
+      },
+      "root_only_memory_scope": "Observed root worker RSS samples; descendants and unobserved peaks are not measured",
+      "test_cases": 138
+    },
+    "search": {
+      "files": [
+        "tests/test_practical_workload.py",
+        "tests/test_practical_support_lock_v2.py",
+        "tests/test_practical_procedure_v2.py",
+        "tests/test_primary_search_declaration_v2.py",
+        "tests/test_primary_search_worker_v2.py",
+        "tests/test_primary_caller_boundary_v2.py",
+        "tests/test_primary_resource_binding_v2.py",
+        "tests/test_primary_invocation_v2.py",
+        "tests/test_primary_program_v2.py",
+        "tests/test_qualified_primary_models_v2.py",
+        "tests/test_practical_global_freeze_v2.py",
+        "tests/test_secondary_resource_v2.py",
+        "tests/test_secondary_program_v2.py",
+        "tests/test_secondary_native_search_v2.py",
+        "tests/test_qualified_practical_models_v2.py",
+        "tests/test_native_resource_forecast_v2.py",
+        "tests/test_native_qualification_registry_v2.py"
+      ],
+      "identity_sha256": "1bf6f9ff785dbfbf342e605db948ad42ff8b0f30948b15cccdf3cc1322c61f89",
+      "junit_sha256": "f56aba8f2f0b2c2c596916fc9fa86196bfc04061a0106c2483a96d59e0dff42b",
+      "observed_peak_root_rss_bytes": 354680832,
+      "process_elapsed_ns": 99382515541,
+      "reference": {
+        "inventory_sha256": "9e066c4f4f3f458a2881c0ed9cfa0cdb8028aea2f58d31ecaa2ca2ba2c703975",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/production-search-eeeeb85"
+      },
+      "root_only_memory_scope": "Observed root worker RSS samples; descendants and unobserved peaks are not measured",
+      "test_cases": 257
+    }
+  },
+  "protected_access_authorized": false,
+  "schema": "research/v2-production-readiness-software-observation",
+  "scope": "Four actual immutable current-source software profiles only; native qualification, branch review, readiness seal and practical benchmark remain separate",
+  "source_sha256": "eeeeb85725e9da424f35a25af96a8837ad8c555eb8b557abb10143f5e2097962",
+  "whole_repository_suite_passed": false
+}

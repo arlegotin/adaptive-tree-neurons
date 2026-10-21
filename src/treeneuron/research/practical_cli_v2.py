@@ -30,10 +30,12 @@ _OPERATIONS={
     'T_protocol':('practical_T_protocol_v2','seal_practical_T_protocol','output'),
     'primary_program':('primary_program_v2','run_primary_program',None),
     'secondary_program':('secondary_program_v2','run_secondary_program',None),
+    'production_verification':('production_verification_v2','verify_production_implementation','output'),
+    'readiness':('production_readiness_v2','seal_production_readiness','output'),
 }
 _PROGRAMS={'primary_program','secondary_program'}
 _FREEZES={'support_lock','procedure','qualification_registry','primary_inventory',
-    'primary_models','global_barrier','practical_models','preT_costs','T_protocol'}
+    'primary_models','global_barrier','practical_models','preT_costs','T_protocol','readiness'}
 _FROZEN_INPUTS=('models_reference','global_barrier_reference','qualification_reference','preT_costs_reference','readiness_reference')
 
 
@@ -153,7 +155,10 @@ def _run_owned_program(operation,args,output):
 
 
 def practical_command_exit_code(result):
-    if type(result) is dict and result.get('status')=='preparation_failed':return 4
+    if type(result) is dict:
+        if result.get('status') in ('resource_exhausted','interrupted_recoverable'):return 3
+        if result.get('status') in ('preparation_failed','software_verification_failed','input_or_dependency_failure',
+                'numerical_failure','irrecoverable_missing','completed_ineligible','timeout'):return 4
     if type(result) is dict and result.get('status') in ('completed','paused','blocked'):
         return {'completed':0,'paused':3,'blocked':4}[result['status']]
     return 0

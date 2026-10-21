@@ -69,6 +69,8 @@ unqualified command plan; it does not open role arrays or run those stages.
 | `preT_costs` | `practical_preT_costs_v2.seal_practical_preT_costs` |
 | `T_protocol` | `practical_T_protocol_v2.seal_practical_T_protocol` |
 | `primary_program` / `secondary_program` | Existing public programme through `program_process_v2.run_program_process` |
+| `production_verification` | `production_verification_v2.verify_production_implementation`, fixed source-bound software fixtures |
+| `readiness` | `production_readiness_v2.seal_production_readiness`, actual native/software/review/package gate |
 
 Arguments have the named public function's exact signature, with output omitted.
 For a Python `practical_plan` or `plan` parameter, provide the corresponding
@@ -118,6 +120,13 @@ through to a successful report. Explicit development reports for completed,
 estimation, retired or blocked studies retain the existing
 `--development-manifest-sha256` contract.
 
+For an unavailable or retired study, an explicit source-bound development
+manifest can contain `status: "blocked"` or `"retired"`, `cases: []`, retained
+attempt statuses and concrete limitations/recovery steps. This reports
+availability without inventing risks, raw authentication or protected success.
+It must not relabel protected T outcomes as E/V. This explicit route is separate
+from the qualified complete-practical report and never masks an invalid proof.
+
 Integration also exposed two preproduction wiring defects: confirmation worker
 argument shadowing after a successful return, and a JSON-only publication guard
 used for directories and Markdown. Regression checks now exercise successful
@@ -140,3 +149,9 @@ manifests:840 metadata jobs,168 primary/672 secondary, no role arrays. It retain
 overwrite rejection and actual unqualified confirmation denial before any study
 output. It fits/predicts no model and reads no benchmark labels. All scientific
 results and the held native worker's source/environment remain unchanged.
+
+The later [readiness implementation](production-readiness.md) adds the two
+required operations above and serial supervised fixture profiles. Readiness
+code now exists; its genuine qualification/review prerequisites remain unrun.
+The earlier133-check receipt describes its own prior source and is not silently
+promoted to the later revision.

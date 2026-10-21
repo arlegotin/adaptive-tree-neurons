@@ -1,0 +1,340 @@
+{
+  "T_accessed": false,
+  "actual_benchmark_labels_read": 0,
+  "actual_benchmark_models_fit_or_predicted": 0,
+  "actual_native_readiness_positive": false,
+  "actual_supervised_software_positive": true,
+  "artifact_inventory": {
+    "bytes": 25394,
+    "path": "artifacts/research-v2/WP10/production-readiness-software-inventory.json",
+    "sha256": "402aafb8c33f78331e5aa9eb2ab670c8091c19adfe2874f8460ce5b585f95a92"
+  },
+  "base_commit": "a4db2de",
+  "capture": {
+    "bytes": 6058,
+    "path": "artifacts/research-v2/WP10/production-readiness-software/observation.json",
+    "sha256": "f6e9ae5eddffca1881c4fd26f52cd2ec74165e940d3db307d33cee3fb8f426ac"
+  },
+  "capture_script": {
+    "bytes": 3807,
+    "path": "artifacts/research-v2/WP10/capture_production_readiness_software.py",
+    "sha256": "87e7aa7e281dbf81874117a389be4ab2088f54f023ba38743893c1c2325d2c79"
+  },
+  "changes": [
+    "Fixed four serial supervised software profiles covering44 exact test files; every file contributes passing JUnit cases; no skips/failures/duplicates/foreign cases",
+    "Actual software loader reopens source/test/lock identity, managed argv/environment/interpreter/process/log inventory/JUnit rather than trusting a green summary",
+    "Readiness seal/load genuinely qualify native registry FIRST, then all current-source software proofs, scientific execution snapshot and fresh branch-review/fix evidence",
+    "Reviewed-to-final Git source delta must equal documented fixed finding files; unresolved material findings block; deferred minors remain explicit",
+    "Docs-only checkout changes preserve unchanged pinned scientific package; core hash stays distinct from execution package identity",
+    "Registered production_verification/readiness CLI stages and safe operational exit statuses; compact console references retain full on-disk evidence",
+    "Restored legacy minimal failed-driver clock metadata handling without weakening strict public owned requests"
+  ],
+  "claim_authorized": false,
+  "date": "2026-10-21",
+  "final_profiles": {
+    "pipeline": {
+      "files": [
+        "tests/test_program_process_v2.py",
+        "tests/test_cold_confirmation_process_v2.py",
+        "tests/test_confirm_programme_v2.py",
+        "tests/test_deployment_query_v2.py",
+        "tests/test_native_deployment_worker_v2.py",
+        "tests/test_native_deployment_plan_v2.py",
+        "tests/test_native_deployment_execution_v2.py",
+        "tests/test_practical_pipeline_costs_v2.py",
+        "tests/test_practical_preT_costs_v2.py"
+      ],
+      "identity_sha256": "1bf6f9ff785dbfbf342e605db948ad42ff8b0f30948b15cccdf3cc1322c61f89",
+      "junit_sha256": "98167829490ee6175921b9ad8f080afde1bec06090478d3d8e1ec34471b35cf9",
+      "observed_peak_root_rss_bytes": 341377024,
+      "process_elapsed_ns": 55669850666,
+      "reference": {
+        "inventory_sha256": "a57753bd08642a5f558c3d40f55ba5a7ae1c8ce6857c54051ec3651162463e56",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/production-pipeline-eeeeb85"
+      },
+      "root_only_memory_scope": "Observed root worker RSS samples; descendants and unobserved peaks are not measured",
+      "test_cases": 159
+    },
+    "protection": {
+      "files": [
+        "tests/test_protected_journal_v2.py",
+        "tests/test_protected_query_v2.py",
+        "tests/test_protected_query_worker_v2.py",
+        "tests/test_protected_query_artifact_v2.py",
+        "tests/test_protected_prediction_queue_v2.py",
+        "tests/test_protected_prediction_gate_v2.py",
+        "tests/test_protected_label_evaluator_v2.py",
+        "tests/test_independent_raw_audit_v2.py",
+        "tests/test_raw_audit_readback_v2.py"
+      ],
+      "identity_sha256": "1bf6f9ff785dbfbf342e605db948ad42ff8b0f30948b15cccdf3cc1322c61f89",
+      "junit_sha256": "105999f50cbb3b2ebe5621f2c123d69f6fbb0221b00370665c2e69debc8c9d0e",
+      "observed_peak_root_rss_bytes": 297648128,
+      "process_elapsed_ns": 246881359375,
+      "reference": {
+        "inventory_sha256": "689695d375a9c37449906059c270ade1dfd22adf8267d5c78ecf446752f826f6",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/production-protection-eeeeb85"
+      },
+      "root_only_memory_scope": "Observed root worker RSS samples; descendants and unobserved peaks are not measured",
+      "test_cases": 197
+    },
+    "reporting": {
+      "files": [
+        "tests/test_report_v2.py",
+        "tests/test_frozen_practical_analysis_v2.py",
+        "tests/test_practical_comparisons_v2.py",
+        "tests/test_practical_family_report_v2.py",
+        "tests/test_protected_practical_report_v2.py",
+        "tests/test_practical_cli_v2.py",
+        "tests/test_practical_T_protocol_v2.py",
+        "tests/test_production_verification_v2.py",
+        "tests/test_production_readiness_v2.py"
+      ],
+      "identity_sha256": "1bf6f9ff785dbfbf342e605db948ad42ff8b0f30948b15cccdf3cc1322c61f89",
+      "junit_sha256": "a50e58d18e5c239452ae976d7b6ff4152aeeb7c00a1128e36546701b4afff905",
+      "observed_peak_root_rss_bytes": 378372096,
+      "process_elapsed_ns": 20857831833,
+      "reference": {
+        "inventory_sha256": "52099d41555aaae2c32f851e9d53f7acd36a1f545fb65f6f182e846e5f0a3858",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/production-reporting-eeeeb85"
+      },
+      "root_only_memory_scope": "Observed root worker RSS samples; descendants and unobserved peaks are not measured",
+      "test_cases": 138
+    },
+    "search": {
+      "files": [
+        "tests/test_practical_workload.py",
+        "tests/test_practical_support_lock_v2.py",
+        "tests/test_practical_procedure_v2.py",
+        "tests/test_primary_search_declaration_v2.py",
+        "tests/test_primary_search_worker_v2.py",
+        "tests/test_primary_caller_boundary_v2.py",
+        "tests/test_primary_resource_binding_v2.py",
+        "tests/test_primary_invocation_v2.py",
+        "tests/test_primary_program_v2.py",
+        "tests/test_qualified_primary_models_v2.py",
+        "tests/test_practical_global_freeze_v2.py",
+        "tests/test_secondary_resource_v2.py",
+        "tests/test_secondary_program_v2.py",
+        "tests/test_secondary_native_search_v2.py",
+        "tests/test_qualified_practical_models_v2.py",
+        "tests/test_native_resource_forecast_v2.py",
+        "tests/test_native_qualification_registry_v2.py"
+      ],
+      "identity_sha256": "1bf6f9ff785dbfbf342e605db948ad42ff8b0f30948b15cccdf3cc1322c61f89",
+      "junit_sha256": "f56aba8f2f0b2c2c596916fc9fa86196bfc04061a0106c2483a96d59e0dff42b",
+      "observed_peak_root_rss_bytes": 354680832,
+      "process_elapsed_ns": 99382515541,
+      "reference": {
+        "inventory_sha256": "9e066c4f4f3f458a2881c0ed9cfa0cdb8028aea2f58d31ecaa2ca2ba2c703975",
+        "root": "/Users/artemlegotin/Documents/git_alter/adaptive-tree-neurons/artifacts/research-v2/WP10/production-search-eeeeb85"
+      },
+      "root_only_memory_scope": "Observed root worker RSS samples; descendants and unobserved peaks are not measured",
+      "test_cases": 257
+    }
+  },
+  "final_source_package_commit_check_pending": true,
+  "fresh_final_branch_review_complete": false,
+  "known_fixture_models_and_sentinel_arrays_used": true,
+  "limitations": [
+    "All final-source native prerequisites and fresh whole-branch review still required; no readiness or protected-data authority has been issued",
+    "Actual840-search/native benchmark/protected comparison remains unrun; scientific conclusions unchanged",
+    "Historical whole-suite failures and seven live legacy memory-pressure setup errors remain retained;751 is four scoped profiles, not all repository tests",
+    "Source/test/lock changes invalidate affected old proofs; prior sources retained, never migrated as current success",
+    "Review identity is auditable provenance, not cryptographic authentication; no fake successful native qualifier used",
+    "Observed RSS covers root workers only; descendant/whole-job peaks and dedicated timing are not established"
+  ],
+  "logs": [
+    {
+      "bytes": 10477,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-verification-red.log",
+      "sha256": "20df426e85533922487ba5182f3fa2fdf2921e9839936717c7d4e89572489515"
+    },
+    {
+      "bytes": 98,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-verification-first-green.log",
+      "sha256": "7592dd9382ea668fa3587360143f5cbaf23ee05533ece7b27713f672c627b7a2"
+    },
+    {
+      "bytes": 27705,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-readiness-red.log",
+      "sha256": "d3f7494b95af38a3bf18c7ce854af4806b3de0675a194f79d0e42b58bede7b0e"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-readiness-first-green.log",
+      "sha256": "15ef4ab815878f9bb4783222076c75d6e9a22764c831d7e7a37b438f34fc0f3c"
+    },
+    {
+      "bytes": 8086,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/readiness-cli-red.log",
+      "sha256": "140549511d9a8a3b3b8c64b9b0f91177a0e65e645cca5b6ba9c149c87b57a964"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/readiness-cli-first-green.log",
+      "sha256": "a5d5683ae9f3c10112ee6c10fe40594de0fd5cb32e1f1388eb8799c11d84c4f5"
+    },
+    {
+      "bytes": 63628,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-reporting-profile.log",
+      "sha256": "f547d1ff76a82ead0121aa89a8276123e4447e44634f59684c921b9e8a158add"
+    },
+    {
+      "bytes": 112,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-legacy-clock-green.log",
+      "sha256": "33ee6ab4fea5bebddf2d84e79cd7c7896c3aba8c71289e238fd445e1efe02cf0"
+    },
+    {
+      "bytes": 248,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-readiness-capture.log",
+      "sha256": "5e215b97c5572c6171a535c9f7721c06638651293321a3a537eabee91522487d"
+    },
+    {
+      "bytes": 83,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-search-a60f507.log",
+      "sha256": "ebd9ab3ea5465abb86bc23a1289330fe062a47f8f703fc5d799457badf6ad354"
+    },
+    {
+      "bytes": 302,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-reporting-a60f507.log",
+      "sha256": "6727c767824de9f03b0d69c2b4d3293a46ae063b8b33ea293ff165f89cb974f6"
+    },
+    {
+      "bytes": 300,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-pipeline-a60f507.log",
+      "sha256": "b7653d6b37f48d4fdf8b6c67417892d988e7bd6ee0f236af86c0efa6d9a7fe1f"
+    },
+    {
+      "bytes": 304,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-protection-a60f507.log",
+      "sha256": "3d441822f98d657ea7d55ab25ff7d3fb48d54f8a73141a4b46975b4919723985"
+    },
+    {
+      "bytes": 296,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-search-eeeeb85.log",
+      "sha256": "2d2ea96f3028291451053f1bbaf5f7c81bc9ac3ed9c82bc3011d38cb5507a98e"
+    },
+    {
+      "bytes": 302,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-reporting-eeeeb85.log",
+      "sha256": "9cc839e6cf5c4285ae4e525209282a64a979a2e7db0ca98d629ec838a542d238"
+    },
+    {
+      "bytes": 300,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-pipeline-eeeeb85.log",
+      "sha256": "8d309f7c32a8c5c1f2741beddbfd225c80e27b8fdd4bf0fc742b838844e3f3c9"
+    },
+    {
+      "bytes": 304,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-protection-eeeeb85.log",
+      "sha256": "cbe066d798381273514003c6739bedabfcd4f419ea8195ce913582912d0d6cd3"
+    }
+  ],
+  "native_c33_source_environment_and_operator_plan_unchanged": true,
+  "native_progress": {
+    "bike": "queued_after_ccpp",
+    "ccpp_executed_step": 27400,
+    "ccpp_selected_step": 27200,
+    "completed_initial_engineering_fits": 118,
+    "planned_initial_engineering_fits": 120
+  },
+  "production_source_ready": false,
+  "protected_access_authorized": false,
+  "schema": "research/v2-production-readiness-implementation-receipt",
+  "source_files": [
+    {
+      "bytes": 12343,
+      "path": "src/treeneuron/research/production_readiness_v2.py",
+      "sha256": "d6c8fcf83e6e141fab5caad2c8623337b3d2664e610b534ad30012daa934c753"
+    },
+    {
+      "bytes": 11779,
+      "path": "src/treeneuron/research/production_verification_v2.py",
+      "sha256": "7ca35c7b95d51efcd71ab7daeae7a284d0086ad9b12cd3b7c8ea4b46f5bd1b21"
+    },
+    {
+      "bytes": 6361,
+      "path": "src/treeneuron/research/cli.py",
+      "sha256": "3151e01ee37621b0bfd756d2bbed0f30eba99761edca31561d869c10ceb3529a"
+    },
+    {
+      "bytes": 18041,
+      "path": "src/treeneuron/research/practical_cli_v2.py",
+      "sha256": "fb07b6b4a90d1e7620fc6948b7e72416c1453bcd581521448fbf941d71091d11"
+    },
+    {
+      "bytes": 23629,
+      "path": "src/treeneuron/research/program_process_v2.py",
+      "sha256": "fecdc91c50dd35013143a0a5aa98635e67b24a9694048c6257ecc42418ac2171"
+    }
+  ],
+  "source_sha256": "eeeeb85725e9da424f35a25af96a8837ad8c555eb8b557abb10143f5e2097962",
+  "test_files": [
+    {
+      "bytes": 4442,
+      "path": "tests/test_production_readiness_v2.py",
+      "sha256": "f99872aba9fa10d9bbbabd9f761bea4aa53156ac0f5772dc2ff12b10a9c70b63"
+    },
+    {
+      "bytes": 2837,
+      "path": "tests/test_production_verification_v2.py",
+      "sha256": "3c09a82b64a5ab48ac3503e00810f09f5e409dd54d1f4dff8831f275a84b4d52"
+    },
+    {
+      "bytes": 11401,
+      "path": "tests/test_practical_cli_v2.py",
+      "sha256": "8124c9fe21ad7e16b0aa36ade1222a21dfee17e06fdf1be188aff981280d833c"
+    },
+    {
+      "bytes": 11126,
+      "path": "tests/test_primary_program_v2.py",
+      "sha256": "c5830901182ae0f37ab6c12734496560ea26e3883fef8a554c93f25658262a12"
+    }
+  ],
+  "tests": [
+    {
+      "result": "7 failed in0.23s",
+      "scope": "Missing fixed production verifier"
+    },
+    {
+      "result": "7 passed in0.44s",
+      "scope": "Verifier supplied-XML coverage, fake proof and source/profile denial"
+    },
+    {
+      "result": "14 failed in0.22s",
+      "scope": "Missing required readiness gate"
+    },
+    {
+      "result": "21 passed in0.59s",
+      "scope": "Initial verifier/readiness tests; supplied review metadata confers no native authority"
+    },
+    {
+      "result": "5 failed,19 deselected in0.16s",
+      "scope": "Missing CLI stages and failed/pause exit mapping"
+    },
+    {
+      "result": "45 passed in3.00s",
+      "scope": "Initial CLI/readiness/verifier metadata and actual native-negative checks"
+    },
+    {
+      "result": "138 passed",
+      "scope": "First actual reporting profile and genuine loader; prior console formatting retained exactly",
+      "source": "e4028dd0c20aeec2c6dbea2b2caa1f079b2915265485e6834a37b3dfeb2765f3"
+    },
+    {
+      "cause": "Legacy private failed-driver metadata dictionaries omit tranche; newly added confirmation branch raised KeyError before its optional marker",
+      "result": "138 reporting/159 pipeline/197 protection passed; search253 passed,4 failed in97.05s",
+      "source": "a60f50740c1d1d61770757cccb2c0cec50a84c7044429f19b80e163c055e5bd3"
+    },
+    {
+      "result": "4 passed,7 deselected in4.10s",
+      "scope": "Existing failing legacy clock/source/path regression cases after compatibility correction"
+    },
+    {
+      "result": "Four current-source profiles all passed:751 cases across44 distinct test files",
+      "scope": "search257,reporting138,pipeline159,protection197; actual immutable loaders reopened all four"
+    }
+  ],
+  "whole_repository_suite_passed": false
+}

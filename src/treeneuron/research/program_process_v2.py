@@ -95,7 +95,7 @@ def _command(path,digest):
 
 def _failed_program_invocation_references(error,request):
     """A published driver clock is metadata, never a qualification capability."""
-    if request['tranche']=='confirmation':
+    if request.get('tranche')=='confirmation':
         reference=getattr(error,'confirmation_invocation_reference',None)
         if reference is None:return []
         refs=_confirmation_invocation_references(request)

@@ -3212,3 +3212,34 @@ Ruling before implementation: descriptive prefix/Energy/fold availability must n
 The [receipt](WP10-protected-practical-report-receipt.json),6,752bytes/SHA666e374fb1250ca3d452b5d2fac4a6f580181518511d105dc47e24d90a204d2c, retains6initialRED/1correct invalid-resolution rejection;23rendererpass.14;28initialreportpass8.36;final100pass76.81s/6modules, including5report/2renderer checks. Counts overlap, not whole-suite green. Source3d642b86efa94efe442a162b6d44732cfdfc81a4afd70aa81587e644c17c0aaf. Nine-file capture has only artificial numeric metadata/fake source identities:140primary/3360views/2520unavailableprefixes/24secondaryfolds/84averages, byte-stable rendering, resolved history; no models/targets or actual qualified chain. Main scientific report remains unchanged.
 
 Production readiness module/execution snapshot remains a missing fail-closed prerequisite, alongside CLI and final review. No full-qualified public report/benchmark costs/T results. Formal efficiency/population claims unsupported. Heldc33 source/environment/immutable serial plan unchanged; lastknownCCPP23100/best23100,Bike queued,118/120 engineering completions. Scientific conclusions unchanged.
+
+## Practical CLI and readiness implementation,21October
+
+The [CLI contract](practical-cli.md) now connects the public practical stages
+and fixed confirmation/report paths. Its [receipt](WP10-practical-cli-receipt.json)
+records133 focused checks, source-bound metadata outputs and actual native
+denials; the retained broader runs disclose sandbox/interop recovery and seven
+legacy numerical-producer setup errors from live memory pressure. No guard was
+weakened. Integration corrected successful-worker argument shadowing and typed
+directory/Markdown publication. This changes software plumbing, not scientific
+results or the admitted method.
+
+The [readiness implementation](production-readiness.md) now exists. It requires
+actual native qualification first, the exact committed scientific package, four
+fixed supervised production profiles and a fresh whole-branch review with all
+material fixes accounted for. Its
+[receipt](WP09-production-readiness-implementation-receipt.json) records751
+passing cases across44 test files under coreeeeeb85725e9da424f35a25af96a8837ad8c555eb8b557abb10143f5e2097962:
+search257, reporting138, pipeline159 and protection197. Actual immutable loaders
+reopened all four. The earlier search profile's four legacy failed-clock
+metadata failures and their correction remain retained; public request schemas
+stay strict. Older source proofs were not promoted to the changed revision.
+
+These checks use known fixtures and may fit small fixture models; no actual
+protected benchmark outcomes were read. A genuine native/readiness seal,
+committed package inspection and final fresh review still precede production
+HPO. The complete benchmark is unrun; the earlier whole-suite failure boundary
+is unchanged. Heldc33 source/environment/operator plan remain unchanged and its
+checkout is clean. Latest observation: CCPP27400 executed/27200 selected, then
+Bike queued,118/120 initial engineering fits complete. No new predictive result
+or efficiency/population claim is inferred.

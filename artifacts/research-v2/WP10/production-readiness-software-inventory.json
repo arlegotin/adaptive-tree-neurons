@@ -1,0 +1,605 @@
+{
+  "files": [
+    {
+      "bytes": 6058,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/observation.json",
+      "sha256": "f6e9ae5eddffca1881c4fd26f52cd2ec74165e940d3db307d33cee3fb8f426ac"
+    },
+    {
+      "bytes": 112,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-legacy-clock-green.log",
+      "sha256": "33ee6ab4fea5bebddf2d84e79cd7c7896c3aba8c71289e238fd445e1efe02cf0"
+    },
+    {
+      "bytes": 300,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-pipeline-a60f507.log",
+      "sha256": "b7653d6b37f48d4fdf8b6c67417892d988e7bd6ee0f236af86c0efa6d9a7fe1f"
+    },
+    {
+      "bytes": 300,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-pipeline-eeeeb85.log",
+      "sha256": "8d309f7c32a8c5c1f2741beddbfd225c80e27b8fdd4bf0fc742b838844e3f3c9"
+    },
+    {
+      "bytes": 304,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-protection-a60f507.log",
+      "sha256": "3d441822f98d657ea7d55ab25ff7d3fb48d54f8a73141a4b46975b4919723985"
+    },
+    {
+      "bytes": 304,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-protection-eeeeb85.log",
+      "sha256": "cbe066d798381273514003c6739bedabfcd4f419ea8195ce913582912d0d6cd3"
+    },
+    {
+      "bytes": 248,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-readiness-capture.log",
+      "sha256": "5e215b97c5572c6171a535c9f7721c06638651293321a3a537eabee91522487d"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-readiness-first-green.log",
+      "sha256": "15ef4ab815878f9bb4783222076c75d6e9a22764c831d7e7a37b438f34fc0f3c"
+    },
+    {
+      "bytes": 27705,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-readiness-red.log",
+      "sha256": "d3f7494b95af38a3bf18c7ce854af4806b3de0675a194f79d0e42b58bede7b0e"
+    },
+    {
+      "bytes": 302,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-reporting-a60f507.log",
+      "sha256": "6727c767824de9f03b0d69c2b4d3293a46ae063b8b33ea293ff165f89cb974f6"
+    },
+    {
+      "bytes": 302,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-reporting-eeeeb85.log",
+      "sha256": "9cc839e6cf5c4285ae4e525209282a64a979a2e7db0ca98d629ec838a542d238"
+    },
+    {
+      "bytes": 63628,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-reporting-profile.log",
+      "sha256": "f547d1ff76a82ead0121aa89a8276123e4447e44634f59684c921b9e8a158add"
+    },
+    {
+      "bytes": 83,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-search-a60f507.log",
+      "sha256": "ebd9ab3ea5465abb86bc23a1289330fe062a47f8f703fc5d799457badf6ad354"
+    },
+    {
+      "bytes": 296,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-search-eeeeb85.log",
+      "sha256": "2d2ea96f3028291451053f1bbaf5f7c81bc9ac3ed9c82bc3011d38cb5507a98e"
+    },
+    {
+      "bytes": 98,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-verification-first-green.log",
+      "sha256": "7592dd9382ea668fa3587360143f5cbaf23ee05533ece7b27713f672c627b7a2"
+    },
+    {
+      "bytes": 10477,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/production-verification-red.log",
+      "sha256": "20df426e85533922487ba5182f3fa2fdf2921e9839936717c7d4e89572489515"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/readiness-cli-first-green.log",
+      "sha256": "a5d5683ae9f3c10112ee6c10fe40594de0fd5cb32e1f1388eb8799c11d84c4f5"
+    },
+    {
+      "bytes": 8086,
+      "path": "artifacts/research-v2/WP10/production-readiness-software/test-logs/readiness-cli-red.log",
+      "sha256": "140549511d9a8a3b3b8c64b9b0f91177a0e65e645cca5b6ba9c149c87b57a964"
+    },
+    {
+      "bytes": 3042,
+      "path": "artifacts/research-v2/WP10/production-reporting-e4028dd/process/process.json",
+      "sha256": "848bf99d087a4dc9d5c8b0240e6a1d565df08bbb563576901b44f657d230831f"
+    },
+    {
+      "bytes": 9941,
+      "path": "artifacts/research-v2/WP10/production-reporting-e4028dd/process/resource-samples.jsonl",
+      "sha256": "2dd8334ca0732ef0f395b645fe17bf83f195c06dd45770f12e5260210501466c"
+    },
+    {
+      "bytes": 131,
+      "path": "artifacts/research-v2/WP10/production-reporting-e4028dd/process/spawned.json",
+      "sha256": "1ca980f7f05618fdd24aa5704c42718f0c4a499fc2a86f90f66614d68945aec5"
+    },
+    {
+      "bytes": 1712,
+      "path": "artifacts/research-v2/WP10/production-reporting-e4028dd/process/started.json",
+      "sha256": "547e6ce91a7feb58e93fdc8e7b6dd6abf37445badbcc24062dd3e45dc7f9bed2"
+    },
+    {
+      "bytes": 0,
+      "path": "artifacts/research-v2/WP10/production-reporting-e4028dd/process/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 181,
+      "path": "artifacts/research-v2/WP10/production-reporting-e4028dd/process/stdout.log",
+      "sha256": "67f3d9fa64bc7f6213089241dd4b474eed8144ce24d78fe5f2bc2d4fdf3e7760"
+    },
+    {
+      "bytes": 58891,
+      "path": "artifacts/research-v2/WP10/production-reporting-e4028dd/request.json",
+      "sha256": "a368f5494a08d1f83b2ddeb6ba59665abdab332944fc6141faee949ac41289f5"
+    },
+    {
+      "bytes": 62252,
+      "path": "artifacts/research-v2/WP10/production-reporting-e4028dd/result.json",
+      "sha256": "fdb5b5c66dfaeb4e27f82936eb1addcaa5e7dc6e8c93866491426f6121a0f775"
+    },
+    {
+      "bytes": 22143,
+      "path": "artifacts/research-v2/WP10/production-reporting-e4028dd/worker/junit.xml",
+      "sha256": "7abdd58ef0a48a743be2e4807b3a1936ef7235fc19abb3c43bf15e23a34b6ecf"
+    },
+    {
+      "bytes": 59277,
+      "path": "artifacts/research-v2/WP10/production-reporting-e4028dd/worker/terminal.json",
+      "sha256": "e581d99446ec826412953f5f83ec21ba986a1c3f794f073aa0cd5505166101dc"
+    },
+    {
+      "bytes": 3030,
+      "path": "artifacts/research-v2/WP10/production-search-a60f507/process/process.json",
+      "sha256": "3b628fa9b525237d52742066fad82da6e003e198db3441dc2919c9ec500b1b1c"
+    },
+    {
+      "bytes": 47255,
+      "path": "artifacts/research-v2/WP10/production-search-a60f507/process/resource-samples.jsonl",
+      "sha256": "63006d52f0dac634dae88bda43234556df860d53dc0cc13d0cb737cb956e2f76"
+    },
+    {
+      "bytes": 133,
+      "path": "artifacts/research-v2/WP10/production-search-a60f507/process/spawned.json",
+      "sha256": "b75c8dfa6753d2c416064b72cd0d18819f63df46696c8f2ac258ac6d8d8cf854"
+    },
+    {
+      "bytes": 1697,
+      "path": "artifacts/research-v2/WP10/production-search-a60f507/process/started.json",
+      "sha256": "b4df9a5b805dec6c1ec0526f6c8a4b6348d527ae019e5692cf4c8e6726538a4e"
+    },
+    {
+      "bytes": 0,
+      "path": "artifacts/research-v2/WP10/production-search-a60f507/process/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 9362,
+      "path": "artifacts/research-v2/WP10/production-search-a60f507/process/stdout.log",
+      "sha256": "617263b62dc96b690231601da36bacbfbd59b962c78b37a24b6218869ee132e0"
+    },
+    {
+      "bytes": 58888,
+      "path": "artifacts/research-v2/WP10/production-search-a60f507/request.json",
+      "sha256": "43e078f6e49452bff74a08d12d3c57287e852bbe2925f9fbd50a7ff0d10e8818"
+    },
+    {
+      "bytes": 62235,
+      "path": "artifacts/research-v2/WP10/production-search-a60f507/result.json",
+      "sha256": "719227f4b4685e1d4eb00dcafeace46faa927ea4548c95e60d671808ddb9942d"
+    },
+    {
+      "bytes": 49451,
+      "path": "artifacts/research-v2/WP10/production-search-a60f507/worker/junit.xml",
+      "sha256": "907c38dd5019c80fe1514c96e962cd0ab1474f33cc95acbfff691150dc0fba48"
+    },
+    {
+      "bytes": 59767,
+      "path": "artifacts/research-v2/WP10/production-search-a60f507/worker/terminal.json",
+      "sha256": "c1b6cdfa3c00d0ee852fd001bd7bc4bd20e9fc5a3196e1d5836ea54917c6b28d"
+    },
+    {
+      "bytes": 3043,
+      "path": "artifacts/research-v2/WP10/production-reporting-a60f507/process/process.json",
+      "sha256": "cabd25cee016118b3616eadf23403048af61e4ed249390394fd534a0855d86a6"
+    },
+    {
+      "bytes": 9941,
+      "path": "artifacts/research-v2/WP10/production-reporting-a60f507/process/resource-samples.jsonl",
+      "sha256": "4490bfee2c9132bb2d1cfc302f271672556dee71dd411b4e83df777401cc2f07"
+    },
+    {
+      "bytes": 133,
+      "path": "artifacts/research-v2/WP10/production-reporting-a60f507/process/spawned.json",
+      "sha256": "ea4bf67dccc13eeb2652c87e8cc5b92bdf5087e1f6e3ec81cb3456bb13e7fb8c"
+    },
+    {
+      "bytes": 1712,
+      "path": "artifacts/research-v2/WP10/production-reporting-a60f507/process/started.json",
+      "sha256": "9e7a4d1d809a1b12fd35371f0de296c508ae313084c4076ac39cec9a69f3a6c5"
+    },
+    {
+      "bytes": 0,
+      "path": "artifacts/research-v2/WP10/production-reporting-a60f507/process/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 181,
+      "path": "artifacts/research-v2/WP10/production-reporting-a60f507/process/stdout.log",
+      "sha256": "7aa47976612c977b0b3e325c8aba5c46441dae6a80113f5005ca83d5aa2cad06"
+    },
+    {
+      "bytes": 58891,
+      "path": "artifacts/research-v2/WP10/production-reporting-a60f507/request.json",
+      "sha256": "2fe22cfb435982233a567ceadd6f25ffd055721869f3fad043f6587b1eef2d95"
+    },
+    {
+      "bytes": 62253,
+      "path": "artifacts/research-v2/WP10/production-reporting-a60f507/result.json",
+      "sha256": "0b3e76d88e018296896dc1ba1a48de8ae69c454a025a0165589f8d29df302406"
+    },
+    {
+      "bytes": 22143,
+      "path": "artifacts/research-v2/WP10/production-reporting-a60f507/worker/junit.xml",
+      "sha256": "4ad9266a252bf65f29502ce930cc557163beb47882c2867852f395cc64511a4a"
+    },
+    {
+      "bytes": 59277,
+      "path": "artifacts/research-v2/WP10/production-reporting-a60f507/worker/terminal.json",
+      "sha256": "bc19489998928b168c354b5932cc02af3812ac4d5cb935ed0ddff029baa03b3e"
+    },
+    {
+      "bytes": 3039,
+      "path": "artifacts/research-v2/WP10/production-pipeline-a60f507/process/process.json",
+      "sha256": "fbbb6e7f7294e417092bc8c6f78be29dac4032e32d19e5b606e252b31e788cab"
+    },
+    {
+      "bytes": 26951,
+      "path": "artifacts/research-v2/WP10/production-pipeline-a60f507/process/resource-samples.jsonl",
+      "sha256": "516441a539391d4a372fff175b1934766f5d003fe57b41a9c6b2225cd84e9d1f"
+    },
+    {
+      "bytes": 133,
+      "path": "artifacts/research-v2/WP10/production-pipeline-a60f507/process/spawned.json",
+      "sha256": "0ce39493aadeb5878275b6b81486ff4cf2b3b6bacde2ee8c91c7c88cefe558b0"
+    },
+    {
+      "bytes": 1707,
+      "path": "artifacts/research-v2/WP10/production-pipeline-a60f507/process/started.json",
+      "sha256": "7e8a380d3c4fd93175d7b4ed121d2861bf3d7e4ea5c7b9ac17242dcdaec38847"
+    },
+    {
+      "bytes": 0,
+      "path": "artifacts/research-v2/WP10/production-pipeline-a60f507/process/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 261,
+      "path": "artifacts/research-v2/WP10/production-pipeline-a60f507/process/stdout.log",
+      "sha256": "c51d0ae6587975f5e025f9d34de280e4fd346a61b4246a294ff84219f47f32c0"
+    },
+    {
+      "bytes": 58890,
+      "path": "artifacts/research-v2/WP10/production-pipeline-a60f507/request.json",
+      "sha256": "7988abd4371a4ea3b6b258597d094c582dbc75c8b21e3873f2ba6a5dc31ba071"
+    },
+    {
+      "bytes": 62248,
+      "path": "artifacts/research-v2/WP10/production-pipeline-a60f507/result.json",
+      "sha256": "59ca561beed171188b18cd582270cd60e3794ddc46fe81915a8117b38d78c52c"
+    },
+    {
+      "bytes": 25066,
+      "path": "artifacts/research-v2/WP10/production-pipeline-a60f507/worker/junit.xml",
+      "sha256": "c767161589fa33d4e050017aaf4f44ce872fe2d7b15585ad5d6b52bb775e7c91"
+    },
+    {
+      "bytes": 59276,
+      "path": "artifacts/research-v2/WP10/production-pipeline-a60f507/worker/terminal.json",
+      "sha256": "3b1ec5db322829c4807ed02c9e751e3b447dbbb426816a955bf97da30a13f69e"
+    },
+    {
+      "bytes": 3052,
+      "path": "artifacts/research-v2/WP10/production-protection-a60f507/process/process.json",
+      "sha256": "63105d61b0fa7b1e0a4f653747eed31e03826c340cac9cd4e07fe35b807a69f1"
+    },
+    {
+      "bytes": 119070,
+      "path": "artifacts/research-v2/WP10/production-protection-a60f507/process/resource-samples.jsonl",
+      "sha256": "333f537ed5071a1a2a0ad08c189ee5fa8fca7c605641f966e04c188ce164a3ce"
+    },
+    {
+      "bytes": 133,
+      "path": "artifacts/research-v2/WP10/production-protection-a60f507/process/spawned.json",
+      "sha256": "b7461bea896f0b8c7238777563e5a76b392c92c49f2e4aeabd2de33a9649c931"
+    },
+    {
+      "bytes": 1717,
+      "path": "artifacts/research-v2/WP10/production-protection-a60f507/process/started.json",
+      "sha256": "ee12177bb4caec4292972085c6ef4c631f54e7824c006f8b6c5cae6ad355a374"
+    },
+    {
+      "bytes": 0,
+      "path": "artifacts/research-v2/WP10/production-protection-a60f507/process/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 272,
+      "path": "artifacts/research-v2/WP10/production-protection-a60f507/process/stdout.log",
+      "sha256": "c693de64c9ca2ebbebb09f2c25f87c65b030bff8b423f0611d52bfccea403f93"
+    },
+    {
+      "bytes": 58892,
+      "path": "artifacts/research-v2/WP10/production-protection-a60f507/request.json",
+      "sha256": "4299d92d0995c698b7b8a788b5c4925dfd153d388594bcd264404d7dc495816f"
+    },
+    {
+      "bytes": 62264,
+      "path": "artifacts/research-v2/WP10/production-protection-a60f507/result.json",
+      "sha256": "67d185e487f9cb13bfa15d500110acb2e0b9d7971b410fe8eb23547df51e20b7"
+    },
+    {
+      "bytes": 29940,
+      "path": "artifacts/research-v2/WP10/production-protection-a60f507/worker/junit.xml",
+      "sha256": "bad8de361c3ceae18d2f5741357ffaf76a3c6115f387f91e0cef20c3985400ab"
+    },
+    {
+      "bytes": 59278,
+      "path": "artifacts/research-v2/WP10/production-protection-a60f507/worker/terminal.json",
+      "sha256": "5e42c94bbcfbcf2520366c9f7f3920ba71a87dbbefc9f7cb193a9bac242e0b40"
+    },
+    {
+      "bytes": 3029,
+      "path": "artifacts/research-v2/WP10/production-search-eeeeb85/process/process.json",
+      "sha256": "a5a9aaa930d68f6de02cda439524070216f66f767d76854670694bd3bf7439a2"
+    },
+    {
+      "bytes": 47903,
+      "path": "artifacts/research-v2/WP10/production-search-eeeeb85/process/resource-samples.jsonl",
+      "sha256": "465d4e6bed5bb49789d19ef16e44403279e53b4e85c940b7e98d8ac52728f45f"
+    },
+    {
+      "bytes": 133,
+      "path": "artifacts/research-v2/WP10/production-search-eeeeb85/process/spawned.json",
+      "sha256": "d3e345e50f0a3440ccfc8864665949c795322edde9402a212e437670cd69bdb3"
+    },
+    {
+      "bytes": 1697,
+      "path": "artifacts/research-v2/WP10/production-search-eeeeb85/process/started.json",
+      "sha256": "46a9ca5e3b0a1c82504158ea8e43cb2be235c6684bac7e09cf23c1c10581aa96"
+    },
+    {
+      "bytes": 0,
+      "path": "artifacts/research-v2/WP10/production-search-eeeeb85/process/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 351,
+      "path": "artifacts/research-v2/WP10/production-search-eeeeb85/process/stdout.log",
+      "sha256": "680c9674d0676970d3faebadc38f46bd3f85bf5c77d0ec696d26fcb2e2dab25a"
+    },
+    {
+      "bytes": 58888,
+      "path": "artifacts/research-v2/WP10/production-search-eeeeb85/request.json",
+      "sha256": "6116b1b5a265ae693a3ea2253963d86c1d90eb2032bfe4d3f3fbe24375f66187"
+    },
+    {
+      "bytes": 62236,
+      "path": "artifacts/research-v2/WP10/production-search-eeeeb85/result.json",
+      "sha256": "39e10666caab461344ea4ca5cf9587d20bd4ac2eaf517fd3032fbd06173c04d2"
+    },
+    {
+      "bytes": 41134,
+      "path": "artifacts/research-v2/WP10/production-search-eeeeb85/worker/junit.xml",
+      "sha256": "f56aba8f2f0b2c2c596916fc9fa86196bfc04061a0106c2483a96d59e0dff42b"
+    },
+    {
+      "bytes": 59274,
+      "path": "artifacts/research-v2/WP10/production-search-eeeeb85/worker/terminal.json",
+      "sha256": "aa4e88fc4f2a15a869275b494b32d53e722a1846775a1b1179cb8ee43225e896"
+    },
+    {
+      "bytes": 3043,
+      "path": "artifacts/research-v2/WP10/production-reporting-eeeeb85/process/process.json",
+      "sha256": "8197010f6972ddc5a902f5bbc4ddb3523b73ab08f742a2d9a5d5a88de3be5c4a"
+    },
+    {
+      "bytes": 9941,
+      "path": "artifacts/research-v2/WP10/production-reporting-eeeeb85/process/resource-samples.jsonl",
+      "sha256": "80c826f308a8dc16058094195646fcecc0192666536eb6c4abfdfa594b3bac15"
+    },
+    {
+      "bytes": 133,
+      "path": "artifacts/research-v2/WP10/production-reporting-eeeeb85/process/spawned.json",
+      "sha256": "90d9cb4f23514fb05b69df864e41b4d5f9fdd551d68c2c5319875a8be2faa816"
+    },
+    {
+      "bytes": 1712,
+      "path": "artifacts/research-v2/WP10/production-reporting-eeeeb85/process/started.json",
+      "sha256": "02827e2a2de5bb8eef1a3d72dd7fa8a87ac319e3d688150996bf7bfc9ab3fb47"
+    },
+    {
+      "bytes": 0,
+      "path": "artifacts/research-v2/WP10/production-reporting-eeeeb85/process/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 181,
+      "path": "artifacts/research-v2/WP10/production-reporting-eeeeb85/process/stdout.log",
+      "sha256": "b2df5a037e94f459f532107e6408f474a152bd596dd651e781c05530a345c4ad"
+    },
+    {
+      "bytes": 58891,
+      "path": "artifacts/research-v2/WP10/production-reporting-eeeeb85/request.json",
+      "sha256": "029eba9e91e7c3824afbf200cde7d902ec82a3013335980e0e65f1e16d66b17e"
+    },
+    {
+      "bytes": 62253,
+      "path": "artifacts/research-v2/WP10/production-reporting-eeeeb85/result.json",
+      "sha256": "376257e99b1620369580642cb926f36ec602b6b62870118b335d59ea7b370904"
+    },
+    {
+      "bytes": 22143,
+      "path": "artifacts/research-v2/WP10/production-reporting-eeeeb85/worker/junit.xml",
+      "sha256": "a50e58d18e5c239452ae976d7b6ff4152aeeb7c00a1128e36546701b4afff905"
+    },
+    {
+      "bytes": 59277,
+      "path": "artifacts/research-v2/WP10/production-reporting-eeeeb85/worker/terminal.json",
+      "sha256": "be1c966945c2db401335d6281103720f793c816294fba2cc0b2cdff2d2c4dd40"
+    },
+    {
+      "bytes": 3039,
+      "path": "artifacts/research-v2/WP10/production-pipeline-eeeeb85/process/process.json",
+      "sha256": "7b2a993522c1704a1eae43ed916b41a03e740612ddfceaa89a6336b2a7aaf19a"
+    },
+    {
+      "bytes": 26735,
+      "path": "artifacts/research-v2/WP10/production-pipeline-eeeeb85/process/resource-samples.jsonl",
+      "sha256": "f5ee445a993000acaba21dc2658687927101da1b9e6deb8eeee6ac11b0f31469"
+    },
+    {
+      "bytes": 133,
+      "path": "artifacts/research-v2/WP10/production-pipeline-eeeeb85/process/spawned.json",
+      "sha256": "e89835f7d2ff4aaaf90b2316cf3cfe4f4c6f460db8fab9b4421c780d0ac0de76"
+    },
+    {
+      "bytes": 1707,
+      "path": "artifacts/research-v2/WP10/production-pipeline-eeeeb85/process/started.json",
+      "sha256": "64c58bee922b949479daa901c5893943074aeec78c9f39ce956f04215c173fc9"
+    },
+    {
+      "bytes": 0,
+      "path": "artifacts/research-v2/WP10/production-pipeline-eeeeb85/process/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 261,
+      "path": "artifacts/research-v2/WP10/production-pipeline-eeeeb85/process/stdout.log",
+      "sha256": "ac1e8ec6478da31359c66ea5b4918ded5d33ff89502fa9a980660cab835dbe0e"
+    },
+    {
+      "bytes": 58890,
+      "path": "artifacts/research-v2/WP10/production-pipeline-eeeeb85/request.json",
+      "sha256": "469d99d1d8e17f2c2ce60762eb41d8fd93f2e938f129eecab5a6f9ea2035ca45"
+    },
+    {
+      "bytes": 62248,
+      "path": "artifacts/research-v2/WP10/production-pipeline-eeeeb85/result.json",
+      "sha256": "6071b7a2516ce2fb951276091b21f1e6bf40eaded67d58abbceff706c440a559"
+    },
+    {
+      "bytes": 25066,
+      "path": "artifacts/research-v2/WP10/production-pipeline-eeeeb85/worker/junit.xml",
+      "sha256": "98167829490ee6175921b9ad8f080afde1bec06090478d3d8e1ec34471b35cf9"
+    },
+    {
+      "bytes": 59276,
+      "path": "artifacts/research-v2/WP10/production-pipeline-eeeeb85/worker/terminal.json",
+      "sha256": "41eadde0f1253fd3a79d523acaf2f05b1476ecbd3c40150e16cb072582a7491a"
+    },
+    {
+      "bytes": 3052,
+      "path": "artifacts/research-v2/WP10/production-protection-eeeeb85/process/process.json",
+      "sha256": "e56a3da60a1219877d1ab6f33add707eb7420874dd325b96dac3f70a12bdea16"
+    },
+    {
+      "bytes": 120336,
+      "path": "artifacts/research-v2/WP10/production-protection-eeeeb85/process/resource-samples.jsonl",
+      "sha256": "e70c863e835b1ac471acd86ff60e9714e0bee442e7cb8efb5f3c209f447cdf01"
+    },
+    {
+      "bytes": 133,
+      "path": "artifacts/research-v2/WP10/production-protection-eeeeb85/process/spawned.json",
+      "sha256": "1fb05d0f750a39413f2d0a8bc58279711288e7e0715b775b8d058efa22314cf4"
+    },
+    {
+      "bytes": 1717,
+      "path": "artifacts/research-v2/WP10/production-protection-eeeeb85/process/started.json",
+      "sha256": "b7552a06bcb6230e8d75a50b066a478a84059aab64a87a4be5cc1d8d4c381f21"
+    },
+    {
+      "bytes": 0,
+      "path": "artifacts/research-v2/WP10/production-protection-eeeeb85/process/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 272,
+      "path": "artifacts/research-v2/WP10/production-protection-eeeeb85/process/stdout.log",
+      "sha256": "81001c89b51a40d408d383f762cdb30bd95edaef2e06e667d166573f6aa86d18"
+    },
+    {
+      "bytes": 58892,
+      "path": "artifacts/research-v2/WP10/production-protection-eeeeb85/request.json",
+      "sha256": "4fb7c5d3b70ff7bbb950b09844f987624d9c3042cddd987462f651890154a5f5"
+    },
+    {
+      "bytes": 62264,
+      "path": "artifacts/research-v2/WP10/production-protection-eeeeb85/result.json",
+      "sha256": "68b11c4aff7325851fab3c334a1c56883ea202e08ec6f9d653153c4c654d9079"
+    },
+    {
+      "bytes": 29940,
+      "path": "artifacts/research-v2/WP10/production-protection-eeeeb85/worker/junit.xml",
+      "sha256": "105999f50cbb3b2ebe5621f2c123d69f6fbb0221b00370665c2e69debc8c9d0e"
+    },
+    {
+      "bytes": 59278,
+      "path": "artifacts/research-v2/WP10/production-protection-eeeeb85/worker/terminal.json",
+      "sha256": "2cb26411d5fa3414e54af3956b2714de67a7624f585234af9d2556bb19ce442d"
+    },
+    {
+      "bytes": 307,
+      "path": "artifacts/research-v2/WP10/readiness-reporting-control.json",
+      "sha256": "391634d374ec4dea3848cab4d14fbe35e473a635428f082178d3360d51a70f07"
+    },
+    {
+      "bytes": 6210,
+      "path": "artifacts/research-v2/WP10/readiness-pre-console-cli.py",
+      "sha256": "63d84413c47c73e8d7e4826038b4166b2fa24d1ea4756330a75fcba073b69c31"
+    },
+    {
+      "bytes": 23625,
+      "path": "artifacts/research-v2/WP10/readiness-pre-legacy-clock-program_process.py",
+      "sha256": "c962ab2f6331dc959853d63de396273a3cc656ab0e092fb7e453e127854cd137"
+    },
+    {
+      "bytes": 199,
+      "path": "artifacts/research-v2/WP10/readiness-source-sequence.json",
+      "sha256": "81288dc77e1b0fc73d4e3442a98c915b07f96c7c35254eefaeb651c7fd310527"
+    },
+    {
+      "bytes": 304,
+      "path": "artifacts/research-v2/WP10/production-search-control.json",
+      "sha256": "2c98a8a2409e370a9d8b76405a894d46a035103d3cc2fd9b01117042626affe1"
+    },
+    {
+      "bytes": 307,
+      "path": "artifacts/research-v2/WP10/production-reporting-control.json",
+      "sha256": "a3457f0ca85e863b43f75a741db8193f504b02085b2aaf15992aa11d40b3bced"
+    },
+    {
+      "bytes": 306,
+      "path": "artifacts/research-v2/WP10/production-pipeline-control.json",
+      "sha256": "494d71aa6a836ce3f37e5c5f09b79a163a708a8638c41190e2da0225908bea98"
+    },
+    {
+      "bytes": 308,
+      "path": "artifacts/research-v2/WP10/production-protection-control.json",
+      "sha256": "48ac61ade259fd93dcf2407296413069f1b3acd2e3d6c2b5f280ed25e3b95693"
+    },
+    {
+      "bytes": 304,
+      "path": "artifacts/research-v2/WP10/production-search-eeeeb85-control.json",
+      "sha256": "01d7f6cea52d615e2736055da4cc1e6ab60962ff6367ab47157b7868920ca0fc"
+    },
+    {
+      "bytes": 307,
+      "path": "artifacts/research-v2/WP10/production-reporting-eeeeb85-control.json",
+      "sha256": "a9cc3dd56f0f6afa994c7e620f71aee2e6c65ef48bb4d6ee7a9c174286cacbf7"
+    },
+    {
+      "bytes": 306,
+      "path": "artifacts/research-v2/WP10/production-pipeline-eeeeb85-control.json",
+      "sha256": "ea6ade0d234efb11055fbe8b6527b879d17d8322b64a55d42ae944f000188130"
+    },
+    {
+      "bytes": 308,
+      "path": "artifacts/research-v2/WP10/production-protection-eeeeb85-control.json",
+      "sha256": "bcda9f5ddffb2a6ee5b60f5f61cc1585650035dd5b5928d1a4aab5dcca9b9f7c"
+    }
+  ],
+  "schema": "research/v2-exact-software-capture-inventory"
+}

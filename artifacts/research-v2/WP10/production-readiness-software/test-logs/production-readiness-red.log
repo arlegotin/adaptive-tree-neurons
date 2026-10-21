@@ -1,0 +1,416 @@
+FFFFFFFFFFFFFF                                                           [100%]
+=================================== FAILURES ===================================
+_ test_readiness_opens_actual_native_gate_before_foreign_software_review_or_source[seal] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3901/test_readiness_opens_actual_na0')
+entry = 'seal'
+
+    @pytest.mark.parametrize('entry',['seal','load'])
+    def test_readiness_opens_actual_native_gate_before_foreign_software_review_or_source(tmp_path,entry):
+>       module=api();reference=dict(path=str(tmp_path/'forbidden.json'),sha256='a'*64)
+               ^^^^^
+
+tests/test_production_readiness_v2.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.production_readiness_v2'),'Missing required actual readiness gate'
+E       AssertionError: Missing required actual readiness gate
+E       assert None
+E        +  where None = <function find_spec at 0x1082d1c60>('treeneuron.research.production_readiness_v2')
+E        +    where <function find_spec at 0x1082d1c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_production_readiness_v2.py:9: AssertionError
+_ test_readiness_opens_actual_native_gate_before_foreign_software_review_or_source[load] _
+
+tmp_path = PosixPath('/private/var/folders/q3/tm7kkng56417wgzydc4q8p8r0000gn/T/pytest-of-artemlegotin/pytest-3901/test_readiness_opens_actual_na1')
+entry = 'load'
+
+    @pytest.mark.parametrize('entry',['seal','load'])
+    def test_readiness_opens_actual_native_gate_before_foreign_software_review_or_source(tmp_path,entry):
+>       module=api();reference=dict(path=str(tmp_path/'forbidden.json'),sha256='a'*64)
+               ^^^^^
+
+tests/test_production_readiness_v2.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.production_readiness_v2'),'Missing required actual readiness gate'
+E       AssertionError: Missing required actual readiness gate
+E       assert None
+E        +  where None = <function find_spec at 0x1082d1c60>('treeneuron.research.production_readiness_v2')
+E        +    where <function find_spec at 0x1082d1c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_production_readiness_v2.py:9: AssertionError
+_ test_review_metadata_can_check_empty_disposition_but_cannot_qualify_native_or_source _
+
+    def test_review_metadata_can_check_empty_disposition_but_cannot_qualify_native_or_source():
+>       value=api()._inspect_review_metadata(review(),snapshot(),source_sha256='d'*64,changed_execution_files=[])
+              ^^^^^
+
+tests/test_production_readiness_v2.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.production_readiness_v2'),'Missing required actual readiness gate'
+E       AssertionError: Missing required actual readiness gate
+E       assert None
+E        +  where None = <function find_spec at 0x1082d1c60>('treeneuron.research.production_readiness_v2')
+E        +    where <function find_spec at 0x1082d1c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_production_readiness_v2.py:9: AssertionError
+_ test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready[unresolved] _
+
+fault = 'unresolved'
+
+    @pytest.mark.parametrize('fault',['unresolved','uncovered_change','source','final_commit','package','unknown','reviewer','fixed_without_red','unrelated_fix'])
+    def test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready(fault):
+        value=review();changed=[]
+        if fault=='unresolved':value['findings']=[dict(finding_id='one',severity='Important',resolution='deferred',changed_files=[],red_reference=None,green_reference=None)]
+        elif fault=='uncovered_change':changed=['src/known.py']
+        elif fault=='source':value['source_sha256']='0'*64
+        elif fault=='final_commit':value['final_commit']='0'*40
+        elif fault=='package':value['final_execution_sha256']='0'*64
+        elif fault=='unknown':value['production_source_ready']=True
+        elif fault=='reviewer':value['reviewer']={}
+        else:
+            changed=['src/known.py'];ref=dict(path='/known/untrusted.log',sha256='f'*64)
+            value['findings']=[dict(finding_id='one',severity='Important',resolution='fixed',changed_files=['src/known.py' if fault!='unrelated_fix' else 'src/other.py'],
+                red_reference=None if fault=='fixed_without_red' else ref,green_reference=ref)]
+>       with pytest.raises(ValueError):api()._inspect_review_metadata(value,snapshot(),source_sha256='d'*64,changed_execution_files=changed)
+                                       ^^^^^
+
+tests/test_production_readiness_v2.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.production_readiness_v2'),'Missing required actual readiness gate'
+E       AssertionError: Missing required actual readiness gate
+E       assert None
+E        +  where None = <function find_spec at 0x1082d1c60>('treeneuron.research.production_readiness_v2')
+E        +    where <function find_spec at 0x1082d1c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_production_readiness_v2.py:9: AssertionError
+_ test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready[uncovered_change] _
+
+fault = 'uncovered_change'
+
+    @pytest.mark.parametrize('fault',['unresolved','uncovered_change','source','final_commit','package','unknown','reviewer','fixed_without_red','unrelated_fix'])
+    def test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready(fault):
+        value=review();changed=[]
+        if fault=='unresolved':value['findings']=[dict(finding_id='one',severity='Important',resolution='deferred',changed_files=[],red_reference=None,green_reference=None)]
+        elif fault=='uncovered_change':changed=['src/known.py']
+        elif fault=='source':value['source_sha256']='0'*64
+        elif fault=='final_commit':value['final_commit']='0'*40
+        elif fault=='package':value['final_execution_sha256']='0'*64
+        elif fault=='unknown':value['production_source_ready']=True
+        elif fault=='reviewer':value['reviewer']={}
+        else:
+            changed=['src/known.py'];ref=dict(path='/known/untrusted.log',sha256='f'*64)
+            value['findings']=[dict(finding_id='one',severity='Important',resolution='fixed',changed_files=['src/known.py' if fault!='unrelated_fix' else 'src/other.py'],
+                red_reference=None if fault=='fixed_without_red' else ref,green_reference=ref)]
+>       with pytest.raises(ValueError):api()._inspect_review_metadata(value,snapshot(),source_sha256='d'*64,changed_execution_files=changed)
+                                       ^^^^^
+
+tests/test_production_readiness_v2.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.production_readiness_v2'),'Missing required actual readiness gate'
+E       AssertionError: Missing required actual readiness gate
+E       assert None
+E        +  where None = <function find_spec at 0x1082d1c60>('treeneuron.research.production_readiness_v2')
+E        +    where <function find_spec at 0x1082d1c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_production_readiness_v2.py:9: AssertionError
+_ test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready[source] _
+
+fault = 'source'
+
+    @pytest.mark.parametrize('fault',['unresolved','uncovered_change','source','final_commit','package','unknown','reviewer','fixed_without_red','unrelated_fix'])
+    def test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready(fault):
+        value=review();changed=[]
+        if fault=='unresolved':value['findings']=[dict(finding_id='one',severity='Important',resolution='deferred',changed_files=[],red_reference=None,green_reference=None)]
+        elif fault=='uncovered_change':changed=['src/known.py']
+        elif fault=='source':value['source_sha256']='0'*64
+        elif fault=='final_commit':value['final_commit']='0'*40
+        elif fault=='package':value['final_execution_sha256']='0'*64
+        elif fault=='unknown':value['production_source_ready']=True
+        elif fault=='reviewer':value['reviewer']={}
+        else:
+            changed=['src/known.py'];ref=dict(path='/known/untrusted.log',sha256='f'*64)
+            value['findings']=[dict(finding_id='one',severity='Important',resolution='fixed',changed_files=['src/known.py' if fault!='unrelated_fix' else 'src/other.py'],
+                red_reference=None if fault=='fixed_without_red' else ref,green_reference=ref)]
+>       with pytest.raises(ValueError):api()._inspect_review_metadata(value,snapshot(),source_sha256='d'*64,changed_execution_files=changed)
+                                       ^^^^^
+
+tests/test_production_readiness_v2.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.production_readiness_v2'),'Missing required actual readiness gate'
+E       AssertionError: Missing required actual readiness gate
+E       assert None
+E        +  where None = <function find_spec at 0x1082d1c60>('treeneuron.research.production_readiness_v2')
+E        +    where <function find_spec at 0x1082d1c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_production_readiness_v2.py:9: AssertionError
+_ test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready[final_commit] _
+
+fault = 'final_commit'
+
+    @pytest.mark.parametrize('fault',['unresolved','uncovered_change','source','final_commit','package','unknown','reviewer','fixed_without_red','unrelated_fix'])
+    def test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready(fault):
+        value=review();changed=[]
+        if fault=='unresolved':value['findings']=[dict(finding_id='one',severity='Important',resolution='deferred',changed_files=[],red_reference=None,green_reference=None)]
+        elif fault=='uncovered_change':changed=['src/known.py']
+        elif fault=='source':value['source_sha256']='0'*64
+        elif fault=='final_commit':value['final_commit']='0'*40
+        elif fault=='package':value['final_execution_sha256']='0'*64
+        elif fault=='unknown':value['production_source_ready']=True
+        elif fault=='reviewer':value['reviewer']={}
+        else:
+            changed=['src/known.py'];ref=dict(path='/known/untrusted.log',sha256='f'*64)
+            value['findings']=[dict(finding_id='one',severity='Important',resolution='fixed',changed_files=['src/known.py' if fault!='unrelated_fix' else 'src/other.py'],
+                red_reference=None if fault=='fixed_without_red' else ref,green_reference=ref)]
+>       with pytest.raises(ValueError):api()._inspect_review_metadata(value,snapshot(),source_sha256='d'*64,changed_execution_files=changed)
+                                       ^^^^^
+
+tests/test_production_readiness_v2.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.production_readiness_v2'),'Missing required actual readiness gate'
+E       AssertionError: Missing required actual readiness gate
+E       assert None
+E        +  where None = <function find_spec at 0x1082d1c60>('treeneuron.research.production_readiness_v2')
+E        +    where <function find_spec at 0x1082d1c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_production_readiness_v2.py:9: AssertionError
+_ test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready[package] _
+
+fault = 'package'
+
+    @pytest.mark.parametrize('fault',['unresolved','uncovered_change','source','final_commit','package','unknown','reviewer','fixed_without_red','unrelated_fix'])
+    def test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready(fault):
+        value=review();changed=[]
+        if fault=='unresolved':value['findings']=[dict(finding_id='one',severity='Important',resolution='deferred',changed_files=[],red_reference=None,green_reference=None)]
+        elif fault=='uncovered_change':changed=['src/known.py']
+        elif fault=='source':value['source_sha256']='0'*64
+        elif fault=='final_commit':value['final_commit']='0'*40
+        elif fault=='package':value['final_execution_sha256']='0'*64
+        elif fault=='unknown':value['production_source_ready']=True
+        elif fault=='reviewer':value['reviewer']={}
+        else:
+            changed=['src/known.py'];ref=dict(path='/known/untrusted.log',sha256='f'*64)
+            value['findings']=[dict(finding_id='one',severity='Important',resolution='fixed',changed_files=['src/known.py' if fault!='unrelated_fix' else 'src/other.py'],
+                red_reference=None if fault=='fixed_without_red' else ref,green_reference=ref)]
+>       with pytest.raises(ValueError):api()._inspect_review_metadata(value,snapshot(),source_sha256='d'*64,changed_execution_files=changed)
+                                       ^^^^^
+
+tests/test_production_readiness_v2.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.production_readiness_v2'),'Missing required actual readiness gate'
+E       AssertionError: Missing required actual readiness gate
+E       assert None
+E        +  where None = <function find_spec at 0x1082d1c60>('treeneuron.research.production_readiness_v2')
+E        +    where <function find_spec at 0x1082d1c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_production_readiness_v2.py:9: AssertionError
+_ test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready[unknown] _
+
+fault = 'unknown'
+
+    @pytest.mark.parametrize('fault',['unresolved','uncovered_change','source','final_commit','package','unknown','reviewer','fixed_without_red','unrelated_fix'])
+    def test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready(fault):
+        value=review();changed=[]
+        if fault=='unresolved':value['findings']=[dict(finding_id='one',severity='Important',resolution='deferred',changed_files=[],red_reference=None,green_reference=None)]
+        elif fault=='uncovered_change':changed=['src/known.py']
+        elif fault=='source':value['source_sha256']='0'*64
+        elif fault=='final_commit':value['final_commit']='0'*40
+        elif fault=='package':value['final_execution_sha256']='0'*64
+        elif fault=='unknown':value['production_source_ready']=True
+        elif fault=='reviewer':value['reviewer']={}
+        else:
+            changed=['src/known.py'];ref=dict(path='/known/untrusted.log',sha256='f'*64)
+            value['findings']=[dict(finding_id='one',severity='Important',resolution='fixed',changed_files=['src/known.py' if fault!='unrelated_fix' else 'src/other.py'],
+                red_reference=None if fault=='fixed_without_red' else ref,green_reference=ref)]
+>       with pytest.raises(ValueError):api()._inspect_review_metadata(value,snapshot(),source_sha256='d'*64,changed_execution_files=changed)
+                                       ^^^^^
+
+tests/test_production_readiness_v2.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.production_readiness_v2'),'Missing required actual readiness gate'
+E       AssertionError: Missing required actual readiness gate
+E       assert None
+E        +  where None = <function find_spec at 0x1082d1c60>('treeneuron.research.production_readiness_v2')
+E        +    where <function find_spec at 0x1082d1c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_production_readiness_v2.py:9: AssertionError
+_ test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready[reviewer] _
+
+fault = 'reviewer'
+
+    @pytest.mark.parametrize('fault',['unresolved','uncovered_change','source','final_commit','package','unknown','reviewer','fixed_without_red','unrelated_fix'])
+    def test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready(fault):
+        value=review();changed=[]
+        if fault=='unresolved':value['findings']=[dict(finding_id='one',severity='Important',resolution='deferred',changed_files=[],red_reference=None,green_reference=None)]
+        elif fault=='uncovered_change':changed=['src/known.py']
+        elif fault=='source':value['source_sha256']='0'*64
+        elif fault=='final_commit':value['final_commit']='0'*40
+        elif fault=='package':value['final_execution_sha256']='0'*64
+        elif fault=='unknown':value['production_source_ready']=True
+        elif fault=='reviewer':value['reviewer']={}
+        else:
+            changed=['src/known.py'];ref=dict(path='/known/untrusted.log',sha256='f'*64)
+            value['findings']=[dict(finding_id='one',severity='Important',resolution='fixed',changed_files=['src/known.py' if fault!='unrelated_fix' else 'src/other.py'],
+                red_reference=None if fault=='fixed_without_red' else ref,green_reference=ref)]
+>       with pytest.raises(ValueError):api()._inspect_review_metadata(value,snapshot(),source_sha256='d'*64,changed_execution_files=changed)
+                                       ^^^^^
+
+tests/test_production_readiness_v2.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.production_readiness_v2'),'Missing required actual readiness gate'
+E       AssertionError: Missing required actual readiness gate
+E       assert None
+E        +  where None = <function find_spec at 0x1082d1c60>('treeneuron.research.production_readiness_v2')
+E        +    where <function find_spec at 0x1082d1c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_production_readiness_v2.py:9: AssertionError
+_ test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready[fixed_without_red] _
+
+fault = 'fixed_without_red'
+
+    @pytest.mark.parametrize('fault',['unresolved','uncovered_change','source','final_commit','package','unknown','reviewer','fixed_without_red','unrelated_fix'])
+    def test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready(fault):
+        value=review();changed=[]
+        if fault=='unresolved':value['findings']=[dict(finding_id='one',severity='Important',resolution='deferred',changed_files=[],red_reference=None,green_reference=None)]
+        elif fault=='uncovered_change':changed=['src/known.py']
+        elif fault=='source':value['source_sha256']='0'*64
+        elif fault=='final_commit':value['final_commit']='0'*40
+        elif fault=='package':value['final_execution_sha256']='0'*64
+        elif fault=='unknown':value['production_source_ready']=True
+        elif fault=='reviewer':value['reviewer']={}
+        else:
+            changed=['src/known.py'];ref=dict(path='/known/untrusted.log',sha256='f'*64)
+            value['findings']=[dict(finding_id='one',severity='Important',resolution='fixed',changed_files=['src/known.py' if fault!='unrelated_fix' else 'src/other.py'],
+                red_reference=None if fault=='fixed_without_red' else ref,green_reference=ref)]
+>       with pytest.raises(ValueError):api()._inspect_review_metadata(value,snapshot(),source_sha256='d'*64,changed_execution_files=changed)
+                                       ^^^^^
+
+tests/test_production_readiness_v2.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.production_readiness_v2'),'Missing required actual readiness gate'
+E       AssertionError: Missing required actual readiness gate
+E       assert None
+E        +  where None = <function find_spec at 0x1082d1c60>('treeneuron.research.production_readiness_v2')
+E        +    where <function find_spec at 0x1082d1c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_production_readiness_v2.py:9: AssertionError
+_ test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready[unrelated_fix] _
+
+fault = 'unrelated_fix'
+
+    @pytest.mark.parametrize('fault',['unresolved','uncovered_change','source','final_commit','package','unknown','reviewer','fixed_without_red','unrelated_fix'])
+    def test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready(fault):
+        value=review();changed=[]
+        if fault=='unresolved':value['findings']=[dict(finding_id='one',severity='Important',resolution='deferred',changed_files=[],red_reference=None,green_reference=None)]
+        elif fault=='uncovered_change':changed=['src/known.py']
+        elif fault=='source':value['source_sha256']='0'*64
+        elif fault=='final_commit':value['final_commit']='0'*40
+        elif fault=='package':value['final_execution_sha256']='0'*64
+        elif fault=='unknown':value['production_source_ready']=True
+        elif fault=='reviewer':value['reviewer']={}
+        else:
+            changed=['src/known.py'];ref=dict(path='/known/untrusted.log',sha256='f'*64)
+            value['findings']=[dict(finding_id='one',severity='Important',resolution='fixed',changed_files=['src/known.py' if fault!='unrelated_fix' else 'src/other.py'],
+                red_reference=None if fault=='fixed_without_red' else ref,green_reference=ref)]
+>       with pytest.raises(ValueError):api()._inspect_review_metadata(value,snapshot(),source_sha256='d'*64,changed_execution_files=changed)
+                                       ^^^^^
+
+tests/test_production_readiness_v2.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.production_readiness_v2'),'Missing required actual readiness gate'
+E       AssertionError: Missing required actual readiness gate
+E       assert None
+E        +  where None = <function find_spec at 0x1082d1c60>('treeneuron.research.production_readiness_v2')
+E        +    where <function find_spec at 0x1082d1c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_production_readiness_v2.py:9: AssertionError
+_ test_fixed_finding_names_exact_reviewed_to_final_source_delta_with_evidence_refs _
+
+    def test_fixed_finding_names_exact_reviewed_to_final_source_delta_with_evidence_refs():
+        value=review();ref=dict(path='/known/untrusted.log',sha256='f'*64)
+        value['findings']=[dict(finding_id='one',severity='Important',resolution='fixed',changed_files=['src/known.py'],red_reference=ref,green_reference=ref)]
+>       checked=api()._inspect_review_metadata(value,snapshot(),source_sha256='d'*64,changed_execution_files=['src/known.py'])
+                ^^^^^
+
+tests/test_production_readiness_v2.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.production_readiness_v2'),'Missing required actual readiness gate'
+E       AssertionError: Missing required actual readiness gate
+E       assert None
+E        +  where None = <function find_spec at 0x1082d1c60>('treeneuron.research.production_readiness_v2')
+E        +    where <function find_spec at 0x1082d1c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_production_readiness_v2.py:9: AssertionError
+_ test_docs_only_checkout_commit_change_keeps_pinned_scientific_identity_but_source_drift_fails _
+
+    def test_docs_only_checkout_commit_change_keeps_pinned_scientific_identity_but_source_drift_fails():
+        saved=snapshot();current=copy.deepcopy(saved);current['checkout_commit']='a'*40
+>       assert api()._same_execution_snapshot(saved,current)
+               ^^^^^
+
+tests/test_production_readiness_v2.py:69: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('treeneuron.research.production_readiness_v2'),'Missing required actual readiness gate'
+E       AssertionError: Missing required actual readiness gate
+E       assert None
+E        +  where None = <function find_spec at 0x1082d1c60>('treeneuron.research.production_readiness_v2')
+E        +    where <function find_spec at 0x1082d1c60> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/test_production_readiness_v2.py:9: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_production_readiness_v2.py::test_readiness_opens_actual_native_gate_before_foreign_software_review_or_source[seal]
+FAILED tests/test_production_readiness_v2.py::test_readiness_opens_actual_native_gate_before_foreign_software_review_or_source[load]
+FAILED tests/test_production_readiness_v2.py::test_review_metadata_can_check_empty_disposition_but_cannot_qualify_native_or_source
+FAILED tests/test_production_readiness_v2.py::test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready[unresolved]
+FAILED tests/test_production_readiness_v2.py::test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready[uncovered_change]
+FAILED tests/test_production_readiness_v2.py::test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready[source]
+FAILED tests/test_production_readiness_v2.py::test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready[final_commit]
+FAILED tests/test_production_readiness_v2.py::test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready[package]
+FAILED tests/test_production_readiness_v2.py::test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready[unknown]
+FAILED tests/test_production_readiness_v2.py::test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready[reviewer]
+FAILED tests/test_production_readiness_v2.py::test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready[fixed_without_red]
+FAILED tests/test_production_readiness_v2.py::test_incomplete_review_or_unreviewed_scientific_delta_cannot_become_ready[unrelated_fix]
+FAILED tests/test_production_readiness_v2.py::test_fixed_finding_names_exact_reviewed_to_final_source_delta_with_evidence_refs
+FAILED tests/test_production_readiness_v2.py::test_docs_only_checkout_commit_change_keeps_pinned_scientific_identity_but_source_drift_fails
+14 failed in 0.22s
