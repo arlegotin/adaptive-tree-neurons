@@ -1,0 +1,161 @@
+{
+  "T_accessed": false,
+  "actual_benchmark_labels_read": 0,
+  "actual_benchmark_models_fitted_or_measured": 0,
+  "actual_complete_qualified_public_positive": false,
+  "actual_dispatch_chain_executed": false,
+  "algorithm_rescue_budget_cut_or_source_migration_admitted": false,
+  "artifact_inventory": {
+    "bytes": 11300,
+    "path": "artifacts/research-v2/WP10/confirm-programme-software-inventory.json",
+    "sha256": "7a376d3f6fd08f6c9ac1170ddd61b4f6970b7574c812dd03960d2dbf3505f453"
+  },
+  "base_commit": "92f4d66",
+  "capture": {
+    "bytes": 38947,
+    "path": "artifacts/research-v2/WP10/confirm-programme-software/observation.json",
+    "sha256": "076dcde2ce719f6c12c489b59cebf48bbd4a8ac52d570ec306a2f88f862a1df6"
+  },
+  "capture_script": {
+    "bytes": 3823,
+    "path": "artifacts/research-v2/WP10/capture_confirm_programme.py",
+    "sha256": "161d21bae1115d173246bea8705b642a8fe4a9a3d624e38c7aef4da5275b042f"
+  },
+  "changes": [
+    "Fixed native-plan/predictions/stage/metrics/analysis/raw-audit/native-measurements sequence, with actual public operations in production dispatcher",
+    "Actual full frozen protocol gates first before public programme output/execution; no supplied true native flag",
+    "One immutable programme reference claimed in protected owner history before timing plan or prediction attempts; foreign/late roots reject",
+    "Immutable full-step start/end and invocation records, all paused/failed calls retained and orphaned or substituted records reject",
+    "Operational prefix/resume reopens validated completed proofs and never executes their steps again",
+    "Complete prediction stage reopens instead of adding a later prediction invocation; sole metrics and bound raw-audit reuse their actual readonly loaders"
+  ],
+  "date": "2026-10-21",
+  "final_command": [
+    ".venv-research-v2/bin/python",
+    "-P",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_confirm_programme_v2.py",
+    "tests/test_protected_journal_v2.py",
+    "tests/test_native_deployment_plan_v2.py",
+    "tests/test_protected_prediction_gate_v2.py",
+    "tests/test_protected_label_evaluator_v2.py",
+    "tests/test_practical_T_protocol_v2.py"
+  ],
+  "limitations": [
+    "Capture executes private known-file metadata callbacks, not the actual seven public operations",
+    "Actual full-qualified public positive and all production benchmark/T work remain unrun",
+    "Cold containing programme observation and complete physical/standalone costs still need integration; inner call/invocation clocks are nested",
+    "Own final receipt publication/return, common cold startup and qualification overhead are not zero-imputed",
+    "Canonical actual report/CLI/readiness/final branch review remain before production",
+    "Timing precision/dedicated qualifications and formal efficiency claim remain unsupported"
+  ],
+  "logs": [
+    {
+      "bytes": 11572,
+      "path": "artifacts/research-v2/WP10/confirm-programme-software/test-logs/confirm-programme-red.log",
+      "sha256": "0662f5d264f01ed641ce62e11ebcc16224818607138c70317651b57af0874c20"
+    },
+    {
+      "bytes": 98,
+      "path": "artifacts/research-v2/WP10/confirm-programme-software/test-logs/confirm-programme-first-green.log",
+      "sha256": "8e38a85f150fe1ea7d24cf3b4952019e454a24ea9c8abff1d0894ff46895acbf"
+    },
+    {
+      "bytes": 1273,
+      "path": "artifacts/research-v2/WP10/confirm-programme-software/test-logs/confirm-programme-invocation-red.log",
+      "sha256": "f96fdf3a05385d2c12bcf56ea0fa13cab51dbb09746ff24319627b372fdb3ef2"
+    },
+    {
+      "bytes": 99,
+      "path": "artifacts/research-v2/WP10/confirm-programme-software/test-logs/confirm-programme-invocation-green.log",
+      "sha256": "92ac036c13a84d4498b02791993ebe86196313cc42491482dc810335b27578ec"
+    },
+    {
+      "bytes": 3488,
+      "path": "artifacts/research-v2/WP10/confirm-programme-software/test-logs/confirm-programme-owner-red.log",
+      "sha256": "752271d689289e2bd48697b266687079304e3edaed9bc71ceeb5aa97e7ea9633"
+    },
+    {
+      "bytes": 191,
+      "path": "artifacts/research-v2/WP10/confirm-programme-software/test-logs/confirm-programme-affected.log",
+      "sha256": "836c4bde329d3a65063e6fe86ec200dfb7754edfa3a0f291ce5a4fc146939d97"
+    },
+    {
+      "bytes": 388,
+      "path": "artifacts/research-v2/WP10/confirm-programme-software/test-logs/confirm-programme-capture-syntax-failure.log",
+      "sha256": "a6659b4ddc2d95216ccf91c281a1c134e61eedde4d3f6a8ff8b50af5d0173833"
+    },
+    {
+      "bytes": 335,
+      "path": "artifacts/research-v2/WP10/confirm-programme-software/test-logs/confirm-programme-capture.log",
+      "sha256": "e961563880c0255b9b927a84366c8c03fc2e6ceee8af7837ed7f7807fe3399a9"
+    }
+  ],
+  "native_c33_source_environment_and_immutable_operator_plan_unchanged": true,
+  "native_qualification_authenticated": false,
+  "observation": {
+    "deliberately_failed_calls": 1,
+    "idempotent_resume_starts_no_new_step": true,
+    "known_metadata_steps": 7,
+    "model_fits": 0,
+    "model_forwards": 0,
+    "original_disposable_closure_restored_exactly": true,
+    "orphan_rejected": true,
+    "prefix_step_starts": 2,
+    "successful_call_records": 7,
+    "successful_invocations": 3
+  },
+  "schema": "research/v2-confirm-programme-software-receipt",
+  "source_files": [
+    {
+      "bytes": 24285,
+      "path": "src/treeneuron/research/confirm_v2.py",
+      "sha256": "d1eec91639bb38419eab1bfa908dd658ec9d3ca62cadf1aef61a72e06f435d69"
+    },
+    {
+      "bytes": 22656,
+      "path": "src/treeneuron/research/protected_journal_v2.py",
+      "sha256": "6a1b1f444f5edb471cb80609924fc1ec68e434597837f3913f9bebddcf1646bc"
+    }
+  ],
+  "source_sha256": "c7cef2049f9ece63f76a532cce5b0d80db48082e5d035bfbd99f2b7dfe95c312",
+  "test_file": {
+    "bytes": 11267,
+    "path": "tests/test_confirm_programme_v2.py",
+    "sha256": "8aa7ffc850629fdd60b1ed9d82ae80f4bb67898649af156ff30995d70dd17c77"
+  },
+  "verification": [
+    {
+      "cause": "Programme module absent; intended RED",
+      "result": "8 failed in0.15s"
+    },
+    {
+      "result": "8 passed in1.81s",
+      "scope": "Initial fixed-step shell"
+    },
+    {
+      "cause": "Orphan invocation end could be ignored; rehashed wrong call already rejected",
+      "result": "1 failed,1 passed,8 deselected in0.82s"
+    },
+    {
+      "result": "10 passed in2.10s",
+      "scope": "Complete invocation reconciliation added"
+    },
+    {
+      "cause": "Missing pre-query programme ownership event; intended RED",
+      "result": "1 failed,2 passed,10 deselected in0.55s"
+    },
+    {
+      "result": "125 passed in95.98s",
+      "scope": "Final six affected modules including13 new checks; overlaps prior scopes, not whole-suite pass"
+    },
+    {
+      "cause": "Duplicate keyword in disposable capture script corrected; failure log retained; source/tests unchanged",
+      "result": "Capture syntax error before execution"
+    }
+  ],
+  "whole_training_procedure_cost_authenticated": false
+}

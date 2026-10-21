@@ -21,7 +21,7 @@ _BINDING_FIELDS={'schema','source_sha256','protocol_sha256','prediction_manifest
     'study_directory','owner_root','genesis','genesis_sha256'}
 _ACTORS={'prepared':'coordinator','owners_ready':'coordinator','query_started':'coordinator',
     'query_committed':'prediction_worker','query_failed':'prediction_worker','query_failed_with_evidence':'prediction_worker','all_predictions_committed':'coordinator',
-    'labels_started':'evaluator','metrics_committed':'evaluator','deployment_plan_frozen':'coordinator'}
+    'labels_started':'evaluator','metrics_committed':'evaluator','deployment_plan_frozen':'coordinator','programme_frozen':'coordinator'}
 _FAILURES={'resource_pause','interrupted_recoverable','input_or_dependency_failure','numerical_failure','irrecoverable_missing'}
 
 
@@ -159,7 +159,7 @@ def _claim_metadata_owners(directory):
 
 def _initial_state(binding):
     return dict(phase=None,committed_queries=[],attempts={},last_failures={},reruns={},active=None,
-        deployment_plan_reference=None,known_paid_ns=0,execution_cost_complete=True,event_count=0,last_event_hash=binding['genesis_sha256'])
+        deployment_plan_reference=None,programme_reference=None,known_paid_ns=0,execution_cost_complete=True,event_count=0,last_event_hash=binding['genesis_sha256'])
 
 
 def _details(event,fields):
@@ -218,6 +218,14 @@ def _transition(state,event,binding):
             elif recovery is not None:raise ValueError('Terminal failure cannot invent a recovery state')
             state['last_failures'][q]=status
         _cost(state,detail['elapsed_ns']);state['active']=None
+    elif kind=='programme_frozen':
+        detail=_details(event,('programme_reference',))
+        if (phase!='owners_ready' or state['active'] is not None or state['attempts'] or state['programme_reference'] is not None
+                or state['deployment_plan_reference'] is not None):
+            raise ValueError('Programme binds once before timing/prediction work; previous outer history cannot be replaced')
+        reference=detail['programme_reference']
+        if type(reference) is not dict or _path(reference.get('path','')).name!='programme.json':raise ValueError('Exact immutable programme JSON required')
+        _reference(reference);state['programme_reference']=copy.deepcopy(reference)
     elif kind=='deployment_plan_frozen':
         detail=_details(event,('plan_reference',))
         if phase not in ('owners_ready','all_predictions_committed') or state['active'] is not None or state['deployment_plan_reference'] is not None:
